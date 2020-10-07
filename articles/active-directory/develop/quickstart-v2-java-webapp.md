@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 10ae1c76d48c1cedbb915fec66177ac3612feea0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d1b79d60bba89ef01b261c403fe3b25939669d0b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115227"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258105"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java
 
@@ -193,15 +193,16 @@ Si desea implementar el ejemplo web en Tomcat, necesitará hacer un par de cambi
 3.   El puerto HTTP predeterminado de Tomcat es 8080, aunque se necesita una conexión HTTPS en el puerto 8443. Para configurar estos:
         - Vaya a tomcat/conf/server. xml
         - Busque la etiqueta `<connector>` y reemplace el conector existente por:
-        ```
+
+        ```xml
         <Connector
                    protocol="org.apache.coyote.http11.Http11NioProtocol"
                    port="8443" maxThreads="200"
                    scheme="https" secure="true" SSLEnabled="true"
                    keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
                    clientAuth="false" sslProtocol="TLS"/>
-        ``` 
-       
+        ```
+
 4. Abra un símbolo del sistema, vaya a la carpeta raíz de este ejemplo (donde se encuentra el archivo pom.xml) y ejecute `mvn package` para compilar el proyecto.
     - Se generará el archivo `msal-web-sample-0.1.0.war` en el directorio /targets.
     - Cambie el nombre del archivo a `msal4jsample.war`.
@@ -249,16 +250,11 @@ Para agregar una referencia a MSAL for Java, incorpore el código siguiente al p
 import com.microsoft.aad.msal4j.*;
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre los permisos y el consentimiento:
+Para obtener información más detallada sobre la compilación de aplicaciones web que inicien sesión de los usuarios en la plataforma de identidad de Microsoft, pase a nuestra serie de escenarios de varias partes:
 
 > [!div class="nextstepaction"]
-> [Permisos y consentimiento](./v2-permissions-and-consent.md)
-
-Para más información sobre el flujo de autenticación en este escenario, consulte el flujo del código de autorización de OAuth 2.0:
-
-> [!div class="nextstepaction"]
-> [Flujo del código de autorización de OAuth](./v2-oauth2-auth-code-flow.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[Escenario: Aplicación web que permite iniciar sesión a los usuarios](scenario-web-app-sign-user-overview.md?tabs=java)

@@ -1,7 +1,7 @@
 ---
-title: Obtención de un token y llamada a Microsoft Graph con la identidad de aplicación de consola | Azure
+title: 'Inicio rápido: Obtención de un token y llamada a Microsoft Graph en una aplicación de consola | Azure'
 titleSuffix: Microsoft identity platform
-description: Aprenda a obtener un token y llamar a una instancia de Microsoft Graph API protegida con él desde una aplicación de .NET Core
+description: En esta guía de inicio rápido, obtendrá información sobre cómo una aplicación de ejemplo de .NET Core puede usar el flujo de credenciales de cliente para obtener un token y llamar a Microsoft Graph.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: e33b912ab65a3565e42c294388949a5c55b4ee8a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6f4f4c2de3b1030c4d14cb74e562954a3d3d1144
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683766"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257833"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API mediante la identidad de la consola de aplicación
 
@@ -170,12 +170,7 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
 
  Puede instalar MSAL mediante la ejecución del siguiente comando en la **Consola del Administrador de paquetes** de Visual Studio:
 
-```powershell
-Install-Package Microsoft.Identity.Client
-```
-
-También, si no utiliza Visual Studio, puede ejecutar el siguiente comando para agregar MSAL al proyecto:
-
+```powershell twhitney
 ```console
 dotnet add package Microsoft.Identity.Client
 ```
@@ -204,7 +199,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > | `config.ClientId` | Es el **Identificador de aplicación (cliente)** de la aplicación registrada en Azure Portal. Puede encontrar este valor en la página **Información general** de la aplicación en Azure Portal. |
 > | `config.Authority`    | (Opcional) El punto de conexión STS del usuario que se autenticará. Normalmente `https://login.microsoftonline.com/{tenant}` en la nube pública, donde {tenant} es el nombre o el identificador del inquilino.|
 
-Para más información, consulte la [documentación de referencia de `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet).
+Para más información, consulte la [documentación de referencia de `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication).
 
 ### <a name="requesting-tokens"></a>Solicitud de tokens
 
@@ -219,28 +214,13 @@ result = await app.AcquireTokenForClient(scopes)
 > |---------|---------|
 > | `scopes` | Contiene los ámbitos solicitados. Con clientes confidenciales, se debe usar el formato similar a `{Application ID URI}/.default` para indicar que los ámbitos que se solicitan son los definidos estáticamente en el objeto de aplicación establecido en Azure Portal (con Microsoft Graph, `{Application ID URI}` apunta a `https://graph.microsoft.com`). Con API web personalizadas, `{Application ID URI}` se define en la sección **Exponer una API** del registro de aplicaciones de Azure Portal (versión preliminar). |
 
-Para más información, consulte la [documentación de referencia de `AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet).
+Para más información, consulte la [documentación de referencia de `AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre las aplicaciones demonio, consulte la página de aterrizaje del escenario
+Para más información sobre las aplicaciones demonio, consulte la información general del escenario:
 
 > [!div class="nextstepaction"]
 > [Aplicación demonio que llama a las API web](scenario-daemon-overview.md)
-
-Para ver el tutorial de la aplicación demonio, consulte:
-
-> [!div class="nextstepaction"]
-> [Tutorial de la consola de .NET Core para demonio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
-
-Más información sobre los permisos y el consentimiento:
-
-> [!div class="nextstepaction"]
-> [Permisos y consentimiento](v2-permissions-and-consent.md)
-
-Para más información sobre el flujo de autenticación en este escenario, vea el flujo de credenciales de cliente de OAuth 2.0:
-
-> [!div class="nextstepaction"]
-> [Flujo de OAuth de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md)

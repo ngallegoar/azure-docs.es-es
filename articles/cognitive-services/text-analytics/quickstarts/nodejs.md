@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Uso de Java para llamar a la API REST Text Analytics'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido se muestra cómo obtener información y ejemplos de código que le ayuden a empezar a usar rápidamente la API Text Analytics en Azure Cognitive Services.
+description: En este inicio rápido se muestra cómo usar Node.js para obtener información y ejemplos de código que le ayuden a empezar a usar rápidamente Text Analytics API en Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,13 +10,13 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
-ms.custom: seo-javascript-september2019, devx-track-javascript
-ms.openlocfilehash: fe9877649d850796b03e9f1c3554a1b9aa7344c3
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: seo-javascript-september2019, devx-track-js
+ms.openlocfilehash: 00026066c90520f59700c7c5ddc33557099b3e8a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407751"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309020"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de Node.js para llamar a Text Analytics de Cognitive Services  
 <a name="HOLTop"></a>

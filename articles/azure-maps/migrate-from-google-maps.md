@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: Migración de Google Maps a Azure Maps | Microsoft Azure Maps'
-description: Tutorial sobre la migración de Google Maps a Microsoft Azure Maps. Este documento le guiará por los pasos para cambiar a las API y los SDK de Azure Maps.
+title: Migración de Google Maps a Azure Maps | Microsoft Azure Maps
+description: Procedimiento de migración de Google Maps a Microsoft Azure Maps. Este documento le guiará por los pasos para cambiar a las API y los SDK de Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
-ms.topic: tutorial
+ms.date: 09/23/2020
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 2422204a809e0b13f4e337d49b851a0338681853
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c60890b301ba650c95584e33b5326217086c08c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249213"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264174"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Migración de Google Maps a Azure Maps
 
-En este tutorial se proporciona información sobre cómo migrar aplicaciones web, para dispositivos móviles y basadas en servidor desde Google Maps a la plataforma Microsoft Azure Maps. En este tutorial se incluyen ejemplos de código comparativos, sugerencias de migración y procedimientos recomendados para migrar a Azure Maps.
+En este artículo se proporciona información sobre cómo migrar aplicaciones web, para dispositivos móviles y basadas en servidor de Google Maps a la plataforma Microsoft Azure Maps. En este tutorial se incluyen ejemplos de código comparativos, sugerencias de migración y procedimientos recomendados para migrar a Azure Maps.
 
 ## <a name="azure-maps-platform-overview"></a>Introducción a la plataforma Azure Maps
 
@@ -80,6 +80,15 @@ A continuación se describe un plan de migración general.
 5. Pruebe la aplicación migrada.
 6. Implemente la aplicación migrada en producción.
 
+## <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps
+
+Para crear una cuenta de Azure Maps y acceder a la plataforma Azure Maps, siga estos pasos:
+
+1. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+2. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+3. Cree una [cuenta de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
+4. [Obtenga su clave de suscripción de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) o configure la autenticación de Azure Active Directory para reforzar la seguridad.
+
 ## <a name="azure-maps-technical-resources"></a>Recursos técnicos para Azure Maps
 
 Esta es una lista de recursos técnicos útiles para Azure Maps.
@@ -98,15 +107,10 @@ Esta es una lista de recursos técnicos útiles para Azure Maps.
 
 Los desarrolladores pueden buscar compatibilidad con la migración a través de los [foros](https://aka.ms/AzureMapsForums) o de una de las muchas opciones de soporte técnico de Azure: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
 
-## <a name="next-steps"></a>Pasos siguientes
+Para obtener información sobre cómo migrar la aplicación de Google Maps, consulte: 
 
-Aprenda a migrar la aplicación de Google Maps con estos artículos:
+[Migración de una aplicación de Android](migrate-from-google-maps-android-app.md) 
 
-> [!div class="nextstepaction"]
-> [Migración de una aplicación web](migrate-from-google-maps-web-app.md)
+[Migración de un servicio web](migrate-from-google-maps-web-services.md) 
 
-> [!div class="nextstepaction"]
-> [Migración de una aplicación de Android](migrate-from-google-maps-android-app.md)
-
-> [!div class="nextstepaction"]
-> [Migración de un servicio web](migrate-from-google-maps-web-services.md)
+[Migración de una aplicación web](migrate-from-google-maps-web-app.md)

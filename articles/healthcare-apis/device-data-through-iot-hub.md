@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 04c732b857c06246bdc636f01afd2689c98c2b0d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3b2e4a1ae5ff43283893b286dafb38491a1181b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831624"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308232"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Tutorial: Recepción de datos del dispositivo mediante Azure IoT Hub
 
@@ -61,7 +61,7 @@ Esta es la lista de parámetros que se usan con el comando para crear un punto d
 ### <a name="add-a-message-route"></a>Adición de una ruta de mensajes
 En este paso se define una ruta de mensajes mediante el punto de conexión creado anteriormente. Puede crear una ruta mediante el comando [Add-AzIotHubRoute](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIoTHubRoute) de PowerShell o el comando [az iot hub route create](https://docs.microsoft.com/cli/azure/iot/hub/route#az-iot-hub-route-create) de la CLI, según sus preferencias.
 
-Esta es la lista de parámetros que se usan con el comando para crear un punto de conexión:
+Esta es la lista de parámetros que se usan con el comando para agregar una ruta de mensaje:
 
 |Parámetro de PowerShell|Parámetro de la CLI|Descripción|
 |---|---|---|

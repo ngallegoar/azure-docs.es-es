@@ -1,6 +1,6 @@
 ---
 title: Creación y uso de tablas externas en SQL a petición (versión preliminar)
-description: En esta sección, aprenderá a crear y usar tablas externas en SQL a petición (versión preliminar). Las tablas externas son útiles si se desea controlar el acceso a los datos externos en SQL a petición y si se desea usar herramientas, como Power BI, junto con SQL a petición.
+description: En esta sección, aprenderá a crear y usar tablas externas en SQL a petición (versión preliminar).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d830ee28eb1f5befc3ad778a6b82c291d1e49d02
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.reviewer: jrasnick
+ms.openlocfilehash: 182deba959144f6a3992bb41243f29023bad5e5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206519"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289334"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Creación y uso de tablas externas en SQL a petición (versión preliminar) mediante Azure Synapse Analytics
 
@@ -132,4 +132,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo almacenar los resultados de una consulta en el almacenamiento, consulte [Almacenamiento de los resultados de una consulta en el almacenamiento](../sql/create-external-table-as-select.md).
+Para obtener información sobre cómo se almacenan los resultados de una consulta en el almacenamiento, consulte el artículo [Almacenamiento de los resultados de una consulta en Storage](../sql/create-external-table-as-select.md).

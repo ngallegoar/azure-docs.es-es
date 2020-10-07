@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a agregar un punto de conexión HTTPS 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b309a13288c8ea95f453c1e80549a979e3f89921
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c675f8ece8369bcfc0055343221ac82aea59dec1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441534"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326242"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Incorporación de un punto de conexión HTTPS a un servicio de front-end de API Web de ASP.NET Core mediante Kestrel
 
@@ -354,7 +354,7 @@ En el Explorador de soluciones, seleccione la aplicación **Voting** y establezc
 
 Guarde todos los archivos y presione la tecla F5 para ejecutar la aplicación localmente.  Después de que se implementa la aplicación, se abre un explorador web en https:\//localhost:443. Si va a usar un certificado autofirmado, aparecerá una advertencia que le indica que el PC no confía en la seguridad de este sitio web.  Continúe en la página web.
 
-![Aplicación de votación][image2]
+![Captura de pantalla de la aplicación de ejemplo Voting de Service Fabric que se ejecuta en una ventana del explorador con la dirección URL https://localhost/.][image2]
 
 ## <a name="install-certificate-on-cluster-nodes"></a>Instalación del certificado en los nodos de clúster
 
@@ -371,7 +371,7 @@ A continuación, instale el certificado en el clúster remoto mediante [estos sc
 > [!Warning]
 > Un certificado autofirmado es suficiente para desarrollar y probar aplicaciones. Para aplicaciones de producción, use un certificado de una [entidad de certificación (CA)](https://wikipedia.org/wiki/Certificate_authority) en vez de un certificado autofirmado.
 
-## <a name="open-port-443-in-the-azure-load-balancer"></a>Abrir el puerto 443 en Azure Load Balancer
+## <a name="open-port-443-in-the-azure-load-balancer-and-virtual-network"></a>Apertura del puerto 443 en Azure Load Balancer y la red virtual
 
 Abra el puerto 443 en el equilibrador de carga si aún no está abierto.
 
@@ -396,13 +396,33 @@ $slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.Bac
 $slb | Set-AzLoadBalancer
 ```
 
+Haga lo mismo para la red virtual asociada.
+
+```powershell
+$rulename="allowAppPort$port"
+$nsgname="voting-vnet-security"
+$RGname="voting_RG"
+$port=443
+
+# Get the NSG resource
+$nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $RGname
+
+# Add the inbound security rule.
+$nsg | Add-AzNetworkSecurityRuleConfig -Name $rulename -Description "Allow app port" -Access Allow `
+    -Protocol * -Direction Inbound -Priority 3891 -SourceAddressPrefix "*" -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange $port
+
+# Update the NSG.
+$nsg | Set-AzNetworkSecurityGroup
+```
+
 ## <a name="deploy-the-application-to-azure"></a>Implementación de la aplicación en Azure
 
 Guarde todos los archivos, cambie de depurar a liberar y presione F6 para recompilar.  En el Explorador de soluciones, haga clic con el botón derecho en **Voting** y seleccione **Publicar**. Seleccione el punto de conexión del clúster creado en [Implementar una aplicación en un clúster.](service-fabric-tutorial-deploy-app-to-party-cluster.md), o seleccione otro clúster.  Haga clic en **Publicar** para publicar la aplicación en el clúster remoto.
 
 Cuando se implemente la aplicación, abra un explorador web y vaya a `https://mycluster.region.cloudapp.azure.com:443` (actualice la dirección URL con el punto de conexión del clúster). Si va a usar un certificado autofirmado, aparecerá una advertencia que le indica que el PC no confía en la seguridad de este sitio web.  Continúe en la página web.
 
-![Aplicación de votación][image3]
+![Captura de pantalla de la aplicación de ejemplo Voting de Service Fabric que se ejecuta en una ventana del explorador con la dirección URL https://mycluster.region.cloudapp.azure.com:443.][image3]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

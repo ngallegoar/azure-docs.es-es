@@ -3,23 +3,28 @@ title: Creación de recursos de Cognitive Services mediante la biblioteca client
 titleSuffix: Azure Cognitive Services
 description: Cree y administre los recursos de Azure Cognitive Services mediante la biblioteca cliente de Administración de Azure.
 services: cognitive-services
+keywords: cognitive services, inteligencia cognitiva, soluciones cognitivas, servicios de inteligencia artificial, servicios de IA
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 07/29/2020
+ms.date: 09/14/2020
 ms.author: pafarley
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: e56e9226593884045eb4533bfe3ffddce7aad883
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e8628d051db7f5066a81171567f6f7e54fb0ab97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321586"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262457"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-management-client-library"></a>Inicio rápido: Creación de un recurso de Cognitive Services mediante la biblioteca cliente de Administración de Azure
 
-Use este inicio rápido para crear y administrar recursos de Azure Cognitive Services mediante la biblioteca cliente de Administración de Azure. Los servicios de inteligencia artificial individuales se representan por medio de los [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) de Azure que se crean en la suscripción de Azure. Después de crear un recurso, puede usar las claves y el punto de conexión generados para autenticar las aplicaciones.
+Use este inicio rápido para crear y administrar recursos de Azure Cognitive Services mediante la biblioteca cliente de Administración de Azure.
+
+Azure Cognitive Services es un conjunto de servicios en la nube con API de REST y SDK de biblioteca cliente que ayudan a los desarrolladores a integrar la inteligencia cognitiva en las aplicaciones sin tener inteligencia artificial (IA) directa ni habilidades o conocimientos sobre ciencia de datos. Azure Cognitive Services permite a los desarrolladores agregar fácilmente características cognitivas en sus aplicaciones con soluciones cognitivas que pueden ver, oír, hablar, comprender e incluso empezar a pensar.
+
+Los servicios de inteligencia artificial individuales se representan por medio de los [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) de Azure que se crean en la suscripción de Azure. Después de crear un recurso, puede usar las claves y el punto de conexión generados para autenticar las aplicaciones.
 
 ::: zone pivot="programming-language-csharp"
 

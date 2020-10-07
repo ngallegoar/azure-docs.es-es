@@ -4,12 +4,12 @@ description: En este artículo se describe cómo migrar máquinas físicas a Azu
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 7091d95a07da60faed7012df04c05def340df7b4
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 2f9b3d43effff49da6aa348e22c0c974606f4c2b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376084"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296338"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migración de máquinas como servidores físicos a Azure
 
@@ -228,14 +228,14 @@ Ahora, seleccione las máquinas para la migración.
 
 1. En el proyecto de Azure Migrate > **Servidores**, **Azure Migrate: Migración del servidor**, haga clic en **Replicar**.
 
-    ![Replicación de máquinas virtuales](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
+    ![Captura de pantalla de Azure Migrate > Servidores que muestra el botón Replicar seleccionado en Azure Migrate: Migración del servidor en Herramientas de migración.](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
 2. En **Replicar** > **Configuración de origen** >  **¿Las máquinas están virtualizadas?** , seleccione **Not virtualized/Other** (No virtualizadas/Otros).
 3. En **Dispositivo local**, seleccione el nombre del dispositivo de Azure Migrate que configuró.
 4. En **Servidor de procesos**, seleccione el nombre del dispositivo de replicación.
 6. En **Credenciales de invitado**, seleccione la cuenta ficticia creada anteriormente en la [configuración del instalador de la replicación](#download-the-replication-appliance-installer) para instalar el servicio Mobility de forma manual (la instalación de inserción no se admite). A continuación, haga clic en **Siguiente: Máquinas virtuales**.   
 
-    ![Replicación de máquinas virtuales](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
+    ![Captura de pantalla de la pestaña Configuración de origen en la pantalla Replicar con el campo Credenciales de invitado resaltado.](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
 7. En **Máquinas virtuales**, en **¿Quiere importar la configuración de migración de una evaluación?** , deje la configuración predeterminada **No, especificaré la configuración de migración manualmente**.
 8. Compruebe todas las máquinas virtuales que desea migrar. A continuación, haga clic en **Siguiente: Configuración de destino**.
@@ -264,9 +264,9 @@ Ahora, seleccione las máquinas para la migración.
     - **Conjunto de disponibilidad**: especifique el conjunto de disponibilidad que se va a usar.
 
 > [!NOTE]
->Si quiere seleccionar otra opción de disponibilidad para un conjunto de máquinas virtuales, vaya al paso 1 y repita los pasos seleccionando diferentes opciones de disponibilidad tras el inicio de la replicación de uno de los conjuntos de máquinas virtuales.
+> Si quiere seleccionar otra opción de disponibilidad para un conjunto de máquinas virtuales, vaya al paso 1 y repita los pasos seleccionando diferentes opciones de disponibilidad tras el inicio de la replicación de uno de los conjuntos de máquinas virtuales.
 
-    ![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
+   ![Configuración de Proceso](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
 13. En **Discos**, especifique si los discos de máquina virtual se deben replicar en Azure y seleccione el tipo de disco (discos SSD o HDD estándar o bien discos administrados premium) en Azure. A continuación, haga clic en **Siguiente**.
     - Puede excluir discos de la replicación.

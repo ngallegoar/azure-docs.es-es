@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 409311594cc26680217948e2394420fdaea29024
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 58c1aea944d89872a79d0672a925b1696791c1a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015380"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260859"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de datos compartida de Azure Synapse Analytics
 
@@ -23,7 +23,7 @@ Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Una base de datos creada con un trabajo de Spark será visible con el mismo nombre en todos los grupos de Spark (versión preliminar) actuales y futuros en el área de trabajo, así como en el motor de SQL a petición.
+Una base de datos creada con un trabajo de Spark será visible con el mismo nombre en todos los grupos de Spark (versión preliminar) actuales y futuros en el área de trabajo, incluido el motor de SQL a petición.
 
 La base de datos predeterminada de Spark, denominada `default`, también estará visible en el contexto de SQL On-Demand como una base de datos llamada `default`.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Cómo mostrar direcciones de ruta mediante el servicio Route de Microsoft Azure Maps y el Control de mapa'
-description: Aprenda a mostrar direcciones de ruta mediante el servicio Route de Microsoft Azure Maps y el Control de mapa.
+title: 'Tutorial: Búsqueda de la ruta a una ubicación | Microsoft Azure Maps'
+description: Tutorial sobre cómo buscar una ruta a un punto de interés. Obtenga información sobre cómo establecer coordenadas de dirección y consultar el servicio Route de Azure Maps para obtener las direcciones al punto.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 35a3f6d1e7894eec9baa4ea5432a8e3fec138a21
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 3cb9bee65ab7fa2c29185c40ecb48fd531192187
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085049"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321720"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutorial: Cómo mostrar direcciones de ruta mediante el servicio Route de Azure Maps y el Control de mapa
 
@@ -143,7 +143,7 @@ En este tutorial, se representará la ruta mediante una capa de línea. Los punt
 
     En el controlador de eventos `ready` del Control de mapa, se crea un origen de datos para almacenar la ruta desde los puntos inicial y final. Para definir cómo se representará la línea de la ruta, se crea una capa de línea y se adjunta al origen de datos.  Para asegurarse de que la línea de ruta no cubre las etiquetas de la carretera, hemos pasado un segundo parámetro con el valor de `'labels'`.
 
-    A continuación, se crea una capa de símbolo y se adjunta al origen de datos. Esta capa especifica cómo se representan los puntos inicial y final. En este caso, se han agregado expresiones para recuperar la imagen del icono e información de la etiqueta de texto a partir de las propiedades de cada objeto de punto. Para más información sobre las expresiones, consulte [Expresiones de estilo basadas en datos](data-driven-style-expressions-web-sdk.md).
+    A continuación, se crea una capa de símbolo y se adjunta al origen de datos. Esta capa especifica cómo se representarán los puntos inicial y final. En este caso, se han agregado expresiones para recuperar la imagen del icono e información de la etiqueta de texto a partir de las propiedades de cada objeto de punto. Para más información sobre las expresiones, consulte [Expresiones de estilo basadas en datos](data-driven-style-expressions-web-sdk.md).
 
 2. Establezca como punto inicial Microsoft y como punto final una gasolinera de Seattle.  En el controlador de eventos `ready` del Control de mapa, anexe el código siguiente.
 
@@ -170,7 +170,7 @@ En este tutorial, se representará la ruta mediante una capa de línea. Los punt
 
     Este código crea dos [objetos de punto de GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) para representar los puntos inicial y final, que se agregan al origen de datos. 
 
-    El último bloque de código establece la vista de la cámara con la latitud y longitud de los puntos inicial y final. Los puntos inicial y final se agregan al origen de datos. El rectángulo delimitador de los puntos inicial y final se calcula utilizando la función `atlas.data.BoundingBox.fromData`. Este rectángulo delimitador se usa para establecer la vista de las cámaras del mapa sobre la ruta completa mediante la función `map.setCamera`. Para compensar las dimensiones de los píxeles de los iconos de símbolos, se agrega relleno. Para obtener más información sobre la propiedad setCamera del Control de mapa, vea la propiedad [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
+    El último bloque de código establece la vista de la cámara con la latitud y longitud de los puntos inicial y final. Los puntos inicial y final se agregan al origen de datos. El rectángulo delimitador de los puntos inicial y final se calcula utilizando la función `atlas.data.BoundingBox.fromData`. Este rectángulo delimitador se usa para establecer la vista de las cámaras del mapa sobre la ruta completa mediante la función `map.setCamera`. Para compensar las dimensiones de píxeles de los iconos de símbolos, se agrega relleno. Para obtener más información sobre la propiedad setCamera del Control de mapa, vea la propiedad [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
 
 3. Guarde el archivo **MapRoute.html** y actualice el explorador. Ahora el mapa se centra en Seattle. La chincheta azul en forma de lágrima marca el punto inicial. La chincheta azul redonda marca el punto final.
 
@@ -218,7 +218,7 @@ En esta sección se muestra cómo usar Route Directions API de Azure Maps para o
 
      :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Representación de mapa básica del Control de mapa":::
 
-    Puede obtener el código fuente completo para el ejemplo [aquí](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Se puede encontrar un ejemplo dinámico [aquí](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
+Puede obtener el código fuente completo para el ejemplo [aquí](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Se puede encontrar un ejemplo dinámico [aquí](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,18 +4,18 @@ description: Uso de Blockchain Data Manager para Azure Blockchain Service para e
 ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 69790787bc888448f2f40178bd12ee7058cc5892
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79533188"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283467"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Tutorial: Uso de Blockchain Data Manager para enviar datos a Azure Cosmos DB
 
 En este tutorial, usará Blockchain Data Manager  para que Azure Blockchain Service registre datos de transacciones de cadenas de bloques en Azure Cosmos DB. Blockchain Data Manager captura, transforma y entrega datos de libro de contabilidad de cadena de bloques a los temas de Azure Event Grid. En Azure Event Grid, se usa un conector de aplicación lógica para crear documentos en una base de datos de Azure Cosmos DB. Una vez finalizado el tutorial, puede explorar los datos de transacciones de cadena de bloques en Azure Cosmos DB Data Explorer.
 
-[![Detalle de la transacción de la cadena de bloques](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+[![La captura de pantalla muestra los detalles de la transacción de cadena de bloques.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
 En este tutorial, hizo lo siguiente:
 
@@ -271,7 +271,7 @@ Ahora que ha conectado Blockchain Data Manager con Azure Cosmos DB, puede ver lo
 
 1. Para navegar por los mensajes, seleccione el identificador del elemento y busque el mensaje con el hash de transacción coincidente.
 
-    [![Detalle de la transacción de la cadena de bloques](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+    [![La captura de pantalla muestra los detalles de la transacción de cadena de bloques de un elemento seleccionado.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
     El mensaje de transacción sin procesar contiene detalles sobre la transacción. Sin embargo, la información de la propiedad está cifrada.
 

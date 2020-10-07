@@ -4,16 +4,27 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
-ms.openlocfilehash: c5d954cc2bdda0b1fcb67801fa948e1f56fb0364
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 665ee16d71612ac79607b4a173979847e5e115af
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985974"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332458"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz. Para empezar, puede realizar una configuración y síntesis básicas y, después, pasar a ejemplos más avanzados para el desarrollo de aplicaciones personalizadas, entre las que se incluyen:
 
-En este artículo se da por sentado que tiene una cuenta de Azure y una suscripción al servicio de voz. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](../../../get-started.md).
+* Obtención de respuestas como flujos de datos en memoria
+* Personalización de la frecuencia de muestreo y la velocidad de bits de salida
+* Envío de solicitudes de síntesis mediante SSML (lenguaje de marcado de síntesis de voz)
+* Uso de voces neuronales
+
+## <a name="skip-to-samples-on-github"></a>Pasar a los ejemplos en GitHub
+
+Si quiere pasar directamente al código de ejemplo, consulte los [ejemplos del inicio rápido de C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/text-to-speech) en GitHub.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+En este artículo se da por sentado que tiene una cuenta de Azure y una suscripción al servicio de voz. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](../../../overview.md#try-the-speech-service-for-free).
 
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 

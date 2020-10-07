@@ -4,12 +4,12 @@ description: 'Tutorial: Describe cómo usar Azure Event Grid y Azure Event Hubs 
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d45fcedb570e384b851a7ac815ca175c67cc00a0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 64d4b9769e1a228294bd7d8741f6f4b1260fb0dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435038"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270566"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir macrodatos a un almacenamiento de datos
 Azure [Event Grid](overview.md) es un servicio inteligente de enrutamiento de eventos que permite reaccionar ante las notificaciones (eventos) procedentes de aplicaciones y servicios. Por ejemplo, puede desencadenar una función de Azure que procese los datos de Event Hubs que se han capturado en una instancia de Azure Blob Storage o Azure Data Lake Store y migrar esos datos a otros repositorios. En este [ejemplo de integración de Event Hubs y Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) se muestra cómo usar Event Hubs con Event Grid para migrar datos capturados de Event Hubs procedentes de Blob Storage a una instancia de Azure Synapse Analytics (anteriormente SQL Data Warehouse) sin ningún tipo de problema.
@@ -66,7 +66,7 @@ En este paso, implementará la infraestructura requerida con una [plantilla de R
 4. En Cloud Shell, si ve una opción para seleccionar entre **Bash** y **PowerShell**, seleccione **Bash**. 
 5. Si usa Cloud Shell por primera vez, seleccione **Crear almacenamiento** para crear una cuenta de almacenamiento. Azure Cloud Shell requiere una cuenta de Azure Storage donde almacenar algunos archivos. 
 
-    ![Creación de almacenamiento para Cloud Shell](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "No tiene ningún almacenamiento montado" con el botón "Crear almacenamiento" seleccionado.](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
 6. Espere hasta que se inicialice Cloud Shell. 
 
     ![Creación de almacenamiento para Cloud Shell](media/event-grid-event-hubs-integration/cloud-shell-initialized.png)
@@ -209,7 +209,7 @@ Para crear una tabla en el almacenamiento de datos, ejecute el script [CreateDat
    ![Publicar la aplicación de función](media/event-grid-event-hubs-integration/publish-function-app.png)
 4. Si ve la pantalla siguiente, seleccione **Iniciar**. 
 
-   ![Botón Iniciar publicación](media/event-grid-event-hubs-integration/start-publish-button.png) 
+   ![Captura de pantalla que muestra Visual Studio con el botón "Iniciar" en la sección Publicar.](media/event-grid-event-hubs-integration/start-publish-button.png) 
 5. En el cuadro de diálogo **Publicar**, seleccione **Azure** en **Destino**y seleccione **Siguiente**. 
 
    ![Botón Iniciar publicación](media/event-grid-event-hubs-integration/publish-select-azure.png)

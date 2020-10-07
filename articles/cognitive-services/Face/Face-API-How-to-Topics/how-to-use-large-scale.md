@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c4667b810e4d3d5f13e13572e2420880da5a8a0b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931631"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332396"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Ejemplo: Usar la característica a gran escala
 
@@ -260,7 +260,7 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 }
 ```
 
-Para más información sobre implementaciones relacionadas con la identificación y la administración de datos, consulte [Agregar caras](how-to-add-faces.md) e [Identificación de caras en imágenes](HowtoIdentifyFacesinImage.md).
+Para más información sobre implementaciones relacionadas con la identificación y la administración de datos, consulte [Agregar caras](how-to-add-faces.md).
 
 ## <a name="summary"></a>Resumen
 
@@ -271,7 +271,7 @@ En esta guía, aprendió a migrar el código existente de PersonGroup o FaceList
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Siga una guía de procedimientos para obtener información sobre cómo agregar caras a un elemento PersonGroup o ejecutar la operación Identify en un elemento PersonGroup.
+Siga una guía de procedimientos para obtener información sobre cómo agregar caras a un elemento PersonGroup o escribir un script para efectuar la operación de identificación en un elemento PersonGroup.
 
 - [Agregar caras](how-to-add-faces.md)
-- [Identificación de caras en imágenes](HowtoIdentifyFacesinImage.md)
+- [Inicio rápido de la biblioteca cliente de Face](../Quickstarts/client-libraries.md)

@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 265bc1bb86c7fe8424656aa9adb30ddbe847e6fc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 11ed87f8cf5aabb86f709d938acc4c31b737ca91
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985662"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318606"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>¿Qué es Azure Stack Edge Pro R?
 
-Azure Stack Edge Pro R es una solución de hardware como servicio. Microsoft envía un dispositivo perimetral, duradero, resistente y de clase de servidor a través de la transferencia de datos de red a Azure. Estos dispositivos están equipados con una unidad de procesamiento gráfico (GPU) y optimizados para la inteligencia artificial, el análisis y la informática sin servidor. Los dispositivos resistentes son adecuados para su uso en entornos exigentes.
+Azure Stack Edge Pro R es un resistente dispositivo informático perimetral diseñado para usarlo en entornos exigentes. Azure Stack Edge Pro R se entrega como una solución de hardware como servicio. Microsoft envía un dispositivo administrado en la nube que actúa como puerta de enlace de almacenamiento de red y tiene una unidad de procesamiento gráfico (GPU) integrada que habilita la inferencia de IA acelerada.
 
 En este artículo se proporciona información general acerca de la solución de Azure Stack Edge Pro R, sus funcionalidades clave y los escenarios en los que puede implementar este dispositivo.
 
@@ -28,14 +28,13 @@ Azure Stack Edge Pro R presenta las siguientes funcionalidades:
 
 |Capacidad |Descripción  |
 |---------|---------|
-|Hardware resistente| Hardware de clase de servidor resistente diseñado para entornos exigentes. Dispositivo portátil en una maleta que pueden transportar dos personas. |
+|Hardware resistente| Hardware de clase de servidor resistente diseñado para entornos exigentes. Dispositivo incluido en una caja de transporte portátil. |
 |Administración en la nube     |El dispositivo y el servicio se administran con Azure Portal.|
 |Cargas de trabajo de proceso perimetral   |Permite el análisis, procesamiento y filtrado de datos. Admite máquinas virtuales y cargas de trabajo en contenedores.|
 |Inferencia de IA acelerada| Habilitada por una GPU de NVIDIA T4.|
-|Alto rendimiento | Transferencias de datos y proceso de alto rendimiento.|
 |Acceso a datos     | Ofrece acceso directo a los datos de Azure Storage Blob y Azure Files mediante las API en la nube para un procesamiento de datos adicional en la nube. La memoria caché local del dispositivo se usa para agilizar el acceso a los archivos usados más recientemente.|
 |Modo desconectado| El dispositivo y el servicio se pueden administrar a través de Azure Stack Hub. Implemente, ejecute y administre aplicaciones en modo sin conexión. <br> El modo sin conexión es compatible con escenarios de carga sin conexión.|
-|Protocolos admitidos     |Compatibilidad con los protocolos estándar SMB, NFS y REST para la ingesta de datos. <br> Para obtener más información sobre las versiones compatibles, vaya a [Requisitos del sistema de Azure Stack Edge Pro R](azure-stack-edge-gpu-system-requirements.md).|
+|Protocolos de transferencia de archivos compatibles     |Compatibilidad con los protocolos estándar SMB, NFS y REST para la ingesta de datos. <br> Para obtener más información sobre las versiones compatibles, vaya a [Requisitos del sistema de Azure Stack Edge Pro R](azure-stack-edge-gpu-system-requirements.md).|
 |Actualización de datos     | Capacidad para actualizar los archivos locales con la versión más reciente de la nube.|
 |Cifrado doble    | El uso de unidades de cifrado automático proporciona la primera capa de cifrado. VPN proporciona la segunda capa de cifrado. Compatibilidad con BitLocker para cifrar los datos localmente y proteger las transferencias de datos en la nube mediante *HTTPS*.|
 |Límite de ancho de banda| Limite el uso de ancho de banda durante las horas punta.|
@@ -61,13 +60,13 @@ Estos son los distintos escenarios en los que se puede usar Azure Stack Edge Pro
 
 La solución Azure Stack Edge Pro R consta de un recurso Azure Stack Edge, un dispositivo físico Azure Stack Edge Pro R y una interfaz de usuario web local.
 
-- **Dispositivo físico Azure Stack Edge Pro R**: Azure Stack Edge Pro R es un dispositivo de 1 nodo que se puede configurar para enviar datos a Azure. El dispositivo es un servidor 1U con una carcasa resistente que proporciona Microsoft. Opcionalmente, el servidor está disponible con un SAI (UPS) (también 1U).
+- **Dispositivo físico Azure Stack Edge Pro R**: un dispositivo de almacenamiento y proceso de un nodo incluido en una caja de transporte resistente. También está disponible un sistema de alimentación ininterrumpida (SAI) opcional.
 
     ![Para el dispositivo de un nodo Azure Stack Edge Pro R](media/azure-stack-edge-j-series-overview/device-image-1.png)
 
 - **Recurso Azure Stack Edge**: recurso de Azure Portal que le permite administrar un dispositivo Azure Stack Edge Pro R resistente desde una interfaz web a la cual puede acceder desde diferentes ubicaciones geográficas. Use el recurso Azure Stack Edge para crear y administrar recursos, ver y administrar dispositivos y alertas y administrar recursos compartidos.  
 
-- **Interfaz de usuario web local de Azure Stack Edge Pro R**: use la interfaz de usuario web local para realizar la configuración inicial del dispositivo, ejecutar diagnósticos, apagar y reiniciar el dispositivo Azure Stack Edge Pro R, ver registros de copia y ponerse en contacto con el Soporte técnico de Microsoft a fin de realizar una solicitud de servicio.
+- **Interfaz de usuario web local de Azure Stack Edge Pro R**: una interfaz de usuario web local basada en explorador que se encuentra en su dispositivo Azure Stack Edge Pro R y cuya finalidad principal es la configuración inicial del dispositivo. Además, use la interfaz de usuario web local para ejecutar diagnósticos, apagar y reiniciar el dispositivo de Azure Stack Edge Pro, ver registros de copia y ponerse en contacto con el Soporte técnico de Microsoft para realizar una solicitud de servicio.
 
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
@@ -75,6 +74,8 @@ La solución Azure Stack Edge Pro R consta de un recurso Azure Stack Edge, un di
 El dispositivo físico Azure Stack Edge Pro R, el recurso de Azure y la cuenta de almacenamiento de destino a la que transferirá los datos no tienen que estar en la misma región.
 
 - **Disponibilidad de recursos**: para obtener una lista de todas las regiones en que está disponible el recurso de Azure Stack Edge, vaya a [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
+
+- **Disponibilidad del dispositivo**: para ver una lista de todos los países en los que el dispositivo Azure Stack Edge Pro R está disponible, vaya a la sección **Availability** (Disponibilidad) de la pestaña **Azure Stack Edge Pro R** para conocer los [precios de Azure Stack Edge Pro R](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeProR).
 
 - **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. Las regiones en las que las cuentas de almacenamiento almacenan los datos de Azure Stack Edge Pro R deben estar ubicadas cerca de la ubicación del dispositivo a fin de obtener un rendimiento óptimo. Una cuenta de almacenamiento que se encuentra lejos del dispositivo causa latencias largas y un rendimiento más lento.
 

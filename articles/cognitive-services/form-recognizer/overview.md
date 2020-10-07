@@ -1,43 +1,47 @@
 ---
 title: ¿Qué es Form Recognizer?
 titleSuffix: Azure Cognitive Services
-description: El Azure Cognitive Services Form Recognizer le permite identificar y extraer pares clave-valor y datos de tabla de documentos de formulario.
+description: El servicio Azure Form Recognizer le permite identificar y extraer pares clave-valor y datos de tabla de los documentos de formulario, así como información importante de los recibos de ventas y las tarjetas de presentación.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 08/05/2020
+ms.date: 09/21/2020
 ms.author: pafarley
-ms.openlocfilehash: 070796cd260e56bb51115a7ef33ced8455bfb6a9
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.custom: cog-serv-seo-aug-2020
+keywords: automated data processing, document processing, automated data entry, forms processing
+ms.openlocfilehash: 5243c170e1f6b5f647057b8cfafbcac9b2fb4db3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394404"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318966"
 ---
 # <a name="what-is-form-recognizer"></a>¿Qué es Form Recognizer?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer texto, pares clave-valor, así como datos de tablas de documentos de formularios. Ingiere texto de formularios y genera datos estructurados que incluyen las relaciones del archivo original. Obtendrá rápidamente resultados precisos a la medida de su contenido específico sin necesidad de una intervención manual pesada o una amplia experiencia en ciencia de datos. Form Recognizer consta de modelos personalizados, el modelo de recibo pregenerado y la API de diseño. Puede llamar a los modelos de Form Recognizer mediante una API REST para reducir la complejidad e integrarla en su flujo de trabajo o aplicación.
+Azure Form Recognizer es un servicio cognitivo que le permite crear software de procesamiento de datos automatizado mediante tecnología de aprendizaje automático. Identifique y extraiga texto, pares clave-valor y datos de tabla de los documentos de formulario; el servicio genera datos estructurados que incluyen las relaciones en el archivo original. Obtendrá rápidamente resultados precisos a la medida de su contenido específico sin necesidad de una intervención manual pesada o una amplia experiencia en ciencia de datos. Use Form Recognizer para automatizar la entrada de datos en las aplicaciones.
+
+Form Recognizer consta de modelos de procesamiento de documentos personalizados, los modelos precompilados de recibos y tarjetas de presentación y la API de diseño. Puede llamar a los modelos de Form Recognizer mediante una API REST o los SDK de la biblioteca cliente, e integrarlos en su flujo de trabajo o aplicación.
 
 Form Recognizer se compone de los siguientes servicios:
-* **Modelos personalizados**: extraen los pares clave-valor y los datos de tablas de los formularios. Puede entrenar estos modelos con sus propios datos para que se adapten a sus formularios.
-* **Modelos creados previamente**: extrae datos de tipos de formulario únicos mediante modelos pregenerados. Actualmente, hay modelos pregenerados para las confirmaciones de ventas y las tarjetas de presentación en inglés.
-* **API de diseño**: extrae estructuras de texto y tabla, junto con sus coordenadas de los cuadros de límite, desde los documentos.
-
-<!-- add diagram -->
+* **[Modelos personalizados](#custom-models)** : extraiga pares clave-valor y datos de tabla de los formularios. Puede entrenar estos modelos con sus propios datos para que se adapten a sus formularios.
+* **[Modelos precompilados](#prebuilt-models)** : extraiga datos de tipos de formularios únicos mediante modelos precompilados. Actualmente, hay modelos pregenerados para las confirmaciones de ventas y las tarjetas de presentación en inglés.
+* **[API de diseño](#layout-api)** : extraiga estructuras de texto y tabla, junto con sus coordenadas de rectángulos de selección, de los documentos.
 
 ## <a name="custom-models"></a>Modelos personalizados
 
-Puede entrenar los modelos personalizados de Form Recognizer con sus propios datos y solo necesita cinco formularios de entrada de ejemplo para empezar. Un modelo entrenado puede generar datos estructurados que incluyen las relaciones del documento de formulario original. Después de entrenar el modelo, puede probarlo, volver a entrenarlo y finalmente usarlo para extraer datos de forma confiable de más formularios en función de las propias necesidades.
+Puede entrenar los modelos personalizados de Form Recognizer con sus propios datos y solo necesita cinco formularios de entrada de ejemplo para empezar. Un modelo de procesamiento de documentos entrenado puede generar datos estructurados que incluyen las relaciones en el documento de formulario original. Después de entrenar el modelo, puede probarlo, volver a entrenarlo y finalmente usarlo para extraer datos de forma confiable de más formularios en función de las propias necesidades.
 
 Tiene las siguientes opciones al entrenar modelos personalizados: entrenamiento con datos etiquetados y sin ellos.
 
 ### <a name="train-without-labels"></a>Entrenamiento sin etiquetas
 
 De forma predeterminada, Form Recognizer usa el aprendizaje sin supervisión para comprender el diseño y las relaciones entre los campos y las entradas de los formularios. Cuando se envían los formularios de entrada, el algoritmo agrupa los formularios por tipos, descubre qué claves y tablas están presentes y asocia los valores a las claves y entradas a las tablas. Esto no requiere el etiquetado de datos manual ni una codificación intensiva, ni mantenimiento y se recomienda probar este método primero.
+
+Consulte [Creación de un conjunto de datos de entrenamiento](./build-training-data-set.md) para ver sugerencias sobre cómo recopilar los documentos de entrenamiento.
 
 ### <a name="train-with-labels"></a>Entrenamiento con etiquetas
 
@@ -47,15 +51,17 @@ Form Recognizer usa la [API de diseño](#layout-api) para aprender los tamaños 
 
 ## <a name="prebuilt-models"></a>Modelos creados previamente
 
-Form Recognizer también incluye modelos pregenerados para tipos de formulario únicos.
+Form Recognizer también incluye modelos precompilados para el procesamiento automático de datos de tipos de formularios únicos.
 
 ### <a name="prebuilt-receipt-model"></a>Modelo de recibo pregenerado
-El modelo de recibo pregenerado se usa para leer los recibos de ventas en Inglés de Australia, Canadá, Gran Bretaña, India y Estados Unidos (el tipo que usan los restaurantes, las estaciones de gas, minoristas, etc). Este modelo extrae información clave como la hora y la fecha de la transacción, información del comerciante, importe de los impuestos, totales y mucho más. Además, el modelo de recibo pregenerado se entrena para reconocer y devolver todo el texto en un recibo. 
+
+El modelo de recibo pregenerado se usa para leer los recibos de ventas en Inglés de Australia, Canadá, Gran Bretaña, India y Estados Unidos (el tipo que usan los restaurantes, las estaciones de gas, minoristas, etc). Este modelo extrae información clave como la hora y la fecha de la transacción, información del comerciante, importe de los impuestos, totales y mucho más. Además, el modelo de recibo pregenerado se entrena para reconocer y devolver todo el texto en un recibo. Consulte la guía conceptual sobre [recibos](./concept-receipts.md) para más información.
 
 ![recibo de ejemplo](./media/contoso-receipt-small.png)
 
 ### <a name="prebuilt-business-cards-model"></a>Modelo de tarjetas de presentación pregenerado
-El modelo de tarjetas de presentación le permite extraer información como el nombre de la persona, el puesto de trabajo, la dirección, el correo electrónico, la empresa y los números de teléfono de las tarjetas de presentación en inglés. 
+
+El modelo de tarjetas de presentación le permite extraer información como el nombre de la persona, el puesto de trabajo, la dirección, el correo electrónico, la empresa y los números de teléfono de las tarjetas de presentación en inglés. Consulte la guía conceptual sobre [tarjetas de presentación](./concept-business-cards.md) para más información.
 
 ![tarjeta de presentación de ejemplo](./media/business-card-english.jpg)
 
@@ -67,7 +73,7 @@ Form Recognizer también puede extraer texto y estructuras de tablas (los númer
 
 Siga un inicio rápido para comenzar a extraer datos de los formularios. Se recomienda usar el servicio gratuito cuando se está aprendiendo la tecnología. Recuerde que el número de páginas gratuitas se limita a 500 al mes.
 
-* [Inicio rápido de la biblioteca cliente](./quickstarts/client-library.md) (todos los lenguajes, varios escenarios)
+* [Inicios rápidos de la biblioteca cliente](./quickstarts/client-library.md) (todos los lenguajes, varios escenarios)
 * Inicios rápidos de la interfaz de usuario web
   * [Entrenamiento con etiquetas: herramienta de etiquetado de ejemplo](quickstarts/label-tool.md)
 * Inicios rápidos de REST
@@ -99,19 +105,8 @@ Va a utilizar las siguientes API para entrenar modelos y extraer datos estructur
 Explore la [documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) para más información. Si está familiarizado con una versión anterior de la API, consulte el artículo sobre [novedades](./whats-new.md) para más información sobre los cambios recientes.
 
 ## <a name="input-requirements"></a>Requisitos de entrada
-### <a name="custom-model"></a>Modelo personalizado
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
-
-### <a name="prebuilt"></a>Creada previamente
-
-Los requisitos de entrada para el modelo de recibo son ligeramente diferentes.
-
-* El formato debe ser JPG, PNG, PDF (texto o digitalizado) o TIFF.
-* El tamaño del archivo debe ser inferior a 20 MB.
-* Las imágenes deben tener unas dimensiones entre 50 x 50 píxeles y 10 000 x 10 000 píxeles.
-* Los archivos PDF deben tener unas dimensiones de 17 x 17 pulgadas como máximo, lo que se corresponde con los tamaños de papel Legal o A3 y más pequeños.
-* En el caso de PDF y TIFF, solo se procesan las primeras 200 páginas (con una suscripción de nivel gratuitos, solo se procesan las dos primeras páginas).
 
 ## <a name="data-privacy-and-security"></a>Seguridad y privacidad de datos
 
@@ -119,4 +114,4 @@ Al igual que sucede con todas las instancias de Cognitive Services, los desarrol
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Realice un [inicio rápido](quickstarts/curl-train-extract.md) para empezar a usar las [API de Form Recognizer](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).
+Realice un [inicio rápido de biblioteca cliente](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de formularios con Form Recognizer en el lenguaje de su elección.

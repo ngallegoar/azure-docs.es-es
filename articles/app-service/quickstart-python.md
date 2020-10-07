@@ -2,25 +2,24 @@
 title: 'Inicio rápido: Creación de una aplicación de Python'
 description: Para empezar a trabajar con Azure App Service, implemente su primera aplicación Python en un contenedor Linux en App Service.
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
-ms.openlocfilehash: c64971303a2fefb25a73f0a8e8900c14ef05486c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+zone_pivot_groups: python-frameworks-01
+ms.openlocfilehash: 0ce995bddb89ce6aa1a550971fbcd92c6515d58e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603618"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264562"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Python en Azure App Service en Linux
 
-En este inicio rápido se implementa una aplicación web de Python en [App Service en Linux](overview.md#app-service-on-linux), un servicio de Azure de hospedaje de sitios web muy escalable y con aplicación automática de revisiones. Puede usar la [interfaz de la línea de comandos (CLI) de Azure](/cli/azure/install-azure-cli) local en un equipo Mac, Linux o Windows. La aplicación web que va a configurar usa un nivel de App Service gratuito, por lo que no incurrirá en ningún gasto en el transcurso de este artículo.
+En este inicio rápido se implementa una aplicación web de Python en [App Service en Linux](overview.md#app-service-on-linux), un servicio de Azure de hospedaje de sitios web muy escalable y con aplicación automática de revisiones. La [interfaz de la línea de comandos (CLI) de Azure](/cli/azure/install-azure-cli) local se puede usar en un equipo Mac, Linux o Windows para implementar un ejemplo con los marcos Flask o Django. La aplicación web que va a configurar usa un nivel de App Service gratuito, por lo que no incurrirá en ningún gasto en el transcurso de este artículo.
 
 > [!TIP]
 > Si prefiere implementar aplicaciones mediante un entorno de desarrollo integrado, consulte **[Implementación de aplicaciones de Python en App Service desde Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** .
 
 ## <a name="set-up-your-initial-environment"></a>Configuración del entorno inicial
-
-Antes de empezar, debe disponer de lo siguiente:
 
 1. Disponga de una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Instale <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 o una versión posterior</a>.
@@ -68,77 +67,99 @@ Una vez que haya iniciado sesión, puede ejecutar comandos de Azure con la CLI d
 
 ## <a name="clone-the-sample"></a>Clonación del ejemplo
 
-Ejecute el comando siguiente para clonar el repositorio de ejemplo y vaya a la carpeta. ([Instale git](https://git-scm.com/downloads) si aún no lo tiene).
+Ejecute el comando siguiente para clonar el repositorio de ejemplo y vaya a la carpeta de ejemplo. ([Instale git](https://git-scm.com/downloads) si aún no lo tiene).
 
+::: zone pivot="python-framework-flask"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
-cd python-docs-hello-world
 ```
 
-El código de ejemplo contiene el archivo *application.py*, que indica a App Service que el código contiene una aplicación de Flask. Para más información, consulte [Proceso de inicio del contenedor](configure-language-python.md#container-startup-process).
+Después, vaya a esa carpeta:
+
+```terminal
+cd python-docs-hello-world
+```
+::: zone-end
+
+::: zone pivot="python-framework-django"
+```terminal
+git clone https://github.com/Azure-Samples/python-docs-hello-django
+```
+
+Después, vaya a esa carpeta:
+
+```terminal
+cd python-docs-hello-django
+```
+::: zone-end
+
+El ejemplo contiene código específico del marco que Azure App Service reconoce al iniciar la aplicación. Para más información, consulte [Proceso de inicio del contenedor](configure-language-python.md#container-startup-process).
 
 [¿Tiene problemas? Háganoslo saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 
-# <a name="bash"></a>[Bash](#tab/bash)
+::: zone pivot="python-framework-flask"
+1. Asegúrese de que se encuentra en la carpeta *python-docs-hello-world*. 
 
-En primer lugar, cree un entorno virtual e instale las dependencias:
+1. Cree un entorno virtual e instale las dependencias:
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
+    [!include [virtual environment setup](../../includes/app-service-quickstart-python-venv.md)]
 
-A continuación, establezca la variable de entorno `FLASK_APP` en el módulo de entrada de la aplicación y ejecute el servidor de desarrollo de Flask:
+    Si encuentra "[Errno 2] No se encontró el archivo o directorio: 'requirements.txt'", asegúrese de que se encuentra en la carpeta *python-docs-hello-world*.
 
-```
-export FLASK_APP=application.py
-flask run
-```
+1. Ejecute el servidor de desarrollo.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+    ```terminal  
+    flask run
+    ```
+    
+    De forma predeterminada, el servidor supone que el módulo de entrada de la aplicación está en *app.py*, como se usa en el ejemplo. (Si usa un nombre de módulo diferente, establezca la variable de entorno `FLASK_APP` en ese nombre).
 
-En primer lugar, cree un entorno virtual e instale las dependencias:
+1. Abra un explorador web y vaya a la aplicación de ejemplo en `http://localhost:5000/`. La aplicación muestra el mensaje **Hola mundo**.
 
-```powershell
-py -3 -m venv env
-env\scripts\activate
-pip install -r requirements.txt
-```
+    ![Ejecución de una aplicación de Python de ejemplo en el entorno local](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+    
+1. En la ventana de terminal, presione **Ctrl**+**C** para salir del servidor de desarrollo.
+::: zone-end
 
-A continuación, establezca la variable de entorno `FLASK_APP` en el módulo de entrada de la aplicación y ejecute el servidor de desarrollo de Flask:
+::: zone pivot="python-framework-django"
+1. Asegúrese de que se encuentra en la carpeta *python-docs-hello-django*. 
 
-```powershell
-Set-Item Env:FLASK_APP ".\application.py"
-flask run
-```
+1. Cree un entorno virtual e instale las dependencias:
 
-# <a name="cmd"></a>[Cmd](#tab/cmd)
+    [!include [virtual environment setup](../../includes/app-service-quickstart-python-venv.md)]
 
-En primer lugar, cree un entorno virtual e instale las dependencias:
+    Si encuentra "[Errno 2]: No se encontró el archivo o directorio: 'requirements.txt'", asegúrese de que se encuentra en la carpeta *python-docs-hello-django*.
+    
+1. Ejecute el servidor de desarrollo.
 
-```cmd
-py -3 -m venv env
-env\scripts\activate
-pip install -r requirements.txt
-```
+    # <a name="bash"></a>[Bash](#tab/bash)
 
-A continuación, establezca la variable de entorno `FLASK_APP` en el módulo de entrada de la aplicación y ejecute el servidor de desarrollo de Flask:
+    ```bash
+    python3 manage.py runserver
+    ```
 
-```cmd
-SET FLASK_APP=application.py
-flask run
-```
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
----
+    ```powershell
+    py -3 manage.py runserver
+    ```
 
-Abra un explorador web y vaya a la aplicación de ejemplo en `http://localhost:5000/`. La aplicación muestra el mensaje **Hola mundo**.
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
 
-![Ejecución de una aplicación de Python de ejemplo en el entorno local](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+    ```cmd
+    py -3 manage.py runserver
+    ```
 
-En la ventana de terminal, presione **Ctrl**+**C** para salir del servidor de desarrollo de Flask.
+    ---    
+
+1. Abra un explorador web y vaya a la aplicación de ejemplo en `http://localhost:8000/`. La aplicación muestra el mensaje **Hola mundo**.
+
+    ![Ejecución de una aplicación de Python de ejemplo en el entorno local](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+    
+1. En la ventana de terminal, presione **Ctrl**+**C** para salir del servidor de desarrollo.
+::: zone-end
 
 [¿Tiene problemas? Háganoslo saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
@@ -147,14 +168,15 @@ En la ventana de terminal, presione **Ctrl**+**C** para salir del servidor de de
 Implemente el código en la carpeta local (*python-docs-hello-world*) mediante el comando `az webapp up`:
 
 ```azurecli
-az webapp up --sku F1 -n <app-name>
+az webapp up --sku F1 --name <app-name>
 ```
 
 - Si no se reconoce el comando `az`, asegúrese de que tiene instalada la CLI de Azure tal y como se describe en [Configuración del entorno inicial](#set-up-your-initial-environment).
+- Si no se reconoce el comando `webapp`, es porque la versión de la CLI de Azure es 2.0.80 o posterior. De lo contrario, [instale la versión más reciente](/cli/azure/install-azure-cli).
 - Reemplace `<app_name>` por un nombre que sea único en todo Azure (*los caracteres válidos son `a-z`, `0-9` y `-`* ). Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación.
 - El argumento `--sku F1` crea la aplicación web en el plan de tarifa Gratuito. Omita este argumento para usar un nivel Premium más rápido, lo que supondrá un costo por hora.
-- También tiene la opción de incluir el argumento `-l <location-name>`, donde `<location_name>` es una región de Azure, como **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, etc. Puede recuperar una lista de las regiones permitidas para su cuenta de Azure mediante la ejecución del comando [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations).
-- Si ve el error "No se pudo detectar automáticamente la pila en tiempo de ejecución de la aplicación", asegúrese de que ejecuta el comando en la carpeta *python-docs-hello-world* que contiene el archivo *requirements.txt*. (Consulte [Solución de problemas de detección automática con az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub)).
+- Opcionalmente, incluya el argumento `--location <location-name>`, donde `<location_name>` es una región de Azure disponible. Puede recuperar una lista de las regiones permitidas para su cuenta de Azure mediante la ejecución del comando [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations).
+- Si ve el error "No se pudo detectar automáticamente la pila en tiempo de ejecución de la aplicación", asegúrese de que ejecuta el comando en la carpeta *python-docs-hello-world* (Flask) o en la carpeta *python-docs-hello-django* (Django) que contiene el archivo *requirements.txt*. (Consulte [Solución de problemas de detección automática con az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub)).
 
 El comando puede tardar varios minutos en completarse. Mientras se ejecuta, proporciona mensajes sobre cómo crear el grupo de recursos, el plan de App Service y la aplicación de hospedaje, configurar el registro y, a continuación, realizar la implementación del archivo ZIP. A continuación, se muestra el mensaje "Puede iniciar la aplicación en http://&lt;nombre_de_la_aplicación&gt;.azurewebsites.net", que es la dirección URL de la aplicación en Azure.
 
@@ -162,11 +184,11 @@ El comando puede tardar varios minutos en completarse. Mientras se ejecuta, prop
 
 [¿Tiene problemas? Háganoslo saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-[!INCLUDE [AZ Webapp Up Note](../../includes/app-service-web-az-webapp-up-note.md)]
+[!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## <a name="browse-to-the-app"></a>Navegación hasta la aplicación
 
-Vaya a la aplicación implementada mediante el explorador web en la dirección URL `http://<app-name>.azurewebsites.net`.
+Vaya a la aplicación implementada mediante el explorador web en la dirección URL `http://<app-name>.azurewebsites.net`. Tardará unos instantes en iniciar la aplicación la primera vez.
 
 El código de ejemplo de Python se ejecuta en un contenedor de Linux en App Service con una imagen integrada.
 
@@ -178,17 +200,28 @@ El código de ejemplo de Python se ejecuta en un contenedor de Linux en App Serv
 
 ## <a name="redeploy-updates"></a>Reimplementación de actualizaciones
 
-En el editor de código que prefiera, abra *application.py* y actualice la función `hello` como se indica a continuación. Este cambio agrega una instrucción `print` para generar la salida de registro con la que trabajará en la sección siguiente. 
+En esta sección, realizará un pequeño cambio de código y, a continuación, volverá a implementar el código en Azure. Este cambio de código incluye una instrucción `print` para generar la salida de registro con la que trabajará en la sección siguiente.
+
+::: zone pivot="python-framework-flask"
+Abra *app.py* en un editor y actualice la función `hello` para que coincida con el código siguiente. 
 
 ```python
 def hello():
     print("Handling request to home page.")
-    return "Hello Azure!"
+    return "Hello, Azure!"
 ```
+::: zone-end
+::: zone pivot="python-framework-django"
+Abra *hello/views.py* en un editor y actualice la función `hello` para que coincida con el código siguiente.
 
-Guarde los cambios y salga del editor. 
-
-Vuelva a implementar la aplicación con el comando `az webapp up`:
+```python
+def hello(request):
+    print("Handling request to home page.")
+    return HttpResponse("Hello, Azure!")
+```
+::: zone-end
+    
+Guarde los cambios y vuelva a implementar la aplicación con el comando `az webapp up`:
 
 ```azurecli
 az webapp up
@@ -209,17 +242,19 @@ Una vez completada la implementación, vuelva a la ventana del explorador abiert
 
 Puede acceder a los registros de consola generados desde dentro de la aplicación y del contenedor en que esta se ejecuta. Los registros incluyen todas las salidas generadas mediante instrucciones `print`.
 
-Para transmitir registros, ejecute el siguiente comando:
+Para transmitir registros, ejecute el comando [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az_webapp_log_tail):
 
 ```azurecli
 az webapp log tail
 ```
 
+También puede incluir el parámetro `--logs` con el comando `az webapp up` para abrir automáticamente la secuencia de registro en la implementación.
+
 Actualice la aplicación en el explorador para que se generen registros de la consola, que incluyen mensajes que describen las solicitudes HTTP a la aplicación. Si no aparece la salida inmediatamente, inténtelo de nuevo en 30 segundos.
 
 También puede inspeccionar los archivos de registro desde el explorador en `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
-Para detener el streaming de registro en cualquier momento, escriba **Ctrl**+**C**.
+Para detener el streaming de registros en cualquier momento, presione **Ctrl**+**C** en el terminal.
 
 [¿Tiene problemas? Háganoslo saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
@@ -248,12 +283,12 @@ En los pasos anteriores, creó recursos de Azure en un grupo de recursos. El gru
 Si prevé que no necesitará estos recursos en el futuro, ejecute el siguiente comando para eliminar el grupo de recursos:
 
 ```azurecli
-az group delete
+az group delete --no-wait
 ```
 
 Este comando usa el nombre del grupo de recursos almacenado en la memoria caché del archivo *.azure/config*.
 
-Este comando puede tardar hasta un minuto en completarse.
+El argumento `--no-wait` permite la devolución del comando antes de que se complete la operación.
 
 [¿Tiene problemas? Háganoslo saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
@@ -263,10 +298,10 @@ Este comando puede tardar hasta un minuto en completarse.
 > [Tutorial: Aplicación web Python (Django) con PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Incorporación del inicio de sesión de un usuario a una aplicación web de Python](../active-directory/develop/quickstart-v2-python-webapp.md)
+> [Configuración de una aplicación de Python](configure-language-python.md)
 
 > [!div class="nextstepaction"]
-> [Configuración de una aplicación de Python](configure-language-python.md)
+> [Incorporación del inicio de sesión de un usuario a una aplicación web de Python](../active-directory/develop/quickstart-v2-python-webapp.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Ejecución de la aplicación Python en un contenedor personalizado](tutorial-custom-container.md)

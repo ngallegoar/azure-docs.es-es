@@ -1,5 +1,5 @@
 ---
-title: Aprovisionamiento de un dispositivo X.509 simulado en Azure IoT Hub mediante C
+title: 'Inicio rápido: Aprovisionamiento de un dispositivo X.509 simulado en Azure IoT Hub mediante C'
 description: En esta guía de inicio rápido se utilizan inscripciones individuales. En esta guía de inicio rápido, creará y aprovisionará un dispositivo X.509 simulado mediante el SDK de dispositivos de C para Azure IoT Hub Device Provisioning Service (DPS).
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 882d62c088fa51153ca496231beccd4bfd5af0cb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 42636695113dd824797d1a837e21ab2901d87738
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190371"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323871"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Inicio rápido: Aprovisionamiento de un dispositivo X.509 simulado mediante el SDK para C de Azure IoT
 
@@ -21,7 +21,7 @@ ms.locfileid: "82190371"
 
 En este inicio rápido, aprenderá a crear y ejecutar un simulador de dispositivos X.509 en un equipo de desarrollo Windows. Configurará este dispositivo simulado para asignarlo a un centro de IoT mediante una inscripción en una instancia del servicio Device Provisioning. Se usará código de ejemplo del [SDK para C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c) para simular una secuencia de arranque para el dispositivo. El dispositivo se reconocerá en función de la inscripción en el servicio de aprovisionamiento y se asignará al centro de IoT.
 
-Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [Conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). Además, asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](quick-setup-auto-provision.md) antes de continuar con este inicio rápido. 
+Si no está familiarizado con el proceso de aprovisionamiento automático, revise la información general sobre [Aprovisionamiento](about-iot-dps.md#provisioning-process). Además, asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](quick-setup-auto-provision.md) antes de continuar con este inicio rápido. 
 
 Azure IoT Hub Device Provisioning Service admite dos tipos de inscripciones:
 
@@ -36,7 +36,7 @@ En este artículo se mostrarán las inscripciones individuales.
 
 Los siguientes requisitos previos corresponden a un entorno de desarrollo de Windows. En el caso de Linux o macOS, consulte la sección correspondiente en [Preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) en la documentación del SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
 
 * Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 

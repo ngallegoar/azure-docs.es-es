@@ -1,21 +1,21 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de Form Recognizer para JavaScript'
-description: En este inicio rápido, empezará a trabajar con la biblioteca cliente de Form Recognizer para JavaScript.
+description: Use la biblioteca cliente de Form Recognizer para JavaScript con el fin de crear una aplicación de procesamiento de formularios que extraiga pares clave-valor y datos de tabla de los documentos personalizados.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 08/21/2020
+ms.date: 09/21/2020
 ms.author: pafarley
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: cc72fa9e05dd25ef2d63f126f0fbb45841cb799c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: af6ca27236649ef915bbb52853fc0c34e29fb800
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934365"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318934"
 ---
 > [!IMPORTANT]
 > * Actualmente, el SDK de Form Recognizer tiene como destino la versión v2.0 del servicio Form Recognizer.
@@ -84,7 +84,9 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `F
 * La administración de los modelos creados en una cuenta.
 * La copia de un modelo personalizado entre recursos de Form Recognizer.
 
-Tenga en cuenta que los modelos también se pueden entrenar mediante una interfaz gráfica de usuario, como la [herramienta de etiquetado de Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> [!NOTE]
+> Los modelos también se pueden entrenar mediante una interfaz gráfica de usuario, como la [herramienta de etiquetado de Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -114,7 +116,7 @@ const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(a
 const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
 ```
 
-## <a name="assets-for-testing"></a>Recursos para pruebas
+## <a name="get-assets-for-testing"></a>Obtención de recursos para pruebas
 
 Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. En cambio, si quiere procesar documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) y los [ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 

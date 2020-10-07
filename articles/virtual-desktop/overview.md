@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 08455d3033040d14c85e4c4170ae34a6d05cfac1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322060"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop?
 
@@ -100,6 +100,8 @@ Para obtener un rendimiento óptimo, asegúrese de que la red cumple los requisi
 * La latencia de ida y vuelta (RTT) desde la red del cliente hasta la región de Azure donde se han implementado grupos host debe ser inferior a 150 ms. Use el [estimador de experiencia](https://azure.microsoft.com/services/virtual-desktop/assessment) para ver el estado de la conexión y la región de Azure recomendada.
 * El tráfico de red puede fluir fuera de las fronteras del país o la región si las máquinas virtuales que hospedan los escritorios y las aplicaciones se conectan al servicio de administración.
 * Para optimizar el rendimiento de la red, se recomienda que las máquinas virtuales del host de sesión se coloquen en la misma región de Azure que el servicio de administración.
+
+En nuestra [documentación de la arquitectura](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop) puede ver la configuración de una arquitectura típica de Windows Virtual Desktop para la empresa en nuestra.
 
 ## <a name="supported-remote-desktop-clients"></a>Clientes compatibles de Escritorio remoto
 

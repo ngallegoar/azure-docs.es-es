@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configuración de la directiva de firewall de aplicaciones web de filtrado geográfico para Azure Front Door'
-description: En este tutorial aprenderá a crear una directiva de filtrado geográfico y a asociar la directiva con el host de front-end de Front Door existente.
+description: En este tutorial aprenderá a crear una directiva WAF de filtrado geográfico y a asociarla con el host existente de front-end de Front Door.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 20aa038e15b1ae5734ad6f463c6f450368617119
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: f9b5869f7dd472c50ffb2c1c0dce765200f53882
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090044"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324033"
 ---
 # <a name="tutorial-how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Tutorial: Procedimientos para configurar una directiva de WAF de filtrado geográfico para Front Door
 En este tutorial se muestra cómo usar Azure PowerShell para crear una directiva de filtrado geográfico de ejemplo y a asociarla con el host de front-end de Front Door existente. Esta directiva de filtrado geográfico de ejemplo bloqueará las solicitudes de todos los países o regiones, salvo Estados Unidos.

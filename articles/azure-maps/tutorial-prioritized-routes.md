@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Búsqueda y visualización de rutas para modos de desplazamiento específicos mediante Microsoft Azure Maps'
-description: Aprenda a utilizar Azure Maps para encontrar y mostrar rutas para modos de desplazamiento específicos.
+title: 'Tutorial: Búsqueda de varias rutas por forma de viajar | Microsoft Azure Maps'
+description: Tutorial sobre cómo usar Azure Maps con el fin de encontrar rutas para modos de desplazamiento específicos a puntos de interés. Obtenga información sobre cómo mostrar varias rutas en los mapas.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: a5b8dba920db0227c400e62ef7ddaf718d27c78a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 0d57e86088ee472c63b433bde14a0e4316cc20a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085066"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321754"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Búsqueda y visualización de rutas para diferentes modos de desplazamiento mediante Azure Maps
 
@@ -160,11 +160,13 @@ En este tutorial, se calcularán y se representarán dos rutas en el mapa. La pr
 
     ```
 
+
     En el controlador de eventos `ready` del control de mapa, se creará un origen de datos para almacenar la ruta de principio a fin. Para recuperar la anchura y el color de línea a partir de las propiedades de la característica de línea de ruta, se utilizan [expresiones](data-driven-style-expressions-web-sdk.md). Para asegurarse de que la línea de ruta no cubre las etiquetas de la carretera, hemos pasado un segundo parámetro con el valor de `'labels'`.
 
     A continuación, se crea una capa de símbolo y se adjunta al origen de datos. Esta capa especifica cómo se representarán los puntos inicial y final. En este caso, se han agregado expresiones para recuperar la imagen del icono e información de la etiqueta de texto a partir de las propiedades de cada objeto de punto. Para obtener más información sobre las expresiones, consulte [Expresiones de estilo basadas en datos](data-driven-style-expressions-web-sdk.md).
 
 2. Establezca el punto inicial en una empresa ficticia de Seattle llamada Fabrikam y el punto final en una oficina de Microsoft.  En el controlador de eventos `ready` del Control de mapa, anexe el código siguiente.
+
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -279,7 +281,11 @@ En esta sección se muestra cómo usar el servicio Azure Maps Route para obtener
 
     La ruta de camión se muestra mediante una línea gruesa azul. La ruta de automóvil se muestra mediante una línea fina de color púrpura. La ruta de automóvil transcurre por Lake Washington a través de la I-90 y pasa por túneles bajo zonas residenciales. Como los túneles están cerca de las zonas residenciales, se restringe el transporte de residuos peligrosos. La ruta de camión, que especifica el tipo de carga `USHazmatClass2`, se redirige a una autopista diferente.
 
-    Puede obtener el código fuente completo para el ejemplo [aquí](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). Se puede encontrar un ejemplo dinámico [aquí](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+Puede obtener el código fuente completo para el ejemplo [aquí](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). Se puede encontrar un ejemplo dinámico [aquí](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+
+También puede [usar expresiones de estilo basadas en datos](data-driven-style-expressions-web-sdk.md).
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

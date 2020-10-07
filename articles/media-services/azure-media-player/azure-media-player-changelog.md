@@ -5,15 +5,29 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 07/27/2020
-ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 09/23/2020
+ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432660"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315089"
 ---
-# <a name="changelog"></a>Registro de cambios #
+# <a name="changelog"></a>Registro de cambios
+
+## <a name="236-official-update-september-21-2020"></a>2.3.6 (actualización oficial del 21 de septiembre de 2020)
+
+### <a name="features-236"></a>Características de la versión 2.3.6
+
+Se ha agregado compatibilidad solo con audio para azureHtml5JS Tech (DASH). Compatibilidad con el inicio retrasado de la transcripción en vivo. Compatibilidad con el cambio de idioma en la transcripción en vivo
+
+### <a name="bug-fixes-236"></a>Correcciones de errores de la versión 2.3.6
+
+Si se usa "playsinline" en las reproducciones de HLS en dispositivos de Apple, al hacer clic en el botón "LIVE", el vídeo se reinicia. La imagen del póster de AMP a veces provoca una excepción. El botón de volumen no estaba disponible al reproducir FairPlay de HLS. [Accesibilidad] La información sobre herramientas no aparece definida en los botones cuando se usa el teclado. [Accesibilidad] La relación de luminosidad es inferior a 1.3:1 para la barra de progreso. [Accesibilidad] El foco de teclado a veces no vuelve al botón de la calidad de vídeo [Accesibilidad] Los controles no se ven en la pantalla Vídeo, lo que impide que el narrador las encuentre
+
+### <a name="changes-236"></a>Cambios en la versión 2.3.6
+
+Devolución de errores KeyDelivery significativos para llamar a aplicaciones
 
 ## <a name="235-official-update-june-1-2020"></a>2.3.5 (actualización oficial del 1 de junio de 2020)
 

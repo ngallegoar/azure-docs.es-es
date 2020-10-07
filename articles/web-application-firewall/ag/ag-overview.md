@@ -5,15 +5,15 @@ description: En este artículo se proporciona una introducción al firewall de a
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/31/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227005"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91267030"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>¿Qué es el firewall de aplicaciones web de Azure en Azure Application Gateway?
 
@@ -75,9 +75,21 @@ En esta sección se describen las ventajas principales que el firewall de aplica
 - Filtre geográficamente el tráfico para permitir o impedir que determinados países o regiones obtengan acceso a las aplicaciones. (versión preliminar)
 - Proteja sus aplicaciones de bots con el conjunto de reglas de mitigación de bots. (versión preliminar)
 
-## <a name="waf-policy"></a>Directiva WAF
+## <a name="waf-policy-and-rules"></a>Reglas y directiva de WAF
 
-Para habilitar un firewall de aplicaciones web en una instancia de Application Gateway, debe crear una directiva de WAF. Esta directiva es donde se encuentran todas las reglas administradas, reglas personalizadas, exclusiones y otras personalizaciones, como el límite de carga de archivos. 
+Para habilitar una instancia de Web Application Firewall en Application Gateway, debe crear una directiva WAF. Esta directiva es donde se encuentran todas las reglas administradas, reglas personalizadas, exclusiones y otras personalizaciones, como el límite de carga de archivos.
+
+Puede configurar una directiva WAF y asociarla a una o varias instancias de Application Gateway con fines de protección. Una directiva de WAF consta de dos tipos de reglas de seguridad:
+
+- Reglas personalizadas que crea el usuario
+
+- Conjuntos de reglas administrados que son una colección del conjunto de reglas configurado previamente y administrado por Azure.
+
+Cuando ambos están presentes, las reglas personalizadas se procesan antes de procesar las reglas de un conjunto de reglas administrado. Una regla está formada por una condición de coincidencia, una prioridad y una acción. Los tipos de acción que se admiten son los siguientes: PERMITIR, BLOQUEAR y REGISTRAR Puede crear una directiva totalmente personalizada que cumpla sus requisitos específicos de protección de aplicaciones al combinar reglas personalizadas y administradas.
+
+Las reglas de una directiva se procesan en un orden de prioridad. La prioridad es un entero único que describe el orden de las reglas que se van a procesar. El valor entero más pequeño indica una prioridad más alta y estas reglas se evalúan antes que las reglas con un valor entero más alto. Una vez que una regla coincide, la acción correspondiente que se ha definido en la regla se aplica a la solicitud. Cuando se procesa esa coincidencia, ya no se procesan más reglas con prioridades inferiores.
+
+Una aplicación web ofrecida por Application Gateway puede tener una directiva WAF asociada en el nivel global, por sitio o por URI.
 
 ### <a name="core-rule-sets"></a>Conjuntos de reglas principales
 
@@ -159,6 +171,11 @@ Con el libro de eventos de firewall integrado de Azure WAF, puede obtener una vi
 
 
 ![Libro de eventos del firewall de aplicaciones web de Azure](../media/ag-overview/sentinel.png)
+
+
+#### <a name="azure-monitor-workbook-for-waf"></a>Libro de Azure Monitor para WAF
+
+Este libro habilita la visualización personalizada de los eventos de WAF relevantes para la seguridad en varios paneles filtrables. Funciona con todos los tipos de WAF, incluidos Application Gateway, Front Door y CDN, y se puede filtrar en función del tipo de WAF o de una instancia de WAF específica. Impórtelo a través de la plantilla de ARM o la plantilla de la galería. Para implementar este libro, consulte [libro de WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
 
 #### <a name="logging"></a>Registro
 

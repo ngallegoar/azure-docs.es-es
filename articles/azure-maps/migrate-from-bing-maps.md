@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 643e49bdba76051c873ed549d5f6c21487f34056
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: b0c23955248a3468ee6bd624ebf7281bc6c3c961
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108374"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319612"
 ---
 # <a name="migrate-from-bing-maps-to-azure-maps"></a>Migración de Mapas de Bing a Azure Maps
 
@@ -81,6 +81,15 @@ A continuación se describe un plan de migración general.
 4.  Migre el código de la aplicación.
 5.  Pruebe la aplicación migrada.
 6.  Implemente la aplicación migrada en producción.
+
+## <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps
+
+Para crear una cuenta de Azure Maps y acceder a la plataforma Azure Maps, siga estos pasos:
+
+1. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+2. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+3. Cree una [cuenta de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
+4. [Obtenga su clave de suscripción de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) o configure la autenticación de Azure Active Directory para reforzar la seguridad.
 
 ## <a name="azure-maps-technical-resources"></a>Recursos técnicos para Azure Maps
 

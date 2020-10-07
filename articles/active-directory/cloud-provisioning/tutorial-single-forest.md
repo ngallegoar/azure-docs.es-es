@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a63bd6be9b21a506054ab5a02fa7f5d6751f303a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1b91763c275e4fd091b7c1554699e5d6f35a6f55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228382"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266333"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integración de un único bosque con un único inquilino de Azure AD
 
@@ -61,16 +61,16 @@ El entorno que se crea en este tutorial se puede usar para realizar pruebas o pa
 5. Ejecute el agente de aprovisionamiento de Azure AD Connect.
 6. En la pantalla de presentación, **acepte** los términos de la licencia y haga clic en **Install** (Instalar).
 
-   ![Pantalla principal](media/how-to-install/install1.png)
+   ![Captura de pantalla que muestra la pantalla de presentación "Paquete de agente de aprovisionamiento de Microsoft Azure AD Connect".](media/how-to-install/install1.png)
 
 7. Una vez que finalice esta operación, se iniciará el asistente para configuración.  Inicie sesión con su cuenta de administrador global de Azure AD.  Tenga en cuenta que si la seguridad de IE mejorada está habilitada, bloqueará el inicio de sesión.  En ese caso, cierre la instalación, deshabilite la seguridad mejorada de IE en Administrador del servidor y haga clic en el **AAD Connect Provisioning Agent Wizard** (Asistente para el agente de aprovisionamiento de AAD Connect) para reiniciar la instalación.
 8. En la pantalla **Connect Active Directory** (Conectar Active Directory), haga clic en **Add directory** (Agregar directorio) e inicie sesión con su cuenta de administrador de dominio de Active Directory.  NOTA:  La cuenta de administrador de dominio no debe tener requisitos de cambio de contraseña. Si la contraseña expira o cambia, tendrá que volver a configurar el agente con las credenciales nuevas. Esta operación permitirá agregar su directorio local.  Haga clic en **Next**.
 
-   ![Pantalla principal](media/how-to-install/install3.png)
+   ![Captura de pantalla que muestra la pantalla "Conectar Active Directory".](media/how-to-install/install3.png)
 
 9. En la pantalla **Configuración completa**, haga clic en **Confirmar**.  Esta operación registrará el agente y lo reiniciará.
 
-   ![Pantalla principal](media/how-to-install/install4.png)
+   ![Captura de pantalla que muestra la pantalla "Configuración completada".](media/how-to-install/install4.png)
 
 10. Una vez que se completa esta operación debería aparecer un aviso: **La configuración del agente se ha comprobado correctamente.**  Puede hacer clic en **Salir**.</br>
 ![Pantalla principal](media/how-to-install/install5.png)</br>

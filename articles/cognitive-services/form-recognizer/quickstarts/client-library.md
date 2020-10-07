@@ -1,26 +1,28 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de Form Recognizer | Microsoft Docs'
-description: Introducción a la biblioteca cliente de [nombre del producto].
+title: 'Inicio rápido: Biblioteca cliente de Form Recognizer'
+titleSuffix: Azure Cognitive Services
+description: Use la biblioteca cliente de Form Recognizer para crear una aplicación de procesamiento de formularios que extraiga pares clave-valor y datos de tabla de los documentos personalizados.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 09/21/2020
 ms.author: pafarley
-ms.custom: devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 0aa72b595bf60184aa840922a3d8a6496bb983a7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+keywords: forms processing, automated data processing
+ms.openlocfilehash: eb3fc3ebe5c3d9f659758a14ba620018671d95f5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934366"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318948"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Form Recognizer
 
-Comience a trabajar con la biblioteca cliente de Form Recognizer. Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. Siga estos pasos para instalar el paquete SDK y probar el código de ejemplo para realizar tareas básicas.
+Comience a usar la biblioteca cliente de Form Recognizer en el idioma de su elección. Azure Form Recognizer es un servicio cognitivo que le permite crear software de procesamiento de datos automatizado mediante tecnología de aprendizaje automático. Identifique y extraiga texto, pares clave-valor y datos de tabla de los documentos de formulario; el servicio genera datos estructurados que incluyen las relaciones en el archivo original. Siga estos pasos para instalar el paquete SDK y probar el código de ejemplo para realizar tareas básicas.
 
 Use la biblioteca cliente de Form Recognizer para:
 

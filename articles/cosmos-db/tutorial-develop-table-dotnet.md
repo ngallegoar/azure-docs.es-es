@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 56198392f3c769837d8d672b861baa9b341d284e
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 760a3a194e181576acb3601aabc07c6900cb664e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419357"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276771"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introducción a Table API de Azure Cosmos DB y Azure Table Storage mediante el SDK de .NET
 
@@ -120,7 +120,7 @@ El código define una clase de entidad que utiliza el nombre de pila del cliente
 
 ## <a name="insert-or-merge-an-entity"></a>Inserción o combinación de la entidad
 
-En el ejemplo de código siguiente se crea un objeto de entidad y se agrega a la tabla. El método InsertOrMerge dentro de la clase [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) se utiliza para insertar o combinar una entidad. Se llama al método [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) para ejecutar la operación. 
+En el ejemplo de código siguiente se crea un objeto de entidad y se agrega a la tabla. El método InsertOrMerge dentro de la clase [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) se utiliza para insertar o combinar una entidad. Se llama al método [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet&preserve-view=true) para ejecutar la operación. 
 
 Haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccione **Agregar**, **Nuevo elemento** y agregue una clase denominada **SamplesUtils.cs**. Esta clase almacena todo el código necesario para realizar operaciones CRUD en las entidades. 
 
@@ -158,7 +158,7 @@ En el proyecto **CosmosTableSamples**. Abra la clase denominada **Program.CS** y
 
 Ahora, compile la solución y presione F5 para ejecutar el proyecto. Cuando se ejecute el proyecto, verá la siguiente salida en el símbolo del sistema:
 
-:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="Salida del símbolo del sistema":::
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="Visualización y copia de la cadena de conexión principal (PRIMARY CONNECTION STRING) en el panel Cadena de conexión":::
 
 Si recibe un error que indica que no se encuentra el archivo Settings.json al ejecutar el proyecto, puede resolverlo agregando la siguiente entrada XML a la configuración del proyecto. Haga clic con el botón derecho en CosmosTableSamples, seleccione Editar CosmosTableSamples.csproj y agregue el itemGroup siguiente: 
 
@@ -171,11 +171,11 @@ Si recibe un error que indica que no se encuentra el archivo Settings.json al ej
 ```
 Ahora puede iniciar sesión en Azure Portal y comprobar que los datos existen en la tabla. 
 
-:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Resultados en el portal":::
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Visualización y copia de la cadena de conexión principal (PRIMARY CONNECTION STRING) en el panel Cadena de conexión":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora puede pasar al siguiente tutorial y aprender a migrar datos a la cuenta de Table API de Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
->[Consulta de datos](../cosmos-db/table-import.md)
+>[Migración de datos a Table API de Azure Cosmos DB](../cosmos-db/table-import.md)

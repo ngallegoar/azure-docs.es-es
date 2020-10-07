@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/07/2020
-ms.openlocfilehash: cc38210690c88fec826dc727775d01884dedd997
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: cdc4dfe23cce7c2f58e4c9b44f2cea46e2337e00
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008889"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322451"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio
 
@@ -22,7 +22,7 @@ Si no está familiarizado con Azure Logic Apps y solo desea conocer los concepto
 
 En este inicio rápido, crea la misma aplicación lógica que en el inicio rápido de Azure Portal, pero con Visual Studio. Esta aplicación lógica supervisa la fuente RSS de un sitio web y envía un correo electrónico para cada nuevo elemento de dicha fuente. La aplicación lógica finalizada se parecerá a este flujo de trabajo general:
 
-![Aplicación lógica terminada](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
+![Captura de pantalla que muestra el flujo de trabajo de alto nivel de una aplicación lógica finalizada.](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
 <a name="prerequisites"></a>
 
@@ -55,7 +55,7 @@ En este inicio rápido, crea la misma aplicación lógica que en el inicio rápi
 
   El diseñador requiere una conexión a Internet para crear recursos en Azure y leer las propiedades y los datos de los conectores de la aplicación lógica.
 
-* Una cuenta de correo electrónico que sea compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, consulte la [lista de conectores que se muestra aquí](/connectors/). En este ejemplo se utiliza Office 365 Outlook. Si usa otro proveedor distinto, los pasos generales serán los mismos pero su interfaz de usuario puede ser ligeramente distinta.
+* Una cuenta de correo electrónico que sea compatible con Logic Apps, como Outlook para Microsoft 365, Outlook.com o Gmail. En el caso de otros proveedores, consulte la [lista de conectores que se muestra aquí](/connectors/). En este ejemplo se utiliza Office 365 Outlook. Si usa otro proveedor distinto, los pasos generales serán los mismos pero su interfaz de usuario puede ser ligeramente distinta.
 
   > [!IMPORTANT]
   > Si quiere usar el conector de Gmail, solo las cuentas empresariales de G-Suite pueden usar este conector sin restricciones en las aplicaciones lógicas. Si tiene una cuenta de consumidor de Gmail, puede usar este conector solo con servicios específicos aprobados por Google o puede [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).

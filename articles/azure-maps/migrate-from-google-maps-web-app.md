@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Migración de una aplicación web desde Google Maps | Microsoft Azure Maps'
-description: Migración de una aplicación web de Google Maps a Microsoft Azure Maps.
+title: Migración de una aplicación web desde Google Maps | Microsoft Azure Maps
+description: Migración de una aplicación web de Google Maps a Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
-ms.topic: tutorial
+ms.date: 08/18/2020
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: devx-track-javascript
-ms.openlocfilehash: bc5f10e34b929110763b53fe1016334ce9bfddd6
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: 3414f50d6d0fc4983b7a05226a2f768e7ead81dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090761"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319680"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Migración de una aplicación web desde Google Maps
 
@@ -32,6 +32,7 @@ Si desarrolla aplicaciones en un entorno JavaScript, puede que uno de los siguie
 - [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components): un componente Blazor de Azure Maps.
 - [Componente React de Azure Maps](https://github.com/WiredSolutions/react-azure-maps): un contenedor de React para el control de Azure Maps.
 - [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps): un componente de Azure Maps para aplicaciones Vue.
+
 
 ## <a name="key-features-support"></a>Compatibilidad de características clave
 
@@ -112,7 +113,7 @@ Ambos SDK siguen los mismos pasos para cargar un mapa:
 
 En los siguientes ejemplos básicos se usa Google Maps para cargar un mapa centrado en Nueva York en las coordenadas: longitud: -73.985, latitud: 40.747, y nivel de zoom del mapa de 12.
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 Se muestra un mapa de Google centrado y con zoom en una ubicación.
 
@@ -147,11 +148,9 @@ Se muestra un mapa de Google centrado y con zoom en una ubicación.
 
 Al ejecutar este código en un explorador, se mostrará un mapa similar al de la siguiente imagen:
 
-<center>
+![Google Maps simple](media/migrate-google-maps-web-app/simple-google-map.png)
 
-![Google Maps simple](media/migrate-google-maps-web-app/simple-google-map.png)</center>
-
-**Después: Azure Maps**
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 Carga de un mapa con la misma vista en Azure Maps junto con un control de estilo de mapa y botones de zoom.
 
@@ -206,9 +205,7 @@ Carga de un mapa con la misma vista en Azure Maps junto con un control de estilo
 
 Al ejecutar este código en un explorador, se mostrará un mapa similar al de la siguiente imagen:
 
-<center>
-
-![Azure Maps simple](media/migrate-google-maps-web-app/simple-azure-maps.png)</center>
+![Azure Maps simple](media/migrate-google-maps-web-app/simple-azure-maps.png)
 
 Para ver documentación detallada sobre cómo configurar y usar el control de mapa de Azure Maps en una aplicación web, haga clic [aquí](how-to-use-map-control.md).
 
@@ -223,7 +220,7 @@ Para ver documentación detallada sobre cómo configurar y usar el control de ma
 
 Si su audiencia se extiende a varios países o regiones y habla distintos idiomas, la localización es importante.
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 Para traducir Google Maps, agregue parámetros de idioma y región.
 
@@ -233,11 +230,9 @@ Para traducir Google Maps, agregue parámetros de idioma y región.
 
 Este es un ejemplo de Google Maps con el idioma establecido en "fr-FR".
 
-<center>
+![Localización de Google Maps](media/migrate-google-maps-web-app/google-maps-localization.png)
 
-![Localización de Google Maps](media/migrate-google-maps-web-app/google-maps-localization.png)</center>
-
-**Después: Azure Maps**
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 Azure Maps proporciona dos formas diferentes de establecer el idioma y la vista regional del mapa. La primera opción es agregar esta información al espacio de nombres de *atlas* global. Como resultado, todas las instancias de control de mapa de la aplicación tendrán como valor predeterminado esta configuración. El código siguiente establece el idioma en francés ("fr-FR") y la vista regional en "auto":
 
@@ -267,9 +262,7 @@ Encontrará una lista detallada de [idiomas admitidos](supported-languages.md) e
 
 Este es un ejemplo de Azure Maps con el idioma establecido en "fr" y la región del usuario establecida en "fr-FR".
 
-<center>
-
-![Localización de Azure Maps](media/migrate-google-maps-web-app/azure-maps-localization.png)</center>
+![Localización de Azure Maps](media/migrate-google-maps-web-app/azure-maps-localization.png)
 
 ### <a name="setting-the-map-view"></a>Establecimiento de la vista del mapa
 
@@ -278,7 +271,7 @@ Los mapas dinámicos en Azure Maps y Google Maps se pueden mover mediante progra
 > [!NOTE]
 > En Google Maps se usan mosaicos de 256 píxeles de tamaño mientras que en Azure Maps se usan mosaicos de 512 píxeles. Por lo tanto, Azure Maps requiere menos número de solicitudes de red para cargar el mismo área de mapa que Google Maps. Debido a la forma en que las pirámides de mosaicos funcionan en los controles de mapa, debe restar uno del nivel de zoom usado en Google Maps cuando se usa Azure Maps. Esta operación aritmética garantiza que los mosaicos mayores de Azure Maps representen el mismo área de mapa que en Google Maps.
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 Mueva el control mapa de Google Maps con el método `setOptions`. Este método permite especificar el centro del mapa y un nivel de zoom.
 
@@ -290,11 +283,9 @@ map.setOptions({
 });
 ```
 
-<center>
+![Vista establecida de Google Maps](media/migrate-google-maps-web-app/google-maps-set-view.png)
 
-![Vista establecida de Google Maps](media/migrate-google-maps-web-app/google-maps-set-view.png)</center>
-
-**Después: Azure Maps**
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 En Azure Maps, cambie la posición del mapa con el método `setCamera` y cambie el estilo de mapa con el método `setStyle`. Las coordenadas en Azure Maps tienen el formato "longitud, latitud" y se resta uno al valor del nivel de zoom.
 
@@ -309,9 +300,7 @@ map.setStyle({
 });
 ```
 
-<center>
-
-![Vista establecida de Azure Maps](media/migrate-google-maps-web-app/azure-maps-set-view.jpeg)</center>
+![Vista establecida de Azure Maps](media/migrate-google-maps-web-app/azure-maps-set-view.jpeg)
 
 **Recursos adicionales:**
 
@@ -330,7 +319,7 @@ Las capas de símbolos y las capas de burbujas se representan dentro del context
 
 Vamos a agregar un marcador al mapa con el número 10 superpuesto como etiqueta. Use la longitud:-0.2 y latitud: 51.5.
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 Con Google Maps, agregue los marcadores al mapa mediante la clase `google.maps.Marker` y especifique el mapa como una de las opciones.
 
@@ -343,9 +332,7 @@ var marker = new google.maps.Marker({
 });
 ```
 
-<center>
-
-![Marcador de Google Maps](media/migrate-google-maps-web-app/google-maps-marker.png)</center>
+![Marcador de Google Maps](media/migrate-google-maps-web-app/google-maps-marker.png)
 
 **Después: Azure Maps con marcadores HTML**
 
@@ -359,9 +346,7 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-<center>
-
-![Marcador HTML de Azure Maps](media/migrate-google-maps-web-app/azure-maps-html-marker.png)</center>
+![Marcador HTML de Azure Maps](media/migrate-google-maps-web-app/azure-maps-html-marker.png)
 
 **Después: Azure Maps con una capa de símbolos**
 
@@ -425,9 +410,7 @@ En el caso de una capa de símbolos, agregue los datos a un origen de datos. Adj
 </html>
 ```
 
-<center>
-
-![Capa de símbolos de Azure Maps](media/migrate-google-maps-web-app/azure-maps-symbol-layer.png)</center>
+![Capa de símbolos de Azure Maps](media/migrate-google-maps-web-app/azure-maps-symbol-layer.png)
 
 **Recursos adicionales:**
 
@@ -451,7 +434,8 @@ Puede utilizar imágenes personalizadas para representar puntos en un mapa. En e
 ![imagen de marcador amarillo](media/migrate-google-maps-web-app/yellow-pushpin.png)<br/>
 yellow-pushpin.png</center>
 
-**Antes: Google Maps**
+
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 Cree un marcador personalizado especificando un objeto `Icon` que contiene el valor de `url` de la imagen. Especifique un punto `anchor` para alinear el punto de la imagen de la chincheta con la coordenada del mapa. El valor del delimitador en Google Maps está en relación con la esquina superior izquierda de la imagen.
 
@@ -466,9 +450,8 @@ var marker = new google.maps.Marker({
 });
 ```
 
-<center>
 
-![Marcador personalizado de Google Maps](media/migrate-google-maps-web-app/google-maps-custom-marker.png)</center>
+![Marcador personalizado de Google Maps](media/migrate-google-maps-web-app/google-maps-custom-marker.png)
 
 **Después: Azure Maps con marcadores HTML**
 
@@ -486,9 +469,7 @@ map.markers.add(new atlas.HtmlMarker({
 }));
 ```
 
-<center>
-
-![Marcador HTML personalizado de Azure Maps](media/migrate-google-maps-web-app/azure-maps-custom-html-marker.png)</center>
+![Marcador HTML personalizado de Azure Maps](media/migrate-google-maps-web-app/azure-maps-custom-html-marker.png)
 
 **Después: Azure Maps con una capa de símbolos**
 
@@ -553,9 +534,7 @@ En Azure Maps, las capas de símbolos también admiten imágenes personalizadas.
 </html>
 ```
 
-<center>
-
-![Capa de símbolos de icono personalizado de Azure Maps](media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.png)</center>
+![Capa de símbolos de icono personalizado de Azure Maps](media/migrate-google-maps-web-app/azure-maps-custom-icon-symbol-layer.png)</
 
 > [!TIP]
 > Para representar puntos personalizados avanzados, use varias capas de representación juntas. Por ejemplo, supongamos que desea tener varias chinchetas que tengan el mismo icono en diferentes círculos de color. En lugar de crear un grupo de imágenes para cada superposición de color, agregue una capa de símbolos encima de una capa de burbujas. Haga que las chinchetas hagan referencia al mismo origen de datos. Este enfoque será más eficaz que crear y mantener un grupo de imágenes diferentes.
@@ -575,7 +554,7 @@ En Azure Maps, las capas de símbolos también admiten imágenes personalizadas.
 
 Use polilíneas para representar una línea o una ruta en el mapa. Vamos a crear una polilínea discontinua en el mapa.
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 La clase Polyline acepta un conjunto de opciones. Pase una matriz de coordenadas en la opción `path` de la polilínea.
 
@@ -611,11 +590,9 @@ var line = new google.maps.Polyline({
 line.setMap(map);
 ```
 
-<center>
+![Polilínea de Google Maps](media/migrate-google-maps-web-app/google-maps-polyline.png)
 
-![Polilínea de Google Maps](media/migrate-google-maps-web-app/google-maps-polyline.png)</center>
-
-**Después: Azure Maps**
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 Las polilíneas se llaman objetos `LineString` o `MultiLineString`. Estos objetos se pueden agregar a un origen de datos y se representan mediante una capa de línea. Agregue `LineString` a un origen de datos y, a continuación, agregue el origen de datos a `LineLayer` para representarlo.
 
@@ -641,10 +618,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
     strokeDashArray: [3, 3]
 }));
 ```
-
-<center>
-
-![Polilínea de Azure Maps](media/migrate-google-maps-web-app/azure-maps-polyline.png)</center>
+![Polilínea de Azure Maps](media/migrate-google-maps-web-app/azure-maps-polyline.png)
 
 **Recursos adicionales:**
 
@@ -656,7 +630,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 Azure Maps y Google Maps proporcionan una compatibilidad similar para los polígonos. Los polígonos se usan para representar un área en el mapa. En los ejemplos siguientes se muestra cómo crear un polígono que forme un triángulo basado en la coordenada del centro del mapa.
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 La clase Polygon acepta un conjunto de opciones. Pase una matriz de coordenadas a la opción `paths` del polígono.
 
@@ -681,11 +655,9 @@ var polygon = new google.maps.Polygon({
 polygon.setMap(map);
 ```
 
-<center>
+![Polígono de Google Maps](media/migrate-google-maps-web-app/google-maps-polygon.png)
 
-![Polígono de Google Maps](media/migrate-google-maps-web-app/google-maps-polygon.png)</center>
-
-**Después: Azure Maps**
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 Agregue objetos `Polygon` o `MultiPolygon` a un origen de datos. Represente el objeto en el mapa mediante capas. Representa el área de un polígono mediante una capa de polígono. Por último, represente el contorno de un polígono con una capa de línea.
 
@@ -716,10 +688,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
     strokeWidth: 2
 }));
 ```
-
-<center>
-
-![Polígono de Azure Maps](media/migrate-google-maps-web-app/azure-maps-polygon.png)</center>
+![Polígono de Azure Maps](media/migrate-google-maps-web-app/azure-maps-polygon.png)
 
 **Recursos adicionales:**
 
@@ -733,7 +702,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 Se puede mostrar en el mapa información adicional de una entidad como una clase `google.maps.InfoWindow` en Google Maps. En Azure Maps, esta funcionalidad se puede lograr con la clase `atlas.Popup`. En los siguientes ejemplos se agrega un marcador al mapa. Cuando se hace clic en el marcador, se muestra una ventana de información o un elemento emergente.
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 Cree una ventana de información mediante el constructor `google.maps.InfoWindow`.
 
@@ -754,12 +723,9 @@ marker.addListener('click', function () {
     infowindow.open(map, marker);
 });
 ```
+![Elemento emergente de Google Maps](media/migrate-google-maps-web-app/google-maps-popup.png)
 
-<center>
-
-![Elemento emergente de Google Maps](media/migrate-google-maps-web-app/google-maps-popup.png)</center>
-
-**Después: Azure Maps**
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 Vamos a usar el elemento emergente para mostrar información adicional acerca de la ubicación. Pase un objeto HTML `string` o `HTMLElement` a la opción `content` del elemento emergente. Si lo desea, los elementos emergentes se pueden mostrar independientemente de cualquier forma. Por ello, los elementos emergentes requieren que se especifique un valor `position`. Especifique el valor de `position`. Para mostrar un elemento emergente, llame al método `open` y pase el objeto `map` en el que se va a mostrar el elemento emergente.
 
@@ -785,10 +751,7 @@ map.events.add('click', marker, function () {
     popup.open(map);
 });
 ```
-
-<center>
-
-![Elemento emergente de Azure Maps](media/migrate-google-maps-web-app/azure-maps-popup.png)</center>
+![Elemento emergente de Azure Maps](media/migrate-google-maps-web-app/azure-maps-popup.png)
 
 > [!NOTE]
 > Para hacer lo mismo con una capa de símbolos, burbujas, líneas o polígonos, pase la capa elegida al código del evento de mapa en lugar de a un marcador.
@@ -808,7 +771,7 @@ Google Maps admite la carga y la aplicación dinámica de estilo a los datos Geo
 
 En los siguientes ejemplos se carga una fuente GeoJSON de todos los terremotos en los últimos siete días de los USGS. Los datos de terremotos se representan como círculos a escala en el mapa. El color y la escala de cada círculo se basan en la magnitud de cada terremoto, que está almacenada en la propiedad `"mag"` de cada característica del conjunto de datos. Si la magnitud es mayor o igual que cinco, el círculo será rojo. Si es mayor o igual que tres, pero menor que cinco, el círculo será naranja. Si es inferior a tres, el círculo será verde. El radio de cada círculo será el valor exponencial de la magnitud multiplicado por 0,1.
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 Especifique una única función de devolución de llamada en el método `map.data.setStyle`. Dentro de la función de devolución de llamada, aplique la lógica de negocios a cada característica. Cargue la fuente GeoJSON con el método `map.data.loadGeoJson`.
 
@@ -877,11 +840,9 @@ Especifique una única función de devolución de llamada en el método `map.dat
 </html>
 ```
 
-<center>
+![GeoJSON de Google Maps](media/migrate-google-maps-web-app/google-maps-geojson.png)
 
-![GeoJSON de Google Maps](media/migrate-google-maps-web-app/google-maps-geojson.png)</center>
-
-**Después: Azure Maps**
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 GeoJSON es el tipo de datos base de Azure Maps. Impórtelo en un origen de datos con el método `datasource.importFromUrl`. Use una capa de burbujas. La capa de burbujas proporciona funcionalidad para representar círculos a escala en función de las propiedades de las características de un origen de datos. En lugar de tener una función de devolución de llamada, la lógica de negocios se convierte en una expresión y se pasa a las opciones de estilo. Las expresiones definen cómo funciona la lógica de negocios. Las expresiones se pueden pasar a otro subproceso y evaluarse con los datos de la característica. Se pueden agregar varios orígenes de datos y capas a Azure Maps, cada uno con una lógica de negocios diferente. Esta característica permite representar varios conjuntos de datos en el mapa de maneras diferentes.
 
@@ -958,9 +919,9 @@ GeoJSON es el tipo de datos base de Azure Maps. Impórtelo en un origen de datos
 </html>
 ```
 
-<center>
 
-![GeoJSON de Azure Maps](media/migrate-google-maps-web-app/azure-maps-geojson.png)</center>
+
+![GeoJSON de Azure Maps](media/migrate-google-maps-web-app/azure-maps-geojson.png)
 
 **Recursos adicionales:**
 
@@ -978,7 +939,7 @@ En los siguientes ejemplos, el código carga una fuente GeoJSON de datos de terr
 > [!NOTE]
 > Google Maps y Azure Maps usan algoritmos de agrupación en clústeres ligeramente diferentes. Por eso, a veces la distribución de puntos en los clústeres varía.
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 Use la biblioteca MarkerCluster para los marcadores de clúster. Los iconos de clúster se limitan a imágenes que tienen los números del uno al cinco como nombre y se hospedan en el mismo directorio.
 
@@ -1035,11 +996,11 @@ Use la biblioteca MarkerCluster para los marcadores de clúster. Los iconos de c
 </html>
 ```
 
-<center>
 
-![Agrupación en clústeres de Google Maps](media/migrate-google-maps-web-app/google-maps-clustering.png)</center>
 
-**Después: Azure Maps**
+![Agrupación en clústeres de Google Maps](media/migrate-google-maps-web-app/google-maps-clustering.png)
+
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 Agregue y administre los datos de un origen de datos. Conecte los orígenes de datos y las capas y, a continuación, represente los datos. La clase `DataSource` en Azure Maps proporciona varias opciones de agrupación en clústeres.
 
@@ -1163,9 +1124,9 @@ Importe directamente los datos de GeoJSON con la función `importDataFromUrl` en
 </html>
 ```
 
-<center>
 
-![Agrupación en clústeres de Azure Maps](media/migrate-google-maps-web-app/azure-maps-clustering.png)</center>
+
+![Agrupación en clústeres de Azure Maps](media/migrate-google-maps-web-app/azure-maps-clustering.png)
 
 **Recursos adicionales:**
 
@@ -1180,7 +1141,7 @@ Los mapas térmicos, también conocidos como mapas de densidad de puntos, son un
 
 En los siguientes ejemplos se carga del USGS una fuente GeoJSON de todos los terremotos del último mes y se representan como un mapa térmico ponderado. Para la ponderación se utiliza la propiedad `"mag"`.
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 Para crear un mapa térmico, agregue `&libraries=visualization` a la dirección URL del script de la API para cargar la biblioteca de "visualización". La capa de mapa térmico de Google Maps no admite directamente datos GeoJSON. En primer lugar, descargue los datos y conviértalos en una matriz de puntos de datos ponderados:
 
@@ -1245,11 +1206,11 @@ Para crear un mapa térmico, agregue `&libraries=visualization` a la dirección 
 </html>
 ```
 
-<center>
 
-![Mapa térmico de Google Maps](media/migrate-google-maps-web-app/google-maps-heatmap.png)</center>
 
-**Después: Azure Maps**
+![Mapa térmico de Google Maps](media/migrate-google-maps-web-app/google-maps-heatmap.png)
+
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 Cargue los datos de GeoJSON en un origen de datos y conecte el origen de datos a una capa de mapa térmico. La propiedad que se usará para la ponderación se puede pasar a la opción `weight` mediante una expresión. Importe directamente los datos de GeoJSON a Azure Maps con la función `importDataFromUrl` en la clase `DataSource`.
 
@@ -1311,9 +1272,9 @@ Cargue los datos de GeoJSON en un origen de datos y conecte el origen de datos a
 </html>
 ```
 
-<center>
 
-![Mapa térmico de Azure Maps](media/migrate-google-maps-web-app/azure-maps-heatmap.png)</center>
+
+![Mapa térmico de Azure Maps](media/migrate-google-maps-web-app/azure-maps-heatmap.png)
 
 **Recursos adicionales:**
 
@@ -1328,7 +1289,7 @@ En Azure Maps, las capas de mosaicos se conocen como superposiciones de imágene
 
 En los ejemplos siguientes se superpone una capa de mosaicos de radar meteorológico de Iowa Environmental Mesonet of Iowa State University.
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 En Google Maps, las capas de mosaicos se pueden crear mediante la clase `google.maps.ImageMapType`.
 
@@ -1342,11 +1303,11 @@ map.overlayMapTypes.insertAt(0, new google.maps.ImageMapType({
 }));
 ```
 
-<center>
 
-![Capa de mosaicos de Google Maps](media/migrate-google-maps-web-app/google-maps-tile-layer.png)</center>
 
-**Después: Azure Maps**
+![Capa de mosaicos de Google Maps](media/migrate-google-maps-web-app/google-maps-tile-layer.png)
+
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 Agregue una capa de mosaicos al mapa igual que haría con cualquier otra capa. Use una dirección URL con formato que tenga marcadores de X, Y y zoom: `{x}`, `{y}`, `{z}`, para indicar a la capa dónde puede acceder a los mosaicos. Las capas de mosaicos de Azure Maps también admiten los marcadores de posición `{quadkey}`, `{bbox-epsg-3857}` y `{subdomain}`.
 
@@ -1362,9 +1323,9 @@ map.layers.add(new atlas.layer.TileLayer({
 }), 'labels');
 ```
 
-<center>
 
-![Capa de mosaicos de Azure Maps](media/migrate-google-maps-web-app/azure-maps-tile-layer.png)</center>
+
+![Capa de mosaicos de Azure Maps](media/migrate-google-maps-web-app/azure-maps-tile-layer.png)
 
 > [!TIP]
 > Las solicitudes de mosaicos se pueden capturar con la opción `transformRequest` del mapa. Esto le permitirá modificar o agregar encabezados a la solicitud si lo desea.
@@ -1379,7 +1340,7 @@ map.layers.add(new atlas.layer.TileLayer({
 
 Los datos de tráfico se pueden superponer en Azure Maps y Google Maps.
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 Superponga los datos de tráfico en el mapa con la capa de tráfico.
 
@@ -1388,11 +1349,11 @@ var trafficLayer = new google.maps.TrafficLayer();
 trafficLayer.setMap(map);
 ```
 
-<center>
 
-![Tráfico de Google Maps](media/migrate-google-maps-web-app/google-maps-traffic.png)</center>
 
-**Después: Azure Maps**
+![Tráfico de Google Maps](media/migrate-google-maps-web-app/google-maps-traffic.png)
+
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 Azure Maps proporciona varias opciones diferentes para mostrar el tráfico. Muestre las incidencias de tráfico, como cierres de carreteras y accidentes, como iconos en el mapa. Superponga en el mapa el flujo de tráfico y las carreteras codificadas por colores. Los colores se pueden modificar según el límite de velocidad registrado, en relación con el retraso normal esperado o con el retraso absoluto. Los datos de incidentes en Azure Maps se actualizan cada minuto y los datos de flujo se actualizan cada dos minutos.
 
@@ -1405,15 +1366,15 @@ map.setTraffic({
 });
 ```
 
-<center>
 
-![Tráfico de Azure Maps](media/migrate-google-maps-web-app/azure-maps-traffic.png)</center>
+
+![Tráfico de Azure Maps](media/migrate-google-maps-web-app/azure-maps-traffic.png)
 
 Si hace clic en uno de los iconos de tráfico de Azure Maps, se mostrará información adicional en un menú emergente.
 
-<center>
 
-![Incidente de tráfico en Azure Maps](media/migrate-google-maps-web-app/azure-maps-traffic-incident.png)</center>
+
+![Incidente de tráfico en Azure Maps](media/migrate-google-maps-web-app/azure-maps-traffic-incident.png)
 
 **Recursos adicionales:**
 
@@ -1424,7 +1385,7 @@ Si hace clic en uno de los iconos de tráfico de Azure Maps, se mostrará inform
 
 Tanto Azure Maps como Google Maps admiten la superposición de imágenes georreferenciadas en el mapa. Las imágenes georreferenciadas se mueven y escalan a medida que el mapa se desplaza y se hace zoom en él. En Google Maps, las imágenes georreferenciadas se conocen como superposiciones de terreno, mientras que en Azure Maps se conocen como capas de imagen. Son excelentes para la creación de planos de piso, la superposición de mapas antiguos o las imágenes de un dron.
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 Especifique la dirección URL de la imagen que quiere superponer y un rectángulo delimitador para enlazar la imagen en el mapa. En este ejemplo se superpone una imagen de mapa de [Newark New Jersey de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) en el mapa.
 
@@ -1471,11 +1432,9 @@ Especifique la dirección URL de la imagen que quiere superponer y un rectángul
 
 Al ejecutar este código en un explorador, se mostrará un mapa similar al de la siguiente imagen:
 
-<center>
+![Superposición de imágenes de Google Maps](media/migrate-google-maps-web-app/google-maps-image-overlay.png)
 
-![Superposición de imágenes de Google Maps](media/migrate-google-maps-web-app/google-maps-image-overlay.png)</center>
-
-**Después: Azure Maps**
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 Use la clase `atlas.layer.ImageLayer` para superponer las imágenes georreferenciadas. Esta clase requiere una dirección URL para una imagen y un conjunto de coordenadas para las cuatro esquinas de la imagen. La imagen debe estar hospedada en el mismo dominio o tener COR habilitados.
 
@@ -1534,9 +1493,9 @@ Use la clase `atlas.layer.ImageLayer` para superponer las imágenes georreferenc
 </html>
 ```
 
-<center>
 
-![Superposición de imágenes de Azure Maps](media/migrate-google-maps-web-app/azure-maps-image-overlay.png)</center>
+
+![Superposición de imágenes de Azure Maps](media/migrate-google-maps-web-app/azure-maps-image-overlay.png)
 
 **Recursos adicionales:**
 
@@ -1547,7 +1506,7 @@ Use la clase `atlas.layer.ImageLayer` para superponer las imágenes georreferenc
 
 Tanto Azure como Google Maps pueden importar y representar datos KML, KMZ y GeoRSS en el mapa. Azure Maps también admite GPX, GML, archivos CSV espaciales, GeoJSON, Well Known Text (WKT), Web-Mapping Services (WMS), Web-Mapping Tile Services (WMTS) y Web Feature Services (WFS). Azure Maps lee los archivos localmente en memoria y, en la mayoría de los casos, puede controlar archivos KML de mayor tamaño. 
 
-**Antes: Google Maps**
+#### <a name="before-google-maps"></a>Antes: Google Maps
 
 
 ```javascript
@@ -1586,11 +1545,9 @@ Tanto Azure como Google Maps pueden importar y representar datos KML, KMZ y GeoR
 
 Al ejecutar este código en un explorador, se mostrará un mapa similar al de la siguiente imagen:
 
-<center>
+![KML de Google Maps](media/migrate-google-maps-web-app/google-maps-kml.png)
 
-![KML de Google Maps](media/migrate-google-maps-web-app/google-maps-kml.png)</center>
-
-**Después: Azure Maps**
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 En Azure Maps, GeoJSON es el formato de datos principal que se usa en el SDK web, los formatos de datos espaciales adicionales se pueden integrar fácilmente mediante el [módulo de E/S espacial](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/). Este módulo tiene funciones para la lectura y la escritura de datos espaciales y también incluye una capa de datos simple que puede representar fácilmente los datos de cualquiera de estos formatos de datos espaciales. Para leer los datos de un archivo de datos espaciales, pase una dirección URL, o bien los datos sin procesar como una cadena o un blob, a la función `atlas.io.read`. Esto devolverá todos los datos analizados del archivo que se pueden agregar al mapa. KML es un poco más complejo que el formato de datos espaciales, ya que incluye mucha más información de estilo. La clase `SpatialDataLayer` admite la representación de la mayoría de estos estilos; sin embargo, las imágenes de iconos deben cargarse en el mapa antes de cargar los datos de características y las superposiciones en el suelo deben agregarse como capas al mapa por separado. Al cargar datos mediante una dirección URL, debe estar hospedada en un punto de conexión habilitado para CORS o se debe pasar un servicio proxy como una opción en la función de lectura. 
 
@@ -1683,9 +1640,9 @@ En Azure Maps, GeoJSON es el formato de datos principal que se usa en el SDK web
 </html>
 ```
 
-<center>
 
 ![KML de Azure Maps](media/migrate-google-maps-web-app/azure-maps-kml.png)</center>
+
 
 **Recursos adicionales:**
 
@@ -1763,21 +1720,9 @@ Las bibliotecas agregan funcionalidad adicional al mapa. Muchas de estas bibliot
 | Biblioteca de geometría      | [atlas.math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)   |
 | Biblioteca de visualización | [Capa de mapa térmico](map-add-heat-map-layer.md) |
 
-## <a name="next-steps"></a>Pasos siguientes
+Para más información sobre la migración de Google Maps:
 
-Obtenga más información sobre el SDK web de Azure Maps.
-
-> [!div class="nextstepaction"]
-> [Uso del control de mapa](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]
-> [Uso del módulo de servicios](how-to-use-services-module.md)
-
-> [!div class="nextstepaction"]
-> [Uso del módulo de herramientas de dibujo](set-drawing-options.md)
-
-> [!div class="nextstepaction"]
-> [Ejemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
-
-> [!div class="nextstepaction"]
-> [Documentación de referencia de la API de servicio del SDK web de Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-control/)
+* [Uso del módulo de servicios](how-to-use-services-module.md) 
+* [Uso del módulo de herramientas de dibujo](set-drawing-options.md)
+* [Uso del módulo de servicios](how-to-use-services-module.md)
+* [Uso del control de mapa](how-to-use-map-control.md)

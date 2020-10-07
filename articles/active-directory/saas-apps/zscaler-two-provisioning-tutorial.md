@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: bea34b2a8b8827b709cc637c0a33132477419a83
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b3cd69876eb5fa18d9763bd7f89233d7608384ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545746"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317553"
 ---
 # <a name="tutorial-configure-zscaler-two-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zscaler Two para el aprovisionamiento automático de usuarios
 
@@ -119,7 +119,7 @@ Esta sección le guía por los pasos que debe seguir para configurar el servicio
 
 11. Examine los atributos de usuario que se sincronizan entre Azure AD y Zscaler Two en la sección **Attribute Mappings** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Zscaler Two con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
 
-    ![Asignaciones de atributos](./media/zscaler-two-provisioning-tutorial/user-attribute-mappings.png)
+    ![Captura de pantalla de la sección Asignaciones de atributos, con siete asignaciones mostradas.](./media/zscaler-two-provisioning-tutorial/user-attribute-mappings.png)
 
 12. En la sección **Mappings** (Asignaciones), seleccione **Synchronize Azure Active Directory Groups to ZscalerTwo** (Sincronizar grupos de Azure Active Directory con ZscalerTwo):
 
@@ -127,7 +127,7 @@ Esta sección le guía por los pasos que debe seguir para configurar el servicio
 
 13. Examine los atributos de grupo que se sincronizan entre Azure AD y Zscaler Two en la sección **Attribute Mappings** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Matching** (Coincidencia) se usan para buscar coincidencias con los grupos de Zscaler Two para las operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
 
-    ![Asignaciones de atributos](./media/zscaler-two-provisioning-tutorial/group-attribute-mappings.png)
+    ![Captura de pantalla de la sección Asignaciones de atributos, con tres asignaciones mostradas.](./media/zscaler-two-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Para configurar filtros de ámbito, consulte las instrucciones del artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](./../active-directory-saas-scoping-filters.md).
 

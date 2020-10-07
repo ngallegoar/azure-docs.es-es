@@ -1,6 +1,6 @@
 ---
 title: Optimización de trabajos de Spark para mejorar el rendimiento
-description: En este artículo se proporciona una introducción a Apache Spark en Azure Synapse Analytics y los diferentes conceptos.
+description: En este artículo se proporciona una introducción a Apache Spark en Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 89040057798ec4c909cac584ed96c187e79b5581
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f8eb87909ffdf9ce15108d78bed425bf6c142262
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089267"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249474"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Optimización de trabajos de Apache Spark (versión preliminar) en Azure Synapse Analytics
 
-Aprenda a optimizar la configuración de los clústeres de [Apache Spark](https://spark.apache.org/) para su carga de trabajo específica.  La mayor dificultad es la presión de memoria, debido a las configuraciones inadecuadas (en especial, al tamaño incorrecto de los ejecutores), las operaciones de ejecución prolongada y las tareas que dan lugar a operaciones cartesianas. Los trabajos se pueden acelerar con el almacenamiento en caché adecuado y permitiendo la [asimetría de datos](#optimize-joins-and-shuffles). Para obtener el mejor rendimiento, supervise y revise las ejecuciones de trabajos de Spark de ejecución prolongada y que consumen muchos recursos.
+Aprenda a optimizar una configuración de los clústeres de [Apache Spark](https://spark.apache.org/) para su carga de trabajo específica.  La mayor dificultad es la presión de memoria, debido a las configuraciones inadecuadas (en especial, al tamaño incorrecto de los ejecutores), las operaciones de ejecución prolongada y las tareas que dan lugar a operaciones cartesianas. Los trabajos se pueden acelerar con el almacenamiento en caché adecuado y permitiendo la [asimetría de datos](#optimize-joins-and-shuffles). Para obtener el mejor rendimiento, supervise y revise las ejecuciones de trabajos de Spark de ejecución prolongada y que consumen muchos recursos.
 
 En las siguientes secciones se describen las recomendaciones y optimizaciones comunes de trabajos de Spark.
 
@@ -52,7 +52,7 @@ Las versiones anteriores de Spark usan RDD para abstraer datos; Spark 1.3 y 1.
 
 Spark admite muchos formatos, como csv, json, xml, parquet, orc y avro. Spark se puede ampliar para la compatibilidad con muchos más formatos con orígenes de datos externos; para más información, consulte los [paquetes de Apache Spark](https://spark-packages.org).
 
-El mejor formato para el rendimiento es parquet con *compresión eficiente*, que es el valor predeterminado en Spark 2.x. Parquet almacena datos en formato de columnas y está muy optimizado en Spark. Además, la *compresión con Snappy* puede dar lugar a archivos más grandes que la compresión con GZIP. Debido a la naturaleza divisible de esos archivos, se descomprimen más rápido.
+El mejor formato para el rendimiento es parquet con *compresión eficiente*, que es el valor predeterminado en Spark 2.x. Parquet almacena datos en formato de columnas y está muy optimizado en Spark. Además, la *compresión eficiente* puede dar lugar a archivos más grandes que la compresión con GZIP. Debido a la naturaleza divisible de esos archivos, se descomprimen más rápido.
 
 ## <a name="use-the-cache"></a>Uso de la caché
 

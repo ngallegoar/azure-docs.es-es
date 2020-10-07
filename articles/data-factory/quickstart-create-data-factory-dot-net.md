@@ -1,6 +1,6 @@
 ---
 title: Crear una factoría de datos de Azure con SDK de .NET
-description: Cree una factoría de datos de Azure para copiar los datos de una ubicación de Azure Blob Storage a otra.
+description: Cree una canalización y una factoría de datos de Azure para copiar los datos mediante el SDK de .NET de una ubicación de Azure Blob Storage a otra.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: d4652ca62a82d14c7e44466161ae9b463818a71f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e8da3dff39f94d6639471a2d1d96691c9cde614d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433989"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322893"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Inicio rápido: Creación de una factoría de datos y una canalización con SDK de .NET
 
@@ -49,7 +49,7 @@ En las secciones de *Instrucciones: Uso del portal para crear una aplicación de
 
 1. En [Crear una aplicación de Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), cree una aplicación que represente la aplicación .NET que se va a crear en este tutorial. Para la dirección URL de inicio de sesión, puede proporcionar una dirección URL ficticia, tal como se muestra en el artículo (`https://contoso.org/exampleapp`).
 2. En [Obtener valores para iniciar sesión](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), obtenga el **identificador de aplicación** y el **identificador de inquilino** y tome nota de estos valores que se usa más adelante en este tutorial. 
-3. En [Certificados y secretos](../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in), obtenga la **clave de autenticación** y tome nota de este valor que se usa más adelante en este tutorial.
+3. En [Certificados y secretos](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), obtenga la **clave de autenticación** y tome nota de este valor que se usa más adelante en este tutorial.
 4. En [Asignar la aplicación a un rol](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), asigne la aplicación al rol **Colaborador** en el nivel de suscripción para que la aplicación pueda crear factorías de datos en la suscripción.
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio

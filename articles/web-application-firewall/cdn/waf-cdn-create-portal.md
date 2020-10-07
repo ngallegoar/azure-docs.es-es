@@ -5,14 +5,14 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 7a9e0cc3977892fd899b4a25e17ad72f13481506
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c5505b9437a4bd8dced6a090817b17d5e29374f2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608820"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327945"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Tutorial: Creación de una directiva WAF para Azure CDN con Azure Portal
 
@@ -72,17 +72,22 @@ Para crear una regla personalizada, seleccione **Agregar regla personalizada** d
 
 En la captura de pantalla siguiente se muestra una regla de coincidencia personalizada si la cadena de consulta contiene el valor **blockme**.
 
-![Cambio del modo de directiva WAF](../media/waf-cdn-create-portal/custommatch.png)
+![Incorporación de una regla de coincidencia personalizada](../media/waf-cdn-create-portal/custommatch.png)
 
 Las reglas de límite de frecuencia requieren dos campos adicionales: **Duración del límite de frecuencia** y **Umbral de límite de frecuencia (solicitudes)** , como se muestra en el ejemplo siguiente:
 
-![Cambio del modo de directiva WAF](../media/waf-cdn-create-portal/customrate.png)
+![Incorporación de una regla de límite de frecuencia](../media/waf-cdn-create-portal/customrate.png)
 
 ### <a name="default-rule-set-drs"></a>Conjunto de reglas predeterminado (DRS)
 
 El conjunto de reglas predeterminado administrado por Azure está habilitado de forma predeterminada. Para deshabilitar una regla individual dentro de un grupo de reglas, expanda las reglas dentro de ese grupo de reglas, active la casilla delante del número de regla y seleccione **Deshabilitar** en la pestaña anterior. Para cambiar los tipos de acciones para los conjuntos de reglas individuales dentro del conjunto de reglas, active la casilla situada delante del número de regla y, a continuación, seleccione la pestaña **Cambiar acción** anterior.
 
  ![Cambio del conjunto de reglas de WAF](../media/waf-cdn-create-portal/managed2.png)
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no los necesite, elimine el grupo de recursos y todos los recursos relacionados.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

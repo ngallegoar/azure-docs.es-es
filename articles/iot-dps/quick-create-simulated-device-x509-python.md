@@ -1,5 +1,5 @@
 ---
-title: Aprovisionamiento de un dispositivo X.509 simulado para Azure IoT Hub mediante Python
+title: 'Inicio rápido: Aprovisionamiento de un dispositivo X.509 simulado en Azure IoT Hub mediante Python'
 description: 'Inicio rápido de Azure: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos de Python para IoT Hub Device Provisioning Service (DPS). En esta guía de inicio rápido se utilizan inscripciones individuales.'
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 3386dcf60049ede9297bd36e701442ce50603add
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 28a65e9e5f85d3c1102875a97ae122a00456c607
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872527"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323913"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Inicio rápido: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Python para el servicio IoT Hub Device Provisioning
 
@@ -24,7 +24,7 @@ En este inicio rápido se crea un dispositivo simulado X.509 en un equipo Window
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Revisión de [Conceptos de aprovisionamiento automático](concepts-auto-provisioning.md).
+- Estar familiarizado con los conceptos de [aprovisionamiento](about-iot-dps.md#provisioning-process).
 - Finalización de [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/) con desarrollo para el escritorio con C++.

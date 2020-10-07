@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Creación de un firewall de aplicaciones web de Azure, versión 2, en Application Gateway: plantilla de Azure Resource Manager'
 titleSuffix: Azure Application Gateway
-description: Aprenda a usar una plantilla de Azure Resource Manager para crear un firewall de aplicaciones web, versión 2, en Azure Application Gateway.
+description: Aprenda a usar una plantilla de inicio rápido de Azure Resource Manager (plantilla de ARM) para crear una instancia de Web Application Firewall v2 en Azure Application Gateway.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
-ms.date: 04/02/2020
+ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: b0a430ebfb19ca529ae96698173df27d18e6dd10
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 036503f95a7dc1aaa5690bacc01d07034e6d162f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705204"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266962"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Inicio rápido: Creación de un firewall de aplicaciones web de Azure, versión 2, en Application Gateway mediante una plantilla de Resource Manager
 

@@ -4,17 +4,17 @@ description: En este inicio rápido se muestra cómo usar las herramientas web p
 services: synapse-analytics
 author: euangMS
 ms.author: euang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 4ca718db8d2d2d57c73e8e492e2edbee221cb3ec
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: aca58328ada4f01072cf3779735bcd5cb518ef0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049815"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260774"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Inicio rápido: Creación de un grupo de Apache Spark en Azure Synapse Analytics mediante herramientas web
 
@@ -49,7 +49,7 @@ Un cuaderno es un entorno interactivo que admite varios lenguajes de programaci�
 4. En la ventana **Properties** (Propiedades), proporcione un nombre para el cuaderno.
 5. En la barra de herramientas, haga clic en **Publish** (Publicar).
 6. Si solo hay un grupo de Apache Spark en el área de trabajo, se selecciona de forma predeterminada. Use la lista desplegable para seleccionar el grupo de Apache Spark correcto si no se selecciona ninguno.
-7. Haga clic en **Add code** (Agregar código). El lenguaje predeterminado es `Pyspark`. Va a usar una combinación de Pyspark y Spark SQL, por lo que la opción predeterminada es correcta.
+7. Haga clic en **Add code** (Agregar código). El lenguaje predeterminado es `Pyspark`. Va a usar una combinación de Pyspark y Spark SQL, por lo que la opción predeterminada es correcta. Otros lenguajes admitidos son Scala y .NET para Spark.
 8. A continuación, creará un objeto DataFrame simple de Spark para manipularlo. En este caso, se crea a partir del código. Hay tres filas y tres columnas:
 
    ```python

@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Uso de cURL y REST para obtener la intención: LUIS'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido de API REST, usará una aplicación de LUIS disponible públicamente para determinar la intención de un usuario a partir de texto conversacional.
+description: En este inicio rápido de API REST, usará cURL y REST para determinar la intención de un usuario a partir de texto conversacional.
 services: cognitive-services
 author: nitinme
 manager: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/19/2020
 ms.author: nitinme
-ms.openlocfilehash: 8ab76bcdfc62ed0af52e6c99ef6c7b14ebeef25f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7a8cbfa307f14a6660dcace3315384bc523ad888
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497869"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316263"
 ---
 # <a name="quickstart-use-curl-and-rest-to-get-intent"></a>Inicio rápido: Uso de cURL y REST para obtener intenciones
 

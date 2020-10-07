@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 66a322d4f60d9553a68207136ae609c1f9b50dbc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 715ed204e28d6260c28fa099b40fc78aa12de44d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73826213"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281548"
 ---
 # <a name="what-is-opc-vault"></a>¿Qué es OPC Vault?
+
+> [!IMPORTANT]
+> Mientras actualizamos este artículo, consulte el artículo sobre [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/), donde encontrará el contenido más actualizado.
 
 OPC Vault es un microservicio que puede configurar, registrar y administrar el ciclo de vida de los certificados para aplicaciones cliente y servidor de OPC UA en la nube. En este artículo se describen los casos de uso sencillos de OPC Vault.
 
@@ -35,5 +38,4 @@ El siguiente diagrama ilustra la arquitectura completa de OPC Vault.
 
 Ahora que ha aprendido sobre OPC Vault y sus usos, este es el siguiente paso sugerido:
 
-> [!div class="nextstepaction"]
-> [Arquitectura de OPC Vault](overview-opc-vault-architecture.md)
+[Arquitectura de OPC Vault](overview-opc-vault-architecture.md)

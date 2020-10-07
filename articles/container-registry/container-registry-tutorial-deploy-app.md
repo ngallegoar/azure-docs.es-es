@@ -4,12 +4,12 @@ description: Implemente una aplicación web basada en Linux en dos regiones de A
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bcbce3c60aa0b4613b1dd1840c335c800193e549
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74456111"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328696"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Implementación de una aplicación web de un registro de contenedor de Azure con replicación geográfica
 
@@ -58,7 +58,7 @@ En el cuadro **Web App for Containers** que aparece al seleccionar "Implementar 
 
 Seleccione **Crear** para aprovisionar la aplicación web en la región *Oeste de EE. UU*.
 
-![Configuración de Web app on Linux en Azure Portal][deploy-app-portal-02]
+![La captura de pantalla muestra la instancia de Web App for Containers, con el botón Crear resaltado.][deploy-app-portal-02]
 
 ## <a name="view-the-deployed-web-app"></a>Visualización de la aplicación web implementada
 
@@ -68,11 +68,11 @@ En el portal, seleccione **App Services** y, a continuación, la aplicación web
 
 Seleccione la dirección URL con hipervínculo de la aplicación web en la parte superior derecha de la sección de información general de **App Service** para ver la aplicación en ejecución en el explorador.
 
-![Configuración de Web app on Linux en Azure Portal][deploy-app-portal-04]
+![La captura de pantalla muestra la información general de App Service, con la dirección URL de la aplicación web resaltada.][deploy-app-portal-04]
 
 Una vez implementada la imagen de Docker desde el registro de contenedor con replicación geográfica, el sitio muestra una imagen que representa la región de Azure que hospeda el registro de contenedor.
 
-![Visualización de la aplicación web implementada en un explorador][deployed-app-westus]
+![La captura de pantalla muestra la aplicación web implementada en un explorador.][deployed-app-westus]
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>Implementación de una segunda instancia de Web App for Containers
 
@@ -88,9 +88,9 @@ Use el procedimiento que se describe en la sección anterior para implementar un
 
 Seleccione **Crear** para aprovisionar la aplicación web en la región *Este de EE. UU*.
 
-![Configuración de Web app on Linux en Azure Portal][deploy-app-portal-06]
+![La captura de pantalla muestra la ventana de creación de Web App for Containers, con el botón Crear resaltado.][deploy-app-portal-06]
 
-## <a name="view-the-deployed-web-app"></a>Visualización de la aplicación web implementada
+## <a name="view-the-second-deployed-web-app"></a>Visualización de la segunda aplicación web implementada
 
 Igual que antes, puede navegar a la URL de la aplicación en ejecución en el explorador para verla.
 

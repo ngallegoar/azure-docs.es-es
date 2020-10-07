@@ -1,6 +1,6 @@
 ---
-title: Modificación de cuentas de aplicaciones de la plataforma de identidad de Microsoft | Azure
-description: Configure una aplicación registrada en la plataforma de identidad de Microsoft para cambiar quién o qué cuentas pueden acceder a la aplicación.
+title: 'Inicio rápido: Modificación de cuentas de aplicaciones de la plataforma de identidad de Microsoft | Azure'
+description: En este inicio rápido, va a configurar una aplicación registrada en la plataforma de identidad de Microsoft para cambiar los usuarios o las cuentas que pueden acceder a la aplicación.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 2850ca3f23e61be54702878c0683af9fdb1fad91
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d143bde9c22bc726f00b5c209d1b7fbc131905b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258020"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Inicio rápido: Modificación de las cuentas compatibles con una aplicación
 
@@ -27,11 +27,7 @@ En esta guía de inicio rápido, aprenderá a modificar la configuración de la 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para comenzar, asegúrese de que completa estos requisitos previos:
-
-* Aprenda sobre los [permisos y consentimiento](v2-permissions-and-consent.md) admitidos, que son importantes comprender al crear aplicaciones que necesitan ser utilizadas por otros usuarios o aplicaciones.
-* Tiene un inquilino que tenga las aplicaciones registradas en él.
-  * Si no tiene aplicaciones registradas, [aprenda a registrar aplicaciones con la plataforma de identidad de Microsoft](quickstart-register-app.md).
+* Finalización de [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md)
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Inicio de sesión en Azure Portal y selección de la aplicación
 
@@ -78,13 +74,5 @@ De forma predeterminada, la concesión implícita de OAuth 2.0 está deshabilita
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información acerca de estas otras guías de inicio rápido de administración de aplicaciones relacionadas para aplicaciones:
-
-* [Registro de una aplicación con la plataforma de identidad de Microsoft](quickstart-register-app.md)
-* [Configuración de una aplicación cliente para tener acceso a las API web](quickstart-configure-app-access-web-apis.md)
-* [Configuración de una aplicación para exponer las API web](quickstart-configure-app-expose-web-apis.md)
-* [Eliminación de una aplicación registrada con la plataforma de identidad de Microsoft](quickstart-remove-app.md)
-
-Para obtener más información acerca de los dos objetos de Azure AD que representan una aplicación registrada y la relación entre ellos, consulte [Objetos de aplicación y de entidad de servicio](app-objects-and-service-principals.md).
-
-Para obtener más información acerca de las directrices de personalización de marca que hay que usar al desarrollar aplicaciones con Azure Active Directory, consulte [Directrices de personalización de marca para aplicaciones](howto-add-branding-in-azure-ad-apps.md).
+> [!div class="nextstepaction"]
+> [Directrices de personalización de marca para aplicaciones](howto-add-branding-in-azure-ad-apps.md)

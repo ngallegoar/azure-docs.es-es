@@ -9,15 +9,19 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 21b571c859ec8ecc66c1c9a222e0648dc7f28f4f
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 90e7297236994650e0820e883c94a98b29c49fb7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89422131"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249423"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>Protección de las credenciales a través de servicios vinculados con TokenLibrary
-El acceso a los datos desde orígenes externos es un patrón común. Salvo que el origen de datos externo permita el acceso anónimo, lo más probable es que tenga que proteger la conexión con una credencial, un secreto o una cadena de conexión.  Azure Synapse Analytics proporciona servicios vinculados que simplifican el proceso de integración mediante el almacenamiento de los detalles de conexión en un servicio vinculado o en Azure Key Vault. Una vez que haya creado un servicio vinculado, Apache Spark puede hacer referencia a él para aplicar la información de conexión en el código. Para más información, consulte la información sobre los [servicios vinculados](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+El acceso a los datos desde orígenes externos es un patrón común. Salvo que el origen de datos externo permita el acceso anónimo, lo más probable es que tenga que proteger la conexión con una credencial, un secreto o una cadena de conexión.  
+
+Azure Synapse Analytics proporciona servicios vinculados que simplifican el proceso de integración mediante el almacenamiento de los detalles de conexión en un servicio vinculado o en Azure Key Vault. Una vez que haya creado un servicio vinculado, Apache Spark puede hacer referencia a este para aplicar la información de conexión en el código. 
+
+Para más información, consulte la información sobre los [servicios vinculados](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 > [!NOTE]
 > El acceso a los archivos desde Azure Data Lake Storage en su área de trabajo usa el acceso directo de AAD para la autenticación, por lo que no será preciso que use TokenLibrary. 
 
@@ -26,7 +30,7 @@ El acceso a los datos desde orígenes externos es un patrón común. Salvo que e
 * Servicio vinculado: debe crear un servicio vinculado al origen de datos externo y hacer referencia al servicio vinculado desde TokenLibrary. Más información sobre los [servicios vinculados](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 
-## <a name="connecting-to-adls-gen2-outside-of-synapse-workspace"></a>Conexión a ADLS Gen2 fuera del área de trabajo de Synapse
+## <a name="connect-to-adls-gen2-outside-of-synapse-workspace"></a>Conexión a ADLS Gen2 fuera del área de trabajo de Synapse
 
 Synapse ofrece una experiencia de servicios vinculados integrados a Azure Data Lake Storage Gen2.
 
@@ -52,7 +56,7 @@ df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTO
 
 df.show()
 ```
-## <a name="using-the-token-library"></a>Uso de TokenLibrary
+## <a name="use-the-token-library"></a>Uso de TokenLibrary
 
 Para conectarse a otros servicios vinculados, puede realizar una llamada directa a TokenLibrary.
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 7a250eaeb8ac4d0c8cacfb1748855700c9986bf5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: cc36eca0b39db5188be7a63ffb148cc0f4cf30bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079491"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252891"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: Creación de registros DNS en un dominio personalizado para una aplicación web 
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 > * Creación de un registro D y TXT para el dominio personalizado
 > * Creación de un registro CNAME para el dominio personalizado
 > * Prueba de los nuevos registros
-> * Adición de nombres de host personalizado a la aplicación web
+> * Adición de nombres de host personalizados a la aplicación web
 > * Prueba de nombres de host personalizados
 
 

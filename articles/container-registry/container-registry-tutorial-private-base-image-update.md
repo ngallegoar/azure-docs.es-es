@@ -3,13 +3,13 @@ title: 'Tutorial: Desencadenamiento de la compilación de imágenes mediante la 
 description: En este tutorial se configura una tarea de Azure Container Registry que desencadena automáticamente compilaciones de imágenes de contenedor en la nube cuando se actualiza una imagen de base en otro registro de contenedor de Azure privado.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e28dc65f44f3d9997a59e6204451cc84b0e41e40
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 09b795981c1afe497e6adbb14f4f62d45293f0e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407139"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270991"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Tutorial: Automatización de las compilaciones de imágenes de contenedor al actualizarse una imagen de base en otro registro de contenedor privado 
 
@@ -171,7 +171,7 @@ docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-
 
 Vaya a `http://localhost:8080` en el explorador, allí verá el número de versión de Node.js representado en la página web de manera parecida a la siguiente. En un paso posterior, cambiará la versión agregando una "a" a la cadena de versión.
 
-![Captura de pantalla de una aplicación de ejemplo representada en el explorador][base-update-01]
+![Captura de pantalla que muestra una aplicación de ejemplo representada en un explorador.][base-update-01]
 
 Ejecute el siguiente comando para detener y eliminar el contenedor:
 

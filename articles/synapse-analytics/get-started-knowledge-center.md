@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: c01d1bcb682a5f711dcba3cc7b32ef69b2642ef6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 47b8c45e22569cc758d00fb8534f409ecebf58ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900768"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299938"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Exploración del Centro de conocimientos de Synapse
 
@@ -46,7 +46,6 @@ El **Centro de conocimientos** le permite hacer tres cosas:
 1. Haga clic en Ejecutar. Se ejecutará el texto seleccionado.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Carga de más datos de taxis de Nueva York
-
 1. En el **Centro de conocimientos**, haga clic en **Examinar ejemplos disponibles**. 
 1. Seleccione la pestaña **Scripts de SQL** en la parte superior.
 1. Seleccione **Carga de conjunto de datos de taxis de Nueva York**
@@ -58,5 +57,6 @@ El **Centro de conocimientos** le permite hacer tres cosas:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Análisis mediante un grupo de SQL](get-started-analyze-sql-pool.md)
+* [Introducción a Azure Synapse Analytics](get-started.md)
+* [Creación de un área de trabajo](quickstart-create-workspace.md)
+* [Uso de SQL a petición](quickstart-sql-on-demand.md)

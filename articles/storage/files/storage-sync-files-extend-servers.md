@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 80fcebec76788ca9ec754b35c57f9965f38c2c0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d2a0d79a5cdd53f8376c088fc986c20908575eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037106"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329470"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Extensión de servidores de archivos de Windows con Azure File Sync
 
@@ -314,6 +314,8 @@ Los archivos ya están sincronizados entre el recurso compartido de archivos de 
 ![Azure Storage se ha sincronizado correctamente](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si desea limpiar los recursos que ha creado en este tutorial, primero elimine los puntos de conexión del servicio de sincronización de almacenamiento. A continuación, anule el registro del servidor con el servicio de sincronización de almacenamiento, quite los grupos de sincronización y elimine el servicio de sincronización.
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2a0751f12f33a36d9e0003977bcf40b66d715615
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: 8884f62ba015cc4b33b75a133f21264dac6430e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986957"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288994"
 ---
 # <a name="access-external-storage-in-synapse-sql-on-demand"></a>Acceso al almacenamiento externo en Synapse SQL (a petición)
 
@@ -52,12 +52,12 @@ CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
-Si no hay ninguna CREDENCIAL en el nivel de servidor que coincida con la dirección URL, o bien el usuario de SQL no tiene permiso REFERENCES para esta credencial, se devolverá el error. Las entidades de seguridad de SQL no se pueden suplantar con una identidad de Azure AD.
+Si en CREDENTIAL a nivel de servidor no hay ningún valor que se ajuste a la dirección URL o el usuario de SQL no tiene permiso de referencias para esta credencial, se devolverá el error. Las entidades de seguridad de SQL no se pueden suplantar mediante una identidad de Azure AD.
 
 ### <a name="direct-access"></a>[Acceso directo](#tab/direct-access)
 
 No se necesita ninguna configuración adicional para permitir que los usuarios de Azure AD tengan acceso a los archivos mediante sus identidades.
-Cualquier usuario puede acceder al almacenamiento de Azure que permite el acceso anónimo (no se necesita configuración adicional).
+Cualquier usuario puede acceder al almacenamiento de Azure que permite el acceso anónimo (no es preciso realizar ninguna configuración adicional).
 
 ---
 
@@ -75,7 +75,7 @@ SELECT * FROM
  FORMAT= 'parquet') as rows
 ```
 
-El usuario que ejecuta esta consulta tiene que tener acceso a los archivos. Los usuarios se tienen que suplantar mediante el [token de SAS](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) o la [ identidad administrada del área de trabajo](develop-storage-files-storage-access-control.md?tabs=managed-identity) si no pueden acceder directamente a los archivos mediante su [identidad de Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) o [acceso anónimo](develop-storage-files-storage-access-control.md?tabs=public-access).
+El usuario que ejecuta esta consulta debe poder acceder a los archivos. Los usuarios se tienen que suplantar mediante un [token de SAS](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) o la [ identidad administrada del área de trabajo](develop-storage-files-storage-access-control.md?tabs=managed-identity) si no pueden acceder directamente a los archivos mediante su [identidad de Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) o [acceso anónimo](develop-storage-files-storage-access-control.md?tabs=public-access).
 
 ### <a name="impersonation"></a>[Suplantación](#tab/impersonation)
 
@@ -116,7 +116,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 
 El usuario con los permisos para leer la tabla puede acceder a los archivos externos mediante una EXTERNAL TABLE que se crea sobre el conjunto de carpetas y archivos de Azure Storage.
 
-El usuario que tenga [permisos para crear una tabla externa](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions) (por ejemplo CREATE TABLE y ALTER ANY CREDENTIAL o REFERENCES DATABASE SCOPED CREDENTIAL) puede usar el siguiente script para crear una tabla sobre el origen de datos de Azure Storage:
+El usuario que tenga [permisos para crear una tabla externa](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions&preserve-view=true) (por ejemplo CREATE TABLE y ALTER ANY CREDENTIAL o REFERENCES DATABASE SCOPED CREDENTIAL) puede usar el siguiente script para crear una tabla sobre el origen de datos de Azure Storage:
 
 ```sql
 CREATE EXTERNAL TABLE [dbo].[DimProductexternal]

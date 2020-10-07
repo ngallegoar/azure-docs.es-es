@@ -1,6 +1,6 @@
 ---
 title: 'Streaming de archivos de vídeo con Azure Media Services: .NET | Microsoft Docs'
-description: Siga los pasos de este tutorial para crear una cuenta de Azure Media Services, codificar un archivo y transmitirlo a Azure Media Player.
+description: Siga los pasos de este tutorial para usar .NET para crear una cuenta de Azure Media Services, codificar un archivo y transmitirlo a Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ec60f775fbeb176f9442aff11117c85c5028a81f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 530089b9c6b9544201b0f07368cac3d1a695a4f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267095"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268696"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: .NET
 
@@ -70,7 +70,7 @@ Al ejecutar la aplicación, se muestran las direcciones URL que se pueden usar p
 1. Presione Control + F5 para ejecutar la aplicación *EncodeAndStreamFiles*.
 2. Elija el protocolo **HLS** de Apple (termina por *manifest(format=m3u8-aapl)* ) y copie la dirección URL del streaming desde la consola.
 
-![Output](./media/stream-files-tutorial-with-api/output.png)
+![Captura de pantalla de la salida de la aplicación EncodeAndStreamFiles en Visual Studio que muestra tres direcciones URL de streaming para su uso en Azure Media Player.](./media/stream-files-tutorial-with-api/output.png)
 
 En el [código fuente](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) del ejemplo, puede ver cómo se compila la dirección URL. Para compilarla, debe concatenar el nombre de host del punto de conexión del streaming y la ruta de acceso del localizador del streaming.  
 

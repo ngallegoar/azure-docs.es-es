@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffe7f58f27d028dd114f548521feeeb74bb12cf1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437707"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265283"
 ---
 # <a name="what-is-identity-protection"></a>¿Qué es Identity Protection?
 
@@ -53,7 +53,7 @@ Identity Protection identifica los riesgos de las siguientes clasificaciones:
 | Dirección IP anónima | Iniciar sesión desde una dirección IP anónima (por ejemplo: el explorador Tor o redes VPN anonimizadoras). |
 | Propiedades de inicio de sesión desconocidas | Iniciar sesión con propiedades que no hemos observado recientemente en el usuario en cuestión. |
 | Dirección IP vinculada al malware | Se inicia sesión desde una dirección IP vinculada al malware. |
-| Filtración de credenciales | Esta detección de riesgo indica que se han filtrado las credenciales válidas del usuario. |
+| Filtración de credenciales | Indica que se han filtrado las credenciales válidas del usuario. |
 | Difusión de contraseña | Indica que se está realizando un ataque de varios nombres de usuario mediante contraseñas comunes de manera unificada. |
 | Inteligencia de Azure AD sobre amenazas | Los orígenes de inteligencia sobre amenazas internas y externas de Microsoft han identificado un patrón de ataque conocido. |
 
@@ -96,13 +96,13 @@ Identity Protection requiere que los usuarios tengan el rol Lector de seguridad,
 
 Actualmente, el rol de operador de seguridad no puede acceder al informe de inicios de sesión de riesgo.
 
-Los administradores de acceso condicional también pueden crear directivas que representen el riesgo de inicio de sesión como una condición; consulte más información en el artículo [Acceso condicional: Condiciones](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
+Los administradores de acceso condicional también pueden crear directivas que representen el riesgo de inicio de sesión como una condición. Obtenga más información en el artículo [Acceso condicional: Condiciones](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
 ## <a name="license-requirements"></a>Requisitos de licencia
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Capacidad | Detalles  | Aplicaciones de Azure AD Free/Office 365 | Azure AD Premium P1|Azure AD Premium P2 |
+| Capacidad | Detalles  | Aplicaciones de Azure AD Free y Microsoft 365 | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
 | Directivas de riesgo | Directiva de riesgo de usuario (mediante Identity Protection)  | No | No |Sí | 
 | Directivas de riesgo | Directiva de riesgo de inicio de sesión (mediante Identity Protection o acceso condicional)  | No |  No |Sí |

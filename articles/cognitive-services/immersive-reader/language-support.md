@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
-ms.openlocfilehash: cdf21ed85933c2a629c5752659e9cc50107a3762
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: c4aa9c22a0350c5d946d2fd45a983eac34681512
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309312"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320938"
 ---
 # <a name="language-support-for-immersive-reader"></a>Compatibilidad de idiomas con el Lector inmersivo
 
@@ -30,7 +30,8 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Árabe (Arabia Saudí) | ar-SA |
 | Búlgaro | bg |
 | Búlgaro (Bulgaria) | bg-BG |
-| Catalán | ca-ES |
+| Catalán | ca |
+| Catalán (España) | ca-ES |
 | Chino | zh |
 | Chino (China) | zh-CN |
 | Chino (RAE de Hong Kong) | zh-HK |
@@ -40,7 +41,8 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Chino simplificado | zh-Hans |
 | Chino simplificado (China) | zh-Hans-CN |
 | Chino simplificado (Singapur) | zh-Hans-SG |
-| Chino tradicional | zh-Hant-CN |
+| Chino tradicional | zh-Hant |
+| Chino tradicional (China) | zh-Hant-CN |
 | Chino tradicional (RAE de Hong Kong) | zh-Hant-HK |
 | Chino tradicional (RAE de Macao) | zh-Hant-MO |
 | Chino tradicional (Taiwán) | zh-Hant-TW |
@@ -103,7 +105,7 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Eslovaco | sk |
 | Eslovaco (Eslovaquia) | sk-SK |
 | Esloveno | sl |
-| Esloveno (Eslovenia) | sl-SL |
+| Esloveno (Eslovenia) | sl-SI |
 | Español | es |
 | Español (Latinoamérica) | es-419 |
 | Español (México) | es-MX |
@@ -126,13 +128,15 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Idioma | Etiqueta |
 |----------|-----|
 | Afrikáans | af |
+| Árabe | ar |
 | Árabe (Egipto) | ar-EG |
 | Árabe (Arabia Saudí) | ar-SA |
 | Bengalí | bn |
 | Bosnio | bs |
 | Búlgaro | bg |
 | Búlgaro (Bulgaria) | bg-BG |
-| Catalán | ca-ES |
+| Catalán | ca |
+| Catalán (España) | ca-ES |
 | Chino | zh |
 | Chino (China) | zh-CN |
 | Chino (RAE de Hong Kong) | zh-HK |
@@ -142,7 +146,8 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Chino simplificado | zh-Hans |
 | Chino simplificado (China) | zh-Hans-CN |
 | Chino simplificado (Singapur) | zh-Hans-SG |
-| Chino tradicional | zh-Hant-CN |
+| Chino tradicional | zh-Hant |
+| Chino tradicional (China) | zh-Hant-CN |
 | Chino tradicional (RAE de Hong Kong) | zh-Hant-HK |
 | Chino tradicional (RAE de Macao) | zh-Hant-MO |
 | Chino tradicional (Taiwán) | zh-Hant-TW |
@@ -152,6 +157,7 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Checo (República Checa) | cs-CZ |
 | Danés | da |
 | Danés (Dinamarca) | da-DK |
+| Dari (Afganistán) | prs |
 | Neerlandés | nl |
 | Neerlandés (Países Bajos) | nl-NL |
 | Inglés | en |
@@ -176,6 +182,7 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Alemán (Austria) | de-AT |
 | Alemán (Alemania) | de-DE |
 | Alemán (Suiza)| de-CH |
+| Gujarati | gu |
 | Griego | el |
 | Griego (Grecia) | el-GR |
 | Criollo haitiano | ht |
@@ -198,6 +205,8 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Kiswahili | sw |
 | Coreano | ko |
 | Coreano (Corea) | ko-KR |
+| Kurdo (central) | ku |
+| Kurdo (norte) | kmr |
 | Letón | lv |
 | Lituano | lt |
 | Malgache | mg |
@@ -206,8 +215,11 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Malayalam | ml |
 | Maltés | mt |
 | Maori | mi |
+| Maratí | mr |
 | Noruego Bokmal| nb |
 | Noruego Bokmal (Noruega) | nb-NO |
+| Odia | or |
+| Pastún (Afganistán) | ps |
 | Persa | fa |
 | Polaco | pl |
 | Polaco (Polonia) | pl-PL |
@@ -227,7 +239,7 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Eslovaco | sk |
 | Eslovaco (Eslovaquia) | sk-SK |
 | Esloveno | sl |
-| Esloveno (Eslovenia) | sl-SL |
+| Esloveno (Eslovenia) | sl-SI |
 | Español | es |
 | Español (Latinoamérica) | es-419 |
 | Español (México) | es-MX |
@@ -257,12 +269,14 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 
 | Idioma | Etiqueta |
 |----------|-----|
+| Árabe | ar |
 | Árabe (Egipto) | ar-EG |
 | Árabe (Arabia Saudí) | ar-SA |
 | Vasco | eu |
 | Búlgaro | bg |
 | Búlgaro (Bulgaria) | bg-BG |
-| Catalán | ca-ES |
+| Catalán | ca |
+| Catalán (España) | ca-ES |
 | Chino simplificado | zh-Hans |
 | Chino simplificado (China) | zh-Hans-CN |
 | Chino simplificado (Singapur) | zh-Hans-SG |
@@ -338,7 +352,7 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Eslovaco | sk |
 | Eslovaco (Eslovaquia) | sk-SK |
 | Esloveno | sl |
-| Esloveno (Eslovenia) | sl-SL |
+| Esloveno (Eslovenia) | sl-SI |
 | Español | es |
 | Español (Latinoamérica) | es-419 |
 | Español (México) | es-MX |
@@ -365,7 +379,8 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Vasco | eu |
 | Búlgaro | bg |
 | Búlgaro (Bulgaria) | bg-BG |
-| Catalán | ca-ES |
+| Catalán | ca |
+| Catalán (España) | ca-ES |
 | Croata | hr |
 | Croata (Croacia) | hr-HR |
 | Checo | cs |
@@ -423,7 +438,7 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Eslovaco | sk |
 | Eslovaco (Eslovaquia) | sk-SK |
 | Esloveno | sl |
-| Esloveno (Eslovenia) | sl-SL |
+| Esloveno (Eslovenia) | sl-SI |
 | Español | es |
 | Español (Latinoamérica) | es-419 |
 | Español (México) | es-MX |

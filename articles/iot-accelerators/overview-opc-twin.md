@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 169a3149a2d8d02d486bc126071b17e9a4f7ed72
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9825e5e85c8da27b0f3fc2b9d78fcc9ca3513389
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167477"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281701"
 ---
 # <a name="what-is-opc-twin"></a>¿Qué es OPC Twin?
+
+> [!IMPORTANT]
+> Mientras actualizamos este artículo, consulte el artículo sobre [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/), donde encontrará el contenido más actualizado.
 
 OPC Twin consta de microservicios que usan Azure IoT Edge e IoT Hub para conectar la nube y la red de la fábrica. OPC Twin proporciona la detección, el registro y el control remoto de dispositivos industriales mediante las API REST. OPC Twin no necesita un SDK de arquitectura unificada de OPC (OPC UA), es independiente del lenguaje de programación y puede incluirse en un flujo de trabajo sin servidor. En este artículo se describen varios casos de uso de OPC Twin.
 
@@ -41,5 +44,4 @@ OPC Twin puede usarse con aplicaciones escritas en cualquier lenguaje de program
 
 Ahora que ha aprendido sobre OPC Twin y sus usos, este es el siguiente paso sugerido:
 
-> [!div class="nextstepaction"]
-> [¿Qué es OPC Vault?](overview-opc-vault.md)
+[¿Qué es OPC Vault?](overview-opc-vault.md)

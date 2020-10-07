@@ -1,5 +1,5 @@
 ---
-title: Aprovisionamiento de un dispositivo X.509 simulado en Azure IoT Hub mediante Java
+title: 'Inicio rápido: Aprovisionamiento de un dispositivo X.509 simulado en Azure IoT Hub mediante Java'
 description: 'Inicio rápido de Azure: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos para Java para IoT Hub Device Provisioning Service (DPS). Este inicio rápido utiliza inscripciones individuales.'
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: f16ace3e54db4d30f89da7335f00153191a7e226
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0198a32800f364f921a2b9f64048166c48a14f7e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326756"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323896"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Inicio rápido: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Java para el servicio Azure IoT Hub Device Provisioning
 
@@ -24,7 +24,7 @@ En este inicio rápido se crea un dispositivo simulado X.509 en un equipo Window
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Revisión de [Conceptos de aprovisionamiento automático](concepts-auto-provisioning.md).
+- Estar familiarizado con los conceptos de [aprovisionamiento](about-iot-dps.md#provisioning-process).
 - Finalización de [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Java SE Development Kit 8](https://aka.ms/azure-jdks).

@@ -1,18 +1,18 @@
 ---
 title: Creación de una prueba de Internet Analyzer mediante la CLI | Microsoft Docs
-description: En este artículo, aprenderá a crear su primera prueba de Internet Analyzer.
+description: En este artículo, aprenderá a crear su primera prueba de Internet Analyzer mediante la CLI de Azure.
 services: internet-analyzer
 author: diego-perez-botero
 ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e5a7984cd868e7fbac08ec80f92fe28ad13d84e7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74184282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308102"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Creación de una prueba de Internet Analyzer mediante la CLI (versión preliminar)
 

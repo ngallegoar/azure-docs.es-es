@@ -4,12 +4,12 @@ description: Aprenda a ejecutar una migración de máquinas virtuales de VMware 
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: bf33c61783b6d7399cd880f53009033a97625bca
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: f437c0f3b9f786863d3b58f10d1a7384b0f1e8ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296151"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migración de máquinas virtuales de VMware a Azure (basada en agente)
 
@@ -251,7 +251,7 @@ Seleccione las máquinas virtuales para la migración.
 
 1. En el proyecto de Azure Migrate > **Servidores**, **Azure Migrate: Migración del servidor**, haga clic en **Replicar**.
 
-    ![Replicación de máquinas virtuales](./media/tutorial-migrate-vmware-agent/select-replicate.png)
+    ![Captura de la pantalla Servidores en Azure Migrate. El botón Replicar está seleccionado en Azure Migrate: Migración del servidor en Herramientas de migración.](./media/tutorial-migrate-vmware-agent/select-replicate.png)
 
 2. En **Replicar** > **Configuración de origen** >  **¿Las máquinas están virtualizadas?** , seleccione **Sí, con VMware vSphere Hypervisor**.
 3. En **Dispositivo local**, seleccione el nombre del dispositivo de Azure Migrate que configuró.
@@ -259,7 +259,7 @@ Seleccione las máquinas virtuales para la migración.
 5. En **Servidor de procesos**, seleccione el nombre del dispositivo de replicación.
 6. En **Credenciales de invitado**, especifique la cuenta de administrador de máquinas virtuales que se usará para la instalación de inserción de Mobility Service. A continuación, haga clic en **Siguiente: Máquinas virtuales**.
 
-    ![Replicación de máquinas virtuales](./media/tutorial-migrate-vmware-agent/source-settings.png)
+    ![Captura de pantalla de la pestaña Configuración de origen en la pantalla Replicar. El campo Credenciales de invitado está resaltado y el valor se establece en VM-admin-account.](./media/tutorial-migrate-vmware-agent/source-settings.png)
 
 7. En **Máquinas virtuales**, seleccione las máquinas que quiere replicar.
 

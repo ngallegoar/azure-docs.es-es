@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: da944f74fd6214e1b69a3ee7d230e72accd4e2e4
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2830d8b82f5b53300d0af3f48e55b573d78ad295
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084369"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287396"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Creación de un grupo de hosts con Azure Portal
 
@@ -48,7 +48,8 @@ Para empezar a crear el grupo de hosts:
 
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com/).
    
-   >![NOTA] Si va a iniciar sesión en el portal de US Gov, vaya a [https://portal.azure.us/](https://portal.azure.us/) en su lugar.
+   >[!NOTE]
+   > Si va a iniciar sesión en el portal de US Gov, vaya a [https://portal.azure.us/](https://portal.azure.us/) en su lugar.
 
 2. Escriba **Windows Virtual Desktop** en la barra de búsqueda y, luego, busque y seleccione **Windows Virtual Desktop** en Servicios.
 

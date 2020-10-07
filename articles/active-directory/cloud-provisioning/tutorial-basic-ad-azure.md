@@ -10,18 +10,18 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8a6fc1291615760320deb488511fdd9d964d25d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227872"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266316"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Tutorial: Entorno básico de Active Directory
 
 Este tutorial le guiará a través de la creación de un entorno de Active Directory básico. 
 
-![Crear](media/tutorial-single-forest/diagram1.png)
+![Diagrama que muestra un entorno básico de Azure AD.](media/tutorial-single-forest/diagram1.png)
 
 Puede usar el entorno que crea en el tutorial para probar varios aspectos de escenarios de identidad híbrida, lo que será un requisito previo para algunos de los tutoriales.  Si ya tiene un entorno de Active Directory existente, puede usarlo como sustituto.  Esta información se proporciona para usuarios que pueden estar empezando de cero.
 
@@ -200,7 +200,7 @@ Ahora debe crear un inquilino de Azure AD para poder sincronizar nuestros usuar
 2. Seleccione el **icono de signo más (+)** y busque **Azure Active Directory**.
 3. En la lista de resultados, seleccione **Azure Active Directory**.
 4. Seleccione **Crear**.</br>
-![Creación](media/tutorial-single-forest/create1.png)</br>
+![Captura de pantalla que muestra la página Azure Active Directory en Azure Portal.](media/tutorial-single-forest/create1.png)</br>
 5. Proporcione un **nombre para la organización**, junto con el **nombre de dominio inicial**. Seleccione **Crear**. Se creará el directorio.
 6. Una vez que se haya completado, haga clic en el vínculo **aquí** para administrar el directorio.
 
@@ -208,7 +208,7 @@ Ahora debe crear un inquilino de Azure AD para poder sincronizar nuestros usuar
 Ahora que tiene un inquilino de Azure AD, creará una cuenta de administrador global.  Para crear la cuenta de administrador global, haga lo siguiente:
 
 1.  En **Administrar**, seleccione **Usuarios**.</br>
-![Creación](media/tutorial-single-forest/administrator1.png)</br>
+![Captura de pantalla que muestra el menú "Información general" con "Usuarios" seleccionado.](media/tutorial-single-forest/administrator1.png)</br>
 2.  Seleccione **Todos los usuarios** y, a continuación, seleccione **+ Nuevo usuario**.
 3.  Proporcione un nombre y el nombre de usuario para este usuario. Este será el administrador global del inquilino. También deberá cambiar el **rol del directorio** a **Administrador global**. También puede mostrar la contraseña temporal. Cuando termine, seleccione **Crear**.</br>
 ![Creación](media/tutorial-single-forest/administrator2.png)</br>

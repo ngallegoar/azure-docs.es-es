@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Revisión ortográfica con la API REST y Python: Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Empiece a utilizar la API REST de Bing Spell Check para la revisión ortográfica y gramatical con este inicio rápido.
+description: Comience a usar la API REST de Bing Spell Check y Python para la revisión ortográfica y gramatical.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: e121aaf6725c179189b25dff6534b019c5de730c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cb07b105cedc9b017eb99212f3225c4f9d43511e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852742"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330679"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y Python.
 

@@ -1,7 +1,7 @@
 ---
 title: Inicio de sesión de los usuarios en aplicaciones de página única (SPA) de JavaScript con código de autorización | Azure
 titleSuffix: Microsoft identity platform
-description: Aprenda cómo una aplicación de JavaScript puede llamar a una API que requiera tokens de acceso mediante el uso de la Plataforma de identidad de Microsoft.
+description: Obtenga información sobre cómo una aplicación de página única (SPA) de JavaScript puede iniciar la sesión de los usuarios de cuentas personales, profesionales y educativas mediante el flujo de código de autorización.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 461f05b90b79852194d657a5dcbc3ba7583cff8d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.openlocfilehash: 224ce2ea64016db7b632ac36193f39e679c8da4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115193"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257986"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una SPA de JavaScript mediante el flujo de código de autorización
 

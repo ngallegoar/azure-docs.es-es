@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a1dc42815167da308fd87b541c0f21d02b47329b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b6f2e8ff6689a3817ecf9eb43c7cea4a0632fc25
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022520"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297678"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Exploración de Azure Digital Twins con una aplicación cliente de ejemplo
 
@@ -85,18 +85,18 @@ Asegúrese de guardar el archivo antes de continuar.
 
 Ahora que ha definido un modelo, el resto de los pasos supone el uso de la aplicación de ejemplo para interactuar con la instancia de Azure Digital Twins. Ejecute el proyecto con este botón de la barra de herramientas:
 
-:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="Botón de inicio de Visual Studio (proyecto SampleClientApp)":::
+:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación contiene":::
 
 Se abre una ventana de la consola, se lleva a cabo la autenticación y se espera un comando. 
 * La autenticación se realiza a través del explorador: el explorador web predeterminado se abrirá con un aviso de autenticación. Use este aviso para iniciar sesión con sus credenciales de Azure. Luego, puede cerrar la pestaña o la ventana del explorador.
 
 Esta es una captura de pantalla de la apariencia de la consola del proyecto:
 
-:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Mensaje de bienvenida de la aplicación de línea de comandos":::
+:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación contiene":::
 
 > [!TIP]
 > Si quiere una lista de todos los comandos posibles que puede usar con este proyecto, escriba `help` en la consola del proyecto y presione Entrar.
-> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Salida del comando de ayuda":::
+> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación contiene":::
 
 Mantenga la consola del proyecto en ejecución durante el resto de los pasos de este tutorial.
 
@@ -117,7 +117,7 @@ La salida debe indicar que los modelos se crearon correctamente.
 
 Para comprobar que los modelos se han creado, ejecute el comando `GetModels true`. Se consultará la instancia de Azure Digital Twins para conocer todos los modelos que se han cargado y se imprimirá toda su información. Busque el modelo *Room* editado en los resultados:
 
-:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Resultados de GetModels, que muestra el modelo Room actualizado":::
+:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación contiene":::
 
 #### <a name="errors"></a>Errors
 
@@ -165,7 +165,7 @@ CreateDigitalTwin dtmi:example:Floor;1 floor1
 
 La salida de estos comandos debe indicar que los gemelos se crearon correctamente. 
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Extracto de los resultados de los comandos de CreateDigitalTwin, que muestra floor0, floor1, room0 y room1":::
+:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación contiene":::
 
 También puede comprobar que se han creado los gemelos con el comando `Query`. Este comando consulta la instancia de Azure Digital Twins para conocer todos los gemelos digitales que contiene. Busque los gemelos *floor0*, *floor1*, *room0* y *room1* en los resultados.
 
@@ -205,27 +205,19 @@ CreateRelationship floor1 contains room1 relationship1
 
 La salida de estos comandos confirma que las relaciones se crearon correctamente:
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Extracto de los resultados de los comandos CreateRelationship, que muestra relationship0 y relationship1":::
-
-También puede comprobar las relaciones con cualquiera de los siguientes comandos, que consultan las relaciones en la instancia de Azure Digital Twins.
-* Para ver todas las relaciones que proceden de cada planta (vista de las relaciones desde un lado):
-    ```cmd/sh
-    GetRelationships floor0
-    GetRelationships floor1
-    ```
-* Para ver todas las relaciones que llegan a cada sala (vista de la relación desde el "otro" lado):
+:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación contiene" lado):
     ```cmd/sh
     GetIncomingRelationships room0
     ```
 * Para consultar estas relaciones de forma individual: 
     ```cmd/sh
-    GetRelationship floor0 contains relationship0
-    GetRelationship floor1 contains relationship1
+    GetRelationship floor0 relationship0
+    GetRelationship floor1 relationship1
     ```
 
 Los gemelos y las relaciones que ha configurado en este tutorial forman el siguiente gráfico conceptual:
 
-:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="Un gráfico que muestra floor0 conectado a través de relationship0 con room0 y floor1 conectado a través de relationship1 con room1" border="false":::
+:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación contiene" border="false":::
 
 ### <a name="query-the-twin-graph-to-answer-environment-questions"></a>Consulta del gráfico de gemelos para responder a las preguntas del entorno
 
@@ -239,10 +231,10 @@ Una de las principales características de Azure Digital Twins es la posibilidad
 
     Esto le permite evaluar su entorno de un vistazo y asegurarse de que todo se representa tal y como desea en Azure Digital Twins. El resultado es una salida que contiene cada gemelo digital con sus detalles. Aquí se muestra un extracto:
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Resultados parciales de una consulta de gemelos, que muestra room0 y floor1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación contiene":::
 
     >[!NOTE]
-    >El comando `Query` sin ningún argumento adicional es el equivalente de `Query SELECT * FROM DIGITALTWINS`.
+    >En el proyecto de ejemplo, el comando `Query` sin argumentos adicionales equivale a `Query SELECT * FROM DIGITALTWINS`. Para consultar todos los gemelos de la instancia mediante [API de consulta](how-to-use-apis-sdks.md) o [comandos de la CLI](how-to-use-cli.md), use el formato de consulta más largo (completo).
 
 * **¿Cuáles son todas las salas de mi entorno?** (consulta por modelo)
 
@@ -252,7 +244,7 @@ Una de las principales características de Azure Digital Twins es la posibilidad
 
     Puede restringir la consulta a los gemelos de un tipo determinado para tener información más específica sobre lo que se representa. El resultado muestra *room0* y *room1*, pero **no** *floor0* o *floor1* (dado que son plantas, no salas).
     
-    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Resultados de la consulta del modelo, que muestra solo room0 y room1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación contiene":::
 
 * **¿Cuáles son todas las salas de *floor0*?** (consulta por relación)
 
@@ -262,7 +254,7 @@ Una de las principales características de Azure Digital Twins es la posibilidad
 
     Puede realizar consultas en función de las relaciones del gráfico para tener información sobre cómo se conectan los gemelos o para restringir la consulta a un área determinada. Solo *room0* está en *floor0*, por lo que es la única sala del resultado.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Resultados de la consulta de relación, que muestra room0":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación contiene":::
 
 * **¿Cuáles son todos los gemelos de mi entorno con una temperatura superior a 75?** (consulta por propiedad)
 
@@ -272,7 +264,7 @@ Una de las principales características de Azure Digital Twins es la posibilidad
 
     Puede consultar el gráfico en función de las propiedades para responder a diversas preguntas, como buscar valores atípicos en el entorno que puedan necesitar atención. También se admiten otros operadores de comparación ( *<* , *>* , *=* o *!=* ). *room1* se muestra aquí en los resultados porque tiene una temperatura de 80.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Resultados de la consulta de propiedades, que muestra solo room1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación contiene":::
 
 * **¿Cuáles son todas las salas de *floor0* con una temperatura superior a 75?** (consulta compuesta)
 
@@ -282,7 +274,7 @@ Una de las principales características de Azure Digital Twins es la posibilidad
 
     También puede combinar las consultas anteriores como lo haría en SQL, mediante operadores combinados como `AND`, `OR``NOT`. Esta consulta usa `AND` para que la consulta anterior sobre las temperaturas gemelas sea más específica. El resultado ahora solo incluye las salas con temperaturas superiores a 75 que se encuentran en *floor0*, que en este caso no es ninguna de ellas. El conjunto de resultados está vacío.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Resultados de la consulta compuesta, que no muestra ningún resultado":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación contiene":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

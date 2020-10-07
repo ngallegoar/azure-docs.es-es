@@ -5,16 +5,27 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: f83c2078358c7f35c5de45a5ac17d43750457562
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bf6b4ac5e0ddd99a7c5f7ff1b6a08464bc7b39df
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87374915"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332498"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz. Para empezar, puede realizar una configuración y síntesis básicas y, después, pasar a ejemplos más avanzados para el desarrollo de aplicaciones personalizadas, entre las que se incluyen:
 
-En este artículo se da por sentado que tiene una cuenta de Azure y una suscripción al servicio de voz. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](../../../get-started.md).
+* Obtención de respuestas como flujos de datos en memoria
+* Personalización de la frecuencia de muestreo y la velocidad de bits de salida
+* Envío de solicitudes de síntesis mediante SSML (lenguaje de marcado de síntesis de voz)
+* Uso de voces neuronales
+
+## <a name="skip-to-samples-on-github"></a>Pasar a los ejemplos en GitHub
+
+Si quiere pasar directamente al código de ejemplo, consulte los [ejemplos del inicio rápido de Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre/text-to-speech) en GitHub.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+En este artículo se da por sentado que tiene una cuenta de Azure y una suscripción al servicio de voz. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](../../../overview.md#try-the-speech-service-for-free).
 
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 
@@ -41,19 +52,19 @@ import java.util.Scanner;
 
 ## <a name="create-a-speech-configuration"></a>Creación de una configuración de voz
 
-Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable). Esta clase incluye información sobre la suscripción, como la clave, la región asociada, el punto de conexión, el host o el token de autorización.
+Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable&preserve-view=true). Esta clase incluye información sobre la suscripción, como la clave, la región asociada, el punto de conexión, el host o el token de autorización.
 
 > [!NOTE]
 > Debe crear siempre una configuración, independientemente de si va a realizar reconocimiento de voz, síntesis de voz, traducción o reconocimiento de intenciones.
 
-Existen diversas maneras para inicializar un elemento [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable):
+Existen diversas maneras para inicializar un elemento [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable&preserve-view=true):
 
 * Con una suscripción: pase una clave y la región asociada.
 * Con un punto de conexión: pase un punto de conexión del servicio de voz. La clave y el token de autorización son opcionales.
 * Con un host: pase una dirección de host. La clave y el token de autorización son opcionales.
 * Con un token de autorización: pase el token de autorización y la región asociada.
 
-En este ejemplo, se crea un elemento [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) mediante una clave de suscripción y una región. Consulte la página de [soporte por regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para buscar el identificador de región. Cree también código reutilizable básico para usarlo en el resto del artículo y que modificará cuando realice distintas personalizaciones.
+En este ejemplo, se crea un elemento [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable&preserve-view=true) mediante una clave de suscripción y una región. Consulte la página de [soporte por regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para buscar el identificador de región. Cree también código reutilizable básico para usarlo en el resto del artículo y que modificará cuando realice distintas personalizaciones.
 
 ```java
 public class Program 
@@ -66,7 +77,7 @@ public class Program
 
 ## <a name="synthesize-speech-to-a-file"></a>Síntesis de voz en un archivo
 
-A continuación, creará un objeto [`SpeechSynthesizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-java-stable), que ejecuta conversiones de texto a voz y envía la salida a altavoces, archivos u otros flujos de salida. [`SpeechSynthesizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-java-stable) acepta como parámetros tanto el objeto [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) que se creó creado en el paso anterior y un objeto [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable) que especifica cómo se deben controlar los resultados de la salida.
+A continuación, creará un objeto [`SpeechSynthesizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-java-stable&preserve-view=true), que ejecuta conversiones de texto a voz y envía la salida a altavoces, archivos u otros flujos de salida. [`SpeechSynthesizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-java-stable&preserve-view=true) acepta como parámetros tanto el objeto [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable&preserve-view=true) que se creó creado en el paso anterior y un objeto [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable&preserve-view=true) que especifica cómo se deben controlar los resultados de la salida.
 
 Para empezar, cree un objeto `AudioConfig` para escribir automáticamente la salida en un archivo `.wav` mediante la función estática `fromWavFileOutput()`.
 
@@ -118,7 +129,7 @@ Es sencillo hacer este cambio en el ejemplo anterior. En primer lugar, quite el 
 > [!NOTE]
 > Al usar `null` en `AudioConfig`, en lugar de omitirlo como en el ejemplo de salida del altavoz anterior, el audio no se reproducirá de forma predeterminada en el dispositivo de salida activo actual.
 
-Esta vez se guarda el resultado en una variable [`SpeechSynthesisResult`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult?view=azure-java-stable). La función `SpeechSynthesisResult.getAudioData()` devuelve un `byte []` de los datos de salida. Puede trabajar con `byte []` manualmente, o bien puede usar la clase [`AudioDataStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audiodatastream?view=azure-java-stable) para administrar la secuencia en memoria. En este ejemplo, se usa la función estática `AudioDataStream.fromResult()` para obtener una secuencia del resultado.
+Esta vez se guarda el resultado en una variable [`SpeechSynthesisResult`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult?view=azure-java-stable&preserve-view=true). La función `SpeechSynthesisResult.getAudioData()` devuelve un `byte []` de los datos de salida. Puede trabajar con `byte []` manualmente, o bien puede usar la clase [`AudioDataStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audiodatastream?view=azure-java-stable&preserve-view=true) para administrar la secuencia en memoria. En este ejemplo, se usa la función estática `AudioDataStream.fromResult()` para obtener una secuencia del resultado.
 
 ```java
 public static void main(String[] args) {
@@ -141,11 +152,11 @@ En la siguiente sección se muestra cómo personalizar los atributos de la salid
 * Frecuencia de muestreo
 * Profundidad de bits
 
-Para cambiar el formato de audio se usa la función `setSpeechSynthesisOutputFormat()` en el objeto `SpeechConfig`. Esta función espera un elemento `enum` del tipo [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-java-stable), que se usa para seleccionar el formato de salida. En los documentos de referencia encontrará una [lista de los formatos de audio](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet) disponibles.
+Para cambiar el formato de audio se usa la función `setSpeechSynthesisOutputFormat()` en el objeto `SpeechConfig`. Esta función espera un elemento `enum` del tipo [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-java-stable&preserve-view=true), que se usa para seleccionar el formato de salida. En los documentos de referencia encontrará una [lista de los formatos de audio](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet&preserve-view=true) disponibles.
 
 Hay varias opciones para los distintos tipos de archivo, por lo que puede elegir la que necesite. Tenga en cuenta que, por definición, los formatos sin procesar, como `Raw24Khz16BitMonoPcm`, no incluyen encabezados de audio. Los formatos sin procesar solo se deben usar cuando se sepa que la implementación de bajada puede descodificar una secuencia de bits sin procesar, o bien si planea crear manualmente encabezados basados en la profundidad de bits, la frecuencia de muestreo, el número de canales, etc.
 
-En este ejemplo, se especifica un formato RIFF de alta fidelidad `Riff24Khz16BitMonoPcm`, para lo que se establece `SpeechSynthesisOutputFormat` en el objeto `SpeechConfig`. Al igual que en el ejemplo de la sección anterior, se usa [`AudioDataStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audiodatastream?view=azure-java-stable) para obtener una secuencia en memoria del resultado y, después, escribirla en un archivo.
+En este ejemplo, se especifica un formato RIFF de alta fidelidad `Riff24Khz16BitMonoPcm`, para lo que se establece `SpeechSynthesisOutputFormat` en el objeto `SpeechConfig`. Al igual que en el ejemplo de la sección anterior, se usa [`AudioDataStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audiodatastream?view=azure-java-stable&preserve-view=true) para obtener una secuencia en memoria del resultado y, después, escribirla en un archivo.
 
 ```java
 public static void main(String[] args) {
@@ -229,7 +240,7 @@ Las voces neuronales son algoritmos de síntesis de voz con tecnología de redes
 Para cambiar a una voz neuronal, cambie `name` a una de las [opciones de voz neuronal](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices). Luego, agregue un espacio de nombres XML para `mstts` y ajuste el texto en la etiqueta `<mstts:express-as>`. Use el parámetro `style` para personalizar el estilo de habla. En este ejemplo se utiliza `cheerful`, pero pruebe a establecerlo en `customerservice` o `chat` para ver la diferencia en el estilo de habla.
 
 > [!IMPORTANT]
-> Las voces neuronales **solo** se admiten para los recursos de voz creados en las regiones *Este de EE. UU.* , *Sudeste de Asia* y *Oeste de Europa*.
+> Las voces neuronales **solo** se admiten para los recursos de voz creados en las regiones *Este de EE. UU.* , *Sudeste de Asia* *y Oeste de Europa*.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">

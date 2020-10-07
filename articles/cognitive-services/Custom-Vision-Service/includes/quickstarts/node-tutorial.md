@@ -2,16 +2,19 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2a8937debc38dab4b2d38b56d1c6a9c3edcbe2a7
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 09/15/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: 90927109a78d387ed3a535128e98ae7910c222dc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508580"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321071"
 ---
-En este artículo se muestra cómo empezar a utilizar la biblioteca cliente de Custom Vision con Node.js para crear un modelo de clasificación de imágenes. Después de crearlo, puede agregar etiquetas, cargar imágenes, entrenar el proyecto, obtener la dirección URL publicada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de Node.js. Si desea seguir el proceso de creación y utilizar un modelo de clasificación _sin_ código, consulte la [guía basada en explorador](../../getting-started-build-a-classifier.md) en su lugar.
+En esta guía se proporciona información y un ejemplo de código que pueden ayudarle a empezar a utilizar la biblioteca cliente de Custom Vision con Node.js para crear un modelo de clasificación de imágenes. Podrá crear un proyecto, agregar etiquetas, entrenar el proyecto y utilizar la dirección URL del punto de conexión de predicción del proyecto para probarlo mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
+
+> [!NOTE]
+> Si desea crear y entrenar un modelo de clasificación _sin_ escribir código, consulte la [guía basada en explorador](../../getting-started-build-a-classifier.md) en su lugar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -21,7 +24,7 @@ En este artículo se muestra cómo empezar a utilizar la biblioteca cliente de C
 
 ## <a name="install-the-custom-vision-client-library"></a>Instalación de la biblioteca cliente de Custom Vision
 
-Para instalar la biblioteca cliente del servicio Custom Vision para Node.js, ejecute el comando siguiente en PowerShell:
+Para escribir una aplicación de análisis de imágenes con Custom Vision para Node.js, necesitará los paquetes NPM de Custom Vision. Para instalarlos ,ejecute el comando siguiente en PowerShell:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
@@ -36,7 +39,7 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 Cree un archivo llamado *sample.js* en el directorio del proyecto que prefiera.
 
-### <a name="create-the-custom-vision-service-project"></a>Creación del proyecto de Custom Vision Service
+## <a name="create-the-custom-vision-project"></a>Creación del proyecto de Custom Vision
 
 Para crear un proyecto de Custom Vision Service, agregue el siguiente código al script. Inserte las claves de suscripción en las definiciones adecuadas y establezca el valor de la ruta de acceso sampleDataRoot en la ruta de la carpeta de imágenes. Asegúrese de que el valor endPoint coincida con los puntos de conexión de entrenamiento y predicción creados en [Customvision.ai](https://www.customvision.ai/). Tenga en cuenta que la diferencia entre la creación de un proyecto de detección de objetos y uno de clasificación de imágenes es el dominio especificado en la llamada de **createProject**.
 
@@ -66,7 +69,7 @@ const trainer = new TrainingApi.TrainingAPIClient(credentials, endPoint);
     const sampleProject = await trainer.createProject("Sample Project");
 ```
 
-### <a name="create-tags-in-the-project"></a>Creación de etiquetas en el proyecto
+## <a name="create-tags-in-the-project"></a>Creación de etiquetas en el proyecto
 
 Para crear etiquetas de clasificación al proyecto, agregue el código siguiente al final de *sample.js*:
 
@@ -75,7 +78,7 @@ Para crear etiquetas de clasificación al proyecto, agregue el código siguiente
     const cherryTag = await trainer.createTag(sampleProject.id, "Japanese Cherry");
 ```
 
-### <a name="upload-and-tag-images"></a>Carga y etiquetado de imágenes
+## <a name="upload-and-tag-images"></a>Carga y etiquetado de imágenes
 
 Para agregar las imágenes de ejemplo al proyecto, inserte el siguiente código después de crear la etiqueta. Este código carga cada imagen con su etiqueta correspondiente. Puede cargar hasta 64 imágenes en un único lote.
 
@@ -101,7 +104,7 @@ Para agregar las imágenes de ejemplo al proyecto, inserte el siguiente código 
     await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-classifier-and-publish"></a>Entrenar el clasificador y publicarlo
+## <a name="train-and-publish-the-classifier"></a>Entrenamiento y publicación del clasificador
 
 Este código crea la primera iteración del modelo de predicción y, después, publica dicha iteración en el punto de conexión de la predicción. El nombre que se da a la iteración publicada se puede utilizar para enviar solicitudes de predicción. Una iteración no está disponible en el punto de conexión de la predicción hasta que se publica.
 
@@ -122,7 +125,7 @@ Este código crea la primera iteración del modelo de predicción y, después, p
     await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obtener y usar la iteración publicada en el punto de conexión de predicción
+## <a name="use-the-prediction-endpoint"></a>Uso del punto de conexión de la predicción
 
 Para enviar una imagen al punto de conexión de la predicción y recuperar la predicción, agregue el código siguiente al final del archivo:
 
@@ -175,3 +178,7 @@ Ya ha visto cómo todos los pasos del proceso de detección de objetos se pueden
 
 > [!div class="nextstepaction"]
 > [Prueba y reentrenamiento del modelo](../../test-your-model.md)
+
+* [¿Qué es Custom Vision?](../../overview.md)
+* [Documentación de referencia del SDK (entrenamiento)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest)
+* [Documentación de referencia del SDK (predicción)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest)

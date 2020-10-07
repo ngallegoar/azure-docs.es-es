@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: c699186c77bba16e96de2dc8b5968f5a83a5a9ce
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4d00abdd3caf6c77b2227d9edfea3cc23d13e392
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461772"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288229"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo de recursos de Synapse SQL
 
@@ -29,7 +29,7 @@ Se incluyen recomendaciones acerca de cómo elegir el número ideal de unidades 
 
 ### <a name="data-warehouse-units"></a>Unidades de almacenamiento de datos
 
-Un grupo de Synapse SQL representa una colección de recursos analíticos que se aprovisionan. Los recursos analíticos se definen como una combinación de CPU, memoria y E/S. Estos tres recursos se agrupan en unidades de escalado de proceso denominadas Unidades de almacenamiento de datos (DWU). Una DWU representa una medida abstracta y normalizada de recursos de proceso y rendimiento. Un cambio en el nivel de servicio modifica el número de DWU que están disponibles en el sistema, lo que a su vez ajusta el rendimiento y el costo del sistema.
+Un grupo de Synapse SQL representa una colección de recursos analíticos que se aprovisionan. Los recursos analíticos se definen como una combinación de CPU, memoria y E/S. Estos tres recursos se agrupan en unidades de escalado de proceso denominadas Unidades de almacenamiento de datos (DWU). Una DWU representa una medida abstracta y normalizada de recursos de proceso y rendimiento. Un cambio en el nivel de servicio modifica el número de DWU que están disponibles para el sistema. A su vez, este cambio ajusta el rendimiento y el costo del sistema.
 
 Para obtener un mayor rendimiento, puede aumentar el número de unidades de almacenamiento de datos. Para obtener un menor rendimiento, reduzca las unidades de almacenamiento de datos. Los costos de almacenamiento y de proceso se facturan por separado, por lo que cambiar las unidades de almacenamiento de datos no afecta a los costos de almacenamiento.
 
@@ -73,7 +73,7 @@ Cada nivel de rendimiento usa una unidad de medida ligeramente diferente para su
 
 Tanto las DWU como las cDWU admiten el escalado vertical y la reducción vertical del proceso, así como pausar el proceso cuando no es necesario usar el almacén de datos. Estas operaciones son a petición. El nivel Gen2 usa una memoria caché basada en disco local en los nodos de proceso para mejorar el rendimiento. Al escalar o pausar el sistema, se invalida la memoria caché y es necesario un período de calentamiento de la memoria caché para conseguir un rendimiento óptimo.  
 
-A medida que aumente unidades de almacenamiento de datos, también se aumentan linealmente los recursos informáticos. Gen2 proporciona el mejor rendimiento de consultas y la mayor escalabilidad. Los sistemas Gen2 también aprovechan al máximo el uso de la memoria caché.
+A medida que aumenta el número de unidades de almacenamiento de datos, también aumentan linealmente los recursos informáticos. Gen2 proporciona el mejor rendimiento de consultas y la mayor escalabilidad. Los sistemas Gen2 también aprovechan al máximo el uso de la memoria caché.
 
 #### <a name="capacity-limits"></a>Límites de capacidad
 
@@ -81,7 +81,7 @@ Cada servidor SQL Server (por ejemplo, myserver.database.windows.net) tiene una 
 
 ### <a name="assess-the-number-of-data-warehouse-units-you-need"></a>Evaluación del número de unidades del almacenamiento de datos necesarias
 
-El número ideal de unidades de almacenamiento de datos depende en gran medida de la carga de trabajo y la cantidad de datos que cargó en el sistema.
+El número ideal de unidades de almacenamiento de datos depende en gran medida de la carga de trabajo y de la cantidad de datos que se hayan cargado en el sistema.
 
 Pasos para encontrar la mejor DWU para la carga de trabajo:
 
@@ -124,11 +124,11 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 Para cambiar DWU:
 
-1. Abra [Azure Portal](https://portal.azure.com), abra la base de datos y haga clic en **Escalar**.
+1. Abra [Azure Portal](https://portal.azure.com), abra la base de datos y seleccione **Escalar**.
 
 2. En **Escalar**, mueva el control deslizante izquierdo o derecho para cambiar el valor de DWU.
 
-3. Haga clic en **Save**(Guardar). Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
+3. Seleccione **Guardar**. Aparece un mensaje de confirmación. Seleccione **Sí** para confirmar o **No** para cancelar.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -176,11 +176,11 @@ Para ver más ejemplos de API REST, consulte el artículo sobre las [API REST pa
 
 ### <a name="check-status-of-dwu-changes"></a>Comprobar el estado de los cambios de DWU
 
-Los cambios de DWU pueden tardar varios minutos en completarse. Si está realizando una operación de escalado automáticamente, considere implementar la lógica para asegurarse de que ciertas operaciones se completaron antes de pasar a realizar otra acción.
+Los cambios de DWU pueden tardar varios minutos en completarse. Si va a realizar una operación de escalabilidad automática, considere la posibilidad de implementar la lógica para asegurarse de que se han completado ciertas operaciones antes de pasar a realizar otra acción.
 
-La comprobación del estado de la base de datos a través de varios puntos de conexión le permitirá implementar correctamente la automatización. El portal le proporcionará una notificación tras la finalización de una operación y el estado actual de las bases de datos, pero no permitirá la comprobación programática del estado.
+La comprobación del estado de la base de datos a través de varios puntos de conexión le permitirá implementar correctamente la automatización. El portal muestra una notificación tras al finalizar una operación y el estado actual de las bases de datos, pero no permite la comprobación programática del estado.
 
-No se puede comprobar el estado de la base de datos para las operaciones de escalado horizontal con Azure Portal.
+No se puede comprobar el estado de la base de datos para las operaciones de escalabilidad horizontal con Azure Portal.
 
 Para comprobar el estado de los cambios de DWU:
 

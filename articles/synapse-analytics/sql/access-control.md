@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 52cf3af4b4ab84c12b2e1b5d7f076c43e652157d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031320"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289487"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Administración del acceso a áreas de trabajo, datos y canalizaciones
 
@@ -50,7 +50,7 @@ Al aprovisionar el área de trabajo, tenía que elegir una cuenta de [Azure Data
 1. Abra [Azure Portal](https://portal.azure.com).
 2. Desplazamiento a la cuenta de Azure Data Lake Storage Gen2
 3. Vaya al contenedor (filesystem) que eligió para el área de trabajo de Azure Synapse
-4. Haga clic en **Control de acceso (IAM)**
+4. Seleccione **Control de acceso (IAM)** .
 5. Asigne los siguientes roles:
    1. Rol de **lector** para: `Synapse_WORKSPACENAME_Users`
    2. Rol de **propietario de datos de Storage Blob** para: `Synapse_WORKSPACENAME_Admins`
@@ -64,17 +64,17 @@ Al aprovisionar el área de trabajo, tenía que elegir una cuenta de [Azure Data
 
 1. Vaya a la [**interfaz de usuario web de Azure Synapse**](https://web.azuresynapse.net)
 2. Vaya a **Manage**  > **Security** > **Access control** (Administrar > Seguridad > Control de acceso)
-3. Haga clic en **Add Admin** (Agregar administrador) y seleccione `Synapse_WORKSPACENAME_Admins`
+3. Seleccione **Add Admin** (Agregar administrador) y, después, `Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Paso 4: configuración del acceso de administrador de SQL para el área de trabajo
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Vaya a su área de trabajo
 3. Vaya a **Configurar** > **Administrador de Active Directory**
-4. Haga clic en **Establecer administrador**
+4. Seleccione **Set Admin** (Establecer administrador)
 5. Seleccione `Synapse_WORKSPACENAME_Admins`.
-6. Haga clic en **Seleccionar**
-7. Haga clic en **Guardar**
+6. Elija **Seleccionar**.
+7. Seleccione **Guardar**.
 
 > [!NOTE]
 > WORKSPACENAME: debe reemplazar esta parte por el nombre de área de trabajo real.

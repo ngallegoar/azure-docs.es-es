@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 115f01bffc4664798682923cb83a99a23a8ce274
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 3f64086ed97594416b5964cf648c857c2f271480
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958344"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331104"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Inicio rápido: Tráfico web directo con Azure Application Gateway mediante Azure PowerShell
 
@@ -53,6 +53,8 @@ Para que Azure se comunique entre los recursos que se crean, se necesita una red
 1. Cree las configuraciones de la subred mediante `New-AzVirtualNetworkSubnetConfig`.
 2. Cree la red virtual con las configuraciones de la subred mediante `New-AzVirtualNetwork`. 
 3. Cree la dirección IP pública mediante `New-AzPublicIpAddress`. 
+> [!NOTE]
+> Actualmente, no se admiten [directivas de punto de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoint-policies-overview.md) en una subred de Application Gateway.
 
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `

@@ -6,17 +6,17 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4a4b6d02845c9767b7ab668dd172da38150fc89e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: devx-track-js
+ms.openlocfilehash: 0aecf99c248d745288716c8638066ddec92e1a39
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91025009"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319282"
 ---
-Comience a usar la biblioteca cliente de Anomaly Detector para JavaScript. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio de Anomaly Detector le permite detectar anomalías en los datos de serie temporal mediante el uso automático de los mejores modelos, independientemente del sector, el escenario o el volumen de datos.
+Comience a usar la biblioteca cliente de Anomaly Detector para JavaScript. Siga estos pasos para instalar el inicio del paquete con los algoritmos que proporciona el servicio. El servicio de Anomaly Detector le permite detectar anomalías en los datos de serie temporal mediante el uso automático de los mejores modelos, independientemente del sector, el escenario o el volumen de datos.
 
 Use la biblioteca cliente de Anomaly Detector para JavaScript para hacer lo siguiente:
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b7b8a0d98db1411a08afdb33fa272bb7e6d6313e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280484"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289028"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Uso de OPENROWSET con SQL a petición (versión preliminar)
 
@@ -119,7 +119,7 @@ El elemento unstructured_data_path que establece una ruta de acceso a los datos 
 | Azure Blob Storage         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
 | Azure Data Lake Store Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /path/file   |
-| Azure Data Lake Store Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Data Lake Store Gen2 | aufs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 "\<storage_path>"
@@ -135,7 +135,7 @@ Si especifica que el elemento unstructured_data_path sea una carpeta, una consul
 > [!NOTE]
 > A diferencia de Hadoop y PolyBase, SQL a petición no devuelve subcarpetas. También a diferencia de Hadoop y PolyBase, SQL a petición devuelve los archivos cuyo nombre comienza por un carácter de subrayado (_) o un punto (.).
 
-En el ejemplo siguiente, si unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/`, una consulta de SQL a petición devolverá las filas de mydata.txt y _hidden.txt. No devolverá mydata2.txt y mydata3.txt porque se encuentran en una subcarpeta.
+En el ejemplo siguiente, si unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/`, una consulta de SQL a petición devolverá las filas de mydata.txt y _hidden.txt. No devolverá mydata2. txt y mydata3. txt porque se encuentran en una subcarpeta.
 
 ![Datos recursivos para tablas externas](./media/develop-openrowset/folder-traversal.png)
 
@@ -184,7 +184,7 @@ El parámetro ESCAPE_CHAR se aplicará independientemente de que FIELDQUOTE est�
 
 FIRSTROW = "first_row" 
 
-Especifica el número de la primera fila que se va a cargar. El valor predeterminado es 1. Indica la primera fila del archivo de datos especificado. Los números de fila vienen determinados por el recuento de terminadores de fila. FIRSTROW está en base 1.
+Especifica el número de la primera fila que se va a cargar. El valor predeterminado es 1, e indica la primera fila del archivo de datos especificado. Los números de fila vienen determinados por el recuento de terminadores de fila. FIRSTROW está en base 1.
 
 FIELDQUOTE = "field_quote" 
 
@@ -203,7 +203,7 @@ Especifica la versión del analizador que se utilizará al leer archivos. Las ve
 - PARSER_VERSION = "1.0"
 - PARSER_VERSION = "2.0"
 
-La versión 1.0 del analizador de archivos .csv es el valor predeterminado y es rico en características, mientras que la versión 2.0 se basa en el rendimiento y no es compatible con todas las opciones y codificaciones. 
+La versión 1.0 del analizador de CSV es la predeterminada y tiene gran cantidad de características. La versión 2.0 se centra en el rendimiento y no admite todas las opciones y codificaciones. 
 
 Detalles de la versión 2.0 del analizador de CSV:
 
@@ -229,7 +229,7 @@ WITH (
 ) AS [r]
 ```
 
-En el ejemplo siguiente se devuelven todas las columnas de la primera fila del conjunto de datos del censo en formato Parquet sin especificar los nombres de columna ni los tipos de datos: 
+En el ejemplo siguiente se devuelven todas las columnas de la primera fila del conjunto de datos del censo en formato Parquet y sin especificar los nombres de columna ni los tipos de datos: 
 
 ```sql
 SELECT 

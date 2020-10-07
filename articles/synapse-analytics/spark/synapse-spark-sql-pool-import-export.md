@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 58c52649750ae03f19188a025fa4baa16a55ae05
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590088"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259925"
 ---
 # <a name="introduction"></a>Introducción
 
@@ -30,7 +30,7 @@ El conector entre el grupo de Azure Synapse Apache Spark y Synapse SQL es una im
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Autenticación en Azure Synapse Analytics
 
-La autenticación entre sistemas se realiza sin problemas en Azure Synapse Analytics. Hay un servicio de token que se conecta con Azure Active Directory para obtener los tokens de seguridad que se van a usar al acceder a la cuenta de almacenamiento o al servidor de almacenamiento de datos.
+La autenticación entre sistemas se realiza sin problemas en Azure Synapse Analytics. El servicio de token se conecta con Azure Active Directory para obtener los tokens de seguridad que se van a usar al acceder a la cuenta de almacenamiento o al servidor de almacenamiento de datos.
 
 Por esta razón, no es necesario crear credenciales ni especificarlas en la API del conector, siempre y cuando AAD-Auth esté configurado en la cuenta de almacenamiento y el servidor de almacenamiento de datos. Si no es así, se puede especificar la autenticación de SQL. Encontrará más detalles en la sección [Uso](#usage).
 
@@ -106,7 +106,7 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 Tabla externa del grupo de SQL
 
-Para escribir en una tabla externa del grupo de SQL, debe existir un ORIGEN DE DATOS EXTERNO y un FORMATO DE ARCHIVO EXTERNO en el grupo de SQL.  Para más información, lea el artículo acerca de cómo [crear un origen de datos externo](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [formatos de archivo externos](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) en un grupo de SQL.  A continuación, encontrará ejemplos de creación de un origen de datos externo y formatos de archivo externos en un grupo de SQL.
+Para escribir en una tabla externa del grupo de SQL, debe existir un ORIGEN DE DATOS EXTERNO y un FORMATO DE ARCHIVO EXTERNO en el grupo de SQL.  Para más información, lea el artículo acerca de cómo [crear un origen de datos externo](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) y [formatos de archivo externos](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) en un grupo de SQL.  A continuación, encontrará ejemplos de creación de un origen de datos externo y formatos de archivo externos en un grupo de SQL.
 
 ```sql
 --For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:

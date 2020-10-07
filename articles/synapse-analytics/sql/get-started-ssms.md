@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: dc467eebbd7346777765af7143d13c76627ab648
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 166d598528d8fe38e2bc22b76c659326c5e0ba45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077722"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288790"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Conexión a Synapse SQL con SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Asegúrese de que cumple los siguientes requisitos previos antes de empezar:
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
 * Para el grupo de SQL, necesita un almacén de datos existente. Para crear uno, vea [Creación de un grupo de SQL](../quickstart-create-sql-pool-portal.md). En el caso de SQL a petición, ya se ha aprovisionado uno en el área de trabajo en el momento de la creación. 
-* El nombre del servidor SQL completo. Para encontrarlo, consulte [Conexión a Synapse SQL](connect-overview.md).
+* El nombre del servidor SQL completo. Para encontrar el nombre, consulte [Conexión a Synapse SQL](connect-overview.md).
 
 ## <a name="connect"></a>Conectar
 
@@ -50,9 +50,9 @@ Asegúrese de que cumple los siguientes requisitos previos antes de empezar:
 Para conectarse a Synapse SQL mediante el grupo de SQL, siga estos pasos: 
 
 1. Abra SQL Server Management Studio (SSMS). 
-1. En el cuadro de diálogo **Conectar a servidor**, rellene los campos y, a continuación, seleccione **Conectar**: 
+1. En el cuadro de diálogo **Conectar al servidor**, rellene los campos y seleccione **Conectar**: 
   
-    ![Conectar con el servidor](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
+    ![Conectar al servidor 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
    * **Nombre del servidor**: Escriba el **nombre del servidor** definido anteriormente.
    * **Autenticación**:  Elija un tipo de autenticación como, por ejemplo, **Autenticación de SQL Server** o **Autenticación integrada de Active Directory**.
@@ -60,7 +60,7 @@ Para conectarse a Synapse SQL mediante el grupo de SQL, siga estos pasos:
 
 1. Expanda el servidor de Azure SQL Server en **Explorador de objetos**. Puede ver las bases de datos asociadas al servidor, como la base de datos AdventureWorksDW de ejemplo. Puede expandir la base de datos para ver las tablas:
    
-    ![Explorar AdventureWorksDW](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
+    ![Explore AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
 ### <a name="sql-on-demand-preview"></a>SQL a petición (versión preliminar)
@@ -68,18 +68,18 @@ Para conectarse a Synapse SQL mediante el grupo de SQL, siga estos pasos:
 Para conectarse a Synapse SQL mediante SQL a petición, siga estos pasos: 
 
 1. Abra SQL Server Management Studio (SSMS).
-1. En el cuadro de diálogo **Conectar a servidor**, rellene los campos y, a continuación, seleccione **Conectar**: 
+1. En el cuadro de diálogo **Conectar al servidor**, rellene los campos y seleccione **Conectar**: 
    
-    ![Conectar con el servidor](./media/get-started-ssms/connect-object-explorer1.png)
+    ![Conectar al servidor 2](./media/get-started-ssms/connect-object-explorer1.png)
    
    * **Nombre del servidor**: Escriba el **nombre del servidor** definido anteriormente.
    * **Autenticación**: Elija un tipo de autenticación como, por ejemplo, **Autenticación de SQL Server** o **Autenticación integrada de Active Directory**:
    * **Nombre de usuario** y **contraseña**: Escriba su nombre de usuario y la contraseña si la autenticación de SQL Server se seleccionó anteriormente.
-   * Haga clic en **Conectar**.
+   * Seleccione **Conectar**.
 
 4. Para explorar, expanda su Azure SQL Server. Puede ver las bases de datos asociadas al servidor. Expanda *demo* para ver el contenido de la base de datos de ejemplo.
    
-    ![Explorar AdventureWorksDW](./media/get-started-ssms/explore-tables.png)
+    ![Explore AdventureWorksDW 2](./media/get-started-ssms/explore-tables.png)
 
 
 ## <a name="run-a-sample-query"></a>Ejecución de una consulta de ejemplo
@@ -91,18 +91,18 @@ Ahora que se ha establecido una conexión de base de datos, puede consultar los 
 1. Haga clic con el botón derecho en la base de datos en el Explorador de objetos de SQL Server.
 2. Seleccione **Nueva consulta**. Se abrirá una nueva ventana de consulta.
    
-    ![Nueva consulta](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
-3. Copie esta consulta T-SQL en la ventana de consulta:
+    ![Nueva consulta 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
+3. Copie la siguiente consulta T-SQL en la ventana de consulta:
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Ejecuta la consulta. Para hacerlo, haga clic en `Execute` o use la combinación de teclas `F5`.
+4. Ejecute la consulta, para lo que debe seleccionar `Execute` o usar el siguiente acceso directo: `F5`.
    
-    ![Ejecutar consulta](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
-5. Consulte los resultados de la consulta. En este ejemplo, la tabla FactInternetSales tiene 60398 filas.
+    ![Ejecutar consulta 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
+5. Consulte los resultados de la consulta. En el siguiente ejemplo, la tabla FactInternetSales tiene 60398 filas.
    
-    ![Resultados de la consulta](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
+    ![Resultados de consulta 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
 ### <a name="sql-on-demand"></a>SQL a petición
 
@@ -111,18 +111,18 @@ Ahora que se ha establecido una conexión de base de datos, puede consultar los 
 1. Haga clic con el botón derecho en la base de datos en el Explorador de objetos de SQL Server.
 2. Seleccione **Nueva consulta**. Se abrirá una nueva ventana de consulta.
    
-    ![Nueva consulta](./media/get-started-ssms/new-query.png)
+    ![Nueva consulta 2](./media/get-started-ssms/new-query.png)
 3. Copie la siguiente consulta T-SQL en la ventana de consulta:
    
     ```sql
     SELECT COUNT(*) FROM demo.dbo.usPopulationView
     ```
-4. Ejecuta la consulta. Para hacerlo, haga clic en `Execute` o use la combinación de teclas `F5`.
+4. Ejecute la consulta, para lo que debe seleccionar `Execute` o usar el siguiente acceso directo: `F5`.
    
-    ![Ejecutar consulta](./media/get-started-ssms/execute-query.png)
+    ![Ejecutar consulta 2](./media/get-started-ssms/execute-query.png)
 5. Consulte los resultados de la consulta. En este ejemplo, la vista usPopulationView tiene 3664512 filas.
    
-    ![Resultados de la consulta](./media/get-started-ssms/results.png)
+    ![Resultados de la consulta 2](./media/get-started-ssms/results.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que puede conectarse y realizar consultas, intente realizar la [Visualización de datos con Power BI](get-started-power-bi-professional.md).

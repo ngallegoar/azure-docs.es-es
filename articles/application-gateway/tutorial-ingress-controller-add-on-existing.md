@@ -1,18 +1,18 @@
 ---
-title: Habilitación del complemento de controlador de entrada para un clúster de AKS existente con la instancia de Azure Application Gateway existente
+title: 'Tutorial: Habilitación del complemento de controlador de entrada para un clúster de AKS existente con la instancia de Azure Application Gateway existente'
 description: Use este tutorial para habilitar el complemento de controlador de entrada para el clúster de AKS existente con una instancia de Application Gateway existente
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 35d9396ac1f4569002b95549a8752745537621cf
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: d0ce58c5bb6de4712117959f10b48ae3449f0b97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595978"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285678"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Tutorial: Habilitación del complemento de controlador de entrada de Application Gateway para un clúster de AKS existente con una instancia de Application Gateway existente a través de la CLI de Azure (versión preliminar)
 
@@ -28,6 +28,8 @@ En este tutorial, aprenderá a:
 > * Emparejar la red virtual de Application Gateway con la red virtual del clúster de AKS
 > * Implementar una aplicación de ejemplo mediante AGIC para la entrada en el clúster de AKS
 > * Comprobar que la aplicación es accesible a través de Application Gateway
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -151,7 +153,6 @@ az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Más información sobre cómo deshabilitar el complemento AGIC](./ingress-controller-disable-addon.md)
-* [Más información sobre las anotaciones que se admiten con AGIC](./ingress-controller-annotations.md)
-* [Solución de problemas con AGIC](./ingress-controller-troubleshoot.md)
 
+> [!div class="nextstepaction"]
+> [Más información sobre cómo deshabilitar el complemento AGIC](./ingress-controller-disable-addon.md)

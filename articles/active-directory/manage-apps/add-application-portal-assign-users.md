@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 9d396c0787798c783b44748dc2461c073334cc7e
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 889ad3b74a2f7c0baa006a0c45e3f14664d6cd0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325885"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Inicio rápido: Asignación de usuarios a una aplicación que usa Azure AD como proveedor de identidades
 
@@ -38,7 +38,7 @@ Para asignar usuarios a una aplicación que ha agregado al inquilino de Azure A
 1. En el portal de Azure AD, seleccione **Aplicaciones empresariales**. Después, busque y seleccione la aplicación que desea configurar.
 2. En el menú de navegación de la izquierda, seleccione **Usuarios y grupos**.
    > [!NOTE]
-   > Algunas de las aplicaciones de Microsoft 365 y Office 365 requieren el uso de PowerShell. 
+   > Algunas de las aplicaciones de Microsoft 365 requieren el uso de PowerShell. 
 3. Seleccione el botón **Agregar usuario**.
 4. En el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
 5. Seleccione el usuario o el grupo que desea asignar a la aplicación. También puede empezar a escribir el nombre del usuario o grupo en el cuadro de búsqueda. Puede elegir varios usuarios y grupos; sus selecciones aparecerán en **Elementos seleccionados**.
@@ -46,7 +46,7 @@ Para asignar usuarios a una aplicación que ha agregado al inquilino de Azure A
     > Cuando se asigna un grupo a una aplicación, solo tendrán acceso los usuarios del grupo. La asignación no se aplica en cascada a los grupos anidados.
 
     > [!NOTE]
-    > La asignación basada en grupos requiere Azure Active Directory Premium P1 o P2. La asignación basada en grupo se admite en grupos de seguridad únicamente. Actualmente no se admiten las pertenencias a grupos anidados y los grupos de Office 365. Para conocer más requisitos de licencia de las características abordadas en este artículo, vea la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
+    > La asignación basada en grupos requiere Azure Active Directory Premium P1 o P2. La asignación basada en grupo se admite en grupos de seguridad únicamente. Actualmente no se admiten las pertenencias a grupos anidados y los grupos de Microsoft 365. Para conocer más requisitos de licencia de las características abordadas en este artículo, vea la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
 6. Cuando termine, elija **Seleccionar**.
    ![Asignación de un usuario o un grupo a la aplicación](./media/assign-user-or-group-access-portal/assign-users.png)
 7. En el panel **Usuarios y grupos**, seleccione uno o varios usuarios o grupos de la lista y, luego, haga clic en el botón **Seleccionar** en la parte inferior del panel.
@@ -55,8 +55,7 @@ Para asignar usuarios a una aplicación que ha agregado al inquilino de Azure A
     > Si la aplicación no permite seleccionar roles, se asignará el rol de acceso predeterminado. En este caso, la aplicación administrará el nivel de acceso que tienen los usuarios.
 9. En el panel **Agregar asignación**, haga clic en el botón **Asignar** en la parte inferior del panel.
 
-> [!NOTE]
-> Puede anular la asignación de usuarios o grupos mediante el mismo procedimiento. Seleccione el usuario o el grupo cuya asignación desea anular y, a continuación, seleccione **Eliminar**. Algunas de las aplicaciones de Microsoft 365 y Office 365 requieren el uso de PowerShell. 
+Puede anular la asignación de usuarios o grupos mediante el mismo procedimiento. Seleccione el usuario o el grupo cuya asignación desea anular y, a continuación, seleccione **Eliminar**. Algunas de las aplicaciones de Microsoft 365 y Office 365 requieren el uso de PowerShell. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -66,4 +65,9 @@ Cuando haya terminado con la guía de inicio rápido, considere la posibilidad d
 
 Pase al siguiente artículo, donde aprenderá a configurar el inicio de sesión único en una aplicación.
 > [!div class="nextstepaction"]
-> [Configuración del inicio de sesión único](add-application-portal-setup-sso.md)
+> [Configuración del inicio de sesión único basado en SAML](add-application-portal-setup-sso.md)
+
+O BIEN
+
+> [!div class="nextstepaction"]
+> [Configuración del inicio de sesión único basado en OIDC](add-application-portal-setup-oidc-sso.md)

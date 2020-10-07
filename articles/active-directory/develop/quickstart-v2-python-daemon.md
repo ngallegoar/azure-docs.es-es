@@ -1,6 +1,7 @@
 ---
-title: Demonio de Python con la plataforma de identidad de Microsoft | Azure
-description: Aprenda cómo un proceso Python puede obtener un token de acceso y llamar a una API protegida por un punto de conexión de la plataforma de identidad de Microsoft mediante la propia identidad de la aplicación
+title: 'Inicio rápido: Llamada a Microsoft Graph desde un demonio de Python | Azure'
+titleSuffix: Microsoft identity platform
+description: En este inicio rápido, obtendrá información sobre cómo un proceso de Python puede obtener un token de acceso y llamar a una API protegida por un punto de conexión de la plataforma de identidad de Microsoft mediante la propia identidad de la aplicación.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 0969afa95009255981381d41268f416a615dd9f3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2c280b8241819155f32942a399caa7f916db3827
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683752"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257748"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola en Python mediante la identidad de la aplicación
 
@@ -224,18 +225,3 @@ Para más información sobre las aplicaciones demonio, consulte la página de at
 
 > [!div class="nextstepaction"]
 > [Aplicación demonio que llama a las API web](scenario-daemon-overview.md)
-
-Para ver el tutorial de la aplicación demonio, consulte:
-
-> [!div class="nextstepaction"]
-> [Tutorial de la consola de Python de demonio](https://github.com/Azure-Samples/ms-identity-python-daemon)
-
-Más información sobre los permisos y el consentimiento:
-
-> [!div class="nextstepaction"]
-> [Permisos y consentimiento](v2-permissions-and-consent.md)
-
-Para más información sobre el flujo de autenticación en este escenario, vea el flujo de credenciales de cliente de OAuth 2.0:
-
-> [!div class="nextstepaction"]
-> [Flujo de OAuth de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md)

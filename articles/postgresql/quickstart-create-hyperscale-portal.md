@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: 1a16283f3d04c9ad331a04c3a36b49055635d76e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e43e20ceb5e84d652fee9ca4db6d5dc871ed1e4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906499"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268459"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Inicio rápido: Creación de un grupo de servidores Citus en Azure Portal
 
@@ -25,7 +25,7 @@ Azure Database for PostgreSQL es un servicio administrado que usa para ejecutar,
 
 Una vez conectado al nodo coordinador de hiperescala mediante psql, puede completar algunas tareas básicas.
 
-Dentro de los servidores Hiperescala hay tres tipos de tablas:
+Dentro de los servidores de Hiperescala (Citus) hay tres tipos de tablas:
 
 - Tablas particionadas o distribuidas (repartidas para ayudar a escalar para el rendimiento y paralelización)
 - Tablas de referencia (se mantienen varias copias)
@@ -71,7 +71,7 @@ CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-A continuación con esas tablas Postgres en el nodo de coordinación, indicaremos a Hiperescala que las particione entre los roles de trabajo. Para ello, ejecutaremos una consulta para cada tabla especificando la clave en la que se va a particionar. En el ejemplo actual, vamos a particionar la tabla de usuarios y de eventos en `user_id`:
+A continuación, con esas tablas Postgres en el nodo de coordinación, indicaremos a Hiperescala (Citus) que las particione entre los roles de trabajo. Para ello, ejecutaremos una consulta para cada tabla especificando la clave en la que se va a particionar. En el ejemplo actual, vamos a particionar la tabla de usuarios y de eventos en `user_id`:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
@@ -117,7 +117,7 @@ ORDER BY hour;
 
 Hasta ahora, las consultas que hemos realizado solo han utilizado github\_events, pero podemos combinar esta información con github\_users. Como hemos particionado tanto los usuarios como los eventos en el mismo identificador (`user_id`), las filas de ambas tablas con identificadores de usuario que coincidan se [coubicarán](concepts-hyperscale-colocation.md) en los mismos nodos de base de datos con lo que pueden combinarse fácilmente.
 
-Si incorporamos `user_id`, Hiperescala puede insertar la ejecución conjunta en particiones para su ejecución en paralelo en nodos de trabajo. Por ejemplo, vamos a buscar los usuarios que hayan creado el mayor número de repositorios:
+Si incorporamos `user_id`, Hiperescala (Citus) puede insertar la ejecución conjunta en particiones para su ejecución en paralelo en nodos de trabajo. Por ejemplo, vamos a buscar los usuarios que hayan creado el mayor número de repositorios:
 
 ```sql
 SELECT gu.login, count(*)

@@ -2,21 +2,19 @@
 title: 'Tutorial: Escalado de una nube privada'
 description: En este tutorial, usará Azure Portal para escalar una nube privada de la versión preliminar de Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: dddfbddd57f3ad6b541d11c360aeadea4383044a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/21/2020
+ms.openlocfilehash: e1226eb98607a34869bda1f998c7cecea2e50919
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750438"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254421"
 ---
-# <a name="tutorial-scale-an-azure-vmware-solution-preview-private-cloud"></a>Tutorial: Escalado de una nube privada en la versión preliminar de Azure VMware Solution
+# <a name="tutorial-scale-an-azure-vmware-solution-private-cloud"></a>Tutorial: Escalado de una nube privada de Azure VMware Solution
 
-Para sacar el máximo partido de la experiencia de la nube privada de la versión preliminar de Azure VMware Solution, escale los clústeres y los hosts para que reflejen lo que necesite para las cargas de trabajo planeadas. Como Azure VMware Solution no admitirá el vCenter local durante la versión preliminar, deberá usar lo que ya ha creado mediante Azure Portal.
+Para sacar el máximo partido de la experiencia de la nube privada de Azure VMware Solution, escale los clústeres y los hosts para que reflejen lo que necesita para las cargas de trabajo planeadas. Puede escalar el número de clústeres y el número de hosts en una nube privada según sea necesario para la carga de trabajo de la aplicación. Las limitaciones de rendimiento y disponibilidad para servicios específicos deben abordarse en función de cada caso en el entorno en la nube privada de Azure VMware Solution. Los límites de hosts y clústeres se proporcionan en el artículo de [concepto de nube privada](concepts-private-clouds-clusters.md).
 
-Puede escalar el número de clústeres y el número de hosts en una nube privada según sea necesario para la carga de trabajo de la aplicación. Las limitaciones de rendimiento y disponibilidad para servicios específicos deben abordarse en función de cada caso en el entorno en la nube de la versión preliminar de Azure VMware Solution. Los límites de hosts y clústeres en una nube privada se proporcionan en [el artículo de conceptos de nube privada](concepts-private-clouds-clusters.md).
-
-En este tutorial se usa Azure Portal para:
+En este tutorial, usará Azure Portal para:
 
 > [!div class="checklist"]
 > * Agregar un clúster a una nube privada existente
@@ -24,7 +22,7 @@ En este tutorial se usa Azure Portal para:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Necesita una nube privada para completar este tutorial. Si aún no ha creado una nube privada, use el tutorial para [crear una nube privada](tutorial-create-private-cloud.md) a fin de crear una nube privada, configurar redes para la nube privada de VMware en Azure y configurar la red virtual requerida.
+Necesita una nube privada para completar este tutorial. Si aún no ha creado una nube privada, use el [tutorial de creación de una nube privada](tutorial-create-private-cloud.md) para crear una y configurar las redes para su nube privada de VMware en Azure y configurar la red virtual requerida.
 
 ## <a name="add-a-new-cluster"></a>Incorporación de un nuevo clúster
 
@@ -34,7 +32,7 @@ Necesita una nube privada para completar este tutorial. Si aún no ha creado una
 
 1. En la página **Add cluster** (Agregar clúster), use el control deslizante para seleccionar el número de hosts. Seleccione **Guardar**.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="En la página Add cluster (Agregar clúster), use el control deslizante para seleccionar el número de hosts. Seleccione Guardar." border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="selección de Agregar un clúster" border="true":::
 
    Se iniciará la implementación del nuevo clúster.
 
@@ -42,11 +40,11 @@ Necesita una nube privada para completar este tutorial. Si aún no ha creado una
 
 1. En la página de información general de una nube privada existente, seleccione **Scale private cloud** (Escalar la nube privada) y seleccione el icono de lápiz para editar el clúster.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Seleccionar Scale private cloud en información general" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="selección de Agregar un clúster" border="true":::
 
 1. En la página **Edit Cluster** (Editar clúster), use el control deslizante para seleccionar el número de hosts. Seleccione **Guardar**.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="En la página Edit Cluster (Editar clúster), use el control deslizante para seleccionar el número de hosts. Seleccione Guardar." border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="selección de Agregar un clúster" border="true":::
 
    Empezarán a agregarse hosts al clúster.
 

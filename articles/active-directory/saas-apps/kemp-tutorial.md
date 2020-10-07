@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 1d974badd715d7966f552603a77d77aab95d70f7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 68869d464df01d3cc89493c64d66511b4a6f369d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549976"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300064"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Kemp LoadMaster
 
@@ -139,7 +139,7 @@ En esta sección va a permitir que B.Simon acceda a Kemp LoadMaster mediante el 
 
 ### <a name="create-a-virtual-service"></a>Creación de un servicio virtual 
 
-1. Vaya a la interfaz de usuario web de Kemp LoadMaster > Virtual Services > Add New (Servicios virtuales > Agregar nuevo).
+1. Vaya a la integración de Azure AD de la interfaz de usuario web de Kemp LoadMaster > Virtual Services > Add New (Servicios virtuales > Agregar nuevo).
 
 1. Haga clic en Add New (Agregar nuevo).
 
@@ -197,11 +197,11 @@ En esta sección va a permitir que B.Simon acceda a Kemp LoadMaster mediante el 
 
 ### <a name="ssl-acceleration"></a>Aceleración de SSL
  
-1. Vaya a la interfaz de usuario web de Kemp LoadMaster > Virtual Services > Virtual Services (Servicios virtuales > Servicios virtuales).
+1. Vaya a la interfaz de usuario web de Kemp LoadMaster > Virtual Services > View/Modify Services (Servicios virtuales > Ver o Modificar servicios).
 
 1. Haga clic en Modify under Operation (Modificar en funcionamiento).
 
-1. En Properties for tcp/x.x.x.:443 (Id:6) - Operating at Layer 7 (Propiedades de tcp/x.x.x.:443 (Id:6) - Funcionando en el nivel 7), haga clic en SSL Properties (Propiedades de SSL).
+1. Haga clic en SSL Properties (Propiedades de SSL), que funciona en el nivel 7.
     
     ![Servidor web de Kemp LoadMaster](./media/kemp-tutorial/kemp-3.png)
     

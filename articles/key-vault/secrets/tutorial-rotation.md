@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2d1a46a35ef38791b6a3b47c300aa1b47f70324
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: e34349f9f52c61d27e57e6ac7f4b3515ee746b22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086916"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331852"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatización de la rotación de un secreto para recursos que usan un conjunto de credenciales de autenticación
 
@@ -68,6 +68,8 @@ akvrotation-sql/master  akvrotation      eastus      Microsoft.Sql/servers/datab
 ```
 
 ## <a name="create-and-deploy-sql-server-password-rotation-function"></a>Creación e implementación de la función de rotación de contraseñas de SQL Server
+> [!IMPORTANT]
+> La plantilla siguiente requiere Key Vault, SQL Server y Azure Functions en el mismo grupo de recursos
 
 A continuación, cree una aplicación de funciones con una identidad administrada por el sistema, además de los otros componentes necesarios, e implemente las funciones de rotación de contraseña de SQL Server.
 

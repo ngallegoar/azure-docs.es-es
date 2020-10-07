@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Implementación del análisis espacial de IoT con Microsoft Azure Maps'
-description: Integre IoT Hub con las API del servicio Azure Maps.
+title: 'Tutorial: Implementación del análisis espacial de IoT | Microsoft Azure Maps'
+description: Tutorial sobre cómo integrar IoT Hub con las API del servicio Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 25665e75a361fbaa5479e2717d5e6aa9290c3d3a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3eb405783b16d1bb7de27f6638dba394457601c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056576"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321839"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: Implementación del análisis espacial de IoT mediante Azure Maps
 
@@ -253,6 +253,7 @@ Cuando la función de Azure esté ejecutándose, podrá enviar los datos de tele
     dotnet run
     ```
 
+
   El terminal local tendrá el aspecto siguiente.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Diagrama de información general del sistema.":::
@@ -276,8 +277,6 @@ Para obtener una lista completa de las API REST de Azure Maps, consulte:
 
 * [API REST de Azure Maps](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
 
-Para más información acerca de IoT Plug and Play, consulte:
-
 * [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp)
 
 Para obtener una lista de los dispositivos que tienen la certificación de Azure para IoT, visite:
@@ -287,6 +286,7 @@ Para obtener una lista de los dispositivos que tienen la certificación de Azure
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre cómo enviar datos de telemetría del dispositivo a la nube y viceversa, consulte:
+
 
 > [!div class="nextstepaction"]
 > [Envío de datos de telemetría desde un dispositivo](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)

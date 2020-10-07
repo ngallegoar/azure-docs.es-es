@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Creación de una canalización de CI/CD para Java: Azure DevOps Starter'
-description: Con DevOps Starter es fácil empezar a usar Azure. En pocos y rápidos pasos le ayuda a iniciar una aplicación en el servicio de Azure de su elección.
+description: Aprenda a usar la experiencia simplificada de Azure DevOps Starter para configurar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de Java en Azure Pipelines.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 738822d2dd4a67ea0b5c83c6c5f6c289e93766c3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 29b05feab0a44629c3d450709a3bc05481be6e84
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327793"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330373"
 ---
 # <a name="set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-starter"></a>Configuración de una canalización de CI/CD para una aplicación Java con Azure DevOps Starter
 
 En este inicio rápido se usa la experiencia simplificada de Azure DevOps Starter para configurar una canalización de integración continua (CI) y entrega continua (CD) para una aplicación de Java en Azure Pipelines. Azure DevOps Starter se puede usar para configurar todo lo necesario para desarrollar, implementar y supervisar una aplicación. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - Una cuenta de [Azure DevOps](https://azure.microsoft.com/services/devops/) y una organización.
@@ -35,7 +35,7 @@ DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear u
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. En el cuadro de búsqueda, escriba **DevOps Starter** y, después, selecciónelo. Haga clic en **Agregar** para crear una instancia.
+1. En el cuadro de búsqueda, escriba **DevOps Starter** y, después, selecciónelo. Haga clic en **Agregar** para crear un recurso.
 
     ![Panel de DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 

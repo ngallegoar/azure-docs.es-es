@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Búsqueda de ubicaciones cercanas en un mapa | Microsoft Azure Maps'
-description: Obtenga información sobre cómo buscar puntos de interés en un mapa. Obtenga información sobre cómo usar el SDK web de Azure Maps para agregar funcionalidades de búsqueda y cuadros emergentes interactivos a un mapa.
+description: Tutorial sobre cómo buscar puntos de interés en un mapa. Obtenga información sobre cómo usar el SDK web de Azure Maps para agregar funcionalidades de búsqueda y cuadros emergentes interactivos a un mapa.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 6ed463cbda3ceb560f907529dc8de54a772932ea
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 4d6728d4fbde4b7d6cc8ed06e961642264ad31bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085083"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321703"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Búsqueda de puntos cercanos de interés mediante Azure Maps
 
@@ -26,44 +26,14 @@ En este tutorial se muestra cómo configurar una cuenta con Azure Maps y luego u
 > * Crear una nueva página web con Map Control API
 > * Usar el servicio de búsqueda de Maps para encontrar un punto cercano de interés
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
-
-Inicie sesión en [Azure Portal](https://portal.azure.com).
+## <a name="prerequisites"></a>Requisitos previos
 
 <a id="createaccount"></a>
-
-## <a name="create-an-account-with-azure-maps"></a>Crear una cuenta con Azure Maps
-
-Cree una nueva cuenta de Maps con los pasos siguientes:
-
-1. En la esquina superior izquierda de [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso**.
-2. En el campo *Buscar en el Marketplace*, escriba **Maps**.
-3. En *Resultados*, seleccione **Maps**. Haga clic en el botón **Crear** que aparece debajo del mapa.
-4. En la página **Create Maps Account** (Crear una cuenta de Azure Maps), escriba los siguientes valores:
-    * La *suscripción* que quiere usar para esta cuenta.
-    * El nombre del *grupo de recursos* para esta cuenta. Puede elegir *Crear nuevo* o *Usar existente* para el grupo de recursos.
-    * El *nombre* de la nueva cuenta.
-    * El *Plan de tarifa* de la cuenta.
-    * Lea la *licencia* y la *declaración de privacidad* y active la casilla para aceptar los términos.
-    * Haga clic en el botón **Crear**.
-
-![Creación de una cuenta de Azure Maps en Azure Portal](./media/tutorial-search-location/create-account.png)
-
 <a id="getkey"></a>
 
-## <a name="get-the-primary-key-for-your-account"></a>Obtención de la clave principal de una cuenta
-
-Una vez que se haya creado correctamente la cuenta de Maps, recupere la clave que le permite consultar las API de Maps. Se recomienda el uso de la clave principal de la cuenta como clave de suscripción al llamar a los servicios Azure Maps.
-
-1. Abra su cuenta de Maps en el portal.
-2. En la sección de configuración, seleccione **Autenticación**.
-3. Copie la **clave principal** al Portapapeles. Guárdela localmente para usarla más adelante en este tutorial.
-
-![Obtención de la clave principal en Azure Portal](./media/tutorial-search-location/get-key.png)
-
-Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+2. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account).
+3. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
@@ -275,21 +245,9 @@ La asignación que hemos hecho hasta ahora solo examina los datos de latitud o l
 
     ![Control de mapa y Search Service de Azure](./media/tutorial-search-location/popup-map.png)
 
+Para ver el código completo de este tutorial, haga clic [aquí](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html). Para ver el ejemplo publicado, haga clic [aquí](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest).
+
 ## <a name="next-steps"></a>Pasos siguientes
-
-En este tutorial, ha aprendido a:
-
-> [!div class="checklist"]
-> * Crear una cuenta con Azure Maps
-> * Obtención de la clave principal de una cuenta
-> * Crear una nueva página web mediante la API de Control de mapa
-> * Uso de Search Service para encontrar un punto de interés cercano
-
-> [!div class="nextstepaction"]
-> [Ver el código fuente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-> [!div class="nextstepaction"]
-> [Ver un ejemplo publicado](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 En el siguiente tutorial se muestra cómo visualizar una ruta entre dos ubicaciones.
 

@@ -1,5 +1,5 @@
 ---
-title: Configuración de Azure IoT Hub Device Provisioning mediante una plantilla de Azure Resource Manager
+title: 'Inicio rápido: Configuración de Azure IoT Hub Device Provisioning mediante una plantilla de Azure Resource Manager'
 description: 'Inicio rápido de Azure: Configuración de Azure IoT Hub Device Provisioning Service (DPS) mediante una plantilla'
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74969588"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297154"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Inicio rápido: Configuración del servicio IoT Hub Device Provisioning con una plantilla de Azure Resource Manager
 
@@ -300,7 +300,7 @@ La plantilla que ha definido en el último paso utiliza parámetros para especif
 
 Utilice los siguientes comandos de la CLI de Azure para implementar las plantillas y comprobar la implementación.
 
-1. Para implementar la plantilla, vaya a la carpeta que contiene la plantilla y los archivos de parámetros, y ejecute el siguiente [comando para iniciar una implementación](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+1. Para implementar la plantilla, vaya a la carpeta que contiene la plantilla y los archivos de parámetros, y ejecute el siguiente [comando para iniciar una implementación](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create&preserve-view=true):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -311,7 +311,7 @@ Utilice los siguientes comandos de la CLI de Azure para implementar las plantill
    ![Aprovisionamiento de salida](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Para comprobar la implementación, ejecute el siguiente [comando para enumerar los recursos](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) y busque el nuevo servicio de aprovisionamiento y el centro de IoT en la salida:
+2. Para comprobar la implementación, ejecute el siguiente [comando para enumerar los recursos](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) y busque el nuevo servicio de aprovisionamiento y el centro de IoT en la salida:
 
     ```azurecli
      az resource list -g {your resource group name}

@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: ca330357e88ff6f4824c74a6048769638542cc29
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d6c447deedbdcc4f2439fc069f368db88b3560b9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278046"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>Tutorial: Asignación del rol Lectores de directorio a un grupo de Azure AD y administración de las asignaciones de roles
 
@@ -55,7 +55,7 @@ Para obtener más información sobre las ventajas de asignar el rol Lectores de 
 
 Para comprobar y administrar el grupo que se creó, vuelva al panel **Grupos** en Azure Portal y busque el nombre del grupo. Se pueden agregar más propietarios y miembros en el menú **Propietarios** y **Miembros** de la opción **Administrar** después de seleccionar el grupo. También puede revisar los **roles asignados** para el grupo.
 
-:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="azure-ad-group-created":::
+:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="aad-new-group":::
 
 ### <a name="add-azure-sql-managed-identity-to-the-group"></a>Adición de la identidad administrada de Azure SQL al grupo
 
@@ -68,17 +68,17 @@ En los pasos siguientes, ya no es necesario el usuario administrador global o ad
 
 1. Busque el nombre del recurso **SQL Managed Instance** en Azure Portal.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="azure-ad-managed-instance":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="aad-new-group":::
 
    Durante la creación de SQL Managed Instance, se creó una identidad de Azure para la instancia. La identidad creada tiene el mismo nombre que el prefijo del nombre de SQL Managed Instance. Puede encontrar la entidad de servicio de la identidad de SQL Managed Instance que creó como una aplicación de Azure AD. Para ello, siga estos pasos:
 
     - Vaya al recurso **Azure Active Directory**. En la opción **Administrar**, seleccione **Aplicaciones empresariales**. El **identificador de objeto** es la identidad de la instancia.
     
-    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="azure-ad-managed-instance-service-principal":::
+    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="aad-new-group":::
 
 1. Vaya al recurso **Azure Active Directory**. En **Administrado**, vaya a **Grupos**. Seleccione el grupo que creó. En la opción **Administrada** del grupo, seleccione **Miembros**. Seleccione **Agregar miembros** y agregue la entidad de servicio de SQL Managed Instance como miembro del grupo. Para ello, busque el nombre que se encuentra arriba.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="azure-ad-add-managed-instance-service-principal":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="aad-new-group":::
 
 > [!NOTE]
 > Puede tardar unos minutos en propagar los permisos de la entidad de servicio mediante el sistema de Azure y permitir el acceso a Azure AD Graph API. Es posible que tenga que esperar unos minutos antes de aprovisionar un administrador de Azure AD para SQL Managed Instance.

@@ -5,19 +5,22 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 11783f8fac147e6fb2cf371ee1a588cf318a5e9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5de121a1a905a58f8b5eaf8e60c1f8da71ee8cd6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75379453"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91276956"
 ---
 Form Recognizer trabaja con documentos de entrada que cumplen estos requisitos:
 
 * El formato debe ser JPG, PNG o PDF (texto o digitalizado) o TIFF. Los PDF insertados de texto son mejores porque no hay posibilidad de error en la extracción de caracteres y en la ubicación.
+* El tamaño del archivo debe ser inferior a 20 MB.
+* Las imágenes deben tener unas dimensiones entre 50 x 50 píxeles y 10 000 x 10 000 píxeles.
+* Los archivos PDF deben tener unas dimensiones de 17 x 17 pulgadas como máximo, lo que se corresponde con los tamaños de papel Legal o A3 y más pequeños.
+* En el caso de PDF y TIFF, solo se procesan las primeras 200 páginas (con una suscripción de nivel gratuitos, solo se procesan las dos primeras páginas).
+* El tamaño total del conjunto de datos de aprendizaje puede ser de 500 páginas o menos.
 * Si los archivos PDF están bloqueados con contraseña, debe quitar el bloqueo antes de enviarlos.
-* Los documentos PDF y TIFF deben tener 200 páginas como máximo y el tamaño total del conjunto de datos de entrenamiento debe ser inferior a 500 páginas.
-* Para las imágenes, las dimensiones deben tener entre 600 x 100 píxeles y 4200 x 4200 píxeles.
 * Si se digitalizan desde documentos en papel, los formularios deben ser digitalizaciones de alta calidad.
 * El texto debe usar el alfabeto latino (caracteres ingleses).
 * En el caso del aprendizaje sin supervisión (sin datos etiquetados), los datos deben contener claves y valores.

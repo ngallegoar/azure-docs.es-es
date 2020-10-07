@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Introducción a los análisis de datos con SQL a petición'
+title: 'Tutorial: Introducción a los análisis de datos con SQL sin servidor'
 description: En este tutorial, aprenderá a analizar datos con SQL a petición mediante los datos ubicados en bases de datos de Spark.
 services: synapse-analytics
 author: saveenr
@@ -9,18 +9,18 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 93ebc1c5e89e54f4813f270b9f8b7b13f672fbe3
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 8d26a03a8b61850dc17bc4efff5f8ca12dfca191
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016119"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300231"
 ---
 # <a name="analyze-data-with-sql-on-demand"></a>Análisis de datos con SQL a petición
 
-En este tutorial, aprenderá a analizar datos con SQL a petición mediante los datos ubicados en bases de datos de Spark. 
+En este tutorial, aprenderá a analizar datos con SQL sin servidor mediante un grupo de SQL a petición con los datos ubicados en bases de datos de Spark. 
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage--using-sql-on-demand"></a>Análisis de los datos de NYC Taxi en Blob Storage con SQL a petición
+## <a name="analyze-nyc-taxi-data-in-blob-storage-using-sql-on-demand-pool"></a>Análisis de los datos de NYC Taxi en Blob Storage con un grupo de SQL a petición
 
 1. En el centro de conectividad **Data** (Datos) de **Linked** (Vinculados), haga clic con el botón derecho en **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** (Azure Blob Storage > Conjuntos de datos de ejemplo > nyc_tlc_yellow) y seleccione **SELECT New notebook** (SELECCIONAR 100 PRIMERAS filas).
 1. Así se creará un script de SQL con el código siguiente:

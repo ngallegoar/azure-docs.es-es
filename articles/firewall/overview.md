@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 08/25/2020
+ms.date: 09/24/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 0572613fe33d525ed1a5a42c627de3ce1049a290
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 24b30842bea51394a375cf48e09b7547e057405c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434051"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261743"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -34,7 +34,7 @@ Para obtener información sobre las características de Azure Firewall, consulte
 
 Azure Firewall presenta los siguientes problemas conocidos:
 
-|Problema  |Descripción  |Mitigación  |
+|Incidencia  |Descripción  |Mitigación  |
 |---------|---------|---------|
 Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, ICMP) no funcionan con el tráfico enlazado a Internet|Las reglas de filtrado de red de protocolos que no son TCP/UDP no funcionan con la traducción SNAT a la dirección IP pública. Los protocolos que no son TCP/UDP no se admiten entre subredes de radio y redes virtuales.|Azure Firewall usa Standard Load Balancer, [que actualmente no admite SNAT para los protocolos IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Se están examinando opciones para admitir este escenario en una versión futura.|
 |Falta de compatibilidad entre PowerShell y CLI con ICMP|Azure PowerShell y la CLI no admiten ICMP como protocolo válido en las reglas de red.|Aun así se puede usar ICMP como protocolo a través del portal y la API REST. Estamos trabajando para agregar pronto ICMP a PowerShell y la CLI.|
@@ -55,7 +55,8 @@ Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, I
 |No se admiten las reglas NAT con puertos entre el 64000 y el 65535|Azure Firewall permite cualquier puerto en el rango 1-65535 en reglas de red y de aplicación; sin embargo, las reglas NAT solo admiten los puertos del rango 1-63999.|Se trata de una limitación actual.
 |Las actualizaciones de configuración pueden tardar cinco minutos por término medio.|Una actualización de la configuración de Azure Firewall puede tardar entre tres y cinco minutos por término medio, y no se admiten actualizaciones en paralelo.|Se está investigando una solución.|
 |Azure Firewall usa encabezados TLS SNI para filtrar el tráfico HTTPS y MSSQL|Si el software de explorador o servidor no admite la extensión de indicación de nombre de servidor (SNI), no podrá conectarse mediante Azure Firewall.|Si el software de explorador o servidor no admite SNI, es posible que pueda controlar la conexión mediante una regla de red en lugar de una regla de aplicación. Consulte [Indicación de nombre de servidor](https://wikipedia.org/wiki/Server_Name_Indication) para conocer el software que admite SNI.|
-|DNS personalizado (versión preliminar) no funciona con la tunelización forzada|Si está habilitado la tunelización forzada, DNS personalizado (versión preliminar) no funciona.|Se está investigando una solución.
+|DNS personalizado (versión preliminar) no funciona con la tunelización forzada|Si está habilitado la tunelización forzada, DNS personalizado (versión preliminar) no funciona.|Se está investigando una solución.|
+|Compatibilidad con la nueva dirección IP pública para varias instancias de Availability Zones|No se puede agregar una nueva dirección IP pública al implementar un firewall con dos zonas de disponibilidad (1 y 2, 2 y 3 o 1 y 3)|Esta es una limitación de recursos de dirección IP pública.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

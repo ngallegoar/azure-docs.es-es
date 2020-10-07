@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 0818ab782710e6a102d2034790ff8d997cd54f8e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 2946590cbb4c5e8f495a1f6ee4aac65929cd4d0e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808446"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305774"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory (Azure AD)
 
@@ -47,13 +47,24 @@ Para agregar una aplicación a un inquilino de Azure AD:
 3. En el panel **Aplicaciones empresariales**, seleccione **Nueva aplicación**. 
     ![Selección de Nueva aplicación para agregar una aplicación de la galería al inquilino](media/add-application-portal/new-application.png)
 4. Cambie a la nueva experiencia de versión preliminar de la galería: En el banner situado en la parte superior de la **página para agregar una aplicación**, seleccione el vínculo que indica **Haga clic aquí para probar la nueva y mejorada experiencia de la galería de aplicaciones.** .
-5. Se abre el panel **Examinar la Galería de Azure AD (versión preliminar)** , que muestra iconos para plataformas en la nube, aplicaciones locales y aplicaciones destacadas. Las aplicaciones que aparecen en la sección **Aplicaciones destacadas** incluyen iconos que indican si admiten el inicio de sesión único federado (SSO) y el aprovisionamiento.
+5. Se abre el panel **Examinar la Galería de Azure AD (versión preliminar)** , que muestra iconos para plataformas en la nube, aplicaciones locales y aplicaciones destacadas. Las aplicaciones que aparecen en la sección **Aplicaciones destacadas** incluyen iconos que indican si admiten el inicio de sesión único federado (SSO) y el aprovisionamiento. 
     ![Búsqueda de una aplicación por nombre o categoría](media/add-application-portal/browse-gallery.png)
-6. Puede buscar en la galería la aplicación que quiere agregar o escribir su nombre en el cuadro de búsqueda para localizarla. Después, seleccione la aplicación en los resultados. En el formulario, puede editar el nombre de la aplicación para que se ajuste a las necesidades de su organización. En este ejemplo, hemos seleccionado GitHub y hemos cambiado el nombre a **GitHub-test**.
-    ![Se muestra cómo agregar una aplicación de la galería](media/add-application-portal/create-application.png).
-    >[!TIP]
-    >Si la aplicación que está buscando no está en la galería, puede hacer clic en el vínculo **Cree su propia aplicación** y, a continuación, en **¿Cuál es el objetivo de utilizar la aplicación?** elija **Integrar cualquier otra aplicación que no se encuentre en la galería**. Microsoft ha trabajado con muchos desarrolladores de aplicaciones para configurar estas previamente con el fin de que funcionen con Azure AD. Estas son las aplicaciones que se muestran en la galería. Pero si la aplicación que quiere agregar no aparece en la lista, puede crear una nueva, genérica y configurarla usted mismo o siguiendo las instrucciones del desarrollador que la haya creado.
-7. Seleccione **Crear**. Aparece una página de introducción con las opciones para configurar la aplicación para su organización.
+6. Puede buscar en la galería la aplicación que quiere agregar o escribir su nombre en el cuadro de búsqueda para localizarla. Después, seleccione la aplicación en los resultados. 
+7. El paso siguiente depende de la forma en que el desarrollador de la aplicación haya implementado el inicio de sesión único (SSO). Los desarrolladores de aplicaciones pueden implementar el inicio de sesión único de cuatro maneras: SAML, OpenID Connect, Contraseña y Vinculado. Al agregar una aplicación, puede elegir filtrar y ver solo las aplicaciones que usan una implementación de inicio de sesión único determinada, como se muestra en la captura de pantalla. Por ejemplo, un estándar conocido para implementar el inicio de sesión único es Lenguaje de marcado de aserción de seguridad (SAML). Otro estándar conocido es OpenId Connect (OIDC). La forma de configurar el inicio de sesión único con estos estándares es diferente, por lo que debe tener en cuenta el tipo de inicio de sesión único implementado por la aplicación que va a agregar.
+
+    :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Captura de pantalla que muestra el selector de tipos de inicio de sesión único." lightbox="media/add-application-portal/sso-types.png":::
+
+    - Si el desarrollador de la aplicación usó el **estándar OIDC** para el inicio de sesión único, seleccione **Registrarse**. Aparece una página de instalación. A continuación, vaya al inicio rápido sobre cómo configurar el inicio de sesión único basado en OIDC.
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Captura de pantalla que muestra el selector de tipos de inicio de sesión único.":::
+
+    - Si el desarrollador de la aplicación usó el **estándar SAML** para el inicio de sesión único, seleccione **Crear**. Aparece una página de introducción con las opciones para configurar la aplicación para su organización. En el formulario, puede editar el nombre de la aplicación para que se ajuste a las necesidades de su organización. A continuación, vaya al inicio rápido sobre cómo configurar el inicio de sesión único basado en SAML.
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Captura de pantalla que muestra el selector de tipos de inicio de sesión único.":::
+
+
+> [!IMPORTANT]
+> Existen algunas diferencias importantes entre las implementaciones del inicio de sesión único basado en SAML y basado en OIDC. Con las aplicaciones basadas en SAML, puede agregar varias instancias de la misma aplicación. Por ejemplo, GitHub1, GitHub2, etc. En el caso de las aplicaciones basadas en OIDC, solo puede agregar una instancia de una aplicación. Si ya ha agregado una aplicación basada en OIDC e intenta agregar la misma aplicación de nuevo y proporciona el consentimiento dos veces, no se agregará de nuevo en el inquilino.
+
+Si la aplicación que busca no está en la galería, puede hacer clic en el vínculo **Cree su propia aplicación** y, luego, en **¿Cuál es el objetivo de utilizar la aplicación?** , elija **Integrar cualquier otra aplicación que no se encuentre en la galería**. Microsoft ha trabajado con muchos desarrolladores de aplicaciones para configurar estas previamente con el fin de que funcionen con Azure AD. Las aplicaciones preconfiguradas se muestran en la galería. Pero si la aplicación que quiere agregar no aparece en la lista, puede crear una nueva, genérica y configurarla usted mismo o siguiendo las instrucciones del desarrollador que la haya creado.
 
 Ha terminado de agregar una aplicación. El siguiente inicio rápido muestra cómo cambiar el logotipo y modificar otras propiedades de la aplicación.
 

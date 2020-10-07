@@ -1,6 +1,6 @@
 ---
 title: 'CLI de Azure: Incorporación de una instancia administrada a un grupo de conmutación por error'
-description: Script de ejemplo de la CLI de Azure para crear una instancia administrada de Azure SQL, agregarla a un grupo de conmutación por error y probar la conmutación por error.
+description: Aprenda a crear dos instancias administradas, a agregarlas a un grupo de conmutación por error y, a continuación, a probar la conmutación por error.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b29fcd33c8181ba61f57d7105d08e7e4956d80bc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: afefc556bcac096d67051f3014c31e449dbbca32
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497263"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323573"
 ---
 # <a name="use-cli-to-create-an-azure-sql-managed-instance-to-a-failover-group"></a>Uso de la CLI para agregar una instancia de Azure SQL Managed Instance a un grupo de conmutación por error
 

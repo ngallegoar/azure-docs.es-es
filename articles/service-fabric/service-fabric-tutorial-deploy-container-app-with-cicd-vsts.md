@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a configurar la integración y la imple
 ms.topic: tutorial
 ms.date: 08/29/2018
 ms.custom: mvc
-ms.openlocfilehash: 498513d1e31108d633de8165b2684dffbebdf37d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: bb0eb9226a99f139ff10a8da12a1e22017536c67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563954"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326310"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementación de una aplicación de contenedor con CI/CD en un clúster de Service Fabric
 
@@ -46,11 +46,11 @@ Cree un repositorio Git local para el proyecto seleccionando **Agregar al contro
 
 En la vista **Inserción** de **Team Explorer**, seleccione el botón **Publicar repositorio Git** en **Push to Azure DevOps** (Insertar en Azure DevOps).
 
-![Repositorio Git de inserción][push-git-repo]
+![Captura de pantalla de la ventana Team Explorer - Sincronización en Visual Studio. En Insertar en Azure DevOps, el botón Publicar repositorio Git aparece resaltado.][push-git-repo]
 
 Compruebe su correo electrónico y seleccione su organización en la lista desplegable **Cuenta**. Si no tiene alguna organización, es posible que deba configurar una. Escriba el nombre del repositorio y seleccione **Publicar repositorio**.
 
-![Repositorio Git de inserción][publish-code]
+![Captura de pantalla de la ventana Insertar en Azure DevOps. Los valores de Correo electrónico, Cuenta, Nombre del repositorio y del botón Publicar repositorio aparecen resaltados.][publish-code]
 
 La publicación del repositorio crea un proyecto de equipo en su cuenta con el mismo nombre que el repositorio local. Para crear el repositorio en un proyecto de equipo existente, haga clic en **Avanzado**, junto al nombre del **repositorio**, y seleccione un proyecto de equipo. Puede ver el código en la web seleccionando **Ver en la web**.
 
@@ -158,7 +158,7 @@ Para comprobar el progreso de la compilación, vaya a la pestaña **Compilacione
 
 Compruebe que la implementación se haya efectuado correctamente y que la aplicación se está ejecutando en el clúster.  Abra un explorador web y vaya a `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observe que la versión de la aplicación de este ejemplo es "1.0.0.20170815.3".
 
-![Service Fabric Explorer][sfx1]
+![Captura de pantalla de la aplicación Voting de Service Fabric Explorer. En la pestaña Información esencial, la versión de la aplicación "1.0.0.20170815.3" aparece resaltada.][sfx1]
 
 ## <a name="update-the-application"></a>Actualizar la aplicación
 
@@ -166,11 +166,11 @@ Efectúe cambios de código en la aplicación.  Guarde y confirme los cambios si
 
 Cuando haya comenzado la actualización de la aplicación, podrá ver el progreso de la actualización en Service Fabric Explorer:
 
-![Service Fabric Explorer][sfx2]
+![Captura de pantalla de la aplicación Voting de Service Fabric Explorer. El mensaje "Actualización en curso" aparece resaltado y el estado de la aplicación es "Actualizando".][sfx2]
 
 La actualización de la aplicación puede tardar varios minutos. Una vez concluida la actualización, la aplicación ejecutará la próxima versión.  En este ejemplo "1.0.0.20170815.4".
 
-![Service Fabric Explorer][sfx3]
+![Captura de pantalla de la aplicación Voting de Service Fabric Explorer. En la pestaña Información esencial, la versión de la aplicación actualizada "1.0.0.20170815.4" aparece resaltada.][sfx3]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

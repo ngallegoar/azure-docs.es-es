@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: dedf0795e72c4bdace430ba2dd07ade9d792f13c
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e592159777f3b533bc447bb109e9b1308af7ecff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249509"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Puntos de conexión privados administrados de Synapse (versión preliminar)
 
@@ -27,7 +27,9 @@ Azure Synapse admite vínculos privados. Private Link le permite acceder tanto a
 
 Cuando se usa un vínculo privado, el tráfico entre la red virtual y el área de trabajo atraviesa completamente la red troncal de Microsoft. Private Link protege frente a los riesgos de la filtración de datos. El vínculo privado a un recurso se establece mediante la creación de un punto de conexión privado.
 
-El punto de conexión privado usa una dirección IP privada desde la red virtual para incorporar el servicio de manera eficaz a la red virtual. Los puntos de conexión privados se asignan a un recurso específico de Azure, no a todo el servicio. Los clientes pueden limitar la conectividad a un recurso específico aprobado por su organización. Más información sobre [vínculos privados y puntos de conexión privados](https://docs.microsoft.com/azure/private-link/).
+El punto de conexión privado usa una dirección IP privada desde la red virtual para incorporar el servicio de manera eficaz a la red virtual. Los puntos de conexión privados se asignan a un recurso específico de Azure, no a todo el servicio. Los clientes pueden limitar la conectividad a un recurso específico aprobado por su organización. 
+
+Más información sobre [vínculos privados y puntos de conexión privados](https://docs.microsoft.com/azure/private-link/).
 
 >[!IMPORTANT]
 >Los puntos de conexión privados administrados solo se admiten en áreas de trabajo de Azure Synapse con una red virtual de área de trabajo administrada.
@@ -37,7 +39,7 @@ El punto de conexión privado usa una dirección IP privada desde la red virtual
 
 Una conexión de punto de conexión privado se crea en un estado "pendiente" cuando se crea un punto de conexión privado administrado en Azure Synapse. Se inicia un flujo de trabajo de aprobación. El propietario del recurso de vínculo privado es responsable de aprobar o rechazar la conexión.
 
-Si el propietario aprueba la conexión, se establece el vínculo privado. De lo contrario, no se establece. En cualquier caso, el punto de conexión privado administrado se actualizará con el estado de la conexión.
+Si el propietario aprueba la conexión, se establece el vínculo privado. Sin embargo, si el propietario no aprueba la conexión, no se establecerá el vínculo privado. En cualquier caso, el punto de conexión privado administrado se actualizará con el estado de la conexión.
 
 Solo un punto de conexión privado administrado en un estado aprobado puede enviar tráfico a un recurso de vínculo privado determinado.
 
@@ -56,4 +58,4 @@ Estos dos puntos de conexión privados administrados se crean automáticamente a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de puntos de conexión privados administrados a los orígenes de datos](./how-to-create-managed-private-endpoints.md)
+Para obtener más información, avance al artículo [Creación de puntos de conexión privados administrados al origen de datos](./how-to-create-managed-private-endpoints.md).

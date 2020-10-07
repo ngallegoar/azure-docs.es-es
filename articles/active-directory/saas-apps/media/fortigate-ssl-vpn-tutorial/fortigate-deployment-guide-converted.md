@@ -1,6 +1,6 @@
 ---
 title: Guía de implementación de FortiGate | Microsoft Docs
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y FortiGate SSL VPN.
+description: Configure y trabaje con el producto de firewall de nueva generación FortiGate de Fortinet.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,286 +15,223 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 999e19ffad1d18e163881c844cbf30f8b7fef574
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 357eb0a60e6246996de9ab75337ecc213d845ae7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88657165"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273337"
 ---
 # <a name="fortigate-deployment-guide"></a>Guía de implementación de FortiGate
 
-## <a name="contents"></a>Contenido
+Con esta guía de implementación, obtendrá información sobre cómo configurar y trabajar con el producto de firewall de nueva generación FortiGate de Fortinet.
 
-- Canje de la licencia de FortiGate
-- Descarga del firmware
-- Implementación de la máquina virtual de FortiGate
-   - Establecimiento de una dirección IP pública estática y asignación de un nombre de dominio completo
-   - Creación de una regla del grupo de seguridad de red de entrada para el puerto TCP
-- Creación de una aplicación de Azure personalizada para FortiGate
-- Preparación para la coincidencia de grupos
-   - Creación de grupos para los usuarios
-- Configuración de la máquina virtual de FortiGate
-   - Instalación de la licencia
-   - Actualización del firmware
-   - Cambio del puerto de administración a TCP
-   - Carga del certificado de firma de SAML para Azure Active Directory
-   - Carga y configuración de un certificado SSL personalizado
-   - Configuración de la línea de comandos
-   - Creación de portales de VPN y de la directiva de firewall
-- Prueba del inicio de sesión con Azure
+## <a name="redeem-the-fortigate-license"></a>Canje de la licencia de FortiGate
 
-## <a name="redeeming-the-fortigate-license"></a>Canje de la licencia de FortiGate
+El producto de firewall de nueva generación FortiGate de Fortinet está disponible como una máquina virtual en infraestructura como servicio (IaaS) de Azure. Existen dos modelos de licencia para esta máquina virtual: pago por uso y traiga su propia licencia.
 
-El producto Fortinet FortiGate Next-Generation Firewall está disponible como una máquina virtual en IaaS de Azure. Existen dos modos de licencia para esta máquina virtual:
+Fortinet podría proporcionar licencias a los miembros del equipo de "acceso híbrido seguro (SHA) de puesta en producción" de Azure Active Directory (Azure AD). En los casos en los que no se proporcione ninguna licencia, la implementación del modo pago por uso también funcionará.
 
-- Pay-as-you-go (PAYG)
-- Traiga su propia licencia (BYOL)
+Si se ha emitido una licencia, Fortinet proporciona un código de registro que se debe canjear en línea.
 
-A la vez que se asocia con Fortinet para proporcionar una guía de acceso híbrido seguro (SHA), Fortinet puede proporcionar licencias a los miembros del equipo de acceso híbrido seguro de puesta en producción de Azure AD. En los casos en los que no se proporcione ninguna licencia, la implementación del modo Pago por uso también funcionará.
-
-En los casos en los que se haya emitido una licencia, Fortinet proporciona un código de registro que se debe canjear en línea.
-
-![FortiGate SSL VPN](registration-code.png)
+![Captura de pantalla del código de registro de FortiGate SSL VPN.](registration-code.png)
 
 1. Regístrese en https://support.fortinet.com/.
 2. Después del registro, inicie sesión en https://support.fortinet.com/.
-3. Vaya a **Asset** (Recurso) -> **Register/Activate** (Registrar/Activar).
+3. Vaya a **Asset** (Recurso) > **Register/Activate** (Registrar/activar).
 4. Escriba el código de registro proporcionado por Fortinet.
 5. Especifique el código de registro, seleccione **The product will be used by a non-government user** (El producto lo utilizará un usuario no gubernamental) y haga clic en **Next** (Siguiente).
-6. Escriba una descripción del producto (por ejemplo, FortiGate), establezca el asociado de Fortinet como **Other** (Otro) - > **Microsoft** y haga clic en **Next** (Siguiente).
-7. Acepte el **contrato de registro del producto Fortinet** y haga clic en **Next** (Siguiente).
-8. Acepte los **términos** y haga clic en **Confirm** (Confirmar).
-9. Haga clic en **License File Download** (Descargar archivo de licencia) y guarde la licencia para más adelante.
+6. Escriba una descripción del producto (por ejemplo, FortiGate), establezca el asociado de Fortinet como **Other** (Otro) > **Microsoft** y haga clic en **Next** (Siguiente).
+7. Acepte el **contrato de registro del producto Fortinet** y seleccione **Next** (Siguiente).
+8. Acepte los **términos** y seleccione **Confirm** (Confirmar).
+9. Seleccione **License File Download** (Descargar archivo de licencia) y guarde la licencia para más adelante.
 
 
 ## <a name="download-firmware"></a>Descarga del firmware
 
-En el momento de escribir este artículo, la máquina virtual de Azure de Fortinet FortiGate no se incluye con la versión de firmware necesaria para la autenticación de SAML. La versión más reciente debe obtenerse de Fortinet.
+La VM de Azure de FortiGate de Fortinet no se incluye con la versión de firmware necesaria para la autenticación de SAML. La versión más reciente debe obtenerse de Fortinet.
 
-1. Inicie sesión en https://support.fortinet.com/
-2. Vaya a **Download** (Descargar) - > **Firmware Images** (Imágenes de firmware).
-3. Haga clic en **Download** (Descargar) a la derecha de **Release Notes** (Notas de la versión).
-4. Haga clic en **v6.**
-5. Haga clic en **6.**
-6. Haga clic en **6.4.**
-7. Para descargar **FGT_VM64_AZURE-v6-build1637-FORTINET.out** haga clic en el vínculo **HTTPS** en la misma fila.
-8. Guarde el archivo para más adelante.
+1. Inicie sesión en https://support.fortinet.com/.
+2. Vaya a **Download** (Descargar) > **Firmware Images** (Imágenes de firmware).
+3. A la derecha de **Release Notes** (Notas de la versión), seleccione **Download** (Descargar).
+4. Seleccione **v6**. > **6.** > **6.4.** .
+5. Para descargar **FGT_VM64_AZURE-v6-build1637-FORTINET.out**, seleccione el vínculo **HTTPS** en la misma fila.
+6. Guarde el archivo para más adelante.
 
 
 ## <a name="deploy-the-fortigate-vm"></a>Implementación de la máquina virtual de FortiGate
 
 1. Vaya a https://portal.azure.com e inicie sesión en la suscripción en la que desea implementar la máquina virtual de FortiGate.
 2. Cree un nuevo grupo de recursos o abra el grupo de recursos en el que desea implementar la máquina virtual de FortiGate.
-3. Haga clic en **Agregar**.
-4. Escriba "Forti" en el cuadro de diálogo **Buscar en el Marketplace** y seleccione **Fortinet FortiGate Next-** **Generation Firewall**.
-5. Seleccione el plan de software (BYOL si tiene una licencia o PAYG en caso contrario) y haga clic en **Crear**.
-6. Rellene la configuración de la máquina virtual.
+3. Seleccione **Agregar**.
+4. En **Buscar en Marketplace**, escriba *Forti*. Seleccione **Fortinet FortiGate Next-Generation Firewall** (Firewall de nueva generación FortiGate de Fortinet).
+5. Seleccione el plan de software (traiga su propia licencia si tiene una licencia o pago por uso de lo contrario). Seleccione **Crear**.
+6. Rellene la configuración de la VM.
 
-    ![FortiGate SSL VPN](virtual-machine.png)
+    ![Captura de pantalla de creación de una máquina virtual.](virtual-machine.png)
 
-7. Establezca el tipo de autenticación en **Contraseña** y proporcione credenciales administrativas para la máquina virtual.
-8. Haga clic en **Revisar y crear**.
-9. Haga clic en **Crear**
-10. Espere a que la implementación de la máquina virtual se complete.
+7. Establezca **Tipo de autenticación** en **Contraseña** y proporcione credenciales administrativas para la VM.
+8. Seleccione **Revisar + crear** > **Crear**.
+9. Espere a que la implementación de la VM se complete.
 
 
-### <a name="set-a-statuc-public-ip-address-and-assign-a-fully-qualified-domain-name"></a>Establecimiento de una dirección IP pública estática y asignación de un nombre de dominio completo
+### <a name="set-a-static-public-ip-address-and-assign-a-fully-qualified-domain-name"></a>Establecimiento de una dirección IP pública estática y asignación de un nombre de dominio completo
 
-Para una experiencia de usuario coherente, es conveniente establecer la dirección IP pública asignada a la máquina virtual de FortiGate para que se asigne de forma estática. Además, la asignación a un nombre de dominio completo también es útil por las mismas razones.
+Para una experiencia de usuario coherente, establezca la dirección IP pública asignada a la VM de FortiGate para que se asigne de forma estática. Además, asígnela a un nombre de dominio completo (FQDN).
 
-_Establecimiento de una dirección IP pública estática_
+1. Vaya a https://portal.azure.com y abra la configuración de la VM de FortiGate.
+2. En la pantalla **Información general**, seleccione la dirección IP pública.
 
-1. Vaya a https://portal.azure.com y abra la configuración de la máquina virtual de FortiGate
-2. En la pantalla **Información general**, haga clic en la dirección IP pública.
+    ![Captura de pantalla de FortiGate SSL VPN.](public-ip-address.png)
 
-    ![FortiGate SSL VPN](public-ip-address.png)
+3. Seleccione **Estática** > **Guardar**.
 
-3. Haga clic en **Estática** y después en **Guardar**.
-
-_Asignación de un nombre de dominio completo_
-
-Si posee un nombre de dominio enrutable públicamente para el entorno en el que se va a implementar la máquina virtual de FortiGate, cree un registro de host (A) para la máquina virtual que se asigna a la dirección IP pública que se ha asignado de forma estática anteriormente.
+Si posee un nombre de dominio enrutable públicamente para el entorno en el que se va a implementar la VM de FortiGate, cree un registro de host (A) para la VM. Este registro se asigna a la dirección IP pública anterior que está asignada estáticamente.
 
 ### <a name="create-a-new-inbound-network-security-group-rule-for-tcp-port"></a>Creación de una regla del grupo de seguridad de red de entrada para el puerto TCP
 
-1. Vaya a https://portal.azure.com y abra la configuración de la máquina virtual de FortiGate
-2. En el menú de la izquierda, haga clic en **Redes**. Se mostrará la interfaz de red y las reglas del puerto de entrada.
-3. Haga clic en **Agregar regla de puerto de entrada**.
+1. Vaya a https://portal.azure.com y abra la configuración de la VM de FortiGate.
+2. En el menú de la izquierda, seleccione **Redes**. Se muestran la interfaz de red y las reglas del puerto de entrada.
+3. Seleccione **Agregar regla de puerto de entrada**.
 4. Cree una nueva regla de puerto de entrada para TCP 8443.
 
-    ![FortiGate SSL VPN](port-rule.png)
+    ![Captura de pantalla de Agregar regla de seguridad de entrada.](port-rule.png)
 
-5. Haga clic en **Agregar**.
+5. Seleccione **Agregar**.
 
 
 ## <a name="create-a-custom-azure-app-for-fortigate"></a>Creación de una aplicación de Azure personalizada para FortiGate
 
-1. Vaya a https://portal.azure.com y abra la hoja de Azure Active Directory del inquilino que proporcionará la identidad para los inicios de sesión de FortiGate.
-2. Haga clic en **Aplicaciones empresariales** en el menú de la izquierda.
-3. Haga clic en **Nueva aplicación**.
-4. Haga clic en **Aplicación situada fuera de la galería**.
-5. Proporcione un nombre (por ejemplo, FortiGate) y haga clic en **Agregar**.
-6. Haga clic en **Usuarios y grupos** en el menú de la izquierda.
-7. Agregue los usuarios que podrán iniciar sesión y haga clic en **Asignar**.
-8. Haga clic en **Inicio de sesión único** en el menú de la izquierda.
-9. Haga clic en **SAML**.
-10. En la sección **Configuración básica de SAML**, haga clic en el lápiz para editar la configuración.
-11. Configuración
-    - El identificador (identificador de entidad) para que sea `https://<address>/remote/saml/metadata`.
-    - La dirección URL de respuesta (URL del Servicio de consumidor de aserciones) para que sea `https://<address>/remote/saml/login`
-    - La URL de cierre de sesión para que sea `https://<address>/remote/saml/logout`
+1. Vaya a https://portal.azure.com y abra el panel Azure AD del inquilino que proporcionará la identidad para los inicios de sesión de FortiGate.
+2. En el menú de la izquierda, seleccione **Aplicaciones empresariales**.
+3. Seleccione **Nueva aplicación** > **Aplicación situada fuera de la galería**.
+4. Escriba un nombre (por ejemplo, FortiGate) y seleccione **Agregar**.
+5. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+6. Agregue los usuarios que podrán iniciar sesión y seleccione **Asignar**.
+7. En el menú de la izquierda, seleccione **Inicio de sesión único**.
+8. Seleccione **SAML**.
+9. En la sección **Configuración básica de SAML**, seleccione el icono del lápiz para editar la configuración.
+10. Configurar lo siguiente:
+    - El **Identificador (identificador de entidad)** para que sea `https://<address>/remote/saml/metadata`.
+    - La **Dirección URL de respuesta (URL del Servicio de consumidor de aserciones)** para que sea `https://<address>/remote/saml/login`.
+    - La **URL de cierre de sesión** para que sea `https://<address>/remote/saml/logout`.
 
-    Donde `address` es el nombre de dominio completo o la dirección IP pública asignada a la máquina virtual de FortiGate.
+    `<address>` es el FQDN o la dirección IP pública que se asignó a la VM de FortiGate.
 
-    Guarde cada una de estas direcciones URL para su uso posterior:
-
-    - El identificador de entidad
-    - URL de respuesta
-    - URL de cierre de sesión
-12. Haga clic en **Guardar**
-13. Cierre la configuración básica de SAML
-14. Under **3: Certificado de firma de SAML**, descargue el **Certificado (Base64)** y guárdelo para más adelante.
-15. En **4: Set up (App Name)** (4: Configurar [Nombre de la aplicación]), copie la dirección URL de inicio de sesión de Azure, el identificador de Azure AD y la dirección URL de cierre de sesión de Azure y guárdelos para más tarde.
-    - Dirección URL de inicio de sesión de Azure
-    - Identificador de Azure AD
-    - Dirección URL de cierre de sesión de Azure
-16. En **2: Atributos y notificaciones de usuario**, haga clic en el lápiz para editar la configuración.
-17. Haga clic en **Agregar nueva notificación**.
-18. Establezca el nombre en **nombre de usuario**.
-19. Establezca el atributo de origen en **user.userprincipalname**.
-20. Haga clic en **Guardar**
-21. Haga clic en **Agregar una notificación de grupo**.
-22. Seleccione **Todos los grupos**.
-23. Marque **Personalizar nombre de la notificación del grupo**.
-24. Establezca el nombre en **grupo**.
-25. Haga clic en **Guardar**
+11. Guarde cada una de estas direcciones URL para su uso posterior: Id. de entidad, Dirección URL de respuesta y URL de cierre de sesión.
+12. Seleccione **Guardar** y cierre **Configuración básica de SAML**.
+13. En **3: Certificado de firma de SAML**, descargue el **Certificado (Base64)** y guárdelo para más adelante.
+14. En **4: Set up (App Name)** (4: Configurar [Nombre de la aplicación]), copie la dirección URL de inicio de sesión de Azure, el identificador de Azure AD y la dirección URL de cierre de sesión de Azure, y guárdelos para más tarde.
+15. En **2: Atributos y notificaciones de usuario**, haga clic en el icono del lápiz para editar la configuración.
+16. Seleccione **Agregar nueva notificación** y establezca el nombre en **nombre de usuario**.
+17. Establezca el atributo de origen en **user.userprincipalname**.
+18. Seleccione **Guardar** > **Agregar una notificación de grupo** > **Todos los grupos**.
+19. Seleccione **Personalizar nombre de la notificación del grupo** y establezca el nombre en **grupo**.
+20. Seleccione **Guardar**.
 
 
 ## <a name="prepare-for-group-matching"></a>Preparación para la coincidencia de grupos
 
-FortiGate permite diferentes experiencias del portal de usuarios después del inicio de sesión en función de la pertenencia a grupos. Por ejemplo, puede haber una experiencia para el grupo Marketing y otra para el grupo Finanzas.
+FortiGate permite diferentes experiencias del portal de usuarios después del inicio de sesión en función de la pertenencia a grupos. Por ejemplo, puede haber una experiencia para el grupo de marketing y otra para el grupo de finanzas. Procedimiento para crear grupos para los usuarios:
 
-Configure esto de la siguiente manera:
-
-### <a name="create-groups-for-users"></a>Creación de grupos para los usuarios
-
-1. Vaya a https://portal.azure.com y abra la hoja de Azure Active Directory del inquilino que proporcionará la identidad para los inicios de sesión de FortiGate.
-2. Haga clic en **Grupos**.
-3. Haga clic en **Nuevo grupo**.
-4. Cree un grupo con
+1. Vaya a https://portal.azure.com y abra el panel Azure AD del inquilino que proporcionará la identidad para los inicios de sesión de FortiGate.
+2. Seleccione **Grupos** > **Nuevo grupo**.
+3. Cree un grupo con los detalles siguientes:
     - Tipo de grupo = Seguridad
     - Nombre del grupo = `a meaningful name`
     - Descripción del grupo = `a meaningful description for the group`
     - Tipo de pertenencia = Asignado.
     - Miembros = `users for the user experience that will map to this group`
-5. Repita los pasos 3 y 4 para las experiencias de usuario adicionales.
-6. Una vez creados los grupos, seleccione cada grupo y registre el identificador de objeto de cada uno.
-7. Guarde estos identificadores de objeto y los nombres de grupo para más adelante.
+4. Repita los pasos 3 y 4 para las experiencias de usuario adicionales.
+5. Una vez creados los grupos, seleccione cada grupo y registre el **Id. de objeto** de cada uno.
+6. Guarde estos identificadores de objeto y los nombres de grupo para más adelante.
 
 
 ## <a name="configure-the-fortigate-vm"></a>Configuración de la máquina virtual de FortiGate
 
+Las secciones siguientes le guiarán a través de la configuración de la VM de FortiGate.
+
 ### <a name="install-the-license"></a>Instalación de la licencia
 
-1. Vaya a `https://<address>`.
-
-    Aquí `address` es el nombre de dominio completo o la dirección IP pública asignada a la máquina virtual de FortiGate.
+1. Vaya a `https://<address>`. Aquí, `<address>` es el FQDN o la dirección IP pública asignada a la VM de FortiGate.
 
 2. Continúe después de los errores de certificado.
-3. Inicie sesión con las credenciales de administrador proporcionadas durante la implementación de la máquina virtual de FortiGate
-4. Si la implementación usa el modelo BYOL, se mostrará un mensaje para cargar una licencia. Seleccione el archivo de licencia creado anteriormente y cárguelo, haga clic en **Aceptar** y reinicie la máquina virtual de FortiGate:
+3. Inicie sesión con las credenciales de administrador proporcionadas durante la implementación de la VM de FortiGate.
+4. Si la implementación usa el modelo traiga su propia licencia, verá un aviso para cargar una licencia. Seleccione el archivo de licencia creado anteriormente y cárguelo. Seleccione **Aceptar** y reinicie la VM de FortiGate.
 
-    ![FortiGate SSL VPN](license.png)
+    ![Captura de pantalla de la licencia de VM de FortiGate.](license.png)
 
 5. Después del reinicio, inicie sesión de nuevo con las credenciales de administrador para validar la licencia.
 
-### <a name="update-firmware"></a>Actualización del firmware
+### <a name="update-firmware"></a>Actualizar el firmware
 
-1. Vaya a `https://<address>`.
-
-    Aquí `address` es el nombre de dominio completo o la dirección IP pública asignada a la máquina virtual de FortiGate.
+1. Vaya a `https://<address>`. Aquí, `<address>` es el FQDN o la dirección IP pública asignada a la VM de FortiGate.
 
 2. Continúe después de los errores de certificado.
-3. Inicie sesión con las credenciales de administrador proporcionadas durante la implementación de la máquina virtual de FortiGate
-4. En el menú de la izquierda, haga clic en **System** (Sistema).
-5. En el menú de la izquierda que aparece bajo System (Sistema), haga clic en **Firmware**.
-6. En la página Firmware Management (Administración de firmware), haga clic en **Browse** (Examinar) y seleccione el archivo de firmware descargado anteriormente.
-7. Ignore la advertencia y haga clic en **Backup config and upgrade** (Realizar copia de seguridad de la configuración y actualizar):
+3. Inicie sesión con las credenciales de administrador proporcionadas durante la implementación de la VM de FortiGate.
+4. En el menú de la izquierda, seleccione **System** (Sistema) > **Firmware**.
+5. En **Firmware Management** (Administración de firmware), haga clic en **Browse** (Examinar) y seleccione el archivo de firmware descargado anteriormente.
+6. Ignore la advertencia y haga clic en **Backup config and upgrade** (Realizar copia de seguridad de la configuración y actualizar).
 
-    ![FortiGate SSL VPN](backup-configure-upgrade.png)
+    ![Captura de pantalla de administración de firmware.](backup-configure-upgrade.png)
 
-8. Haga clic en **Continue** (Continuar).
-9. Cuando se le pida que guarde la configuración de FortiGate (como un archivo .conf), haga clic en **Save** (Guardar).
-10. Espere a que se cargue el firmware para que se aplique y para que se reinicie la máquina virtual de FortiGate.
-11. Una vez reiniciada, inicie sesión de nuevo con las credenciales de administrador.
-12. Cuando se le pida que realice la configuración del panel, haga clic en **Later** (Más tarde).
-13. Cuando comience el vídeo del tutorial, haga clic en **OK** (Aceptar).
+7. Seleccione **Continuar**.
+8. Cuando se le pida que guarde la configuración de FortiGate (como un archivo .conf), haga clic en **Save** (Guardar).
+9. Espere a que se cargue y se aplique el firmware. Espere a que se reinicie la VM de FortiGate.
+10. Una vez reiniciada, inicie sesión de nuevo con las credenciales de administrador.
+11. Cuando se le pida que configure el panel, seleccione **Later** (Más adelante).
+12. Cuando comience el vídeo del tutorial, seleccione **OK** (Aceptar).
 
 ### <a name="change-the-management-port-to-tcp"></a>Cambio del puerto de administración a TCP
 
-1. Vaya a `https://<address>`.
-
-    Aquí `address` es el nombre de dominio completo o la dirección IP pública asignada a la máquina virtual de FortiGate.
+1. Vaya a `https://<address>`. Aquí, `<address>` es el FQDN o la dirección IP pública asignada a la VM de FortiGate.
 
 2. Continúe después de los errores de certificado.
-3. Inicie sesión con las credenciales de administrador proporcionadas durante la implementación de la máquina virtual de FortiGate
-4. En el menú de la izquierda, haga clic en **System** (Sistema).
-5. En Administration Settings (Configuración de administración), cambie el puerto HTTPS a **8443**.
-6. Haga clic en **Aplicar**.
-7. Una vez que se aplica el cambio, el explorador intentará volver a cargar la página Administration (Administración), pero se producirá un error. A partir de ahora, la dirección de esta página será `https://<address>`.
+3. Inicie sesión con las credenciales de administrador proporcionadas durante la implementación de la VM de FortiGate.
+4. En el menú de la izquierda, seleccione **System** (Sistema).
+5. En **Administration Settings** (Configuración de administración), cambie el puerto HTTPS a **8443** y seleccione **Apply** (Aplicar).
+6. Una vez que se aplica el cambio, el explorador intenta volver a cargar la página de administración, pero se produce un error. A partir de ahora, la dirección de esta página es `https://<address>`.
 
-    ![FortiGate SSL VPN](certificate.png)
+    ![Captura de pantalla de carga del certificado remoto.](certificate.png)
 
-### <a name="upload-the-azure-active-directory-saml-signing-certificate"></a>Carga del certificado de firma de SAML para Azure Active Directory
+### <a name="upload-the-azure-ad-saml-signing-certificate"></a>Carga del certificado de firma de SAML para Azure AD
 
-1. Vaya a `https://<address>`.
-
-    Aquí `address` es el nombre de dominio completo o la dirección IP pública asignada a la máquina virtual de FortiGate.
+1. Vaya a `https://<address>`. Aquí, `<address>` es el FQDN o la dirección IP pública asignada a la VM de FortiGate.
 
 2. Continúe después de los errores de certificado.
-3. Inicie sesión con las credenciales de administrador proporcionadas durante la implementación de la máquina virtual de FortiGate
-4. En el menú de la izquierda, haga clic en **System** (Sistema).
-5. En System (Sistema), haga clic en **Certificates** (Certificados).
-6. Haga clic en **Import** (Importar) - > **Remote Certificate** (Certificado remoto)
-7. Busque el certificado descargado de la implementación de la aplicación personalizada FortiGate en el inquilino de Azure, selecciónelo y haga clic en **OK** (Aceptar).
+3. Inicie sesión con las credenciales de administrador proporcionadas durante la implementación de la VM de FortiGate.
+4. En el menú de la izquierda, seleccione **System** (Sistema) > **Certificates** (Certificados).
+5. Seleccione **Importar** > **Certificado remoto**.
+6. Busque el certificado descargado de la implementación de la aplicación personalizada FortiGate en el inquilino de Azure. Selecciónelo y elija **OK** (Aceptar).
 
 ### <a name="upload-and-configure-a-custom-ssl-certificate"></a>Carga y configuración de un certificado SSL personalizado
 
-Es posible que quiera configurar la máquina virtual de FortiGate con su propio certificado SSL que admita el nombre de dominio completo que está usando. Si tiene acceso a un certificado SSL empaquetado con la clave privada en formato .PFX, se puede usar para este propósito.
+Es posible que quiera configurar la VM de FortiGate con su propio certificado SSL que admita el FQDN que está usando. Si tiene acceso a un certificado SSL empaquetado con la clave privada en formato PFX, se puede usar para este propósito.
 
-1. Vaya a `https://<address>`.
-
-    Aquí `address` es el nombre de dominio completo o la dirección IP pública asignada a la máquina virtual de FortiGate.
+1. Vaya a `https://<address>`. Aquí, `<address>` es el FQDN o la dirección IP pública asignada a la VM de FortiGate.
 
 2. Continúe después de los errores de certificado.
-3. Inicie sesión con las credenciales de administrador proporcionadas durante la implementación de la máquina virtual de FortiGate
-4. En el menú de la izquierda, haga clic en **System** (Sistema).
-5. En System (Sistema), haga clic en **Certificates** (Certificados).
-6. Haga clic en **Import** (Importar) - > **Local Certificate** (Certificado local).
-7. Haga clic en **PKCS #12 Certificate** (Certificado PKCS núm. 12).
-8. Vaya al archivo .PFX que contiene el certificado SSL y la clave privada.
-9. Proporcione la contraseña PFX.
-10. Proporcione un nombre descriptivo para el certificado.
-11. Haga clic en **Aceptar**
-12. En el menú de la izquierda, haga clic en **System** (Sistema).
-13. En System (Sistema), haga clic en **Settings** (Configuración).
-14. En Administration Settings (Configuración de administración), expanda la lista desplegable situada junto al certificado de servidor HTTPS y seleccione el certificado SSL importado anteriormente.
-15. Haga clic en **Aplicar**.
-16. Cierre la ventana del explorador y después vaya de nuevo a `https://<address>`.
-17. Inicie sesión con las credenciales de administrador de FortiGate y observe el certificado SSL correcto en uso.
+3. Inicie sesión con las credenciales de administrador proporcionadas durante la implementación de la VM de FortiGate.
+4. En el menú de la izquierda, seleccione **System** (Sistema) > **Certificates** (Certificados).
+5. Seleccione **Import** (Importar) > **Local Certificate** (Certificado local) > **PKCS #12 Certificate** (Certificado PKCS núm. 12).
+6. Vaya al archivo .PFX que contiene el certificado SSL y la clave privada.
+7. Proporcione la contraseña del archivo .PFX y un nombre descriptivo para el certificado. Después, seleccione **Aceptar**.
+8. En el menú de la izquierda, seleccione **System** (Sistema) > **Settings** (Configuración).
+9. En **Administration Settings** (Configuración de administración), expanda la lista desplegable situada junto al **certificado de servidor HTTPS** y seleccione el certificado SSL importado anteriormente.
+10. Seleccione **Aplicar**.
+11. Cierre la ventana del explorador y vaya a `https://<address>`.
+12. Inicie sesión con las credenciales de administrador de FortiGate. Ahora debería ver el certificado SSL correcto en uso.
 
 
 ### <a name="perform-command-line-configuration"></a>Configuración de la línea de comandos
 
-_Configuración de la línea de comandos para la autenticación SAML_
+En las secciones siguientes se proporcionan los pasos de distintas configuraciones mediante la línea de comandos.
 
-1. Vaya a https://portal.azure.com y abra la configuración de la máquina virtual de FortiGate.
-2. En el menú de la izquierda, haga clic en **Consola serie**.
-3. Inicie de sesión en la consola serie con las credenciales de administrador de la máquina virtual de FortiGate.
+#### <a name="for-saml-authentication"></a>Para la autenticación SAML
 
-    En el paso siguiente, se necesitarán las direcciones URL registradas anteriormente. Concretamente:
-
+1. Vaya a https://portal.azure.com y abra la configuración de la VM de FortiGate.
+2. En el menú de la izquierda, seleccione **Serial Console** (Consola serie).
+3. Inicie de sesión en la consola serie con las credenciales de administrador de la VM de FortiGate. En el paso siguiente, se necesitarán las direcciones URL registradas anteriormente:
     - El identificador de entidad
     - URL de respuesta
     - URL de cierre de sesión
@@ -318,35 +255,27 @@ _Configuración de la línea de comandos para la autenticación SAML_
     end
     ```
     > [!NOTE]
-    > La dirección URL de cierre de sesión de Azure contiene un carácter "?". Esto requiere una secuencia de clave especial para que se proporcione correctamente a la consola serie de FortiGate. La dirección URL suele ser:
+    > La dirección URL de cierre de sesión de Azure contiene un carácter `?`. Esto requiere una secuencia de clave especial para que se proporcione correctamente a la consola serie de FortiGate. La dirección URL suele ser `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1`. Para proporcionarla en la consola serie, escriba:
+        ```
+        set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation
+        ```.
+    A continuación, escriba CTRL+V y pegue el resto de la dirección URL para completar la línea: 
+        ```
+        set idp-single-logout-url
+        https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.
+        ```
 
-    `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1`
-
-    Para proporcionar esto en la consola serie, escriba
-
-    ```
-    set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation
-    ```
-    Después pulse CTRL+V
-
-    A continuación, pegue el resto de la dirección URL para completar la línea.
-
-    ```
-    set idp-single-logout-url
-    https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.
-    ```
-
-5. Para confirmar la configuración, ejecute
+5. Para confirmar la configuración, ejecute lo siguiente:
 
     ```
     show user saml
     ```
 
-_Configuración de la línea de comandos para la coincidencia de grupos_
+#### <a name="for-group-matching"></a>Para la coincidencia de grupos
 
-1. Vaya a https://portal.azure.com y abra la configuración de la máquina virtual de FortiGate.
-2. En el menú de la izquierda, haga clic en **Consola serie**.
-3. Inicie de sesión en la consola serie con las credenciales de administrador de la máquina virtual de FortiGate.
+1. Vaya a https://portal.azure.com y abra la configuración de la VM de FortiGate.
+2. En el menú de la izquierda, seleccione **Serial Console** (Consola serie).
+3. Inicie de sesión en la consola serie con las credenciales de administrador de la VM de FortiGate.
 4. En la consola serie ejecute los siguientes comandos:
 
     ```
@@ -362,13 +291,13 @@ _Configuración de la línea de comandos para la coincidencia de grupos_
     next
     ```
 
-    Repita estos comandos a partir de "edit `group 1 name`" para cada grupo adicional que tendrá una experiencia de portal diferente en FortiGate.
+    Para cada grupo adicional que tendrá una experiencia de portal diferente en FortiGate, repita estos comandos (a partir de la segunda línea del código).
 
-_Configuración de la línea de comandos para el tiempo de espera de autenticación_
+#### <a name="for-authentication-timeout"></a>Para el tiempo de espera de autenticación
 
-1. Vaya a https://portal.azure.com y abra la configuración de la máquina virtual de FortiGate.
-2. En el menú de la izquierda, haga clic en **Consola serie**.
-3. Inicie de sesión en la consola serie con las credenciales de administrador de la máquina virtual de FortiGate.
+1. Vaya a https://portal.azure.com y abra la configuración de la VM de FortiGate.
+2. En el menú de la izquierda, seleccione **Serial Console** (Consola serie).
+3. Inicie de sesión en la consola serie con las credenciales de administrador de la VM de FortiGate.
 4. En la consola serie ejecute los siguientes comandos:
 
     ```
@@ -376,63 +305,42 @@ _Configuración de la línea de comandos para el tiempo de espera de autenticaci
     set remoteauthtimeout 60
     end
     ```
-### <a name="create-vpn-portals-and-firewall-policy"></a>Creación de portales de VPN y de la directiva de firewall
+### <a name="create-vpn-portals-and-firewall-policy"></a>Creación de portales VPN y de la directiva de firewall
 
-1. Vaya a `https://<address>`.
+1. Vaya a `https://<address>`. Aquí, `<address>` es el FQDN o la dirección IP pública asignada a la VM de FortiGate.
 
-    Aquí `address` es el nombre de dominio completo o la dirección IP pública asignada a la máquina virtual de FortiGate.
-
-2. Inicie sesión con las credenciales de administrador proporcionadas durante la implementación de la máquina virtual de FortiGate
-3. En el menú de la izquierda, haga clic en **VPN**.
-4. En VPN, haga clic en **SSL-VPN Portals** (Portales SSL-VPN)
-5. Haga clic en **Create New** (Crear nuevo).
+2. Inicie sesión con las credenciales de administrador proporcionadas durante la implementación de la VM de FortiGate.
+3. En el menú de la izquierda, seleccione **VPN** > **SSL-VPN Portals** (Portales SSL-VPN) > **Create New** (Crear nuevo).
 6. Proporcione un nombre (que normalmente coincide con el grupo de Azure que se usa para proporcionar la experiencia de portal personalizada).
-7. Haga clic en el signo más ( **+** ) situado junto a Source IP Pools (Grupos de direcciones IP de origen), seleccione el grupo predeterminado y haga clic en **Close** (Cerrar).
+7. Haga clic en el signo más ( **+** ) situado junto a **Source IP Pools** (Grupos de direcciones IP de origen), seleccione el grupo predeterminado y haga clic en **Close** (Cerrar).
 8. Personalice la experiencia para este grupo. Para las pruebas, esto puede consistir en la personalización del mensaje y el tema del portal. Aquí también puede crear marcadores personalizados que dirijan a los usuarios a recursos internos.
-9. Haga clic en **Aceptar**
-10. Repita los pasos 5 a 9 para cada grupo de Azure que tendrá una experiencia de portal personalizada.
-11. En VPN, haga clic en **SSL-VPN Settings** (Configuración de SSL-VPN)
-12. Haga clic en el signo más ( **+** ) junto a Listen on Interfaces (Escuchar en interfaces).
-13. Seleccione **Port1** y haga clic en **Close** (Cerrar).
+9. Seleccione **Aceptar**.
+10. Repita los pasos 5-9 para cada grupo de Azure que tendrá una experiencia de portal personalizada.
+11. En VPN, seleccione **SSL-VPN Settings** (Configuración de SSL-VPN).
+12. Seleccione el signo más ( **+** ) junto a **Listen on Interfaces** (Escuchar en interfaces), seleccione **Port1** (Puerto 1) y, a continuación, seleccione **Close** (Cerrar).
+14. Si se instaló previamente un certificado SSL personalizado, cambie el **certificado de servidor** para que utilice el certificado SSL personalizado en el menú desplegable.
+15. En **Authentication/Portal Mapping** (Autenticación/Asignación del portal), seleccione **Create New** (Crear nuevo). Elija el primer grupo de Azure y hágalo coincidir con el portal del mismo nombre. Después, seleccione **Aceptar**.
+18. Repita los pasos 15-17 para cada emparejamiento de un grupo de Azure y un portal.
+19. En **Authentication/Portal Mapping** (Autenticación/Asignación del portal), edite **All Other Users/Groups** (Todos los demás usuarios/Grupos).
+20. Establezca el portal en **full-access** (acceso completo) y seleccione **OK** (Aceptar) > **Apply** (Aplicar).
+23. Desplácese hasta la parte superior de la página **SSL-VPN Setting** (Configuración de SSL-VPN) y seleccione **No SSL-VPN policies exist (No existen directivas de SSL-VPN). Haga clic aquí para crear una nueva directiva SSL-VPN con esta configuración.**
+24. Proporcione un nombre, como **VPN Grp**. A continuación, establezca **Outgoing Interface** (Interfaz de salida) en **port** (puerto) y seleccione **Source** (Origen).
+27. En **Address** (Dirección), seleccione **all** (todas).
+28. En **User** (Usuario), seleccione el primer grupo de Azure.
+29. Seleccione **Close** (Cerrar) > **Destination** (Destino). En **Address** (Dirección), esta suele ser la red interna. Seleccione **login.microsoft.com** para realizar pruebas.
+32. Seleccione **Close** (Cerrar) > **Service** (Servicio) > **All** (Todos). A continuación, seleccione **Close** (Cerrar) > **OK** (Aceptar).
+37. En el menú de la izquierda, seleccione **Policy & Objects** (Directiva y objetos) > **Firewall Policy** (Directiva de Firewall).
+39. Expanda **SSL-VPN tunnel interface (ssl.root)** [Interfaz de túnel de SSL-VPN (ssl.root)] > **port** (puerto).
+40. Haga clic con el botón derecho en la directiva VPN creada anteriormente (**VPN Grp 1**) y seleccione **Copy** (Copiar).
+41. Haga clic con el botón derecho en la directiva VPN y seleccione **Paste** (Pegar) > **Below** (Debajo).
+42. Edite la nueva directiva y asígnele un nombre diferente (por ejemplo, **VPN Grp2**). Cambie también el grupo al que se aplica (a otro grupo de Azure).
+43. Haga clic con el botón derecho en la nueva directiva y establezca el estado en **Enabled** (Habilitado).
 
 
-14. Si se instaló previamente un certificado SSL personalizado, cambie el certificado de servidor para que utilice el certificado SSL personalizado en el menú desplegable.
-15. En Authentication/Portal Mapping (Autenticación/Asignación del portal), haga clic en **Create New** (Crear nuevo).
-16. Elija el primer grupo de Azure y hágalo coincidir con el portal del mismo nombre.
-17. Haga clic en **Aceptar**
-18. Repita los pasos del 15 al 17 para cada par de grupo y portal de Azure
-19. En Authentication/Portal Mapping (Autenticación/Asignación del portal), edite **All Other Users/Groups** (Todos los demás usuarios/Grupos).
-20. Establezca el portal en **full-access** (acceso completo)
-21. Haga clic en **Aceptar**
-22. Haga clic en **Aplicar**.
-23. Desplácese hasta la parte superior de la página SSL-VPN Setting (Configuración de SSL-VPN) y haga clic en la advertencia que indica que **no existen directivas de SSL-VPN**
-     **. Haga clic aquí para crear una nueva directiva SSL-VPN con esta configuración**.
-24. Proporcione un nombre, como **VPN Grp**.
-25. Establezca Outgoing Interface (Interfaz de salida) en **port** (puerto)
-26. Haga clic en **Source** (Origen).
-27. En Address (Dirección), seleccione **all** (todas).
-28. En User (Usuario), seleccione el primer grupo de Azure.
-29. Haga clic en **Cerrar**.
-30. Haga clic en **Destination** (Destino).
-31. En Address (Dirección), esta suele ser la red interna. Seleccione login.microsoft.com para realizar pruebas.
-32. Haga clic en **Cerrar**.
-33. Haga clic en **Service** (Servicio).
-34. Haga clic en **All** (Todos).
-35. Haga clic en **Cerrar**.
-36. Haga clic en **Aceptar**
-37. En el menú de la izquierda, haga clic en **Policy & Objects** (Directiva y objetos).
-38. En Policy & Objects (Directiva y objetos), haga clic en **Directiva de firewall**.
-39. Expanda **SSL-VPN tunnel interface (Interfaz de túnel de SSL-VPN) (ssl.root) -> port (puerto)**
-40. Haga clic con el botón derecho en la directiva de VPN creada anteriormente ( **VPN Grp 1** ) y seleccione **Copy** (Copiar).
-41. Haga clic con el botón derecho en la directiva de VPN y seleccione **Paste** (Pegar) -> **Below** (Debajo).
-42. Edite la nueva directiva, proporcionándole un nombre diferente (por ejemplo **VPN Grp2**) y cambiando el grupo al que se aplica (otro grupo de Azure).
-43. Haga clic con el botón derecho en la nueva directiva y establezca el estado en **Habilitado**.
+## <a name="test-sign-in-by-using-azure"></a>Prueba del inicio de sesión con Azure
 
-
-## <a name="test-sign-in-using-azure"></a>Prueba del inicio de sesión con Azure
-
-1. Mediante una sesión InPrivate del explorador, vaya a `https://<address>`. 
-2. El inicio de sesión debería redirigir a Azure Active Directory para el inicio de sesión.
+1. Mediante una sesión InPrivate del explorador, vaya a `https://<address>`.  
+2. El inicio de sesión debería redirigir a Azure AD para el inicio de sesión.
 3. Después de proporcionar las credenciales para un usuario que se ha asignado a la aplicación FortiGate en el inquilino de Azure, debería aparecer el portal de usuarios adecuado.
 
-    ![FortiGate SSL VPN](test-sign-in.png)
+    ![Captura de pantalla de FortiGate SSL VPN](test-sign-in.png)

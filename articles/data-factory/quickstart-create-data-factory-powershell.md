@@ -1,6 +1,6 @@
 ---
 title: Copia de datos en Blob Storage mediante Azure Data Factory
-description: Cree una factoría de datos de Azure para copiar los datos de una ubicación de Azure Blob Storage a otra.
+description: Cree una factoría de datos de Azure mediante PowerShell para copiar los datos de una ubicación de Azure Blob Storage a otra.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: ad757e3d65d3094ca6883d747404906a871ed850
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ebcab92c40705bf108d5839a7e67aee345c1bbc7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419347"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292394"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Inicio rápido: Creación de una factoría de datos de Azure con PowerShell
 

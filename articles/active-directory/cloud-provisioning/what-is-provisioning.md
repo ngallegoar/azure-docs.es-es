@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d75dbfc1acd3ffee1b641a3110717eb11ab4e623
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a5d5528865fc910751b8052dcc78a82131e17290
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228246"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266248"
 ---
 # <a name="what-is-identity-provisioning"></a>Qué es el aprovisionamiento de identidades
 
@@ -24,7 +24,7 @@ En la actualidad, tanto en las empresas como en las organizaciones se puede enco
 
 El aprovisionamiento es el proceso de crear un objeto en función de varias condiciones, mantener el objeto actualizado y eliminar el objeto cuando dejan de cumplirse las condiciones. Por ejemplo, cuando un nuevo usuario se une a una organización, se incorpora al sistema de RR. HH.  En ese momento, el aprovisionamiento puede crear una cuenta de usuario correspondiente en la nube, en Active Directory y en las distintas aplicaciones a las que el usuario necesita acceder.  Esto permite al usuario empezar a trabajar y tener acceso a las aplicaciones y sistemas que necesitan desde el primer día. 
 
-![aprovisionamiento en la nube](media/what-is-provisioning/cloud1.png)
+![Diagrama que muestra el aprovisionamiento en la nube con Azure Active Directory.](media/what-is-provisioning/cloud1.png)
 
 Con respecto a Azure Active Directory, el aprovisionamiento se puede dividir en los siguientes escenarios clave.  
 
@@ -34,21 +34,21 @@ Con respecto a Azure Active Directory, el aprovisionamiento se puede dividir en
 
 ## <a name="hr-driven-provisioning"></a>Aprovisionamiento controlado por recursos humanos
 
-![aprovisionamiento en la nube](media/what-is-provisioning/cloud2.png)
+![Diagrama que muestra el aprovisionamiento controlado por recursos humanos con recursos humanos en la nube, recursos humanos locales y Azure Active Directory.](media/what-is-provisioning/cloud2.png)
 
 El aprovisionamiento desde recursos humanos en la nube implica la creación de objetos (usuarios, roles, grupos, etc.) en función de la información que se encuentra en el sistema de recursos humanos.  
 
 El escenario más común sería el siguiente: cuando un empleado nuevo empleado entra a formar parte de la empresa, se le incorpora al sistema de recursos humanos.  Una vez que esto ocurre, se le aprovisionan en la nube.  En este caso, Azure AD.  El aprovisionamiento desde recursos humanos puede abarcar los siguientes escenarios. 
 
-- **Contratación de nuevos empleados**: cuando se agrega un nuevo empleado a los recursos humanos en la nube, se crea automáticamente una cuenta de usuario en Active Directory, Azure Active Directory y, opcionalmente, en Office 365, así como en otras aplicaciones SaaS compatibles con Azure AD, con escritura diferida de la dirección de correo electrónico en los RR. HH. en la nube.
-- **Actualizaciones de atributos y de perfil de los empleados**: si se actualiza un registro de empleado en los RR. HH. en la nube (por ejemplo, el nombre, el cargo o el administrador), su cuenta de usuario se actualizará automáticamente en Active Directory, Azure Active Directory y, opcionalmente, en Office 365, así como en otras aplicaciones SaaS compatibles con Azure AD.
+- **Contratación de nuevos empleados**: cuando se agrega un nuevo empleado a los recursos humanos en la nube, se crea automáticamente una cuenta de usuario en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365, así como en otras aplicaciones SaaS compatibles con Azure AD, con escritura diferida de la dirección de correo electrónico en los RR. HH. en la nube.
+- **Actualizaciones de atributos y perfiles de los empleados**: si se actualiza un registro de empleado en RR. HH. en la nube (por ejemplo, el nombre, el cargo o el administrador), su cuenta de usuario se actualizará automáticamente en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365 y en otras aplicaciones SaaS compatibles con Azure AD.
 - **Despidos de empleados**: cuando se prescinde de un empleado en RR. HH. en la nube, su cuenta de usuario se deshabilita automáticamente de Active Directory, Azure Active Directory y, opcionalmente, de Office 365, así como de otras aplicaciones SaaS compatibles con Azure AD.
-- **Recontrataciones de empleados**: cuando se vuelve a contratar a un empleado en RR. HH. en la nube, se puede reactivar o volver a aprovisionar automáticamente su cuenta antigua (en función de sus preferencias) en Active Directory, Azure Active Directory y, opcionalmente, en Office 365, así como en otras aplicaciones SaaS compatibles con Azure AD.
+- **Recontrataciones de empleados**: cuando se vuelve a contratar a un empleado en RR. HH. en la nube, se puede reactivar o volver a aprovisionar automáticamente su cuenta antigua (en función de sus preferencias) en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365 y en otras aplicaciones SaaS compatibles con Azure AD.
 
 
 ## <a name="app-provisioning"></a>Aprovisionamiento de aplicaciones
 
-![aprovisionamiento en la nube](media/what-is-provisioning/cloud3.png)
+![Diagrama que muestra el aprovisionamiento de aplicaciones con aplicaciones locales, aplicaciones en la nube que no son de Microsoft y Azure Active Directory.](media/what-is-provisioning/cloud3.png)
 
 En Azure Active Directory (Azure AD), el término **[aprovisionamiento de aplicaciones](../app-provisioning/user-provisioning.md)** hace referencia a la creación automática de identidades y roles de usuario en las aplicaciones de nube a las que los usuarios necesitan acceso. Además de crear identidades de usuario, el aprovisionamiento automático incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian. Algunos escenarios comunes son el aprovisionamiento de un usuario de Azure AD en aplicaciones como [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md) y [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), entre otras.
 

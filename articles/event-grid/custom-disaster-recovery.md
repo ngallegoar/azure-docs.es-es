@@ -4,12 +4,12 @@ description: Este tutorial le guía por los pasos para configurar la arquitectur
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27cc64eee31755bcefc9d0d82b7d06e52efcf183
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e37cb6a0679ee2e249de4ed8fa31c40d5082ea4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004551"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324134"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Creación de una recuperación ante desastres propia para temas personalizados en Event Grid
 La recuperación ante desastres se ocupa de recuperarse tras una pérdida grave de funcionalidad de la aplicación. Este tutorial le guía por los pasos para configurar la arquitectura de eventos para recuperación en caso de que el servicio Event Grid deje de funcionar correctamente en una región determinada.
@@ -72,7 +72,7 @@ En primer lugar, cree dos temas de Event Grid. Estos temas funcionarán como el 
    * Seleccione el webhook de tipo de punto de conexión.
    * Establezca el punto de conexión en la dirección URL del evento del receptor de eventos, que debe parecerse a: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-     ![Suscripción al evento principal de Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Captura de pantalla que muestra la página "Crear suscripción de eventos: básica" con los valores de "Nombre", "Tipo de punto de conexión" y "Punto de conexión" resaltados.](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Repita el mismo flujo para crear su tema y suscripción secundarios. Esta vez, reemplace el sufijo "-principal" por el sufijo "-secundario" para facilitar el seguimiento. Por último, asegúrese de colocarlo en una región distinta de Azure. Aunque puede colocarlo donde quiera, se recomienda usar las [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md). Si coloca el tema y la suscripción secundarios en una región distinta, se tiene la seguridad de que los nuevos eventos fluirán incluso si la región principal deja de funcionar.
 

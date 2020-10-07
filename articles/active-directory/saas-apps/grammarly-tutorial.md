@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
-ms.openlocfilehash: 29778d872541ea251a46affcccd0e2befbd9003d
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 989e3f4a285d44128bba1c9811aebcb76b8c0220
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500602"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327976"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grammarly"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Grammarly
 
@@ -81,16 +81,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección **Configuración básica de SAML**, la aplicación está preconfigurada y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
 
 
-1. La aplicación Grammarly espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
-
-    ![imagen](common/default-attributes.png)
-
-1. Además de lo anterior, la aplicación Grammarly espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
+1. La aplicación Grammarly espera las aserciones SAML en un formato específico. Estos atributos también se han rellenado previamente, pero los puede revisar según sus requisitos.
     
     | Nombre |  Atributo de origen|
     | -------------- | --------- |
     | Nombre | user.givenname |
     | Apellidos | user.surname |
+    | EmailAddress | user.principalname|
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -126,7 +123,7 @@ En esta sección, va a permitir que B.Simon acceda a Grammarly mediante el inici
 
 ## <a name="configure-grammarly-sso"></a>Configuración del inicio de sesión único de Grammarly
 
-Para configurar el inicio de sesión único en **Grammarly**, es preciso enviar el **certificado (Base 64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Grammarly](mailto:support@grammarly.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Grammarly**, debe copiar la **dirección URL de inicio de sesión**, el **identificador de Azure AD** y el **certificado (Base64)** descargado en el panel de administración de Grammarly. [Más información](https://support.grammarly.com/hc/en-us/articles/360048683092-How-do-I-set-up-SAML-single-sign-on-for-my-Grammarly-Business-account-).
 
 ### <a name="create-grammarly-test-user"></a>Creación de un usuario de prueba de Grammarly
 

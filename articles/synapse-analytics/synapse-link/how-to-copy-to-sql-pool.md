@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 88962d63519cfeb78be694c4f702b05ed4e7d3df
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 409f1ecee5ccf42a0168d500b40337366e07bfc0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658376"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287857"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-sql-pool-using-apache-spark"></a>Copia de datos de Azure Cosmos DB en un grupo de SQL mediante Apache Spark
 
@@ -29,12 +29,12 @@ Azure Synapse Link para Azure Cosmos DB permite a los usuarios ejecutar anális
 * [Tenga la configuración adecuada para importar datos a un grupo de SQL desde Spark](../spark/synapse-spark-sql-pool-import-export.md)
 
 ## <a name="steps"></a>Pasos
-En este tutorial, se conectará al almacén de análisis para que no haya ningún impacto en el almacén de transacciones (no consumirá ninguna unidad de solicitud). Seguiremos los pasos indicados a continuación:
+En este tutorial, se conectará al almacén analítico para que no haya ningún impacto en el almacén de transacciones (no consumirá unidades de solicitud). Siga estos pasos:
 1. Leer el contenedor HTAP de Cosmos DB en un dataframe de Spark.
 2. Agregar los resultados a un dataframe nuevo.
 3. Ingerir los datos en un grupo de SQL.
 
-[![Pasos de Spark a SQL](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
+[![Pasos de Spark a SQL 1](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
 
 ## <a name="data"></a>Datos
 En ese ejemplo, se usa un contenedor HTAP denominado **RetailSales**. Forma parte de un servicio vinculado denominado **ConnectedData** y tiene el siguiente esquema:
@@ -50,7 +50,7 @@ En ese ejemplo, se usa un contenedor HTAP denominado **RetailSales**. Forma part
 * weekStarting: long (nullable = true)
 * _etag: string (nullable = true)
 
-Se agregarán las ventas (*de cantidad de*, *ingresos* [precio x cantidad] por *productCode* y *weekStarting*) para la elaboración de informes. Por último, se exportarán los datos en una tabla de grupo de SQL denominada **dbo.productsales**.
+Agregaremos las ventas (*quantity*, *revenue* [precio x cantidad] por *productCode* y *weekStarting* para la elaboración de informes. Por último, se exportarán los datos en una tabla de grupo de SQL denominada **dbo.productsales**.
 
 ## <a name="configure-a-spark-notebook"></a>Configuración de un cuaderno de Spark
 Cree un cuaderno de Spark con Scala and Spark (Scala) como lenguaje principal. Se usa la configuración predeterminada del cuaderno para la sesión.
@@ -97,7 +97,7 @@ SELECT  [productCode]
  FROM [dbo].[productsales]
 ```
 
-La consulta presentará los resultados siguientes en modo de gráfico: [![Pasos de Spark a SQL](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
+La consulta presentará los resultados siguientes en modo de gráfico: [![Pasos de Spark a SQL 2](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Consulta de un almacén analítico de Azure Cosmos DB con Apache Spark](./how-to-query-analytical-store-spark.md)

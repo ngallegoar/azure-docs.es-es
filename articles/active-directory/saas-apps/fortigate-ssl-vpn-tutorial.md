@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único de Azure AD con FortiGate SSL VPN'
-description: En este tutorial, aprenderá a configurar el inicio de sesión único entre Azure Active Directory y FortiGate SSL VPN.
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con FortiGate SSL VPN | Microsoft Docs'
+description: Obtenga información sobre los pasos necesarios para integrar FortiGate SSL VPN con Azure Active Directory (Azure AD).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abe92218d6bb20274e916089c15df8c1f44c4fd6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 187903bfbf75ada45b9a539acd1157dfe730747a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986443"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331130"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con FortiGate SSL VPN
 
@@ -94,16 +94,29 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores son tan solo patrones. Debe usar los valores reales para **Dirección URL de inicio de sesión**, **Identificador**, **Dirección URL de respuesta** y **Dirección URL de inicio de sesión**. Póngase en contacto con el [equipo de soporte técnico al cliente de FortiGate SSL VPN](mailto:tac_amer@fortinet.com) para obtener los valores reales. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. La aplicación FortiGate SSL VPN espera que las aserciones de SAML tengan un formato específico. Debe agregar asignaciones de atributos personalizados a la configuración de los atributos del token SAML. En la siguiente captura se muestran los atributos predeterminados:
+1. La aplicación FortiGate SSL VPN espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración. La siguiente captura de muestra la lista de atributos predeterminados.
 
     ![Captura de pantalla que muestra los atributos predeterminados.](common/default-attributes.png)
 
-1. La aplicación FortiGate SSL VPN también espera que se devuelvan algunos atributos más en la respuesta SAML. Estos atributos se muestran en la tabla siguiente. Se han rellenado previamente, pero puede revisarlos de acuerdo con los requisitos.
-    
-    | Nombre |  Atributo de origen|
-    | ------------ | --------- |
-    | username | user.userprincipalname |
-    | group | user.groups |
+1. En la tabla siguiente se muestran las dos notificaciones adicionales que requiere FortiGate SSL VPN. Los nombres de estas notificaciones deben coincidir con los nombres que se usan en la sección **Configuración de la línea de comandos de FortiGate** de este tutorial. 
+
+   | Nombre |  Atributo de origen|
+   | ------------ | --------- |
+   | username | user.userprincipalname |
+   | group | user.groups |
+   
+   Para crear estas notificaciones adicionales:
+   
+   1. Seleccione **Editar** junto a **Atributos y notificaciones de usuario**.
+   1. Seleccione **Agregar nueva notificación**.
+   1. En **Nombre**, escriba **username**.
+   1. En **Atributo de origen**, seleccione **user.userprincipalname**.
+   1. Seleccione **Guardar**.
+   1. Seleccione **Agregar una notificación de grupo**.
+   1. Seleccione **Todos los grupos**.
+   1. Seleccione la casilla de verificación **Personalizar nombre de la notificación del grupo**.
+   1. En **Nombre**, escriba **group**.
+   1. Seleccione **Guardar**.   
 
 1. En la página **Configurar inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el vínculo **Descargar** junto a **Certificado (Base64)** para descargar y guardar el certificado en el equipo:
 

@@ -1,6 +1,6 @@
 ---
 title: Envío de notificaciones a aplicaciones Android concretas mediante Azure Notification Hubs
-description: Aprenda a enviar notificaciones push a usuarios concretos mediante Azure Notification Hubs.
+description: Aprenda a enviar notificaciones push a usuarios de Android concretos mediante Azure Notification Hubs.
 documentationcenter: android
 services: notification-hubs
 author: sethmanheim
@@ -15,12 +15,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 349f8bf5c22f1e48ad733356c0e4720f5b7cd7e6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c137cbf0c2290bdbe228f7902e616e7f79cb459e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004158"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307796"
 ---
 # <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Envío de una notificación push a usuarios de Android concretos mediante Azure Notification Hubs y Google Cloud Messaging (en desuso)
 

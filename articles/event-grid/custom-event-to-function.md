@@ -3,12 +3,12 @@ title: 'Inicio rápido: Envío de eventos personalizados a una instancia de Azur
 description: 'Inicio rápido: Use Azure Event Grid y la CLI de Azure o el portal para publicar un tema y suscribirse a ese evento. Para el punto de conexión se usa una instancia de Azure Functions.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 26ddfd1aeb61d3786edcdfca1acf5e293e4145ae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115101"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324443"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Inicio rápido: Enrutamiento de eventos personalizados a una instancia de Azure Functions con Event Grid
 
@@ -17,14 +17,17 @@ Azure Event Grid es un servicio de eventos para la nube. Azure Functions es uno 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-azure-function"></a>Creación de una función de Azure
+Antes de suscribirse al tema personalizado, cree una función para controlar los eventos. 
 
-Antes de suscribirse al tema personalizado, vamos a crear una función que controle los eventos. En Azure Portal, haga clic en "Crear un recurso", escriba "function", elija "Function App" y haga clic en Crear. Seleccione "Crear nuevo" en el grupo de recursos y asígnele un nombre. Lo usará en el resto del tutorial. Asigne un nombre a la aplicación de funciones, deje el conmutador de alternancia "Publish" en "Código", seleccione cualquier runtime y región, y pulse Crear.
+1. Cree una aplicación de funciones mediante las instrucciones de [Creación de una aplicación de función](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+2. Cree una función mediante el **desencadenador de Event Grid**. Si es la primera vez que usa este desencadenador, es posible que tenga que hacer clic en "Instalar" para instalar la extensión.
+    1. En la página **Aplicación de funciones**, seleccione **Funciones** en el menú de la izquierda, busque **Event Grid** en las plantillas y, a continuación, seleccione el **desencadenador de Azure Event Grid**. 
 
-Una vez que la aplicación de funciones esté lista, vaya a ella y haga clic en "+ Nueva función". Seleccione "En el portal" para el entorno de desarrollo y pulse Continuar. En Crear una función, elija "Más plantillas" para ver más plantillas, busque "Azure Event Grid Trigger" (Desencadenador de Azure Event Grid) y selecciónela. Si es la primera vez que usa este desencadenador, es posible que tenga que hacer clic en "Install" para instalar la extensión.
+        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Seleccionar el desencadenador de Event Grid":::
+3. En la página **Nueva función**, escriba un nombre para la función y seleccione **Crear función**.
 
-![Desencadenador de Event Grid de función](./media/custom-event-to-function/grid-trigger.png)
-
-Una vez que haya instalado la extensión, haga clic en Continuar, asigne un nombre a la función y pulse Crear.
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Seleccionar el desencadenador de Event Grid":::
+4. Use la página **Código o prueba** para ver el código existente de la función y actualizarlo. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -81,8 +84,12 @@ Suscríbase a un tema de cuadrícula de eventos que indique a Event Grid los eve
     5. Para el punto de conexión de la función, seleccione la suscripción de Azure y el grupo de recursos en que está la aplicación de funciones y, después, seleccione la aplicación de funciones y la función que creó anteriormente. Seleccione **Confirm Selection** (Confirmar selección).
 
        ![Proporcionar la dirección URL del punto de conexión](./media/custom-event-to-function/provide-endpoint.png)
-
-    6. De nuevo en la página **Crear suscripción de eventos**, seleccione **Crear**.
+    6. Este paso es opcional, pero se recomienda para escenarios de producción. En la página **Crear suscripción de eventos**, cambie a la pestaña **Características avanzadas** y establezca los valores de **Max events per batch** (Máximo de eventos por lote) y **Preferred batch size in kilobytes** (Tamaño de lote preferido en kilobytes). 
+    
+        El procesamiento por lotes puede proporcionarle un alto rendimiento. Para **Max events per batch** (Máximo de eventos por lote), establezca el número máximo de eventos que una suscripción incluirá en un lote. El tamaño de lote preferido establece el límite superior preferido del tamaño del lote en kilobytes, pero se puede superar si un solo evento es mayor que este umbral.
+    
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Seleccionar el desencadenador de Event Grid":::
+    6. En la página **Crear suscripción de eventos**, seleccione **Crear**.
 
 ## <a name="send-an-event-to-your-topic"></a>Envío de un evento al tema
 

@@ -4,15 +4,15 @@ description: Aprenda a crear un entorno de App Service con un equilibrador de ca
 author: ccompy
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
-ms.date: 08/05/2019
+ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f2124dd77e3e5d9828ea457a6bccdf7d1bc05405
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1bda52227737b082927dd1449fa6469cf849ff15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961778"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273269"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creación y uso de un entorno de una instancia de Azure App Service Environment de Load Balancer 
 
@@ -100,15 +100,26 @@ Functions y los trabajos web se admiten en un ASE de ILB, pero para que el porta
 
 ## <a name="dns-configuration"></a>Configuración de DNS 
 
-Cuando se utiliza una dirección VIP externa, Azure se encarga de administrar el DNS. Todas las aplicaciones que cree en el ASE se agregan automáticamente a DNS de Azure, que es un DNS público. En un ASE con un ILB tiene que administrar su propio DNS. El sufijo de dominio usado con una instancia de ASE de LIB depende del nombre de dicha instancia. El sufijo de dominio es *&lt;nombre de ASE&gt;.appserviceenvironment.net*. La dirección IP de ILB se encuentra en el portal, en **Direcciones IP**. 
+Cuando se usa un ASE externo, las aplicaciones realizadas en el ASE se registran con Azure DNS. En un ASE externo, no hay pasos adicionales para que las aplicaciones estén disponibles públicamente. En un ASE con un ILB tiene que administrar su propio DNS. Puede hacer esto en su propio servidor DNS o con las zonas privadas de Azure DNS.
 
-Para configurar el DNS:
+Para configurar DNS en su propio servidor DNS con el ASE de ILB:
 
-- Cree una zona para *&lt;nombre de ASE&gt;.appserviceenvironment.net*.
-- Cree un registro D en esa zona que apunte * a la dirección IP de ILB.
-- Cree un registro D en esa zona que apunte a la dirección IP de ILB.
-- Cree una zona en *&lt;nombre de ASE&gt;.appserviceenvironment.net* llamada SCM.
-- Cree un registro D en la zona SCM que apunte * a la dirección IP de ILB.
+1. cree una zona para <ASE name>.appserviceenvironment.net.
+2. Cree un registro D en esa zona que apunte * a la dirección IP de ILB.
+3. Cree un registro D en esa zona que apunte a la dirección IP de ILB.
+4. cree una zona en <ASE name>.appserviceenvironment.net llamada SCM.
+5. Cree un registro D en la zona SCM que apunte * a la dirección IP de ILB.
+
+Para configurar DNS en las zonas privadas de Azure DNS:
+
+1. cree una zona privada de Azure DNS denominada <ASE name>.appserviceenvironment.net.
+2. Cree un registro D en esa zona que apunte * a la dirección IP de ILB.
+3. Cree un registro D en esa zona que apunte a la dirección IP de ILB.
+4. cree un registro A en esa zona que apunte *.scm a la dirección IP de ILB.
+
+La configuración de DNS para el sufijo de dominio predeterminado de ASE no restringe las aplicaciones para que solo puedan acceder a ellas esos nombres. Puede establecer un nombre de dominio personalizado sin ninguna validación en las aplicaciones de un ASE con un ILB. Si desea crear una zona denominada contoso.net, puede hacerlo y hacer que apunte a la dirección IP de ILB. El nombre de dominio personalizado funciona para las solicitudes de aplicación, pero no para el sitio SCM. El sitio SCM solo está disponible en <appname>.scm.<asename>.appserviceenvironment.net.
+
+La zona denominada .<asename>.appserviceenvironment.net es globalmente única. Antes de mayo de 2019, los clientes podían especificar el sufijo de dominio del ASE con ILB. Si quería usar .contoso.com como sufijo de dominio, podía hacerlo y eso incluiría el sitio SCM. Había problemas con ese modelo, entre los que se incluían la administración del certificado SSL predeterminado, la falta de inicio de sesión único con el sitio SCM y la obligatoriedad de usar un certificado comodín. El proceso de actualización de certificados predeterminados del ASE con ILB también se ha interrumpido y ha provocado el reinicio de la aplicación. Para solucionar estos problemas, el comportamiento del ASE con ILB se ha modificado para que use un sufijo de dominio basado en el nombre del ASE y un sufijo propiedad de Microsoft. El cambio en el comportamiento del ASE con ILB solo afecta a aquellos ASE creados después de mayo de 2019. Los ASE con ILB existentes anteriormente deben todavía administrar el certificado predeterminado del ASE y su configuración de DNS.
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicación con un ASE con un ILB
 

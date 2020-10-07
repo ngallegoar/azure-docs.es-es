@@ -1,27 +1,29 @@
 ---
 title: ¿Qué es Anomaly Detector API?
 titleSuffix: Azure Cognitive Services
-description: Use algoritmos avanzados de Anomaly Detector API para identificar anomalías en datos de serie temporal.
+description: Use los algoritmos de Anomaly Detector API para aplicar la detección de anomalías a los datos de serie temporal.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: aahi
-ms.openlocfilehash: ba094709d78d92b678e3aa5ad9995923888caf00
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: anomaly detection, machine learning, algorithms
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 2e48c189df23ed94cd54e1bc9097b7d9709c9ed3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319323"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>¿Qué es Anomaly Detector API?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Anomaly Detector API permite supervisar y detectar anomalías en datos de serie temporal con aprendizaje automático. Esta API se adapta al identificar y aplicar automáticamente los modelos más idóneos para sus datos, con independencia del sector, el escenario o el volumen de datos. Con el uso de datos de serie temporal, la API determina los límites de la detección de anomalías, los valores esperados y qué puntos de datos son anomalías.
+Anomaly Detector API permite supervisar y detectar anomalías en los datos de serie temporal sin tener que saber aprendizaje automático. Los algoritmos de Anomaly Detector API se adaptan al identificar y aplicar automáticamente los modelos más idóneos para sus datos, con independencia del sector, el escenario o el volumen de datos. Con el uso de datos de serie temporal, la API determina los límites de la detección de anomalías, los valores esperados y qué puntos de datos son anomalías.
 
 ![Detectar cambios de patrón en las solicitudes de servicio](./media/anomaly_detection2.png)
 
@@ -33,7 +35,7 @@ Con Anomaly Detector, puede detectar automáticamente las anomalías existentes 
 
 |Característica  |Descripción  |
 |---------|---------|
-|Detección de anomalías cuando se producen en tiempo real | Detecte anomalías en sus datos de transmisión mediante los puntos de datos vistos anteriormente para determinar si el último de ellos es una anomalía. Esta operación genera un modelo con los puntos de datos enviados y determina si el punto de destino es una anomalía. La llamada a la API con cada nuevo punto de datos que genera le permite supervisar los datos que se crean. |
+|Detección de anomalías en tiempo real. | Detecte anomalías en sus datos de transmisión mediante los puntos de datos vistos anteriormente para determinar si el último de ellos es una anomalía. Esta operación genera un modelo con los puntos de datos enviados y determina si el punto de destino es una anomalía. La llamada a la API con cada nuevo punto de datos que genera le permite supervisar los datos que se crean. |
 |Detección de anomalías en todo el conjunto de datos como un lote | Use la serie temporal para detectar las anomalías que podrían existir en los datos. Esta operación genera un modelo con todos los datos de serie temporal, donde cada punto de analiza con el mismo modelo.         |
 |Detecte los puntos de cambio en el conjunto de datos como un lote. | Use la serie temporal para detectar los puntos de cambio de tendencia que existan en los datos. Esta operación genera un modelo con todos los datos de serie temporal, donde cada punto de analiza con el mismo modelo.    |
 | Obtención de información adicional sobre los datos | Obtenga detalles útiles sobre los datos y las anomalías observadas, como los valores esperados, los límites de anomalías y las posiciones. |

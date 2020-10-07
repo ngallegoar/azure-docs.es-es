@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 5f34215d57bd5dae8c9a5e6e8f4630b7ed0c827e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436753"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258139"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft
 
@@ -59,13 +59,13 @@ Cuando se completa el registro, Azure Portal muestra el panel de **información 
 
 El código de la aplicación, o más habitualmente una biblioteca de autenticación empleada en la aplicación, también utiliza la identificación del cliente como un aspecto de la validación de los tokens de seguridad que recibe de la plataforma de identidad.
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Captura de pantalla de Azure Portal en un explorador web que muestra el panel de información general del registro de una aplicación":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Captura de pantalla de Azure Portal en un explorador web que muestra el panel Registrar una aplicación":::
 
 ## <a name="add-a-redirect-uri"></a>Incorporación de un URI de redirección
 
 Un URI de redirección es la ubicación a la que la plataforma de identidad de Microsoft redirige el cliente de un usuario y envía tokens de seguridad tras la autenticación.
 
-En una aplicación web de producción, por ejemplo, el URI de redirección suele ser un punto de conexión público en el que se ejecuta la aplicación, por ejemplo, `https://contoso.com/auth-response`. Durante la fase de desarrollo, también es habitual incorporar el punto de conexión en el que se ejecuta la aplicación localmente, por ejemplo, `https://127.0.0.1/auth-response`.
+En una aplicación web de producción, por ejemplo, el URI de redirección suele ser un punto de conexión público en el que se ejecuta la aplicación, por ejemplo, `https://contoso.com/auth-response`. Durante la fase de desarrollo, también es habitual incorporar el punto de conexión en el que se ejecuta la aplicación localmente, como `https://127.0.0.1/auth-response` o `http://localhost/auth-response`.
 
 Para agregar y modificar los URI de redirección de las aplicaciones registradas, especifique los parámetros en [Configuraciones de plataforma](#configure-platform-settings).
 
@@ -80,7 +80,7 @@ Para configurar los valores de la aplicación según la plataforma o el disposit
 1. En **Configuraciones de plataforma**, seleccione **Agregar una plataforma**.
 1. En **Configurar plataformas**, seleccione el icono del tipo de aplicación (plataforma) para configurar los valores.
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Captura de pantalla del panel Configuración de la plataforma en Azure Portal" border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Captura de pantalla de Azure Portal en un explorador web que muestra el panel Registrar una aplicación" border="false":::
 
     | Plataforma | Parámetros de configuración |
     | -------- | ---------------------- |
@@ -101,7 +101,7 @@ Las credenciales se usan con las aplicaciones cliente confidenciales que acceden
 
 Puede agregar certificados y secretos de cliente (una cadena) como credenciales al registro de la aplicación cliente confidencial.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Captura de pantalla de Azure Portal que muestra el panel de certificados y secretos durante el registro de una aplicación":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Captura de pantalla de Azure Portal en un explorador web que muestra el panel Registrar una aplicación":::
 
 ### <a name="add-a-certificate"></a>Incorporación de un certificado
 

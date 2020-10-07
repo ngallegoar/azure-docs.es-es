@@ -10,18 +10,18 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 42a1110b089d5edf9793bf2bb2c699a717a4b1a4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: aa940b00e9c23ab08244ea55c0cd22a8d5f1897f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004976"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289385"
 ---
 # <a name="connection-strings-for-synapse-sql-preview"></a>Cadenas de conexión para Synapse SQL (versión preliminar)
 
 Puede conectarse a Synapse SQL con varios protocolos de aplicación diferentes, como [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396) y [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). A continuación se muestran algunos ejemplos de cadenas de conexión para cada protocolo. 
 
-También puede usar el Portal de Azure para crear la cadena de conexión.  Para generar la cadena de conexión mediante Azure Portal, vaya a la hoja de la base de datos en *Aspectos básicos* y haga clic en *Mostrar cadenas de conexión de base de datos*.
+También puede usar el Portal de Azure para crear la cadena de conexión.  Para generar la cadena de conexión mediante Azure Portal, vaya a la hoja de la base de datos y en *Aspectos básicos* seleccione *Mostrar cadenas de conexión de base de datos*.
 
 ## <a name="sample-adonet-connection-string"></a>Cadena de conexión ADO.NET de ejemplo
 

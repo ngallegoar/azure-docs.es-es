@@ -8,18 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 09/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 67632301b534f91c36de837bbfa12f9ec16ed58f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: c8b5d3f58f11e85c6e77ce0cbf0c6d435f570ade
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551359"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277349"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Inicio rápido: Cómo crear un clasificador con Custom Vision
 
-En este inicio rápido aprenderá a crear un clasificador mediante el sitio web de Custom Vision. Una vez creado un modelo de clasificador, se puede usar Custom Vision para la clasificación de imágenes.
+En este inicio rápido, aprenderá a crear un clasificador de imágenes mediante el sitio web de Custom Vision. Una vez que cree un modelo, puede probarlo con nuevas imágenes y, finalmente, integrarlo en su propio software de reconocimiento de imágenes.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
@@ -27,7 +28,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 - Un conjunto de imágenes con el que entrenar el clasificador. Consulte las siguientes sugerencias sobre cómo elegir imágenes.
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Creación de recursos de Custom Vision en Azure Portal
+## <a name="create-custom-vision-resources"></a>Creación de recursos de Custom Vision
 
 [!INCLUDE [create-resources](includes/create-resources.md)]
 
@@ -45,7 +46,7 @@ En el explorador web, vaya a la [página web de Custom Vision](https://customvis
 1. Escriba un nombre y una descripción para el proyecto. Después, seleccione un grupo de recursos. Si la cuenta con la que ha iniciado sesión está asociada a una cuenta de Azure, aparecerá el menú desplegable Resource Group (Grupo de recursos) que incluye un recurso de Custom Vision Service. 
 
    > [!NOTE]
-   > Si no hay ningún grupo de recursos disponible, confirme que ha iniciado sesión en [customvision.ai](https://customvision.ai) con la misma cuenta que usó para iniciar sesión en [Azure Portal](https://portal.azure.com/). Además, confirme que el directorio seleccionado en el portal de Custom Vision es el mismo que el de Azure Portal donde se encuentran los recursos de Custom Vision. En ambos sitios, puede seleccionar el directorio en el menú de cuentas desplegable de la esquina superior derecha de la pantalla. 
+   > Si no hay ningún grupo de recursos disponible, confirme que ha iniciado sesión en [customvision.ai](https://customvision.ai) con la misma cuenta que usó para iniciar sesión en [Azure Portal](https://portal.azure.com/). Además, confirme que el directorio seleccionado en el sitio web de Custom Vision es el mismo que el de Azure Portal donde se encuentran los recursos de Custom Vision. En ambos sitios, puede seleccionar el directorio en el menú de cuentas desplegable de la esquina superior derecha de la pantalla. 
 
 1. Seleccione __Classification__ (Clasificación) en __Project Types__ (Tipos de proyecto). Después, en __Classification Types__ (Tipos de clasificación), elija **Multilabel** (Multietiqueta) o **Multiclass** (Multiclase) según su caso de uso. La clasificación multietiqueta aplica un número cualquiera de etiquetas a una imagen (cero o más), mientras que la clasificación multiclase ordena las imágenes en categorías únicas (cada imagen que envíe se clasificará en la etiqueta más probable). Puede cambiar el tipo de clasificación más adelante si lo desea.
 
@@ -120,3 +121,4 @@ En este inicio rápido ha aprendido a crear y entrenar un modelo de clasificaci�
 > [!div class="nextstepaction"]
 > [Prueba y reentrenamiento del modelo](test-your-model.md)
 
+* [¿Qué es Custom Vision?](./overview.md)

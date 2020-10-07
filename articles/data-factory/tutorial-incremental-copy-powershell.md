@@ -1,6 +1,6 @@
 ---
 title: Copia incremental de una tabla mediante PowerShell
-description: En este tutorial, creará una canalización de Azure Data Factory que copia datos de forma incremental de una base de datos de Azure SQL a Azure Blob Storage.
+description: En este tutorial, va a crear una canalización de Azure Data Factory que copia datos de forma incremental de una base de datos de Azure SQL a Azure Blob Storage.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 3bd2744c651544fc7dfe41b350168a7f387c0928
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 267c82981ca91dc8fd437222c80368b5ab6f4a46
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320870"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Carga de datos incremental de Azure SQL Database a Azure Blob Storage mediante PowerShell
 
@@ -63,7 +63,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna base de datos en Azure SQL Database, consulte el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos y crear una.
+* **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna base de datos de Azure SQL Database, consulte el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos y crear una.
 * **Azure Storage**. Blob Storage se usa como almacén de datos receptor. Si no tiene una cuenta de almacenamiento, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para ver los pasos para su creación. Cree un contenedor denominado adftutorial. 
 * **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-Az-ps).
 

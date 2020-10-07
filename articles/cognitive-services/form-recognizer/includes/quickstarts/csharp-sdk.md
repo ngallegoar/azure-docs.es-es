@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de Form Recognizer para .NET'
-description: En este inicio rápido, empezará a trabajar con la biblioteca cliente de Form Recognizer para .NET.
+description: Use la biblioteca cliente de Form Recognizer para .NET con el fin de crear una aplicación de procesamiento de formularios que extraiga pares clave-valor y datos de tabla de los documentos personalizados.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 08/17/2020
+ms.date: 09/21/2020
 ms.author: pafarley
-ms.openlocfilehash: f924347b99d270ac97da5f6d6f4edf7a13efacee
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: fc7b435d3abdd2e04f8beabf35b7ed337c5ff68b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89449649"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318927"
 ---
 > [!IMPORTANT]
 > * Actualmente, el SDK de Form Recognizer tiene como destino la versión v2.0 del servicio Form Recognizer.
@@ -105,7 +105,8 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `F
 
 Vea ejemplos de [entrenar un modelo](#train-a-custom-model) y [administrar modelos personalizados](#manage-custom-models).
 
-Tenga en cuenta que los modelos también se pueden entrenar mediante una interfaz gráfica de usuario, como la [herramienta de etiquetado de Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> [!NOTE]
+> Los modelos también se pueden entrenar mediante una interfaz gráfica de usuario, como la [herramienta de etiquetado de Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -138,7 +139,7 @@ static private FormRecognizerClient AuthenticateClient(){
 }
 ```
 
-## <a name="assets-for-testing"></a>Recursos para pruebas 
+## <a name="get-assets-for-testing"></a>Obtención de recursos para pruebas 
 
 Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. En cambio, si quiere procesar documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) y los [ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
@@ -620,6 +621,19 @@ static async Task RecognizeContentCustomModel()
 
             Console.WriteLine($"    Value: '{field.ValueData.Text}");
             Console.WriteLine($"    Confidence: '{field.Confidence}");
+        }
+        Console.WriteLine("Table data:");
+        foreach (FormPage page in form.Pages.Values)
+        {
+            for (int i = 0; i < page.Tables.Count; i++)
+            {
+                FormTable table = page.Tables[i];
+                Console.WriteLine($"Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
+                foreach (FormTableCell cell in table.Cells)
+                {
+                    Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) contains {(cell.IsHeader ? "header" : "text")}: '{cell.Text}'");
+                }
+            }
         }
     }
 }

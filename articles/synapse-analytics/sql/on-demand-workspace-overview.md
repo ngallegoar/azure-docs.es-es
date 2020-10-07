@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: fc306dbca3191f04a85f2c5cc88d41336c13e09c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dc47bf73f39d73861c166674a692932d51064e6d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496396"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288535"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL a petición (versión preliminar) en Azure Synapse Analytics 
 
@@ -25,9 +25,11 @@ SQL a petición es un servicio de consulta de los datos del lago de datos. Le pe
 - Una sintaxis T-SQL conocida para consultar los datos activos sin necesidad de copiarlos ni cargarlos en un almacén especializado. 
 - Conectividad integrada mediante la interfaz de T-SQL que ofrece una amplia gama de herramientas de inteligencia empresarial y consulta ad hoc, entre las que se incluyen los controladores más populares. 
 
-SQL a petición es un sistema de procesamiento de datos distribuido, creado para datos y procesos a gran escala. SQL a petición le permite analizar macrodatos en segundos, según la carga de trabajo. Gracias a la tolerancia a errores integrada en la ejecución de consultas, el sistema proporciona una alta confiabilidad y un alto índice de éxito incluso para consultas de ejecución prolongada que implican grandes conjuntos de datos.
+SQL a petición es un sistema de procesamiento de datos distribuido, creado para datos a gran escala y funciones computacionales. SQL a petición le permite analizar macrodatos en segundos, según la carga de trabajo. Gracias a la tolerancia a errores integrada en la ejecución de consultas, el sistema proporciona una alta confiabilidad y un alto índice de éxito incluso para consultas de ejecución prolongada que implican grandes conjuntos de datos.
 
-SQL a petición funciona sin servidor, por lo que no hay que instalar ninguna infraestructura ni mantener ningún clúster. Se proporciona un punto de conexión predeterminado para este servicio en cada área de trabajo de Azure Synapse, por lo que puede empezar a consultar datos tan pronto como se crea el área de trabajo. No se cobra por los recursos reservados, solo se cobra por los datos examinados por las consultas que se ejecutan, por lo que este modelo es un modelo de pago por uso auténtico.  
+SQL a petición funciona sin servidor, por lo que no hay que instalar ninguna infraestructura ni mantener ningún clúster. Se proporciona un punto de conexión predeterminado para este servicio en cada área de trabajo de Azure Synapse, por lo que puede empezar a consultar datos tan pronto como se crea el área de trabajo. 
+
+No se cobra por los recursos reservados, solo se cobra por los datos procesados por las consultas que se ejecutan, por lo que este modelo es un modelo de pago por uso auténtico.  
 
 Si usa Apache Spark para Azure Synapse en la canalización de datos, o para la preparación, limpieza o enriquecimiento de datos, puede [consultar las tablas externas de Spark](develop-storage-files-spark-tables.md) que haya creado en el proceso, directamente desde SQL On-Demand. Use [Private Link](../security/how-to-connect-to-workspace-with-private-links.md) para llevar el punto de conexión de SQL a petición a la [red virtual del área de trabajo administrada](../security/synapse-workspace-managed-vnet.md).  
 
@@ -56,7 +58,7 @@ SQL a petición permite que las herramientas ya existentes de inteligencia empre
 
 ## <a name="t-sql-support"></a>Compatibilidad con T-SQL
 
-SQL a petición ofrece un área expuesta de consultas de T-SQL, que se ha mejorado o ampliado ligeramente en algunos aspectos para dar cabida a experiencias relacionadas con la consulta de datos semiestructurados y datos no estructurados. Además, algunos aspectos del lenguaje T-SQL no son compatibles debido al diseño de SQL a petición como, por ejemplo, la funcionalidad DML en la actualidad.
+SQL a petición ofrece un área expuesta de consultas de T-SQL, que se ha mejorado o ampliado ligeramente en algunos aspectos para dar cabida a experiencias relacionadas con la consulta de datos semiestructurados y datos no estructurados. Además, algunos de los aspectos del lenguaje T-SQL no son compatibles debido al diseño de SQL a petición. Por ejemplo, actualmente la funcionalidad DML no lo es.
 
 - La carga de trabajo se puede organizar mediante conceptos conocidos:
 - Bases de datos: el punto de conexión de SQL a petición puede tener varias bases de datos.
@@ -77,7 +79,7 @@ T-SQL compatible:
 - CETAS - CREATE EXTERNAL TABLE AS SELECT
 - Instrucciones de DDL relacionadas solo con vistas y seguridad
 
-SQL a petición no tiene almacenamiento local, solo los objetos de metadatos se almacenan en las bases de datos. Por lo tanto, no se admite T-SQL relacionado con los siguientes conceptos:
+SQL a petición no tiene almacenamiento local, solo los objetos de metadatos se almacenan en las bases de datos. Por tanto, no se admite T-SQL relacionado con los siguientes conceptos:
 
 - Tablas
 - Desencadenadores

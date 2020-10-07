@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84706450"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283877"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Seguridad en Instancia administrada de Azure SQL mediante entidades de seguridad del servidor de Azure AD (inicios de sesión)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,7 +104,7 @@ Consulte los artículos siguientes para ver ejemplos de conexión a Instancia ad
     GO
     ```
 
-    ![native-login.png](./media/aad-security-configure-tutorial/native-login.png)
+    ![Captura de pantalla de la pestaña de resultados del Explorador de objetos de SSMS, que muestra el nombre, principal_id, el identificador de seguridad, el tipo y type_desc para el inicio de sesión recién agregado.](./media/aad-security-configure-tutorial/native-login.png)
 
 Para más información, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
@@ -153,13 +153,13 @@ Cuando se ha creado la entidad de seguridad (inicio de sesión) de un servidor d
    - Active Directory - Contraseña
    - Active Directory - Integrado </br>
 
-     ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
+     ![Captura de pantalla del cuadro de diálogo Conectar con el servidor en SSMS, con la opción "Active Directory - Universal compatible con MFA" seleccionada en la lista desplegable de autenticación.](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
      Para más información, vea [Autenticación universal (compatibilidad de SSMS con Multi-Factor Authentication)](../database/authentication-mfa-ssms-overview.md).
 
 1. Seleccione **Active Directory - Universal compatible con MFA**. Se abre una ventana de inicio de sesión de Multi-Factor Authentication. Inicie sesión con la contraseña de Azure AD.
 
-    ![mfa-login-prompt.png](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
+    ![Captura de pantalla de la ventana de inicio de sesión de Multi-Factor Authentication, con el cursor en el campo para escribir la contraseña.](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
 1. En el **Explorador de objetos** de SSMS, haga clic con el botón derecho en el servidor datos y elija **Nueva consulta**.
 1. En la ventana de consulta, utilice la siguiente sintaxis para crear un inicio de sesión para otra cuenta de Azure AD:
@@ -222,7 +222,7 @@ La autorización para bases de datos individuales funciona de forma muy parecida
 
 Ahora que hemos creado una base de datos llamada **MyMITestDB** y un inicio de sesión que solo tiene permisos predeterminados, el siguiente paso es crear un usuario a partir de ese inicio de sesión. Por el momento, el inicio de sesión puede conectarse a la instancia administrada y ver todas las bases de datos, pero no puede interactuar con las bases de datos. Si inicia sesión con la cuenta de Azure AD que tiene los permisos predeterminados e intenta expandir la base de datos recientemente creada, verá el siguiente error:
 
-![ssms-db-not-accessible.png](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
+![Captura de pantalla de un mensaje de error del Explorador de objetos de SSMS que indica que "no se puede obtener acceso a la base de datos MyMITestDB. (ObjectExplorer)".](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
 
 Para más información sobre la concesión de permisos de base de datos, consulte [Introducción a los permisos de los motores de bases de datos](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
 
@@ -326,7 +326,7 @@ Para que el usuario vea los datos en la base de datos, hay que proporcionar [rol
 1. Cree una nueva conexión a la instancia administrada con el usuario al que se le ha agregado el rol `db_datareader`.
 1. Expanda la base de datos en el **Explorador de objetos** para ver la tabla.
 
-    ![ssms-test-table.png](./media/aad-security-configure-tutorial/ssms-test-table.png)
+    ![Captura de pantalla del Explorador de objetos en SSMS que muestra la estructura de carpetas de las tablas de MyMITestDB. La carpeta dbo.TestTable está resaltada.](./media/aad-security-configure-tutorial/ssms-test-table.png)
 
 1. Abra una nueva ventana de consulta y ejecute la siguiente instrucción SELECT:
 
@@ -337,7 +337,7 @@ Para que el usuario vea los datos en la base de datos, hay que proporcionar [rol
 
     ¿Puede ver los datos de la tabla? Debería ver las columnas que se devuelven.
 
-    ![ssms-test-table-query.png](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
+    ![Captura de pantalla de la pestaña de resultados del Explorador de objetos de SSMS que muestra los encabezados de columna de la tabla: AccountNum, City, Name y State.](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
 
 ## <a name="impersonate-azure-ad-server-level-principals-logins"></a>Principios de la suplantación de entidades de seguridad de nivel de servidor de Azure AD (inicios de sesión)
 

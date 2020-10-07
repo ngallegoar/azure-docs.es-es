@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 9eee3d5bc53ebe40ba4462f394ffe30cea6b70fa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e98b21d5afebdbd2654d032493b92eb5e6e7fdc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320564"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>¿Qué es HSM administrado de Azure Key Vault (versión preliminar)?
 
@@ -33,7 +33,7 @@ HSM administrado de Azure Key Vault es un servicio en la nube que cumple los est
 
 - **Administración de claves centralizada**: administre claves críticas y de alto valor en su organización en un solo lugar. Con permisos pormenorizados por clave, controle el acceso a todas las claves en base al principio de "acceso con menos privilegios".
 - **Control de acceso aislado**: El modelo de control de acceso "RBAC local" de HSM administrado permite a los administradores de clústeres de HSM designados tener un control completo sobre los HSM que ni siquiera los administradores de grupos de administración, de suscripciones o de grupos de recursos pueden invalidar.
-- **HSM validados con FIPS 140-2 nivel 3**: Proteja sus datos y cumpla los requisitos de cumplimiento con los HSM validados con FIPS (Federal Information Protection Standard) 140-2 de nivel 3. Los HSM administrados usan la familia de HSM LiquidSecurity de Marvell.
+- **HSM validados con FIPS 140-2 nivel 3**: Proteja sus datos y cumpla los requisitos de cumplimiento con los HSM validados con FIPS (Federal Information Protection Standard) 140-2 de nivel 3. Los HSM administrados usan adaptadores HSM de Marvell LiquidSecurity.
 - **Supervisión y auditoría**: completamente integrado con Azure Monitor. Obtenga registros completos de toda la actividad a través de Azure Monitor. Use Azure Log Analytics para los análisis y las alertas.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integración con los servicios PaaS y SaaS de Microsoft y Azure 

@@ -1,16 +1,16 @@
 ---
 title: Creación de la primera función durable en Azure mediante Python
-description: Cree y publique una instancia de Azure Durable Functions con Visual Studio Code.
+description: Cree y publique una instancia de Azure Durable Functions en Python con Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: c9ca6d52bd71683344115004ec17a981b03f0a24
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 5d624027259212d804ced26a6daaffb853984a98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85198920"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294882"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Creación de la primera función durable en Python
 

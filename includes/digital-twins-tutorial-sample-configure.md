@@ -5,20 +5,20 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 3b68df1b3fc2f03d7659205fe03fdae09ecc3f7a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4ac748c606d8ec3c8ba754c34d9c9e7512344a83
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827372"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292747"
 ---
 ## <a name="configure-the-sample-project"></a>Configuración del proyecto de ejemplo
 
-A continuación, configure una aplicación cliente de ejemplo que interactuará con su instancia de Azure Digital Twins. Si aún no ha descargado el proyecto de ejemplo, puede obtenerlo ahora en la página de aterrizaje [*Ejemplos de Azure Digital Twins*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples); para ello, seleccione el botón *Descargar archivo ZIP* situado debajo del título.
+A continuación, configure una aplicación cliente de ejemplo que interactuará con su instancia de Azure Digital Twins.
 
-Vaya al archivo que ha descargado en la máquina y descomprímalo.
+Navegue en la máquina hasta el archivo que descargó anteriormente desde [*Ejemplos de Azure Digital Twins*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) (y descomprímalo si aún no lo ha hecho).
 
-Una vez que esté dentro de la carpeta descomprimida, vaya a _AdtSampleApp_. Abra _**AdtE2ESample.sln**_ en Visual Studio 2019. 
+Una vez que esté dentro de la carpeta, vaya a _AdtSampleApp_. Abra _**AdtE2ESample.sln**_ en Visual Studio 2019. 
 
 En Visual Studio, use el panel *Explorador de soluciones* para crear una copia del archivo _SampleClientApp > **serviceConfig.json.TEMPLATE**_ (puede usar los menús contextuales para copiar y pegar). Cambie el nombre a la copia de *serviceConfig.json*. Este servirá como archivo JSON predefinido con las variables de configuración necesarias para ejecutar el proyecto.
 

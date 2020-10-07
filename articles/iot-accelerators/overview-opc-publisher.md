@@ -11,14 +11,17 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c77dff4a4f89a78dc0a0d723fbb45fe691246112
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 49ca12ed4f408e2a3fce1c8e59f541778f35311e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81681930"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281786"
 ---
 # <a name="what-is-opc-publisher"></a>¿Qué es OPC Publisher?
+
+> [!IMPORTANT]
+> Mientras actualizamos este artículo, consulte el artículo sobre [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/), donde encontrará el contenido más actualizado.
 
 OPC Publisher es una implementación de referencia que demuestra cómo hacer lo siguiente:
 
@@ -44,6 +47,8 @@ OPC Publisher admite el procesamiento por lotes de los datos enviados a IoT Hub
 
 Esta aplicación usa la pila de referencia de OPC UA de OPC Foundation como paquetes de NuGet. Consulte [https://opcfoundation.org/license/redistributables/1.3/](https://opcfoundation.org/license/redistributables/1.3/) para ver los términos de la licencia.
 
-### <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido qué es OPC Publisher, el siguiente paso sugerido es aprender a [configurar OPC Publisher](howto-opc-publisher-configure.md).
+Ahora que ha aprendido qué es OPC Publisher, el siguiente paso sugerido es aprender a:
+
+[Configuración de OPC Publisher](howto-opc-publisher-configure.md)

@@ -1,6 +1,6 @@
 ---
 title: Creación de una canalización de CI/CD para una PWA con GatsbyJS y Azure DevOps Starter
-description: Con DevOps Starter es fácil empezar a usar Azure. En pocos y rápidos pasos le ayuda a iniciar una aplicación en el servicio de Azure de su elección.
+description: Aprenda a crear una aplicación web progresiva (PWA) de NodeJS mediante GatsbyJS y la experiencia simplificada de creación de Azure DevOps Starter.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -12,26 +12,26 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: angrobe
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 5453677826e1490977257fd75e10308ee45df00a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: fa6d0f78f984c5e71ccdbcada45ea1bc50be9e95
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318626"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Creación de una canalización de CI/CD en Azure Pipelines para Node.js con Azure DevOps Starter
 
 En este inicio rápido, va a crear una aplicación web progresiva (PWA) de NodeJS mediante [GatsbyJS](https://www.gatsbyjs.org/) y la experiencia simplificada de creación de Azure DevOps Starter. Cuando termine, tendrá una canalización de integración continua (CI) y entrega continua (CD) para la PWA en Azure Pipelines. Azure DevOps Starter configura los componentes necesarios para el desarrollo, la implementación y la supervisión.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - Una organización de [Azure DevOps](https://azure.microsoft.com/services/devops/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Starter también crea recursos de Azure en la suscripción de Azure que prefiera.
+DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Starter también crea recursos de Azure en la suscripción a Azure que prefiera.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y, en el panel izquierdo, seleccione **Crear un recurso**. 
 
