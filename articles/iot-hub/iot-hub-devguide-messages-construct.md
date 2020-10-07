@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: dd2b88d923d0398dc42362242b94b978ccd24252
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 06db7b46d095a79177b80bba6df3d5e9aadad16b
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336725"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766984"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creación y lectura de mensajes de IoT Hub
 
@@ -61,8 +61,8 @@ Para más información sobre cómo codificar y descodificar mensajes que se han 
 | iothub-connection-module-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el **moduleId** del dispositivo que envió el mensaje. | No | connectionModuleId |
 | iothub-connection-auth-generation-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el valor **connectionDeviceGenerationId** (como se indica en [Propiedades de identidad del dispositivo](iot-hub-devguide-identity-registry.md#device-identity-properties)) del dispositivo que envió el mensaje. | No |connectionDeviceGenerationId |
 | iothub-connection-auth-method |Un método de autenticación establecido por IoT Hub en los mensajes de dispositivo a nube. Esta propiedad contiene información sobre el método de autenticación usado para autenticar el dispositivo que envía el mensaje.| No | connectionAuthMethod |
-| dt-dataschema | El centro de IoT establece este valor en mensajes de dispositivo a la nube. Contiene el id. de modelo del dispositivo establecido en la conexión del dispositivo. Esta característica está disponible como parte de la [versión preliminar pública de IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). | No | N/D |
-| dt-subject | Nombre del componente que envía los mensajes del dispositivo a la nube. Esta característica está disponible como parte de la [versión preliminar pública de IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). | Sí | No aplicable |
+| dt-dataschema | El centro de IoT establece este valor en mensajes de dispositivo a la nube. Contiene el id. de modelo del dispositivo establecido en la conexión del dispositivo. | No | N/D |
+| dt-subject | Nombre del componente que envía los mensajes del dispositivo a la nube. | Sí | No aplicable |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>Propiedades del sistema de los mensajes de IoT Hub **C2D**
 

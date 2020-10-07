@@ -3,12 +3,12 @@ title: Seguridad de red para Azure Service Bus
 description: En este artículo se describen las características de seguridad de red, como las etiquetas de servicio, las reglas de firewall de IP, los puntos de conexión de servicio y los puntos de conexión privados.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb21c8beb6d48ecab04917525011cc4762c46ff3
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341135"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766393"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Seguridad de red para Azure Service Bus 
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Service Bus: 
@@ -16,7 +16,7 @@ En este artículo se describe cómo usar las siguientes características de segu
 - Etiquetas de servicio
 - Reglas de firewall de IP
 - Puntos de conexión de servicio de red
-- Puntos de conexión privados (versión preliminar)
+- Puntos de conexión privados
 
 
 ## <a name="service-tags"></a>Etiquetas de servicio
@@ -81,8 +81,6 @@ Para más información, consulte [¿Qué es Azure Private Link?](../private-link
 
 > [!NOTE]
 > Esta característica es compatible con el nivel **premium** de Azure Service Bus. Para más información sobre el nivel premium, consulte el artículo [Niveles de mensajería Premium y Estándar de Service Bus](service-bus-premium-messaging.md).
->
-> Esta funcionalidad actualmente está en su **versión preliminar**. 
 
 
 Para más información, consulte [Configuración de puntos de conexión privados para un espacio de nombres de Service Bus](private-link-service.md).

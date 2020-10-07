@@ -5,18 +5,17 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 07b5ae99b98c6c6bbf4dc903cd1b583eb655a825
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: df8ebd97ed9e34e0fce85a50297c595732057115
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041406"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761471"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Solución de problemas de Application Insights Agent (antes Monitor de estado v2)
 
 Cuando se habilita la supervisión, podría experimentar problemas que impidan la recopilación de datos.
 En este artículo se enumeran todos los problemas conocidos y se proporcionan ejemplos de solución de problemas.
-Si encuentra un problema que no aparece aquí, puede ponerse en contacto con nosotros en [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
 ## <a name="known-issues"></a>Problemas conocidos
 
@@ -72,12 +71,10 @@ Después de ejecutar el comando Enable, siga estos pasos:
 ### <a name="iis-nested-applications"></a>Aplicaciones anidadas en IIS
 
 En la versión 1.0 so se instrumentan aplicaciones anidadas en IIS.
-[Aquí](https://github.com/microsoft/ApplicationInsights-Home/issues/369) puede ver el seguimiento de este problema.
 
 ### <a name="advanced-sdk-configuration-isnt-available"></a>La configuración avanzada del SDK no está disponible.
 
 La configuración del SDK no se muestra al usuario final en la versión 1.0.
-[Aquí](https://github.com/microsoft/ApplicationInsights-Home/issues/375) puede ver el seguimiento de este problema.
 
     
     
@@ -156,4 +153,3 @@ Revise la [referencia de la API](status-monitor-v2-api-reference.md) para obtene
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Revise la [referencia de API](status-monitor-v2-overview.md#powershell-api-reference) para obtener información acerca de los parámetros que podría haber pasado por alto.
-- Si encuentra un problema que no aparece aquí, puede ponerse en contacto con nosotros en [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).

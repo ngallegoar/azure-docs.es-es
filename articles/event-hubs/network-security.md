@@ -3,12 +3,12 @@ title: Seguridad de red para Azure Event Hubs
 description: En este artículo se describe cómo configurar el acceso desde puntos de conexión privados
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ddb816e872625da06e370a7e130b4dd444de8de7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521860"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767786"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Seguridad de red para Azure Event Hubs 
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Event Hubs: 
@@ -16,7 +16,7 @@ En este artículo se describe cómo usar las siguientes características de segu
 - Etiquetas de servicio
 - Reglas de firewall de IP
 - Puntos de conexión de servicio de red
-- Puntos de conexión privados (versión preliminar)
+- Puntos de conexión privados
 
 
 ## <a name="service-tags"></a>Etiquetas de servicio
@@ -74,9 +74,6 @@ Un punto de conexión privado es una interfaz de red que le conecta de forma pri
 
 > [!NOTE]
 > Esta característica solo se admite con el nivel **Dedicado**. Para más información acerca del nivel Dedicado, consulte [Introducción a Event Hubs dedicado](event-hubs-dedicated-overview.md). 
->
-> Esta funcionalidad actualmente está en su **versión preliminar**. 
-
 
 Para más información, consulte [Configuración de puntos de conexión privados para un centro de eventos](private-link-service.md).
 

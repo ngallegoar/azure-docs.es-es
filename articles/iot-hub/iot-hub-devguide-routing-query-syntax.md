@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 4ff61687f2fa045b51dfcb69488d1fbd87b65f75
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 9b5463ba789a1bcfb707fb03c70f1a8464cb6b59
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336504"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767349"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub
 
@@ -59,8 +59,8 @@ Las propiedades del sistema ayudan a identificar el contenido y el origen de los
 | contentEncoding | string | El usuario especifica el tipo de codificación del mensaje. Los valores permitidos son UTF-8, UTF-16, UTF-32, si contentType se establece en application/JSON. |
 | iothub-connection-device-id | string | Este valor se establece mediante IoT Hub e identifica el identificador del dispositivo. Para realizar la consulta, use `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | Este valor lo establece IoT Hub y representa la hora real en UTC de espera en cola del mensaje. Para realizar la consulta, use `enqueuedTime`. |
-| dt-dataschema | string |  El centro de IoT establece este valor en mensajes de dispositivo a la nube. Contiene el id. de modelo del dispositivo establecido en la conexión del dispositivo. Esta característica está disponible como parte de la [versión preliminar pública de IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Para realizar la consulta, use `$dt-dataschema`. |
-| dt-subject | string | Nombre del componente que envía los mensajes del dispositivo a la nube. Esta característica está disponible como parte de la [versión preliminar pública de IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Para realizar la consulta, use `$dt-subject`. |
+| dt-dataschema | string |  El centro de IoT establece este valor en mensajes de dispositivo a la nube. Contiene el id. de modelo del dispositivo establecido en la conexión del dispositivo. Para realizar la consulta, use `$dt-dataschema`. |
+| dt-subject | string | Nombre del componente que envía los mensajes del dispositivo a la nube. Para realizar la consulta, use `$dt-subject`. |
 
 Como se describe en los [mensajes de IoT Hub](iot-hub-devguide-messages-construct.md), hay propiedades adicionales del sistema en un mensaje. Además de las propiedades anteriores de la tabla anterior, también puede consultar **connectionDeviceId**, **connectionModuleId**.
 
