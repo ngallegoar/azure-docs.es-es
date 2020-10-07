@@ -1,14 +1,16 @@
 ---
 title: Administración de bases de conocimiento (QnA Maker)
 description: QnA Maker permite administrar las bases de conocimiento al proporcionar acceso a la configuración y el contenido de la base de conocimiento.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 08736ce61e6768cfd9ac3d3ded7092a4ab93fca9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551785"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777743"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Creación de base de conocimiento y administración de la configuración
 

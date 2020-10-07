@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 005725acf7270ff87ac9418f27941bdb205ae986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4f236679d0662df852581a6a8408ed6bc0d4e3fe
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059423"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535696"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Descripción de la retención de datos en Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Este es un artículo de Gen1.
 
 En este artículo se describen dos parámetros de configuración principales que tienen un impacto en la retención de datos en el entorno Azure Time Series Insights.
 
@@ -37,7 +40,8 @@ Además, el entorno de Azure Time Series Insights tiene una configuración de **
 
 > [!NOTE]
 > De forma predeterminada, al crear un nuevo entorno, el período de retención está configurado en **Purgar datos antiguos**. Esta opción se puede activar o desactivar según sea necesario después de la creación mediante Azure Portal, en la página **Configure** (Configurar) del entorno de Azure Time Series Insights.
-> * Para información sobre cómo configurar las directivas de retención, lea [Configuración de la retención en Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
+>
+> - Para información sobre cómo configurar las directivas de retención, lea [Configuración de la retención en Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 A continuación se describen con más detalle ambas directivas de retención de datos.
 
@@ -69,8 +73,8 @@ En caso de que la tasa de entrada diaria del entorno sea superior a 0,166 GB por
 - Ayuda a proteger contra la pérdida de datos, pero puede generar una oportunidad para la pérdida de los datos más recientes si la entrada se pausa una vez alcanzado el periodo de retención del origen del evento.
 - Pero una vez alcanzada la capacidad máxima de un entorno, el entorno pausa la entrada de datos hasta que ocurran las acciones adicionales siguientes:
 
-   - Se aumenta la capacidad máxima del entorno para agregar más unidades de escalado, como se describe en [Escalado del entorno de Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
-   - Se alcanza el período de retención de datos y estos se purgan, poniendo al entorno por debajo de su capacidad máxima.
+  - Se aumenta la capacidad máxima del entorno para agregar más unidades de escalado, como se describe en [Escalado del entorno de Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+  - Se alcanza el período de retención de datos y estos se purgan, poniendo al entorno por debajo de su capacidad máxima.
 
 ### <a name="example-three"></a>Ejemplo 3
 

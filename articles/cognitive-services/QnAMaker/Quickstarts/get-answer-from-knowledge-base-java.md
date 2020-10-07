@@ -1,16 +1,18 @@
 ---
 title: 'Inicio rápido: Obtención de respuestas de la base de conocimiento en QnA Maker con REST y Java'
 description: Esta guía de inicio rápido basada en REST de Java le guiará a través del proceso para obtener una respuesta de una base de conocimiento mediante programación.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: 4d42bcf3a30b95f82ec34094afc4b6cb0842906f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ff40bcb58c1bdca39360a236e46a70ce5cf1b158
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267231"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777592"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Inicio rápido: Obtención de respuestas a una pregunta desde una base de conocimiento con Java
 

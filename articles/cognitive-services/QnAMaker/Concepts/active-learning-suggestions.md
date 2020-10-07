@@ -1,14 +1,16 @@
 ---
 title: 'Sugerencias de aprendizaje activo: QnA Maker'
 description: Las sugerencias de aprendizaje activo le permiten mejorar la calidad de la base de conocimiento al sugerir preguntas alternativas, en función de los envíos del usuario, para el par de preguntas y respuestas.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: edbe06b12fbb97473b28ccca968fd3e7d8366152
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: e8cdb1d471ceef2aef790c426424b9224faac5ec
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804228"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777044"
 ---
 # <a name="active-learning-suggestions"></a>Sugerencias de aprendizaje activo
 

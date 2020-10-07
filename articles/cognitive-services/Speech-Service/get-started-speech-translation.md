@@ -10,26 +10,17 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: trbye
-ms.custom: devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
-zone_pivot_groups: programming-languages-set-two-with-js
+ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+zone_pivot_groups: programming-languages-set-two-with-js-spx
 keywords: traducción de voz
-ms.openlocfilehash: da321e2f259ae6e994cddcb928cc139a28c6d9ae
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2ef6997c0fc2382e436f8a84e154ca4109c85363
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394880"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776667"
 ---
 # <a name="get-started-with-speech-translation"></a>Introducción a la traducción de voz
-
-Una de las características principales del servicio de voz es la capacidad para reconocer la voz humana y traducirla a otros idiomas. En este inicio rápido, aprenderá a usar Speech SDK en sus aplicaciones y productos para realizar la traducción de voz de alta calidad. En este inicio rápido se tratan temas que incluyen:
-
-* Traducción de voz a texto
-* Traducción de voz a varios idiomas de destino
-* Realizar la traducción de voz a voz directa
-
-> [!TIP]
-> Si quiere pasar directamente al código de ejemplo, consulte los [ejemplos del inicio rápido](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart) en GitHub.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-csharp.md)]
@@ -43,12 +34,16 @@ Una de las características principales del servicio de voz es la capacidad para
 [!INCLUDE [Java Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-java.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-javascript.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-javascript.md)]
+::: zone pivot="programmer-tool-spx"
+[!INCLUDE [Speech CLI Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-cli.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

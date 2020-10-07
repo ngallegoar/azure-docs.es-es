@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 67c924c350fa2bc69f724d44a1b43c7e878e493a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8a1b30803494facf6eaabcc3695770d694b4e221
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932517"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708686"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opciones de proceso y almacenamiento de Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -23,7 +23,7 @@ Puede crear un servidor flexible de Azure Database for MySQL en uno de los tres 
 | Recurso/nivel | **Flexible** | **Uso general** | **Memoria optimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Series de máquinas virtuales| Serie B | Serie Ddsv4 | Serie Edsv4|
-| Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32, 64 | 2, 4, 8, 16, 32, 48, 64 |
+| Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | Memoria por núcleo virtual | Variable | 4 GiB | 8 GiB * |
 | Tamaño de almacenamiento | De 5 GiB a 16 TiB | De 5 GiB a 16 TiB | De 5 GiB a 16 TiB |
 | Período de retención de copias de seguridad de base de datos | De 1 a 35 días | De 1 a 35 días | De 1 a 35 días |

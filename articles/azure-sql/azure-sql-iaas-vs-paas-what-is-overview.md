@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=4
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: overview
 keywords: Nube de SQL Server, SQL Server en la nube, base de datos PaaS, DBaaS, IaaS
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 344e52da8ef41e26ab0bfa7ef8e09a31f5d135ca
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 4cc1eefa93366451b568da789fd48d8a8c658439
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611832"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91618274"
 ---
 # <a name="what-is-azure-sql"></a>¿Qué es Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]

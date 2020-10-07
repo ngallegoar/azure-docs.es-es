@@ -1,16 +1,18 @@
 ---
 title: 'Inicio rápido: Creación de la base de conocimiento en QnA Maker con REST y C#'
 description: Esta guía de inicio rápido basada en REST para C# le lleva por la creación de una base de conocimiento de QnA Maker de ejemplo mediante programación, que aparecerá en el panel de Azure de su cuenta de la API de Cognitive Services.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: 343dc5f0b8475a9fad3d9834f97cff0d0f4c75f6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6b64c29e6a26f2f9585e7f2c737f98e4646b1332
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260091"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777712"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c-with-rest"></a>Inicio rápido: Creación de una base de conocimiento en QnA Maker mediante C# con REST
 

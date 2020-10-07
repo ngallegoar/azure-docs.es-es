@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: a149d147b9817d8fde7a4fa7eb1b0e7a7eea8283
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ca60c44d1e167367e2c138af1e7bfd4ba1a69417
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932477"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710080"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opciones de proceso y almacenamiento de Azure Database for PostgreSQL: servidor flexible
 
@@ -22,7 +22,7 @@ Puede crear un servidor de Azure Database for PostgreSQL en tres planes de tarif
 
 | Recurso/nivel | **Flexible** | **Uso general** | **Memoria optimizada** |
 |:---|:----------|:--------------------|:---------------------|
-| Núcleos virtuales | 1, 2 | 4, 8, 16, 32, 64 | 4, 8, 16, 32, 48 y 64 |
+| Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | Memoria por núcleo virtual | Variable | 4 GB | De 6,75 GB a 8 GB |
 | Tamaño de almacenamiento | De 32 GB a 16 TB | De 32 GB a 16 TB | De 32 GB a 16 TB |
 | Período de retención de copias de seguridad de base de datos | De 7 a 35 días | De 7 a 35 días | De 7 a 35 días |

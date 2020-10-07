@@ -1,17 +1,17 @@
 ---
 title: Procedimientos recomendados para usar Almacén de consultas en Azure Database for PostgreSQL con un único servidor
 description: En este artículo se describen los procedimientos recomendados para usar Almacén de consultas en Azure Database for PostgreSQL con un único servidor.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 51239f4cf49784dd47470e1272b90508eaf25e6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd39b7ecd51902f5035b4cd17d59dea964d0c962
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70764235"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708839"
 ---
 # <a name="best-practices-for-query-store"></a>Procedimientos recomendados para usar Almacén de consultas
 

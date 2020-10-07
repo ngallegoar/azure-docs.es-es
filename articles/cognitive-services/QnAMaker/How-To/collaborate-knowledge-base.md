@@ -1,14 +1,16 @@
 ---
 title: 'Colaboración en la base de conocimiento: QnA Maker'
 description: QnA Maker permite que varias personas colaboren en una base de conocimiento. Esta característica se proporciona con el control de acceso basado en rol de Azure (RBAC de Azure).
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 0d59ca83e6067c083e4bfebdb7afaaf6669dda8a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 8adc02d4b397c2b0bdaf5d3998cfbe229c896d41
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926854"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776857"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>Colaboración con creadores y editores
 
@@ -62,7 +64,7 @@ Cuando la persona con quien comparte el servicio QnA Maker inicia sesión en el 
 
 Cuando esa persona selecciona una knowledge base, su rol actual en ese recurso de QnA Maker es visible junto al nombre de la knowledge base.
 
-:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="Captura de pantalla de knowledge base en modo de edición con el nombre de rol entre paréntesis junto al nombre de la knowledge base en la esquina superior izquierda de la página web.":::
+:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="Adición de rol de QnA Maker (IAM).":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

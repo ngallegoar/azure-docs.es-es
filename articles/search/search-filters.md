@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d1e120073e5bf4306c89628fc4e2e9c9f7ed2cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002426"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534801"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros de Azure Cognitive Search 
 
@@ -138,7 +138,7 @@ Consulte estos artículos para obtener una guía completa de casos de uso espec�
 
 En la API REST, el filtrado está *activado* de forma predeterminada para campos simples. Los campos que se pueden filtrar aumentan el tamaño del índice. Asegúrese de definir `"filterable": false` para los campos que no tiene previsto usar en un filtro. Para obtener más información sobre la configuración de definiciones de campos, consulte [Create Index](/rest/api/searchservice/create-index) (Creación de índices).
 
-En el SDK de. NET, el filtrado está *desactivado* de forma predeterminada. Puede hacer que un campo se pueda filtrar si establece la [propiedad IsFilterable](/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) del objeto de [campo](/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) correspondiente en `true`. También puede hacerlo mediante declaración con el [atributo IsFilterable](/dotnet/api/microsoft.azure.search.isfilterableattribute). En el ejemplo siguiente, el atributo se establece en la propiedad `BaseRate` de una clase de modelo que se asigna a la definición del índice.
+En el SDK de. NET, el filtrado está *desactivado* de forma predeterminada. Puede hacer que un campo se pueda filtrar si establece la [propiedad IsFilterable](/dotnet/api/microsoft.azure.search.models.field.isfilterable) del objeto de [campo](/dotnet/api/microsoft.azure.search.models.field) correspondiente en `true`. También puede hacerlo mediante declaración con el [atributo IsFilterable](/dotnet/api/microsoft.azure.search.isfilterableattribute). En el ejemplo siguiente, el atributo se establece en la propiedad `BaseRate` de una clase de modelo que se asigna a la definición del índice.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]

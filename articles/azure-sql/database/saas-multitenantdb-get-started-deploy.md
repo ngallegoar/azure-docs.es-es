@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/16/2018
-ms.openlocfilehash: 59a7fbbd6f948ec5207522814a1375b806536810
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 5363a1b7321bfcbb53b4494b51ee2ea2e7217782
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310094"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619651"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementación y exploración de una aplicación multiinquilino con particiones
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

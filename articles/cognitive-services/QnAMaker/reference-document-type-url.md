@@ -1,14 +1,16 @@
 ---
 title: 'Tipos de direcciones URL admitidos para la importación: QnA Maker'
 description: Comprenda cómo se usan los tipos de direcciones URL para importar y crear pares de QnA.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: c6c6c7ba19fe7be54733f45997134fddb56a6ba0
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 8bf50c1ea81cdf5246c47646d1a55926fe7d58d6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804323"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776704"
 ---
 # <a name="urls-supported-for-importing-documents"></a>Direcciones URL admitidas para la importación de documentos
 

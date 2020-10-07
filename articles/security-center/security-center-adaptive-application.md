@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: bbabceeea2fd009efe1098e37a0b1c9dcb8a48aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894737"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439002"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Uso de controles de aplicaciones adaptables para reducir las superficies de ataque de las máquinas
 
@@ -229,4 +229,4 @@ Algunas de las funciones que están disponibles en la API REST:
 En este documento ha aprendido a usar los controles de aplicaciones adaptables de Azure Security Center para definir listas de aplicaciones permitidas que se ejecutan en máquinas de Azure y que no son de Azure. Para más información sobre algunas de las otras características de protección de la carga de trabajo en la nube de Security Center, consulte:
 
 * [Descripción del acceso a la máquina virtual Just-in-Time (JIT)](just-in-time-explained.md)
-* [Protección de los clústeres de Azure Kubernetes](azure-kubernetes-service-integration.md)
+* [Protección de los clústeres de Azure Kubernetes](defender-for-kubernetes-introduction.md)

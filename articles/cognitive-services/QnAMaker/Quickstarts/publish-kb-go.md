@@ -1,16 +1,18 @@
 ---
 title: 'Inicio rápido: Publicación de la base de conocimiento en QnA Maker con REST y Go'
 description: Esta guía de inicio rápido basada en REST de Go publica la base de conocimiento y crea un punto de conexión al que se puede llamar en su aplicación o bot de chat.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: b94b09fcb3bfff2eeacabaaa49eb5e4c751ec79d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e2041fe1ea4f79a951cb78dc3f5d36acdfe0b085
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267758"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777529"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Inicio rápido: Publicación de una base de conocimiento en QnA Maker con Go
 

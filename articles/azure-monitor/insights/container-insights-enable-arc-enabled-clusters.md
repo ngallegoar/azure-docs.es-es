@@ -2,13 +2,13 @@
 title: Configuración de un clúster de Kubernetes habilitado para Azure Arc con Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo configurar la supervisión con Azure Monitor para contenedores en clústeres de Kubernetes habilitados para Azure Arc.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 44512acbd09df449dbba2177bb10f22f480b82d6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: 79a534e4f37fb0154115e43402f031752a603ccb
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977529"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620297"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Habilitación de la supervisión en el clúster de Kubernetes habilitado para Azure Arc
 
@@ -21,8 +21,6 @@ Azure Monitor para contenedores puede habilitarse para una o varias implementaci
 Azure Monitor para contenedores admite la supervisión de Kubernetes habilitado para Azure Arc (versión preliminar) tal y como se describe en el artículo [Introducción](container-insights-overview.md), excepto para las siguientes características:
 
 - Datos en directo (versión preliminar)
-
-- [Recopilación de métricas](container-insights-update-metrics.md) de nodos y pods de clúster, y almacenamiento de estos en la base de datos de métricas de Azure Monitor
 
 Lo siguiente se admite oficialmente con Azure Monitor para contenedores:
 
@@ -106,10 +104,10 @@ Para habilitar la supervisión del clúster mediante PowerShell o el script de B
 1. Descargue y guarde el script que configura el clúster en una carpeta local con el complemento de supervisión mediante el uso de los siguientes comandos:
 
     ```powershell
-    wget https://aka.ms/enable-monitoring-powershell-script -outfile enable-monitoring.ps1
+    Invoke-WebRequest https://aka.ms/enable-monitoring-powershell-script -OutFile enable-monitoring.ps1
     ```
 
-2. Configure la variable `$azureArcClusterResourceId`; para ello, establezca los valores correspondientes para `subscriptionId`, `resourceGroupName` y `clusterName`, que representan el identificador del recurso de clúster de Kubernetes habilitado para Azure Arc.
+2. Configure la variable `$azureArcClusterResourceId`; para ello, establezca los valores correspondientes para `subscriptionId`, `resourceGroupName` y `clusterName`, que representan el identificador de recurso del recurso de clúster de Kubernetes habilitado para Azure Arc.
 
     ```powershell
     $azureArcClusterResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"

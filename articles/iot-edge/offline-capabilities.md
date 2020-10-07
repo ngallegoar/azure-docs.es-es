@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e929463c33603c650bec2e9a49a13dde6965e39f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: bf8b8554aa2ea1d6d06f58f726ca65f77499ec5f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926661"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440044"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Uso de funcionalidades sin conexión ampliadas en dispositivos, módulos y dispositivos secundarios IoT Edge
 
@@ -68,7 +68,7 @@ Puede declarar la relación principal-secundario cuando se crea un dispositivo. 
 
 #### <a name="option-2-use-the-az-command-line-tool"></a>Opción 2: Uso de la herramienta de línea de comandos `az`
 
-Mediante la [interfaz de línea de comandos de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) con la [extensión de IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 o posterior), puede administrar relaciones principal-secundario con los subcomandos [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest). En el ejemplo siguiente se usa una consulta para asignar todos los dispositivos que no son IoT Edge del centro como dispositivos secundarios de un dispositivo IoT Edge.
+Mediante la [interfaz de línea de comandos de Azure](/cli/azure/) con la [extensión de IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 o posterior), puede administrar relaciones principal-secundario con los subcomandos [device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity). En el ejemplo siguiente se usa una consulta para asignar todos los dispositivos que no son IoT Edge del centro como dispositivos secundarios de un dispositivo IoT Edge.
 
 ```azurecli
 # Set IoT Edge parent device

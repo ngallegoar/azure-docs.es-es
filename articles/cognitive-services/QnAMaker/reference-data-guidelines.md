@@ -1,14 +1,16 @@
 ---
 title: 'Referencia de importación y exportación de datos: QnA Maker'
 description: Use esta referencia de importación y exportación para obtener los mejores resultados de la copia de seguridad, el almacenamiento y el reemplazo de la knowledge base.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: c77f51263206c3cc0d4b546e1728963211a186c6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: fd4ea4b671ee8efa853109e288459fdc256bee23
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532161"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776687"
 ---
 # <a name="import-and-export-data-reference"></a>Referencia de importación y exportación de datos
 
