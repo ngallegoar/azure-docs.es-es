@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: ce6325abf34813a9ca397f5bcbe2e774af3442d4
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 72c292a21b2c9b067da6689b156a6a3a12b62293
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061485"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709128"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte 1: Habilitación de la autenticación de AD DS para los recursos compartidos de archivos de Azure 
 
@@ -28,7 +28,7 @@ Los cmdlets del módulo AzFilesHybrid de PowerShell realizan las modificaciones 
 
 ### <a name="download-azfileshybrid-module"></a>Descarga del módulo AzFilesHybrid
 
-- [Descargue y descomprima el módulo AzFilesHybrid (módulo de disponibilidad general: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Tenga en cuenta que el cifrado de Kerberos AES 256 es compatible con v0.2.2 o posterior. Si ha habilitado la característica con una versión de AzFilesHybrid inferior a v0.2.2 y quiere actualizarla para que admita el cifrado de Kerberos AES 256, consulte [este artículo](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems). 
+- [Descargue y descomprima el módulo AzFilesHybrid (módulo de disponibilidad general: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Tenga en cuenta que el cifrado de Kerberos AES 256 es compatible con v0.2.2 o posterior. Si ha habilitado la característica con una versión de AzFilesHybrid inferior a v0.2.2 y quiere actualizarla para que admita el cifrado de Kerberos AES 256, consulte [este artículo](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). 
 - Instale y ejecute el módulo en un dispositivo que se haya unido a un dominio a AD DS local con credenciales de AD DS que tengan permisos para crear una cuenta de inicio de sesión de servicio o una cuenta de equipo en la instancia de destino.
 -  Ejecute el script con una credencial de AD DS local que esté sincronizada con su instancia de Azure AD. La credencial de AD DS local debe tener los permisos de la cuenta de propietario o del rol de Azure de colaborador.
 
@@ -72,8 +72,12 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
         -StorageAccountName $StorageAccountName `
-        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" `
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" # Default is set as ComputerAccount
         -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" # If you don't provide the OU name as an input parameter, the AD identity that represents the storage account is created under the root directory.
+        -EncryptionType "<AES,RC4/AES/RC4>" # Specify the encryption agorithm used for Kerberos authentication. Default is configured as "'RC4','AES256'" which supports both 'RC4' and 'AES256' encryption.
+
+#Run the command below if you want to enable AES 256 authentication. If you plan to use RC4, you can skip this step.
+Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
 
 #You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, see Azure Files Windows troubleshooting guide.
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose

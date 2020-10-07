@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13b020f633adc2e2286cc14b01c6d248fc2c1e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f34355f790b56c43c2e9fae7ce23b6344b4739d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759895"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362153"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD
 
@@ -83,7 +83,7 @@ Para mejorar la seguridad de las aplicaciones publicadas por el Proxy de aplicac
 
 #### <a name="azure-ddos-protection-service"></a>Servicio Azure DDoS Protection
 
-Las aplicaciones publicadas a través del servicio de proxy de aplicación están protegidas frente a ataques de denegación de servicio distribuido (DDoS). **Azure DDoS Protection** es un servicio que se ofrece con la plataforma Azure para proteger los recursos de Azure frente a ataques de denegación de servicio. El nivel de servicio **Básico** se habilita automáticamente, lo que proporciona supervisión del tráfico siempre activa y mitigación en tiempo real de los ataques de nivel de red comunes. También dispone del nivel **Estándar**, que ofrece funciones adicionales de mitigación adaptadas específicamente a los recursos de Azure Virtual Network. Para más información, consulte [Introducción a Azure DDoS Protection estándar](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Las aplicaciones publicadas a través del servicio de proxy de aplicación están protegidas frente a ataques de denegación de servicio distribuido (DDoS). **Azure DDoS Protection** es un servicio que se ofrece con la plataforma Azure para proteger los recursos de Azure frente a ataques de denegación de servicio. El nivel de servicio **Básico** se habilita automáticamente, lo que proporciona supervisión del tráfico siempre activa y mitigación en tiempo real de los ataques de nivel de red comunes. Para más información, consulte [Introducción a Azure DDoS Protection estándar](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## <a name="under-the-hood"></a>En segundo plano
 

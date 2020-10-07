@@ -1,17 +1,17 @@
 ---
 title: 'Configuración de alertas de Azure Database for PostgreSQL: servidor único mediante Azure Portal'
 description: En este artículo se describe cómo configurar las alertas de métricas de Azure Database for PostgreSQL con un único servidor y acceder a ellas mediante Azure Portal.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 0866df5f4f78fff429e75d586450bce72faece63
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fba5c868a146529a981e23cd88b413f2eb441896
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907541"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708941"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Usar Azure Portal para configurar alertas de métricas para Azure Database for PostgreSQL con un único servidor
 
@@ -40,37 +40,29 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
 4. Se abre la página **Crear regla**, tal y como se muestra a continuación. Rellene la información necesaria:
 
-   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Formulario de adición de alerta de métrica":::
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Selección de Reglas de alerta":::
 
 5. En la sección **Condición**, seleccione **Agregar condición**.
 
 6. Seleccione una métrica de la lista de señales sobre las que desea recibir alertas. En este ejemplo, seleccione "Porcentaje de almacenamiento".
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selección de la métrica":::
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selección de Reglas de alerta":::
 
 7. Configure la lógica de alerta incluida la **condición** (p. ej., "Mayor que") el **umbral** (p. ej., 85 %), la **agregación de tiempo**, el **período** de tiempo de la regla de métrica que debe transcurrir para que se desencadene la alerta (p. ej., "En los últimos 30 minutos") y la **frecuencia**.
    
    Seleccione **Listo** cuando haya terminado.
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Selección de la métrica":::
-
-8. En la sección **Grupos de acciones**, seleccione **Crear nuevo** para crear un grupo en el que recibir las notificaciones sobre la alerta.
-
-9. Rellene el formulario "Agregar grupo de acciones" con un nombre, un nombre corto, la suscripción y el grupo de recursos.
-
-10. Configure el tipo de acción **Correo electrónico/SMS/Push/Voz**.
-    
-    Elija "Rol de Azure Resource Manager de correo electrónico" para seleccionar los propietarios, colaboradores y lectores de la suscripción que recibirán las notificaciones.
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Selección de Reglas de alerta" para seleccionar los propietarios, colaboradores y lectores de la suscripción que recibirán las notificaciones.
    
     También puede indicar un identificador URI válido en el campo **Webhook** si quiere llamarlo cuando se active la alerta.
 
     Cuando haya terminado, seleccione **Aceptar**.
 
-    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Grupo de acciones":::
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Selección de Reglas de alerta":::
 
 11. Especifique el nombre de la regla de alertas, la descripción y la gravedad.
 
-    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Grupo de acciones"::: 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Selección de Reglas de alerta"::: 
 
 12. Seleccione **Crear regla de alerta** para crear la alerta.
 

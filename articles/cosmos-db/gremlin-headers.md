@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/03/2019
-author: luisbosquez
-ms.author: lbosq
-ms.openlocfilehash: d244a5bfb6d0a1e2a0965cc72a8f223e0646fa77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: jasonwhowell
+ms.author: jasonh
+ms.openlocfilehash: f39b93058f3f96d37683ec1f3ae3de0f8c1cb786
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390863"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409534"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Encabezados de respuesta del servidor Gremlin en Azure Cosmos DB
 En este artículo, se describen los encabezados que el servidor Gremlin de Cosmos DB devuelve al autor de la llamada al ejecutar una solicitud. Estos encabezados son útiles para solucionar problemas de rendimiento de las solicitudes, crear aplicaciones que se integren de forma nativa con el servicio Cosmos DB y simplificar el servicio de soporte al cliente.

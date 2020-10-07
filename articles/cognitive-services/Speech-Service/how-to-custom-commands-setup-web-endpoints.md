@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027688"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362117"
 ---
 # <a name="set-up-web-endpoints"></a>Configuración de puntos de conexión web
 
@@ -29,7 +29,7 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
 ## <a name="prerequisites"></a>Requisitos previos
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-> * Una clave de suscripción de Azure para el servicio de voz: [Obtenga una gratis](get-started.md) o créela en [Azure Portal](https://portal.azure.com).
+> * Una clave de suscripción de Azure para el servicio de voz: [Obtenga una gratis](overview.md#try-the-speech-service-for-free) o créela en [Azure Portal](https://portal.azure.com).
 > * Una [aplicación de Comandos personalizados creada](quickstart-custom-commands-application.md) previamente.
 > * Una aplicación cliente habilitada para el SDK de Voz: [Procedimiento: envío de actividad a una aplicación cliente](./how-to-custom-commands-setup-speech-sdk.md).
 

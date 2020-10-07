@@ -1,17 +1,17 @@
 ---
 title: 'Descodificación lógica: Azure Database for PostgreSQL: servidor único'
 description: 'Describe la descodificación lógica y wal2json para la captura de datos modificados en Azure Database for PostgreSQL: servidor único'
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903889"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708618"
 ---
 # <a name="logical-decoding"></a>Descodificación lógica
  
@@ -56,7 +56,7 @@ El servidor debe reiniciarse después de un cambio de este parámetro. Intername
 
 2. Reinicie el servidor para aplicar el cambio seleccionando **Sí**.
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Réplica de Azure Database for PostgreSQL: confirmar reinicio":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Réplicación de Azure Database for PostgreSQL: Soporte de replicación de Azure":::
 
 
 ## <a name="start-logical-decoding"></a>Inicio de la descodificación lógica

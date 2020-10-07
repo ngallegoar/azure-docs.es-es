@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: 305242e13dab23b6a003c5d864073372a052601a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d6b1085d51d7345b233087986127cbc97c0597e1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593178"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362068"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migración de Translator Speech API al servicio de voz
 
@@ -61,7 +61,7 @@ Si su organización o usted tienen aplicaciones en desarrollo o producción que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Prueba gratuita del servicio de voz](get-started.md)
+* [Prueba gratuita del servicio de voz](overview.md#try-the-speech-service-for-free)
 * [Inicio rápido: Reconocimiento de voz en una aplicación de UWP mediante el SDK de Voz](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Consulte también
