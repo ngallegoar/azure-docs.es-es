@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 055448eacf1cc12c6d021c6571a0478cb35442ba
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89566926"
 ---
 El manifiesto de implementación define los módulos que se implementan en un dispositivo perimetral. También define los valores de configuración de los módulos. 
@@ -27,7 +27,7 @@ Siga estos pasos para generar el manifiesto a partir del archivo de plantilla y,
 1. Tras aproximadamente 30 segundos, en la esquina inferior izquierda de la ventana, actualice Azure IoT Hub. El dispositivo perimetral ahora muestra los siguientes módulos implementados:
 
     * Live Video Analytics on IoT Edge (nombre del módulo `lvaEdge`).
-    * Simulador del Protocolo de transmisión en tiempo real (RTSP) (nombre del módulo `rtspsim`).
+    * Simulador del Protocolo de transmisión en tiempo real (RTSP) (nombre del módulo `rtspsim`)
 
 El módulo del simulador de RTSP simula una secuencia de vídeo en directo mediante un archivo de vídeo que se copió en el dispositivo perimetral al ejecutar el [script de configuración de recursos de Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 

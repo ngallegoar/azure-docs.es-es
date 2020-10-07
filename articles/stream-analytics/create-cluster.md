@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ms.openlocfilehash: a7be204c30d242be991fb9a57d239b69342ace97
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90945442"
 ---
 # <a name="quickstart-create-a-dedicated-azure-stream-analytics-cluster-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Azure Stream Analytics dedicado mediante Azure Portal
@@ -36,9 +36,9 @@ En esta sección, vamos a crear un recurso de clúster de Stream Analytics.
 
 1. En la página **Creación de un clúster de Stream Analytics**, escriba la configuración básica del nuevo clúster.
 
-   |Parámetro|Valor|Descripción |
+   |Parámetro|Value|Descripción |
    |---|---|---|
-   |Subscription|Nombre de suscripción|Seleccione la suscripción a Azure que quiera usar para este clúster de Stream Analytics. |
+   |Suscripción|Nombre de suscripción|Seleccione la suscripción a Azure que quiera usar para este clúster de Stream Analytics. |
    |Grupo de recursos|Definición de un nombre de grupo de recursos|Seleccione un grupo de recursos o seleccione **Crear nuevo** y escriba un nombre único para el grupo de recursos nuevo. |
    |Cluster Name|Un nombre único|Escriba un nombre para identificar su clúster de Stream Analytics.|
    |Location|Región más cercana a los orígenes de datos y los receptores|Seleccione una ubicación geográfica en la que pueda hospedar su clúster de Stream Analytics. Use la ubicación más cercana a los orígenes de datos y los receptores para el análisis de baja latencia.|

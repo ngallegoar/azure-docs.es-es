@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/14/2020
 ms.author: rgarcia
 ms.openlocfilehash: b93243a537fafce6d865ec207b12dc2654cafd20
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89536280"
 ---
 Seleccione **Build** (Compilar). En el cuadro de diálogo que aparece, seleccione la carpeta a la que va a exportar el proyecto Xcode.

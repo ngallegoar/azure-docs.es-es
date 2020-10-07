@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
-ms.openlocfilehash: c868aa0f1c2449ccf163523c9ded25a31d1d84c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a294368e82bcd00f98c26504b3141e8f39fe0c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73820106"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261607"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>¿Qué es el acelerador de la solución de IoT Factoría conectada?
+
+> [!IMPORTANT]
+> Mientras actualizamos este artículo, consulte el artículo sobre [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/), donde encontrará el contenido más actualizado.
 
 Connected Factory es una implementación de la arquitectura de referencia de IoT industrial de Azure de Microsoft, empaquetada como solución de código abierto. Puede utilizarla como punto inicial para un producto comercial. Puede implementar una versión pregenerada de la solución Factoría conectada en la suscripción de Azure desde [aceleradores de soluciones de Azure IoT](https://www.azureiotsolutions.com/#solutions/types/CF).
 

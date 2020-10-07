@@ -9,10 +9,10 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python
 ms.openlocfilehash: 44942067756f82c224decc218de17bf7dbc69734
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89482148"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Inicio rápido: biblioteca cliente de claves de Azure Key Vault para Python
@@ -97,7 +97,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Ejecución del código
 
-Asegúrese de que el código de la sección anterior se encuentra en un archivo llamado *kv_keys.py*. Luego ejecute el código con el siguiente comando:
+Asegúrese de que el código de la sección anterior se encuentra en un archivo llamado *kv_keys.py*. Luego, ejecute el código con el siguiente comando:
 
 ```terminal
 python kv_keys.py
@@ -110,7 +110,7 @@ python kv_keys.py
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticación y creación de un cliente
 
-En el código anterior, el objeto [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) usa las variables de entorno que ha creado para la entidad de servicio. Esta credencial se proporciona siempre que se crea un objeto de cliente desde una biblioteca de Azure, como [`KeyClient`](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python), junto con el identificador URI del recurso con el que se desea trabajar a través de ese cliente:
+En el código anterior, el objeto [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) usa las variables de entorno que ha creado para la entidad de servicio. Esta credencial se proporciona siempre que se crea un objeto de cliente desde una biblioteca de Azure, como [`KeyClient`](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python), junto con el identificador URI del recurso con el que desea trabajar a través de ese cliente:
 
 ```python
 credential = DefaultAzureCredential()

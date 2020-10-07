@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: b53177d578768428665891704269e63bd8edb09e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 797bd97940aa49db87b4ca4dd96f140208cd69b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73820175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261879"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Uso de las características del panel del acelerador de soluciones de Connected Factory
+
+> [!IMPORTANT]
+> Mientras actualizamos este artículo, consulte el artículo sobre [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/), donde encontrará el contenido más actualizado.
 
 En la guía de inicio rápido sobre la [implementación de una solución basada en la nube para administrar dispositivos IoT industriales](quickstart-connected-factory-deploy.md) se mostró cómo navegar por el panel y cómo responder las alarmas. En esta guía de procedimientos se muestran algunas características adicionales del panel que puede usar para supervisar y administrar los dispositivos IoT industriales.
 
@@ -27,7 +30,7 @@ Puede filtrar la información que se muestra en el panel, ya sea en el panel **F
 
 1. Se muestra el panel de filtros:
 
-    [![Filtros del acelerador de soluciones de Connected Factory](./media/iot-accelerators-connected-factory-dashboard/filterpanel-inline.png)](./media/iot-accelerators-connected-factory-dashboard/filterpanel-expanded.png#lightbox)
+    [![Filtros del acelerador de soluciones de fábrica conectada](./media/iot-accelerators-connected-factory-dashboard/filterpanel-inline.png)](./media/iot-accelerators-connected-factory-dashboard/filterpanel-expanded.png#lightbox)
 
 1. Elija el filtro que necesita y haga clic en **Aplicar**. También puede escribir texto libre en los campos de filtro.
 
@@ -46,7 +49,7 @@ Al implementar el acelerador de soluciones, se aprovisiona automáticamente un c
 
 1. Haga clic en el **icono del explorador** de la barra de navegación del panel:
 
-    [![Explorador del servidor del acelerador de soluciones de Connected Factory](./media/iot-accelerators-connected-factory-dashboard/browser-inline.png)](./media/iot-accelerators-connected-factory-dashboard/browser-expanded.png#lightbox)
+    [![Explorador del servidor del acelerador de soluciones de fábrica conectada](./media/iot-accelerators-connected-factory-dashboard/browser-inline.png)](./media/iot-accelerators-connected-factory-dashboard/browser-expanded.png#lightbox)
 
 1. Elija uno de los servidores en la lista que muestra los servidores que se implementan en el acelerador de soluciones:
 
@@ -82,7 +85,7 @@ Fábrica conectada permite tanto dar órdenes a los dispositivos como controlarl
 
 1. Elija el comando que desea usar. Haga clic con el botón derecho en el nodo **OpenPressureReleaseValve**. Haga clic en **Call** (Llamar):
 
-    [![Comando de llamada del acelerador de soluciones de Connected Factory](./media/iot-accelerators-connected-factory-dashboard/callcommand-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callcommand-expanded.png#lightbox)
+    [![Comando de llamada del acelerador de soluciones de fábrica conectada](./media/iot-accelerators-connected-factory-dashboard/callcommand-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callcommand-expanded.png#lightbox)
 
 1. Aparece un panel de contexto que le informa del método al que va a llamar, y de cualquier detalle de los parámetros. Haga clic en **Call** (Llamar):
 
@@ -90,7 +93,7 @@ Fábrica conectada permite tanto dar órdenes a los dispositivos como controlarl
 
 1. El panel de contexto se actualiza para informarle de que la llamada al método se realizó correctamente. Para comprobar que la llamada se realizó correctamente, lea el valor del nodo de presión que se ha actualizado como resultado de la llamada.
 
-    [![Llamada correcta del acelerador de soluciones de Connected Factory](./media/iot-accelerators-connected-factory-dashboard/callsuccess-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callsuccess-expanded.png#lightbox)
+    [![Llamada correcta del acelerador de soluciones de fábrica conectada](./media/iot-accelerators-connected-factory-dashboard/callsuccess-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callsuccess-expanded.png#lightbox)
 
 ## <a name="behind-the-scenes"></a>Entre bambalinas
 

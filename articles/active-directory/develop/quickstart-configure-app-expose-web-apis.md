@@ -14,10 +14,10 @@ ms.author: marsma
 ms.custom: aaddev, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89442170"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Inicio rápido: Configuración de una aplicación para exponer una API web
@@ -95,7 +95,7 @@ Para agregar el ámbito de ejemplo `Employees.Write.All`, siga los pasos de la s
 
 Si ha agregado correctamente los dos ámbitos de ejemplo descritos en las secciones anteriores, aparecerán en el panel **Exponer una API** del registro de la aplicación de API web, de forma similar a esta imagen:
 
-:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Captura de pantalla del panel Exponer una API que muestra dos ámbitos expuestos.":::
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Panel de exposición de una API durante el registro de una aplicación en Azure Portal":::
 
 Como se muestra en la imagen, la cadena completa de un ámbito es la concatenación de los valores de **URI de id. de aplicación** de la API web y **Nombre de ámbito** del ámbito.
 

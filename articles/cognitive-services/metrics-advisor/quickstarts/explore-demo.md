@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: fbc73e20b8cc2baa1cc5c5a5b2f674fb1b2dde84
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90945786"
 ---
 # <a name="quickstart-explore-the-metrics-advisor-demo-with-example-data"></a>Inicio rápido: Exploración de la demo de Metrics Advisor con datos de ejemplo
@@ -44,14 +44,14 @@ Haga clic en la fuente de distribución de datos *Sample - Cost/Revenue - City/C
 * Registros de cuándo se actualizó la fuente de distribución de datos.   
 * Información y valores de la fuente de distribución de datos.
 
-:::image type="content" source="../media/data-feed-view.png" alt-text="Vista de la fuente de distribución de datos" lightbox="../media/data-feed-view.png":::
+:::image type="content" source="../media/data-feed-view.png" alt-text="Lista de datos de ejemplo" lightbox="../media/data-feed-view.png":::
 
 
 ## <a name="view-time-series-visualizations-and-configurations"></a>Visualización de visualizaciones y configuraciones de series temporales
 
 Haga clic en la métrica *cost* (costo) de la fuente de distribución de datos *Sample - Cost/Revenue - City/Category* (Ejemplo - Costo/Ingresos - Ciudad/Categoría). Verá la serie temporal asociada segmentada por dimensiones, con visualizaciones en función de los datos de métrica históricos. La banda azul en torno a los datos de la métrica representa el intervalo de valores esperado de los modelos de Machine Learning de Metrics Advisor. Los puntos que se encuentran fuera de esta banda se marcarán en rojo, lo que indica que se trata de anomalías detectadas. 
 
-:::image type="content" source="../media/series-visualization.png" alt-text="Visualización de la serie" lightbox="../media/series-visualization.png":::
+:::image type="content" source="../media/series-visualization.png" alt-text="Lista de datos de ejemplo" lightbox="../media/series-visualization.png":::
 
 La detección de anomalías se puede configurar ajustando las **configuraciones de detección** en el lado izquierdo de la página de detalles de la métrica. Hay varios métodos de detección de anomalías disponibles y pueden combinarse. Además, puede probar diferentes sensibilidades, direcciones de detección y otras configuraciones. El vínculo **Advanced configuration** (Configuración avanzada) en la parte inferior de las **configuraciones de detección** permite crear una configuración de detección más compleja y personalizada, que se puede usar en grupos o series individuales. 
 
@@ -59,7 +59,7 @@ También puede ajustar la detección de anomalías proporcionando información a
 
 En la parte inferior del panel **Add feeback** (Agregar comentarios), se encuentra el vínculo al **centro de incidentes**, que le dirigirá a la página de análisis del incidente y analizará la causa principal del incidente.  
 
-:::image type="content" source="../media/incident-link.png" alt-text="Vínculo del incidente" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Lista de datos de ejemplo" lightbox="../media/incident-link.png":::
 
 ## <a name="explore-anomaly-detection-results-and-perform-root-cause-analysis"></a>Exploración de los resultados de la detección de anomalías y realización de análisis de la causa principal
 
@@ -67,7 +67,7 @@ Al hacer clic en el vínculo al **centro de incidentes** desde una anomalía, ve
 
 La sección **Diagnostics** (Diagnóstico) muestra un árbol del incidente, junto con varias pestañas para diagnosticar el incidente.
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnóstico de incidentes" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Lista de datos de ejemplo" lightbox="../media/incident-diagnostic.png":::
 
 Al identificar la causa principal del incidente, puede tomar medidas y mitigar el problema antes de que la situación empeore. También hacer clic en las otras características de diagnóstico proporcionadas para obtener más información. 
 
