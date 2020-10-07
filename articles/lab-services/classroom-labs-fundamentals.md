@@ -3,14 +3,14 @@ title: Aspectos básicos de la arquitectura en Azure Lab Services | Microsoft Do
 description: En este artículo se tratarán los recursos fundamentales que usa Lab Services y la arquitectura básica de un laboratorio.
 author: emaher
 ms.topic: overview
-ms.date: 06/26/2020
+ms.date: 09/16/2020
 ms.author: enewman
-ms.openlocfilehash: 93e95e1b03cd942e513a6d643f8a9e96399c231b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: ac390fb6624ffc762f77b676c778165e7382f73f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445651"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334045"
 ---
 # <a name="architecture-fundamentals-in-azure-lab-services"></a>Aspectos básicos de la arquitectura en Azure Lab Services
 

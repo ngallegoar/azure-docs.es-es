@@ -4,12 +4,12 @@ description: Aprende a compilar, probar e implementar plantillas de Azure Resour
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333244"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines
 
@@ -180,7 +180,7 @@ Para crear una canalización con un paso para implementar una plantilla:
     * **Modo de implementación**: Seleccione **Incremental**.
     * **Nombre de implementación**: Escriba **DeployPipelineTemplate**. Seleccione **Avanzadas** para poder ver **Nombre de la implementación**.
 
-    ![Paso de Azure Resource Manager Azure DevOps Azure Pipelines](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
+    ![La captura de pantalla muestra la página de implementación de la plantilla de Resource Manager, con los valores necesarios especificados.](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
 
 1. Seleccione **Agregar**.
 
@@ -188,7 +188,7 @@ Para crear una canalización con un paso para implementar una plantilla:
 
     El archivo yml debe ser similar a:
 
-    ![YAML para Azure Resource Manager Azure DevOps Azure Pipelines](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    ![La captura de pantalla muestra la página de revisión, con el nombre de la nueva canalización Review your pipeline YAML (Revisar la canalización YAML).](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. Seleccione **Guardar y ejecutar**.
 1. En el panel **Guardar y ejecutar**, seleccione **Guardar y ejecutar** de nuevo. En el repositorio conectado, se guarda una copia del archivo YAML. Para ver el archivo YAML, ve al repositorio.

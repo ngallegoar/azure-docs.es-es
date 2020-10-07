@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Creación de una aplicación de localizador de comercios mediante Azure Maps | Microsoft Azure Maps'
-description: Obtenga información sobre cómo crear aplicaciones web para localizar comercios. Use el SDK web de Azure Maps para crear una página web, consultar el servicio de búsqueda y mostrar los resultados en un mapa.
+description: Tutorial sobre cómo crear aplicaciones web para localizar tiendas. Use el SDK web de Azure Maps para crear una página web, consultar el servicio de búsqueda y mostrar los resultados en un mapa.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/11/2020
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 61c085cb721f9e1a8d9c44146a9d96cd5a08562c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 9c2160a241243b59ca7adda99fe2100d416c55be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085321"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335269"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Creación de un localizador de almacén mediante Azure Maps
 
 Este tutorial le guía por el proceso de creación de un localizador de almacén sencillo mediante Azure Maps. Los localizadores de almacén son comunes. Muchos de los conceptos que se usan en este tipo de aplicación son aplicables a muchos otros tipos de aplicaciones. Para la mayoría de las empresas que venden directamente a los consumidores, es imprescindible ofrecer a los clientes un localizador de almacén. En este tutorial, aprenderá a:
-    
+
 > [!div class="checklist"]
 > * Crear una página web mediante la API de Control de mapa de Azure.
 > * Cargar datos personalizados desde un archivo y mostrarlos en un mapa.
@@ -924,34 +924,21 @@ Si cambia de tamaño la ventana del explorador a un ancho inferior a 700 píxele
 
 ![Captura de pantalla de la versión de pantalla pequeña del localizador de almacén](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)
 
+En este tutorial, ha aprendido a crear un localizador básico de tiendas mediante Azure Maps. El localizador de almacén que crea en este tutorial podría tener toda la funcionalidad necesaria. Puede agregar características a su localizador de almacén o usar características más avanzadas para conseguir una experiencia de usuario más personalizada: 
+
+ * Habilitar [sugerencias mientras escribe](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) en el cuadro de búsqueda  
+ * Agregar [compatibilidad con varios idiomas](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization) 
+ * Permitir que el usuario [filtrar las ubicaciones a lo largo de una ruta](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route) 
+ * Agregar la capacidad de [establecer filtros](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property) 
+ * Agregar compatibilidad para especificar un valor inicial de búsqueda mediante una cadena de consulta Al incluir esta opción en el localizador de almacén, los usuarios pueden marcar y compartir búsquedas. También proporciona un método sencillo de pasar las búsquedas a esta página desde otra página.  
+ * Implementar el localizador de almacén como una [aplicación web de Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-html) 
+ * Almacenar los datos en una base de datos y buscar ubicaciones cercanas Para más información, consulte [Información general de los tipos de datos espaciales de SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017&preserve-view=true) y [Consultar datos espaciales para el vecino más próximo](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017&preserve-view=true).
+
+Puede [ver el código fuente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [ver un ejemplo publicado](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) y obtener más información sobre la cobertura y funcionalidad de Azure Maps mediante el uso de [niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md). También puede [usar expresiones de estilo basadas en datos](data-driven-style-expressions-web-sdk.md) para aplicarlas a la lógica de negocios.
+
 ## <a name="next-steps"></a>Pasos siguientes
-
-En este tutorial, aprenderá a crear un localizador de almacén básico mediante Azure Maps. El localizador de almacén que crea en este tutorial podría tener toda la funcionalidad necesaria. Puede agregar características a su localizador de almacén o usar características más avanzadas para conseguir una experiencia de usuario más personalizada: 
-
-> [!div class="checklist"]
-> * Habilitar [sugerencias mientras escribe](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) en el cuadro de búsqueda  
-> * Agregar [compatibilidad con varios idiomas](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization) 
-> * Permitir que el usuario [filtrar las ubicaciones a lo largo de una ruta](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route) 
-> * Agregar la capacidad de [establecer filtros](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property) 
-> * Agregar compatibilidad para especificar un valor inicial de búsqueda mediante una cadena de consulta Al incluir esta opción en el localizador de almacén, los usuarios pueden marcar y compartir búsquedas. También proporciona un método sencillo de pasar las búsquedas a esta página desde otra página.  
-> * Implementar el localizador de almacén como una [aplicación web de Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-html) 
-> * Almacenar los datos en una base de datos y buscar ubicaciones cercanas Para más información, consulte [Información general de los tipos de datos espaciales de SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview) y [Consultar datos espaciales para el vecino más próximo](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor).
-
-> [!div class="nextstepaction"]
-> [Ver el código fuente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-> [!div class="nextstepaction"]
-> [Ver un ejemplo publicado](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
-
-Para más información sobre la cobertura y las funcionalidades de Azure Maps:
-
-> [!div class="nextstepaction"]
-> [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md)
 
 Para ver más ejemplos de código y una experiencia interactiva de codificación:
 
 > [!div class="nextstepaction"]
 > [Uso del control de mapa](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]
-> [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md)

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 4adec4579cf1a413aeac54782b4f9a833d557ad9
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 38b4713383368f0c64983738f2ed65f60edb9e67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029977"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334096"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatización de tareas para procesar correos electrónicos mediante Azure Logic Apps, Azure Functions y Azure Storage
 
@@ -323,7 +323,7 @@ Ahora, agregue una condición que seleccione solo los correos electrónicos que 
 
    1. En la primera fila, debajo de **And**, haga clic en el cuadro izquierdo. En la lista de contenido dinámico que aparece, seleccione la propiedad **Tiene datos adjuntos**.
 
-      ![Crear condición](./media/tutorial-process-email-attachments-workflow/build-condition.png)
+      ![Captura de pantalla que muestra la propiedad "And" para la condición y la selección de la propiedad "Tiene datos adjuntos".](./media/tutorial-process-email-attachments-workflow/build-condition.png)
 
    1. En el cuadro central, mantenga el operador **es igual que**.
 
@@ -389,7 +389,7 @@ Este paso agrega la función de Azure que creó anteriormente a su aplicación l
 
    ![Dentro de "If true", agregar acción](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-1. En el cuadro de búsqueda, busque "azure functions" y seleccione esta acción: **Elegir una función de Azure - Azure Functions**
+1. En el cuadro de búsqueda, busque "Azure functions" y seleccione esta acción: **Elegir una función de Azure - Azure Functions**
 
    ![Seleccionar una acción para "Choose an Azure function" (Elegir una función de Azure)](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -458,7 +458,7 @@ A continuación, agregue una acción que cree un blob en el contenedor de almace
 
    Cuando haya terminado, la acción debe ser parecida a la de este ejemplo:
 
-   ![Finalizó la acción "Create blob" (Crear blob)](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
+   ![Captura de pantalla que muestra un ejemplo de una acción "Crear blob" finalizada.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
 1. Guarde la aplicación lógica.
 

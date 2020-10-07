@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b5b3d1240c621a1bcdc135825e70fe164452a428
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5dc41522add580b96e178328f47bd88fc1fbf052
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500402"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397069"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Copia de seguridad y restauración de archivos en máquinas virtuales Windows en Azure
 
@@ -59,7 +59,7 @@ En este ejemplo, se muestra cómo recuperar el archivo de imagen que se usa en l
 
 1. Abra un explorador y conéctese a la dirección IP de la máquina virtual para mostrar la página predeterminada de IIS.
 
-    ![Página web predeterminada de IIS](./media/tutorial-backup-vms/iis-working.png)
+    ![Captura de pantalla que muestra la página web de IIS predeterminada.](./media/tutorial-backup-vms/iis-working.png)
 
 1. Conéctese a la máquina virtual.
 1. En la máquina virtual, abra el **Explorador de archivos**, vaya a \inetpub\wwwroot y elimine el archivo **iisstart.png**.
@@ -72,14 +72,14 @@ En este ejemplo, se muestra cómo recuperar el archivo de imagen que se usa en l
 1. En la hoja de la máquina virtual, en la sección **Operaciones**, haga clic en **Copia de seguridad**. Se abre la hoja **Copia de seguridad**. 
 1. En el menú de la parte superior de la hoja, seleccione **Recuperación de archivos**. Se abrirá la hoja **Recuperación de archivos**.
 1. En **Paso 1: Seleccionar punto de recuperación**, seleccione un punto de recuperación en la lista desplegable.
-1. En **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Download Executable** (Descargar ejecutable). Copie la contraseña del archivo y guárdela en algún lugar seguro.
+1. En el **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Descargar ejecutable**. Copie la contraseña del archivo y guárdela en algún lugar seguro.
 1. En el equipo local, abra el **Explorador de archivos**, vaya a la carpeta **Descargas** y copie el archivo .exe descargado. El nombre de archivo lleva delante el nombre de su máquina virtual. 
 1. En la máquina virtual (mediante la conexión RDP), pegue el archivo .exe en el escritorio de la máquina virtual. 
 1. Vaya al escritorio de la máquina virtual y haga doble clic en el archivo .exe. Se iniciará un símbolo del sistema. El programa monta el punto de recuperación como un recurso compartido de archivos al que se puede acceder. Cuando se termine de crear el recurso compartido, escriba **q** para cerrar el símbolo del sistema.
 1. En la máquina virtual, abra el **Explorador de archivos** y vaya a la letra de unidad que se usó para el recurso compartido de archivos.
 1. Vaya a \inetpub\wwwroot, copie **iisstart.png** del recurso compartido de archivos y péguelo en \inetpub\wwwroot. Por ejemplo, copie F:\inetpub\wwwroot\iisstart.png y péguelo en c:\inetpub\wwwroot para recuperar el archivo.
 1. En el equipo local, abra la pestaña del explorador en el que está conectado a la dirección IP de la máquina virtual que muestra la página predeterminada de IIS. Presione CTRL + F5 para actualizar la página del explorador. Ahora debería ver que la imagen se ha restaurado.
-1. En el equipo local, vuelva a la pestaña de explorador de Azure Portal y en **Paso 3: Desmontar los discos después de la recuperación**, haga clic en el botón **Desmontar discos**. Si olvida realizar este paso, la conexión al punto de montaje se cierra automáticamente al cabo de 12 horas. A las 12 horas, es preciso que descargue un script nuevo para crear un punto de montaje.
+1. En el equipo local, vuelva a la pestaña del explorador de Azure Portal y, en **Paso 3: Desmontar los discos después de la recuperación**, haga clic en el botón **Desmontar discos**. Si olvida realizar este paso, la conexión al punto de montaje se cierra automáticamente al cabo de 12 horas. A las 12 horas, es preciso que descargue un script nuevo para crear un punto de montaje.
 
 
 

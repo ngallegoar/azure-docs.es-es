@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c111752dcca03781dfb2a11fb100dafc4bad90f7
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003826"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401004"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
@@ -54,7 +54,7 @@ Para crear un almacén de Recovery Services, siga los pasos que se indican a con
 
 1. Después de especificar los valores, seleccione **Revisar y crear**.
 
-    ![Crear almacén de Recovery Services](./media/backup-create-rs-vault/review-and-create.png)
+    ![Captura de pantalla que muestra el botón revisar y crear en el proceso de creación de un almacén de Recovery Services.](./media/backup-create-rs-vault/review-and-create.png)
 
 1. Cuando esté listo para crear el almacén de Recovery Services, seleccione **Crear**.
 

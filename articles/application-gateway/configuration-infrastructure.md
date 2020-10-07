@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: ce0e03407349505d54aeb22b164fa8593446967d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652665"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319799"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configuración de la infraestructura de Azure Application Gateway
 
@@ -20,10 +20,10 @@ La infraestructura de Application Gateway incluye la red virtual, las subredes, 
 
 ## <a name="virtual-network-and-dedicated-subnet"></a>Red virtual y subred dedicada
 
-Una puerta de enlace de aplicaciones es una implementación dedicada en su red virtual. Dentro de la red virtual, es necesaria una subred dedicada para la puerta de enlace de aplicaciones. Puede tener varias instancias de una implementación de puerta de enlace de aplicaciones determinada en una subred. También se pueden implementar otras puertas de enlace de aplicaciones en la subred. Pero no se puede implementar ningún otro recurso en la subred de la puerta de enlace de aplicaciones.
+Una puerta de enlace de aplicaciones es una implementación dedicada en su red virtual. Dentro de la red virtual, es necesaria una subred dedicada para la puerta de enlace de aplicaciones. Puede tener varias instancias de una implementación de puerta de enlace de aplicaciones determinada en una subred. También se pueden implementar otras puertas de enlace de aplicaciones en la subred. Pero no se puede implementar ningún otro recurso en la subred de la puerta de enlace de aplicaciones. No se pueden combinar Application Gateway Standard y Standard_v2 en la misma subred.
 
 > [!NOTE]
-> No se pueden combinar Application Gateway Standard y Standard_v2 en la misma subred.
+> Actualmente, no se admiten [directivas de punto de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoint-policies-overview.md) en una subred de Application Gateway.
 
 ### <a name="size-of-the-subnet"></a>Tamaño de la subred
 

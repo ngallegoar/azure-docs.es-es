@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Creación de una geovalla y seguimiento de dispositivos en Azure Maps'
-description: Obtenga información sobre cómo configurar una geovalla. Obtenga información sobre cómo realizar un seguimiento de los dispositivos con respecto a la geovalla mediante el servicio espacial de Azure Maps.
+title: 'Tutorial: Creación de una geovalla y seguimiento de dispositivos en un mapa de Microsoft Azure'
+description: Tutorial sobre cómo configurar una geovalla. Obtenga información sobre cómo hacer un seguimiento de los dispositivos con respecto a la geovalla mediante el servicio espacial de Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 8/11/2020
+ms.date: 8/20/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b374bbe086281c7f7914334be6ca275f0fd05b7f
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 7a0c39b6d2369a1279fee3905083f0660a4aabb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056516"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335201"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
@@ -429,14 +429,14 @@ En la respuesta GeoJSON anterior, el equipo permaneció en la geovalla del sitio
 
 En la respuesta GeoJSON anterior, el equipo permaneció en la geovalla del sitio principal, pero ha salido de la geovalla del sitio secundario. Sin embargo,observe que el valor `userTime` es posterior a `expiredTime`, tal y como se define en los datos de geovalla. Como resultado, el parámetro `isEventPublished` se establece en `false` y el responsable de operaciones no recibe una notificación por correo electrónico.
 
-### <a name="location-547637988-1221338344"></a>Ubicación 5 (47,637988,-122,1338344)
+### <a name="location-5-4763799--122134505"></a>Ubicación 5 (47,63799; -122,134505)
 
 1. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Especifique *Location 5*. Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
 
 2. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la dirección URL siguiente. Asegúrese de reemplazar `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovallas](#upload-geofencing-geojson-data).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 3. Haga clic en **Send** (Enviar). El siguiente elemento GeoJSON aparecerá en la ventana de respuesta:
@@ -469,13 +469,10 @@ En la respuesta GeoJSON anterior, el equipo permaneció en la geovalla del sitio
 
 En la respuesta GeoJSON anterior, el equipo ha salido de la geovalla del sitio principal. Como resultado, el parámetro `isEventPublished` se establece en `true` y el responsable de operaciones recibe una notificación por correo electrónico que indica que el equipo ha salido de una geovalla.
 
+
+También puede consultar [Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) y [Controladores de eventos admitidos en Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers) mediante Azure Maps.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Administración de tipos de contenido en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
-
-> [!div class="nextstepaction"]
-> [Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
-
-> [!div class="nextstepaction"]
-> [Controladores de eventos de Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers)

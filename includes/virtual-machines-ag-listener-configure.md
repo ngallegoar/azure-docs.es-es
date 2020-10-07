@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd635d4c0563c35979f8d85c33dfbde35f05f9e6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75467806"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401098"
 ---
 El agente de escucha del grupo de disponibilidad es un nombre de red y una dirección IP en los que escucha el grupo de disponibilidad de SQL Server. Para crear el agente de escucha del grupo de disponibilidad, haga lo siguiente:
 
@@ -30,7 +30,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
     b. En el panel **Roles**, haga clic con el botón derecho en el nombre del grupo de disponibilidad y después seleccione **Agregar recurso** > **Punto de acceso cliente**.
 
-   ![Punto de acceso cliente](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
+   ![Captura de pantalla que muestra la opción del menú Punto de acceso cliente.](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
     c. En el cuadro **Nombre**, cree un nombre para este nuevo agente de escucha. 
    Las aplicaciones utilizarán el nombre del nuevo agente de escucha como nombre de red para conectarse a las bases de datos del grupo de disponibilidad de SQL Server.
@@ -50,7 +50,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
     c. En **Dirección IP**, haga clic en **Dirección IP estática**. Establezca la dirección IP como la misma dirección que usó cuando estableció la dirección del equilibrador de carga en Azure Portal.
 
-   ![Recurso de IP](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
+   ![Captura de pantalla que muestra dónde establecer la dirección IP.](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
     <!-----------------------I don't see this option on server 2016
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
@@ -64,7 +64,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
     c. En la pestaña Dependencias, agregue el nombre del recurso de punto de acceso cliente (el agente de escucha).
 
-   ![Recurso de IP](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
+   ![Captura de pantalla que muestra dónde agregar el nombre en la pestaña Dependencias.](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
     d. Haga clic en **OK**.
 
@@ -74,7 +74,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
     b. En la pestaña **Recursos**, haga clic en el recurso de punto de acceso cliente bajo **Nombre del servidor** y después haga clic en **Propiedades**. 
 
-   ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
+   ![Captura de pantalla que muestra la opción del menú Propiedades para el nombre del servidor.](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
     c. Haz clic en la pestaña **Dependencias** . Compruebe que la dirección IP es una dependencia. Si no es así, establezca una dependencia en la dirección IP. Si aparecen varios recursos, comprueba que las direcciones IP tienen dependencias OR, y no AND. Haga clic en **OK**. 
 

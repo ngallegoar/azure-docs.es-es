@@ -9,14 +9,17 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a0c5c601b0d3bc0d862ea4984ee2c6d4b76d13ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ae3e9b4bb69bf0c85054b5d6144633923cac947
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502467"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282075"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implementación del módulo y las dependencias de OPC Twin desde cero
+
+> [!IMPORTANT]
+> Mientras actualizamos este artículo, consulte el artículo sobre [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/), donde encontrará el contenido más actualizado.
 
 El módulo OPC Twin se ejecuta en IoT Edge y proporciona varios servicios de Edge para los servicios de registro y dispositivo gemelo OPC. 
 
@@ -110,7 +113,7 @@ Todos los módulos se implementan mediante un manifiesto de implementación.  A 
 
 La manera más fácil de implementar los módulos en un dispositivo de puerta de enlace de Azure IoT Edge es a través de Azure Portal.  
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Requisitos previos
 
 1. Implementación de las [dependencias](howto-opc-twin-deploy-dependencies.md) de OPC Twin y obtención del archivo `.env` resultante. Anote la instancia de `hub name` implementada en la variable `PCS_IOTHUBREACT_HUB_NAME` del archivo `.env` resultante.
 
@@ -171,17 +174,17 @@ La manera más fácil de implementar los módulos en un dispositivo de puerta de
 
     y seleccione **Siguiente**
 
-11. Revise la información de implementación y el manifiesto.  Debería tener el aspecto del manifiesto de implementación anterior.  Seleccione **Submit** (Enviar).
+11. Revise la información de implementación y el manifiesto.  Debería tener el aspecto del manifiesto de implementación anterior.  Seleccione **Enviar**.
 
 12. Una vez que los módulos se han implementado en el dispositivo, puede verlos todos en la página **Detalles del dispositivo** del portal. Esta página muestra el nombre de cada módulo implementado, así como información útil, como el estado de la implementación y el código de salida.
 
 ## <a name="deploying-using-azure-cli"></a>Implementación con la CLI de Azure
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Requisitos previos
 
 1. Instale la versión más reciente de la [interfaz de la línea de comandos de Azure (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) desde [aquí](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-### <a name="quickstart"></a>Guía de inicio rápido
+### <a name="quickstart"></a>Inicio rápido
 
 1. Guarde el manifiesto de implementación anterior en un archivo `deployment.json`.  
 

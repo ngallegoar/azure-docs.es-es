@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 658aaf018dd4c231b9bc9fc8c6dda78b2a6f05c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 93037d1e1c56e280458a91ae5723502bff27995b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945986"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377413"
 ---
 En este inicio rápido, aprenderá a iniciar una llamada mediante la biblioteca cliente de llamadas de Azure Communication Services para Android.
 
@@ -19,26 +19,26 @@ En este inicio rápido, aprenderá a iniciar una llamada mediante la biblioteca 
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), para crear la aplicación de Android.
-- Un [token de acceso de usuario](../../access-tokens.md) para su instancia de Azure Communication Services.
 - Un recurso de Communication Services implementado. [Cree un recurso de Communication Services](../../create-communication-resource.md).
-
+- Un [token de acceso de usuario](../../access-tokens.md) para su instancia de Azure Communication Services.
 
 ## <a name="setting-up"></a>Instalación
-
 
 ### <a name="create-an-android-app-with-an-empty-activity"></a>Creación de una aplicación de Android con una actividad vacía
 
 En Android Studio, seleccione Start a new Android Studio project (Iniciar un nuevo proyecto de Android Studio).
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Captura de pantalla que muestra el botón Start a new Android Studio Project (Iniciar un nuevo proyecto de Android Studio) seleccionado en Android Studio.":::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Captura de pantalla que muestra el botón &quot;Start a new Android Studio Project&quot; (&quot;Iniciar un nuevo proyecto de Android Studio&quot;) seleccionado en Android Studio.&quot;:::
 
-Seleccione la plantilla de proyecto "Actividad vacía" en "Teléfono y tableta".
+Seleccione la plantilla de proyecto &quot;Actividad vacía" en "Teléfono y tableta".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Captura de pantalla que muestra la opción Actividad vacía seleccionada en la pantalla de la plantilla de proyecto.":::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Captura de pantalla que muestra el botón &quot;Start a new Android Studio Project&quot; (&quot;Iniciar un nuevo proyecto de Android Studio&quot;) seleccionado en Android Studio.&quot;:::
 
-Seleccione la biblioteca cliente mínima de la "API 26: Android 8.0 (Oreo)" o una versión posterior.
+Seleccione la plantilla de proyecto &quot;Actividad vacía" o una versión posterior.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Captura de pantalla que muestra la opción Actividad vacía seleccionada en la pantalla 2 de la plantilla de proyecto.":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Captura de pantalla que muestra el botón &quot;Start a new Android Studio Project&quot; (&quot;Iniciar un nuevo proyecto de Android Studio&quot;) seleccionado en Android Studio.&quot;:::
+
+Seleccione la plantilla de proyecto &quot;Actividad vacía":::
 
 
 ### <a name="install-the-package"></a>Instalar el paquete
@@ -126,7 +126,7 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
     
 ```
 
-### <a name="setup-the-layout-for-the-app"></a>Configuración del diseño de la aplicación
+### <a name="set-up-the-layout-for-the-app"></a>Configuración del diseño de la aplicación
 
 Se necesitan dos entradas: una entrada de texto para el identificador del destinatario y un botón para realizar la llamada. Se pueden agregar a través del diseñador o editando el XML de diseño. Cree un botón con un identificador de `call_button` y una entrada de texto de `callee_id`. Vaya a (`app/src/main/res/layout/activity_main.xml`) y reemplace el contenido del archivo por lo siguiente:
 
@@ -315,4 +315,10 @@ private void startCall() {
 
 Ahora se puede iniciar la aplicación con el botón "Ejecutar aplicación" de la barra de herramientas (Mayús + F10). Para verificar que puede realizar llamadas, llame a `8:echo123`. Se reproducirá un mensaje grabado previamente y, luego, se repetirá su mensaje.
 
-:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Captura de pantalla que muestra la aplicación completada.":::
+:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Captura de pantalla que muestra el botón &quot;Start a new Android Studio Project&quot; (&quot;Iniciar un nuevo proyecto de Android Studio&quot;) seleccionado en Android Studio.&quot;:::
+
+Seleccione la plantilla de proyecto &quot;Actividad vacía":::
+
+## <a name="sample-code"></a>Código de ejemplo
+
+Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/Android/Java).

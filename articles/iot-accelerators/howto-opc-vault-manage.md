@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0829d4b3fca068ddb0db2df53dd635ab7ad80bed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71203657"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281922"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Administración del servicio de certificados de OPC Vault
+
+> [!IMPORTANT]
+> Mientras actualizamos este artículo, consulte el artículo sobre [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/), donde encontrará el contenido más actualizado.
 
 En este artículo se explican las tareas administrativas para el servicio de administración de certificados de OPC Vault en Azure. Incluye información sobre cómo renovar certificados de CA del emisor, cómo renovar la lista de revocación de certificados (CRL) y cómo conceder y revocar acceso a los usuarios.
 

@@ -11,14 +11,17 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c664d4859a306387b4eafa2f19ab5877ccf6eb1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a4b65195488f101d36aaf73956f1422bfccbbf9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81686954"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282143"
 ---
 # <a name="run-opc-publisher"></a>Ejecutar OPC Publisher
+
+> [!IMPORTANT]
+> Mientras actualizamos este artículo, consulte el artículo sobre [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/), donde encontrará el contenido más actualizado.
 
 En este artículo se describe cómo ejecutar y depurar OPC Publisher. También se abordan las consideraciones sobre rendimiento y memoria.
 
@@ -686,7 +689,7 @@ current working set in MB: 90
 
 Esta configuración procesa por lotes tantas actualizaciones del valor de nodo de OPC como sea posible. El tamaño máximo de los mensajes de IoT Hub es 256 kB, que es lo que se ha configurado. No se han solicitado intervalos de envío, lo que significa que la cantidad de datos que ingiera IoT Hub determina la latencia. Esta configuración es la que menos probabilidad tiene de perder valores del nodo de OPC y es adecuada para publicar un gran número de nodos. Al usar esta configuración, asegúrese de que el escenario no tiene condiciones que introduzcan latencia alta si no se alcanza el tamaño de mensaje de 256 kB.
 
-## <a name="debug-the-application"></a>Depuración de la aplicación
+## <a name="debug-the-application"></a>Depurar la aplicación
 
 Para depurar la aplicación, abra el archivo de la solución **opcpublisher.sln** con Visual Studio y use las herramientas de depuración de allí.
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 61b6d5ea903d00519c58556bc99da7065741a6e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184067"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396542"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>¿Qué es Azure Active Directory B2C?
 
@@ -105,7 +105,7 @@ Al hacer clic en el botón **Crear**, Azure AD B2C redirige al usuario al siti
 
 Cuando un cliente selecciona una de las opciones en **Business customers** (Clientes empresariales), el sitio web de WoodGrove Groceries invoca una directiva de Azure AD B2C diferente a la de los clientes individuales.
 
-Esta directiva presenta al usuario una opción para usar sus credenciales corporativas para el registro y el inicio de sesión. En el ejemplo de WoodGrove, se pide a los usuarios que inicien sesión con cualquier cuenta de Office 365 o Azure AD. Esta directiva usa una [aplicación de Azure AD multiinquilino](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) y el punto de conexión de Azure AD `/common` para federar Azure AD B2C con cualquier cliente de Office 365 del mundo.
+Esta directiva presenta al usuario una opción para usar sus credenciales corporativas para el registro y el inicio de sesión. En el ejemplo de WoodGrove, se pide a los usuarios que inicien sesión con cualquier cuenta profesional o educativa. Esta directiva usa una [aplicación de Azure AD multiinquilino](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) y el punto de conexión de Azure AD `/common` para federar Azure AD B2C con cualquier cliente de Microsoft 365 del mundo.
 
 ### <a name="authenticate-partners"></a>Autenticación de asociados
 

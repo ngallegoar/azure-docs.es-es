@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73820132"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290694"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configuración del acelerador de soluciones de factoría conectada
+
+> [!IMPORTANT]
+> Mientras actualizamos este artículo, consulte el artículo sobre [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/), donde encontrará el contenido más actualizado.
 
 El acelerador de soluciones de factoría conectada muestra un panel simulado para una compañía ficticia Contoso. Esta compañía tiene factorías en numerosas ubicaciones globales de todo el mundo.
 
@@ -262,12 +265,12 @@ Todas las propiedades utilizadas en el archivo de configuración pueden agrupars
 
 ### <a name="visual-appearance"></a>Apariencia visual
 
-Las propiedades de esta categoría definen la apariencia visual del panel de la factoría conectada. Algunos ejemplos son:
+Las propiedades de esta categoría definen la apariencia visual del panel de la factoría conectada. Entre los ejemplos se incluyen:
 
 * Nombre
 * Descripción
 * Imagen
-* Location
+* Ubicación
 * Unidades
 * Visible
 

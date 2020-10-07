@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python) | Microsoft Azure Maps'
-description: Enrutamiento de vehículos eléctricos mediante las API de enrutamiento de Microsoft Azure Maps y Azure Notebooks.
+description: Tutorial sobre el enrutamiento de vehículos eléctricos mediante las API de enrutamiento de Microsoft Azure Maps y Azure Notebooks.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 506429f51ac442b73adea98058a833f52a728c72
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 28fcdc992f98ff380467718314148984559a7fee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639756"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335235"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)
 
@@ -387,8 +387,6 @@ display(Image(staticMapImage))
 
 ![Mapa que muestra la ruta](./media/tutorial-ev-routing/route.png)
 
-## <a name="next-steps"></a>Pasos siguientes
-
 En este tutorial, ha aprendido a llamar directamente a las API REST de Azure Maps y a visualizar datos de Azure Maps con Python.
 
 Para explorar las API de Azure Maps que se usan en este tutorial, consulte:
@@ -399,7 +397,11 @@ Para explorar las API de Azure Maps que se usan en este tutorial, consulte:
 * [Render - Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Post Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
+* [API REST de Azure Maps](https://docs.microsoft.com/azure/azure-maps/consumption-model)
 
-Para obtener una lista completa de las API REST de Azure Maps, consulte [API REST de Azure Maps](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure Notebooks, consulte [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+Para más información sobre Azure Notebooks, consulte:
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

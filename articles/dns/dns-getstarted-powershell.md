@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 120cb86e1bacfefdd9242d8fa766b391983e9c81
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7361f58247019584d7fb3d60cdd7f76b2e62a212
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069548"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355489"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Inicio rápido: Creación de una zona y un registro de Azure DNS mediante Azure PowerShell
 
@@ -90,7 +90,7 @@ Ahora que tiene una zona DNS de prueba, con un registro "A" de prueba, puede pro
 
    Debe ver algo parecido a la pantalla siguiente:
 
-   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+   ![La captura de pantalla muestra una ventana del símbolo del sistema con un comando de búsqueda ns y los valores de Servidor, Dirección, Nombre y Dirección.](media/dns-getstarted-portal/nslookup.PNG)
 
 El nombre de host **www\.contoso.xyz** se resuelve en **10.10.10.10**, que es como lo ha configurado. Este resultado confirma que la resolución de nombres funciona correctamente.
 

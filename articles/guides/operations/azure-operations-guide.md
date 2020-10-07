@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 0a383e8e2c38dbd00e0a55f9debb9b4daf40fa9c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832763"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397817"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
@@ -68,7 +68,7 @@ Azure proporciona varias ofertas de proceso PaaS, incluida la característica We
 
 SaaS es un software que se hospeda y administra de forma centralizada. Normalmente se basa en una arquitectura multiinquilino: se usa una única versión de la aplicación para todos los clientes. Puede escalar horizontalmente a varias instancias para garantizar el máximo rendimiento en todas las ubicaciones. El software SaaS normalmente se licencia a través de una suscripción mensual o anual. Los proveedores de software SaaS son responsables de todos los componentes de la pila de software, por lo que el usuario solo tiene que administrar los servicios proporcionados.
 
-Microsoft Office 365 es un buen ejemplo de una oferta de SaaS. Los suscriptores pagan una cuota de suscripción mensual o anual y obtienen Microsoft Exchange, Microsoft OneDrive y el resto de Microsoft Office Suite como un servicio. Los suscriptores reciben siempre la versión más reciente y el servidor de Exchange se administra para ellos. En comparación con la instalación y actualización de Office cada año, esto resulta más económico y requiere menos esfuerzo.
+Microsoft 365 es un buen ejemplo de una oferta de SaaS. Los suscriptores pagan una cuota de suscripción mensual o anual y obtienen Microsoft Exchange, Microsoft OneDrive y el resto de Microsoft Office Suite como un servicio. Los suscriptores reciben siempre la versión más reciente y el servidor de Exchange se administra para ellos. En comparación con la instalación y actualización de Office cada año, esto resulta más económico y requiere menos esfuerzo.
 
 ## <a name="azure-services"></a>Servicios de Azure
 

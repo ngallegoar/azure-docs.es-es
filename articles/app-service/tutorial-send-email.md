@@ -4,12 +4,12 @@ description: Aprenda a invocar procesos empresariales desde una aplicación de A
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: ddd57bfe653766d133824f42098d9ad9adb1e56b
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 5aa563e55c64893d57522dd1154a64c7e90a1690
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962203"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397443"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: Envío de correo electrónico e invocación de otros procesos empresariales desde App Service
 
@@ -84,7 +84,8 @@ Implemente una aplicación con el marco de lenguaje que prefiera para App Servic
 1. En la parte inferior del diseñador, haga clic en **Nuevo paso** y, en el cuadro de búsqueda de acciones, escriba **Gmail**. Después, busque y seleccione **Enviar correo electrónico (V2)** .
     
     > [!TIP]
-    > Puede buscar otros tipos de integraciones, como SendGrid, MailChimp, Office 365 y SalesForce. Para más información, consulte [Documentación de Azure Logic Apps](../logic-apps/index.yml).
+    > Puede buscar otros tipos de integraciones, como SendGrid, MailChimp, Microsoft 365 y SalesForce. Para más información, consulte [Documentación de Azure Logic Apps](../logic-apps/index.yml).
+
 1. En el cuadro de diálogo **Gmail**, seleccione **Iniciar sesión** e inicie sesión en la cuenta de Gmail desde la que desea enviar el correo electrónico.
 
     ![Captura de pantalla que muestra el cuadro de diálogo de Gmail que se usa para iniciar sesión en la cuenta de Gmail desde la que quiere enviar el correo electrónico.](./media/tutorial-send-email/gmail-sign-in.png)

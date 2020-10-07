@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e8571da46ca188e975119c387fa4ee0695c4fde
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0454ffc1ed68056b2aedc10a6e904a9a934ab223
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545718"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333514"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zscaler ZSCloud para el aprovisionamiento automático de usuarios
 
@@ -120,7 +120,7 @@ Esta sección le guía por los pasos que debe seguir para configurar el servicio
 
 11. Examine los atributos de usuario que se sincronizan entre Azure AD y Zscaler ZSCloud en la sección **Attribute Mappings** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Zscaler ZSCloud con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
 
-    ![Asignaciones de atributos](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
+    ![Captura de pantalla de la sección Asignaciones de atributos, con siete asignaciones mostradas.](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
 
 12. En la sección **Mappings** (Asignaciones), seleccione **Synchronize Azure Active Directory Groups to ZscalerZSCloud** (Sincronizar grupos de Azure Active Directory con ZscalerZSCloud):
 
@@ -128,7 +128,7 @@ Esta sección le guía por los pasos que debe seguir para configurar el servicio
 
 13. Examine los atributos de grupo que se sincronizan entre Azure AD y Zscaler ZSCloud en la sección **Attribute Mappings** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Matching** (Coincidencia) se usan para buscar coincidencias con los grupos de Zscaler ZSCloud para las operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
 
-    ![Asignaciones de atributos](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
+    ![Captura de pantalla de la sección Asignaciones de atributos, con tres asignaciones mostradas.](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
 
 14. Para configurar filtros de ámbito, consulte las instrucciones del artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](./../active-directory-saas-scoping-filters.md).
 

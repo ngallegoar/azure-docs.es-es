@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 81a83c629a1cdcde77ec43751f32ebfe1dfb3425
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 79cc17ba4f845e2263d1a09af4a3f9ae4150f362
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292224"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
 
@@ -68,7 +68,7 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
 ### <a name="complex-expression-example"></a>Ejemplo de expresión compleja
 En el ejemplo siguiente se muestra un ejemplo complejo que hace referencia a un subcampo profundo de la salida de la actividad. Para hacer referencia a un parámetro de canalización que se evalúa como un subcampo, use la sintaxis [] en lugar del operador punto (.) (como en el caso de subfield1 y subfield2)
 
-@activity('{activityName}').output.{subfield1}.{subfield2}[pipeline().parameters.subfield3].{subfield4}
+@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*
 
 ### <a name="a-dataset-with-a-parameter"></a>Un conjunto de datos con un parámetro
 En el ejemplo siguiente, BlobDataset toma un parámetro llamado **path**. Su valor se usa para establecer un valor para la propiedad **folderPath** mediante la expresión: `dataset().path`. 
