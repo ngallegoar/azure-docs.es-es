@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601765"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266066"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -66,8 +66,8 @@ Este proceso habilita el escenario en el que los usuarios pierden el acceso a lo
 
 | | Aplicaciones web de Office | Aplicaciones Win32 de Office | Office para iOS | Office para Android | Office para Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Compatible | Compatible | No compatible | Compatible | Compatible |
-| **Exchange Online** | Compatible | Compatible | No compatible | Compatible | Compatible |
+| **SharePoint Online** | No compatible | Compatible | Compatible | Compatible | Compatible |
+| **Exchange Online** | No compatible | Compatible | Compatible | Compatible | Compatible |
 
 ### <a name="client-side-claim-challenge"></a>Desafío de notificaciones del lado cliente
 

@@ -7,17 +7,17 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f9c4f58c3318d9d030637f85f3c1597b98d458c7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ca782e9949f990857db408919cac342d7f712d2b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965409"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272623"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>Interoperabilidad de características con FCI y DNN de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -86,7 +86,7 @@ Por ejemplo, suponga que tiene un editor que esté configurado como una FCI medi
 
 Utilice el nombre de instancia completo para una instancia con nombre, como en el ejemplo de imagen siguiente: 
 
-:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Utilice el nombre de instancia completo al configurar un alias de red para una instancia con nombre." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Configure el nombre DNS de DNN como alias de red mediante el Administrador de configuración de SQL Server." :::
 
 ## <a name="database-mirroring"></a>Creación de reflejo de la base de datos
 

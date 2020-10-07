@@ -4,12 +4,12 @@ description: Restaure una máquina virtual de Azure desde un punto de recuperaci
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: d2b5c00df9f9b5b41877fe21181f11ea7fe76084
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 90179ee78569f1c7b0a7bdf4b4da031c26f01783
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986539"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271875"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -163,9 +163,6 @@ La experiencia del usuario de restauración de la región secundaria será simil
 ![Seleccionar punto de restauración](./media/backup-azure-arm-restore-vms/sec-rp.png)
 
 ![Configuración de la restauración](./media/backup-azure-arm-restore-vms/rest-config.png)
-
->[!NOTE]
->La red virtual de la región secundaria debe asignarse de forma única y no se puede usar para otras máquinas virtuales de ese grupo de recursos.
 
 ![Notificación de desencadenador de restauración en curso](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 

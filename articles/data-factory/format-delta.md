@@ -7,12 +7,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: daperlov
-ms.openlocfilehash: e9df7b00a384859fb29577be0ad05da233683f46
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3e1c5f3b360960779dd58c8c05b25885df81d2e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044528"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276530"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Formato delta en Azure Data Factory
 
@@ -41,6 +41,7 @@ En la tabla siguiente se enumeran las propiedades que admite un origen delta. Pu
 | Tipo de compresión | Tipo de compresión de la tabla delta | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | Nivel de compresión | Elija si la compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante debe comprimirse de forma óptima. | obligatorio si se especifica `compressedType` | `Optimal` o `Fastest` | compressionLevel |
 | Viaje en el tiempo | Elija si se debe consultar una instantánea anterior de una tabla delta | no | Consulta por marca de tiempo: Timestamp <br> Consulta por versión: Entero | timestampAsOf <br> versionAsOf |
+| No permitir que se encuentren archivos | Si es true, no se devuelve un error si no se encuentra ningún archivo. | no | `true` o `false` | ignoreNoFilesFound |
 
 #### <a name="import-schema"></a>Importar esquema
 

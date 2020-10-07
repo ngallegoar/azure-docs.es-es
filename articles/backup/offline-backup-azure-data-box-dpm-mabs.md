@@ -3,12 +3,12 @@ title: Copia de seguridad sin conexión con Azure Data Box para DPM y MABS
 description: Puede usar Azure Data Box para propagar datos de copia de seguridad inicial sin conexión desde DPM y MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177693"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271501"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Propagación sin conexión mediante Azure Data Box para DPM y MABS (versión preliminar)
 
@@ -110,7 +110,7 @@ Especifique un origen alternativo: *WIM: D: \Sources\Install.wim: 4*
 
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Transferencia de datos de copia de seguridad inicial a dispositivos de Azure Data Box
 
-1. En el servidor de DPM o MABS, siga los pasos para [crear un nuevo grupo de protección](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Si va a agregar una protección en línea al grupo de protección existente, haga clic con el botón derecho en el grupo de protección existente, seleccione **Agregar protección en línea** y comience desde el **paso 8**.
+1. En el servidor de DPM o MABS, siga los pasos para [crear un nuevo grupo de protección](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Si va a agregar una protección en línea al grupo de protección existente, haga clic con el botón derecho en el grupo de protección existente, seleccione **Agregar protección en línea** y comience desde el **paso 8**.
 2. En la página **Seleccionar miembros del grupo**, especifique los equipos y orígenes cuya copia de seguridad quiere realizar.
 3. En la página **Seleccionar método de protección de datos**, especifique cómo quiere controlar la copia de seguridad a corto y largo plazo. Asegúrese de seleccionar **Deseo protección en línea**.
 

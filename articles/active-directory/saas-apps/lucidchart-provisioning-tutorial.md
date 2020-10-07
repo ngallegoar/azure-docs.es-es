@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 88c14ef916847b84f881e8da2deda7835df37ffb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 632330d7c94e145124e202be9050e4e1beeb12b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550293"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265486"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutorial: Configuración de Lucidchart para aprovisionar usuarios automáticamente
 
@@ -88,11 +88,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Admin Credentials** (Credenciales de administrador), escriba el valor del **token de portador** recuperado anteriormente en el campo **Secret Token** (Token secreto). Haga clic en **Test Connection** (Probar conexión) para asegurarse de que Azure AD puede conectarse a Lucidchart. Si la conexión no se establece, asegúrese de que la cuenta de Lucidchart tiene permisos de administrador e inténtelo de nuevo.
 

@@ -4,12 +4,12 @@ description: En este artículo obtendrá información sobre cómo administrar la
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: d0baac97b7a1bfb5ac55ee8cacc40dc8f13994a5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a37808548ec58977b7d6af16c75b94b7b5efe446
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012609"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271603"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Creación del almacén de Azure Recovery Services mediante API REST
 
@@ -23,7 +23,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>Creación de una solicitud
 
-Para crear la solicitud *PUT*, se necesita el parámetro `{subscription-id}`. Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Definirá los elementos `{resourceGroupName}` y `{vaultName}` para sus recursos, junto con el parámetro `api-version`. En este artículo se usa `api-version=2016-06-01`.
+Para crear la solicitud *PUT*, se necesita el parámetro `{subscription-id}`. Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](/cli/azure/manage-azure-subscriptions-azure-cli). Definirá los elementos `{resourceGroupName}` y `{vaultName}` para sus recursos, junto con el parámetro `api-version`. En este artículo se usa `api-version=2016-06-01`.
 
 Los siguientes encabezados son obligatorios:
 

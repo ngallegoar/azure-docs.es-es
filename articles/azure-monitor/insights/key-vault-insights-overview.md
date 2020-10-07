@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
-ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b91a9a73035b3add309e72ce544375520cf279e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894508"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278624"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Supervisión del servicio Key Vault con Azure Monitor para Key Vault
 Azure Monitor para Key Vault proporciona supervisión general de los almacenes de claves, ya que ofrece una vista unificada de las solicitudes, el rendimiento, los errores y la latencia de la instancia de Key Vault.
@@ -25,21 +25,6 @@ Antes de saltar a la experiencia, debe entender cómo se presenta y se visualiza
 -    **Personalizable**, que le permite cambiar las métricas que desea ver y modificar, o establecer umbrales en consonancia con sus límites y guardar su propio libro. Los gráficos del libro se pueden anclar a los paneles de Azure.
 
 Azure Monitor para Key Vault combina los registros y las métricas para proporcionar una solución de supervisión global. Todos los usuarios pueden acceder a los datos de supervisión basados en métricas; sin embargo, la inclusión de visualizaciones basadas en registros puede requerir que los usuarios [habiliten el registro de su instancia de Azure Key Vault](../../key-vault/general/logging.md).
-
-## <a name="configuring-your-key-vaults-for-monitoring"></a>Configuración de los almacenes de claves para la supervisión
-
-> [!NOTE]
-> La habilitación de registros es un servicio de pago que proporciona capacidades de supervisión adicionales.
-
-1. La pestaña Operations & Latency (Operaciones y latencia) le ayuda a determinar cuántos y qué almacenes de claves están habilitados. Para iniciar la recopilación, seleccione el botón **Habilitar**, que le llevará a un libro independiente en el que se enumeran los almacenes de claves que requieren la habilitación de los registros de diagnóstico.
-
-    ![Captura de pantalla de la pestaña Operaciones y latencia donde se muestra el botón Habilitar azul](./media/key-vaults-insights-overview/enable-logging.png)
-
-2. Para habilitar los registros de diagnóstico, haga clic en el vínculo **Habilitar** debajo de la columna de acciones y cree una nueva configuración de diagnóstico que envíe los registros a un área de trabajo de Log Analytics. Se recomienda enviar todos los registros a la misma área de trabajo.
-
-3. Una vez guardada la configuración de diagnóstico, podrá ver todos los gráficos y visualizaciones basados en registros debajo de las conclusiones de Key Vault. Tenga en cuenta que se puede tardar entre varios minutos y horas en empezar a rellenar los registros.
-
-4. Para obtener ayuda adicional sobre cómo habilitar los registros de diagnóstico para el servicio Key Vault, lea la [guía completa](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Vista desde Azure Monitor
 
@@ -165,10 +150,6 @@ Hay un límite de doscientos almacenes de claves que se pueden seleccionar y ver
 Solo se muestran las suscripciones que contienen almacenes de claves, que se eligen desde el filtro de suscripción seleccionado, que se seleccionan en la sección "Directory + Subscription" (Directorio + Suscripción) en el encabezado de Azure Portal.
 
 ![Captura de pantalla del filtro de suscripción](./media/key-vaults-insights-overview/Subscriptions.png)
-
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Recibo un mensaje de error que indica que la "consulta supera el número máximo de áreas de trabajo o regiones permitidas", ¿qué hago ahora?
-
-Actualmente, hay un límite de veinticinco regiones y doscientas áreas de trabajo. Para ver los datos, debe reducir el número de suscripciones o grupos de recursos.
 
 ### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Quiero realizar cambios o agregar visualizaciones adicionales a las conclusiones de Key Vault, ¿cómo lo hago?
 

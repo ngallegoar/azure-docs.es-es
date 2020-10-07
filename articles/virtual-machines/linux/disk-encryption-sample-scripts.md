@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: abf805d24d164ba31daa4d77d6360629632bfcf0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: dcfae72d5f15399dc4c759ab859ad8059134f11d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279797"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Scripts de ejemplo de Azure Disk Encryption para máquinas virtuales Linux
 
@@ -136,7 +136,7 @@ Hay tres maneras de supervisar el progreso de cifrado del sistema operativo:
 
   Vaya al [Explorador de recursos de Azure](https://resources.azure.com/) y expanda esta jerarquía en el panel de selección a la izquierda:
 
-  ~~~~
+  ```
   |-- subscriptions
      |-- [Your subscription]
           |-- resourceGroups
@@ -146,7 +146,7 @@ Hay tres maneras de supervisar el progreso de cifrado del sistema operativo:
                               |-- virtualMachines
                                    |-- [Your virtual machine]
                                         |-- InstanceView
-  ~~~~                
+  ```                
 
   En el objeto InstanceView, desplácese hacia abajo para ver el estado de cifrado de las unidades de disco.
 
