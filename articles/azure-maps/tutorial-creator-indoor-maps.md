@@ -1,21 +1,21 @@
 ---
-title: Uso de Creator para crear planos interiores
-description: Use Azure Maps Creator para crear planos interiores.
+title: 'Tutorial: Uso de Creator para crear planos interiores'
+description: Tutorial sobre el uso de Azure Maps Creator para crear mapas de interiores
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/29/2020
-ms.topic: conceptual
+ms.date: 09/22/2020
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469922"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371429"
 ---
-# <a name="use-creator-to-create-indoor-maps"></a>Uso de Creator para crear planos interiores
+# <a name="tutorial-use-creator-to-create-indoor-maps"></a>Tutorial: Uso de Creator para crear planos interiores
 
 En este tutorial verá cómo crear planos interiores. En este tutorial, aprenderá a usar la API para realizar lo siguiente:
 
@@ -35,7 +35,7 @@ Para crear planos interiores:
 1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
 3. [Cree un recurso de Creator](how-to-manage-creator.md)
-4. Descargue el [paquete de dibujo de ejemplo](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+4. Descargue el [paquete de dibujo de ejemplo](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip).
 
 En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero puede elegir un entorno de desarrollo de API diferente.
 
@@ -404,43 +404,11 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
 
 [Feature Get States API](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) permite recuperar el estado de una característica mediante el `ID` de la característica. También puede eliminar el conjunto de estados y sus recursos mediante [Feature State Delete API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
 
+Para obtener más información sobre los diferentes servicios de Azure Maps Creator que se describen en este artículo, consulte [Mapas de interiores de Creator](creator-indoor-maps.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a:
-
-> [!div class="checklist"]
-> * Cargar el paquete de dibujo del plano interior.
-> * Convertir el paquete de dibujo en datos del plano.
-> * Crear un conjunto de datos a partir de los datos del plano.
-> * Crear un conjunto de mosaicos a partir de los datos del conjunto de datos.
-> * Consultar el servicio WFS de Azure Maps para obtener información acerca de las características del plano.
-> * Crear un conjunto de estados de características mediante las características del plano y los datos del conjunto de datos.
-> * Actualizar el conjunto de estados de características.
-
-Ya cuenta con los conocimientos que necesita para pasar a las siguientes guías:
+Para obtener información sobre cómo usar el módulo de mapas de interiores, consulte
 
 > [!div class="nextstepaction"]
 > [Uso del módulo de planos interiores](how-to-use-indoor-module.md)
-
-> [!div class="nextstepaction"]
-> [Implementación de un estilo dinámico para planos interiores](indoor-map-dynamic-styling.md)
-
-Obtenga más información sobre los diferentes servicios de Azure Maps que se describen en este artículo:
-
-> [!div class="nextstepaction"]
-> [Data Upload](creator-indoor-maps.md#upload-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Conversión de datos](creator-indoor-maps.md#convert-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Dataset](creator-indoor-maps.md#datasets)
-
-> [!div class="nextstepaction"]
-> [Conjunto de mosaicos](creator-indoor-maps.md#tilesets)
-
-> [!div class="nextstepaction"]
-> [Conjunto de estados de características](creator-indoor-maps.md#feature-statesets)
-
-> [!div class="nextstepaction"]
-> [Servicio WFS](creator-indoor-maps.md#web-feature-service-api)

@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Ejecución del script de Python "Hola mundo"'
+title: 'Tutorial: Ejecución de un script "Hola mundo" de Python'
 titleSuffix: Azure Machine Learning
-description: La segunda parte de la serie de introducción de Azure ML muestra cómo enviar un script de Python "Hola mundo" trivial a la nube.
+description: La parte 2 de la serie de introducción de Azure Machine Learning muestra cómo enviar un script de Python "Hola mundo" trivial a la nube.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,35 +11,34 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 98f4c30d03763e070b1bdc32a5e6e099556916ab
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 980347c658c65a0c08dfc50c08f50741fb9a00fd
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929710"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372551"
 ---
-# <a name="tutorial-run-hello-world-python-script-part-2-of-4"></a>Tutorial: Ejecución del script de Python "Hola mundo" (parte 2 de 4)
+# <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Tutorial: Ejecución de un script "Hola mundo" (parte 2 de 4)
 
-En este tutorial aprenderá a usar el SDK de Python de Azure Machine Learning para enviar y ejecutar un script "Hola mundo" de Python.
+En este tutorial aprenderá a usar el SDK de Azure Machine Learning para Python para enviar y ejecutar un script "Hola mundo" de Python.
 
-Este tutorial es la **segunda parte de una serie de tutoriales de cuatro partes** en la que aprenderá los aspectos básicos de Azure Machine Learning y completará tareas de aprendizaje automático basadas en trabajos en Azure. Este tutorial se basa en el trabajo completado en [Tutorial parte 1: configuración de la máquina local para Azure Machine Learning](
-tutorial-1st-experiment-sdk-setup-local.md).
+Este tutorial es la *parte 2 de una serie de tutoriales de cuatro partes* en la que aprenderá los aspectos básicos de Azure Machine Learning y completará tareas de aprendizaje automático basadas en trabajos en Azure. Este tutorial se basa en el trabajo completado en [Parte 1: Configuración de la máquina local para Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md).
 
 En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
-> * Crear y ejecutar un script de Python "Hola mundo" de forma local.
-> * Crear un script de control de Python para enviar "Hola mundo" a Azure Machine Learning.
+> * Cómo crear y ejecutar de un script "Hola mundo" de Python de forma local.
+> * Crear un script de control de Python para enviar "Hola mundo" a Azure Machine Learning.
 > * Comprender los conceptos de Azure Machine Learning en el script de control.
-> * Enviar y ejecutar "Hola mundo".
+> * Enviar y ejecutar el script "Hola mundo".
 > * Ver la salida del código en la nube.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Complete la [parte 1 del tutorial de configuración de la máquina local](tutorial-1st-experiment-sdk-setup-local.md) si aún no tiene un área de trabajo de Azure Machine Learning.
+- Realización de [Parte 1](tutorial-1st-experiment-sdk-setup-local.md) si aún no tiene un área de trabajo de Azure Machine Learning.
 - Conocimiento introductorio del lenguaje Python y los flujos de trabajo de aprendizaje automático.
-- Entorno de desarrollo local. Esto incluye, entre otros, Visual Studio Code, Jupyter o PyCharm.
-- Python (versión 3.5-3.7).
+- Entorno de desarrollo local, como Visual Studio Code, Jupyter o PyCharm.
+- Python (versión 3.5 a 3.7).
 
 ## <a name="create-and-run-a-python-script-locally"></a>Creación y ejecución de un script de Python de forma local
 
@@ -64,7 +63,7 @@ tutorial
 
 ### <a name="test-your-script-locally"></a>Prueba del script de forma local
 
-Puede ejecutar el código localmente, que tiene la ventaja de depuración interactiva de código, mediante el uso de su IDE favorito o a través de un terminal:
+Puede ejecutar el código localmente mediante su IDE favorito o un terminal. Ejecutar el código localmente tiene la ventaja de la depuración interactiva del código.
 
 ```bash
 cd <path/to/tutorial>
@@ -73,9 +72,9 @@ python ./src/hello.py
 
 ## <a name="create-a-control-script"></a>Creación de un script de control
 
-Un *script de control* le permite ejecutar el script de `hello.py` en la nube.  El script de control permite controlar cómo y dónde se ejecuta el código de aprendizaje automático.  
+Un *script de control* le permite ejecutar el script de `hello.py` en la nube. El script de control se usa para controlar cómo y dónde se ejecuta el código de aprendizaje automático.  
 
-En el directorio del tutorial, cree un nuevo archivo de Python llamado `03-run-hello.py` y copie y pegue el código siguiente en ese archivo:
+En el directorio del tutorial, cree un nuevo archivo de Python denominado `03-run-hello.py`, y copie y pegue el código siguiente en ese archivo:
 
 ```python
 # tutorial/03-run-hello.py
@@ -116,7 +115,7 @@ Esta es una descripción de cómo funciona el script de control:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) ajusta el código `hello.py` y lo pasa al área de trabajo. Como sugiere su nombre, puede usar esta clase para _configurar_ cómo quiera el _script_ para su _ejecución_ en Azure Machine Learning. También especifica el destino de proceso en el que se ejecutará el script.  En este código, el destino es el clúster de proceso que creó en el [tutorial de configuración](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) ajusta el código `hello.py` y lo pasa al área de trabajo. Como sugiere su nombre, puede usar esta clase para _configurar_ cómo quiera el _script_ para su _ejecución_ en Azure Machine Learning. También especifica el destino de proceso en el que se ejecutará el script. En este código, el destino es el clúster de proceso que creó en el [tutorial de configuración](tutorial-1st-experiment-sdk-setup-local.md).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -124,7 +123,7 @@ Esta es una descripción de cómo funciona el script de control:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Envía el script. Este envío se denomina [Ejecución](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).  Una ejecución encapsula una ejecución única del código. Use una ejecución para supervisar el progreso del script, capturar la salida, analizar los resultados, visualizar las métricas y mucho más.
+       Envía el script. Este envío se denomina [ejecución](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true). Una ejecución encapsula una ejecución única del código. Use una ejecución para supervisar el progreso del script, capturar la salida, analizar los resultados, visualizar las métricas y mucho más.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -138,15 +137,15 @@ Esta es una descripción de cómo funciona el script de control:
 
 ## <a name="submit-and-run-your-code-in-the-cloud"></a>Envío y ejecución del código en la nube
 
-Ejecute el script de control, que a su vez se ejecuta `hello.py` en el clúster de proceso que creó en el [tutorial de configuración](tutorial-1st-experiment-sdk-setup-local.md).
+Ejecute el script de control, que a su vez ejecuta `hello.py` en el clúster de proceso que creó en el [tutorial de configuración](tutorial-1st-experiment-sdk-setup-local.md).
 
 ```bash
 python 03-run-hello.py
 ```
 
-## <a name="monitor-your-code-in-the-cloud-using-studio"></a>Supervisión del código en la nube con Studio
+## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Supervisión del código en la nube con Studio
 
-La salida contendrá un vínculo a Azure Machine Learning Studio que tiene un aspecto similar al siguiente: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
+La salida contendrá un vínculo a Studio que tiene un aspecto similar al siguiente: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
 Siga el vínculo y navegue hasta la pestaña **Resultados y registros**. Allí puede ver un archivo `70_driver_log.txt` similar al siguiente:
 
@@ -178,7 +177,7 @@ El archivo de `70_driver_log.txt` contiene la salida estándar de una ejecución
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, tomó un script "Hola mundo" sencillo y lo ejecutó en Azure. Vio cómo conectarse al área de trabajo de Azure Machine Learning, crear un experimento y enviar el código de `hello.py` a la nube.
+En este tutorial, tomó un script "Hola mundo" sencillo y lo ejecutó en Azure. Vio cómo conectarse al área de trabajo de Azure Machine Learning, crear un experimento y enviar el código `hello.py` a la nube.
 
 En el siguiente tutorial, se basará en estos aprendizajes para ejecutar algo más interesante que `print("Hello world!")`.
 

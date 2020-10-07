@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Uso de sus propios datos'
 titleSuffix: Azure Machine Learning
-description: La parte 4 de la serie de introducción de Azure ML muestra cómo usar sus propios datos en una ejecución de entrenamiento remoto.
+description: La parte 4 de la serie de introducción de Azure Machine Learning muestra cómo usar sus propios datos en una ejecución de entrenamiento remoto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,29 +11,29 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 876ba76655572979a1d831a1ca07e5f3871a3283
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 13d43eb788c750a2f24033a6138ebf00ac57fffe
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929714"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372583"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutorial: Uso de sus propios datos (Parte 4 de 4)
 
 En este tutorial se muestra cómo cargar y usar sus propios datos para entrenar modelos de Machine Learning en Azure Machine Learning.
 
-Este tutorial es la **cuarta parte de una serie de tutoriales de cuatro partes** en la que aprenderá los aspectos básicos de Azure Machine Learning y completará tareas de aprendizaje automático basadas en trabajos en Azure. Este tutorial se basa en el trabajo completado en [Parte 1: Configuración](tutorial-1st-experiment-sdk-setup-local.md), [Parte 2: Ejecución de "Hola mundo"](tutorial-1st-experiment-hello-world.md) y [parte 3: Entrenamiento de un modelo](tutorial-1st-experiment-sdk-train.md).
+Este tutorial es la *parte 4 de una serie de tutoriales de cuatro partes* en la que aprenderá los aspectos básicos de Azure Machine Learning y completará tareas de aprendizaje automático basadas en trabajos en Azure. Este tutorial se basa en el trabajo completado en [Parte 1: Configuración](tutorial-1st-experiment-sdk-setup-local.md), [Parte 2: Ejecución de "Hola mundo"](tutorial-1st-experiment-hello-world.md) y [parte 3: Entrenamiento de un modelo](tutorial-1st-experiment-sdk-train.md).
 
 En [Parte 3: Entrenamiento de un modelo](tutorial-1st-experiment-sdk-train.md), los datos se descargaron mediante el método `torchvision.datasets.CIFAR10` integrado de la API de PyTorch. Sin embargo, en muchos casos querrá usar sus propios datos en una ejecución de entrenamiento remota. En este artículo se muestra el flujo de trabajo que puede usar para trabajar con sus propios datos en Azure Machine Learning.
 
 En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
-> * Configurar el script de entrenamiento para usar datos en un directorio local.
+> * Configurar un script de entrenamiento para usar datos en un directorio local.
 > * Probar el script de entrenamiento localmente.
 > * Cargar datos en Azure.
-> * Crear el script de control.
-> * Comprender los nuevos conceptos de Azure Machine Learning (pasar parámetros, conjuntos de datos, almacenes de datos).
+> * Crear un script de control.
+> * Comprender los nuevos conceptos de Azure Machine Learning (pasar parámetros, conjuntos de datos y almacenes de datos).
 > * Enviar y ejecutar el script de entrenamiento.
 > * Ver la salida del código en la nube.
 
@@ -41,16 +41,16 @@ En este tutorial, hizo lo siguiente:
 
 * Completar la [parte 3](tutorial-1st-experiment-sdk-train.md) de la serie.
 * Conocimiento introductorio del lenguaje Python y los flujos de trabajo de aprendizaje automático.
-* Entorno de desarrollo local. Esto incluye, entre otros, Visual Studio Code, Jupyter o PyCharm.
-* Python (versión 3.5-3.7).
+* Entorno de desarrollo local, como Visual Studio Code, Jupyter o PyCharm.
+* Python (versión 3.5 a 3.7).
 
 ## <a name="adjust-the-training-script"></a>Ajuste del script de entrenamiento
 Ahora tiene el script de entrenamiento (tutorial/src/train.py) en ejecución en Azure Machine Learning y puede supervisar el rendimiento del modelo. Vamos a parametrizar el script de entrenamiento mediante la introducción de los argumentos. El uso de argumentos le permitirá comparar fácilmente diferentes hiperparámetros.
 
-En la actualidad, el script de entrenamiento está configurado para descargar el conjunto de datos de CIFAR10 en cada ejecución. El código de Python siguiente se ha ajustado para leer los datos de un directorio.
+Nuestro script de entrenamiento ahora está configurado para descargar el conjunto de datos de CIFAR10 en cada ejecución. El código de Python siguiente se ha ajustado para leer los datos de un directorio.
 
 >[!NOTE] 
-> Uso de `argparse` para parametrizar el script.
+> El uso de `argparse` parametriza el script.
 
 ```python
 # tutorial/src/train.py
@@ -130,7 +130,7 @@ if __name__ == "__main__":
 
 ### <a name="understanding-the-code-changes"></a>Comprensión de los cambios de código
 
-El código utilizado en `train.py` ha aprovechado la biblioteca de `argparse` para configurar `data_path`, `learning_rate` y `momentum`.
+El código de `train.py` ha usado la biblioteca `argparse` para configurar `data_path`, `learning_rate` y `momentum`.
 
 ```python
 # .... other code
@@ -142,7 +142,7 @@ args = parser.parse_args()
 # ... other code
 ```
 
-También se ha adaptado el script de `train.py` para actualizar el optimizador para usar los parámetros definidos por el usuario:
+También se ha adaptado el script `train.py` para actualizar el optimizador a fin de usar los parámetros definidos por el usuario:
 
 ```python
 optimizer = optim.SGD(
@@ -184,7 +184,7 @@ Para evitar tener que descargar el conjunto de datos de CIFAR10, pase una ruta d
 
 ## <a name="upload-the-data-to-azure"></a>Carga de los datos en Azure
 
-Para ejecutar este script en Azure Machine Learning, es necesario que los datos de entrenamiento estén disponibles en Azure. El área de trabajo de Azure Machine Learning incluye un **almacén de datos** _predeterminado_ (una cuenta de Azure Blob Storage) que puede usar para almacenar los datos de entrenamiento.
+Para ejecutar este script en Azure Machine Learning, es necesario que los datos de entrenamiento estén disponibles en Azure. El área de trabajo de Azure Machine Learning incluye un almacén de datos _predeterminado_. Se trata de una cuenta de Azure Blob Storage en la que puede almacenar los datos de entrenamiento.
 
 >[!NOTE] 
 > Azure Machine Learning permite conectar otros almacenes de datos basados en la nube que almacenan los datos. Para más información, vea la [documentación de los almacenes de datos](./concept-data.md).  
@@ -199,12 +199,12 @@ datastore = ws.get_default_datastore()
 datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=True)
 ```
 
-`target_path` especifica la ruta de acceso en el almacén de datos donde se cargarán los datos de CIFAR10.
+El valor de `target_path` especifica la ruta de acceso en el almacén de datos donde se cargarán los datos de CIFAR10.
 
 >[!TIP] 
-> Mientras usa Azure Machine Learning para cargar los datos, puede usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para cargar archivos ad hoc. Si necesita una herramienta de extracción, transformación y carga de datos, se puede usar [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) para ingerir los datos en Azure.
+> Mientras usa Azure Machine Learning para cargar los datos, puede usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para cargar archivos ad hoc. Si necesita una herramienta de extracción, transformación y carga de datos, puede usar [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) para ingerir los datos en Azure.
 
-Ejecute el archivo de Python para cargar los datos (tenga en cuenta que la carga debe ser rápida, menos de 60 segundos).
+Ejecute el archivo de Python para cargar los datos. (La carga debe ser rápida y tardar menos de 60 segundos).
 
 ```bash
 python 05-upload-data.py
@@ -223,7 +223,7 @@ Uploaded 9 files
 
 ## <a name="create-a-control-script"></a>Creación de un script de control
 
-Como ha hecho anteriormente, cree un nuevo script de control de Python llamado `06-run-pytorch-data.py`:
+Como ha hecho anteriormente, cree un nuevo script de control de Python denominado `06-run-pytorch-data.py`:
 
 ```python
 # tutorial/06-run-pytorch-data.py
@@ -271,7 +271,7 @@ El script de control es similar al de la [parte 3 de esta serie](tutorial-1st-e
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      Un [conjunto de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) se usa para hacer referencia a los datos cargados en el almacén de blobs de Azure. Los conjuntos de datos son una capa de abstracción sobre los datos que están diseñados para mejorar la confiabilidad.
+      Se usa un [conjunto de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) para hacer referencia a los datos cargados en Azure Blob Storage. Los conjuntos de datos son una capa de abstracción sobre los datos que están diseñados para mejorar la confiabilidad.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -283,7 +283,7 @@ El script de control es similar al de la [parte 3 de esta serie](tutorial-1st-e
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-run-to-azure-machine-learning"></a>Envío de la ejecución a Azure Machine Learning
+## <a name="submit-the-run-to-azure-machine-learning"></a>Envío de la ejecución a Azure Machine Learning
 
 Ahora vuelva a enviar la ejecución para usar la nueva configuración:
 
@@ -291,11 +291,11 @@ Ahora vuelva a enviar la ejecución para usar la nueva configuración:
 python 06-run-pytorch-data.py
 ```
 
-De esta forma, se imprimirá una dirección URL en el experimento de Azure Machine Learning Studio. Si navega a ese vínculo, podrá ver el código en ejecución.
+Este código imprimirá una dirección URL en el experimento en Azure Machine Learning Studio. Si navega a ese vínculo, podrá ver el código en ejecución.
 
-### <a name="inspect-the-70_driver_log-log-file"></a>Inspección del archivo de registro 70_driver_log
+### <a name="inspect-the-log-file"></a>Inspección del archivo de registro
 
-En Azure Machine Learning Studio, navegue hasta la ejecución del experimento (para ello, haga clic en el resultado de dirección URL de la celda anterior) seguido de **Resultados y registros**. Haga clic en el archivo 70_driver_log.txt. Debería ver el siguiente resultado:
+En Studio, vaya a la ejecución del experimento (seleccione la salida de la dirección URL anterior) seguido de **Resultados y registros**. Seleccione el archivo `70_driver_log.txt`. Debería ver la siguiente salida:
 
 ```txt
 Processing 'input'.
@@ -331,8 +331,8 @@ LIST FILES IN DATA PATH...
 
 Aviso:
 
-1. Azure Machine Learning ha montado el almacén de blobs en el clúster de proceso automáticamente.
-2. Los ``dataset.as_named_input('input').as_mount()`` usados en el script de control se resuelven en el punto de montaje.
+- Azure Machine Learning ha montado el Blob Storage en el clúster de proceso automáticamente.
+- El argumento ``dataset.as_named_input('input').as_mount()`` usado en el script de control se resuelve en el punto de montaje.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -342,9 +342,9 @@ También puede mantener el grupo de recursos pero eliminar una sola área de tra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, vimos cómo cargar datos en Azure con un `Datastore`. El almacén de datos sirvió como almacenamiento en la nube para el área de trabajo, lo que le proporcionó un lugar persistente y flexible para conservar los datos.
+En este tutorial, vimos cómo cargar datos en Azure con el elemento `Datastore`. El almacén de datos sirvió como almacenamiento en la nube para el área de trabajo, lo que le proporcionó un lugar persistente y flexible para conservar los datos.
 
-Vio cómo modificar el script de entrenamiento para aceptar una ruta de acceso de datos a través de la línea de comandos. Mediante el uso de `Dataset`, pudo montar un directorio en la ejecución remota. 
+Vio cómo modificar el script de entrenamiento para aceptar una ruta de acceso de datos a través de la línea de comandos. El elemento `Dataset` le permitió montar un directorio en la ejecución remota. 
 
 Ahora que tiene un modelo, aprenda a realizar la:
 

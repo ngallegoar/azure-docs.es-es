@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4ca601a3f149d8287137265665379d407d10b988
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 08bbe1000d457cc4f4d6b655051ec640d4dcecf4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192689"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362103"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutorial: Incorporación de un dominio personalizado a un punto de conexión de Azure CDN
 En este tutorial se muestra cómo agregar un dominio personalizado a un punto de conexión de Azure Content Delivery Network (CDN). Si se usa un punto de conexión de CDN para entregar contenido, se necesita un dominio personalizado si se desea que el nombre de dominio propio esté visible en la dirección URL de la red CDN. El hecho de tener un nombre de dominio visible puede ser cómodo para sus clientes y útil con fines de personalización de marca. 
@@ -90,7 +90,7 @@ Por ejemplo, este es el procedimiento para el registrador de dominios GoDaddy:
 
 5. Complete los siguientes campos de la entrada de CNAME:
 
-    ![Entrada de CNAME](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
+    ![La captura de pantalla muestra la entrada de CNAME, con los valores de tipo, host, apunta a y TTL para un subdominio cdnverify temporal.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
     - Escriba:  Deje seleccionado *CNAME*.
 
@@ -104,7 +104,7 @@ Por ejemplo, este es el procedimiento para el registrador de dominios GoDaddy:
  
     La entrada de CNAME se agrega a la tabla de registros DNS.
 
-    ![Tabla de registros DNS](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
+    ![La captura de pantalla muestra que la entrada de CNAME se ha agregado a la tabla de registros DNS para un subdominio cdnverify temporal.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
 
 
 ## <a name="associate-the-custom-domain-with-your-cdn-endpoint"></a>Asociación del dominio personalizado a un punto de conexión de CDN
@@ -188,7 +188,7 @@ Por ejemplo, este es el procedimiento para el registrador de dominios GoDaddy:
 
 5. Complete los campos de la entrada de CNAME:
 
-    ![Entrada de CNAME](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
+    ![La captura de pantalla muestra la entrada de CNAME, con los valores de tipo, host, apuntar a y TTL para un dominio personalizado permanente.](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
     - Escriba:  Deje seleccionado *CNAME*.
 
@@ -202,7 +202,7 @@ Por ejemplo, este es el procedimiento para el registrador de dominios GoDaddy:
  
     La entrada de CNAME se agrega a la tabla de registros DNS.
 
-    ![Tabla de registros DNS](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
+    ![La captura de pantalla muestra que la entrada de CNAME se ha agregado a la tabla de registros DNS para un dominio personalizado permanente.](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
 
 7. Si tiene un registro CNAME cdnverify, seleccione el icono de lápiz que encontrará al lado y, después, seleccione el icono de la papelera.
 

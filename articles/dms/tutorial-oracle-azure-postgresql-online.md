@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: 37bf610d1ecc6a05e8dd142ff3d72dd9ed72e51f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 407183837f7be01f5182ff0890426170da223161
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087771"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363178"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: Migración de Oracle a Azure Database for PostgreSQL en línea mediante DMS (versión preliminar)
 
@@ -214,11 +214,11 @@ Si crea un esquema de PostgreSQL mediante herramientas como ora2pg antes de inic
 
 1. Al crear un nuevo proyecto de migración de Oracle a Azure Database for PostgreSQL, se le pedirá que seleccione la base de datos de destino y el esquema de destino en el paso Seleccionar esquemas. Rellene la base de datos de destino y el esquema de destino.
 
-   ![Mostrar suscripciones en el portal](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
+   ![Captura de pantalla que muestra la asignación a las bases de datos de destino.](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
 
 2. En la pantalla **Configuración de migración** se presenta una lista de las tablas del origen de Oracle. Azure Database Migration Service intenta hacer coincidir las tablas de origen y de destino en función de su nombre. Si existen varias tablas de destino coincidentes con distintas mayúsculas y minúsculas, puede seleccionar la tabla de destino para la asignación.
 
-    ![Mostrar suscripciones en el portal](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
+    ![Captura de pantalla que muestra la configuración de migración.](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
 > Si necesita asignar nombres de tabla de origen a tablas con nombres distintos, envíe un correo electrónico a [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) y le proporcionaremos un script para automatizar el proceso.

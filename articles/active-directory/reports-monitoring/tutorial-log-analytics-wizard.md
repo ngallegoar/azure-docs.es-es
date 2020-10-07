@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93caf52d8b4a11f9843ad5f18ebf968d1d0730cd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226214"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361915"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configuración del asistente de Log Analytics
 
@@ -72,7 +72,7 @@ La configuración de un área de trabajo de Log Analytics consta de dos pasos pr
 
 3. En la página Áreas de trabajo de Log Analytics, haga clic en **Agregar**.
 
-    ![Sumar](./media/tutorial-log-analytics-wizard/add.png)
+    ![Captura de pantalla que muestra el botón Agregar de la página Áreas de trabajo de Log Analytics.](./media/tutorial-log-analytics-wizard/add.png)
 
 4.  En la página **Crear un área de trabajo de Log Analytics**, siga estos pasos:
 
@@ -305,7 +305,7 @@ En este procedimiento se muestra cómo crear un nuevo libro mediante la plantill
 
 3. En la sección **Supervisión**, haga clic en **Libros**.
 
-    ![Workbooks](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Captura de pantalla que muestra la sección Supervisión en el menú de Azure Portal con la opción Libros seleccionada.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. En la sección **Inicio rápido**, haga clic en **Vacío**.
 
@@ -357,7 +357,7 @@ Este procedimiento muestra cómo agregar una consulta a una plantilla de libro e
 
 3. En la sección **Supervisión**, haga clic en **Libros**.
 
-    ![Workbooks](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Captura de pantalla que muestra la sección Supervisión en el menú con la opción Libros seleccionada.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. En la sección **acceso condicional**, haga clic en **Información detallada e informes del acceso condicional**.
 

@@ -8,12 +8,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 8a55ab9b6b87a379fbdebcead4467ec47507d67a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8853a153450a07105ed4bac13de0da6cea95ce2a
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356356"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Creación de una configuración de escalado automático de recursos de Azure basado en los datos de rendimiento o una programación
 
@@ -46,7 +46,7 @@ En el plazo de unos minutos, los recursos deberían aprovisionarse. Utilice la a
 1. En el panel de navegación izquierdo, seleccione la opción **Monitor**. Una vez que la página se cargue, seleccione la pestaña **Escalado automático**.
 2. Aquí se muestra una lista de los recursos de la suscripción que admiten el escalado automático. Busque el plan de App Service que se creó anteriormente en el tutorial y haga clic en él.
 
-    ![Navegación a la configuración de escalado automático](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
+    ![La captura de pantalla muestra Azure Portal, con las opciones Monitor y Escalado automático seleccionadas.](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
 3. En la configuración de escalado automático, haga clic en el botón **Habilitar escalado automático**.
 
@@ -59,7 +59,7 @@ Los pasos siguientes le ayudarán a rellenar la pantalla de escalado automático
 2. En el perfil predeterminado, asegúrese de que el **Modo de escala** esté establecido en “Escalar a un número específico de instancias”.
 3. Establezca el recuento de instancias en **1**. Este valor garantiza que, cuando ningún otro perfil esté activo o en vigor, el perfil predeterminado devuelve el recuento de instancias a 1.
 
-   ![Navegación a la configuración de escalado automático](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![La captura de pantalla muestra la página de configuración de escalado automático, con un nombre especificado para la configuración.](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>Creación del perfil de periodicidad

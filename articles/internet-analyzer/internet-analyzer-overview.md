@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 3d9d1240e31d40a3d9c75d56314acc1721d90b99
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2512092c69390ce604c26ab6c5dd000afafc7c05
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73488141"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360895"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>¿Qué es Azure Internet Analyzer? (versión preliminar)
 
@@ -90,7 +90,7 @@ Para usar Internet Analyzer, configure un recurso de Internet Analyzer en Micros
 
 Cuando un usuario visita la aplicación web, el cliente de JavaScript selecciona dos puntos de conexión para realizar la medición en todas las pruebas configuradas. En cada uno de ellos, el cliente realiza una medición _en frío_ y otra _en caliente_. La primera de ellas tiene una latencia adicional, además de la latencia _pura_ de la red entre el usuario y el punto de conexión, como la resolución DNS, el protocolo de enlace de la conexión TCP y la negociación SSL/TLS. La segunda se realiza inmediatamente después de que finaliza la primera y aprovecha la administración de conexiones TCP persistente de los exploradores modernos para obtener una medida precisa de la latencia de un extremo a otro. Si el explorador del usuario lo admite, se utiliza la API de control de tiempo de recursos de W3C para realizar un control preciso del tiempo de las mediciones. Actualmente, para los análisis solo se usan las medidas de latencia en caliente.
 
-![arquitectura](./media/ia-overview/architecture.png)
+![En el diagrama se muestra que un usuario final se conecta a un servidor de aplicaciones con un cliente incrustado y a los dos puntos de conexión de Internet desde varias opciones. El usuario carga las medidas en Internet Analyzer.](./media/ia-overview/architecture.png)
 
 
 ## <a name="scorecards"></a>Cuadros de mandos 

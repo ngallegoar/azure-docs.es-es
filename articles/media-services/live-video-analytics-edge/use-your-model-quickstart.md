@@ -1,15 +1,15 @@
 ---
 title: 'Análisis de vídeo en directo con su propio modelo HTTP: Azure'
-description: En este inicio rápido, aplicará Computer Vision para analizar la fuente de vídeo en directo desde una cámara IP (simulada).
+description: En este inicio rápido, aplicará Computer Vision para analizar la fuente de vídeo en directo desde una cámara IP (simulada) mediante su propio modelo de HTTP.
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 5fd7f1a7db323e3aa7971c1ced6fc588d6e60e37
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 07661fb1e9496aacff6f108a840e0c357f068d41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684286"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336469"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-http-model"></a>Inicio rápido: Análisis de vídeo en directo con su propio modelo HTTP
 

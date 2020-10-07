@@ -4,12 +4,12 @@ description: Describe cómo utilizar Administrador de recursos de Azure para la 
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 2dc33093df0d9bc0bd75410bac8d200fe6555257
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293955"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372279"
 ---
 # <a name="what-is-azure-resource-manager"></a>¿Qué es Azure Resource Manager?
 
@@ -83,7 +83,7 @@ Hay algunos factores importantes que se deben tener en cuenta al definir el grup
 
    Si la región del grupo de recursos no está disponible temporalmente, no puede actualizar los recursos del grupo de recursos porque los metadatos no están disponibles. Los recursos de otras regiones seguirán funcionando según lo previsto, pero no podrá actualizarlos. Para más información sobre la creación de aplicaciones confiables, consulte [Diseño de aplicaciones de Azure confiables](/azure/architecture/checklist/resiliency-per-service).
 
-* Un grupo de recursos puede utilizarse para definir el ámbito de control de acceso para las acciones administrativas. Para administrar un grupo de recursos, se pueden asignar [directivas de Azure](../../governance/policy/overview.md), [roles de RBAC](../../role-based-access-control/role-assignments-portal.md) o [bloqueos de recursos](lock-resources.md).
+* Un grupo de recursos puede utilizarse para definir el ámbito de control de acceso para las acciones administrativas. Para administrar un grupo de recursos, se pueden asignar [directivas de Azure](../../governance/policy/overview.md), [roles de Azure](../../role-based-access-control/role-assignments-portal.md) o [bloqueos de recursos](lock-resources.md).
 
 * También, se pueden [aplicar etiquetas](tag-resources.md) a un grupo de recursos. Los recursos del grupo de recursos no heredan esas etiquetas.
 

@@ -6,10 +6,10 @@ ms.date: 03/22/2019
 ms.author: sngun
 ms.custom: seo-java-september2019
 ms.openlocfilehash: a8162afadb5a7d327804d7202b29ca0dccf275c4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "71210340"
 ---
 Azure Portal supervisa el rendimiento, capacidad de almacenamiento, disponibilidad, latencia y coherencia de su cuenta de Cosmos DB. Los gráficos de las métricas asociadas con un [Acuerdo de Nivel de Servicio (SLA) de Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) muestran el rendimiento real en comparación con el valor de este acuerdo. Este conjunto de métricas hace que la supervisión de los Acuerdos de Nivel de Servicio sea transparente.

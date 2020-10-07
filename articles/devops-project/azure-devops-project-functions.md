@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 79e2726e26ff7883d5022e57fff8fa8961af2c98
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 3277fefb5615fd492b2859b741ef8e6f991eaf23
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163686"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355481"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>Implementación en Azure Functions con DevOps Starter
 
@@ -95,7 +95,7 @@ DevOps Starter configura automáticamente una canalización de CI/CD de Azure co
 
 1. Haga clic en el hipervínculo en **Compilar**. Una pestaña del explorador muestra la canalización de compilación del nuevo proyecto.
 
-    ![Build](_img/azure-devops-project-functions/build.png)
+    ![La captura de pantalla muestra el panel de DevOps Starter de Azure Portal, con una flecha que apunta a un vínculo en la sección de compilación de la canalización de CI/CD.](_img/azure-devops-project-functions/build.png)
 
 1. Seleccione **Editar**. En este panel puede examinar las distintas tareas de la canalización de compilación. La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio de Git, compilar la aplicación, ejecutar pruebas unitarias y publicar salidas que se usan para implementaciones.
 

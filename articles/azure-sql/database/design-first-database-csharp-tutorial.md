@@ -8,14 +8,14 @@ ms.custom: seo-lt-2019, sqldbrb=1, devx-track-csharp
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/29/2019
-ms.openlocfilehash: 055dbdcf936cc55dcad288d216d765f4e1bf789d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fe4bcb10db33c6f68abeb779e668726fc1a59345
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932447"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360249"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>Tutorial: Diseño de una base de datos relacional en Azure SQL Database con C# y ADO.NET
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -82,7 +82,7 @@ Siga estos pasos para crear una base de datos en blanco.
 
 9. En la barra de herramientas, haga clic en **Notificaciones** para supervisar el proceso de implementación.
 
-   ![notificación](./media/design-first-database-csharp-tutorial/notification.png)
+   ![La captura de pantalla muestra notificaciones en Azure Portal, con la implementación en curso.](./media/design-first-database-csharp-tutorial/notification.png)
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Creación de una regla de firewall de IP de nivel de servidor
 

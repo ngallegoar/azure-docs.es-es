@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 3b34b45cba805d748dcc8a0c31340cd8116e1c80
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93d9ce50a451221c86f5336107dba30695af159f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160773"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355370"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Inicio rápido: Creación de una zona y un registro Azure DNS mediante Azure Portal
 
@@ -97,7 +97,7 @@ Ahora que tiene una zona DNS de prueba, con un registro "A" de prueba, puede pro
 
    Debe ver algo parecido a la pantalla siguiente:
 
-   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+   ![La captura de pantalla muestra una ventana del símbolo del sistema con un comando de búsqueda ns y los valores de Servidor, Dirección, Nombre y Dirección.](media/dns-getstarted-portal/nslookup.PNG)
 
 El nombre de host **www\.contoso.xyz** se resuelve en **10.10.10.10**, que es como lo ha configurado. Este resultado confirma que la resolución de nombres funciona correctamente. 
 

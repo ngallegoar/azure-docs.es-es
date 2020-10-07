@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
 ms.openlocfilehash: db3836e6171d187539b8615efcb5ab782c368020
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88752447"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Inicio rápido: creación de la primera aplicación web estática
@@ -20,7 +20,7 @@ Azure Static Web Apps publica sitios web en entornos de producción mediante la 
 
 Si no tiene ninguna suscripción a Azure, [cree una cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [GitHub](https://github.com)
 - Cuenta de [Azure](https://portal.azure.com)
@@ -44,27 +44,27 @@ Después, abra Visual Studio Code y vaya a **Archivo > Abrir carpeta** para abri
 
 1. Coloque el mouse sobre la etiqueta _Static Web Apps_ y seleccione el **signo más**.
 
-    :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Nombre de la aplicación":::
+    :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Logotipo de Azure":::
 
 1. La paleta de comandos se abre en la parte superior del editor y le pide que asigne un nombre a la aplicación.
 
     Escriba **my-first-static-web-app** y presione **Entrar**.
 
-    :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Creación de la aplicación web estática":::
+    :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Logotipo de Azure":::
 
 1. Seleccione la rama **master** y presione **Entrar**.
 
-    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Nombre de la rama":::
+    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Logotipo de Azure":::
 
 1. Seleccione **/** como ubicación del código de la aplicación y presione **Entrar**.
 
-    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Ubicación del código de la aplicación":::
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Logotipo de Azure":::
 
 1. La extensión busca la ubicación de la API en la aplicación. En este artículo no se implementa ninguna API.
 
     Seleccione **Omitir por ahora** y presione **Entrar**.
 
-    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Ubicación de la API":::
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Logotipo de Azure":::
 
 1. Seleccione la ubicación en la que se compilan los archivos para producción en la aplicación.
 
@@ -72,39 +72,39 @@ Después, abra Visual Studio Code y vaya a **Archivo > Abrir carpeta** para abri
 
     Desactive la casilla y presione **Entrar**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="Ruta de acceso de los archivos de la aplicación":::
+    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="Logotipo de Azure":::
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
     Escriba **dist/angular-basic** y presione **Entrar**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Ruta de acceso de los archivos de la aplicación Angular":::
+    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Logotipo de Azure":::
 
     # <a name="react"></a>[React](#tab/react)
 
     Escriba **build** y presione **Entrar**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="Ruta de acceso de los archivos de la aplicación React":::
+    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="Logotipo de Azure":::
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
     Escriba **build** y presione **Entrar**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Ruta de acceso de los archivos de la aplicación Vue":::
+    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Logotipo de Azure":::
 
     ---
 
 1. Seleccione la ubicación más cercana y presione **Entrar**.
 
-    :::image type="content" source="media/getting-started/extension-location.png" alt-text="Ubicación de los recursos":::
+    :::image type="content" source="media/getting-started/extension-location.png" alt-text="Logotipo de Azure":::
 
 1. Una vez creada la aplicación, se muestra una notificación de confirmación en Visual Studio Code.
 
-    :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Confirmación creada":::
+    :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Logotipo de Azure":::
 
 1. En la ventana Explorador de Visual Studio Code, vuelva a la sección _Web Apps estática,_ haga clic con el botón derecho en **Producción** y seleccione **Abrir en el portal** para ver la aplicación en Azure Portal.
 
-    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Abrir portal":::
+    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Logotipo de Azure":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
@@ -114,7 +114,7 @@ Si no va a seguir usando esta aplicación, puede eliminar la instancia de Azure 
 
 En la ventana Explorador de Visual Studio Code, vuelva a la sección _Static Web Apps_ y haga clic con el botón derecho en **my-first-static-web-app** y seleccione **Eliminar**.
 
-:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Eliminar la aplicación":::
+:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Logotipo de Azure":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

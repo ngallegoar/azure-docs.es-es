@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: c67440453e5ca8395464369d75bfac418a564764
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bb0af58c9abc4fad701b1d0927f4c13e1fdcca49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945963"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376672"
 ---
 En este inicio rápido, aprenderá a iniciar una llamada mediante la biblioteca cliente de llamadas de Azure Communication Services para iOS.
 
@@ -28,26 +28,26 @@ Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
 ### <a name="creating-the-xcode-project"></a>Creación del proyecto de Xcode
 
-En Xcode, cree un nuevo proyecto de iOS y seleccione la plantilla **Aplicación de una vista**. En este tutorial se usa el [marco SwiftUI](https://developer.apple.com/xcode/swiftui/), por lo que debe establecer el **lenguaje** en **Swift** y la **interfaz de usuario** en **SwiftUI**. Durante este inicio rápido, no va a crear pruebas unitarias ni pruebas de interfaz de usuario. No dude en desactivar la opción **Include Unit Tests** (Incluir pruebas unitarias) y desactivar también la opción **Include UI Tests** (Incluir pruebas de interfaz de usuario).
+En Xcode, cree un nuevo proyecto de iOS y seleccione la plantilla **Aplicación de una vista**. En este tutorial se usa el [marco SwiftUI](https://developer.apple.com/xcode/swiftui/), por lo que debe establecer **Lenguaje** en **Swift** e **Interfaz de usuario** en **SwiftUI**. Durante este inicio rápido, no va a crear pruebas. No dude en desactivar **Incluir pruebas**.
 
-:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Captura de pantalla que muestra la ventana de creación de un nuevo proyecto en Xcode.":::
+:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Captura de pantalla que muestra la ventana Nuevo proyecto en Xcode.":::
 
 ### <a name="install-the-package"></a>Instalar el paquete
 
 Agregue la biblioteca cliente de llamadas de Azure Communication Services y sus dependencias (AzureCore.framework and AzureCommunication.framework) al proyecto.
 
 > [!NOTE]
-> Con el lanzamiento del SDK de AzureCommunicationCalling, encontrará un script de Bash `BuildAzurePackages.sh`. Al ejecutar `sh ./BuildAzurePackages.sh`, el script le proporcionará la ruta de acceso a los paquetes generados del marco que se deben importar en la aplicación de ejemplo en el paso siguiente. Tenga en cuenta que deberá configurar las herramientas de la línea de comandos de Xcode si no lo ha hecho antes de ejecutar el script: Inicie Xcode, seleccione "Preferencias -> Ubicaciones". Elija la versión de Xcode para las herramientas de la línea de comandos.
+> Con el lanzamiento del SDK de AzureCommunicationCalling, encontrará un script de Bash `BuildAzurePackages.sh`. Al ejecutar `sh ./BuildAzurePackages.sh`, el script le proporcionará la ruta de acceso a los paquetes generados del marco que se deben importar en la aplicación de ejemplo en el paso siguiente. Tenga en cuenta que deberá configurar las herramientas de la línea de comandos de Xcode si no lo ha hecho antes de ejecutar el script: Inicie Xcode, seleccione "Preferencias -> Ubicaciones". Elija la versión de Xcode para las herramientas de la línea de comandos. **El script BuildAzurePackages.sh solo funciona con Xcode 11.5 y versiones posteriores**
 
-1. Descargue la biblioteca cliente de llamadas de Azure Communication Services para iOS.
+1. [Descargue](https://github.com/Azure/Communication/releases) la biblioteca cliente de llamadas de Azure Communication Services para iOS.
 2. En Xcode, haga clic en el archivo del proyecto y seleccione el destino de compilación para abrir el editor de configuración del proyecto.
 3. En la pestaña **General**, desplácese a la sección **Frameworks, Libraries, and Embedded Content** (Marcos, bibliotecas y contenido insertado) y haga clic en el icono **"+"** .
-4. En la parte inferior izquierda del cuadro de diálogo, elija **Agregar archivos**, desplácese hasta el directorio **AzureCommunicationCalling.framework** del paquete de la biblioteca cliente sin comprimir.
+4. En la parte inferior izquierda del cuadro de diálogo, utilice el menú desplegable **Agregar archivos**, desplácese hasta el directorio **AzureCommunicationCalling.framework** del paquete de la biblioteca cliente sin comprimir.
     1. Repita el último paso para agregar **AzureCore.framework** y **AzureCommunication.framework**.
 5. Abra la pestaña **Configuración de la compilación** del editor de configuración del proyecto y desplácese hasta la sección **Rutas de búsqueda**. Agregue la entrada **Framework Search Paths** (Rutas de acceso de búsqueda del marco) para el directorio que contiene **AzureCommunicationCalling.framework**.
     1. Agregue otra entrada de rutas de acceso de búsqueda del marco que apunte a la carpeta que contiene las dependencias.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Captura de pantalla que muestra cómo actualizar las rutas de acceso de búsqueda del marco en Xcode.":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Captura de pantalla que muestra la ventana Nuevo proyecto en Xcode.":::
 
 ### <a name="request-access-to-the-microphone"></a>Solicitud de acceso al micrófono
 
@@ -121,7 +121,7 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 | ACSCallClient | CallClient es el punto de entrada principal a la biblioteca cliente de llamadas.|
 | ACSCallClient | CallAgent se usa para iniciar y administrar llamadas. |
 | CommunicationUserCredential | CommunicationUserCredential se usa como la credencial de token para crear una instancia de CallAgent.| 
-| CommunicationIndentifier | CommunicationIndentifier se usa para representar la identidad del usuario, que puede ser una de las opciones siguientes: CommunicationUser/PhoneNumber/CallingApplication. |
+| CommunicationIdentifier | CommunicationIdentifier se usa para representar la identidad del usuario, que puede ser una de las opciones siguientes: CommunicationUser/PhoneNumber/CallingApplication. |
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
@@ -192,13 +192,13 @@ func endCall()
 
 Para compilar y ejecutar la aplicación en el simulador de iOS, seleccione **Producto** > **Ejecutar** o use el método abreviado de teclado (&#8984;-R).
 
-:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Aspecto final de la aplicación de inicio rápido":::
+:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Captura de pantalla que muestra la ventana Nuevo proyecto en Xcode.":::
 
 Para hacer una llamada de VoIP saliente, proporcione un identificador de usuario en el campo de texto y toque el botón **Iniciar llamada**. La llamada a `8:echo123` le conecta a un bot de eco, lo que resulta ideal como introducción y para verificar que los dispositivos de audio funcionan. 
 
 > [!NOTE]
 > La primera vez que realice una llamada, el sistema le solicitará acceso al micrófono. En una aplicación de producción, debe usar la API `AVAudioSession`, [comprobar el estado del permiso](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) y actualizar correctamente el comportamiento de la aplicación cuando no se conceda el permiso.
 
-## <a name="sample"></a>Ejemplo
+## <a name="sample-code"></a>Código de ejemplo
 
-Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure/Communication/tree/master/samples/AzureCommunicationCalling/iOS/Swift).
+Puede descargar la aplicación de ejemplo de [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/iOS/Swift).

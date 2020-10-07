@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: a50f09dd52ccf4d35fd3803967898a4a25e3299f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d0754ea2d7e8f8f59ec475be8e27fcffd058c11f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945627"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376367"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 Antes de comenzar, compruebe lo siguiente:
@@ -91,6 +91,8 @@ Cree un archivo en el directorio raíz del proyecto denominado **client.js** que
 
 Para crear un cliente de chat, usará el punto de conexión de Communication Services y el token de acceso que se generó como parte de los pasos de requisitos previos. Los tokens de acceso de usuario permiten compilar aplicaciones cliente que se autentiquen directamente en Azure Communication Services. Después de generar estos tokens en el servidor, vuelva a pasarlos a un dispositivo cliente. Debe usar la clase `AzureCommunicationUserCredential` del `Common client library` para pasar el token al cliente de chat.
 
+Cree un archivo **client.js** en el directorio raíz del proyecto. Usaremos este archivo para agregar la funcionalidad de chat mediante la biblioteca cliente de chat de Azure Communication Services para JavaScript.
+
 ```JavaScript
 
 import { ChatClient } from '@azure/communication-chat';
@@ -109,7 +111,7 @@ Agregue este código al archivo **client.js**.
 
 
 ### <a name="run-the-code"></a>Ejecución del código
-Utilice `webpack-dev-server` para compilar y ejecutar su aplicación. Ejecute el siguiente comando para agrupar el host de aplicación en un servidor web local:
+Utilice `webpack-dev-server` para compilar y ejecutar la aplicación. Ejecute el siguiente comando para agrupar el host de aplicación en un servidor web local:
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```

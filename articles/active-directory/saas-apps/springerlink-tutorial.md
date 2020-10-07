@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 41713554273ed5d6548a35d0ac956d8ff5c74191
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e3b2ee35352c2af4ae8196ba7c9699da761f83e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542540"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372534"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Tutorial: Integración de Azure Active Directory con Springer Link
 
@@ -39,7 +39,7 @@ Para configurar la integración de Azure AD con Springer Link, necesita los sigu
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+En este tutorial, configurará y probará el inicio de sesión único de Azure AD.
 
 * Springer Link admite el inicio de sesión único iniciado por **SP** e **IDP**
 
@@ -68,16 +68,14 @@ Para configurar la integración de Springer Link en Azure AD, hay que agregar Sp
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
 En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Springer Link con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Springer Link.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Springer Link, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Springer Link](#configure-springer-link-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único en Springer Link](#configure-springer-link-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Springer Link](#create-springer-link-test-user)** : para tener un homólogo de Britta Simon en Springer Link vinculado a la representación del usuario de Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
+5. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -120,21 +118,11 @@ Para configurar el inicio de sesión único de Azure AD con Springer Link, reali
 
 6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el icono de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
-    ![Vínculo de descarga del certificado](common/metadataxml.png)
-
-7. En la sección **Set up Springer Link** (Configurar Springer Link), copie las direcciones URL que necesite.
-
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
-
-    a. URL de inicio de sesión
-
-    b. Identificador de Azure AD
-
-    c. URL de cierre de sesión
+    ![Vínculo de descarga de metadatos](common/copy_metadataurl.png)
 
 ### <a name="configure-springer-link-single-sign-on"></a>Configuración del inicio de sesión único de Springer Link
 
-Para configurar el inicio de sesión único en **Springer Link**, debe enviar la **Dirección URL de metadatos de federación de aplicación** y las direcciones URL adecuadas que se copiaron de Azure Portal al [equipo de soporte técnico de Springer Link](mailto:identity@springernature.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Springer Link**, hay que enviar la **dirección URL de metadatos de federación de la aplicación** copiada al [equipo de soporte técnico de Springer Link](mailto:onlineservice@springernature.com). El equipo de soporte técnico de Springer Link usa esta dirección URL para configurar la conexión de inicio de sesión único de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -186,10 +174,6 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
-
-### <a name="create-springer-link-test-user"></a>Creación de un usuario de prueba de Springer Link
-
-En esta sección, creará un usuario llamado "Britta Simon" en Springer Link. Trabaje con el  [equipo de soporte técnico de Springer Link ](mailto:identity@springernature.com) para agregar los usuarios en la plataforma Springer Link. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

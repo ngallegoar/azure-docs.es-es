@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: 42bdde45b3a289a35c5bf4c4651e5a50a639f049
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 36b2e829e56cf4d3b5ace64af989fa7f71725c44
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251780"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360844"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro de implementación para Azure Kubernetes
 
@@ -54,7 +54,7 @@ En este tutorial, aprenderá lo siguiente:
 
 1. Seleccione el clúster de AKS y **Centro de implementación (versión preliminar)** en la hoja de la izquierda. Seleccione **Comenzar**.
 
-   ![configuración](media/deployment-center-launcher/settings.png)
+   ![La captura de pantalla muestra Azure Portal con una flecha que apunta al centro de implementación.](media/deployment-center-launcher/settings.png)
 
 1. Elija la ubicación del código y seleccione **Siguiente**. A continuación, seleccione uno de los repositorios admitidos actualmente: **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** o **GitHub**.
 
@@ -66,7 +66,7 @@ En este tutorial, aprenderá lo siguiente:
 
     - **GitHub**: Autorice y seleccione el repositorio para su cuenta de GitHub.
 
-        ![GitHub](media/deployment-center-launcher/github.gif)
+        ![La animación muestra, en GitHub, un proceso para seleccionar GitHub como el origen y, a continuación, seleccionar el repositorio.](media/deployment-center-launcher/github.gif)
 
 
 1. El centro de implementación analiza el repositorio y detecta el Dockerfile. Si desea actualizarlo, puede editar el número de puerto identificado.
@@ -75,7 +75,7 @@ En este tutorial, aprenderá lo siguiente:
 
     Si el repositorio no contiene el Dockerfile, el sistema mostrará un mensaje para confirmar uno.
 
-    ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
+    ![La captura de pantalla muestra el centro de implementación con un mensaje que indica que no se encontró Dockerfile en el repositorio.](media/deployment-center-launcher/dockerfile.png)
 
 1. Seleccione un registro de contenedor existente o cree uno y, a continuación, seleccione **Finalizar**. La canalización se crea automáticamente y pone en cola una compilación en [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
 
@@ -87,7 +87,7 @@ En este tutorial, aprenderá lo siguiente:
 
 1. Verá los registros correctos una vez que la implementación se haya completado.
 
-    ![Registros](media/deployment-center-launcher/logs.png)
+    ![La captura de pantalla muestra el centro de implementación, con un icono de marca de verificación verde junto a la versión 1.](media/deployment-center-launcher/logs.png)
 
 ## <a name="examine-the-ci-pipeline"></a>Examen de la canalización de CI
 

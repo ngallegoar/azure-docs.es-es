@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: 18f72ff32b29ff5832c363601ed63280339079df
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 52fba5064d656158a53ba71fec194cfa4f360df5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083085"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360300"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Transformación de datos en Azure Virtual Network mediante la actividad de Hive en Azure Data Factory con Azure Portal
 
@@ -233,7 +233,7 @@ Tenga en cuenta los siguientes puntos:
         ![Argumentos de script](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Para publicar artefactos en Data Factory, haga clic en **Publish** (Publicar).
 
-    ![Publicar](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
+    ![La captura de pantalla muestra la opción para publicar en una factoría de datos.](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Desencadenamiento de una ejecución de la canalización
 

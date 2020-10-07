@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
-ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8309b625a590131c5f521335e180967ab2c2667c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77565585"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363161"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutorial: Administración de los dispositivos conectados de forma masiva
 
@@ -147,7 +147,7 @@ Use su cuenta de almacenamiento de Azure para hospedar el nuevo archivo de firmw
 
 1. Cuando la carga finaliza, el dispositivo de IoT DevKit se reinicia. Cuando finaliza el reinicio, la pantalla de IoT DevKit muestra **FW version: 1.0.0**, y que está buscando nuevo firmware:
 
-    ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
+    ![La fotografía muestra el dispositivo IoT DevKit, y su pantalla indica la versión de firmware y que está buscando nuevo firmware.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>Creación de la configuración de dispositivos
 
@@ -248,27 +248,27 @@ En esta sección, creará y ejecutará una implementación que aplica la configu
 
 Después de unos minutos, el IoT DevKit recupera la información del nuevo firmware y empieza a descargarlo en el dispositivo:
 
-![ota-2](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
+![La fotografía muestra el dispositivo IoT DevKit, y su pantalla indica la nueva versión de firmware que se está descargando.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
 
 Según la velocidad de la red, la descarga puede tardar hasta un par de minutos. Una vez descargado el firmware, el dispositivo comprueba el tamaño de archivo y el valor CRC. La pantalla de MXChip muestra **passed** si la comprobación es correcta.
 
-![ota-3](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
+![La fotografía muestra el dispositivo IoT DevKit, y su pantalla indica la versión de firmware y que la comprobación ha sido correcta.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
 
 Si la comprobación es correcta, el dispositivo se reinicia. Verá una cuenta atrás de **5** a **0** antes de que ocurra el reinicio.
 
-![ota-4](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
+![La fotografía muestra el dispositivo IoT DevKit preparando el reinicio.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
 
 Después del reinicio, el cargador de arranque de IoT DevKit actualiza el firmware a la nueva versión. Podría tardar varios segundos. Durante esta fase, el LED RGB del dispositivo está en rojo y la pantalla, en blanco.
 
-![ota-5](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
+![La fotografía muestra el dispositivo IoT DevKit realizando la actualización. No hay ninguna indicación, pero el LED RGB aparece iluminado en rojo.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
 
 Cuando el reinicio haya finalizado, el dispositivo de IoT DevKit estará ejecutando la versión 1.0.1 del firmware.
 
-![ota-6](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
+![La fotografía muestra el dispositivo IoT DevKit, y su pantalla indica la nueva versión de firmware.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
 
 En la página **Implementaciones**, haga clic en una implementación para ver el estado de los dispositivos a medida que se actualizan. Puede ver el estado de cada uno en el grupo de dispositivos y las métricas personalizadas que ha definido.
 
-![Detalles de la implementación](media/iot-accelerators-remote-monitoring-bulk-configuration-update/deploymentstatus.png)
+![Detalles de implementación](media/iot-accelerators-remote-monitoring-bulk-configuration-update/deploymentstatus.png)
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 

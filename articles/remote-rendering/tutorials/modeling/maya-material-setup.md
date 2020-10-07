@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 43c11575be084354e4c9287b44b5847d4d086aff
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 56aa0d91372ac2d21a20f28b1044f0811c716b0c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084403"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358039"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-maya"></a>Tutorial: Configuración de materiales de representación con representación física en Maya
 
@@ -79,7 +79,7 @@ En Maya, el proceso de creación de instancias es sencillo.
 1. En el cuadro de diálogo **Duplicate Special Options** (Opciones de duplicado especial), seleccione la opción **Instance** (Instancia) para el campo **Geometry type** (Tipo de geometría). 
 1. Seleccione **Duplicate Special** (Duplicado especial).
 
-   ![Instanciación](media/instancing.jpg)
+   ![Captura de pantalla que muestra una ventana de Maya con el cuadro de diálogo Duplicate Special Options (Opciones especiales duplicadas) abierto y Duplicate Special (Duplicado especial) seleccionado.](media/instancing.jpg)
 
 Esta acción crea una instancia del objeto. Puede moverla, girarla o escalarla independientemente de su elemento primario y de otras instancias de ese elemento primario. 
 

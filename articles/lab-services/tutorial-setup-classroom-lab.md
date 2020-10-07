@@ -3,12 +3,12 @@ title: Configuración de un laboratorio con Azure Lab Services | Microsoft Docs
 description: En este tutorial, va a usar Azure Lab Services para configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los alumnos de su clase.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: bc1b23b92c6af902797a9be354fe6514b4e225af
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85445141"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336741"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -37,7 +37,7 @@ En este paso, creará un laboratorio para su clase en Azure.
 2. Seleccione **Iniciar sesión** y escriba las credenciales. Azure Lab Services es compatible con cuentas profesionales y cuentas Microsoft. 
 3. Seleccione **New lab** (Nuevo laboratorio). 
     
-    ![Creación de un laboratorio educativo](./media/tutorial-setup-classroom-lab/new-lab-button.png)
+    ![Captura de pantalla que muestra "Azure Lab Services" con el botón "Nuevo laboratorio" seleccionado.](./media/tutorial-setup-classroom-lab/new-lab-button.png)
 4. En la ventana **Nuevo laboratorio**, lleve a cabo las siguientes acciones: 
     1. Especifique el valor de **Name** (Nombre) para el laboratorio y seleccione **Next** (Siguiente).  
 
@@ -90,7 +90,7 @@ Cree un evento programado para el laboratorio de modo que las máquinas virtuale
 
 1. Cambie a la página **Schedules** (Programaciones) y seleccione **Add scheduled event** (Agregar evento programado) en la barra de herramientas. 
 
-    ![Botón Add schedule (Agregar programación) en la página Schedules (Programaciones)](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Captura de pantalla que muestra el botón "Agregar evento programado" en la página "Programaciones".](./media/how-to-create-schedules/add-schedule-button.png)
 2. En la página **Add scheduled event** (Agregar evento programado), lleve a cabo los pasos siguientes:
     1. Confirme que esté seleccionado **Standard** (Estándar) como **Event type** (Tipo de evento).  
     2. Seleccione el valor de **start date** (fecha de inicio) para la clase. 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: b98406984f2c9f2adfca030369a6ea3d47a786f3
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: c7ddff70d24fe87380c4bf1439811042418ac76a
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762784"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369576"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Tutorial: Creación de una aplicación de análisis de vídeo con detección de objetos y movimiento en Azure IoT Central
 
@@ -111,7 +111,7 @@ Para crear una nueva aplicación de análisis de vídeo:
 
 1. Seleccione **Crear**.
 
-    :::image type="content" source="./media/tutorial-video-analytics-create-app/new-application.png" alt-text="Página de creación de una aplicación de Azure IoT Central":::
+    :::image type="content" source="./media/tutorial-video-analytics-create-app/new-application.png" alt-text="Configuración de la aplicación de AAD para AMS":::
 
 ### <a name="retrieve-the-configuration-data"></a>Recuperación de los datos de configuración
 
@@ -119,11 +119,11 @@ Más adelante en este tutorial, al configurar la puerta de enlace IoT Edge, nece
 
 En la sección **Administration** (Administración), seleccione **su aplicación** y anote el valor de **Application URL** (Dirección URL de la aplicación) y de **Application ID** (Id. de la aplicación) en el archivo *scratchpad.txt*:
 
-:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="Administración":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="Configuración de la aplicación de AAD para AMS":::
 
 Seleccione **API Tokens** (Tokens de API) y genere un nuevo token llamado **LVAEdgeToken** para el rol **Operator** (Operador):
 
-:::image type="content" source="./media/tutorial-video-analytics-create-app/token.png" alt-text="Generar token":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/token.png" alt-text="Configuración de la aplicación de AAD para AMS":::
 
 Anote el token en el archivo *scratchpad.txt* para más adelante. Cuando el cuadro de diálogo se cierre, no podrá volver a ver el token.
 
@@ -221,7 +221,7 @@ Para importar el manifiesto de implementación y crear la plantilla de dispositi
 
     No busque aún el manifiesto de implementación. Si lo hace, el asistente para la implementación espera una interfaz para cada módulo, pero solo se necesita exponer la interfaz para **LvaEdgeGatewayModule**. Cargue el manifiesto en un paso posterior.
 
-    :::image type="content" source="./media/tutorial-video-analytics-create-app/upload-deployment-manifest.png" alt-text="No cargar el manifiesto de implementación":::
+    :::image type="content" source="./media/tutorial-video-analytics-create-app/upload-deployment-manifest.png" alt-text="Configuración de la aplicación de AAD para AMS":::
 
     Seleccione **Siguiente: Review** (Siguiente: revisar).
 
@@ -237,7 +237,7 @@ La plantilla de dispositivo **LVA Edge Gateway** (Puerta de enlace LVA Edge) aho
 
 En la página **LVA Edge Gateway** (Puerta de enlace LVA Edge), seleccione **+ Replace manifest** (+ Reemplazar manifiesto).
 
-:::image type="content" source="./media/tutorial-video-analytics-create-app/replace-manifest.png" alt-text="Reemplazar manifiesto":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/replace-manifest.png" alt-text="Configuración de la aplicación de AAD para AMS":::
 
 Vaya a la carpeta *lva-configuration* y seleccione el archivo de manifiesto *deployment.amd64.json* que editó previamente. Seleccione **Cargar**. Una vez completada la validación, seleccione **Reemplazar**.
 
@@ -252,7 +252,7 @@ En la plantilla de dispositivo **LVA Edge Gateway** (Puerta de enlace LVA Edge),
 
 Después, seleccione **Guardar**.
 
-:::image type="content" source="media/tutorial-video-analytics-create-app/relationships.png" alt-text="Agregar relaciones":::
+:::image type="content" source="media/tutorial-video-analytics-create-app/relationships.png" alt-text="Configuración de la aplicación de AAD para AMS":::
 
 ### <a name="add-views"></a>Adición de vistas
 
@@ -274,7 +274,7 @@ Para agregar una vista a la plantilla de dispositivo:
     * Un icono de último valor conocido de tamaño 1x1 que muestre el dato de telemetría **System Heartbeat** (Latido del sistema).
     * Un icono de último valor conocido de tamaño 1x1 que muestre el dato de telemetría **Connected Cameras** (Cámaras conectadas).
 
-    :::image type="content" source="media/tutorial-video-analytics-create-app/gateway-dashboard.png" alt-text="Panel":::
+    :::image type="content" source="media/tutorial-video-analytics-create-app/gateway-dashboard.png" alt-text="Configuración de la aplicación de AAD para AMS":::
 
 1. Seleccione **Guardar**.
 

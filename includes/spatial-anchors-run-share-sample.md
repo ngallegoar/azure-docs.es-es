@@ -4,17 +4,19 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 8/27/2020
 ms.author: rgarcia
-ms.openlocfilehash: 8e3f58a5a88495263396c4e915a6363ad065c202
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: efd5ff494620d4fab3fb904d9bcf054b57a3290b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89570010"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358831"
 ---
 ## <a name="android"></a>[Android](#tab/Android)
 
 El ejemplo de Android de Java admite el uso compartido entre dispositivos.
 Abra el archivo `SharedActivity.java` de la carpeta de ejemplos en Android Studio. Escriba la dirección URL que obtuvo en el paso anterior (de la implementación de Azure de la aplicación web de ASP.NET) como valor de `SharingAnchorsServiceUrl` en el archivo `SharedActivity.java`. Reemplace `index.html` en la dirección URL por `api/anchors`. Debería ser parecido a este: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
@@ -23,12 +25,16 @@ Abra el archivo `SharedActivity.java` de la carpeta de ejemplos en Android Studi
 El ejemplo de iOS de Objective-C admite el uso compartido entre dispositivos.
 Abra el archivo `SharedDemoViewController.m` de la carpeta de ejemplos. Escriba la dirección URL que obtuvo en el paso anterior (de la implementación de Azure de la aplicación web de ASP.NET) como valor de `SharingAnchorsServiceUrl` en el archivo `SharedDemoViewController.m`. Reemplace `index.html` en la dirección URL por `api/anchors`. Debería ser parecido a este: `https://<app_name>.azurewebsites.net/api/anchors`.
 
+Implemente la aplicación en el dispositivo. Cuando se inicie la aplicación, elija la opción **Tap to start Shared Demo** (Pulsar para iniciar la demostración compartida). Siga las instrucciones de la aplicación. Puede seleccionar **Tap to locate Anchor by its anchor number** (Puntear para buscar el delimitador por el número de delimitador) o **Tap to create Anchor and save it to the service** (Puntear para crear el delimitador y guardarlo en el servicio).
+
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## <a name="xamarin"></a>[Xamarin](#tab/Xamarin)
 
 Los ejemplos de Xamarin Android e iOS admiten el uso compartido entre dispositivos.
 Abra el archivo `AccountDetails.cs` de la carpeta de ejemplos. Escriba la dirección URL que obtuvo en el paso anterior (de la implementación de Azure de la aplicación web de ASP.NET) como valor de `AnchorSharingServiceUrl` en el archivo `AccountDetails.cs`. Reemplace `index.html` en la dirección URL por `api/anchors`. Debería ser parecido a este: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
