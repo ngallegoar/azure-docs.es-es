@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: f8bec6b3065cc58f9589cfba0d6f494a9d065355
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b81a0fc81478fb50c356a92371ece2e79ff417ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549694"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333569"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Tutorial: Configuración de Looop para aprovisionar usuarios automáticamente
 
@@ -113,11 +113,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba `https://<organisation_domain>.looop.co/scim/v2` en la **URL de inquilino**. Por ejemplo, `https://demo.looop.co/scim/v2`. Escriba el valor que recuperó y guardó anteriormente de Looop en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Looop. Si no se establece la conexión, asegúrese de que la cuenta de Looop tiene permisos de administrador y pruebe de nuevo.
 

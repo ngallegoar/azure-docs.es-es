@@ -1,23 +1,23 @@
 ---
 title: Información de los métodos directos de IoT Hub de Azure | Microsoft Docs
 description: 'Guía del desarrollador: uso de métodos directos para invocar código en los dispositivos de una aplicación de servicio.'
-author: nberdy
+author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: rezas
+ms.author: philmea
 ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 516b3bac5da2e078217d5c12f1efdf527b7c83a1
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: f68705309d15548dc9728686e2e0ecd6aaad3fba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029076"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334113"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Conocimiento e invocación de los métodos directos de IoT Hub
 
@@ -55,7 +55,7 @@ Ahora, invoque un método directo desde una aplicación de back-end.
 
 Las invocaciones de método directo en un dispositivo son llamadas HTTPS compuestas por los elementos siguientes:
 
-* El *URI de solicitud* específico del dispositivo junto con la [versión de la API](https://docs.aws.amazon.com/cli/latest/reference/iot1click-devices/invoke-device-method.html):
+* El *URI de solicitud* específico del dispositivo junto con la [versión de la API](https://docs.microsoft.com/rest/api/iothub/service/devices/invokemethod):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30

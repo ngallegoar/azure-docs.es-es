@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: 008274c86944b06b168bf52ca501c655bbe78434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bde4c11e9dc34be13efb25864fe75054d22bddb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610632"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363110"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integración de Azure Firewall con Azure Standard Load Balancer
 
@@ -64,6 +64,10 @@ Con un equilibrador de carga interno, el equilibrador de carga se implementa con
 No hay ningún problema de rutas asimétricas con este escenario. Los paquetes entrantes llegan a la dirección IP pública del firewall, se traducen a la dirección IP privada del equilibrador de carga y, luego, devuelven a la dirección IP privada del firewall con la misma ruta de vuelta.
 
 Por lo tanto, puede implementar este escenario similar para el escenario del equilibrador de carga público, pero sin necesidad de la ruta de host de direcciones IP públicas del firewall.
+
+>[!NOTE]
+>Las máquinas virtuales del grupo de back-end no tendrán conectividad de salida a Internet con esta configuración. </br> Para más información acerca de cómo proporcionar conectividad de salida, consulte: </br> **[Conexiones salientes en Azure](../load-balancer/load-balancer-outbound-connections.md)**</br> Opciones para proporcionar conectividad: </br> **[Configuración del equilibrador de carga solo de salida](../load-balancer/egress-only.md)** </br> [**¿Qué es NAT de Virtual Network?**](../virtual-network/nat-overview.md)
+
 
 ## <a name="additional-security"></a>Seguridad adicional
 

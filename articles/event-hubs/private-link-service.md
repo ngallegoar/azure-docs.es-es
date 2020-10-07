@@ -1,14 +1,14 @@
 ---
 title: Integración de Azure Event Hubs con Azure Private Link
 description: Aprenda a integrar Azure Event Hubs con Azure Private Link
-ms.date: 07/29/2020
+ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716798"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334249"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permiso para acceder a los espacios de nombres de Azure Event Hubs a través de puntos de conexión privados 
 Azure Private Link le permite acceder a los servicios de Azure (por ejemplo, Azure Event Hubs, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados de Azure mediante un **punto de conexión privado** de la red virtual.
@@ -24,7 +24,6 @@ Para más información, consulte [¿Qué es Azure Private Link?](../private-link
 > 
 > Estos son algunos de los servicios que no pueden tener acceso a los recursos de Event Hubs cuando están habilitados los puntos de conexión privados. Tenga en cuenta que **NO** es una lista exhaustiva.
 >
-> - Azure Stream Analytics
 > - Enrutamientos de Azure IoT Hub
 > - Azure IoT Device Explorer
 > - Azure Event Grid
@@ -34,7 +33,7 @@ Para más información, consulte [¿Qué es Azure Private Link?](../private-link
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Incorporación de un punto de conexión privado mediante Azure Portal
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para integrar un espacio de nombres de Event Hubs con Azure Private Link, necesitará las siguientes entidades o permisos:
 
@@ -65,7 +64,7 @@ Si ya tiene un espacio de nombres de Event Hubs, puede crear una conexión de v�
 1. Seleccione la pestaña **Conexiones de puntos de conexión privadas** en la parte superior de la página. 
 1. Seleccione el botón **+ Punto de conexión privado** en la parte superior de la página.
 
-    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Página Redes - Pestaña Conexiones de puntos de conexión privadas - Vínculo Agregar punto de conexión privado":::
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Pestaña Redes: opción redes seleccionadas":::
 7. En la página **Conceptos básicos**, siga estos pasos: 
     1. Seleccione la **suscripción de Azure** donde desea crear el punto de conexión privado. 
     2. Seleccione el **grupo de recursos** para el recurso de punto de conexión privado.

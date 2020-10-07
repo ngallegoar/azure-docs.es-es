@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo ver las métricas de uso de la API
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/06/2018
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 766bb2eaf6878a8d7261472ba11ea7acd46de92e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3f5dfcafe1c7b08a2c8320f807bf809107197d40
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036494"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335286"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Visualización de las métricas de uso de la API de Azure Maps
 

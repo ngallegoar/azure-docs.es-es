@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 665bb89d929433db5868eff1c2a5d182d7a94d54
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f826ee9ef3c9fff0b721a9c79d3c12e0adbd5f7f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800286"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336401"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Señalización de metadatos con tiempo en streaming en vivo 
 
@@ -306,7 +306,7 @@ Cuando se utiliza este modo del marcador de anuncio, la salida del manifiesto HL
 
 #### <a name="example-mpeg-dash-mpd-single-period-adobe-simple-mode-signals"></a>Ejemplo de MPD de MPEG DASH, un solo punto, señales del modo simple de Adobe
 
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="dynamic" publishTime="2020-01-07T18:58:03Z" minimumUpdatePeriod="PT0S" timeShiftBufferDepth="PT58M56S" availabilityStartTime="2020-01-07T17:44:47Z" minBufferTime="PT7S">
@@ -357,14 +357,13 @@ Cuando se utiliza este modo del marcador de anuncio, la salida del manifiesto HL
         </AdaptationSet>
     </Period>
 </MPD>
-~~~
-
+```
 
 #### <a name="example-hls-playlist-adobe-simple-mode-signals-using-ext-x-cue-tag-truncated--for-brevity"></a>Ejemplo de lista de reproducción HLS, señales del modo simple de Adobe con la etiqueta EXT-X-CUE ("..." truncado por motivos de brevedad)
 
 En el ejemplo siguiente se muestra la salida del empaquetador dinámico de Media Services para una secuencia de ingesta de RTMP mediante señales del modo "simple" de Adobe y la etiqueta EXT-X-CUE [Adobe-PrimeTime] heredada.  
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:8
 #EXT-X-MEDIA-SEQUENCE:0
@@ -401,8 +400,7 @@ Fragments(video=1583487999666666,format=m3u8-aapl-v8)
 #EXTINF:6.400000,no-desc
 Fragments(video=1583488022000000,format=m3u8-aapl-v8)
 ...
-
-~~~
+```
 
 ### <a name="216-cancellation-and-updates"></a>2.1.6 Cancelación y actualizaciones
 
@@ -506,7 +504,7 @@ Consulte el tema de administración de pistas dispersas [MS-SSTR] para obtener m
 El valor de StreamIndex **DEBE** tener un subtipo "DATA", y el valor de CustomAttributes **DEBE** contener un atributo con Name = "Schema" y Value = "urn:scte:scte35:2013:bin".
 
 #### <a name="smooth-client-manifest-example-showing-base64-encoded-scte35-splice_info_section"></a>Ejemplo del manifiesto de cliente de Smooth en el que se muestra la sección splice_info_section() de [SCTE35] codificada en Base 64
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" TimeScale="10000000" IsLive="true" Duration="0"
   LookAheadFragmentCount="2" DVRWindowLength="6000000000">
@@ -542,7 +540,7 @@ El valor de StreamIndex **DEBE** tener un subtipo "DATA", y el valor de CustomAt
     </c>
   </StreamIndex>
 </SmoothStreamingMedia>
-~~~
+```
 
 ## <a name="32-apple-hls-manifest-decoration"></a>3.2 Decoración del manifiesto HLS de Apple
 
@@ -567,7 +565,7 @@ The **RECOMMENDED** approach in Azure Media Services (version 3 API) is to follo
 
 En el ejemplo siguiente de salida de manifiesto HLS de Media Services, el empaquetador dinámico muestra la etiqueta EXT-X-CUE para [Adobe-PrimeTime] en modo SCTE35. 
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:8
 #EXT-X-MEDIA-SEQUENCE:0
@@ -719,7 +717,7 @@ Fragments(video=28513485,format=m3u8-aapl-v8)
 #EXTINF:1.501500,no-desc
 Fragments(video=28648620,format=m3u8-aapl-v8)
 
-~~~
+```
 
 
 <!---
@@ -949,7 +947,7 @@ En el ejemplo siguiente se muestra la decoración del manifiesto HLS mediante la
 --->
 
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:4
 #EXT-X-PLAYLIST-TYPE:VOD
@@ -1008,7 +1006,7 @@ Fragments(video=4011692972,format=m3u8-aapl)
 #EXTINF:8.008000,no-desc
 Fragments(video=4011702982,format=m3u8-aapl)
 
-~~~
+```
 
 ### <a name="324-hls-message-handling-for-adobe-primetime-ext-x-cue"></a>3.2.4 Administración de mensajes de HLS para la etiqueta EXT-X-CUE de Adobe PrimeTime
 
@@ -1065,7 +1063,7 @@ El elemento EventStream tiene los siguientes atributos:
 
 En el ejemplo siguiente se muestra un extracto de EventStream del empaquetador dinámico de Media Services para una secuencia RTMP mediante la señalización del modo "simple" de Adobe.
 
-~~~ xml
+```xml
 <!-- Example EventStream element using "urn:com:adobe:dpi:simple:2015" Adobe simple signaling per [Adobe-Primetime] -->
     <EventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="simplesignal" timescale="10000000">
         <Event presentationTime="1583497601000000" duration="300000000" id="1085900"/>
@@ -1080,7 +1078,7 @@ En el ejemplo siguiente se muestra un extracto de EventStream del empaquetador d
         <Event presentationTime="1583527306666666" duration="300000000" id="4056466"/>
         <Event presentationTime="1583530607333333" duration="300000000" id="4386533"/>
     </EventStream>
-~~~
+```
 
 
 #### <a name="3322-example-mpeg-dash-mpd-manifest-signaling-of-an-rtmp-stream-using-adobe-scte-35-mode"></a>3.3.2.2 Ejemplo de manifiesto .mpd de MPEG DASH con señalización de una secuencia RTMP mediante el modo SCTE-35 de Adobe
@@ -1089,7 +1087,7 @@ En el ejemplo siguiente se muestra un extracto de EventStream del empaquetador d
 
 Ejemplo de elemento EventStream con señalización de estilo xml+bin por [SCTE-214-1]
 
-~~~ xml
+```xml
 
       <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35" timescale="10000000">
         <Event presentationTime="2595092444" duration="11011000" id="1002">
@@ -1103,7 +1101,7 @@ Ejemplo de elemento EventStream con señalización de estilo xml+bin por [SCTE-2
             </Signal>
         </Event>
       </EventStream>
-~~~
+```
 
 
 
@@ -1119,7 +1117,7 @@ Ejemplo de elemento EventStream con señalización de estilo xml+bin por [SCTE-2
 En el ejemplo siguiente se muestra la salida del empaquetador dinámico de Media Services para una secuencia RTMP de origen mediante el método de señalización de anuncios del modo "simple" de Adobe. La salida es un manifiesto de un solo punto en el que se muestra un objeto EventStream con el URI de schemeId establecido en "urn:com:adobe:dpi:simple:2015" y la propiedad value establecida en "simplesignal".
 Cada señal simple se proporciona en un elemento Event con las propiedades @presentationTime, @durationy @id rellenadas en función de las señales simples entrantes.
 
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="static" mediaPresentationDuration="PT28M1.680S" minBufferTime="PT3S">
@@ -1168,7 +1166,7 @@ Cada señal simple se proporciona en un elemento Event con las propiedades @pres
     </Period>
 </MPD>
 
-~~~
+```
 
 <!---
 #### 3.3.3.2 Example MPEG DASH manifest (MPD) with multi-period, EventStream, using Adobe SCTE35 mode signaling
@@ -1322,10 +1320,10 @@ En los siguientes detalles se describen los valores específicos que el cliente 
 
 
 #### <a name="example-inbandevenstream-entity-for-adobe-simple-mode"></a>Entidad InBandEvenStream de ejemplo para el modo simple de Adobe
-~~~ xml
+```xml
 
       <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
-~~~
+```
 
 ### <a name="335-dash-message-handling"></a>3.3.5 Administración de mensajes DASH
 

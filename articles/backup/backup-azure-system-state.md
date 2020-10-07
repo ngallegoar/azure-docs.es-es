@@ -3,12 +3,12 @@ title: Copias de seguridad del estado del sistema de Windows en Azure
 description: Obtenga información sobre cómo realizar copias de seguridad el estado del sistema de equipos Windows Server en Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ebe527ef7ddb32d46c2f39970f74b64c2594bf60
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1b3573d757d2f7b1ffec9ae718aa791488960f3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90975497"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332903"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Copias de seguridad del estado del sistema de Windows en Azure
 
@@ -38,7 +38,7 @@ Cuando cree un almacén de Recovery Services, asegúrese de que la configuració
     ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 4. Elija la opción de replicación del almacenamiento apropiada para su almacén.
 
-    ![Opciones de configuración de almacenamiento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+    ![Opciones de configuración de almacenamiento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration-for-vault.png)
 
     De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si usa Azure como punto de conexión de almacenamiento de copia de seguridad principal, siga utilizando **Redundancia geográfica**. Si no utiliza Azure como punto de conexión de almacenamiento de copia de seguridad principal, elija **Redundancia local** para reducir los costes de almacenamiento de Azure. Lea más sobre las opciones de almacenamiento de [redundancia geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage), [redundancia local](../storage/common/storage-redundancy.md#locally-redundant-storage) y [redundancia zonal](../storage/common/storage-redundancy.md) en esta [información general sobre la redundancia del almacenamiento](../storage/common/storage-redundancy.md#zone-redundant-storage).
 

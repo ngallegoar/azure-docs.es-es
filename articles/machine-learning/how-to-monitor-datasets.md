@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d60a963f8ad4b29d3c282d30e6aca9973208860b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8f54ece9a932ed4cc0adc29747e1c58ee22646c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905154"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333875"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detección del desfase de datos (versión preliminar) en los conjuntos de datos
 
@@ -102,7 +102,7 @@ El conjunto de datos de destino debe tener configurado el rasgo `timeseries` esp
 
 ### <a name="python-sdk"></a><a name="sdk-dataset"></a>SDK para Python
 
-El método [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) de la clase [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) define la columna de marca de tiempo del conjunto de datos.
+El método [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) de la clase [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) define la columna de marca de tiempo del conjunto de datos.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -129,7 +129,7 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Para obtener un ejemplo completo de cómo usar el rasgo de `timeseries` de conjuntos de datos, vea el [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) o la [documentación del SDK de conjuntos de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+Para obtener un ejemplo completo de cómo usar el rasgo de `timeseries` de conjuntos de datos, vea el [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) o la [documentación del SDK de conjuntos de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
 
@@ -145,7 +145,7 @@ En la configuración de **Esquema**, especifique la columna de marca de tiempo d
 
 Si los datos tienen particiones por fecha, como es el caso aquí, también puede especificar el valor partition_timestamp.  Con ello se consigue un procesamiento más eficaz de fechas.
 
-:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Marca de tiempo de partición":::
+:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Configuración de la marca de tiempo":::
 
 
 ## <a name="create-dataset-monitors"></a>Creación de monitores de conjunto de datos
@@ -213,7 +213,7 @@ Para ver un ejemplo completo de cómo configurar un conjunto de datos de `timese
 
 1. Haga clic en el botón **+Crear monitor** y continúe con el asistente; para ello, haga clic en **Siguiente**.  
 
-:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Asistente para crear monitores":::
+:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Configuración de la marca de tiempo":::
 
 * **Seleccione el conjunto de datos de destino**.  El conjunto de datos de destino es un conjunto de datos tabular con columna de marca de tiempo especificada, que se analizará en términos de desfase de datos. El conjunto de datos de destino debe compartir características con el de referencia y debe ser un conjunto de datos de `timeseries` al que se anexan los nuevos datos. Los datos históricos del conjunto de datos de destino se pueden analizar o se pueden supervisar nuevos datos.
 
@@ -240,7 +240,7 @@ En esta sección se muestran los resultados de la supervisión de un conjunto de
 
 Comience con la información de nivel superior sobre la magnitud del desfase de datos y el resaltado de las características que se van a investigar.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Información general sobre el desfase":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Configuración de la marca de tiempo":::
 
 
 | Métrica | Descripción | 
@@ -253,7 +253,7 @@ Comience con la información de nivel superior sobre la magnitud del desfase de 
 
 Vea cómo el conjunto de datos difiere del conjunto de datos de destino en el período de tiempo especificado.  Cuanto más cerca del 100 %, más se diferencian los dos conjuntos de datos.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Tendencia de la magnitud del desfase":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Configuración de la marca de tiempo":::
 
 ### <a name="drift-magnitude-by-features"></a>Magnitud del desfase según las características
 
@@ -263,7 +263,7 @@ El conjunto de datos de destino también se perfila a lo largo del tiempo. La di
 
 En Azure Machine Learning Studio, haga clic en una barra del gráfico para ver los detalles del nivel de características de esa fecha. De forma predeterminada, ve la distribución del conjunto de datos de referencia y la distribución de la ejecución más reciente de la misma característica.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Magnitud del desfase según las características":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Configuración de la marca de tiempo":::
 
 Estas métricas también se pueden recuperar en el SDK de Python a través del método `get_metrics()` en un objeto `DataDriftDetector`.
 
@@ -271,7 +271,7 @@ Estas métricas también se pueden recuperar en el SDK de Python a través del m
 
 Por último, desplácese hacia abajo para ver los detalles de cada característica individual.  Use las listas desplegables sobre el gráfico para seleccionar la característica y, además, seleccione la métrica que desea ver.
 
-:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Gráfico de características numéricas y comparación":::
+:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Configuración de la marca de tiempo":::
 
 Las métricas del gráfico dependen del tipo de característica.
 
@@ -293,7 +293,7 @@ Las métricas del gráfico dependen del tipo de característica.
 
 En este gráfico, seleccione una sola fecha para comparar la distribución de características entre el destino y esta fecha para la característica mostrada. En el caso de las características numéricas, se muestran dos distribuciones de probabilidad.  Si la característica es numérica, se muestra un gráfico de barras.
 
-:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Selección de una fecha para comparar con el destino":::
+:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Configuración de la marca de tiempo":::
 
 ## <a name="metrics-alerts-and-events"></a>Métricas, alertas y eventos
 

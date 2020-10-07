@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 7c1a2cf4b9b476a8f31f38fea45b2e1ef3fe4307
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0b80c2f125e7eddaa427b75e3e0fe2aff6c679be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531798"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334334"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON en Azure Data Factory
 
@@ -217,6 +217,7 @@ En la tabla siguiente se enumeran las propiedades que admite un origen JSON. Pue
 | Tiene comentarios | Seleccione **Tiene comentarios** si los datos JSON tienen comentarios de estilo C o C++. | no | `true` o `false` | asComments |
 | Con comillas simples | Lee las columnas JSON que no están entrecomilladas. | no | `true` o `false` | singleQuoted |
 | Barra diagonal inversa con escape | Seleccione **Barra diagonal inversa con escape** si se usan barras diagonales inversas como caracteres de escape en los datos JSON. | no | `true` o `false` | backslashEscape |
+| No permitir que se encuentren archivos | Si es true, no se devuelve un error si no se encuentra ningún archivo. | no | `true` o `false` | ignoreNoFilesFound |
 
 ### <a name="source-format-options"></a>Opciones de formato de origen
 

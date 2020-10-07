@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dc05722ee79f72b2931cb1fa6106f742c5bc0e15
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274210"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336656"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB
 
@@ -67,7 +67,7 @@ Configure su entorno de ciencia de datos de Azure para crear soluciones de anál
 
    * Vincule la cuenta de almacenamiento que creó en el paso 1 con el clúster de HDInsight en el momento de su creación. Esta cuenta de almacenamiento se utiliza para tener acceso a datos que se pueden procesar en el clúster.
    * Habilite el acceso remoto en el nodo principal del clúster después de crearlo. Recuerde las credenciales de acceso remoto que especifique aquí (distintas de las especificadas para el clúster durante su creación): realice los siguientes procedimientos.
-3. [Creación de un área de trabajo de Azure Machine Learning Studio (clásico)](../studio/create-workspace.md): esta área de trabajo de Azure Machine Learning se usa para generar modelos de Machine Learning después de una exploración de datos inicial y una reducción de su tamaño en el clúster de HDInsight.
+3. [Creación de un área de trabajo de Azure Machine Learning Studio (clásico)](../classic/create-workspace.md): esta área de trabajo de Azure Machine Learning se usa para generar modelos de Machine Learning después de una exploración de datos inicial y una reducción de su tamaño en el clúster de HDInsight.
 
 ## <a name="get-and-consume-data-from-a-public-source"></a><a name="getdata"></a>Obtención y consumo de datos desde un origen público
 Para acceder al conjunto de datos de [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) , haga clic en el vínculo, acepte las condiciones de uso y especifique un nombre. Aquí se muestra una instantánea:
@@ -695,4 +695,3 @@ Se ha reemplazado la clave de API predeterminada por la clave de API de nuestros
 Para los dos ejemplos de prueba por los que hemos preguntado en el marco JSON del script de Python, puede obtener respuestas con el formato "Scored Labels, Scored Probabilities" (Etiquetas puntuadas, Probabilidades puntuadas). En este caso, se han elegido los valores predeterminados que proporciona el código predefinido (0 para todas las columnas numéricas y la cadena "value" para todas las columnas de categorías).
 
 En conclusión, nuestro tutorial muestra cómo controlar un conjunto de datos grande mediante Azure Machine Learning. Ha empezado con un terabyte de datos, ha creado un modelo de predicción y lo ha implementado como un servicio web en la nube.
-

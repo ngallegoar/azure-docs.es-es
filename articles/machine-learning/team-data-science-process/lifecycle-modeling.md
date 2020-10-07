@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c3406b28c44644053fa984f2cf7739bb53ccf6c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720476"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336452"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Fase de modelado del ciclo de vida del proceso de ciencia de datos en equipos
 
@@ -53,7 +53,7 @@ Este paso requiere una combinación creativa de experiencia de dominio y de los 
 Para obtener orientación técnica sobre diseño de características cuando se usan diversas tecnologías de datos de Azure, consulte [Ingeniería de características en ciencia de datos](create-features.md). 
 
 ### <a name="model-training"></a>Entrenamiento del modelo
-Según el tipo de la pregunta que intenta responder, existen muchos algoritmos de modelado disponibles. Para obtener orientación sobre cómo elegir el algoritmo correcto, consulte el artículo sobre [cómo elegir algoritmos para Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Aunque este artículo utiliza Azure Machine Learning, la orientación resulta útil para otros proyectos de aprendizaje automático. 
+Según el tipo de la pregunta que intenta responder, existen muchos algoritmos de modelado disponibles. Para obtener orientación sobre cómo elegir el algoritmo correcto, consulte el artículo sobre [cómo elegir algoritmos para Microsoft Azure Machine Learning](../how-to-select-algorithms.md). Aunque este artículo utiliza Azure Machine Learning, la orientación resulta útil para otros proyectos de aprendizaje automático. 
 
 El proceso de entrenamiento del modelo incluye los pasos siguientes: 
 

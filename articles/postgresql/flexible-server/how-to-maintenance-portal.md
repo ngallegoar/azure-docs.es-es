@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b06120437555ec71bc431cb1429120cb5e1987f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: be6040b8b84a4b86746d62bd2f1c07f0ffea0a3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932188"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336299"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-postgresql--flexible-server"></a>Administración de la configuración de mantenimiento programado para Servidor flexible de Azure Database for PostgreSQL
  
@@ -31,9 +31,9 @@ Para completar esta guía, necesita:
  
 ## <a name="notifications-about-scheduled-maintenance-events"></a>Notificaciones sobre eventos de mantenimiento programado
  
-Puede usar Azure Service Health para [ver notificaciones](/azure/service-health/service-notifications.md) sobre el próximo mantenimiento programado y realizado en el servidor flexible. También puede [configurar](/azure/service-health/resource-health-alert-monitor-guide.md) alertas en Azure Service Health para recibir notificaciones sobre los eventos de mantenimiento.
+Puede usar Azure Service Health para [ver notificaciones](../../service-health/service-notifications.md) sobre el próximo mantenimiento programado y realizado en el servidor flexible. También puede [configurar](../../service-health/resource-health-alert-monitor-guide.md) alertas en Azure Service Health para recibir notificaciones sobre los eventos de mantenimiento.
  
 ## <a name="next-steps"></a>Pasos siguientes  
  
 * Información sobre el [mantenimiento programado en el servidor flexible de Azure Database for PostgreSQL](concepts-maintenance.md)
-* Información sobre [Azure Service Health](/azure/service-health/overview.md)
+* Información sobre [Azure Service Health](../../service-health/overview.md)
