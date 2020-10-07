@@ -1,16 +1,14 @@
 ---
 title: Descripción de la configuración de la copia de seguridad periódica
 description: Use la característica de copias de seguridad y restauración periódicas de Service Fabric para configurar la copia de seguridad periódica de los servicios con estado confiable o Reliable Actors.
-author: hrushib
 ms.topic: article
 ms.date: 2/01/2019
-ms.author: hrushib
-ms.openlocfilehash: 53f63f341fe614f2287a09f37fafd2eedc614be7
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 852e430a9183d92e13536fd6499f3d1404985455
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530920"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538626"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Información sobre la configuración de la copia de seguridad periódica en Azure Service Fabric
 

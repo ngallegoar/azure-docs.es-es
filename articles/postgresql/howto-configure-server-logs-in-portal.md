@@ -1,17 +1,17 @@
 ---
 title: 'Administración de registros de Azure Database for PostgreSQL: servidor único mediante Azure Portal'
 description: 'En este artículo se describe cómo configurar los registros de servidor (archivos .log) de Azure Database for PostgreSQL: servidor único, y acceder a ellos, desde Azure Portal.'
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: cf22a165e9a6eadcd2e5d4cdb0efa301538be7e9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3b52cea1d440506caf5b8244c9643719edd8755c
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907530"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704270"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Configuración y acceso a los registros de Azure Database for PostgreSQL con un único servidor desde Azure Portal
 
@@ -37,7 +37,7 @@ Configure el acceso a los registros de consulta y los registros de errores.
 
    Después de cambiar los parámetros, seleccione **Guardar**. O bien puede descartar los cambios. 
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Captura de pantalla de las opciones de los parámetros del servidor":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Captura de pantalla de las opciones de registros de servidor":::
 
 Desde la página **Parámetros de servidor**, puede volver a la lista de los registros cerrando la página.
 
@@ -50,18 +50,18 @@ Una vez que comienza el registro, puede ver una lista de los registros disponibl
 
 3. En la sección **Supervisión** de la barra lateral, seleccione **Registros de servidor**. La página muestra una lista de los archivos de registro.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Captura de pantalla de la página Registros de servidor con una lista de registros resaltados":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Captura de pantalla de las opciones de registros de servidor":::
 
    > [!TIP]
    > La convención de nomenclatura del registro es **postgresql-aaaa-mm-dd_hh0000.log**. La fecha y hora que se utilizan en el nombre de archivo indican el momento en que se emitió el registro. Los archivos de registro rotan cada hora o 100 MB, lo que ocurra primero.
 
 4. Si es necesario, utilice el cuadro de búsqueda para encontrar rápidamente un registro específico en función de la fecha y hora. La búsqueda se encuentra en el nombre del registro.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-search.png" alt-text="Captura de pantalla de la página Registros de servidor, con el cuadro de búsqueda y los resultados resaltados":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-search.png" alt-text="Captura de pantalla de las opciones de registros de servidor":::
 
 5. Para descargar los archivos de registro individuales, seleccione el icono de flecha hacia abajo que hay junto a cada archivo de registro en la fila de tabla.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/6-download.png" alt-text="Captura de pantalla de la página Registros de servidor, con el icono de flecha hacia abajo resaltado":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/6-download.png" alt-text="Captura de pantalla de las opciones de registros de servidor":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte [Access server logs in CLI](howto-configure-server-logs-using-cli.md) (Acceso a los registros de servidor mediante la CLI) para más información acerca de cómo descargar registros mediante programación.

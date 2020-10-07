@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 8347ca5a33790d0b35176be47a0fa4811a19e3f1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1ab366cddbabf7e6d574189892e779ab49f6fad8
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935473"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403388"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Sugerencias para el enriquecimiento con IA en Azure Cognitive Search
 
@@ -110,12 +110,11 @@ Si realiza una indexación basada en el portal (tal como se describe en la guía
 ## <a name="tip-8-increase-indexing-throughput"></a>Sugerencia 8: Aumente el rendimiento de la indexación.
 
 Para realizar una [indexación paralela](search-howto-large-index.md), coloque los datos en varios contenedores o carpetas virtuales múltiples dentro del mismo contenedor. A continuación, cree varios pares de orígenes de datos e indexadores. Todos los indexadores pueden usar el mismo conjunto de aptitudes y escribir en el mismo índice de búsqueda de destino, por lo que la aplicación de búsqueda no necesita conocer esta partición.
-Para obtener más información, consulte [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets) (Indexar grandes conjuntos de datos).
 
 ## <a name="see-also"></a>Consulte también
+
 + [Inicio rápido: Cree una canalización de enriquecimiento con IA en el portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Obtenga información sobre las API REST de enriquecimiento con IA](cognitive-search-tutorial-blob.md)
 + [Especificar las credenciales de origen de datos.](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
-+ [Indexar grandes conjuntos de datos](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Asignar campos enriquecidos a un índice](cognitive-search-output-field-mapping.md)

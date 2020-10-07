@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 09/24/2020
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: dfb9cb80bdcd2854a3ddd5b273806fbcdda916b0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 0868d87d977b15a552b04d5dbd6d19de6931f0ae
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705646"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395913"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Inquilinos en Azure Active Directory
 
@@ -43,7 +43,7 @@ En Azure Portal, puede configurar la aplicación para que sea de inquilino únic
 La creación de magníficas aplicaciones multiinquilino puede ser difícil debido al número de directivas que los administradores de TI pueden establecer en sus inquilinos. Si decide crear una aplicación multiinquilino, siga estos procedimientos recomendados:
 
 * Pruebe la aplicación en un inquilino que tenga configuradas [directivas de acceso condicional](../azuread-dev/conditional-access-dev-guide.md).
-* Siga el principio de acceso mínimo de los usuarios para asegurarse de que la aplicación solo solicita los permisos que realmente necesita. Evite solicitar permisos que requieran el consentimiento del administrador, ya que esto puede impedir que los usuarios adquieran la aplicación en algunas organizaciones. 
+* Siga el principio de acceso mínimo de los usuarios para asegurarse de que la aplicación solo solicita los permisos que realmente necesita. 
 * Especifique los nombres apropiados y las descripciones pertinentes de los permisos que exponga como parte de la aplicación. Esto ayuda a los usuarios y los administradores a saber lo que aceptan cuando intentan usar las API de la aplicación. Para más información, consulte la sección de procedimientos recomendado en la [guía de permisos](v2-permissions-and-consent.md).
 
 ## <a name="next-steps"></a>Pasos siguientes

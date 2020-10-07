@@ -1,19 +1,19 @@
 ---
 title: 'Integración e implementación continuas en dispositivos Azure IoT Edge (editor clásico): Azure IoT Edge'
 description: 'Configuración de la integración e implementación continuas mediante el editor clásico: Azure IoT Edge con Azure DevOps, Azure Pipelines'
-author: shizn
+author: kgremban
 manager: philmea
-ms.author: xshi
+ms.author: kgremban
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9cb1a2074e7ec64ed16f1f7c9a1f70bf2307b5c3
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: c4a9d7fbfbda568c07a528e5a7eafd70b85add45
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033496"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447803"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integración e implementación continuas en dispositivos Azure IoT Edge (editor clásico)
 
@@ -160,7 +160,7 @@ Esta canalización ahora está configurada para ejecutarse automáticamente al i
 >[!NOTE]
 >Si quiere usar **implementaciones por capas** en la canalización, estas todavía no se admiten en las tareas de Azure IoT Edge de Azure DevOps.
 >
->Sin embargo, puede usar una [tarea de la CLI de Azure en Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) para crear la implementación por capas. Para el valor **Script en línea**, puede usar el [comando az iot edge deployment create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>Sin embargo, puede usar una [tarea de la CLI de Azure en Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) para crear la implementación por capas. Para el valor **Script en línea**, puede usar el [comando az iot edge deployment create](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true

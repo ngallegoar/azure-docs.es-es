@@ -4,12 +4,12 @@ description: Supervise el rendimiento de un sitio web sin volver a implementarlo
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 603cbde20ae6e8d19e4ad3ae290bbfc925483595
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923830"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758670"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentación de aplicaciones web en tiempo de ejecución con Adjuntar sin código de Application Insights
 
@@ -130,7 +130,7 @@ Para corregir y actualizar web.config:
 </dependentAssembly>
 ```
 
-Hacemos un seguimiento de este problema [aquí](https://github.com/Microsoft/ApplicationInsights-Home/issues/301).
+Hacemos un seguimiento de este problema [aquí](https://github.com/MohanGsk/ApplicationInsights-Home).
 
 
 ### <a name="application-diagnostic-messages"></a>Mensajes de diagnósticos de la aplicación

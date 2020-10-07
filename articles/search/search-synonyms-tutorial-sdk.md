@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 982aa4bdb37af53999e75b7e33db990adb057938
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 842d43c82875a1a8e5e45ba14f47ceb6eac26727
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019766"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538813"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Ejemplo: Adición de sinónimos para Azure Cognitive Search en C#
 
@@ -23,8 +23,8 @@ Los sinónimos amplían una consulta realizando coincidencias con términos que 
 En Azure Cognitive Search, los sinónimos se definen en un *mapa de sinónimos* a través de *reglas de asignación* que permiten asociar términos equivalentes. En este ejemplo se explican los pasos esenciales para agregar y usar sinónimos con un índice existente. Aprenderá a:
 
 > [!div class="checklist"]
-> * Cree un mapa de sinónimos mediante la clase [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet). 
-> * Establezca la propiedad [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) en los campos que deben admitir la expansión de consultas a través de sinónimos.
+> * Cree un mapa de sinónimos mediante la clase [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap). 
+> * Establezca la propiedad [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps) en los campos que deben admitir la expansión de consultas a través de sinónimos.
 
 Puede consultar un campo habilitado para sinónimos como lo haría normalmente. No hay ninguna sintaxis de consulta adicional necesaria para acceder a los sinónimos.
 
@@ -97,7 +97,7 @@ results = indexClient.Documents.Search<Hotel>("economy AND hotel", parameters);
 WriteDocuments(results);
 ```
 Ninguno de los dos documentos indexados contienen los términos, por lo que obtenemos el siguiente resultado del primer `RunQueriesWithNonExistentTermsInIndex`.
-~~~
+```
 Search the entire index for the phrase "five star":
 
 no document matched
@@ -109,7 +109,7 @@ no document matched
 Search the entire index for the terms 'economy' AND 'hotel':
 
 no document matched
-~~~
+```
 
 ## <a name="enable-synonyms"></a>Habilitación de sinónimos
 
@@ -148,7 +148,7 @@ La habilitación de sinónimos es un proceso de dos pasos. Primero se definen y 
 
 Después cargar el mapa de sinónimos y de actualizar el índice para que use el mapa de sinónimos, la segunda llamada a `RunQueriesWithNonExistentTermsInIndex` genera lo siguiente:
 
-~~~
+```
 Search the entire index for the phrase "five star":
 
 Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concierge]
@@ -160,7 +160,7 @@ Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concier
 Search the entire index for the terms 'economy' AND 'hotel':
 
 Name: Roach Motel       Category: Budget        Tags: [motel, budget]
-~~~
+```
 La primera consulta busca el documento a partir de la regla `five star=>luxury`. La segunda consulta amplía la búsqueda utilizando `internet,wifi` y la tercera usando `hotel, motel` y `economy,inexpensive=>budget` en la búsqueda de coincidencia en los documentos.
 
 Agregar sinónimos cambia totalmente la experiencia de búsqueda. En este ejemplo, las consultas originales no devolvieron resultados significativos, aunque los documentos en nuestro índice eran relevantes. Al habilitar sinónimos, podemos ampliar un índice para incluir los términos de uso común, sin realizar cambios en los datos subyacentes en el índice.

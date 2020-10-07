@@ -3,12 +3,12 @@ title: 'Supervisión del rendimiento de la aplicación web de Java en Linux: Azu
 description: Supervisión del rendimiento de aplicaciones extendida de sitios web de Java con el complemento CollectD para Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 648d0e5adc289dfeb83a54c3dcb9ab7d25fc1cc4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fd061d6dd1f87456b92a61c9a62caaf3ef3189b2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322608"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761029"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de rendimiento de Linux en Application Insights
 
@@ -28,7 +28,7 @@ Realice una copia de la clave de instrumentación, que identifica al recurso.
 En los equipos de servidor Linux:
 
 1. Instale la versión de [collectd](https://collectd.org/) 5.4.0 o posterior.
-2. Descargue el [complemento del escritor collectd de Application Insights](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Anote el número de versión.
+2. Descargue el [complemento del escritor collectd de Application Insights](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal). Anote el número de versión.
 3. Copie el archivo JAR del complemento en `/usr/share/collectd/java`.
 4. Edite `/etc/collectd/collectd.conf`:
    * Asegúrese de que [el complemento de Java](https://collectd.org/wiki/index.php/Plugin:Java) está habilitado.

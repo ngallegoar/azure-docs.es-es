@@ -3,12 +3,12 @@ title: Anotaciones de la versión de Application Insights | Microsoft Docs
 description: Agregue marcadores de implementación o compilación a sus gráficos del Explorador de métricas en Application Insights.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: e21981f134f6a78109d70b1edf6d61e204b64e12
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258406"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758190"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotaciones sobre gráficos de métricas en Application Insights
 
@@ -96,9 +96,9 @@ Para habilitar anotaciones en el libro, vaya a **Configuración avanzada** y sel
 Seleccione un marcador de anotación para abrir los detalles de la versión, incluidos el solicitante, la rama de control de código fuente, la canalización de la versión y el entorno.
 
 ## <a name="create-custom-annotations-from-powershell"></a>Crear anotaciones personalizadas desde PowerShell
-Puede usar el script de PowerShell [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) de GitHub para crear anotaciones desde cualquier proceso que desee, sin usar Azure DevOps. 
+Puede usar el script de PowerShell [CreateReleaseAnnotation](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) de GitHub para crear anotaciones desde cualquier proceso que desee, sin usar Azure DevOps. 
 
-1. Realice una copia local de [CreateReleaseAnnotation.ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+1. Realice una copia local de [CreateReleaseAnnotation.ps1](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
    
 1. Use los pasos del procedimiento anterior para obtener el identificador de Application Insights y crear una clave de API desde la pestaña **Acceso de API** de Application Insights.
    

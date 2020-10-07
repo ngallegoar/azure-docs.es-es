@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe4d42fd74b4efd67a01f32611bd170862ec84d0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a20b6509973c7dc7e54d2e4f702175ad61e88da8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007135"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532507"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Cognitive Search
 
@@ -201,7 +201,7 @@ Azure Cognitive Search admite dos codificaciones Base64 distintas. Debe usar los
 
 Azure Cognitive Search admite la codificación Base64 de seguridad de direcciones URL y la codificación Base64 normal. Una cadena codificada con Base64 durante la indexación se debe descodificar más adelante con las mismas opciones de codificación o, de lo contrario, el resultado no coincidirá con el original.
 
-Si los parámetros `useHttpServerUtilityUrlTokenEncode` o `useHttpServerUtilityUrlTokenDecode` para codificar y descodificar respectivamente se establecen en `true`, `base64Encode` se comporta como [HttpServerUtility.UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) y `base64Decode` se comporta como [HttpServerUtility.UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode?view=netframework-4.8).
+Si los parámetros `useHttpServerUtilityUrlTokenEncode` o `useHttpServerUtilityUrlTokenDecode` para codificar y descodificar respectivamente se establecen en `true`, `base64Encode` se comporta como [HttpServerUtility.UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode) y `base64Decode` se comporta como [HttpServerUtility.UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode).
 
 > [!WARNING]
 > Si se utiliza `base64Encode` para generar valores de clave, `useHttpServerUtilityUrlTokenEncode` debe establecerse en true. Solo se puede usar la codificación Base64 de seguridad de direcciones URL para los valores de clave. Consulte [Reglas de nomenclatura &#40;Azure Cognitive Search&#41;](/rest/api/searchservice/naming-rules) para obtener el conjunto completo de restricciones sobre los caracteres de los valores de clave.

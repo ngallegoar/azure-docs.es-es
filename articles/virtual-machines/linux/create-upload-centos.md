@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: guybo
-ms.openlocfilehash: 9097fb4aefe168ce36793d13f892fbbeab10ad56
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 90b29944315b8a72a4ef95adbfc681a0ab276b00
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372746"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533065"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparación de una máquina virtual basada en CentOS para Azure
 
@@ -163,7 +163,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux CentO
     sudo yum install microsoft-hyper-v
     ```
 
-    Como alternativa, puede seguir las instrucciones de instalación manual de la [página de descarga de LIS](https://www.microsoft.com/download/details.aspx?id=51612) para instalar el RPM en la máquina virtual.
+    Como alternativa, puede seguir las instrucciones de instalación manual de la [página de descarga de LIS](https://www.microsoft.com/download/details.aspx?id=55106) para instalar el RPM en la máquina virtual.
 
 12. Instale el Agente de Linux de Azure y sus dependencias. Inicie y habilite el servicio waagent:
 

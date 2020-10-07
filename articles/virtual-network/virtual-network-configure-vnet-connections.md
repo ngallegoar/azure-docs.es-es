@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: dddf402455292e19bf0fcda3c50d9ce10d5888d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f25e42b1785f83e0b93c346e260055247a4ab29d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71099057"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400713"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Configuración y validación de conexiones de red virtual o de VPN
 
@@ -182,7 +182,7 @@ Este escenario se admite cuando BGP está habilitado en la VPN de sitio a sitio 
 
 ### <a name="configure-transit-routing-in-an-expressroute-connection"></a>Configuración del enrutamiento de tránsito en una conexión de ExpressRoute
 
-Azure ExpressRoute le permite ampliar sus redes locales a la nube de Microsoft a través de una conexión privada y dedicada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Office 365 y Dynamics 365. Para más información, consulte [Información general sobre ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+Azure ExpressRoute le permite ampliar sus redes locales a la nube de Microsoft a través de una conexión privada y dedicada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Microsoft 365 y Dynamics 365. Para más información, consulte [Información general sobre ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 ![Conexión de emparejamiento privado de ExpressRoute a redes virtuales de Azure](./media/virtual-network-configure-vnet-connections/4034395_en_1.png)
 

@@ -8,12 +8,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fe24cc79d749761b697a8d1a162ec2867da9a649
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 4af63421e831318e6250825cffd1abad415b85bb
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257487"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447824"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Acceso de los módulos al almacenamiento local de un dispositivo
 
@@ -85,7 +85,7 @@ Puede encontrar más detalles sobre las opciones de creación en la [documentaci
 
 ## <a name="encrypted-data-in-module-storage"></a>Datos cifrados en el almacenamiento de módulos
 
-Cuando los módulos invocan la API de carga de trabajo del demonio de IoT Edge para cifrar datos, la clave de cifrado se deriva mediante el id. de módulo y el id. de generación del módulo. Un id. de generación se usa para proteger los secretos si se quita un módulo de la implementación y, posteriormente, se implementa otro módulo con el mismo id. de módulo en el mismo dispositivo. Puede ver el id. de generación de un módulo mediante el comando [az iot hub module-identity show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show) de la CLI de Azure.
+Cuando los módulos invocan la API de carga de trabajo del demonio de IoT Edge para cifrar datos, la clave de cifrado se deriva mediante el id. de módulo y el id. de generación del módulo. Un id. de generación se usa para proteger los secretos si se quita un módulo de la implementación y, posteriormente, se implementa otro módulo con el mismo id. de módulo en el mismo dispositivo. Puede ver el id. de generación de un módulo mediante el comando [az iot hub module-identity show](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show) de la CLI de Azure.
 
 Si quiere compartir archivos entre módulos de varias generaciones, no debe contener ningún secreto o se podrá descifrar.
 

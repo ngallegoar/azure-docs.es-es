@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traducción de voz
-ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e54659b0d4504def272d3de40d5e953d98404a8d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401221"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630077"
 ---
 # <a name="what-is-speech-translation"></a>¿Qué es la traducción de voz?
 
@@ -58,10 +58,10 @@ Si sus aplicaciones, herramientas o productos usan [Translator Speech API](https
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
 * [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
-* [API REST: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index) (API de REST: Transcripción y personalización de Azure Batch)
+* [API REST: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) (API de REST: Transcripción y personalización de Azure Batch)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Complete la [guía de inicio rápido](get-started-speech-translation.md) de traducción de voz
-* [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)
+* [Obtenga una clave de suscripción gratuita a los servicios de Voz](overview.md#try-the-speech-service-for-free)
 * [Obtención del SDK de voz](speech-sdk.md)

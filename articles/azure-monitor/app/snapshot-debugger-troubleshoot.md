@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bb2ac221169cea84205d087cbe0aadfd035d22db
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707839"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760519"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas de habilitación de Application Insights Snapshot Debugger o ver instantáneas
 Si habilitó Application Insights Snapshot Debugger para la aplicación, pero no puede ver las instantáneas para las excepciones, puede usar estas instrucciones para solucionar problemas. Puede haber muchas razones diferentes de por qué no se generan las instantáneas. Puede ejecutar la comprobación de estado de instantáneas para identificar algunas de las posibles causas comunes.
@@ -62,7 +62,7 @@ Si la aplicación usa una versión preliminar de .NET Core y Snapshot Debugger s
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Actualización a la versión más reciente del paquete NuGet
 
-Si se habilitó Snapshot Debugger con el [panel Application Insights en el portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), la aplicación ya debería estar ejecutando el paquete NuGet más reciente. Si se habilitó Snapshot Debugger mediante la inclusión del paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector), use el administrador de paquetes NuGet de Visual Studio para asegurarse de que usa la versión más reciente de Microsoft.ApplicationInsights.SnapshotCollector. Puede encontrar notas de la versión en https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+Si se habilitó Snapshot Debugger con el [panel Application Insights en el portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), la aplicación ya debería estar ejecutando el paquete NuGet más reciente. Si se habilitó Snapshot Debugger mediante la inclusión del paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector), use el administrador de paquetes NuGet de Visual Studio para asegurarse de que usa la versión más reciente de Microsoft.ApplicationInsights.SnapshotCollector.
 
 ## <a name="check-the-uploader-logs"></a>Comprobar los registros de usuario de carga
 

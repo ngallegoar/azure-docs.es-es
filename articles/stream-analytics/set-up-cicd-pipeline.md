@@ -8,20 +8,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: 23ac1e241c0811944a943c3c3fef3116eff68a67
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9b6dfc977aab7d8907b5d3c3851a22f96227d78
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90931999"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757765"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Uso de Azure DevOps para crear una canalización de CI/CD para un trabajo de Stream Analytics
 
-En este artículo, aprenderá a crear canalizaciones de [compilación](/devops/pipelines/get-started-designer) y [versión](/devops/pipelines/release/define-multistage-release-process) de Azure DevOps mediante herramientas de CI/CD de Azure Stream Analytics.
+En este artículo, aprenderá a crear canalizaciones de [compilación](/azure/devops/pipelines/get-started/pipelines-get-started) y [versión](/azure/devops/pipelines/release/define-multistage-release-process) de Azure DevOps mediante herramientas de CI/CD de Azure Stream Analytics.
 
 ## <a name="commit-your-stream-analytics-project"></a>Confirmación del proyecto de Stream Analytics
 
-Antes de comenzar, confirme los proyectos de Stream Analytics completados como archivos de origen para un repositorio de [Azure DevOps](/devops/user-guide/source-control). Puede hacer referencia a este [repositorio de ejemplo](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) y al [código fuente del proyecto de Stream Analytics](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) en Azure Pipelines.
+Antes de comenzar, confirme los proyectos de Stream Analytics completados como archivos de origen para un repositorio de [Azure DevOps](/azure/devops/user-guide/source-control). Puede hacer referencia a este [repositorio de ejemplo](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) y al [código fuente del proyecto de Stream Analytics](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) en Azure Pipelines.
 
 En los pasos de este artículo se usa un proyecto de Visual Studio Code para Stream Analytics. Si usa un proyecto de Visual Studio, siga los pasos descritos en [Automatización de las compilaciones, las pruebas y las implementaciones de un trabajo de Azure Stream Analytics mediante herramientas de CI/CD](cicd-tools.md).
 
@@ -39,7 +39,7 @@ En esta sección, aprenderá a crear una canalización de compilación. Puede ha
 
 1. Seleccione el tipo de origen, el proyecto del equipo y el repositorio. Después, seleccione **Continuar**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Selección del proyecto de Azure Stream Analytics":::
+   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Creación de una instancia de Azure Pipeline":::
 
 1. En la página **Elegir una plantilla**, seleccione **Trabajo vacío**.
 
@@ -47,7 +47,7 @@ En esta sección, aprenderá a crear una canalización de compilación. Puede ha
 
 1. En la página **Tareas**, seleccione el signo más que aparece al lado de **Agent job 1**. Escriba *npm* en la búsqueda de tareas y seleccione **npm**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Selección de la tarea npm":::
+   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Creación de una instancia de Azure Pipeline":::
 
 2. Asigne a la tarea un **nombre para mostrar**. Cambie la opción **Comando** a *personalizar* y escriba el siguiente comando en **Comando y argumentos**. Deje las restantes opciones predeterminadas.
 
@@ -55,7 +55,7 @@ En esta sección, aprenderá a crear una canalización de compilación. Puede ha
    install -g azure-streamanalytics-cicd
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Especificación de configuraciones para la tarea npm":::
+   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Creación de una instancia de Azure Pipeline":::
 
 ## <a name="add-a-build-task"></a>Adición de una tarea de compilación
 
@@ -77,7 +77,7 @@ En esta sección, aprenderá a crear una canalización de compilación. Puede ha
 
    En la imagen siguiente se usa como ejemplo un proyecto de Visual Studio Code para Stream Analytics.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Especificación de configuraciones para la tarea de línea de comandos en Visual Studio Code":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Creación de una instancia de Azure Pipeline":::
 
 ## <a name="add-a-test-task"></a>Adición de una tarea de prueba
 
@@ -87,7 +87,7 @@ En esta sección, aprenderá a crear una canalización de compilación. Puede ha
    |-|-|
    |testPath|Prueba|
 
-   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Adición de variables de canalización":::
+   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Creación de una instancia de Azure Pipeline":::
 
 2. En la página **Tareas**, seleccione el signo más que aparece al lado de **Agent job 1**. Busque **Línea de comandos**.
 
@@ -99,7 +99,7 @@ En esta sección, aprenderá a crear una canalización de compilación. Puede ha
    azure-streamanalytics-cicd test -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(testPath) -testConfigPath $(projectRootPath)/test/testConfig.json 
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="Especificación de configuraciones para la tarea de línea de comandos":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="Creación de una instancia de Azure Pipeline":::
 
 ## <a name="add-a-copy-files-task"></a>Adición de una tarea de copia de archivos
 
@@ -116,7 +116,7 @@ Se debe agregar una tarea de copia de archivos para copiar el archivo de resumen
 
 2. Expanda **Opciones de control**. En **Ejecutar esta tarea**, seleccione **Incluso si una tarea anterior ha dado error, a menos que se haya cancelado la compilación**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="Especificación de configuraciones para la tarea de copia":::
+   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="Creación de una instancia de Azure Pipeline":::
 
 ## <a name="add-a-publish-build-artifacts-task"></a>Adición de una tarea de publicación de artefactos de compilación
 
@@ -124,7 +124,7 @@ Se debe agregar una tarea de copia de archivos para copiar el archivo de resumen
 
 2. Expanda **Opciones de control**. En **Ejecutar esta tarea**, seleccione **Incluso si una tarea anterior ha dado error, a menos que se haya cancelado la compilación**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="Especificación de configuraciones para la tarea de publicación":::
+   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="Creación de una instancia de Azure Pipeline":::
 
 ## <a name="save-and-run"></a>Guardar y ejecutar
 
@@ -134,9 +134,9 @@ Cuando haya terminado de agregar el paquete npm, la línea de comandos y las tar
 
 El archivo de resumen de pruebas y los archivos de la plantilla de Azure Resource Manager se pueden encontrar en la carpeta **Published**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="Comprobación de los resultados de compilación y prueba":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="Creación de una instancia de Azure Pipeline":::
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="Comprobación de los artefactos":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="Creación de una instancia de Azure Pipeline":::
 
 ## <a name="release-with-azure-pipelines"></a>Publicación con Azure Pipelines
 
@@ -150,7 +150,7 @@ Abra un explorador web y vaya al proyecto de Visual Studio Code de Azure Stream
 
 3. En el cuadro de **Artefactos**, seleccione **+ Agregar un artefacto**. En **Origen**, seleccione la canalización de compilación que ha creado y elija **Agregar**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="Especificar artefacto de canalización de compilación":::
+   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="Creación de una instancia de Azure Pipeline":::
 
 4. Cambie el nombre de **Stage 1** a **Deploy job to test environment** (Implementar trabajo en entorno de prueba).
 
@@ -196,7 +196,7 @@ Abra un explorador web y vaya al proyecto de Visual Studio Code de Azure Stream
 
 Para crear una versión, seleccione **Crear versión** en la esquina superior derecha.
 
-:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Crear una versión mediante Azure Pipelines":::
+:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Creación de una instancia de Azure Pipeline":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

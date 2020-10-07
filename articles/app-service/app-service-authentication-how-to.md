@@ -4,12 +4,12 @@ description: Aprenda a personalizar la característica de autenticación y autor
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2fa2e3463e057062ba743c2f6989aa571c85c983
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: a01ca051f676f6a62face2c8ef0c9055c0c98c31
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962475"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757527"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
@@ -323,6 +323,17 @@ El código siguiente agota las posibles opciones de configuración del archivo:
             "/path2"
         ]
     },
+    "httpSettings": {
+        "requireHttps": <true|false>,
+        "routes": {
+            "apiPrefix": "<api prefix>"
+        },
+        "forwardProxy": {
+            "convention": "NoProxy|Standard|Custom",
+            "customHostHeaderName": "<host header value>",
+            "customProtoHeaderName": "<proto header value>"
+        }
+    },
     "identityProviders": {
         "azureActiveDirectory": {
             "enabled": <true|false>,
@@ -398,7 +409,7 @@ El código siguiente agota las posibles opciones de configuración del archivo:
             }
         },
         "openIdConnectProviders": {
-            "provider name": {
+            "<providerName>": {
                 "enabled": <true|false>,
                 "registration": {
                     "clientId": "<client id>",
@@ -427,45 +438,35 @@ El código siguiente agota las posibles opciones de configuración del archivo:
                 }
             },
             //...
+        }
+    },
+    "login": {
+        "routes": {
+            "logoutEndpoint": "<logout endpoint>"
         },
-        "login": {
-            "routes": {
-                "logoutEndpoint": "<logout endpoint>"
+        "tokenStore": {
+            "enabled": <true|false>,
+            "tokenRefreshExtensionHours": "<double>",
+            "fileSystem": {
+                "directory": "<directory to store the tokens in if using a file system token store (default)>"
             },
-            "tokenStore": {
-                "enabled": <true|false>,
-                "tokenRefreshExtensionHours": "<double>",
-                "fileSystem": {
-                    "directory": "<directory to store the tokens in if using a file system token store (default)>"
-                },
-                "azureBlobStorage": {
-                    "sasUrlSettingName": "<app setting name containing the sas url for the Azure Blob Storage if opting to use that for a token store>"
-                }
-            },
-            "preserveUrlFragmentsForLogins": <true|false>,
-            "allowedExternalRedirectUrls": [
-                "https://uri1.azurewebsites.net/",
-                "https://uri2.azurewebsites.net/"
-            ],
-            "cookieExpiration": {
-                "convention": "FixedTime|IdentityProviderDerived",
-                "timeToExpiration": "<timespan>"
-            },
-            "nonce": {
-                "validateNonce": <true|false>,
-                "nonceExpirationInterval": "<timespan>"
+            "azureBlobStorage": {
+                "sasUrlSettingName": "<app setting name containing the sas url for the Azure Blob Storage if opting to use that for a token store>"
             }
         },
-        "httpSettings": {
-            "requireHttps": <true|false>,
-            "routes": {
-                "apiPrefix": "<api prefix>"
-            },
-            "forwardProxy": {
-                "convention": "NoProxy|Standard|Custom",
-                "customHostHeaderName": "<host header value>",
-                "customProtoHeaderName": "<proto header value>"
-            }
+        "preserveUrlFragmentsForLogins": <true|false>,
+        "allowedExternalRedirectUri": [
+            "https://uri1.azurewebsites.net/",
+            "https://uri2.azurewebsites.net/",
+            "url_scheme_of_your_app://easyauth.callback"
+        ],
+        "cookieExpiration": {
+            "convention": "FixedTime|IdentityProviderDerived",
+            "timeToExpiration": "<timespan>"
+        },
+        "nonce": {
+            "validateNonce": <true|false>,
+            "nonceExpirationInterval": "<timespan>"
         }
     }
 }
@@ -489,7 +490,7 @@ Para ver la versión actual del middleware de autenticación de la plataforma, u
 
 ##### <a name="from-the-azure-cli"></a>Desde la CLI de Azure
 
-En la CLI de Azure, consulte la versión actual del middleware mediante el comando [az webapp auth show](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show).
+En la CLI de Azure, consulte la versión actual del middleware mediante el comando [az webapp auth show](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-show).
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -520,7 +521,7 @@ También puede consultar el punto de conexión de /.auth/version en una aplicaci
 
 #### <a name="update-the-current-runtime-version"></a>Actualización de la versión de tiempo de ejecución
 
-En la CLI de Azure, puede actualizar el valor de `runtimeVersion` en la aplicación mediante el comando [az webapp auth update](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update).
+En la CLI de Azure, puede actualizar el valor de `runtimeVersion` en la aplicación mediante el comando [az webapp auth update](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-update).
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \

@@ -1,17 +1,17 @@
 ---
 title: 'Reglas de firewall en Azure Database for PostgreSQL: servidor único'
 description: 'En este artículo se describe cómo usar reglas de firewall para conectarse a Azure Database for PostgreSQL: servidor único.'
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 7048fac4804e16ae70145c8fadc1cd6e0859fcfc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e677aef7a90e7372c5af4bfa48c6160c439b3ee8
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903903"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707972"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Reglas de firewall de Azure Database for PostgreSQL con un único servidor
 El firewall del servidor de Azure Database for PostgreSQL impide todo acceso al servidor de base de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
@@ -40,7 +40,7 @@ Si no hay ninguna dirección IP saliente fija disponible para su servicio de Azu
 > La opción **Permitir el acceso a servicios de Azure** configura el firewall para permitir todas las conexiones desde Azure, lo que incluye conexiones desde las suscripciones de otros clientes. Al seleccionar esta opción, asegúrese de que los permisos de usuario y el inicio de sesión limiten el acceso solamente a los usuarios autorizados.
 > 
 
-:::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configurar el permiso de acceso a los servicios de Azure en el portal":::
+:::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="Ejemplo de flujo de cómo funciona el firewall":::
 
 ### <a name="connecting-from-a-vnet"></a>Conexión desde una red virtual
 Para conectarse de forma segura a Azure Database for PostgreSQL desde una red virtual, considere la posibilidad de usar [puntos de conexión de servicio de red virtual](./concepts-data-access-and-security-vnet.md). 

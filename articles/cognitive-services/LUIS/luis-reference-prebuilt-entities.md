@@ -3,20 +3,18 @@ title: 'Todas las entidades precompiladas: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Este artículo contiene listas de las entidades precompiladas que se incluyen en Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/20/2020
-ms.author: diberry
-ms.openlocfilehash: 7ec9cd8aade1edb7d2df2bab5cec8de445af7e44
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7a4654b8f389ad18010bb4ad211103f2816a18ee
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337983"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542009"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por la referencia cultural en el modelo de LUIS
 

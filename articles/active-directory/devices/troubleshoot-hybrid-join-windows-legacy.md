@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 361b27ce84417b30fe58ac7651f70f8c72f8a16a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74379111"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627379"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory 
 
@@ -40,7 +40,6 @@ En este artículo se proporcionan instrucciones sobre cómo resolver problemas p
 
 - Unión de Azure AD híbrido para dispositivos Windows de bajo nivel funciona de forma ligeramente diferente que en Windows 10. Muchos clientes no se dan cuenta de que necesitan AD FS (para dominios federados) o SSO de conexión directa configurado (para dominios administrados).
 - Para los clientes con dominios federados, si el punto de conexión de servicio (SCP) se configuró de manera que apunte al nombre de dominio administrado (por ejemplo, contoso.onmicrosoft.com, en lugar de contoso.com), Unión a Azure AD híbrido para dispositivos Windows de bajo nivel no funcionará.
-- El número máximo de dispositivos por usuario también se aplica actualmente a los dispositivos unidos a Azure AD híbrido de bajo nivel. 
 - El mismo dispositivo físico aparece varias veces en Azure AD cuando varios usuarios de dominio inician sesión en los dispositivos unidos a Azure AD híbrido de bajo nivel.  Por ejemplo, si *jdoe* y *jharnett* inician sesión en un dispositivo, se crea un registro independiente (identificador de dispositivo) para cada uno de estos usuarios en la pestaña de información de **USUARIO**. 
 - Puede que reciba también varias entradas para un dispositivo en la pestaña de información del usuario debido a la reinstalación del sistema operativo o a un nuevo registro manual.
 - El registro inicial o unión de dispositivos se ha configurado para realizar un intento de inicio de sesión o de bloqueo/desbloqueo. Podría haber un retraso de 5 minutos desencadenado por una tarea de programador de tareas. 

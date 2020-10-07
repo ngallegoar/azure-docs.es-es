@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0f4552d6488ecd083b6ee5d4cae2ef2bd660efc7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c4af0e8eda818fcb57ea9e050b760c3754c46e2c
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906382"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613652"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Preguntas frecuentes para clientes que ya usan registros de Azure Monitor<a name="existingloganalyticscust"></a>
 
@@ -35,7 +35,6 @@ Una solución de Security Center se instala en el área de trabajo seleccionada 
 Cuando Security Center identifica que una VM ya está conectada a un área de trabajo creada por el usuario, habilita las soluciones en esta área de trabajo según la configuración de precios. Las soluciones se aplican solo a las VM de Azure pertinentes a través de la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md), por lo que la facturación sigue siendo la misma.
 
 - **Azure Defender desactivado**: Security Center instala la solución “SecurityCenterFree” en el área de trabajo. No se le facturará.
-- 
 - **Azure Defender activado**: Security Center instala la solución “Security” en el área de trabajo.
 
    ![Soluciones del área de trabajo predeterminada](./media/security-center-platform-migration-faq/solutions.png)

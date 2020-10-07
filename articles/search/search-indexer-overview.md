@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/25/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3f3c53d412105489a814f082bbc0fd209476ecf9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7f6be959bf09cbe20bb37dfa3d17d64467758bd6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971398"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397902"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores de Azure Cognitive Search
 
@@ -60,7 +60,7 @@ En una ejecución inicial, cuando el índice está vacío, un indexador lee todo
 
 En cada uno de los documentos que ingiere, un indexador implementa o coordina varios pasos, desde la recuperación del documento hasta una "entrega" final del motor de búsqueda para la indexación. Opcionalmente, un indexador también es fundamental para impulsar la ejecución y los resultados del conjunto de aptitudes, siempre que se haya definido uno.
 
-![Fases del indexador](./media/search-indexer-overview/indexer-stages.png "fases del indexador")
+:::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Fases del indexador" border="false":::
 
 ### <a name="stage-1-document-cracking"></a>Fase 1 Descifrado de documentos
 
@@ -88,7 +88,7 @@ Al igual que las asignaciones de campos que asocian valores textuales de campos 
 
 En la siguiente imagen se muestra una representación de [sesión de depuración](cognitive-search-debug-session.md) de un indexador de ejemplo de las fases del indexador: descifrado de documentos, asignaciones de campos, ejecución del conjunto de aptitudes y asignaciones de campos de salida.
 
-:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="Sesión de depuración de ejemplo" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="Fases del indexador" lightbox="media/search-indexer-overview/sample-debug-session.png":::
 
 ## <a name="basic-configuration-steps"></a>Pasos básicos de configuración
 

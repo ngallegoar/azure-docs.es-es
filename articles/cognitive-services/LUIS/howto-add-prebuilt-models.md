@@ -3,19 +3,17 @@ title: Modelos precompilados para Language Understanding
 titleSuffix: Azure Cognitive Services
 description: LUIS incluye un conjunto de modelos precompilados para agregar rápidamente escenarios de usuario comunes y de conversación.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: abf149d621d283744a71e08ea4ac2199a1994d57
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2080139732d71aa5df9a9d4ad13fcc4545128dff
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680959"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541924"
 ---
 # <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Adición de modelos precompilados en escenarios de uso común
 

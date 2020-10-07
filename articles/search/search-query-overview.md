@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 018c3fb08c7fa0ad35fa567bffbeae48b6fbbce9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bae4cb72201bbc1653db5bb549d67531bda71d50
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928843"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537725"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipos y composición de consultas en Azure Cognitive Search
 
@@ -92,7 +92,7 @@ En la tabla siguiente se enumeran las API y los métodos basados en herramientas
 |-------------|-------------|
 | [Explorador de búsqueda (portal)](search-explorer.md) | Proporciona una barra de búsqueda y opciones para la selección del índice y la versión de API. Los resultados se devuelven como documentos JSON. Recomendado para exploración, prueba y validación. <br/>[Más información.](search-get-started-portal.md#query-index) | 
 | [Postman u otras herramientas de REST](search-get-started-postman.md) | Las herramientas de pruebas Web son una opción excelente para formular llamadas REST. La API REST es compatible con todas las operaciones posibles de Azure Cognitive Search. En este artículo, se explica cómo configurar el encabezado y el cuerpo de una solicitud HTTP para enviar solicitudes a Azure Cognitive Search.  |
-| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Cliente que puede usarse para consultar un índice de Azure Cognitive Search.  <br/>[Más información.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient) | Cliente que puede usarse para consultar un índice de Azure Cognitive Search.  <br/>[Más información.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Documentos de búsqueda (API REST)](/rest/api/searchservice/search-documents) | Métodos GET o POST en un índice, con parámetros de consulta para entradas adicionales.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Elección del analizador: básico | completo

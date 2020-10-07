@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 09/03/2020
-ms.openlocfilehash: 2c7ff633705d3db327c563b41ce199a5342dda82
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461568"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708380"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conexión a una instancia de proceso de Azure Machine Learning en Visual Studio Code (versión preliminar)
 
@@ -68,7 +68,7 @@ Llegados a este punto, puede continuar ejecutando las celdas en el cuaderno de J
 Para disfrutar de una experiencia de desarrollo remoto completa, deberá cumplir algunos requisitos previos:
 
 * [Extensión Visual Studio Code Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-* Instancia de proceso habilitada para SSH. Para más información, [consulte la guía para crear una instancia de proceso](concept-compute-instance.md#create).
+* Instancia de proceso habilitada para SSH. Para más información, [consulte la guía para crear una instancia de proceso](how-to-create-manage-compute-instance.md).
 
 > [!NOTE]
 > En las plataformas Windows, debe [instalar un cliente SSH compatible con OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) si todavía no lo hay. PuTTY no se admite en Windows, ya que el comando ssh debe estar en la ruta de acceso.

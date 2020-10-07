@@ -3,12 +3,12 @@ title: Guía de configuración acelerada del laboratorio educativo para Azure La
 description: Esta guía ayuda a los creadores de laboratorios a configurar rápidamente una cuenta de laboratorio para usarla en su centro educativo.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ad1a679c556316c2d23a713ffa5ac5dfe86cce0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 510aa97a0a47e62f627203495c601bb2538e19ad
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445583"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652217"
 ---
 # <a name="classroom-lab-setup-guide"></a>Guía de configuración del laboratorio educativo
 
@@ -60,9 +60,6 @@ En Lab Services se usa un modelo de precios de pago por uso, lo que significa qu
 - **Programación**: una programación permite controlar de forma automática cuándo se inician y se apagan las máquinas virtuales de los laboratorios.
 - **Cuota**: la cuota controla el número de horas que los alumnos tendrán acceso a una máquina virtual fuera de las horas programadas. Si se alcanza la cuota mientras un alumno la está usando, la máquina virtual se apaga automáticamente. El alumno no podrá reiniciar la máquina virtual a menos que se aumente la cuota.
 - **Apagado automático**: cuando se habilita, la configuración de apagado automático hace que las máquinas virtuales Windows se apaguen automáticamente después de un período de tiempo determinado, una vez que el alumno se haya desconectado de su sesión de Protocolo de escritorio remoto (RDP). De manera predeterminada esta opción está deshabilitada.  
-
-    > [!NOTE]
-    > Actualmente, esta configuración solo existe para Windows.
 
 ### <a name="how-will-students-save-their-work"></a>¿Cómo guardarán el trabajo los alumnos?
 

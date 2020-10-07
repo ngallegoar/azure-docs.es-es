@@ -1,17 +1,15 @@
 ---
 title: Configuración de un entorno de desarrollo en macOS
 description: Instale las herramientas, el SDK y el motor en tiempo de ejecución y cree un clúster de desarrollo local. Después de completar esta instalación, estará listo para crear aplicaciones en macOS.
-author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
-ms.author: suhuruli
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 74dfe54bf5f842aea59bf6cb35a00aeef81766f1
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 0d5a31f22fb0472882e3854488fbd1c3249879d7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429016"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539867"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configuración de su entorno de desarrollo en Mac OS X
 > [!div class="op_single_selector"]

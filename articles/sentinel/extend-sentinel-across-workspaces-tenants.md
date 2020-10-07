@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: b899069a03b39d068f2b4059cf26d3baf1f3beae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 502b93b4459fba4da04207d9186f8c7ce6b298c2
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905418"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578485"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Extender Azure Sentinel por áreas de trabajo e inquilinos
 
@@ -131,7 +131,7 @@ Consulte también [Implementación y administración de Azure Sentinel como cód
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Administración de áreas de trabajo en los inquilinos mediante Azure Lighthouse
 
-Como se mencionó anteriormente, en muchos escenarios, las diferentes áreas de trabajo de Azure Sentinel pueden encontrarse en distintos inquilinos de Azure AD. Puede usar [Azure Lighthouse](../lighthouse/overview.md) para extender todas las actividades entre áreas de trabajo a través de los límites del inquilino, lo que permite a los usuarios del inquilino de administración trabajar en áreas de trabajo de Azure Sentinel en todos los inquilinos. Una vez que Azure Lighthouse esté [incorporado](../lighthouse/how-to/onboard-customer.md), use el [directorio y el selector de suscripción](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-from-other-tenants) en Azure Portal para seleccionar todas las suscripciones que contienen áreas de trabajo que quiere administrar, con el fin de asegurarse de que estén disponibles en los diferentes selectores del área de trabajo del portal.
+Como se mencionó anteriormente, en muchos escenarios, las diferentes áreas de trabajo de Azure Sentinel pueden encontrarse en distintos inquilinos de Azure AD. Puede usar [Azure Lighthouse](../lighthouse/overview.md) para extender todas las actividades entre áreas de trabajo a través de los límites del inquilino, lo que permite a los usuarios del inquilino de administración trabajar en áreas de trabajo de Azure Sentinel en todos los inquilinos. Una vez que Azure Lighthouse esté [incorporado](../lighthouse/how-to/onboard-customer.md), use el [directorio y el selector de suscripción](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-in-managed-tenants) en Azure Portal para seleccionar todas las suscripciones que contienen áreas de trabajo que quiere administrar, con el fin de asegurarse de que estén disponibles en los diferentes selectores del área de trabajo del portal.
 
 Al usar Azure Lighthouse, se recomienda crear un grupo para cada rol de Azure Sentinel y delegar los permisos de cada inquilino en esos grupos.
 

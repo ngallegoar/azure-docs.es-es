@@ -70,7 +70,7 @@
         - name: Creación de flujos de trabajo con estado o sin estado en Visual Studio Code
           href: create-stateful-stateless-workflows-visual-studio-code.md
         - name: Llamada a aplicaciones lógicas desde Power Automate y Power Apps
-          href: call-logic-apps-from-power-automate-power-apps.md
+          href: call-from-power-automate-power-apps.md
         - name: Control de la ejecución del flujo de trabajo
           items:
             - name: Instrucciones condicionales
@@ -213,7 +213,7 @@
           href: logic-apps-http-endpoint.md
         - name: Azure Service Bus
           href: ../connectors/connectors-create-api-servicebus.md
-        - name: Azure SQL Database
+        - name: "Azure\_SQL\_Database"
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Bing Search
           href: ../connectors/connectors-create-api-bingsearch.md

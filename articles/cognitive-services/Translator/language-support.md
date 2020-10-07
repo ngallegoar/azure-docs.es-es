@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300228"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568104"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Compatibilidad de idiomas y regiones con la traducción de texto y voz
 
@@ -38,6 +38,7 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 |:-----|:-----:|
 |Afrikáans| `af`|
 |Árabe|    `ar`    |
+|Asamés|  `as`    |
 |Bengalí|    `bn`    |
 |Bosnio (latino)|   `bs`    |
 |Búlgaro| `bg`    |
@@ -71,7 +72,6 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 |Japonés|  `ja`    |
 |Canarés|`kn`|
 |Kazajo|`kk`|
-|Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Klingon (plqaD)|   `tlh-Piqd`  |
 |Coreano |`ko`   |
@@ -102,6 +102,7 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 |Eslovaco|    `sk`    |
 |Esloveno| `sl`    |
 |Español|   `es`    |
+|Swahili|   `sw`    |
 |Sueco|   `sv`    |
 |Tahitiano|  `ty`    |
 |Tamil| `ta`    |
@@ -152,7 +153,6 @@ Translator detecta los siguientes idiomas para traducción y transliteración.
 |Irlandés | `ga`|
 |Italiano|   `it`    |
 |Japonés|  `ja`    |
-|Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Coreano |`ko`   |
 |Kurdo (central)  |`ku-Arab`  |
@@ -173,6 +173,7 @@ Translator detecta los siguientes idiomas para traducción y transliteración.
 |Eslovaco|    `sk`    |
 |Esloveno| `sl`    |
 |Español|   `es`    |
+|Swahili|   `sw`    |
 |Sueco|   `sv`    |
 |Tahitiano|  `ty`    |
 |Tailandés|  `th`    |
@@ -246,7 +247,6 @@ Vea documentación de referencia de las operaciones [Buscar en diccionario](refe
 | Indonesio      | `id`          |
 | Italiano      | `it`          |
 | Japonés      | `ja`          |
-| Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Coreano      | `ko`          |
 | Letón      | `lv`          |
@@ -263,6 +263,7 @@ Vea documentación de referencia de las operaciones [Buscar en diccionario](refe
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |
 | Español      | `es`          |
+| Swahili      | `sw`          |
 | Sueco      | `sv`          |
 | Tamil      | `ta`          |
 | Tailandés      | `th`          |
@@ -314,7 +315,6 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Italiano      | `it`          |
 | Japonés      | `ja`          |
 |Canarés|`kn`|
-| Kiswahili|    `sw`    |
 | Coreano      | `ko`          |
 | Letón      | `lv`          |
 | Lituano      | `lt`          |
@@ -335,6 +335,7 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |
 | Español      | `es`          |
+| Swahili|  `sw`    |
 | Sueco      | `sv`          |
 |Tahitiano|  `ty`    |
 | Tailandés      | `th`          |

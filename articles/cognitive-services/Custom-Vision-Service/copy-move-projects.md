@@ -9,18 +9,18 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 5285dfb23476662a13162788b2ec497b4fe49228
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 78ae0fc94e74755b481f80724ca26b34da99122c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532992"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758581"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copia y traslado de los proyectos de Custom Vision
 
 Después de crear y entrenar un proyecto de Custom Vision, puede que quiera copiar el proyecto en otro recurso. Por ejemplo, puede que quiera trasladar un proyecto desde un entorno de desarrollo a un entorno de producción, o realizar una copia de seguridad de un proyecto en una cuenta de otra región de Azure para aumentar la seguridad de los datos.
 
-Las API **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3])** y **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** habilitan este escenario permitiéndole copiar proyectos de una cuenta de Custom Vision en otras. En esta guía se muestra cómo usar las API de REST con cURL. También puede usar un servicio de solicitud HTTP como Postman para emitir las solicitudes.
+Las API **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** y **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** habilitan este escenario permitiéndole copiar proyectos de una cuenta de Custom Vision en otras. En esta guía se muestra cómo usar las API de REST con cURL. También puede usar un servicio de solicitud HTTP como Postman para emitir las solicitudes.
 
 ## <a name="business-scenarios"></a>Escenarios empresariales
 

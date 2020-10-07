@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 071b5786127af31a2ad3266c128dbfb7cacad656
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942015"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447326"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Error de detención de Windows: 0x00000074 la información de configuración del sistema no es correcta
 
@@ -61,10 +61,10 @@ El código de detención **BAD_SYSTEM_CONFIG_INFO** se produce si el subárbol d
 1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar una VM de reparación.
 1. Compruebe si hay daños en el subárbol.
 1. Use Conexión a Escritorio remoto para conectarse a la máquina virtual de reparación.
-1. Copie la carpeta `\windows\system32\config` y guárdela en la partición de disco correcta o en otra ubicación segura. Realice una copia de seguridad de esta carpeta como precaución, ya que modificará los archivos de registro críticos.
+1. Copie la carpeta `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` y guárdela en la partición de disco correcta o en otra ubicación segura. Realice una copia de seguridad de esta carpeta como precaución, ya que modificará los archivos de registro críticos. 
 
 > [!NOTE]
-> Realice una copia de la carpeta `\windows\system32\config` como copia de seguridad en caso de que necesite revertir los cambios que realice en el registro.
+> Realice una copia de la carpeta `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` como copia de seguridad en caso de que necesite revertir los cambios que realice en el registro.
 
 ### <a name="check-for-hive-corruption"></a>Comprobación para ver si hay daños en el subárbol
 
@@ -72,7 +72,7 @@ Las instrucciones siguientes le ayudarán a determinar si la causa se debe a da�
 
 1. En la máquina virtual de reparación, abra la aplicación **Editor del Registro**. Escriba "REGEDIT" en la barra de búsqueda de Windows para encontrarlo.
 1. En Editor del Registro, seleccione **HKEY_LOCAL_MACHINE** para resaltarlo y, a continuación, seleccione **Archivo > Cargar subárbol...** en el menú.
-1. Vaya a `\windows\system32\config\SYSTEM` y seleccione **Abrir**.
+1. Vaya a `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM` y seleccione **Abrir**.
 1. Cuando se le pida que escriba un nombre, escriba **BROKENSYSTEM**.
 
    1. Si no se puede abrir el subárbol, o si está vacío, el subárbol está dañado. Si el subárbol está dañado, [abra una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

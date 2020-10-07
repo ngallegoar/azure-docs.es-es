@@ -1,17 +1,17 @@
 ---
 title: 'Recomendaciones de rendimiento de Azure Database for PostgreSQL: servidor único'
 description: En este artículo se describe la característica Recomendaciones de rendimiento de Azure Database for PostgreSQL con un único servidor.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: f0ce3843752ebd6ed56281f6699783181b52fdc6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d547844671e6485e71be7dd8c355de08f3dec5e6
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903878"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710573"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Recomendaciones de rendimiento en Azure Database for PostgreSQL con un único servidor
 
@@ -33,7 +33,7 @@ Seleccione **Analizar** y elija una base de datos, lo que iniciará el análisis
 
 La ventana **Recomendaciones** mostrará una lista de recomendaciones, si se ha detectado alguna.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nueva página de Recomendaciones de rendimiento":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Página de inicio de Recomendaciones de rendimiento":::
 
 Las recomendaciones no se aplican automáticamente. Para aplicar la recomendación, copie el texto de la consulta y ejecútelo desde el cliente que prefiera. No olvide probar y supervisar para evaluar la recomendación. 
 

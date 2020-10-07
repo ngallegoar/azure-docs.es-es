@@ -1,19 +1,19 @@
 ---
 title: Creación de particiones en la API de Gremlin de Azure Cosmos DB
 description: Aprenda a usar Graph con particiones en Azure Cosmos DB. En este artículo también se describen los requisitos y procedimientos recomendados para un grafo con particiones.
-author: luisbosquez
-ms.author: lbosq
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78c15da1ea9fe5f6307ce388e4d64d372e9eb8c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a993779bc47f1a9b2be8851fafe628ae4286f4a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261773"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400509"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Uso de Graph con particiones en Azure Cosmos DB
 
@@ -33,39 +33,39 @@ Las instrucciones siguientes describen cómo funciona la estrategia de creación
 
 - Los **bordes se almacenarán con sus vértices de origen**. En otras palabras, para cada vértice, su clave de partición define dónde se almacena junto con sus bordes salientes. Esta optimización se hace para evitar consultas entre particiones cuando se usa la cardinalidad `out()` en las consultas de grafo.
 
-- **Los bordes contienen referencias a los vértices a los que apuntan**. Todos los bordes se almacenan con las claves de partición y los identificadores de los vértices a los que apuntan. Este cálculo hace que todas las consultas de dirección `out()` sean siempre una consulta con particiones con ámbito y no una consulta ciega entre particiones. 
+- **Los bordes contienen referencias a los vértices a los que apuntan**. Todos los bordes se almacenan con las claves de partición y los identificadores de los vértices a los que apuntan. Este cálculo hace que todas las consultas de dirección `out()` sean siempre una consulta con particiones con ámbito y no una consulta ciega entre particiones.
 
 - Las **consultas de grafo tienen que especificar una clave de partición**. Para aprovechar al máximo la partición horizontal en Azure Cosmos DB, la clave de partición debe especificarse al seleccionar un solo vértice, siempre que sea posible. Estas son las consultas para seleccionar uno o varios vértices en un grafo con particiones:
 
     - `/id` y `/label` no se admiten como claves de partición para un contenedor en la API de Gremlin.
 
 
-    - Selección de un vértice por el identificador, **use el paso `.has()` para especificar la propiedad de clave de partición**: 
-    
+    - Selección de un vértice por el identificador, **use el paso `.has()` para especificar la propiedad de clave de partición**:
+
         ```java
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-    
-    - Selección de un vértice, **especifique una tupla con valor de clave de partición e identificador**: 
-    
+
+    - Selección de un vértice, **especifique una tupla con valor de clave de partición e identificador**:
+
         ```java
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-        
+
     - Especificación de una **matriz de tuplas de identificadores y valores de clave de partición**:
-    
+
         ```java
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-        
-    - Selección de un conjunto de vértices con sus identificadores y **especificación de una lista de valores de clave de partición**: 
-    
+
+    - Selección de un conjunto de vértices con sus identificadores y **especificación de una lista de valores de clave de partición**:
+
         ```java
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
 
-    - Mediante la **estrategia de partición** al inicio de una consulta y la especificación de una partición para el ámbito del resto de la consulta de Gremlin: 
-    
+    - Mediante la **estrategia de partición** al inicio de una consulta y la especificación de una partición para el ámbito del resto de la consulta de Gremlin:
+
         ```java
         g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V()
         ```

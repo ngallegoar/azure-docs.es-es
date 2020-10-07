@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7046ab3c30e120aaaf285c32e25fce03524a0cf4
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6db477a288ef41c2946cd550af6ff87999eff2f0
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89280169"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461281"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
@@ -34,10 +34,6 @@ Consulte [esta guía](./choose-ad-authn.md) para ver una comparación de los dis
 ## <a name="is-pass-through-authentication-a-free-feature"></a>¿Es la autenticación de paso a través una característica gratuita?
 
 La autenticación de paso a través es una característica gratuita. Por tanto, no se necesita ninguna versión de pago de Azure AD para usarla.
-
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloud-and-the-microsoft-azure-government-cloud"></a>¿Está disponible la autenticación de paso a través en la [nube Microsoft Azure Alemania](https://www.microsoft.de/cloud-deutschland) y en la [nube Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
-
-No. La autenticación de paso a través solo está disponible en la instancia mundial de Azure AD.
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>¿Funciona el [acceso condicional](../conditional-access/overview.md) con la autenticación de paso a través?
 

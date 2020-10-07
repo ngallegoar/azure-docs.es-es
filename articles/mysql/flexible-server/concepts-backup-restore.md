@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a5f11a6054358584a8511cb967860c89f6491beb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932266"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756541"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Copia de seguridad y restauración en el Servidor flexible de Azure Database for MySQL (versión preliminar)
 
@@ -24,7 +24,7 @@ El Servidor flexible de Azure Database for MySQL crea automáticamente copias de
 
 El Servidor flexible toma copias de seguridad de instantáneas de los archivos de datos y las almacena en un almacenamiento con redundancia local. El servidor también realiza copias de seguridad de registros de transacciones y los almacena en el almacenamiento con redundancia local. Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención predeterminado es siete días. Opcionalmente, puede configurar la copia de seguridad de base de datos de 1 a 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits para los datos almacenados en reposo.
 
-Estos archivos de copia de seguridad no se pueden exportar. Las copias de seguridad solo se pueden usar para operaciones de restauración en el Servidor flexible. También puede usar [mysqldump](https://docs.microsoft.com/azure/MySQL/howto-migrate-using-dump-and-restore) de un cliente MySQL para copiar una base de datos.
+Estos archivos de copia de seguridad no se pueden exportar. Las copias de seguridad solo se pueden usar para operaciones de restauración en el Servidor flexible. También puede usar [mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) de un cliente MySQL para copiar una base de datos.
 
 ## <a name="backup-frequency"></a>Frecuencia de copia de seguridad
 

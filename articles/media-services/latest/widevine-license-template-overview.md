@@ -14,21 +14,22 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d8cc24722832fac9b2d353a6d87772ffce6c0a4
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: abedbd60a82f280bcd983c05a43685524a3a24e7
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527129"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598155"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Introducción a Media Services v3 con plantilla de licencia de Widevine
 
 Azure Media Services le permite cifrar el contenido HLS con **Widevine de Google**. Asimismo, Media Services también proporciona un servicio para entregar licencias de Widevine. Puede usar las API de Azure Media Services para configurar y solicitar licencias de Widevine. Cuando el reproductor intenta reproducir contenido protegido de Widevine, se envía una solicitud al servicio de entrega de licencias para obtener una licencia. Si el servicio de licencias aprueba la solicitud, el servicio emite la licencia. A continuación, se envía al cliente y se usa para descifrar y reproducir el contenido especificado.
 
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
+
 Una solicitud de licencia de Widevine tiene el formato de un mensaje JSON.  
 
->[!NOTE]
-> Puede crear un mensaje vacío y sin valores usando simplemente "{}". A continuación, se crea una plantilla de licencia con los valores predeterminados. La configuración predeterminada funciona para la mayoría de los casos. Los escenarios de entrega de licencia basados en Microsoft deben utilizar siempre los valores predeterminados. Si tiene que establecer los valores de "provider" y "content_id", el proveedor debe coincidir con las credenciales de Widevine.
+
 
 ```json
 {  
@@ -60,6 +61,9 @@ Una solicitud de licencia de Widevine tiene el formato de un mensaje JSON.
     }
 }
 ```
+
+>[!NOTE]
+> Puede crear un mensaje vacío y sin valores usando simplemente "{}". A continuación, se crea una plantilla de licencia con los valores predeterminados. La configuración predeterminada funciona para la mayoría de los casos. Los escenarios de entrega de licencia basados en Microsoft deben utilizar siempre los valores predeterminados. Si tiene que establecer los valores de "provider" y "content_id", el proveedor debe coincidir con las credenciales de Widevine.
 
 ## <a name="json-message"></a>Mensaje JSON
 

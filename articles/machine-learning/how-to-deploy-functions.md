@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: vaidyas
-author: vaidyas
+author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python
-ms.openlocfilehash: 239fc9de991066ec0603247abafae36a618d534f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cc5bc5b2c9f78854909b965487f7b4299f3a1579
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889868"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567458"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementación de un modelo de Machine Learning en Azure Functions (versión preliminar)
 
@@ -31,7 +31,7 @@ Con Azure Machine Learning, puede crear una imagen de Docker a partir de modelos
 ## <a name="prerequisites"></a>Prerequisites
 
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte el artículo [Crear un área de trabajo](how-to-manage-workspace.md).
-* La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 * Un modelo de aprendizaje automático entrenado registrado en el área de trabajo. Si no tiene un modelo, use el [Tutorial: Entrenamiento de modelos de clasificación de imágenes](tutorial-train-models-with-aml.md) para entrenar y registrar uno.
 
     > [!IMPORTANT]
@@ -120,7 +120,7 @@ Si `show_output=True`, se muestra la salida del proceso de compilación de Docke
 
 ## <a name="deploy-image-as-a-web-app"></a>Implementación de la imagen como una aplicación web
 
-1. Use el siguiente comando para obtener las credenciales de inicio de sesión del registro de contenedor de Azure que contiene la imagen. Reemplace `<myacr>` por el valor devuelto anteriormente de `package.location`: 
+1. Use el siguiente comando para obtener las credenciales de inicio de sesión del registro de contenedor de Azure que contiene la imagen. Reemplace `<myacr>` por el valor devuelto anteriormente de `blob.location`: 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -181,7 +181,7 @@ Si `show_output=True`, se muestra la salida del proceso de compilación de Docke
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
-    ```azurecli-interactiv
+    ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     Registre esta cadena de conexión para proporcionarla a la aplicación de funciones, ya que la usaremos más adelante cuando se nos pida `<triggerConnectionString>`.

@@ -3,16 +3,16 @@ title: Rendimiento de la máquina virtual y del disco
 description: Obtenga más información sobre cómo funcionan en conjunto las máquinas virtuales y sus discos conectados para el rendimiento
 author: albecker1
 ms.author: albecker
-ms.date: 07/07/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: b3ef2c2c3b130478a8b2d3b3c3ce44a7c65b87fe
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 18c07fceb65623c286b31398314e2b6f124955a6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89663368"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540042"
 ---
 # <a name="virtual-machine-and-disk-performance"></a>Rendimiento de la máquina virtual y del disco
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]

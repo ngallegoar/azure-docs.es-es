@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/01/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 64788544971eaa7738013ab1a0475771c13bab88
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 96a11caa93a925731ad2f24ac860b21301a29cdf
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647647"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708193"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creación de una cuenta de Marketplace comercial en el Centro de partners
 
@@ -80,7 +80,7 @@ El perfil de publicador incluye el nombre de su compañía y el identificador de
     
 1. Para comprobar que la cuenta del marketplace comercial aparece como registrada, seleccione **Configuración** > **Configuración de partners** > **Programas**.
 
-Ha creado una cuenta del marketplace comercial en el Centro de partners. Para obtener más información, consulte [Introducción al marketplace comercial](./commercial-marketplace-overview.md). Para obtener ayuda con la incorporación de publicadores, consulte [Incorporación de nuevos publicadores a Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
+Ha creado una cuenta del marketplace comercial en el Centro de partners. Para obtener ayuda con la incorporación de publicadores, consulte [Incorporación de nuevos publicadores a Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="create-an-account-by-using-existing-microsoft-partner-center-enrollments"></a>Creación de una cuenta mediante las inscripciones existentes del Centro de partners de Microsoft
 
@@ -129,7 +129,7 @@ Después de iniciar sesión, siga los pasos que se indican a continuación para 
     
 1. Para comprobar que la cuenta del marketplace comercial aparece como registrada, seleccione **Configuración** > **Configuración de partners** > **Programas**.
 
-Ha creado una cuenta del marketplace comercial en el Centro de partners. Para obtener más información, consulte [Introducción al marketplace comercial](./commercial-marketplace-overview.md). Para obtener ayuda con la incorporación de publicadores, consulte [Incorporación de nuevos publicadores a Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
+Ha creado una cuenta del marketplace comercial en el Centro de partners. Para obtener ayuda con la incorporación de publicadores, consulte [Incorporación de nuevos publicadores a Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ### <a name="what-if-im-already-enrolled-in-a-developer-program"></a>Pasos para usuarios inscritos en un programa para desarrolladores
 
@@ -157,7 +157,7 @@ Después de iniciar sesión en el Centro de partners, siga los pasos que se indi
     
 1. Para comprobar que la cuenta del marketplace comercial aparece como registrada, seleccione **Configuración** > **Configuración de partners** > **Programas**.
 
-Ha creado una cuenta del marketplace comercial en el Centro de partners. Para obtener más información, consulte [Introducción al marketplace comercial](./commercial-marketplace-overview.md). Para obtener ayuda con la incorporación de publicadores, consulte [Incorporación de nuevos publicadores a Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
+Ha creado una cuenta del marketplace comercial en el Centro de partners. Para obtener ayuda con la incorporación de publicadores, consulte [Incorporación de nuevos publicadores a Marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="for-publishers-who-moved-from-the-cloud-partner-portal"></a>Publicadores que se trasladaron desde Cloud Partner Portal
 
@@ -190,4 +190,5 @@ Después de completar el proceso, puede administrar el publicador recién creado
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [¿Qué es el marketplace comercial de Microsoft?](../overview.md)
 - [Administración de la cuenta de marketplace comercial en el Centro de partners](./manage-account.md)

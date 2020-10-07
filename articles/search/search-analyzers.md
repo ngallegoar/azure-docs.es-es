@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9db8a50e670e3c6af7adce0a8efcf3ce569ac89
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 01b57526b15a806271d58b250f06a4372fe56b72
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009634"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532268"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizadores para procesamientos textuales en Búsqueda cognitiva de Azure
 
@@ -147,7 +147,7 @@ Descripción de este ejemplo:
 * En este caso, el analizador personalizado es "my_analyzer", que a su vez utiliza un tokenizador estándar personalizado, "my_standard_tokenizer", y dos filtros de token: lowercase y el filtro de asciifolding personalizado "my_asciifolding".
 * También define 2 filtros de char personalizados "map_dash" y "remove_whitespace". La primera de ellas reemplaza todos los guiones por caracteres de subrayado, mientras que la segunda quita todos los espacios. Los espacios tienen que tener codificación UTF-8 en las reglas de asignación. Los filtros de char se aplican antes de la tokenización y afectarán a los tokens resultantes (el tokenizador estándar se interrumpe en guiones y espacios, pero no en un carácter de subrayado).
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -206,7 +206,7 @@ Descripción de este ejemplo:
         }
      ]
   }
-~~~~
+```
 
 <a name="Per-field-analyzer-assignment-example"></a>
 
@@ -216,7 +216,7 @@ El analizador estándar es el predeterminado. Imagine que desea reemplazar el an
 
 El elemento "analizador" reemplaza el analizador estándar campo a campo. No se produce un reemplazo global. En este ejemplo, `text1` utiliza el analizador de patrón y `text2`, que no especifica un analizador, usa el predeterminado.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -239,7 +239,7 @@ El elemento "analizador" reemplaza el analizador estándar campo a campo. No se 
         }
      ]
   }
-~~~~
+```
 
 <a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
@@ -248,7 +248,7 @@ El elemento "analizador" reemplaza el analizador estándar campo a campo. No se 
 Las API incluyen atributos de índice adicionales para especificar diferentes analizadores para las operaciones de indexación y búsqueda. Los atributos **searchAnalyzer** y **indexAnalyzer** se deben especificar como un par, de forma que se reemplaza el atributo único **analyzer**.
 
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -267,7 +267,7 @@ Las API incluyen atributos de índice adicionales para especificar diferentes an
         },
      ],
   }
-~~~~
+```
 
 <a name="Language-analyzer-example"></a>
 
@@ -275,7 +275,7 @@ Las API incluyen atributos de índice adicionales para especificar diferentes an
 
 Los campos que contienen cadenas en diferentes idiomas pueden utilizar un analizador del lenguaje, mientras que otros campos conservan el predeterminado (o usan otro analizador predefinido o personalizado). Si utiliza un analizador del lenguaje, debe hacerlo tanto para las operaciones de indexación como para las de búsqueda. Los campos que usan un analizador del lenguaje no pueden tener un analizador para la indexación y otro para la búsqueda.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -300,7 +300,7 @@ Los campos que contienen cadenas en diferentes idiomas pueden utilizar un analiz
         }
      ],
   }
-~~~~
+```
 
 ## <a name="c-examples"></a>Ejemplos de C#
 
@@ -317,7 +317,7 @@ Cualquier analizador que se usa tal cual, sin ninguna configuración, se especif
 
 En este ejemplo se asignan analizadores de inglés y francés de Microsoft a los campos de descripción. Es un fragmento de código que se toma de una definición del índice de hoteles; se crea mediante la clase Hotel en el archivo hotels.cs de la muestra [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
-Llame a [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) especificando el tipo [AnalyzerName](/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) y proporcionando un analizador de texto compatible con Búsqueda cognitiva de Azure.
+Llame a [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer) especificando el tipo [AnalyzerName](/dotnet/api/microsoft.azure.search.models.analyzername) y proporcionando un analizador de texto compatible con Búsqueda cognitiva de Azure.
 
 ```csharp
     public partial class Hotel
@@ -343,7 +343,7 @@ Llame a [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure
 
 Cuando se necesita la personalización o la configuración, debe agregar una construcción de analizador a un índice. Una vez definida, puede agregarla a la definición de campo, como se muestra en el ejemplo anterior.
 
-Cree un objeto [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet). Para obtener más ejemplos, vea [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Cree un objeto [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer). Para obtener más ejemplos, vea [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {

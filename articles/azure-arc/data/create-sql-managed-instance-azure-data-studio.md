@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 989496885445a8a0a8d3bbc1a789975a2875c6e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2aed3ea48935a62d68f739594a265649a2e1292d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932375"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311536"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Creación de instancia administrada de SQL: Azure Arc con Azure Data Studio
 
@@ -48,7 +48,8 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 - Inicio de Azure Data Studio
 - En la pestaña Conexiones, haga clic en los tres puntos de la parte superior izquierda y elija "Nueva implementación".
 - En las opciones de implementación, seleccione **Instancia administrada de Azure SQL: Azure Arc**. 
-  > **Nota:** Es posible que aquí se le pida que instale la CLI de azdata si no lo está actualmente.
+  > [!NOTE]
+  > Es posible que aquí se le pida que instale la CLI de azdata si no lo está actualmente.
 - Acepte los términos de privacidad y de licencia, y haga clic en **Seleccionar** en la parte inferior.
 
 

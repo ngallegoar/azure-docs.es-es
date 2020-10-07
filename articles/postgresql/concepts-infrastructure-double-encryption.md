@@ -6,17 +6,14 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: d54bef277d80a178c45ce918290d46c11387b7d1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 241c404eff1242c52520f94d5d955db7e260148c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918101"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537912"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Cifrado doble de infraestructura de Azure Database for PostgreSQL
-
-> [!NOTE]
-> Por el momento, debe solicitar acceso para poder usar esta función. Para ello, póngase en contacto con AskAzureDBforPostgreSQL@service.microsoft.com.
 
 Azure Database for PostgreSQL usa el [cifrado de datos en reposo](concepts-security.md#at-rest) del almacenamiento mediante claves administradas de Microsoft. Los datos, incluidas las copias de seguridad, se cifran en el disco y este cifrado está siempre activo y no se puede deshabilitar. El cifrado usa el módulo criptográfico validado FIPS 140-2 y un cifrado AES de 256 bits para el cifrado del almacenamiento de Azure.
 

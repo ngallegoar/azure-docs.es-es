@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2020
 ms.author: Zhchia
-ms.openlocfilehash: 15119a76e1e59b339a9012896a525a0ecc91f34d
-ms.sourcegitcommit: 4ce82b6df65ebd81157b6168d3aa4e7323355022
+ms.openlocfilehash: e8d8f2af0350a8b4457f70632341f070c890cba0
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90761443"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761063"
 ---
 # <a name="tutorial-configure-myday-for-automatic-user-provisioning"></a>Tutorial: Configuración de myday para el aprovisionamiento automático de usuarios
 
-En este tutorial se describen los pasos que se deben realizar en myday y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando está configurado, Azure AD aprovisiona y desaprovisiona automáticamente usuarios y grupos en [myday](https://www.mydaycloud.com) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
+En este tutorial se describen los pasos que se deben realizar en myday y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando está configurado, Azure AD aprovisiona y desaprovisiona automáticamente usuarios y grupos en [myday](https://go.mydaycloud.com) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas

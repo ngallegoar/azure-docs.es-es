@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 84a1e2edcbe9e9da93a158ebc11e7bf638dae100
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462741"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630158"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servicio Voz para datos de telefonía
 
@@ -142,9 +142,9 @@ El código de ejemplo está disponible en GitHub para cada una de las caracterí
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
 - [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
-- [API REST: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index) (API de REST: Transcripción y personalización de Azure Batch)
+- [API REST: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) (API de REST: Transcripción y personalización de Azure Batch)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)
+> [Obtenga una clave de suscripción gratuita a los servicios de Voz](overview.md#try-the-speech-service-for-free)

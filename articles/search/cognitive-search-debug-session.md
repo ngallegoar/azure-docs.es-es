@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: b428ff4a9a4f4b9110e88dba57cfad20f2221cf1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 10/05/2020
+ms.openlocfilehash: 941d7f54bcb44653280abe264ff1cffbeae33679
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936170"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743189"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sesiones de depuración en Azure Cognitive Search
 
@@ -35,8 +35,7 @@ Si la canalización de enriquecimiento no tiene errores, se puede usar una sesi�
 
 Para iniciar una sesión de depuración, debe tener una canalización de enriquecimiento con IA que incluya un origen de datos, un conjunto de aptitudes, un indizador y un índice. Para configurar una sesión de depuración, debe asignarle un nombre y proporcionar una cuenta de almacenamiento de uso general que se usará para almacenar en caché las ejecuciones de las aptitudes al ejecutar el indizador. También tendrá que seleccionar el indizador que se ejecutará. El indizador tiene referencias almacenadas en el origen de datos, el conjunto de aptitudes y el índice. La sesión de depuración se establecerá de forma predeterminada en el primer documento del origen de datos. También puede especificar un documento para iniciar el proceso.
 
-> [!div class="mx-imgBorder"]
-> ![Creación de una sesión de depuración](media/cognitive-search-debug/debug-session-new.png)
+> :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Creación de una sesión de depuración":::
 
 ## <a name="debug-session-features"></a>Características de las sesiones de depuración
 
@@ -52,8 +51,7 @@ La vista del **gráfico de aptitudes** proporciona una representación visual je
 
 Al seleccionar una aptitud en el gráfico, se resaltarán los conocimientos conectados a ella, los nodos que crean sus entradas y los nodos que aceptan sus salidas. Cada nodo de aptitud muestra su tipo, errores o advertencias y recuentos de ejecución. En el **gráfico de aptitudes** puede seleccionar la aptitud que se depurará o mejorará. Al seleccionar una aptitud, sus detalles se mostrarán en el panel de detalles de la aptitud, a la derecha del gráfico.
 
-> [!div class="mx-imgBorder"]
-> ![Gráfico de aptitudes](media/cognitive-search-debug/skills-graph.png)
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Creación de una sesión de depuración":::
 
 ## <a name="skill-details"></a>Detalles de aptitud
 
@@ -75,8 +73,7 @@ Al crear una aptitud personalizada o depurar un error con una aptitud personaliz
 
 En el panel **Estructura de datos enriquecidos** se muestran los enriquecimientos del documento mediante el conjunto de aptitudes y se detalla el contexto de cada enriquecimiento, así como la aptitud de origen. También se puede usar el **evaluador de expresiones** para ver el contenido de cada enriquecimiento.
 
-> [!div class="mx-imgBorder"]
-> ![Estructura de datos enriquecidos](media/cognitive-search-debug/enriched-data-structure-display.png)
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Creación de una sesión de depuración":::
 
 ## <a name="expression-evaluator"></a>Evaluador de expresiones
 

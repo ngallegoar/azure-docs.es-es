@@ -1,15 +1,15 @@
 ---
 title: Comprender cómo funcionan las alertas de métricas en Azure Monitor.
 description: Obtenga información general acerca de lo que puede hacer con las alertas de métricas y cómo funcionan en Azure Monitor.
-ms.date: 08/16/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595570"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578077"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -143,6 +143,7 @@ Esta característica se admite actualmente en las métricas de plataforma (no m�
 | Grupos de capacidad de NetApp Files | **Sí** | **Sí** | **Sí** |
 | Volúmenes de NetApp Files | **Sí** | **Sí** | **Sí** |
 | Almacenes de claves | **Sí** | **Sí** | **Sí** |
+| Azure Cache for Redis | **Sí** | **Sí** | **Sí** |
 | Dispositivos Data Box Edge | **Sí** | **Sí** | **Sí** |
 
 <sup>1</sup> No se admite con las métricas de red de máquinas virtuales (Entrada de red total, Salida de red total, Flujos de entrada, Flujos de salida, Velocidad máxima de creación de flujos entrantes, Velocidad máxima de creación de flujos salientes).

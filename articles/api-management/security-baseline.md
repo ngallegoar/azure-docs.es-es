@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d6c954d6336a0b88f57ba1f70571263af5d1c583
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4db7727558d0b7f4c26aba3ffa823bebb07862f6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229810"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713780"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Línea de base de seguridad de Azure para API Management
 
@@ -187,7 +187,7 @@ Precaución: Al configurar un grupo de seguridad de red en la subred de API Mana
 **Guía**: Defina e implemente configuraciones de seguridad estándar para la configuración de red relacionada con las implementaciones de Azure API Management. Use alias de Azure Policy en los espacios de nombres "Microsoft.ApiManagement" y "Microsoft.Network" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red de las implementaciones de Azure API Management y los recursos relacionados. También puede usar definiciones de directivas integradas para Azure Virtual Network, como:
 - Se debe habilitar DDoS Protection estándar
 
-También puede utilizar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager (ARM), control de acceso basado en rol (RBAC) y directivas, en una única definición de plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
+También puede utilizar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como las plantillas de Azure Resource Manager, el control de acceso basado en rol de Azure (Azure RBAC) y las directivas, en una única definición de un plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
 
 * [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 

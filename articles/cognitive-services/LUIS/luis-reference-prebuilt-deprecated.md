@@ -3,20 +3,18 @@ title: 'Entidades precompiladas en desuso: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Este artículo contiene información sobre la entidad precompilada en desuso en Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a050990c28b9137440ec05d918774d76f216be8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78270675"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540853"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades precompiladas en desuso en una aplicación de LUIS
 Las siguientes entidades precompiladas están en desuso y no se pueden agregar a las nuevas aplicaciones de LUIS.

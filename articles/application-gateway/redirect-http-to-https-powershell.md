@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: 7c65f143552aa14f9e309b68f484f9c0695e8dbd
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: c4d1d16d07aaf92a0bc3cc365ac094893fc41c79
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596069"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446517"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante Azure PowerShell
 
@@ -333,11 +333,4 @@ Para aceptar la advertencia de seguridad si usó un certificado autofirmado, sel
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a:
-
-> [!div class="checklist"]
-> * Creación de un certificado autofirmado
-> * Configurar una red
-> * Crear una puerta de enlace de aplicaciones con el certificado
-> * Adición de un agente de escucha y una regla de redireccionamiento
-> * Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
+- [Reescritura de los encabezados HTTP y direcciones URL con Application Gateway](rewrite-http-headers-url.md)

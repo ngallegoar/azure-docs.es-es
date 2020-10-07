@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 07/07/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2673bb70582640cda97160eb31f16f7c7f1d60e6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421188"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665334"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Uso compartido de una vista personalizada mediante una dirección URL con parámetros
 
@@ -24,6 +24,7 @@ Para compartir una vista personalizada en el Explorador de Azure Time Series Ins
 El Explorador de Time Series Insights admite parámetros de consulta de dirección URL para especificar vistas en la experiencia directamente desde la dirección URL. Por ejemplo, con solo la dirección URL, puede especificar un entorno de destino, un predicado de búsqueda y un intervalo de tiempo deseado. Cuando un usuario selecciona la dirección URL personalizada, la interfaz proporciona un vínculo directo a dicho recurso en el portal de Azure Time Series Insights. Se aplican directivas de acceso a datos.
 
 > [!TIP]
+>
 > * Vea la [demostración gratuita de Azure Time Series Insights](https://insights.timeseries.azure.com/samples).
 > * Lea la documentación complementaria sobre el [Explorador de Azure Time Series Insights](./time-series-insights-explorer.md).
 
@@ -123,7 +124,7 @@ https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-000
 > Vea en directo el Explorador [usando el anterior ejemplo de dirección URL](https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[%7B%22name%22:%22F1PressureId%22,%22splitBy%22:%22Id%22,%22measureName%22:%22Pressure%22,%22predicate%22:%22%27Factory1%27%22%7D,%7B%22name%22:%22F2TempStation%22,%22splitBy%22:%22Station%22,%22measureName%22:%22Temperature%22,%22predicate%22:%22%27Factory2%27%22%7D,%7B%22name%22:%22F3VibrationPL%22,%22splitBy%22:%22ProductionLine%22,%22measureName%22:%22Vibration%22,%22predicate%22:%22%27Factory3%27%22%7D]
 ).
 
-La dirección URL anterior describe y genera la vista del Explorador de Azure Time Series Insights con parámetros. 
+La dirección URL anterior describe y genera la vista del Explorador de Azure Time Series Insights con parámetros.
 
 * Los predicados parametrizados.
 

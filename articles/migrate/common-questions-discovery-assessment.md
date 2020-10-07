@@ -3,12 +3,12 @@ title: Preguntas sobre la detección, la valoración y el análisis de dependenc
 description: Obtenga respuestas a preguntas comunes sobre detección, valoración y análisis de dependencias en Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: d4f833926541bafbae211caff37e5974b57e1047
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 074f58a2f6c24f106de6b2b5003ce2dfd428f356
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019018"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577278"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Detección, valoración y análisis de dependencias: preguntas comunes
 
@@ -124,7 +124,7 @@ Las valoraciones de máquinas virtuales de Azure basadas en la importación son 
 
 ## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>¿Por qué la herramienta de migración sugerida en la evaluación de AVS basada en la importación está marcada como desconocida?
 
-En el caso de las máquinas importadas mediante un archivo CSV, se desconoce la herramienta de migración predeterminada en una valoración de AVS. Sin embargo, para las máquinas de VMware, se recomienda usar la solución Hybrid Cloud Extension (HCX) de VMware. [Más información](../azure-vmware/hybrid-cloud-extension-installation.md).
+En el caso de las máquinas importadas mediante un archivo CSV, se desconoce la herramienta de migración predeterminada en una valoración de AVS. Sin embargo, para las máquinas de VMware, se recomienda usar la solución Hybrid Cloud Extension (HCX) de VMware. [Más información](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 
 
 ## <a name="what-is-dependency-visualization"></a>¿Qué es la visualización de dependencias?

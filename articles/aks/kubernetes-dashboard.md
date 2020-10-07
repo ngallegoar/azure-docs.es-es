@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 35424c0a9e566a9dfa780c524e23945348335040
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 8fda67bea75e973b42aa7f1a9f32be906b1d3e83
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225995"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570824"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acceso al panel web de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ También es preciso que esté instalada y configurada la versión 2.6.0 de la CL
 
 El complemento kube-dashboard está **habilitado de forma predeterminada en los clústeres anteriores a K8s 1.18**. El complemento se puede deshabilitar ejecutando el siguiente comando.
 
-``` azure-cli
+``` azurecli
 az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 

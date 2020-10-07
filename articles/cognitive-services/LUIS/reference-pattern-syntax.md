@@ -1,15 +1,16 @@
 ---
 title: 'Referencia de la sintaxis del patrón: LUIS'
 description: Cree entidades para extraer datos clave de las expresiones de usuario de las aplicaciones de Language Understanding (LUIS). La aplicación cliente utiliza los datos extraídos.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.author: diberry
-ms.openlocfilehash: a0139cf5ef424288c41c436fb63313494404f841
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3caccd6766226ce68b371856b081b052c1033f71
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684533"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542196"
 ---
 # <a name="pattern-syntax"></a>Sintaxis del patrón
 

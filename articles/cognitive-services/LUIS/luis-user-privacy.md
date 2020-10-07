@@ -3,20 +3,18 @@ title: 'Exportación y eliminación de datos: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Tiene control total sobre la visualización, la exportación y la eliminación de los datos. Elimine datos de clientes para garantizar la privacidad y el cumplimiento.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/02/2019
-ms.author: diberry
-ms.openlocfilehash: 4e3e0d04b0086905b80e26fb4f838c36b5b5545e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 868443e52b7159e6ee9478f64b7b2f376a10f604
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273363"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541013"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportación y eliminación de datos del cliente en Language Understanding (LUIS) en Cognitive Services
 

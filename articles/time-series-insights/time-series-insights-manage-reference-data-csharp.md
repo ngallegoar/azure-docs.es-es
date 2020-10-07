@@ -9,16 +9,19 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 2d14d45a6cf7147514cf4fdfc2a3ede470c12835
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fb0c29fb68d0bcd2405cc031008c1c8e5035476f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017641"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569382"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>Administración de los datos de referencia para un entorno de Azure Time Series Insights Gen1 con C Sharp
+
+> [!CAUTION]
+> Este es un artículo de Gen1.
 
 En este artículo se muestra cómo combinar C#, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) y Azure Active Directory para llevar a cabo solicitudes de API de programación a la [API de administración de datos de referencia](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) de Azure Time Series Insights Gen 1.
 

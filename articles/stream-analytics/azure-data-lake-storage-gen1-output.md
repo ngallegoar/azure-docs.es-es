@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: a642f7dfc470a695f96967cad0ed738d45b11efb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 59b4a04231df3b93b093750cc6c9d70982a418a9
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90881922"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665351"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Salida de Azure Data Lake Storage Gen 1 desde Azure Stream Analytics
 
@@ -44,7 +44,7 @@ Para la clave de partición, use los tokens {date} y {time} en el patrón de pre
 
 ## <a name="output-batch-size"></a>Tamaño de lote de salida
 
-Para obtener el tamaño máximo del mensaje, consulte los [límites de Data Lake Storage](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). Para optimizar el tamaño del lote, use hasta 4 MB por operación de escritura.
+Para obtener el tamaño máximo del mensaje, consulte los [límites de Data Lake Storage](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits). Para optimizar el tamaño del lote, use hasta 4 MB por operación de escritura.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

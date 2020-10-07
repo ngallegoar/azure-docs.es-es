@@ -1,18 +1,18 @@
 ---
 title: Modelado de datos de grafo para la API para Gremlin de Azure Cosmos DB
 description: Aprenda a modelar una base de datos de grafos mediante Gremlin API de Azure Cosmos DB. En este artículo se describen cuándo se usa una base de datos de grafos, así como los procedimientos recomendados para modelar entidades y relaciones.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: lbosq
-ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: jasonh
+ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261824"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409772"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelado de datos de grafo para la API para Gremlin de Azure Cosmos DB
 
@@ -105,7 +105,7 @@ El uso de etiquetas de relación descriptivas puede mejorar la eficacia de las o
 * Use términos de no genéricos para etiquetar una relación.
 * Asocie la etiqueta del vértice de origen a la etiqueta del vértice de destino con el nombre de la relación.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Ejemplos del etiquetado de relaciones." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Modelo de entidad con vértices para las propiedades." border="false":::
 
 Cuanto más específica sea la etiqueta que use el recorredor para filtrar los bordes, mejor. Esta decisión puede también influir de forma significativa en el costo de la consulta. Puede evaluar el costo de consulta en cualquier momento [mediante el paso executionProfile](graph-execution-profile.md).
 

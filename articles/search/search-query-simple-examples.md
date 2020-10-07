@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3c469d7274bb90e194478af2464cb352efe7490c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294873"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740690"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Creación de una consulta simple en Azure Cognitive Search
 
@@ -37,13 +37,13 @@ Lo que necesita es Postman o una herramienta equivalente para emitir la solicitu
 
 Después de especificar el encabezado de solicitud, puede volver a usarlo para todas las consultas de este artículo, cambiando solo la cadena **search=** . 
 
-  ![Parámetros del conjunto de encabezados de solicitud de Postman](media/search-query-lucene-examples/postman-header.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
 
 ### <a name="set-the-request-url"></a>Establecimiento de la dirección URL de solicitud
 
 La solicitud es un comando GET emparejado con una dirección URL que contiene la cadena de búsqueda y el punto de conexión de Azure Cognitive Search.
 
-  ![Encabezado de solicitud GET de Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
 
 La composición de dirección URL tiene los siguientes elementos:
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 La respuesta de esta consulta debe tener un aspecto similar a la siguiente captura de pantalla.
 
-  ![Respuesta de ejemplo de Postman](media/search-query-lucene-examples/postman-sample-results.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
 
 Tal vez haya notado la puntuación de búsqueda en la respuesta. Las puntuaciones uniformes de 1 se producen cuando no hay ninguna clasificación, ya sea debido a que la búsqueda no era de texto completo o porque no se ha aplicado ningún criterio. Para la búsqueda de valores null sin ningún criterio, las filas vuelven en orden aleatorio. Al incluir criterios reales, verá que las puntuaciones de búsqueda evolucionan en valores significativos.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 Si los usa conjuntamente, el filtro se aplica primero a todo el índice y, después, se realiza la búsqueda en los resultados del filtro. Por lo tanto, los filtros pueden ser una técnica útil para mejorar el rendimiento porque reducen el conjunto de documentos en los que se debe procesar la consulta de búsqueda.
 
-  ![Respuesta de la consulta de filtro](media/search-query-simple-examples/filtered-query.png)
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
 
 Si desea probar esto en Postman mediante GET, puede pegar en esta cadena:
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  ![Filtro de rango para rangos numéricos](media/search-query-simple-examples/rangefilternumeric.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  ![Filtro de rango para rangos de texto](media/search-query-simple-examples/rangefiltertext.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
 
 También puede probarlos en Postman mediante GET:
 
@@ -251,14 +251,14 @@ Con el parámetro searchMode predeterminado (cualquiera), se devuelven 2800 docu
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  ![modo de búsqueda: any](media/search-query-simple-examples/searchmodeany.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
 
 Al cambiar searchMode a `all`, se aplica un efecto acumulativo en los criterios y se devuelve un conjunto de resultados más pequeño (21 documentos) que consta de los documentos que contienen la frase completa "fire department", menos los trabajos con la dirección de Metrotech Center.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  ![modo de búsqueda: all](media/search-query-simple-examples/searchmodeall.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
 
 ## <a name="example-8-structuring-results"></a>Ejemplo 8: Estructuración de los resultados
 

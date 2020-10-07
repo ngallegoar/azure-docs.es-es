@@ -3,20 +3,20 @@ title: Configuración de la autenticación
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo instalar y configurar la autenticación para varios recursos y flujos de trabajo en Azure Machine Learning. Hay varias maneras de configurar y usar la autenticación dentro del servicio, que van desde la autenticación simple basada en la interfaz de usuario con fines de desarrollo o prueba, hasta la autenticación de entidad de servicio de Azure Active Directory completa.
 services: machine-learning
-author: larryfr
-ms.author: larryfr
+author: cjgronlund
+ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 878b3d4a522fd2b7567ed6005283d041064d9fe5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, has-adal-ref, devx-track-js
+ms.openlocfilehash: 486f026f0d9b325f8e17a040c69f9d3e1da9b359
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885997"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729039"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning
 
@@ -77,7 +77,7 @@ Para usar la autenticación de entidad de servicio, primero debe crear la entida
 >
 > La razón para conceder el menor acceso es que una entidad de servicio usa una contraseña para autenticarse y la contraseña se puede almacenar como parte de un script de automatización. Si se pierde la contraseña, tener el acceso mínimo necesario para una tarea específica minimiza el uso malintencionado de la entidad de servicio.
 
-La forma más fácil de crear una entidad de servicio y de conceder acceso al área de trabajo es mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Para crear una entidad de servicio y concederle acceso al área de trabajo, siga estos pasos:
+La forma más fácil de crear una entidad de servicio y de conceder acceso al área de trabajo es mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Para crear una entidad de servicio y concederle acceso al área de trabajo, siga estos pasos:
 
 > [!NOTE]
 > Debe ser un administrador de la suscripción para realizar todos estos pasos.
@@ -92,7 +92,7 @@ La forma más fácil de crear una entidad de servicio y de conceder acceso al á
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    Para obtener otros métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Para obtener otros métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 1. Instale la extensión de Azure Machine Learning:
 
@@ -190,7 +190,7 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Uso de una entidad de servicio desde la CLI de Azure
 
-Puede usar una entidad de servicio para los comandos de la CLI de Azure. Para más información, vea [Inicio de sesión mediante una entidad de servicio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal).
+Puede usar una entidad de servicio para los comandos de la CLI de Azure. Para más información, vea [Inicio de sesión mediante una entidad de servicio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal).
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Uso de una entidad de servicio con la API REST (versión preliminar)
 

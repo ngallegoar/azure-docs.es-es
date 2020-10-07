@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: b124f828c4a6a019c45243528ed2d957e3f781f3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: fe5940083d04c1b5cc60b21834adf609e523e059
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191410"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666252"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Guía de alta disponibilidad y recuperación ante desastres para Data Lake Storage Gen1
 
@@ -37,8 +37,6 @@ Tenga en cuenta que aunque Data Lake Storage Gen1 ofrece resistencia de datos me
 Para evitar la eliminación por error, se recomienda establecer primero las directivas de acceso correctas para su cuenta de Data Lake Storage Gen1. Esto incluye la aplicación de [bloqueos de recursos de Azure](../azure-resource-manager/management/lock-resources.md) para recursos importantes, así como la aplicación de control de acceso de nivel de cuenta y archivo mediante las [características de seguridad de Data Lake Storage Gen1](data-lake-store-security-overview.md) disponibles. También se recomienda que establezca una rutina de creación de copias de los datos críticos mediante [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) o [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) en otra cuenta de Data Lake Storage Gen1, otra carpeta o suscripción de Azure. Esto se puede usar para recuperar después de un incidente de daños o eliminación de datos. Azure Data Factory es un servicio útil para crear e implementar las canalizaciones de movimiento de datos de forma periódica.
 
 También puede habilitar el [registro de diagnósticos](data-lake-store-diagnostic-logs.md) para una cuenta de Data Lake Storage Gen1 para recopilar registros de auditoría de acceso a datos. Los registros de auditoría proporcionan información sobre quién puede haber eliminado o actualizado un archivo.
-
-Puede intentar restaurar un elemento eliminado mediante el módulo de Azure PowerShell para Data Lake Storage Gen 1 [Az.DataLakeStore](https://docs.microsoft.com/powershell/module/az.datalakestore/). En concreto, consulte el comando [Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem). Asegúrese de revisar la sección [Descripción](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem#description) antes de intentar utilizar este comando.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

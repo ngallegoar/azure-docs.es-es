@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfb2598fb3a207bbdfaade9086efd07827b077dd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cb012fcc701e9dd18dbe1db5304807b4d96c2a86
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998431"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757799"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Tutorial: Optimización de la indexación mediante la API de inserción
 
@@ -325,7 +325,7 @@ do
 
 Desde aquí, encapsulamos el código de retroceso exponencial en una función que permita llamar al código fácilmente.
 
-A continuación, se crea otra función para administrar los subprocesos activos. Para simplificar las cosas, esa función no se incluye aquí, pero se puede ver en [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/OptimizeDataIndexing/ExponentialBackoff.cs). Es posible llamar a la función mediante el siguiente comando, donde `hotels` son los datos que queremos cargar, `1000` es el tamaño del lote y `8` es el número de subprocesos simultáneos:
+A continuación, se crea otra función para administrar los subprocesos activos. Para simplificar las cosas, esa función no se incluye aquí, pero se puede ver en [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v10/OptimizeDataIndexing/ExponentialBackoff.cs). Es posible llamar a la función mediante el siguiente comando, donde `hotels` son los datos que queremos cargar, `1000` es el tamaño del lote y `8` es el número de subprocesos simultáneos:
 
 ```csharp
 ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230473"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294536"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalación del agente de Log Analytics en equipos Linux
 En este artículo, se proporcionan detalles sobre la instalación del agente de Log Analytics en equipos Linux con los métodos siguientes:
@@ -102,10 +102,10 @@ El agente de Log Analytics para Linux se compone de varios paquetes. El archivo 
 
 **Package** | **Versión** | **Descripción**
 ----------- | ----------- | --------------
-omsagent | 1.12.15 | Agente de Log Analytics para Linux
+omsagent | 1.13.9 | Agente de Log Analytics para Linux
 omsconfig | 1.1.1 | Agente para configurar el agente de Log Analytics
-omi | 1.6.3 | Infraestructura de administración abierta (OMI), servidor de CIM ligero *Tenga en cuenta que OMI debe tener acceso raíz para poder ejecutar los trabajos de Cron que son necesarios para que el servicio funcione.*
-scx | 1.6.3 | Proveedores de CIM OMI para métricas de rendimiento del sistema operativo
+omi | 1.6.4 | Infraestructura de administración abierta (OMI), servidor de CIM ligero *Tenga en cuenta que OMI debe tener acceso raíz para poder ejecutar los trabajos de Cron que son necesarios para que el servicio funcione.*
+scx | 1.6.4 | Proveedores de CIM OMI para métricas de rendimiento del sistema operativo
 apache-cimprov | 1.0.1 | Proveedor de supervisión de rendimiento de servidor HTTP de Apache para OMI. Solo se instala si se detecta un servidor HTTP de Apache.
 mysql-cimprov | 1.0.1 | Proveedor de supervisión de rendimiento de servidor MySQL Server para OMI. Solo se instala si se detecta un servidor MySQL/MariaDB de Apache.
 docker-cimprov | 1.0.0 | Proveedor de Docker para OMI. Solo se instala si se detecta Docker.

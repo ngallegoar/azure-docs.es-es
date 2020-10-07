@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9a491f7546fbaa8722498b164bfa56353dfcfc
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050189"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360759"
 ---
 # <a name="how-to-use-batch-transcription"></a>Uso de la transcripción por lotes
 
@@ -43,7 +43,7 @@ No es posible determinar el momento en que un trabajo cambiará al estado en eje
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Como sucede con todas las características del servicio Voz, puede crear una clave de suscripción en [Azure Portal](https://portal.azure.com) siguiendo nuestra [guía de inicio](get-started.md).
+Como sucede con todas las características del servicio Voz, puede crear una clave de suscripción en [Azure Portal](https://portal.azure.com) siguiendo nuestra [guía de inicio](overview.md#try-the-speech-service-for-free).
 
 >[!NOTE]
 > Se requiere una suscripción estándar (S0) para el servicio de voz para usar la transcripción de lotes. Las claves de suscripción gratuita (F0) no funcionan. Para obtener más información, consulte los [precios y límites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).

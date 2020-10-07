@@ -3,12 +3,12 @@ title: Configurar un dispositivo de Azure Migrate para Hyper-V
 description: Obtenga información sobre cómo configurar un dispositivo de Azure Migrate para evaluar y migrar VM de Hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: c53f82268bd1a5d94659a8b749a14fd026f91ce1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 8841f934ba21fda6cc36b856ea773ed0f53cfe32
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087157"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448080"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configuración de un dispositivo para VM de Hyper-V
 
@@ -58,7 +58,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 1. En la máquina en la que descargó el archivo, abra una ventana de comandos de administrador.
 2. Ejecute el siguiente comando para generar el código hash del disco duro virtual.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
+    - Ejemplo de uso: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
 
 
@@ -130,7 +130,7 @@ Si va a ejecutar discos duros virtuales en SMB, debe habilitar la delegación de
 1. En la VM del dispositivo, ejecute este comando. HyperVHost1 y HyperVHost2 son nombres de host de ejemplo.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. También puede hacerlo en el Editor de directivas de grupo local en el dispositivo:

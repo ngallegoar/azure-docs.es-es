@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 782a046b92c9d6cf755bfea0551d7f8153faa859
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932243"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317334"
 ---
 # <a name="storage-configuration"></a>Configuración de almacenamiento
 
@@ -151,10 +151,11 @@ Factores importantes que se deben tener en cuenta al elegir una clase de almacen
 
 - **Debe** usar una clase de almacenamiento compartida remota para asegurar la durabilidad de los datos y, de este modo, si un pod o un nodo dejan de estar en funcionamiento, pueden conectarse de nuevo al volumen persistente cuando se recuperen.
 - Los datos que se escriben en la instancia de SQL del controlador, la base de datos de métricas y la base de datos de registros suelen ser de un volumen bajo y no son sensibles a la latencia, por lo que un almacenamiento de rendimiento extremadamente rápido no es fundamental. Si tiene usuarios que usan con frecuencia las interfaces de Grafana y Kibana y tiene un gran número de instancias de base de datos, es posible que los usuarios se beneficien de un almacenamiento con un rendimiento más rápido.
-- La capacidad de almacenamiento necesaria varía con el número de instancias de base de datos que ha implementado, porque se recopilan registros y métricas para cada instancia de base de datos. Los datos se conservan en las bases de datos de registros y métricas durante 2 semanas antes de que se purguen. TODO: ¿Cuánto almacenamiento se necesita por cada instancia de base de datos?
+- La capacidad de almacenamiento necesaria varía con el número de instancias de base de datos que ha implementado, porque se recopilan registros y métricas para cada instancia de base de datos. Los datos se conservan en las bases de datos de registros y métricas durante 2 semanas antes de que se purguen. 
 - Cambiar la clase de almacenamiento después de la implementación es muy difícil, no está documentado y no se admite. Asegúrese de elegir la clase de almacenamiento correcta en el momento de la implementación.
 
-> **Nota:** Si no se especifica ninguna clase de almacenamiento, se usará la clase de almacenamiento predeterminada. Solo puede haber una clase de almacenamiento predeterminada por cada clúster de Kubernetes. Puede [cambiar la clase de almacenamiento predeterminada](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
+> [!NOTE]
+> Si no se especifica ninguna clase de almacenamiento, se usará la clase de almacenamiento predeterminada. Solo puede haber una clase de almacenamiento predeterminada por cada clúster de Kubernetes. Puede [cambiar la clase de almacenamiento predeterminada](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
 
 ### <a name="database-instance-storage-configuration"></a>Configuración del almacenamiento de la instancia de base de datos
 
@@ -162,7 +163,8 @@ Cada instancia de base de datos tiene volúmenes persistentes de datos, registro
 
 Al crear una instancia mediante los comandos `azdata arc sql mi create` o `azdata arc postgres server create`, hay dos parámetros que se pueden usar para establecer las clases de almacenamiento:
 
-> **Nota:** Algunos de estos parámetros están en desarrollo y estarán disponibles en `azdata arc sql mi create` y `azdata arc postgres server create` en las próximas versiones.
+> [!NOTE]
+> Algunos de estos parámetros están en desarrollo y estarán disponibles en `azdata arc sql mi create` y `azdata arc postgres server create` en las próximas versiones.
 
 |Nombre del parámetro, nombre abreviado|Se usa para|
 |---|---|

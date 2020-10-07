@@ -1,25 +1,27 @@
 ---
-title: 'Inicio rápido: Creación de un detector de objetos en Custom Vision Service'
+title: 'Inicio rápido: Creación de un detector de objetos con el sitio web de Custom Vision'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido, aprenderá a usar el sitio web de Custom Vision para crear un modelo de clasificación de imágenes.
+description: En este inicio rápido, aprenderá a usar el sitio web de Custom Vision para crear, entrenar y probar un modelo de detector de objetos.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: 57fb91e9ead98f6c52fd3f659f4aa12692816297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.custom: cog-serv-seo-aug-2020
+keywords: image recognition, image recognition app, custom vision
+ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549554"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596888"
 ---
-# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Inicio rápido: Creación de un detector de objetos con Custom Vision
+# <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Inicio rápido: Creación de un detector de objetos con el sitio web de Custom Vision
 
-En este inicio rápido, aprenderá a crear un detector de objetos mediante el sitio web de Custom Vision. Una vez creado un modelo de detector, puede usar el servicio de Custom Vision para la detección de objetos.
+En este inicio rápido, aprenderá a usar el sitio web de Custom Vision para crear un modelo de detector de objetos. Una vez que cree un modelo, puede probarlo con nuevas imágenes y, finalmente, integrarlo en su propia aplicación de reconocimiento de imágenes.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
@@ -27,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 - Un conjunto de imágenes con el que entrenar el modelo de detector. Puede usar el conjunto de [imágenes de ejemplo](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) en GitHub. O bien, puede elegir sus propias imágenes con las sugerencias que se indican a continuación.
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Creación de recursos de Custom Vision en Azure Portal
+## <a name="create-custom-vision-resources"></a>Creación de recursos de Custom Vision
 
 [!INCLUDE [create-resources](includes/create-resources.md)]
 
@@ -45,7 +47,7 @@ En el explorador web, vaya a la [página web de Custom Vision](https://customvis
 1. Escriba un nombre y una descripción para el proyecto. Después, seleccione un grupo de recursos. Si la cuenta con la que ha iniciado sesión está asociada a una cuenta de Azure, aparecerá el menú desplegable Resource Group (Grupo de recursos) que incluye un recurso de Custom Vision Service. 
 
    > [!NOTE]
-   > Si no hay ningún grupo de recursos disponible, confirme que ha iniciado sesión en [customvision.ai](https://customvision.ai) con la misma cuenta que usó para iniciar sesión en [Azure Portal](https://portal.azure.com/). Además, confirme que el directorio seleccionado en el portal de Custom Vision es el mismo que el de Azure Portal donde se encuentran los recursos de Custom Vision. En ambos sitios, puede seleccionar el directorio en el menú de cuentas desplegable de la esquina superior derecha de la pantalla. 
+   > Si no hay ningún grupo de recursos disponible, confirme que ha iniciado sesión en [customvision.ai](https://customvision.ai) con la misma cuenta que usó para iniciar sesión en [Azure Portal](https://portal.azure.com/). Además, confirme que el directorio seleccionado en el sitio web de Custom Vision es el mismo que el de Azure Portal donde se encuentran los recursos de Custom Vision. En ambos sitios, puede seleccionar el directorio en el menú de cuentas desplegable de la esquina superior derecha de la pantalla. 
 
 1. En __Project Types__ (Tipos de proyecto), seleccione __Object Detection__ (Detección de objetos).
 
@@ -118,3 +120,4 @@ En este inicio rápido, ha aprendido a crear y entrenar un modelo de detector de
 > [!div class="nextstepaction"]
 > [Prueba y reentrenamiento del modelo](test-your-model.md)
 
+* [¿Qué es Custom Vision?](./overview.md)

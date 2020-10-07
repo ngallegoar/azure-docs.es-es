@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: e7e7845b458d6d1a37b65fb79e0e7e9c13b0d07d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646940"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710726"
 ---
 # <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 
@@ -193,7 +193,7 @@ A continuación se muestra un ejemplo de cómo aparece la información en Azure 
 
 <br>Este es un ejemplo de cómo aparece la información de la oferta en Azure Portal:
 
-:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Portal.":::
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -242,7 +242,7 @@ Proporcione el nombre, el correo electrónico y el número de teléfono de un **
 
 Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato PNG. Las imágenes borrosas harán que se rechace el envío.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Si tiene problemas al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
@@ -559,7 +559,7 @@ Para implementar la versión de prueba en su nombre, cree y proporcione una susc
 * **Id. de inquilino de Azure AD** (obligatorio): escriba el [identificador de inquilino](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) de Azure Active Directory (AD). Para encontrarlo, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Active Directory en el menú de la izquierda, seleccione **Propiedades** y busque el número de **Id. de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). El id. de inquilino de su organización también lo puede buscar mediante la dirección URL de su nombre de dominio en: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 * **Nombre del inquilino de Azure AD** (obligatorio para Dynamic 365): escriba su nombre en Azure Active Directory (AD). Para buscar este nombre, inicie sesión en [Azure Portal](https://portal.azure.com/) y en la esquina superior derecha se mostrará su nombre del inquilino, debajo de su nombre de cuenta.
 * **Identificador de aplicación de Azure AD** (obligatorio): escriba el [identificador de la aplicación](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) de Azure Active Directory (AD). Para encontrarlo, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Active Directory en el menú de la izquierda, seleccione **Registros de aplicaciones** y busque el número de **Id. de aplicación** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e).
-* **Secreto de cliente de la aplicación de Azure Active Directory** (obligatorio): escriba el [secreto de cliente](../../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret) de la aplicación de Azure AD. Para encontrar este valor, inicie sesión en [Azure Portal](https://portal.azure.com/). Seleccione la pestaña **Azure Active Directory** en el menú izquierdo, seleccione **Registros de aplicaciones** y, después, seleccione la versión de prueba de su aplicación. A continuación, seleccione **Certificados y secretos**, seleccione **Nuevo secreto de cliente**, escriba una descripción, seleccione **Nunca** en **Expira** y, después, elija **Agregar**. Asegúrese de copiar el valor antes de abandonar esta página.
+* **Secreto de cliente de la aplicación de Azure Active Directory** (obligatorio): escriba el [secreto de cliente](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) de la aplicación de Azure AD. Para encontrar este valor, inicie sesión en [Azure Portal](https://portal.azure.com/). Seleccione la pestaña **Azure Active Directory** en el menú izquierdo, seleccione **Registros de aplicaciones** y, después, seleccione la versión de prueba de su aplicación. A continuación, seleccione **Certificados y secretos**, seleccione **Nuevo secreto de cliente**, escriba una descripción, seleccione **Nunca** en **Expira** y, después, elija **Agregar**. Asegúrese de copiar el valor antes de abandonar esta página.
 
 Seleccione **Guardar borrador** antes de continuar.
 

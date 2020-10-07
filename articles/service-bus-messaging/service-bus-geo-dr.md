@@ -3,12 +3,12 @@ title: Recuperación ante desastres con localización geográfica de Azure Servi
 description: Cómo usar regiones geográficas para conmutar por error y llevar a cabo una recuperación ante desastres en Azure Service Bus
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fcdeb499b8ebecc4ecddbfcbe32b812ce7e3efe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c203ed197c1e5bfb15cfb503a04df79b85c630e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341477"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372530"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperación ante desastres con localización geográfica de Azure Service Bus
 
@@ -149,7 +149,7 @@ Si intenta crear un emparejamiento entre un espacio de nombres primario con un p
 > [!NOTE]
 > Al intentar emparejar el espacio de nombres principal con un punto de conexión privado y el espacio de nombres secundario, el proceso de validación solo comprueba si existe un punto de conexión privado en el espacio de nombres secundario. No comprueba si el punto de conexión funciona ahora o después de la conmutación por error. Es su responsabilidad asegurarse de que el espacio de nombres secundario con el punto de conexión privado funcionará según lo esperado después de la conmutación por error.
 >
-> Para probar que las configuraciones del punto de conexión privado son iguales, envíe una solicitud [Get queues](/rest/api/servicebus/queues/get) al espacio de nombres secundario desde fuera de la red virtual y compruebe que recibe un mensaje de error del servicio.
+> Para probar que las configuraciones del punto de conexión privado son iguales, envíe una solicitud [Get queues](/rest/api/servicebus/stable/queues/get) al espacio de nombres secundario desde fuera de la red virtual y compruebe que recibe un mensaje de error del servicio.
 
 ### <a name="existing-pairings"></a>Emparejamientos existentes
 Si ya existe un emparejamiento entre el espacio de nombres primario y el secundario, se producirá un error en la creación del punto de conexión privado en el espacio de nombres primario. Para resolverlo, cree primero un punto de conexión privado en el espacio de nombres secundario y, a continuación, cree uno para el espacio de nombres primario.
@@ -179,7 +179,7 @@ La ventaja de este enfoque es que la conmutación por error puede producirse en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [referencia de la API de REST](/rest/api/servicebus/disasterrecoveryconfigs) de la recuperación ante desastres con localización geográfica aquí.
+- Consulte la [referencia de la API de REST](/rest/api/servicebus/stable/disasterrecoveryconfigs) de la recuperación ante desastres con localización geográfica aquí.
 - Ejecute el [ejemplo de recuperación](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) ante desastres con localización geográfica en GitHub.
 - Consulte el [ejemplo en el que se envían mensajes a un alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) de la recuperación ante desastres con localización geográfica.
 

@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705901"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631314"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedimientos: Inicio de sesión de cualquier usuario de Azure Active Directory mediante el patrón de aplicación multiinquilino
 
@@ -97,7 +97,7 @@ Como el punto de conexión /common no corresponde a ningún inquilino y no es un
     https://sts.windows.net/{tenantid}/
 ```
 
-Por lo tanto, una aplicación multiempresa no puede validar los tokens simplemente haciendo coincidir el valor issuer de los metadatos con el valor `issuer` del token. Una aplicación multiempresa necesita una lógica para decidir qué valores issuer son válidos y cuáles no, según la parte del id. de inquilino del valor issuer. 
+Por lo tanto, una aplicación multiempresa no puede validar los tokens simplemente haciendo coincidir el valor issuer de los metadatos con el valor `issuer` del token. Una aplicación multiempresa necesita una lógica para decidir qué valores issuer son válidos y cuáles no, según la parte del id. de inquilino del valor issuer.
 
 Por ejemplo, si una aplicación multiinquilino solo permite el inicio de sesión desde inquilinos específicos que se han registrado para su servicio, debe comprobar el valor issuer o el valor de notificación `tid` en el token para asegurarse de que el inquilino se encuentra en su lista de suscriptores. Si una aplicación multiempresa solo trata con individuos y no toma ninguna decisión de acceso basada en los inquilinos, puede omitir completamente el valor issuer.
 
@@ -116,7 +116,7 @@ Esta experiencia de consentimiento depende de los permisos solicitados por la ap
 * Un permiso delegado concede a una aplicación la posibilidad de actuar como un usuario que inicia sesión para un subconjunto de las cosas que el usuario puede hacer. Por ejemplo, puede conceder a una aplicación el permiso delegado para leer el calendario del usuario que ha iniciado la sesión.
 * Un permiso de aplicación se concede directamente a la identidad de la aplicación. Por ejemplo, puede conceder a una aplicación el permiso de solo aplicación para leer la lista de usuarios de un inquilino, con independencia de quién haya iniciado sesión en la aplicación.
 
-Algunos permisos pueden tener el consentimiento de un usuario normal, mientras que otros necesitan el del administrador del inquilino. 
+Algunos permisos pueden tener el consentimiento de un usuario normal, mientras que otros necesitan el del administrador del inquilino.
 
 ### <a name="admin-consent"></a>Consentimiento de administrador
 
@@ -179,10 +179,6 @@ Si un administrador da su consentimiento a una aplicación que incluye a todos l
 
 Las aplicaciones multiempresa también pueden obtener tokens de acceso para llamar a las API que están protegidas por Azure AD. Un error común al usar la biblioteca de autenticación de Active Directory (ADAL) con una aplicación multiempresa es solicitar inicialmente un token para un usuario con /common, recibir una respuesta y, luego, solicitar posteriormente un token para ese mismo usuario también mediante /common. Dado que la respuesta de Azure AD proviene de un inquilino, y no de /common, ADAL almacena en caché el token como si fuera el inquilino. La posterior llamada a /common para obtener un token de acceso para el usuario carece de la entrada de caché, y se pide al usuario que inicie la sesión de nuevo. Para evitar la pérdida de la caché, asegúrese de que las posteriores llamadas para un usuario que ya ha iniciado sesión se realizan al punto de conexión del inquilino.
 
-## <a name="next-steps"></a>Pasos siguientes
-
-En este artículo ha aprendido a crear una aplicación que puede hacer que un usuario inicie sesión desde cualquier inquilino de Azure AD. Después de habilitar el inicio de sesión único (SSO) entre la aplicación y Azure AD, también puede actualizar la aplicación para acceder a las API expuestas por recursos de Microsoft, como Microsoft 365. Esto le permite ofrecer una experiencia personalizada en su aplicación, por ejemplo, que muestre información contextual a los usuarios, como su imagen de perfil o su próxima cita de calendario. Para más información sobre cómo realizar llamadas API a Azure AD y los servicios de Microsoft 365, como Exchange, SharePoint, OneDrive, OneNote, etc., visite [Microsoft Graph API][MSFT-Graph-overview].
-
 ## <a name="related-content"></a>Contenido relacionado
 
 * [Ejemplo de aplicación multiinquilino](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
@@ -191,6 +187,10 @@ En este artículo ha aprendido a crear una aplicación que puede hacer que un us
 * [Integración de aplicaciones con Azure Active Directory][AAD-Integrating-Apps]
 * [Información general sobre el marco de consentimiento][AAD-Consent-Overview]
 * [Ámbitos de permiso de Microsoft Graph API][MSFT-Graph-permission-scopes]
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En este artículo ha aprendido a crear una aplicación que puede hacer que un usuario inicie sesión desde cualquier inquilino de Azure AD. Después de habilitar el inicio de sesión único (SSO) entre la aplicación y Azure AD, también puede actualizar la aplicación para acceder a las API expuestas por recursos de Microsoft, como Microsoft 365. Esto le permite ofrecer una experiencia personalizada en su aplicación, por ejemplo, que muestre información contextual a los usuarios, como su imagen de perfil o su próxima cita de calendario. Para más información sobre cómo realizar llamadas API a Azure AD y los servicios de Microsoft 365, como Exchange, SharePoint, OneDrive, OneNote, etc., visite [Microsoft Graph API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -228,8 +228,7 @@ En este artículo ha aprendido a crear una aplicación que puede hacer que un us
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
-[OAuth2-AuthZ-Code-Grant-Flow]: /previous-versions/azure/dn645542(v=azure.100)
-[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
+[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html

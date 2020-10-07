@@ -10,13 +10,13 @@ ms.date: 06/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 74f4c30f7aa018502f3437fd4a577f8c2a9de491
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e39548a923e76fc118dec4158398d02577ec20c5
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077953"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91610065"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Inicio de una conmutación por error de la cuenta de almacenamiento
 
@@ -54,7 +54,7 @@ Para iniciar una conmutación por error de la cuenta desde Azure Portal, siga es
 1. Seleccione **Preparar la conmutación por error**.
 1. Revise el cuadro de diálogo de confirmación. Cuando esté listo, escriba **Sí** para confirmar e iniciar la conmutación por error.
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Captura de pantalla que muestra el cuadro de diálogo de confirmación de una conmutación por error de la cuenta":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Captura de pantalla que muestra el estado de la replicación geográfica y de la conmutación por error":::
 
 ## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

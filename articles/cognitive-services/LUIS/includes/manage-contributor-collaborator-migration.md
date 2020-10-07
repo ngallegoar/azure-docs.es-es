@@ -2,20 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
-ms.author: diberry
-ms.openlocfilehash: b5486c8ad61a82696c9b4fb5b9a3475818390596
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 28629b05ab18ea02edce2a9bf1e9cd27a7090999
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87374844"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540918"
 ---
 La administración de las contribuciones de los colaboradores depende del estado actual de la aplicación.
 

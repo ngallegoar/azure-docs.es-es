@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 609c06eedb5c28e31c19df1595c8e4b3b0a59956
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: b8c4bed81a73957cc80318064f2aa2a58b3cfe11
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532229"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597081"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming de Widevine sin conexión para Android con Media Services v3
 
@@ -30,6 +30,8 @@ Además de proteger el contenido del streaming en línea, la suscripción de con
 
 - Algunos proveedores de contenido pueden suspender la entrega de licencias de DRM al cruzar la frontera de un país o una región. Si un usuario desea ver contenido mientras viaja en el extranjero, se necesita la descarga sin conexión.
 - En algunos países o regiones, la disponibilidad de Internet o de ancho de banda es limitada. Los usuarios pueden decidir descargar contenido para poder verlo en una resolución lo suficientemente alta que les permita disfrutar de una experiencia de visualización satisfactoria.
+
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 En este artículo se describe cómo implementar la reproducción en modo sin conexión para contenido de DASH protegido en dispositivos Widevine o Android. La opción de DRM sin conexión le ofrece modelos de suscripción, alquiler y compra para el contenido, permitiendo a los clientes de sus servicios acceder fácilmente a dicho contenido cuando no tienen acceso a Internet.
 

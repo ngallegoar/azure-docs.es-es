@@ -3,20 +3,18 @@ title: 'Entidad precompilada Geography V2: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Este artículo contiene información sobre la entidad GeographyV2 de Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: diberry
-ms.openlocfilehash: b2b2b0781abce59628660b669f43110bf91b15e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad6fd62178ec8e987e1e3b6e05cc961bbe15e377
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273491"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541973"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada GeographyV2 para una aplicación de LUIS
 La entidad precompilada GeographyV2 detecta lugares. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan la entidad GeographyV2 a las intenciones de la aplicación. La entidad GeographyV2 se admite en la [referencia cultural](luis-reference-prebuilt-entities.md) de inglés.

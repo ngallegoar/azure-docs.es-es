@@ -3,21 +3,18 @@ title: Creación de alertas de Resource Health mediante Azure Portal
 description: Cree una alerta mediante Azure Portal que notifique cuándo dejan de estar disponibles los recursos de Azure.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 127aad1691f7bb6b6c64332eefde734a809ab75f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091579"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540683"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configuración de alertas del estado de los recursos mediante Azure Portal
 
 En este artículo se explica cómo configurar las alertas del registro de actividad para las notificaciones de mantenimiento de un recurso mediante Azure Portal.
 
 Azure Resource Health le mantiene informado sobre el estado actual y pasado de sus recursos de Azure. Además, le notifica casi en tiempo real de los cambios de estado en estos recursos. La creación y la personalización de alertas mediante programación en Resource Health se puede realizar en bloque.
-
-> [!NOTE]
-> Las alertas de Resource Health están actualmente en versión preliminar.
 
 Las notificaciones de mantenimiento del recurso se almacenan en el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md). Debido al volumen posiblemente grande de la información almacenada en el registro de actividad, hay una interfaz de usuario independiente que facilita la visualización y la configuración de alertas en las notificaciones de mantenimiento del servicio.
 Puede recibir una alerta cuando el recurso de Azure envía notificaciones de mantenimiento del recurso a la suscripción de Azure. Puede configurar la alerta en función de:

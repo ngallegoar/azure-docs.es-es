@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2b0bb997ecea55d25748152bab7bb6963d67657f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402386"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357648"
 ---
 # <a name="what-is-direct-line-speech"></a>¿Qué es Direct Line Speech?
 
@@ -27,7 +27,7 @@ Direct Line Speech ofrece los niveles más altos de personalización y sofistica
 
 ## <a name="getting-started-with-direct-line-speech"></a>Introducción a Direct Line Speech
 
-Los primeros pasos para crear un asistente de voz con Direct Line Speech son [obtener una clave de suscripción de voz](get-started.md), crear un nuevo bot asociado a esa suscripción y conectar el bot al canal Direct Line Speech.
+Los primeros pasos para crear un asistente de voz con Direct Line Speech son [obtener una clave de suscripción de voz](overview.md#try-the-speech-service-for-free), crear un nuevo bot asociado a esa suscripción y conectar el bot al canal Direct Line Speech.
 
    ![Diagrama conceptual del flujo de servicio de orquestación de Direct Line Speech](media/voice-assistants/overview-directlinespeech.png "El flujo de canales de voz")
 
@@ -64,7 +64,7 @@ Direct Line Speech y su funcionalidad asociada para los asistentes de voz consti
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)
+* [Obtenga una clave de suscripción gratuita a los servicios de Voz](overview.md#try-the-speech-service-for-free)
 * [Obtención del SDK de voz](speech-sdk.md)
 * [Creación e implementación de un bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Obtención de la solución Virtual Assistant y la plantilla empresarial](https://github.com/Microsoft/AI)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 50c95dc9d045711cb6968b98957d255b4ca73d2c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 148310419ad4f760219003514dbc078b7c675be6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932770"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538794"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Introducción a la importación de datos: Azure Cognitive Search
 
@@ -35,7 +35,7 @@ Este enfoque es más flexible que el modelo de extracción, ya que los documento
 Puede usar las siguientes API para cargar uno o varios documentos en un índice:
 
 + [Agregar, Actualizar o Eliminar documentos (API de REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Clase indexAction](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) o [clase indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
++ [Clase indexAction](/dotnet/api/microsoft.azure.search.models.indexaction) o [clase indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch) 
 
 Actualmente no se admite ninguna herramienta para insertar datos mediante el portal.
 

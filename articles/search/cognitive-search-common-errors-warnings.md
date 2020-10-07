@@ -7,13 +7,13 @@ author: amotley
 ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 142c6b4315eb1862dd116647f4396835c7286591
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 09/23/2020
+ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378362"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362821"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
@@ -59,9 +59,9 @@ El indexador con un origen de datos de blob no pudo extraer el contenido o los m
 
 | Motivo | Detalles/ejemplo | Resolución |
 | --- | --- | --- |
-| el blob está por encima del límite de tamaño | El documento tiene `'150441598'` bytes, lo que supera el tamaño máximo de `'134217728'` bytes para la extracción de documentos con el nivel de servicio actual. | [errores de indexación de blobs](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| el blob tiene un tipo de contenido no admitido | El documento tiene un tipo de contenido no admitido `'image/png'` | [errores de indexación de blobs](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| el blob está cifrado | No se pudo procesar el documento; puede que esté cifrado o protegido con contraseña. | Puede omitir el blob con la [configuración de blob](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
+| el blob está por encima del límite de tamaño | El documento tiene `'150441598'` bytes, lo que supera el tamaño máximo de `'134217728'` bytes para la extracción de documentos con el nivel de servicio actual. | [errores de indexación de blobs](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| el blob tiene un tipo de contenido no admitido | El documento tiene un tipo de contenido no admitido `'image/png'` | [errores de indexación de blobs](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| el blob está cifrado | No se pudo procesar el documento; puede que esté cifrado o protegido con contraseña. | Puede omitir el blob con la [configuración de blob](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex). |
 | problemas transitorios | "Error al procesar el blob: Se anuló la solicitud: se canceló la solicitud." "Se agotó el tiempo de espera del documento durante el procesamiento". | En ocasiones, hay problemas de conectividad inesperados. Intente volver a ejecutar el documento mediante el indexador más adelante. |
 
 <a name="could-not-parse-document"></a>
@@ -175,7 +175,7 @@ En todos estos casos, consulte [Tipos de datos admitidos](/rest/api/searchservic
 
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Error: No se puede usar la directiva de seguimiento de cambios integrada porque la tabla tiene una clave principal compuesta.
 
-Esto se aplica a tablas SQL y suele ocurrir cuando la clave se define como una clave compuesta o cuando la tabla ha definido un índice agrupado único (como en un índice de SQL, no un índice de Azure Search). La razón principal es que el atributo clave se ha modificado para que sea una clave principal compuesta en el caso de un [índice agrupado único](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). En ese caso, asegúrese de que la tabla SQL no tenga un índice agrupado único o de que asigna el campo de clave a un campo del que se garantiza que no tiene valores duplicados.
+Esto se aplica a tablas SQL y suele ocurrir cuando la clave se define como una clave compuesta o cuando la tabla ha definido un índice agrupado único (como en un índice de SQL, no un índice de Azure Search). La razón principal es que el atributo clave se ha modificado para que sea una clave principal compuesta en el caso de un [índice agrupado único](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described). En ese caso, asegúrese de que la tabla SQL no tenga un índice agrupado único o de que asigna el campo de clave a un campo del que se garantiza que no tiene valores duplicados.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 
