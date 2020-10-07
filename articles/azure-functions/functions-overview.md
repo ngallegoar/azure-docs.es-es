@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "77621001"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Introducción a Azure Functions
@@ -87,7 +87,7 @@ Para más información sobre planes de hospedaje, vea [Comparación de los plane
 - [Referencia para desarrolladores de Azure Functions](functions-reference.md)  
   Proporciona información técnica sobre el tiempo de ejecución de Azure Functions y una referencia para las funciones de codificación y la definición de enlaces y desencadenadores.
 
-- [How to scale Azure Functions](functions-scale.md)  
+- [Escalado de Azure Functions](functions-scale.md)  
   Trata los planes de servicio disponibles con Azure Functions, incluido el plan de hospedaje de Consumo, y cómo elegir el plan adecuado.
 
 - [¿Qué es Azure App Service?](../app-service/overview.md)  

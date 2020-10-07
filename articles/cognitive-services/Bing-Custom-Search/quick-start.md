@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de una primera instancia de Bing Custom Search'
+title: 'Guía de inicio rápido: Creación de una primera instancia de Bing Custom Search'
 titleSuffix: Azure Cognitive Services
 description: Use este inicio rápido para crear una instancia personalizada de Bing que pueda buscar en los dominios y las páginas web que defina.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
 ms.openlocfilehash: b8287250df4e278d4904e31121ed7d2df208e1c9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80238849"
 ---
-# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Inicio rápido: Creación de la primera instancia de Bing Custom Search
+# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Guía de inicio rápido: Creación de la primera instancia de Bing Custom Search
 
 Para usar Bing Custom Search, debe crear una instancia de búsqueda personalizada que defina la vista o el segmento de la web. La instancia contiene valores que especifican los dominios públicos, sitios web y páginas web donde desea que Bing busque, así como los ajustes en la clasificación. 
 
