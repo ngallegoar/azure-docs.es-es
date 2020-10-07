@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 48ab83db3dcbcf5c99b640ccab205ed1f0ee7ca1
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2cd9f01404a4e33303356dd3f452cd7dbc47a747
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604383"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328571"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link para Azure Data Factory
 
@@ -39,7 +39,7 @@ Se requieren varios canales de comunicación entre Azure Data Factory y la red v
 
 | Domain | Port | Descripción |
 | ---------- | -------- | --------------- |
-| `pe-adf.azure.com` | 443 | Un plano de control, necesario para la creación y supervisión en Data Factory. |
+| `adf.azure.com` | 443 | Un plano de control, necesario para la creación y supervisión en Data Factory. |
 | `*.{region}.datafactory.azure.net` | 443 | El entorno de ejecución de integración autohospedado lo necesita para conectarse al servicio Data Factory. |
 | `*.servicebus.windows.net` | 443 | Lo necesita el entorno de ejecución de integración autohospedado para la creación interactiva. |
 | `download.microsoft.com` | 443 | Lo necesita el entorno de ejecución de integración autohospedado para descargar las actualizaciones. |

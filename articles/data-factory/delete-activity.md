@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: bcc7ebd8d9a6e61425ba7cd980a400c3fe756492
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 47a280a46cbc0650efb9a7576bb21bb31d1d2613
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762341"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330424"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Actividad de eliminación en Azure Data Factory
 
@@ -52,6 +52,7 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
 -   [Google Cloud Storage](connector-google-cloud-storage.md)
+-   [HDFS](connector-hdfs.md)
 
 ## <a name="syntax"></a>Sintaxis
 

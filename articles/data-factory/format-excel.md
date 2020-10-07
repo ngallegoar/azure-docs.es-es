@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 368b8d614ca77692e08a3cbe38132f5aff4eab91
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: dad1f9f232cb9d713af81f6aea57a4ffe651da19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061162"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331971"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato Excel en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -114,6 +114,7 @@ En la tabla siguiente se enumeran las propiedades que admite un origen Excel. Pu
 | Columna para almacenar el nombre de archivo | Se crea una nueva columna con el nombre y la ruta de acceso del archivo de origen.       | no       | String                                                    | rowUrlColumn                      |
 | Después de finalizar          | Se eliminan o mueven los archivos después del procesamiento. La ruta de acceso del archivo comienza en la raíz del contenedor. | no       | Borrar: `true` o `false` <br> Mover: `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
 | Filtrar por última modificación   | Elija si desea filtrar los archivos en función de cuándo se modificaron por última vez. | no       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
+| No permitir que se encuentren archivos | Si es true, no se devuelve un error si no se encuentra ningún archivo. | no | `true` o `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Ejemplo de origen
 

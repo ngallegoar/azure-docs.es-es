@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 400ff6f9db421552b2b2736ea48265deefe676ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055296"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321856"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -162,11 +162,11 @@ Para obtener la estructura JSON completa, consulte el [archivo host.json de ejem
 | isEnabled | true | Habilita o deshabilita el muestreo. | 
 | maxTelemetryItemsPerSecond | 20 | Número de destino de los elementos de telemetría registrados por segundo en cada host de servidor. Si la aplicación se ejecuta en muchos hosts, reduzca este valor para que permanezca dentro de la tasa general de tráfico de destino. | 
 | evaluationInterval | 01:00:00 | Intervalo en el que se vuelve a evaluar la velocidad actual de telemetría. La evaluación se realiza como una media móvil. Se recomienda acortar este intervalo si la telemetría experimenta ráfagas repentinas. |
-| initialSamplingPercentage| 1.0 | Porcentaje de muestreo inicial aplicado al inicio del proceso de muestreo para modificar dinámicamente el porcentaje. No lo reduzca durante la depuración. |
+| initialSamplingPercentage| 100.0 | Porcentaje de muestreo inicial aplicado al inicio del proceso de muestreo para modificar dinámicamente el porcentaje. No lo reduzca durante la depuración. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | Cuando cambia el valor de porcentaje de muestreo, esta propiedad determina la próxima vez que se permite que Application Insights vuelva a aumentar el porcentaje de muestreo para capturar más datos. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | Cuando cambia el valor de porcentaje de muestreo, esta propiedad determina la próxima vez que se permite que Application Insights vuelva a reducir el porcentaje de muestreo para capturar menos datos. |
 | minSamplingPercentage | 0,1 | A medida que el porcentaje de muestreo va variando, esta propiedad determina el porcentaje de muestreo mínimo permitido. |
-| maxSamplingPercentage | 0,1 | A medida que el porcentaje de muestreo va variando, esta propiedad determina el porcentaje de muestreo máximo permitido. |
+| maxSamplingPercentage | 100.0 | A medida que el porcentaje de muestreo va variando, esta propiedad determina el porcentaje de muestreo máximo permitido. |
 | movingAverageRatio | 1.0 | En el cálculo de la media móvil, peso asignado al valor más reciente. Use un valor igual o menor que 1. Los valores menores hacen que el algoritmo reaccione con menor agilidad a los cambios repentinos. |
 | excludedTypes | null | Una lista delimitada por puntos y coma de tipos que no desea que se muestreen. Los tipos reconocidos son: `Dependency`, `Event`, `Exception`, `PageView`, `Request` y `Trace`. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean. |
 | includedTypes | null | Una lista delimitada por puntos y coma de tipos que desea que se muestreen (con listas vacías se muestrean todos los tipos). El tipo que figura en `excludedTypes` invalida los tipos que se enumeran aquí. Los tipos reconocidos son: `Dependency`, `Event`, `Exception`, `PageView`, `Request` y `Trace`. Las instancias de los tipos especificados se muestrean; los tipos no especificados ni implícitos se transmiten sin muestrear. |

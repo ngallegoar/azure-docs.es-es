@@ -1,14 +1,16 @@
 ---
 title: 'Puntuaciones de predicción: LUIS'
 description: Una puntuación de predicción indica el grado de confianza que tiene el servicio API de LUIS en los resultados de predicción, según una expresión del usuario.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 709a34f0a278d8a17267c7544583798d54167dad
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: d836273e61752ff208133466016ce7c6ff9c28fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382379"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316467"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Las puntuaciones de predicción indican la precisión de la predicción de las intenciones y las entidades.
 

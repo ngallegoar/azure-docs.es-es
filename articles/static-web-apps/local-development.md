@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d9988adea8e4d2dab39de64f9fd155a9d0b02cae
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 4d6dae8a4f4ed83af3103e95e711bacdb62cf522
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432965"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326174"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configuración del desarrollo local para Azure Static Web Apps (versión preliminar)
 
@@ -75,7 +75,7 @@ La extensión Live Server para Visual Studio Code ofrece un servidor web de desa
 
 1. Escriba **clone** en el cuadro de búsqueda y seleccione **Git: Clone**.
 
-    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="Opción git clone en Visual Studio Code":::
+    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="Ventana Nuevo repositorio de GitHub":::
 
 1. Escriba el siguiente valor en **Dirección URL del repositorio**.
 
@@ -87,7 +87,7 @@ La extensión Live Server para Visual Studio Code ofrece un servidor web de desa
 
 1. Cuando se le pida que abra el repositorio clonado, seleccione **Abrir**.
 
-    :::image type="content" source="media/local-development/open-new-window.png" alt-text="Abrir en nueva ventana":::
+    :::image type="content" source="media/local-development/open-new-window.png" alt-text="Ventana Nuevo repositorio de GitHub":::
 
 Visual Studio Code abre el proyecto clonado en el editor.
 
@@ -99,7 +99,7 @@ Visual Studio Code abre el proyecto clonado en el editor.
 
     Se abre una pestaña del explorador para mostrar la aplicación.
 
-    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Sitio estático simple que se ejecuta en el explorador":::
+    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Ventana Nuevo repositorio de GitHub":::
 
     Esta aplicación realiza una solicitud HTTP al punto de conexión `api/message`. En este momento, se produce un error en la solicitud porque es necesario iniciar la parte de la API de esta aplicación.
 
@@ -113,13 +113,13 @@ Como parte del proceso de creación de la API, se crea una configuración de ini
 
 1. Se abre una nueva instancia del terminal que muestra la salida del proceso de compilación de la API.
 
-    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="API en ejecución en el terminal de Visual Studio Code":::
+    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="Ventana Nuevo repositorio de GitHub":::
 
    La barra de estado de Visual Studio Code ahora está naranja. Este color indica que la API se está ejecutando ahora y que el depurador está conectado.
 
 1. A continuación, presione **CTRL/Cmd** y haga clic en la dirección URL en el terminal para abrir una ventana del explorador que llama a la API.
 
-    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Resultado de visualización del explorador de la llamada a la API":::
+    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Ventana Nuevo repositorio de GitHub":::
 
 ### <a name="debugging-the-api"></a>Depuración de la API
 
@@ -127,19 +127,19 @@ Como parte del proceso de creación de la API, se crea una configuración de ini
 
 1. Haga clic en el margen izquierdo de la línea 2 para establecer un punto de interrupción. Aparece un punto rojo que indica que el punto de interrupción está establecido.
 
-    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Punto de interrupción en Visual Studio Code":::
+    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Ventana Nuevo repositorio de GitHub":::
 
 1. En el explorador, actualice la página en ejecución en <http://127.0.0.1:7071/api/message>.
 
 1. Se alcanza el punto de interrupción en Visual Studio Code y se pausa la ejecución del programa.
 
-   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Punto de interrupción alcanzado en Visual Studio Code":::
+   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Ventana Nuevo repositorio de GitHub":::
 
    Hay disponible una [experiencia de depuración completa en Visual Studio Code](https://code.visualstudio.com/Docs/editor/debugging) para la API.
 
 1. Presione el botón **Continuar** de la barra de depuración para continuar con la ejecución.
 
-    :::image type="content" source="media/local-development/continue-button.png" alt-text="Botón Continuar en Visual Studio Code":::
+    :::image type="content" source="media/local-development/continue-button.png" alt-text="Ventana Nuevo repositorio de GitHub":::
 
 ### <a name="calling-the-api-from-the-application"></a>Llamada a la API desde la aplicación
 
@@ -192,7 +192,7 @@ Para obtener más información sobre la configuración de archivos de entorno pa
 
 1. Escriba **Live Server** y seleccione **Live Server: Stop Live Server** (Detener Live Server).
 
-    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Comando Stop Live Server en la paleta de comandos de Visual Studio":::
+    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Ventana Nuevo repositorio de GitHub":::
 
 1. Presione **F1** para abrir la paleta de comandos.
 
@@ -200,7 +200,7 @@ Para obtener más información sobre la configuración de archivos de entorno pa
 
 1. Actualice la aplicación que se ejecuta en `http://locahost:3000`. Ahora, el explorador muestra el mensaje devuelto desde la API.
 
-    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Hello from the API en el explorador":::
+    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Ventana Nuevo repositorio de GitHub":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

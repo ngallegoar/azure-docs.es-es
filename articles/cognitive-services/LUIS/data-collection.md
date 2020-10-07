@@ -1,14 +1,16 @@
 ---
 title: datos, recopilación
 description: Información sobre los datos de ejemplo que se recopilan al desarrollar la aplicación
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 7abb3736eb9d7c73465ffa646b79e8e7dd7ae88b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bb00595a5d5be130bf6c1177004bf3042ef8f9f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599328"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327194"
 ---
 # <a name="data-collection-for-your-app"></a>Recopilación de datos de la aplicación
 

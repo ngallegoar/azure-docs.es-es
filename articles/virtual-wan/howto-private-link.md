@@ -6,15 +6,15 @@ services: virtual-wan
 author: erjosito
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
-ms.openlocfilehash: 98142e3a8904bcbb0352fa768fc72966412dae0b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590527"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306640"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>Uso de Private Link en Virtual WAN
 
@@ -38,11 +38,11 @@ Puede crear un punto de conexión de vínculo privado para muchos servicios dife
 
 Después de crear la instancia de Azure SQL Database, puede comprobar que la dirección IP del punto de conexión privado examine los puntos de conexión privados:
 
-:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="Puntos de conexión privados" lightbox="./media/howto-private-link/endpoints.png":::
+:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="Creación de un vínculo privado" lightbox="./media/howto-private-link/endpoints.png":::
 
 Al hacer clic en el punto de conexión privado que hemos creado, debería ver su dirección IP privada, así como su nombre de dominio completo (FQDN). Tenga en cuenta que el punto de conexión privado tiene una dirección IP en el intervalo de la red virtual donde se ha implementado (10.1.3.0/24):
 
-:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="Punto de conexión de SQL" lightbox="./media/howto-private-link/sql-endpoint.png":::
+:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="Creación de un vínculo privado" lightbox="./media/howto-private-link/sql-endpoint.png":::
 
 ## <a name="verify-connectivity-from-the-same-vnet"></a><a name="connectivity"></a>Comprobación de la conectividad de la misma red virtual
 
@@ -61,7 +61,7 @@ Address: 10.1.3.228
 
 Como puede ver en la salida anterior, el nombre de dominio completo `wantest.database.windows.net` está asignado a `wantest.privatelink.database.windows.net` y que la zona DNS privada creada a lo largo del punto de conexión privado se resolverá en la dirección IP privada `10.1.3.228`. Al examinar la zona DNS privada, se confirmará que hay un registro A para el punto de conexión privado asignado a la dirección IP privada:
 
-:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="Zona DNS" lightbox="./media/howto-private-link/dns-zone.png":::
+:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="Creación de un vínculo privado" lightbox="./media/howto-private-link/dns-zone.png":::
 
 Después de comprobar la resolución de DNS correcta, podemos intentar conectar a la base de datos:
 
@@ -87,7 +87,7 @@ Cuando tenga conectividad entre la red virtual o la rama en la red virtual donde
 
 En este ejemplo, se va a conectar desde otra red virtual, por lo que primero adjuntaremos la zona DNS privada a la nueva red virtual para que las cargas de trabajo puedan resolver el nombre de dominio completo de Azure SQL Database en la dirección IP privada. Esto se hace a través de la vinculación de la zona DNS privada a la nueva red virtual:
 
-:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="Vínculo de DNS" lightbox="./media/howto-private-link/dns-link.png":::
+:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="Creación de un vínculo privado" lightbox="./media/howto-private-link/dns-link.png":::
 
 Ahora, todas las máquinas virtuales de la red virtual conectada deberían resolver correctamente el nombre de dominio completo de Azure SQL Database en la dirección IP privada del vínculo privado:
 
@@ -104,7 +104,7 @@ Address: 10.1.3.228
 
 Para comprobar de nuevo que esta red virtual (10.1.1.0/24) tiene conectividad con la red virtual original en la que se configuró el punto de conexión privado (10.1.3.0/24), puede comprobar la tabla de rutas efectiva en cualquier máquina virtual de la red virtual:
 
-:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="Rutas efectivas" lightbox="./media/howto-private-link/effective-routes.png":::
+:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="Creación de un vínculo privado" lightbox="./media/howto-private-link/effective-routes.png":::
 
 Como puede ver, hay una ruta que apunta a la red virtual 10.1.3.0/24 inyectada por las puertas de enlace de red virtual de Azure Virtual WAN. Ahora ya podemos probar la conectividad a la base de datos:
 

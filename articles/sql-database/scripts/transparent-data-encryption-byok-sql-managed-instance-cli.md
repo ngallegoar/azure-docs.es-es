@@ -9,14 +9,14 @@ ms.devlang: azurecli
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto
 ms.date: 11/05/2019
-ms.openlocfilehash: 08f0531a99a7e0af42332e349989ce12722be42c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b948161633569d629dfb048a7d7dee6a9946f43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518799"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323696"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Administración del Cifrado de datos transparente en una instancia administrada con la propia clave desde Azure Key Vault
 
@@ -56,7 +56,7 @@ az group delete --name $resource
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| Get-Help | Descripción |
+| Get-Help | Description |
 |---|---|
 | [az sql db](/cli/azure/sql/db) | Comandos de base de datos. |
 | [az sql failover-group](/cli/azure/sql/failover-group) | Comandos de grupo de conmutación por error. |

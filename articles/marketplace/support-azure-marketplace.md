@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 62f30d8a0fe1b2f2397fc16161929279a148aaa2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 741bea5129e5fa9660e198a74e23f0ef6c67dc23
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037514"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329761"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Soporte técnico de marketplace comercial de Microsoft
 
@@ -38,8 +38,7 @@ Abra un vale con el [soporte técnico del anunciante de Marketplace](https://aka
 ## <a name="marketing-resources"></a>Recursos de marketing  
 
 | Canal de soporte técnico | Descripción | Disponibilidad |  
-|:--- |:--- |:--- |  
-| Correo electrónico: [cosell@microsoft.com](mailto:cosell@microsoft.com) | Ofrece ayuda para los procesos de incorporación y las preguntas relacionadas con el programa de venta conjunta. | Funciona en la zona horaria del Pacífico. |  
+|:--- |:--- |:--- |
 | Correo electrónico: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Ayuda para las ventajas de GTM y preguntas relativas al programa. | El horario comercial es el de la zona horaria del Pacífico. |  
 | Correo electrónico: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Responde a preguntas sobre el uso de logotipos de Azure y la personalización de marca. |  |  
 

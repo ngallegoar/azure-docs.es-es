@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/09/2020
-ms.openlocfilehash: 5c24bd80721f626e38dcb886e89231c0b86056df
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/15/2020
+ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650959"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331665"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Caja de seguridad del cliente de Microsoft Azure
 
@@ -32,22 +32,23 @@ Los siguientes servicios están actualmente en versión preliminar para Caja de 
 
 - API Management
 - Azure App Service
-- Azure Database for MySQL
-- Azure Databricks
-- Azure Synapse Analytics
 - Cognitive Services
 - Container Registry
+- Azure Database for MySQL
+- Azure Databricks
+- Azure Data Box
+- Explorador de datos de Azure
 - Azure Data Factory
 - Azure Database for PostgreSQL
-- Azure Kubernetes Service
-- Azure Data Box
+- Azure Functions
 - HDInsight
-- Functions
+- Azure Kubernetes Service
+- Azure Monitor
 - Azure Storage
 - Azure SQL DB
-- Explorador de datos de Azure
-- Máquinas virtuales (que ahora también abarcan el acceso a volcados de memoria y discos administrados)
 - Transferencias de suscripciones de Azure
+- Azure Synapse Analytics
+- Máquinas virtuales (que ahora también abarcan el acceso a volcados de memoria y discos administrados)
 
 Para habilitar estas ofertas en versión preliminar de Caja de seguridad del cliente para su organización, regístrese en la [versión preliminar pública de Azure de Caja seguridad del cliente](https://aka.ms/customerlockbox/insiderprogram).
 

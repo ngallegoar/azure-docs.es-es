@@ -4,16 +4,16 @@ description: Aprenda a agregar una capa de mosaico a un mapa. Vea un ejemplo en 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bae1d06f1b5a96ad99d970613d957ce75a0c1393
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 905085d5b0787697d6094bd1337420ee8ae61d90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037361"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311097"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Incorporación de una capa de mosaico a un mapa mediante Android SDK de Azure Maps
 

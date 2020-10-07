@@ -1,14 +1,16 @@
 ---
 title: Migración a una entidad de aprendizaje automático de V3
 description: La creación de V3 proporciona un nuevo tipo de entidad, la entidad de aprendizaje automático, junto con la capacidad de agregar relaciones a la entidad de aprendizaje automático y a otras entidades o características de la aplicación.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: aaa5472f25a5eca5ceadf979c57a83874ce4cb6e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684593"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324695"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migración a la creación de V3
 

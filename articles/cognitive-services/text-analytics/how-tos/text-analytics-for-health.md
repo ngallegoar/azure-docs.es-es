@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 5bb244796414c828e1535e4874fc85aa83f182dc
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dffd12f319bd2766decda5874299cd7115f0502b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300075"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309207"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procedimientos: Uso de Text Analytics para el estado (versión preliminar)
 
@@ -73,7 +73,7 @@ Text Analytics para el estado solo admite documentos en inglés.
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitud de acceso al registro de contenedor
 
-Rellene y envíe el [formulario de solicitud de contenedores de Cognitive Services](https://aka.ms/cognitivegate) para solicitar acceso al contenedor. Actualmente, no se le facturará el uso de Text Analytics para el estado. 
+Rellene y envíe el [formulario de solicitud de contenedores de Cognitive Services](https://aka.ms/csgate) para solicitar acceso al contenedor. Actualmente, no se le facturará el uso de Text Analytics para el estado. 
 
 [!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
 

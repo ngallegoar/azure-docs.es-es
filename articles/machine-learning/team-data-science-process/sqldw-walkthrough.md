@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 59935d2659d27059617059c021fef9b6a2b552e0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e48261c4c6aeb75556663e1bf77c675557bcd1b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440208"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315497"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Proceso de ciencia de datos en equipos en acción: uso de Azure Synapse Analytics
 En este tutorial le guiaremos a través de la creación e implementación de un modelo de aprendizaje automático mediante Azure Synapse Analytics para un conjunto de datos disponible públicamente: el conjunto de datos [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). El modelo de clasificación binaria construido predice si se dará propina por la carrera o no.  Los modelos incluyen la clasificación multiclase (si hay una propina o si no la hay) y la regresión (la distribución de los importes de propinas pagadas).
@@ -117,7 +117,7 @@ BEGIN CATCH
 END CATCH;
 ```
 
-**Cree un área de trabajo de Azure Machine Learning en su suscripción de Azure.** Para ver instrucciones, consulte [Creación de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md).
+**Cree un área de trabajo de Azure Machine Learning en su suscripción de Azure.** Para ver instrucciones, consulte [Creación de un área de trabajo de Azure Machine Learning](../classic/create-workspace.md).
 
 ## <a name="load-the-data-into-azure-synapse-analytics"></a><a name="getdata"></a>Carga de datos en Azure Synapse Analytics
 Abra una consola de comandos de Windows PowerShell. Ejecute los comandos de PowerShell siguientes para descargar los archivos de script SQL de ejemplo que compartimos en GitHub en un directorio local especificado con el parámetro *-DestDir*. Puede cambiar el valor del parámetro *-DestDir* en cualquier directorio local. Si *-DestDir* no existe, lo creará el script de PowerShell.
@@ -941,9 +941,9 @@ Ya está todo listo para pasar a la creación del modelo y la implementación de
 2. **Clasificación multiclase**: permite predecir el rango de la propina dada, según las clases definidas anteriormente.
 3. **Tarea de regresión**: Permite predecir el importe de la propina pagada por una carrera.
 
-Para comenzar el ejercicio de modelado, inicie sesión en el área de trabajo de **Azure Machine Learning (clásico)** . Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación de un área de trabajo de Azure Machine Learning Studio (clásico)](../studio/create-workspace.md).
+Para comenzar el ejercicio de modelado, inicie sesión en el área de trabajo de **Azure Machine Learning (clásico)** . Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación de un área de trabajo de Azure Machine Learning Studio (clásico)](../classic/create-workspace.md).
 
-1. Para empezar a usar Azure Machine Learning, consulte [¿Qué es Microsoft Azure Machine Learning Studio (clásico)?](../studio/what-is-ml-studio.md)
+1. Para empezar a usar Azure Machine Learning, consulte [¿Qué es Microsoft Azure Machine Learning Studio (clásico)?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Inicie sesión en [Azure Machine Learning Studio (clásico)](https://studio.azureml.net).
 3. La página principal de Machine Learning Studio (clásico) ofrece una gran cantidad de información, así como vídeos, tutoriales, vínculos a referencias de módulos y otros recursos. Para obtener más información sobre Azure Machine Learning, visite el [Centro de documentación de Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -983,7 +983,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 >
 
 ## <a name="deploy-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Implementación de modelos en Azure Machine Learning
-Cuando el modelo esté listo, podrá implementarlo fácilmente como un servicio web directamente desde el experimento. Para obtener más información sobre la implementación de servicios web de Azure Machine Learning, vea [Implementación de un servicio web de Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+Cuando el modelo esté listo, podrá implementarlo fácilmente como un servicio web directamente desde el experimento. Para obtener más información sobre la implementación de servicios web de Azure Machine Learning, vea [Implementación de un servicio web de Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 
 Para implementar un nuevo servicio web, deberá:
 

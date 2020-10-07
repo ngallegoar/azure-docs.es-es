@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: c605efe60e279ca3f5f14055e39bf95dc677542b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 19767503769fe1a1e64d6ab137b811899adb29c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545848"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312346"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutorial: configuración de Zscaler Private Access (ZPA) para el aprovisionamiento automático de usuarios
 
@@ -131,11 +131,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba el valor del **Punto de conexión de proveedor de servicios de SCIM** recuperado anteriormente en **Dirección URL del inquilino**. Escriba el valor del **token de portador** recuperado anteriormente en **Token secreto**. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a Zscaler Private Access (ZPA). Si la conexión no se establece, asegúrese de que la cuenta de Zscaler Private Access (ZPA) tiene permisos de administrador y pruebe de nuevo.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: c083b0ca7fa506bb951a9ef27d2af04d61482eda
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 336c1e78143c09e07b8f05c3dbd10ca647844242
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555174"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319952"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Tutorial: Configuración de Federated Directory para el aprovisionamiento automático de usuarios
 
@@ -128,11 +128,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba `https://api.federated.directory/v2/` en la URL de inquilino. Escriba el valor de Federated Directory que recuperó y guardó en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Federated Directory. Si la conexión no se establece, asegúrese de que la cuenta de Federated Directory tiene permisos de administrador y pruebe de nuevo.
 

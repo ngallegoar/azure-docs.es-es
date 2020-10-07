@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 6d54945ce026f91b27ce31ba82ada1b0cc49a260
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e3544bee5158a855467f8cb142f176df2187ef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324257"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318303"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Desencadenamiento de una ejecución de una canalización de Machine Learning desde una aplicación lógica
 
@@ -94,3 +94,14 @@ Cuando se haya aprovisionado la aplicación lógica, use estos pasos para config
     > ![Configuración de HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. Seleccione **Guardar** y la programación ya estará lista.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para más información, consulte:
+
+> [!div class="nextstepaction"]
+> [Uso de canalizaciones de Azure Machine Learning para la puntuación por lotes](tutorial-pipeline-batch-scoring-classification.md)
+
+* Más información sobre las [canalizaciones](concept-ml-pipelines.md)
+* Más información sobre la [exploración de Azure Machine Learning con Jupyter](samples-notebooks.md)
+

@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: ''
+ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
-ms.openlocfilehash: f9ab340e73ce8d58da63a0089073ac4770bf2d52
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973382"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324474"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Incorporación de fuentes de datos de diferentes orígenes de datos a Metrics Advisor
 

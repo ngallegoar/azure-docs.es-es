@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c2d5b4758f80d07516500c663762d7c8607e2a30
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917965"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329489"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Búsqueda de texto completo en Azure Cognitive Search
 
@@ -51,7 +51,7 @@ Una solicitud de búsqueda es una especificación completa de lo que se debe dev
 
 El ejemplo siguiente es una solicitud de búsqueda que puede enviar a Azure Cognitive Search mediante la [API REST](/rest/api/searchservice/search-documents).  
 
-~~~~
+```
 POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
@@ -61,7 +61,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
 }
-~~~~
+```
 
 Para esta solicitud, el motor de búsqueda realiza lo siguiente:
 
@@ -76,9 +76,9 @@ La mayor parte de este artículo es sobre el procesamiento de la *consulta de b�
 
 Como se mencionó anteriormente, la cadena de consulta es la primera línea de la solicitud: 
 
-~~~~
+```
  "search": "Spacious, air-condition* +\"Ocean view\"", 
-~~~~
+```
 
 El analizador de consultas separa los operadores (como `*` y `+` en el ejemplo) de los términos de búsqueda y deconstruye la consulta de búsqueda en *subconsultas* de un tipo admitido: 
 
@@ -104,9 +104,9 @@ Otro parámetro de solicitud de búsqueda que afecte al análisis es el parámet
 
 Cuando `searchMode=any`, que es el valor predeterminado, el delimitador de espacio entre "espacioso" y "post-vacacional" es OR (`||`), lo que hace que el texto de consulta de muestra sea equivalente a: 
 
-~~~~
+```
 Spacious,||air-condition*+"Ocean view" 
-~~~~
+```
 
 Los operadores explícitos, como `+` en `+"Ocean view"`, no son ambiguos en la construcción de la consulta booleana (el término *debe* coincidir). Es menos obvio cómo interpretar los términos restantes: "espacioso" y "post-vacacional". ¿El motor de búsqueda debería encontrar coincidencias en "vistas al mar" *y* "espacioso" *y* "post-vacacional"? ¿O debe encontrar "vistas al mar" además de *alguno* de los términos restantes? 
 
@@ -114,9 +114,9 @@ De forma predeterminada (`searchMode=any`), el motor de búsqueda da por supuest
 
 Imagine que establecemos ahora `searchMode=all`. En este caso, el espacio se interpreta como una operación "y". Cada uno de los términos restantes debe estar presente en el documento para considerarse una coincidencia. La consulta de ejemplo resultante podría interpretarse del siguiente modo: 
 
-~~~~
+```
 +Spacious,+air-condition*+"Ocean view"
-~~~~
+```
 
 Un árbol de consulta modificado para esta consulta el siguiente, donde un documento coincidente es la intersección de las tres subconsultas: 
 
@@ -152,16 +152,16 @@ Cuando el analizador predeterminado procesa el término, cambiará a minúscula 
 
 Se puede probar el comportamiento de un analizador mediante la [Análisis de la API](/rest/api/searchservice/test-analyzer). Proporcione el texto que desea analizar para ver qué términos generará un analizador determinado. Por ejemplo, para ver cómo el analizador estándar procesaría el texto "post-vacacional", puede emitir la solicitud siguiente:
 
-~~~~
+```json
 {
     "text": "air-condition",
     "analyzer": "standard"
 }
-~~~~
+```
 
 El analizador estándar divide el texto de entrada en los siguientes dos tokens, anotándolos con atributos como desplazamientos de inicio y final (utilizados para resultados destacados), así como su posición (que se usa para la coincidencia de frase):
 
-~~~~
+```json
 {
   "tokens": [
     {
@@ -178,7 +178,7 @@ El analizador estándar divide el texto de entrada en los siguientes dos tokens,
     }
   ]
 }
-~~~~
+```
 
 <a name="exceptions"></a>
 
@@ -192,7 +192,7 @@ El análisis léxico se aplica únicamente a los tipos de consultas que requiere
 
 La recuperación de documentos hace referencia a la búsqueda de documentos con términos coincidentes en el índice. Esta fase se entiende mejor mediante un ejemplo. Puede empezar con un índice de hoteles que tengan el siguiente esquema simple: 
 
-~~~~
+```json
 {
     "name": "hotels",
     "fields": [
@@ -201,11 +201,11 @@ La recuperación de documentos hace referencia a la búsqueda de documentos con 
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
-~~~~
+```
 
 Suponga también que este índice contiene los siguientes cuatro documentos: 
 
-~~~~
+```json
 {
     "value": [
         {
@@ -230,7 +230,7 @@ Suponga también que este índice contiene los siguientes cuatro documentos:
         }
     ]
 }
-~~~~
+```
 
 **Cómo se indexan los términos**
 
@@ -321,10 +321,12 @@ A todos los documentos de un conjunto de resultados de búsqueda se les asigna u
 ### <a name="scoring-example"></a>Ejemplo de puntuación
 
 Recuerde los tres documentos que coinciden con la consulta de ejemplo:
-~~~~
+
+```
 search=Spacious, air-condition* +"Ocean view"  
-~~~~
-~~~~
+```
+
+```json
 {
   "value": [
     {
@@ -347,7 +349,7 @@ search=Spacious, air-condition* +"Ocean view"
     }
   ]
 }
-~~~~
+```
 
 El documento 1 coincidió con la mejor consulta porque tanto el término *espacioso* y la frase necesaria *vistas al mar* aparecen en el campo de descripción. Los siguientes dos documentos coinciden solo con la frase *vistas al mar*. Podría ser sorprendente que la puntuación por relevancia para el documento 2 y 3 fuera diferente, aunque coincide con la consulta de la misma manera. Se debe a que la fórmula de puntuación tiene más componentes que simplemente TF/IDF. En este caso, al documento 3 se le asignó una puntuación ligeramente superior porque su descripción es más corta. Obtenga información sobre [Fórmula de puntuación práctica de Lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) para entender cómo longitud de campo y otros factores pueden influir en la puntuación por relevancia.
 

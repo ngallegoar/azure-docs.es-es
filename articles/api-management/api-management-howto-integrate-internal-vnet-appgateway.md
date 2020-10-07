@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: eb2ce196687b2ca6a762a879570e4f8ebac788df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 778c65b9ec42c27ea0ae1530c1ba7fa9739fbc3c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025122"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321892"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
 
@@ -91,7 +91,7 @@ En esta guía también se expondrá el **portal para desarrolladores** a audienc
 > 
 > Las reglas de WAF de Application Gateway, que pueden interrumpir la funcionalidad del portal, incluyen:
 > 
-> - `920330`, `931130`, `942100`, `942110`, `942180`, `942200`, `942260`, `942370`, `949110`, `980130` para el modo administrativo
+> - `920300`, `920330`, `931130`, `942100`, `942110`, `942180`, `942200`, `942260`, `942340`, `942370` para el modo administrativo
 > - `942200`, `942260`, `942370`, `942430`, `942440` para el portal publicado
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Creación de un grupo de recursos para Resource Manager

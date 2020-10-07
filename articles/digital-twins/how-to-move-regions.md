@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e2cb8ee282666d7a9a567ca04762b26de3b3b9bd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443048"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328503"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Migración de una instancia de Azure Digital Twins a otra región de Azure
 
@@ -113,7 +113,7 @@ A continuación, creará una instancia en la región de destino y la rellenará 
 
 ### <a name="create-a-new-instance"></a>Creación de una instancia
 
-En primer lugar, **crear una instancia de Azure Digital Twins en la región de destino**. Para ello, siga los pasos descritos en [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-scripted.md), teniendo en cuenta estas indicaciones:
+En primer lugar, **crear una instancia de Azure Digital Twins en la región de destino**. Para ello, siga los pasos descritos en [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md), teniendo en cuenta estas indicaciones:
 * Puede mantener el mismo nombre para la nueva instancia **si** está en otro grupo de recursos. Si necesita usar el mismo grupo de recursos que contiene la instancia original, la nueva instancia necesitará su propio nombre distintivo.
 * Cuando se le solicite una ubicación, escriba la nueva región de destino.
 * No **necesita** volver a crear el registro de aplicaciones. La nueva instancia puede volver a usar el que ya tiene.

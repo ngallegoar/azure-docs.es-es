@@ -3,13 +3,13 @@ title: Supervisión de servicios de Node.js con Azure Application Insights | Mic
 description: Supervise el rendimiento y diagnostique problemas en servicios de Node.js con Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c6a1a030829f128c4369e99efcd56a416390afc6
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 982adf6c6d7cd825d185802321ce30a04bd2f216
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371624"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323301"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Supervisión de servicios y aplicaciones de Node.js con Application Insights
 

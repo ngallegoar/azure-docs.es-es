@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 85c99892a225de933da337e748ebde3370b6f7a3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 7a07a42e208cb0f6fe91f6a65777fd28155106a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019613"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330594"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Administración de los niveles de coherencia en Azure Cosmos DB
 
@@ -281,7 +281,7 @@ item = client.ReadItem(doc_link, options)
 
 ¿Cómo de eventual es la coherencia eventual? Por término medio, se puede ofrecer obsolescencia limitada con respecto al historial de versiones y la hora. La métrica [**Obsolescencia limitada de manera probabilística (PBS)** ](https://pbs.cs.berkeley.edu/) intenta cuantificar la probabilidad de obsolescencia y la muestra como una métrica. Para ver la métrica de PBS, vaya a la cuenta de Azure Cosmos en Azure Portal. Abra el panel **Métricas** y seleccione la pestaña **Coherencia**. Examine el gráfico llamado **Probabilidad de lecturas con coherencia fuerte según la carga de trabajo (consultar PBS)** .
 
-:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Gráfico de PBS en Azure Portal":::
+:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Menú de coherencia en Azure Portal":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

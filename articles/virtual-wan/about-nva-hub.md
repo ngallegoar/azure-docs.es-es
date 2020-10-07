@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
-ms.openlocfilehash: ad7c7fb5111ce700a5725336b7c9db788e178c4c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095289"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313780"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Acerca de una aplicación virtual de red en un centro de conectividad de Azure Virtual WAN (versión preliminar)
 
@@ -50,7 +50,7 @@ Los asociados de las NVA pueden crear diferentes recursos en función de la impl
 * **Grupo de recursos del cliente**: incluirá un marcador de posición de la aplicación para la aplicación administrada. Los asociados pueden usarlo para exponer las propiedades personalizadas que elijan.
 * **Grupo de recursos administrados**: los clientes no pueden configurar ni cambiar los recursos de este grupo directamente, ya que es el editor de la aplicación administrada quien lo controla. Este grupo de recursos contendrá el recurso **NetworkVirtualAppliances**.
 
-:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Grupos de recursos de la aplicación administrada":::
+:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Introducción al proceso":::
 
 ### <a name="nva-infrastructure-units"></a><a name="units"></a>Unidades de infraestructura de NVA
 

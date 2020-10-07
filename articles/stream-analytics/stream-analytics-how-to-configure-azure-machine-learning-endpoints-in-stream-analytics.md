@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: 33d1e73523ca85a21c032729b6537ee3297ea23e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f54245013b6a57c02120c0e97ecf5f39094148b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020838"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317742"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Integración de Azure Machine Learning Studio (clásico) en Stream Analytics (versión preliminar)
 Stream Analytics admite funciones definidas por el usuario que llaman a puntos de conexión de Azure Machine Learning Studio (clásico). La compatibilidad con la API de REST para esta característica se detalla en la [biblioteca API de REST de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artículo proporciona información adicional necesaria para una implementación correcta de esta capacidad en Stream Analytics. También se ha publicado un tutorial, que está disponible [aquí](stream-analytics-machine-learning-integration-tutorial.md).
@@ -25,7 +25,7 @@ Microsoft Azure Machine Learning Studio (clásico) proporciona una herramienta c
 * **Punto de conexión**: los *puntos de conexión* son el objeto de Azure Machine Learning Studio (clásico) que se usa para tomar características como entradas, aplicar un modelo de aprendizaje automático especificado y devolver la salida puntuada.
 * **Servicio web de puntuación**: un *servicio web de puntuación* es una colección de puntos de conexión, como se mencionó anteriormente.
 
-Cada punto de conexión tiene varias API para la ejecución de lotes y la ejecución sincrónica. Stream Analytics usa la ejecución sincrónica. El servicio específico se denomina [servicio de solicitud y respuesta](../machine-learning/studio/consume-web-services.md) en Azure Machine Learning Studio (clásico).
+Cada punto de conexión tiene varias API para la ejecución de lotes y la ejecución sincrónica. Stream Analytics usa la ejecución sincrónica. El servicio específico se denomina [servicio de solicitud y respuesta](../machine-learning/classic/consume-web-services.md) en Azure Machine Learning Studio (clásico).
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Recursos de Machine Learning necesarios para trabajos de Stream Analytics
 Para el procesamiento de trabajos de Stream Analytics, para la correcta ejecución se necesitan un punto de conexión de solicitud/respuesta, una [apikey](https://docs.microsoft.com/azure/machine-learning/studio/consume-web-services)y una definición de Swagger. Stream Analytics tiene un punto de conexión adicional que construye la dirección URL de Swagger, busca en la interfaz y devuelve una definición de función definida por el usuario predeterminada al usuario.

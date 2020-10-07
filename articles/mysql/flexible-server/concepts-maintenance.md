@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 67529ce3546046eaba75bd3beacd7bb9b96445fe
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a2e99440a7c8f33eee9d3c9fe2276ac3868ff4b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932264"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331767"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-mysql--flexible-server"></a>Mantenimiento programado de Azure Database for MySQL: servidor flexible
 
@@ -46,5 +46,5 @@ En raras ocasiones, el sistema puede cancelar el evento de mantenimiento, o bien
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre cómo [cambiar la programación de mantenimiento](how-to-maintenance-portal.md).
-* Obtenga información sobre cómo [obtener notificaciones sobre próximos eventos de mantenimiento](/azure/service-health/service-notifications.md) con Azure Service Health.
-* Obtenga información sobre cómo [configurar alertas sobre próximos eventos de mantenimiento programado](/azure/service-health/resource-health-alert-monitor-guide.md).
+* Obtenga información sobre cómo [obtener notificaciones sobre próximos eventos de mantenimiento](../../service-health/service-notifications.md) con Azure Service Health.
+* Obtenga información sobre cómo [configurar alertas sobre próximos eventos de mantenimiento programado](../../service-health/resource-health-alert-monitor-guide.md).

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e25b2b53acdfb05af8572a01109961bf3002e429
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a221ba8fe14db37729183774197bfc2db8bf2baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499439"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328112"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>Vista previa: Creación de una máquina virtual Windows con Azure Image Builder mediante PowerShell
 
@@ -271,7 +271,7 @@ Asimismo, Image Builder crea en segundo plano un grupo de recursos de almacenami
 
 Si el servicio informa de un error durante el envío de la plantilla de configuración de la imagen:
 
-- Consulte [Solución de errores de Azure VM Image Builder (AIB)](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting).
+- Consulte [Solución de errores de Azure VM Image Builder (AIB)](../linux/image-builder-troubleshoot.md).
 - Elimine la plantilla mediante el ejemplo siguiente antes de volver a intentarlo.
 
 ```azurepowershell-interactive
@@ -288,7 +288,7 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 Espere a que se complete el proceso de aprovisionamiento. Este paso puede tardar hasta una hora.
 
-Si se producen errores, consulte [Solución de errores de Azure VM Image Builder (AIB)](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting).
+Si se producen errores, consulte [Solución de errores de Azure VM Image Builder (AIB)](../linux/image-builder-troubleshoot.md).
 
 ## <a name="create-a-vm"></a>Crear una VM
 

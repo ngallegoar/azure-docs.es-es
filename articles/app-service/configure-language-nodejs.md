@@ -1,17 +1,17 @@
 ---
 title: Configuración de aplicaciones de Node.js
 description: Aprenda a configurar una aplicación de Node.js en las instancias nativas de Windows, o en un contenedor de Linux pregenerado, en Azure App Service. En este artículo se muestran las tareas de configuración más comunes.
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e6daf176504427c96f8dce0a4e9a6b6d5e999a0a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 48b111966d58af80b6c34fa17231034f4f0cc213
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080120"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311842"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configuración de una aplicación de Node.js para Azure App Service
 

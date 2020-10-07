@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: be124e7677774cbe6b4a0a2730c662f25b619ee0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9907be0e7cd14876964b820d9b267f279fc50d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525983"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331461"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal
 Si la máquina virtual Linux se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una entrada no válida en `/etc/fstab` que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar Azure Portal para conectar el disco duro virtual a otra máquina virtual Linux para solucionar los errores y, posteriormente, volver a crear la máquina virtual original.
@@ -28,7 +28,7 @@ El proceso de solución de problemas es el siguiente:
 1. Detenga la máquina virtual afectada.
 1. Realice una instantánea del disco del sistema operativo de la máquina virtual.
 1. Cree un disco duro virtual a partir de la instantánea.
-1. Conecte y monte el disco duro virtual en otra máquina virtual Windows con el fin de solucionar problemas.
+1. Conecte y monte el disco duro virtual en otra máquina virtual Linux con el fin de solucionar problemas.
 1. Conéctese a la máquina virtual de solución de problemas. Edite los archivos o ejecute cualquier herramienta necesaria para solucionar los problemas del disco duro virtual original.
 1. Desmonte y desconecte el disco duro virtual de la máquina virtual de solución de problemas.
 1. Intercambie el disco del sistema operativo de la máquina virtual.

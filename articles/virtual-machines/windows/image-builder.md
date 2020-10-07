@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: f0d8a37f0edc161cbd73bf7438dc1c9486c4251b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62d80426dec6f5d63d8fa5d67d64d6aafb881110
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027944"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320020"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Vista previa: Creación de una máquina virtual Windows con Azure Image Builder
 
@@ -161,7 +161,7 @@ vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> Para la imagen de origen, siempre debe [especificar una versión](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure); no puede usar `latest`.
+> Para la imagen de origen, siempre debe [especificar una versión](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version); no puede usar `latest`.
 > Si agrega o cambia el grupo de recursos adonde se distribuye la imagen, tiene que asegurarse de que los [permisos estén establecidos](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) en el grupo de recursos.
  
 ## <a name="create-the-image"></a>Crear la imagen
@@ -185,7 +185,7 @@ Asimismo, Image Builder creará en segundo plano un grupo de recursos de almacen
 > No debe eliminar el grupo de recursos de almacenamiento provisional directamente. Primero elimine el artefacto de la plantilla de imagen, esto hará que se elimine el grupo de recursos de almacenamiento provisional.
 
 Si el servicio informa de un error durante el envío de la plantilla de configuración de la imagen:
--  Revise los pasos para [solucionar problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting). 
+-  Revise los pasos para [solucionar problemas](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors). 
 - Tendrá que eliminar la plantilla con el siguiente fragmento de código antes de reintentar el envío.
 
 ```azurecli-interactive
@@ -208,7 +208,7 @@ az resource invoke-action \
 
 Espere hasta que se complete la compilación. Puede tardar unos 15 minutos.
 
-Si encuentra algún error, revise estos pasos para la [solución de problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting).
+Si encuentra algún error, revise estos pasos para la [solución de problemas](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors).
 
 
 ## <a name="create-the-vm"></a>Creación de la máquina virtual

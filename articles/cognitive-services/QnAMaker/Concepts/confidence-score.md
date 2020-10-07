@@ -1,7 +1,7 @@
 ---
 title: 'Puntuación de confianza: QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Se debe publicar una base de conocimiento. Una vez publicada, se consulta la base de conocimiento a través del punto de conexión de predicción del tiempo de ejecución mediante generateAnswer API.
+description: Cuando una consulta de usuario se compara con una base de conocimientos (KB), QnA Maker devuelve respuestas pertinentes, junto con una puntuación de confianza.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: faf24f11763ca2bcd9bb872b09b5d1b69e78bd06
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: abae83cee106feb553e8ced404d23ba5619ba416
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131164"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327160"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>Puntuación de confianza de una respuesta
 Cuando una consulta de usuario se compara con una base de conocimientos (KB), QnA Maker devuelve respuestas pertinentes, junto con una puntuación de confianza. Esta puntuación indica el grado de confianza que se tiene en que la respuesta sea la coincidencia correcta para la consulta de usuario en cuestión.

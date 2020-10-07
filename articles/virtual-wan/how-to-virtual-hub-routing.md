@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 00d79f8058d7d478f7fe97ba9677e47098b70e1b
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: cae74a5f4859d208765c9a7e5cde05ff3c0c3096
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145933"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313695"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Configuración del enrutamiento de centro virtual
 
@@ -30,7 +30,7 @@ Para obtener más información, consulte [Acerca del enrutamiento de centros vir
 3. Seleccione **+ Crear tabla de rutas** para abrir la página **Crear tabla de rutas**.
 4. En la pestaña **Aspectos básicos** de la página Crear tabla de rutas, rellene los campos siguientes.
 
-   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Pestaña Aspectos básicos":::
+   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Página Enrutamiento":::
 
    * **Nombre**
    * **Rutas**
@@ -41,20 +41,20 @@ Para obtener más información, consulte [Acerca del enrutamiento de centros vir
 
      Si selecciona una conexión de red virtual, verá **Configurar rutas estáticas**. Esta configuración es opcional. Para más información, consulte [Configuración de rutas estáticas](about-virtual-hub-routing.md#static).
 
-      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Próximo salto":::
+      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Página Enrutamiento":::
 
 5. Seleccione la pestaña **Etiquetas** para configurar los nombres de etiqueta. Las etiquetas proporcionan un mecanismo para agrupar las tablas de rutas de forma lógica.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Configurar nombres de etiqueta":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Página Enrutamiento":::
 
 6. Seleccione la pestaña **Asociaciones** para asociar conexiones a la tabla de rutas.
 Verá las secciones **Ramas**, **Redes virtuales** y **Configuración actual** de las conexiones.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Conexiones de asociación a la tabla de rutas":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Página Enrutamiento":::
 
 7. Seleccione la pestaña **Propagaciones** para propagar las rutas de las conexiones a la tabla de rutas.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="Propagar rutas":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="Página Enrutamiento":::
 
 8. Seleccione **Crear** para crear la tabla de rutas.
 
@@ -70,7 +70,7 @@ En Azure Portal, busque la tabla de rutas del centro virtual. No se puede elimin
 
 En Azure Portal, busque la tabla de rutas del centro virtual. Haga clic en **"..."** y seleccione **Rutas eficaces** para ver las rutas que ha aprendido la tabla de rutas seleccionada. Las rutas propagadas desde la conexión a la tabla de rutas se rellenan automáticamente en **Rutas eficaces** de la tabla de rutas. Para obtener más información, consulte [Acerca de las rutas eficaces](effective-routes-virtual-hub.md).
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="Ver rutas eficaces" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="Página Enrutamiento" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
 
 ## <a name="to-set-up-routing-configuration-for-a-virtual-network-connection"></a><a name="routing-configuration"></a>Para establecer la configuración de enrutamiento de una conexión de red virtual
 
@@ -82,7 +82,7 @@ En Azure Portal, busque la tabla de rutas del centro virtual. Haga clic en **"..
 1. En **Rutas estáticas**, configure las rutas estáticas de la aplicación virtual de red (si es aplicable). Virtual WAN admite una única dirección IP de próximo salto para la ruta estática en una conexión de red virtual. Por ejemplo, si tiene una aplicación virtual independiente para flujos de tráfico de entrada y salida, sería mejor tener las aplicaciones virtuales en redes virtuales independientes y conectar las redes virtuales al centro virtual.
 
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Definir la configuración de enrutamiento" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Página Enrutamiento" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

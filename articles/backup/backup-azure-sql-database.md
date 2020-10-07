@@ -3,12 +3,12 @@ title: Copia de seguridad de bases de datos de SQL Server en Azure
 description: En este artículo se explica cómo realizar una copia de seguridad de SQL Server en Azure. En este tutorial también se explica cómo se realiza la recuperación de SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 3627162ef2f4330a4b6a78625b5e07bdcf56419b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 510d9637031928e31abaa5f82a5bf58c6ef44719
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376543"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316855"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure
 
@@ -33,7 +33,7 @@ Esta solución aprovecha las API nativas de SQL para realizar copias de segurida
 * El complemento envía los datos directamente al almacén de Recovery Services, por lo que se elimina la necesidad de una ubicación de almacenamiento provisional. El servicio Azure Backup cifra los datos y los almacena en cuentas de almacenamiento.
 * Cuando se completa la transferencia de datos, el coordinador realiza la confirmación con el servicio de copia de seguridad.
 
-  ![Arquitectura de copia de seguridad de SQL](./media/backup-azure-sql-database/backup-sql-overview.png)
+  ![Arquitectura de copia de seguridad de SQL](./media/backup-azure-sql-database/azure-backup-sql-overview.png)
 
 ## <a name="before-you-start"></a>Antes de comenzar
 

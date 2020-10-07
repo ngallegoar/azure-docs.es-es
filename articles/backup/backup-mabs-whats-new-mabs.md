@@ -3,12 +3,12 @@ title: Novedades de Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server proporciona funcionalidades mejoradas de copia de seguridad para proteger máquinas virtuales, archivos y carpetas, cargas de trabajo, etc.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: ca06e52c81b909bb19008fdccfe4b3fdeb7e6248
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 39050d0f658e29b82f270f1fe53026e2fb80bfa1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182146"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332770"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Novedades de Microsoft Azure Backup Server (MABS)
 
@@ -23,7 +23,7 @@ La versión 3 de Microsoft Azure Backup Server (MABS) UR1 es la actualización
 
 En MABS V2 se presentó [Modern Backup Storage](backup-mabs-add-storage.md) (MBS), para mejorar el rendimiento y uso del almacenamiento. En MBS se usa ReFS como sistema de archivos subyacente y está diseñado para utilizar almacenamiento híbrido como el almacenamiento en capas.
 
-Para lograr la escala y el rendimiento mediante MBS, se recomienda usar un pequeño porcentaje (4 % del almacenamiento total) de almacenamiento flash (SSD) con MABS V3 UR1 como un volumen en capas junto con el almacenamiento en disco duros DPM. MABS V3 UR1 con almacenamiento en capas ofrece copias de seguridad entre un 50 y un 70 % más rápidas. Consulte el artículo de DPM [Configuración de MBS con almacenamiento en capas](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) para obtener los pasos de configuración el almacenamiento en capas.
+Para lograr la escala y el rendimiento mediante MBS, se recomienda usar un pequeño porcentaje (4 % del almacenamiento total) de almacenamiento flash (SSD) con MABS V3 UR1 como un volumen en capas junto con el almacenamiento en disco duros DPM. MABS V3 UR1 con almacenamiento en capas ofrece copias de seguridad entre un 50 y un 70 % más rápidas. Consulte el artículo de DPM [Configuración de MBS con almacenamiento en capas](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage) para obtener los pasos de configuración el almacenamiento en capas.
 
 ### <a name="support-for-refs-volumes"></a>Compatibilidad con volúmenes ReFS
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 405d872c178a3172454943b7d40ea276ea5c017e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459102"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325696"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Administración de instantáneas mediante Azure NetApp Files
 
@@ -65,7 +65,7 @@ La característica **directiva de instantánea** está actualmente en la versió
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-También puede usar los comandos de la CLI de Azure [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) y [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) para registrar la característica y mostrar el estado de registro. 
+También puede usar los comandos de la [CLI de Azure](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` y `az feature show` para registrar la característica y mostrar el estado del registro. 
 
 ### <a name="create-a-snapshot-policy"></a>Creación de una directiva de instantánea 
 
@@ -221,6 +221,6 @@ Si ha activado la casilla Ocultar la ruta de acceso de la instantánea al crear 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Información sobre la jerarquía del almacenamiento de Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Solución de problemas de directivas de instantáneas](troubleshoot-snapshot-policies.md)
 * [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Vídeo Instantáneas de Azure NetApp Files 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

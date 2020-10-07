@@ -8,18 +8,18 @@ manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8eb9caf466148e43266c4be9cf1308da15fb67f2
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ce3261eca8697ae1fabc07785353a4e845dadeba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245543"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317011"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Configuración de un nombre de red distribuida para una FCI 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -119,7 +119,7 @@ Para actualizar los propietarios posibles, siga estos pasos:
    :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/fci-dnn-properties.png" alt-text="Menú contextual del recurso DNN, con el comando Propiedades resaltado.":::
 1. Desactive la casilla de los nodos que no participen en la instancia del clúster de conmutación por error. La lista de propietarios posibles del recurso DNN debe coincidir con la del recurso de la instancia de SQL Server. Por ejemplo, suponiendo que Data3 no participe en la FCI, la imagen siguiente es un ejemplo de cómo quitar Data3 de la lista de propietarios posibles del recurso DNN: 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Desactivación de la casilla situada junto a los nodos que no participen en la FCI para los propietarios posibles del recurso DNN":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Menú contextual del recurso DNN, con el comando Propiedades resaltado.":::
 
 1. Seleccione **Aceptar** para guardar la configuración. 
 

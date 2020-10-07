@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 047915874dfd81fdf68dc97ac217274b2439d726
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027484"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331903"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Server
 En este tutorial, se describe el proceso de creación e implementación de un modelo de Machine Learning con SQL Server y un conjunto de datos disponible públicamente: [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . El procedimiento sigue un flujo de trabajo de ciencia de datos estándar: introducir y explorar los datos, diseñar características para facilitar el aprendizaje y, después, crear e implementar un modelo.
@@ -83,7 +83,7 @@ En este tutorial se mostrará la importación en bloque paralela de los datos en
 Para configurar el entorno de ciencia de datos de Azure:
 
 1. [Cree una cuenta de almacenamiento](../../storage/common/storage-account-create.md)
-2. [Creación de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md)
+2. [Creación de un área de trabajo de Azure Machine Learning](../classic/create-workspace.md)
 3. [Aprovisione una máquina virtual de ciencia de datos](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), que proporcionará un servidor de SQL Server y un servidor de Notebook de IPython.
    
    > [!NOTE]
@@ -626,9 +626,9 @@ Ya está todo listo para pasar a la creación del modelo y la implementación de
 3. Tarea de regresión: Permite predecir el importe de la propina pagada por una carrera.  
 
 ## <a name="building-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Creación de modelos en Azure Machine Learning
-Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de Azure Machine Learning. Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación y uso compartido de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md).
+Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de Azure Machine Learning. Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación y uso compartido de un área de trabajo de Azure Machine Learning](../classic/create-workspace.md).
 
-1. Para empezar a usar Azure Machine Learning, consulte [¿Qué es Microsoft Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
+1. Para empezar a usar Azure Machine Learning, consulte [¿Qué es Microsoft Azure Machine Learning Studio?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Inicie sesión en [Azure Machine Learning Studio](https://studio.azureml.net).
 3. La página principal del Estudio ofrece una gran cantidad de información, vídeos, tutoriales, vínculos a referencias de módulos y otros recursos. Para obtener más información sobre Azure Machine Learning, visite el [Centro de documentación de Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -668,7 +668,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 > 
 
 ## <a name="deploying-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Implementación de modelos en Azure Machine Learning
-Cuando el modelo esté listo, podrá implementarlo fácilmente como un servicio web directamente desde el experimento. Para más información sobre la implementación de servicios web Azure Machine Learning, vea [Implementar un servicio web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+Cuando el modelo esté listo, podrá implementarlo fácilmente como un servicio web directamente desde el experimento. Para más información sobre la implementación de servicios web Azure Machine Learning, vea [Implementar un servicio web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 
 Para implementar un nuevo servicio web, deberá:
 

@@ -1,14 +1,16 @@
 ---
 title: 'Ramas de control de código fuente y desarrollo: LUIS'
 description: Cómo mantener la aplicación Language Understanding (LUIS) bajo control de código fuente. Cómo aplicar las actualizaciones a una aplicación de LUIS al trabajar en una rama de desarrollo.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 2d060fefbd32ecea1f91e6b062da7606699a63c4
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783631"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309513"
 ---
 # <a name="devops-practices-for-luis"></a>Prácticas de DevOps para LUIS
 

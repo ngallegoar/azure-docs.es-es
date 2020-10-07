@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 6c3ad5fff6958bce72f876e3ff4701cf081abe60
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c8251eb2a89a7481ebc981f2b89668c363651b39
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932504"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315021"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-mysql--flexible-server"></a>Administración de la configuración del mantenimiento programado para un servidor flexible de Azure Database for MySQL
  
@@ -31,9 +31,9 @@ Para completar esta guía, necesita:
  
 ## <a name="notifications-about-scheduled-maintenance-events"></a>Notificaciones sobre eventos de mantenimiento programado
  
-Puede usar Azure Service Health para [ver notificaciones](/azure/service-health/service-notifications.md) sobre el próximo mantenimiento programado y realizado en el servidor flexible. También puede [configurar](/azure/service-health/resource-health-alert-monitor-guide.md) alertas en Azure Service Health para recibir notificaciones sobre los eventos de mantenimiento.
+Puede usar Azure Service Health para [ver notificaciones](../../service-health/service-notifications.md) sobre el próximo mantenimiento programado y realizado en el servidor flexible. También puede [configurar](../../service-health/resource-health-alert-monitor-guide.md) alertas en Azure Service Health para recibir notificaciones sobre los eventos de mantenimiento.
  
 ## <a name="next-steps"></a>Pasos siguientes  
  
 * Información sobre el [mantenimiento programado de un servidor flexible de Azure Database for MySQL](concepts-maintenance.md).
-* Información sobre [Azure Service Health](/azure/service-health/overview.md)
+* Información sobre [Azure Service Health](../../service-health/overview.md)

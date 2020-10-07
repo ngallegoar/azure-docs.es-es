@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0aca072a9e659d242dec9dd45a12f9568d419599
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3d5c47d3e3e9485c3a6de8f93782c654fb34a516
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124432"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330645"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adición de una charla a la base de conocimiento
 
@@ -72,7 +72,7 @@ Para ver los metadatos, seleccione **View Options** (Opciones de vista) en la ba
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Adición de preguntas y respuestas adicionales de la charla
 Puede agregar una charla nueva de QnA que no esté en el conjunto de datos predefinido. Asegúrese de que no va a duplicar un par de QnA que ya esté presente en el conjunto de la charla. Cuando se agregan nuevas preguntas y respuestas de charla, se agregan al origen **Editorial**. Para asegurarse de que el clasificador comprende que se trata de charla, agregue el par de clave y valor de metadatos "Editorial: chitchat", como se muestra en la imagen siguiente:
 
-![![Agregar preguntas y respuestas de charla]\(../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
+:::image type="content" source="../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png" alt-text="Adición de preguntas y respuestas de charla" lightbox="../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png":::
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>Eliminación de la charla de una base de conocimiento existente
 Seleccione la base de conocimiento y vaya hasta la página **Settings** (Configuración). El origen de charla específico aparece como un archivo, con el nombre de la personalidad seleccionado. Puede eliminarlo como un archivo de origen.

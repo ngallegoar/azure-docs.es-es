@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/29/2019
-ms.openlocfilehash: 81e3547dbd86c840baed8e044a84afd3b63f5be5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7a7373f5fcd36298d2feeff6a2a5b67c9e10e40b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075780"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321601"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Ahorro de costos para los recursos con capacidad reservada: Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 

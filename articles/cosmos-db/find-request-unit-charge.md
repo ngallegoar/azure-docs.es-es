@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d692a884688d81fdf16261edff816fa8f0215877
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 81660bee32cace458424c9975c74ca7980148e29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422324"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316195"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Búsqueda del cargo de unidad de solicitud en Azure Cosmos DB
 
@@ -188,7 +188,7 @@ Actualmente, puede buscar el cargo de solicitud solo en Azure Portal para una co
 
 1. Seleccione **Query Stats** (Estadísticas de consulta) para mostrar el cargo de solicitud real correspondiente a la solicitud que ha ejecutado.
 
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Captura de pantalla del cargo de solicitud de una consulta de MongoDB en Azure Portal":::
+:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Captura de pantalla del cargo de solicitud de una consulta SQL en Azure Portal":::
 
 ### <a name="use-the-mongodb-net-driver"></a>Uso del controlador de .NET de MongoDB
 

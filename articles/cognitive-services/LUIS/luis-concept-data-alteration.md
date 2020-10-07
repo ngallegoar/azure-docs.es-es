@@ -1,15 +1,17 @@
 ---
 title: Modificación de datos (LUIS)
 description: Obtenga información sobre cómo se pueden modificar los datos antes de las predicciones en Language Understanding (LUIS)
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c675ac246f397b5949c870ad91ab936bbd92c7ef
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f3eb30662cae5f117942db6322b27491670abb1b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934674"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324848"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Modificación de datos de expresiones antes o durante la predicción
 LUIS proporciona distintos métodos para manipular la expresión antes o durante la predicción. Entre ellos se incluyen la [corrección de la ortografía](luis-tutorial-bing-spellcheck.md) y la solución de los problemas de la zona horaria para elementos [datetimeV2](luis-reference-prebuilt-datetimev2.md) creados previamente.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d528ff41d8b7098e313e070dfe734960cdc89eaa
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 4dc768b92a9ffbeafc31ef81d065237f47fb645e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827535"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331886"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
@@ -83,7 +83,7 @@ Azure Digital Twins permite el cifrado de los datos en reposo y en tránsito a m
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Vea estos conceptos en acción en [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-scripted.md).
+* Vea estos conceptos en acción en [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md).
 
 * Vea cómo interactuar con estos conceptos del código de la aplicación cliente en [*Procedimiento: Escritura de código de autenticación de aplicación*](how-to-authenticate-client.md).
 

@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de MABS y System Center DPM
 description: En este artículo se resume la compatibilidad de Azure Backup al usar Microsoft Azure Backup Server (MABS) o System Center DPM para realizar copias de seguridad de recursos locales y de VM de Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: e3ca83b8a2874304521d84f6901fcb9627ce80db
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506617"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332702"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de compatibilidad para copia de seguridad con Microsoft Azure Backup Server o System Center DPM
 
@@ -24,7 +24,7 @@ MABS se basa en System Center DPM y proporciona una funcionalidad similar con un
 
 - No se requiere ninguna licencia de System Center para ejecutar MABS.
 - Azure proporciona almacenamiento de copia de seguridad a largo plazo tanto para MABS como para DPM. Además, DPM permite realizar una copia de seguridad de los datos para su almacenamiento en cinta a largo plazo. MABS no proporciona esta funcionalidad.
-- [Puede realizar una copia de seguridad de un servidor DPM principal con un servidor DPM secundario](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019). El servidor secundario protegerá la base de datos del servidor principal y las réplicas del origen de datos almacenadas en el servidor principal. Si se produce un error en el servidor principal, el servidor secundario puede continuar protegiendo las cargas de trabajo que protege el servidor principal, hasta que este vuelva a estar disponible.  MABS no proporciona esta funcionalidad.
+- [Puede realizar una copia de seguridad de un servidor DPM principal con un servidor DPM secundario](/system-center/dpm/back-up-the-dpm-server). El servidor secundario protegerá la base de datos del servidor principal y las réplicas del origen de datos almacenadas en el servidor principal. Si se produce un error en el servidor principal, el servidor secundario puede continuar protegiendo las cargas de trabajo que protege el servidor principal, hasta que este vuelva a estar disponible.  MABS no proporciona esta funcionalidad.
 
 Puede descargar MABS del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Se puede ejecutar de forma local o en una máquina virtual de Azure.
 
@@ -158,7 +158,7 @@ No hay conectividad durante más de 15 días | Expirada/desaprovisionada | Ningu
 |Requisito |Detalles |
 |---------|---------|
 |Dominio    | El servidor DPM/MABS debe estar en un dominio de Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012.        |
-|Confianza del dominio   |  DPM/MABS admite protección de datos entre bosques, siempre que el usuario establezca una relación de confianza bilateral de nivel de bosque entre los bosques independientes.   <BR><BR>   DPM/MABS puede proteger servidores y estaciones de trabajo en varios dominios dentro de un bosque que tenga una relación de confianza bidireccional con el dominio de servidor DPM/MABS. Para proteger equipos en grupos de trabajo o dominios que no son de confianza, consulte [Copias de seguridad y restauración de cargas de trabajo en grupos de trabajo y dominios que no son de confianza.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)  |
+|Confianza del dominio   |  DPM/MABS admite protección de datos entre bosques, siempre que el usuario establezca una relación de confianza bilateral de nivel de bosque entre los bosques independientes.   <BR><BR>   DPM/MABS puede proteger servidores y estaciones de trabajo en varios dominios dentro de un bosque que tenga una relación de confianza bidireccional con el dominio de servidor DPM/MABS. Para proteger equipos en grupos de trabajo o dominios que no son de confianza, consulte [Copias de seguridad y restauración de cargas de trabajo en grupos de trabajo y dominios que no son de confianza.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)  |
 
 ## <a name="dpmmabs-storage-support"></a>Compatibilidad con almacenamiento en DPM/MABS
 
@@ -185,7 +185,7 @@ Para obtener información sobre los distintos servidores y cargas de trabajo que
 
 ## <a name="supported-backups-to-dpm"></a>Copias de seguridad admitidas en DPM
 
-Para obtener información acerca de los distintos servidores y cargas de trabajo que puede proteger con Data Protection Manager, consulte el artículo [¿De qué elementos puede hacer una copia de seguridad DPM?](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
+Para obtener información acerca de los distintos servidores y cargas de trabajo que puede proteger con Data Protection Manager, consulte el artículo [¿De qué elementos puede hacer una copia de seguridad DPM?](/system-center/dpm/dpm-protection-matrix).
 
 - Las cargas de trabajo en clúster con copia de seguridad por DPM/MABS deben estar en el mismo dominio que DPM/MABS o en un dominio secundario o de confianza.
 - Puede usar la autenticación de certificado/NTLM para realizar copias de seguridad de datos en grupos de trabajo o dominios que no son de confianza.

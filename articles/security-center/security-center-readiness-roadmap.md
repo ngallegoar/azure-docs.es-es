@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 3a3dd1c0df32e7d6a67e63c9e148327d30f0082c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 52ea6f862b7ef6190348743a128912131e6a9609
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904725"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314494"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Mapa de ruta de preparación para Azure Security Center
 Este documento le proporciona un mapa de ruta de preparación que le ayudará a empezar a trabajar con Azure Security Center.
@@ -29,8 +29,8 @@ Azure Security Center ofrece una administración de seguridad unificada y una pr
 Use los siguientes recursos para empezar a trabajar con Security Center.
 
 Artículos
-- [Introducción al Centro de seguridad de Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- [Guía de inicio rápido de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Introducción al Centro de seguridad de Azure](security-center-introduction.md)
+- [Guía de inicio rápido de Azure Security Center](security-center-get-started.md)
 
 Vídeos
 - [Vídeo de presentación rápida](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
@@ -42,7 +42,7 @@ Para sacar el máximo partido a Security Center, es importante comprender cómo 
 
 Use los siguientes recursos como ayuda durante los procesos de planeamiento y de operaciones.
 
-- [Guía de planeamiento y operaciones de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md)
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Incorporación de equipos a Security Center
