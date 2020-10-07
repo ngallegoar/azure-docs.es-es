@@ -1,6 +1,6 @@
 ---
 title: Copia incremental de varias tablas mediante PowerShell
-description: En este tutorial, creará una canalización de Azure Data Factory que copia los datos diferenciales de forma incremental de varias tablas de una base de datos de SQL Server a una base de datos de Azure SQL Database.
+description: En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una base de datos de SQL Server en Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: d32c4da4604307bca406f7f5d5e5a94b69efe7ac
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250968"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541839"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carga incremental de datos de varias tablas de SQL Server en Azure SQL Database mediante PowerShell
 
@@ -821,11 +821,11 @@ La canalización toma una lista de tablas como un parámetro. La **actividad For
 4. En la página **Factoría de datos**, seleccione **Author & Monitor** (Creación y supervisión) para iniciar Azure Data Factory en otra pestaña.
 
 5. En la página **Let's get started** (Introducción), seleccione **Monitor** (Supervisar) en el lado izquierdo. 
-![Ejecuciones de la canalización](media/doc-common-process/get-started-page-monitor-button.png)    
+![La captura de pantalla muestra la página de introducción de Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. Puede ver todas las ejecuciones de canalización y sus estados. Tenga en cuenta que, en el ejemplo siguiente, el estado de ejecución de la canalización es **Correcto**. Para comprobar los parámetros pasados a la canalización, seleccione el vínculo en la columna **Parámetros**. Si se ha producido un error, verá un vínculo en la columna **Error**.
 
-    ![Ejecuciones de la canalización](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
+    ![La captura de pantalla muestra ejecuciones de la canalización para una factoría de datos, incluida su canalización.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. Al seleccionar el vínculo de la columna **Actions** (Acciones), verá todas las ejecuciones de actividades de la canalización. 
 
 8. Para volver a la vista **Pipeline Runs** (Ejecuciones de canalización), seleccione **All Pipeline Runs** (Todas las ejecuciones de canalización). 

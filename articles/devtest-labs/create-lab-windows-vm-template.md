@@ -4,15 +4,15 @@ description: En este inicio rápido, creará un laboratorio en Azure DevTest Lab
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/26/2020
-ms.openlocfilehash: 93bc4cf91b228de72c217c61ec03d61e87046dd3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 2b825b4d4485f401199556b6faaef0017f583cc1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653960"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461196"
 ---
 # <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Inicio rápido: Configuración de un laboratorio mediante una plantilla de ARM de Azure DevTest Labs
-En este inicio rápido, creará un laboratorio con una máquina virtual Windows Server 2019 Datacenter mediante el uso de una plantilla de Azure Resource Manager (ARM). 
+En este inicio rápido, creará un laboratorio con una máquina virtual Windows Server 2019 Datacenter mediante el uso de una plantilla de Azure Resource Manager. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -65,16 +65,16 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 ## <a name="validate-the-deployment"></a>Validación de la implementación
 1. Seleccione **Notificaciones** en la parte superior para ver el estado de la implementación y haga clic en el vínculo **Implementación en curso**.
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Notificación de implementación":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Página de implementación de la plantilla":::
 2. En la página **Información general de la implementación**, espere hasta que esta se complete. Esta operación (especialmente la creación de una máquina virtual) tarda algún tiempo en completarse. A continuación, seleccione **Ir al grupo de recursos** o el **nombre del grupo de recursos** como se muestra en la siguiente imagen: 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Navegación al grupo de recursos":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Página de implementación de la plantilla":::
 3. En la página **Grupo de recursos**, verá la lista de recursos del grupo de recursos. Confirme que entre los recursos se encuentra el laboratorio de tipo: `DevTest Lab`. Dentro del grupo de recursos también verá los recursos dependientes, como la red virtual y la máquina virtual. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Página principal del grupo de recursos":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Página de implementación de la plantilla":::
 4. Seleccione el laboratorio en la lista de recursos para ver la página principal del mismo. Confirme que la máquina virtual Windows Server 2019 Datacenter se encuentra en la lista **Mis máquinas virtuales**. En la imagen siguiente, la sección **Información esencial** aparece minimizada. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Página principal del laboratorio":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Página de implementación de la plantilla":::
 
     > [!IMPORTANT] 
     > Mantenga esta página abierta y aplique las instrucciones de la sección siguiente para limpiar los recursos y evitar así los costos de ejecución del laboratorio y la máquina virtual en Azure. Si desea consultar el siguiente tutorial para probar el acceso a la máquina virtual en el laboratorio, limpie los recursos después de realizar el tutorial. 
@@ -83,14 +83,14 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 
 1. En primer lugar, elimine el laboratorio para poder eliminar el grupo de recursos. No podrá eliminar el grupo de recursos si este contiene un laboratorio. Para eliminar el laboratorio, seleccione **Eliminar** en la barra de herramientas. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Botón Eliminar laboratorio":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Página de implementación de la plantilla":::
  2. En la página Confirmación, escriba el **nombre del laboratorio** y seleccione **Eliminar**. 
  3. Espere hasta que se elimine el laboratorio. Seleccione el icono de la **campana** para ver la notificación de la operación de eliminación. Este proceso tarda algún tiempo. Confirme la eliminación del laboratorio y, a continuación, seleccione el **grupo de recursos** en el menú de la ruta de navegación. 
  
-    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Confirmación de la eliminación de la máquina virtual en las notificaciones":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Página de implementación de la plantilla":::
  1. En la página **Grupo de recursos**, seleccione **Eliminar grupo de recursos**. En la página de confirmación, escriba el **nombre del grupo de recursos** y seleccione **Eliminar**. Compruebe las notificaciones para confirmar que se ha eliminado el grupo de recursos.
  
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Botón Eliminar grupo de recursos":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Página de implementación de la plantilla":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este inicio rápido, ha creado un laboratorio con una máquina virtual. Para información acerca de cómo acceder al laboratorio, avance hasta el tutorial siguiente:

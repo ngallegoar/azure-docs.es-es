@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 0334b13fa73eb2fd648184f44bf0856c0d2a9ed9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: bcd06ce879282ab9897d7e22006bac19a5c22b8e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076827"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565095"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y uso de discos con conjuntos de escalado de máquinas virtuales con Azure PowerShell
 
@@ -87,6 +87,8 @@ Aunque la tabla anterior identifica las IOPS máximas por disco, se puede obtene
 
 ## <a name="create-and-attach-disks"></a>Creación y conexión de discos
 Puede crear y conectar discos durante la creación de un conjunto de escalado o a un conjunto de escalado existente.
+
+A partir versión `2019-07-01` de la API, puede establecer el tamaño del disco del sistema operativo en un conjunto de escalado de máquinas virtuales con la propiedad [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk). Después del aprovisionamiento, es posible que tenga que expandir o volver a particionar el disco para hacer uso de todo el espacio. Obtenga más información sobre la [expansión del disco aquí](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os).
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Conexión de discos durante la creación del conjunto de escalado
 Cree un conjunto de escalado de máquinas virtuales con [New-AzVmss](/powershell/module/az.compute/new-azvmss). Cuando se le solicite, escriba el nombre de usuario y la contraseña de las instancias de máquina virtual. Para distribuir el tráfico a las instancias individuales de VM, también se crea un equilibrador de carga. El equilibrador de carga incluye reglas para distribuir el tráfico en el puerto TCP 80, y permitir el tráfico de Escritorio remoto en el puerto TCP 3389 y la conexión remota de PowerShell en el puerto TCP 5985.

@@ -1,22 +1,22 @@
 ---
-title: Ejecución de experimentos mediante el aprendizaje automático automatizado de Azure
-description: Ejecución de experimentos de aprendizaje automático mediante Apache Spark y el aprendizaje automático automatizado de Azure
+title: 'Tutorial: Ejecución de experimentos mediante el aprendizaje automático automatizado de Azure'
+description: Tutorial sobre cómo ejecutar experimentos de aprendizaje automático mediante Apache Spark y el aprendizaje automático automatizado de Azure
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
-ms.topic: conceptual
+ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: d4df4ea96f8dafa2f0eb26e27fcc08ab4ec89003
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: da4cef50610b219689e2271e9f70fd1adb1a235f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033581"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540513"
 ---
-# <a name="run-experiments-using-azure-automated-ml-and-apache-spark"></a>Ejecución de experimentos mediante el aprendizaje automático automatizado de Azure y Apache Spark
+# <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Tutorial: Ejecución de experimentos mediante el aprendizaje automático automatizado de Azure y Apache Spark
 
 Azure Machine Learning es un entorno en la nube que permite entrenar, implementar, automatizar, administrar y realizar un seguimiento de los modelos de aprendizaje automático. 
 

@@ -1,14 +1,15 @@
 ---
 title: 'Organización de los recursos con grupos de administración: Servicios de gobernanza de Azure'
 description: Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: c1c054ab67a94b5782187092c572e1e73752c8c2
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.custom: contperfq1
+ms.openlocfilehash: e3bc3ee34227fd23ea9f56070f8ea7776a10a134
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920167"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533814"
 ---
 # <a name="what-are-azure-management-groups"></a>¿Qué son los grupos de administración de Azure?
 
@@ -21,11 +22,13 @@ A modo de ejemplo, puede aplicar directivas a un grupo de administración que li
 
 Puede compilar una estructura flexible de grupos de administración y suscripciones para organizar los recursos en una jerarquía para una administración unificada de las directivas y el acceso. El siguiente diagrama muestra un ejemplo de creación de una jerarquía para la gobernanza mediante grupos de administración.
 
-:::image type="content" source="./media/tree.png" alt-text="Ejemplo de árbol de jerarquía de un grupo de administración" border="false":::
+:::image type="complex" source="./media/tree.png" alt-text="Diagrama de una jerarquía de grupos de administración de ejemplo." border="false":::
+   Diagrama de un grupo de administración raíz que contiene grupos de administración y suscripciones. Algunos grupos de administración secundarios contienen grupos de administración, otros contienen suscripciones y otros ambas cosas. Uno de los ejemplos de la jerarquía de ejemplo es que cuatro niveles de grupos de administración con el nivel secundario son todos suscripciones.
+:::image-end:::
 
 Puede crear una jerarquía que aplique una directiva, por ejemplo, que limite las ubicaciones de las máquinas virtuales a la región Oeste de EE. UU. en el grupo denominado "Producción". Esta directiva se heredará en todas las suscripciones con Contrato Enterprise descendientes de ese grupo de administración y se aplicará a todas las máquinas virtuales de esas suscripciones. El propietario de recursos o suscripciones no puede modificar esta directiva de seguridad, lo que permite una gobernanza mejorada.
 
-Otro escenario en el que usaría grupos de administración es para proporcionar acceso de usuario a varias suscripciones. Al mover varias suscripciones bajo ese grupo de administración, pude crear una [asignación de rol de Azure](../../role-based-access-control/overview.md) en el grupo de administración, que heredará ese acceso en todas las suscripciones. Una asignación en el grupo de administración puede permitir a los usuarios acceder a todo lo que necesitan en lugar de realizar scripting para proporcionar control de acceso basado en rol sobre las distintas suscripciones.
+Otro escenario en el que usaría grupos de administración es para proporcionar acceso de usuario a varias suscripciones. Al mover varias suscripciones bajo ese grupo de administración, pude crear una [asignación de rol de Azure](../../role-based-access-control/overview.md) en el grupo de administración, que heredará ese acceso en todas las suscripciones. Una asignación en el grupo de administración puede permitir a los usuarios tener acceso a todo lo que necesitan, en lugar de crear scripts de Azure RBAC sobre las distintas suscripciones.
 
 ### <a name="important-facts-about-management-groups"></a>Hechos importantes acerca de los grupos de administración
 
@@ -72,7 +75,7 @@ Algunos de los directorios que empezaron a usar grupos de administración durant
 Hay dos opciones para resolver este problema.
 
 - Eliminar todas las asignaciones de roles y directivas del grupo de administración raíz
-  - Mediante la eliminación de todas las asignaciones de roles y directivas del grupo de administración raíz, el servicio repondrá todas las suscripciones en la jerarquía durante el siguiente ciclo nocturno. Este proceso es para asegurarse de que no se ha dado ningún acceso accidental ni asignación de directiva a todas las suscripciones de los inquilinos.
+  - Mediante la eliminación de todas las asignaciones de roles y directivas del grupo de administración raíz, el servicio repone todas las suscripciones de la jerarquía en el siguiente ciclo nocturno. Este proceso es para asegurarse de que no se ha dado ningún acceso accidental ni asignación de directiva a todas las suscripciones de los inquilinos.
   - La mejor manera de realizar este proceso sin que afecte a los servicios es aplicar las asignaciones de roles o directivas un nivel por debajo del grupo de administración raíz. Después, puede quitar todas las asignaciones del ámbito raíz.
 - Llamar a la API directamente para iniciar el proceso de reposición
   - Cualquier cliente del directorio puede llamar a las API _TenantBackfillStatusRequest_ o _StartTenantBackfillRequest_. Cuando se llama a StartTenantBackfillRequest API, esta comienza el proceso de configuración inicial de mover todas las suscripciones a la jerarquía. Este proceso también inicia la aplicación de todas las suscripciones nuevas para que constituyan un elemento secundario del grupo de administración raíz.
@@ -106,7 +109,7 @@ La compatibilidad de los roles personalizados de Azure con los grupos de adminis
 
 ### <a name="example-definition"></a>Definición de ejemplo
 
-La [definición y creación de un rol personalizado](../../role-based-access-control/custom-roles.md) no cambia con la inclusión de grupos de administración. Use la ruta de acceso completa para definir el grupo de administración **/providers/Microsoft.Management/managementgroups/{groupId}** .
+La [definición y creación de un rol personalizado](../../role-based-access-control/custom-roles.md) no cambia con la inclusión de los grupos de administración. Use la ruta de acceso completa para definir el grupo de administración **/providers/Microsoft.Management/managementgroups/{groupId}** .
 
 Use el identificador del grupo de administración, no su nombre para mostrar. Este error común se produce porque ambos son campos definidos personalizados al crear un grupo de administración.
 
@@ -147,7 +150,9 @@ Las definiciones de roles son un ámbito asignable en cualquier parte de la jera
 
 Por ejemplo, examinemos una pequeña sección de una jerarquía en un objeto visual.
 
-:::image type="content" source="./media/subtree.png" alt-text="subárbol" border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagrama de una jerarquía de grupos de administración de ejemplo." border="false":::
+   El diagrama se centra en el grupo de administración raíz con los grupos de administración secundarios Marketing e IT. El grupo de administración IT tiene un único grupo de administración secundario denominado Production, mientras que el grupo de administración Marketing tiene dos suscripciones secundarias de evaluación gratuita.
+:::image-end:::
 
 Supongamos que hay un rol personalizado definido en el grupo de administración Marketing. Dicho rol personalizado se asigna en las dos suscripciones de prueba gratuitas.  
 
@@ -163,8 +168,8 @@ Para corregir este escenario hay varias opciones:
 
 Existen limitaciones al usar roles personalizados en grupos de administración. 
 
- - En los ámbitos asignables de un nuevo rol no se puede definir más de un grupo de administración. Esta limitación se ha establecido para reducir el número de situaciones en las que las definiciones de roles y las asignaciones de roles están desconectadas. Esta situación aparece cuando una suscripción o un grupo de administración con una asignación de roles se mueven a un elemento primario diferente que no tiene la definición de roles.  
- - No se pueden definir acciones del plano de datos de RBAC en los roles personalizados del grupo de administración. Esta restricción se ha establecido porque hay un problema de latencia cuando las acciones de RBAC actualizan los proveedores de recursos del plano de datos.
+ - En los ámbitos asignables de un nuevo rol no se puede definir más de un grupo de administración. Esta limitación se ha establecido para reducir el número de situaciones en las que las definiciones de roles y las asignaciones de roles están desconectadas. Esta situación se produce cuando una suscripción o un grupo de administración con una asignación de roles se mueven a un elemento primario diferente que no tiene la definición de roles.  
+ - Las acciones del plano de datos del proveedor de recursos no se pueden definir acciones en los roles personalizados del grupo de administración. Esta restricción se ha establecido porque hay un problema de latencia al actualizar los proveedores de recursos del plano de datos.
    Se está trabajando en dicho problema y estas acciones se deshabilitarán de la definición de roles para reducir los riesgos.
  - Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles. Aunque haya algún error de escritura o un identificador de grupo de administración incorrecto en la lista, se creará la definición de roles.  
 
@@ -189,7 +194,7 @@ Si el rol de propietario de la suscripción se hereda del grupo de administraci�
 
 Se admiten grupos de administración en el [registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md). Puede buscar todos los eventos que se producen en un grupo de administración en la misma ubicación central que otros recursos de Azure. Por ejemplo, puede ver todos los cambios de asignaciones de roles o de asignación de directiva efectuados en un grupo de administración concreto.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Registros de actividad con grupos de administración" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Diagrama de una jerarquía de grupos de administración de ejemplo." border="false":::
 
 Si observa las consultas en los grupos de administración fuera de Azure Portal, el ámbito de destino de los grupos de administración se parece a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 

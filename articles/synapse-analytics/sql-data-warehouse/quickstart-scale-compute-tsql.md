@@ -1,5 +1,5 @@
 ---
-title: 'Escalado de proceso en Azure Synapse Analytics: T-SQL'
+title: 'Inicio rápido: Escalado de proceso en Azure Synapse Analytics: T-SQL'
 description: Escale un proceso en Azure Synapse Analytics con T-SQL y SQL Server Management Studio (SSMS). Escale horizontalmente un proceso para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
 services: synapse-analytics
 author: Antvgski
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: cb813c9a30b644459f3e586ed4313ca070b5a746
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d11474a3f3b5d8c314f67260fddbbe0a98fe5196
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212928"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569906"
 ---
 # <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Inicio rápido: Escalado de proceso en Azure Synapse Analytics mediante T-SQL
 
@@ -132,7 +132,7 @@ Para sondear el estado de cambio del objeto de servicio:
 
 ## <a name="check-data-warehouse-state"></a>Comprobar el estado del almacenamiento de datos
 
-Cuando se pausa un almacenamiento de datos, no podrá conectarse a este con T-SQL. Para ver el estado actual del almacenamiento de datos, puede usar un cmdlet de PowerShell. Para obtener un ejemplo, vea [Comprobar el estado de la base de datos - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
+Cuando se pausa un almacenamiento de datos, no podrá conectarse a este con T-SQL. Para ver el estado actual del almacenamiento de datos, puede usar un cmdlet de PowerShell. Para obtener un ejemplo, vea la sección sobre la [comprobación del estado del almacenamiento de datos con Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
 
 ## <a name="check-operation-status"></a>Comprobación del estado de la operación
 

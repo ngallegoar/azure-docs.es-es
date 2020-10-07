@@ -1,17 +1,15 @@
 ---
 title: Supervisión de las aplicaciones en Service Fabric mediante ELK en Azure
 description: En este tutorial, aprenderá a configurar ELK y a supervisar las aplicaciones de Service Fabric.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: suhuruli
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: b27711158c10b0f7fa78875aec7f9c63c166258c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5faf26230618161a5b908c9a544a43ec5c33b807
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327181"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532029"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Tutorial: Supervisión de las aplicaciones de Service Fabric mediante ELK
 
@@ -142,7 +140,7 @@ Para los fines de este tutorial, puede usar un entorno de ELK preconfigurado y, 
 
 8. Acceda al panel de Kibana en **http:\//SERVER-IP** y escriba el nombre de usuario y la contraseña de Kibana. Si usó la imagen de ELK en Azure, el nombre de usuario predeterminado es "user" y la contraseña es la que se obtiene en la pestaña **Diagnósticos de arranque**.
 
-    ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
+    ![Captura de pantalla que muestra un panel de Kibana para visualizar los registros de la plataforma y de la aplicación.](./media/service-fabric-tutorial-java-elk/kibana.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,5 +1,5 @@
 ---
-title: Creación y consulta de un grupo de SQL de Synapse (Azure Portal)
+title: 'Inicio rápido: Creación y consulta de un grupo de SQL de Synapse (Azure Portal)'
 description: Creación y consulta de un grupo de SQL de Synapse mediante Azure Portal
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4972e843394cac3b4a4f7c08a27f9d1a9e19cee5
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 878b272e2a1a0e1d5a00a9c2028a6803b6d95383
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459392"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568966"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Inicio rápido: Creación y consulta de un grupo de SQL de Synapse mediante Azure Portal
 
@@ -78,7 +78,7 @@ Siga estos pasos para crear un grupo de SQL que contenga los datos de ejemplo **
 
 7. Para supervisar el proceso de implementación, seleccione **Notificaciones** en la barra de herramientas.
 
-   ![notificación](./media/create-data-warehouse-portal/notification.png)
+   ![Captura de pantalla que muestra notificaciones con la implementación en curso.](./media/create-data-warehouse-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Crear una regla de firewall de nivel de servidor
 

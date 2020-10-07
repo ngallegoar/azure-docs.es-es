@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 07/22/2020
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e58a98f8503c271eec113298a7e7a0cab5e0003e
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 38edbd9e491d4bea469c6b83ad98df48fbce1d4f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707499"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597509"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Creación del primer paquete de acceso en la administración de derechos de Azure AD
 
 Administrar el acceso a todos lol recursos que necesitan los empleados, como grupos, aplicaciones y sitios, es una función importante en las organizaciones. Querrá conceder a los empleados el nivel de acceso correcto que necesitan para ser productivos y eliminar su acceso cuando ya no se precise.
 
-En este tutorial, trabajará para Woodgrove Bank como administrador de TI. Le han pedido que cree un paquete de recursos para una campaña de marketing a la que los usuarios internos puedan acceder mediante una solicitud de autoservicio. Las solicitudes no requerirán aprobación y el acceso del usuario expirará al cabo de 30 días. En este tutorial, los recursos de la campaña de marketing son simplemente la pertenencia a un único grupo, pero podrían ser una colección de grupos, aplicaciones o sitios de SharePoint Online.
+En este tutorial, trabajará para Woodgrove Bank como administrador de TI. Le han pedido que cree un paquete de recursos para una campaña de marketing que los usuarios internos puedan usar para realizar solicitudes de autoservicio. Las solicitudes no requerirán aprobación y el acceso del usuario expirará al cabo de 30 días. En este tutorial, los recursos de la campaña de marketing son simplemente la pertenencia a un único grupo, pero podrían ser una colección de grupos, aplicaciones o sitios de SharePoint Online.
 
-![Información general de escenario](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
+![Diagrama que muestra la información general del escenario.](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
 En este tutorial, aprenderá a:
 
@@ -110,17 +110,21 @@ Un *paquete de acceso* es un conjunto de recursos que un equipo o proyecto neces
 
      De forma predeterminada, verá grupos dentro del catálogo general. Al seleccionar un grupo fuera del catálogo general, que puede ver si activa la casilla **Ver todo**, se agregará al catálogo general.
 
-    ![New access package (Nuevo paquete de acceso): pestaña Resource roles (Roles de recursos)](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
+    ![Captura de pantalla que muestra la pestaña "Nuevo paquete de acceso: roles de recursos" y la ventana "Seleccionar grupos".](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
 10. Haga clic en **Seleccionar** para agregar el grupo a la lista.
 
 11. En la lista desplegable **Rol**, seleccione **Miembro**.
 
     ![New access package (Nuevo paquete de acceso): pestaña Resource roles (Roles de recursos)](./media/entitlement-management-access-package-first/resource-roles.png)
+    >[!IMPORTANT]
+    >Los grupos a los que se pueden asignar roles que se agregan a un paquete de acceso se indicarán mediante el subtipo **Assignable to roles** (asignable a roles). Consulte [Creación de un grupo al que se pueden asignar roles](../users-groups-roles/roles-groups-create-eligible.md) en Azure Active Directory para obtener más detalles sobre los grupos que se pueden asignar a roles de Azure AD. Si no ve un grupo al que se pueden asignar roles que quiera agregar, o no puede agregarlo, asegúrese de que tiene los roles de administración de derechos y de Azure AD que se requieren para realizar esta operación. Quizá necesite pedirle a alguien con los roles necesarios que agregue el recurso al catálogo. Para obtener más información, vea [Roles necesarios para agregar recursos a un catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
     > Si usa [grupos dinámicos](../users-groups-roles/groups-create-rule.md) no verá ningún otro rol disponible además del propietario; es así por diseño.
     > ![Información general de los escenarios](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+    
+
 
 12. Haga clic en **Siguiente** para abrir la pestaña **Solicitudes**.
 

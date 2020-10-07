@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3181b88b0cf49516eb5230585460d0cc91bb4042
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604315"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575306"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Realización de pedidos de Azure Data Box
 
@@ -215,11 +215,11 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
 1. Use sus credenciales de Microsoft Azure para iniciar sesión en esta dirección URL: [https://portal.azure.com](https://portal.azure.com).
 2. Seleccione **+ Crear un recurso** y busque *Azure Data Box*. Seleccione **Azure Data Box**.
 
-   ![Selección de Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-02.png)
+   ![Captura de pantalla de la nueva sección, con Azure Data Box especificado en el campo de búsqueda.](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
 3. Seleccione **Crear**.
 
-   ![Selección de Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![Captura de pantalla de la sección Azure Data Box, con la opción de creación seleccionada.](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. Compruebe si el servicio Data Box está disponible en su región. Escriba o seleccione la siguiente información y seleccione **Aplicar**.
 
@@ -235,7 +235,7 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
 
 5. Seleccione **Data Box**. La capacidad máxima utilizable para un solo pedido es de 80 TB. Para tamaños de datos mayores puede crear varios pedidos.
 
-    ![Selección de la opción 1 de Data Box](media/data-box-deploy-ordered/select-data-box-import-05.png)
+    ![Captura de pantalla de los diferentes tamaños de datos disponibles para seleccionar: Data Box Disk, 40 terabytes; Data Box, 100 terabytes; Data Box Heavy, 1000 terabytes; y Enviar sus propios discos, 1 terabyte.](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
 6. En **Pedido**, vaya a la pestaña **Datos básicos**. Escriba o seleccione la siguiente información y seleccione **Siguiente: destino de los datos>** .
 
@@ -245,7 +245,7 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
     |Resource group    | Grupo de recursos especificado anteriormente. |
     |Nombre del pedido de importación | Especifique un nombre descriptivo para hacer un seguimiento del pedido. <br> El nombre puede tener entre 3 y 24 caracteres que pueden ser letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número.    |
 
-    ![Selección de la opción 1 de Data Box](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Captura de pantalla del asistente para pedidos que muestra el paso básico del asistente, con la información correcta incluida.](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
     De forma predeterminada, la contraseña de desbloqueo del dispositivo se cifra mediante una clave administrada por Microsoft. Una vez completado el pedido, podrá agregar una clave administrada por el cliente. Las claves administradas por el cliente permiten usar una clave propia de un almacén de claves de Azure Key Vault para proteger la contraseña de desbloqueo del dispositivo. Para más información, consulte [Uso de claves administradas por el cliente en Azure Key Vault para Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
@@ -265,7 +265,7 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
     |---------|---------|
     |Grupos de recursos     | Cree grupos de recursos si pretende crear discos administrados desde los discos duros virtuales locales. Puede usar un grupo de recursos existente solo si el grupo de recursos se creó anteriormente al crear un pedido de Data Box para el disco administrado por el servicio Data Box. <br> Especifique varios grupos de recursos separados por punto y coma. Se admite un máximo de 10 grupos de recursos.|
 
-    ![Solicitud de Data Box para disco administrado](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Captura de pantalla del asistente para pedidos que muestra el paso de destino de los datos del asistente, con la información correcta incluida.](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     La cuenta de almacenamiento especificada para los discos administrados se usa como una cuenta de almacenamiento provisional. El servicio Data Box carga los discos duros virtuales como blob en páginas en la cuenta de almacenamiento provisional y, a continuación, los convierte en discos administrados y los mueve a los grupos de recursos. Para más información, vea [Comprobación de la carga de datos en Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
    > [!NOTE]
@@ -286,11 +286,11 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
 
 8. En **Detalles de contacto**, seleccione **+ Agregar dirección de envío**.
 
-    ![Solicitud de Data Box para disco administrado](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![Captura de pantalla del asistente para pedidos que muestra el paso de detalles de contacto del asistente, con la opción Agregar dirección de envío seleccionada.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
 9. En **Dirección de envío**, escriba su nombre y apellidos, el nombre y la dirección postal de la empresa y un número de teléfono válido. Seleccione **Validar la dirección**. El servicio valida la dirección de envío para conocer la disponibilidad del servicio. Si el servicio está disponible para la dirección de envío especificada, recibirá una notificación al respecto.
 
-   ![Solicitud de Data Box para disco administrado](media/data-box-deploy-ordered/select-data-box-import-10.png)
+   ![Captura de pantalla del cuadro de diálogo Agregar dirección de envío, con las opciones Enviar con y la opción Agregar dirección de envío seleccionadas.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    Si ha seleccionado el envío autoadministrado, recibirá una notificación por correo electrónico una vez que se haya realizado correctamente el pedido. Para obtener más información sobre el envío autoadministrado, consulte [Uso del envío autoadministrado](data-box-portal-customer-managed-shipping.md).
 
@@ -300,13 +300,13 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
 
     Es aconsejable usar un correo electrónico de grupo, con el fin de que siga recibiendo notificaciones aunque algún administrador deje el grupo.
 
-    ![Solicitud de Data Box para disco administrado](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![Captura de pantalla de la sección Correo electrónico del paso de detalles de contacto del asistente para pedidos, con el cuadro de texto Correo electrónico y el botón Siguiente: Opción Revisar y pedir seleccionada.](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
 12. Examine la información de **Revisar y pedir** del pedido, el contacto, la notificación y los términos de privacidad. Active la casilla correspondiente a contrato acuerdo con los términos de privacidad.
 
 13. Seleccione **Pedido**. El pedido tarda unos minutos en crearse.
 
-    ![Solicitud de Data Box para disco administrado](media/data-box-deploy-ordered/select-data-box-import-11.png)
+    ![Captura de pantalla del asistente para pedidos que muestra el paso Revisar y pedir y la opción Pedido que se han seleccionado.](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 

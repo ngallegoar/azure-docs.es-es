@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: b904fcd03247f6e6ae01f51c5048c29826bb8e5a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 24a63a167f640646b9e07126a038663f4da3e23b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018474"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449602"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desarrollo de un módulo de IoT Edge en C# para dispositivos Windows
 
@@ -311,11 +311,11 @@ En la sección anterior se ha creado una solución de IoT Edge y se ha agregado 
 
 ## <a name="deploy-modules-to-device"></a>Implementación de módulos en el dispositivo
 
-Utilice el explorador en la nube de Visual Studio y la extensión Azure IoT Edge Tools para implementar el proyecto de módulo en el dispositivo IoT Edge. Ya tiene un manifiesto de implementación preparado para su escenario, el archivo **deployment.windows-amd64.json** de la carpeta config. Ahora todo lo que necesita hacer es seleccionar un dispositivo que reciba la implementación.
+Utilice Cloud Explorer de Visual Studio y la extensión Azure IoT Edge Tools para implementar el proyecto de módulo en el dispositivo IoT Edge. Ya tiene un manifiesto de implementación preparado para su escenario, el archivo **deployment.windows-amd64.json** de la carpeta config. Ahora todo lo que necesita hacer es seleccionar un dispositivo que reciba la implementación.
 
 Asegúrese de que el dispositivo IoT Edge está en funcionamiento.
 
-1. En el explorador en la nube de Visual Studio, expanda los recursos para ver la lista de dispositivos de IoT.
+1. En Cloud Explorer de Visual Studio, expanda los recursos para ver la lista de dispositivos IoT.
 
 2. Haga clic con el botón derecho en el nombre del dispositivo IoT Edge que quiere que reciba la implementación.
 
@@ -323,7 +323,7 @@ Asegúrese de que el dispositivo IoT Edge está en funcionamiento.
 
 4. En el explorador de archivos, seleccione el archivo **deployment.windows-amd64.json** en la carpeta de configuración de la solución.
 
-5. Actualice el explorador en la nube para ver los módulos implementados enumerados en el dispositivo.
+5. Actualice Cloud Explorer para ver los módulos implementados enumerados en el dispositivo.
 
 ## <a name="view-generated-data"></a>Visualización de datos generados
 
@@ -331,7 +331,7 @@ Una vez aplicado el manifiesto de implementación al dispositivo de IoT Edge, el
 
 Puede usar la extensión IoT Edge Tools para ver los mensajes a medida que llegan a IoT Hub.
 
-1. En el explorador en la nube de Visual Studio, seleccione el nombre del dispositivo de IoT Edge.
+1. En Cloud Explorer de Visual Studio, seleccione el nombre del dispositivo IoT Edge.
 
 2. En la lista **Acciones**, seleccione **Start Monitoring Built-in Event Endpoint** (Iniciar supervisión del punto de conexión del evento integrado).
 

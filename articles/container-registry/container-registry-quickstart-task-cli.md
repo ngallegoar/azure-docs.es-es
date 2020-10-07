@@ -1,20 +1,21 @@
 ---
-title: 'Inicio rápido: Compilación y ejecución de una imagen de contenedor'
-description: Ejecute las tareas rápidamente con Azure Container Registry para compilar y ejecutar una imagen de contenedor Docker a petición en la nube.
+title: 'Inicio rápido: creación de una imagen de contenedor a petición en Azure'
+description: Use los comandos de Azure Container Registry para compilar, insertar y ejecutar rápidamente una imagen de contenedor Docker a petición en la nube de Azure.
 ms.topic: quickstart
-ms.date: 01/31/2020
-ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 09/25/2020
+ms.custom: contperfq1
+ms.openlocfilehash: 36921900f64d458f1f2591897e32c98f6d22a550
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753705"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538235"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Inicio rápido: Compilación y ejecución de una imagen de contenedor en Azure Container Registry Tasks
 
-En este tutorial, se usan comandos de Azure Container Registry Tasks para crear, insertar y ejecutar rápidamente una imagen de un contenedor de Docker de forma nativa en Azure, lo que muestra cómo descargar el ciclo de desarrollo de "bucle interno" en la nube. [ACR Tasks][container-registry-tasks-overview] es un conjunto de características de Azure Container Registry que le ayudan a administrar y modificar imágenes de contenedor durante el ciclo de vida de este. 
+En este tutorial, se usan comandos de [Azure Container Registry Tasks][container-registry-tasks-overview] para compilar, insertar y ejecutar rápidamente una imagen de un contenedor Docker de forma nativa en Azure, sin que sea necesario instalar Docker a nivel local. ACR Tasks es un conjunto de características de Azure Container Registry que le ayudan a administrar y modificar imágenes de contenedor durante el ciclo de vida de este. En este ejemplo se muestra cómo descargar el ciclo de desarrollo de imágenes de contenedor de "bucle interno" a la nube con compilaciones a petición mediante una instancia local de Dockerfile. 
 
-Después de este inicio rápido, explore las características más avanzadas de ACR Tasks. ACR Tasks puede automatizar las compilaciones de imágenes basadas en actualizaciones de la imagen base o de confirmaciones de código, o probar varios contenedores, en paralelo, entre otros escenarios. 
+Después de este inicio rápido, explore las características más avanzadas de ACR Tasks, para lo que puede usar los [tutoriales](container-registry-tutorial-quick-task.md). ACR Tasks puede automatizar las compilaciones de imágenes basadas en actualizaciones de la imagen base o de confirmaciones de código, o probar varios contenedores, en paralelo, entre otros escenarios. 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita][azure-account] antes de empezar.
 
@@ -45,7 +46,7 @@ En este ejemplo se crea un registro *Básico*, una opción de menor costo para l
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Creación e inserción de una imagen desde Dockerfile
 
-Use ahora Azure Container Registry para compilar e insertar una imagen. En primer lugar, cree un directorio de trabajo y, después, cree un archivo Dockerfile denominado *Dockerfile* con una única línea: `FROM hello-world`. Este es un ejemplo sencillo para compilar una imagen de contenedor de Linux desde la imagen de `hello-world` en Docker Hub. Puede crear su propio archivo Dockerfile estándar y compilar imágenes para otras plataformas. Si está trabajando en un shell de Bash, cree el archivo Dockerfile con el siguiente comando:
+Use ahora Azure Container Registry para compilar e insertar una imagen. En primer lugar, cree un directorio de trabajo local y, después, cree un archivo Dockerfile denominado *Dockerfile* con una única línea: `FROM hello-world`. Este es un ejemplo sencillo para compilar una imagen de contenedor de Linux desde la imagen de `hello-world` en Docker Hub. Puede crear su propio archivo Dockerfile estándar y compilar imágenes para otras plataformas. Si está trabajando en un shell de Bash, cree el archivo Dockerfile con el siguiente comando:
 
 ```bash
 echo FROM hello-world > Dockerfile

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/2/2020
 ms.author: derekol
 Customer intent: With Azure Peering service enhancing the customer connectivity to Microsoft cloud services .
-ms.openlocfilehash: f04ae0d2e541be0a7984e944298fa8d7b47fd126
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: f8f0ee71a8dd00498d868bb6dc11b3fa083df766
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "84870579"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530228"
 ---
 # <a name="tutorial-create-a-peering-service-connection"></a>Tutorial: Creación de una conexión de Peering Service
 
@@ -43,13 +43,13 @@ En este tutorial se muestra cómo crear un recurso de Peering Service y cómo co
 
 1. Seleccione **Prefix Key** (Clave de prefijo) y agregue la clave de prefijo que le ha proporcionado su proveedor (ISP o IXP). Esta clave permite a Microsoft validar el prefijo y el proveedor que ha asignado el prefijo IP.
 
-    ![Pestaña Configuración del registro de Peering Service](./media/peering-service-portal/peering-serviceconfiguration.png)
+    ![Captura de pantalla que muestra la pestaña Configuration (Configuración) de la página Create a peering service connection (Crear una conexión de Peering Service) en la que puede escribir la clave de prefijo.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Seleccione el botón **Review + create** (Revisar y crear) en la parte inferior izquierda de la página. Aparece la página **Review + create** (Revisar y crear) y Azure valida la configuración.
 
  1. Cuando reciba el mensaje **Validation passed** (Validación superada), seleccione **Create** (Crear).
 
-> ![Pestaña Configuración del registro de Peering Service](./media/peering-service-portal/peering-service-prefix.png)
+> ![Captura de pantalla que muestra la pestaña Review + create (Revisar y crear) de la página Create a peering service connection (Crear una conexión de Peering Service).](./media/peering-service-portal/peering-service-prefix.png)
 
 1. Después de registrar una conexión de Peering Service, se realiza una validación adicional de los prefijos incluidos. Puede revisar el estado de la validación en la sección **Prefixes** (Prefijos) del nombre del recurso. Si se produce un error en la validación, se muestra uno de los siguientes mensajes de error:
 

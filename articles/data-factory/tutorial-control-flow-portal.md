@@ -1,6 +1,6 @@
 ---
 title: Actividades de bifurcación y encadenamiento en una canalización mediante Azure Portal
-description: Obtenga información sobre cómo controlar el flujo de datos en Azure Data Factory mediante la bifurcación y el encadenamiento de actividades.
+description: Obtenga información sobre cómo controlar el flujo de datos en la canalización de Azure Data Factory mediante Azure Portal.
 services: data-factory
 author: djpmsft
 ms.author: daperlov
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: c046d2e437004146b5ee4c53dd98942ca1781ad4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983741"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568544"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Bifurcación y encadenamiento de actividades en una canalización de Azure Data Factory mediante Azure Portal
 
@@ -184,7 +184,7 @@ En este paso se crea una canalización con una actividad de copia y dos activida
    ![Arrastrar y colocar la actividad de copia](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. En la ventana **Properties** (Propiedades) de la actividad **Copy** (Copia) de la parte inferior, cambie a la pestaña **Source** (origen) y haga clic en **+ New** (+ Nuevo). En este paso se crea un conjunto de datos de origen para la actividad de copia.
 
-   ![Conjunto de datos de origen](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
+   ![Captura de pantalla que muestra cómo crear un conjunto de datos de origen para la actividad de copia.](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Blob Storage** y haga clic en **Finish** (Finalizar).
 
    ![Seleccionar Azure Blob Storage](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
@@ -273,7 +273,7 @@ En este paso se crea una canalización con una actividad de copia y dos activida
         ![Configuración de la segunda actividad web](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Seleccione la actividad **Copy** (Copiar) en el diseñador de canalizaciones, haga clic en el botón **+->** y seleccione **Error**.  
 
-    ![Configuración de la segunda actividad web](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
+    ![Captura de pantalla que muestra cómo seleccionar un error en la actividad de copia en el diseñador de canalizaciones.](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. Arrastre el botón **rojo** situado junto a la actividad de copia a la segunda actividad web **SendFailureEmailActivity**. Puede mover las actividades de forma que la canalización tenga un aspecto similar al de la siguiente imagen:
 
     ![Canalización completa con todas las actividades](./media/tutorial-control-flow-portal/full-pipeline.png)
@@ -304,7 +304,7 @@ En este paso se crea una canalización con una actividad de copia y dos activida
     ![Ejecución de canalización correcta](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
 2. Para ver las **ejecuciones de actividad** asociadas con la de esta canalización, haga clic en el primer vínculo de la columna **Actions** (Acciones). Para volver a la vista anterior, haga clic en **Pipelines** (Canalizaciones) de la parte superior. Use el botón **Refresh** (Actualizar) para actualizar la lista.
 
-    ![Ejecuciones de actividad](./media/tutorial-control-flow-portal/activity-runs-success.png)
+    ![Captura de pantalla que muestra cómo ver la lista de ejecuciones de actividad.](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
 ## <a name="trigger-a-pipeline-run-that-fails"></a>Desencadenamiento de una ejecución de la canalización que se realiza incorrectamente
 1. Cambie a la pestaña **Edit** (Editar) de la izquierda.

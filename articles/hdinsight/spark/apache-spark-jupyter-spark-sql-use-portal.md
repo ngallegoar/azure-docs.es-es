@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2020
-ms.openlocfilehash: 1d816a84dc8062890633661716cf78aa5ba58527
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: a04657463808a3df3634102c0295f4b79a7b4579
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888847"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537861"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Apache Spark en Azure HDInsight mediante Azure Portal
 
@@ -56,7 +56,7 @@ Azure Portal se usa para crear un clúster de HDInsight que utiliza blobs de Azu
     |Contraseña de inicio de sesión de clúster| Escriba la contraseña de inicio de sesión del clúster. |
     |Nombre de usuario de Secure Shell (SSH)| Escriba el nombre de usuario de SSH. El nombre de usuario de SSH usado para este inicio rápido es **sshuser**. De manera predeterminada, esta cuenta comparte la contraseña con la cuenta de *nombre de usuario de inicio de sesión del clúster*. |
 
-    ![Creación de configuraciones básicas de clústeres de HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "Creación de configuraciones básicas de clústeres de Spark en HDInsight")
+    ![La captura de pantalla muestra el clúster Crear HD Insight con la pestaña Aspectos básicos seleccionada.](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "Creación de configuraciones básicas de clústeres de Spark en HDInsight")
 
     Seleccione **Siguiente: Almacenamiento>>** para continuar en la página **Almacenamiento**.
 
@@ -69,7 +69,7 @@ Azure Portal se usa para crear un clúster de HDInsight que utiliza blobs de Azu
     |Cuenta de almacenamiento principal|Use el valor que se rellena automáticamente.|
     |Contenedor|Use el valor que se rellena automáticamente.|
 
-    ![Creación de configuraciones básicas de clústeres de HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "Creación de configuraciones básicas de clústeres de Spark en HDInsight")
+    ![La captura de pantalla muestra el clúster Crear HD Insight con la pestaña Almacenamiento seleccionada.](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "Creación de configuraciones básicas de clústeres de Spark en HDInsight")
 
     Seleccione **Revisar y crear** para continuar.
 
@@ -95,7 +95,7 @@ SQL (Lenguaje de consulta estructurado) es el lenguaje más común y ampliamente
 
 1. Compruebe que el kernel esté preparado. El kernel está preparado cuando aparece un círculo vacío junto al nombre del kernel en el cuaderno. Un círculo sólido indica que el kernel está ocupado.
 
-    ![Consulta de Apache Hive en HDInsight](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Consulta de Hive en HDInsight")
+    ![La captura de pantalla muestra una ventana de Jupyter con un indicador de PySpark.](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Consulta de Hive en HDInsight")
 
     Al iniciar el cuaderno por primera vez, el kernel realiza tareas en segundo plano. Espere a que el kernel esté preparado.
 
@@ -108,7 +108,7 @@ SQL (Lenguaje de consulta estructurado) es el lenguaje más común y ampliamente
 
     Si se utiliza un cuaderno de Jupyter Notebook con un clúster de HDInsight, se obtiene un valor de `sqlContext` preestablecido que puede usar para ejecutar consultas de Hive mediante Spark SQL. `%%sql` indica a Jupyter Notebook que use el valor de `sqlContext` preestablecido para ejecutar la consulta de Hive. La consulta recupera las 10 primeras filas de una tabla de Hive (**hivesampletable**) que se incluye de forma predeterminada en todos los clústeres de HDInsight. Se tardan unos 30 segundos en obtener los resultados. El resultado tendrá una apariencia similar a la siguiente:
 
-    ![Consulta de Apache Hive en HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png "Consulta de Hive en HDInsight")
+    ![La captura de pantalla muestra una ventana de Jupyter para el cuaderno creado en este inicio rápido.](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png "Consulta de Hive en HDInsight")
 
     Cada vez que se ejecuta una consulta en Jupyter, el título de la ventana del explorador web muestra el estado **(Busy)** (Ocupado) junto con el título del cuaderno. También verá un círculo sólido junto al texto **PySpark** en la esquina superior derecha.
 

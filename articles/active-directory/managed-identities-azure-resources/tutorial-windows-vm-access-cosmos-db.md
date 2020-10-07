@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 09/29/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17cdebb1291f78706178e129a62b932d45f38537
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6b571b2b8e0d334a02631e3f443ec54398117ee9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89263083"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532676"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Cosmos DB
 
@@ -80,6 +80,10 @@ Para conceder a la identidad administrada asignada por el sistema de la máquina
 $spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
 ```
+
+>[!NOTE]
+> Tenga en cuenta que si no puede realizar una operación, es posible que no tenga los permisos adecuados. Si desea tener acceso de escritura a las claves, debe usar un rol de RBAC como Colaborador de la cuenta de DocumentDB o crear un rol personalizado. Para más información, consulte [Control de acceso basado en rol en Azure Cosmos DB](../../cosmos-db/role-based-access-control.md).
+
 ## <a name="access-data"></a>Acceso a los datos
 
 En esta sección se muestra cómo llamar a Azure Resource Manager con un token de acceso para la identidad administrada asignada por el sistema de la máquina virtual Windows. En el resto del tutorial, vamos a trabajar desde la máquina virtual que se creó anteriormente. 

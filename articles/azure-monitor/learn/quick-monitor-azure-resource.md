@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 0e29b25f5d846cae1563ea90271cf007d02e248c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a17546f11db881ecacd39986bcd80d9d63b24644
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324274"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448199"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Inicio rápido: Supervisión de recursos de Azure con Azure Monitor
 [Azure Monitor](../overview.md) comienza a recopilar datos de los recursos de Azure en el momento en que se crean. Este inicio rápido proporciona un breve tutorial de los datos que se recopilan automáticamente para un recurso y de cómo verlos en la instancia de Azure Portal de un recurso determinado. Posteriormente puede agregar la configuración necesaria para recopilar datos adicionales y puede ir al menú de Azure Monitor para usar las mismas herramientas para acceder a los datos recopilados de todos los recursos de la suscripción.
@@ -40,11 +40,11 @@ El registro de actividad proporciona información sobre las operaciones de los r
 1. En la parte superior del menú del recurso, seleccione **Registro de actividad**.
 2. El filtro actual se establece en los eventos relacionados con el recurso. Si no ve ningún evento, pruebe a cambiar el valor de **Intervalo de tiempo** para aumentar el ámbito de tiempo.
 
-    ![Registro de actividades](media/quick-monitor-azure-resource/activity-log-resource.png)
+    ![Captura de pantalla de un registro de actividad de recursos en Azure Portal que muestra una lista de operaciones para el recurso generado con los criterios de filtro predeterminados.](media/quick-monitor-azure-resource/activity-log-resource.png)
 
 4. Si desea ver los eventos de otros recursos de la suscripción, cambie los criterios del filtro o incluso quite las propiedades del filtro.
 
-    ![Registro de actividades](media/quick-monitor-azure-resource/activity-log-all.png)
+    ![Captura de pantalla de un registro de actividad de recursos en Azure Portal que muestra una lista de operaciones para el recurso generado con los criterios de filtro modificados.](media/quick-monitor-azure-resource/activity-log-all.png)
 
 
 
@@ -54,15 +54,15 @@ Las métricas son valores numéricos que describen algún aspecto de un recurso 
 1. En la sección **Supervisión** del menú de su recurso, seleccione **Métricas**. Se abrirá el explorador de métricas con el ámbito establecido en el recurso.
 2. Haga clic en **Agregar métrica** para agregar una métrica al gráfico.
    
-   ![Explorador de métricas](media/quick-monitor-azure-resource/metrics-explorer-01.png)
+   ![Captura de pantalla del explorador de métricas en Azure Portal que muestra las métricas de un recurso. La lista desplegable Métrica está abierta para agregar nuevas métricas.](media/quick-monitor-azure-resource/metrics-explorer-01.png)
    
 4. Seleccione una **métrica** en la lista desplegable y, después, una **agregación**. Así se define cómo se muestrearán los valores recopilados en cada intervalo de tiempo.
 
-    ![Explorador de métricas](media/quick-monitor-azure-resource/metrics-explorer-02.png)
+    ![Captura de pantalla del explorador de métricas en Azure Portal que muestra las métricas de un recurso. La lista desplegable Agregación está abierta y se ha seleccionado Prom.](media/quick-monitor-azure-resource/metrics-explorer-02.png)
 
 5. Haga clic en **Agregar métrica** para agregar más combinaciones de métricas y agregaciones al gráfico.
 
-    ![Explorador de métricas](media/quick-monitor-azure-resource/metrics-explorer-03.png)
+    ![Captura de pantalla del explorador de métricas en Azure Portal que muestra las métricas de un recurso.](media/quick-monitor-azure-resource/metrics-explorer-03.png)
 
 
 

@@ -6,14 +6,14 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 06/09/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 92d92072fbc8ceebdd4fd9253620e5fba89bfb54
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.date: 09/22/2020
+ms.custom: devx-track-azurecli, subject-armqs
+ms.openlocfilehash: d118bef4a7ccc263010fe176432a5301c4104118
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987518"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533917"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Inicio rápido: Configuración de Azure NetApp Files y creación de un volumen de NFS 
 
@@ -53,7 +53,7 @@ Para obtener los pasos de registro mediante el portal, abra una sesión de Cloud
 
 Este artículo de procedimientos requiere la versión 2.6.0 del módulo Az de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable Az` para buscar la versión actual. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-Az-ps). Si lo prefiere, puede usar la consola de Cloud Shell en una sesión de PowerShell en su lugar.
 
-1. En un símbolo del sistema de PowerShell (o en la sesión de Cloud Shell de PowerShell), especifique la suscripción que se ha incorporado a la lista de permitidos para Azure NetApp Files:
+1. En un símbolo del sistema de PowerShell (o en la sesión de Cloud Shell de PowerShell), especifique la suscripción que se ha aprobado para Azure NetApp Files:
     ```powershell-interactive
     Select-AzSubscription -Subscription <subscriptionId>
     ```
@@ -66,6 +66,14 @@ Este artículo de procedimientos requiere la versión 2.6.0 del módulo Az de A
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
+
+# <a name="template"></a>[Plantilla](#tab/template)
+
+Ninguno.  
+
+Use Azure Portal, PowerShell o la CLI de Azure para registrarse en Azure NetApp Files y el proveedor de recursos de NetApp.  
+
+Para más información, consulte [Registro en Azure NetApp Files](azure-netapp-files-register.md). 
 
 ---
 
@@ -151,6 +159,17 @@ Este artículo de procedimientos requiere la versión 2.6.0 del módulo Az de A
         --location $LOCATION \
         --account-name $ANF_ACCOUNT_NAME
     ```
+
+# <a name="template"></a>[Plantilla](#tab/template)
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+En el siguiente fragmento de código se muestra cómo crear una cuenta de NetApp en una plantilla de Azure Resource Manager (plantilla de ARM), mediante el recurso [Microsoft.NetApp/netAppAccounts](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts). Para ejecutar el código, descargue la [plantilla de ARM completa](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nuestro repositorio de GitHub.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="177-183":::
+
+<!-- Block begins with "type": "Microsoft.NetApp/netAppAccounts", -->
+
 ---
 
 ## <a name="set-up-a-capacity-pool"></a>Configuración de un grupo de capacidad
@@ -167,14 +186,15 @@ Este artículo de procedimientos requiere la versión 2.6.0 del módulo Az de A
 
 3. Haga clic en **+ Agregar grupos**. 
 
-    ![Clic en Agregar grupos](../media/azure-netapp-files/azure-netapp-files-click-add-pools.png)  
+    ![Clic en Agregar grupos](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)  
 
 4. Especifique la información del grupo de capacidad: 
-    1. Escriba **mypool1** como nombre del grupo.
-    2. Seleccione **Premium** como nivel de servicio. 
-    3. Especifique **4 (TiB)** como tamaño del grupo. 
+    * Escriba **mypool1** como nombre del grupo.
+    * Seleccione **Premium** como nivel de servicio. 
+    * Especifique **4 (TiB)** como tamaño del grupo. 
+    * Use el tipo de QoS **automático**.
 
-5. Haga clic en **OK**.
+5. Haga clic en **Crear**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -213,6 +233,16 @@ Este artículo de procedimientos requiere la versión 2.6.0 del módulo Az de A
         --size $POOL_SIZE_TiB \
         --service-level $SERVICE_LEVEL
     ```
+
+# <a name="template"></a>[Plantilla](#tab/template)
+
+<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
+
+En el siguiente fragmento de código se muestra cómo crear un grupo de capacidad en una plantilla de Azure Resource Manager (plantilla de ARM), mediante el recurso [Microsoft.NetApp/netAppAccounts/capacityPools](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools). Para ejecutar el código, descargue la [plantilla de ARM completa](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nuestro repositorio de GitHub.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="184-196":::
+
+<!-- LN 185, block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools", -->
 
 ---
 
@@ -353,6 +383,20 @@ Este artículo de procedimientos requiere la versión 2.6.0 del módulo Az de A
         --protocol-types "NFSv3"
     ```
 
+# <a name="template"></a>[Plantilla](#tab/template)
+
+<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] --> 
+
+En los fragmentos de código siguientes se muestra cómo configurar una red virtual y crear un volumen de Azure NetApp Files en una plantilla de Azure Resource Manager (plantilla de ARM). En la instalación de red virtual se usa el recurso [Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/Microsoft.Network/virtualNetworks). En la creación de volúmenes se usa el recurso [Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes). Para ejecutar el código, descargue la [plantilla de ARM completa](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) de nuestro repositorio de GitHub.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="148-176":::
+
+<!-- Block begins with  "type": "Microsoft.Network/virtualNetworks", -->
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="197-229":::
+
+<!-- Block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes", -->
+
 ---
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
@@ -373,13 +417,13 @@ Cuando haya terminado, y si lo desea, puede eliminar el grupo de recursos. La ac
 
 3. En la página del grupo de recursos, seleccione **Eliminar grupo de recursos**.
 
-    ![Eliminación de un grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+    ![Captura de pantalla que resalta el botón Eliminar grupo de recursos.](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     Se abre una ventana con una advertencia acerca de los recursos que se eliminarán con el grupo de recursos.
 
 4. Escriba el nombre del grupo de recursos (myRG1) para confirmar que quiere eliminar de forma permanente el grupo de recursos y todos los recursos que contiene y, luego, haga clic en **Eliminar**.
 
-    ![Eliminación de un grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+    ![Confirmación de la eliminando del grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -407,6 +451,13 @@ Cuando haya terminado, y si lo desea, puede eliminar el grupo de recursos. La ac
     az group delete \
         --name $RESOURCE_GROUP
     ```
+
+# <a name="template"></a>[Plantilla](#tab/template)
+
+Ninguno.
+
+Use Azure Portal, PowerShell o la CLI de Azure para eliminar el grupo de recursos.   
+
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes  

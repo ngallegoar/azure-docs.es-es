@@ -1,6 +1,6 @@
 ---
-title: Introducción a IoT Plug and Play (versión preliminar) | Microsoft Docs
-description: Más información acerca de IoT Plug and Play (versión preliminar). IoT Plug and Play se basa en un lenguaje de modelado abierto que permite a los dispositivos IoT inteligentes declarar sus funcionalidades. Los dispositivos de IoT presentan esa declaración, denominada "modelo de dispositivo", cuando se conectan a soluciones en la nube. Luego, la solución en la nube puede comprender automáticamente el dispositivo y empezar a interactuar con él, todo ello sin necesidad de escribir código.
+title: Introducción a IoT Plug and Play | Microsoft Docs
+description: Más información acerca de IoT Plug and Play. IoT Plug and Play se basa en un lenguaje de modelado abierto que permite a los dispositivos IoT inteligentes declarar sus funcionalidades. Los dispositivos de IoT presentan esa declaración, denominada "modelo de dispositivo", cuando se conectan a soluciones en la nube. Luego, la solución en la nube puede comprender automáticamente el dispositivo y empezar a interactuar con él, todo ello sin necesidad de escribir código.
 author: rido-min
 ms.author: rmpablos
 ms.date: 07/06/2020
@@ -9,16 +9,16 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 32a873af3d287c3bd1e83de6db8e17ebc1d2958b
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 3f74c593cd44470efd231578fddcf53715a3979a
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855620"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575102"
 ---
-# <a name="what-is-iot-plug-and-play-preview"></a>¿Qué es IoT Plug and Play (versión preliminar)?
+# <a name="what-is-iot-plug-and-play"></a>¿Qué es IoT Plug and Play?
 
-La versión preliminar de IoT Plug and Play permite a los creadores de soluciones integrar dispositivos inteligentes en sus soluciones sin necesidad de configuración manual. IoT Plug and Play se basa en un modelo de _dispositivos_ que un dispositivo usa para anunciar sus funcionalidades a una aplicación compatible con IoT Plug and Play. Este modelo se estructura como un conjunto de elementos que definen:
+IoT Plug and Play permite a los creadores de soluciones integrar dispositivos inteligentes en sus soluciones sin necesidad de configuración manual. IoT Plug and Play se basa en un modelo de _dispositivos_ que un dispositivo usa para anunciar sus funcionalidades a una aplicación compatible con IoT Plug and Play. Este modelo se estructura como un conjunto de elementos que definen:
 
 - _Propiedades_ que representan el estado de solo lectura y grabable de un dispositivo o de otra entidad. Por ejemplo, el número de serie de un dispositivo puede ser una propiedad de solo lectura, y la temperatura objetivo de un termostato puede ser una propiedad grabable.
 - _Datos de telemetría_, que son los datos que emite un dispositivo, independientemente de que sean una secuencia normal de lecturas de un sensor, un error ocasional o un mensaje informativo.
@@ -49,13 +49,15 @@ Como generador de soluciones, puede desarrollar una solución de IoT hospedada e
 
 Al conectar un dispositivo IoT Plug and Play a un centro de IoT, puede usar la herramienta [Azure IoT Explorer](./howto-use-iot-explorer.md) para ver los datos de telemetría, las propiedades y los comandos definidos en las interfaces que componen el modelo.
 
+Si tiene sensores acoplados a una puerta de enlace de Windows o Linux, puede usar un [puente IoT Plug and Play](./concepts-iot-pnp-bridge.md) para conectar estos sensores y crear dispositivos IoT Plug and Play sin necesidad de escribir software o firmware (para los [protocolos compatibles](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors)).
+
 ## <a name="develop-an-iot-device-application"></a>Desarrollo de una aplicación de dispositivo IoT
 
 Como generador de dispositivos, puede desarrollar un producto de hardware de IoT que admita IoT Plug and Play. El proceso incluye tres pasos clave:
 
 1. Definir el modelo del dispositivo. Cree un conjunto de archivos JSON que definan las funcionalidades del dispositivo mediante el [DTDL](https://github.com/Azure/opendigitaltwins-dtdl). Un modelo describe una entidad completa, como un producto físico, y define el conjunto de interfaces que implementa esa entidad. Las interfaces son contratos compartidos que identifican de forma única la telemetría, las propiedades y los comandos que admite un dispositivo. Las interfaces se pueden reutilizar en otros modelos.
 
-1. Crear el software o firmware del dispositivo de forma que los datos de telemetría, las propiedades y los comandos sigan las convenciones de IoT Plug and Play.
+1. Crear el software o firmware del dispositivo de forma que los datos de telemetría, las propiedades y los comandos sigan las convenciones de IoT Plug and Play. Si va a conectar los sensores existentes acoplados a una puerta de enlace Windows o Linux, el [puente de IoT Plug and Play](./concepts-iot-pnp-bridge.md) puede simplificar este paso.
 
 1. El dispositivo anuncia el identificador del modelo como parte de la conexión de MQTT. El SDK de Azure IoT incluye nuevas construcciones para proporcionar el identificador de modelo en el momento de la conexión.
 
@@ -68,7 +70,7 @@ El [programa de certificación de dispositivos IoT Plug and Play](howto-certify-
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-Esta actualización de IoT Plug and Play en versión preliminar se encuentra disponible en los centros de IoT creados en las regiones Centro de EE. UU., Norte de Europa y Japón Oriental.
+Esta actualización de IoT Plug and Play se encuentra disponible en los centros de IoT creados en las regiones Centro de EE. UU., Norte de Europa y Japón Oriental.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

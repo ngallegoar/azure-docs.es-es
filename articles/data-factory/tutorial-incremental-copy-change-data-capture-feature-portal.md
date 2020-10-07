@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6e41109c65a047990577d1f2c77bdcd5219b6ed3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085725"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537463"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carga incremental de datos de Instancia administrada de Azure SQL a Azure Blob Storage mediante la captura de datos modificados (CDC)
 
@@ -127,10 +127,10 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 7. Haga clic en **Crear**.
 8. Una vez finalizada la implementación, haga clic en **Ir al recurso**.
 
-   ![Página principal Factoría de datos](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
+   ![La captura de pantalla muestra un mensaje que indica que la implementación ha finalizado y una opción para ir a recurso.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
 
-   ![Página principal Factoría de datos](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
+   ![La captura de pantalla muestra la factoría de datos que ha implementado.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
 10. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Azure Data Factory en una pestaña independiente.
 11. En la página de **introducción**, cambie a la pestaña **Edit** (Editar) del panel izquierdo tal como se muestra en la siguiente imagen:
 
@@ -289,10 +289,10 @@ En este paso, creará una canalización, que primero comprueba el número de reg
 
 11. Haga clic en Preview (Vista previa) para comprobar que la consulta devuelve las filas modificadas correctamente.
 
-    ![Actividad de copia: configuración del receptor](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
+    ![La captura de pantalla muestra la vista previa para comprobar la consulta.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
 12. Cambie a la pestaña **Sink** (Receptor) y especifique el conjunto de datos de Azure Storage en el campo **Sink Dataset** (Conjunto de datos de receptor).
 
-    ![Actividad de copia: configuración del receptor](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
+    ![La captura de pantalla muestra la pestaña de receptor.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
 13. Haga clic de nuevo en el lienzo de la canalización principal y conecte la actividad **Lookup** (Búsqueda) a la actividad **If Condition** (Condición If) una a una. Arrastre el botón **verde** asociado a la actividad **Lookup** (Búsqueda) a la actividad **If Condition** (Condición If).
 
     ![Conexión de las actividades de búsqueda y de copia](./media/tutorial-incremental-copy-change-data-capture-feature-portal/connect-lookup-if.png)
@@ -333,7 +333,7 @@ En este paso, creará un desencadenador de ventana de saltos de tamaño constant
     ```
 4. Haga clic en la pestaña **Sink** (Receptor) de la actividad **Copy** (Copia) y haga clic en **Open** (Abrir) para editar los parámetros del conjunto de datos. Haga clic en la pestaña **Parameters** (Parámetros) y agregue un nuevo parámetro denominado **triggerStart**    
 
-    ![Configuración del conjunto de datos de receptor: 3](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
+    ![La captura de pantalla muestra cómo agregar un nuevo parámetro a la pestaña de parámetros.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
 5. A continuación, configure las propiedades del conjunto de datos para almacenar los datos en el subdirectorio **clientes/incremental** con particiones basadas en fechas.
    1. Haga clic en la pestaña **Connection** (Conexión) de las propiedades del conjunto de datos y agregue contenido dinámico en las secciones **Directory** (Directorio) y **File** (Archivo). 
    2. Escriba la siguiente expresión en la sección **Directory** (Directorio); para ello, haga clic en el vínculo de contenido dinámico en el cuadro de texto:

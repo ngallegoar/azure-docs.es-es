@@ -1,17 +1,15 @@
 ---
 title: Empaquetado e implementación de contenedores
 description: En este tutorial, aprenderá a generar una definición de aplicación de Azure Service Fabric con Yeoman y a empaquetar la aplicación.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5840539b6c51a0070a98f03dbda3c596fd5c2516
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78252750"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539884"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empaquetamiento e implementación de contenedores como aplicación de Service Fabric mediante Yeoman
 
@@ -278,7 +276,7 @@ Abra un explorador y vaya a Service Fabric Explorer en http:\//containertestclus
 
 Para conectarse a la aplicación en ejecución, abra un explorador web y vaya a la dirección URL del clúster, por ejemplo, http:\//containertestcluster.eastus.cloudapp.azure.com:80. Debería ver la aplicación de votación en la interfaz de usuario web.
 
-![votingapp][votingapp]
+![Captura de pantalla que muestra la aplicación Voting de Azure con botones para Cats (Gatos), Dogs (Perros), Reset (Restablecer) y totales.][votingapp]
 
 ## <a name="clean-up"></a>Limpieza
 

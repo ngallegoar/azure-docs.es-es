@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: e1893c32ed486772e56432f6263626d0ee1a65df
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: ff61af192471bcfc9bdb9f1ce3970d5c22f39579
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531889"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569788"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Acciones del motor de reglas de Azure Front Door
 
-En el [motor de reglas de Azure Front Door](front-door-rules-engine.md) una regla consta de cero o más condiciones y acciones de coincidencia. En este artículo se muestran descripciones detalladas de las acciones que puede usar en el motor de reglas de Azure Front Door.
+En el [motor de reglas de AFD](front-door-rules-engine.md), una regla consta de ninguna o de varias condiciones y acciones de coincidencia. En este artículo se muestran descripciones detalladas de las acciones que puede usar en el motor de reglas de Azure Front Door.
 
-Una acción define el comportamiento que se aplica al tipo de solicitud que identifica una condición de coincidencia o un conjunto de condiciones de coincidencia. En el motor de reglas de Azure Front Door, una regla puede contener hasta cinco acciones, solo una de las cuales puede ser una acción de invalidación de la configuración de enrutamiento (reenvío o redireccionamiento).
+Una acción define el comportamiento que se aplica al tipo de solicitud que identifica una condición de coincidencia o un conjunto de condiciones de coincidencia. En el motor de reglas de AFD, una regla puede contener hasta cinco acciones. Solo una de ellas puede ser una acción de invalidación de configuración de ruta (reenviar o redirigir).
 
 Las siguientes acciones están disponibles para su uso en el motor de reglas de Azure Front Door.  
 
@@ -37,7 +37,7 @@ Acción | Nombre del encabezado HTTP | Value
 -------|------------------|------
 Append | Cuando esta opción está seleccionada y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la solicitud con el valor especificado. Si el encabezado ya está presente, este valor se anexa al valor existente. | String
 Sobrescribir | Cuando esta opción está seleccionada y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la solicitud con el valor especificado. Si el encabezado ya está presente, el valor especificado sobrescribe el valor existente. | String
-Eliminar | Cuando esta opción está seleccionada, la regla coincide y el encabezado especificado en la regla está presente, el encabezado se elimina de la solicitud. | String
+Eliminar | Cuando esta opción está seleccionada con la reglas que coinciden y está presente el encabezado especificado en la regla, este se elimina de la solicitud. | String
 
 ## <a name="modify-response-header"></a>Modificación del encabezado de respuesta
 
@@ -47,9 +47,9 @@ Use esta acción para modificar los encabezados presentes en las respuestas devu
 
 Acción | Nombre del encabezado HTTP | Value
 -------|------------------|------
-Append | Cuando esta opción está seleccionada y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la respuesta con el **Valor** especificado. Si el encabezado ya está presente, el **Valor** se anexa al valor existente. | String
+Append | Cuando esta opción se selecciona y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la respuesta con el **Valor** especificado. Si el encabezado ya está presente, el **Valor** se anexa al valor existente. | String
 Sobrescribir | Cuando esta opción está seleccionada y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la respuesta con el **Valor** especificado. Si el encabezado ya está presente, el **Valor** sobrescribe el valor existente. | String
-Eliminar | Cuando esta opción está seleccionada, la regla coincide y el encabezado especificado en la regla está presente, el encabezado se elimina de la respuesta. | String
+Eliminar | Cuando esta opción se selecciona, la regla coincide y el encabezado especificado en ella está presente, este se elimina de la respuesta. | String
 
 ## <a name="route-configuration-overrides"></a>Invalidaciones de las configuraciones de enrutamiento 
 
@@ -75,10 +75,10 @@ Use esta acción para reenviar clientes a una nueva dirección URL. Esta acción
 
 Campo | Descripción 
 ------|------------
-Grupo back-end | Seleccione el grupo de back-end que se va a invalidar y desde el que se van a atender las solicitudes. Esto mostrará todos los grupos de back-end preconfigurados actualmente en el perfil de Front Door. 
+Grupo back-end | Seleccione el grupo de back-end para invalidarse y atender las solicitudes; así, también se mostrarán todos los grupos de back-end configurados previamente en el perfil de Front Door. 
 Protocolo de reenvío | Confrontar solicitud, HTTP, HTTPS.
 Reescritura de direcciones URL | Use esta acción para reescribir la ruta de acceso de una solicitud en camino hacia el origen. Si está habilitada, consulte a continuación los campos adicionales necesarios.
-Almacenamiento en memoria caché | Enabled (Habilitada), Disabled (Deshabilitada). Consulte a continuación los campos adicionales necesarios si está habilitado. 
+Almacenamiento en memoria caché | Enabled (Habilitada), Disabled (Deshabilitada). Vea los siguientes campos adicionales necesarios si está habilitada. 
 
 #### <a name="url-rewrite"></a>Reescritura de direcciones URL
 
@@ -90,7 +90,7 @@ Ruta de acceso de reenvío personalizada | Defina la ruta de acceso a la que ree
 
 #### <a name="caching"></a>Almacenamiento en memoria caché
 
-Use esta configuración para controlar el modo en que los archivos se almacenan en caché para las solicitudes que contienen cadenas de consulta y si almacenar en caché el contenido en función de todos los parámetros o solo de los parámetros seleccionados. Puede usar la configuración adicional para sobrescribir el valor de período de vida (TTL) que controla cuánto tiempo permanecen en caché los contenidos grandes de las solicitudes que especifican las condiciones de coincidencia de las reglas. Para forzar el almacenamiento en caché como una acción, establezca el campo correspondiente en "Habilitado". Al hacerlo, aparecen las siguientes opciones: 
+Use esta configuración para controlar cómo se almacenan en caché los archivos para las solicitudes que contienen cadenas de consulta. Si se va a almacenar en caché el contenido en función de todos los parámetros o de los parámetros seleccionados. Puede usar valores adicionales para sobrescribir el valor de período de vida (TTL) y controlar cuánto tiempo permanece en caché el contenido. Para forzar el almacenamiento en caché como una acción, establezca el campo correspondiente en "Habilitado". Al forzar el almacenamiento en caché, aparecen las siguientes opciones: 
 
 Comportamiento de la caché |  Descripción              
 ---------------|----------------
@@ -107,6 +107,6 @@ Duración de la caché | Duración de la expiración de caché en días, horas, 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a configurar su primera [configuración del motor de reglas](front-door-tutorial-rules-engine.md). 
+- Obtenga información acerca de cómo configurar el [primer motor de reglas](front-door-tutorial-rules-engine.md). 
 - Obtenga más información sobre las [Condiciones de coincidencia del motor de reglas](front-door-rules-engine-match-conditions.md).
 - Obtenga más información acerca del [motor de reglas de Azure Front Door](front-door-rules-engine.md).

@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 295c4bde64ad21a19d21fd48f2556114b26b202d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b97b80927739d9a8658213a00b415c0bf321528b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945282"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460567"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introducción al ejemplo de elementos principales de un chat grupal
 
@@ -30,7 +30,7 @@ En el ejemplo de salón de chat de grupo **de Azure Communication Services** se 
 En esta guía de inicio rápido de ejemplo, veremos cómo funciona el ejemplo antes de ejecutarlo en la máquina local. A continuación, implementaremos el ejemplo en Azure con sus propios recursos de Azure Communication Services.
 
 > [!IMPORTANT]
-> [Descargue el ejemplo de GitHub](https://github.com/Azure/Communication/tree/master/samples).
+> [Descargue el ejemplo de GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat).
 
 ## <a name="overview"></a>Información general
 
@@ -42,11 +42,11 @@ El ejemplo tendrá una apariencia similar a la siguiente:
 
 Cuando se presiona el botón "Start chat", la aplicación web captura un token de acceso de usuario de la aplicación del lado servidor. A continuación, este token se usa para conectar la aplicación cliente con Azure Communication Services. Una vez que se recupera el token, se le pedirá que especifique su nombre y el emoji que le representará en el chat. 
 
-:::image type="content" source="./media/chat/pre-chat.png" alt-text="Captura de pantalla que muestra la pantalla anterior al chat de la aplicación.":::
+:::image type="content" source="./media/chat/pre-chat.png" alt-text="Captura de pantalla que muestra la página de aterrizaje de la aplicación de ejemplo.":::
 
 Una vez que configure el nombre para mostrar y el emoji, puede unirse a la sesión de chat. Ahora verá el lienzo de chat principal donde se encuentra la experiencia de chat principal.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="Captura de pantalla que muestra la pantalla principal de la aplicación de ejemplo.":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="Captura de pantalla que muestra la página de aterrizaje de la aplicación de ejemplo.":::
 
 Componentes de la pantalla principal de chat:
 
@@ -61,7 +61,7 @@ A continuación encontrará más información sobre los requisitos previos y los
 - Cree de una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js (8.11.2 y posterior)](https://nodejs.org/en/download/)
 - [Visual Studio (2017 y posterior)](https://visualstudio.microsoft.com/vs/)
-- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (asegúrese de instalar la versión que se corresponda con su instancia de Visual Studio, 32 o 64 bits)
+- [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (asegúrese de instalar la versión que se corresponda con su instancia de Visual Studio, 32 o 64 bits)
 - Cree un recurso de Azure Communication Services. Para obtener más información, consulte [Creación de un recurso de Azure Communication Services](../quickstarts/create-communication-resource.md). Deberá registrar la **cadena de conexión** del recurso para esta guía de inicio rápido.
 
 ## <a name="locally-deploying-the-service--client-app"></a>Implementación local del servicio y la aplicación cliente
@@ -72,29 +72,24 @@ Abra Visual Studio en chat.csproj y ejecútelo en modo de depuración. Esto inic
 
 Para probar el ejemplo localmente, puede abrir varias sesiones del explorador con la dirección URL de su chat para simular un chat multiusuario.
 
-### <a name="before-running-the-sample-for-the-first-time"></a>Antes de ejecutar el ejemplo por primera vez
+## <a name="before-running-the-sample-for-the-first-time"></a>Antes de ejecutar el ejemplo por primera vez
 
 1. Abra una instancia de PowerShell, Terminal Windows, símbolo del sistema o equivalente y navegue hasta el directorio donde le gustaría clonar el ejemplo.
-2. `git clone`
-3. Vaya a la carpeta **Chat/ClientApp** y ejecute `npm run setup`.
-   1. Si ve un error 1, busque más arriba en la salida una dirección URL a la que tendrá que ir para autorizar al cliente. (La dirección URL tendrá el siguiente aspecto: `app.vssps.visualstudio.com/oauth2/authorize?clientid=...`). Una vez que visite la dirección URL en un explorador, copie el comando desde la ventana del explorador y ejecútelo.
-   2. Vuelva a ejecutar el comando `npm run setup` una vez que complete el paso anterior.
-4. Obtenga `Connection String` de Azure Portal. Para obtener más información sobre las cadenas de conexión, consulte [Creación de un recurso de Azure Communication Services](../quickstarts/create-communication-resource.md).
-5. Una vez que obtenga `Connection String`, agregue la cadena de conexión al archivo **Chat/appsettings.json** que se encuentra en la carpeta Chat. Escriba la cadena de conexión en la variable: `ResourceConnectionString`.
+2. `git clone https://github.com/Azure/Communication.git`
+3. Obtenga `Connection String` de Azure Portal. Para obtener más información sobre las cadenas de conexión, consulte [Creación de un recurso de Azure Communication Services](../quickstarts/create-communication-resource.md).
+4. Una vez que obtenga `Connection String`, agregue la cadena de conexión al archivo **Chat/appsettings.json** que se encuentra en la carpeta Chat. Escriba la cadena de conexión en la variable: `ResourceConnectionString`.
+5. Actualice ENVIRONMENT_URL en `./Chat/ClientApp/src/constants.tsx` con la ubicación del recurso. (Por ejemplo, https://<RESOURCE_NAME>.communication.azure.com).
 
 ### <a name="local-run"></a>Ejecución local
 
-1. Vaya a la carpeta Chat.
-2. Abra la solución `Chat.csproj` en Visual Studio.
-3. Ejecute el proyecto `Chat`*.
-
-\* El explorador se abrirá en localhost:5000 (donde el nodo implementa la aplicación cliente). La aplicación no es compatible con Internet Explorer.
+1. Vaya a la carpeta de chat y abra la solución `Chat.csproj` en Visual Studio.
+2. Ejecute el proyecto. El explorador se abrirá en localhost:5000.
 
 #### <a name="troubleshooting"></a>Solución de problemas
 
 - La solución no se compila, se producen errores durante la instalación o compilación de NPM.
 
-Limpieza o recompilación de la solución de C#
+   Limpieza o recompilación de la solución de C#
 
 ## <a name="publish-the-sample-to-azure"></a>Publicación del ejemplo en Azure
 
@@ -108,6 +103,9 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+>[!div class="nextstepaction"] 
+>[Descargue el ejemplo de GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat).
+
 Para más información, consulte los siguientes artículos.
 
 - Más información sobre los [conceptos de chat](../concepts/chat/concepts.md)
@@ -115,7 +113,7 @@ Para más información, consulte los siguientes artículos.
 
 ## <a name="additional-reading"></a>Lecturas adicionales
 
-- [Versión preliminar de Azure Communication](https://github.com/Azure/communication-preview): para obtener más información sobre el SDK web de chat
+- [GitHub de Azure Communication](https://github.com/Azure/communication): encuentre más ejemplos e información en la página oficial de GitHub.
 - [Redux](https://redux.js.org/): Administración de estado del lado cliente
 - [FluentUI](https://developer.microsoft.com/fluentui#/): Biblioteca de interfaz de usuario con tecnología de Microsoft
 - [React](https://reactjs.org/): Biblioteca para compilar interfaces de usuario

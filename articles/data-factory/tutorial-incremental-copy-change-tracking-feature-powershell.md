@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 6fab092b0467228fd4fcdbcf95f99fd0981fb1e4
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3bd18f697c25f7e81f227e7e1456ba0b3d2150c6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079235"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541754"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios con PowerShell
 
@@ -453,10 +453,10 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
     ![Icono Supervisión y administración](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
 5. La **aplicación de integración de datos** se inicia en otra pestaña. Puede ver todas las **ejecuciones de canalización** y sus estados. Tenga en cuenta que, en el ejemplo siguiente, el estado de ejecución de la canalización es **Correcto**. Puede comprobar los parámetros pasados a la canalización si hace clic en la columna **Parámetros**. Si se ha producido un error, verá un vínculo en la columna **Error**. Haga clic en el vínculo de la columna **Acciones**.
 
-    ![Ejecuciones de la canalización](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
+    ![Captura de pantalla que muestra las ejecuciones de canalización para una factoría de datos.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. Al hacer clic en el vínculo de la columna **Acciones**, verá la página siguiente que muestra todas las **ejecuciones de actividad** de la canalización.
 
-    ![Ejecuciones de actividad](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
+    ![Captura de pantalla que muestra las ejecuciones de actividad de una factoría de datos, con el vínculo de canalizaciones seleccionado.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. Para volver a la vista de **ejecuciones de canalización**, haga clic en **Canalizaciones** como se muestra en la imagen.
 
 
@@ -632,10 +632,10 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Supervisión de la canalización de la copia incremental
 1. En la **aplicación de integración de datos**, actualice la vista de **ejecuciones de canalización**. Confirme que ve IncrementalCopyPipeline en la lista. Haga clic en el vínculo de la columna **Acciones**.  
 
-    ![Ejecuciones de la canalización](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
+    ![Captura de pantalla que muestra ejecuciones de canalización para una factoría de datos, incluida su canalización.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. Al hacer clic en el vínculo de la columna **Acciones**, verá la página siguiente que muestra todas las **ejecuciones de actividad** de la canalización.
 
-    ![Ejecuciones de actividad](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
+    ![Captura de pantalla que muestra ejecuciones de canalización para una factoría de datos, con varias de ellas marcadas como correctas.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. Para volver a la vista de **ejecuciones de canalización**, haga clic en **Canalizaciones** como se muestra en la imagen.
 
 ### <a name="review-the-results"></a>Revisión del resultado

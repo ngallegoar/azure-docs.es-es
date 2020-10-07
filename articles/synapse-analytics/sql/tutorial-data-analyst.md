@@ -1,6 +1,6 @@
 ---
-title: Uso de SQL a petición (versión preliminar) para analizar Azure Open Datasets en Azure Synapse Studio (versión preliminar)
-description: En este tutorial, aprenderá a realizar con facilidad el análisis de datos exploratorios mediante la combinación de diferentes Azure Open Datasets con SQL a petición (versión preliminar) y a visualizar los resultados en Azure Synapse Studio.
+title: 'Tutorial: Uso de SQL a petición (versión preliminar) para analizar Azure Open Datasets en Azure Synapse Studio (versión preliminar)'
+description: Este tutorial le mostrará cómo realizar con facilidad el análisis de datos exploratorios mediante la combinación de diferentes Azure Open Datasets con SQL a petición (versión preliminar) y visualizar los resultados en Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2fc98e927fcf9686f0f39dae600f944b485c5a06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089148"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539527"
 ---
-# <a name="use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Uso de SQL a petición para analizar Azure Open Datasets y visualizar los resultados en Azure Synapse Studio
+# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutorial: Uso de SQL a petición para analizar Azure Open Datasets y visualizar los resultados en Azure Synapse Studio
 
 En este tutorial, aprenderá a realizar el análisis de datos exploratorios mediante la combinación de diferentes Azure Open Datasets con SQL a petición y, después, visualizando los resultados en Azure Synapse Studio.
 
@@ -135,7 +135,7 @@ De nuevo, puede visualizar los datos fácilmente trazando el gráfico de **colum
 
 ![Gráfico de columnas que muestra el número diario de carreras para 2016](./media/tutorial-data-analyst/7.png)
 
-En el gráfico trazado, puede ver que hay un patrón semanal, con sábados como el día de máxima actividad. Durante los meses de verano, hay menos carreras de taxi debido al período de vacaciones. También hay algunas reducciones significativas en el número de carreras de taxi sin un patrón claro de cuándo y por qué se producen.
+En el gráfico trazado, puede ver que hay un patrón semanal, con los sábados como día de máxima actividad. Durante los meses de verano, hay menos carreras de taxi debido al período de vacaciones. Observe igualmente que hay algunas reducciones significativas en el número de carreras de taxi sin un patrón claro de cuándo y por qué se producen.
 
 A continuación, vamos a ver si esas reducciones pueden estar correlacionadas con los festivos locales y nacionales. Para ello, uniremos el conjunto de datos de carreras de los taxis de Nueva York con el conjunto de datos de días festivos locales y nacionales:
 

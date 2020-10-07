@@ -1,22 +1,22 @@
 ---
-title: Compilación de una aplicación de aprendizaje automático con Apache Spark MLlib
-description: Aprenda a usar MLlib de Apache Spark para crear una aplicación de aprendizaje automático que analice un conjunto de datos usando la clasificación mediante una regresión logística.
+title: 'Tutorial: Compilación de una aplicación de aprendizaje automático con Apache Spark MLlib'
+description: Tutorial sobre el uso de MLlib de Apache Spark para crear una aplicación de aprendizaje automático que analice un conjunto de datos con clasificación mediante una regresión logística.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
-ms.reviewer: jrasnick, carlrab
-ms.topic: conceptual
+ms.reviewer: jrasnick
+ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: e1ece0add7b0749cfd808b0a3ec7962dd43a302d
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 667ce8ede9469063e5714470a8e18c218f3c2c90
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719349"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540326"
 ---
-# <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Compilación de una aplicación de aprendizaje automático con MLlib de Apache Spark y Azure Synapse Analytics
+# <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutorial: Compilación de una aplicación de aprendizaje automático con MLlib de Apache Spark y Azure Synapse Analytics
 
 En este artículo, aprenderá a usar [MLlib](https://spark.apache.org/mllib/) de Apache Spark para crear una aplicación de aprendizaje automático para efectuar análisis predictivos simples en un conjunto de datos abierto de Azure. Spark proporciona bibliotecas de aprendizaje automático integradas. En este ejemplo se usa la *clasificación* a través de la regresión logística.
 
@@ -96,7 +96,7 @@ Dado que los datos sin procesar están en formato de Parquet, puede usar el cont
     display(sampled_taxi_df)
     ```
 
-4. En función del tamaño del conjunto de datos generado y de la necesidad de experimentar o ejecutar el cuaderno varias veces, puede ser aconsejable almacenar en caché el conjunto de trabajo localmente en el área de trabajo. Hay tres maneras de realizar el almacenamiento en caché explícito:
+4. En función del tamaño del conjunto de datos generado y de la necesidad de experimentar o ejecutar el cuaderno muchas veces, puede ser aconsejable almacenar en caché el conjunto de trabajo localmente en el área de trabajo. Hay tres maneras de realizar el almacenamiento en caché explícito:
 
    - Guardar el dataframe localmente como archivo
    - Use el dataframe como vista o tabla temporal
@@ -193,7 +193,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Crear un modelo de regresión logística
 
-La última tarea consiste en convertir los datos etiquetados a un formato que se pueda analizar con la regresión logística. La entrada a un algoritmo de regresión logística debe ser un conjunto de *pares de vector de etiqueta-característica*, donde el *vector de característica* es un vector de números que representa el punto de entrada. Por lo tanto, es necesario convertir las columnas de categorías en números. Las columnas `trafficTimeBins` y `weekdayString` deben convertirse en representaciones de enteros. Hay varios enfoques para realizar la conversión, pero el enfoque que se realiza en este ejemplo es *OneHotEncoding*, un enfoque común.
+La última tarea consiste en convertir los datos etiquetados a un formato que se pueda analizar con la regresión logística. La entrada a un algoritmo de regresión logística debe ser un conjunto de *pares de vector de etiqueta-característica*, donde el *vector de característica* es un vector de números que representa el punto de entrada. Por lo tanto, es necesario convertir las columnas de categorías en números. Las columnas `trafficTimeBins` y `weekdayString` se deben convertir en representaciones de enteros. Hay varios enfoques para realizar la conversión, pero el enfoque que se realiza en este ejemplo es *OneHotEncoding*, un enfoque común.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
@@ -206,7 +206,7 @@ en2 = OneHotEncoder(dropLast=False, inputCol="weekdayIndex", outputCol="weekdayV
 encoded_final_df = Pipeline(stages=[sI1, en1, sI2, en2]).fit(taxi_featurised_df).transform(taxi_featurised_df)
 ```
 
-Esto da como resultado un nuevo dataframe con todas las columnas en el formato correcto para entrenar un modelo.
+Esta acción da como resultado un nuevo dataframe con todas las columnas en el formato correcto para entrenar un modelo.
 
 ## <a name="train-a-logistic-regression-model"></a>Entrenamiento de un modelo de regresión logística
 

@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3d5a5d7ec07587b20a8a6285deafa6215db990a5
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 0557ef45f1a18d3e51be5df3f28d35f421c3981d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810384"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540472"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación HoloLens en Unity que use Azure Spatial Anchors
 
@@ -80,7 +80,12 @@ Encienda el dispositivo HoloLens, inicie sesión y conéctelo al equipo mediante
 
 Seleccione **Depurar** > **Iniciar depuración** para implementar la aplicación y comenzar la depuración.
 
-Siga las instrucciones de la aplicación para colocar y recuperar un delimitador.
+En la aplicación, seleccione **BasicDemo** mediante las flechas y pulse el botón **Go!** para ejecutar la demostración. Siga las instrucciones para colocar y recuperar un delimitador.
+
+![Captura de pantalla 1](./media/get-started-unity-hololens/screenshot-1.jpg)
+![Captura de pantalla 2](./media/get-started-unity-hololens/screenshot-2.jpg)
+![Captura de pantalla 3](./media/get-started-unity-hololens/screenshot-3.jpg)
+![Captura de pantalla 4](./media/get-started-unity-hololens/screenshot-4.jpg)
 
 En Visual Studio, seleccione **Detener depuración** o presione Mayús + F5 para detener la depuración.
 

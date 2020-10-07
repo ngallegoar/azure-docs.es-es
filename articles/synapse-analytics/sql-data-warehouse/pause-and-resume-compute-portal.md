@@ -1,5 +1,5 @@
 ---
-title: Pausa y reanudación del proceso en el grupo de SQL de Synapse mediante Azure Portal
+title: 'Inicio rápido: Pausa y reanudación del proceso en el grupo de SQL de Synapse mediante Azure Portal'
 description: Use Azure Portal para pausar el proceso en el grupo de SQL con la finalidad de ahorrar costos. Reanude el proceso cuando esté listo para usar el almacenamiento de datos.
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 25f12d038b2a83688c12d95adefef3d4fb39be43
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: bf9d8234be754bd6ed325713f3c9ad27bd283b79
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214475"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567645"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>Inicio rápido: Pausa y reanudación del proceso en el grupo de SQL de Synapse mediante Azure Portal
 
@@ -49,7 +49,7 @@ Para pausar un grupo de SQL, siga estos pasos:
 5. Aparece una pregunta de confirmación en la que tiene que indicar si quiera continuar. Haga clic en **Sí**.
 6. Espere un momento y, a continuación, observe que el **Estado** sea **Pausando**.
 
-    ![Pausando](./media/pause-and-resume-compute-portal/pausing.png)
+    ![Captura de pantalla que muestra Azure Portal para un almacenamiento de datos de ejemplo con un valor de estado Pausando.](./media/pause-and-resume-compute-portal/pausing.png)
 
 7. Una vez completada la operación de pausa, el estado es **En pausa** y el botón de opción es **Reanudar**.
 8. Ahora, los recursos de proceso para el grupo de SQL no tienen conexión. No se le cobrará el proceso hasta que reanude el servicio.
@@ -71,7 +71,7 @@ Para reanudar un grupo de SQL, siga estos pasos.
 5. Aparece una pregunta de confirmación en la que tiene que indicar si lo quiere iniciar. Haga clic en **Sí**.
 6. Observe que el **Estado** sea **Reanudando**.
 
-    ![Reanudando](./media/pause-and-resume-compute-portal/resuming.png)
+    ![Captura de pantalla que muestra Azure Portal para un almacenamiento de datos de ejemplo con el botón Iniciar seleccionado y un valor de estado Reanudando.](./media/pause-and-resume-compute-portal/resuming.png)
 
 7. Cuando el grupo de SQL vuelva a estar en línea, el estado será **En línea** y el botón de opción será **Pausar**.
 8. Los recursos de proceso para el grupo de SQL ahora están en línea y se puede usar el servicio. Los cargos del proceso se han reanudado.

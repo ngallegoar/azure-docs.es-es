@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 695d1b1124c042b61837f0a1257ac2a201ae4860
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84712520"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539408"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detección de problemas con los dispositivos conectados a una solución de supervisión
 
@@ -122,7 +122,7 @@ Puede habilitar y deshabilitar varias reglas al mismo tiempo si selecciona varia
 
 Para eliminar definitivamente una regla, puede eliminarla en la lista de reglas. Seleccione la regla para deshabilitar y, a continuación, elija **Eliminar**.
 
-[![Eliminar regla](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+[![Captura de pantalla que muestra la página "Reglas", con la ventana "Eliminar regla" resaltada.](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
 
 Después de confirmar que desea eliminar la regla, tendrá la oportunidad de eliminar todas las alertas asociadas a la regla en la página **Mantenimiento**.
 

@@ -3,16 +3,16 @@ title: 'Azure Defender para servidores: ventajas y características'
 description: Obtenga información sobre las ventajas y características de Azure Defender para servidores.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: conceptual
+ms.date: 9/23/2020
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 29f15aa7d1cbcd260ce44f6083138681ceb9fd79
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8757399329f3a9bd9f4d7b914b12b2a0f7e85603
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932445"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91448294"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introducción a Azure Defender para servidores
 
@@ -41,7 +41,7 @@ Las funcionalidades de detección de amenazas y protección que se proporcionan 
 
 - **Controles de aplicaciones adaptables (ACC)** : los controles de aplicaciones adaptables son una solución inteligente y automatizada que permite definir listas de aplicaciones permitidas seguras conocidas para las máquinas.
 
-    Cuando haya habilitado y configurado controles de aplicaciones adaptables, recibirá alertas de seguridad si alguna aplicación ejecuta otros distintos a los definidos como seguros. [Más información](security-center-adaptive-network-hardening.md).
+    Cuando haya habilitado y configurado controles de aplicaciones adaptables, recibirá alertas de seguridad si alguna aplicación ejecuta otros distintos a los definidos como seguros. [Más información](security-center-adaptive-application.md).
 
 - **Protección de red adaptable (ANH)** : la aplicación de grupos de seguridad de red (NSG) para filtrar el tráfico hacia y desde los recursos mejora la posición de seguridad de red. Sin embargo, aún puede haber algunos casos en los que el tráfico real que fluye a través del NSG es un subconjunto de las reglas de NSG definidas. En estos casos, puede mejorar la postura de seguridad al proteger aún más las reglas de NSG, según los patrones de tráfico real.
 
@@ -58,7 +58,7 @@ Las funcionalidades de detección de amenazas y protección que se proporcionan 
 
 - **Detección de ataques sin archivos (solo Windows)** : los ataques sin archivos inyectan cargas malintencionadas en la memoria para evitar la detección mediante técnicas de detección basadas en disco. Luego, la carga del atacante se conserva dentro de la memoria de los procesos en peligro y realiza una amplia variedad de actividades malintencionadas.
 
-  Con la detección de ataques sin archivos, las técnicas forense de memoria automatizadas identifican kits de herramientas, técnicas y comportamientos de los ataques sin archivos. Esta solución examina periódicamente la máquina en tiempo de ejecución y extrae conclusiones directamente de la memoria de los procesos. Las conclusiones específicas para Linux incluyen la identificación de: 
+  Con la detección de ataques sin archivos, las técnicas forense de memoria automatizadas identifican kits de herramientas, técnicas y comportamientos de los ataques sin archivos. Esta solución examina periódicamente la máquina en tiempo de ejecución y extrae conclusiones directamente de la memoria de los procesos. Las conclusiones específicas incluyen la identificación de: 
 
   - Kits de herramientas conocidas y software de minería de datos de cifrado. 
 
@@ -81,9 +81,9 @@ Las funcionalidades de detección de amenazas y protección que se proporcionan 
 
 Puede simular alertas mediante la descarga de alguno de los cuadernos de estrategias:
 
-- Para Windows: [Cuaderno de estrategias de Azure Security Center: alertas de seguridad](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
+- Para Windows: [Cuaderno de estrategias de Azure Security Center: alertas de seguridad](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Security%20Alerts%20Playbook_v2.pdf)
 
-- Para Linux: [Cuaderno de estrategias de Azure Security Center: Detecciones de Linux](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef).
+- Para Linux: [Cuaderno de estrategias de Azure Security Center: Detecciones de Linux](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Linux%20Detections_v2.pdf).
 
 
 

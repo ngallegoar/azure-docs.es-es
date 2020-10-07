@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 608b488a04eafd01e6702850445801705f6dac81
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: c84ebfe9752b8594e97c7c72d706ee25c4852f6e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810367"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538169"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación para Unity Android con Azure Spatial Anchors
 
@@ -34,7 +34,7 @@ Aprenderá a:
 
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 
-- Una máquina con Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, incluidos los módulos Android Build Support y Android SDK & NDK Tools.
+- Una máquina con Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, incluidos los módulos **Android Build Support** con **Android SDK & NDK Tools** y **OpenJDK**.
   - Si se ejecuta en Windows, también necesitará <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a> y <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Si se ejecuta en macOS, instale Git a través de HomeBrew. Escriba el siguiente comando en una sola línea de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. A continuación, ejecute `brew install git` y `brew install git-lfs`.
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para el desarrollo</a> y <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">preparado para ARCore</a>.
@@ -58,6 +58,12 @@ Para completar esta guía de inicio rápido, asegúrese de que dispone de lo sig
 
 Seleccione el dispositivo en **Run Device** (Dispositivo de ejecución) y, después, seleccione **Build And Run** (Compilar y ejecutar). Se le pedirá que guarde un archivo `.apk` para el que puede elegir cualquier nombre.
 
+En la aplicación, seleccione **BasicDemo** mediante las flechas y pulse el botón **Go!** para ejecutar la demostración. Siga las instrucciones para colocar y recuperar un delimitador.
+
+![Captura de pantalla 1](./media/get-started-unity-android/screenshot-1.jpg)
+![Captura de pantalla 2](./media/get-started-unity-android/screenshot-2.jpg)
+![Captura de pantalla 3](./media/get-started-unity-android/screenshot-3.jpg)
+
 Siga las instrucciones de la aplicación para colocar y recuperar un delimitador.
 
 ## <a name="troubleshooting"></a>Solución de problemas
@@ -74,4 +80,4 @@ Al ejecutar la aplicación, si no ve la cámara como fondo (en cambio ve, por ej
 > [Tutorial: Uso compartido de Spatial Anchors entre dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)
 
 > [!div class="nextstepaction"]
-> [Cómo: Configuración de Azure Spatial Anchors en un proyecto de Unity](../how-tos/setup-unity-project.md)
+> [Cómo: configurar Azure Spatial Anchors en un proyecto de Unity](../how-tos/setup-unity-project.md)

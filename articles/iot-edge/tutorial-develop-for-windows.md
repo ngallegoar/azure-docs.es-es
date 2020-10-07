@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d4846a69f548c99de735cc9d9e06bd6bb263b4bd
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: a0bc934d32a2d09fcd6b52ec1f186855bf0da92c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439694"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449614"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desarrollo de módulos IoT Edge para dispositivos Windows
 
@@ -275,7 +275,7 @@ Si encuentra errores al compilar e insertar la imagen del módulo, a menudo tien
 
 Ha verificado que las imágenes de contenedor creadas se almacenan en el registro de contenedor, por lo que es el momento de implementarlas en un dispositivo. Asegúrese de que el dispositivo IoT Edge está en funcionamiento.
 
-1. Abra Cloud Explorer en Visual Studio y expanda los detalles del centro de IoT.
+1. Abra Cloud Explorer en Visual Studio y expanda los detalles del centro de IoT.
 
 2. Seleccione el nombre del dispositivo en el que desea realizar la implementación. En la lista **Acciones**, seleccione **Crear implementación**.
 
@@ -285,7 +285,7 @@ Ha verificado que las imágenes de contenedor creadas se almacenan en el registr
 
    No utilice el archivo deployment.template.json, que no contiene todos los valores de imagen del módulo.
 
-4. Expanda los detalles para el dispositivo IoT Edge en Cloud Explorer para ver los módulos del dispositivo.
+4. Expanda los detalles para el dispositivo IoT Edge en Cloud Explorer para ver los módulos del dispositivo.
 
 5. Use el botón **Actualizar** para actualizar el estado del dispositivo para ver que los módulos SimulatedTemperatureSensor y IotEdgeModule1 se implementan en el dispositivo.
 
@@ -295,7 +295,7 @@ Ha verificado que las imágenes de contenedor creadas se almacenan en el registr
 
 El código IotEdgeModule1 recibe mensajes mediante la cola de entrada y los pasa por la cola de salida. El manifiesto de implementación declaraba las rutas que pasaban los mensajes de SimulatedTemperatureSensor a IotEdgeModule1, y luego enviaban los mensajes de IotEdgeModule1 a la instancia de IoT Hub. Las herramientas Azure IoT Edge Tools para Visual Studio permiten ver los mensajes que llegan a IoT Hub desde dispositivos individuales.
 
-1. En el explorador en la nube de Visual Studio, seleccione el nombre del dispositivo IoT Edge en el que se ha realizado la implementación.
+1. En Cloud Explorer de Visual Studio, seleccione el nombre del dispositivo IoT Edge en el que se ha realizado la implementación.
 
 2. En el menú **Acciones**, seleccione **Start Monitoring Built-in Event Endpoint** (Iniciar supervisión del punto de conexión del evento integrado).
 

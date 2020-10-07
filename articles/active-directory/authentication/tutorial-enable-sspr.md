@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30a51f4b07f62b6e3491f74de78ea0d04bbb1775
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0797ff744dbbf9fb139503d73be7d60118762ac2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399980"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530738"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory para que los usuarios puedan desbloquear su cuenta o restablecer contraseñas
 
@@ -116,7 +116,7 @@ Si los usuarios necesitan ayuda adicional con el proceso de autoservicio de rest
 Con el autoservicio de restablecimiento de contraseña habilitado y configurado, pruebe el proceso SSPR con un usuario que forme parte del grupo que seleccionó en la sección anterior, como *Grupo-Prueba-SSPR*. En el ejemplo siguiente, se usa la cuenta *usuarioDePrueba*. Indique su propia cuenta de usuario que forma parte del grupo que ha habilitado para SSPR en la primera sección de este tutorial.
 
 > [!NOTE]
-> Para probar el autoservicio de restablecimiento de contraseña, use una cuenta que no sea de administrador. Los administradores siempre están habilitados para el autoservicio de restablecimiento de contraseña y deben utilizar dos métodos de autenticación para restablecer su contraseña.
+> Para probar el autoservicio de restablecimiento de contraseña, use una cuenta que no sea de administrador. De manera predeterminada, los administradores están habilitados para el autoservicio de restablecimiento de contraseña y deben utilizar dos métodos de autenticación para restablecer su contraseña. Para más información, consulte [Diferencias entre directivas de restablecimiento de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 1. Para ver el proceso de registro manual, abra una nueva ventana del explorador en modo InPrivate o incógnito y vaya a [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Se debe dirigir a los usuarios a este portal de registro la siguiente vez que inicien sesión.
 1. Inicie sesión con un usuario de prueba que no sea administrador, como*usuarioDePrueba* y registre la información de contacto de los métodos de autenticación.

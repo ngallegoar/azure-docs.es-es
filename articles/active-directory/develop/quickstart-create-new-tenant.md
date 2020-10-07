@@ -1,6 +1,7 @@
 ---
-title: Creación de un inquilino de Azure Active Directory
-description: Obtenga más información acerca de cómo crear un inquilino de Azure AD para el registro y la creación de aplicaciones.
+title: 'Inicio rápido: Creación de un inquilino de Azure Active Directory'
+titleSuffix: Microsoft identity platform
+description: En esta guía de inicio rápido, aprenderá a crear un inquilino de Azure Active Directory para usarlo en el desarrollo de aplicaciones que empleen la plataforma de identidad de Microsoft para la autenticación y la autorización.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120820"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575986"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Inicio rápido: Configuración de un inquilino
 
@@ -26,6 +27,10 @@ La plataforma de identidad de Microsoft permite a los desarrolladores crear apli
 Un inquilino es la representación de una organización. Se trata de una instancia dedicada de Azure AD que una organización o el desarrollador de la aplicación reciben cuando crean una relación con Microsoft, como al registrarse en Azure, Microsoft Intune o Microsoft 365.
 
 Cada inquilino de Azure AD es distinto e independiente de los demás inquilinos de Azure AD y tiene su propia representación de identidades profesionales y educativas, identidades de consumidor (si es un inquilino de Azure AD B2C) y registros de aplicaciones. Un registro de aplicación dentro del inquilino puede permitir autenticaciones de cuentas solo dentro de su inquilino o en todos los inquilinos.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="determining-environment-type"></a>Determinación del tipo de entorno
 
@@ -71,6 +76,5 @@ Para empezar a crear aplicaciones que inician sesión en cuentas sociales y loca
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Registre una aplicación](quickstart-register-app.md) e integre con la Plataforma de identidad de Microsoft. 
-* Conozca los [fundamentos de la autenticación](./authentication-vs-authorization.md).
-* Consulte [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) para más información sobre la relación entre las suscripciones y un inquilino de Azure AD.
+> [!div class="nextstepaction"]
+> [Registre una aplicación](quickstart-register-app.md) para integrar con la Plataforma de identidad de Microsoft.

@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: e4236952bd41c4955e337813ff6d706263b8ef47
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 432386809596fb2ef040a05d1fe0d12294a1abef
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73890897"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534529"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configuración de dispositivos conectados a la solución de supervisión
 
@@ -66,7 +66,7 @@ Para comprobar si puede actualizar las propiedades de configuración del motor, 
 
 Para actualizar la ubicación del motor, establezca el nombre del trabajo en **UpdateEngineLocation**, establezca la longitud en **-122.15**, establezca la ubicación en **Factory 2**, establezca la latitud en **47.62** y haga clic en **Aplicar**:
 
-[![Actualización de un valor de propiedad de dispositivo](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-expanded.png#lightbox)
+[![Captura de pantalla que muestra la página "Device Explorer" con la ventana "Trabajos" resaltada.](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-expanded.png#lightbox)
 
 Para realizar un seguimiento del estado del trabajo, haga clic en **View job status** (Ver estado del trabajo):
 
@@ -113,7 +113,7 @@ Cree un filtro de texto que use el nombre de etiqueta **FieldService** y el valo
 
 Cree un filtro de texto que use el nombre de etiqueta **FieldService** y el valor **ConnectedVehicle** en la condición. Guarde el filtro como **Vehículo conectado**.
 
-[![Creación del filtro de vehículo conectado](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-expanded.png#lightbox)
+[![Captura de pantalla que muestra la página "Device Explorer" con la ventana "Administrar grupos de dispositivos" resaltada.](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-expanded.png#lightbox)
 
 Ahora el operador de Contoso puede consultar los dispositivos en función del equipo operativo:
 

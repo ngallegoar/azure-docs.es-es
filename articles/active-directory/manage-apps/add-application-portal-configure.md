@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 1cc7d7755d22568b9b66216709dc0c3765d58657
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d2a538cac1e8bcf9c67c88b206cacd928bfb73c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300160"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448217"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Configuración de las propiedades de una aplicación en el inquilino de Azure Active Directory (Azure AD)
 
@@ -47,7 +47,7 @@ Para editar las propiedades de la aplicación:
 3. Dedique un momento a comprender las opciones disponibles para su configuración:
     - La opción **¿Habilitado para que los usuarios inicien sesión?** determina si los usuarios asignados a la aplicación pueden iniciar sesión.
     - La opción **¿Asignación de usuarios?** determina si los usuarios que no están asignados a la aplicación pueden iniciar sesión.
-    - La opción **¿Es visible para los usuarios?** determina si los usuarios asignados a una aplicación pueden verla en [Mis aplicaciones](https://myapps.microsoft.com) y en el iniciador de aplicaciones de Office 365. (Vea el menú de gofres en la esquina superior izquierda de un sitio web de Office 365 o Microsoft 365).
+    - La opción **¿Es visible para los usuarios?** determina si los usuarios asignados a una aplicación pueden verla en [Mis aplicaciones](https://myapps.microsoft.com) y en el iniciador de aplicaciones de Microsoft 365. (Vea el menú de gofres en la esquina superior izquierda de un sitio web de Microsoft 365).
     
     > [!TIP]
     > La asignación de usuarios se produce en la sección **Usuarios y grupos** de la navegación.
@@ -86,7 +86,17 @@ Para usar un logotipo personalizado:
 > [!TIP]
 > La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
+## <a name="add-notes"></a>Agregar notas
 
+Puede usar el campo de notas para agregar información que sea relevante para la administración de la aplicación en Azure AD. Notas es un campo de texto libre con un tamaño máximo de 1024 caracteres.
+
+1. En el portal de Azure AD, seleccione **Aplicaciones empresariales**. Después, busque y seleccione la aplicación que desea configurar.
+2. En la sección **Administrar**, seleccione **Propiedades** para abrir el panel **Propiedades** para editarlo.
+3. Actualice el campo Notas y seleccione **Guardar**.
+
+    ![Captura de la pantalla Propiedades que muestra cómo cambiar las notas](media/add-application-portal/notes-application.png)
+
+    
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si no va a continuar con la serie de inicios rápidos, considere la posibilidad de eliminar la aplicación para limpiar el inquilino de prueba. La eliminación de la aplicación se trata en el último inicio rápido de esta serie, consulte [Eliminación de una aplicación](delete-application-portal.md).

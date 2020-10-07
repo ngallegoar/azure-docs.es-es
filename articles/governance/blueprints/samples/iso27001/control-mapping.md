@@ -3,12 +3,12 @@ title: Controles del ejemplo de plano técnico de la norma ISO 27001
 description: Asignación de controles del ejemplo de plano técnico ISO 27001. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 5ae720bd5be9d80d8e1be8315d2aea88a99dc54e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: a0d5b1118e1e063f7b4f8757e7d1b3935dc1a37c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927273"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535770"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Asignación de control del ejemplo de plano técnico según la norma ISO 27001
 
@@ -47,7 +47,7 @@ Conocer los recursos que infringen estas directivas ayuda a tomar medidas correc
 
 ## <a name="a923-management-of-privileged-access-rights"></a>A.9.2.3 Administración de los derechos de acceso con privilegios
 
-Este plano técnico ayuda a restringir y controlar los derechos de acceso con privilegios mediante la asignación de cuatro definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas externas con propietario, o escribir permisos y cuentas con propietario o permisos que no tienen la autenticación multifactor habilitada. Azure implementa el control de acceso basado en rol (RBAC) para administrar quién tiene acceso a los recursos de Azure. Este plano técnico también asigna tres definiciones de Azure Policy para auditar el uso de la autenticación de Azure Active Directory para SQL Server y Service Fabric. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft. Este plano técnico también asigna una definición de Azure Policy para auditar el uso de reglas RBAC personalizadas. Conocer dónde se implementan las reglas RBAC personalizadas ayuda a verificar que la implementación se necesita y se realiza correctamente, ya que estas suelen producir errores.
+Este plano técnico ayuda a restringir y controlar los derechos de acceso con privilegios mediante la asignación de cuatro definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas externas con propietario, o escribir permisos y cuentas con propietario o permisos que no tienen la autenticación multifactor habilitada. El control de acceso basado en roles (RBAC) de Azure ayuda a administrar quién tiene acceso a los recursos de Azure. Este plano técnico también asigna tres definiciones de Azure Policy para auditar el uso de la autenticación de Azure Active Directory para SQL Server y Service Fabric. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft. Este plano técnico también asigna una definición de Azure Policy para auditar el uso de reglas RBAC personalizadas de Azure. Comprender dónde se implementan las reglas RBAC personalizadas de Azure puede ayudarle a determinar la necesidad y correcta implementación, ya que estas reglas suelen producir errores.
 
 - MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción
 - MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción
@@ -69,7 +69,7 @@ Este plano técnico asigna tres definiciones de [Azure Policy](../../../policy/o
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revisión de los derechos de acceso de los usuarios
 
-Azure implementa el [control de acceso basado en rol (Azure RBAC) de Azure](../../../../role-based-access-control/overview.md) para ayudarle a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este plano técnico asigna cuatro definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas que deberían priorizarse para la revisión, incluidas las cuentas en desuso y externas con permisos elevados.
+El [control de acceso basado en roles (RBAC) de Azure](../../../../role-based-access-control/overview.md) ayuda a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este plano técnico asigna cuatro definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas que deberían priorizarse para la revisión, incluidas las cuentas en desuso y externas con permisos elevados.
 
 - Las cuentas en desuso deben quitarse de la suscripción
 - Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción
@@ -78,7 +78,7 @@ Azure implementa el [control de acceso basado en rol (Azure RBAC) de Azure](../.
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 Eliminación o ajuste de los derechos de acceso
 
-Azure implementa el [control de acceso basado en rol (Azure RBAC) de Azure](../../../../role-based-access-control/overview.md) para ayudarle a administrar quién tiene acceso a los recursos de Azure. Con [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) y RBAC puede actualizar los roles de usuario para reflejar los cambios en la organización. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna dos definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas en desuso cuya eliminación debería considerarse.
+El [control de acceso basado en roles (RBAC) de Azure](../../../../role-based-access-control/overview.md) ayuda a administrar quién tiene acceso a los recursos de Azure. Mediante [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) y Azure RBAC, puede actualizar los roles de usuario para reflejar cambios organizativos. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna dos definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas en desuso cuya eliminación debería considerarse.
 
 - Las cuentas en desuso deben quitarse de la suscripción
 - Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción

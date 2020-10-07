@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: bfac783fcb8ce88977fc8d97f821a7350f57aab8
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 2301219db250b97fd7ea2eb3814f5eba2c70148a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118583"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569863"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
 
@@ -36,19 +36,19 @@ Cosmos DB permite agregar o quitar cualquiera de las regiones de Azure de su cue
 
 ### <a name="always-on"></a>Always On
 
-En virtud de la integración profunda con la infraestructura de Azure y la [replicación transparente de la arquitectura multimaestro](global-dist-under-the-hood.md), Cosmos DB proporciona una [alta disponibilidad del 99,999 %](high-availability.md) tanto para lecturas como para escrituras. Cosmos DB también proporciona la capacidad para invocar mediante programación (o a través del Portal) la conmutación por error regional de su cuenta de Cosmos. Esta funcionalidad ayuda a garantizar que la aplicación está diseñada para la conmutación por error en caso de desastre regional.
+En virtud de la integración profunda con la infraestructura de Azure y la [replicación transparente de la escritura en varias regiones](global-dist-under-the-hood.md), Cosmos DB proporciona una [alta disponibilidad del 99,999 %](high-availability.md) tanto para lecturas como para escrituras. Cosmos DB también proporciona la capacidad para invocar mediante programación (o a través del Portal) la conmutación por error regional de su cuenta de Cosmos. Esta funcionalidad ayuda a garantizar que la aplicación está diseñada para la conmutación por error en caso de desastre regional.
 
 ### <a name="elastic-scalability-of-throughput-and-storage-worldwide"></a>Escalabilidad elástica del rendimiento y almacenamiento en todo el mundo
 
-Cosmos DB se ha diseñado con creación de particiones horizontales y replicación de arquitectura multimaestro y ofrece una escalabilidad elástica sin precedentes para las operaciones de lectura y escritura en todo el mundo. Puede escalar verticalmente de forma elástica entre miles y cientos de millones de solicitudes por segundo en todo el mundo, con una sola llamada API y pagar solo por el rendimiento (y almacenamiento) que necesite. Esta funcionalidad le ayuda a tratar solucionar cargas de trabajo inesperadas de las de forma predecible sin tener que aprovisionar recursos de más por estos picos de actividad. Para más información, consulte [Creación de particiones en Azure Cosmos DB](partitioning-overview.md), [Aprovisionamiento del rendimiento en contenedores y bases de datos](set-throughput.md) y [Escalado global del rendimiento aprovisionado](scaling-throughput.md).
+Cosmos DB se ha diseñado con una creación de particiones horizontales y una replicación de escritura en varias regiones y ofrece una escalabilidad elástica sin precedentes para las operaciones de lectura y escritura en todo el mundo. Puede escalar verticalmente de forma elástica entre miles y cientos de millones de solicitudes por segundo en todo el mundo, con una sola llamada API y pagar solo por el rendimiento (y almacenamiento) que necesite. Esta funcionalidad le ayuda a tratar solucionar cargas de trabajo inesperadas de las de forma predecible sin tener que aprovisionar recursos de más por estos picos de actividad. Para más información, consulte [Creación de particiones en Azure Cosmos DB](partitioning-overview.md), [Aprovisionamiento del rendimiento en contenedores y bases de datos](set-throughput.md) y [Escalado global del rendimiento aprovisionado](scaling-throughput.md).
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>Baja latencia garantizada en el percentil 99, en todo el mundo
 
-Mediante Cosmos DB se pueden crear aplicaciones de escala planetaria con una gran capacidad de respuesta. Con el nuevo protocolo de replicación de arquitectura multimaestro y un [motor de base de datos optimizado para escritura](index-policy.md) y sin bloqueos, Cosmos DB garantiza latencias inferiores a 10 ms para las operaciones de lectura (indexadas) y escritura en el percentil 99, en todo el mundo. Esta funcionalidad permite la ingesta sostenida de datos y consultas increíblemente rápidas en aplicaciones con alta capacidad de respuesta.
+Mediante Cosmos DB se pueden crear aplicaciones de escala planetaria con una gran capacidad de respuesta. Con su nuevo protocolo de replicación de escritura en varias regiones y un [motor de base de datos optimizado para escritura](index-policy.md) y sin bloqueos, Cosmos DB garantiza latencias inferiores a 10 ms para las operaciones de lectura (indexadas) y escritura en el percentil 99, en todo el mundo. Esta funcionalidad permite la ingesta sostenida de datos y consultas increíblemente rápidas en aplicaciones con alta capacidad de respuesta.
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Varias opciones de coherencia definidas con precisión
 
-Cuando compile aplicaciones distribuidas globalmente en Cosmos DB, ya no es preciso que haga [concesiones extremas entre coherencia, disponibilidad, latencia y rendimiento](consistency-levels-tradeoffs.md). El protocolo de replicación de la arquitectura multimaestro de Cosmos DB se ha diseñado meticulosamente para ofrecer [cinco opciones de coherencia bien definidas](consistency-levels.md) - *segura*, *obsolescencia limitada*, *sesión*, *prefijo coherente* y *eventual*, con el fin de disponer de un modelo de programación intuitivo con baja latencia y alta disponibilidad para aplicaciones distribuidas globalmente.
+Cuando compile aplicaciones distribuidas globalmente en Cosmos DB, ya no es preciso que haga [concesiones extremas entre coherencia, disponibilidad, latencia y rendimiento](consistency-levels-tradeoffs.md). El protocolo de replicación de escritura en varias regiones de Cosmos DB se ha diseñado meticulosamente para ofrecer [cinco opciones de coherencia bien definidas](consistency-levels.md) - *segura*, *obsolescencia limitada*, *sesión*, *prefijo coherente* y *eventual*, con el fin de disponer de un modelo de programación intuitivo con baja latencia y alta disponibilidad para aplicaciones distribuidas globalmente.
 
 ### <a name="no-schema-or-index-management"></a>Sin administración de índices o esquemas
 
@@ -56,7 +56,7 @@ Mantener la sincronización entre los índices y el esquema de una base de datos
 
 ### <a name="battle-tested-database-service"></a>Servicio de base de datos probado en el campo
 
-Cosmos DB es un servicio fundamental de Azure. Durante casi una década, muchos productos de Microsoft han utilizado Cosmos DB para aplicaciones críticas a escala global, entre las que se incluyen Skype, Xbox, Office 365, Azure, etc. En la actualidad, Cosmos DB es uno de los servicios de crecimiento más rápido de Azure y lo usan muchos clientes externos y aplicaciones críticas que requieren un escalado flexible, distribución global inmediata y replicación de la arquitectura multimaestro para ofrecer baja latencia y alta disponibilidad de operaciones de lectura y escritura.
+Cosmos DB es un servicio fundamental de Azure. Durante casi una década, muchos productos de Microsoft han utilizado Cosmos DB para aplicaciones críticas a escala global, entre las que se incluyen Skype, Xbox, Microsoft 365, Azure, etc. En la actualidad, Cosmos DB es uno de los servicios de crecimiento más rápido de Azure y lo usan muchos clientes externos y aplicaciones críticas que requieren un escalado flexible, distribución global inmediata y replicación de escritura en varias regiones para ofrecer baja latencia y alta disponibilidad de operaciones de lectura y escritura.
 
 ### <a name="ubiquitous-regional-presence"></a>Presencia en todas las regiones
 

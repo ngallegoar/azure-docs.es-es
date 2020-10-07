@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 627086bdb13acdd29821af399f90fee8deaae432
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f0d62ae3909bc886fa6a56ba7ed32d55d27302dd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76900178"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568665"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Configuración de la distribución global de Azure Cosmos DB con Table API
 
@@ -34,7 +34,7 @@ El SDK de Table API de Azure Cosmos DB elige automáticamente el mejor punto d
 
 * **Solicitudes de lectura:** Todas las solicitudes de lectura se envían al valor de `CurrentRegion` configurado. En función de la proximidad, el SDK selecciona automáticamente una región con replicación geográfica de reserva para lograr la alta disponibilidad.
 
-* **Solicitudes de escritura:** El SDK envía automáticamente todas las solicitudes de escritura a la región de escritura actual. En una cuenta de varios maestros, la región actual también atenderá las solicitudes de escritura. En función de la proximidad, el SDK selecciona automáticamente una región con replicación geográfica de reserva para lograr la alta disponibilidad.
+* **Solicitudes de escritura:** El SDK envía automáticamente todas las solicitudes de escritura a la región de escritura actual. En una cuenta de escritura en varias regiones, la región actual también atenderá las solicitudes de escritura. En función de la proximidad, el SDK selecciona automáticamente una región con replicación geográfica de reserva para lograr la alta disponibilidad.
 
 Si no se especifica la propiedad `CurrentRegion`, el SDK usa la región de escritura actual para todas las operaciones.
 

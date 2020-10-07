@@ -1,6 +1,6 @@
 ---
 title: Copia incremental de datos con Change Tracking en Azure Portal
-description: En este tutorial, creará una canalización de Azure Data Factory que copia los datos diferenciales de forma incremental de varias tablas de una base de datos de SQL Server a una base de datos de Azure SQL Database.
+description: En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de control de cambios de la base de datos de origen de Azure SQL Database a una instancia de Azure Blob Storage.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: c28489c2fa502f0ba1283abdea19219ed7438a99
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085827"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542026"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios en Azure Portal
 
@@ -285,10 +285,10 @@ En este paso, va a crear una canalización con la actividad de copia que copia t
 
 1. Haga clic en el **signo + (más)** en el panel izquierdo y en **Pipeline** (Canalización).
 
-    ![Menú New pipeline (Nueva canalización)](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
+    ![La captura de pantalla muestra la opción de canalización para una factoría de datos.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
 2. Verá una nueva pestaña para configurar la canalización. También verá la canalización en la vista de árbol. En la ventana **Properties** (Propiedades), cambie el nombre de la canalización a **FullCopyPipeline**.
 
-    ![Menú New pipeline (Nueva canalización)](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
+    ![La captura de pantalla muestra una canalización con un nombre especificado.](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
 3. En el cuadro de herramientas **Activities** (Actividades), expanda **Data Flow** (Flujo de datos), arrastre la actividad **Copy** (Copiar) y colóquela en la superficie del diseñador de canalizaciones; después, establezca el nombre en **FullCopyActivity**.
 
     ![Nombre de la actividad de copia completa](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
@@ -303,7 +303,7 @@ En este paso, va a crear una canalización con la actividad de copia que copia t
     ![Comprobación de la canalización](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones), haga clic en **Publish** (Publicar). Espere hasta que la publicación se realice correctamente.
 
-    ![Botón Publicar](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
+    ![La captura de pantalla muestra la factoría de datos, con el botón para publicar todo seleccionado.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
 8. Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente).
 
     ![Publicación correcta](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
@@ -315,16 +315,16 @@ En este paso, va a crear una canalización con la actividad de copia que copia t
 ### <a name="run-the-full-copy-pipeline"></a>Ejecución de la canalización de copia completa
 Haga clic en **Trigger** (Desencadenar) en la barra de herramientas de la canalización y en **Trigger Now** (Desencadenar ahora).
 
-![Menú Trigger Now (Desencadenar ahora)](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
+![La captura de pantalla muestra la opción para desencadenar ahora seleccionada en el menú correspondiente.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
 
 ### <a name="monitor-the-full-copy-pipeline"></a>Supervisión de la canalización de copia completa
 
 1. Haga clic en la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de la canalización en la lista y su estado. Haga clic en **Refresh** (Actualizar) para actualizar la lista. Los vínculos de la columna Actions (Acciones) permiten ver las ejecuciones de actividad asociadas a la de la canalización y volver a ejecutar la canalización.
 
-    ![Ejecuciones de la canalización](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
+    ![La captura de pantalla muestra las ejecuciones de la canalización para una factoría de datos.](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
 2. Para ver las ejecuciones de actividad asociadas a la de la canalización, haga clic en el vínculo **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Actions** (Acciones). Como solo hay una actividad en la canalización, solo verá una entrada en la lista. Para volver a la vista de ejecuciones de canalización, haga clic en el vínculo **Pipelines** (Canalizaciones) de la parte superior.
 
-    ![Ejecuciones de actividad](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
+    ![La captura de pantalla muestra las ejecuciones de actividad de una factoría de datos, con el vínculo de canalizaciones seleccionado.](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
 
 ### <a name="review-the-results"></a>Revisión del resultado
 Verá un archivo denominado `incremental-<GUID>.txt` en la carpeta `incchgtracking` del contenedor `adftutorial`.
@@ -362,19 +362,19 @@ En este paso, creará una canalización con las siguientes actividades y la ejec
 
 1. En la interfaz de usuario de Data Factory, cambie a la pestaña **Edit** (Editar). Haga clic en el **signo + (más)** en el panel izquierdo y en **Pipeline** (Canalización).
 
-    ![Menú New pipeline (Nueva canalización)](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
+    ![La captura de pantalla muestra cómo crear una canalización en una factoría de datos.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. Verá una nueva pestaña para configurar la canalización. También verá la canalización en la vista de árbol. En la ventana **Properties** (Propiedades), cambie el nombre de la canalización a **IncrementalCopyPipeline**.
 
     ![Nombre de la canalización](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
 3. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **LookupLastChangeTrackingVersionActivity**. Esta actividad obtiene la versión de seguimiento de cambios de la última operación de copia que se almacenó en la tabla **table_store_ChangeTracking_version**.
 
-    ![Actividad de búsqueda: nombre](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
+    ![La captura de pantalla muestra una canalización con una actividad de búsqueda.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Cambie a **Settings** (Configuración) en la ventana **Properties** (Propiedades) y seleccione **ChangeTrackingDataset** en el campo **Source Dataset** (Conjunto de datos de origen).
 
-    ![Actividad de búsqueda: configuración](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
+    ![La captura de pantalla muestra la pestaña de configuración en la ventana de propiedades.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
 5. Arrastre la actividad **Lookup** (Búsqueda) del cuadro de herramientas **Activities** (Actividades) y colóquela en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **LookupCurrentChangeTrackingVersionActivity**. Esta actividad obtiene la versión del seguimiento de cambios actual.
 
-    ![Actividad de búsqueda: nombre](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
+    ![La captura de pantalla muestra una canalización con dos actividades de búsqueda.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. Cambie a la pestaña **Settings** (Configuración) de la ventana **Properties** (Propiedades) y realice los pasos siguientes:
 
    1. Seleccione **SourceDataset** en el campo **Source Dataset** (Conjunto de datos de origen).
@@ -385,7 +385,7 @@ En este paso, creará una canalización con las siguientes actividades y la ejec
        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
        ```
 
-      ![Actividad de búsqueda: configuración](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![La captura de pantalla muestra una consulta agregada a la pestaña de configuración en la ventana de propiedades.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. En el cuadro de herramientas **Activities** (Actividades), expanda **Data Flow** (Flujo de datos), arrastre la actividad **Copy** (Copiar) y colóquela en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **IncrementalCopyActivity**. Esta actividad copia los datos de la última versión del seguimiento de cambios y la actual en el almacén de datos de destino.
 
     ![Actividad de copia: nombre](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
@@ -432,21 +432,21 @@ En este paso, creará una canalización con las siguientes actividades y la ejec
     ![Botón Validate (Comprobar)](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones) en el servicio Data Factory, haga clic en el botón **Publish All** (Publicar todo). Espere hasta ver el mensaje **Publishing succeeded** (Publicación correcta).
 
-       ![Botón Publicar](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![La captura de pantalla muestra el botón para publicar todo de una factoría de datos.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Ejecución de la canalización de la copia incremental
 1. Haga clic en **Trigger** (Desencadenar) en la barra de herramientas de la canalización y en **Trigger Now** (Desencadenar ahora).
 
-    ![Menú Trigger Now (Desencadenar ahora)](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![La captura de pantalla muestra una canalización con las actividades y la opción para desencadenar ahora seleccionada en el menú correspondiente.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
 2. En la ventana **Pipeline Run** (Ejecución de canalización), seleccione **Finish** (Finalizar).
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Supervisión de la canalización de la copia incremental
 1. Haga clic en la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de la canalización en la lista y su estado. Haga clic en **Refresh** (Actualizar) para actualizar la lista. Los vínculos de la columna **Actions** (Acciones) permiten ver las ejecuciones de actividad asociadas a la de la canalización y volver a ejecutar la canalización.
 
-    ![Ejecuciones de la canalización](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
+    ![La captura de pantalla muestra ejecuciones de la canalización para una factoría de datos, incluida su canalización.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
 2. Para ver las ejecuciones de actividad asociadas a la de la canalización, haga clic en el vínculo **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Actions** (Acciones). Como solo hay una actividad en la canalización, solo verá una entrada en la lista. Para volver a la vista de ejecuciones de canalización, haga clic en el vínculo **Pipelines** (Canalizaciones) de la parte superior.
 
-    ![Ejecuciones de actividad](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
+    ![La captura de pantalla muestra ejecuciones de la canalización para una factoría de datos, con varias de ellas marcadas como correctas.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 
 
 ### <a name="review-the-results"></a>Revisión del resultado

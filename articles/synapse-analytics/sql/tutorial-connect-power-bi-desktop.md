@@ -1,5 +1,5 @@
 ---
-title: Conexión de SQL a petición a Power BI Desktop y creación de informes
+title: 'Tutorial: Conexión de SQL a petición a Power BI Desktop y creación de informes'
 description: En este tutorial, aprenderá a conectar SQL a petición de Azure Synapse Analytics a Power BI Desktop y a crear informes de demostración basados en una vista.
 services: synapse analytics
 author: azaricstefan
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 325a2015e4107a20dfaec22e904cf3cc6ce3085d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089182"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539561"
 ---
 # <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Tutorial: Uso de SQL a petición con Power BI Desktop y creación de informes
 
@@ -45,7 +45,7 @@ Valores de estos parámetros:
 | Dirección de un punto de conexión del servicio de SQL a petición.    | Se usa como nombre de servidor.                                   |
 | Región de punto de conexión del servicio de SQL a petición.     | Se utiliza para determinar el almacenamiento usado en los ejemplos. |
 | Nombre de usuario y contraseña para el acceso al punto de conexión. | Se usa para acceder al punto de conexión.                               |
-| Base de datos que se va a usar para crear vistas.     | La base de datos utilizada como punto de partida en los ejemplos.       |
+| La base de datos que se va a usar para crear vistas.     | La base de datos utilizada como punto de partida en los ejemplos.       |
 
 ## <a name="1---create-database"></a>1\. Creación de la base de datos
 

@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: 182ab55f8e86d972293222f8a3bcf32dada89328
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987144"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449464"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Control del acceso a la cuenta de almacenamiento para SQL a petición (versión preliminar)
 
@@ -53,7 +53,7 @@ Para obtener un token de SAS, vaya a **Azure portal -> Cuenta de Storage -> Firm
 >
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
-Debe crear una credencial con ámbito en la base de datos o con ámbito en el servidor para habilitar el acceso mediante el token de SAS.
+Para habilitar el acceso mediante un token de SAS, debe crear una credencial con ámbito en la base de datos o con ámbito en el servidor. 
 
 ### <a name="managed-identity"></a>[Identidad administrada](#tab/managed-identity)
 
@@ -87,7 +87,7 @@ Puede usar las siguientes combinaciones de tipos de autorización y almacenamien
 | [Identidad administrada](?tabs=managed-identity#supported-storage-authorization-types) | Compatible      | Compatible        | Compatible     |
 | [Identidad de usuario](?tabs=user-identity#supported-storage-authorization-types)    | Compatible\*      | Compatible\*        | Compatible\*     |
 
-\* El token de SAS y la identidad de Azure AD se pueden usar para tener acceso a un almacenamiento que no está protegido con el firewall.
+\* El token de SAS y la identidad de Azure AD se pueden usar para tener acceso a un almacenamiento que no esté protegido con el firewall.
 
 > [!IMPORTANT]
 > Al acceder al almacenamiento protegido con el firewall, solo se puede usar la identidad administrada. Debe establecer [Permitir servicios de Microsoft de confianza…](../../storage/common/storage-network-security.md#trusted-microsoft-services) y [asignar un rol de Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de manera explícita a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) para esa instancia del recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de Azure que se asigna a la identidad administrada.
@@ -119,7 +119,7 @@ Para garantizar una experiencia de paso a través de Azure AD sin interrupcione
 
 ## <a name="server-scoped-credential"></a>Credencial con ámbito en el servidor
 
-Las credenciales con ámbito en el servidor se usan cuando el inicio de sesión de SQL llama a la función `OPENROWSET` sin `DATA_SOURCE` para leer archivos en alguna cuenta de almacenamiento. El nombre de la credencial con ámbito en el servidor **debe** coincidir con la dirección URL de Azure Storage. Para agregar una credencial, ejecute [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Deberá proporcionar un argumento CREDENTIAL NAME. Debe coincidir con una parte de la ruta de acceso o con toda la ruta de acceso a los datos de almacenamiento (consulte a continuación).
+Las credenciales con ámbito en el servidor se usan cuando el inicio de sesión de SQL llama a la función `OPENROWSET` sin `DATA_SOURCE` para leer archivos en alguna cuenta de almacenamiento. El nombre de la credencial con ámbito en el servidor **debe** coincidir con la dirección URL de Azure Storage. Para agregar una credencial, ejecute [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Deberá proporcionar un argumento CREDENTIAL NAME. Debe coincidir con una parte de la ruta de acceso o con toda la ruta de acceso a los datos de almacenamiento (consulte a continuación).
 
 > [!NOTE]
 > El argumento `FOR CRYPTOGRAPHIC PROVIDER` no se admite.
@@ -170,7 +170,7 @@ La credencial con ámbito en la base de datos no es necesaria para permitir el a
 
 ## <a name="database-scoped-credential"></a>Credencial con ámbito en la base de datos
 
-Las credenciales con ámbito en la base de datos se usan cuando cualquier entidad de seguridad llama a la función `OPENROWSET` con `DATA_SOURCE` o selecciona datos de [tabla externa](develop-tables-external-tables.md) que no tienen acceso a archivos públicos. No es necesario que la credencial con ámbito en la base de datos coincida con el nombre de la cuenta de almacenamiento porque se usará explícitamente en el ORIGEN DE DATOS que define la ubicación del almacenamiento.
+Las credenciales con ámbito en la base de datos se usan cuando cualquier entidad de seguridad llama a la función `OPENROWSET` con `DATA_SOURCE` o selecciona datos de [tabla externa](develop-tables-external-tables.md) que no tienen acceso a archivos públicos. No es necesario que la credencial con ámbito en la base de datos coincida con el nombre de la cuenta de almacenamiento. Se usará explícitamente en el ORIGEN DE DATOS que define la ubicación del almacenamiento.
 
 Las credenciales con ámbito en la base de datos permiten el acceso a Azure Storage mediante los siguientes tipos de autenticación:
 
@@ -268,7 +268,7 @@ El usuario de la base de datos puede leer el contenido de los archivos desde el 
 SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
-                                DATA_SOURCE = [mysample],
+                                DATA_SOURCE = 'mysample',
                                 FORMAT='PARQUET') as rows;
 GO
 ```
@@ -314,7 +314,7 @@ El usuario de la base de datos puede leer el contenido de los archivos desde el 
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = 'mysample', FORMAT='PARQUET') as rows;
 GO
 ```
 

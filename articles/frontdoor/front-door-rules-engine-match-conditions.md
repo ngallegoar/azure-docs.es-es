@@ -1,5 +1,5 @@
 ---
-title: Condiciones de coincidencia del motor de reglas de Azure Front Door
+title: Condiciones de coincidencia de los motores de reglas de Azure Front Door
 description: En este artículo se proporciona una lista de las distintas condiciones de coincidencia disponibles con el motor de reglas de Azure Front Door.
 services: frontdoor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1b2b891a0b6b67efef38005d3a4d67eecf41afbd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531872"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569766"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de Azure Front Door
 
-En el [motor de reglas de Azure Front Door](front-door-rules-engine.md) una regla consta de cero o más condiciones de coincidencia y de una acción. En este artículo se muestran descripciones detalladas de las condiciones de coincidencia que puede usar en el motor de reglas de Azure Front Door.
+En el [motor de reglas de Azure Front Door](front-door-rules-engine.md), una regla consta de ninguna o varias condiciones de coincidencia, y de una acción. En este artículo se muestran descripciones detalladas de las condiciones de coincidencia que puede usar en el motor de reglas de Azure Front Door.
 
 La primera parte de una regla es una condición de coincidencia o un conjunto de condiciones de coincidencia. Una regla puede contener hasta 10 condiciones de coincidencia. Una condición de coincidencia identifica tipos específicos de solicitudes para los que se realizan las acciones definidas. Si usa varias condiciones de coincidencia, estas se agruparán mediante la lógica AND. Para todas las condiciones de coincidencia que admiten varios valores (que se indican a continuación como "separadas por espacios"), se supone el operador "OR".
 
@@ -84,7 +84,7 @@ No tiene ninguna coincidencia de IP | Dirección IP (separada por espacios)
   - **Ejemplo IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* coincide con las solicitudes que llegan desde la dirección 1:2:3:4:5:6:7:8 o la 10:20:30:40:50:60:70:80.
 - La sintaxis de un bloque de direcciones IP es la dirección IP de base seguida por una barra diagonal y el tamaño del prefijo. Por ejemplo:
   - **Ejemplo IPv4**: *5.5.5.64/26* coincide con las solicitudes que llegan desde la dirección 5.5.5.64 hasta la 5.5.5.127.
-  - **Ejemplo IPv6**: *1:2:3:/48* coincide con las solicitudes que llegan desde la dirección 1:2:3:0:0:0:0:0 hasta la 1:2:3:ffff:ffff:ffff:ffff:ffff.
+  - **Ejemplo IPv6**: *1:2:3:/48* coincide con las solicitudes que lleguen desde la dirección 1:2:3:0:0:0:0:0 hasta la 1:2:3:ffff:ffff:ffff:ffff:ffff.
 
 ## <a name="request-body"></a>Cuerpo de la solicitud
 
@@ -204,11 +204,11 @@ En el caso de las reglas que aceptan valores de la lista de operadores estándar
 - No es mayor que
 - No es mayor o igual que
 
-En el caso de los operadores numéricos, como *Menor que* o *Mayor o igual que*, la comparación usada se basa en la longitud. En este caso, el valor de la condición de coincidencia debe ser un entero, igual a la longitud que quiere comparar. 
+En el caso de los operadores numéricos, como *Menor que* o *Mayor o igual que*, la comparación usada se basa en la longitud. El valor de la condición de coincidencia debe ser un entero, igual a la longitud que desee comparar. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a configurar su primera [configuración del motor de reglas](front-door-tutorial-rules-engine.md). 
+- Obtenga información acerca de cómo configurar el [primer motor de reglas](front-door-tutorial-rules-engine.md). 
 - Obtenga más información sobre las [acciones del motor de reglas](front-door-rules-engine-actions.md).
 - Obtenga más información acerca del [motor de reglas de Azure Front Door](front-door-rules-engine.md).

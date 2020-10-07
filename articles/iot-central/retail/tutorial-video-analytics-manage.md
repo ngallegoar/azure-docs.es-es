@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: dea009d6d246d68f0686c3dc85f3518ccb13705c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719077"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575204"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Supervisión y administración de una aplicación de análisis de vídeo con detección de objetos y movimiento
 
@@ -27,7 +27,7 @@ En este tutorial, aprenderá a:
 Antes de empezar, debe completar:
 
 * El tutorial [Creación de una aplicación de análisis de vídeo en directo en Azure IoT Central](./tutorial-video-analytics-create-app.md).
-* Uno de los anteriores tutoriales, [Creación de una instancia de IoT Edge para análisis de vídeo en directo (máquina virtual Linux)](tutorial-video-analytics-iot-edge-vm.md) o [Creación de una instancia de IoT Edge para análisis de vídeo en directo (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md).
+* Uno de los tutoriales anteriores: [Creación de una instancia de IoT Edge para análisis de vídeo en directo (máquina virtual Linux)](tutorial-video-analytics-iot-edge-vm.md) o [Creación de una instancia de IoT Edge para análisis de vídeo (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md).
 
 Debe tener [Docker](https://www.docker.com/products/docker-desktop) instalado en el equipo local para ejecutar la aplicación del visor de vídeo.
 
@@ -61,7 +61,7 @@ Si tiene dos cámaras conectadas al dispositivo de puerta de enlace IoT Edge, re
 
 Seleccione la pestaña **Downstream Devices** (Dispositivos de bajada) del dispositivo **LVA Gateway 001** para ver los dispositivos de cámara que acaba de agregar:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Inspeccionar":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Agregar cámara":::
 
 Los dispositivos de cámara también aparecen en la lista de la página **Devices** (Dispositivos) de la aplicación.
 
@@ -98,7 +98,7 @@ Seleccione **Guardar**.
 
 Después de unos segundos, verá el mensaje de confirmación **Accepted** (Aceptado) para cada configuración:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Detección de objetos":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Agregar cámara":::
 
 ## <a name="start-lva-processing"></a>Inicio del procesamiento de LVA
 
@@ -108,13 +108,13 @@ Ejecute el comando **Start LVA Processing** (Iniciar procesamiento de LVA).
 
 Cuando se complete el comando, consulte el historial de comandos para asegurarse de que no hay errores:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Comando Start LVA processing (Iniciar procesamiento de LVA)":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Agregar cámara":::
 
 ## <a name="monitor-the-cameras"></a>Supervisión de las cámaras
 
 Vaya al dispositivo **camera-003** y seleccione la pestaña **Dashboard** (Panel):
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Panel de la cámara":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Agregar cámara":::
 
 El icono **Detection Count** (Recuento de detecciones) muestra el recuento medio de detecciones de cada uno de los objetos de clases de detección seleccionados durante un intervalo de detección de un segundo.
 
@@ -157,7 +157,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 Vaya al dispositivo **camera-003** y seleccione la pestaña **Dashboard** (Panel). A continuación, haga clic en uno de los hipervínculos de detección de objetos capturados en el icono **Inference Event Video** (Vídeo de evento de inferencia). El reproductor de vídeo local muestra el vídeo en una página:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Fragmento de vídeo":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Agregar cámara":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>Cambio de los dispositivos simulados en los paneles de la aplicación
 
@@ -182,7 +182,7 @@ Los paneles de la aplicación se rellenan originalmente con los datos de telemet
 
 En el panel **Real Camera Monitor** (Monitor de cámara real) ahora se muestran los valores del dispositivo de cámara real:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Panel de la aplicación con cámaras reales":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Agregar cámara":::
 
 ## <a name="pause-processing"></a>Pausa del procesamiento
 

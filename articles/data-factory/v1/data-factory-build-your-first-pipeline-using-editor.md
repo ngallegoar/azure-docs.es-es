@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 4b291dcc95e0beecb1fd9fbf038055d8a77c7b79
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 50e6ce9b4c206650de72d9cdd41bdd6dd555acd2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254980"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566608"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Compilación de la primera instancia de Data Factory mediante Azure Portal
 > [!div class="op_single_selector"]
@@ -171,7 +171,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
 1. Asegúrese de que puede ver tanto **AzureStorageLinkedService** como **HDInsightOnDemandLinkedService** en la vista de árbol de la izquierda.
 
-    ![Vista de árbol con servicios vinculados](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
+    ![Captura de pantalla que muestra que AzureStorageLinkedService y HDInsightOnDemandLinkedService están vinculados entre sí.](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
 En este paso, creará conjuntos de datos que representan los datos de entrada y salida para el procesamiento de Hive. Estos conjuntos de datos hacen referencia al servicio AzureStorageLinkedService1 que creó anteriormente en este tutorial. Los puntos de servicio vinculados a una cuenta de almacenamiento. Los conjuntos de datos especifican el contenedor, la carpeta y el nombre de archivo del almacenamiento que contiene los datos de entrada y salida.   

@@ -1,39 +1,44 @@
 ---
-title: Emparejamiento de entornos locales con una nube privada
-description: En este tutorial de Azure VMware Solution se crea el emparejamiento de Global Reach de ExpressRoute con una nube privada de Azure VMware Solution.
+title: 'Tutorial: Emparejamiento de entornos locales con una nube privada'
+description: Aprenda a crear el emparejamiento de Global Reach de ExpressRoute y una nube privada en Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 07/16/2020
-ms.openlocfilehash: db3f5988cb8c07d9b6e80f500ac6aff8f96dfded
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/21/2020
+ms.openlocfilehash: 07b7e1c2636f3754eda56af574586a1027403d3e
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750450"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576734"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Emparejamiento de entornos locales con una nube privada
 
-Global Reach de ExpressRoute conecta el entorno local a las nubes privadas. La conexión de Global Reach de ExpressRoute se establece entre un circuito ExpressRoute de la nube privada y una conexión ExpressRoute existente a los entornos locales.  Hay instrucciones para configurar Global Reach de ExpressRoute con la CLI de Azure y PowerShell y hemos ampliado los [comandos de la CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) con detalles y ejemplos específicos que le ayudarán a configurar el emparejamiento de Global Reach de ExpressRoute entre los entornos locales y una nube privada de Azure VMware Solution.   
+Global Reach de ExpressRoute conecta su entorno local y la nubes privada de Azure VMware Solution. La conexión de Global Reach de ExpressRoute se establece entre el circuito ExpressRoute de la nube privada y una conexión existente de ExpressRoute con los entornos locales. 
 
-Antes de habilitar la conectividad entre dos circuitos ExpressRoute mediante Global Reach, consulte la documentación sobre cómo [habilitar la conectividad en distintas suscripciones de Azure](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  El circuito ExpressRoute que se usa al [configurar redes de Azure a la nube privada](tutorial-configure-networking.md) requiere la creación y el uso de claves de autorización para emparejar puertas de enlace de ExpressRoute u otros circuitos ExpressRoute mediante Global Reach. Ya habrá usado una clave de autorización del circuito ExpressRoute y va a crear una segunda para el emparejamiento con el circuito ExpressRoute local.
-
-> [!TIP]
-> En el contexto de estas instrucciones, el circuito ExpressRoute local es _circuit 1_ y el circuito ExpressRoute de la nube privada está en otra suscripción con la etiqueta _circuit 2_. 
+El circuito ExpressRoute que se usa al [configurar redes de Azure a la nube privada](tutorial-configure-networking.md) requiere la creación y el uso de claves de autorización para emparejar puertas de enlace de ExpressRoute u otros circuitos ExpressRoute mediante Global Reach. Ya habrá usado una clave de autorización del circuito ExpressRoute y, en este tutorial, va a crear una segunda clave para el emparejamiento con el circuito ExpressRoute local.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Aprovechar las instrucciones existentes para administrar los circuitos ExpressRoute y los emparejamientos de Global Reach de ExpressRoute
-> * Crear una clave de autorización para _circuit 2_, el circuito ExpressRoute de la nube privada
-> * Usar la CLI de Azure en Cloud Shell en la suscripción de _circuit 1_ para habilitar el emparejamiento de Global Reach de ExpressRoute entre el entorno local y la nube privada
+> * Crear una clave de autorización para _circuit 2_, el circuito ExpressRoute de nube privada.
+> * Usar la CLI de [Azure Portal](#azure-portal-method) o la [CLI de Azure en un método de Cloud Shell](#azure-cli-in-a-cloud-shell-method), en la suscripción de _circuit 1_ para habilitar el emparejamiento de Global Reach de ExpressRoute entre el entorno nube local y una nube privada.
+
+
+## <a name="before-you-begin"></a>Antes de empezar
+
+Antes de habilitar la conectividad entre dos circuitos ExpressRoute mediante Global Reach, consulte la documentación sobre cómo [habilitar la conectividad en distintas suscripciones de Azure](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Los requisitos previos de este tutorial son los siguientes:
-- Una nube privada con el circuito ExpressRoute emparejado con una puerta de enlace de ExpressRoute en una red virtual de Azure: _circuit 2_ desde la perspectiva de los procedimientos de emparejamiento.
-- Un circuito ExpressRoute independiente y en funcionamiento que se usa para conectar entornos locales a Azure: _circuit 1_ desde la perspectiva de los procedimientos de emparejamiento.
-- Un [bloque de direcciones de la red](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) /29 sin superposición para el emparejamiento de Global Reach de ExpressRoute.
+1. Establecimiento de conectividad a y desde una nube privada de Azure VMware Solution con su circuito ExpressRoute emparejado con una puerta de enlace de ExpressRoute en una red virtual (VNet) de Azure, que es _circuit 2_ en los procedimientos de emparejamiento.  
+1. Un circuito ExpressRoute independiente y funcional utilizado para conectar entornos locales con Azure, que es _circuit 1_ desde la perspectiva de los procedimientos de emparejamiento.
+1. Un [bloque de direcciones de la red](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) /29 sin superposición para el emparejamiento de Global Reach de ExpressRoute.
 
-## <a name="create-an-expressroute-authorization-key-in-the-azure-vmware-solution-private-cloud"></a>Creación de una clave de autorización de ExpressRoute en la nube privada de Azure VMware Solution
+> [!TIP]
+> En el contexto de estos requisitos previos, su circuito ExpressRoute local es _circuit 1_, y su circuito ExpressRoute de nube privada está en otra suscripción y se denomina _circuit 2_. 
+
+
+## <a name="create-an-expressroute-authorization-key-in-the-private-cloud"></a>Creación de una clave de autorización de ExpressRoute en la nube privada
 
 1. En la nube privada **Información general**, en Administrar, seleccione **Conectividad > ExpressRoute > Solicitar una clave de autorización**.
 
@@ -41,31 +46,55 @@ Los requisitos previos de este tutorial son los siguientes:
 
 2. Escriba el nombre de la clave de autorización y seleccione **Crear**. 
 
-   :::image type="content" source="media/expressroute-global-reach/create-global-reach-auth-key.png" alt-text="Haga clic en Crear para crear una clave de autorización. ":::
+   :::image type="content" source="media/expressroute-global-reach/create-global-reach-auth-key.png" alt-text="Selección de Conectividad > ExpressRoute > Solicitar una clave de autorización para iniciar una nueva solicitud.":::
 
    Una vez creada, la nueva clave aparece en la lista de claves de autorización para la nube privada. 
 
-   :::image type="content" source="media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Confirme que la nueva clave de autorización aparece en la lista de claves de la nube privada. ":::
+   :::image type="content" source="media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Selección de Conectividad > ExpressRoute > Solicitar una clave de autorización para iniciar una nueva solicitud.":::
 
 3. Tome nota de la clave de autorización y del identificador de ExpressRoute, junto con el bloque de direcciones /29. Los usará en el paso siguiente para completar el emparejamiento. 
 
 ## <a name="peer-private-cloud-to-on-premises-using-authorization-key"></a>Emparejamiento de la nube privada a un entorno local con clave de autorización
 
-Ahora que ha creado una clave de autorización para el circuito ExpressRoute de la nube privada, puede emparejarlo con el circuito ExpressRoute local.  El emparejamiento se realiza desde la perspectiva del circuito ExpressRoute local mediante el CLI de Azure en Cloud Shell, y un identificador de recurso y una clave de autorización del circuito ExpressRoute de la nube privada (que se crearon en los pasos anteriores).
+Ahora que ha creado una clave de autorización para el circuito ExpressRoute de la nube privada, puede emparejarlo con el circuito ExpressRoute local.  El emparejamiento se realiza desde la perspectiva del circuito ExpressRoute local en [Azure Portal](#azure-portal-method) o mediante la [CLI de Azure en un método de Cloud Shell](#azure-cli-in-a-cloud-shell-method). Con cualquiera de los métodos, usará el identificador de recurso y la clave de autorización del circuito ExpressRoute de nube privada, que creó en los pasos anteriores, para finalizar el emparejamiento.
+
+### <a name="azure-portal-method"></a>Método de Azure Portal
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) mediante la misma suscripción que el circuito ExpressRoute local.
+
+1. En la sección de **información general** de la nube privada, en Administrar, seleccione **Conectividad > Global Reach de ExpressRoute > Agregar**.
+
+   :::image type="content" source="./media/expressroute-global-reach/expressroute-global-reach-tab.png" alt-text="Selección de Conectividad > ExpressRoute > Solicitar una clave de autorización para iniciar una nueva solicitud.":::
+
+1. Para crear una conexión a la nube local, lleve a cabo una de las siguientes acciones:
+
+   - Seleccione el circuito ExpressRoute en la lista.
+   - Si tiene un identificador de circuito, cópielo y péguelo.
+
+1. Seleccione **Conectar**. La nueva conexión se muestra en la lista de conexiones a la nube local.  
+
+>[!TIP]
+>Para eliminar o desconectar una conexión de la lista, seleccione **Más**.  
+>
+> :::image type="content" source="./media/expressroute-global-reach/on-premises-connection-disconnect.png" alt-text="Selección de Conectividad > ExpressRoute > Solicitar una clave de autorización para iniciar una nueva solicitud.":::
+
+### <a name="azure-cli-in-a-cloud-shell-method"></a>CLI de Azure en un método de Cloud Shell
+
+Hemos ampliado los [comandos de la CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) para incluir detalles y ejemplos específicos que le ayudarán a configurar el emparejamiento de Global Reach de ExpressRoute entre entornos locales y una nube privada de Azure VMware Solution.  
 
 > [!TIP]  
-> Para una salida más breve del comando de la CLI de Azure, estas instrucciones pueden usar un argumento [`–query` para ejecutar una consulta JMESPath y que se muestren solo los resultados necesarios](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest).
+> Para una salida más breve del comando de la CLI de Azure, estas instrucciones pueden usar un argumento [`–query` para ejecutar una consulta JMESPath y que se muestren solo los resultados necesarios](https://docs.microsoft.com/cli/azure/query-azure-cli).
 
 
 1. Inicie sesión en Azure Portal con la misma suscripción que el circuito ExpressRoute local y abra Cloud Shell. Deje el shell como Bash.
  
-   :::image type="content" source="media/expressroute-global-reach/open-cloud-shell.png" alt-text="Inicie sesión en Azure Portal y abra Cloud Shell.":::
+   :::image type="content" source="media/expressroute-global-reach/open-cloud-shell.png" alt-text="Selección de Conectividad > ExpressRoute > Solicitar una clave de autorización para iniciar una nueva solicitud.":::
  
 2. En la línea de comandos, escriba el comando de la CLI de Azure para crear el emparejamiento con su información e identificador de recurso específicos, la clave de autorización y el bloque de red /29 CIDR. 
 
    A continuación se muestra un ejemplo del comando que usará y la salida que indica un emparejamiento correcto. El comando de ejemplo se basa en el comando que se usa en el [paso 3 de "Habilitación de la conectividad entre circuitos ExpressRoute en distintas suscripciones de Azure"](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).
 
-   :::image type="content" source="media/expressroute-global-reach/azure-command-with-results.png" alt-text="Creación del emparejamiento de Global Reach de ExpressRoute con el comando de la CLI de Azure en Cloud Shell.":::
+   :::image type="content" source="media/expressroute-global-reach/azure-command-with-results.png" alt-text="Selección de Conectividad > ExpressRoute > Solicitar una clave de autorización para iniciar una nueva solicitud.":::
  
    Ahora debería poder conectarse desde los entornos locales a la nube privada mediante el emparejamiento de Global Reach de ExpressRoute.
 
@@ -75,7 +104,12 @@ Ahora que ha creado una clave de autorización para el circuito ExpressRoute de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si tiene previsto usar la extensión de nube híbrida (HCX) para migrar las cargas de trabajo de máquinas virtuales a la nube privada, use el procedimiento [Instalación de HCX para Azure VMware Solution](hybrid-cloud-extension-installation.md).
+En este tutorial, ha aprendido a crear una segunda clave de autorización para el circuito ExpressRoute de nube privada y a habilitar el emparejamiento de Global Reach de ExpressRoute entre el entorno local y una nube privada. 
+
+Continúe con el siguiente tutorial para aprender a implementar y configurar la solución VMware HCX para su nube privada de Azure VMware Solution.
+
+> [!div class="nextstepaction"]
+> [Implementación y configuración de VMware HCX](tutorial-deploy-vmware-hcx.md)
 
 
 <!-- LINKS - external-->

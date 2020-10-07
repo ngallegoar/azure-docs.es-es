@@ -1,19 +1,19 @@
 ---
-title: Script de PowerShell para cambiar la prioridad de conmutación por error de una cuenta de Azure Cosmos maestra individual
-description: 'Script de Azure PowerShell ejemplo: cambiar la prioridad de conmutación por error o desencadenar la conmutación por error en una cuenta maestra individual de Azure Cosmos DB'
+title: Script de PowerShell para cambiar la prioridad de conmutación por error para una cuenta de Azure Cosmos con una región de solo escritura.
+description: Ejemplo de script de Azure PowerShell para cambiar la prioridad de conmutación por error o desencadenar la conmutación por error para una cuenta de Azure Cosmos con una región de solo escritura.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: a81938675e72d9ec3a18c920121951e38580b91e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 07561de8236a06a3ac34aa8867a07890aaf0656f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505272"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570592"
 ---
-# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>Cambio de la prioridad de conmutación por error o del desencadenamiento de la conmutación por error en una cuenta maestra individual de Azure Cosmos DB mediante PowerShell
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-with-single-write-region-by-using-powershell"></a>Cambio de la prioridad de conmutación por error o desencadenamiento de la conmutación por error para una cuenta de Azure Cosmos con una región de solo escritura mediante PowerShell.
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

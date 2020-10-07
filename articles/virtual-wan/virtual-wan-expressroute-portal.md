@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: b78c2b93a9427105ce2cc0ad8bd5d2b995c834ae
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 536d233a9c135b0b7dde6d6d80c705d2008226e6
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976283"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569644"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN
 
@@ -40,7 +40,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 * Obtenga un intervalo de direcciones IP para la región del concentrador. El centro de conectividad es una red virtual que Virtual WAN crea y usa. El intervalo de direcciones que especifique para el centro de conectividad no se puede superponer a ninguna de las redes virtuales existentes a las que ya esté conectado. Igualmente no se puede superponer a los intervalos de direcciones con las que esté conectadas en el entorno local. Si no está familiarizado con los intervalos de direcciones IP ubicados en la configuración de la red local, póngase de acuerdo con alguien que pueda proporcionarle estos detalles.
 
-* El circuito ExpressRoute debe ser un circuito Premium para conectarse a la puerta de enlace del centro.
+* El circuito ExpressRoute debe ser un circuito Premium o Standard para conectarse a la puerta de enlace del centro.
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -105,7 +105,7 @@ En esta sección, creará la conexión de emparejamiento entre el centro de cone
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Conexión del circuito a la puerta de enlace del centro de conectividad
 
-Una vez que se crea la puerta de enlace, puede conectarle un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Los circuitos Premium de ExpressRoute que se encuentran en las ubicaciones compatibles de ExpressRoute Global Reach, pueden conectarse a una puerta de enlace de ExpressRoute de Virtual WAN.
+Una vez que se crea la puerta de enlace, puede conectarle un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Los circuitos ExpressRoute Premium y Standard que se encuentran en las ubicaciones compatibles de ExpressRoute Global Reach pueden conectarse a una puerta de enlace ExpressRoute Virtual WAN y disfrutar de todas las funcionalidades de tránsito de WAN Virtual (VPN a VPN, VPN y tránsito ExpressRoute). Los circuitos de ExpressRoute Premium y Standard que se encuentren en ubicaciones que no sean de Global Reach no podrán usar las funcionalidades de tránsito de WAN virtual.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Para conectar el circuito a la puerta de enlace del centro de conectividad
 

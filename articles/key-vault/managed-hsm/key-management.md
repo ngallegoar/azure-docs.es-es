@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 9353750fdbbb52aff60fc41b7fd028ec4c5f0ec8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 846153dd482130bbb3b35c38a3dbb791e0d0d32e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992299"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448282"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Administración de un HSM administrado mediante la CLI de Azure
 
@@ -53,7 +53,7 @@ Utilice el comando `az keyvault key create` para crear una clave.
 
 ### <a name="create-an-rsa-key"></a>Creación de una clave RSA
 
-En el ejemplo siguiente se muestra cómo crear una clave **RSA** de 3070 bits que solo se utilizará para las operaciones **wrapKey y unwrapKey** (--ops). 
+En el ejemplo siguiente se muestra cómo crear una clave **RSA** de 3072 bits que solo se utilizará para las operaciones **wrapKey y unwrapKey** (--ops). 
 
 
 ```azurecli-interactive
@@ -82,7 +82,7 @@ az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec25
 
 ### <a name="create-a-256-bit-symmetric-key"></a>Creación de una clave simétrica de 256 bits
 
-En el ejemplo siguiente se muestra cómo crear una clave **simétrica** de 3070 bits que solo se utilizará para las operaciones **encrypt y decrypt** (--ops).
+En el ejemplo siguiente se muestra cómo crear una clave **simétrica** de 256 bits que solo se utilizará para las operaciones **encrypt y decrypt** (--ops).
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decrypt  --tags --kty oct-HSM --size 256

@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 91a4e2f6a770282e9d031c31fdf1af15f0cd00bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb7a32199117be76e411155910d558ef187398ab
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067555"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448252"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Recopilación de datos de una máquina virtual de Azure con Azure Monitor
 
@@ -87,7 +87,7 @@ Azure Monitor puede recopilar eventos de los registros de eventos de Windows o d
 
 7. La primera vez que se configuran los contadores de rendimiento Windows para un área de trabajo de Log Analytics nueva, se ofrece la opción de crear rápidamente varios contadores comunes. Se muestran todos con una casilla junto a cada uno.
 
-    ![Contadores de rendimiento predeterminados de Windows seleccionados](media/quick-collect-azurevm/windows-perfcounters-default.png)
+    ![Captura de pantalla del panel de contadores de rendimiento de Windows con una lista de contadores seleccionados y el botón Agregar los contadores de rendimiento seleccionados seleccionado.](media/quick-collect-azurevm/windows-perfcounters-default.png)
 
     Seleccione **Agregar los contadores de rendimiento seleccionados**.  Se agregan con el valor preestablecido de un intervalo de ejemplo de recopilación de diez segundos.
   
@@ -107,7 +107,7 @@ Azure Monitor puede recopilar eventos de los registros de eventos de Windows o d
 
 6. La primera vez que se configuran los contadores de rendimiento Linux para un área de trabajo de Log Analytics nueva, se ofrece la opción de crear rápidamente varios contadores comunes. Se muestran todos con una casilla junto a cada uno.
 
-    ![Contadores de rendimiento predeterminados de Windows seleccionados](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
+    ![Captura de pantalla del panel de contadores de rendimiento de Linux con una lista de contadores seleccionados y el botón Agregar los contadores de rendimiento seleccionados seleccionado.](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Seleccione **Aplicar la configuración siguiente a mis máquinas** y, luego, **Agregar los contadores de rendimiento seleccionados**.  Se agregan con el valor preestablecido de un intervalo de ejemplo de recopilación de diez segundos.  
 
