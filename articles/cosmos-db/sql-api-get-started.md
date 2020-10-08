@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 514fe30da9c0e232c168992c2aabbb484644aa99
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 912b4966312d8925f70deeed99042d2701641f49
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015312"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801518"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Tutorial: Compilación de una aplicación de consola .NET para administrar datos de la cuenta de API de SQL de Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Vamos a crear una cuenta de Azure Cosmos DB. Si ya tiene una cuenta que desea us
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en la nueva aplicación de consola, que se encuentra en la solución de Visual Studio y, a continuación, seleccione **Administrar paquetes NuGet**.
 1. En **Administrador de paquetes NuGet**, seleccione **Examinar** y busque *Microsoft.Azure.Cosmos*. Elija **Microsoft.Azure.Cosmos** y seleccione **Instalar**.
 
-   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-manage-nuget-2019.png" alt-text="Instalación de NuGet para el SDK de cliente de Azure Cosmos DB":::
+   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-manage-nuget-2019.png" alt-text="Configuración del proyecto":::
 
    El identificador del paquete de la biblioteca de cliente de la API de SQL de Azure Cosmos DB es [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
 
@@ -121,7 +121,7 @@ Estupendo. Ahora que hemos terminado la configuración, comencemos a escribir al
 
 1. Abra [Azure Portal](https://portal.azure.com). Busque la cuenta de Azure Cosmos DB y seleccione **Claves**.
 
-   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="Obtención de las claves de Azure Cosmos DB en Azure Portal":::
+   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="Configuración del proyecto":::
 
 1. En *Program.cs*, reemplace `<your endpoint URL>` por el valor de **URI**. Reemplace `<your primary key>` por el valor de **CLAVE PRINCIPAL**.
 
@@ -278,7 +278,7 @@ Felicidades. Ha creado correctamente una base de datos de Azure Cosmos.
 >
 >
 
-Un contenedor se puede crear con los métodos [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) o [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) en la clase `CosmosDatabase`. Un contenedor se compone de elementos (que en el caso de SQL API son documentos JSON) y una lógica de aplicación del servidor en JavaScript asociada, como por ejemplo procedimientos almacenados, funciones definidas por el usuario y desencadenadores.
+Un contenedor se puede crear con los métodos [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) o [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) en la clase `CosmosDatabase`. Un contenedor se compone de elementos (que en el caso de SQL API son documentos JSON) y una lógica de aplicación del servidor en JavaScript asociada, como por ejemplo procedimientos almacenados, funciones definidas por el usuario y desencadenadores.
 
 1. Copie y pegue el método `CreateContainerAsync` debajo del método `CreateDatabaseAsync`. `CreateContainerAsync` crea un nuevo contenedor con el identificador `FamilyContainer`, si aún no existe, utilizando el identificador especificado en el campo `containerId` particionado por la propiedad `LastName`.
 
@@ -304,13 +304,13 @@ Felicidades. Ha creado correctamente un contenedor de Azure Cosmos.
 
 ## <a name="step-6-add-items-to-the-container"></a><a id="CreateDoc"></a>Paso 6: Agregar elementos al contenedor
 
-El método [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) de la clase `CosmosContainer` puede crear un elemento. Cuando se usa SQL API, los elementos se proyectan como documentos, que son contenido JSON arbitrario definido por el usuario. Ya puede insertar un elemento en el contenedor de Azure Cosmos.
+El método [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) de la clase `CosmosContainer` puede crear un elemento. Cuando se usa SQL API, los elementos se proyectan como documentos, que son contenido JSON arbitrario definido por el usuario. Ya puede insertar un elemento en el contenedor de Azure Cosmos.
 
 En primer lugar, vamos a crear una clase llamada `Family` que representará los objetos almacenados en Azure Cosmos DB en este ejemplo. También crearemos las subclases `Parent`, `Child`, `Pet`, `Address` que se usan en `Family`. El elemento debe tener una propiedad `Id` serializada como `id` en JSON.
 
 1. Seleccione Ctrl+Mayús+A para abrir **Agregar nuevo elemento**. Agregue una nueva clase `Family.cs` al proyecto.
 
-    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="Captura de pantalla de la adición de una nueva clase de Family.cs al proyecto":::
+    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="Configuración del proyecto":::
 
 1. Copie y pegue las clases `Family`, `Parent`, `Child`, `Pet` y `Address` a `Family.cs`.
 

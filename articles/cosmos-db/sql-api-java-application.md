@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 9daa09209818b9e01738630911a1bb926e3c257d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 913bc4373785d9341064e505ddce84fe43f727b1
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079950"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801603"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Compilación de una aplicación web de Java mediante Azure Cosmos DB y la API de SQL
 
@@ -47,7 +47,7 @@ Antes de comenzar este tutorial de desarrollo de aplicaciones, debe disponer de 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Kit de desarrollo de Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable).
+* [Kit de desarrollo de Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true).
 * [IDE de Eclipse para desarrolladores de Java EE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Un sitio web de Azure con un entorno de tiempo de ejecución Java (por ejemplo, Tomcat o Jetty) habilitado.](../app-service/quickstart-java.md)
 
@@ -67,7 +67,7 @@ Para crear la aplicación JSP:
 
 1. En primer lugar, empezaremos por la creación de un proyecto de Java. Inicie Eclipse, haga clic en **File** (Archivo), haga clic en **New** (Nuevo) y luego haga clic en **Dynamic Web Project** (Proyecto web dinámico). Si **Dynamic Web Project** (Proyecto web dinámico) no aparece como proyecto disponible, haga lo siguiente: haga clic en **File** (Archivo), **New** (Nuevo), **Project** (Proyecto), expanda **Web**, haga clic en **Dynamic Web Project** (Proyecto web dinámico) y haga clic en **Next** (Siguiente).
    
-    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Desarrollo de aplicaciones Java JSP":::
+    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Aplicación Java My ToDo List":::
 
 1. Escriba un nombre de proyecto en el cuadro **Project name** (Nombre de proyecto) y en el menú desplegable **Target Runtime** (Tiempo de ejecución de destino), seleccione opcionalmente un valor (por ejemplo, Apache Tomcat v7.0) y, a continuación, haga clic en **Finish** (Finalizar). Si selecciona un tiempo de ejecución de destino, puede ejecutar el proyecto localmente a través de Eclipse.
 
@@ -75,7 +75,7 @@ Para crear la aplicación JSP:
 
 1. En el cuadro de diálogo **New JSP File** (Nuevo archivo JSP), asigne al archivo el nombre **index.jsp**. Mantenga la carpeta principal como **WebContent**, como se muestra en la ilustración siguiente y, a continuación, haga clic en **Next** (Siguiente).
    
-    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Tutorial de creación de un nuevo archivo JSP: aplicación web de Java":::
+    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Aplicación Java My ToDo List":::
 
 1. En el cuadro de diálogo **Select JSP Template** (Seleccionar plantilla JSP), para cumplir con el objetivo de este tutorial, seleccione **New JSP File (html)** (Nuevo archivo JSP [html]) y haga clic en **Finish** (Finalizar).
 
@@ -91,7 +91,7 @@ Para crear la aplicación JSP:
 
 1. Si ha establecido un tiempo de ejecución de destino en el paso 2, puede hacer clic en **Project** (Proyecto) y, a continuación, en **Run** (Ejecutar) para ejecutar su aplicación de JSP localmente:
 
-   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Hola mundo – Tutorial de aplicación de Java":::
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Aplicación Java My ToDo List":::
 
 ## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Instalación del SDK de SQL para Java
 

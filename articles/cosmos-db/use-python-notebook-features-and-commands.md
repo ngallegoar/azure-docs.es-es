@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: f4236b099915e737f9d489d89e5bf18b84736d75
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5599a64e812c3006cf4379f98c5a0f0b0cd067e7
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761202"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801858"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Uso de los comandos y las características de cuadernos integrados en cuadernos de Python de Azure Cosmos DB (versión preliminar)
 
@@ -167,7 +167,7 @@ consulte los [ejemplos de SDK de Python](https://github.com/Azure/azure-sdk-for-
 ## <a name="create-a-custom-instance-of-cosmos_client"></a>Creación de una instancia personalizada de ``cosmos_client``
 Para lograr una mayor flexibilidad, puede crear una instancia personalizada de ``cosmos_client`` con el fin de:
 
-- Personalizar la [directiva de conexión](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview).
+- Personalizar la [directiva de conexión](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true).
 - Ejecución de operaciones en una cuenta de Azure Cosmos diferente de la que se está usando.
 
 Puede obtener acceso a la cadena de conexión y a la clave principal de la cuenta actual a través de las [variables de entorno](#access-the-account-endpoint-and-primary-key-env-variables). 
@@ -200,7 +200,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Restablecer el área de trabajo de los cuadernos
 Para restablecer la configuración predeterminada del área de trabajo de los cuadernos, seleccione **Reset Workspace** (Restablecer el área de trabajo) en la barra de comandos. Se quitarán todos los paquetes instalados personalizados y se reiniciará el servidor de Jupyter. Los cuadernos, los archivos y los recursos de Azure Cosmos no se verán afectados.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Restablecer el área de trabajo de los cuadernos":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Explorador de datos nteract":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

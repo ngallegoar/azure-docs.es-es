@@ -134,14 +134,12 @@
       items:
         - name: Instalación de Azure Firewall en un centro de conectividad
           href: howto-firewall.md
+        - name: Configuración de la conectividad de Private Link
+          href: howto-private-link.md
     - name: Supervisión
       items:
         - name: Registros y métricas
           href: logs-metrics.md
-    - name: Private Link
-      items:
-        - name: Configuración de la conectividad de Private Link
-          href: howto-private-link.md
 - name: Referencia
   items:
     - name: Azure PowerShell

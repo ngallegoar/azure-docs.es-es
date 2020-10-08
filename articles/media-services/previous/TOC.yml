@@ -302,13 +302,12 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Diseño con DRM múltiple de referencia
               href: media-services-cenc-with-multidrm-access-control.md
-        - name: Proceso con Indexer
-          href: media-services-index-content.md
-          items:
-            - name: Valor predefinido de tarea
-              href: indexer-task-preset.md
     - name: Análisis de contenido
       items:
+        - name: Proceso con Indexer
+          href: media-services-index-content.md
+        - name: Valor predefinido de tarea
+          href: indexer-task-preset.md
         - name: Proceso con Face Redactor
           href: media-services-face-redaction.md
         - name: Tutorial de Face Redactor

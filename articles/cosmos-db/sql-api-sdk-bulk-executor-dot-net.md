@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5944cbeea2e26d7209cde7c926f862683c7cab7e
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 5203223f8468a4dfa0faf2df92e826a62f7bbfcf
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590207"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802759"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca Bulk Executor para .NET: Información de descarga 
 
@@ -41,7 +41,7 @@ ms.locfileid: "88590207"
 | **Descripción**| La biblioteca Bulk Executor para .NET permite a las aplicaciones cliente realizar operaciones masivas en las cuentas de Azure Cosmos DB. Esta biblioteca proporciona los espacios de nombres BulkImport, BulkUpdate y BulkDelete. El módulo BulkImport puede ingerir documentos en masa de forma optimizada, de tal forma que la capacidad de proceso aprovisionada para una colección se consuma en el máximo nivel posible. El módulo BulkUpdate puede actualizar en masa los datos existentes en los contenedores de Azure Cosmos como revisiones. El módulo BulkDelete puede eliminar documentos en masa de forma optimizada, de tal forma que el rendimiento aprovisionado para una colección se consuma en el máximo nivel posible.|
 |**Descarga del SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Biblioteca BulkExecutor en GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
-|**Documentación de la API**|[Documentación de referencia de API de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
+|**Documentación de la API**|[Documentación de referencia de API de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet&preserve-view=true)|
 |**Introducción**|[Introducción al SDK de .NET para la biblioteca BulkExecutor](bulk-executor-dot-net.md)|
 | **Plataforma admitida actualmente**| Microsoft .NET Framework 4.5.2, 4.6.1 y .NET Standard 2.0 |
 

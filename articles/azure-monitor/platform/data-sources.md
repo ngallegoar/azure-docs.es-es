@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/19/2019
-ms.openlocfilehash: d469566d7ae5feda37944dda5a0702dca6fca19b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 10/06/2020
+ms.openlocfilehash: 8ef498a51f25a6b084a0d048661f3d18a5881644
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515587"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802077"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Orígenes de datos de supervisión para Azure Monitor
 Azure Monitor se basa en una [plataforma de datos de supervisión común](data-platform.md) que incluye [registros](data-platform-logs.md) y [métricas](data-platform-metrics.md). La recopilación de datos en esta plataforma permite que los datos de múltiples recursos se analicen juntos mediante un conjunto común de herramientas en Azure Monitor. Los datos de supervisión también pueden enviarse a otras ubicaciones para admitir determinados escenarios, y algunos recursos pueden realizar operaciones de escritura en otras ubicaciones para poder recopilarse en registros o métricas.
@@ -86,7 +86,7 @@ El [registro de actividad de Azure](platform-logs-overview.md) incluye registros
 ## <a name="azure-resources"></a>Recursos de Azure
 Los registros de métricas y recursos proporcionan información sobre el funcionamiento _interno_ de los recursos de Azure. Están disponibles para la mayoría de servicios de Azure, y las perspectivas y soluciones de administración proporcionan datos adicionales para determinados servicios.
 
-![Colección de recursos de Azure](media/data-sources/azure-resources.png)
+![Colección de recursos de Azure](media/data-sources/data-source-azure-resources.svg)
 
 
 ### <a name="platform-metrics"></a>Métricas de la plataforma 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/15/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d22b0100074a230451e5c6b3967fa5dbc8ae3f56
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 535ee447ff63aabb9af1f32252fb4e4dd2c392de
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515925"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779763"
 ---
 En la siguiente tabla se muestra la información de cuotas específica de la mensajería de Azure Service Bus. Para obtener información sobre los precios y otras cuotas de Service Bus, vea [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -32,7 +32,7 @@ En la siguiente tabla se muestra la información de cuotas específica de la men
 | Tamaño máximo de un [identificador de sesión](/dotnet/api/microsoft.azure.servicebus.message.sessionid) de mensaje | Entidad |- | 128 |
 | Tamaño de mensaje de una cola, un tema o una entidad de suscripción |Entidad |Los mensajes entrantes que superan estas cuotas se rechazan y el código que llama recibe una excepción. |Tamaño de mensaje máximo: 256 KB para el [nivel Estándar](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 MB para el [nivel Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />Debido a la sobrecarga del sistema, este límite es menor que estos valores.<br /><br />Tamaño de encabezado máximo: 64 KB.<br /><br />Número máximo de propiedades de encabezado en el contenedor de propiedades: **byte/int.MaxValue**.<br /><br />Tamaño máximo de la propiedad en el contenedor de propiedades: sin límite explícito. Limitado por tamaño de encabezado máximo. |
 | Tamaño de propiedad de mensaje para una cola, un tema o una entidad de suscripción |Entidad | Se genera la excepción `SerializationException`. |El tamaño máximo de propiedad de mensaje para cada propiedad es 32 000. El tamaño acumulado de todas las propiedades no puede superar 64 000. Este límite se aplica a todo el encabezado del [mensaje asincrónico](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), que contiene tanto las propiedades de usuario como las propiedades del sistema, como [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label) y [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
-| Número de suscripciones por tema |Entidad |Se rechazan las posteriores solicitudes de creación de suscripciones adicionales para el tema. Como resultado, si se configura a través del portal, se muestra un mensaje de error. Si se realiza una llamada desde la API de administración, el código de llamada recibe una excepción. |2000 por tema para el nivel Estándar. |
+| Número de suscripciones por tema |Entidad |Se rechazan las posteriores solicitudes de creación de suscripciones adicionales para el tema. Como resultado, si se configura a través del portal, se muestra un mensaje de error. Si se realiza una llamada desde la API de administración, el código de llamada recibe una excepción. |2000 por tema para el nivel Estándar y el nivel Premium. |
 | Número de filtros SQL por tema |Entidad |Se rechazan las posteriores solicitudes de creación de filtros adicionales en el tema y el código que realiza la llamada recibe una excepción. |2\.000 |
 | Número de filtros de correlación por tema |Entidad |Se rechazan las posteriores solicitudes de creación de filtros adicionales en el tema y el código que realiza la llamada recibe una excepción. |100 000 |
 | Tamaño de filtros o acciones SQL |Espacio de nombres |Se rechazan las posteriores solicitudes de creación de filtros adicionales y el código que realiza la llamada recibe una excepción. |Longitud máxima de la cadena de condición de filtro: 1024 (1 K).<br /><br />Longitud máxima de la cadena de acción de regla: 1024 (1 K).<br /><br />Número máximo de expresiones por acción de regla: 32. |

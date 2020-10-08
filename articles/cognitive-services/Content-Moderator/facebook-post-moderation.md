@@ -8,18 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 9d8801037be55a262268afcd6e8f5751d158c76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 478f7b7671a71d0d1f1f56c5d1d9889db81f7d37
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548521"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760204"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Moderación de comandos y publicaciones de Facebook con Azure Content Moderator
 
 En este tutorial, aprenderá a utilizar Azure Content Moderator para ayudar a moderar los comentarios y las publicaciones de una página de Facebook. Facebook enviará el contenido publicado por los visitantes al servicio Content Moderator. A continuación, los flujos de trabajo de Content Moderator publicarán el contenido o crearán revisiones dentro de la herramienta de revisión, dependiendo de los umbrales y puntuaciones del contenido. Vea el [vídeo de demostración de Build 2017](https://channel9.msdn.com/Events/Build/2017/T6033) para obtener un ejemplo de trabajo de este escenario.
+
+> [!IMPORTANT]
+> En 2018, Facebook puso en marcha una directiva más estricta para las aplicaciones de Facebook. No podrá completar los pasos de este tutorial si la aplicación no se ha revisado y aprobado por el equipo de revisión de Facebook.
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
@@ -33,9 +36,6 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 En este diagrama se ilustra cada componente de este escenario:
 
 ![Diagrama de Content Moderator que recibe información de Facebook a través de "FBListener" y envía información a través de "CMListener"](images/tutorial-facebook-moderation.png)
-
-> [!IMPORTANT]
-> En 2018, Facebook puso en marcha una directiva más estricta para las aplicaciones de Facebook. No podrá completar los pasos de este tutorial si la aplicación no se ha revisado y aprobado por el equipo de revisión de Facebook.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -384,6 +384,9 @@
             - name: Migración de aplicaciones de ADAL a MSAL
               href: msal-migration.md
               displayName: migration
+    - name: Biblioteca de Microsoft Identity Web
+      href: microsoft-identity-web.md
+      displayName: 'auth, library, .NET Core'
     - name: Protocolos de autenticación
       displayName: Auth protocol
       items:

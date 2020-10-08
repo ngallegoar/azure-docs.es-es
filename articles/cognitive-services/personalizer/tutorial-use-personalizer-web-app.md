@@ -1,15 +1,17 @@
 ---
 title: 'Uso de una aplicación web: Personalizer'
 description: Personalice una aplicación web de .NET en C# con un bucle de Personalizer que proporcione el contenido correcto a un usuario en función de las acciones (con características) y de las características del contexto.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9ce4c433a038008b1ffd75dc6c4b2f9d0b57fde
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e06d191573219df44631f6ffaee86f895166de57
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935626"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777265"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Incorporación de Personalizer a una aplicación web de .NET
 
@@ -254,7 +256,7 @@ Compila y ejecuta HttpRequestFeaturesExample con uno de los métodos siguientes:
 Mediante un explorador web, puede enviar una solicitud de Rank y una solicitud de Reward y ver sus respuestas, así como las características de la solicitud HTTP extraídas de su entorno.
 
 > [!div class="mx-imgBorder"]
-> ![Compile y ejecute el proyecto HTTPRequestFeaturesExample. Se abre una ventana del explorador que muestra la aplicación de página única.](./media/tutorial-web-app/web-app-single-page.png)
+> ![La captura de pantalla muestra un ejemplo de la característica de solicitud HTTP en un explorador web.](./media/tutorial-web-app/web-app-single-page.png)
 
 ## <a name="demonstrate-the-personalizer-loop"></a>Demostración del bucle de Personalizer
 
@@ -267,7 +269,7 @@ Mediante un explorador web, puede enviar una solicitud de Rank y una solicitud d
 1. Establezca el valor de la recompensa y, a continuación, seleccione el botón **Send Reward Request** (Enviar solicitud de Reward). Si no cambia el valor de la recompensa, la aplicación cliente siempre envía el valor de `1` a Personalizer.
 
     > [!div class="mx-imgBorder"]
-    > ![Compile y ejecute el proyecto HTTPRequestFeaturesExample. Se abre una ventana del explorador que muestra la aplicación de página única.](./media/tutorial-web-app/reward-score-api-call.png)
+    > ![La captura de pantalla muestra la sección de solicitud de recompensa.](./media/tutorial-web-app/reward-score-api-call.png)
 
     Para su propia aplicación futura, la generación de la puntuación de recompensa puede producirse después de recopilar información del comportamiento del usuario en el cliente junto con la lógica de negocios en el servidor.
 

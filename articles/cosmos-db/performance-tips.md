@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bdf512c66958338992c5959f8e00b4589850ff33
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: efedfb9701d12548b80eccda9cd2aa29bc644ac2
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008376"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802147"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Sugerencias de rendimiento para Azure Cosmos DB y el SDK de .NET v2
 
@@ -42,7 +42,7 @@ Se publicó el [SDK de .NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3
 
 Se recomienda el procesamiento de host de Windows de 64 bits para mejorar el rendimiento. El SDK de SQL incluye un archivo ServiceInterop.dll nativo para analizar y optimizar consultas localmente. ServiceInterop.dll solo se admite en la plataforma Windows x64. En el caso de Linux y otras plataformas no compatibles en las que ServiceInterop.dll no está disponible, se realiza una llamada de red adicional a la puerta de enlace para obtener la consulta optimizada. Los siguientes tipos de aplicaciones utilizan el procesamiento de host de 32 bits de forma predeterminada. Para cambiar el procesamiento de host al procesamiento de 64 bits, siga estos pasos según el tipo de la aplicación:
 
-- En el caso de las aplicaciones ejecutables, puede cambiar el procesamiento de host estableciendo el [destino de la plataforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) en **x64** en la ventana **Propiedades del proyecto**, en la pestaña **Compilar**.
+- En el caso de las aplicaciones ejecutables, puede cambiar el procesamiento de host estableciendo el [destino de la plataforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) en **x64** en la ventana **Propiedades del proyecto**, en la pestaña **Compilar**.
 
 - Para proyectos de prueba basados en VSTest, puede cambiar el procesamiento del host seleccionando **Prueba** >  **Configuración de prueba** >  **Arquitectura de procesador predeterminada como X64** en el menú de **Prueba** de Visual Studio.
 
@@ -203,7 +203,7 @@ Para reducir el número de recorridos de ida y vuelta de red necesarios para rec
 > [!NOTE] 
 > La propiedad `maxItemCount` no se debe utilizar solo para la paginación. Su uso principal es mejorar el rendimiento de las consultas reduciendo el número máximo de elementos devueltos en una sola página.  
 
-También puede establecer el tamaño de página mediante los SDK de Azure Cosmos DB disponibles. La propiedad [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) de `FeedOptions` permite establecer el número máximo de elementos que se devolverán en la operación de enumeración. Cuando `maxItemCount` se establece en-1, el SDK busca automáticamente el valor óptimo, en función del tamaño del documento. Por ejemplo:
+También puede establecer el tamaño de página mediante los SDK de Azure Cosmos DB disponibles. La propiedad [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) de `FeedOptions` permite establecer el número máximo de elementos que se devolverán en la operación de enumeración. Cuando `maxItemCount` se establece en-1, el SDK busca automáticamente el valor óptimo, en función del tamaño del documento. Por ejemplo:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
