@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 10/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d3dd75d246c1f74253a9ce910e50b05402065464
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 06b80b5fe14a7a913d8ad8454c6568b04fe01c2f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998465"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819794"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutorial: Indexación de varios orígenes de datos mediante el SDK de .NET
 
@@ -61,19 +61,19 @@ Este ejemplo utiliza dos conjuntos pequeños de datos que describen las siete ho
 
 1. Seleccione **Explorador de datos** y luego **Nueva base de datos**.
 
-   ![Crear una base de datos nueva](media/tutorial-multiple-data-sources/cosmos-newdb.png "Creación de una base de datos")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="Crear una base de datos nueva" border="false":::
 
 1. Escriba el nombre **hotel-rooms-db**. Acepte los valores predeterminados para la configuración restante.
 
-   ![Configuración de la base de datos](media/tutorial-multiple-data-sources/cosmos-dbname.png "Configuración de la base de datos")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="Crear una base de datos nueva" border="false":::
 
 1. Cree un contenedor nuevo. Use la base de datos existente que acaba de crear. Escriba **hotels** como nombre del contenedor y use **/HotelId** como clave de partición.
 
-   ![Agregar contenedor](media/tutorial-multiple-data-sources/cosmos-add-container.png "Agregar contenedor")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Crear una base de datos nueva" border="false":::
 
 1. Seleccione **Elementos** en **hotels**y luego haga clic en **Upload Item** (Cargar elemento) en la barra de comandos. Vaya al archivo **cosmosdb/HotelsDataSubset_CosmosDb.json** de la carpeta del proyecto y selecciónelo.
 
-   ![Carga en la colección de Azure Cosmos DB](media/tutorial-multiple-data-sources/cosmos-upload.png "Carga en una colección de Cosmos DB")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Crear una base de datos nueva" border="false":::
 
 1. Utilice el botón Actualizar para actualizar la vista de los elementos de la colección de hoteles. Verá siete nuevos documentos de base de datos enumerados.
 
@@ -83,11 +83,11 @@ Este ejemplo utiliza dos conjuntos pequeños de datos que describen las siete ho
 
 1. [Cree un contenedor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md) denominado **hotel-rooms** para almacenar los archivos JSON de las habitaciones de hotel de ejemplo. Puede establecer el nivel de acceso público a cualquiera de sus valores válidos.
 
-   ![Creación de un contenedor de blobs](media/tutorial-multiple-data-sources/blob-add-container.png "Creación de un contenedor de blobs")
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Crear una base de datos nueva" border="false":::
 
 1. Una vez creado el contenedor, ábralo y seleccione **Cargar** en la barra de comandos. Vaya a la carpeta que contiene los archivos de ejemplo. Selecciónelos todos ellos y haga clic en **Cargar**.
 
-   ![Carga de archivos](media/tutorial-multiple-data-sources/blob-upload.png "Carga de archivos")
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="Crear una base de datos nueva" border="false":::
 
 Una vez finalizada la carga, los archivos deberían aparecer en la lista del contenedor de datos.
 
@@ -105,7 +105,7 @@ Para interactuar con el servicio Azure Cognitive Search, necesitará la direcci�
 
    Obtenga también la clave de consulta. Es una práctica recomendada emitir solicitudes de consulta con acceso de solo lectura.
 
-   ![Obtención del nombre del servicio y las claves de consulta y administrador](media/search-get-started-nodejs/service-name-and-keys.png)
+   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Crear una base de datos nueva" border="false":::
 
 Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
@@ -115,7 +115,7 @@ Tener una clave válida genera la confianza, solicitud a solicitud, entre la apl
 
 1. En la pestaña **Examinar**, busque e instale **Microsoft.Azure.Search** (versión 9.0.1 o posterior). Tendrá que hacer clic en algunos cuadros de diálogo adicionales para completar la instalación.
 
-    ![Uso de NuGet para agregar bibliotecas de Azure](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Crear una base de datos nueva" border="false":::
 
 1. Busque el paquete NuGet **Microsoft.Extensions.Configuration.Json** e instálelo también.
 
@@ -352,7 +352,7 @@ Puede explorar el índice de búsqueda relleno tras la ejecución del programa c
 
 En Azure Portal, abra la página **Introducción** del servicio de búsqueda y busque el índice **hotel-rooms-sample** en la lista **Índices**.
 
-  ![Lista de índices de Azure Cognitive Search](media/tutorial-multiple-data-sources/index-list.png "Lista de índices de Azure Cognitive Search")
+  :::image type="content" source="media/tutorial-multiple-data-sources/index-list.png" alt-text="Crear una base de datos nueva" border="false":::
 
 Haga clic en el índice hotel-rooms-sample en la lista. Verá una interfaz del Explorador de búsqueda para el índice. Escriba una consulta con un término, como "Luxury". Debería ver al menos un documento en los resultados y este documento debería mostrar una lista de objetos de las habitaciones de la matriz.
 
