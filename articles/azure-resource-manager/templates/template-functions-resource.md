@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 4f788af065db5ef5f23f9a8e96c2d45405959614
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: dd040715cc8fb1339c6054c53007dbcd08e2cbdb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369202"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816811"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funciones de recursos para plantillas de ARM
 
@@ -144,7 +144,6 @@ Los usos posibles de la lista* se muestran en la tabla siguiente.
 | Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
 | Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
 | Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
-| Microsoft.AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringclould/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -336,8 +335,6 @@ En el ejemplo siguiente se muestra una función de lista que toma un parámetro.
 ...
 "sasToken": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties')).accountSasToken]"
 ```
-
-Para ver un ejemplo de listKeyValue, vea [Inicio rápido: Implementación automatizada de máquina virtual con App Configuration y la plantilla de Resource Manager](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
 
 ## <a name="pickzones"></a>pickZones
 

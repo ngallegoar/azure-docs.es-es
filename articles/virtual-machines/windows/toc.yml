@@ -278,7 +278,7 @@
             - name: Flexibilidad de tamaño de instancia de máquina virtual
               href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Máquinas virtuales de Spot
-          displayName: 'pre-empt, preempt'
+          displayName: 'pre-empt, preempt, spot'
           href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Máquinas virtuales de Azure sin disco temporal
           href: ../azure-vms-no-temp-disk.md
@@ -380,7 +380,7 @@
         - name: Implementación de máquinas virtuales de Spot
           items:
             - name: Portal
-              href: spot-portal.md
+              href: ../spot-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: PowerShell
               href: spot-powershell.md
             - name: Plantilla ARM
@@ -948,7 +948,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Apertura de puertos a una máquina virtual
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md

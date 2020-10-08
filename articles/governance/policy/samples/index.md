@@ -3,12 +3,12 @@ title: Índice de ejemplos de Azure Policy
 description: Índice de elementos integrados en Azure Policy. Etiquetas de categorías, Cumplimiento de normativas, Key Vault, Kubernetes, Configuración de invitados, etc.
 ms.date: 07/20/2020
 ms.topic: sample
-ms.openlocfilehash: b4f76c42eb23ce368875dfb91f2f7b9e7ee1bd50
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 9fec7c7b0db554d424f8faee7e4e10e6121f1caa
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89481569"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812529"
 ---
 # <a name="azure-policy-samples"></a>Ejemplos de Azure Policy
 
@@ -27,7 +27,7 @@ A continuación se muestran ejemplos de diferentes patrones que usan el lenguaje
 - [Fields](./pattern-fields.md)
 - [Parámetros](./pattern-parameters.md)
 - [Detalles del efecto](./pattern-effect-details.md)
-- [Uso de etiquetas](./pattern-effect-details.md)
+- [Uso de etiquetas](./pattern-tags.md)
 - [Operador value](./pattern-value-operator.md)
 - [Operador count](./pattern-count-operator.md)
 - [Agrupación de definiciones de directivas en una iniciativa](./pattern-group-with-initiative.md)

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: cb5dbe5101231963f45132fca58279b934c5e49c
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 56e8212d60494d469e225c25edbbd331c601ea6b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055374"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804168"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Datos adjuntos de Azure Cosmos DB
 
@@ -161,6 +161,6 @@ namespace attachments
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Introducción a [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet)
-- Obtener referencias para usar datos adjuntos mediante el [SDK de .NET de Azure Cosmos DB v2](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.attachment?view=azure-dotnet)
-- Obtener referencias para usar datos adjuntos mediante el [SDK de Java de Azure Cosmos DB v2](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.attachment?view=azure-java-stable)
+- Obtener referencias para usar datos adjuntos mediante el [SDK de .NET de Azure Cosmos DB v2](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.attachment?view=azure-dotnet&preserve-view=true)
+- Obtener referencias para usar datos adjuntos mediante el [SDK de Java de Azure Cosmos DB v2](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.attachment?view=azure-java-stable&preserve-view=true)
 - Obtener referencias para usar datos adjuntos mediante la [API de REST de Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/attachments)

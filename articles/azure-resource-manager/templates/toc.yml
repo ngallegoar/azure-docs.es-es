@@ -156,7 +156,7 @@
               href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Load Balancer
               href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Punto de conexión de Private Link
+            - name: Punto de conexión privado
               href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Servicio Private Link
               href: ../../private-link/create-private-link-service-template.md?toc=/azure/azure-resource-manager/templates/toc.json
@@ -362,7 +362,7 @@
           href: deployment-history.md
     - name: Implementaciones con ámbitos
       items:
-        - name: Subscription
+        - name: Suscripción
           href: deploy-to-subscription.md
         - name: Grupo de administración
           href: deploy-to-management-group.md

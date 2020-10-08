@@ -8,6 +8,7 @@
         - name: ¿Qué es Azure HDInsight?
           href: ./hdinsight-overview.md
     - name: Tutoriales
+      expanded: true
       items:
         - name: Creación de clústeres de HDInsight
           href: ./hdinsight-hadoop-provision-linux-clusters.md

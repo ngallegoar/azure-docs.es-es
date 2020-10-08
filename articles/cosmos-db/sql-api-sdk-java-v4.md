@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 92f1b722e39083463fd7fa57fdf8508c2c4084cd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 686c1e37e093a358bb5122fbfeccdfd98eb301ce
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326650"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804238"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Versión 4 del SDK de Java para la API SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ La versión 4 del SDK de Java de Azure Cosmos DB para Core (SQL) combina una A
 > Estas son las notas de la versión solo para la versión 4 del SDK de Java para Azure Cosmos DB. Si en la actualidad usa una versión anterior a la v4, vea la guía [Migración a la versión 4 del SDK de Java de Azure Cosmos DB](migrate-java-v4-sdk.md) a fin de obtener ayuda para actualizar a v4.
 >
 > Estos son tres pasos para empezar a trabajar rápidamente.
-> 1. Instale el [runtime de Java mínimo admitido, JDK 8](/java/azure/jdk/?view=azure-java-stable) para poder usar el SDK.
+> 1. Instale el [runtime de Java mínimo admitido, JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) para poder usar el SDK.
 > 2. Consulte la [Guía de inicio rápido para la versión 4 del SDK de Java de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java), en la que se proporciona acceso al artefacto de Maven y se describen solicitudes básicas de Azure Cosmos DB.
 > 3. Lea las [sugerencias de rendimiento](performance-tips-java-sdk-v4-sql.md) y las guías de [solución de problemas](troubleshoot-java-sdk-v4-sql.md) de la versión 4 del SDK de Java de Azure Cosmos DB para optimizar el SDK de la aplicación.
 >
@@ -54,7 +54,7 @@ La versión 4 del SDK de Java de Azure Cosmos DB para Core (SQL) combina una A
 | Contenido | Vínculo |
 |---|---|
 |**Descarga del SDK**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
-|**Documentación de la API** | [Documentación de referencia de API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
+|**Documentación de la API** | [Documentación de referencia de API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable&preserve-view=true) |
 |**Contribuya al SDK** | [Repositorio central del SDK de Azure para Java en GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
 |**Introducción** | [Inicio rápido: Creación de una aplicación Java para administrar los datos de SQL API de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java) <br> [Repositorio de GitHub con código de inicio rápido](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**Ejemplos de código básicos** | [Azure Cosmos DB: ejemplos de Java para la API de SQL](sql-api-java-sdk-samples.md) <br> [Repositorio de GitHub con código de ejemplo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
@@ -63,7 +63,7 @@ La versión 4 del SDK de Java de Azure Cosmos DB para Core (SQL) combina una A
 | **Consejos de rendimiento**| [Sugerencias de rendimiento para la versión 4 del SDK de Java](performance-tips-java-sdk-v4-sql.md)| 
 | **Solución de problemas** | [Solución de problemas de la versión 4 del SDK de Java](troubleshoot-java-sdk-v4-sql.md) |
 | **Migración a v4 desde un SDK anterior** | [Migración a la versión 4 del SDK de Java](migrate-java-v4-sdk.md) |
-| **Tiempo de ejecución mínimo admitido**|[JDK 8](/java/azure/jdk/?view=azure-java-stable) | 
+| **Tiempo de ejecución mínimo admitido**|[JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) | 
 | **Talleres y laboratorios de Azure Cosmos DB** |[Página principal de talleres de Cosmos DB](https://aka.ms/cosmosworkshop)
 
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos/CHANGELOG.md)]

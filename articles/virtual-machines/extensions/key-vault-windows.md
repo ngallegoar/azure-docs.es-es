@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 72f8f4d490ce6af5897c31e725fa61cb47e147b6
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: ab89e0da3d4512cef9741ec97e9d772c852beb4b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710046"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804102"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Key Vault para Windows
 
@@ -189,7 +189,7 @@ La CLI de Azure puede usarse para implementar la extensión de máquina virtual 
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
          --vm-name "<vmName>" `
-         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\"<observedCerts>\"] }}'
+         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```
 
 * Para implementar la extensión en un conjunto de escalado de máquinas virtuales:
@@ -200,7 +200,7 @@ La CLI de Azure puede usarse para implementar la extensión de máquina virtual 
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
          --vmss-name "<vmName>" `
-         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\"<observedCerts>\"] }}'
+         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```
 
 Tenga en cuenta las restricciones y los requisitos siguientes:

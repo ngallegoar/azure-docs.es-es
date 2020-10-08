@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 28a01bbc54f752ffc1f25b57dcf2eca566aa635a
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: d2b303c22eea9fb46a68bb3c8e36991d47d61554
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718108"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817730"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 
@@ -34,7 +34,7 @@ Cada clúster requiere un **tipo de nodo principal**, que ejecuta servicios crí
 
 **Los tipos de nodo no principales** pueden usarse para definir roles de aplicación (como *front-end* y servicios de *back-end*) y aislar físicamente los servicios dentro de un clúster. Los clústeres de Service Fabric pueden tener cero o más tipos de nodo no principal.
 
-El tipo de nodo principal se configura con el atributo `isPrimary` de la definición de tipo de nodo en la plantilla de implementación de Azure Resource Manager. Vea el [objeto NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) para obtener la lista completa de las propiedades de tipo de nodo. Por ejemplo, use cualquier archivo *AzureDeploy.json* en [ejemplos de clúster de Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) y *Buscar en la página* busque el objeto `nodetTypes`.
+El tipo de nodo principal se configura con el atributo `isPrimary` de la definición de tipo de nodo en la plantilla de implementación de Azure Resource Manager. Vea el [objeto NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) para obtener la lista completa de las propiedades de tipo de nodo. Por ejemplo, use cualquier archivo *AzureDeploy.json* en [ejemplos de clúster de Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) y *Buscar en la página* busque el objeto `nodeTypes`.
 
 ### <a name="node-type-planning-considerations"></a>Consideraciones de planeación de tipos de nodo
 

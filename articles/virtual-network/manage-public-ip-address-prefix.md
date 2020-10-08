@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: c844b25394d865453e653bfc3ac6bff396d97a47
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035083"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804017"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Creación, modificación o eliminación del prefijo de una dirección IP pública
 
@@ -88,7 +88,7 @@ También puede usar los comandos CLI y PS que tiene a continuación con los par�
 2. Seleccione el nombre del prefijo de la dirección IP pública que quiera ver, cambiar la configuración o eliminar de la lista.
 3. Complete una de las siguientes opciones en función de si desea ver, eliminar o cambiar el prefijo de la dirección IP pública.
    - **Ver**: en la sección **Información general** se muestra la configuración clave del prefijo de una dirección IP pública, como prefijo.
-   - **Eliminar**: para eliminar el prefijo de una dirección IP pública, seleccione **Eliminar** en la sección **Información general**. Si las direcciones dentro del prefijo están asociadas a recursos de dirección IP pública, primero debe eliminar dichos recursos de dirección IP pública. Consulte [Eliminar una dirección IP pública](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
+   - **Eliminar**: para eliminar el prefijo de una dirección IP pública, seleccione **Eliminar** en la sección **Información general**. Si las direcciones dentro del prefijo están asociadas a recursos de dirección IP pública, primero debe eliminar dichos recursos de dirección IP pública. Consulte [Eliminar una dirección IP pública](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 
 **Comandos**
 

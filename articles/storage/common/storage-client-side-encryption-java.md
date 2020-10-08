@@ -11,18 +11,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-java
-ms.openlocfilehash: 230fac982e19c1106aa5757c9bf1c32d192740d7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fafce52f9d760fac0d5c3f0ea1be2480547c5d4d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87314516"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817516"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Información general
-La [Biblioteca de cliente de Azure Storage para Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en Azure Storage, como el descifrado de datos mientras estos se descargan al cliente. Asimismo, la biblioteca también admite la integración con [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
+La [Biblioteca de cliente de Azure Storage para Java](https://search.maven.org/artifact/com.azure/azure-storage-blob-cryptography) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en Azure Storage, como el descifrado de datos mientras estos se descargan al cliente. Asimismo, la biblioteca también admite la integración con [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Cifrado y descifrado a través de la técnica de sobres
 El proceso de cifrado y descifrado sigue la técnica de sobres.  
