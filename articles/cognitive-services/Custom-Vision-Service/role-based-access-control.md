@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: fc536b3b0c7af113919f274fc4bdd5fad63cbd06
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4eea87d7b5ef543551b789ddc6b045358fa98631
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057140"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826935"
 ---
 # <a name="role-based-access-control"></a>Control de acceso basado en roles.
 
@@ -43,8 +43,8 @@ Use la tabla siguiente para determinar las necesidades de acceso para los recurs
 
 |Role  |Permisos  |
 |---------|---------|
-|`Cognitive Service Custom Vision Contributor`     | Acceso completo a los proyectos, incluida la capacidad de crear, editar o eliminar un proyecto.        |
-|`Cognitive Service Custom Vision Trainer`     | Acceso completo, salvo por la capacidad de crear o eliminar un proyecto. Los instructores pueden ver y editar proyectos y entrenar, publicar, anular publicaciones o exportar los modelos.        |
-|`Cognitive Service Custom Vision Labeler`     | Capacidad de cargar, editar o eliminar imágenes de entrenamiento, además de crear, agregar, quitar o eliminar etiquetas. Los etiquetadores pueden ver los proyectos, pero no pueden actualizar nada más que las imágenes de entrenamiento y las etiquetas.         |
-|`Cognitive Service Custom Vision Deployment`     | Capacidad de publicar, anular publicaciones o exportar los modelos. Los implementadores pueden ver los proyectos, pero no pueden actualizar nada más que las imágenes de entrenamiento y las etiquetas.        |
-|`Cognitive Service Custom Vision Reader`     | Capacidad de ver los proyectos. Los lectores no pueden realizar ningún cambio.        |
+|`Cognitive Services Custom Vision Contributor`     | Acceso completo a los proyectos, incluida la capacidad de crear, editar o eliminar un proyecto.        |
+|`Cognitive Services Custom Vision Trainer`     | Acceso completo, salvo por la capacidad de crear o eliminar un proyecto. Los instructores pueden ver y editar proyectos y entrenar, publicar, anular publicaciones o exportar los modelos.        |
+|`Cognitive Services Custom Vision Labeler`     | Capacidad de cargar, editar o eliminar imágenes de entrenamiento, además de crear, agregar, quitar o eliminar etiquetas. Los etiquetadores pueden ver los proyectos, pero no pueden actualizar nada más que las imágenes de entrenamiento y las etiquetas.         |
+|`Cognitive Services Custom Vision Deployment`     | Capacidad de publicar, anular publicaciones o exportar los modelos. Los implementadores pueden ver los proyectos, pero no pueden actualizar nada más que las imágenes de entrenamiento y las etiquetas.        |
+|`Cognitive Services Custom Vision Reader`     | Capacidad de ver los proyectos. Los lectores no pueden realizar ningún cambio.        |

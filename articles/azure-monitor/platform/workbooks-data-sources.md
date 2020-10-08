@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: f27771291d95770a693fa56041f7dce3de459d13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbd231ca527b4c01509230e839b97187de29febd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081430"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825752"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Orígenes de datos de libros de Azure Monitor
 
@@ -114,4 +114,3 @@ Para evitar la realización automática de llamadas a hosts que no son de confia
 * [Comience](workbooks-visualizations.md) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.
 * [Controle](workbooks-access-control.md) y comparta el acceso a los recursos del libro.
 * [Sugerencias para la optimización de consultas de análisis de registros](../log-query/query-optimization.md)
-* 
