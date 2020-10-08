@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas en Azure RBAC
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy en Azure RBAC. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: reference
 author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b099534a380e36580efff7e7b734582ddad54815
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6d8cfec34790a886cb433c01c3bd0cf11ec9d284
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986913"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822434"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-rbac"></a>Definiciones integradas de Azure Policy para Azure RBAC
 

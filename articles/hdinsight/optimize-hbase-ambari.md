@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: d143c9648f84dd0c8b45122cf2271539a0b9d1cf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b262e07bd07320e4b10b12a2f2cf07b97e58c61e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086337"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821705"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Optimización de Apache HBase con Apache Ambari en Azure HDInsight
 
@@ -89,7 +89,7 @@ Cuanto mayor sea el tamaño del archivo de región, menor será el número de di
 
 ## <a name="define-memstore-size"></a>Definir el tamaño de Memstore
 
-El tamaño de Memstore se define mediante los parámetros `hbase.regionserver.global.memstore.UpperLimit` y `hbase.regionserver.global.memstore.LowerLimit`. Establecer estos valores igual reduce las pausas al escribir (lo que también provoca un vaciado más frecuentes) y da como resultado un rendimiento de escritura mayor.
+El tamaño de Memstore se define mediante los parámetros `hbase.regionserver.global.memstore.upperLimit` y `hbase.regionserver.global.memstore.lowerLimit`. Establecer estos valores igual reduce las pausas al escribir (lo que también provoca un vaciado más frecuentes) y da como resultado un rendimiento de escritura mayor.
 
 ## <a name="set-memstore-local-allocation-buffer"></a>Establecer el búfer de asignación local de Memstore
 

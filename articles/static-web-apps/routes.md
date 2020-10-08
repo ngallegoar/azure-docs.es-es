@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e6653f8f26f90b6ea7f911efab40ec7a3e0c2a60
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8abbe575e855347714c19c40155d890af484d5d6
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906783"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822327"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rutas en la versión preliminar de Azure Static Web Apps
 
@@ -52,7 +52,7 @@ Las rutas se definen en el archivo _routes.json_ como una matriz de reglas de ru
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
 | `route`        | Sí      | N/D          | Patrón de ruta solicitado por el autor de la llamada.<ul><li>Los [caracteres comodín](#wildcards) se admiten al final de las rutas. Por ejemplo, la ruta _admin/\*_ coincide con cualquier ruta que se encuentre en la ruta de acceso _admin_.<li>El archivo predeterminado de una ruta es _index.html_.</ul>|
 | `serve`        | No       | N/D          | Define el archivo o la ruta de acceso que devuelve la solicitud. La ruta de acceso y el nombre del archivo pueden ser distintos de la ruta de acceso solicitada. Si no se define un valor `serve`, se usa la ruta de acceso solicitada. No se admiten parámetros de cadena de consulta; los valores `serve` deben apuntar a archivos reales.  |
-| `allowedRoles` | No       | anonymous     | Matriz de nombres de roles. <ul><li>Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `_`.<li>El rol integrado `anonymous` se aplica a todos los usuarios sin autenticar.<li>El rol integrado `authenticated` se aplica a todos los usuarios que han iniciado sesión.<li>Los usuarios deben pertenecer al menos a un rol.<li>Los roles se evalúan según el operador _OR_. Si un usuario tiene cualquiera de los roles enumerados, se le concede acceso.<li>Los usuarios individuales se asocian a los roles mediante [invitaciones](authentication-authorization.md).</ul> |
+| `allowedRoles` | No       | anonymous     | Matriz de nombres de roles. <ul><li>Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `_`.<li>El rol integrado `anonymous` se aplica a todos los usuarios sin autenticar.<li>El rol integrado `authenticated` se aplica a todos los usuarios que han iniciado sesión.<li>Los usuarios deben pertenecer al menos a un rol.<li>Los roles se evalúan según el operador _OR_. Si un usuario tiene cualquiera de los roles enumerados, se le concede acceso.<li>Los usuarios individuales se asocian a los roles a través de [invitaciones](authentication-authorization.md).</ul> |
 | `statusCode`   | No       | 200           | Respuesta de [código de estado HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) de la solicitud. |
 
 ## <a name="securing-routes-with-roles"></a>Protección de rutas mediante roles
