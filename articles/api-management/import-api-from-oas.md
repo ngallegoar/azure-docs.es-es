@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 346156c624a4c8b1c1d6cc490fc0559f364b4b9d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c498046b9088f78eda95693fa23f0a0bb3472724
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905574"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626877"
 ---
 # <a name="import-an-openapi-specification"></a>Importación de una especificación OpenAPI
 
@@ -42,7 +42,7 @@ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API M
 2. Seleccione **Especificación OpenAPI** de la lista **Add a new API** (Agregar una nueva API).
 
     ![Especificación de OpenAPI](./media/import-api-from-oas/oas-api.png)
-3. Escriba los valores de la API. Puede establecer los valores durante la creación o luego accediendo a la pestaña **Ajustes**. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#-import-and-publish-a-backend-api).
+3. Escriba los valores de la API. Puede establecer los valores durante la creación o luego accediendo a la pestaña **Ajustes**. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#import-and-publish-a-backend-api).
 4. Seleccione **Crear**.
 
 > [!NOTE]

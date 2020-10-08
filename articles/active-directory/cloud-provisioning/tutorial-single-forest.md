@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b91763c275e4fd091b7c1554699e5d6f35a6f55
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 60f82a3197366081c66c4b7a1fe9c4ebe7762c94
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266333"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628710"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integración de un único bosque con un único inquilino de Azure AD
 
@@ -112,7 +112,7 @@ Para comprobar que el agente se ejecuta, siga estos pasos:
 5.  Haga clic en **Nueva configuración**
 ![Captura de pantalla de "Aprovisionamiento de Azure AD (versión preliminar)" con el vínculo "Nueva configuración" resaltado.](media/tutorial-single-forest/configure1.png)
 7.  En la pantalla de configuración, escriba un **correo electrónico de notificación**, mueva el selector a **Habilitar** y haga clic en **Guardar**.
-![Captura de la pantalla de configuración con un correo electrónico de notificación rellenado y Habilitar seleccionado.](media/tutorial-single-forest/configure2.png)
+![Captura de la pantalla de configuración con un correo electrónico de notificación rellenado y Habilitar seleccionado.](media/how-to-configure/configure2.png)
 1.  El estado de configuración ahora debería ser **Correcto**.
 ![Captura de pantalla de "Aprovisionamiento de Azure AD (versión preliminar)" que muestra un estado correcto.](media/how-to-configure/manage4.png)
 

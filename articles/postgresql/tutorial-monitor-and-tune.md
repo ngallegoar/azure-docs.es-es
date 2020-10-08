@@ -1,17 +1,17 @@
 ---
 title: 'Tutorial: Supervisión y ajuste de Azure Database for PostgreSQL: servidor único'
 description: 'Este tutorial trata sobre la supervisión y el ajuste en Azure Database for PostgreSQL: Single Server.'
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: 05435aae727c84a5f3eb886274f9d286627e399e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f211ce7e52ccaa6793435159d0ce1c64fe8b63ed
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895086"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705288"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Supervisión y ajuste en Azure Database for PostgreSQL: Single Server
 
@@ -52,7 +52,7 @@ La vista [Query Performance Insight](concepts-query-performance-insight.md) en A
 
 2. La pestaña **Consultas de larga ejecución** muestra las 5 principales consultas por promedio de duración por ejecución, que se agregan en intervalos de 15 minutos. 
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Página de inicio de Información de rendimiento de consultas":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Parámetros del servidor de Almacén de consultas":::
 
    Puede ver más consultas seleccionando en el lista desplegable **Número de consultas**. Al hacerlo, los colores del gráfico pueden cambiar a un identificador de consulta específico.
 
@@ -64,7 +64,7 @@ La vista [Query Performance Insight](concepts-query-performance-insight.md) en A
 
 6. Seleccione la pestaña **Estadísticas de espera** para ver las visualizaciones correspondientes a esperas en el servidor.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Estadísticas de espera de Query Performance Insight":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Parámetros del servidor de Almacén de consultas":::
 
 ### <a name="permissions"></a>Permisos
 Se necesitan los permisos **Propietario** o **Colaborador** para ver el texto de las consultas en Query Performance Insight. **Lector** pueden ver las tablas y los gráficos, pero no el texto de consulta.
@@ -75,7 +75,7 @@ La característica [Recomendaciones de rendimiento](concepts-performance-recomme
 
 1. Abra **Recomendaciones de rendimiento** desde la sección **Soporte técnico y solución de problemas** de la barra de menús en la página de Azure Portal para el servidor PostgreSQL.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Página de inicio de Recomendaciones de rendimiento":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Parámetros del servidor de Almacén de consultas":::
 
 2. Seleccione **Analizar** y elija una base de datos. De este modo comenzará el análisis.
 
@@ -85,7 +85,7 @@ La característica [Recomendaciones de rendimiento](concepts-performance-recomme
 
 5. Una recomendación mostrará información sobre la **Base de datos**, la **Tabla**, la **Columna** y el **Tamaño del índice** correspondientes.
 
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Resultado de Recomendaciones de rendimiento":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Parámetros del servidor de Almacén de consultas":::
 
 6. Para implementar la recomendación, copie el texto de la consulta y ejecútelo desde el cliente que prefiera.
 

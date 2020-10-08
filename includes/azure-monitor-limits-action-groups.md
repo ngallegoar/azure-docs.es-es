@@ -5,20 +5,20 @@ services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: include
-ms.date: 02/07/2019
+ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 2922a1fb92f3df07429d3463b8bf639f336776af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 610713286e3cb7a084b2e81260797d4cac0ddad7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67305331"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91644030"
 ---
 | Resource | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | Inserción de aplicación de Azure | 10 acciones de aplicación de Azure por grupo de acciones. | Llame al soporte técnico. |
-| Email | 1000 acciones de correo electrónico en un grupo de acciones.<br>no más de 100 mensajes de correo electrónico en una hora.<br>Consulte también el artículo [sobre las limitaciones de velocidad](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Llame al soporte técnico. |
+| Email | 1000 acciones de correo electrónico en un grupo de acciones.<br>no más de 100 mensajes de correo electrónico en una hora.<br>Consulte también el artículo [sobre las limitaciones de velocidad](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Igual que el predeterminado |
 | ITSM | 10 acciones de ITSM en un grupo de acciones. | Llame al soporte técnico. | 
 | Aplicación lógica | 10 acciones de aplicación lógica en un grupo de acciones. | Llame al soporte técnico. |
 | Runbook | 10 acciones de runbook en un grupo de acciones. | Llame al soporte técnico. |

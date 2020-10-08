@@ -2,14 +2,14 @@
 author: rothja
 ms.service: media-services
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: e24c345bfee216dd240f0c283402ad43c8f45c29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c315c071aeb36eea0bd1af84b1344cf2fef5f703
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85838981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329673"
 ---
 >[!NOTE]
 >En relación con los recursos que no están fijados, abra una incidencia de soporte técnico para solicitar un aumento en las cuotas. No cree cuentas adicionales de Azure Media Services para obtener límites mayores.
@@ -29,7 +29,7 @@ ms.locfileid: "85838981"
 | Programas en estado de ejecución por canal |3|
 | Puntos de conexión de streaming detenidos o en ejecución por cuenta de Media Services|2|
 | Unidades de streaming por extremo de streaming |10 |
-| Cuentas de almacenamiento | 1000<sup>5</sup> (fijo) |
+| Cuentas de almacenamiento | 100<sup>5</sup>(fijo) |
 | Directivas | 1,000,000<sup>6</sup> |
 | Tamaño de archivo| En algunos casos, existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services.<sup>7</sup> |
 

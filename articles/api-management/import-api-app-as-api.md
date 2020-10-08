@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 28b055cb343b7f894a28eee5fbe452d037fd6b0e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 007598046ae64b390d44e61438b69bd26024b1c4
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249497"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626894"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importación de una aplicación de API como API
 
@@ -56,7 +56,7 @@ En este artículo aprenderá a:
 
     * **Starter**
     * **Sin límite**   
-7. Escriba otros valores de la API. Puede establecer los valores durante la creación o luego accediendo a la pestaña **Ajustes**. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#-import-and-publish-a-backend-api).
+7. Escriba otros valores de la API. Puede establecer los valores durante la creación o luego accediendo a la pestaña **Ajustes**. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#import-and-publish-a-backend-api).
 8. Seleccione **Crear**.
 
 ## <a name="test-the-new-api-in-the-azure-portal"></a>Prueba de la nueva API en Azure Portal

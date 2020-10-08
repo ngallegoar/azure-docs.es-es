@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e75cb7d13fb74d32191ab7f076d73ad66976503d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 7d0286b63703c165dda6cd12bb625fc64272aac1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90606532"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377288"
 ---
 Azure Files ofrece cuatro niveles diferentes de almacenamiento: Premium, Optimizado para transacciones, Frecuente y Esporádico, con el fin de que pueda adaptar sus recursos compartidos a los requisitos de rendimiento y precio de su escenario:
 
@@ -26,4 +26,5 @@ Los recursos compartidos de archivos Premium solo están disponibles en un model
 
 Los recursos compartidos de archivos de acceso frecuente y esporádico están disponibles en todas las regiones públicas y de Azure Government de Azure. Los recursos compartidos de archivos optimizados para transacciones están disponibles en todas las regiones de Azure, incluidas las regiones de Azure China y Azure Germany.
 
-Para implementar un recurso compartido de archivos de nivel de acceso frecuente o nivel de acceso esporádico, consulte el artículo sobre la [creación de recursos compartido de archivos de nivel de acceso frecuente o nivel de acceso esporádico](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 
+> [!Important]  
+> Los recursos compartidos de archivos se pueden mover entre niveles dentro de los tipos de cuenta de almacenamiento GPv2 (transacción optimizada, nivel de acceso frecuente y nivel de acceso esporádico). Los movimientos de recursos compartidos entre niveles incurren en transacciones: el traslado de un nivel de acceso frecuente a un nivel de acceso esporádico incurrirá en el cargo de transacción de escritura del nivel de acceso esporádico, mientras que si dicho traslado se realiza de un nivel esporádico a un nivel frecuente, todos los archivos incurrirán en el cargo de transacción de lectura del nivel de acceso esporádico.

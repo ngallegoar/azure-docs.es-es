@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: b6cb0fa3611da44726dabd879c37fec357fc3031
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b107b4a54b7d013da160119b16bd646a79cce696
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202781"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626843"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importación de una aplicación lógica como API
 
@@ -57,7 +57,7 @@ En este artículo aprenderá a:
     - **Starter**
     - **Sin límite**
 
-7. Escriba otros valores de la API. Puede establecer los valores durante la creación o luego accediendo a la pestaña **Ajustes**. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#-import-and-publish-a-backend-api).
+7. Escriba otros valores de la API. Puede establecer los valores durante la creación o luego accediendo a la pestaña **Ajustes**. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#import-and-publish-a-backend-api).
 8. Seleccione **Crear**.
 
 ## <a name="test-the-api-in-the-azure-portal"></a>Prueba de la API en Azure Portal

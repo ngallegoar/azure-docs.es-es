@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: c6ec2be6daee931a4066ff5ce4f64fc949d497ac
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be8a8f35ece946d1be907b2ca13a640bebbb4ee5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243433"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627030"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importación de una instancia de Azure Function App como API en Azure API Management
 
@@ -71,7 +71,7 @@ Siga estos pasos para crear una API desde una instancia de Azure Function App.
     > [!NOTE]
     > Solo se pueden importar funciones que se basen en desencadenador HTTP y que tengan la configuración del nivel de autorización establecida en *Anónimo* o *Función*.
 
-7. Cambie a la vista **Completa** y asigne el **Producto** a la nueva API. Si es necesario, especifique otros campos durante la creación o configúrelos más adelante en la pestaña **Ajustes**. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#-import-and-publish-a-backend-api).
+7. Cambie a la vista **Completa** y asigne el **Producto** a la nueva API. Si es necesario, especifique otros campos durante la creación o configúrelos más adelante en la pestaña **Ajustes**. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#import-and-publish-a-backend-api).
 8. Haga clic en **Crear**.
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a>Anexión de una instancia de Azure Function App a una API existente

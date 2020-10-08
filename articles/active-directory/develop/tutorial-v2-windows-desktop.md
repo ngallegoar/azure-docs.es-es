@@ -1,6 +1,7 @@
 ---
-title: Introducción a la plataforma de identidad de Microsoft para el escritorio de Windows
-description: Cómo una aplicación .NET de escritorio de Windows (XAML) puede obtener un token de acceso y llamar a una API protegida por la plataforma de identidad de Microsoft.
+title: 'Tutorial: Creación de una aplicación de Windows Presentation Foundation (WPF) que usa la Plataforma de identidad de Microsoft para la autenticación | Azure'
+titleSuffix: Microsoft identity platform
+description: En este tutorial creará una aplicación de WPF que utiliza la Plataforma de identidad de Microsoft para iniciar sesión a los usuarios y obtener un token de acceso para llamar a Microsoft Graph API en su nombre.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,24 +12,32 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a865bab690c79288bdffcd7cebe424d1bb1969c0
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: b82193fda64f2cf265c879c5cda9141be1b576f8
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82181550"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627897"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
+# <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
-En esta guía se muestra cómo una aplicación nativa de Windows Desktop .NET (XAML) utiliza un token de acceso para llamar a Microsoft Graph API. La aplicación también puede acceder a otras API que requieren tokens de acceso desde una plataforma de identidad de Microsoft para desarrolladores del punto de conexión v2.0. Esta plataforma se denominaba anteriormente Azure AD.
+En esta guía se muestra cómo una aplicación nativa de Windows Desktop .NET (XAML) utiliza un token de acceso para llamar a Microsoft Graph API. La aplicación también puede acceder a otras API que requieren tokens de acceso de la Plataforma de identidad de Microsoft.
 
 Cuando haya completado la guía, la aplicación podrá llamar a una API protegida que usa cuentas personales (lo que incluye outlook.com, live.com y otras). La aplicación también usa cuentas profesionales y educativas de cualquier empresa y organización que utilice Azure Active Directory.
 
-> [!NOTE]
-> Esta guía requiere Visual Studio 2015 Update 3, Visual Studio 2017 o Visual Studio 2019. ¿No tiene ninguna de estas versiones? [Descargue Visual Studio 2019 de manera gratuita](https://www.visualstudio.com/downloads/).
+En este tutorial, aprenderá a:
 
->[!NOTE]
-> Si es la primera vez que usa la plataforma de identidad de Microsoft, es aconsejable que comience con [Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows](quickstart-v2-windows-desktop.md).
+> [!div class="checklist"]
+> * Crear un proyecto de *Windows Presentation Foundation (WPF)* en Visual Studio
+> * Instalar la biblioteca de autenticación de Microsoft (MSAL) para .NET
+> * Registrar la aplicación en Azure Portal
+> * Agregar código para admitir el inicio y el cierre de sesión de usuario
+> * Agregar código para llamar a Microsoft Graph API
+> * Prueba de la aplicación
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funcionamiento de la aplicación de ejemplo generada por esta guía
 
@@ -367,3 +376,10 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 Además del token de acceso que se usa para llamar a la API de Microsoft Graph, después de que el usuario inicie sesión, MSAL también obtiene un token de identificador. Este token contiene un pequeño subconjunto de información que es pertinente para los usuarios. El método `DisplayBasicTokenInfo` muestra la información básica que contiene el token. Por ejemplo, muestra el nombre para mostrar del usuario y su identificador, así como la fecha de expiración del token y la cadena que representa al propio token de acceso. Puede seleccionar varias veces el botón *Call Microsoft Graph API* (Llamar a la API de Microsoft Graph) y ver que el mismo token se reutilizó para solicitudes posteriores. También puede ver que la fecha de expiración se amplía si MSAL decide que es el momento de renovar el token.
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Más información sobre la creación de aplicaciones de escritorio que llaman a las API web protegidas en nuestra serie de escenarios de varias partes:
+
+> [!div class="nextstepaction"]
+> [Escenario: Aplicación de escritorio que llama a las API web](scenario-desktop-overview.md)

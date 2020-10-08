@@ -7,16 +7,19 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 36687f6394ef03a3fceb70c73601680dd262d90c
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 6037ece7f4cbe0edc9cf44bded3ee34815f76a48
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245407"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620212"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Creación de un entorno de Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Este es un artículo de Gen1.
 
 Este tutorial le guía a través del proceso de creación de un entorno de Azure Time Series Insights que se rellena con datos de dispositivos simulados. En este tutorial, aprenderá a:
 

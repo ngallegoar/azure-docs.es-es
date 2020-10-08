@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: 47e1c509e8b7b60e889e1202b49b1a145c68162c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: aae89e1c6f8db2fb657ac2a43c4bce0396ab3ddd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929504"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377239"
 ---
 ## <a name="local-settings-file"></a>Archivo de configuración local
 
@@ -40,7 +40,7 @@ Esta configuración se admite al ejecutar los proyectos de forma local:
 
 | Configuración      | Descripción                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Cuando la configuración se establece en `true`, todos los valores se cifran con una clave de máquina local. Se usa con los comandos `func settings`. El valor predeterminado es `false`. |
+| **`IsEncrypted`** | Cuando la configuración se establece en `true`, todos los valores se cifran con una clave de máquina local. Se usa con los comandos `func settings`. El valor predeterminado es `false`. El archivo local.settings.json se puede cifrar en su equipo local cuando contiene secretos, como las cadenas de conexión de servicios. El host descifra automáticamente la configuración cuando se ejecuta. Use el comando `func settings decrypt` antes de intentar leer la configuración cifrada localmente. |
 | **`Values`** | Matriz de opciones de configuración de la aplicación y cadenas de conexión que se usan al ejecutar un proyecto de forma local. Estos pares clave-valor (cadena-cadena) corresponden a la configuración de la aplicación en su aplicación de funciones de Azure, como [`AzureWebJobsStorage`]. Muchos desencadenadores y enlaces tienen una propiedad que hace referencia a una configuración de la aplicación de cadena de conexión, por ejemplo, `Connection` para el [desencadenador del almacén de blobs](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#configuration). Para estas propiedades, se necesita una configuración de la aplicación definida en la matriz `Values`. Consulte la tabla posterior, donde encontrará una lista de los valores que se usan con más frecuencia. <br/>Los valores deben ser cadenas y no objetos JSON o matrices. Los nombres de la configuración no pueden incluir dos puntos (`:`) ni un subrayado doble (`__`). Los caracteres dobles de subrayado están reservados para el tiempo de ejecución, mientras que el signo de dos puntos está reservado para admitir [la inserción de dependencias](../articles/azure-functions/functions-dotnet-dependency-injection.md#working-with-options-and-settings). |
 | **`Host`** | La configuración que se muestra en esta sección permite personalizar el proceso de host de Functions al ejecutar los proyectos de forma local. Dicha configuración es independiente de la de host.json, que también se aplica al ejecutar proyectos en Azure. |
 | **`LocalHttpPort`** | Establece el puerto predeterminado que se usa cuando al ejecutar el host de Functions local (`func host start` y `func run`). La opción de línea de comandos `--port` tiene prioridad sobre esta configuración. |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: jeedes
-ms.openlocfilehash: a8d34d60cfb4037192abcc20649b478e9f58a6bb
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7d2dc1d5d02f1a371d6d94f9eeddf395d49126d7
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992328"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620144"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Oracle PeopleSoft - Protected by F5 BIG-IP APM
 
@@ -44,7 +44,7 @@ Para empezar, necesita los siguientes elementos:
         * Una suscripción a F5 IP Intelligence para detectar y bloquear a atacantes conocidos y tráfico malintencionado. 
         * Un módulo de seguridad de hardware (HSM) de red para proteger y administrar claves digitales para la autenticación segura.
 1. El sistema F5 BIG-IP se aprovisiona con módulos de APM (LTM es opcional). 
-1. Aunque es opcional, es muy recomendable implementar los sistemas F5 en un [grupo de dispositivos de sincronización/conmutación por error](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), que incluye el par activo en espera, con una dirección IP flotante para la alta disponibilidad (HA). Se puede lograr una mayor redundancia de la interfaz mediante el protocolo de control de agregación de vínculos (LACP). LACP administra las interfaces físicas conectadas como una sola. 
+1. Aunque es opcional, es muy recomendable implementar los sistemas F5 en un [grupo de dispositivos de sincronización/conmutación por error](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), que incluye el par activo en espera, con una dirección IP flotante para la alta disponibilidad (HA). Se puede lograr una mayor redundancia de la interfaz mediante el protocolo de control de agregación de vínculos (LACP). LACP administra las interfaces físicas conectadas como una sola interfaz virtual (grupo agregado) y detecta cualquier error de interfaz dentro del grupo.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 

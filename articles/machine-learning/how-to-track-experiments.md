@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 44fe71f575a32ccc1a687bc87793cb6a8b6508a9
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b9dfb5b2b2b9105aa62b0b6b5d9f5590073fa29e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650621"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889719"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Habilitación del registro en ejecuciones de entrenamiento de Azure ML
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 El SDK de Python para Azure Machine Learning permite registrar información en tiempo real mediante el paquete de registro de Python predeterminado y la funcionalidad específica del SDK. Puede anotar registros de forma local y enviarlos al área de trabajo en el portal.
 
@@ -83,7 +83,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 Azure Machine Learning también puede registrar información de otros orígenes durante el entrenamiento, como las ejecuciones de aprendizaje automático automatizado o los contenedores de Docker que ejecutan los trabajos. Estos registros no se documentan, pero si encuentra problemas y se pone en contacto con el soporte técnico de Microsoft, es posible que puedan usar estos registros como ayuda para resolverlos.
 
-Para información sobre el registro de métricas en el diseñador de Azure Machine Learning (versión preliminar), consulte [Registro de las métricas en el diseñador (versión preliminar)](how-to-track-designer-experiments.md)
+Para información sobre el registro de métricas en el diseñador de Azure Machine Learning, consulte [Registro de las métricas en el diseñador](how-to-track-designer-experiments.md).
 
 ## <a name="example-notebooks"></a>Cuadernos de ejemplo
 
@@ -97,6 +97,6 @@ Los cuadernos siguientes muestran los conceptos de este artículo:
 
 Consulte estos artículos para aprender a usar Machine Learning:
 
-* Aprenda a [registrar métricas en el diseñador de Azure Machine Learning (versión preliminar)](how-to-track-designer-experiments.md).
+* Aprenda a [registrar métricas en el diseñador de Azure Machine Learning](how-to-track-designer-experiments.md).
 
 * Vea un ejemplo de cómo registrar el mejor modelo e implementarlo en el tutorial, [Entrenar un modelo de clasificación de imágenes con Azure Machine Learning](tutorial-train-models-with-aml.md).

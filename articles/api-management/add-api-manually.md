@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 39a3b9d7dd9efbda93de0b5d7c5f9938922d0012
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89295269"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631297"
 ---
 # <a name="add-an-api-manually"></a>Adición manual de una API
 
@@ -39,7 +39,7 @@ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API M
 2. En el menú izquierdo, seleccione **+ Agregar API**.
 3. Seleccione **API en blanco** en la lista.  
     ![API en blanco](media/add-api-manually/blank-api.png)  
-4. Escriba la configuración de la API. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#-import-and-publish-a-backend-api).
+4. Escriba la configuración de la API. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#import-and-publish-a-backend-api).
 5. Seleccione **Crear**.
 
 En este momento, no tiene ninguna operación en API Management que se asigne a las operaciones en la API de back-end. Si llama a una operación que se expone a través del back-end, pero no a través de API Management, obtendrá una respuesta **404**.

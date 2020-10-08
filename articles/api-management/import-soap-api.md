@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 583179c4678b43bef25174835ec2701d571b37b6
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 58f2a102349baff0b70e2a0c9f72c8a4e0e44046
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905657"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626826"
 ---
 # <a name="import-soap-api"></a>Importación de una API de SOAP
 
@@ -45,7 +45,7 @@ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API M
 3. En la **especificación WSDL**, escriba la dirección URL donde reside la API de SOAP.
 4. El botón de radio **Paso a través de SOAP** está seleccionado de forma predeterminada. Con esta selección, la API se va a exponer como SOAP. El consumidor tiene que utilizar reglas SOAP. Si desea usar Restify en la API, siga los pasos descritos en [Import a SOAP API and convert it to REST](restify-soap-api.md) (Importación de una API de SOAP y conversión a REST).
 
-    ![Paso a través](./media/import-soap-api/pass-through.png)
+    ![La captura de pantalla muestra el cuadro de diálogo de creación desde WSDL, en el que puede incluir una especificación de WSDL.](./media/import-soap-api/pass-through.png)
 5. Presione Tab.
 
     Los siguientes campos se rellenan con la información de la API de SOAP: Nombre para mostrar, Nombre y Descripción.
@@ -58,7 +58,7 @@ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API M
 
     * **Starter**
     * **Sin límite**   
-8. Escriba otros valores de la API. Puede establecer los valores durante la creación o luego accediendo a la pestaña **Ajustes**. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#-import-and-publish-a-backend-api).
+8. Escriba otros valores de la API. Puede establecer los valores durante la creación o luego accediendo a la pestaña **Ajustes**. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#import-and-publish-a-backend-api).
 9. Seleccione **Crear**.
 
 ### <a name="test-the-new-api-in-the-administrative-portal"></a>Prueba de la nueva API en el portal de administración

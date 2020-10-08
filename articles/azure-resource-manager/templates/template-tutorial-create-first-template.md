@@ -2,20 +2,20 @@
 title: 'Tutorial: Creación e implementación de una plantilla'
 description: Creación de la primera plantilla de Azure Resource Manager En este tutorial, aprenderá sobre la sintaxis del archivo de plantilla y cómo implementar una cuenta de almacenamiento.
 author: mumian
-ms.date: 06/10/2020
+ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 124df19287062a7fc8a6b9cf8b9d32eb3863b581
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.custom: ''
+ms.openlocfilehash: 25ddcc2c3a890b407b2116f64ebab577e30c9457
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069244"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613193"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Creación e implementación de su primera plantilla de Resource Manager
 
-Este tutorial es una introducción a las plantillas de Azure Resource Manager. Muestra cómo crear una plantilla de inicio e implementarla en Azure. Obtendrá información sobre la estructura de la plantilla y las herramientas que necesitará para trabajar con plantillas. Se tarda unos **12 minutos** en realizar este tutorial, pero el tiempo real variará en función del número de herramientas que necesite instalar.
+Este tutorial es una introducción a las plantillas de Azure Resource Manager (plantillas de ARM). Muestra cómo crear una plantilla de inicio e implementarla en Azure. Obtendrá información sobre la estructura de la plantilla y las herramientas que necesitará para trabajar con plantillas. Se tarda unos **12 minutos** en realizar este tutorial, pero el tiempo real variará en función del número de herramientas que necesite instalar.
 
 Este tutorial es el primero de una serie. A medida que avance por la serie, modificará la plantilla inicial paso a paso hasta que haya explorado todas las partes principales de una plantilla de Resource Manager. Estos elementos son los bloques de creación de plantillas mucho más complejas. Esperamos que el final de la serie tenga seguridad para crear sus propias plantillas y esté listo para automatizar las implementaciones con plantillas.
 
@@ -25,7 +25,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="get-tools"></a>Obtención de las herramientas
 
-Comience por asegurarse de que tiene las herramientas que necesita para crear e implementar plantillas.
+Comience por asegurarse de que tiene las herramientas que necesita para crear e implementar plantillas. Instale estas herramientas en el equipo local.
 
 ### <a name="editor"></a>Editor
 
