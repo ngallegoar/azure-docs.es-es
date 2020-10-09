@@ -1,18 +1,18 @@
 ---
 title: 'Selección de las columnas de distribución en Azure Database for PostgreSQL: Hiperescala (Citus)'
-description: Aprenda a elegir columnas de distribución en escenarios habituales de hiperescala en Azure Database for PostgreSQL.
+description: 'Aprenda a elegir columnas de distribución en escenarios habituales de Azure Database for PostgreSQL: Hiperescala (Citus).'
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3c86f4b194e6d3935434b35cae958dfcf772986
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74975676"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314919"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Selección de las columnas de distribución en Azure Database for PostgreSQL: Hiperescala (Citus) (versión preliminar)
 
