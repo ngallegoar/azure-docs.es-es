@@ -4,10 +4,10 @@ description: Introducción y arquitectura del ejemplo de plano técnico de la no
 ms.date: 07/13/2020
 ms.topic: sample
 ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927358"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos
