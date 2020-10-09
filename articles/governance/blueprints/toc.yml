@@ -259,7 +259,7 @@
   href: ./troubleshoot/general.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/ext/blueprint/blueprint
     - name: Azure PowerShell
       href: /powershell/module/az.blueprint/#blueprint

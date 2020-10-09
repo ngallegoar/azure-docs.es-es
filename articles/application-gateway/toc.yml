@@ -116,7 +116,7 @@
           href: tutorial-manage-web-traffic-cli.md
     - name: Configuración del equilibrador de carga interno
       items:
-        - name: Portal de Azure
+        - name: Azure portal
           href: configure-application-gateway-with-private-frontend-ip.md
         - name: Azure PowerShell
           href: application-gateway-ilb-arm.md
@@ -196,7 +196,7 @@
               href: redirect-external-site-cli.md
         - name: HTTP a HTTPS
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: redirect-http-to-https-portal.md
             - name: Azure PowerShell
               href: redirect-http-to-https-powershell.md

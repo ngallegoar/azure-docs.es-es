@@ -7,7 +7,7 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Primeros pasos
+    - name: Introducción
       href: video-indexer-get-started.md
     - name: Invitar a usuarios
       href: invite-users.md
