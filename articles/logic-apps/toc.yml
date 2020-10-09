@@ -213,7 +213,7 @@
           href: logic-apps-http-endpoint.md
         - name: Azure Service Bus
           href: ../connectors/connectors-create-api-servicebus.md
-        - name: "Azure\_SQL\_Database"
+        - name: Azure SQL Database
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Bing Search
           href: ../connectors/connectors-create-api-bingsearch.md

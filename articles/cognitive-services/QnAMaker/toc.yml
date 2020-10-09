@@ -100,7 +100,7 @@
   items:
     - name: Compatibilidad con idiomas
       href: Overview/language-support.md
-    - name: límites
+    - name: Límites
       href: limits.md
     - name: Control de acceso basado en roles (RBAC)
       href: Concepts/role-based-access-control.md

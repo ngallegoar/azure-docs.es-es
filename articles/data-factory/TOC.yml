@@ -2,7 +2,7 @@
   href: index.yml
 - name: Cambio a la documentación de la versión 1
   href: v1/data-factory-introduction.md
-- name: Introducción
+- name: Información general
   items:
     - name: Introducción a Data Factory
       href: introduction.md
@@ -544,7 +544,7 @@
           href: data-flow-new-branch.md
         - name: Dinamización
           href: data-flow-pivot.md
-        - name: Clasificación
+        - name: Rango
           href: data-flow-rank.md
         - name: Seleccionar
           href: data-flow-select.md
