@@ -28,6 +28,8 @@
   items:
     - name: Conexión a una cuenta de almacenamiento
       href: tutorial-private-endpoint-storage-portal.md
+    - name: "Conexión a una cuenta de Cosmos\_DB"
+      href: tutorial-private-endpoint-cosmosdb-portal.md
 - name: Conceptos
   items:
     - name: Punto de conexión privado
@@ -42,8 +44,6 @@
           href: security-baseline.md
 - name: Procedimientos
   items:
-    - name: "Conexión de forma privada a una cuenta de Cosmos\_DB"
-      href: create-private-endpoint-cosmosdb-portal.md
     - name: Conexión privada a una aplicación web
       href: create-private-endpoint-webapp-portal.md
     - name: Deshabilitar las directivas de red de un punto de conexión privado

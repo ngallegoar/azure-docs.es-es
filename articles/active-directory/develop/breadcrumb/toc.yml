@@ -6,6 +6,6 @@
       tocHref: /azure/active-directory/
       topicHref: /azure/active-directory/index
       items:
-        - name: Desarrollar
+        - name: Desarrollo
           tocHref: /azure/active-directory/app-provisioning/
           topicHref: /azure/active-directory/develop/index
