@@ -15,7 +15,7 @@
       items:
         - name: Creación de una cola de Service Bus
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -42,7 +42,7 @@
       items:
         - name: Creación de temas y suscripciones
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: service-bus-quickstart-topics-subscriptions-portal.md
             - name: Azure CLI
               href: service-bus-tutorial-topics-subscriptions-cli.md

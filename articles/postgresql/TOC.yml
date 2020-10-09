@@ -222,7 +222,7 @@
               displayName: 'scale server, reset password'
         - name: Reinicio del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md
@@ -230,7 +230,7 @@
               href: howto-restart-server-powershell.md
         - name: Reglas de firewall
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-manage-firewall-using-portal.md
               displayName: 'firewall, portal, rules'
             - name: CLI de Azure
@@ -282,7 +282,7 @@
           displayName: 'application development, TLS'
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Azure CLI
@@ -293,7 +293,7 @@
               displayName: 'application development, server parameters'
         - name: Almacenamiento de crecimiento automático
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
             - name: Azure CLI
@@ -304,7 +304,7 @@
               displayName: 'business continuity, scale , storage'
         - name: Registros de acceso
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'access logs, monitor'
             - name: Azure CLI
@@ -450,7 +450,7 @@
       items:
         - name: Administración de un servicio
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/how-to-manage-server-portal.md
             - name: CLI de Azure
               href: flexible-server/how-to-manage-server-cli.md
@@ -478,7 +478,7 @@
                   href: flexible-server/how-to-connect-tls-ssl.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: CLI de Azure

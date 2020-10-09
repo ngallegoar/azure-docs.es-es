@@ -17,7 +17,7 @@
   items:
     - name: Creación de un centro de eventos
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: event-hubs-create.md
         - name: Azure CLI
           href: event-hubs-quickstart-cli.md
