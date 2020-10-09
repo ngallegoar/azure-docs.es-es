@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b980f809074c275a5e62098d4162e4cb4340a0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 84e692540d376c95a4a981249eba42060ed4ab80
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259377"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287107"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -49,7 +49,7 @@ La versión preliminar de esta característica actualmente admite estas distribu
 - Windows 10 1809 y versiones posteriores
 
 > [!IMPORTANT]
-> La conexión remota a las VM unidas a Azure AD solo se permite desde equipos con Windows 10 que están unidos a Azure AD o a Azure AD en entornos híbridos al **mismo** directorio que la VM. 
+> La conexión remota a las máquinas virtuales unidas a Azure AD solo se permite de los equipos Windows 10 que estén registrados en Azure AD (a partir de Windows 10 20H1) o que estén unidos a Azure AD o a Azure AD híbrido al **mismo** directorio que la máquina virtual. 
 
 La versión preliminar de esta característica actualmente admite estas regiones de Azure:
 

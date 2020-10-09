@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e1718ac9a7b7fcaab096595ea7341fcc90c2ddd6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f3906878755b7c7c2e3801da1bfa70a50d73ea16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422341"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318796"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabajar con bases de datos, contenedores y elementos de Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Puede interactuar con una base de datos de Azure Cosmos con API de Azure Cosmos,
 
 ## <a name="azure-cosmos-containers"></a>Contenedores de Azure Cosmos
 
-Un contenedor de Azure Cosmos es la unidad de escalabilidad del rendimiento y del almacenamiento aprovisionados. Un contenedor se divide de forma horizontal y luego se replica en varias regiones. Los elementos que agregue al contenedor y el rendimiento que aprovisione en él se distribuyen automáticamente en un conjunto de particiones lógicas basadas en la clave de partición. Para aprender más sobre la creación de particiones y las claves de particiones, consulte [Partition data](partition-data.md) (Creación de particiones de datos). 
+Un contenedor de Azure Cosmos es la unidad de escalabilidad del rendimiento y del almacenamiento aprovisionados. Un contenedor se divide de forma horizontal y luego se replica en varias regiones. Los elementos que se agregan al contenedor se agrupan automáticamente en particiones lógicas, que se distribuyen entre particiones físicas, en función de la clave de partición. El rendimiento de un contenedor se distribuye uniformemente entre las particiones físicas. Para aprender más sobre la creación de particiones y las claves de particiones, consulte [Partition data](partition-data.md) (Creación de particiones de datos). 
 
 Al crear un contenedor de Azure Cosmos, debe configurar el rendimiento de uno de los siguientes modos:
 

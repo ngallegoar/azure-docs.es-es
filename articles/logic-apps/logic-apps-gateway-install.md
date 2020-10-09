@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660484"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322519"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -114,7 +114,7 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
    Observe la opción para **agregar a un clúster de puerta de enlace existente**, que se selecciona al instalar puertas de enlace adicionales para [escenarios de alta disponibilidad](#high-availability).
 
-1. Compruebe la región para el servicio en la nube de la puerta de enlace y la instancia de [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) que se usó en la instalación de la puerta de enlace. De forma predeterminada, esta región es la misma ubicación de su inquilino de Azure AD para su cuenta de Azure.
+1. Compruebe la región del servicio en la nube de la puerta de enlace y la [instancia de Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) que se usó en la instalación de la puerta de enlace. De forma predeterminada, esta región es la misma ubicación de su inquilino de Azure AD para su cuenta de Azure.
 
    ![Confirme la región para el servicio de puerta de enlace y el bus de servicio](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
@@ -140,7 +140,7 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
 ## <a name="check-or-adjust-communication-settings"></a>Comprobación o ajuste de la configuración de comunicación
 
-La puerta de enlace de datos local depende de [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para la conectividad en la nube y establece las conexiones salientes correspondientes a la región de Azure asociada de la puerta de enlace. Si su entorno de trabajo requiere que el tráfico pase a través de un proxy o firewall para acceder a Internet, esta restricción podría impedir la conexión de la puerta de enlace de datos local al servicio en la nube de la puerta de enlace y Azure Service Bus. La puerta de enlace tiene varias configuraciones de comunicación que se pueden ajustar. Para más información, consulte los temas siguientes:
+La puerta de enlace de datos local depende de [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) para la conectividad de la nube y establece las conexiones salientes correspondientes a la región de Azure asociada de la puerta de enlace. Si su entorno de trabajo requiere que el tráfico pase por un proxy o firewall para acceder a Internet, esta restricción podría impedir la conexión de la puerta de enlace de datos local al servicio en la nube de puerta de enlace y a Azure Service Bus Messaging. La puerta de enlace tiene varias configuraciones de comunicación que se pueden ajustar. Para más información, consulte los temas siguientes:
 
 * [Ajuste de la configuración de comunicación para la puerta de enlace de datos local](/data-integration/gateway/service-gateway-communication)
 * [Configuración de los valores del proxy para la puerta de enlace de datos local](/data-integration/gateway/service-gateway-proxy)
@@ -206,7 +206,7 @@ Los usuarios de su organización pueden acceder a los datos locales para los que
 
 La puerta de enlace facilita una comunicación más rápida y segura en segundo plano. Esta comunicación fluye entre un usuario en la nube, el servicio en la nube de la puerta de enlace y el origen de datos local. El servicio en la nube de la puerta de enlace cifra y almacena los detalles de la puerta de enlace y las credenciales del origen de datos. El servicio también enruta las consultas y sus resultados entre el usuario, la puerta de enlace y el origen de datos local.
 
-La puerta de enlace funciona con firewalls y solo usa conexiones de salida. Todo el tráfico se origina como tráfico de salida protegido desde el agente de la puerta de enlace. La puerta de enlace retransmite datos desde orígenes locales en canales cifrados hasta [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Service Bus crea un canal entre la puerta de enlace y el servicio que realiza la llamada, pero no almacena ningún dato. Todos los datos que pasan por la puerta de enlace se cifran.
+La puerta de enlace funciona con firewalls y solo usa conexiones de salida. Todo el tráfico se origina como tráfico de salida protegido desde el agente de la puerta de enlace. La puerta de enlace envía los datos desde orígenes locales de canales cifrados hasta [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md). Service Bus crea un canal entre la puerta de enlace y el servicio que realiza la llamada, pero no almacena ningún dato. Todos los datos que pasan por la puerta de enlace se cifran.
 
 ![Arquitectura para la puerta de enlace de datos local](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -217,9 +217,9 @@ Estos pasos describen lo que sucede cuando interactúa con un elemento conectado
 
 1. El servicio en la nube crea una consulta, junto con las credenciales cifradas para el origen de datos. Después, el servicio envía la consulta y las credenciales a la cola de la puerta de enlace para su procesamiento.
 
-1. El servicio en la nube de puerta de enlace analiza la consulta e inserta la solicitud en Azure Service Bus.
+1. El servicio en la nube de puerta de enlace analiza la consulta e inserta la solicitud en Azure Service Bus Messaging.
 
-1. Azure Service Bus envía las solicitudes pendientes a la puerta de enlace.
+1. Azure Service Bus Messaging envía las solicitudes pendientes a la puerta de enlace.
 
 1. La puerta de enlace obtiene la consulta, descifra las credenciales y se conecta a uno o varios orígenes de datos con ellas.
 

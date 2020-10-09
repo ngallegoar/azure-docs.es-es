@@ -9,19 +9,28 @@ ms.devlang: ''
 ms.topic: conceptual
 author: mashamsft
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a6d95bbcb0873086a799dcf216beab4a6b0d33de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c679b6bb0f5645ea7a972be03ba3621b824a501
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344703"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327636"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Recuperación de base de datos acelerada en Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-**Recuperación acelerada de la base de datos (ADR)** es una característica del motor de base de datos de SQL Server que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de larga duración, al rediseñar el proceso de recuperación del motor de base de datos de SQL Server. ADR está disponible actualmente para Azure SQL Database, Azure SQL Managed Instance, SQL Server en máquinas virtuales de Azure y bases de datos de Azure Synapse Analytics (actualmente en versión preliminar). Las principales ventajas de ADR son:
+**Recuperación acelerada de la base de datos (ADR)** es una característica del motor de base de datos de SQL Server que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de larga duración, al rediseñar el proceso de recuperación del motor de base de datos de SQL Server. 
+
+ADR está disponible actualmente para Azure SQL Database, Azure SQL Managed Instance, bases de datos de Azure Synapse Analytics (actualmente en versión preliminar) y SQL Server en máquinas virtuales de Azure a partir de SQL Server 2019. 
+
+> [!NOTE] 
+> ADR está habilitado de forma predeterminada en Azure SQL Database y Azure SQL Managed Instance y no se admite su deshabilitación en ninguno de los productos. 
+
+## <a name="overview"></a>Información general
+
+Las principales ventajas de ADR son:
 
 - **Recuperación de base de datos rápida y coherente**
 

@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: 757646a1630443f297d4b7c538721e9facdc130c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897429"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322366"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Capacidad de interpretación de modelos en Azure Machine Learning (versión preliminar)
 
@@ -39,20 +39,11 @@ La habilitación de la capacidad de explicar un modelo de aprendizaje automátic
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretación con Azure Machine Learning
 
-Las clases de interpretabilidad están disponibles través de varios paquetes de SDK: (Obtenga información sobre cómo [instalar paquetes de SDK para Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
+Las clases de interpretabilidad están disponibles a través del siguiente paquete del SDK: (Obtenga información sobre cómo [instalar paquetes de SDK para Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
 
-* `azureml.interpret`, el paquete principal, que contiene funcionalidades compatibles con Microsoft.
+* `azureml.interpret` contiene funcionalidades admitidas por Microsoft.
 
-* `azureml.contrib.interpret`, versión preliminar, y las funcionalidades experimentales que puede probar.
-
-Use `pip install azureml-interpret` y `pip install azureml-contrib-interpret` para el uso general.
-
-
-> [!IMPORTANT]
-> El contenido del espacio de nombres `contrib` no es totalmente compatible. A medida que maduran las funcionalidades experimentales, se mueven gradualmente al espacio de nombres principal.
-.
-
-
+Utilice `pip install azureml-interpret` para uso general.
 
 ## <a name="how-to-interpret-your-model"></a>Interpretación del modelo
 

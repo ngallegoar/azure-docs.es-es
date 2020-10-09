@@ -5,13 +5,17 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: 041c8851fc5535b9c4494bc5aae618bfbc762086
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9d09f29dc5fbe6ed6a358c37a6064319c28e35f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125311"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320782"
 ---
-Para comprobar si los permisos se han configurado correctamente, siga [este vínculo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) para ir a la página de información general del registro de aplicación de Azure AD en Azure Portal. En esta página se muestran todos los registros de aplicación que se han creado en la suscripción.
+Para comprobar si los permisos se han configurado correctamente, vaya a la [página de información general del registro de aplicaciones de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) en Azure Portal. Para acceder a esta página, escriba *Registros de aplicaciones* en la barra de búsqueda del portal.
 
-Debería ver aparecer el registro de aplicación recién creado en la lista de información general. Selecciónelo para abrir sus detalles.
+Cambie a la pestaña *Todas las aplicaciones* para ver todos los registros de aplicaciones que se han creado en su suscripción.
+
+Verá que aparece en la lista el registro de aplicaciones que acaba de crear. Selecciónelo para abrir sus detalles.
+
+:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/app-registrations.png" alt-text="Página Registros de aplicaciones en Azure Portal":::
