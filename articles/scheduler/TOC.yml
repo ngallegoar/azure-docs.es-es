@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Azure Scheduler?
       href: scheduler-intro.md
-- name: Introducción
+- name: Primeros pasos
   items:
     - name: 'Creación y administración de programaciones: Azure PowerShell'
       href: scheduler-powershell-reference.md
