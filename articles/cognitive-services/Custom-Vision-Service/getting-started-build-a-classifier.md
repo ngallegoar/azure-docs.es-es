@@ -1,26 +1,27 @@
 ---
-title: 'Inicio rápido: Creación de un clasificador (Custom Vision)'
+title: 'Inicio rápido: Creación de un clasificador con el sitio web de Custom Vision'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido, aprenderá a usar el sitio web de Custom Vision para crear un modelo de clasificación de imágenes.
+description: En este inicio rápido, aprenderá a usar el sitio web de Custom Vision para crear, entrenar y probar un modelo de clasificación de imágenes.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: c8b5d3f58f11e85c6e77ce0cbf0c6d435f570ade
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+keywords: image recognition, image recognition app, custom vision
+ms.openlocfilehash: b57720b9d8fb05a605b9eace279b70b060c18450
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277349"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91596877"
 ---
-# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Inicio rápido: Cómo crear un clasificador con Custom Vision
+# <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Inicio rápido: Creación de un clasificador con el sitio web de Custom Vision
 
-En este inicio rápido, aprenderá a crear un clasificador de imágenes mediante el sitio web de Custom Vision. Una vez que cree un modelo, puede probarlo con nuevas imágenes y, finalmente, integrarlo en su propio software de reconocimiento de imágenes.
+En este inicio rápido, aprenderá a usar el sitio web de Custom Vision para crear un modelo de clasificación de imágenes. Una vez que cree un modelo, puede probarlo con nuevas imágenes y, finalmente, integrarlo en su propia aplicación de reconocimiento de imágenes.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
