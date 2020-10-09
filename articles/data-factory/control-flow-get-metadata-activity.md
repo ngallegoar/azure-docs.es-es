@@ -10,14 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: c761cf1265ad61517a9d0123b932d31b27d157dd
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e32115c590d73f5c93f322d3bd542096f2964a4c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613501"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297613"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
 
@@ -35,7 +35,7 @@ La siguiente funcionalidad está disponible en el flujo de control:
 
 ## <a name="capabilities"></a>Capacidades
 
-La actividad de obtención de metadatos toma un conjunto de datos como entrada y genera información de metadatos como salida. Actualmente, se admiten los siguientes conectores y los metadatos recuperables correspondientes. El tamaño máximo de los metadatos devueltos es 2 MB.
+La actividad de obtención de metadatos toma un conjunto de datos como entrada y genera información de metadatos como salida. Actualmente, se admiten los siguientes conectores y los metadatos recuperables correspondientes. El tamaño máximo de los metadatos devueltos es 4 MB.
 
 >[!NOTE]
 >Si ejecuta la actividad de obtención de metadatos en un entorno de ejecución de integración autohospedado, se admite la funcionalidad más reciente en la versión 3.6 o posterior.
@@ -87,7 +87,7 @@ Puede especificar los siguientes tipos de metadatos en la lista de campos de la 
 | contentMD5 | MD5 del archivo. Se aplica solo a los archivos. |
 | structure | Estructura de datos del archivo o la tabla de base de datos relacional. El valor devuelto es una lista de nombres de columna y tipos de columna. |
 | columnCount | Número de columnas en el archivo o la tabla relacional. |
-| exists| Si un archivo, carpeta o tabla existe. Tenga en cuenta que si se especifica `exists` en la lista del campo de obtención de metadatos, la actividad no producirá un error aunque el archivo, la carpeta o la tabla no existan. En su lugar, se devuelve `exists: false` en la salida. |
+| exists| Si un archivo, carpeta o tabla existe. Si se especifica `exists` en la lista de campos de obtención de metadatos, la actividad no producirá un error, aunque el archivo, la carpeta o la tabla no existan. En su lugar, se devuelve `exists: false` en la salida. |
 
 >[!TIP]
 >Si desea validar que existe un archivo, una carpeta o una tabla, especifique `exists` en la lista de campos de la actividad de obtención de metadatos. A continuación, puede comprobar el resultado `exists: true/false` en la salida de la actividad. Si `exists` no se especifica en la lista de campos, se producirá un error en la actividad de obtención de metadatos si no se encuentra el objeto.

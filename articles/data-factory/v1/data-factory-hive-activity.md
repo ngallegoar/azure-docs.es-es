@@ -1,6 +1,6 @@
 ---
 title: 'Transformación de datos mediante la actividad de Hive: Azure'
-description: Aprenda cómo puede usar la actividad de Hive en Factoría de datos de Azure para ejecutar consultas de Hive en un clúster de HDInsight suyo propio o a petición.
+description: Aprenda cómo puede usar la actividad de Hive en una factoría de datos de Azure v1 para ejecutar consultas de Hive en un clúster de HDInsight suyo propio o a petición.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41f570f93e95e9801b08c06cacc0423b1bf3b8e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74703350"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252790"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Hive en Azure Data Factory 
 > [!div class="op_single_selector" title1="Actividades de transformación"]

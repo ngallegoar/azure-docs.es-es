@@ -4,23 +4,27 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: ff54d60573fbc7b6694b8d02d1378869674c1e81
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: b62e5057d8f144fc56d0e35927d17de27a1c8863
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050213"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255266"
 ---
 La característica es fácil de configurar, aunque eso no quiere decir que no presente problemas con el uso. Si encuentra problemas para acceder al punto de conexión que quiere, existen varias utilidades que sirven para probar la conectividad desde la consola de la aplicación. Dispone de dos consolas que puede usar. Una es la consola Kudu y la otra es la consola a la que se accede en Azure Portal. Para acceder a la consola Kudu desde la aplicación, vaya a **Herramientas** > **Kudu**. También puede tener acceso a la consola de Kudo en [sitename].scm.azurewebsites.net. Después de que se cargue el sitio web, vaya a la pestaña **Consola de depuración**. Para llegar a la consola hospedada en Azure Portal desde su aplicación, vaya a **Herramientas** > **Consola**.
 
 #### <a name="tools"></a>Herramientas
-Las herramientas **ping**, **nslookup** y **tracert** no funcionan en la consola debido a restricciones de seguridad. Para suplir esta carencia, se agregaron dos herramientas diferentes. Para probar la funcionalidad de DNS, se agregó una herramienta denominada **nameresolver.exe**. La sintaxis es:
+En las aplicaciones nativas de Windows, las herramientas **ping**, **nslookup**y **tracert** no funcionarán a través de la consola debido a las restricciones de seguridad (funcionan en [contenedores de Windows personalizados](../articles/app-service/quickstart-custom-container.md)). Para suplir esta carencia, se agregaron dos herramientas diferentes. Para probar la funcionalidad de DNS, se agregó una herramienta denominada **nameresolver.exe**. La sintaxis es:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
 ```
 
 Puede usar nameresolver para comprobar los nombres de host de los que depende la aplicación. De este modo, puede probar si hay algo mal configurado en el DNS o si no tiene acceso al servidor DNS. Para ver el servidor DNS que la aplicación usa en la consola, examine las variables de entorno WEBSITE_DNS_SERVER y WEBSITE_DNS_ALT_SERVER.
+
+> [!NOTE]
+> nameresolver.exe no funciona actualmente en contenedores de Windows personalizados.
+>
 
 Puede usar la siguiente herramienta para probar la conectividad de TCP en una combinación de host y puerto. Esta herramienta se llama **tcpping** y la sintaxis es:
 

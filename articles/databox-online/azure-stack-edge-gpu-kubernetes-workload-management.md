@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: f64f9b612ff47fb5c0b6e6202ad87f7660959100
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9e0da9e24a0bd32047d029879c4f0e110dc0c16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899174"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320802"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Administración de cargas de trabajo de Kubernetes en un dispositivo Azure Stack Edge Pro
 
@@ -29,7 +29,7 @@ Los dos tipos comunes de cargas de trabajo que se pueden implementar en un dispo
 
     Puede crear una implementación de Kubernetes para implementar una aplicación sin estado en el clúster. 
 
-- **Las aplicaciones con estado** requieren que se guarde su estado. Las aplicaciones con estado usan almacenamiento persistente, como volúmenes persistentes, para guardar los datos para su uso por parte del servidor o de otros usuarios. Algunos ejemplos de aplicaciones con estado son las bases de datos como MongoDB.
+- **Las aplicaciones con estado** requieren que se guarde su estado. Las aplicaciones con estado usan almacenamiento persistente, como volúmenes persistentes, para guardar los datos para su uso por parte del servidor o de otros usuarios. Algunos ejemplos de aplicaciones con estado son las bases de datos como [Azure SQL Edge](../azure-sql-edge/overview.md) y MongoDB.
 
     Puede crear una implementación de Kubernetes para implementar una aplicación con estado. 
 

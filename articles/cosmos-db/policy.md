@@ -1,23 +1,26 @@
 ---
 title: Uso de Azure Policy para implementar la gobernanza y los controles de recursos de Azure Cosmos DB
 description: Aprenda a usar Azure Policy para implementar la gobernanza y los controles de recursos de Azure Cosmos DB.
-author: plzm
-ms.author: paelaz
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/23/2020
+ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431991"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320904"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Uso de Azure Policy para implementar la gobernanza y los controles de recursos de Azure Cosmos DB
 
 [Azure Policy](../governance/policy/overview.md) ayuda a aplicar estándares de gobernanza de la organización, a valorar el cumplimiento de los recursos y a implementar correcciones automáticas. Algunos casos de uso comunes son la seguridad, la administración de costos y la coherencia de la configuración.
 
 Azure Policy proporciona definiciones de directivas integradas Puede crear definiciones de directivas personalizadas para escenarios en los que no sirvan las definiciones de directivas integradas. Para más información, consulte la [documentación de Azure Policy](../governance/policy/overview.md).
+
+> [!IMPORTANT]
+> Azure Policy se aplica a los servicios de Azure en el nivel de proveedor de recursos. Los SDK de Cosmos DB pueden realizar la mayoría de las operaciones de administración en los recursos de base de datos, contenedor y rendimiento que pasan por alto el proveedor de recursos de Cosmos DB, de forma que se omiten las directivas creadas mediante Azure Policy. Para garantizar la aplicación de las directivas, consulte [Bloqueo en los SDK de Azure Cosmos DB para evitar cambios](role-based-access-control.md#prevent-sdk-changes).
 
 ## <a name="assign-a-built-in-policy-definition"></a>Asignación de una definición de directiva integrada
 
@@ -123,7 +126,7 @@ En la captura de pantalla se muestran los siguientes resultados de la evaluació
 - Cero de dos cuentas cumple con una directiva que requiere que la cuenta esté configurada para varias ubicaciones de escritura.
 - Cero de dos cuentas cumple con una directiva por la que los recursos deben estar implementados en regiones de Azure permitidas.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Resultados de cumplimiento de las asignaciones de Azure Policy enumeradas":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Búsqueda de definiciones de directivas integradas de Azure Cosmos DB":::
 
 Para corregir los recursos no compatibles, consulte [Corregir los recursos no conformes con Azure Policy](../governance/policy/how-to/remediate-resources.md).
 

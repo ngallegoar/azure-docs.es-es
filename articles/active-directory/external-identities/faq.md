@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 03/19/2020
+ms.date: 09/23/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92c3e0d77a26db406e24d6d2fa07e96349613634
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907715"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274051"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 
@@ -116,6 +116,9 @@ Si el asociado tiene un inquilino de Azure AD que está federado en la infraestr
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Creía que B2B de Azure AD no aceptaba direcciones de correo electrónico gmail.com y outlook.com, y que se usaba B2C para esos tipos de cuentas
 Estamos eliminando las diferencias entre B2B y colaboración de negocio al consumidor (B2C) en cuanto a las identidades que se admiten. La identidad utilizada no es una buena razón para decidir si se va a utilizar B2B o B2C. Para obtener información acerca de cómo elegir la opción de colaboración, consulte [Comparación de la colaboración B2B y B2C de Azure Active Directory](compare-with-b2c.md).
+
+### <a name="can-an-azure-ad-b2c-local-account-be-invited-to-an-azure-ad-tenant-for-b2b-collaboration"></a>¿Se puede invitar a una cuenta local de Azure AD B2C a un inquilino de Azure AD para la colaboración B2B?
+No. Solo se puede usar una cuenta local de Azure AD B2C para iniciar sesión en el inquilino de Azure AD B2C. No se puede usar la cuenta para iniciar sesión en un inquilino de Azure AD. No se admite la invitación de una cuenta local de Azure AD B2C a un inquilino de Azure AD para la colaboración B2B.
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>¿Qué aplicaciones y los servicios admiten los usuarios invitados de Azure B2B?
 Todas las aplicaciones integradas en Azure AD pueden admitir usuarios invitados de B2B de Azure, pero deben usar un punto de conexión configurado como inquilino para autenticar a los usuarios invitados. También es posible que necesite [personalizar las notificaciones](claims-mapping.md) del token SAML que se emite cuando un usuario invitado se autentica en la aplicación. 
