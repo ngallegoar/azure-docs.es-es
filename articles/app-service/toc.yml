@@ -108,7 +108,7 @@
           href: overview-security.md
     - name: Características de red
       items:
-        - name: Introducción
+        - name: Información general
           href: networking-features.md
         - name: Application Gateway con puntos de conexión de servicio
           href: networking/app-gateway-with-service-endpoints.md
