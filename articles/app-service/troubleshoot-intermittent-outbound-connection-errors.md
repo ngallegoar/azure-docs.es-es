@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: 467f7b3525883e16e57a06ff97cf4fd386279d22
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958242"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408222"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Solución de errores intermitentes en la conexión de salida en Azure App Service
 
@@ -32,7 +32,7 @@ Las aplicaciones y las funciones que se hospedan en Azure App Service pueden pre
 Una causa principal de estos síntomas es que la instancia de la aplicación no puede abrir una conexión nueva con el punto de conexión externo porque ha alcanzado uno de los límites siguientes:
 
 * Conexiones TCP: existe un límite en cuanto al número de conexiones salientes que se pueden realizar. Esto se asocia con el tamaño del trabajo que se usa.
-* Puertos SNAT: como se describe en [Conexiones salientes en Azure](../load-balancer/load-balancer-outbound-connections.md), Azure usa la traducción de direcciones de red de origen (SNAT) y el equilibrador de carga (no expuesto a los clientes) para comunicarse con los puntos de conexión externos a Azure en el espacio de direcciones IP públicas. A cada instancia de Azure App Service se le asigna inicialmente un número predefinido de **128** puertos SNAT. Ese límite afecta a la apertura de conexiones a la misma combinación de host y puerto. Si la aplicación crea conexiones a una mezcla de combinaciones de direcciones y puertos, no se usarán los puertos SNAT. Los puertos SNAT se usan cuando hay llamadas repetidas a la misma combinación de dirección y puerto. Una vez que se ha liberado un puerto, está disponible para reutilizarse según sea necesario. El equilibrador de carga de red de Azure solo reclama el puerto SNAT de las conexiones cerradas después de esperar 4 minutos.
+* Puertos SNAT: como se describe en [Conexiones salientes en Azure](../load-balancer/load-balancer-outbound-connections.md), Azure usa la traducción de direcciones de red de origen (SNAT) y un equilibrador de carga (no expuesto a los clientes) para comunicarse con los puntos de conexión externos a Azure en el espacio de direcciones IP públicas, así como con los puntos de conexión internos de Azure que no aprovechan los puntos de conexión de servicio. A cada instancia de Azure App Service se le asigna inicialmente un número predefinido de **128** puertos SNAT. Ese límite afecta a la apertura de conexiones a la misma combinación de host y puerto. Si la aplicación crea conexiones a una mezcla de combinaciones de direcciones y puertos, no se usarán los puertos SNAT. Los puertos SNAT se usan cuando hay llamadas repetidas a la misma combinación de dirección y puerto. Una vez que se ha liberado un puerto, está disponible para reutilizarse según sea necesario. El equilibrador de carga de red de Azure solo reclama el puerto SNAT de las conexiones cerradas después de esperar 4 minutos.
 
 Si las aplicaciones o las funciones abren rápidamente una conexión nueva, pueden agotar con rapidez la cuota preasignada de 128 puertos. Después, se bloquean hasta que un nuevo puerto SNAT esté disponible, ya sea a través de la asignación dinámica de puertos SNAT adicionales o mediante la reutilización de un puerto SNAT reclamado. Las aplicaciones o funciones que estén bloqueadas debido a esta imposibilidad de crear conexiones comenzarán a experimentar uno o varios de los problemas descritos en la sección **Síntomas** de este artículo.
 
@@ -92,16 +92,6 @@ Aunque PHP no admite la agrupación de conexiones, puede intentar usar conexione
 * Otros orígenes de datos
 
    * [Administración de conexiones de PHP](https://www.php.net/manual/en/pdo.connections.php)
-
-#### <a name="python"></a>Python
-
-* [MySQL](https://github.com/mysqljs/mysql#pooling-connections)
-* [MongoDB](https://blog.mlab.com/2017/05/mongodb-connection-pooling-for-express-applications/)
-* [PostgreSQL](https://node-postgres.com/features/pooling)
-* [SQL Server](https://github.com/tediousjs/node-mssql#connection-pools) (Nota: SQLAlchemy se puede usar con otras bases de datos además de Microsoft SQL Server)
-* [HTTP Keep-alive](https://requests.readthedocs.io/en/master/user/advanced/#keep-alive) (Keep-alive es automático al usar objetos [session-objects](https://requests.readthedocs.io/en/master/user/advanced/#keep-alive) de sesiones).
-
-En el caso de otros entornos, revise la documentación específica del proveedor o del controlador en cuestión para implementar la agrupación de conexiones en las aplicaciones.
 
 ### <a name="modify-the-application-to-reuse-connections"></a>Modificación de la aplicación para reutilizar las conexiones
 

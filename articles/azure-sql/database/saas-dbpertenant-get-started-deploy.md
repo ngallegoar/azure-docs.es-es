@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 8d71f6e71a7cd6033e570742a23016df0c25dd27
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3851e6a784d244b101c2c71c67b4b2c9a8f5cbee
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542253"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618948"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con Azure SQL Database
 
@@ -225,7 +225,7 @@ Ahora que ha empezado a ejecutar una carga en la colección de inquilinos, veamo
 1. En  [Azure Portal](https://portal.azure.com), vaya a la lista de los servidores SQL. Luego abra el servidor **catalog-dpt-&lt;USUARIO&gt;** .
     - El servidor de catálogos contiene dos bases de datos, **tenantcatalog** y **basetenantdb** (una base de datos de plantilla que se copia para crear nuevos inquilinos).
 
-   ![Bases de datos](./media/saas-dbpertenant-get-started-deploy/databases.png)
+   ![Captura de pantalla de una página de información general del servidor de catálogo con las dos bases de datos.](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Vuelva a la lista de servidores SQL Server.
 
