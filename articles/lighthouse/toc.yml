@@ -84,7 +84,7 @@
           href: ./how-to/view-service-provider-activity.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/managedservices
     - name: Azure PowerShell
       href: /powershell/module/az.managedservices#managed_services
