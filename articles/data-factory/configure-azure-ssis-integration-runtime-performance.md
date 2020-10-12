@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523322"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276680"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configuración de Integration Runtime de SSIS de Azure para conseguir un alto rendimiento
 
@@ -122,8 +122,7 @@ El eje Y es el número de paquetes que completaron la ejecución en una hora. Te
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Si ya está usando un nodo de trabajo de gran potencia para ejecutar los paquetes, el hecho de aumentar **AzureSSISMaxParallelExecutionsPerNode** puede incrementar el rendimiento global de Integration Runtime. En el caso de los nodos Standard_D1_v2, se admiten ejecuciones en paralelo 1-4 por nodo. Para el resto de tipos de nodos, se admite un máximo de ejecuciones en paralelo (2 x número de núcleos, 8) por nodo. Si quiere un valor de **AzureSSISMaxParallelExecutionsPerNode** por encima del máximo admitido, puede abrir una incidencia de soporte técnico para que se incremente el valor máximo en su caso y después tiene que usar Azure Powershell para actualizar **AzureSSISMaxParallelExecutionsPerNode**.
-Puede calcular el valor apropiado en función del costo del paquete y de las siguientes configuraciones de los nodos de trabajo. Para más información, consulte [Tamaños de máquina virtual de uso general](../virtual-machines/windows/sizes-general.md).
+Si ya está usando un nodo de trabajo de gran potencia para ejecutar los paquetes, el hecho de aumentar **AzureSSISMaxParallelExecutionsPerNode** puede incrementar el rendimiento global de Integration Runtime. Si quiere aumentar el valor máximo, debe usar Azure PowerShell para actualizar **AzureSSISMaxParallelExecutionsPerNode**. Puede calcular el valor apropiado en función del costo del paquete y de las siguientes configuraciones de los nodos de trabajo. Para más información, consulte [Tamaños de máquina virtual de uso general](../virtual-machines/windows/sizes-general.md).
 
 | Size             | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Discos de datos máx. / rendimiento: E/S | Nº máx. NIC / rendimiento de red esperado (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
