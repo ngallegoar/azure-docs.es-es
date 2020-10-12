@@ -1,6 +1,6 @@
 ---
 title: 'Incorporación de un flujo de usuario de registro de autoservicio: Azure AD'
-description: Fedérese con Facebook para permitir que los usuarios externos (invitados) inicien sesión en sus aplicaciones de Azure AD con sus propias cuentas de Facebook.
+description: Cree flujos de usuario para aplicaciones compiladas por la organización. Después, los usuarios que visitan esa aplicación pueden obtener una cuenta de invitado con las opciones configuradas en el flujo de usuario.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fa9d9e23de9a4ec93cbef6d2696d7bec70d41d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ffb1d5eb756c7bc316a6d8e1de30a95eb1ac5194
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907633"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287056"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Incorporación de un flujo de usuario de registro de autoservicio a una aplicación (versión preliminar)
 > [!NOTE]
