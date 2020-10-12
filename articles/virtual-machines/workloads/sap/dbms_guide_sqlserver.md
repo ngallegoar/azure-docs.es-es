@@ -4,23 +4,23 @@ description: Implementación de DBMS de Azure Virtual Machines de SQL Server par
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
-keywords: ''
+keywords: Azure, SQL Server, SAP, AlwaysOn
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/26/2018
+ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0fc7d62cc89e240d931f3d0f255a917a73a4114c
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 56a7b91327e84ca36e6ec6e4b15f594dbc61830e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654589"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274306"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP NetWeaver
 
@@ -309,7 +309,7 @@ ms.locfileid: "88654589"
 
 
 
-En este documento se describen las diferentes áreas que se deben tener en cuenta al implementar SQL Server para la carga de trabajo de SAP en IaaS de Azure. Como condición previa a este documento, debe haber leído el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md), así como otras guías de la [documentación de carga de trabajo de SAP en Azure](./get-started.md). 
+En este documento se describen las diferentes áreas que se deben tener en cuenta al implementar SQL Server para la carga de trabajo de SAP en IaaS de Azure. Como condición previa a este documento, debe haber leído el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](./dbms_guide_general.md), así como otras guías de la [documentación de carga de trabajo de SAP en Azure](./get-started.md). 
 
 
 
@@ -320,7 +320,7 @@ En este documento se describen las diferentes áreas que se deben tener en cuent
 
 En general, debería considerar usar las versiones más recientes de SQL Server para ejecutar la carga de trabajo de SAP en IaaS de Azure. Las versiones más recientes de SQL Server ofrecen una mejor integración en algunos de los servicios y funcionalidades de Azure o disponer de cambios que optimicen las operaciones en una infraestructura de IaaS de Azure.
 
-Se recomienda revisar [esta][virtual-machines-sql-server-infrastructure-services] documentación antes de continuar.
+Se recomienda revisar el artículo [Qué es SQL Server en Azure Virtual Machines (Windows)] [https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview ] antes de continuar.
 
 En las secciones siguientes se agregan y mencionan fragmentos de partes de la documentación del vínculo anterior. Se describen de forma más detallada algunos conceptos y se mencionan consideraciones sobre SAP. Sin embargo, se recomienda encarecidamente consultar la documentación anterior primero antes de leer la documentación específica de SQL Server.
 
@@ -332,13 +332,13 @@ Debe conocer información específica sobre SQL Server en IaaS antes de continua
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>Recomendaciones sobre la estructura de máquina virtual y VHD para SAP relacionadas con las implementaciones de SQL Server
-Según la descripción general, los archivos ejecutables de SQL Server se deben ubicar o instalar en la unidad del sistema del disco de sistema operativo de la máquina virtual (unidad C:\).  Normalmente, la carga de trabajo de SAP NetWeaver no utiliza en gran medida la mayoría de las bases de datos de sistema de SQL Server. Como resultado, las bases de datos de sistema de SQL Server (master, msdb y model) pueden permanecer también en la unidad C:\. Una excepción podría ser tempdb, que, en el caso de las cargas de trabajo de SAP, podría requerir un mayor volumen de datos o un mayor volumen de operaciones de E/S. La carga de trabajo de E/S no se debe aplicar al disco duro virtual de sistema operativo. Para estos sistemas, se deben realizar los pasos siguientes:
+Según la descripción general, el sistema operativo, los archivos ejecutables de SQL Server y, en el caso de los sistemas SAP de 2 niveles, los archivos ejecutables de SAP se deben ubicar o instalar en discos de Azure independientes. Normalmente, la carga de trabajo de SAP NetWeaver no utiliza en gran medida la mayoría de las bases de datos de sistema de SQL Server. No obstante, las bases de datos del sistema de SQL Server (maestra, msdb y modelo) deben estar, junto con los demás directorios de SQL Server, en un disco de Azure independiente. tempdb de SQL Server debe encontrarse en la unidad D:\ no persistente o en un disco independiente.
 
 
 * Con todos los tipos de máquina virtual certificados de SAP (consulte la nota de SAP [1928533]), salvo las máquinas virtuales de la serie A, los datos de tempdb y los archivos de registro se pueden colocar en la unidad D:\ no persistente. 
-* No obstante, se recomienda usar varios archivos de datos de tempdb. Tenga en cuenta que los volúmenes de la unidad D:\ serán diferentes en función del tipo de máquina virtual. Para saber cuáles son los tamaños exactos de la unidad D:\ de las distintas máquinas virtuales, consulte el artículo [Tamaños de las máquinas virtuales Windows en Azure](../../sizes.md).
+* En el caso de las versiones anteriores de SQL Server, donde SQL Server instala tempdb con un archivo de datos de forma predeterminada, se recomienda usar varios archivos de datos de tempdb. Tenga en cuenta que los volúmenes de la unidad D:\ serán diferentes en función del tipo de máquina virtual. Para saber cuáles son los tamaños exactos de la unidad D:\ de las distintas máquinas virtuales, consulte el artículo [Tamaños de las máquinas virtuales Windows en Azure](../../sizes.md).
 
-Estas configuraciones permiten que tempdb consuma más espacio que el que la unidad del sistema puede proporcionar. La unidad D:\ no persistente también ofrece un mejor rendimiento y latencia de E/S (a excepción de las máquinas virtuales de la serie A). Para determinar el tamaño correcto de tempdb, puede comprobar los tamaños de tempdb en los sistemas existentes. 
+Estas configuraciones permiten que tempdb consuma más espacio y más importante, más IOPS y ancho de banda de almacenamiento que el que la unidad del sistema puede proporcionar. La unidad D:\ no persistente también ofrece un mejor rendimiento y latencia de E/S (a excepción de las máquinas virtuales de la serie A). Para determinar el tamaño correcto de tempdb, puede comprobar los tamaños de tempdb en los sistemas existentes. 
 
 >[!NOTE]
 > En el caso de que coloque los archivos de datos de tempdb y el archivo de registro en una carpeta de la unidad D:\ que haya creado, deberá asegurarse de que la carpeta existe después de reiniciar la máquina virtual. Dado que la unidad D:\ se acaba de inicializar después de reiniciar la máquina virtual, se borrarán todas las estructuras de archivos y directorios. En [este artículo](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) se documenta una posibilidad de volver a crear estructuras de directorios finales en la unidad D:\ antes de iniciar el servicio SQL Server.
@@ -347,11 +347,10 @@ Una configuración de máquina virtual que ejecuta SQL Server con una base de da
 
 ![Diagrama de una configuración simple de disco de máquina virtual para SQL Server](./media/dbms_sqlserver_deployment_guide/Simple_disk_structure.PNG)
 
-En el diagrama anterior se muestra un caso sencillo. Como se menciona en el artículo [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md), el número y el tamaño de los discos de Premium Storage dependen de varios factores, pero en general se recomienda lo siguiente:
+En el diagrama anterior se muestra un caso sencillo. Como se menciona en el artículo [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md), el tipo de almacenamiento de Azure, el número y el tamaño de los discos dependen de varios factores, pero en general se recomienda lo siguiente:
 
-- Usar espacios de almacenamiento para formar uno o una cifra pequeña de volúmenes, que contienen los archivos de datos de SQL Server. El motivo de esta configuración es que en la vida real hay muchas bases de datos de SAP con archivos de base de datos de distintos tamaños y con diferentes cargas de trabajo de E/S.
-- Usar espacios de almacenamiento para proporcionar IOPS suficientes y para el archivo de registro de transacciones de SQL Server. La carga de trabajo IOPS potencial es a menudo el hilo conductor para definir el tamaño del volumen de registro de transacciones, y no del volumen potencial del volumen de transacciones de SQL Server.
-- Usar la unidad D:\ para tempdb mientras el rendimiento sea lo suficientemente bueno. Si la carga de trabajo global está limitada en rendimiento por el hecho de que tempdb se encuentra en la unidad D:\, puede que deba tener en cuenta trasladar tempdb a discos de Premium Storage independientes, como se recomienda en [este artículo](../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
+- Usar un volumen grande, que contenga los archivos de datos de SQL Server. El motivo de esta configuración es que en la vida real hay muchas bases de datos de SAP con archivos de base de datos de distintos tamaños y con diferentes cargas de trabajo de E/S.
+- Usar la unidad D:\ para tempdb mientras el rendimiento sea lo suficientemente bueno. Si el rendimiento de la carga de trabajo global está limitado porque tempdb se encuentra en la unidad D:\, puede que deba considerar el traslado de tempdb a discos independientes de Azure Storage Premium o Ultra, como se recomienda en [este artículo](../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
 
 
 ### <a name="special-for-m-series-vms"></a>Aspectos especiales para las máquinas virtuales de la serie M
@@ -359,7 +358,7 @@ Para la máquina virtual de Azure de la serie M, se puede reducir la latencia de
   
 
 ### <a name="formatting-the-disks"></a>Aplicar formato a los discos
-Para SQL Server, el tamaño de bloque NTFS de los discos que contienen los archivos de registro y de datos de SQL Server deben tener un tamaño de 64 KB. No hay que formatear la unidad D:\, ya que este proceso se ha realizado previamente.
+Para SQL Server, el tamaño de bloque NTFS de los discos que contienen los archivos de registro y de datos de SQL Server deben tener un tamaño de 64 KB. No hay que formatear la unidad D:\, ya que este proceso se ha realizado previamente.
 
 Para asegurarse de que la restauración o la creación de bases de datos no inicialice los archivos de datos llenando con ceros el contenido de los archivos, debe asegurarse de que el servicio de SQL Server que se ejecuta en el contexto de usuario tiene un permiso determinado. Normalmente, los usuarios del grupo de administrador de Windows tienen estos permisos. Si el servicio SQL Server se ejecuta en el contexto de usuario del usuario no administrador de Windows, debe asignar a ese usuario el derecho de usuario **Realizar tareas de mantenimiento del volumen**.  Consulte los detalles en este artículo de Microsoft Knowledge Base: <https://support.microsoft.com/kb/2574695>
 
@@ -385,13 +384,13 @@ SQL Server 2014 y versiones posteriores ofrecen la posibilidad de almacenar arch
 * El almacenamiento en caché basado en host que está disponible para los discos de Azure Premium Storage no está disponible al colocar los archivos de datos de SQL Server directamente en los blobs de Azure.
 * En las máquinas virtuales de la serie M no se puede usar el Acelerador de escritura de Azure para admitir escrituras inferiores a milisegundos en el archivo de registro de transacciones de SQL Server. 
 
-En el artículo [Archivos de datos de SQL Server en Microsoft Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-2017) encontrará información detallada sobre esta funcionalidad.
+En el artículo [Archivos de datos de SQL Server en Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) encontrará información detallada sobre esta funcionalidad.
 
 La recomendación para los sistemas de producción consiste en evitar esta configuración y elegir las ubicaciones de los datos y los archivos de registro de SQL Server en discos duros virtuales de Azure Premium Storage en lugar de colocarlos directamente en blobs de Azure.
 
 
 ## <a name="sql-server-2014-buffer-pool-extension"></a>Extensión de grupo de búferes de SQL Server 2014
-SQL Server 2014 incorporó una nueva característica denominada [Extensión del grupo de búferes](/sql/database-engine/configure-windows/buffer-pool-extension?view=sql-server-2017). Esta funcionalidad amplía el grupo de búferes de SQL Server que se mantiene en memoria con una memoria caché de segundo nivel respaldada por discos SSD locales de un servidor o una máquina virtual. La extensión del grupo de búferes permite tener "en memoria" un espacio de trabajo de datos mayor. En comparación con el acceso a Azure Standard Storage, el acceso a la extensión del grupo de búferes que se almacena en discos SSD locales de una máquina virtual de Azure es mucho más rápido. Si se compara la Extensión del grupo de búferes con la Caché de lectura de Azure Premium Storage, como se recomienda para los archivos de datos de SQL Server, no se esperan ventajas significativas para las extensiones del grupo de búferes. El motivo es que las memorias caché (extensión de grupo de búferes de SQL Server y memoria caché de lectura de Premium Storage) usan los discos locales del nodo de proceso de Azure.
+SQL Server 2014 incorporó una nueva característica denominada [Extensión del grupo de búferes](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension). Esta funcionalidad amplía el grupo de búferes de SQL Server que se mantiene en memoria con una memoria caché de segundo nivel respaldada por discos SSD locales de un servidor o una máquina virtual. La extensión del grupo de búferes permite tener "en memoria" un espacio de trabajo de datos mayor. En comparación con el acceso a Azure Standard Storage, el acceso a la extensión del grupo de búferes que se almacena en discos SSD locales de una máquina virtual de Azure es mucho más rápido. Si se compara la Extensión del grupo de búferes con la Caché de lectura de Azure Premium Storage, como se recomienda para los archivos de datos de SQL Server, no se esperan ventajas significativas para las extensiones del grupo de búferes. El motivo es que las memorias caché (extensión de grupo de búferes de SQL Server y memoria caché de lectura de Premium Storage) usan los discos locales del nodo de proceso de Azure.
 
 La experiencia adquirida mientras tanto con la Extensión del grupo de búferes de SQL Server con la carga de trabajo de SAP es variada y aún no ofrece unas recomendaciones claras sobre si se debe usar en todos los casos. Lo ideal es que el espacio de trabajo que requiere la aplicación de SAP se adapte a la memoria principal. Con la oferta de Azure de máquinas virtuales de hasta 4 TB de memoria, debería ser factible mantener el espacio de trabajo en memoria. Por lo tanto, el uso de la Extensión del grupo de búferes se limita a algunos casos excepcionales y no debería ser un caso convencional.  
 
@@ -409,9 +408,9 @@ Tiene varias posibilidades para hacer copias de seguridad "manuales":
 
 El primer método es muy conocido y también se aplica en muchos casos de ubicaciones locales. No obstante, le deja la tarea de resolver la ubicación de copia de seguridad a más largo plazo. Como no quiere conservar las copias de seguridad durante 30 o más días en el almacenamiento de Azure Storage conectado localmente, deberá usar los servicios de Azure Backup u otra herramienta de copia de seguridad o recuperación de terceros que incluya la administración de acceso y de retención de las copias de seguridad. La alternativa es crear en Azure un servidor de archivos de gran tamaño usando espacios de almacenamiento de Windows.
 
-El segundo método se describe con más detalle en el artículo [Copia de seguridad en URL de SQL Server](/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017). Hay distintas versiones de SQL Server que presentan algunas variaciones respecto a esta funcionalidad. Por lo tanto, debe consultar la documentación de la comprobación de su versión de SQL Server concreta. Es importante tener en cuenta que en este artículo se detallan numerosas restricciones. Tiene la posibilidad de hacer la copia de seguridad en:
+El segundo método se describe con más detalle en el artículo [Copia de seguridad en URL de SQL Server](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/backup-restore). Hay distintas versiones de SQL Server que presentan algunas variaciones respecto a esta funcionalidad. Por lo tanto, debe consultar la documentación de la comprobación de su versión de SQL Server concreta. Es importante tener en cuenta que en este artículo se detallan numerosas restricciones. Tiene la posibilidad de hacer la copia de seguridad en:
 
-- Un blob en páginas de Azure, que limita el tamaño de copia de seguridad a 1000 GB. Esto también limita el rendimiento que se puede alcanzar.
+- Un blob en páginas de Azure, que limita el tamaño de copia de seguridad a 1000 GB. Esta restricción también limita el rendimiento que se puede conseguir.
 - Varios blobs en bloques de Azure (hasta 64), que posibilitan un tamaño teórico de copia de seguridad de 12 TB. En cambio, se han hecho pruebas con bases de datos de clientes que revelan que el tamaño máximo de copia de seguridad puede ser menor que el límite teórico. En este caso, usted es responsable de administrar la retención de copias de seguridad, así como del acceso a las copias de seguridad.
 
 
@@ -423,7 +422,7 @@ En estos artículos encontrará más información detallada sobre las capacidade
 - SQL Server 2014: [Automated Backup para SQL Server 2014 en Azure Virtual Machines (Resource Manager)](../../../azure-sql/virtual-machines/windows/automated-backup-sql-2014.md)
 - SQL Server 2016/2017: [Automated Backup v2 para Azure Virtual Machines (Resource Manager)](../../../azure-sql/virtual-machines/windows/automated-backup.md)
 
-Si consulta la documentación, verá que se ha mejorado la funcionalidad con las versiones más recientes de SQL Server. En el artículo [Copia de seguridad administrada de SQL Server en Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-2017) se publica más información detallada sobre las copias de seguridad automatizadas de SQL Server. El límite de tamaño teórico de copia de seguridad es de 12 TB.  Las copias de seguridad automatizadas pueden ser un buen método para las copias de seguridad de hasta 12 TB. Dado que se escriben varios blobs en paralelo, puede prever un rendimiento de más de 100 MB/s. 
+Si consulta la documentación, verá que se ha mejorado la funcionalidad con las versiones más recientes de SQL Server. En el artículo [Copia de seguridad administrada de SQL Server en Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure) se publica más información detallada sobre las copias de seguridad automatizadas de SQL Server. El límite de tamaño teórico de copia de seguridad es de 12 TB.  Las copias de seguridad automatizadas pueden ser un buen método para las copias de seguridad de hasta 12 TB. Dado que se escriben varios blobs en paralelo, puede prever un rendimiento de más de 100 MB/s. 
  
 
 ### <a name="azure-backup-for-sql-server-vms"></a>Azure Backup para VM con SQL Server
@@ -466,13 +465,13 @@ Latin1-General, binary code point comparison sort for Unicode Data, SQL Server S
 Si el resultado es diferente, DETENGA la implementación de SAP e investigue por qué el comando de instalación no funcionó como se esperaba. **NO** se admite la implementación de aplicaciones de SAP NetWeaver en la instancia de SQL Server con páginas de códigos de SQL Server distintas de la mencionada antes.
 
 ## <a name="sql-server-high-availability-for-sap-in-azure"></a>Alta disponibilidad de SQL Server para SAP en Azure
-Si usa SQL Server en implementaciones de IaaS de Azure para SAP, dispondrá de distintas posibilidades para implementar la capa de DBMS de alta disponibilidad. Como ya se ha descrito en [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md), Azure proporciona distintos acuerdos de nivel de servicio de tiempo de actividad para una máquina virtual y un par de máquinas virtuales implementadas en un conjunto de disponibilidad de Azure. Se supone que tiene como objetivo el acuerdo de nivel de servicio de tiempo de actividad para sus implementaciones de producción que requieren la implementación en conjuntos de disponibilidad de Azure. En tal caso, deberá implementar un mínimo de dos máquinas virtuales en dicho conjunto de disponibilidad. Una máquina virtual ejecutará la instancia activa de SQL Server. La otra máquina virtual ejecutará la instancia pasiva
+Si usa SQL Server en implementaciones de IaaS de Azure para SAP, dispondrá de distintas posibilidades para implementar la capa de DBMS de alta disponibilidad. Como ya se ha descrito en [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md), Azure proporciona distintos Acuerdos de nivel de servicio de tiempo de actividad para una máquina virtual y un par de máquinas virtuales implementadas en un conjunto de disponibilidad de Azure. Se supone que tiene como objetivo el acuerdo de nivel de servicio de tiempo de actividad para sus implementaciones de producción que requieren la implementación en conjuntos de disponibilidad de Azure. En tal caso, deberá implementar un mínimo de dos máquinas virtuales en dicho conjunto de disponibilidad. Una máquina virtual ejecutará la instancia activa de SQL Server. La otra máquina virtual ejecutará la instancia pasiva
 
-### <a name="sql-server-clustering-using-windows-scale-out-file-server"></a>Clústeres de SQL Server mediante el servidor de archivos de escalabilidad horizontal de Windows
-Con Windows Server 2016, Microsoft introdujo los [espacios de almacenamiento directo](/windows-server/storage/storage-spaces/storage-spaces-direct-overview). En función de la implementación de Espacios de almacenamiento directo, se admite la agrupación en clústeres de FCI de SQL Server. Encontrará información detallada en el artículo [Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md). La solución también requiere un equilibrador de carga de Azure para tratar la dirección IP virtual de los recursos de clúster. Los archivos de base de datos de SQL Server se almacenan en espacios de almacenamiento. Por lo tanto, es un hecho que se le pedirá que cree los espacios de almacenamiento de Windows a partir de Azure Premium Storage. Dado que esta solución se admite desde no hace mucho, no hay ningún cliente conocido de SAP que use esta solución en los escenarios de producción de SAP.  
+### <a name="sql-server-clustering-using-windows-scale-out-file-server-or-azure-shared-disk"></a>Clústeres de SQL Server mediante el servidor de archivos de escalabilidad horizontal de Windows o un disco compartido de Azure
+Con Windows Server 2016, Microsoft introdujo los [espacios de almacenamiento directo](/windows-server/storage/storage-spaces/storage-spaces-direct-overview). En función de la implementación de Espacios de almacenamiento directo, se admite la agrupación en clústeres de FCI de SQL Server en general. Azure también ofrece [discos compartidos de Azure](https://docs.microsoft.com/azure/virtual-machines/disks-shared-enable?tabs=azure-cli) que podrían usarse para la agrupación en clústeres de Windows. En el caso de la carga de trabajo de SAP, no se admiten estas opciones de alta disponibilidad. 
 
 ### <a name="sql-server-log-shipping"></a>Trasvase de registros de SQL Server
-Uno de los métodos de alta disponibilidad (HA) consiste en trasvasar los registros de SQL Server. Si las máquinas virtuales que participan en la configuración de alta disponibilidad tienen una resolución de nombres correcta, no habrá ningún problema y la configuración de Azure no es diferente a cualquier otra realizada de forma local. En lo que respecta a la configuración de trasvase de registros y sus principios. En el artículo [Acerca del trasvase de registros (SQL Server)](/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-2017) encontrará información detallada sobre el trasvase de registros de SQL Server.
+Uno de los métodos de alta disponibilidad (HA) consiste en trasvasar los registros de SQL Server. Si las máquinas virtuales que participan en la configuración de alta disponibilidad tienen una resolución de nombres correcta, no habrá ningún problema y la configuración de Azure no es diferente a cualquier otra realizada de forma local. En lo que respecta a la configuración de trasvase de registros y sus principios. En el artículo [Acerca del trasvase de registros (SQL Server)](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) encontrará información detallada sobre el trasvase de registros de SQL Server.
 
 La funcionalidad de trasvase de registros de SQL Server apenas se usó en Azure para lograr una alta disponibilidad dentro de una región de Azure. En cambio, en los siguientes escenarios, los clientes de SAP usaban el trasvase de registros adecuadamente junto con Azure:
 
@@ -499,7 +498,7 @@ Estas son algunas de las consideraciones que hay que tener en cuenta al usar un 
 * Solo se puede usar un agente de escucha de grupo de disponibilidad con Windows Server 2012 o posterior como SO invitado de la máquina virtual. Para Windows Server 2012, debe asegurarse de que se aplica esta revisión: <https://support.microsoft.com/kb/2854082> 
 * Esta revisión no está disponible para Windows Server 2008 R2 y AlwaysOn tendría que usarse de la misma manera que la funcionalidad de creación de reflejo de base de datos mediante la especificación de un asociado de conmutación por error en la cadena de conexiones (se realiza mediante el parámetro de SAP default.pfl dbs/mss/server; consulte la nota de SAP [965908]).
 * Cuando se utiliza un agente de escucha de grupo de disponibilidad, las máquinas virtuales de la base de datos tienen que estar conectadas a un equilibrador de carga específico. Para evitar que Azure asigne nuevas direcciones IP en casos donde ambas máquinas virtuales se apaguen accidentalmente, se deben asignar direcciones IP estáticas a las interfaces de red de esas máquinas virtuales en la configuración de AlwaysOn (la definición de una dirección IP estática se describe en [este][virtual-networks-reserved-private-ip] artículo)
-* Hay que realizar algunos pasos especiales al crear la configuración del clúster WSFC: el clúster necesita una dirección IP especial, ya la funcionalidad actual de Azure asignaría el nombre del clúster a la misma dirección IP que el nodo donde se ha creado dicho clúster. Es decir, se debe realizar un paso manual para asignar una dirección IP diferente a la del clúster.
+* Hay que realizar algunos pasos especiales al crear la configuración del clúster WSFC: el clúster necesita una dirección IP especial, ya la funcionalidad actual de Azure asignaría el nombre del clúster a la misma dirección IP que el nodo donde se ha creado dicho clúster. Este comportamiento significa que se debe realizar un paso manual para asignar una dirección IP diferente a la del clúster.
 * El agente de escucha de grupo de disponibilidad se va a crear en Azure con puntos de conexión TCP/IP asignados a las máquinas virtuales que ejecutan las réplicas principal y secundarias del grupo de disponibilidad.
 * Puede que haya que proteger estos puntos de conexión con ACL.
 
@@ -514,33 +513,33 @@ A continuación encontrará documentación detallada sobre cómo implementar Alw
 
 SQL Server AlwaysOn es la funcionalidad de alta disponibilidad y de recuperación ante desastres de uso más común en Azure para las implementaciones de carga de trabajo de SAP. La mayoría de los clientes usan AlwaysOn para la alta disponibilidad en una única región de Azure. Si la implementación está restringida a solo dos nodos, tiene dos opciones de conectividad:
 
-- Usar el agente de escucha de grupo de disponibilidad. Con el agente de escucha del grupo de disponibilidad, deberá implementar un equilibrador de carga de Azure. Este suele ser el método predeterminado de implementación. Las aplicaciones de SAP se configurarían para conectarse en el agente de escucha del grupo de disponibilidad, y no en un único nodo.
+- Usar el agente de escucha de grupo de disponibilidad. Con el agente de escucha del grupo de disponibilidad, deberá implementar un equilibrador de carga de Azure. Este es el método predeterminado de implementación. Las aplicaciones de SAP se configurarían para conectarse en el agente de escucha del grupo de disponibilidad, y no en un único nodo.
 - Usar los parámetros de conectividad de creación de reflejo de la base de datos de SQL Server. En este caso, deberá configurar la conectividad de las aplicaciones de SAP de manera que se denominen ambos nombres de nodo. En la nota de SAP [#965908](https://launchpad.support.sap.com/#/notes/965908) se documenta la información exacta de dicha configuración de SAP. Con esta opción no tendría que configurar ningún agente de escucha del grupo de disponibilidad y, con eso, ningún equilibrador de carga de Azure para la alta disponibilidad de SQL Server. Como resultado, la latencia de red entre la capa de aplicación de SAP y la capa de DBMS es menor, ya que el tráfico de entrada a la instancia de SQL Server no se enruta a través del equilibrador de carga de Azure. Pero debe recordar que esta opción solo funciona si restringe el grupo de disponibilidad para que abarque dos instancias. 
 
 Unos pocos clientes están aprovechando la funcionalidad de SQL Server AlwaysOn de una funcionalidad adicional de recuperación ante desastres entre las regiones de Azure. Muchos clientes también usan la capacidad de realizar copias de seguridad desde una réplica secundaria. 
 
 ## <a name="sql-server-transparent-data-encryption"></a>Cifrado de datos transparente de SQL Server
-Hay una serie de clientes que usan el [Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) de SQL Server al implementar sus bases de datos de SQL Server de SAP en Azure. La funcionalidad de TDE de SQL Server es totalmente compatible con SAP (consulte la nota de SAP [1380493 #](https://launchpad.support.sap.com/#/notes/1380493)). 
+Hay una serie de clientes que usan el [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) de SQL Server al implementar sus bases de datos de SQL Server de SAP en Azure. La funcionalidad de TDE de SQL Server es totalmente compatible con SAP (consulte la nota de SAP [1380493 #](https://launchpad.support.sap.com/#/notes/1380493)). 
 
 ### <a name="applying-sql-server-tde"></a>Aplicar el TDE de SQL Server
-En los casos en que se efectúe una migración heterogénea desde otro DBMS, que se ejecuta en un entorno local, a Windows o SQL Server, que se ejecuta en Azure, se debería crear de antemano una base de datos de destino vacía en SQL Server. El siguiente paso sería aplicaría la funcionalidad de TDE de SQL Server mientras se sigue ejecutando el sistema de producción de forma local. El motivo de seguir esta secuencia es que el proceso de cifrado de la base de datos vacía puede tardar bastante. Luego, los procesos de importación SAP importarían los datos a la base de datos cifrada durante la fase de tiempo de inactividad. La sobrecarga de la importación a una base de datos cifrada tiene un impacto temporal mucho menor de manera que el cifrado de la base de datos después de la fase de exportación en la fase de tiempo de inactividad. Se han dado experiencias negativas al intentar aplicar TDE con la carga de trabajo de SAP ejecutada en la base de datos. Por lo tanto, se recomienda tratar la implementación de TDE como una actividad que debe llevarse a cabo sin ninguna carga de trabajo de SAP en la base de datos concreta.
+En los casos en que se efectúe una migración heterogénea desde otro DBMS, que se ejecuta en un entorno local, a Windows o SQL Server, que se ejecuta en Azure, se debería crear de antemano una base de datos de destino vacía en SQL Server. El siguiente paso sería aplicaría la funcionalidad de TDE de SQL Server mientras se sigue ejecutando el sistema de producción de forma local. El motivo de seguir esta secuencia es que el proceso de cifrado de la base de datos vacía puede tardar bastante. Luego, los procesos de importación SAP importarían los datos a la base de datos cifrada durante la fase de tiempo de inactividad. La sobrecarga de la importación a una base de datos cifrada tiene un impacto temporal mucho menor de manera que el cifrado de la base de datos después de la fase de exportación en la fase de tiempo de inactividad. Se han dado experiencias negativas al intentar aplicar TDE con la carga de trabajo de SAP en ejecución en la base de datos. Por lo tanto, se recomienda tratar la implementación de TDE como una actividad que debe llevarse a cabo sin ninguna carga de trabajo de SAP en la base de datos concreta.
 
 En casos en los que se mueven bases de datos de SQL Server de SAP desde una ubicación local hasta Azure, se recomienda probar en qué infraestructura se puede aplicar con mayor rapidez el cifrado. Respecto a esto, debe tener en cuenta estos factores:
 
-- No puede definir la cantidad de subprocesos que se usan para aplicar el cifrado de datos a la base de datos. El número de subprocesos depende principalmente del número de volúmenes de disco por los que se distribuyen los datos y los archivos de registro de SQL Server. Significa que, cuantos más diferentes sean los volúmenes (letras de unidad), más subprocesos se ocuparán en paralelo para realizar el cifrado. Esta configuración se contradice un poco con una sugerencia anterior sobre la configuración de disco según la cual se crea uno o unos pocos espacios de almacenamiento para los archivos de base de datos de SQL Server en las máquinas virtuales de Azure. Una configuración con pocos volúmenes daría lugar a pocos subprocesos que ejecutan el cifrado. Un cifrado de un único subproceso lee extensiones de 64 KB, las cifra y, después, escribe un registro en el archivo de registro de transacciones indicando que se ha cifrado la extensión. Como resultado, la carga en el registro de transacciones es moderada.
+- No puede definir la cantidad de subprocesos que se usan para aplicar el cifrado de datos a la base de datos. El número de subprocesos depende principalmente del número de volúmenes de disco por los que se distribuyen los datos y los archivos de registro de SQL Server. Significa que, cuantos más diferentes sean los volúmenes (letras de unidad), más subprocesos se ocuparán en paralelo para realizar el cifrado. Esta configuración se contradice un poco con una sugerencia anterior sobre la configuración de disco según la cual se crea uno o unos pocos espacios de almacenamiento para los archivos de base de datos de SQL Server en las máquinas virtuales de Azure. Una configuración con pocos volúmenes daría lugar a pocos subprocesos que ejecutan el cifrado. Un cifrado de un único subproceso lee extensiones de 64 KB, las cifra y, después, escribe un registro en el archivo de registro de transacciones indicando que se ha cifrado la extensión. Como resultado, la carga en el registro de transacciones es moderada.
 - En versiones anteriores de SQL Server, la compresión de copia de seguridad ya no implicaba eficacia alguna al cifrar la base de datos de SQL Server. Este comportamiento podría convertirse en un problema si su idea era cifrar la base de datos de SQL Server de forma local y, después, copiar una copia de seguridad en Azure para restaurar la base de datos en Azure. La compresión de copia de seguridad de SQL Server suele generar una razón de compresión de factor 4.
 - Con SQL Server 2016, SQL Server introdujo una nueva funcionalidad que también permite comprimir bases de datos cifradas de una forma eficiente. Consulte [este blog](/archive/blogs/sqlcat/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases) para obtener información detallada.
  
-Si solo trata la aplicación del cifrado de TDE con ninguna carga de trabajo de SAP, o con una ínfima, debería efectuar pruebas en su configuración específica sobre si es mejor aplicar el TDE a la base de datos de SAP local o aplicarlo a Azure. En Azure sin duda tiene más flexibilidad en términos de exceso de aprovisionamiento de infraestructura y de reducir la infraestructura una vez aplicado el TDE.
+Si solo trata la aplicación del cifrado de TDE con poca o ninguna carga de trabajo de SAP, debería efectuar pruebas en su configuración específica sobre si es mejor aplicar el TDE a la base de datos de SAP local o aplicarlo a Azure. En Azure sin duda tiene más flexibilidad en términos de exceso de aprovisionamiento de infraestructura y de reducir la infraestructura una vez aplicado el TDE.
 
 ### <a name="using-azure-key-vault"></a>Uso de Azure Key Vault
 Azure ofrece el servicio de un [almacén de claves](https://azure.microsoft.com/services/key-vault/) para almacenar claves de cifrado. Por otro lado, SQL Server ofrece un conector para aprovechar Azure Key Vault como almacén para los certificados de TDE.
 
 A continuación tiene más información detallada sobre cómo usar Azure Key Vault para el TDE de SQL Server:
 
-- [Administración extensible de claves mediante Azure Key Vault (SQL Server)](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server?view=sql-server-2017).
-- [Pasos de configuración de Administración extensible de claves de TDE de SQL Server mediante Azure Key Vault](/sql/relational-databases/security/encryption/setup-steps-for-extensible-key-management-using-the-azure-key-vault?view=sql-server-2017).
-- [Mantenimiento y solución de problemas del Conector de SQL Server](/sql/relational-databases/security/encryption/sql-server-connector-maintenance-troubleshooting?view=sql-server-2017).
+- [Administración extensible de claves mediante Azure Key Vault (SQL Server)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server).
+- [Pasos de configuración de Administración extensible de claves de TDE de SQL Server mediante Azure Key Vault](https://docs.microsoft.com/sql/relational-databases/security/encryption/setup-steps-for-extensible-key-management-using-the-azure-key-vault).
+- [Mantenimiento y solución de problemas del Conector de SQL Server](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-connector-maintenance-troubleshooting?).
 - [Más preguntas de los clientes sobre el cifrado de datos transparente de SQL Server – TDE + Azure Key Vault](/archive/blogs/saponsqlserver/more-questions-from-customers-about-sql-server-transparent-data-encryption-tde-azure-key-vault).
 
 
@@ -565,3 +564,9 @@ En esta guía se ofrecen muchas recomendaciones: le sugerimos que la lea más de
 9. Use el nivel de compresión de base de datos más elevado posible. Qué es la comprensión de página de SQL Server.
 10. Tenga cuidado al utilizar imágenes de SQL Server de Azure Marketplace. Si lo hace, debe cambiar la intercalación de la instancia antes de instalar cualquier sistema SAP NetWeaver en ella.
 11. Instale y configure la funcionalidad de supervisión de hosts de SAP para Azure tal y como se describe en la [Guía de implementación][deployment-guide].
+
+
+## <a name="next-steps"></a>Pasos siguientes
+Lea el artículo 
+
+- [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md)
