@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/07/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: c17cd17dfc3462d5a55753e6a4a364c14f9e2b62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8ae95518bab5ed9bc100a5902acf1fd1db631dbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899091"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91617169"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>¿Qué es Azure Stack Edge Pro con GPU?
 
@@ -44,11 +44,10 @@ Azure Stack Edge Pro tiene las siguientes funcionalidades:
 |---------|---------|
 |Inferencia de IA acelerada| Habilitado por la GPU integrada (una o dos, en función del modelo).|
 |Proceso perimetral      |Admite cargas de trabajo en contenedores y máquinas virtuales para permitir el análisis, procesamiento y filtrado de datos. |
-|Alto rendimiento | Transferencias de datos y proceso de alto rendimiento.|
 |Acceso a datos     | Ofrece acceso directo a los datos de Azure Storage Blob y Azure Files mediante las API en la nube para un procesamiento de datos adicional en la nube. La memoria caché local del dispositivo se usa para agilizar el acceso a los archivos usados más recientemente.|
 |Administración en la nube     |El dispositivo y el servicio se administran con Azure Portal.  |
 |Carga sin conexión     | El modo sin conexión es compatible con escenarios de carga sin conexión.|
-|Protocolos de almacenamiento admitidos     | Compatibilidad con los protocolos estándar SMB, NFS y REST para la ingesta de datos. <br> Para más información sobre las versiones compatibles, consulte [Requisitos del sistema de Azure Stack Edge Pro](azure-stack-edge-system-requirements.md).|
+|Protocolos de transferencia de archivos compatibles      | Compatibilidad con los protocolos estándar SMB, NFS y REST para la ingesta de datos. <br> Para más información sobre las versiones compatibles, consulte [Requisitos del sistema de Azure Stack Edge Pro](azure-stack-edge-system-requirements.md).|
 |Actualización de datos     | Capacidad para actualizar los archivos locales con la versión más reciente de la nube.|
 |Cifrado    | Compatibilidad con BitLocker para, localmente, cifrar los datos y proteger las transferencias de datos hacia la nube a través de *https*.|
 |Límite de ancho de banda| Limite el uso de ancho de banda durante las horas punta.|
@@ -73,6 +72,8 @@ La solución Azure Stack Edge Pro consta de un recurso Azure Stack Edge, un disp
 El dispositivo físico de Azure Stack Edge Pro, el recurso de Azure y la cuenta de almacenamiento de destino a la que transferirá los datos no tienen que estar en la misma región.
 
 - **Disponibilidad**: para esta versión preliminar, el recurso está disponible en las regiones Este de EE. UU., Oeste de EE. UU. y Sudeste Asiático.
+
+- **Disponibilidad del dispositivo**: para ver una lista de todos los países y regiones en los que el dispositivo Azure Stack Edge Pro está disponible, vaya a la sección **Disponibilidad** de la pestaña **Azure Stack Edge Pro** de [Precios de Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. Las regiones en las que las cuentas de almacenamiento almacenan los datos de Azure Stack Edge Pro deben estar ubicadas cerca de la ubicación del dispositivo para un rendimiento óptimo. Una cuenta de almacenamiento que se encuentra lejos del dispositivo causa latencias largas y un rendimiento más lento.
 

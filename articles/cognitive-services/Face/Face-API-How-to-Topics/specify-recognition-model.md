@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da34c2aa8a178a99f325bef8beb4a7e7685b3cbc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: d250fc005c5760a3eecc2793d02b6f2a9161e663
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931478"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283044"
 ---
 # <a name="specify-a-face-recognition-model"></a>Especificación de un modelo de reconocimiento facial
 
@@ -35,10 +35,11 @@ Siga leyendo para saber cómo especificar el modelo seleccionado en diferentes o
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe estar familiarizado con los conceptos de identificación y detección de caras de AI. Si no es así, consulte primero estas guías paso a paso:
+Debe estar familiarizado con los conceptos de identificación y detección de caras de AI. Si no es así, consulte primero estas guías:
 
+* [Conceptos relacionados con la detección de caras](../concepts/face-detection.md)
+* [Face recognition concepts](../concepts/face-recognition.md) (Conceptos del reconocimiento facial)
 * [Detección de caras en una imagen](HowtoDetectFacesinImage.md)
-* [Identificación de caras en imágenes](HowtoIdentifyFacesinImage.md)
 
 ## <a name="detect-faces-with-specified-model"></a>Detección de caras con el modelo especificado
 
