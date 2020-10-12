@@ -1,19 +1,19 @@
 ---
 title: Redireccionamiento de HTTP a HTTPS mediante la CLI
 titleSuffix: Azure Application Gateway
-description: Aprenda a crear un instancia de Application Gateway y a agregar un certificado para la terminación TLS mediante la CLI de Azure.
+description: Aprenda a crear un redireccionamiento de HTTP a HTTPS y a agregar un certificado para la terminación TLS mediante la CLI de Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/15/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 828012e7e41f8710dc57f1c830b81d403507d27d
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 7dbfa877f634256c86166892a38d048a95e56baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594278"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331036"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante la CLI de Azure
 
@@ -223,13 +223,6 @@ Para aceptar la advertencia de seguridad si usó un certificado autofirmado, sel
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a:
-
-> [!div class="checklist"]
-> * Creación de un certificado autofirmado
-> * Configurar una red
-> * Crear una puerta de enlace de aplicaciones con el certificado
-> * Adición de un agente de escucha y una regla de redireccionamiento
-> * Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
+- [Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante la CLI de Azure](redirect-internal-site-cli.md)
 
 
