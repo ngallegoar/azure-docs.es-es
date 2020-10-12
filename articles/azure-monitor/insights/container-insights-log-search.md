@@ -3,12 +3,12 @@ title: Consulta de registros desde Azure Monitor para contenedores | Microsoft D
 description: Azure Monitor para contenedores recopila datos de registro y métricas. En este artículo se describen los registros y se incluyen consultas de ejemplo.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: f9b30f11ae6a2f64601b9595bfb1d45493209849
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 2f0e9848ffbf7584d75b5e994e49379186a69641
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569686"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254897"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Cómo consultar registros desde Azure Monitor para contenedores
 
@@ -27,7 +27,7 @@ En la tabla siguiente, se proporcionan detalles de los registros recopilados por
 | Inventario de la parte de nodos de un clúster de Kubernetes | API de Kube | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Eventos de Kubernetes | API de Kube | `KubeEvents` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message, SourceSystem | 
 | Servicios en el clúster de Kubernetes | API de Kube | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Métricas de rendimiento de la parte de nodos del clúster de Kubernetes | Las métricas de uso se obtienen de cAdvisor y los límites de la API de Kube. | Perf &#124; donde ObjectName == "K8SNode" | Computer, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Métricas de rendimiento de la parte de nodos del clúster de Kubernetes | Las métricas de uso se obtienen de cAdvisor y los límites de la API de Kube. | Perf &#124; donde ObjectName == "K8SNode" | Computer, ObjectName, CounterName &#40;cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Métricas de rendimiento de la parte de contenedores del clúster de Kubernetes | Las métricas de uso se obtienen de cAdvisor y los límites de la API de Kube. | Perf &#124; donde ObjectName == "K8SContainer" | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Métricas personalizadas ||`InsightsMetrics` | Computer, Name, Namespace, Origin, SourceSystem, Tags<sup>1</sup>, TimeGenerated, Type, Va, _ResourceId | 
 
