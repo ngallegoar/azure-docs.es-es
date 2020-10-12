@@ -3,12 +3,12 @@ title: Habilitación del escritorio remoto gráfico para Linux en Azure Lab Serv
 description: Obtenga información sobre cómo habilitar Escritorio remoto para máquinas virtuales Linux en un laboratorio en Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4f50510adf978aeb63b2b5337d21e6f9dec76196
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445770"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251616"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Habilitación del escritorio remoto gráfico para máquinas virtuales Linux en Azure Lab Services
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -46,7 +46,7 @@ Este paso solo es necesario para conectarse mediante RDP.  Si va a usar X2Go, pu
 
 1.  Durante la creación del laboratorio, el instructor tiene la opción de **habilitar la conexión a Escritorio remoto**.  El instructor debe **habilitar** esta opción para abrir el puerto en la máquina virtual Linux que se necesita para una sesión de escritorio remoto con RDP.  Si esta opción se mantiene **deshabilitada**, solo se abre el puerto para SSH.
   
-    ![Habilitación de la conexión a Escritorio remoto para una imagen de Linux](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+    ![Captura de pantalla que muestra la ventana "Nuevo laboratorio" con la opción "Habilitar Conexión a Escritorio remoto".](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
 2. En el cuadro de mensaje **Enabling Remote Desktop Connection** (Habilitar conexión a Escritorio remoto), seleccione **Continue with Remote Desktop** (Continuar con Escritorio remoto). 
 

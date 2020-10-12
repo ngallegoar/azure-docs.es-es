@@ -3,12 +3,12 @@ title: Administración de cuentas de laboratorio en Azure Lab Services | Microso
 description: Obtenga información sobre cómo crear o eliminar una cuenta de laboratorio y cómo ver todas las cuentas de laboratorio de una suscripción de Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 13b477504833b8d72845735304563eef334c49ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33e5e42f65fdd34bb37b12947b5173700ad7970c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445498"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251667"
 ---
 # <a name="create-and-manage-lab-accounts"></a>Creación y administración de cuentas de laboratorio
 En Azure Lab Services, una cuenta de laboratorio es un contenedor para tipos de laboratorios administrados, como los laboratorios de clase. Los administradores configuran una cuenta de laboratorio con Azure Lab Services y proporcionan acceso a los propietarios del laboratorio que pueden crear laboratorios en la cuenta. En este artículo se describe cómo crear o eliminar una cuenta de laboratorio y cómo ver todas las cuentas de laboratorio.
@@ -43,7 +43,7 @@ Los pasos siguientes muestran cómo usar Azure Portal para crear una cuenta de l
         ![Crear una cuenta de laboratorio -> Avanzado](./media/how-to-manage-lab-accounts/create-lab-account-advanced.png)  
 6. Seleccione **Siguiente: Etiquetas** en la parte inferior de la página para cambiar a la pestaña **Etiquetas**. Agregue las etiquetas que desee asociar a la cuenta de laboratorio. Las etiquetas son pares nombre-valor que permiten categorizar los recursos y ver una facturación consolidada mediante la aplicación de la misma etiqueta en varios recursos y grupos de recursos. Para más información, consulte [Uso de etiquetas para organizar los recursos de Azure](../azure-resource-manager/management/tag-resources.md).
 
-    ![Crear una cuenta de laboratorio -> Etiquetas](./media/how-to-manage-lab-accounts/create-lab-account-tags.png)
+    ![Captura de pantalla que muestra la página "Crear una cuenta de laboratorio" con la pestaña Etiquetas resaltada.](./media/how-to-manage-lab-accounts/create-lab-account-tags.png)
 7. Seleccione **Revisar y crear** en la parte inferior de esta página para cambiar a la pestaña **Revisar y crear**. 
 4. Revise la información de resumen de esta página y seleccione **Crear**. 
 

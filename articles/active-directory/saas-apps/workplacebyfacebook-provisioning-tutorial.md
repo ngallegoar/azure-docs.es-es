@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Workplace by Facebook.
+description: Obtenga información sobre los pasos que debe realizar en Workplace by Facebook y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ae13e062f50e1e8eefeaa886c67c636cf6230c18
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c72ca7cb521c5c7e7ed33e9a0539de0df252ac92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973880"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321908"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios
 
@@ -81,11 +81,11 @@ El servicio de aprovisionamiento de Azure AD le permite definir quién se aprov
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En **Credenciales de administrador**, haga clic en **Autorizar**. Se le redirigirá a la página de autorización de Workplace by Facebook. Escriba el nombre de usuario de Workplace by Facebook y haga clic en el botón **Continuar**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Workplace by Facebook. Si la conexión no se establece, asegúrese de que la cuenta de Workplace by Facebook tiene permisos de administrador y vuelva a intentarlo.
 

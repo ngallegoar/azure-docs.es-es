@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: fc83e5e8d14250ed163a56830311533144bbe344
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395441"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252636"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervisión, métricas y alertas de ExpressRoute
 
@@ -60,19 +60,19 @@ Puede ver las métricas de todos los emparejamientos de un circuito ExpressRoute
 
 Puede ver las métricas de emparejamiento público, privado y de Microsoft en bits por segundo.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg" alt-text="métricas por emparejamiento":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg" alt-text="métricas de circuito":::
 
 ### <a name="bgp-availability---split-by-peer"></a>Disponibilidad de BGP: división por par  
 
 Puede ver la disponibilidad casi en tiempo real de BGP entre emparejamientos y pares (enrutadores de ExpressRoute principales y secundarios). En este panel se muestra la sesión de BGP principal arriba para el emparejamiento privado y la segunda sesión BGP abajo para el emparejamiento privado. 
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="Disponibilidad de BGP por par":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="métricas de circuito":::
 
 ### <a name="arp-availability---split-by-peering"></a>Disponibilidad de ARP: división por emparejamiento  
 
 Puede ver la disponibilidad casi en tiempo real de [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) entre emparejamientos y pares (enrutadores de ExpressRoute principales y secundarios). En este panel se muestra la sesión de ARP de emparejamiento privado arriba entre ambos pares, y completa abajo para el emparejamientos de Microsoft entre emparejamientos. La agregación predeterminada (promedio) se usó en ambos pares.  
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="Disponibilidad de ARP por par":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="métricas de circuito":::
 
 ## <a name="expressroute-direct-metrics"></a>Métricas directas de ExpressRoute
 
@@ -80,37 +80,37 @@ Puede ver la disponibilidad casi en tiempo real de [ARP](https://docs.microsoft.
 
 Puede ver el estado del administrador para cada enlace del par de puertos directos de ExpressRoute.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg" alt-text="Estado de administrador ER directo":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg" alt-text="métricas de circuito":::
 
 ### <a name="bits-in-per-second---split-by-link"></a>Bits por segundo: divido por vínculo
 
 Puede ver los bits por segundo en ambos enlaces del par de puertos directos de ExpressRoute.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg" alt-text="ER bits directos por segundo":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg" alt-text="métricas de circuito":::
 
 ### <a name="bits-out-per-second---split-by-link"></a>Bits de salida por segundo: divido por vínculo
 
 También puede ver los bits por segundo en ambos enlaces del par de puertos directos de ExpressRoute.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg" alt-text="ER bits directos por segundo":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg" alt-text="métricas de circuito":::
 
 ### <a name="line-protocol---split-by-link"></a>Protocolo de línea: división por vínculo
 
 Puede ver el protocolo de línea en cada enlace del par de puertos directos de ExpressRoute.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="Protocolo ER de línea directa":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="métricas de circuito":::
 
 ### <a name="rx-light-level---split-by-link"></a>Nivel de luz de RX: división por vínculo
 
 Puede ver el nivel de luz de Rx (el nivel de luz que el puerto directo de ExpressRoute está **recibiendo**) para cada puerto. Los niveles de luz Rx saludables generalmente caen dentro de un rango de -10 a 0 dBm
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="Nivel de luz de recepción de línea directa de ER":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="métricas de circuito":::
 
 ### <a name="tx-light-level---split-by-link"></a>Nivel de luz de RX: división por vínculo
 
 Puede ver el nivel de luz Tx (el nivel de luz que el puerto directo de ExpressRoute **transmite**) para cada puerto. Los niveles de luz Tx saludables generalmente caen dentro de un rango de -10 a 0 dBm
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="Nivel de luz de recepción de línea directa de ER":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="métricas de circuito":::
 
 ## <a name="expressroute-virtual-network-gateway-metrics"></a>Métricas de puerta de enlace de red virtual de ExpressRoute
 
@@ -118,42 +118,55 @@ Puede ver el nivel de luz Tx (el nivel de luz que el puerto directo de ExpressRo
 
 Puede ver el uso de CPU de las instancias de puerta de enlace.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="División de CPU":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="métricas de circuito":::
 
 ### <a name="packets-per-second---split-by-instance"></a>Paquetes por segundo: división por instancia
 
 Puede ver los paquetes por segundo que atraviesan la puerta de enlace.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="Paquetes por segundo: división":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="métricas de circuito":::
 
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Conexiones de puerta de enlace de ExpressRoute en bits por segundo
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erconnections.jpg" alt-text="conexiones de puerta de enlace":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erconnections.jpg" alt-text="métricas de circuito":::
 
 ## <a name="alerts-for-expressroute-gateway-connections"></a>Alertas para las conexiones de puerta de enlace de ExpressRoute
 
 1. Para configurar las alertas, vaya a **Azure Monitor** y, a continuación, seleccione **Alertas**.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg" alt-text="alerts":::
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg" alt-text="métricas de circuito":::
 2. Haga clic en **+Seleccionar destino** y seleccione el recurso de conexión de puerta de enlace de ExpressRoute.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg" alt-text="Destino":::
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg" alt-text="métricas de circuito":::
 3. Defina los detalles de la alerta.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg" alt-text="grupo de acciones":::
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg" alt-text="métricas de circuito":::
 4. Defina y agregue el grupo de acciones.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/actiongroup.png" alt-text="adición de grupo de acciones":::
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/actiongroup.png" alt-text="métricas de circuito":::
 
 ## <a name="alerts-based-on-each-peering"></a>Alertas basadas en cada emparejamiento
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg" alt-text="cada emparejamiento":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg" alt-text="métricas de circuito":::
 
 ## <a name="configure-alerts-for-activity-logs-on-circuits"></a>Configuración de alertas para los registros de actividad en circuitos
 
 En **Criterios de alerta**, puede seleccionar **Registro de actividad** para el tipo de señal y seleccionar la señal.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="registros de actividad":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="métricas de circuito":::
+
+## <a name="additional-metrics-in-log-analytics"></a>Métricas adicionales de Log Analytics
+
+También puede ver las métricas de ExpressRoute navegando hasta el recurso del circuito de ExpressRoute y seleccionando la pestaña *Registros*. Para cualquier métrica que consulte, la salida contendrá las columnas siguientes.
+
+|**Columna**|**Tipo**|**Descripción**|
+| --- | --- | --- |
+|TimeGrain|string|PT1M (los valores de métricas se insertan cada minuto)|
+|Count|real|Normalmente es igual a 2 (cada MSEE inserta un solo valor de métrica cada minuto)|
+|Mínima|real|El mínimo de los dos valores de métrica insertados por los dos MSEE|
+|Máxima|real|El máximo de los dos valores de métrica insertados por los dos MSEE|
+|Average|real|Igual a (mínimo + máximo)/2|
+|Total|real|Suma de los dos valores de métrica de ambos MSEE (el valor principal en el que se centrará para la métrica consultada)|
   
 ## <a name="next-steps"></a>Pasos siguientes
 
