@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 5dce7cde3c46fbcf3f764819f730f42cace4a74c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b6f2db8a8245db7dddbabc3a31a0de0d8963b84
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897533"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776092"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Habilitación de Azure Machine Learning Studio en una Azure Virtual Network
 
@@ -24,6 +24,7 @@ En este artículo, aprenderá a usar Azure Machine Learning Studio en una red vi
 
 > [!div class="checklist"]
 > - Obtener acceso a Studio desde un recurso dentro de una red virtual.
+> - Configurar puntos de conexión privados para las cuentas de almacenamiento.
 > - Proporcionar a Studio acceso a los datos almacenados dentro de una red virtual.
 > - Comprender cómo Studio afecta a la seguridad del almacenamiento.
 
@@ -31,7 +32,7 @@ Este artículo es la quinta parte de una serie de cinco capítulos que le guía 
 
 Consulte los demás artículos de esta serie:
 
-[1. Introducción a las redes virtuales](how-to-network-security-overview.md) > [2. Protección del área de trabajo ](how-to-secure-workspace-vnet.md) > [3. Protección del entorno de entrenamiento](how-to-secure-training-vnet.md) > [4. Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md) > [5. Habilitación de la funcionalidad de Studio](how-to-enable-studio-virtual-network.md)
+[1. Introducción a las redes virtuales](how-to-network-security-overview.md) > [2. Protección del área de trabajo ](how-to-secure-workspace-vnet.md) > [3. Protección del entorno de entrenamiento](how-to-secure-training-vnet.md) > [4. Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md) > **5. Habilitación de la funcionalidad de Studio**
 
 
 > [!IMPORTANT]
@@ -46,7 +47,7 @@ Consulte los demás artículos de esta serie:
 
 + Un [área de trabajo existente de Azure Machine Learning con Private Link habilitado](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
-+ Una [cuenta de Azure Storage existente agregada a la red virtual](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
++ Una [cuenta de Azure Storage existente agregada a la red virtual](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
 ## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>Acceso a Studio desde un recurso dentro de una red virtual
 
@@ -56,8 +57,7 @@ Por ejemplo, si usa grupos de seguridad de red (NSG) para restringir el tráfico
 
 ## <a name="access-data-using-the-studio"></a>Acceso a los datos mediante Studio
 
-Si los datos están almacenados en una red virtual, debe configurar las cuentas de almacenamiento para usar una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) para conceder a Studio acceso a los datos.
-
+Después de agregar una cuenta de Azure Storage a la red virtual con un [punto de conexión de servicio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) o un [punto de conexión privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), debe configurar la cuenta de almacenamiento para usar la [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) para conceder a Studio acceso a los datos.
 
 Si no habilita la identidad administrada, recibirá este error: `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.`. Además, se deshabilitarán las siguientes operaciones:
 
@@ -66,13 +66,15 @@ Si no habilita la identidad administrada, recibirá este error: `Error: Unable t
 * Envío de un experimento de AutoML.
 * Inicio de un proyecto de etiquetado.
 
+> [!NOTE]
+> [El etiquetado de datos asistido mediante ML](how-to-create-labeling-projects.md#use-ml-assisted-labeling) no es compatible con las cuentas de almacenamiento predeterminadas que estén protegidas en una red virtual. Debe usar una cuenta de almacenamiento no predeterminada para el etiquetado de datos asistidos mediante ML. La cuenta de almacenamiento no predeterminada se puede proteger en la red virtual. 
+
 Studio admite la lectura de datos de los siguientes tipos de almacén de datos en una red virtual:
 
 * Blob de Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
-
 
 ### <a name="configure-datastores-to-use-managed-identity"></a>Configuración de almacenes de datos para usar identidad administrada
 
@@ -104,7 +106,7 @@ Para __Azure Blob Storage__, la identidad administrada del área de trabajo tamb
 
 Puede usar listas de control de acceso (ACL) de tipo RBAC y POSIX para controlar el acceso a los datos dentro de una red virtual.
 
-Para usar RBAC, agregue la identidad administrada del área de trabajo al rol [Lector de datos de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Para más información, consulte [Control de acceso basado en rol](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
+Para usar RBAC, agregue la identidad administrada del área de trabajo al rol [Lector de datos de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Para obtener más información, consulte [Control de acceso basado en roles de Azure](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control).
 
 Para usar ACL, se puede asignar el acceso de la identidad administrada del área de trabajo como cualquier otra entidad de seguridad. Para obtener más información, vea [Listas de control de acceso en archivos y directorios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

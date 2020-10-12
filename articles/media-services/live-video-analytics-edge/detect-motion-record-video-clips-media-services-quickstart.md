@@ -3,12 +3,12 @@ title: Detección de movimiento y grabación de vídeo en Azure Media Services
 description: En este inicio rápido se muestra cómo usar Live Video Analytics en IoT Edge para detectar movimiento en una secuencia de vídeo en directo y grabar clips de vídeo en Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 861351e16120c3f46612ba35518135fbfaf4c81b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569020"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776483"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Inicio rápido: Detección de movimiento y grabación de vídeo en Media Services
 
@@ -39,6 +39,15 @@ Cuando realice los pasos que se indican a continuación, habrá utilizado Live V
 ## <a name="use-direct-method-calls"></a>Uso de llamadas de método directo
 
 Puede usar el módulo para analizar secuencias de vídeo en directo mediante la invocación de métodos directos. Lea [Métodos directos de Live Video Analytics en IoT Edge](direct-methods.md) para conocer todos los métodos directos que proporciona el módulo. 
+
+1. En Visual Studio Code, abra la pestaña **Extensiones** (o presione Ctrl + Mayús + X) y busque Azure IoT Hub.
+1. Haga clic con el botón derecho y seleccione la **Configuración de la extensión**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Grabación de vídeo basada en eventos en recursos que se basan en eventos de movimiento" (Mostrar mensaje detallado).
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Grabación de vídeo basada en eventos en recursos que se basan en eventos de movimiento"::: (Mostrar mensaje detallado)
 
 ### <a name="invoke-graphtopologylist"></a>Invocación de GraphTopologyList
 En este paso se enumeran todas las [topologías de grafos](media-graph-concept.md#media-graph-topologies-and-instances) del módulo.

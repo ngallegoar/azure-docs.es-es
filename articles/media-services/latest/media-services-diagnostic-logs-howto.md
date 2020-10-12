@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2cfa21bc5223af058d412bf3f17f53cb151fc5c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e756ff0133e3d3f0f86ea2f592005f2f2986488e
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297644"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707768"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Supervisión de los registros de diagnósticos de Media Services
 
@@ -39,7 +39,7 @@ En este artículo se muestra cómo enrutar los datos a la cuenta de almacenamien
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
 1. Vaya a la cuenta de Media Services en y haga clic en **Configuración de diagnóstico** en **Supervisión**. Aquí verá una lista de todos los recursos de la suscripción que generan datos de supervisión a través de Azure Monitor.
 
-    ![Sección Configuración de diagnóstico](media/media-services-diagnostic-logs/logs01.png)
+    ![Captura de pantalla que resalta la opción Configuración de diagnóstico en la sección Supervisión.](media/media-services-diagnostic-logs/logs01.png)
 
 1. Haga clic en **Agregar configuración de diagnóstico**.
 
