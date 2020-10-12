@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 24e631b3ddb25cc8bed20b432ff2ba31fd331f37
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979599"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314750"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Seguridad en Azure Cognitive Search: información general
 
@@ -35,6 +35,8 @@ Vea este vídeo de resumen para obtener información general sobre la arquitectu
 ## <a name="encrypted-transmissions-and-storage"></a>Transmisiones y almacenamiento cifrados
 
 En Azure Cognitive Search, el cifrado empieza por las conexiones y las transmisiones y se extiende al contenido almacenado en el disco. En el caso de los servicios de búsqueda en la red pública de Internet, Azure Cognitive Search escucha en el puerto HTTPS 443. Todas las conexiones de cliente a servicio usan el cifrado TLS 1.2. Las versiones anteriores (1.0 o 1.1) no se admiten.
+
+:::image type="content" source="media/search-security-overview/encryption-at-rest-cmk.png" alt-text="Diagrama que describe distintos tipos de seguridad en cada nivel de compromiso de servicio":::
 
 En el caso de los datos que administra internamente el servicio de búsqueda, en la tabla siguiente se describen los [modelos de cifrado de datos](../security/fundamentals/encryption-models.md). Algunas características, como el almacén de conocimiento, el enriquecimiento incremental y la indización basada en indizador, leen o escriben en estructuras de datos de otros servicios de Azure. Esos servicios tienen sus propios niveles de compatibilidad de cifrado independientes de Azure Cognitive Search.
 
@@ -92,6 +94,8 @@ Se requiere autenticación en cada solicitud, y cada solicitud se compone de una
 
 Para controlar aún más el acceso al servicio de búsqueda, puede crear reglas de firewall de entrada que permitan el acceso a una dirección IP específica o a un intervalo de direcciones IP. Todas las conexiones de cliente deben realizarse a través de una dirección IP permitida, o la conexión se denegará.
 
+:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="Diagrama que describe distintos tipos de seguridad en cada nivel de compromiso de servicio":::
+
 Puede usar el portal para [configurar el acceso de entrada](service-configure-firewall.md).
 
 Como alternativa, puede usar las API REST de administración. Desde la versión de API 2020-03-13, con el parámetro [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule), puede restringir el acceso a su servicio mediante la identificación (de forma individual o en un intervalo) de las direcciones IP a las que quiera otorgar acceso a su servicio de búsqueda.
@@ -101,6 +105,8 @@ Como alternativa, puede usar las API REST de administración. Desde la versión 
 Los [puntos de conexión privados](../private-link/private-endpoint-overview.md) para Azure Cognitive Search permiten a un cliente de una [red virtual](../virtual-network/virtual-networks-overview.md) obtener acceso de forma segura a los datos de un índice de búsqueda a través de un [vínculo privado](../private-link/private-link-overview.md).
 
 El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para las conexiones al servicio de búsqueda. El tráfico de red entre el cliente y el servicio de búsqueda atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Una red virtual permite establecer una comunicación segura entre recursos, con su red local y con Internet.
+
+:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="Diagrama que describe distintos tipos de seguridad en cada nivel de compromiso de servicio":::
 
 Aunque esta solución es la más segura, el uso de servicios adicionales supone un costo adicional, por lo que debe comprender claramente las ventajas antes de profundizar en ella. Para más información sobre los costos, consulte la [página de precios](https://azure.microsoft.com/pricing/details/private-link/). Para obtener más información sobre cómo funcionan conjuntamente estos componentes, vea el vídeo que se encuentra en la parte superior de este artículo. La opción de punto de conexión privado se trata a partir del minuto 5:48 del vídeo. Para obtener instrucciones sobre cómo configurar el punto de conexión, consulte [Creación de un punto de conexión privado para una conexión segura a Azure Cognitive Search](service-create-private-endpoint.md).
 
