@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: 7408d7609cbceb4ac39298680b6d3854a2d71306
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b88408480bb0822a061e97336eee5c6b3ccfc8e0
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589221"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358328"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configuración de GitHub para aprovisionar usuarios automáticamente
 
@@ -71,11 +71,11 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 6. En esa nueva ventana, inicie sesión en GitHub con su cuenta de administrador. En el cuadro de diálogo de autorización que aparece, seleccione el equipo de GitHub para el que desea habilitar el aprovisionamiento y, luego, seleccione **Autorizar**. Cuando termina, vuelva a Azure Portal para completar la configuración de aprovisionamiento.
 
-    ![Cuadro de diálogo de autorización](./media/github-provisioning-tutorial/GitHub2.png)
+    ![Captura de pantalla que muestra la página de inicio de sesión de GitHub.](./media/github-provisioning-tutorial/GitHub2.png)
 
 7. En Azure Portal, escriba la **dirección URL del inquilino** y haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de GitHub. Si la conexión no se establece, asegúrese de que la cuenta de GitHub tenga permisos de administrador y de que la **dirección URL del inquilino** se haya escrito correctamente; luego repita el paso "Autorizar" (puede constituir la **dirección URL de inquilino** con la regla: `https://api.github.com/scim/v2/organizations/<Organization_name>`, puede encontrar las organizaciones en la cuenta de GitHub: **Configuración** > **Organizaciones**).
 
-    ![Cuadro de diálogo de autorización](./media/github-provisioning-tutorial/GitHub3.png)
+    ![Captura de pantalla que muestra la página Organizaciones en GitHub.](./media/github-provisioning-tutorial/GitHub3.png)
 
 8. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
 

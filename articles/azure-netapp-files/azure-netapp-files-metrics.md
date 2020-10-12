@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 1690a844ff700a2975be8e972fd90ba71eeb937c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: f83baf7a038ad8cf17421c778deccbc7dc389d97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707788"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325562"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas de Azure NetApp Files
 
@@ -38,20 +38,23 @@ Azure NetApp Files proporciona métricas sobre el almacenamiento asignado, el us
     Espacio lógico (GiB) total usado en todos los volúmenes de un grupo de capacidad.  
 
 - *Tamaño de instantánea total del grupo*    
-    La suma del tamaño de la instantánea de todos los volúmenes del grupo.
+    Suma del tamaño de la instantánea de todos los volúmenes del grupo.
 
 ## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Métricas de uso de volúmenes
 
-<!--
-- *Volume Quota Size*    
-    The quota size (GiB) the volume is provisioned with.   
-    This size is the size you selected during capacity pool creation. 
+<!-- ANF-5023: fixed version: 2020.08, 2020.09
+- *Percentage Volume Consumed Size*    
+    The percentage of the volume consumed, including snapshots.  
 -->
+- *Tamaño asignado del volumen*   
+    Tamaño aprovisionado de un volumen
+- *Tamaño de cuota del volumen*    
+    Tamaño de la cuota (GiB) con el que se aprovisiona el volumen.   
 - *Tamaño consumido del volumen*   
-    Espacio lógico total usado en un volumen (GiB).  
+    Tamaño lógico del volumen (bytes usados).  
     Este tamaño incluye el espacio lógico usado por las instantáneas y los sistemas de archivos activos.  
 - *Tamaño de instantánea de volumen*   
-   Espacio lógico incremental usado por las instantáneas de un volumen.  
+   Tamaño de todas las instantáneas de un volumen.  
 
 ## <a name="performance-metrics-for-volumes"></a>Métricas de rendimiento de los volúmenes
 
@@ -63,11 +66,28 @@ Azure NetApp Files proporciona métricas sobre el almacenamiento asignado, el us
     Número de lecturas en el volumen por segundo.
 - *IOPS de escritura*   
     Número de escrituras en el volumen por segundo.
+- *MiB/s de lectura*   
+    Rendimiento de lectura en bytes por segundo.
+- *MiB/s de escritura*   
+    Rendimiento de escritura en bytes por segundo.
+
+<!-- ANF-4128; 2020.07
+- *Pool Provisioned Throughput*   
+    The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
+- *Pool Allocated to Volume Throughput*   
+    The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
+-->
+
+<!-- ANF-6443; future
+- *Pool Consumed Throughput*    
+    The total throughput being consumed by volumes in a given capacity pool.
+-->
+
 
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>Métricas de replicación de volúmenes
 
 - *¿Es correcto el estado de replicación del volumen?*    
-    La condición de la relación de replicación. 
+    La condición de la relación de replicación. `1` indica un estado correcto. `0` indica un estado incorrecto.
 
 - *¿Se está transfiriendo la replicación del volumen?*     
     Indica si el estado de la replicación del volumen es "transfiriéndose". 
