@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: ba4b8f1d3aaa9b06f3bc24e9e267f6778734152a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: bad81e8929cd0c5c66c87fd9f6cc11dc746b3e5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903733"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317804"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Salida de colas de Service Bus desde Azure Stream Analytics
 
@@ -51,6 +51,22 @@ El tamaño máximo del mensaje es 256 KB por mensaje para el nivel Estándar y 
 ## <a name="custom-metadata-properties-for-output"></a>Propiedades de metadatos personalizadas para la salida
 
 Puede asociar las columnas de la consulta como propiedades de usuario a los mensajes salientes. Estas columnas no se envían a la carga útil. Las propiedades están presentes como diccionario en el mensaje de salida. *Key* es el nombre de columna y *value* es el valor de columna en el diccionario de propiedades. Se admiten todos los tipos de datos de Stream Analytics, excepto los tipos de registro y matriz.
+
+En el ejemplo siguiente, los campos `DeviceId` y `DeviceStatus` se agregan a los metadatos.
+
+1. Use la consulta siguiente:
+
+   ```sql
+   select *, DeviceId, DeviceStatus from iotHubInput
+   ```
+
+1. Configure `DeviceId,DeviceStatus` como columnas de propiedades en la salida.
+
+   :::image type="content" source="media/service-bus-queues-output/property-columns.png" alt-text="Columnas de propiedades":::
+
+En la siguiente imagen se muestran las propiedades esperadas del mensaje de salida inspeccionadas en EventHub mediante [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="Columnas de propiedades":::
 
 ## <a name="system-properties"></a>Propiedades del sistema
 
