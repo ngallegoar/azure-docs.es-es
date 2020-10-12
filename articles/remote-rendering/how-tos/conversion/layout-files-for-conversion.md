@@ -5,12 +5,12 @@ author: MalcolmTyrrell
 ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 8acd19408c328ef3f534ba7bc41c96e395f768be
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: 13c4b841fe2d0b62472628d9382b5f6ee3d1fa6c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89510895"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318082"
 ---
 # <a name="laying-out-files-for-conversion"></a>Diseño de archivos para la conversión
 
@@ -28,6 +28,10 @@ Si las rutas de acceso se almacenan como rutas de acceso relativas y la ubicaci�
 
 > [!Note]
 > Se recomienda colocar los archivos en el contenedor de entrada para que las ubicaciones relativas de los archivos sean las mismas que tenían cuando se creó el recurso.
+
+> [!Note]
+> Dé preferencia a crear recursos que incluyan rutas de acceso relativas.
+> En el tutorial sobre la [configuración de materiales para 3ds Max](../../tutorials/modeling/3dsmax-material-setup.md) se ofrece un ejemplo de 3ds Max de cómo asegurarse de que un recurso utiliza rutas de acceso relativas.
 
 ## <a name="finding-textures"></a>Búsqueda de texturas
 
