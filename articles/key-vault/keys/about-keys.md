@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 29930a835297b0ddd3a91534dab9ccb6d74896e3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8ac5b0976e677cc48fb3fe47c50797b07acdbc44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90967544"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91708873"
 ---
 # <a name="about-keys"></a>Acerca de las claves
 
@@ -47,7 +47,7 @@ Las claves protegidas con HSM (también conocidas como claves HSM) se procesan e
 - Los almacenes usan HSM validados con **FIPS 140-2 nivel 2** para proteger las claves HSM en la infraestructura de back-end del HSM compartido. 
 - Los grupos de HSM administrados usan módulos HSM validados con **FIPS 140-2 nivel 3** para proteger las claves. Cada grupo de HSM es una instancia aislada de un solo inquilino con su propio [dominio de seguridad](../managed-hsm/security-domain.md) que proporciona un aislamiento criptográfico completo de todos los demás grupos de HSM que comparten la misma infraestructura de hardware.
 
-Estas claves están protegidas en grupos de HSM de un solo inquilino. Puede importar una clave RSA, EC y simétrica de forma temporal o mediante la exportación desde un dispositivo HSM compatible. También puede generar claves en los grupos de HSM. Al importar claves de HSM mediante claves con el método descrito en la [especificación BYOK (Bring Your Own Key)](../keys/byok-specification.md), se permite el transporte seguro del material del clave a los grupos de HSM administrados. 
+Estas claves están protegidas en grupos de HSM de un solo inquilino. Puede importar una clave RSA, EC y simétrica de forma temporal o mediante la exportación desde un dispositivo HSM compatible. También puede generar claves en los grupos de HSM. Al importar claves de HSM mediante el método descrito en la [especificación Bring Your Own Key](../keys/byok-specification.md), se permite el transporte seguro del material de la clave a los grupos de HSM administrados. 
 
 Para más información acerca de los límites geográficos, consulte [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)
 
