@@ -1,0 +1,178 @@
+---
+title: Creación de una instancia de SQL Managed Instance mediante las herramientas de Kubernetes
+description: Creación de una instancia de SQL Managed Instance mediante las herramientas de Kubernetes
+services: azure-arc
+ms.service: azure-arc
+ms.subservice: azure-arc-data
+author: twright-msft
+ms.author: twright
+ms.reviewer: mikeray
+ms.date: 09/22/2020
+ms.topic: how-to
+ms.openlocfilehash: 80aa323dfb08ec1e8156099bd5d04e790732b3b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91340152"
+---
+# <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Creación de una instancia de Azure SQL Managed Instance mediante las herramientas de Kubernetes
+
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Ya debería haber creado un [controlador de datos de Azure Arc](./create-data-controller.md).
+
+Para crear una instancia de SQL Managed Instance mediante las herramientas de Kubernetes, debe tener instaladas dichas herramientas.  En los ejemplos de este artículo se usará `kubectl`, pero se podrían emplear enfoques similares con otras herramientas de Kubernetes como el panel de Kubernetes, `oc` o `helm` si está familiarizado con esas herramientas y los formatos YAML y JSON de Kubernetes.
+
+[Instalación de la herramienta kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+
+## <a name="overview"></a>Introducción
+
+Para crear una instancia de SQL Managed Instance, debe crear un secreto de Kubernetes para almacenar el inicio de sesión y la contraseña del administrador del sistema de forma segura, y un recurso personalizado de SQL Managed Instance basado en la definición de recursos personalizada de sqlmanagedinstance.
+
+## <a name="create-a-yaml-file"></a>Creación de un archivo YAML
+
+Puede usar el archivo [YAML de plantilla](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/sqlmi.yaml) como punto de partida para crear su propio archivo YAML de SQL Managed Instance personalizado.  Descargue este archivo en el equipo local y ábralo en un editor de texto.  Resulta útil usar un editor de texto como [VS Code](https://code.visualstudio.com/download) que admita el linting y el resaltado de la sintaxis en archivos YAML.
+
+Este es un archivo YAML de ejemplo:
+
+```yaml
+apiVersion: v1
+data:
+  password: <your base64 encoded password>
+  username: <your base64 encoded user name. 'sa' is not allowed>
+kind: Secret
+metadata:
+  name: example-login-secret
+type: Opaque
+---
+apiVersion: sql.arcdata.microsoft.com/v1alpha1
+kind: sqlmanagedinstance
+metadata:
+  name: example
+spec:
+  limits:
+    memory: 4Gi
+    vcores: "4"
+  requests:
+    memory: 2Gi
+    vcores: "1"
+  service:
+    type: LoadBalancer
+  storage:
+    backups:
+      className: default
+      size: 5Gi
+    data:
+      className: default
+      size: 5Gi
+    datalogs:
+      className: default
+      size: 5Gi
+    logs:
+      className: default
+      size: 1Gi
+```
+
+### <a name="customizing-the-login-and-password"></a>Personalización del inicio de sesión y la contraseña
+
+Un secreto de Kubernetes se almacena como una cadena codificada en Base64, una para el nombre de usuario y otra para la contraseña.  Deberá codificar en Base64 el inicio de sesión y la contraseña del administrador del sistema y colocarlos en la ubicación del marcador de posición en `data.password` y `data.username`.  No incluya los símbolos `<` y `>` que se proporcionan en la plantilla.
+
+> [!NOTE]
+> Para lograr una seguridad óptima, no se permite usar el valor "sa" para el inicio de sesión.
+> Siga la [directiva de complejidad de la contraseña](/sql/relational-databases/security/password-policy#password-complexity).
+
+Puede usar una herramienta en línea para codificar en Base64 el nombre de usuario y la contraseña que desee, o bien puede usar las herramientas integradas de la CLI, en función de la plataforma.
+
+PowerShell
+
+```console
+[Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('<your string to encode here>'))
+
+#Example
+#[Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('example'))
+
+```
+
+Linux/macOS
+
+```console
+echo '<your string to encode here>' | base64
+
+#Example
+# echo 'example' | base64
+```
+
+### <a name="customizing-the-name"></a>Personalización del nombre
+
+La plantilla tiene un valor de "example" para el atributo name.  Puede cambiarlo, pero deben ser caracteres que sigan los estándares de nomenclatura de DNS.  También debe cambiar el nombre del secreto para que coincida.  Por ejemplo, si cambia el nombre de la instancia administrada de SQL por "sql1", debe cambiar el nombre del secreto de "example-login-secret" por "sql1-login-secret".
+
+### <a name="customizing-the-resource-requirements"></a>Personalización de los requisitos de recursos
+
+Puede cambiar los requisitos de los recursos (solicitudes y límites de RAM y núcleo), según sea necesario.  
+
+> [!NOTE]
+> Puede obtener más información sobre la [gobernanza de recursos de Kubernetes](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes).
+
+Requisitos para las solicitudes y los límites de recursos:
+- El valor de límite de núcleos es **necesario** para la facturación.
+- El resto de límites y solicitudes de recursos son opcionales.
+- La solicitud y el límite de núcleos deben ser un valor entero positivo, si se especifican.
+- Se requiere un mínimo de 2 núcleos para la solicitud de núcleos, si se especifica.
+- El formato del valor de memoria sigue la notación de Kubernetes.  
+- Se requiere un mínimo de 2 Gi para la solicitud de memoria, si se especifica.
+- Como norma general, debe tener 4 GB de RAM por cada núcleo para los casos de uso de producción.
+
+### <a name="customizing-service-type"></a>Personalización del tipo de servicio
+
+Si lo desea, el tipo de servicio se puede cambiar a NodePort.  Se asignará un número de puerto aleatorio.
+
+### <a name="customizing-storage"></a>Personalización del almacenamiento
+
+Puede personalizar las clases de almacenamiento para que el almacenamiento coincida con su entorno.  Si no está seguro de qué clases de almacenamiento están disponibles, puede ejecutar el comando `kubectl get storageclass` para verlas.  La plantilla tiene el valor predeterminado "default".  Esto significa que existe una clase de almacenamiento con _name_ establecido en "default", no que exista una clase de almacenamiento que _sea_ la predeterminada.  También tiene la opción de cambiar el tamaño del almacenamiento.  Puede obtener más información sobre la [configuración de almacenamiento](./storage-configuration.md).
+
+## <a name="creating-the-sql-managed-instance"></a>Creación de la instancia de SQL Managed Instance
+
+Ahora que ha personalizado el archivo YAML de SQL Managed Instance, puede crear la instancia de SQL Managed Instance mediante la ejecución del siguiente comando:
+
+```console
+kubectl create -n <your target namespace> -f <path to your yaml file>
+
+#Example
+#kubectl create -n arc -f C:\arc-data-services\sqlmi.yaml
+```
+
+
+## <a name="monitoring-the-creation-status"></a>Supervisión del estado de creación
+
+La creación de la instancia de SQL Managed Instance tardará unos minutos en completarse. Puede supervisar el progreso en otra ventana de terminal con los siguientes comandos:
+
+> [!NOTE]
+>  En los siguientes comandos de ejemplo se da por hecho que ha creado una instancia de SQL Managed Instance denominada "sql1" y un espacio de nombres de Kubernetes con el nombre "arc".  Si ha usado otro un nombre para el espacio de nombres o la instancia de SQL Managed Instance, puede reemplazar "arc" y "sqlmi" por sus nombres.
+
+```console
+kubectl get sqlmi/sql1 --namespace arc
+```
+
+```console
+kubectl get pods --namespace arc
+```
+
+También puede comprobar el estado de creación de un pod determinado ejecutando un comando como el siguiente.  Esto es especialmente útil para solucionar problemas.
+
+```console
+kubectl describe po/<pod name> --namespace arc
+
+#Example:
+#kubectl describe po/sql1-0 --namespace arc
+```
+
+## <a name="troubleshooting-creation-problems"></a>Solución de problemas de creación
+
+Si tiene problemas con la creación, consulte la [guía de solución de problemas](troubleshoot-guide.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Conexión a SQL Managed Instance habilitada para Azure Arc](connect-managed-instance.md)
