@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 08/02/2020
 ms.author: guybo
-ms.openlocfilehash: 0b3a598213545bbad833e9b8036f65b999df1c76
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f945c58b256c2a024a62b15a1bca1841483e1849
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607017"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279440"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuciones de Linux aprobadas en Azure
 
@@ -37,7 +37,7 @@ El agente de Linux de Azure ya está preinstalado en las imágenes de Azure Mark
 | CentOS de Rogue Wave Software |CentOS 6.x, 7.x, 8.x |CentOS 6.3: [Descarga de LIS](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 o superior: En kernel |Paquete: en el [repositorio](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/), en "WALinuxAgent" <br/>Código fuente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS ahora está en el [final del ciclo de vida](https://coreos.com/os/eol/) a partir del 26 de mayo de 2020. |Ya no está disponible | | |
 | Debian por Credativ |8.x, 9.x |En kernel |Paquete: en el repositorio, en "waagent" <br/>Código fuente: [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Flatcar Container Linux de Kinvolk| Estable, Edge| | |
+|Flatcar Container Linux de Kinvolk| Estable, beta| En kernel | wa-linux-agent ya está instalado en /usr/share/oem/bin/waagent |
 | Oracle Linux de Oracle |6.x, 7.x, 8.x |En kernel |Paquete: en el repositorio, en "WALinuxAgent" <br/>Código fuente: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | [Red Hat Enterprise Linux de Red Hat](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |En kernel |Paquete: en el repositorio, en "WALinuxAgent" <br/>Código fuente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise de SUSE |SLES/SLES para SAP 11.x, 12.x, 15.x <br/> [Ciclo de vida de imagen en la nube pública de SUSE](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |En kernel |Paquete:<p> para 11 en el repositorio [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools)<br>para 12, que se incluye en el módulo "Nube pública" en "python-azure-agent"<br/>Código fuente: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
