@@ -8,16 +8,15 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 0cf0ef97cc1e06906a529c577e9c2578e5091ef4
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.date: 09/28/2020
+ms.openlocfilehash: a1f633548ed36320f40e485f540923c8e3045a99
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050733"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460873"
 ---
-# <a name="ingestion-rules"></a>Reglas de ingesta
-### <a name="json-flattening-escaping-and-array-handling"></a>Acoplamiento de JSON, escape y control de matrices
+# <a name="json-flattening-escaping-and-array-handling"></a>Acoplamiento de JSON, escape y control de matrices
 
 El entorno de Azure Time Series Insights Gen2 crea dinámicamente las columnas de los almacenes intermedios y en reposo conforme a un conjunto determinado de convenciones de nomenclatura. Cuando se ingiere un evento, se aplica un conjunto de reglas a la carga y los nombres de propiedad de JSON. Entre ellas se incluyen el escape de determinados caracteres especiales y el acoplamiento de objetos JSON anidados. Es importante conocer estas reglas para que comprenda cómo influirá la forma de JSON en cómo se almacenan y consultan los eventos. Consulte la tabla siguiente para ver la lista completa de reglas. En los ejemplos A y B también se muestra cómo se pueden procesar por lotes de forma eficaz varias series temporales en una matriz.
 
@@ -33,24 +32,25 @@ El entorno de Azure Time Series Insights Gen2 crea dinámicamente las columnas d
 | Dentro de [' y '], hay un escape adicional de comillas simples y barras diagonales inversas. Una comilla simple se escribirá como \’ y una barra diagonal inversa, como \\\ | ```"Foo's Law Value": "17.139999389648"``` | `$event['Foo\'s Law Value'].Double` | `['Foo\'s Law Value']_double` |
 | Los objetos JSON anidados se acoplan con un punto como separador. Se admite el anidamiento de hasta 10 niveles. |  ```"series": {"value" : 316 }``` | `$event.series.value.Long`, `$event['series']['value'].Long` o `$event.series['value'].Long` |  `series.value_long` |
 | Las matrices de tipos primitivos se almacenan como el tipo dinámico |  ```"values": [154, 149, 147]``` | Los tipos dinámicos solo se pueden recuperar a través de la API de [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
-| Las matrices que contienen objetos tienen dos comportamientos en función del contenido del objeto: Si los identificadores de TS o las propiedades de marca de tiempo están dentro de los objetos de una matriz, la matriz se expandirá de forma que la carga útil inicial de JSON produzca múltiples eventos. Esto permite procesar por lotes varios eventos en una estructura JSON. Cualquier propiedad de nivel superior que esté en el mismo nivel que la matriz se guardará con cada objeto no expandido. Si los identificadores de TS y la marca de tiempo *no* están en la matriz, se guardarán como el tipo dinámico. | Vea los ejemplos [A](concepts-json-flattening-escaping-rules.md#example-a), [B](concepts-json-flattening-escaping-rules.md#example-b) y [C](concepts-json-flattening-escaping-rules.md#example-c) siguientes
+| Las matrices que contienen objetos tienen dos comportamientos en función del contenido del objeto: Si los identificadores de TS o las propiedades de marca de tiempo se encuentran dentro de los objetos de una matriz, la matriz se expandirá de forma que la carga útil inicial de JSON produzca múltiples eventos. Esto permite procesar por lotes varios eventos en una estructura JSON. Cualquier propiedad de nivel superior que esté en el mismo nivel que la matriz se guardará con cada objeto no expandido. Si los identificadores de TS y la marca de tiempo *no* están en la matriz, se guardarán como el tipo dinámico. | Consulte los ejemplos [A](concepts-json-flattening-escaping-rules.md#example-a), [B](concepts-json-flattening-escaping-rules.md#example-b) y [C](concepts-json-flattening-escaping-rules.md#example-c) a continuación
 | Las matrices que contienen elementos mixtos no están acopladas. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Los tipos dinámicos solo se pueden recuperar a través de la API de [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
 | 512 caracteres es el límite del nombre de la propiedad JSON. Si el nombre supera los 512 caracteres, se truncará a 512 y se anexará un '_<'hashCode'>'. **Nota:** Esto también se aplica a los nombres de propiedad que se han concatenado del objeto acoplado, lo que denota una ruta de objeto anidada. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## <a name="understanding-the-dual-behavior-for-arrays"></a>Descripción del comportamiento dual de las matrices
 
-Las matrices de objetos se almacenan de forma completa o dividida en varios eventos, en función de cómo se hayan modelado los datos. Esto le permite usar una matriz para procesar los eventos y evitar repetir las propiedades de telemetría definidas en el nivel de objeto raíz. El procesamiento por lotes puede ser ventajoso, ya que se producen menos instancias de Event Hubs o mensajes de IoT Hub enviados. 
+Las matrices de objetos se almacenan de forma completa o dividida en varios eventos, en función de cómo se hayan modelado los datos. Esto le permite usar una matriz para procesar los eventos y evitar repetir las propiedades de telemetría definidas en el nivel de objeto raíz. El procesamiento por lotes puede ser ventajoso, ya que se producen menos instancias de Event Hubs o mensajes de IoT Hub enviados.
 
 Sin embargo, en algunos casos, las matrices que contienen objetos solo son significativas en el contexto de otros valores. La creación de varios eventos representaría los datos sin significado. Para asegurarse de que una matriz de objetos se almacena tal cual como un tipo dinámico, siga la guía de modelado de datos que se indican a continuación y eche un vistazo al [ejemplo C](concepts-json-flattening-escaping-rules.md#example-c)
 
-### <a name="how-do-i-know-if-my-array-of-objects-will-produce-multiple-events"></a>¿Cómo saber si la matriz de objetos producirá varios eventos?
+### <a name="how-to-know-if-my-array-of-objects-will-produce-multiple-events"></a>Cómo saber si la matriz de objetos producirá varios eventos
 
 Si una o más de las propiedades de identificador de serie temporal están anidadas dentro de los objetos de una matriz, *o* si la propiedad de marca de tiempo de origen del evento está anidada, el motor de ingesta la dividirá para crear múltiples eventos. Los nombres de propiedad que proporcionó para los identificadores de TS y la marca de tiempo deben seguir las reglas de acoplamiento anteriores y, por lo tanto, indicarán la forma del JSON. Vea los ejemplos siguientes y consulte la guía sobre cómo [Seleccionar una propiedad de identificador de serie temporal.](time-series-insights-update-how-to-id.md)
 
-### <a name="example-a"></a>Ejemplo A:
-Identificador de serie temporal en la raíz del objeto y marca de tiempo anidada<br/>
-**Identificador de serie temporal del entorno:** `"id"`<br/>
-**Marca de tiempo de origen del evento:** `"values.time"`<br/>
+### <a name="example-a"></a>Ejemplo A
+
+Id. de serie temporal en la raíz del objeto y marca de tiempo anidada\
+**Id. de serie temporal del entorno:** `"id"`\
+**Marca de tiempo de origen del evento:** `"values.time"`\
 **Carga de JSON:**
 
 ```JSON
@@ -84,21 +84,21 @@ Identificador de serie temporal en la raíz del objeto y marca de tiempo anidada
 ]
 ```
 
-**Resultado en el archivo de Parquet:**
-<br/>
+**Resultado en el archivo de Parquet:** \
 La configuración y la carga anterior producirán tres columnas y cuatro eventos
 
-| timestamp  | id_string | values.value_double 
-| ---- | ---- | ---- | 
-| `2020-05-01T00:59:59.000Z` | `caaae533-1d6c-4f58-9b75-da102bcc2c8c`| ``25.6073`` | 
-| `2020-05-01T01:00:29.000Z` |`caaae533-1d6c-4f58-9b75-da102bcc2c8c` | ``43.9077`` | 
-| `2020-05-01T00:59:59.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``0.337288`` | 
-| `2020-05-01T01:00:29.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``4.76562`` | 
+| timestamp  | id_string | values.value_double
+| ---- | ---- | ---- |
+| `2020-05-01T00:59:59.000Z` | `caaae533-1d6c-4f58-9b75-da102bcc2c8c`| ``25.6073`` |
+| `2020-05-01T01:00:29.000Z` |`caaae533-1d6c-4f58-9b75-da102bcc2c8c` | ``43.9077`` |
+| `2020-05-01T00:59:59.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``0.337288`` |
+| `2020-05-01T01:00:29.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``4.76562`` |
 
-### <a name="example-b"></a>Ejemplo B:
-Combinación de un identificador de serie temporal con una propiedad anidada<br/> 
-**Identificador de serie temporal del entorno:** `"plantId"` y `"telemetry.tagId"`<br/>
-**Marca de tiempo de origen del evento:** `"timestamp"`<br/>
+### <a name="example-b"></a>Ejemplo B
+
+Combinación de un id, de serie temporal con una propiedad anidada\
+**Id. de serie temporal del entorno:** `"plantId"` y `"telemetry.tagId"`\
+**Marca de tiempo de origen del evento:** `"timestamp"`\
 **Carga de JSON:**
 
 ```JSON
@@ -142,23 +142,23 @@ Combinación de un identificador de serie temporal con una propiedad anidada<br/
 ]
 ```
 
-**Resultado en el archivo de Parquet:**
-<br/>
+**Resultado en el archivo de Parquet:** \
 La configuración y la carga anterior producirán cuatro columnas y seis eventos
 
-| timestamp  | plantId_string | telemetry.tagId_string | telemetry.value_double 
+| timestamp  | plantId_string | telemetry.tagId_string | telemetry.value_double
 | ---- | ---- | ---- | ---- |
 | `2020-01-22T16:38:09Z` | `9336971`| ``100231-A-A6`` |  -31.149018 |
 | `2020-01-22T16:38:09Z` |`9336971` | ``100231-A-A1`` | 20.560796 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A9`` | 177 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A8`` | 420 |
-| `2020-01-22T16:42:14Z` | `9336972` | ``100231-A-A7`` | -30.9918 |  
-| `2020-01-22T16:42:14Z` | `9336972` | ``100231-A-A4`` | 19.960796 | 
+| `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A7`` | -30.9918 |  
+| `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A4`` | 19.960796 |
 
-### <a name="example-c"></a>Ejemplo C:
-El identificador de serie temporal y la marca de tiempo se encuentran en la raíz del objeto<br/> 
-**Identificador de serie temporal del entorno:** `"id"`<br/>
-**Marca de tiempo de origen del evento:** `"timestamp"`<br/>
+### <a name="example-c"></a>Ejemplo C
+
+El id. de serie temporal y la marca de tiempo se encuentran en la raíz del objeto\
+**Id. de serie temporal del entorno:** `"id"`\
+**Marca de tiempo de origen del evento:** `"timestamp"`\
 **Carga de JSON:**
 
 ```JSON
@@ -175,12 +175,11 @@ El identificador de serie temporal y la marca de tiempo se encuentran en la raí
 }
 ```
 
-**Resultado en el archivo de Parquet:**
-<br/>
+**Resultado en el archivo de Parquet:** \
 La configuración y la carga anterior producirán tres columnas y un evento
 
 | timestamp  | id_string | datapoints_dynamic  
-| ---- | ---- | ---- | 
+| ---- | ---- | ---- |
 | `2020-11-01T10:00:00.000Z` | `800500054755`| ``[{"value": 120},{"value":124}]`` |
 
 ## <a name="next-steps"></a>Pasos siguientes
