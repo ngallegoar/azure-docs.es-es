@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 5f6328144760b3c55c55fbef13917359fa9e1a62
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526760"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292462"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Llamada a puntos de conexión de servicio mediante HTTP o HTTPS desde Azure Logic Apps
 
@@ -247,7 +247,7 @@ Algunos puntos de conexión, servicios, sistemas o API devuelven una respuesta "
 
 Si una acción o desencadenador HTTP incluye estos encabezados, Logic Apps quita estos encabezados del mensaje de respuesta generado sin mostrar ninguna advertencia o error:
 
-* `Accept-*`
+* Encabezados `Accept-*`, excepto `Accept-version`
 * `Allow`
 * `Content-*` con estas excepciones: `Content-Disposition`, `Content-Encoding` y `Content-Type`
 * `Cookie`

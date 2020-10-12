@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0be99a673fe3d062e114f375891f3c821c118d76
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 76e94e3c1571f865b41acd488ee1e868043427b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321953"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Error inesperado al otorgar consentimiento a una aplicación
 
@@ -77,6 +77,14 @@ Todos estos errores se producen cuando la aplicación a la que un usuario está 
     -   Otorgar permisos a la aplicación en Azure Portal
 
     -   Agregar la aplicación desde la Galería de aplicaciones de Azure AD
+
+## <a name="risky-app-error-and-warning"></a>Error y advertencia de aplicación de riesgo
+* Esta aplicación puede ser peligrosa. Si confía en su origen, pídale al administrador que le conceda acceso.
+* Esta aplicación puede ser peligrosa. Continúe solo si confía en su origen.
+
+Ambos mensajes se mostrarán cuando Microsoft haya determinado que la solicitud de consentimiento puede ser peligrosa. Entre otros factores, esto puede ocurrir si no se ha agregado un [publicador comprobado](../develop/publisher-verification-overview.md) al registro de la aplicación. El primer mensaje se mostrará a los usuarios finales cuando se deshabilite el [flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md). El segundo mensaje se mostrará a los usuarios finales cuando el flujo de trabajo de consentimiento del administrador esté habilitado y a los administradores. 
+
+Los usuarios finales no podrán conceder el consentimiento a las aplicaciones que se hayan detectado como peligrosas. Los administradores pueden evaluar la aplicación, pero deben hacerlo muy atentamente, y continuar con precaución. Si la aplicación parece sospechosa tras una revisión más profunda, se puede notificar a Microsoft en la pantalla de consentimiento. 
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

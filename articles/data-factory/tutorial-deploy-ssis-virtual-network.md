@@ -1,6 +1,6 @@
 ---
 title: Tutorial para conectar Azure-SSIS Integration Runtime a una red virtual
-description: Aprenda a conectar Azure-SSIS Integration Runtime a una red virtual de Azure.
+description: Obtenga información sobre cómo conectar Azure-SSIS Integration Runtime a una red virtual de Azure.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 0b83049e154afc48334cc6deb576c700ed71d844
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: ef2bd2fa9badc7c299099b647e1f67c50e997024
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118145"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292310"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configuración de Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) para conectarlo a una red virtual
 
