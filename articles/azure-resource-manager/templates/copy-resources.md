@@ -2,13 +2,13 @@
 title: Implementación de varias instancias de recursos
 description: Use la operación de copia y las matrices en una plantilla de Azure Resource Manager para realizar varias iteraciones al implementar recursos.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.date: 09/21/2020
+ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583390"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293975"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteración de recursos en las plantillas de ARM
 
@@ -156,6 +156,8 @@ Resource Manager crea los recursos en paralelo de forma predeterminada. No se ap
 
 Sin embargo, es posible que quiera especificar que los recursos se implementen en secuencia. Por ejemplo, al actualizar un entorno de producción, puede que quiera escalonar las actualizaciones para que solo una cantidad determinada se actualice al mismo tiempo. Para implementar en serie varias instancias de un recurso, establezca `mode` en el valor **serial** y `batchSize` en el número de instancias que se implementarán a la vez. Con mode establecido en serial, Resource Manager crea una dependencia en las instancias anteriores del bucle, por lo que no se inicia ningún lote hasta que se completa el lote anterior.
 
+El valor de `batchSize` no puede superar el valor de `count` en el elemento copy.
+
 Por ejemplo, para implementar en serie dos cuentas de almacenamiento a la vez, use lo siguiente:
 
 ```json
@@ -279,7 +281,7 @@ En el siguiente ejemplo se muestra la implementación:
 
 En los ejemplos siguientes se muestran escenarios comunes para crear más de una instancia de un recurso o propiedad.
 
-|Plantilla  |Descripción  |
+|Plantilla  |Description  |
 |---------|---------|
 |[Almacenamiento de copias](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Implementa más de una cuenta de almacenamiento con un número de índice en el nombre. |
 |[Almacenamiento de copias en serie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Implementa varias cuentas de almacenamiento, una tras otra. El nombre incluye el número de índice. |
@@ -295,6 +297,6 @@ En los ejemplos siguientes se muestran escenarios comunes para crear más de una
   * [Iteración de variables en las plantillas de ARM](copy-variables.md)
   * [Iteración de salida en las plantillas de ARM](copy-outputs.md)
 * Para obtener información acerca del uso de copy con plantillas anidadas, consulte [Uso de copy](linked-templates.md#using-copy).
-* Para obtener información sobre las secciones de una plantilla, consulte el artículo sobre cómo [crear plantillas de ARM](template-syntax.md).
+* Para más información sobre las secciones de una plantilla, consulte el artículo sobre cómo [crear plantillas de ARM](template-syntax.md).
 * Para más información sobre cómo implementar su plantilla, consulte el artículo [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
 

@@ -220,7 +220,7 @@
               displayName: 'manage, reset password, scale'
             - name: Reglas de firewall
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: howto-manage-firewall-using-portal.md
                   displayName: firewall
                 - name: CLI de Azure
@@ -236,7 +236,7 @@
               displayName: 'managed identity, msi'
         - name: Restauración de un servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-restore-server-portal.md
               displayName: 'restore server,backup'
             - name: Azure CLI
@@ -264,7 +264,7 @@
               displayName: 'development, redirection , php'
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -279,7 +279,7 @@
               href: how-to-stop-start-server.md
         - name: Almacenamiento de crecimiento automático
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'storage, business continuity , downtime, portal'
             - name: Azure CLI
@@ -290,7 +290,7 @@
               displayName: 'storage, business continuity , downtime, powershell'
         - name: Registros de consultas lentos
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'debug, slow query log , performance'
             - name: Azure CLI
@@ -298,7 +298,7 @@
               displayName: 'debug, slow query log , performance'
         - name: Registros de auditoría
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-audit-logs-portal.md
               displayName: 'debug, audit log'
             - name: Azure CLI
@@ -344,7 +344,7 @@
               displayName: 'atp, advanced thread, security'
             - name: Virtual Network
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: howto-manage-vnet-using-portal.md
                   displayName: 'vnet, virtual network, service endpoint'
                 - name: CLI de Azure
@@ -376,12 +376,12 @@
               displayName: 'infrastructure encryption, security'
         - name: Denegación del acceso a una red pública
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-deny-public-network-access.md
               displayName: 'security, public access'
         - name: Reinicio del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-restart-server-portal.md
               displayName: restart
             - name: Azure CLI
@@ -464,7 +464,7 @@
       items:
         - name: Administración de un servicio
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/how-to-manage-server-portal.md
             - name: CLI de Azure
               href: flexible-server/how-to-manage-server-cli.md
