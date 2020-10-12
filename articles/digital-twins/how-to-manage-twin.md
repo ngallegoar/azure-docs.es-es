@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b88d017110f4d7b9859f2d801c5405ecee1589c5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3f9064c25581523167918b84a2d0027747e32bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297474"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282381"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
@@ -383,6 +383,17 @@ Para obtener un ejemplo de cómo eliminar todos los gemelos a la vez, descargue 
 Los gemelos también se pueden administrar con la CLI de Azure Digital Twins. Los comandos se pueden encontrar en [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
+## <a name="view-all-digital-twins"></a>Visualización de todos los gemelos digitales
+
+Para ver todos los gemelos digitales de la instancia, use una [consulta](how-to-query-graph.md). Puede ejecutar una consulta con las [API de consulta](how-to-use-apis-sdks.md) o los [comandos de la CLI](how-to-use-cli.md).
+
+Este es el cuerpo de la consulta básica que devolverá una lista de todos los gemelos digitales en la instancia:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
