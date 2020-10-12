@@ -7,12 +7,12 @@ ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: bd85155f932d57319f5f27081b44b48e5540bfb2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6c9c54450788a89a7b1aadbb0b4682a60619c061
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284054"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334606"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Acceso y administración de recursos de IBM DB2 mediante el uso de Azure Logic Apps
 
@@ -157,7 +157,7 @@ Para capturar un registro de una tabla de base de datos de DB2, use la acción *
    | **Id. de área** | Sí | El identificador del registro que desee, como "99999" en este ejemplo |
    ||||
 
-   ![Seleccionar tabla](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![Captura de pantalla que muestra la acción "Obtener fila (vista previa)" con la lista "Nombre de tabla" abierta y el valor "AREA" seleccionado.](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador.
 
@@ -192,7 +192,7 @@ Para capturar todos los registros de una tabla de base de datos de DB2, use la a
 
 1. Abra la lista **Nombre de tabla** y luego seleccione la tabla que desee, que es "AREA" en este ejemplo:
 
-   ![Seleccionar tabla](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![Captura de pantalla que muestra la acción "Obtener fila (vista previa)" con el valor "AREA" seleccionado en la lista "Nombre de tabla".](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. Para especificar un filtro o consultar resultados, elija **Mostrar opciones avanzadas**.
 
@@ -241,7 +241,7 @@ Para agregar un único registro de una tabla de base de datos de DB2, use la acc
 
    Por ejemplo:
 
-   ![Seleccionar tabla](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![Captura de pantalla que muestra el diseñador de Logic Apps con la acción "Insertar fila (vista previa)" y los valores de propiedad de ejemplo.](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador.
 
@@ -289,7 +289,7 @@ Para actualizar un único registro de una tabla de base de datos de DB2, use la 
 
    Por ejemplo:
 
-   ![Seleccionar tabla](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![Captura de pantalla que muestra el diseñador de Logic Apps con la acción "Actualizar fila (vista previa)" en la que se selecciona una tabla.](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador.
 
@@ -334,7 +334,7 @@ Para eliminar un único registro de una tabla de base de datos de DB2, use la ac
 
    Por ejemplo:
 
-   ![Seleccionar tabla](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![Captura de pantalla que muestra el diseñador de Logic Apps con la acción "Eliminar fila (vista previa)" en la que se selecciona una tabla que se va a eliminar.](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador.
 
