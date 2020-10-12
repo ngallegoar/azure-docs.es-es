@@ -1,7 +1,7 @@
 ---
 title: Actualización de Bing Autosuggest API v5 a v7
 titleSuffix: Azure Cognitive Services
-description: Identifica las partes de la aplicación que se deben actualizar para usar la versión 7.
+description: Se identifican las partes de la aplicación Bing Autosuggest que se deben actualizar para usar la versión 7.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5249a3a1f51eea2ecd0999d71c6b08fdacf37a34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65498e25108a28183ae6596a8a7288c071ef1147
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "68405416"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277519"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guía de actualización de AutoSuggest API
 
