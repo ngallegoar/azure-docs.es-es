@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 7fbf7743eb1c037a364e1004fc3be30db6777bb0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f4c6eb8ad8e3d69d2b3545bc5754e1a632f5cc8c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546651"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285843"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: Configuración de Snowflake para el aprovisionamiento automático de usuarios
 
@@ -58,11 +58,11 @@ Antes de configurar Snowflake para aprovisionar automáticamente usuarios con Az
 
 2.  Se generará un token de acceso de SCIM para el inquilino de Snowflake. Para recuperarlo, haga clic en el vínculo resaltado a continuación.
 
-    ![Snowflake, agregar SCIM](media/Snowflake-provisioning-tutorial/image01.png)
+    ![Captura de pantalla de una hoja de cálculo en la interfaz de usuario de Snowflake con el token de acceso de SCIM resaltado.](media/Snowflake-provisioning-tutorial/image01.png)
 
 3. Copie el valor del token generado y haga clic en **Done** (Listo). Este valor se escribe en el campo **Secret Token** (Token secreto) de la pestaña Provisioning (Aprovisionamiento) de la aplicación Snowflake en Azure Portal.
 
-    ![Snowflake, agregar SCIM](media/Snowflake-provisioning-tutorial/image02.png)
+    ![Captura de pantalla de la sección de detalles que muestra el token copiado en el campo de texto y la opción Listo resaltada.](media/Snowflake-provisioning-tutorial/image02.png)
 
 ## <a name="step-3-add-snowflake-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Snowflake desde la galería de aplicaciones de Azure AD
 
@@ -93,11 +93,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección Credenciales de administrador, escriba los valores de **URL base de SCIM 2.0 y token de autenticación** que recuperó anteriormente en los campos **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Snowflake. Si la conexión no se establece, asegúrese de que la cuenta de Snowflake tiene permisos de administrador e inténtelo de nuevo.
 
