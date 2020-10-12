@@ -7,16 +7,16 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 69ba8d1735d16791d62b6b04e49c0d2fb7484959
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563094"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325800"
 ---
-# <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
+# <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions
 
-En este artículo se explica cómo usar desencadenadores de temporizador en Azure Functions. Con un desencadenador de temporizador puede ejecutar una función de forma programada. 
+En este artículo se explica cómo usar desencadenadores de temporizador en Azure Functions. Con un desencadenador de temporizador puede ejecutar una función de forma programada.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -80,6 +80,21 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+El la función de ejemplo siguiente se desencadena y se ejecuta cada cinco minutos. La anotación `@TimerTrigger` en la función define la programación con el mismo formato de cadena que las [expresiones CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada. Un [objeto de temporizador](#usage) se pasa a la función.
@@ -111,9 +126,44 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+En el ejemplo siguiente se demuestra cómo configurar los archivos *function.json* y *run.ps1* para un desencadenador de temporizador en [PowerShell](./functions-reference-powershell.md).
+
+```json
+{
+  "bindings": [
+    {
+      "name": "Timer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    }
+  ]
+}
+```
+
+```powershell
+# Input bindings are passed in via param block.
+param($Timer)
+
+# Get the current universal time in the default string format.
+$currentUTCtime = (Get-Date).ToUniversalTime()
+
+# The 'IsPastDue' property is 'true' when the current function invocation is later than scheduled.
+if ($Timer.IsPastDue) {
+    Write-Host "PowerShell timer is running late!"
+}
+
+# Write an information log with the current time.
+Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
+```
+
+Una instancia del [objeto de temporizador](#usage) se pasa como primer argumento a la función.
+
 # <a name="python"></a>[Python](#tab/python)
 
-En el ejemplo siguiente se usa un enlace de desencadenador de temporizador cuya configuración se describe en el archivo *function.json*. La [función de Python](functions-reference-python.md) real que usa el enlace se describe en el archivo *__init__.py*. El objeto pasado a la función es de tipo [azure.functions.TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La lógica de la función escribe en los registros para indicar si la invocación actual se debe a una repetición de la programación no ejecutada. 
+En el ejemplo siguiente se usa un enlace de desencadenador de temporizador cuya configuración se describe en el archivo *function.json*. La [función de Python](functions-reference-python.md) real que usa el enlace se describe en el archivo *__init__.py*. El objeto pasado a la función es de tipo [azure.functions.TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La lógica de la función escribe en los registros para indicar si la invocación actual se debe a una repetición de la programación no ejecutada.
 
 Estos son los datos de enlace del archivo *function.json*:
 
@@ -145,21 +195,6 @@ def main(mytimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
-El la función de ejemplo siguiente se desencadena y se ejecuta cada cinco minutos. La anotación `@TimerTrigger` en la función define la programación con el mismo formato de cadena que las [expresiones CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
-
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
-}
-```
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Atributos y anotaciones
@@ -188,14 +223,6 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 El script de C# no admite atributos.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-JavaScript no admite atributos.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Python no admite atributos.
-
 # <a name="java"></a>[Java](#tab/java)
 
 La anotación `@TimerTrigger` en la función define la programación con el mismo formato de cadena que las [expresiones CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
@@ -210,6 +237,18 @@ public void keepAlive(
      context.getLogger().info("Timer is triggered: " + timerInfo);
 }
 ```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript no admite atributos.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+PowerShell no admite atributos.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Python no admite atributos.
 
 ---
 
@@ -229,7 +268,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> No se recomienda establecer **runOnStartup** en `true` en producción. Con esta configuración, el código se ejecuta en momentos altamente impredecibles. En ciertas configuraciones de producción, estas ejecuciones adicionales pueden dar lugar a costos considerablemente mayores para las aplicaciones hospedadas en los planes de consumo. Por ejemplo, con **runOnStartup** habilitado, se invoca al desencadenador cada vez que se escala la aplicación de función. Asegúrese de comprender perfectamente el comportamiento de producción de las funciones antes de habilitar **runOnStartup** en producción.   
+> No se recomienda establecer **runOnStartup** en `true` en producción. Con esta configuración, el código se ejecuta en momentos altamente impredecibles. En ciertas configuraciones de producción, estas ejecuciones adicionales pueden dar lugar a costos considerablemente mayores para las aplicaciones hospedadas en los planes de consumo. Por ejemplo, con **runOnStartup** habilitado, se invoca al desencadenador cada vez que se escala la aplicación de función. Asegúrese de comprender perfectamente el comportamiento de producción de las funciones antes de habilitar **runOnStartup** en producción.
 
 ## <a name="usage"></a>Uso
 
@@ -250,8 +289,7 @@ Cuando se invoca una función de desencadenador de temporizador, se pasa a esta 
 
 La propiedad `IsPastDue` es `true` cuando la invocación de función actual es posterior a la programada. Por ejemplo, un reinicio de aplicación de función podría provocar la ausencia de una invocación.
 
-
-## <a name="ncrontab-expressions"></a>Expresiones NCRONTAB 
+## <a name="ncrontab-expressions"></a>Expresiones NCRONTAB
 
 Azure Functions usa la biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar las expresiones NCRONTAB. Una expresión NCRONTAB es similar a una expresión CRON, excepto en que incluye un sexto campo adicional al comienzo para usarlo con una precisión de segundos:
 
@@ -300,12 +338,12 @@ A diferencia de una expresión CRON, un valor `TimeSpan` especifica el intervalo
 
 Expresado como una cadena, el formato `TimeSpan` es `hh:mm:ss` cuando `hh` es menor que 24. Si los dos primeros dígitos son 24 o un valor superior, el formato es `dd:hh:mm`. Estos son algunos ejemplos:
 
-|Ejemplo |Cuándo se desencadena  |
-|---------|---------|
-|"01:00:00" | Cada hora        |
-|"00:01:00"|Cada minuto         |
-|"24:00:00" | Cada 24 días        |
-|"1.00:00:00" | Todos los días        |
+| Ejemplo      | Cuándo se desencadena |
+|--------------|----------------|
+| "01:00:00"   | Cada hora     |
+| "00:01:00"   | Cada minuto   |
+| "24:00:00"   | Cada 24 días  |
+| "1.00:00:00" | Todos los días      |
 
 ## <a name="scale-out"></a>Escalado horizontal
 

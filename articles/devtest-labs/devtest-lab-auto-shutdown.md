@@ -3,12 +3,12 @@ title: Administración de directivas de apagado automático en Azure DevTest Lab
 description: Aprenda a establecer una directiva de apagado automático para un laboratorio, y que así que las máquinas virtuales se apaguen automáticamente cuando no se estén usando.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3532e4859bd63c81cb9b9cda973064e5ef8357ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320717"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configuración del apagado automático de máquinas virtuales de laboratorio y proceso en Azure DevTest Labs
 
@@ -162,7 +162,7 @@ Para comenzar, cree una aplicación lógica en su suscripción de Azure siguiend
     }
     ```
     
-    ![Esquema JSON del cuerpo de la solicitud](./media/devtest-lab-auto-shutdown/request-json.png)
+    ![Captura de pantalla que muestra "Esquema JSON de cuerpo de solicitud".](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Seleccione **+ New step** (+ Nuevo paso) en el diseñador y siga estos pasos:
     1. Busque **Office 365 Outlook - Send an email** (Office 365 Outlook: enviar un correo electrónico). 
     2. Seleccione **Send an email** (Enviar un correo electrónico) desde **Actions** (Acciones). 

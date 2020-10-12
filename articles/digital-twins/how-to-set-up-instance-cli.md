@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e9a78690128c2406277ab4e8fb6e6e4625d2787f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: bb5ff0bf7347b87fdc3a103a03f9ff58279a367d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89280101"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320783"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configuración de una instancia de Azure Digital Twins y autenticación (CLI)
 
@@ -78,7 +78,7 @@ El resultado de este comando es la información de salida acerca de la asignaci�
 >
 > Use la [página de Azure Portal de usuarios de Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para seleccionar la cuenta de usuario y abrir los detalles. Copie el *id. de objeto* del usuario:
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="Vista de la página de usuario en Azure Portal en la que se resalta el GUID en el campo Id. de objeto" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Ventana Comandos con la creación correcta del grupo de recursos y la instancia de Azure Digital Twins" lightbox="media/includes/user-id.png":::
 >
 > A continuación, repita el comando de lista de asignación de roles con el *id. de objeto* del usuario para el parámetro `assignee` anterior.
 
@@ -115,7 +115,7 @@ Guarde este archivo como _**manifest.json**_.
 
 A continuación, cargará este archivo a Cloud Shell. En la ventana de Cloud Shell, haga clic en el icono "Cargar/Descargar archivos" y elija "Cargar".
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Ventana de Cloud Shell que muestra la selección de la opción Cargar":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Ventana Comandos con la creación correcta del grupo de recursos y la instancia de Azure Digital Twins":::
 Vaya al archivo *manifest.json* que acaba de crear y seleccione "Abrir".
 
 A continuación, ejecute el siguiente comando para crear un registro de aplicación, con una dirección URL de respuesta *Cliente público/nativo (móvil y escritorio)* de `http://localhost`. Reemplace los marcadores de posición según sea necesario:
@@ -126,13 +126,13 @@ az ad app create --display-name <name-for-your-app-registration> --native-app --
 
 Este es un extracto de la salida de este comando y muestra información sobre el registro que ha creado:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Salida de Cloud Shell del nuevo registro de aplicaciones de Azure AD":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Ventana Comandos con la creación correcta del grupo de recursos y la instancia de Azure Digital Twins":::
 
 ### <a name="verify-success"></a>Comprobación de que la operación se ha completado correctamente
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
 
-En primer lugar, compruebe que la configuración del archivo *manifest.json* cargado se estableció correctamente en el registro. Para ello, seleccione *Manifiesto* en la barra de menús para ver el código del manifiesto del registro de la aplicación. Desplácese hasta la parte inferior de la ventana de código y busque los campos del archivo *manifest.json* en `requiredResourceAccess`:
+A continuación, compruebe que la configuración del archivo *manifest.json* cargado se estableció correctamente en el registro. Para ello, seleccione *Manifiesto* en la barra de menús para ver el código del manifiesto del registro de la aplicación. Desplácese hasta la parte inferior de la ventana de código y busque los campos del archivo *manifest.json* en `requiredResourceAccess`:
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
 
@@ -140,7 +140,7 @@ En primer lugar, compruebe que la configuración del archivo *manifest.json* car
 
 A continuación, seleccione *Información general* en la barra de menús para ver los detalles del registro de la aplicación:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Vista del portal de los valores importantes para el registro de la aplicación":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Ventana Comandos con la creación correcta del grupo de recursos y la instancia de Azure Digital Twins":::
 
 Tome nota del *Id. de la aplicación (cliente)* y el *Id. de directorio (inquilino)* , como se muestra en **su** página. Estos valores se necesitarán más adelante para [autenticar una aplicación cliente en las API de Azure Digital Twins](how-to-authenticate-client.md). Si usted no es quien va a escribir el código para esas aplicaciones, debe compartir estos valores con la persona que lo hará.
 
@@ -151,7 +151,7 @@ Tome nota del *Id. de la aplicación (cliente)* y el *Id. de directorio (inquili
 ## <a name="next-steps"></a>Pasos siguientes
 
 Pruebe las llamadas individuales de la API de REST en su instancia mediante los comandos de la CLI de Azure Digital Twins: 
-* [Referencia de az dt](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [Referencia de az dt](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
 
 O bien, consulte cómo conectar la aplicación cliente a la instancia mediante la escritura del código de autenticación de la aplicación cliente:

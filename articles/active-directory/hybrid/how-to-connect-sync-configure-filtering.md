@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084845"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319986"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronización de Azure AD Connect: Configuración del filtrado
 Con el filtrado puede controlar qué objetos aparecen en Azure Active Directory (Azure AD) desde el directorio local. La configuración predeterminada aceptará todos los objetos en todos los dominios de los bosques configurados. Por lo general, esta configuración es la recomendada. Los usuarios con cargas de trabajo de Microsoft 365, como Exchange Online y Skype Empresarial, se benefician de una lista global de direcciones completa para poder enviar correo electrónico y llamar a todos los integrantes. Con la configuración predeterminada, obtendrían la misma experiencia que con una implementación local de Exchange o Lync.
@@ -113,7 +113,7 @@ Para configurar el filtro de dominio, realice los pasos siguientes:
    ![Propiedades del conector](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Haga clic en **Configurar particiones de directorio**.
 5. En la lista **Select directory partitions** (Seleccionar particiones de directorio), seleccione o anule la selección de los dominios según sea necesario. Compruebe que solo estén seleccionadas las particiones que desee sincronizar.  
-   ![Particiones](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
+   ![Captura de pantalla que muestra las particiones de directorio en la ventana "Propiedades".](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
    Si ha cambiado la infraestructura local de Active Directory y ha agregado dominios al bosque o los ha quitado, haga clic en el botón **Actualizar** para actualizar la lista. Al actualizar, se le pedirán las credenciales. Proporcione las credenciales con acceso de lectura a Windows Server Active Directory. No tiene por qué ser el usuario que aparezca en el cuadro de diálogo.  
    ![Actualización necesaria](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. Cuando termine, haga clic en el botón **Aceptar** para cerrar el cuadro de diálogo **Propiedades**. Si quitó dominios del bosque, aparecerá un mensaje para indicar que se eliminó un dominio y se borrará esa configuración.

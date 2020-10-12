@@ -7,12 +7,12 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fdf5f25ae6f89ccc06c95ee1be021691dab0047a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76902703"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322434"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Escenario: control de excepciones y registro de errores para aplicaciones lógicas
 
@@ -103,15 +103,15 @@ Es necesario registrar el origen (solicitud) del registro del paciente desde el 
 
    **Inserción de entrada de registro**
 
-   ![Insertar entrada de registro](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Captura de pantalla del diseñador de aplicación lógica que muestra los valores de configuración de InsertLogEntry.](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
    **Inserción de entrada de error**
 
-   ![Insertar entrada de registro](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Captura de pantalla del diseñador de aplicación lógica que muestra los valores de configuración de CreateErrorRecord.](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
    **Comprobación de errores en la creación de registro**
 
-   ![Condición](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Captura de la pantalla CreateErrorRecord en el diseñador de aplicación lógica que muestra los campos para crear una entrada de error.](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Código fuente de la aplicación lógica
 

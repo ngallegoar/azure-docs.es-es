@@ -1,14 +1,14 @@
 ---
 title: Introducción a Azure Blueprint
 description: Conozca el modo en que el servicio Azure Blueprints permite crear, definir e implementar artefactos en el entorno de Azure.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: e5c08f4211f03ddc6d2f48eee4fc84a824732e43
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050784"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91614264"
 ---
 # <a name="what-is-azure-blueprints"></a>¿Qué es Azure Blueprint?
 
@@ -49,7 +49,7 @@ Un plano técnico se compone de _artefactos_. Azure Blueprints admite actualment
 
 |Resource  | Opciones de la jerarquía| Descripción  |
 |---------|---------|---------|
-|Grupos de recursos | Subscription | Cree un nuevo grupo de recursos para que lo usen otros artefactos incluidos en el plano técnico.  Estos grupos de recursos de marcador de posición permiten organizar los recursos exactamente como desee que se estructuren y proporciona un limitador de ámbito para los artefactos de asignación de roles y directivas, así como plantillas de Resource Manager. |
+|Grupos de recursos | Suscripción | Cree un nuevo grupo de recursos para que lo usen otros artefactos incluidos en el plano técnico.  Estos grupos de recursos de marcador de posición permiten organizar los recursos exactamente como desee que se estructuren y proporciona un limitador de ámbito para los artefactos de asignación de roles y directivas, así como plantillas de Resource Manager. |
 |Plantilla ARM | Suscripción, grupo de recursos | Las plantillas, incluidas las plantillas anidadas y vinculadas, se usan para crear entornos complejos. Ejemplo de entornos: una granja de servidores SharePoint, Azure Automation State Configuration o un área de trabajo de Log Analytics. |
 |Asignación de directiva | Suscripción, grupo de recursos | Permite la asignación de una directiva o iniciativa a la suscripción a la que está asignado el plano técnico. La directiva o iniciativa debe estar dentro del ámbito de la ubicación de la definición del plano técnico. Si la directiva o iniciativa tiene parámetros, estos se asignan en la creación del plano técnico o durante su asignación. |
 |Asignación de roles | Suscripción, grupo de recursos | Agregue un grupo o usuario existente a un rol integrado para asegurarse de que las personas adecuadas siempre tienen derechos de acceso a los recursos. Las asignaciones de roles se pueden definir para toda la suscripción o anidarse para un grupo de recursos específico incluido en el plano técnico. |
@@ -74,11 +74,16 @@ Cuando se crea por primera vez un plano técnico, se considera que está en modo
 
 ## <a name="blueprint-assignment"></a>Asignación de plano técnico
 
-Cada **versión** **publicada** de un plano técnico se puede asignar a una suscripción existente (con una longitud máxima del nombre de 90 caracteres). En el portal, el plano técnico tiene de forma predeterminada la **versión** **publicada** más recientemente. Si hay parámetros de artefacto (o parámetros de plano técnico), se definirán durante el proceso de asignación.
+Cada **versión** **publicada** de un plano técnico (con una longitud máxima del nombre de 90 caracteres) se puede asignar a un grupo de administración o una suscripción existentes. En el portal, el plano técnico tiene de forma predeterminada la **versión** **publicada** más recientemente. Si hay parámetros de artefacto o parámetros de plano técnico, se definirán durante el proceso de asignación.
+
+> [!NOTE]
+> Asignar una definición de plano técnico a un grupo de administración significa que el objeto de asignación existe en el grupo de administración. La implementación de artefactos sigue teniendo como destino una suscripción. Para realizar una asignación de grupo de administración, se debe usar la [API REST para crear o actualizar](/rest/api/blueprints/assignments/createorupdate) y el cuerpo de la solicitud debe incluir un valor para `properties.scope` para definir la suscripción de destino.
 
 ## <a name="permissions-in-azure-blueprints"></a>Permisos de Azure Blueprint
 
-Para poder utilizar planos técnicos, se le deben conceder permisos mediante el [control de acceso basado en rol](../../role-based-access-control/overview.md) (RBAC). Para crear planos técnicos, su cuenta necesita los siguientes permisos:
+Para poder utilizar planos técnicos, se le deben conceder permisos mediante el [control de acceso basado en rol de Azure](../../role-based-access-control/overview.md) (Azure RBAC). Para leer o ver un plano técnico en Azure Portal, la cuenta debe tener acceso de lectura al ámbito en que se encuentra la definición del mismo.
+
+Para crear planos técnicos, su cuenta necesita los siguientes permisos:
 
 - `Microsoft.Blueprint/blueprints/write`: para crear una definición de plano técnico
 - `Microsoft.Blueprint/blueprints/artifacts/write`: para crear artefactos en una definición de plano técnico
