@@ -1,6 +1,6 @@
 ---
 title: Seguridad de disco administrado
-description: Aprenda sobre la seguridad de disco para discos de Azure y para máquinas virtuales de Azure
+description: Obtenga información sobre la expansión de disco para discos de Azure y para máquinas virtuales de Azure.
 author: albecker1
 ms.author: albecker
 ms.date: 09/22/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 107b1cbde35ef639883f86153859679a834735a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2e5fc8bde2c79a355fb7963c9101c4b040f97fa7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891841"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275170"
 ---
 # <a name="managed-disk-bursting"></a>Seguridad de disco administrado
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
