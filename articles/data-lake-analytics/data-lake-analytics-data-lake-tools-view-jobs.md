@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: 32684ea72df63de5b82941b3ef44e9d579d09eb4
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 717ad8bfaa9ddfcfa5775654408601ca13d3a636
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131895"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282619"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usar el explorador de trabajos y la vista de trabajo para Azure Data Lake Analytics
 El servicio Azure Data Lake Analytics archiva los trabajos enviados en un almacén de consultas. En este artículo aprenderá a utilizar el explorador de trabajos y la vista de trabajo de Azure Data Lake Tools para Visual Studio para encontrar la información histórica del trabajo. 
@@ -38,7 +38,7 @@ La vista de trabajo contiene:
     
       En Estado del trabajo se describen las fases del trabajo:
     
-      ![Estado de las fases del trabajo de Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
+      ![Captura de pantalla que muestra las fases de trabajo Azure Data Lake Analytics.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Preparando: carga del script en la nube, compilación y optimización del script mediante el servicio de compilación.
     * En cola: los trabajos se ponen en cola cuando esperan recursos suficientes o superan el número máximo de trabajos simultáneos por limitación de cuenta. La configuración de prioridad determina la secuencia de trabajos en cola: cuanto menor sea el número, mayor será la prioridad.
@@ -50,7 +50,7 @@ La vista de trabajo contiene:
     
       La información básica del trabajo se muestra en la parte inferior del panel de resumen del trabajo.
     
-      ![Estado de las fases del trabajo de Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
+      ![Captura de pantalla que muestra el resumen del trabajo con descripciones en los cuadros de texto.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
     * Resultado del trabajo: correcto o con error. Puede que se produzcan errores en todas las fases.
     * Duración total: tiempo de reloj (duración) entre la hora de envío y la hora de finalización.
@@ -60,10 +60,10 @@ La vista de trabajo contiene:
     * Cuenta: cuenta de Data Lake Analytics utilizada para ejecutar el trabajo.
     * Autor: usuario que envió el trabajo, puede ser una cuenta del sistema o la cuenta de una persona real.
     * Prioridad: prioridad del trabajo. Cuanto menor sea el número, mayor será la prioridad. Solo afecta a la secuencia de los trabajos en la cola. Al establecer una prioridad mayor no se adelantan trabajos en ejecución.
-    * Paralelismo: número máximo solicitado de unidades de Azure Data Lake Analytics (ADLAU) simultáneas, también llamadas vértices. Actualmente, un vértice es igual a una máquina virtual con dos núcleos virtuales y seis GB de RAM, aunque esto podría aumentar en futuras actualizaciones de Data Lake Analytics.
+    * Paralelismo: número máximo solicitado de unidades de Azure Data Lake Analytics (ADLAU) simultáneas, también conocidas como vértices. Actualmente, un vértice es igual a una máquina virtual con dos núcleos virtuales y seis GB de RAM, aunque esto podría aumentar en futuras actualizaciones de Data Lake Analytics.
     * Bytes restantes: bytes que deben procesarse hasta que se complete el trabajo.
     * Bytes leídos/escritos: bytes que se han leído/escrito desde que se inició la ejecución del trabajo.
-    * Vértices totales: el trabajo se divide en muchos elementos de trabajo, cada elemento de trabajo se denomina un vértice. Este valor describe de cuántos elementos de trabajo está formado el trabajo. Un vértice puede considerarse como una unidad de proceso básico, también denominada unidad de Azure Data Lake Analytics (ADLAU), y los vértices se pueden ejecutar en paralelismo. 
+    * Vértices totales: el trabajo se divide en muchos elementos de trabajo, cada elemento de trabajo se denomina un vértice. Este valor describe de cuántos elementos de trabajo está formado el trabajo. Un vértice puede considerarse como una unidad de proceso básico, también conocida como unidad de Azure Data Lake Analytics (ADLAU), y los vértices se pueden ejecutar en paralelismo. 
     * Completado/En ejecución/Con error: número de vértices completados, en ejecución o con errores. Los vértices pueden no ejecutarse debido a errores del sistema y de código de usuario, pero el sistema intenta automáticamente ejecutar los vértices con errores varias veces. Si el vértice sigue dando errores después de intentar ejecutarlo varias veces, se producirá un error en todo el trabajo.
 * Gráfico del trabajo
   
@@ -71,7 +71,7 @@ La vista de trabajo contiene:
   
     ![Estado de las fases del trabajo de Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    Un trabajo se divide en muchos elementos de trabajo. Cada elemento de trabajo se denomina vértice. Los vértices se agrupan como supervértice (también llamado fase) y se visualizan como gráfico del trabajo. Los paneles de fase verdes del gráfico del trabajo muestran las fases.
+    Un trabajo se divide en muchos elementos de trabajo. Cada elemento de trabajo se denomina vértice. Los vértices se agrupan como supervértice (también conocido como fase) y se visualizan como grafo del trabajo. Los paneles de fase verdes del gráfico del trabajo muestran las fases.
   
     Cada vértice de una fase realiza el mismo tipo de trabajo con diferentes partes de los mismos datos. Por ejemplo, si tiene un archivo con un TB de datos y hay cientos de vértices leyendo en ellos, cada uno lee un fragmento. Los vértices se agrupan en la misma fase y hacen el mismo trabajo en distintas partes del mismo archivo de entrada.
   
