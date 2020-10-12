@@ -3,12 +3,12 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895367"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330288"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -102,16 +102,19 @@ Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Toda
 
 `indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos** y las **suscripciones**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos o suscripción deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroups` o `Microsoft.Resources/subscriptions`. Para obtener un ejemplo, consulte [Patrón: Etiquetas: ejemplo n.º 1](../samples/pattern-tags.md). Para obtener una lista de los recursos que admiten etiquetas, consulte [Compatibilidad con etiquetas de los recursos de Azure](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>Modos del proveedor de recursos (versión preliminar)
+### <a name="resource-provider-modes"></a>Modos del proveedor de recursos
 
-Actualmente se admiten los siguientes modos del proveedor de recursos durante la versión preliminar:
+El siguiente nodo de proveedor de recursos es totalmente compatible:
+
+- `Microsoft.Kubernetes.Data` para administrar los clústeres de Kubernetes en o fuera de Azure. Las definiciones que utilizan este modo del proveedor de recursos usan los efectos _auditoría_, _denegar_ y _deshabilitado_. El uso del efecto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) está _en desuso_.
+
+Actualmente se admiten los siguientes modos del proveedor de recursos como **versión preliminar**:
 
 - `Microsoft.ContainerService.Data` para administrar reglas del controlador de admisión en [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Las definiciones que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceRegoPolicy](./effects.md#enforceregopolicy). Este modo está _en desuso_.
-- `Microsoft.Kubernetes.Data` para administrar los clústeres de Kubernetes en o fuera de Azure. Las definiciones que utilizan este modo del proveedor de recursos usan los efectos _auditoría_, _denegar_ y _deshabilitado_. El uso del efecto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) se está quedando _en desuso_.
 - `Microsoft.KeyVault.Data` para administrar almacenes y certificados en [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Los modos del proveedor de recursos solo admiten definiciones de directivas integradas y no admiten iniciativas durante la versión preliminar.
+> Los modos de proveedor de recursos solo admiten definiciones de directivas integradas.
 
 ## <a name="metadata"></a>Metadatos
 
@@ -206,8 +209,8 @@ Al crear una iniciativa o directiva, es necesario especificar la ubicación de l
 
 Si la ubicación de la definición es:
 
-- **Suscripción**: solo se puede asignar la definición de directiva a los recursos dentro de esa suscripción.
-- **Grupo de administración**: solo se puede asignar la definición de directiva a los recursos dentro de grupos de administración secundarios y suscripciones secundarias. Si planea aplicar la definición de directiva a varias suscripciones, la ubicación debe ser un grupo de administración que contenga cada una de las suscripciones.
+- **Suscripción**: la definición de la directiva solo se puede asignar a los recursos incluidos dentro de esa suscripción.
+- **Grupo de administración**: la definición de la directiva solo se puede asignar a los recursos incluidos dentro de grupos de administración secundarios y suscripciones secundarias. Si planea aplicar la definición de directiva a varias suscripciones, la ubicación debe ser un grupo de administración que contenga cada una de las suscripciones.
 
 Para obtener más información, vea [Descripción del ámbito de Azure Policy](./scope.md#definition-location).
 
@@ -552,9 +555,9 @@ Azure Policy admite los siguientes tipos de efecto:
 - **Deny**: genera un evento en el registro de actividad y genera un error en la solicitud.
 - **DeployIfNotExists**: implementa un recurso relacionado si todavía no existe.
 - **Disabled**: no se evalúa el cumplimiento de la regla de directivas en los recursos.
-- **EnforceOPAConstraint** (versión preliminar): configura el controlador de admisiones Open Policy Agent con Gatekeeper v3 para clústeres de Kubernetes autoadministrados en Azure (versión preliminar)
-- **EnforceRegoPolicy** (versión preliminar): configura el controlador de admisiones Open Policy Agent con Gatekeeper v2 en Azure Kubernetes Service
 - **Modify**: agrega, actualiza o quita las etiquetas definidas de un recurso.
+- **EnforceOPAConstraint** (en desuso): configura el controlador de admisiones Open Policy Agent con Gatekeeper v3 para clústeres de Kubernetes autoadministrados en Azure.
+- **EnforceRegoPolicy** (en desuso): configura el controlador de admisiones Open Policy Agent con Gatekeeper v2 en Azure Kubernetes Service.
 
 Para obtener información detallada sobre cada efecto, el orden de evaluación, las propiedades y algunos ejemplos, consulte [Descripción de los efectos de Azure Policy](effects.md).
 
@@ -592,6 +595,18 @@ Las siguientes funciones solo están disponibles en las reglas de directiva:
 - `requestContext().apiVersion`
   - Devuelve la versión de la API de la solicitud que desencadenó la evaluación de la directiva (por ejemplo: `2019-09-01`).
     Este valor es la versión de API que se usó en la solicitud PUT/PATCH para las evaluaciones de la creación o actualización de recursos. La versión más reciente de la API siempre se usa durante la evaluación del cumplimiento de los recursos existentes.
+- `policy()`
+  - Devuelve la siguiente información acerca de la directiva que se está evaluando. Es posible acceder a las propiedades desde el objeto devuelto (ejemplo: `[policy().assignmentId]`).
+  
+  ```json
+  {
+    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+    "definitionReferenceId": "StorageAccountNetworkACLs"
+  }
+  ```
+  
   
 #### <a name="policy-function-example"></a>Ejemplo de función de directiva
 

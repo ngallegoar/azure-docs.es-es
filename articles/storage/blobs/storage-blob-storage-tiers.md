@@ -3,17 +3,17 @@ title: 'Niveles de acceso frecuente, esporádico y de archivo para blobs: Azure 
 description: Lea información sobre los niveles de acceso frecuente, esporádico y de archivo para Azure Blob Storage. Revise las cuentas de almacenamiento que admiten niveles. Compare opciones de almacenamiento de blob en bloques.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/27/2020
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 569e785cd8fc3ec4bbf9960cef63258e83496847
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226189"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460737"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo
 
@@ -248,6 +248,10 @@ No. Los niveles de acceso frecuente y esporádico se pueden establecer como el n
 **¿En qué regiones están disponibles los niveles de acceso frecuente, esporádico y de archivo?**
 
 Los niveles de acceso frecuente y esporádico, junto con el almacenamiento por niveles de blob, están disponibles en todas las regiones. El almacenamiento de archivo solo estará disponible inicialmente en regiones seleccionadas. Para obtener una lista completa, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
+
+**¿Qué opciones de redundancia se admiten para los niveles de acceso frecuente, esporádico y de archivo?**
+
+Los niveles de acceso frecuente y esporádico son compatibles con todas las opciones de redundancia. El nivel de archivo solo admite las opciones de LRS, GRS y RA-GRS. Las opciones ZRS, GZRS y RA-GZRS no son compatibles con el nivel de archivo.
 
 **¿Se comportan los blobs en el nivel de acceso esporádico de forma diferente a los del nivel de acceso frecuente?**
 
