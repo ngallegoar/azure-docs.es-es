@@ -5,31 +5,28 @@ description: Aprenda a usar una imagen base de Docker personalizada al implement
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: jordane
-author: jpe316
+ms.author: sagopal
+author: saachigopal
 ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f69ba6e1c5fdfc04fac6fed8487b246f9af72fa2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ea8b100e8a690cf4f400dda02f2a58b6500d5f31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889946"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328452"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implementación de un modelo con una imagen base de Docker personalizada
 
-
 Aprenda a usar una imagen base de Docker al implementar modelos entrenados con Azure Machine Learning.
 
-Cuando se implementa un modelo entrenado en un servicio web o un dispositivo IoT Edge, se crea un paquete que contiene un servidor web para controlar las solicitudes entrantes.
+Azure Machine Learning usará una imagen de Docker base predeterminada si no se especifica ninguna. Puede encontrar la imagen de Docker específica que se usa con `azureml.core.runconfig.DEFAULT_CPU_IMAGE`. También puede usar __entornos__ de Azure Machine Learning para seleccionar una imagen base específica o usar una personalizada que proporcione.
 
-Azure Machine Learning proporciona una imagen base de Docker predeterminada para que no tenga que preocuparse de crear una. También puede usar __entornos__ de Azure Machine Learning para seleccionar una imagen base específica o usar una personalizada que proporcione.
+Una imagen base se usa como punto de partida cuando se crea una imagen para una implementación. Proporciona el sistema operativo y los componentes subyacentes. A continuación, el proceso de implementación agrega componentes adicionales, como el modelo, el entorno de Conda y otros recursos, a la imagen.
 
-Una imagen base se usa como punto de partida cuando se crea una imagen para una implementación. Proporciona el sistema operativo y los componentes subyacentes. A continuación, el proceso de implementación agrega componentes adicionales, como el modelo, el entorno de Conda y otros recursos, a la imagen antes de implementarla.
-
-Normalmente, se crea una imagen base personalizada cuando se desea usar Docker para administrar las dependencias, mantener un mayor control sobre las versiones de los componentes o ahorrar tiempo durante la implementación. Por ejemplo, es posible que quiera estandarizar a partir de una versión específica de Python, Conda u otro componente. También puede querer instalar el software necesario para el modelo, caso en que el proceso de instalación lleva mucho tiempo. Instalar el software al crear la imagen base significa que no tendrá que instalarlo para cada implementación.
+Normalmente, se crea una imagen base personalizada cuando se desea usar Docker para administrar las dependencias, mantener un mayor control sobre las versiones de los componentes o ahorrar tiempo durante la implementación. También puede querer instalar el software necesario para el modelo, caso en que el proceso de instalación lleva mucho tiempo. Instalar el software al crear la imagen base significa que no tendrá que instalarlo para cada implementación.
 
 > [!IMPORTANT]
 > Al implementar un modelo, no se pueden invalidar los componentes principales, como el servidor web o los componentes de IoT Edge. Estos componentes proporcionan un entorno conocido de trabajo que Microsoft ha probado y admite.
@@ -46,7 +43,7 @@ Este documento se divide en dos secciones:
 
 * Un grupo de trabajo de Azure Machine Learning. Para más información, consulte el artículo [Crear un área de trabajo](how-to-manage-workspace.md).
 * El [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
-* La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 * La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Una instancia de [Azure Container Registry](/azure/container-registry) u otro registro de Docker accesible en Internet.
 * En este documento, se da por hecho que está familiarizado con la creación y el uso de un objeto de __configuración de inferencia__ como parte de la implementación de modelos. Para más información, consulte [Dónde y cómo implementar](how-to-deploy-and-where.md).
@@ -62,8 +59,6 @@ Para la información de esta sección, se da por supuesto que usa Azure Containe
     > [!WARNING]
     > La instancia de Azure Container Registry para el área de trabajo __se crea la primera vez que entrena o implementa un modelo__ con el área de trabajo. Si ha creado una nueva área de trabajo, pero no ha entrenado ni ha creado ningún modelo, no existirá ninguna instancia de Azure Container Registry para el área de trabajo.
 
-    Para obtener información sobre cómo recuperar el nombre de la instancia de Azure Container Registry para el área de trabajo, vea la sección [Obtener el nombre del registro de contenedor](#getname) de este artículo.
-
     Al usar imágenes almacenadas en un __registro de contenedor independiente__, deberá configurar una entidad de servicio que tenga, al menos, acceso de lectura. A continuación, proporcione el id. de la entidad de servicio (nombre de usuario) y la contraseña a cualquier persona que use imágenes del registro. La excepción es si hace el registro de contenedor accesible públicamente.
 
     Para obtener información sobre cómo crear una instancia de Azure Container Registry, consulte [Crear un registro de contenedor privado](/azure/container-registry/container-registry-get-started-azure-cli).
@@ -72,12 +67,29 @@ Para la información de esta sección, se da por supuesto que usa Azure Containe
 
 * Información de la imagen y Azure Container Registry: Proporcione el nombre de imagen a cualquier persona que necesite usarlo. Por ejemplo, para hacer referencia a una imagen denominada `myimage` almacenada en un registro denominado `myregistry`, se usa `myregistry.azurecr.io/myimage` si la imagen se utiliza para la implementación de modelos.
 
-* Requisitos de imagen: Azure Machine Learning solo admite imágenes de Docker que proporcionan el software siguiente:
+### <a name="image-requirements"></a>Requisitos de imagen
 
-    * Ubuntu 16.04 o posterior.
-    * Conda 4.5.# o posterior.
-    * Python 3.5.#, 3.6.# o 3.7.#.
+Azure Machine Learning solo admite imágenes de Docker que proporcionan el software siguiente:
+* Ubuntu 16.04 o posterior.
+* Conda 4.5.# o posterior.
+* Python 3.5 y versiones posteriores.
 
+Para usar los conjuntos de valores, instale el paquete libfuse-dev. Asegúrese también de instalar los paquetes de espacio de usuario que necesite.
+
+Azure ML mantiene un conjunto de imágenes base de CPU y GPU publicadas en Microsoft Container Registry que tiene la opción de aprovechar (o consultar) en lugar de crear su propia imagen personalizada. Para ver los archivos Dockerfile de esas imágenes, consulte el repositorio [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) de GitHub.
+
+En el caso de las imágenes de GPU, Azure ML actualmente ofrece imágenes base cuda9 y cuda10. Las dependencias principales instaladas en estas imágenes base son:
+
+| Dependencias | CPU IntelMPI | CPU OpenMPI | GPU IntelMPI | GPU OpenMPI |
+| --- | --- | --- | --- | --- |
+| miniconda | ==4.5.11 | ==4.5.11 | ==4.5.11 | ==4.5.11 |
+| mpi | intelmpi==2018.3.222 |openmpi==3.1.2 |intelmpi==2018.3.222| openmpi==3.1.2 |
+| cuda | - | - | 9.0/10.0 | 9.0/10.0/10.1 |
+| cudnn | - | - | 7.4/7.5 | 7.4/7.5 |
+| nccl | - | - | 2.4 | 2.4 |
+| git | 2.7.4 | 2.7.4 | 2.7.4 | 2.7.4 |
+
+Las imágenes de CPU se basan en ubuntu16.04. Las imágenes de GPU para cuda9 se basan en nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04. Las imágenes de GPU para cuda10 se basan en nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04.
 <a id="getname"></a>
 
 ### <a name="get-container-registry-information"></a>Obtener información sobre el registro de contenedor
@@ -117,7 +129,7 @@ Si ya ha entrenado o implementado modelos mediante Azure Machine Learning, se cr
 
 ### <a name="build-a-custom-base-image"></a>Compilación de una imagen base personalizada
 
-Los pasos de esta sección le orientan a lo largo de la creación de una imagen de Docker personalizada en Azure Container Registry.
+Los pasos de esta sección le orientan a lo largo de la creación de una imagen de Docker personalizada en Azure Container Registry. Para obtener archivos Dockerfile de ejemplo, consulte el repositorio [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) de GitHub.
 
 1. Cree un nuevo archivo de texto denominado `Dockerfile` y use el texto siguiente como contenido:
 
@@ -131,11 +143,12 @@ Los pasos de esta sección le orientan a lo largo de la creación de una imagen 
 
     ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
     ENV PATH /opt/miniconda/bin:$PATH
+    ENV DEBIAN_FRONTEND=noninteractive
 
     RUN apt-get update --fix-missing && \
         apt-get install -y wget bzip2 && \
-        apt-get install -y fuse \
-        apt-get clean && \
+        apt-get install -y fuse && \
+        apt-get clean -y && \
         rm -rf /var/lib/apt/lists/*
 
     RUN useradd --create-home dockeruser
@@ -206,7 +219,7 @@ Microsoft proporciona varias imágenes de Docker en un repositorio accesible pú
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Contiene el tiempo de ejecución de ONNX para la inferencia de CPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Contiene el tiempo de ejecución ONNX y CUDA para GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Contiene el tiempo de ejecución ONNX y TensorRT para GPU |
-| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Contiene el tiempo de ejecución de ONNX y OpenVINO para <sup></sup>Vision Accelerator Design de Intel basado en Movidius <sup>TM</sup> MyriadX VPUs |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm` | Contiene el tiempo de ejecución de ONNX y OpenVINO para <sup></sup>Vision Accelerator Design de Intel basado en Movidius <sup>TM</sup> MyriadX VPUs |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Contiene el tiempo de ejecución de ONNX y OpenVINO para las llaves USB <sup></sup>Movidius <sup>TM</sup> de Intel |
 
 Para más información acerca de las imágenes base de tiempo de ejecución de ONNX, consulte [la sección ONNX Runtime dockerfile](https://github.com/microsoft/onnxruntime/blob/master/dockerfiles/README.md) en el repositorio de GitHub.
@@ -338,4 +351,4 @@ Para más información sobre la implementación de un modelo mediante la CLI de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre [Cómo y dónde implementar un modelo](how-to-deploy-and-where.md).
-* Información sobre cómo [Entrenar e implementar modelos de Machine Learning mediante Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops).
+* Información sobre cómo [Entrenar e implementar modelos de Machine Learning mediante Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops&preserve-view=true).

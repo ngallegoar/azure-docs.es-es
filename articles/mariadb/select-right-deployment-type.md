@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: d3b65558a12fb6b20f449f5386c0ce7e598433b6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 47aff04dfd44ea7fd892fdee763e93d7fd13a9d1
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110307"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542400"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Selección de la opción adecuada del servidor MariaDB en Azure
 
@@ -38,7 +38,7 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | Aplicación de revisiones de MariaDB     | Automático  | Administrado por los clientes |
 | Alta disponibilidad | El modelo de alta disponibilidad se basa en los mecanismos de conmutación por error integrados cuando se produce una interrupción en el nivel de nodo. En tales casos, el servicio crea automáticamente una nueva instancia y asocia el almacenamiento a esta instancia. | Los clientes pueden diseñar, implementar, probar y mantener una alta disponibilidad. Entre las funcionalidades se incluyen los clústeres de conmutación por error Always On, la replicación de grupos Always On, el trasvase de registros o la replicación transaccional.|
 | Redundancia de zona | Actualmente no se admite | Las máquinas virtuales de Azure se pueden configurar para que se ejecuten en distintas zonas de disponibilidad. En el caso de una solución local, los clientes deben crear, administrar y mantener su propio centro de datos secundario.|
-| Escenarios híbridos | Con la [replicación de datos de entrada](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication), puede sincronizar los datos de un servidor MariaDB externo con el servicio Azure Database for MariaDB. El servidor externo puede ser local, de máquinas virtuales o un servicio de base de datos hospedado por otros proveedores de nube.<br/><br/> Con la característica de [réplica de lectura](https://docs.microsoft.com/azure/mariadb/concepts-read-replicas), puede replicar los datos de un servidor maestro de Azure Database for MariaDB en hasta cinco servidores de solo lectura. Las réplicas están dentro de la misma región de Azure o en varias regiones. Las réplicas de solo lectura se actualizan de forma asincrónica mediante la tecnología de replicación binlog.<br/><br/>La replicación de lectura entre regiones se encuentra actualmente en versión preliminar pública.| Administrado por los clientes
+| Escenarios híbridos | Con la [replicación de datos de entrada](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication), puede sincronizar los datos de un servidor MariaDB externo con el servicio Azure Database for MariaDB. El servidor externo puede ser local, de máquinas virtuales o un servicio de base de datos hospedado por otros proveedores de nube.<br/><br/> Con la característica de [réplica de lectura](https://docs.microsoft.com/azure/mariadb/concepts-read-replicas) puede replicar los datos de un servidor de origen de Azure Database for MariaDB en hasta cinco servidores de réplica de solo lectura. Las réplicas están dentro de la misma región de Azure o en varias regiones. Las réplicas de solo lectura se actualizan de forma asincrónica mediante la tecnología de replicación binlog.<br/><br/>La replicación de lectura entre regiones se encuentra actualmente en versión preliminar pública.| Administrado por los clientes
 | Copia de seguridad y restauración | Crea automáticamente [copias de seguridad del servidor](https://docs.microsoft.com/azure/MariaDB/concepts-backup#backups) y las almacena en el almacenamiento con redundancia local o con redundancia geográfica configurado por el usuario. El servicio realiza copias de seguridad completas, diferenciales y del registro de transacciones. | Administrado por los clientes |
 | Supervisión de las operaciones de base de datos | Ofrece a los clientes la capacidad de [definir alertas](https://docs.microsoft.com/azure/MariaDB/concepts-monitoring) en la operación de base de datos y realizar acciones al alcanzar los umbrales. | Administrado por los clientes |
 | Protección contra amenazas avanzada | Proporciona [Advanced Threat Protection](https://docs.microsoft.com/azure/MariaDB/howto-database-threat-protection-portal). Esta protección detecta actividades anómalas que indiquen intentos inusuales y potencialmente perjudiciales de acceder a sus bases de datos o aprovechar sus vulnerabilidades.<br/><br/>Advanced Threat Protection está actualmente en versión preliminar pública.| Los clientes deben compilar esta protección por sí mismos.
