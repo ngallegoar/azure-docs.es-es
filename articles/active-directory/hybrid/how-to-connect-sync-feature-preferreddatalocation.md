@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad2bf071d4aa5b49541c710ef9b0793a1076ea9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662511"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319901"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para los recursos de Microsoft 365
 El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Microsoft 365, este atributo se usa para designar la ubicación geográfica de los datos de Microsoft 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
@@ -118,7 +118,7 @@ No todos los atributos de Azure AD se importan en el espacio del conector de Ac
 4. Asegúrese de que el atributo de origen que seleccionó está activado en la lista de atributos. Si no ve el atributo, active la casilla de verificación **Mostrar todo**.
 5. Seleccione **Aceptar** para guardar.
 
-![Captura de pantalla de Synchronization Service Manager y el cuadro de diálogo Propiedades](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+![Captura de pantalla que muestra los cuadros de diálogo Synchronization Service Manager y Propiedades con la lista "Atributos" resaltada.](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
 ## <a name="step-4-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>Paso 4: Agregar **preferredDataLocation** al esquema del conector de Azure AD
 **Este paso solo es necesario si ejecuta la versión 1.3.21 o una versión anterior de Connect. Si utiliza la versión 1.4.18 o una versión más reciente, vaya al paso 5.**  
