@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: Guías de inicio rápido
       items:
-        - name: Introducción
+        - name: Primeros pasos
           href: azure-stack-edge-gpu-quickstart.md
     - name: Tutoriales
       items:
@@ -31,10 +31,6 @@
           href: azure-stack-edge-gpu-deploy-activate.md
         - name: '8: Configuración de proceso'
           href: azure-stack-edge-gpu-deploy-configure-compute.md
-        - name: '9A: Adición, conexión a recurso compartido'
-          href: azure-stack-edge-j-series-deploy-add-shares.md
-        - name: '9B: Adición, conexión a cuentas de almacenamiento'
-          href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
     - name: Conceptos
       items:
         - name: Revisión de los requisitos
@@ -87,6 +83,8 @@
               items:
                 - name: Aplicación sin estado
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+                - name: Desarrollo de un módulo de C#
+                  href: azure-stack-edge-j-series-create-iot-edge-module.md
             - name: A través de Azure Arc (versión preliminar)
               items:
                 - name: Habilitación de Arc en el clúster de Kubernetes
@@ -123,12 +121,14 @@
               href: azure-stack-edge-j-series-create-certificates-tool.md
             - name: Solución de errores de certificados
               href: azure-stack-edge-j-series-certificate-troubleshooting.md
-        - name: Desarrollo de un módulo de C#
-          href: azure-stack-edge-j-series-create-iot-edge-module.md
         - name: Administración del proceso perimetral
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Administración de puerta de enlace de almacenamiento
           items:
+            - name: 'Adición, conexión a recurso compartido'
+              href: azure-stack-edge-j-series-deploy-add-shares.md
+            - name: 'Adición, conexión a cuentas de almacenamiento'
+              href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
             - name: Recursos compartidos
               href: azure-stack-edge-j-series-manage-shares.md
             - name: Usuarios
@@ -149,6 +149,10 @@
               href: azure-stack-edge-return-device.md
             - name: Dispositivo de sustitución
               href: azure-stack-edge-replace-device.md
+            - name: Preparación para error del dispositivo
+              href: azure-stack-edge-gpu-prepare-device-failure.md
+            - name: Recuperación de error del dispositivo
+              href: azure-stack-edge-gpu-recover-device-failure.md
         - name: Supervisión
           items:
             - name: Uso de gráficos de métricas
