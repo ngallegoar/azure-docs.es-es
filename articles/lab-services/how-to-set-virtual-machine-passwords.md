@@ -3,12 +3,12 @@ title: Establecimiento de contraseñas de las máquinas virtuales en Azure Lab�
 description: Aprenda a establecer y restablecer las contraseñas de las máquinas virtuales (VM) en laboratorios de clase de Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6012123b729bd1be6b4ff0fdb00d71aca56cfa09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443781"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334079"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configuración y administración del grupo de máquinas virtuales 
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -24,7 +24,7 @@ Para aumentar o disminuir la capacidad del laboratorio (número de máquinas vir
 2. Escriba el nuevo **número de máquinas virtuales** que desea en el laboratorio. Este número debe ser mayor o igual que el número de usuarios registrados en el laboratorio. 
 3. Después, seleccione **Guardar**. 
 
-    ![Botón Start all (Iniciar todas)](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
+    ![Captura de pantalla que muestra la ventana "Capacidad del laboratorio" con la opción "Número máximo de máquinas en el laboratorio" y el botón "Guardar" seleccionado.](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
 4. Si aumentó la capacidad, puede ver cómo se crean la máquina virtual o las máquinas virtuales. Si no ve la nueva máquina virtual en la lista, actualice la página. 
 
     ![Se está creando una máquina virtual](./media/how-to-set-virtual-machine-passwords/vm-being-created.png)

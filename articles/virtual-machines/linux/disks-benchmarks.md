@@ -1,18 +1,18 @@
 ---
 title: Comparación del rendimiento de la aplicación en Azure Disk Storage
-description: Obtenga información sobre el proceso de comparación de la aplicación en Azure.
+description: Revise estos ejemplos de pruebas comparativas realizadas con una máquina virtual estándar DS14 aprovisionada con discos de Azure Premium Storage.
 author: roygara
 ms.author: rogarana
 ms.date: 01/11/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 293164413c4c8ecec0295152cb6db3d73718e00d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: cc17ce49517a7af22dcc357fa5f050d28a8ed551
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690789"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279695"
 ---
 # <a name="benchmark-your-application-on-azure-disk-storage"></a>Pruebas comparativas de la aplicación en Azure Disk Storage
 

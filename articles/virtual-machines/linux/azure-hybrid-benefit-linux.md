@@ -3,34 +3,35 @@ title: Ventaja híbrida de Azure y VM Linux
 description: La Ventaja híbrida de Azure le permite ahorrar dinero en máquinas virtuales Linux que se ejecutan en Azure.
 services: virtual-machines
 documentationcenter: ''
-author: asinn826
+author: mathapli
 manager: westonh
-editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: a9ea3b21908d1f461745ffe2689b36f8efcb6f89
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90993707"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279780"
 ---
-# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Ventaja híbrida de Azure: cómo se aplica a las máquinas virtuales Linux
+# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Vista previa: Ventaja híbrida de Azure: cómo se aplica a las máquinas virtuales Linux
 
 ## <a name="overview"></a>Información general
 
-La Ventaja híbrida de Azure le permite migrar con mayor facilidad su servidor local de Red Hat Enterprise Linux (RHEL) y SUSE Linux Enterprise (SLES) a Azure mediante su propia suscripción de software de Red Hat o SUSE ya existente. Con esta ventaja, solo paga por los costos de infraestructura de la VM, ya que el precio del software está incluido en la suscripción de RHEL o SLES. La ventaja se aplica a todas las imágenes de pago por uso (PAYG) de Marketplace de RHEL y SLES.
+La Ventaja híbrida de Azure le permite migrar con mayor facilidad sus máquinas virtuales (VM) de Red Hat Enterprise Linux (RHEL) y SUSE Linux Enterprise Server (SLES) a Azure mediante su propia suscripción de software de Red Hat o SUSE ya existente. Con esta ventaja, solo paga por los costos de infraestructura de la VM, ya que el precio del software está incluido en la suscripción de RHEL o SLES. La ventaja se aplica a todas las imágenes de pago por uso (PAYG) de Marketplace de RHEL y SLES.
+
+> [!IMPORTANT]
+> La Ventaja híbrida de Azure para máquinas virtuales de Linux está actualmente en fase de versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="benefit-description"></a>Descripción de la ventaja
 
 A través de la Ventaja híbrida de Azure, puede migrar más fácilmente los servidores locales RHEL y SLES a Azure mediante la conversión de las VM PAYG de RHEL y SLES existentes en Azure en facturación de traiga su propia suscripción (BYOS). Normalmente, las VM implementadas a partir de imágenes PAYG en Azure cobrarán tanto un precio de infraestructura como un precio de software. Con el Ventaja híbrida de Azure, las VM PAYG se pueden convertir en un modelo de facturación BYOS sin necesidad de una reimplementación, lo que evita todo riesgo de tiempo de inactividad.
 
-![Visualización de costos de la Ventaja híbrida de Azure en VM Linux](./media/ahb-linux/azure-hybrid-benefit-cost.png)
+:::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Visualización de los costos de la Ventaja híbrida de Azure en máquinas virtuales de Linux.":::
 
 Al habilitar la ventaja en una VM de RHEL o SLES, ya no se le cobrará el precio de software adicional en el que incurre normalmente una VM PAYG. En su lugar, la VM empezará a emitir un cargo de BYOS, que incluye solo el precio de hardware de proceso y ningún precio de software.
 

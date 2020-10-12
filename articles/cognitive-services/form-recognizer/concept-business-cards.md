@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004908"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334555"
 ---
 # <a name="business-card-concepts"></a>Conceptos de tarjeta de presentación
 
@@ -88,8 +88,8 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo "readResul
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-                "lines": 
-                          {
+                   "lines": 
+                             {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
                             419.3,
@@ -389,7 +389,9 @@ La API de tarjeta de presentación también impulsa la [característica de proce
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Siga las guías de inicio rápido de [Python para la API de tarjeta de presentación](./quickstarts/python-business-cards.md) para empezar
-- Obtenga más información acerca de la [API REST Form Recognizer](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
-- Obtenga más información sobre [Form Recognizer](overview.md)
+- Siga la [guía de inicio rápido de Python para la API de tarjeta de presentación](./quickstarts/python-business-cards.md) para empezar a reconocer tarjetas de presentación.
 
+## <a name="see-also"></a>Consulte también
+
+* [¿Qué es Form Recognizer?](./overview.md)
+* [Documentos de referencia de la API de REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
