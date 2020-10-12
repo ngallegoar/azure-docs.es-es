@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e267a30d6f73b48f825c4b61b3bc1106133b8cdf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932031"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285390"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Escalado horizontal del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc mediante la adición de más nodos de trabajo
 En este documento se explica cómo escalar horizontalmente un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc mediante un escenario. **Si no quiere seguir la explicación a través del escenario y solo quiere leer sobre cómo escalar horizontalmente, vaya al apartado [Escalado horizontal](#scale-out)** .
@@ -151,7 +151,11 @@ El formato general del comando de escalado horizontal es el siguiente:
 azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
 ```
 
-Por ejemplo, para aumentar el número de nodos de trabajo de 2 a 4, ejecute este comando:
+> [!CAUTION]
+> La versión preliminar no admite la reducción de escala. Por ejemplo, aún no es posible reducir el número de nodos de trabajo. Si necesita hacerlo, debe realizar una copia de seguridad de los datos o extraerlos, eliminar el grupo de servidores, crear un nuevo grupo de servidores con menos nodos de trabajo y, después, importar los datos.
+
+En este ejemplo, aumentamos el número de nodos de trabajo de 2 a 4, ejecute el siguiente comando:
+
 ```console
 azdata arc postgres server edit -n postgres01 -w 4
 ```
@@ -196,7 +200,8 @@ Devuelve la lista de los grupos de servidores creados en el espacio de nombres e
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h
 ```
-> **Nota:** Si ha creado un grupo de servidores de la versión 11 de PostgreSQL y no de la versión 12, ejecute el siguiente comando en su lugar: _kubectl get postgresql-11_.
+> [!NOTE]
+> Si ha creado un grupo de servidores de la versión 11 de PostgreSQL y no de la versión 12, ejecute el siguiente comando en su lugar: _kubectl get postgresql-11_.
 
 #### <a name="with-a-sql-query"></a>Consulta SQL
 Conéctese al grupo de servidores con la herramienta cliente que prefiera y ejecute la siguiente consulta:
@@ -230,7 +235,6 @@ Anote el tiempo de ejecución.
 >* [HTAP de alto rendimiento con Hiperescala (Citus) de Azure PostgreSQL](https://www.youtube.com/watch?v=W_3e07nGFxY)
 >* [Creación de aplicaciones de HTAP con Python y con Hiperescala (Citus) de Azure PostgreSQL](https://www.youtube.com/watch?v=YDT8_riLLs0)
 
-> La versión preliminar no admite la reducción de escala. Por ejemplo, aún no es posible reducir el número de nodos de trabajo. Si necesita hacerlo, debe realizar una copia de seguridad de los datos o extraerlos, quitar el grupo de servidores, crear un nuevo grupo de servidores con menos nodos de trabajo y, después, importar los datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
