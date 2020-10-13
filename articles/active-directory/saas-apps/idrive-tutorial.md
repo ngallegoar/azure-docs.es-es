@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 83631c6c6503f32ba81195ecfe5df0b1a6c14092
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a8d79deb55a5693978569f5e3a940a03897efb80
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545315"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824829"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idrive"></a>Tutorial: Integración de Azure Active Directory con IDrive
 
@@ -99,11 +99,11 @@ Para configurar el inicio de sesión único de Azure AD con IDrive, realice los 
 
 4. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Atlassian Cloud](common/preintegrated.png)
+    ![Captura de pantalla que muestra Configuración básica de SAML.](common/preintegrated.png)
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Atlassian Cloud](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://www.idrive.com/idrive/login/loginForm`
 

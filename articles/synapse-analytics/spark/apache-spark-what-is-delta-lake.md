@@ -9,18 +9,18 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 374b8bb094a93c6c608d6bf95d2b074f661c4a6a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6a38b61ee03aa4853526586ca60542bd3641b66f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384742"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249406"
 ---
 # <a name="what-is-delta-lake"></a>¿Qué es Delta Lake?
 
 Azure Synapse Analytics es compatible con Delta Lake de Linux Foundation. Delta Lake es una capa de almacenamiento de código abierto que ofrece transacciones ACID (atomicidad, coherencia, aislamiento y durabilidad) para cargas de trabajo de macrodatos de Apache Spark.
 
-La versión actual de Delta Lake incluida con Azure Synapse tiene compatibilidad de lenguaje para Scala, PySpark y .NET. Hay vínculos en la parte inferior de la página para obtener ejemplos y documentación más detallados.
+La versión actual de Delta Lake incluida con Azure Synapse tiene compatibilidad de lenguaje con Scala, PySpark y .NET. Hay vínculos en la parte inferior de la página para obtener ejemplos y documentación más detallados.
 
 ## <a name="key-features"></a>Principales características
 

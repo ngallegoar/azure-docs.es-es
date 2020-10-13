@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e74d22d3d45079a6568f6fca35dc5d84e2d7469f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897973"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776126"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
@@ -156,6 +156,9 @@ El número exacto de imágenes con etiqueta necesarias para iniciar el etiquetad
 
 Como las etiquetas finales se siguen basando en la entrada del etiquetador, a veces esta tecnología se denomina etiquetado *con intervención humana*.
 
+> [!NOTE]
+> El etiquetado de datos asistido mediante ML no es compatible con las cuentas de almacenamiento predeterminadas que estén protegidas en una [red virtual](how-to-network-security-overview.md). Debe usar una cuenta de almacenamiento no predeterminada para el etiquetado de datos asistidos mediante ML. La cuenta de almacenamiento no predeterminada se puede proteger en la red virtual. 
+
 ### <a name="clustering"></a>Agrupación en clústeres
 
 Después de que haber enviado un determinado número de etiquetas, el modelo de Machine Learning empezará a agrupar imágenes similares.  Estas imágenes similares se presentan a los etiquetadores en la misma pantalla, para acelerar el etiquetado manual. La agrupación en clústeres es especialmente útil cuando el etiquetador está viendo una cuadrícula de 4, 6 o 9 imágenes. 
@@ -186,7 +189,7 @@ Para pausar o reiniciar el proyecto, alterne el estado **En ejecución** en la p
 
 En la pestaña **Panel** se muestra el progreso de la tarea de etiquetado.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Panel de etiquetado de datos":::
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Asistente para la creación de proyectos de etiquetado":::
 
 El gráfico de progreso muestra cuántos elementos se han etiquetado y cuántos no todavía.  Es posible que los elementos pendientes:
 

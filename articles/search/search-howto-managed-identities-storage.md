@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 770ded494f050631cd1c373f4b3fa5846c65e01a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971511"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275139"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configuración de una conexión a una cuenta de Azure Storage mediante una identidad administrada
 
@@ -143,6 +143,10 @@ Este indizador se ejecutará cada dos horas (el intervalo de programación se es
 Para más información sobre la API Create Indexer, consulte [Crear indexador](/rest/api/searchservice/create-indexer).
 
 Para más información sobre cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
+
+## <a name="accessing-secure-data-in-storage-accounts"></a>Acceso a datos seguros en cuentas de almacenamiento
+
+Las cuentas de almacenamiento de Azure se pueden proteger aún más mediante firewalls y redes virtuales. Si quiere indexar contenido de una cuenta de almacenamiento de blobs o de una cuenta de almacenamiento de Data Lake Gen2 que está protegida mediante un firewall o una red virtual, siga las instrucciones de [Acceso a los datos de las cuentas de almacenamiento de forma segura mediante una excepción de servicio de confianza](search-indexer-howto-access-trusted-service-exception.md).
 
 ## <a name="see-also"></a>Consulte también
 

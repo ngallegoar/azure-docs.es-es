@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 2b8e8a6df2fc355ad6a8ef50d801dc7457e97c63
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e355241191a4bdcab12c7c0b6527706b044a70c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547790"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714467"
 ---
 # <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Tutorial: Integración de Appraisd con Azure Active Directory
 
@@ -86,7 +86,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación Appraisd espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde **nameidentifier** se asigna con **user.userprincipalname**. La aplicación Appraisd espera que **nameidentifier** se asigne con **user.mail**, por lo que debe editar la asignación de atributos haciendo clic en el icono **Editar** y cambiar esa asignación.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra el panel User Attributes (Atributos de usuario) con el icono de edición resaltado.](common/edit-attribute.png)
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -110,15 +110,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 4. En la parte superior derecha de la página, haga clic en el icono **Configuración** y, después, vaya a **Configuración**.
 
-    ![imagen](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
+    ![Captura de pantalla que muestra el vínculo Configuration (Configuración) activado.](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
 5. En el lado izquierdo del menú, haga clic en el **inicio de sesión único SAML**.
 
-    ![imagen](./media/appraisd-tutorial/tutorial_appraisd_single.png)
+    ![Captura de pantalla que muestra las opciones Configuration (Configuración) con la opción SAML single sign-on (Inicio de sesión único de SAML) resaltada.](./media/appraisd-tutorial/tutorial_appraisd_single.png)
 
 6. En la página **Configuración de inicio de sesión único de SAML 2.0**, siga estos pasos:
 
-    ![imagen](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
+    ![Captura de pantalla que muestra la página SAML 2.0 Single Sign-On configuration (Configuración del inicio de sesión único con SAML 2.0) para editar Default Relay State (Estado de retransmisión predeterminado) y Service-initiated login URL (URL de inicio de sesión iniciado por el servicio).](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
     a. Copie el valor **Default Relay State** (Estado retransmisión predeterminado) y péguelo en el cuadro de texto **Estado de la retransmisión** de **Basic SAML Configuration** (Configuración básica de SAML) en Azure Portal.
 
@@ -126,7 +126,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 7. En la página **Identificación de usuarios**, desplácese hacia abajo y realice los pasos siguientes:
 
-    ![imagen](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
+    ![Captura de pantalla que muestra Identifying users (Identificación de usuarios) para especificar los valores de este paso.](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
 
     a. En el cuadro de texto **Dirección URL del inicio de sesión único del proveedor de identidades**, pegue el valor de **URL de inicio de sesión** que ha copiado de Azure Portal y haga clic en **Guardar**.
 
@@ -174,15 +174,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en Appraisd, deben ap
 
 2. En la parte superior derecha de la página, haga clic en el icono **Settings** (Configuración) y, después, vaya al **Centro de administración**.
 
-    ![imagen](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
+    ![Captura de pantalla que muestra las opciones de Settings (Configuración) en las que se puede seleccionar Administration centre (Centro de administración).](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
 3. En la barra de herramientas situada en la parte superior de la página, haga clic en **Personas** y, después, vaya a **Agregar un nuevo usuario**.
 
-    ![imagen](./media/appraisd-tutorial/tutorial_appraisd_user.png)
+    ![Captura de pantalla que muestra la página de Appraisd con People (Personas) y Add a new user (Agregar un nuevo usuario) seleccionado.](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
 4. En la página **Agregar nuevo usuario**, realice los pasos siguientes:
 
-    ![imagen](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
+    ![Captura de pantalla que muestra la página Add a new user (Agregar un nuevo usuario).](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
 
     a. En el cuadro de texto **First Name** (Nombre), escriba el nombre del usuario, en este caso **Britta**.
 

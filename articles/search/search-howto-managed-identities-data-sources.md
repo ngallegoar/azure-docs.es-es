@@ -9,14 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: a057c0d35a465447cc0be99b574ffeebb671115a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 787c7d7df5f013dd4477e466c02a2b323b4b59df
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971555"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275105"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Configuración de una conexión de indexador a un origen de datos mediante una identidad administrada
+
+> [!IMPORTANT] 
+> No se admite la configuración de una conexión a un origen de datos mediante una identidad administrada con el nivel Gratis de Azure Cognitive Search.
 
 Un [indexador](search-indexer-overview.md) de Azure Cognitive Search es un rastreador que proporciona una manera de extraer datos del origen de datos en Azure Cognitive Search. Un indexador obtiene una conexión de origen de datos de un objeto de origen de datos creado por usted. El objeto de origen de datos normalmente incluye las credenciales del origen de datos de destino. Por ejemplo, el objeto de origen de datos podría incluir una clave de cuenta de Azure Storage si desea indexar datos de un contenedor de Blob Storage.
 

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: af88f0b3403fb80acbb7dacebe293ac583e35799
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535100"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716040"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte 2: Asignación de permisos de nivel de recurso compartido a una identidad
 
@@ -47,12 +47,12 @@ Para asignar un rol de Azure a una identidad de Azure AD mediante [Azure Portal
 1. En Azure Portal, vaya al recurso compartido de archivos o [cree uno](storage-how-to-create-file-share.md).
 1. Seleccione **Access Control (IAM)** .
 1. Seleccione **Agregar una asignación de roles**.
-1. En la hoja **Agregar asignación de roles**, seleccione el rol integrado adecuado (lector o colaborador de recursos compartidos de SMB para datos del archivo de almacenamiento) en la lista desplegable **Rol**. Mantenga la opción **Asignar acceso a** en la configuración predeterminada: **Usuario, grupo o entidad de servicio de Azure AD**. Seleccione la identidad de Azure AD de destino por nombre o dirección de correo electrónico. La identidad de Azure AD seleccionada debe ser una identidad híbrida y no puede ser una identidad solo en la nube. Esto significa que la misma identidad también se representa en AD DS.
+1. En la hoja **Agregar asignación de roles**, seleccione el rol integrado adecuado (lector o colaborador de recursos compartidos de SMB para datos del archivo de almacenamiento) en la lista desplegable **Rol**. Mantenga la opción **Asignar acceso a** en la configuración predeterminada: **Usuario, grupo o entidad de servicio de Azure AD**. Seleccione la identidad de Azure AD de destino por nombre o dirección de correo electrónico. **La identidad de Azure AD seleccionada debe ser una identidad híbrida y no puede ser una identidad solo en la nube.** Esto significa que la misma identidad también se representa en AD DS.
 1. Seleccione **Guardar** para completar la operación de asignación de roles.
 
 ### <a name="powershell"></a>PowerShell
 
-El siguiente ejemplo de PowerShell muestra cómo asignar un rol de Azure a una identidad de Azure AD, según el nombre de inicio de sesión. Para obtener más información sobre la asignación de roles de Azure con PowerShell, consulte [Administración del acceso mediante RBAC y Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+El siguiente ejemplo de PowerShell muestra cómo asignar un rol de Azure a una identidad de Azure AD, según el nombre de inicio de sesión. Para más información sobre la asignación de roles de Azure mediante PowerShell, consulte [Incorporación o eliminación de asignaciones de roles de Azure con Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Antes de ejecutar el siguiente script de ejemplo, reemplace los valores de marcador de posición, incluidos los corchetes, por los suyos.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>CLI
   
-El siguiente comando de la CLI 2.0 asigna un rol de Azure a una identidad de Azure AD, según el nombre de inicio de sesión. Para obtener más información sobre la asignación de roles de Azure con la CLI de Azure, consulte [Administración del acceso mediante RBAC y la CLI de Azure](../../role-based-access-control/role-assignments-cli.md). 
+El siguiente comando de la CLI 2.0 asigna un rol de Azure a una identidad de Azure AD, según el nombre de inicio de sesión. Para más información sobre la asignación de roles de Azure mediante la CLI de Azure, consulte [Incorporación o eliminación de asignaciones de roles mediante la CLI de Azure](../../role-based-access-control/role-assignments-cli.md). 
 
 Antes de ejecutar el siguiente script de ejemplo, no olvide reemplazar los valores de marcador de posición, incluidos los corchetes, por los suyos propios.
 

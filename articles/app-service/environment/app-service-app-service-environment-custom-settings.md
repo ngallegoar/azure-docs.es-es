@@ -4,15 +4,15 @@ description: Configure los valores que se aplican a todo el entorno de Azure App
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 10/03/2020
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 09c41c7480b262e6f1a912ad4b708e485d86bf56
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 88163c07d570df5e0ff343776c17c463010ce368
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85833509"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713285"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Opciones de configuración personalizada para Entornos de App Service
 ## <a name="overview"></a>Información general
@@ -67,12 +67,12 @@ App Service Environment funciona como sistema de caja negra en el que no se pued
 "clusterSettings": [
     {
         "name": "InternalEncryption",
-        "value": "1"
+        "value": "true"
     }
 ],
 ```
+Esta función cifrará el tráfico de red interno en el ASE entre los servidores front-end y los trabajos, y también el archivo de paginación y los discos de trabajo. La habilitación de clusterSetting de InternalEncryption puede afectar al rendimiento del sistema. Al realizar el cambio para habilitar InternalEncryption, ASE tendrá un estado inestable hasta que se propague el cambio totalmente. La propagación completa del cambio puede tardar unas horas en completarse, en función de cuántas instancias tenga en ASE. Es muy recomendable no habilitar esto en ASE si este se encuentra en uso. Si es necesaria la hablitación en un ASE en uso, lo mejor es desviar el tráfico a un entorno de copia de seguridad hasta que se complete la operación. 
 
-La habilitación de clusterSetting de InternalEncryption puede afectar al rendimiento del sistema. Al realizar el cambio para habilitar InternalEncryption, ASE tendrá un estado inestable hasta que se propague el cambio totalmente. La propagación completa del cambio puede tardar unas horas en completarse, en función de cuántas instancias tenga en ASE. Es muy recomendable no habilitar esto en ASE si este se encuentra en uso. Si es necesaria la hablitación en un ASE en uso, lo mejor es desviar el tráfico a un entorno de copia de seguridad hasta que se complete la operación. 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Deshabilitación de TLS 1.0 y TLS 1.1
 
@@ -106,7 +106,7 @@ Otra pregunta de los clientes es si pueden modificar la lista de cifrados negoci
 > [!WARNING]
 > Nota: Si se establecen valores incorrectos para el conjunto de aplicaciones de cifrado que SChannel no entiende, toda la comunicación TLS en el servidor podría dejar de funcionar. En tal caso, debe quitar la entrada *FrontEndSSLCipherSuiteOrder* de **clusterSettings** y enviar la plantilla de Resource Manager actualizada para volver a la configuración de conjunto de cifrado predeterminada.  Utilice esta funcionalidad con precaución.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 El sitio de inicio rápido de plantillas de Azure Resource Manager incluye una plantilla con la definición base para [crear un entorno de App Service](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 <!-- LINKS -->

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdac9562ed9a83f49e074e7abd790e8e2819d6aa
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 922cea49179e63e2481a7f15b1e78bd8bf6c4848
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527027"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773933"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opciones de autenticación sin contraseña de Azure Active Directory
 
@@ -61,6 +61,8 @@ También puede permitir que el teléfono del empleado se convierta en un método
 ![Inicio de sesión en Microsoft Edge con la aplicación Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
 La aplicación Authenticator convierte cualquier teléfono Android o iOS en una credencial segura sin contraseña. Los usuarios pueden iniciar sesión en cualquier plataforma o explorador con este proceso: reciben una notificación en su teléfono, comprueban que el número mostrado en la pantalla coincide con el de su teléfono y, a continuación, usan datos biométricos (reconocimiento táctil o facial) o el PIN para confirmarlo. Consulte [Descarga e instalación de la aplicación Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) para conocer los detalles de la instalación.
+
+El inicio de sesión sin contraseña con la aplicación Microsoft Authenticator en Azure AD está actualmente en versión preliminar. El uso de la aplicación Microsoft Authenticator para la autenticación secundaria para Azure Multi-Factor Authentication, el autoservicio de restablecimiento de contraseña (SSPR) o los tokens de software OATH están disponibles con carácter general. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 La autenticación sin contraseñas mediante la aplicación Authenticator sigue el mismo patrón básico que Windows Hello para empresas. Es un poco más complicado, ya que el usuario debe identificarse para que Azure AD pueda encontrar la versión de la aplicación Microsoft Authenticator que se está usando:
 

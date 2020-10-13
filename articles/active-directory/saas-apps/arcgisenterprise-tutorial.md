@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-ms.openlocfilehash: a544a98b3a9d5c2d30f95240325e91018d2f40c9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc0303cc4ba00f873ecfea7b02047ebd1bff7da1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549625"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutorial: Integración de Azure Active Directory con ArcGIS Enterprise
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
 4. En la sección **Configuración de SAML básica**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de ArcGIS Enterprise](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `<EXTERNAL_DNS_NAME>.portal`
 
@@ -112,7 +112,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
     c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de ArcGIS Enterprise](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
@@ -138,19 +138,19 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
 1. Seleccione **Organization >EDIT SETTINGS** (Organización > Editar configuración).
 
-    ![Configuración de ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure1.png)
+    ![Captura de pantalla que muestra la pestaña Organization (Organización) ArcGIS Enterprise con la opción Edit settings (Editar configuración) seleccionada.](./media/arcgisenterprise-tutorial/configure1.png)
 
 1. Seleccione la pestaña **Seguridad**.
 
-    ![Configuración de ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure2.png)
+    ![Captura de pantalla que muestra la pestaña Security (Seguridad) seleccionada.](./media/arcgisenterprise-tutorial/configure2.png)
 
 1. Desplácese hacia abajo hasta la sección **Enterprise Logins via SAML** (Inicios de sesión empresariales mediante SAML) y seleccione **SET ENTERPRISE LOGIN** (Establecer inicio de sesión empresarial).
 
-    ![Configuración de ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure3.png)
+    ![Captura de pantalla que muestra inicios de sesión de empresa mediante SAML para seleccionar Set Enterprise Login (Establecer inicio de sesión de empresa).](./media/arcgisenterprise-tutorial/configure3.png)
 
 1. En la sección **Set Identity Provider** (Definición del proveedor de identidades), realice los siguientes pasos:
 
-    ![Configuración de ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure4.png)
+    ![Captura de pantalla que muestra Set Identity Provider (Establecer proveedor de identidades) para realizar los pasos descritos aquí.](./media/arcgisenterprise-tutorial/configure4.png)
 
     a. Proporcione un nombre como **Azure Active Directory Test** (Prueba de Azure Active Directory) en el cuadro de texto **Name** (Nombre).
 
@@ -158,7 +158,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
     c. Haga clic en **Show advanced settings** (Mostrar configuración avanzada) y copie el valor de **Entity ID** (Id. de entidad) y péguelo en el cuadro de texto **Identificador** de la sección **Dominio y direcciones URL de ArcGIS Enterprise** de Azure Portal.
     
-    ![Configuración de ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure5.png)
+    ![Captura de pantalla que muestra dónde obtener el identificador de entidad y actualizar el proveedor de identidades.](./media/arcgisenterprise-tutorial/configure5.png)
 
     d. Haga clic en **UPDATE IDENTITY PROVIDER** (Actualizar proveedor de identidades).
 

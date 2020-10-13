@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 26be48e7968345863799191539bd668ea6d9a4a2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2c67cd4d071660da2ca5714623695ca434329263
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929574"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275190"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Indexación de documentos en Azure Blob Storage con Azure Cognitive Search
 
@@ -69,6 +69,7 @@ Para más información sobre la API de creación de origen de datos, consulte [C
 
 Puede proporcionar las credenciales para la tabla de una de estas maneras: 
 
+- **Cadena de conexión de identidad administrada**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;`; esta cadena de conexión no requiere una clave de cuenta, pero debe seguir las instrucciones de [Configuración de una conexión a una cuenta de Azure Storage mediante una identidad administrada](search-howto-managed-identities-storage.md).
 - **Cadena de conexión de la cuenta de almacenamiento de acceso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Para obtener la cadena de conexión de Azure Portal, vaya a la **hoja de la cuenta de almacenamiento** > **Configuración** > **Claves** (para las cuentas de almacenamiento del modelo clásico) o **Configuración** > **Claves de acceso** (para las cuentas de almacenamiento de Azure Resource Manager).
 - **Cadena de conexión de la firma de acceso compartido de la cuenta de almacenamiento**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` La firma de acceso compartido debe tener permisos de enumeración y lectura sobre los contenedores (en este caso, tablas) y objetos (filas de tabla).
 -  **Firma de acceso compartido de tabla**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` La firma de acceso compartido debería tener permisos de consulta (lectura) en la tabla.
@@ -132,7 +133,7 @@ En Azure Cognitive Search, la clave del documento identifica de forma exclusiva 
 Como las filas de tablas tienen una clave compuesta, Azure Cognitive Search genera un campo sintético llamado `Key`, que es una concatenación de valores de clave de partición y clave de fila. Por ejemplo, si el valor PartitionKey de una fila es `PK1` y el valor RowKey es `RK1`, el valor del campo `Key` es `PK1RK1`.
 
 > [!NOTE]
-> El valor `Key` puede contener caracteres no válidos en claves de documentos, como guiones. Para tratar con caracteres no válidos, use la [función de asignación de campos](search-indexer-field-mappings.md#base64EncodeFunction)`base64Encode`. Si lo hace, recuerde utilizar también la codificación Base64 de seguridad de direcciones URL al pasar las claves de documento en las llamadas de la API como búsqueda.
+> El valor `Key` puede contener caracteres no válidos en claves de documentos, como guiones. Para tratar con caracteres no válidos, use la  [función de asignación de campos](search-indexer-field-mappings.md#base64EncodeFunction)`base64Encode`. Si lo hace, recuerde utilizar también la codificación Base64 de seguridad de direcciones URL al pasar las claves de documento en las llamadas de la API como búsqueda.
 >
 >
 

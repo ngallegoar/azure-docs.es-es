@@ -1,5 +1,6 @@
 ---
-title: Compilación de un demonio multiinquilino que usa el punto de conexión de la plataforma de identidad de Microsoft
+title: 'Tutorial: Creación de un demonio multiinquilino que acceda a los datos empresariales de Microsoft Graph | Azure'
+titleSuffix: Microsoft identity platform
 description: En este inicio rápido, aprenderá a llamar a una API web de ASP.NET protegida por Azure Active Directory desde una aplicación de escritorio de Windows (WPF). El cliente de WPF autentica a un usuario, solicita un token de acceso y llama a la API web.
 services: active-directory
 author: jmprieur
@@ -11,14 +12,14 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4b05bbf818676cc70f485dd94ece79141e8f01a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 72b72959f7b5c89bfad4495c8534de5dfaaefe8b
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982858"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611102"
 ---
-# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutorial: Compilación de un demonio multiinquilino que usa el punto de conexión de la plataforma de identidad de Microsoft
+# <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Creación de un demonio multiinquilino que usa la plataforma de identidad de Microsoft
 
 En este tutorial, aprenderá a usar la plataforma de identidad de Microsoft para acceder a los datos de los clientes empresariales de Microsoft en un proceso no interactivo de larga duración. El demonio de ejemplo usa la [concesión de credenciales de cliente de OAuth2](v2-oauth2-client-creds-grant-flow.md) para adquirir el token de acceso. A continuación, utiliza el token para llamar a [Microsoft Graph](https://graph.microsoft.io) y acceder a los datos de la organización.
 
@@ -30,28 +31,23 @@ En este tutorial, aprenderá a usar la plataforma de identidad de Microsoft para
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
+## <a name="prerequisites"></a>Prerrequisitos
+
+- [Visual Studio 2017 o 2019](https://visualstudio.microsoft.com/downloads/)
+- Un inquilino de Azure AD. Para más información, consulte [Configuración de un inquilino de Azure AD](quickstart-create-new-tenant.md).
+- Una o varias cuentas de usuario en el inquilino de Azure AD. Este ejemplo no funcionará con una cuenta Microsoft. Si ha iniciado sesión en [Azure Portal](https://portal.azure.com) con una cuenta Microsoft y nunca ha creado una cuenta de usuario en el directorio, hágalo ahora.
+
+## <a name="scenario"></a>Escenario
+
 La aplicación se compila como una aplicación ASP.NET MVC. Usa el middleware de OWIN OpenID Connect para iniciar la sesión de los usuarios.
 
 El componente "demonio" de este ejemplo es un controlador de API `SyncController.cs`. Cuando se llama al controlador, se extrae de Microsoft Graph una lista de usuarios del inquilino de Azure Active Directory del cliente (Azure AD). `SyncController.cs` se desencadena mediante una llamada AJAX en la aplicación web. Dicha aplicación usa la [biblioteca de autenticación de Microsoft (MSAL) para .NET](msal-overview.md) para adquirir un token de acceso para Microsoft Graph.
-
->[!NOTE]
-> Si nunca ha usado la plataforma de identidad de Microsoft, es aconsejable empezar por leer el [inicio rápido del demonio de .NET Core](quickstart-v2-netcore-daemon.md).
-
-## <a name="scenario"></a>Escenario
 
 Dado que la aplicación es una aplicación multiinquilino para clientes empresariales de Microsoft, debe proporcionar a los clientes una forma de "registrar" la aplicación o "conectarla" a los datos de la empresa. Durante el flujo de conexión, el administrador de una empresa concede primero los *permisos de aplicación* directamente a la aplicación, de forma que pueda acceder a los datos de la empresa de manera no interactiva, sin la presencia de los usuarios que han iniciado la sesión. La mayoría de la lógica de este ejemplo muestra cómo lograr este flujo de conexión mediante el punto de conexión de [consentimiento del administrador](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) de la plataforma de identidad.
 
 ![En el diagrama se muestra la aplicación UserSync con tres elementos locales que se conectan a Azure, con la autenticación de punto inicial que adquiere un token de forma interactiva para conectarse a Azure AD, AccountController que obtiene el consentimiento de administrador para conectarse a Azure AD y SyncController que lee al usuario para conectarse a Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 Para más información sobre los conceptos que se usan en este ejemplo, lea la [documentación del protocolo de credenciales de cliente del punto de conexión de la plataforma de identidad](v2-oauth2-client-creds-grant-flow.md).
-
-## <a name="prerequisites"></a>Prerrequisitos
-
-Para ejecutar el ejemplo de este inicio rápido, necesitará lo siguiente:
-
-- [Visual Studio 2017 o 2019](https://visualstudio.microsoft.com/downloads/)
-- Un inquilino de Azure AD. Para más información, consulte [Configuración de un inquilino de Azure AD](quickstart-create-new-tenant.md).
-- Una o varias cuentas de usuario en el inquilino de Azure AD. Este ejemplo no funcionará con una cuenta Microsoft (anteriormente cuenta de Windows Live). Si ha iniciado sesión en [Azure Portal](https://portal.azure.com) con una cuenta Microsoft y nunca ha creado una cuenta de usuario en el directorio, deberá hacerlo ahora.
 
 ## <a name="clone-or-download-this-repository"></a>Clonación o descarga de este repositorio
 
@@ -256,17 +252,8 @@ Si encuentra un error en MSAL.NET, genere el problema en la sección de [problem
 Para proporcionar una recomendación, vaya a la [página de UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Más información sobre los distintos [flujos de autenticación y escenarios de aplicaciones](authentication-flows-app-scenarios.md) que admite la plataforma de identidad de Microsoft.
 
-Para más información, consulte la siguiente documentación conceptual:
+Más información sobre la creación de aplicaciones de demonio que usan la Plataforma de identidad de Microsoft para acceder a las API Web protegidas:
 
-- [Inquilinos en Azure Active Directory](single-and-multi-tenant-apps.md)
-- [Descripción de las experiencias de consentimiento de la aplicación de Azure AD](application-consent-experience.md)
-- [Inicio de sesión de cualquier usuario de Azure Active Directory mediante el patrón de aplicación multiinquilino](howto-convert-app-to-be-multi-tenant.md)
-- [Descripción del consentimiento del usuario y del administrador](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
-- [Objetos de aplicación y de entidad de servicio de Azure Active Directory](app-objects-and-service-principals.md)
-- [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md)
-- [Inicio rápido: Configuración de una aplicación cliente para tener acceso a las API web](quickstart-configure-app-access-web-apis.md)
-- [Adquisición de un token para una aplicación con flujos de credenciales de cliente](msal-client-applications.md)
-
-Para más información sobre una aplicación de demonio de consola multiinquilino más sencilla, consulte el [inicio rápido del demonio de .NET Core](quickstart-v2-netcore-daemon.md).
+> [!div class="nextstepaction"]
+> [Escenario: Aplicación de demonio que llama a las API web](scenario-daemon-overview.md)

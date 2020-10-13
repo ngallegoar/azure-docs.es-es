@@ -35,7 +35,11 @@
         - name: '0: Implementación de una aplicación de detección de objetos y de movimiento'
           href: tutorial-video-analytics-deploy.md
         - name: '1: Creación de una aplicación de análisis de vídeo'
-          href: tutorial-video-analytics-create-app.md
+          items:
+            - name: "Detección de objetos y movimiento (YOLO\_v3)"
+              href: tutorial-video-analytics-create-app-yolo-v3.md
+            - name: Detección de objetos y movimiento (OpenVINO)
+              href: tutorial-video-analytics-create-app-openvino.md
         - name: '2: Configuración de un dispositivo IoT Edge'
           items:
             - name: Creación de un dispositivo de análisis de vídeo en el perímetro (máquina virtual Linux)

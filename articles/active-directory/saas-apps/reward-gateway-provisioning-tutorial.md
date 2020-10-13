@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 298ca69a659bec2d5262b344c274fac7371390f1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f908e37c7785744c2f26b6a9cd542ccde228eb38
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534377"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255768"
 ---
 # <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>Tutorial: Configuración de Reward Gateway para el aprovisionamiento automático de usuarios
 
@@ -53,15 +53,15 @@ Antes de configurar Reward Gateway para aprovisionar automáticamente usuarios c
 
 1. Inicie sesión en la [consola de administración de Reward Gateway](https://rewardgateway.photoshelter.com/login/). Haga clic en **Integraciones**.
 
-    ![Consola de administración de Reward Gateway](media/reward-gateway-provisioning-tutorial/image00.png)
+    ![Captura de pantalla de la consola de administración de Reward Gateway con la opción Integraciones resaltada.](media/reward-gateway-provisioning-tutorial/image00.png)
 
 2.  Seleccione **Mi integración**.
 
-    ![Consola de administración de Reward Gateway](media/reward-gateway-provisioning-tutorial/image001.png)
+    ![Captura de pantalla de las dos opciones de Integraciones con la opción Mis integraciones resaltada.](media/reward-gateway-provisioning-tutorial/image001.png)
 
 3.  Copie los valores de **SCIM URL (v2)** y **Token de portador de OAuth**. Estos valores se escriben en el campo URL de inquilino y Token secreto de la pestaña Aprovisionamiento de la aplicación Reward Gateway en Azure Portal.
 
-    ![Consola de administración de Reward Gateway](media/reward-gateway-provisioning-tutorial/image03.png)
+    ![Captura de pantalla del panel Mis integraciones con el cuadro de texto Token de portador de OAuth seleccionado.](media/reward-gateway-provisioning-tutorial/image03.png)
 
 ## <a name="add-reward-gateway-from-the-gallery"></a>Adición de Reward Gateway desde la galería
 
@@ -104,11 +104,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba los valores de **SCIM URL (v2)** y **Token de portador de OAuth** recuperados anteriormente en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Reward Gateway. Si la conexión no se establece, asegúrese de que la cuenta de Reward Gateway tiene permisos de administrador e inténtelo de nuevo.
 
@@ -122,11 +122,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Reward Gateway** (Sincronizar usuarios de Azure Active Directory con Reward Gateway).
 
-    ![Consola de administración de Reward Gateway](media/reward-gateway-provisioning-tutorial/user-mappings.png)
+    ![Captura de pantalla de la sección Asignaciones con la opción para sincronizar los usuarios de Azure Active Directory con Reward Gateway resaltada.](media/reward-gateway-provisioning-tutorial/user-mappings.png)
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y Reward Gateway en la sección **Asignaciones de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Reward Gateway con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Consola de administración de Reward Gateway](media/reward-gateway-provisioning-tutorial/user-attributes.png)
+    ![Captura de pantalla de la sección Asignaciones de atributos, con seis asignaciones mostradas.](media/reward-gateway-provisioning-tutorial/user-attributes.png)
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

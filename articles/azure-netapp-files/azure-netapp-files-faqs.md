@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 9822d7bd769ea161ddcf195d695f27024351ca4b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 2a64e595f0ea07510f416be56a54a3c74294b95d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662458"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653628"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -132,6 +132,12 @@ Azure NetApp Files admite NFSv3 y NFSv4.1. Se pueden [crear volúmenes](azure-ne
 
 El usuario puede especificar si la cuenta raíz tendrá o no acceso al volumen por medio de la directiva de exportación del volumen. Para más información, consulte [Configuración de la directiva de exportación para un volumen NFS](azure-netapp-files-configure-export-policy.md).
 
+### <a name="can-i-use-the-same-file-path-volume-creation-token-for-multiple-volumes"></a>¿Puedo usar la misma ruta de acceso de archivo (token de creación de volumen) para varios volúmenes?
+
+Sí, puede hacerlo. Sin embargo, la ruta de acceso de archivo debe usarse en una suscripción o región distinta.   
+
+Por ejemplo, puede crear un volumen llamado denominado `vol1`. A continuación, crea otro volumen también llamado `vol1` en un grupo de capacidad distinto, pero en la misma suscripción y región. En este caso, el uso del mismo nombre de volumen `vol1` producirá un error. Para usar la misma ruta de acceso de archivo, el nombre debe estar en otra región o suscripción.
+
 ## <a name="smb-faqs"></a>Preguntas más frecuentes de SMB
 
 ### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>¿Qué versiones de SMB son compatibles con Azure NetApp Files?
@@ -163,12 +169,6 @@ Azure NetApp Files admite las versiones 2008r2SP1-2019 de Windows Server de Act
 El tamaño de volumen que SMB indica es el tamaño máximo que puede alcanzar el volumen de Azure NetApp Files. El tamaño del volumen de Azure NetApp Files que se muestra en el cliente SMB no es reflejo de la cuota o el tamaño del volumen. Puede obtener el tamaño del volumen o la cuota de Azure NetApp Files mediante Azure Portal o la API.
 
 <!--
-### Does Azure NetApp Files support Kerberos encryption?
-
-Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption for traffic between the service and the targeted Active Directory domain controllers. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for requirements. 
--->
-
-<!--
 ### Does Azure NetApp Files support LDAP signing? 
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
@@ -178,15 +178,11 @@ Yes, Azure NetApp Files supports LDAP signing by default. This functionality ena
 
 ### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>Intenté usar los usuarios locales y "raíz" para obtener acceso a un volumen de protocolo dual con el estilo de seguridad NTFS en un sistema UNIX. ¿Por qué encontré un error de tipo "Permiso denegado"?   
 
-Un volumen de protocolo dual admite los protocolos NFS y SMB.  Al intentar obtener acceso al volumen montado en el sistema UNIX, el sistema intenta asignar el usuario de UNIX que utiliza a un usuario de Windows. Si no se encuentra ninguna asignación, se produce el error "Permiso denegado".  Esta situación se aplica también cuando se usa el usuario "raíz" para obtener acceso.    
-
-Para evitar el problema de tipo "Permiso denegado", asegúrese de que Active Directory para Windows incluya `pcuser` antes de obtener acceso al punto de montaje. Si agrega `pcuser` después de encontrar el problema "Permiso denegado", espere 24 horas para que la entrada de caché se borre antes de volver a intentar el acceso.
+Consulte [Solución de problemas de volúmenes de protocolo doble](troubleshoot-dual-protocol-volumes.md) para obtener soluciones.
 
 ### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Cuando intento crear un volumen de protocolo dual, ¿por qué se produce un error en el proceso de creación con el error "no se pudo validar la configuración de LDAP, inténtelo de nuevo después de corregir la configuración de LDAP"?  
 
-Es posible que falte el registro de puntero (PTR) del equipo host de AD en el servidor DNS. Tiene que crear una zona de búsqueda inversa en el servidor DNS y luego agregar un registro de puntero (PTR) del equipo host de AD a esa zona de búsqueda inversa.
-
-Por ejemplo, supongamos que la dirección IP de la máquina de AD es `1.1.1.1`, que el nombre de host de la máquina de AD (que se encuentra mediante el comando `hostname`) es `AD1` y el nombre de dominio es `myDomain.com`.  El registro PTR agregado a la zona de búsqueda inversa debe ser `1.1.1.1` -> `AD1.myDomain.com`.
+Consulte [Solución de problemas de volúmenes de protocolo doble](troubleshoot-dual-protocol-volumes.md) para obtener soluciones.
 
 ## <a name="capacity-management-faqs"></a>Preguntas más frecuentes sobre la administración de la capacidad
 

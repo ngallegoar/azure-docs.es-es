@@ -1,14 +1,14 @@
 ---
-title: Referencia de errores en las comprobaciones de estado
+title: Referencia de errores para las comprobaciones de estado del registro
 description: Códigos de error y posibles soluciones de los problemas encontrados tras la ejecución del comando az acr para el diagnóstico de comprobación de mantenimiento en Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978321"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565605"
 ---
 # <a name="health-check-error-reference"></a>Referencia de errores de la comprobación de mantenimiento
 
@@ -90,7 +90,7 @@ Este error indica que el servidor de inicio de sesión del registro no respondi�
 
 Este error significa que el cliente no pudo establecer una conexión segura con el registro de contenedor. Este error suele producirse si se está ejecutando o utilizando un servidor proxy.
 
-*Posibles soluciones*: Más información sobre cómo trabajar con tipos de contenido [puede encontrarse aquí](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
+*Posibles soluciones*: Más información sobre cómo trabajar con tipos de contenido [puede encontrarse aquí](/cli/azure/use-cli-effectively).
 
 ## <a name="login_server_error"></a>LOGIN_SERVER_ERROR
 
