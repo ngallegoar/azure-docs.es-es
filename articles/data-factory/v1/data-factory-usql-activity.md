@@ -1,6 +1,6 @@
 ---
 title: 'Transformación de datos mediante un script de U-SQL: Azure'
-description: Aprenda a procesar o transformar datos mediante la ejecución de scripts de U-SQL en el servicio de proceso Azure Data Lake Analytics.
+description: Obtenga información sobre cómo procesar o transformar datos mediante la ejecución de scripts de U-SQL en el servicio de proceso Azure Data Lake Analytics, versión 1.
 services: data-factory
 documentationcenter: ''
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: a4ae575984badb2b03f72a77aaf580012a1fc002
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 17e5b5eaea90b5f67ad91f0b09a51b2f1aeffd68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997139"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322622"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformación de datos mediante la ejecución de scripts de U-SQL en Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

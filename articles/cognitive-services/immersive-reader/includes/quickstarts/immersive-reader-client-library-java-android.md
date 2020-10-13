@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.custom: devx-track-java, devx-track-js
 ms.author: dylankil
-ms.openlocfilehash: 32522958b21d31b09c019ebde0862c49e3535488
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4118ef478f43c5887e2c5fba4595314e5a4ac02d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376895"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779085"
 ---
 [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de manera inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con dificultades de aprendizaje, como la dislexia. Puede usar Lector inmersivo en sus aplicaciones para aislar el texto con el fin de mejorar la concentración, mostrar imágenes para palabras de uso frecuente, resaltar partes del texto, leer texto seleccionado en voz alta, traducir palabras y frases en tiempo real y mucho más.
 
@@ -64,7 +64,7 @@ CLIENT_ID=<YOUR_CLIENT_ID>
 CLIENT_SECRET=<YOUR_CLIENT_SECRET>
 SUBDOMAIN=<YOUR_SUBDOMAIN>
 ```
-![Variables de entorno en Android Studio](../../media/android/java/android-studio-assets-and-env-file.png)
+![Captura de pantalla que muestra variables de entorno en Android Studio.](../../media/android/java/android-studio-assets-and-env-file.png)
 
 ## <a name="add-dependencies"></a>Adición de dependencias
 

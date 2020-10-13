@@ -1,20 +1,20 @@
 ---
 title: División de directorio de imagen
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar el módulo Split Image Directory (División del directorio de imagen) en Azure Machine Learning para generar predicciones mediante un modelo de imagen entrenado.
+description: Obtenga información sobre cómo usar el módulo División del directorio de imagen en Azure Machine Learning Designer (versión preliminar) para dividir las imágenes de un directorio de imagen en dos conjuntos distintos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 63ae7115f905523a3aac131fd7e77b56eb695243
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890271"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448680"
 ---
 # <a name="split-image-directory"></a>División de directorio de imagen
 
@@ -28,7 +28,7 @@ Este módulo es especialmente útil cuando tiene que separar los datos de imagen
 
 2. Conéctelo al módulo del que la salida es el directorio de la imagen.
 
-3. Especifique **Fraction of images in the first output** (Fracción de imágenes de la primera salida) para determinar el porcentaje de datos que se van a colocar en la división izquierda, de forma predeterminada el valor es 0,9.
+3. Especifique **Fraction of images in the first output** (Fracción de imágenes de la primera salida) para determinar el porcentaje de datos que se van a colocar en la división izquierda, de forma predeterminada el valor es 0,9. Si el resultado de la fracción no es un entero, el módulo usa el entero más cercano de menor tamaño.
 
 
 ## <a name="technical-notes"></a>Notas técnicas

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 83b2a497cbeda188a4329e634256746f48984a89
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c4c040c6d5b8eb4041db3ffaaab58657a9f9c7da
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521941"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358073"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Tutorial: Configuración de Hootsuite para el aprovisionamiento automático de usuarios
 
@@ -78,17 +78,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**. Haga clic en **Introducción**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
     ![Hoja Introducción](./media/hootsuite-provisioning-tutorial/get-started.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba `https://platform.hootsuite.com/scim/v2` en la URL de inquilino. Escriba el valor del token secreto de larga duración recuperado antes en el **Paso 2**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Hootsuite. Si se produce un error en la conexión, asegúrese de que la cuenta de Hootsuite tiene permisos de administrador e inténtelo de nuevo.
 
-    ![Aprovisionamiento](./media/hootsuite-provisioning-tutorial/provisioning.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/hootsuite-provisioning-tutorial/provisioning.png)
 
 6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 

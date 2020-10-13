@@ -224,7 +224,7 @@
           href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/batch
     - name: Azure PowerShell
       href: /powershell/module/az.batch
@@ -257,12 +257,16 @@
           href: batch-pool-resize-start-event.md
         - name: Evento de finalización de cambio de tamaño del grupo
           href: batch-pool-resize-complete-event.md
+        - name: Evento de escalabilidad automática de grupo
+          href: batch-pool-autoscale-event.md
         - name: Evento de inicio de tarea
           href: batch-task-start-event.md
         - name: Evento de tarea completada
           href: batch-task-complete-event.md
         - name: Evento de error en tareas
           href: batch-task-fail-event.md
+        - name: Evento de error en programación de tareas
+          href: batch-task-schedule-fail-event.md
     - name: Elementos integrados de Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 848a0c9817472086dbaf3973dad9c64e3ed74b10
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d234a121ee8f36389c79228d69a11d9fe999eb5f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954254"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444767"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Configuración de Always Encrypted mediante el almacén de certificados de Windows
 
@@ -127,7 +127,7 @@ Puede cifrar las columnas ahora o guardar un script de PowerShell para ejecutarl
 
 Compruebe que la configuración sea correcta y haga clic en **Finalizar** para completar la configuración de Always Encrypted.
 
-![Resumen](./media/always-encrypted-certificate-store-configure/summary.png)
+![Captura de pantalla que muestra la página de resultados con las tareas marcadas como superadas.](./media/always-encrypted-certificate-store-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Comprobación de las acciones del asistente
 

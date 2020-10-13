@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 368843cf9b6e59497fe00e69433ae0d14b3f3398
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: bc649551986190f944e3225ff0914d091acd3f88
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027926"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619702"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Aprenda a aprovisionar y registrar nuevos inquilinos en el catálogo
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Para entender cómo la aplicación Wingtip Tickets implementa el aprovisionamien
 
 2. Para agregar un punto de interrupción, coloque el cursor en cualquier lugar de la línea, que dice: *New-Tenant `* . Después, presione F9.
 
-   ![Punto de interrupción](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![Captura de pantalla que muestra un script con "New-Tenant" resaltado para agregar un punto de interrupción.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. Presione F5 para ejecutar el script.
 

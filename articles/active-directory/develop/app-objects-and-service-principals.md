@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 0b6a6eac04711b564d602408a57b92f833fb5d5d
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: db25e0a9ebe01a45c594fe214efcdd3551cf6c14
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782448"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449359"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de aplicación y de entidad de servicio de Azure Active Directory
 
@@ -49,7 +49,7 @@ Para acceder a los recursos que están protegidos por un inquilino de Azure AD, 
 
 Una entidad de servicio es la representación local o la instancia de aplicación de un objeto de aplicación global en un único inquilino o directorio. Se trata de una instancia concreta creada a partir del objeto de aplicación, que hereda ciertas propiedades de ese objeto de aplicación.  La entidad de servicio se crea en cada inquilino donde se usa la aplicación y hace referencia al objeto de aplicación único global.  El objeto de entidad de servicio define lo que la aplicación puede hacer en el inquilino específico, quién puede acceder a la aplicación y a qué recursos tiene acceso la aplicación.
 
-Cuando una aplicación tiene permiso para acceder a los recursos de un inquilino (tras el registro o [consentimiento](developer-glossary.md#consent)), se crea un objeto de entidad de seguridad de servicio. También puede crear un objeto de entidad de servicio en un inquilino mediante [Azure PowerShell](howto-authenticate-service-principal-powershell.md), la CLI de Azure, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal] y otras herramientas.  Si usa el portal, se crea automáticamente una entidad de servicio al registrar una aplicación.
+Cuando una aplicación tiene permiso para acceder a los recursos de un inquilino (tras el registro o [consentimiento](developer-glossary.md#consent)), se crea un objeto de entidad de seguridad de servicio. También puede crear un objeto de entidad de servicio en un inquilino mediante [Azure PowerShell](howto-authenticate-service-principal-powershell.md), la [CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal] y otras herramientas.  Si usa el portal, se crea automáticamente una entidad de servicio al registrar una aplicación.
 
 La hoja **Aplicaciones empresariales** del portal se usa para enumerar y administrar las entidades de servicio de un inquilino. Se pueden ver los permisos de la entidad de servicio, los permisos con consentimiento del usuario, los usuarios que han dado ese consentimiento, la información de inicio de sesión, etc.
 
