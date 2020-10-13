@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f3fd214fa62d95430bd8ca62e78fd3df30c77d19
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557183"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91652455"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Inicio rápido: Conversión de un modelo para su representación
 
@@ -189,7 +189,7 @@ El script de conversión genera un identificador URI de *Firma de acceso compart
 El URI de SAS creado por el script de conversión solo será válido durante 24 horas. Sin embargo, una vez expirado, no es necesario volver a convertir el modelo. En su lugar, puede crear una nueva SAS en el portal, tal y como se describe en los pasos siguientes:
 
 1. Vaya a [Azure Portal](https://www.portal.azure.com).
-1. Haga clic en el recurso de **cuenta de almacenamiento**: ![Acceso a firmas](./media/portal-storage-accounts.png)
+1. Haga clic en el recurso de **cuenta de almacenamiento**: ![Captura de pantalla que resalta el recurso de la cuenta de almacenamiento seleccionada.](./media/portal-storage-accounts.png)
 1. En la siguiente pantalla, haga clic en **Explorador de almacenamiento** en el panel izquierdo y busque el modelo de salida (archivo *.arrAsset*) en el contenedor de almacenamiento de blobs *arroutput*. Haga clic con el botón derecho en el archivo y seleccione **Obtener firma de acceso compartido** en el menú contextual. ![Acceso a firmas](./media/portal-storage-explorer.png)
 1. Se abre una nueva pantalla en la que puede seleccionar una fecha de expiración. Presione **Crear** y copie el identificador URI que se muestra en el siguiente cuadro de diálogo. Este nuevo identificador URI reemplaza el URI temporal que creó el script.
 
