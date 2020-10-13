@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/02/2020
 tags: connectors
-ms.openlocfilehash: f3de582ff69dbd57aa4692fd5c3901602569cf9e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cb851734dc8f71347168e7ac16ac0752845dda7b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286621"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823626"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
@@ -253,6 +253,22 @@ Si no puede evitar o retrasar el traslado del archivo, puede omitir la lectura d
 
 1. Si necesita estos metadatos del archivo más adelante, puede usar la acción **Obtener metadatos de archivo**.
 
+### <a name="504-error-a-connection-attempt-failed-because-the-connected-party-did-not-properly-respond-after-a-period-of-time-or-established-connection-failed-because-connected-host-has-failed-to-respond-or-request-to-the-sftp-server-has-taken-more-than-000030-seconds"></a>Error 504: "Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder" o "La solicitud para el servidor SFTP ha tardado más de '00:00:30' segundos".
+
+Este error puede producirse si la aplicación lógica no puede establecer correctamente una conexión con el servidor SFTP. Podría haber varias razones diferentes y se recomienda solucionar el problema desde los siguientes aspectos. 
+
+1. El tiempo de espera de la conexión es de 20 segundos. Asegúrese de que el servidor SFTP presente un buen rendimiento y de que los dispositivos intermedios, como el firewall, no agreguen mucha sobrecarga. 
+
+2. Si hay un firewall implicado, asegúrese de que las direcciones **IP del conector administrado** estén agregadas a la lista aprobada. Puede encontrar estas direcciones IP para la región de la aplicación lógica [**aquí**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+
+3. Si se trata de un problema intermitente, pruebe la opción de reintento para ver si un número de reintentos mayor que el valor predeterminado de 4 ayuda.
+
+4. Compruebe si el servidor SFTP aplica un límite al el número de conexiones desde cada dirección IP. Si es así, puede que necesite limitar el número de instancias simultáneas de la aplicación lógica. 
+
+5. Incremente la propiedad [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) por ejemplo a 1 hora en la configuración de SSH en el servidor SFTP para reducir el costo del establecimiento de conexión.
+
+6. Puede comprobar el registro del servidor SFTP para ver si la solicitud de la aplicación lógica accedió alguna vez el servidor SFTP. También puede realizar algún seguimiento de red en el firewall y en el servidor SFTP para profundizar en el problema de conectividad.
+
 ## <a name="connector-reference"></a>Referencia de conectores
 
 Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, vea la [página de referencia del conector](/connectors/sftpwithssh/).
@@ -263,4 +279,3 @@ Si necesita más detalles técnicos sobre este conector, como los desencadenador
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
-

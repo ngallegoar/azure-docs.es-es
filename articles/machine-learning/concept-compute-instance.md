@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/25/2020
-ms.openlocfilehash: ec7fc5cec7d8ba63d9a628c3ede978818a2c3012
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.date: 10/02/2020
+ms.openlocfilehash: f32783b18b5454164567910aa369739d025b8be0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031031"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826893"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -24,7 +24,7 @@ Las instancias de proceso permiten que sea fácil comenzar a desarrollar con Azu
 
 Use una instancia de proceso como el entorno de desarrollo completamente configurado y administrado en la nube para el aprendizaje automático. También se pueden usar como destino de proceso para el entrenamiento y la inferencia con fines de desarrollo y pruebas.  
 
-Para el entrenamiento del modelo de nivel de producción, use un [clúster de proceso de Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute) con funcionalidades de escalado de varios nodos. Para la implementación del modelo de calidad de producción, use el [clúster de Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+Para el entrenamiento del modelo de nivel de producción, use un [clúster de proceso de Azure Machine Learning](how-to-create-attach-compute-cluster.md) con funcionalidades de escalado de varios nodos. Para la implementación del modelo de calidad de producción, use el [clúster de Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="why-use-a-compute-instance"></a>¿Por qué usar una instancia de proceso?
 
@@ -32,10 +32,12 @@ Una instancia de proceso es una estación de trabajo totalmente administrada bas
 
 |Ventajas principales|Descripción|
 |----|----|
-|Productividad|Puede compilar e implementar modelos con cuadernos integrados y las siguientes herramientas en Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (versión preliminar)<br/>La instancia de proceso está totalmente integrada con el área de trabajo y estudio de Azure Machine Learning. Puede compartir cuadernos y datos con otros científicos de datos en el área de trabajo. También puede configurar el desarrollo remoto de VS Code con [SSH](how-to-set-up-vs-code-remote.md). |
+|Productividad|Puede compilar e implementar modelos con cuadernos integrados y las siguientes herramientas en Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (versión preliminar)<br/>La instancia de proceso está totalmente integrada con el área de trabajo y estudio de Azure Machine Learning. Puede compartir cuadernos y datos con otros científicos de datos en el área de trabajo.<br/> También puede usar [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) con las instancias de proceso.
 |Administrada y segura|Reduzca la superficie de seguridad y agregue compatibilidad con los requisitos de seguridad empresariales. Las instancias de proceso proporcionan directivas de administración sólidas y configuraciones de red seguras, como:<br/><br/>- Aprovisionamiento automático a partir de plantillas de Resource Manager o del SDK de Azure Machine Learning<br/>- [Control de acceso basado en rol de Azure (RBAC de Azure)](/azure/role-based-access-control/overview)<br/>- [Compatibilidad con redes virtuales](how-to-enable-virtual-network.md#compute-instance)<br/>- Directiva SSH para habilitar o deshabilitar el acceso SSH<br/>TLS 1.2 habilitado |
 |Preconfigurado &nbsp;para&nbsp;ML|Ahorre tiempo en las tareas de configuración con paquetes de ML preconfigurados y actualizados, marcos de aprendizaje profundo y controladores de GPU.|
 |Totalmente personalizable|La amplia compatibilidad con los tipos de máquina virtual de Azure, incluidas las GPU y la personalización de bajo nivel persistente, como la instalación de paquetes y controladores, hace que los escenarios avanzados sean muy sencillos. |
+
+Puede [crear una instancia de proceso](how-to-create-manage-compute-instance.md?tabs=python#create), o bien puede [crearla un administrador por usted](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview).
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Herramientas y entornos
 
@@ -45,7 +47,11 @@ Una instancia de proceso es una estación de trabajo totalmente administrada bas
 
 La estancia de proceso Azure Machine Learning permite crear, formar e implementar modelos en una experiencia de cuaderno completamente integrada en el área de trabajo.
 
-Las siguientes herramientas y entornos están instalados en la instancia de proceso: 
+Puede ejecutar cuadernos de Jupyter en [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) mediante la instancia de proceso como el servidor remoto sin necesidad de SSH. También puede habilitar la integración de VS Code a través de la [extensión de SSH remota](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
+
+Puede [instalar paquetes](how-to-create-manage-compute-instance.md#install-packages) y [agregar kernels](how-to-create-manage-compute-instance.md#add-new-kernels) a su instancia de proceso.  
+
+Las herramientas y los entornos siguientes ya están instalados en la instancia de proceso: 
 
 |Herramientas y entornos generales|Detalles|
 |----|:----:|
@@ -69,7 +75,7 @@ Las siguientes herramientas y entornos están instalados en la instancia de proc
 |Anaconda Python||
 |Jupyter y extensiones||
 |Jupyterlab y extensiones||
-[SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>desde PyPI|Incluye la mayoría de los paquetes adicionales de azureml.  Para ver la lista completa, [abra una ventana de terminal en la instancia de proceso](how-to-run-jupyter-notebooks.md#terminal) y ejecute <br/> `conda list -n azureml_py36 azureml*` |
+[SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)</br>desde PyPI|Incluye la mayoría de los paquetes adicionales de azureml.  Para ver la lista completa, [abra una ventana de terminal en la instancia de proceso](how-to-run-jupyter-notebooks.md#terminal) y ejecute <br/> `conda list -n azureml_py36 azureml*` |
 |Otros paquetes de PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Paquetes Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Paquetes de aprendizaje profundo|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -77,20 +83,6 @@ Las siguientes herramientas y entornos están instalados en la instancia de proc
 |Ejemplos del SDK de Python y R para Azure Machine Learning||
 
 Todos los paquetes de Python se instalan en el entorno de **Python 3.6: AzureML**.  
-
-### <a name="installing-packages"></a>Instalación de paquetes
-
-Puede instalar paquetes directamente en Jupyter Notebook o en RStudio:
-
-* RStudio: use la pestaña **Paquetes**, situada en la parte inferior derecha, o la pestaña **Consola**, situada en la parte superior izquierda.  
-* Python: agregue el código de instalación y ejecútelo en una celda de Jupyter Notebook.
-
-También puede acceder a una ventana de terminal de cualquiera de estas formas:
-
-* RStudio: seleccione la pestaña **Terminal**, situada en la parte superior izquierda.
-* Jupyter Lab:  seleccione el icono **Terminal** en el encabezado **Otros** de la pestaña Iniciador.
-* Jupyter:  seleccione **Nuevo>Terminal** en la parte superior derecha de la pestaña Archivos.
-* Conéctese mediante SSH a la máquina virtual.  Después, instale los paquetes de Python en el entorno de **Python 3.6: AzureML**.  Instale los paquetes de R en el entorno de **R**.
 
 ## <a name="accessing-files"></a>Acceso a archivos
 
@@ -144,7 +136,7 @@ Usted también puede crear una instancia
 * Directamente de la [experiencia de cuadernos integrados](tutorial-1st-experiment-sdk-setup.md#azure)
 * En Azure Portal
 * A partir de una plantilla de Azure Resource Manager. Para ver una plantilla de ejemplo, consulte [Creación una plantilla de instancia de proceso de Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-* Con [SDK de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
+* Con [SDK de Azure Machine Learning](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
 * Desde la extensión de la [CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
 Los núcleos dedicados por región por cuota de familia de máquinas virtuales y cuota regional total, que se aplica a la creación de instancias de proceso, se unifica y comparte con la cuota de clúster de proceso de Azure Machine Learning. La detención de la instancia de proceso no libera la cuota para garantizar que pueda reiniciar la instancia de proceso.
@@ -153,7 +145,7 @@ Los núcleos dedicados por región por cuota de familia de máquinas virtuales y
 ### <a name="create-on-behalf-of-preview"></a>Creación en nombre de alguien (versión preliminar)
 
 Como administrador, puede crear una instancia de proceso en nombre de un científico de datos y asignarle la instancia con:
-* [Plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/2020-06-01/workspaces/computes)  Para más información sobre cómo buscar los valores de TenantID y ObjectID necesarios en esta plantilla, consulte [Encontrar identificadores de objeto de identidad para la configuración de autenticación](../healthcare-apis/find-identity-object-ids.md).  También puede encontrar estos valores en el portal de Azure Active Directory.
+* [Plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)  Para más información sobre cómo buscar los valores de TenantID y ObjectID necesarios en esta plantilla, consulte [Encontrar identificadores de objeto de identidad para la configuración de autenticación](../healthcare-apis/find-identity-object-ids.md).  También puede encontrar estos valores en el portal de Azure Active Directory.
 * API DE REST
 
 El científico de datos para el que se crea la instancia de proceso necesita los siguientes permisos RBAC: 
@@ -192,4 +184,5 @@ No se pueden crear las nuevas máquinas virtuales de Notebook. Sin embargo, toda
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- * [Tutorial: Formar su primer modelo de ML](tutorial-1st-experiment-sdk-train.md) muestra cómo usar una instancia de proceso con un cuaderno integrado.
+* [Creación y administración de una instancia de proceso](how-to-create-manage-compute-instance.md)
+* [Tutorial: Formar su primer modelo de ML](tutorial-1st-experiment-sdk-train.md) muestra cómo usar una instancia de proceso con un cuaderno integrado.

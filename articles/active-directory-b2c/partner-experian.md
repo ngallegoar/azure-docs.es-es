@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5c2fb330149d3e6530e7cb0fc3350d5db3fa24cf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683885"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259380"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Tutorial para configurar Experian con Azure Active Directory B2C
 
@@ -77,7 +77,7 @@ En el siguiente diagrama de arquitectura se muestra la implementación.
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1: implementación de la API
 
-Implemente el código de la API proporcionado en un servicio de Azure. El código se puede publicar desde Visual Studio siguiendo estas [instrucciones](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Implemente el [código de la API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) proporcionado en un servicio de Azure. El código se puede publicar desde Visual Studio siguiendo estas [instrucciones](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Necesitará la dirección URL del servicio implementado para configurar Azure AD con la configuración necesaria.
@@ -117,7 +117,7 @@ Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/
 
 ### <a name="part-5---replace-the-configuration-values"></a>Parte 5: reemplazo de los valores de configuración
 
-En las directivas personalizadas proporcionadas, busque los siguientes marcadores de posición y reemplácelos por los valores correspondientes de la instancia.
+En las [directivas personalizadas](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Experian/policy) proporcionadas, busque los siguientes marcadores de posición y reemplácelos por los valores correspondientes de la instancia.
 
 |                      Marcador de posición                       |                                   Reemplazar por el valor                                 |                   Ejemplo                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |

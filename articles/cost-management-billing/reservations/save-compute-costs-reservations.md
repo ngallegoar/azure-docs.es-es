@@ -1,23 +1,23 @@
 ---
 title: ¿Qué es Azure Reservations?
-description: Obtenga información sobre Azure Reservations y precios para ahorrar en máquinas virtuales, SQL Database, Azure Cosmos DB y otros costos de recursos.
+description: Obtenga información sobre Azure Reservations, así como sus precios, con el fin de ahorrar en las instancias reservadas de máquinas virtuales, bases de datos de SQL Database, Azure Cosmos DB y otros costos de recursos.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 08/04/2020
+ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: a5ab489e995506deb806fe5f0cee4a147ae42ac2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d8c9f35ec7a8db3a777e48a629e4af1f15090a89
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682593"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652370"
 ---
 # <a name="what-are-azure-reservations"></a>¿Qué es Azure Reservations?
 
-Las reservas de Azure le ayudan a ahorrar dinero, ya que se compromete a planes de uno o tres años para varios productos. La confirmación le permite obtener un descuento en los recursos que utiliza. Reservations puede reducir significativamente los costos de los recursos hasta un 72 % en los precios de pago por uso. Reservations ofrece un descuento en la facturación y no afecta al estado del entorno de ejecución de los recursos. Después de adquirir una reserva, el descuento se aplica automáticamente a los recursos coincidentes.
+Las reservas de Azure le ayudan a ahorrar dinero, ya que se compromete a planes de uno o tres años para varios productos. La confirmación le permite obtener un descuento en los recursos que utiliza. Reservations puede reducir considerablemente los costos de los recursos hasta en un 72 %, con respecto a los precios de pago por uso. Reservations ofrece un descuento en la facturación y no afecta al estado del entorno de ejecución de los recursos. Después de adquirir una reserva, el descuento se aplica automáticamente a los recursos coincidentes.
 
 Puede pagar una reserva por adelantado o mensualmente. El costo total de las reservas por adelantado y mensuales es el mismo y no se pagan cargos adicionales por elegir el pago mensual. El pago mensual está disponible para las reservas de Azure, no para los productos de terceros.
 
@@ -50,9 +50,9 @@ Para más información, consulte  [Determinación de qué reserva comprar](det
 
 Puede comprar reservas en Azure Portal, las API, PowerShell y la CLI. 
 
-Vaya a Azure Portal para realizar la compra (https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs). 
+Vaya a [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) para realizar una compra.
 
-Para más información, consulte  [Adquisición de una reserva](prepare-buy-reservation.md). 
+Para más información, consulte  [Adquisición de una reserva](prepare-buy-reservation.md).
 
 ## <a name="how-is-a-reservation-billed"></a>¿Cómo se factura una reserva? 
 
@@ -106,7 +106,7 @@ Planes de software:
 
 - **SUSE Linux**: una reserva cubre los costos de los planes de software. Los descuentos solo se aplican a los medidores SUSE y no en al uso de la máquina virtual.
 - **Planes de Red Hat**: una reserva cubre los costos del plan de software. Los descuentos solo se aplican a los medidores RedHat, y no al uso de la máquina virtual.
-- **Azure VMware Solution by CloudSimple**: una reserva cubre los nodos de CloudSimple de VMWare. Es posible que todavía se apliquen costos de software adicionales.
+- **Azure VMware Solution by CloudSimple**: una reserva cubre los nodos de VMware CloudSimple. Es posible que todavía se apliquen costos de software adicionales.
 - **Red Hat OpenShift en Azure**: una reserva se aplica a los costos de OpenShift, no a los costos de infraestructura de Azure.
 
 En el caso de máquinas virtuales Windows y SQL Database, el descuento por reserva no se aplica a los costos de software. Puede cubrir los costos de licencia con [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).

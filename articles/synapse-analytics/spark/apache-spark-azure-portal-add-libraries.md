@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: euang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: b7aea6565e8301e2aeb96263b8e7b1d2ea64995d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 02f627c9f606ced7e1b0d991e5053dab17050292
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589568"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826731"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Administración de bibliotecas para Apache Spark en Azure Synapse Analytics
 
@@ -85,7 +85,7 @@ Para instalar una biblioteca en un grupo de Spark (versión preliminar) directam
 
  4. Cargue el archivo de configuración de entorno mediante el selector de archivos.
 
-![Adición de bibliotecas de Python](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Adición de bibliotecas de Python")
+![Captura de pantalla que resalta el botón de carga de un archivo de configuración de entorno.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Adición de bibliotecas de Python")
 
 ### <a name="verify-installed-libraries"></a>Comprobación de las bibliotecas instaladas
 
@@ -125,7 +125,7 @@ Los paquetes wheel de compilación personalizada se pueden instalar en el grupo 
 Los archivos se deben cargar en la siguiente ruta de acceso en el contenedor predeterminado de la cuenta de almacenamiento: 
 
 ```
-abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>sparkpools/<pool_name>libraries/python/
+abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
 >[!IMPORTANT]

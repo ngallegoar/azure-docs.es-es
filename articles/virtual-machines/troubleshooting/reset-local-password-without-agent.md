@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: cb2f08c4788c90f8bdb2af9c6ef95fd1ac43b994
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4cec8f77cacc5d3492dd6a5f8a8baa060f910763
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028675"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650603"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Restablecimiento de una contraseña de Windows local para VM de Azure sin conexión
 Puede restablecer la contraseña de Windows local de una VM en Azure mediante [Azure Portal o Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) siempre que el agente invitado de Azure esté instalado. Este método es la manera principal de restablecer una contraseña para una VM de Azure. Si tiene problemas con el agente de invitado de Azure, como puede ser que no responda o que no se pueda instalar después de cargar una imagen personalizada, puede restablecer manualmente una contraseña de Windows. En este artículo se detalla cómo restablecer la contraseña de una cuenta local asociando el disco virtual de SO de origen a otra VM. Los pasos descritos en este artículo no se aplican a los controladores de dominio de Windows. 
@@ -59,29 +59,22 @@ Intente siempre restablecer una contraseña mediante [Azure Portal o Azure Power
      Version=1
      ```
      
-     ![Creación de gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini.png)
+     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
 
-4. Cree `scripts.ini` en `\Windows\System32\GroupPolicy\Machine\Scripts\`. Asegúrese de que se muestran las carpetas ocultas. Si es necesario, cree las carpetas `Machine` o `Scripts`.
+4. Cree `scripts.ini` en `\Windows\System32\GroupPolicy\Machine\Scripts\`. Asegúrese de que se muestran las carpetas ocultas. Si es necesario, cree las carpetas `Machine` o `Scripts`. 
    
    * Agregue las líneas siguientes al archivo `scripts.ini` que creó:
      
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
-     ![Creación de scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
-
-5. Crear `FixAzureVM.cmd` en `\Windows\System32` con el contenido siguiente, reemplazando `<username>` y `<newpassword>` por sus propios valores:
-   
-    ```
-    net user <username> <newpassword> /add
-    net localgroup administrators <username> /add
-    net localgroup "remote desktop users" <username> /add
+     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini." <username> /add
     ```
 
-    ![Creación de FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd.png)
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
    
     Al definir la nueva contraseña debe cumplir los requisitos de complejidad de contraseña configurada para la VM.
 
@@ -93,7 +86,7 @@ Intente siempre restablecer una contraseña mediante [Azure Portal o Azure Power
 
 9. En la sesión remota respecto a la nueva VM, quite los archivos siguientes para limpiar el entorno:
     
-    * De %windir%\System32
+    * De %windir%\System32\GroupPolicy\Machine\Scripts\Startup
       * quite FixAzureVM.cmd
     * De %windir%\System32\GroupPolicy\Machine\Scripts
       * quite scripts.ini
@@ -113,31 +106,31 @@ Intente siempre restablecer una contraseña mediante [Azure Portal o Azure Power
    
    * Seleccione la VM en Azure Portal y luego haga clic en *Eliminar*:
      
-     ![Eliminación de la VM existente](./media/reset-local-password-without-agent/delete-vm-classic.png)
+     :::image type="content" source="./media/reset-local-password-without-agent/delete-vm-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
 
 2. Asocie el disco del SO de la VM de origen a la VM de solución de problemas. La VM de solución de problemas debe estar en la misma región que el disco del SO de la VM de origen (como `West US`):
    
    1. Seleccione la VM de solución de problemas en Azure Portal. Haga clic en *Discos* | *Asociar existente*:
      
-      ![Conectar disco existente](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-existing-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
      
    2. Seleccione *Archivo VHD* y seleccione la cuenta de almacenamiento que contiene su VM de origen:
      
-      ![Selección de la cuenta de almacenamiento](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-storage-account-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
      
    3. Active la casilla *Mostrar cuentas de almacenamiento clásico* y, después, seleccione el contenedor de origen. El contenedor de origen suele ser *vhds*:
      
-      ![Selección del contenedor de almacenamiento](./media/reset-local-password-without-agent/disks-select-container-classic.png)
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
 
-      ![Selección del contenedor de almacenamiento](./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png)
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
      
    4. Seleccione el disco duro virtual de SO para asociar. Haga clic en *Seleccionar* para completar el proceso:
      
-      ![Seleccione el disco virtual de origen](./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png)
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
 
    5. Haga clic en Aceptar para conectar el disco
 
-      ![Conectar disco existente](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-okay-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
 
 3. Conéctese a la VM de solución de problemas mediante Escritorio remoto y asegúrese de que el disco del SO de la VM de origen está visible:
 
@@ -147,7 +140,7 @@ Intente siempre restablecer una contraseña mediante [Azure Portal o Azure Power
 
    3. En el Explorador de archivos, busque el disco de datos que se ha asociado. Si el origen de disco duro virtual de la VM es el único disco de datos asociado a la VM de solución de problemas, debe ser la unidad F:
      
-      ![Visualización del disco de datos conectado](./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png)
+      :::image type="content" source="./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
 
 4. Cree `gpt.ini` en `\Windows\System32\GroupPolicy` en la unidad de la VM de origen (si `gpt.ini` existe, cambie el nombre a `gpt.ini.bak`):
    
@@ -163,29 +156,22 @@ Intente siempre restablecer una contraseña mediante [Azure Portal o Azure Power
      Version=1
      ```
      
-     ![Creación de gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
+     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
 
-5. Cree `scripts.ini` en `\Windows\System32\GroupPolicy\Machines\Scripts\`. Asegúrese de que se muestran las carpetas ocultas. Si es necesario, cree las carpetas `Machine` o `Scripts`.
+5. Cree `scripts.ini` en `\Windows\System32\GroupPolicy\Machine\Scripts\`. Asegúrese de que se muestran las carpetas ocultas. Si es necesario, cree las carpetas `Machine` o `Scripts`.
    
    * Agregue las líneas siguientes al archivo `scripts.ini` que creó:
 
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
-     ![Creación de scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
-
-6. Crear `FixAzureVM.cmd` en `\Windows\System32` con el contenido siguiente, reemplazando `<username>` y `<newpassword>` por sus propios valores:
-   
-    ```
-    net user <username> <newpassword> /add
-    net localgroup administrators <username> /add
-    net localgroup "remote desktop users" <username> /add
+     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini." <username> /add
     ```
 
-    ![Creación de FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-classic.png)
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
    
     Al definir la nueva contraseña debe cumplir los requisitos de complejidad de contraseña configurada para la VM.
 
@@ -195,17 +181,17 @@ Intente siempre restablecer una contraseña mediante [Azure Portal o Azure Power
    
    2. Seleccione el disco de datos asociado en el paso 2, haga clic en **Desasociar:** y luego en **Aceptar**.
 
-     ![Desasociación del disco](./media/reset-local-password-without-agent/data-disks-classic.png)
+     :::image type="content" source="./media/reset-local-password-without-agent/data-disks-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
      
-     ![Desasociación del disco](./media/reset-local-password-without-agent/detach-disk-classic.png)
+     :::image type="content" source="./media/reset-local-password-without-agent/detach-disk-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
 
 8. Cree una VM desde el disco del SO de la VM de origen:
    
-     ![Creación de una VM a partir de una plantilla](./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png)
+     :::image type="content" source="./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
 
-     ![Creación de una VM a partir de una plantilla](./media/reset-local-password-without-agent/choose-subscription-classic.png)
+     :::image type="content" source="./media/reset-local-password-without-agent/choose-subscription-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
 
-     ![Creación de una VM a partir de una plantilla](./media/reset-local-password-without-agent/create-vm-classic.png)
+     :::image type="content" source="./media/reset-local-password-without-agent/create-vm-classic.png" alt-text="Captura de pantalla que muestra los cambios realizados en el archivo gpt.ini.":::
 
 ## <a name="complete-the-create-virtual-machine-experience"></a>Completar la experiencia de Crear máquina virtual
 
@@ -213,7 +199,7 @@ Intente siempre restablecer una contraseña mediante [Azure Portal o Azure Power
 
 2. En la sesión remota respecto a la nueva VM, quite los archivos siguientes para limpiar el entorno:
     
-    * De `%windir%\System32`
+    * De `%windir%\System32\GroupPolicy\Machine\Scripts\Startup\`
       * quite `FixAzureVM.cmd`
     * De `%windir%\System32\GroupPolicy\Machine\Scripts`
       * quite `scripts.ini`

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: d743785ad5525f582e5cb25df715d8211121e809
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 898f579446008bd696b4c120a56a960458e5640f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547263"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776075"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Tutorial: Integración de Azure Active Directory con Communifire
 
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con Communifire, realice
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Communifire](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la sección "Configuración básica de SAML" con la acción "Guardar", el campo "Identificador" y el campo "U R L de respuesta" resaltados.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<subdomain>.communifire.com`
 

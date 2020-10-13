@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 57417a80ea83005c01b6f2a17206d46e6c049719
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98cd28e8b770ebfb7ab395fbe7fff16a078e3529
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85112785"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826854"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Creación de particiones y escalado horizontal en Azure Cosmos DB
 
@@ -19,11 +19,11 @@ En este artículo, se explica la relación entre las particiones lógicas y las 
 
 ## <a name="logical-partitions"></a>Particiones lógicas
 
-Una partición lógica consta de un conjunto de elementos con la misma clave de partición. Por ejemplo, en un contenedor con datos sobre nutrición, todos los elementos contienen la propiedad `foodGroup`. Puede utilizar `foodGroup` como clave de partición del contenedor. Los grupos de elementos que tienen valores de `foodGroup` específicos, como `Beef Products`, `Baked Products` y `Sausages and Luncheon Meats`, conforman distintas particiones lógicas. No tiene que preocuparse de quitar una partición lógica una vez eliminados los datos subyacentes.
+Una partición lógica consta de un conjunto de elementos con la misma clave de partición. Por ejemplo, en un contenedor con datos sobre nutrición, todos los elementos contienen la propiedad `foodGroup`. Puede utilizar `foodGroup` como clave de partición del contenedor. Los grupos de elementos que tienen valores específicos para `foodGroup`, tales como `Beef Products`, `Baked Products` y `Sausages and Luncheon Meats`, forman distintas particiones lógicas. No tiene que preocuparse de quitar una partición lógica una vez eliminados los datos subyacentes.
 
 Una partición lógica también define el ámbito de las transacciones de base de datos. Puede actualizar los elementos dentro de una partición lógica mediante el uso de una [transacción con aislamiento de instantánea](database-transactions-optimistic-concurrency.md). Cuando se agregan nuevos elementos al contenedor, se crean nuevas particiones lógicas de forma transparente por el sistema.
 
-No existen límites en el número de particiones lógicas que puede tener el contenedor. Cada partición lógica puede almacenar un máximo de 20 GB de datos. Las claves de partición correctas son aquellas que tienen una amplia gama de valores posibles. Por ejemplo, en un contenedor donde todos los elementos contienen la propiedad `foodGroup`, los datos de la partición lógica `Beef Products` podrían crecer hasta los 20 GB. [Seleccionar una clave de partición](partitioning-overview.md#choose-partitionkey) con una amplia gama de valores posibles garantiza que el contenedor se puede escalar.
+No existen límites en el número de particiones lógicas que puede tener el contenedor. Cada partición lógica puede almacenar un máximo de 20 GB de datos. Las claves de partición correctas son aquellas que tienen una amplia gama de valores posibles. Por ejemplo, en un contenedor donde todos los elementos contienen una propiedad `foodGroup`, los datos de la partición lógica `Beef Products` podrían crecer hasta los 20 GB. [Seleccionar una clave de partición](partitioning-overview.md#choose-partitionkey) con una amplia gama de valores posibles garantiza que el contenedor se puede escalar.
 
 ## <a name="physical-partitions"></a>Particiones físicas
 
@@ -36,7 +36,7 @@ El número de particiones físicas del contenedor de Cosmos dependerá de lo sig
 
 No existen límites en el número de particiones físicas que puede tener el contenedor. A medida que aumente el tamaño de los datos o el rendimiento aprovisionado, Azure Cosmos DB creará nuevas particiones físicas automáticamente dividiendo las particiones existentes. Las divisiones de las particiones físicas no afectan a la disponibilidad de la aplicación. Cuando una partición física se divide, todos los datos que estén en una partición lógica específica se guardarán en la misma partición física. Las divisiones de las particiones físicas simplemente crean una nueva asignación entre las particiones lógicas y las particiones físicas.
 
-El rendimiento aprovisionado para un contenedor se divide uniformemente entre las particiones físicas. Un diseño de clave de partición que no distribuye uniformemente las solicitudes de rendimiento puede crear particiones "activas". Las particiones activas pueden conllevar un uso ineficaz y que limite la velocidad del rendimiento aprovisionado y costos más elevados.
+El rendimiento aprovisionado para un contenedor se divide uniformemente entre las particiones físicas. Un diseño de claves de partición que no distribuye las solicitudes de manera uniforme puede generar demasiadas solicitudes dirigidas a un pequeño subconjunto de particiones que pasarán a ser "frecuentes". Las particiones frecuentes pueden conllevar un uso ineficaz del rendimiento aprovisionado, lo que podría limitar la velocidad y incrementar los costos.
 
 Puede ver las particiones físicas de un contenedor en la sección **Almacenamiento** de la **hoja de métricas** de Azure Portal:
 
@@ -54,7 +54,7 @@ La mayoría de los contenedores pequeños de Cosmos solo necesitarán una única
 
 La siguiente imagen muestra cómo se asignan particiones lógicas a particiones físicas distribuidas globalmente:
 
-:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Una imagen que muestra las particiones de Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Consulta del número de particiones físicas" border="false":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

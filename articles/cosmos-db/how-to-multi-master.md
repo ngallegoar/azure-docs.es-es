@@ -1,29 +1,29 @@
 ---
-title: Configuración de la arquitectura multimaestro en Azure Cosmos DB
-description: Aprenda a configurar la arquitectura multimaestro en las aplicaciones mediante diferentes SDK de Azure Cosmos DB.
+title: Configuración de escrituras en varias regiones en Azure Cosmos DB
+description: Aprenda a configurar escrituras en varias regiones en las aplicaciones mediante diferentes SDK de Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 68f3beb0ee1c12aa06b6cce0f9ddd480b0ce5f2f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.openlocfilehash: 8079fb3ab04d5f613566816735491203d7df951a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015252"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570667"
 ---
-# <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configuración de la arquitectura multimaestro en las aplicaciones que usan Azure Cosmos DB
+# <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configuración de escrituras en varias regiones en las aplicaciones que usan Azure Cosmos DB
 
-Una vez creada una cuenta con varias regiones de escritura habilitadas, debe realizar dos cambios en la aplicación en ConnectionPolicy para DocumentClient para habilitar las funcionalidades de hospedaje múltiple y arquitectura multimaestro en Azure Cosmos DB. En ConnectionPolicy, establezca UseMultipleWriteLocations en true y pase el nombre de la región donde se implementa la aplicación a SetCurrentLocation. Se rellena la propiedad PreferredLocations según la proximidad geográfica de la ubicación pasada. Si más adelante se agrega una nueva región a la cuenta, la aplicación no tiene que actualizarse ni volver a implementarse; se detecta automáticamente la región más cercana y se hospeda por sí sola en ella si se produce un evento regional.
+Una vez creada una cuenta con varias regiones de escritura habilitadas, debe realizar dos cambios en la aplicación en ConnectionPolicy para DocumentClient para habilitar las funcionalidades de escrituras en varias regiones y hospedaje múltiple en Azure Cosmos DB. En ConnectionPolicy, establezca UseMultipleWriteLocations en true y pase el nombre de la región donde se implementa la aplicación a SetCurrentLocation. Se rellena la propiedad PreferredLocations según la proximidad geográfica de la ubicación pasada. Si más adelante se agrega una nueva región a la cuenta, la aplicación no tiene que actualizarse ni volver a implementarse; se detecta automáticamente la región más cercana y se hospeda por sí sola en ella si se produce un evento regional.
 
 > [!Note]
-> Las cuentas de Cosmos configuradas inicialmente con una sola región de escritura pueden configurarse para varias regiones de escritura (es decir, arquitectura multimaestro) con cero tiempo de inactividad. Para más información, consulte, [Configuración de varias regiones de escritura](how-to-manage-database-account.md#configure-multiple-write-regions).
+> Las cuentas de Cosmos configuradas inicialmente con una sola región de escritura pueden configurarse para varias regiones de escritura con cero tiempo de inactividad. Para más información, consulte, [Configuración de varias regiones de escritura](how-to-manage-database-account.md#configure-multiple-write-regions).
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK v2
 
-Para habilitar la arquitectura multimaestro en la aplicación, establezca `UseMultipleWriteLocations` en `true`. Además, establezca `SetCurrentLocation` en la región en que se va a implementar la aplicación y donde se va a replicar Azure Cosmos DB:
+Para habilitar las escrituras en varias regiones en la aplicación, establezca `UseMultipleWriteLocations` en `true`. Además, establezca `SetCurrentLocation` en la región en que se va a implementar la aplicación y donde se va a replicar Azure Cosmos DB:
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -37,7 +37,7 @@ policy.SetCurrentLocation("West US 2");
 
 ## <a name="net-sdk-v3"></a><a id="netv3"></a>SDK de .NET v3
 
-Para habilitar la arquitectura multimaestro en la aplicación, establezca `ApplicationRegion` en la región en la que se va a implementar la aplicación y donde se va a replicar Cosmos DB.
+Para habilitar escrituras en varias regiones en la aplicación, establezca `ApplicationRegion` en la región en la que se va a implementar la aplicación y donde se va a replicar Cosmos DB:
 
 ```csharp
 CosmosClient cosmosClient = new CosmosClient(
@@ -56,9 +56,9 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a name="java-v4-sdk"></a><a id="java4-multi-master"></a> SDK de Java V4
+## <a name="java-v4-sdk"></a><a id="java4-multi-region-writes"></a> SDK de Java V4
 
-Para habilitar la arquitectura multimaestro en la aplicación, llame a `.multipleWriteRegionsEnabled(true)` y `.preferredRegions(preferredRegions)` en el generador de clientes, donde `preferredRegions` es un objeto `List` que contiene un elemento, que es la región en la que se va a implementar la aplicación y donde se va a replicar Cosmos DB:
+Para habilitar escrituras en varias regiones en la aplicación, llame a `.multipleWriteRegionsEnabled(true)` y `.preferredRegions(preferredRegions)` en el generador de clientes, donde `preferredRegions` es un objeto `List` que contiene un elemento, que es la región en la que se va a implementar la aplicación y donde se va a replicar Cosmos DB:
 
 # <a name="async"></a>[Asincrónico](#tab/api-async)
 
@@ -74,9 +74,9 @@ Para habilitar la arquitectura multimaestro en la aplicación, llame a `.multipl
 
 --- 
 
-## <a name="async-java-v2-sdk"></a><a id="java2-milti-master"></a> Versión 2 del SDK de Java sincrónico
+## <a name="async-java-v2-sdk"></a><a id="java2-multi-region-writes"></a> Versión 2 del SDK de Java sincrónico
 
-La versión 2 del SDK de Java usaba el Maven [com.microsoft.azure::azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Para habilitar la arquitectura multimaestro en la aplicación, establezca `policy.setUsingMultipleWriteLocations(true)` y establezca `policy.setPreferredLocations` en la región en la que se va a implementar la aplicación y donde se va a replicar Cosmos DB:
+La versión 2 del SDK de Java usaba el Maven [com.microsoft.azure::azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Para habilitar escrituras en varias regiones en la aplicación, establezca `policy.setUsingMultipleWriteLocations(true)` y establezca `policy.setPreferredLocations` en la región en la que se va a implementar la aplicación y donde se va a replicar Cosmos DB:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -93,7 +93,7 @@ AsyncDocumentClient client =
 
 ## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>SDK de Node.js, JavaScript y TypeScript
 
-Para habilitar la arquitectura multimaestro en la aplicación, establezca `connectionPolicy.UseMultipleWriteLocations` en `true`. Además, establezca `connectionPolicy.PreferredLocations` en la región en que se va a implementar la aplicación y donde se va a replicar Cosmos DB:
+Para habilitar las escrituras en varias regiones en la aplicación, establezca `connectionPolicy.UseMultipleWriteLocations` en `true`. Además, establezca `connectionPolicy.PreferredLocations` en la región en que se va a implementar la aplicación y donde se va a replicar Cosmos DB:
 
 ```javascript
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
@@ -110,7 +110,7 @@ const client = new CosmosClient({
 
 ## <a name="python-sdk"></a><a id="python"></a>SDK para Python
 
-Para habilitar la arquitectura multimaestro en la aplicación, establezca `connection_policy.UseMultipleWriteLocations` en `true`. Además, establezca `connection_policy.PreferredLocations` en la región en que se va a implementar la aplicación y donde se va a replicar Cosmos DB.
+Para habilitar las escrituras en varias regiones en la aplicación, establezca `connection_policy.UseMultipleWriteLocations` en `true`. Además, establezca `connection_policy.PreferredLocations` en la región en que se va a implementar la aplicación y donde se va a replicar Cosmos DB.
 
 ```python
 connection_policy = documents.ConnectionPolicy()

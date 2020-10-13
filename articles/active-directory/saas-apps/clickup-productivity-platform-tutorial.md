@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 794a952ba719faa16e3584afaf8f2f292deb6c03
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8a8a9587fd50b63dc862f8b74bc99548699fa6e2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551826"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760683"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutorial: Integración de Azure Active Directory con la plataforma de productividad ClickUp
 
@@ -118,17 +118,17 @@ Para configurar el inicio de sesión único de Azure AD con ClickUp, realice los
 
 2. Haga clic en **User profile** (Perfil de usuario) y, a continuación, seleccione **Settings** (Configuración).
 
-    ![Configuración de ClickUp](./media/clickup-productivity-platform-tutorial/configure0.png)
+    ![Captura de pantalla que muestra el inquilino de ClickUp con el icono de configuración seleccionado.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![Configuración de ClickUp](./media/clickup-productivity-platform-tutorial/configure1.png)
+    ![Captura de pantalla que muestra Settings (Configuración).](./media/clickup-productivity-platform-tutorial/configure1.png)
 
 3. Como proveedor de inicio de sesión único (SSO), seleccione **Microsoft**.
 
-    ![Configuración de ClickUp](./media/clickup-productivity-platform-tutorial/configure2.png)
+    ![Captura de pantalla que muestra el panel Authentication (Autenticación) con Microsoft seleccionado.](./media/clickup-productivity-platform-tutorial/configure2.png)
 
 4. En la página **Configure Microsoft Single Sign On** (Configurar inicio de sesión único de Microsoft), realice los siguientes pasos:
 
-    ![Configuración de ClickUp](./media/clickup-productivity-platform-tutorial/configure3.png)
+    ![Captura de pantalla que muestra la página Configure Microsoft Single Sign On (Configurar inicio de sesión único de Microsoft), donde puede copiar el identificador de entidad y guardar la dirección U R L de los metadatos de federación de Azure.](./media/clickup-productivity-platform-tutorial/configure3.png)
 
     a. Haga clic en **Copy** (Copiar) para copiar el identificador de entidad y pegarlo en el cuadro de texto **Identificador (id. de entidad)** de la sección **Configuración básica de SAML** en Azure Portal.
     
@@ -136,7 +136,7 @@ Para configurar el inicio de sesión único de Azure AD con ClickUp, realice los
 
 5. Para completar la instalación, haga clic en **Authenticate With Microsoft to complete setup** (Autenticar con Microsoft para completar la instalación) y autentíquese con la cuenta Microsoft.
 
-    ![Configuración de ClickUp](./media/clickup-productivity-platform-tutorial/configure4.png)
+    ![Captura de pantalla que muestra el botón Authenticate with Microsoft to complete setup (Autenticar con Microsoft para completar la instalación).](./media/clickup-productivity-platform-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -195,13 +195,13 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 2. Haga clic en **User profile** (Perfil de usuario) y, a continuación, seleccione **People** (Personas).
    
-    ![Configuración de ClickUp](./media/clickup-productivity-platform-tutorial/configure0.png)
+    ![Captura de pantalla que muestra el inquilino de ClickUp.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![Configuración de ClickUp](./media/clickup-productivity-platform-tutorial/user1.png)
+    ![Captura de pantalla que muestra el vínculo People (Personas) seleccionado.](./media/clickup-productivity-platform-tutorial/user1.png)
 
 3. Escriba la dirección de correo electrónico del usuario en el cuadro de texto y haga clic en **Invite** (Invitar).
 
-    ![Configuración de ClickUp](./media/clickup-productivity-platform-tutorial/user2.png)
+    ![Captura de pantalla que muestra la configuración de usuarios del equipo, donde puede invitar a personas por correo electrónico.](./media/clickup-productivity-platform-tutorial/user2.png)
 
     > [!NOTE]
     > El usuario recibirá la notificación y tendrá que aceptar la invitación para activar la cuenta.

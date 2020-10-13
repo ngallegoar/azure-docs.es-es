@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d453cc5300dc658e4b33bb0591100deae5f34aef
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 69ebc238d36223a4287ae1de668f60f9c2db014a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544747"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713594"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integración de Azure Active Directory con AnswerHub
 
@@ -140,7 +140,7 @@ En esta sección puede configurar el inicio de sesión único de AnswerHub.
 
 4. En la pestaña **IDP Config**, complete estas tareas:
 
-    ![Pestaña Users & Groups (Usuarios y grupos)](./media/answerhub-tutorial/ic785172.png "Configuración de SAML")  
+    ![Captura de pantalla que muestra la página AnswerHub con la pestaña Users & Groups (Usuarios y grupos) seleccionada.](./media/answerhub-tutorial/ic785172.png "Configuración de SAML")  
   
     a. En el cuadro **IDP Login URL** (URL de inicio de sesión de IDP), pegue la **dirección URL de inicio de sesión** que copió de Azure Portal.
   
@@ -231,7 +231,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en AnswerHub, deberá
 
 4. En el panel izquierdo, en la sección **Manage Users** (Administrar usuarios), seleccione **Create or import users** (Crear o importar usuarios) y, a continuación, seleccione **Users & Groups** (Usuarios y grupos).
 
-   ![Pestaña Users & Groups (Usuarios y grupos)](./media/answerhub-tutorial/ic785175.png "Usuarios y grupos")
+   ![Captura de pantalla que muestra la página AnswerHub con la pestaña Users & Groups (Usuarios y grupos) seleccionada y el vínculo Create or import users (Crear o importar usuarios) activado.](./media/answerhub-tutorial/ic785175.png "Usuarios y grupos")
 
 5. En los cuadros correspondientes, escriba la **dirección de correo electrónico**, el **nombre de usuario** y la **contraseña** de una cuenta de Azure AD válida que desee agregar y seleccione **Save** (Guardar).
 

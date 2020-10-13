@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: cccc45f182f3ae826440df8bc163080b82226c9f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: bd6afa8b3776ed48d4b25a36b2902265fa0ab5c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172076"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269767"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Bloqueo de conexiones creadas por conectores en Azure Logic Apps
 
@@ -121,7 +121,7 @@ Para bloquear la creación de una conexión en una aplicación lógica, siga est
 
 1. En **Definición de directiva**, proporcione la información de la definición de directiva, en función de las propiedades descritas en el ejemplo:
 
-   ![Propiedades de definición de directiva](./media/block-connections-connectors/policy-definition-create-connections-1.png)
+   ![Captura de pantalla en las que se muestran las propiedades de "Definición de directiva".](./media/block-connections-connectors/policy-definition-create-connections-1.png)
 
    | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
@@ -180,7 +180,7 @@ Para bloquear la creación de una conexión en una aplicación lógica, siga est
 
    Esta es la manera en que aparece el cuadro **REGLA DE DIRECTIVA**:
 
-   ![Regla para la definición de directiva](./media/block-connections-connectors/policy-definition-create-connections-2.png)
+   ![Captura de pantalla en la que se muestra el cuadro "REGLA DE DIRECTIVAS" con un ejemplo de regla de directivas.](./media/block-connections-connectors/policy-definition-create-connections-2.png)
 
    Si hay varios conectores, puede agregar más condiciones, por ejemplo:
 

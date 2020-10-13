@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089758"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258156"
 ---
 # <a name="publisher-verification"></a>Verificación del editor
 
@@ -33,9 +33,10 @@ La verificación del publicador proporciona las ventajas siguientes:
 
 - **Personalización de marca mejorada**: aparece una notificación "comprobado" en la [petición de consentimiento](application-consent-experience.md) de Azure AD, la página Aplicaciones empresariales y las superficies de experiencia de usuario adicionales que usan los usuarios finales y los administradores. 
 
-- **Adopción empresarial más fluida**: los administradores pueden configurar [directivas de consentimiento del usuario](../manage-apps/configure-user-consent.md) y que sea el estado de verificación del editor uno de los criterios principales de la directiva. 
+- **Adopción empresarial más fluida**: los administradores pueden configurar [directivas de consentimiento del usuario](../manage-apps/configure-user-consent.md) y que sea el estado de verificación del editor uno de los criterios principales de la directiva.
 
-- **Evaluación de riesgos mejorada**: las detecciones que Microsoft lleve a cabo de solicitudes de consentimiento "arriesgadas" incluirán la verificación del publicador como una señal. 
+> [!NOTE]
+> A partir de noviembre de 2020, los usuarios finales ya no podrán conceder consentimiento a la mayoría de las aplicaciones de varios inquilinos recién registradas sin publicadores comprobados. Esto será efectivo para las aplicaciones registradas después del 8 de noviembre de 2020. Use OAuth 2.0 para solicitar permisos más allá del inicio de sesión básico y la lectura del perfil de usuario, y solicite consentimiento a los usuarios de inquilinos que no sean aquellos en los que está registrada la aplicación. Se mostrará una advertencia en la pantalla de consentimiento que informa a los usuarios de que estas aplicaciones son peligrosas porque proceden de publicadores no comprobados.    
 
 ## <a name="requirements"></a>Requisitos
 Hay algunos requisitos previos para la verificación del publicador, algunos de los cuales ya cumplirán muchos asociados de Microsoft. Son las siguientes: 
@@ -69,7 +70,7 @@ A continuación se muestran algunas de las preguntas más frecuentes sobre el pr
 
   Los desarrolladores que también se integran con Microsoft 365 pueden recibir ventajas adicionales de estos programas. Para obtener más información, consulte [Atestación del publicador de Microsoft 365](/microsoft-365-app-certification/docs/attestation) y [Certificación de aplicaciones de Microsoft 365](/microsoft-365-app-certification/docs/certification). 
 
-- **¿Es lo mismo que la Galería de aplicaciones de Azure AD?** No: la comprobación del publicador es un programa complementario, aunque independiente, para la [Galería de aplicaciones de Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md). Los desarrolladores que cumplen los criterios anteriores deben completar el proceso de comprobación del publicador independientemente de la participación en dicho programa. 
+- **¿Es lo mismo que la Galería de aplicaciones de Azure AD?** No: la comprobación del publicador es un programa complementario, aunque independiente, para la [Galería de aplicaciones de Azure Active Directory](v2-howto-app-gallery-listing.md). Los desarrolladores que cumplen los criterios anteriores deben completar el proceso de comprobación del publicador independientemente de la participación en dicho programa. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [marcar una aplicación como comprobada por el publicador](mark-app-as-publisher-verified.md).

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: 2f3641bf540b188ce3d2333ccd6bcf4a926ba130
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1655b42b57edaeeaaaada802a248f56e0ba1470
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565092"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801467"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Ubicaciones de concentradores virtuales y asociados de Azure Virtual WAN
 
@@ -23,7 +23,7 @@ Azure Virtual WAN es un servicio de redes que ofrece conectividad de rama a rama
 
 La conectividad desde el dispositivo local se establece de forma automática para el concentrador virtual. Un concentrador virtual es una red virtual administrada por Microsoft. El concentrador contiene varios puntos de conexión de servicio para habilitar la conectividad de la red local (vpnsite). Solo se puede tener un concentrador por región.
 
-## <a name="automation-from-connectivity-partners"></a><a name="automation"></a>Automatización de asociados de conectividad
+## <a name="branch-ipsec-connectivity-automation-from-partners"></a><a name="automation"></a>Automatización de la conectividad IPSec de ramas de los asociados
 
 Los dispositivos que se conectan a Azure Virtual WAN tienen automatización integrada para conectarse. Normalmente, esto se configura en la interfaz de usuario de administración de dispositivos (o equivalente), donde se configura la administración de configuración y de conectividad entre el dispositivo de la rama VPN a un punto de conexión de VPN de concentrador virtual de Azure (puerta de enlace VPN).
 
@@ -36,11 +36,31 @@ La automatización de alto nivel siguiente se configura en la consola del dispos
 
 Algunos asociados de conectividad pueden extender la automatización para incluir la creación de la red virtual del concentrador virtual de Azure y VPN Gateway. Si quiere obtener más información acerca de la automatización, consulte [Directrices de automatización para asociados de Azure Virtual WAN](virtual-wan-configure-automation-providers.md).
 
-## <a name="connectivity-through-partners"></a><a name="partners"></a>Conectividad mediante asociados
+## <a name="branch-ipsec-connectivity-partners"></a><a name="partners"></a>Asociados de la conectividad de IPSec de ramas
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-En nuestro plan de desarrollo para un futuro próximo están programados los siguientes asociados: 128 Technologies, Arista, Aruba HPE, Cisco Systems (Viptela), F5 Networks, Open Systems, Oracle SD-WAN y SharpLink.
+En nuestro plan de desarrollo para un futuro próximo están programados los siguientes asociados: 128 Technologies, Arista, Cisco Systems (Viptela), F5 Networks, Oracle SD-WAN y SharpLink.
+
+## <a name="partners-with-integrated-virtual-hub-offerings"></a>Asociados con ofertas del Centro virtual integrado
+Además de tener conectividad IPSec automatizada de sucursales, algunos asociados ofrecen **Dispositivos virtuales de red (NVA)** que se pueden integrar directamente en el centro de Azure Virtual WAN.  Esto permite a los clientes finalizar sus conexiones de rama en un dispositivo de terceros compatible con el Centro virtual.  
+
+Los asociados que ofrecen NVA en el centro de Virtual WAN deben:
+
+* Tener implementada la automatización de conectividad IPSec desde su dispositivo de rama e incorporar su oferta NVA al centro de Azure Virtual WAN.
+* Tener una oferta de Dispositivo virtual de red existente disponible en Azure Marketplace.
+
+Si es un asociado y tiene preguntas sobre los NVA administrados en la oferta del Centro virtual, póngase en contacto con nosotros enviando un correo electrónico a vwannvaonboarding@microsoft.com.
+
+## <a name="integrated-virtual-hub-nva-partners"></a>Asociados de NVA del Centro virtual integrado
+Estos asociados tienen ofertas de **Aplicaciones administradas** que ahora están disponibles para su implementación en el centro de Virtual WAN.
+
+|Asociados|Guía de implementación/instrucciones/configuración|
+|---|---|
+|[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Guía de implementación de WAN de Barracuda CloudGen](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
+|[VWAN del enrutador del servicio en la nube de Cisco (CSR)](https://aka.ms/ciscoMarketPlaceOffer)| Durante la versión preliminar pública de la instancia de WAN de Cisco Cloud Services (CSR) en el Centro de VWAN, Cisco requiere que el cliente final se registre como un cliente de Cisco EFT (versión de prueba temprana); para ello, debe enviar un correo electrónico a vwan_public_preview@external.cisco.com y la solicitud de la guía de implementación de vManage. |
+
+Los siguientes asociados están preparados para agregar NVA en las ofertas del Centro virtual en un futuro próximo: Citrix, Versa Networks y VeloCloud.
 
 ## <a name="locations"></a><a name="locations"></a>Ubicaciones
 

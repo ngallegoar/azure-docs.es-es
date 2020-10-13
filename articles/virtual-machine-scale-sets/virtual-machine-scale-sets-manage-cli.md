@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 02f868417ef9feea1771174e62152708c1257425
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d954f7cdda4cae65f822489828226e0364d0fc29
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502909"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570537"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. En este artículo se detallan algunos de los comandos comunes de la CLI de Azure que le permiten realizar estas tareas.
@@ -49,6 +49,20 @@ az vmss get-instance-view \
     --instance-id 0
 ```
 
+También puede obtener información detallada de *instanceView* para todas las instancias en una llamada API, lo que puede ayudar a evitar la limitación de API en las instalaciones de gran tamaño. Proporcione sus propios valores para `--resource-group`, `--subscription` y `--name`.
+
+```azurecli
+az vmss list-instances \
+    --expand instanceView \
+    --select instanceView \
+    --resource-group <resourceGroupName> \
+    --subscription <subID> \
+    --name <vmssName>
+```
+
+```rest
+GET "https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSSName>/virtualMachines?api-version=2019-03-01&%24expand=instanceView"
+```
 
 ## <a name="list-connection-information-for-vms"></a>Lista de la información de conexión para máquinas virtuales
 Para conectarse a las máquinas virtuales de un conjunto de escalado, establezca una conexión SSH o RDP a una dirección IP pública y un número de puerto asignados. De manera predeterminada, las reglas de traducción de direcciones de red (NAT) se agregan a la instancia de Azure Load Balancer que reenvía el tráfico de conexión remota a cada máquina virtual. Para mostrar las direcciones y los puertos para conectarse a las instancias de VM en un conjunto de escalado, use [az vmss list-instance-connection-info](/cli/azure/vmss). En el ejemplo siguiente, se muestra la información de conexión de las instancias de máquina virtual en el conjunto de escalado denominado *myScaleSet* y en el grupo de recursos *myResourceGroup*. Proporcione sus propios valores para estos nombres:

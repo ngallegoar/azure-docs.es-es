@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 22225d9810c7b913505cb003a1ed2ce8f1a144e1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b22bf4ee3ff830a80ee97851f08173257697c50d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555352"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826493"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evernote"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Evernote
 
@@ -92,7 +92,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 7. Para modificar las opciones de **Firma**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Certificado de firma de SAML**.
 
-    ![imagen](common/edit-certificate.png) 
+    ![Captura de pantalla que muestra el cuadro de diálogo "Certificado de firma de S A M L" con el botón "Editar" seleccionado.](common/edit-certificate.png) 
 
     ![imagen](./media/evernote-tutorial/samlassertion.png)
 
@@ -181,7 +181,7 @@ En el caso de Evernote, el aprovisionamiento es una tarea manual.
 
 3. En la **"Consola de administración"** , vaya a **"Agregar usuarios"** .
 
-    ![Add-testUser](./media/evernote-tutorial/create_aaduser_0001.png)
+    ![Captura de pantalla que muestra el menú "Usuarios" con la opción "Agregar usuarios" seleccionada.](./media/evernote-tutorial/create_aaduser_0001.png)
 
 4. **Agregue miembros del equipo** en el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de la cuenta de usuario y haga clic en **Invitar**.
 

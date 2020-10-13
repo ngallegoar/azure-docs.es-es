@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2020
-ms.openlocfilehash: d28cd7a7edd5d6405761bf21ee87ec39dc9ec9cb
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 09/29/2020
+ms.openlocfilehash: 8310c34e06d52dc12af42f8bc33f4a4d7e99d68d
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448539"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598103"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flujo de datos (DFS)
 
@@ -176,13 +176,13 @@ aggregate(groupBy(movie),
 Use este código en el script de flujo de datos para crear una nueva columna derivada denominada ```DWhash``` que genere una ```sha1``` hash de tres columnas.
 
 ```
-derive(DWhash = sha1(Name,ProductNumber,Color))
+derive(DWhash = sha1(Name,ProductNumber,Color)) ~> DWHash
 ```
 
 También puede usar este script para generar un hash de filas con todas las columnas presentes en la secuencia, sin necesidad de asignar un nombre a cada columna:
 
 ```
-derive(DWhash = sha1(columns()))
+derive(DWhash = sha1(columns())) ~> DWHash
 ```
 
 ### <a name="string_agg-equivalent"></a>Equivalente de string_agg
@@ -191,7 +191,7 @@ Este código actuará como la función ```string_agg()``` de T-SQL y agregará v
 ```
 source1 aggregate(groupBy(year),
     string_agg = collect(title)) ~> Aggregate1
-Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+Aggregate1 derive(string_agg = toString(string_agg)) ~> StringAgg
 ```
 
 ### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Recuento del número de actualizaciones, upserts, inserciones y eliminaciones
@@ -210,6 +210,14 @@ Este fragmento de código agregará una nueva transformación Aggregate al flujo
 ```
 aggregate(groupBy(mycols = sha2(256,columns())),
     each(match(true()), $$ = first($$))) ~> DistinctRows
+```
+
+### <a name="check-for-nulls-in-all-columns"></a>Comprobación de la existencia de valores NULL en todas las columnas
+Este es un fragmento de código que puede pegar en el flujo de datos para comprobar genéricamente todas las columnas en busca de valores NULL. Esta técnica aprovecha el desplazamiento de esquema para buscar en todas las columnas de todas las filas y utiliza una división condicional para separar las filas con valores NULL de las filas sin valores NULL. 
+
+```
+split(contains(array(columns()),isNull(#item)),
+    disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

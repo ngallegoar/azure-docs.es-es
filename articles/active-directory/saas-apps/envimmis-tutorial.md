@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: aababc6ffd84540b99ba68f6bbb449d2aa78ed4b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1eb408025a45f09a6bdb854f4379a560842ef2d7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551751"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826276"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: integrar Azure Active Directory con Envi MMIS
 
@@ -99,7 +99,7 @@ Para configurar el inicio de sesión único de Azure AD con Envi MMIS, realice l
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Envi MMIS](common/idp-intiated.png)
+    ![Captura de pantalla que muestra "Configuración básica de S A M L" con los botones "Identificador", "U R L de respuesta" y "Guardar" resaltados.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
@@ -134,23 +134,23 @@ Para configurar el inicio de sesión único de Azure AD con Envi MMIS, realice l
 
 2. Haga clic en la pestaña **My Domain** (Mi dominio).
 
-    ![Botón Configurar inicio de sesión único](./media/envimmis-tutorial/configure1.png)
+    ![Captura de pantalla que muestra el menú "User" (Usuario) con "My Domain" (Mi dominio) seleccionado.](./media/envimmis-tutorial/configure1.png)
 
 3. Haga clic en **Editar**.
 
-    ![Botón Configurar inicio de sesión único](./media/envimmis-tutorial/configure2.png)
+    ![Captura de pantalla que muestra el botón "Edit" (Editar) seleccionado.](./media/envimmis-tutorial/configure2.png)
 
 4. Seleccione la casilla **Use remote authentication** (Usar autenticación remota) y, a continuación, seleccione **Redirección HTTP** (Redirección HTTP) desde la lista desplegable **Tipo de autenticación**.
 
-    ![Botón Configurar inicio de sesión único](./media/envimmis-tutorial/configure3.png)
+    ![Captura de pantalla que muestra la pestaña "Details" (Detalles) con la casilla "Use remote authentication" (Usar autenticación remota) marcada y la opción "H T T P Redirect" (Redirección HTTP) seleccionada.](./media/envimmis-tutorial/configure3.png)
 
 5. Seleccione la pestaña **Recursos** y, a continuación, haga clic en **Cargar metadatos**.
 
-    ![Botón Configurar inicio de sesión único](./media/envimmis-tutorial/configure4.png)
+    ![Captura de pantalla que muestra la pestaña "Resources" (Recursos) con la acción "Upload Metadata" (Cargar metadatos) seleccionada.](./media/envimmis-tutorial/configure4.png)
 
 6. En la ventana emergente **Cargar metadatos**, realice los siguientes pasos:
 
-    ![Botón Configurar inicio de sesión único](./media/envimmis-tutorial/configure5.png)
+    ![Captura de pantalla que muestra el elemento emergente "Upload Metadata" (Cargar metadatos) con la opción "File" (Archivo) seleccionada y el icono de selección de archivo y el botón "Aceptar" resaltados.](./media/envimmis-tutorial/configure5.png)
 
     a. Seleccione la opción **Archivo** desde la lista desplegable **Upload From** (Cargar desde).
 
@@ -223,11 +223,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Envi MMIS, deben a
 
 2. Haga clic en la pestaña **Lista de usuarios**.
 
-    ![Agregar empleado](./media/envimmis-tutorial/user1.png)
+    ![Captura de pantalla que muestra el menú "User" (Usuario) con "User List" (Lista de usuarios) seleccionado.](./media/envimmis-tutorial/user1.png)
 
 3. Haga clic en el botón **Agregar usuario**.
 
-    ![Agregar empleado](./media/envimmis-tutorial/user2.png)
+    ![Captura de pantalla que muestra la sección "Users" (Usuarios) con el botón "Add User" (Agregar usuario) seleccionado.](./media/envimmis-tutorial/user2.png)
 
 4. En la sección **Add User** (Agregar usuario), realice estos pasos:
 

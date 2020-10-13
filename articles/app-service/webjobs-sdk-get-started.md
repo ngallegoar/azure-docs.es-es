@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: eebdf053cc3eea1dfc91476bff3817891bec42a3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959066"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652047"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -264,13 +264,13 @@ En esta sección, va a crear y ejecutar el proyecto localmente, y desencadenar l
 
 1. Escriba *queue* (cola) como nombre de la cola y seleccione luego **Aceptar**.
 
-   ![Crear cola](./media/webjobs-sdk-get-started/create-queue.png)
+   ![Captura de pantalla que muestra dónde se crea la cola y le asigna el nombre "queue". ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. Haga clic con el botón derecho en el nodo de la nueva cola y seleccione **Ver cola**.
 
 1. Seleccione el icono **Agregar mensaje**.
 
-   ![Crear cola](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![Captura de pantalla que resalta el icono Agregar mensaje.](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. En el cuadro de diálogo **Agregar mensaje**, escriba *¡Hola mundo!* como **Texto del mensaje**y, a continuación, seleccione **Aceptar**. Ahora hay un mensaje en la cola.
 

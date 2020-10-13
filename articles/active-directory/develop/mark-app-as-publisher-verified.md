@@ -12,16 +12,16 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: acb4b601118b341d14bc5e7c549d22eef23b2cc2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 80731421b6a0d3f5bdabf117a7239bafa056e652
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085712"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258343"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Marcación de la aplicación como comprobada por el publicador
 
-Cuando una aplicación se marca como comprobada por el publicador, significa que el publicador ha comprobado su identidad con la cuenta de Microsoft Partner Network (MPN) y ha asociado esta cuenta de MPN con el registro de aplicación. En este artículo se describe cómo realizar el proceso de [verificación del editor](publisher-verification-overview.md).
+Cuando el registro de una aplicación tiene un publicador comprobado, significa que el publicador de la aplicación ha [comprobado](/partner-center/verification-responses) su identidad con la cuenta de Microsoft Partner Network (MPN) y ha asociado esta cuenta de MPN con el registro de la aplicación. En este artículo se describe cómo realizar el proceso de [verificación del editor](publisher-verification-overview.md).
 
 ## <a name="quickstart"></a>Guía de inicio rápido
 Si ya está inscrito en Microsoft Partner Network (MPN) y cumple los [requisitos previos](publisher-verification-overview.md#requirements), puede empezar inmediatamente: 
@@ -42,9 +42,9 @@ Asegúrese de que ha cumplido los [requisitos previos](publisher-verification-ov
 
 1. Asegúrese de haber iniciado sesión mediante la [autenticación multifactor](../fundamentals/concept-fundamentals-mfa-get-started.md) con una cuenta de organización (Azure AD) que esté autorizada para realizar cambios en las aplicaciones que quiera marcar como verificadas por el editor y en la cuenta de MPN del Centro de partners.
 
-    - En Azure AD, este usuario debe ser miembro de alguno de los siguientes roles: Administrador de aplicaciones, administrador de aplicaciones en la nube o administrador global. 
+    - En Azure AD, este usuario debe ser miembro de alguno de los siguientes [roles](../users-groups-roles/directory-assign-admin-roles.md): Administrador de aplicaciones, administrador de aplicaciones en la nube o administrador global. 
 
-    - En el Centro de partners, este usuario debe tener uno de los siguientes roles: Administrador de MPN, administrador de cuentas o administrador global (se trata de un rol compartido que se controla en Azure AD). 
+    - En el Centro de partners, este usuario debe tener uno de los siguientes [roles](/partner-center/permissions-overview): Administrador de MPN, administrador de cuentas o administrador global (se trata de un rol compartido que se controla en Azure AD). 
 
 1. Vaya al portal de registro de aplicaciones:  
 

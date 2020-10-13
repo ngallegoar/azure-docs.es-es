@@ -7,23 +7,27 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/21/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5d1d74f1240f919bb20d8893755a86abc19fa828
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533808"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761267"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registro de varias máquinas virtuales con SQL en Azure con el proveedor de recursos de máquinas virtuales con SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 En este artículo se describe cómo registrar de forma masiva máquinas virtuales de SQL Server en Azure con el proveedor de recursos de máquinas virtuales con SQL mediante el cmdlet `Register-SqlVMs` de PowerShell.
+
+En este artículo se explica cómo registrar máquinas virtuales con SQL Server de forma masiva. Como alternativa, puede registrar [todas las VM con SQL Server automáticamente](sql-vm-resource-provider-automatic-registration.md) o [VM con SQL Server individuales](sql-vm-resource-provider-register.md). 
+
+## <a name="overview"></a>Introducción
 
 El cmdlet `Register-SqlVMs` se puede usar para registrar todas las máquinas virtuales en una lista determinada de suscripciones, grupos de recursos o una lista de máquinas virtuales específicas. El cmdlet registrará las máquinas virtuales en el modo de administración _ligero_ y luego generará un [informe y un archivo de registro](#output-description). 
 

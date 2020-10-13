@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 02481d5dcbaba15c9b17a27348207d9af64f3355
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: e000e2979436605b9274792ad3dde8eb1fa80976
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982045"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653356"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Creación y administración de una aplicación de Azure IoT Central desde el portal de CSP
 
@@ -35,7 +35,7 @@ Va a la página Administrador de aplicaciones de Azure IoT Central. Azure IoT Ce
 
 Para crear una aplicación de Azure IoT Central, seleccione **Compilar** en el menú izquierdo. Elija una de las plantillas del sector o **Aplicación personalizada** para crear una aplicación desde cero. De esta manera se cargará la página de creación de aplicaciones. Debe completar todos los campos de esta página y luego eligir **Crear**. A continuación encontrará más información sobre cada uno de los campos.
 
-![Página Crear aplicación para los CSP](media/howto-create-and-manage-applications-csp/image4.png)
+![Captura de pantalla que muestra la página "Crear la aplicación de IoT" con el botón "Crear" seleccionado.](media/howto-create-and-manage-applications-csp/image4.png)
 
 ![Página Crear aplicación para los CSP](media/howto-create-and-manage-applications-csp/image4-1.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4fc5c44ab0fcee5cbf1faa2338f65fe12d779f37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67d6fb1f3cc359288ed942d915e186542a62b0fc
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511783"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803949"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Conmutación por error a un dispositivo físico de la serie StorSimple 8000
 
@@ -75,7 +75,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo físico de desti
    
    1. Seleccione el dispositivo que se usó como dispositivo de destino para el proceso de conmutación por error.
 
-       ![Selección del dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Selección del dispositivo 2](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
    2. Vaya a la hoja **Contenedores de volúmenes**. Deberían aparecer todos los contenedores de volúmenes, junto con los volúmenes del dispositivo antiguo.
 

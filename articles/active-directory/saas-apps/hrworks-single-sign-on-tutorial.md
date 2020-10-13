@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 0c43dfe3ad28417e13196c5ac1e75419906f6eae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1a0fff21c85104498895c9de20de9961a77cffeb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549167"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91820493"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hrworks-single-sign-on"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con HRworks Single Sign-On
 
@@ -156,15 +156,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en HRworks Single Sig
 
 1. Haga clic en **Administrator** (Administrador) > **Persons** (Personas) > **Persons** (Personas) > **New person** (Nueva persona) en el lado izquierdo de la barra de menús.
 
-     ![Configurar inicio de sesión único](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Captura de pantalla que muestra la página de H R Works con las opciones Persons (Personas) y New person (Nueva persona) seleccionadas.](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 1. En el menú emergente, haga clic en **Next** (Siguiente).
 
-    ![Configurar inicio de sesión único](./media/hrworks-single-sign-on-tutorial/configure03.png)
+    ![Captura de pantalla que muestra una lista de países que puede elegir para la persona.](./media/hrworks-single-sign-on-tutorial/configure03.png)
 
 1. En el elemento emergente **Create new person with country for legal terms** (Crear nueva persona con un país para condiciones legales), rellene los detalles correspondientes **First name** (Nombre), **Last name** (Apellidos) y haga clic en **Create** (Crear).
 
-    ![Configurar inicio de sesión único](./media/hrworks-single-sign-on-tutorial/configure04.png)
+    ![Captura de pantalla que muestra cuadros de texto en los que puede especificar el nombre y el apellido de la persona.](./media/hrworks-single-sign-on-tutorial/configure04.png)
 
 ## <a name="test-sso"></a>Prueba de SSO
 

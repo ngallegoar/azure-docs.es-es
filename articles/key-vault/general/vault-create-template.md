@@ -1,0 +1,222 @@
+---
+title: 'Guía de Azure: creación de un almacén de claves de Azure y una directiva de acceso al almacén mediante una plantilla de Azure Resource Manager | Microsoft Docs'
+description: Aquí se muestra cómo crear almacenes de claves de Azure y directivas de acceso a esos almacenes mediante una plantilla Azure Resource Manager.
+services: key-vault
+author: msmbaldwin
+manager: rkarlin
+tags: azure-resource-manager
+ms.service: key-vault
+ms.subservice: general
+ms.topic: how-to
+ms.date: 10/5/2020
+ms.author: mbaldwin
+ms.openlocfilehash: cf19561005fe2e98b7b5cf6812ff9224fd9474dc
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804279"
+---
+# <a name="how-to-create-azure-key-vault-and-vault-access-policy-using-a-resource-manager-template"></a>Creación de una instancia de Azure Key Vault y una directiva de acceso al almacén mediante una plantilla de Resource Manager
+
+[Azure Key Vault](../general/overview.md) es un servicio en la nube que proporciona un almacén seguro para secretos, como claves, contraseñas y certificados, entre otros. Esta guía se centra en el proceso de implementación de una plantilla de Azure Resource Manager (plantilla de ARM) para crear un almacén de claves.
+
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Para completar este artículo:
+
+* Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+
+## <a name="create-key-vault-resource-manager-template"></a>Creación de una plantilla de Resource Manager de Key Vault
+
+En la plantilla siguiente se muestra una forma básica de crear un almacén de claves. Algunos valores se especifican en la plantilla.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "keyVaultName": {
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the name of the key vault."
+      }
+    },
+    "skuName": {
+      "type": "string",
+      "defaultValue": "Standard",
+      "allowedValues": [
+        "Standard",
+        "Premium"
+      ],
+      "metadata": {
+        "description": "Specifies whether the key vault is a standard vault or a premium vault."
+      }
+    }
+   },
+  "resources": [
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "apiVersion": "2019-09-01",
+      "name": "[parameters('keyVaultName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "enabledForDeployment": "false",
+        "enabledForDiskEncryption": "false",
+        "enabledForTemplateDeployment": "false",
+        "tenantId": "[subscription().tenantId]",
+        "accessPolicies": [],
+        "sku": {
+          "name": "[parameters('skuName')]",
+          "family": "A"
+        },
+        "networkAcls": {
+          "defaultAction": "Allow",
+          "bypass": "AzureServices"
+        }
+      }
+    }
+  ]
+}
+
+```
+
+Para obtener más información sobre la configuración de la plantilla de Key Vault, consulte [Referencia de plantillas de ARM de Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
+
+> [!IMPORTANT]
+> Si se vuelve a implementar la plantilla, se invalidarán las directivas de acceso existentes en el almacén de claves. Por ello, se recomienda rellenar la propiedad `accessPolicies` con las directivas de acceso existentes para evitar perder el acceso al almacén de claves. 
+
+## <a name="add-access-policy-to-key-vault-resource-manager-template"></a>Agregar una directiva de acceso a una plantilla de Resource Manager de Key Vault
+
+Puede implementar directivas de acceso en el almacén de claves existente sin tener que volver a implementar toda la plantilla del almacén de claves. En la plantilla siguiente muestra una forma básica de crear directivas de acceso.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "keyVaultName": {
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the name of the key vault."
+      }
+    },
+    "objectId": {
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Get it by using Get-AzADUser or Get-AzADServicePrincipal cmdlets."
+      }
+    },
+    "keysPermissions": {
+      "type": "array",
+      "defaultValue": [
+        "list"
+      ],
+      "metadata": {
+        "description": "Specifies the permissions to keys in the vault. Valid values are: all, encrypt, decrypt, wrapKey, unwrapKey, sign, verify, get, list, create, update, import, delete, backup, restore, recover, and purge."
+      }
+    },
+    "secretsPermissions": {
+      "type": "array",
+      "defaultValue": [
+        "list"
+      ],
+      "metadata": {
+        "description": "Specifies the permissions to secrets in the vault. Valid values are: all, get, list, set, delete, backup, restore, recover, and purge."
+      }
+    },
+    "certificatePermissions": {
+      "type": "array",
+      "defaultValue": [
+        "list"
+      ],
+      "metadata": {
+        "description": "Specifies the permissions to certificates in the vault. Valid values are: all,  create, delete, update, deleteissuers, get, getissuers, import, list, listissuers, managecontacts, manageissuers,  recover, backup, restore, setissuers, and purge."
+      }
+    },
+  "resources": [
+     {
+      "type": "Microsoft.KeyVault/vaults/accessPolicies",
+      "name": "[concat(parameters('keyVaultName'), '/add')]",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "accessPolicies": [
+          {
+            "tenantId": "[subscription().tenantId]",
+            "objectId": "[parameters('objectId')]",
+            "permissions": {
+              "keys": "[parameters('keysPermissions')]",
+              "secrets": "[parameters('secretsPermissions')]",
+              "certificates": [parameters('certificatesPermissions')]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+
+```
+Para obtener más información sobre la configuración de la plantilla de Key Vault, consulte [Referencia de plantillas de ARM de Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+
+## <a name="other-available-key-vault-resource-manager-templates"></a>Otras plantillas de Resource Manager de Key Vault disponibles
+
+Existen otras plantillas de Resource Manager disponibles para los objetos de Key Vault:
+
+| Secretos | Claves | Certificados |
+|--|--|--|
+|[Guía de inicio rápido](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<br>[Referencia](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/D|N/D|
+
+Puede encontrar más plantillas de Key Vault aquí: [Referencia de Resource Manager de Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions)
+
+## <a name="deploy-the-templates"></a>Implementación de las plantillas
+
+Puede usar Azure Portal para implementar las plantillas anteriores con la opción "Cree su propia plantilla en el editor" de la guía siguiente: [Implementación de recursos desde una plantilla personalizada](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template)
+
+También puede guardar las plantillas anteriores en archivos y usar los siguientes comandos:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) y [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create):
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-vault-template.json
+```
+
+```azurecli
+az group deployment create --resource-group ExampleGroup --template-file key-vault-template.json
+```
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si tiene previsto seguir adelante y trabajar con tutoriales y guías de inicio rápido posteriores, puede dejar estos recursos activos. Cuando ya no lo necesite, elimine el grupo de recursos; de este modo se eliminará también el almacén de claves y los recursos relacionados. Para eliminar el grupo de recursos mediante la CLI de Azure o Azure PowerShell, siga estos pasos.
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
+---
+
+## <a name="resources"></a>Recursos
+
+- Lea una [introducción a Azure Key Vault](../general/overview.md).
+- Obtenga más información sobre [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+- Consulte los [procedimientos recomendados de Azure Key Vault](../general/best-practices.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Protección del acceso a un almacén de claves](secure-your-key-vault.md)
+- [Autenticación en un almacén de claves](authentication.md)
+- [Guía del desarrollador de Azure Key Vault](developers-guide.md)

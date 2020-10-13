@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68ab302e5c24835174d03b3579c9ec587bfd9006
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e57da384253912a875bacbc5f43aa9f9b99b45b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601595"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265993"
 ---
 # <a name="conditional-access-block-access"></a>Acceso condicional: Bloquear acceso
 
@@ -38,7 +38,7 @@ Las directivas de acceso condicional son herramientas eficaces, por lo que se re
 
 ## <a name="create-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
-Los pasos siguientes le ayudarán a crear directivas de acceso condicional para bloquear el acceso a todas las aplicaciones excepto [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) si los usuarios no están en una red de confianza. Estas directivas se colocan inicialmente en [modo de solo informe](howto-conditional-access-insights-reporting.md), para que los administradores puedan determinar el impacto que tendrán en los usuarios existentes. Cuando los administradores consideren que las directivas se aplican de la forma prevista, pueden cambiarlas a **Activadas**.
+Los pasos siguientes le ayudarán a crear directivas de acceso condicional para bloquear el acceso a todas las aplicaciones excepto [Office 365](concept-conditional-access-cloud-apps.md#office-365) si los usuarios no están en una red de confianza. Estas directivas se colocan inicialmente en [modo de solo informe](howto-conditional-access-insights-reporting.md), para que los administradores puedan determinar el impacto que tendrán en los usuarios existentes. Cuando los administradores consideren que las directivas se aplican de la forma prevista, pueden cambiarlas a **Activadas**.
 
 La primera directiva bloquea el acceso a todas las aplicaciones (menos las de Microsoft 365) si no se encuentran en una ubicación de confianza.
 
@@ -52,7 +52,7 @@ La primera directiva bloquea el acceso a todas las aplicaciones (menos las de Mi
    1. Seleccione **Listo**.
 1. En **Aplicaciones o acciones en la nube** seleccione las opciones siguientes:
    1. En **Incluir**, seleccione **Todas las aplicaciones en la nube**.
-   1. En **Excluir**, seleccione **Office 365 (versión preliminar)** , **Seleccionar** y, luego, **Listo**.
+   1. En **Excluir**, seleccione **Office 365**, **Seleccionar** y, luego, **Listo**.
 1. En **Condiciones**:
    1. En **Condiciones** > **Ubicación**:
       1. Establezca **Configurar** en **Sí**.
@@ -72,7 +72,7 @@ A continuación se crea una segunda directiva para requerir la autenticación mu
    1. En **Incluir**, seleccione **Todos los usuarios**.
    1. En **Excluir**, seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
    1. Seleccione **Listo**.
-1. En **Aplicaciones en la nube o acciones** > **Incluir**, elija sucesivamente **Seleccionar aplicaciones**, **Office 365 (versión preliminar)** , **Seleccionar** y, luego, **Listo**.
+1. En **Aplicaciones en la nube o acciones** > **Incluir**, elija sucesivamente **Seleccionar aplicaciones**, **Office 365**, **Seleccionar** y, luego, **Listo**.
 1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**.
    1. Seleccione **Requerir autenticación multifactor**, **Requerir que el dispositivo esté marcado como compatible** y, luego, **Seleccionar**.
    1. Asegúrese de que la opción **Requerir todos los controles seleccionados** esté seleccionada.

@@ -5,13 +5,15 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
-ms.custom: references_regions
-ms.openlocfilehash: 4f6e2008cad66ce7cd68016d3873ecbc18b1961c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.custom:
+- references_regions
+- fasttrack-edit
+ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145763"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578043"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan prémium de Azure Functions
 
@@ -43,7 +45,7 @@ Si hay un día en que no tiene lugar ningún evento ni ejecución en el plan de 
 En el plan Premium, puede hacer que la aplicación previamente activada esté siempre preparada en un número concreto de instancias.  El número máximo de instancias siempre preparadas es 20.  Cuando los eventos empiezan a desencadenar la aplicación, siempre se enrutan primero a las instancias siempre preparadas.  A medida que la función se activa, las instancias adicionales se activarán como búferes.  Este búfer evita que las nuevas instancias necesarias durante el escalado se arranquen en frío.  Estas instancias almacenadas en búfer se denominan [instancias activadas previamente](#pre-warmed-instances).  Con la combinación de las instancias siempre preparadas y un búfer activado previamente, la aplicación puede eliminar eficazmente los arranques en frío.
 
 > [!NOTE]
-> Todos los planes Premium tendrán al menos una instancia activa y facturada en todo momento.
+> Todos los planes Premium tendrán al menos una instancia activa (facturada) en todo momento.
 
 Puede configurar el número de instancias siempre preparadas en Azure Portal. Para ello, seleccione una aplicación de funciones en **Function App**, vaya a la pestaña **Características de la plataforma** y seleccione las opciones para **Escalar horizontalmente**. En la ventana de edición de la aplicación de funciones, las instancias siempre preparadas son específicas para esa aplicación.
 
@@ -59,9 +61,9 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Las instancias activadas previamente son el número de instancias que se han activado como búferes durante los eventos de escalado y activación.  Las instancias activadas previamente siguen almacenándose en el búfer hasta que se alcanza el límite máximo de escalabilidad horizontal.  El número predeterminado de instancias activadas previamente es 1 y, para la mayoría de los escenarios, debería dejarse en 1.  Si una aplicación tiene un período de activación largo (como una imagen de contenedor personalizada), quizá debería aumentar el tamaño de búfer.  Una instancia activada previamente solo se activará después de que todas las instancias activas se hayan usado lo suficiente.
 
-Tenga en cuenta este ejemplo que muestra cómo trabajan juntas las instancias siempre preparadas y las instancias activadas previamente.  Una aplicación de funciones Premium tiene configuradas cinco instancias siempre preparadas, y un valor predeterminado de una instancia activada previamente.  Cuando la aplicación está inactiva y no se desencadena ningún evento, la aplicación se aprovisionará y se ejecutará con cinco instancias.  
+Tenga en cuenta este ejemplo que muestra cómo trabajan juntas las instancias siempre preparadas y las instancias activadas previamente.  Una aplicación de funciones Premium tiene configuradas cinco instancias siempre preparadas, y una instancia activada previamente como predeterminada.  Cuando la aplicación está inactiva y no se desencadena ningún evento, la aplicación se aprovisionará y se ejecutará con cinco instancias.  En este momento, no se le facturará por una instancia activada previamente, porque no se usan las instancias siempre preparadas y no se asigna ninguna instancia previamente activada.
 
-En cuanto se desencadene el primer desencadenador, las cinco instancias siempre preparadas se activarán y se asignará una instancia activada previamente adicional.  La aplicación se está ejecutando ahora con seis instancias aprovisionadas: las cinco instancias siempre preparadas y la sexta instancia de búfer inactiva y activada previamente.  Si la tasa de ejecuciones sigue aumentando, con el tiempo se usarán las cinco instancias activas.  Cuando la plataforma decide escalarse más allá de cinco instancias, se escala para usar la instancia activada previamente.  Cuando esto suceda, habrá seis instancias activas y se aprovisionará una séptima instancia de forma instantánea para rellenar el búfer activado previamente.  Esta secuencia de escalado y activación previa continuará hasta que se alcance el recuento de instancias máximo de la aplicación.  No se activará previamente ni se activará ninguna instancia que supere el número máximo.
+En cuanto se inicie el primer desencadenador, las cinco instancias siempre preparadas se activarán y se asignará una instancia previamente activada adicional.  La aplicación se está ejecutando ahora con seis instancias aprovisionadas: las cinco instancias siempre preparadas y la sexta instancia de búfer inactiva y activada previamente.  Si la tasa de ejecuciones sigue aumentando, con el tiempo se usarán las cinco instancias activas.  Cuando la plataforma decide escalarse más allá de cinco instancias, se escala para usar la instancia activada previamente.  Cuando esto suceda, habrá seis instancias activas y se aprovisionará una séptima instancia de forma instantánea para rellenar el búfer activado previamente.  Esta secuencia de escalado y activación previa continuará hasta que se alcance el recuento de instancias máximo de la aplicación.  No se activará previamente ni se activará ninguna instancia que supere el número máximo.
 
 Puede modificar el número de instancias activadas previamente para una aplicación mediante la CLI de Azure.
 
@@ -95,7 +97,7 @@ Azure Functions en un plan de consumo que impone un límite de 10 minutos en ca
 
 Cuando se crea un plan, hay dos configuraciones de tamaño de plan: el número mínimo de instancias (o tamaño de plan) y el límite máximo de ráfaga.
 
-Si la aplicación necesita instancias que superan las instancias siempre preparadas, puede seguir realizando el escalado horizontal hasta que el número de instancias alcance el límite máximo de ráfaga.  Las instancias que superen el tamaño del plan solo se cobrarán cuando estén en ejecución y las tenga alquiladas.  Se hará todo lo posible por escalar horizontalmente la aplicación hasta el límite máximo definido.
+Si la aplicación necesita instancias que superan las instancias siempre preparadas, puede seguir realizando el escalado horizontal hasta que el número de instancias alcance el límite máximo de ráfaga.  Las instancias que superen el tamaño del plan solo se facturarán por segundo cuando estén en ejecución y las tenga asignadas.  Se hará todo lo posible por escalar horizontalmente la aplicación hasta el límite máximo definido.
 
 Puede configurar el tamaño del plan y establecer valores máximos en Azure Portal seleccionando las opciones **Escalar horizontalmente** en el plan o una aplicación de funciones implementada en el plan (en **Características de la plataforma**).
 
@@ -120,7 +122,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 ### <a name="available-instance-skus"></a>SKU de instancias disponibles
 
-Cuando cree o escale un plan, podrá elegir entre tres tamaños de instancia.  Se le facturará el número total de núcleos y de memoria consumida por segundo.  La aplicación puede escalar horizontalmente de forma automática en varias instancias cuando sea necesario.  
+Cuando cree o escale un plan, podrá elegir entre tres tamaños de instancia.  Se le facturará la cantidad total de núcleos y memoria aprovisionada, por los segundos que tenga asignada cada instancia.  La aplicación puede escalar horizontalmente de forma automática en varias instancias cuando sea necesario.  
 
 |SKU|Núcleos|Memoria|Storage|
 |--|--|--|--|
@@ -141,13 +143,15 @@ Consulte la disponibilidad regional completa de Functions aquí: [Azure.com](htt
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Centro de Australia| 20 | No disponible |
-|Centro de Australia 2| 20 | No disponible |
+|Centro de Australia| 100 | No disponible |
+|Centro de Australia 2| 100 | No disponible |
 |Este de Australia| 100 | 20 |
 |Sudeste de Australia | 100 | 20 |
-|Sur de Brasil| 60 | 20 |
+|Sur de Brasil| 100 | 20 |
 |Centro de Canadá| 100 | 20 |
 |Centro de EE. UU.| 100 | 20 |
+|Este de China 2| 100 | 20 |
+|Norte de China 2| 100 | 20 |
 |Este de Asia| 100 | 20 |
 |Este de EE. UU. | 100 | 20 |
 |Este de EE. UU. 2| 100 | 20 |
@@ -156,17 +160,24 @@ Consulte la disponibilidad regional completa de Functions aquí: [Azure.com](htt
 |Japón Oriental| 100 | 20 |
 |Japón Occidental| 100 | 20 |
 |Centro de Corea del Sur| 100 | 20 |
+|Corea del Sur| No disponible | 20 |
 |Centro-Norte de EE. UU| 100 | 20 |
 |Norte de Europa| 100 | 20 |
-|Este de Noruega| 20 | 20 |
+|Este de Noruega| 100 | 20 |
 |Centro-sur de EE. UU.| 100 | 20 |
 |Sur de la India | 100 | No disponible |
 |Sudeste de Asia| 100 | 20 |
+|Norte de Suiza| 100 | No disponible |
+|Oeste de Suiza| 100 | No disponible |
 |Sur de Reino Unido| 100 | 20 |
 |Oeste de Reino Unido| 100 | 20 |
+|USGov: Arizona| 100 | 20 |
+|USGov Virginia| 100 | 20 |
+|USNat East| 100 | No disponible |
+|USNat West| 100 | No disponible |
 |Oeste de Europa| 100 | 20 |
 |Oeste de la India| 100 | 20 |
-|Centro-Oeste de EE. UU.| 20 | 20 |
+|Centro-Oeste de EE. UU.| 100 | 20 |
 |Oeste de EE. UU.| 100 | 20 |
 |Oeste de EE. UU. 2| 100 | 20 |
 

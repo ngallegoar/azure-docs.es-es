@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b295c4f8380d59d8824049e8050605cb66fbae65
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: fc12978e59ecc3ebcc58d4070fa057f9a53fda58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971657"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275292"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configuración de una conexión de indexador a una base de datos de Cosmos DB mediante una identidad administrada
 
@@ -136,6 +136,14 @@ Este indizador se ejecutará cada dos horas (el intervalo de programación se es
 Para más información sobre la API Create Indexer, consulte [Crear indexador](/rest/api/searchservice/create-indexer).
 
 Para más información sobre cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+Si no puede indexar los datos de Cosmos DB, tenga en cuenta lo siguiente:
+
+1. Si ha rotado recientemente las claves de la cuenta de Cosmos DB, tendrá que esperar hasta 15 minutos para que la cadena de conexión de la identidad administrada funcione.
+
+1. Compruebe si la cuenta de Cosmos DB tiene acceso restringido a las redes seleccionadas. En su caso, vea [Acceso del indexador a orígenes de datos mediante las características de seguridad de red de Azure](search-indexer-securing-resources.md).
 
 ## <a name="see-also"></a>Consulte también
 

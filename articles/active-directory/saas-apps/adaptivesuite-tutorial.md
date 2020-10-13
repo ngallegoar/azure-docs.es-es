@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 3471d79875fb34ea0285c086e7d908aa254957dc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 35414820228b615816f2389b7a609f5d63f5830d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537746"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760791"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Tutorial: Integración de Adaptive Insights con Azure Active Directory
 
@@ -99,7 +99,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 2. Vaya a **Administración**.
 
-    ![Administrador](./media/adaptivesuite-tutorial/ic805644.png "Administración")
+    ![Captura de pantalla donde se resalta Administración en el panel de navegación.](./media/adaptivesuite-tutorial/ic805644.png "Administración")
 
 3. En la sección **Users and Roles** (Usuarios y roles), haga clic en **SAML SSO Settings** (Configuración de SSO de SAML).
 

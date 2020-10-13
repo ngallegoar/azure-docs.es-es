@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 5b1e5c73f3d43ca2627729149256f3e9362d58c2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: bd50a007b73438a5776cf6ecdb1074dc9980c537
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984269"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713708"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendaciones de seguridad para Blob Storage
 
@@ -29,7 +29,7 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 
 | Recomendación | Comentarios | Security Center |
 |-|----|--|
-| Usar el modelo de implementación de Azure Resource Manager | Cree cuentas de almacenamiento mediante el modelo de implementación de Azure Resource Manager, ya que así logrará importantes mejoras en la seguridad, entre las que se incluyen un control de acceso (RBAC) y una auditoría superiores, gobernanza e implementación basados en Resource Manager, acceso a identidades administradas, acceso a los secretos de Azure Key Vault y autorización y autenticación basadas en Azure AD para acceder a datos y recursos de Azure Storage. Si es posible, migre las cuentas de almacenamiento existentes que usan el modelo de implementación clásica para que usen Azure Resource Manager. Para más información sobre Azure Resource Manager, consulte [Introducción a Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
+| Usar el modelo de implementación de Azure Resource Manager | Cree cuentas de almacenamiento mediante el modelo de implementación de Azure Resource Manager, ya que así logrará importantes mejoras en la seguridad, entre las que se incluyen el control de acceso basado en roles (RBAC) y una auditoría superiores, gobernanza e implementación basados en Resource Manager, acceso a identidades administradas, acceso a los secretos de Azure Key Vault y autorización y autenticación basadas en Azure AD para acceder a datos y recursos de Azure Storage. Si es posible, migre las cuentas de almacenamiento existentes que usan el modelo de implementación clásica para que usen Azure Resource Manager. Para más información sobre Azure Resource Manager, consulte [Introducción a Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
 | Habilitación de Azure Defender para todas las cuentas de almacenamiento | Azure Defender para Azure Storage proporciona un nivel adicional de inteligencia de seguridad que detecta intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de almacenamiento o vulnerarlas. En Azure Security Center se desencadenan alertas de seguridad cuando se producen anomalías en alguna actividad y también se envían por correo electrónico a los administradores de las suscripciones con detalles de la actividad sospechosa y recomendaciones sobre cómo investigar y solucionar las amenazas. Para más información, consulte el artículo sobre [configuración de Azure Defender para Azure Storage](../common/azure-defender-storage-configure.md). | [Sí](../../security-center/security-center-sql-service-recommendations.md) |
 | Activar la eliminación temporal de datos de blobs | La eliminación temporal permite recuperar datos de blobs después de que se hayan eliminado. Para más información sobre la eliminación temporal, consulte [Eliminación temporal de blobs de Azure Storage](storage-blob-soft-delete.md). | - |
 | Almacenar datos críticos para la empresa en blobs inmutables | Configure las suspensiones legales y las directivas de retención durante un tiempo para almacenar los datos de los blobs en estado WORM (escribir una vez, leer muchas). Los blobs que se hayan almacenado de forma inmutable se pueden leer, pero no se pueden modificar ni eliminar mientras dure el intervalo de retención. Para más información, consulte [Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable](storage-blob-immutable-storage.md). | - |
@@ -40,7 +40,7 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 | Recomendación | Comentarios | Security Center |
 |-|----|--|
 | Usar Azure Active Directory (Azure AD) para autorizar el acceso a los datos de los blobs | Azure AD proporciona mayor seguridad y facilidad de uso que la clave compartida para autorizar solicitudes en Blob Storage. Para más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md). | - |
-| Tener en cuenta la entidad de seguridad de menor privilegio al asignar permisos a una entidad de seguridad de Azure AD a través de RBAC | Al asignar un rol a un usuario, grupo o aplicación, conceda a esa entidad de seguridad exclusivamente los permisos necesarios para que pueda realizar sus tareas. La limitación del acceso a los recursos ayuda a prevenir el mal uso involuntario y malintencionado de los datos. | - |
+| Tener en cuenta la entidad de seguridad de menor privilegio al asignar permisos a una entidad de seguridad de Azure AD a través de Azure RBAC | Al asignar un rol a un usuario, grupo o aplicación, conceda a esa entidad de seguridad exclusivamente los permisos necesarios para que pueda realizar sus tareas. La limitación del acceso a los recursos ayuda a prevenir el mal uso involuntario y malintencionado de los datos. | - |
 | Usar una SAS de delegación de usuario para conceder a los clientes acceso limitado a los datos de los blobs | Una SAS de delegación de usuarios está protegida con credenciales de Azure Active Directory (Azure AD) y también con los permisos especificados para la SAS. Una SAS de delegación de usuario tiene el mismo ámbito y función que una SAS de servicio, pero ofrece más seguridad. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). | - |
 | Proteger las claves de acceso de su cuenta con Azure Key Vault | Microsoft recomienda usar Azure AD para autorizar las solicitudes que se realicen a Azure Storage. Sin embargo, si debe usar la autorización de clave compartida, proteja sus claves de cuenta con Azure Key Vault. Estas claves se pueden recuperar del almacén de claves en tiempo de ejecución, en lugar de guardarlas con la aplicación. Para más información sobre Azure Key Vault, consulte [Introducción a Azure Key Vault](../../key-vault/general/overview.md). | - |
 | Volver a generar las claves de cuenta periódicamente | El cambio periódico de las claves de una cuenta reduce el riesgo de exponer los datos a actores malintencionados. | - |

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4520332fbc5040aff682ce52e819fa4a940999cc
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 14e0998b75e0e5bd3ae996f5f5010ecc50180f14
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108434"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741676"
 ---
 # <a name="migrate-web-service-from-bing-maps"></a>Migración de servicios web desde Mapas de Bing
 
@@ -249,7 +249,7 @@ La API de enrutamiento de Azure Maps presenta numerosas características adicion
 
 Hay varias maneras de ajustar las coordenadas a las carreteras en Azure Maps.
 
--   Use Route Directions API para ajustar las coordenadas desde una ruta lógica a lo largo de la red de carreteras.
+-   Use Route Directions API para ajustar las coordenadas a una ruta lógica a lo largo de la red de carreteras.
 -   Use el SDK web de Azure Maps para ajustar coordenadas individuales a la carretera más cercana en los mosaicos vectoriales.
 -   Use directamente los mosaicos vectoriales de Azure Maps para ajustar coordenadas individuales.
 

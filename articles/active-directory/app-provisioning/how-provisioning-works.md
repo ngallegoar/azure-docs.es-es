@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235730"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801807"
 ---
 # <a name="how-provisioning-works"></a>Funcionamiento del aprovisionamiento
 
@@ -169,22 +169,42 @@ El rendimiento depende de si el trabajo de aprovisionamiento ejecuta un ciclo de
 Todas las operaciones que ejecute el servicio de aprovisionamiento de usuarios se registran en los [registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de Azure AD. Los registros incluyen todas las operaciones de lectura y escritura realizadas en los sistemas de origen y de destino, así como los datos del usuario que se leyeron o escribieron durante cada operación. Para obtener información sobre cómo leer los registros de aprovisionamiento en Azure Portal, consulte la [guía de informes de aprovisionamiento](./check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Desaprovisionamiento
+El servicio de aprovisionamiento de Azure AD mantiene los sistemas de origen y de destino sincronizados mediante el desaprovisionamiento de cuentas cuando se quita el acceso de usuario.
 
-El servicio de aprovisionamiento de Azure AD mantiene los sistemas de origen y destino sincronizados mediante el desaprovisionamiento de cuentas cuando los usuarios ya no deberían tener acceso. 
+El servicio de aprovisionamiento admite la eliminación y deshabilitación de usuarios (opción a veces denominada "eliminación temporal"). La definición exacta de las opciones de deshabilitación y eliminación varía en función de la implementación de la aplicación de destino, pero normalmente una deshabilitación indica que el usuario no puede iniciar sesión. Una eliminación, en cambio, indica que el usuario ha eliminado completamente la aplicación. En el caso de las aplicaciones de SCIM, la deshabilitación es una solicitud para establecer la propiedad *Active* como "false" en un usuario. 
 
-El servicio de aprovisionamiento de Azure AD eliminará temporalmente un usuario en una aplicación cuando esta admita eliminaciones temporales (solicitud de actualización con active = false) y ocurra cualquiera de los siguientes eventos:
+**Configuración de la aplicación para deshabilitar un usuario**
 
-* La cuenta de usuario se elimina en Azure AD
-*   El usuario no está asignado desde la aplicación
-*   El usuario ya no cumple con un filtro de alcance y sale del alcance
-    * De manera predeterminada, el servicio de aprovisionamiento de Azure AD elimina o deshabilita los usuarios que quedan fuera del alcance. Si desea anular este comportamiento predeterminado, puede establecer una marca para [omitir las eliminaciones fuera del alcance](../app-provisioning/skip-out-of-scope-deletions.md).
-*   La propiedad AccountEnabled está establecida en False
+Asegúrese de que ha seleccionado la casilla de actualizaciones.
 
-Si se produce uno de los cuatro eventos anteriores y la aplicación de destino no admite eliminaciones temporales, el servicio de aprovisionamiento enviará una solicitud DELETE para eliminar permanentemente al usuario de la aplicación. 
+Asegúrese de que tiene la asignación en estado *Activa* de la aplicación. Si usa una aplicación de la galería de aplicaciones, la asignación puede ser ligeramente diferente. Asegúrese de usar la asignación predeterminada o predefinida para las aplicaciones de la galería.
 
-30 días después de que un usuario se elimine en Azure AD, se eliminará permanentemente del inquilino. En este punto, el servicio de aprovisionamiento enviará una solicitud DELETE para eliminar permanentemente al usuario en la aplicación. En cualquier momento durante la ventana de treinta días, puede [eliminar manualmente un usuario de forma permanente](../fundamentals/active-directory-users-restore.md), lo que envía una solicitud de eliminación a la aplicación.
 
-Si ve un atributo IsSoftDeleted en sus asignaciones de atributos, se utiliza para determinar el estado del usuario y si se debe enviar una solicitud de actualización con active = false para eliminar al usuario temporalmente. 
+**Configuración de la aplicación para eliminar un usuario**
+
+En los siguientes ejemplos se desencadenará una deshabilitación o una eliminación: 
+* Un usuario se elimina temporalmente en Azure AD (esto es, se envía a la papelera de reciclaje o a la propiedad AccountEnabled establecida en "false").
+    30 días después de que un usuario se elimine en Azure AD, se eliminará permanentemente del inquilino. En este punto, el servicio de aprovisionamiento enviará una solicitud DELETE para eliminar permanentemente al usuario en la aplicación. En cualquier momento y durante un periodo de treinta días, puede  [eliminar manualmente un usuario de forma permanente](../fundamentals/active-directory-users-restore.md), lo que envía una solicitud de eliminación a la aplicación.
+* Un usuario se elimina o se quita permanentemente de la papelera de reciclaje en Azure AD.
+* Un usuario no está asignado a una aplicación.
+* Un usuario sale del ámbito establecido (deja de pasar el filtro de ámbito).
+    
+De manera predeterminada, el servicio de aprovisionamiento de Azure AD elimina o deshabilita los usuarios que quedan fuera del alcance. Si quiere anular este comportamiento predeterminado, puede establecer una marca para  [omitir las eliminaciones fuera del alcance.](skip-out-of-scope-deletions.md)
+
+Si se produce uno de los cuatro eventos anteriores y la aplicación de destino no admite eliminaciones temporales, el servicio de aprovisionamiento enviará una solicitud DELETE para eliminar permanentemente al usuario de la aplicación.
+
+Si ve un atributo IsSoftDeleted en sus asignaciones de atributos, se utiliza para determinar el estado del usuario y si se debe enviar una solicitud de actualización con active = false para eliminar al usuario temporalmente.
+
+**Restricciones conocidas**
+
+* Si un usuario que haya administrado previamente el servicio de aprovisionamiento deja de estar asignado a una aplicación o a un grupo asignado a una aplicación, se enviará una solicitud de deshabilitación. En ese momento, el servicio deja de administrar al usuario y no se enviará una solicitud de eliminación cuando se elimine del directorio.
+* No se admite el aprovisionamiento de un usuario que esté deshabilitado en Azure AD. Debe estar activo en Azure AD antes de que aprovisionarlo.
+* Cuando un usuario pasa de ser eliminado de forma temporal a un estado "activo", el servicio de aprovisionamiento de Azure AD activará el usuario en la aplicación de destino, pero no restaurará automáticamente las pertenencias a grupos. La aplicación de destino debe mantener las pertenencias a grupos del usuario en estado inactivo. Si la aplicación de destino no lo admite, puede reiniciar el aprovisionamiento para actualizar las pertenencias a grupos. 
+
+**Recomendación**
+
+Al desarrollar una aplicación, admita siempre eliminaciones permanentes y temporales. Gracias a esto, los clientes pueden recuperarse cuando se deshabilita un usuario accidentalmente.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

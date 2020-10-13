@@ -1,7 +1,7 @@
 ---
-title: Tutorial de aplicación de página única de JavaScript | Azure
+title: 'Tutorial: Creación de una aplicación de página única de JavaScript que usa la plataforma de identidad de Microsoft para la autenticación | Azure'
 titleSuffix: Microsoft identity platform
-description: En este tutorial, aprenderá cómo las aplicaciones de página única de JavaScript pueden llamar a una API que requiera tokens de acceso emitidos por la Plataforma de identidad de Microsoft.
+description: En este tutorial creará una aplicación de página única de JavaScript que utiliza la Plataforma de identidad de Microsoft para iniciar sesión a los usuarios y obtener un token de acceso para llamar a Microsoft Graph API en su nombre.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,52 +12,48 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 728c0b4dadfa23b2d52e773928a3f78df27068b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256831"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825922"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript
+# <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript
 
-En esta guía se muestra cómo una aplicación de una sola página (SPA) de JavaScript puede:
-- Iniciar sesión en cuentas personales, profesionales y educativas
-- Adquisición de un token de acceso
-- Llamar a Microsoft Graph API o a otras API que requieran tokens de acceso del *punto de conexión de la Plataforma de identidad de Microsoft*.
+En este tutorial, creará una aplicación de página única (SPA) en JavaScript con la que es posible iniciar la sesión de los usuarios con cuentas personales de Microsoft o con cuentas profesionales y educativas, y posteriormente obtener un token de acceso para llamar a Microsoft Graph API.
+
+En este tutorial, aprenderá a:
+
+> [!div class="checklist"]
+> * Crear un proyecto de JavaScript con `npm`
+> * Registrar la aplicación en Azure Portal
+> * Agregar código para admitir el inicio y el cierre de sesión de usuario
+> * Agregar código para llamar a Microsoft Graph API
+> * Prueba de la aplicación
 
 >[!TIP]
 > En este tutorial se usa MSAL.js v1.x, que se limita al uso del flujo de concesión implícita para las aplicaciones de página única. En su lugar, se recomienda que todas las aplicaciones nuevas usen [MSAL.js 2.x y el flujo de código de autorización con compatibilidad con PKCE y CORS](tutorial-v2-javascript-auth-code.md).
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+* [Node.js](https://nodejs.org/en/download/) para ejecutar un servidor web local.
+* [Visual Studio Code](https://code.visualstudio.com/download) u otro editor para modificar archivos de proyecto.
+* Un explorador web moderno. **Internet Explorer** **no es compatible** con la aplicación que se crea en este tutorial debido a que la aplicación utiliza las convenciones [ES6](http://www.ecma-international.org/ecma-262/6.0/).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funcionamiento de la aplicación de ejemplo generada por esta guía
 
 ![Muestra cómo funciona la aplicación de ejemplo generada por este tutorial](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-### <a name="more-information"></a>Más información
+La aplicación de ejemplo que se crea con esta guía permite que una aplicación de página única de JavaScript haga consultas a Microsoft Graph API o a una API web que acepte tokens de un punto de conexión de la Plataforma de identidad de Microsoft. En este escenario, después de que un usuario inicia sesión, se solicita un token de acceso y se agrega a las solicitudes HTTP mediante el encabezado de autorización. Este token se usará para adquirir el perfil y los mensajes de correo electrónico del usuario mediante **MS Graph API**.
 
-La aplicación de ejemplo que se crea con esta guía permite que una aplicación de página única de JavaScript haga consultas a Microsoft Graph API o a una API web que acepte tokens de un punto de conexión de la Plataforma de identidad de Microsoft. En este escenario, después de que un usuario inicia sesión, se solicita un token de acceso y se agrega a las solicitudes HTTP mediante el encabezado de autorización. Este token se usará para adquirir el perfil y los mensajes de correo electrónico del usuario mediante **MS Graph API**. La adquisición y la renovación de los tokens se realiza por medio de la **Biblioteca de autenticación de Microsoft (MSAL) para JavaScript**.
-
-### <a name="libraries"></a>Bibliotecas
-
-Esta guía utiliza la siguiente biblioteca:
-
-|Biblioteca|Descripción|
-|---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticación de Microsoft para JavaScript|
+La adquisición y la renovación de los tokens se realiza por medio de la [Biblioteca de autenticación de Microsoft (MSAL) para JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
 ## <a name="set-up-your-web-server-or-project"></a>Configuración de un proyecto o servidor web
 
 > ¿Prefiere descargar este proyecto de ejemplo en su lugar? [Descargue los archivos del proyecto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
 > Para configurar el ejemplo de código antes de ejecutarlo, vaya al [paso de configuración](#register-your-application).
-
-## <a name="prerequisites"></a>Requisitos previos
-
-* Para ejecutar este tutorial, necesita un servidor web local, como [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) o la integración de IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-
-* Las instrucciones de esta guía se basan en un servidor web integrado en Node.js. Se recomienda usar [Visual Studio Code](https://code.visualstudio.com/download) como entorno de desarrollo integrado (IDE).
-
-* Un explorador web moderno. En este ejemplo de JavaScript se usan [convenciones ES6](http://www.ecma-international.org/ecma-262/6.0/) y, por lo tanto, **no** es compatible con **Internet Explorer**.
 
 ## <a name="create-your-project"></a>Creación del proyecto
 
@@ -76,7 +72,7 @@ Asegúrese de que tiene instalado [Node.js](https://nodejs.org/en/download/) y, 
    npm install morgan --save
    ```
 
-1. Ahora, cree un archivo .js llamado `index.js` y agregue el código siguiente:
+1. Ahora, cree un archivo .js llamado `server.js` y agregue el código siguiente:
 
    ```JavaScript
    const express = require('express');
@@ -283,7 +279,7 @@ Antes de continuar con la autenticación, registre la aplicación en **Azure Act
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Configuración de una dirección URL de redireccionamiento para Node.js
 >
-> Para Node.js, puede establecer el puerto del servidor web en el archivo *index.js*. En este tutorial se usa el puerto 3000, pero puede usar cualquier otro disponible.
+> Para Node.js, puede establecer el puerto del servidor web en el archivo *server.js*. En este tutorial se usa el puerto 3000, pero puede usar cualquier otro disponible.
 >
 > Para configurar una dirección URL de redireccionamiento en la información de registro de aplicación, vuelva al panel **Registro de aplicación** y realice una de las acciones siguientes:
 >
@@ -486,8 +482,6 @@ En esta aplicación de ejemplo que se crea en esta guía, el método `callMSGrap
    ```
 1. En el explorador, escriba **http://localhost:3000** o **http://localhost:{port}** , donde *port* es el puerto en el que escucha el servidor web. Verá el contenido del archivo *index.html* y el botón **Iniciar sesión**.
 
-## <a name="test-your-application"></a>Prueba de la aplicación
-
 Cuando el explorador haya cargado el archivo *index.html*, seleccione **Iniciar sesión**. Se le pedirá que inicie sesión con el punto de conexión de la plataforma de identidad de Microsoft:
 
 ![La ventana de inicio de sesión en la cuenta de SPA de JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
@@ -512,3 +506,11 @@ Microsoft Graph API requiere el ámbito *user.read* para leer el perfil del usua
 > Es posible que se pida al usuario algún consentimiento adicional a medida que aumente el número de ámbitos.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Puede profundizar más en el desarrollo de aplicaciones de página única (SPA) en la plataforma de identidad de Microsoft, en nuestra serie de escenarios de varias partes.
+
+> [!div class="nextstepaction"]
+> [Escenario: Aplicación de una sola página](scenario-spa-overview.md)
+

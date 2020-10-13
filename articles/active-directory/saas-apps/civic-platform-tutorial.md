@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 47ffaef940b3fe2ffe033405a712195c5c74d774
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 85b355981a50804f1c43441efa38c5db59967c1d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520390"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760638"
 ---
 # <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>Tutorial: Integración de Civic Platform con Azure Active Directory
 
@@ -91,7 +91,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
-    ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
+    ![Captura de pantalla que muestra la página Certificado de firma de SAML, donde puede copiar la dirección U R L de metadatos de federación de aplicaciones.](common/copy-metadataurl.png)
 
 1. Vaya a **Azure Active Directory** > **Registros de aplicaciones** in Azure AD y seleccione la aplicación.
 
@@ -120,21 +120,21 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Haga clic en **Standard Choices** (Opciones estándar).
 
-    ![Vínculo de descarga del certificado](media/civic-platform-tutorial/standard-choices.png)
+    ![Captura de pantalla que muestra el sitio de Atlassian Cloud con Standard Choices (Opciones estándar) seleccionada en Administrator Tools (Herramientas de administrador).](media/civic-platform-tutorial/standard-choices.png)
 
 1. Cree un **ssoconfig** de la opción estándar.
 
 1. Busque **ssoconfig** y envíelo.
 
-    ![Vínculo de descarga del certificado](media/civic-platform-tutorial/sso-config.png)
+    ![Captura de pantalla que muestra Standard Choices - Search (Opciones estándar - Buscar) con el nombre de la c o n f i g u r a c i ó n d e i n i c i o d e s e s i ó n ú n i c o especificada.](media/civic-platform-tutorial/sso-config.png)
 
 1. Expanda SSOCONFIG y haga clic en el punto rojo.
 
-    ![Vínculo de descarga del certificado](media/civic-platform-tutorial/sso-config01.png)
+    ![Captura de pantalla que muestra Standard Choices - Browse (Opciones estándar - Examinar) con la c o n f i g u r a c i ó n d e i n i c i o d e s e s i ó n ú n i c o disponible.](media/civic-platform-tutorial/sso-config01.png)
 
 1. Proporcione información de la configuración relacionada con el inicio de sesión único en el paso siguiente:
 
-    ![Vínculo de descarga del certificado](media/civic-platform-tutorial/sso-config02.png)
+    ![Captura de pantalla que muestra Standard Choices Item - Edit (Elemento Opciones estándar - Editar) para la c o n f i g u r a c i ó n d e i n i c i o d e s e s i ó n ú n i c o.](media/civic-platform-tutorial/sso-config02.png)
 
     1. En el campo **applicationid**, escriba el valor del **identificador de la aplicación** que ha copiado de Azure Portal.
 

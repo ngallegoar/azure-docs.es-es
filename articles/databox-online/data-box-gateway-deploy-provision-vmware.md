@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 4818755e48a4d497d70920a62a9505346176ed73
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 026caf101f58ff9d93e3306d0bd224f24e8af864
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371293"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743954"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en VMware
 
@@ -145,11 +145,11 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 
     En la misma página, haga clic en **Add hard disk** (Agregar disco duro) y, después, seleccione **Existing hard disk** (Disco duro existente). Seleccione el archivo VMDK en el almacén de datos. Esta acción agrega un disco del sistema operativo. 
 
-     ![Página Customize settings (Personalizar configuración)](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Página Customize settings (Personalizar configuración) 2](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Desplácese hacia abajo hasta que vea el **nuevo disco duro** y expándalo para ver su configuración. En **Virtual Device Node** (Nodo de dispositivo virtual), seleccione **IDE controller 0** (Controlador IDE 0).
 
-     ![Página Customize settings (Personalizar configuración)](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Página Customize settings (Personalizar configuración) 3](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
 17. (Opcional) *Realice este paso solo si se ejecuta VMware ESXi Server 6.7*. En la página **Customize settings** (Personalizar configuración), haga clic en **VM options** (Opciones de máquina virtual). Vaya a **Boot options > Firmware** (Opciones de arranque > Firmware) y cámbiela a **BIOS**. De forma predeterminada, el valor se establece en EFI. Haga clic en **Next**.
 
@@ -157,8 +157,8 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 
 18. En la página **Listo para completarse** , revise toda la configuración asociada a la nueva máquina virtual. Compruebe si el valor de CPU es 4, la memoria es 8192 MB, la interfaz de red es 1 y el disco duro 2 tiene el controlador IDE 0. Haga clic en **Finalizar**
    
-    ![Página Listo para completarse](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![Ready to Complete page](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![Página Lista para finalizar](./media/data-box-gateway-deploy-provision-vmware/image16.png)
+    ![Página Lista para finalizar 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 Ahora la máquina virtual está aprovisionada. Verá una notificación al efecto y la nueva máquina virtual se agregará a la lista de máquinas virtuales.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 7d0b0a6c935182737a7f207b7c7831fefcd491ea
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ccdfddd3ea76eddea2ab672fe07a092c9b1f1b62
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555336"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817066"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Tutorial: Integración de ExpenseIn con Azure Active Directory
 
@@ -135,11 +135,11 @@ En esta sección, va a permitir que B.Simon acceda a ExpenseIn mediante el inici
 
 1. Haga clic en **Admin** en la parte superior de la página, a continuación, vaya a **Single Sign-On** (Inicio de sesión único) y haga clic en **Add provider** (Agregar proveedor).
 
-     ![Configuración de ExpenseIn](./media/expenseIn-tutorial/config01.png)
+     ![Captura de pantalla que muestra la pestaña "Admin" (Administrador) y la página "Single Sign-On - Providers" (Inicio de sesión único - Proveedores) y la opción "Add Provider" (Agregar proveedor) seleccionadas.](./media/expenseIn-tutorial/config01.png)
 
 1. En el elemento emergente **New Identity Provider** (Nuevo proveedor de identidades), realice los pasos siguientes:
 
-    ![Configuración de ExpenseIn](./media/expenseIn-tutorial/config02.png)
+    ![Captura de pantalla que muestra el elemento emergente "Edit Identity Provider" (Editar proveedor de identidad) con los valores especificados.](./media/expenseIn-tutorial/config02.png)
 
     a. En el cuadro de texto **Provider Name** (Nombre del proveedor), escriba el nombre (por ejemplo, Azure).
 
@@ -163,7 +163,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en ExpenseIn, deben a
 
 2. Haga clic en **Admin** en la parte superior de la página, a continuación, vaya a **Users** (Usuarios) y haga clic en **New User** (Nuevo usuario).
 
-     ![Configuración de ExpenseIn](./media/expenseIn-tutorial/config03.png)
+     ![Captura de pantalla que muestra la pestaña "Admin" (Administrador) y la página "Manage Users" (Administrar usuarios) con la opción "New User" (Nuevo usuario) seleccionada.](./media/expenseIn-tutorial/config03.png)
 
 3. En el elemento emergente **Detalles**, lleve a cabo los pasos siguientes:
 

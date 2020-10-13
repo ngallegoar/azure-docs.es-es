@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: b7d1ea6c1ee21970a598855471284130160e1d65
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 18a034c6af9659e113a821e072098aee873c2ee2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537964"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760812"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: integración de Azure Active Directory con Adobe Sign
 
@@ -151,7 +151,7 @@ Para configurar el inicio de sesión único de Azure AD con Adobe Sign, realice 
 
 1. En la sección **SAML Settings** (Configuración de SAML), realice los pasos siguientes:
   
-   ![Captura de pantalla de SAML Settings (Configuración de SAML)](./media/adobe-echosign-tutorial/ic789521.png "Configuración de SAML")
+   ![Captura de pantalla que resalta la configuración de SAML, incluido SAML Mandatory (SAML obligatorio).](./media/adobe-echosign-tutorial/ic789521.png "Configuración de SAML")
    
    ![Captura de pantalla de SAML Settings (Configuración de SAML)](./media/adobe-echosign-tutorial/ic789522.png "Configuración de SAML")
 

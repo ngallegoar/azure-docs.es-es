@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f5994aa4114f12b55f2e232ea5a35fa2df87626
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8f5a8abf4272cf90691e60f97416023a76252e41
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547739"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740554"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>Tutorial: Integración de Azure Active Directory con Bugsnag
 
@@ -100,7 +100,7 @@ Para configurar el inicio de sesión único de Azure AD con Bugsnag, realice los
 
 4. En la sección **Configuración básica de SAML**, si quiere configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Bugsnag](common/both-replyurl.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML para escribir el valor de Dirección URL de respuesta y seleccionar Guardar.](common/both-replyurl.png)
 
     En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://app.bugsnag.com/user/sign_in/saml/<org_slug>/acs`
 
@@ -109,7 +109,7 @@ Para configurar el inicio de sesión único de Azure AD con Bugsnag, realice los
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Bugsnag](common/both-signonurl.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/both-signonurl.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una como `https://app.bugsnag.com/user/identity_provider`
 

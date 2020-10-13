@@ -4,16 +4,16 @@ description: Controle las interacciones con clientes de Azure vinculando un Id. 
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 03953e210f1c4caf1541db272ce4c02c271dafaa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371837"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772726"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
@@ -43,7 +43,7 @@ Cuando acceda a los recursos del cliente, use Azure Portal, PowerShell o la CLI 
 
 2. Inicie sesión en Azure Portal.
 
-3. Escriba el identificador de partner de Microsoft. El Id. de partner es el identificador de [Microsoft Partner Network](https://partner.microsoft.com/) de su organización.
+3. Escriba el identificador de partner de Microsoft. El Id. de partner es el identificador de [Microsoft Partner Network](https://partner.microsoft.com/) de su organización. Asegúrese de utilizar el **identificador de MPN asociado** que se muestra en su perfil de asociado.
 
    ![Captura de pantalla que muestra el vínculo a un identificador de partner](./media/link-partner-id/link-partner-id01.png)
 
@@ -61,7 +61,8 @@ Cuando acceda a los recursos del cliente, use Azure Portal, PowerShell o la CLI 
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
-3. Vincule el nuevo Id. de partner. El Id. de partner es el identificador de [Microsoft Partner Network](https://partner.microsoft.com/) de su organización.
+3. Vincule el nuevo Id. de partner. El Id. de partner es el identificador de [Microsoft Partner Network](https://partner.microsoft.com/) de su organización. Asegúrese de utilizar el **identificador de MPN asociado** que se muestra en su perfil de asociado.
+
 
     ```azurepowershell-interactive
     C:\> new-AzManagementPartner -PartnerId 12345
@@ -141,7 +142,7 @@ El vínculo está asociado al nivel de cuenta del usuario. Solo usted puede edit
 
 **¿Qué id. de MPN debo usar si mi compañía tiene varios?**
 
-Las cuentas de ubicación de asociados y los identificadores MPN se deben usar para vincular el identificador de asociado.  Más información sobre las [cuentas de asociado](https://docs.microsoft.com/partner-center/account-structure)
+Asegúrese de utilizar el **identificador de MPN asociado** que se muestra en su perfil de asociado.
 
 **¿Dónde puedo encontrar informes de ingresos influenciados para el identificador de asociado vinculado?**
 

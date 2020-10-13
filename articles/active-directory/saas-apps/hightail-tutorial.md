@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d39f46469d80b3e2d7bf361bd349a39afb16bd2d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297321"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826194"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Hightail
 
@@ -155,15 +155,15 @@ En esta sección va a permitir que B.Simon acceda a Hightail mediante el inicio 
 
 1. Haga clic en el **icono de usuario** de la esquina superior derecha de la página. 
 
-    ![Configurar inicio de sesión único](./media/hightail-tutorial/configure1.png)
+    ![Captura de pantalla que muestra el icono de usuario.](./media/hightail-tutorial/configure1.png)
 
 1. Haga clic en la pestaña **Ver consola de administración**.
 
-    ![Configurar inicio de sesión único](./media/hightail-tutorial/configure2.png)
+    ![Captura de pantalla que muestra el botón Ver consola de administración para el usuario.](./media/hightail-tutorial/configure2.png)
 
 1. En el menú de la parte superior, haga clic en la pestaña **SAML** y realice los pasos siguientes:
 
-    ![Configurar inicio de sesión único](./media/hightail-tutorial/configure3.png)
+    ![Captura de pantalla que muestra la pestaña SAML, donde puede especificar la dirección U R L de inicio de sesión y el certificado de SAML.](./media/hightail-tutorial/configure3.png)
 
     a. En el cuadro de texto **URL de inicio de sesión**, pegue el valor de **URL de inicio de sesión** copiado de Azure Portal.
 

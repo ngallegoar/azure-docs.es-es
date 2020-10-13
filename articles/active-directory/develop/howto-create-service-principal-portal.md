@@ -12,16 +12,16 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d14e31aa4fbeb2d29137c554f14333e1617c484a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178950"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265908"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
-En este artículo se muestra cómo crear una nueva entidad de servicio y aplicación de Azure Active Directory (Azure AD) que puede usar con el control de acceso basado en rol. Cuando haya aplicaciones, servicios hospedados o herramientas automatizadas que deban tener acceso a ciertos recursos o modificarlos, puede crear una identidad para la aplicación. Esta identidad se conoce como una entidad de servicio. El acceso a los recursos está restringido por los roles asignados a la entidad de servicio, lo que permite controlar a qué recursos pueden tener acceso y en qué nivel. Por motivos de seguridad, se recomienda usar siempre entidades de servicio con las herramientas automatizadas, en lugar de permitirles iniciar sesión con una identidad de usuario. 
+En este artículo se muestra cómo crear una nueva entidad de servicio y aplicación de Azure Active Directory (Azure AD) que puede usar con el control de acceso basado en rol. Cuando haya aplicaciones, servicios hospedados o herramientas automatizadas que deban tener acceso a ciertos recursos o modificarlos, puede crear una identidad para la aplicación. Esta identidad se conoce como una entidad de servicio. El acceso a los recursos está restringido por los roles asignados a la entidad de servicio, lo que permite controlar a qué recursos pueden tener acceso y en qué nivel. Por motivos de seguridad, se recomienda usar siempre entidades de servicio con las herramientas automatizadas, en lugar de permitirles iniciar sesión con una identidad de usuario.
 
 En este artículo se muestra cómo usar el portal para crear la entidad de servicio en Azure Portal. Se centra en una aplicación de un único inquilino donde la aplicación está diseñada para ejecutarse en una sola organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización.  También puede consultar [Uso de Azure PowerShell para crear una entidad de servicio](howto-authenticate-service-principal-powershell.md).
 
@@ -129,12 +129,13 @@ Al iniciar sesión mediante programación, deberá pasar el identificador de inq
 
    ![Copie el identificador de la aplicación (cliente)](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-## <a name="upload-a-certificate-or-create-a-secret-for-signing-in"></a>Carga de un certificado o creación de un secreto para iniciar sesión
-Hay dos tipos de autenticación disponibles para las entidades de servicio: autenticación basada en contraseña (secreto de aplicación) y autenticación basada en certificados.  Se recomienda usar un certificado, pero también puede crear un secreto de aplicación nuevo.
+## <a name="authentication-two-options"></a>Autenticación: Dos opciones
 
-### <a name="upload-a-certificate"></a>Carga de un certificado
+Hay dos tipos de autenticación disponibles para las entidades de servicio: autenticación basada en contraseña (secreto de aplicación) y autenticación basada en certificados. *Se recomienda usar un certificado*, pero también puede crear un secreto de aplicación.
 
-Puede usar un certificado existente si lo tiene.  Si quiere, puede crear un certificado autofirmado con *fines de prueba únicamente*. Para crear un certificado autofirmado, abra PowerShell y ejecute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con los parámetros siguientes para crear el certificado en el almacén de certificados del usuario en su equipo: 
+### <a name="option-1-upload-a-certificate"></a>Opción 1: Carga de un certificado
+
+Puede usar un certificado existente si lo tiene.  Si quiere, puede crear un certificado autofirmado con *fines de prueba únicamente*. Para crear un certificado autofirmado, abra PowerShell y ejecute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con los parámetros siguientes para crear el certificado en el almacén de certificados del usuario en su equipo:
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -163,7 +164,7 @@ Para cargar el certificado:
 
 Después de registrar el certificado con la aplicación en el portal de registro de aplicación, debe habilitar el código de la aplicación cliente para usar el certificado.
 
-### <a name="create-a-new-application-secret"></a>Creación de un secreto de aplicación
+### <a name="option-2-create-a-new-application-secret"></a>Opción 2: Creación de un secreto de aplicación
 
 Si decide no usar un certificado, puede crear un secreto de aplicación nuevo.
 
@@ -178,14 +179,15 @@ Si decide no usar un certificado, puede crear un secreto de aplicación nuevo.
    ![Copie el valor del secreto porque no podrá recuperarlo más adelante](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configuración de directivas de acceso sobre los recursos
-Puede que tenga que configurar permisos adicionales para los recursos a los que la aplicación tiene que acceder. Por ejemplo, también debe [actualizar las directivas de acceso de un almacén de claves](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para proporcionar a la aplicación acceso a las claves, los secretos o los certificados.  
+Puede que tenga que configurar permisos adicionales para los recursos a los que la aplicación tiene que acceder. Por ejemplo, también debe [actualizar las directivas de acceso de un almacén de claves](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para proporcionar a la aplicación acceso a las claves, los secretos o los certificados.
 
-1. En [Azure Portal](https://portal.azure.com), vaya al almacén de claves y seleccione **Directivas de acceso**.  
+1. En [Azure Portal](https://portal.azure.com), vaya al almacén de claves y seleccione **Directivas de acceso**.
 1. Seleccione **Agregar directiva de acceso** y, luego, seleccione la clave, el secreto y los permisos de certificado que quiere conceder a la aplicación.  Seleccione la entidad de servicio que creó anteriormente.
 1. Seleccione **Agregar** para agregar la directiva de acceso y, luego, **Guardar** para confirmar los cambios.
     ![Agregar directiva de acceso](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre el [Uso de Azure PowerShell para crear una entidad de servicio](howto-authenticate-service-principal-powershell.md).
-* Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure (RBAC de Azure)](../../role-based-access-control/role-assignments-portal.md).  
+* Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure (RBAC de Azure)](../../role-based-access-control/role-assignments-portal.md).
 * Para obtener una lista de las acciones que puede conceder o denegar a los usuarios, consulte [Operaciones del proveedor de recursos de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md).
+* Para obtener información sobre cómo trabajar con registros de aplicaciones mediante **Microsoft Graph**, vea la referencia de la API de [aplicaciones](/graph/api/resources/application).

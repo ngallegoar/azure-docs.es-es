@@ -1,22 +1,22 @@
 ---
 title: Puntos de conexión regionales para la base de datos de grafos de Azure Cosmos DB
 description: Aprenda a conectarse al punto de conexión de la base de datos de grafo para su aplicación más cercano
-author: luisbosquez
-ms.author: lbosq
+author: jasonwhowell
+ms.author: jasonh
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f9d46c2f5cce397c2aa6ebbcd38d7fbb5786412
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5537b70f9852f5b5a17362c13e2c9b8e8e9fc43c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997258"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570610"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Puntos de conexión regionales para la cuenta de grafos de Azure Cosmos DB
-La base de datos de grafos de Azure Cosmos DB se [distribuye globalmente](distribute-data-globally.md), por lo que las aplicaciones pueden usar varios puntos de conexión de lectura. Las aplicaciones que necesitan acceso de escritura en varias ubicaciones deben habilitar la funcionalidad de [arquitectura multimaestro](how-to-multi-master.md).
+La base de datos de grafos de Azure Cosmos DB se [distribuye globalmente](distribute-data-globally.md), por lo que las aplicaciones pueden usar varios puntos de conexión de lectura. Las aplicaciones que necesitan acceso de escritura en varias ubicaciones deben habilitar la funcionalidad de [escritura en varias regiones](how-to-multi-master.md).
 
 Razones para elegir más de una región:
 1. **Escalabilidad de lectura horizontal**: a medida que aumenta la carga de la aplicación, puede ser prudente enrutar el tráfico de lectura a diferentes regiones de Azure.

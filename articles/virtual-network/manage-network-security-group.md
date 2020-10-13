@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: dfb6426ec4e75f6484df37008522b966ebc3af6f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 42efc2bee88f073f2a628b1d2041afcc310cb871
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281266"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822974"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Crear, modificar o eliminar un grupo de seguridad de red
 
@@ -176,7 +176,7 @@ Existe un límite para la cantidad de reglas por grupo de seguridad de red que p
     | **Acción** | **Permitir** o **Denegar** | Esta opción de configuración especifica si esta regla permite o deniega el acceso a la configuración de origen y de destino proporcionada. |
     | **Prioridad** | Escriba un valor de 100 a 4096 que sea único para todas las reglas de seguridad del grupo de seguridad de red | Azure procesa las reglas de seguridad en orden de prioridad. Cuanto menor sea el número, mayor será la prioridad. Se recomienda dejar un espacio entre los números de prioridad al crear reglas, como 100, 200 y 300. Dejar espacios facilita la adición de reglas en el futuro, de modo que pueda asignarles una prioridad por encima o por debajo de las reglas existentes. |
     | **Nombre** | Nombre único para la regla en el grupo de seguridad de red | Puede tener hasta 80 caracteres. Debe comenzar con una letra o un número y terminar con una letra, un número o un carácter de subrayado. El nombre solo puede contener letras, números, caracteres de subrayado, puntos o guiones. |
-    | **Descripción** | Descripción de texto | Opcionalmente, puede especificar una descripción de texto para la regla de seguridad. |
+    | **Descripción** | Descripción de texto | Opcionalmente, puede especificar una descripción de texto para la regla de seguridad. La descripción no puede tener más de 140 caracteres. |
 
 #### <a name="commands"></a>Comandos:
 

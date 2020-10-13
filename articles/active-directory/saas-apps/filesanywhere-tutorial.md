@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 072c02401a5d1ef49a3f25828f5b60fa8504d2ee
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c62967950d9f6d9ba9e3578357f65cc4988412c2
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555134"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824920"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Tutorial: Integración de Azure Active Directory con FilesAnywhere
 
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con FilesAnywhere, reali
 
 4. En la sección **Configuración básica de SAML**, si quiere configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de FilesAnywhere](common/both-replyurl.png)
+    ![Captura de pantalla que muestra la sección "Configuración básica de SAML" con el campo "URL de respuesta" resaltado y el botón "Guardar" seleccionado.](common/both-replyurl.png)
 
     En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.filesanywhere.com/saml20.aspx?c=<Client Id>`
 
@@ -116,9 +116,9 @@ Para configurar el inicio de sesión único de Azure AD con FilesAnywhere, reali
 
 6. La aplicación FilesAnywhere espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono Editar para agregar los atributos.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra la sección "User Attributes" (Atributos de usuario) con el botón "Edit" (Editar) seleccionado.](common/edit-attribute.png)
 
-    Cuando los usuarios se suscriben con FilesAnywhere obtienen el valor del atributo **clientid** del equipo de [FilesAnywhere](mailto:support@FilesAnywhere.com). Tendrá que agregar el atributo "Client Id" con el valor único proporcionado por FilesAnywhere.
+    Cuando los usuarios se suscriben con FilesAnywhere obtienen el valor del atributo **clientid** del equipo de [FilesAnywhere](mailto:support@FilesAnywhere.com). Tendrá que agregar el atributo "Client ID" con el valor único proporcionado por FilesAnywhere.
 
 7. Además de lo anterior, la aplicación FilesAnywhere espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
 
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único de Azure AD con FilesAnywhere, reali
 
     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![imagen](common/new-save-attribute.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "User claims" (Reclamaciones de usuario) con las opciones "Add new claim" (Agregar nueva reclamación) y "Save" (Guardar) seleccionadas.](common/new-save-attribute.png)
 
     ![imagen](common/new-attribute-details.png)
 

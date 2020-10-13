@@ -1,21 +1,21 @@
 ---
 title: Uso de Azure Portal para asignar un rol de Azure para el acceso a datos
 titleSuffix: Azure Storage
-description: Aprenda a usar Azure Portal para asignar permisos a una entidad de seguridad de Azure Active Directory con el control de acceso basado en rol (RBAC). Azure Storage admite roles integrados y personalizados de Azure para la autenticación mediante Azure AD.
+description: Aprenda a usar Azure Portal para asignar permisos a una entidad de seguridad de Azure Active Directory con el control de acceso basado en rol de Azure (Azure RBAC). Azure Storage admite roles integrados y personalizados de Azure para la autenticación mediante Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/23/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 21120239c44dbdd812dfb3d3208990db4372ec29
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e2d577261a1cea0bad9aab549b3669f8fdef5751
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828020"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715854"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas
 
@@ -59,16 +59,16 @@ El procedimiento mostrado aquí asigna un rol limitado a un contenedor, pero pue
 1. Busque el contenedor para el que desea asignar un rol y visualice la configuración del contenedor.
 1. Seleccione **Control de acceso (IAM)** para mostrar la configuración del control de acceso del contenedor. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
 
-    ![Captura de pantalla que muestra la configuración de control de acceso del contenedor](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/portal-access-control-container.png" alt-text="Captura de pantalla que muestra la configuración de control de acceso del contenedor":::
 
 1. Haga clic en el botón **Agregar asignación de roles** para agregar un rol nuevo.
 1. En la ventana **Agregar asignación de roles**, seleccione el rol de Azure Storage que quiera asignar. Después, realice una búsqueda para localizar la entidad de seguridad a la que quiere asignar ese rol.
 
-    ![Captura de pantalla que muestra cómo asignar un rol de Azure](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Captura de pantalla que muestra la configuración de control de acceso del contenedor":::
 
 1. Haga clic en **Save**(Guardar). La identidad a la que ha asignado el rol aparece enumerada debajo de ese rol. Por ejemplo, la siguiente imagen muestra que el usuario agregado tiene ahora permisos de lectura para los datos del contenedor llamado *sample-container*.
 
-    ![Captura de pantalla con una lista de los usuarios asignados a un rol](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Captura de pantalla que muestra la configuración de control de acceso del contenedor":::
 
 Puede realizar este mismo procedimiento para asignar un rol que tenga como ámbito una cuenta de almacenamiento, un grupo de recursos o una suscripción.
 
@@ -98,9 +98,9 @@ Asignar el rol **Lector** solo es necesario con aquellos usuarios que necesiten 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información sobre los roles de Azure para recursos de almacenamiento, vea [Autorización del acceso a blobs y colas de Azure con Azure Active Directory](storage-auth-aad.md). 
-- Para más información acerca de RBAC, consulte [¿Qué es el control de acceso basado en rol (RBAC) de Azure?](../../role-based-access-control/overview.md).
+- Para más información sobre Azure RBAC, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md)
 - Para información sobre cómo asignar y administrar las asignaciones de roles de Azure con Azure PowerShell, la CLI de Azure o la API de REST, consulte estos artículos:
-    - [Administración del control de acceso basado en rol (RBAC) con Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-    - [Administración del control de acceso basado en rol (RBAC) con la CLI de Azure](../../role-based-access-control/role-assignments-cli.md)
-    - [Administración del control de acceso basado en rol (RBAC) con la API de REST](../../role-based-access-control/role-assignments-rest.md)
+    - [Incorporación o eliminación de asignaciones de roles de Azure con el módulo de Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+    - [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](../../role-based-access-control/role-assignments-cli.md)
+    - [Incorporación o eliminación de asignaciones de roles de Azure mediante la API REST](../../role-based-access-control/role-assignments-rest.md)
 - Para información sobre la autorización de acceso a los contenedores y las colas desde las aplicaciones de almacenamiento, consulte el artículo sobre el [uso de Azure AD con aplicaciones de Azure Storage](storage-auth-aad-app.md).

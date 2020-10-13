@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/15/2020
-ms.openlocfilehash: 41dd683bb0ff5be4a48cd05f24663dd51c66a15b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984626"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268730"
 ---
 # <a name="co-sell-partner-engagement"></a>Participación de asociados de venta conjunta
 
@@ -36,7 +36,7 @@ Las ofertas con el estado de **venta conjunta con incentivos IP de Azure** obtie
 * El precio del servicio de marketplace se reduce del 20 al 10 %. Este descuento se aplica a las ofertas de IaaS y SaaS que se venden a través del marketplace comercial. Para obtener más información, consulte [Precios de servicio reducidos](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee).
 * Los asociados de Proveedor de soluciones en la nube (CSP) reciben un incentivo del 10 % para vender su oferta de IaaS y SaaS. Para más información acerca del programa CSP, consulte [Programa Proveedor de soluciones en la nube](cloud-solution-providers.md).
 * Las ventas de su oferta a través del marketplace comercial colaborarán en los compromisos de los clientes de consumo de Azure. Los clientes cualificados verán la oferta marcada como **"Apto para ventajas de Azure"** en Azure Portal. Para obtener más información, consulte [Ventaja del compromiso de consumo de Azure](azure-consumption-commitment-benefit.md).
-* La oferta recibirá un distintivo **"Preferred solutions"** (Soluciones preferidas) en los escaparates. El distintivo promueve las ofertas por su calidad, rendimiento y capacidad para satisfacer las necesidades de los clientes de un sector vertical de la industria o área de soluciones determinados. Obtenga más información en [Soluciones preferidas de Microsoft AppSource y Azure Marketplace](preferred-solutions.md).
+* Las ofertas que consiguen los estados **Venta conjunta con incentivos de IP de Azure** o **Venta conjunta con incentivos de Business Applications** obtendrán un distintivo **"Soluciones preferidas"** en los escaparates. El distintivo promueve las ofertas por su calidad, rendimiento y capacidad para satisfacer las necesidades de los clientes de un sector vertical de la industria o área de soluciones determinados. Obtenga más información en [Soluciones preferidas de Microsoft AppSource y Azure Marketplace](preferred-solutions.md).
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Pasos y requisitos de publicación de ventas conjuntas
 

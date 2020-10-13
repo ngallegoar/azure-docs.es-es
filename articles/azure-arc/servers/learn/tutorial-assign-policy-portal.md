@@ -2,28 +2,27 @@
 title: 'Tutorial: Asignación de directivas nuevas con Azure Portal'
 description: En este tutorial, se usa Azure Portal a fin de crear una asignación de Azure Policy para identificar recursos no compatibles.
 ms.topic: tutorial
-ms.date: 09/23/2020
-ms.openlocfilehash: fbfe7090db1b4e1a8f802b30fdf749466ea26f1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/07/2020
+ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321873"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826593"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutorial: Creación de una asignación de directiva para identificar recursos no compatibles
 
-El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos.
-Este tutorial le guiará por el proceso de creación de una asignación de directiva para identificar las máquinas de servidores habilitados para Azure Arc, y para que estas identifiquen las máquinas que no tengan el agente de Log Analytics instalado en las máquinas habilitadas para Azure Arc.
+El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos. Azure Policy admite la auditoría del estado del servidor habilitado para Arc con las directivas de configuración de invitado. Las directivas de configuración de invitado no aplican configuraciones, solo auditan la configuración dentro de la máquina. Este tutorial le guía por el proceso de crear y asignar una directiva e identificar cuáles de los servidores habilitados para Arc no tienen instalado el agente de Log Analytics.
 
 Al final de este proceso, se identificarán correctamente las máquinas que no tengan instalado el agente de Log Analytics para Windows o Linux. _No son compatibles_ con la asignación de directiva.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="create-a-policy-assignment"></a>Creación de una asignación de directiva
 
-En este tutorial, creará una asignación de directiva y asignará la definición de directiva _Auditar las máquinas virtuales que no utilizan discos administrados_.
+En este tutorial, creará una asignación de directiva y asignará la definición de directiva _\[Versión preliminar]: El agente de Log Analytics debe estar instalado en las máquinas Linux de Azure Arc._
 
 1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 

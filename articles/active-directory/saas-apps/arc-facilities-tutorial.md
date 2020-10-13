@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: bca696cc633a1d2a4fd64180135bb4b1e25f801c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 953b1d766788092564ae32f6c0ab1fb3e57c492f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540628"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713903"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-arc-facilities"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ARC Facilities
 
@@ -84,15 +84,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación ARC Facilities espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo User Attributes (Atributos de usuario) con el icono de edición seleccionado.](common/edit-attribute.png)
 
 1. Además de lo anterior, la aplicación ARC Facilities espera que se usen algunos atributos más en la respuesta de SAML. En la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) del cuadro de diálogo **Group Claims (Preview)** (Notificaciones de grupo [versión preliminar]), siga estos pasos:
 
     a. Haga clic en el **lápiz** junto a **Groups returned in claim** (Grupos devueltos en la notificación).
 
-    ![imagen](./media/arc-facilities-tutorial/config01.png)
+    ![Captura de pantalla que muestra User Attributes & Claims (Atributos y reclamaciones del usuario) con el lápiz junto a Groups returned in claim (Grupos que devuelve la reclamación) seleccionado.](./media/arc-facilities-tutorial/config01.png)
 
-    ![imagen](./media/arc-facilities-tutorial/config02.png)
+    ![Captura de pantalla que muestra Group Claims (Reclamaciones de grupo) con All groups (Todos los grupos) y Group ID (Id. de grupo) seleccionados y el botón Save (Guardar) seleccionado.](./media/arc-facilities-tutorial/config02.png)
 
     b. Seleccione **Todos los grupos** en la lista de selección.
 

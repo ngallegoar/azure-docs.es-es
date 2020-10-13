@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c5d23770aab0bde745152d918adfe83209819899
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500766"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288620"
 ---
 # <a name="use-transactions-in-sql-pool"></a>Uso de transacciones en un grupo de SQL
 
@@ -29,10 +29,10 @@ Como cabría esperar, el grupo de SQL admite transacciones como parte de la carg
 
 El grupo de SQL implementa transacciones ACID. El nivel de aislamiento de la compatibilidad transaccional se establece de forma predeterminada en READ UNCOMMITTED.  Para cambiarlo a READ COMMITTED SNAPSHOT ISOLATION, active la opción de base de datos READ_COMMITTED_SNAPSHOT de una base de datos de usuario cuando se conecte a la base de datos maestra.  
 
-Una vez habilitada, todas las transacciones de esta base de datos se ejecutan en READ COMMITTED SNAPSHOT ISOLATION y no se respeta la opción de configuración READ UNCOMMITTED en el nivel de sesión. Consulte [Opciones de ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) para obtener más información.
+Una vez habilitada, todas las transacciones de esta base de datos se ejecutan en READ COMMITTED SNAPSHOT ISOLATION y no se respeta la opción de configuración READ UNCOMMITTED en el nivel de sesión. Consulte [Opciones de ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true) para obtener más información.
 
 ## <a name="transaction-size"></a>Tamaño de la transacción
-Una transacción de modificación de datos única tiene un tamaño limitado. El límite se aplica por distribución. Por lo tanto, la asignación total puede calcularse multiplicando el límite por el recuento de distribución. 
+Una transacción de modificación de datos única tiene un tamaño limitado. El límite se aplica por distribución. Como tal, la asignación total puede calcularse multiplicando el límite por el recuento de distribución. 
 
 Para aproximar el número máximo de filas de la transacción, divida el extremo de la distribución entre el tamaño total de cada fila. Para las columnas de longitud variable, plantéese utilizar la longitud media de la columna en lugar del tamaño máximo.
 
@@ -138,7 +138,7 @@ Msg 111233, Level 16, State 1, Line 1 111233; La transacción actual se ha anula
 
 Tampoco obtendrá el resultado de las funciones ERROR_*.
 
-En el grupo de SQL, el código debe modificarse ligeramente:
+En el grupo de SQL, el código se debe alterar ligeramente:
 
 ```sql
 SET NOCOUNT ON;
@@ -181,7 +181,7 @@ Lo único que ha cambiado es que la operación ROLLBACK de la transacción tení
 
 ## <a name="error_line-function"></a>Función Error_Line()
 
-También cabe destacar que el grupo de SQL no implementa o admite la función ERROR_LINE(). Si ha incluido esta función en el código, tendrá que quitarla para que sea compatible con el grupo de SQL. En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Para obtener más información, vea el artículo sobre [etiquetas](develop-label.md).
+También cabe destacar que el grupo de SQL no implementa o admite la función ERROR_LINE(). Si tiene esta función en el código, tendrá que quitarla para que sea compatible con el grupo de SQL. En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Para más información, consulte el artículo sobre las [etiquetas](develop-label.md).
 
 ## <a name="use-of-throw-and-raiserror"></a>Uso de THROW y RAISERROR
 
@@ -193,9 +193,7 @@ THROW es la implementación más moderna para producir excepciones en el grupo d
 
 ## <a name="limitations"></a>Limitaciones
 
-El grupo de SQL tiene algunas otras restricciones relacionadas con las transacciones.
-
-Los pasos son los siguientes:
+El grupo de SQL tiene algunas otras restricciones relacionadas con las transacciones. Los pasos son los siguientes:
 
 * Transacciones no distribuidas
 * Transacciones anidadas no permitidas

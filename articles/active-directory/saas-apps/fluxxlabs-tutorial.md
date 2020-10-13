@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 756bbaab1cbf359def01e371e4370607bee67ce3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 00cf3e33c87255485f7ea73526e474b0d941124b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554869"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826376"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Fluxx Labs
 
@@ -139,15 +139,15 @@ En esta sección, va a permitir que B.Simon acceda a Fluxx Labs mediante el inic
 
 2. Seleccione **Administrador** después de la sección **Configuración**.
 
-    ![Configuración de Fluxx Labs](./media/fluxxlabs-tutorial/config1.png)
+    ![Captura de pantalla que muestra la sección "Configuración" con la opción "Administrador" seleccionada.](./media/fluxxlabs-tutorial/config1.png)
 
 3. En el panel de administración, seleccione **Plug-ins** (Complementos) > **Integrations** (Integraciones) y, a continuación, seleccione **SAML SSO-(Disabled)** [SAML SSO-(Deshabilitado)]
 
-    ![Configuración de Fluxx Labs](./media/fluxxlabs-tutorial/config2.png)
+    ![Captura de pantalla que muestra la pestaña "Integrations" (Integraciones) con la opción "S A M L S S O-(Disabled)" [S A M L S S O-(Deshabilitado)] seleccionada.](./media/fluxxlabs-tutorial/config2.png)
 
 4. En la sección de atributos, realice los siguientes pasos:
 
-    ![Configuración de Fluxx Labs](./media/fluxxlabs-tutorial/config3.png)
+    ![Captura de pantalla que muestra la sección "Atributos" con la opción "S A M L S S O" marcada, los valores especificados en los campos y el botón "Guardar" seleccionado.](./media/fluxxlabs-tutorial/config3.png)
 
     a. Seleccione la casilla de verificación **SAML SSO** (SSO de SAML).
 
@@ -180,11 +180,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Fluxx Labs, deben 
 
 2. Haga clic en el **icono** que aparece a continuación.
 
-    ![Configuración de Fluxx Labs](./media/fluxxlabs-tutorial/config6.png)
+    ![Captura de pantalla que muestra las opciones de administrador con el icono "más" seleccionado debajo de "Your Dashboard is Empty" (El panel está vacío).](./media/fluxxlabs-tutorial/config6.png)
 
 3. En el panel, haga clic en el icono que se muestra a continuación para abrir la tarjeta **New PEOPLE** (Nueva persona).
 
-    ![Configuración de Fluxx Labs](./media/fluxxlabs-tutorial/config4.png)
+    ![Captura de pantalla que muestra el menú "Contact Management" (Administración de contactos) con el icono "más" situado junto a la opción "Personas" seleccionada.](./media/fluxxlabs-tutorial/config4.png)
 
 4. En la sección **NEW PEOPLE** (Nueva persona), lleve a cabo estos pasos:
 

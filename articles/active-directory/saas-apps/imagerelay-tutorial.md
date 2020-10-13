@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ec0cc88122521a5f59da45107956b4f25156b02f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0c32dbdafe8d2681d341cb7f2ee6f0ce45123cab
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545257"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826399"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Tutorial: Integración de Azure Active Directory con Image Relay
 
@@ -128,27 +128,27 @@ Para configurar el inicio de sesión único de Azure AD con Image Relay, siga es
 
 2. En la barra de herramientas de la parte superior, haga clic en la carga de trabajo **Users & Permissions** (Usuarios y permisos).
 
-    ![Configurar inicio de sesión único](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
+    ![Captura de pantalla con la carga de trabajo Users & Permissions (Usuarios y permisos) seleccionada en la barra de herramientas.](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
 3. Haga clic en **Create New Permission**(Crear permiso nuevo).
 
-    ![Configurar inicio de sesión único](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
+    ![Captura de pantalla que muestra un cuadro de texto para especificar el título del permiso y una opción para elegir el tipo de permiso.](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
 
 4. En la carga de trabajo **Single Sign On Settings** (Configuración de inicio de sesión único), active la casilla **This Group can only sign-in via Single Sign On** (Este grupo solo puede iniciar sesión mediante inicio de sesión único) y haga clic en **Save** (Guardar).
 
-    ![Configurar inicio de sesión único](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
+    ![Captura de pantalla que muestra Single Sign On Settings (Configuración de inicio de sesión único), donde puede seleccionar la opción.](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
 5. Vaya a **Account Settings**(Configuración de cuenta).
 
-    ![Configurar inicio de sesión único](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
+    ![Captura de pantalla que muestra la opción de la barra de herramientas Account Settings (Configuración de cuenta).](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
 6. Vaya a la carga de trabajo **Single Sign On Settings** (Configuración de inicio de sesión único).
 
-    ![Configurar inicio de sesión único](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
+    ![Captura de pantalla que muestra la opción de menú Single Sign On Settings (Configuración de inicio de sesión único).](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
 
 7. En el cuadro de diálogo **SAML Settings** (Configuración de SAML), siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo SAML Settings (Configuración de SAML), donde puede especificar esta información.](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
 
     a. En el cuadro de texto **Dirección URL de inicio de sesión**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -160,19 +160,19 @@ Para configurar el inicio de sesión único de Azure AD con Image Relay, siga es
 
     e. En **x.509 Certificate** (Certificado x.509), haga clic en **Update Certificate** (Actualizar certificado).
 
-    ![Configurar inicio de sesión único](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
+    ![Captura de pantalla que muestra la opción Update Certificate (Actualizar certificado).](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
 
     f. Abra el certificado descargado en el Bloc de notas, copie el contenido y péguelo en el cuadro de texto **x.509 Certificate** (Certificado X.509).
 
-    ![Configurar inicio de sesión único](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
+    ![Captura de pantalla que muestra el certificado x punto 509.](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
 
     g. En **Just-In-Time User Provisioning** (Aprovisionamiento de usuarios Just-In-Time), active la casilla **Enable Just-In-Time User Provisioning** (Habilitar aprovisionamiento de usuarios Just-In-Time).
 
-    ![Configurar inicio de sesión único](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
+    ![Captura de pantalla que muestra la sección Just-In-Time User Provisioning (Aprovisionamiento de usuarios Just-In-Time) con el control de habilitación seleccionado.](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
 
     h. Seleccione el grupo de permisos, por ejemplo, **SSO Basic**(SSO básico), que puede iniciar sesión solo mediante inicio de sesión único.
 
-    ![Configurar inicio de sesión único](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
+    ![Captura de pantalla que muestra la sección Just-In-Time User Provisioning (Aprovisionamiento de usuarios Just-In-Time) con S S O Basic (S S O básico) seleccionado.](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
 
     i. Haga clic en **Save**(Guardar).
 
@@ -237,11 +237,11 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 2. Vaya a **Users & Permissions** (Usuarios y permisos) y seleccione **Create SSO User** (Crear usuario de SSO).
 
-    ![Configurar inicio de sesión único](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
+    ![Captura de pantalla con Create S S O User (Crear usuario de S S O) seleccionado en el menú.](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
 3. Escriba los valores de los campos **Email** (Correo electrónico), **First Name** (Nombre), **Last Name** (Apellidos) y **Company** (Empresa) del usuario que desea aprovisionar y seleccione el grupo de permisos, por ejemplo, SSO Basic (SSO básico), que es el grupo que solo puede iniciar sesión mediante inicio de sesión único.
 
-    ![Configurar inicio de sesión único](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
+    ![Captura de pantalla que muestra la página para crear un usuario de S S O, donde puede especificar la información necesaria.](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
 
 4. Haga clic en **Crear**.
 

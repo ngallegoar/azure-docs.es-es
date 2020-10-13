@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3d0ef8a8641c3814fa7c9964786a7f24f5e54a01
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 162aa0c382ec22f946d20299fbb990b92481518f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534947"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714689"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Uso del proveedor de recursos de Azure Storage para acceder a los recursos de administración
 
@@ -26,13 +26,13 @@ El proveedor de recursos de Azure Storage se puede usar para realizar acciones t
 
 Microsoft proporciona dos API REST para trabajar con recursos de Azure Storage. Estas API forman la base de todas las acciones que se pueden realizar en Azure Storage. La API REST de Azure Storage permite trabajar con los datos de una cuenta de almacenamiento, lo que incluye datos de blobs, colas, archivos y tablas. La API REST del proveedor de recursos de Azure Storage permite trabajar tanto con la cuenta de almacenamiento como con los recursos relacionados.
 
-Una solicitud que lee o escribe datos de blobs requiere permisos diferentes que los de una que realiza una operación de administración. RBAC proporciona un control específico de los permisos de ambos tipos de recursos. Cuando asigne un rol de Azure a una entidad de seguridad, asegúrese de que sabe qué permisos va a conceder dicha entidad. Para obtener una referencia detallada que describa las acciones asociadas a cada rol integrado de Azure, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
+Una solicitud que lee o escribe datos de blobs requiere permisos diferentes que los de una que realiza una operación de administración. Azure RBAC proporciona control específico de los permisos para ambos tipos de recursos. Cuando asigne un rol de Azure a una entidad de seguridad, asegúrese de que sabe qué permisos va a conceder dicha entidad. Para obtener una referencia detallada que describa las acciones asociadas a cada rol integrado de Azure, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
 
 Azure Storage admite el uso de Azure AD para autorizar solicitudes en Blob Storage y Queue Storage. Para más información sobre los roles de Azure para las operaciones de datos de blobs y colas, consulte [Autorización del acceso a blobs y colas mediante Active Directory](storage-auth-aad.md).
 
-## <a name="assign-management-permissions-with-role-based-access-control-rbac"></a>Asignación de permisos de administración con el control de acceso basado en rol (RBAC)
+## <a name="assign-management-permissions-with-azure-role-based-access-control-azure-rbac"></a>Asignación de permisos de administración mediante el control de acceso basado en roles de Azure (Azure RBAC)
 
-Cada suscripción de Azure tiene una instancia de Azure Active Directory asociada que administra usuarios, grupos y aplicaciones. A los usuarios, grupos o aplicaciones también se los denomina como entidad de seguridad en el contexto de la [plataforma de identidad de Microsoft](/azure/active-directory/develop/). Mediante el control de acceso basado en rol (RBAC) es posible conceder a los recursos de una suscripción acceso a una entidad de seguridad que se defina en Active Directory.
+Cada suscripción de Azure tiene una instancia de Azure Active Directory asociada que administra usuarios, grupos y aplicaciones. A los usuarios, grupos o aplicaciones también se los denomina como entidad de seguridad en el contexto de la [plataforma de identidad de Microsoft](/azure/active-directory/develop/). Mediante el control de acceso basado en roles de Azure (Azure RBAC), puede conceder acceso a los recursos de una suscripción para una entidad de seguridad que se haya definido en Active Directory.
 
 Cuando se asigna un rol de Azure a una entidad de seguridad, también se indica el ámbito en el que están en vigor los permisos que concede el rol. En el caso de las operaciones de administración, puede asignar un rol en el nivel de la suscripción, el grupo de recursos o la cuenta de almacenamiento. Para asignar un rol de Azure a una entidad de seguridad, utilice [Azure Portal](https://portal.azure.com/), las [herramientas de la CLI de Azure](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/) o la [API REST del proveedor de recursos de Azure Storage](/rest/api/storagerp).
 

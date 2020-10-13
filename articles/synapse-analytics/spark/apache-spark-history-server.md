@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: e8dece3478e00c6f9279767e57e3bb8aca865f45
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 75aac74ae5ccf5b52234f1b554dc2a5edefcf32d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059982"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260417"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Uso del servidor de historial de Apache Spark extendido para depurar y diagnosticar aplicaciones Spark
 
@@ -30,11 +30,11 @@ El servidor de historial de Apache Spark es la interfaz de usuario web para las 
 
 1. Abra [Azure Synapse Analytics](https://web.azuresynapse.net/).
 
-2. Haga clic en **Supervisar** y, a continuación, seleccione la opción **Apache Spark Applications** (Aplicaciones Apache Spark).
+2. Abra **Monitor** (Supervisar) y, a continuación, seleccione la opción **Apache Spark applications** (Aplicaciones de Apache Spark).
 
-    ![Haga clic en Supervisar y, a continuación, seleccione Aplicación Spark.](./media/apache-spark-history-server/click-monitor-spark-application.png)
+    ![Seleccionar la opción de supervisión y, después, la aplicación de Spark.](./media/apache-spark-history-server/click-monitor-spark-application.png)
 
-3. Seleccione una aplicación y, a continuación, abra **Consulta de registro** haciendo clic en la opción.
+3. Seleccione una aplicación y, después, seleccione la **consulta de registro** para abrirla.
 
     ![Abra una ventana de consulta de registro.](./media/apache-spark-history-server/open-application-window.png)
 
@@ -46,11 +46,11 @@ El servidor de historial de Apache Spark es la interfaz de usuario web para las 
 
 1. En el cuaderno de Azure Synapse Studio, seleccione **Servidor de historial de Spark** desde la celda de resultados de la ejecución del trabajo o desde el panel de estado en la parte inferior del documento del cuaderno. Seleccione **Detalles de la sesión**.
 
-   ![Iniciar servidor de historial de Spark](./media/apache-spark-history-server/launch-history-server2.png "Iniciar servidor de historial de Spark")
+   ![Iniciar servidor de historial de Spark 1](./media/apache-spark-history-server/launch-history-server2.png "Iniciar servidor de historial de Spark")
 
 2. Seleccione **Servidor de historial de Spark** en el panel deslizante.
 
-   ![Iniciar servidor de historial de Spark](./media/apache-spark-history-server/launch-history-server.png "Iniciar servidor de historial de Spark")
+   ![Iniciar servidor de historial de Spark 2](./media/apache-spark-history-server/launch-history-server.png "Iniciar servidor de historial de Spark")
 
 ## <a name="explore-the-data-tab-in-spark-history-server"></a>Examen de la pestaña Datos del servidor de historial de Spark
 
@@ -80,7 +80,7 @@ Seleccione el id. del trabajo que quiere ver. Luego, seleccione **Datos** en el 
 
     ![Datos de la aplicación Spark: descargar fila](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
-* Para copiar una ruta de acceso completa o una ruta de acceso relativa, seleccione la opción **Copiar ruta de acceso completa** o **Copiar ruta de acceso relativa** que se expande desde el menú desplegable. Para los archivos de Azure Data Lake Storage, **Abrir en Explorador de Azure Storage** iniciará Explorador de Azure Storage y buscará la carpeta en la que inició sesión.
+* Para copiar una ruta de acceso completa o una ruta de acceso relativa, seleccione la opción **Copiar ruta de acceso completa** o **Copiar ruta de acceso relativa** que se expande desde el menú desplegable. Para los archivos de Azure Data Lake Storage, **Abrir en Explorador de Azure Storage** iniciará el Explorador de Azure Storage y buscará la carpeta en la que inició sesión.
 
     ![Datos de la aplicación Spark: copiar ruta de acceso](./media/apache-spark-history-server/sparkui-data-copy-path.png)
 
@@ -200,7 +200,7 @@ Para comprobar la **Asimetría de datos**, el **Desfase horario** y el **Anális
 
 Cuando seleccione la pestaña **Asimetría de datos**, se mostrarán las tareas con sesgos según los parámetros especificados.
 
-* **Especificar parámetros**: la primera sección muestra los parámetros que se usan para detectar la Asimetría de datos. La regla predeterminada es: La lectura de datos de tarea es tres veces mayor que la lectura de datos de tarea promedio y la lectura de datos de tarea es mayor que 10 MB. Si quiere definir su propia regla para las tareas con sesgos, puede elegir los parámetros y las secciones **Fase sesgada** y la sección **Gráfico de sesgo** se actualizarán en consecuencia.
+* **Especificar parámetros**: la primera sección muestra los parámetros que se usan para detectar la Asimetría de datos. La regla predeterminada es: La lectura de datos de tarea es tres veces mayor que la lectura de datos de tarea promedio y la lectura de datos de tarea es mayor que 10 MB. Si desea definir su propia regla para las tareas sesgadas, puede elegir los parámetros. Las secciones **Skewed Stage** (Fase sesgada) y **Skew Chart** (Gráfico de sesgo) se actualizarán en consecuencia.
 
 * **Fase sesgada**: la segunda sección muestra las fases que tienen tareas con desfase que cumplen los criterios especificados anteriormente. Si hay más de una tarea sesgada en una fase, la tabla de fase sesgada solo muestra la tarea más sesgada (por ejemplo, los datos más grandes para la asimetría de datos).
 
@@ -224,7 +224,7 @@ En la pestaña **Desfase horario** se muestran las tareas sesgadas en función d
 
 El gráfico de uso del ejecutor visualiza el estado de ejecución y la asignación del ejecutor del trabajo de Spark.  
 
-1. Seleccione **Análisis de uso del ejecutor** y se trazarán cuatro tipos de curvas sobre el uso del ejecutor, incluidas **Ejecutores asignados**, **Ejecutores en ejecución**, **Ejecutores sin uso** e **Instancias de ejecutor máximas**. En lo que respecta a los ejecutores asignados, cada evento "Ejecutor agregado" o "Ejecutor eliminado" aumenta o disminuye los ejecutores asignados. Puede comprobar la "escala de tiempo del evento" en la pestaña "Trabajos" para obtener más comparaciones.
+1. Seleccione **Análisis de uso del ejecutor** y se trazarán cuatro tipos de curvas sobre el uso del ejecutor, incluidas **Ejecutores asignados**, **Ejecutores en ejecución**, **Ejecutores sin uso** e **Instancias de ejecutor máximas**. En el caso de los ejecutores asignados, cada evento "Ejecutor agregado" o "Ejecutor eliminado" aumenta o disminuye los ejecutores asignados. Puede comprobar la "escala de tiempo del evento" en la pestaña "Trabajos" para obtener más comparaciones.
 
    ![Diagnóstico de la interfaz de usuario de Spark: pestaña de ejecutores](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 

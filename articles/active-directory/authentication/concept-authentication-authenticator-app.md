@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 10/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79870bcfc3b2cacb856141841a1f018eb1c50641
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 1520f3ef77353e653dca10779228e70488bcbd75
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90533003"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801756"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Métodos de autenticación en Azure Active Directory: aplicación Microsoft Authenticator
 
-La aplicación Microsoft Authenticator proporciona un nivel de seguridad adicional para su cuenta profesional o educativa de Azure AD o su cuenta de Microsoft, y está disponible para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) y [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Con la aplicación Microsoft Authenticator, los usuarios pueden autenticarse sin contraseñas durante el inicio de sesión, o como una opción de verificación adicional durante los eventos de autoservicio de restablecimiento de contraseña o de Azure Multi-Factor Authentication.
+La aplicación Microsoft Authenticator proporciona un nivel de seguridad adicional para su cuenta profesional o educativa de Azure AD o su cuenta de Microsoft, y está disponible para [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS](https://go.microsoft.com/fwlink/?linkid=866594). Con la aplicación Microsoft Authenticator, los usuarios pueden autenticarse sin contraseñas durante el inicio de sesión, o como una opción de verificación adicional durante los eventos de autoservicio de restablecimiento de contraseña o de Azure Multi-Factor Authentication.
 
 Los usuarios pueden recibir una notificación a través de la aplicación móvil para que aprueben o rechacen, o usar la aplicación Authenticator para generar un código de verificación de OATH que se pueda escribir en una interfaz de inicio de sesión. Si habilita tanto una notificación como un código de verificación, los usuarios que registran la aplicación Authenticator podrán utilizar cualquiera de los métodos para verificar su identidad.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5bae2173fc49cb9f41787905be66cf32a99fa03a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5ffdc510fd2a0f81fbfa5d9d04c337c99b389110
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537029"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>Tutorial: Integración de Azure Active Directory con Dealpath
 
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único de Azure AD con Dealpath, siga estos
 
 2. En la parte superior derecha, haga clic en **Admin Tools** (Herramientas de administración) y navegue a **Integrations** (Integraciones); a continuación, en la sección **SAML 2.0 Authentication** (Autenticación de SAML 2.0), haga clic en **Update Settings** (Actualizar configuración):
 
-    ![Configuración de Dealpath](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
+    ![Captura de pantalla que muestra la página "Admin Tools - Integrations" (Herramientas de administración - Integraciones) con la sección "S A M L 2.0 Authentication" (Autenticación de S A M L 2.0) y la opción "Update Settings" (Actualizar configuración) seleccionadas.](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
 
 3. En la página **Set up SAML 2.0 authentication** (Configurar la autenticación de SAML 2.0), realice los pasos siguientes:
 

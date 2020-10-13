@@ -1,23 +1,25 @@
 ---
-title: 'Instalación de contenedores de voz: servicio de voz'
+title: Instalación y ejecución de contenedores de Docker para las API del servicio de voz
 titleSuffix: Azure Cognitive Services
-description: Instale y ejecute contenedores de voz. Voz a texto transcribe secuencias de audio a texto en tiempo real que sus aplicaciones, herramientas o dispositivos pueden usar o mostrar. Texto a voz convierte el texto de entrada en voz sintetizada similar a la humana.
+description: Use los contenedores de Docker del servicio de voz para realizar el reconocimiento de voz, la transcripción, la generación y trabajar en más entornos locales.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: b51319716035cc4f59d50922846b067f4eda31d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: cog-serv-seo-aug-2020
+keywords: entorno local, Docker, contenedor
+ms.openlocfilehash: 0ba479e8c73cb7b0f397f39124ec32d7b9afbf4f
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900469"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813277"
 ---
-# <a name="install-and-run-speech-service-containers"></a>Instalación y ejecución de contenedores de servicio de Voz 
+# <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
 Los contenedores le permiten ejecutar algunas de las API del servicio de voz en su propio entorno. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo, aprenderá a descargar, instalar y ejecutar un contenedor de Voz.
 
@@ -37,18 +39,18 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 >
 > Para usar los contenedores de voz, debe enviar una solicitud en línea y esperar a que se apruebe. Para obtener más información, consulte la sección **Solicitud de aprobación para ejecutar el contenedor** más adelante.
 
-| Función | Características | Más reciente |
+| Contenedor | Características | Más reciente |
 |--|--|--|
-| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.3.1 |
-| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.3.1 |
-| Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.5.0 |
-| Conversión de texto a voz personalizada | Con un modelo personalizado del [portal de Voz personalizada](https://aka.ms/custom-voice-portal), convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.5.0 |
+| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.5.0 |
+| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.5.0 |
+| Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.7.0 |
+| Conversión de texto a voz personalizada | Con un modelo personalizado del [portal de Voz personalizada](https://aka.ms/custom-voice-portal), convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.7.0 |
 | Detección de idioma de Voz | Detecte el idioma que se habla en los archivos de audio. | 1,0 |
-| Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.1.0 |
+| Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.2.0 |
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Requisitos previos para poder usar los contenedores de Voz:
 
@@ -96,7 +98,7 @@ El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory`
 
 ## <a name="request-approval-to-the-run-the-container"></a>Solicitud de aprobación para ejecutar el contenedor
 
-Rellene y envíe el [formulario de solicitud](https://aka.ms/cognitivegate) para solicitar acceso al contenedor. 
+Rellene y envíe el [formulario de solicitud](https://aka.ms/csgate) para solicitar acceso al contenedor. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -136,6 +138,9 @@ Las imágenes de contenedor para Voz están disponibles en la instancia de Conta
 | Conversión de texto a voz personalizada | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest` |
 
 # <a name="speech-language-detection"></a>[Detección de idioma de Voz](#tab/lid)
+
+> [!TIP]
+> Para obtener los resultados más útiles, se recomienda usar el contenedor de detección de idioma de voz con los contenedores de conversión de voz en texto o los contenedores personalizados de conversión de voz en texto. 
 
 | Contenedor | Repositorio |
 |-----------|------------|
@@ -245,7 +250,7 @@ Todas las etiquetas, a excepción de `latest` tienen el formato siguiente y dist
 La etiqueta siguiente es un ejemplo del formato:
 
 ```
-1.1.0-amd64-en-us-arianeural-preview
+1.2.0-amd64-en-us-arianeural-preview
 ```
 
 Para ver todas las configuraciones regionales admitidas y las voces correspondientes del contenedor de **texto a voz neuronal**, consulte las [etiquetas de imágenes de texto a voz neuronal](../containers/container-image-tags.md#neural-text-to-speech).
@@ -468,7 +473,7 @@ Este comando:
 * Si el modelo personalizado se descargó anteriormente, se omite el `ModelId`.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
 
-# <a name="language-detection"></a>[Detección de idioma](#tab/lid)
+# <a name="speech-language-detection"></a>[Detección de idioma de Voz](#tab/lid)
 
 Para ejecutar el contenedor *Detección de idioma de Voz*, ejecute el siguiente comando `docker run`.
 
@@ -482,7 +487,7 @@ ApiKey={API_KEY}
 
 Este comando: 
 
-* Ejecuta un contenedor de detección de idioma de Voz desde la imagen de contenedor.
+* Ejecuta un contenedor de detección de idioma de Voz desde la imagen de contenedor. Actualmente no se le cobrará por la ejecución de esta imagen.
 * Asigna 1 núcleo de CPU y 1 gigabyte (GB) de memoria.
 * Expone el puerto TCP 5003 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
@@ -509,7 +514,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 | Contenedores | Dirección URL del host del SDK | Protocolo |
 |--|--|--|
 | Conversión de voz en texto estándar y personalizada | `ws://localhost:5000` | WS |
-| Conversión de texto a voz (incluida estándar, personalizada y neuronal), detección de idioma | `http://localhost:5000` | HTTP |
+| Conversión de texto a voz (incluida la versión estándar, personalizada y neuronal), detección de idioma de voz | `http://localhost:5000` | HTTP |
 
 Para más información sobre cómo usar los protocolos WSS y HTTPS, consulte la [seguridad del contenedor](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 

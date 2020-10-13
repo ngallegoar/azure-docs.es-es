@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9435a0eccff5a3be0dc9e0a2844bae175d753a5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be9d0503b411577d4ecbfb65c4bdae42a571d175
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555887"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775150"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Check Point CloudGuard Dome9 Arc
 
@@ -156,11 +156,11 @@ En esta sección, vas a permitir que B. Simon use el inicio de sesión único de
 
 2. Haga clic en **Profile Settings** (Configuración de perfil) en la esquina superior derecha y, luego, en **Account Settings** (Configuración de la cuenta). 
 
-    ![Configuración de Check Point CloudGuard Dome9 Arc](./media/dome9arc-tutorial/configure1.png)
+    ![Captura de pantalla que muestra el menú "Profile Settings" (Configuración de perfil) con la opción "Account Settings" (Configuración de la cuenta) seleccionada.](./media/dome9arc-tutorial/configure1.png)
 
 3. Vaya a **SSO** y después haga clic en **ENABLE** (HABILITAR).
 
-    ![Configuración de Check Point CloudGuard Dome9 Arc](./media/dome9arc-tutorial/configure2.png)
+    ![Captura de pantalla que muestra la pestaña "SSO" y la opción "Enable" (Habilitar) seleccionada.](./media/dome9arc-tutorial/configure2.png)
 
 4. En la sección de configuración de SSO, realice los pasos siguientes:
 
@@ -189,11 +189,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Check Point CloudG
 
 2. Haga clic en **Users & Roles** (Usuarios y roles) y luego en **Users** (Usuarios).
 
-    ![Agregar empleado](./media/dome9arc-tutorial/user1.png)
+    ![Captura de pantalla que muestra "Users & Roles" (Usuarios y roles) con la acción "Users" (Usuarios) seleccionada.](./media/dome9arc-tutorial/user1.png)
 
 3. Haga clic en **ADD USER** (Agregar usuario).
 
-    ![Agregar empleado](./media/dome9arc-tutorial/user2.png)
+    ![Captura de pantalla que muestra "Users & Roles" (Usuarios y roles) con el botón "ADD USER" (Agregar usuario) seleccionado.](./media/dome9arc-tutorial/user2.png)
 
 4. En la sección **Crear usuario** , lleve a cabo estos pasos:
 

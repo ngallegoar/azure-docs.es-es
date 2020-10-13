@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 403a5b68e3320700e275c744210f480be2c88e84
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 07374debf8d660d8f1c32788db3d218da611d539
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021330"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650483"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Protección de Azure Remote Rendering y el almacenamiento de modelos
 
@@ -163,7 +163,7 @@ Vamos a modificar **RemoteRenderingCoordinator** para cargar un modelo personali
     ```
 
     Este código agrega tres variables de cadena adicionales al componente **RemoteRenderingCoordinator**.
-    ![Modelo vinculado](./media/storage-account-linked-model.png)
+    ![Captura de pantalla que resalta el nombre de la cuenta de almacenamiento, el nombre del contenedor de blobs y la ruta del modelo del componente RemoteRenderingCoordinator.](./media/storage-account-linked-model.png)
 
 1. Agregue los valores al componente **RemoteRenderingCoordinator**. Tras haber seguido el [inicio rápido para la conversión de modelos](../../../quickstarts/convert-model.md), los valores serán:
 
@@ -392,12 +392,13 @@ En el editor de Unity, cuando la autenticación de AAD esté activa, tendrá que
     * El valor de **Azure Tenant ID** (Id. de inquilino de Azure) es el valor de *Directory (tenant) ID* (Id. de directorio [inquilino]) que se encuentra en el registro de la aplicación de AAD (consulte la imagen a continuación).
     * El valor de **Azure Remote Rendering Account ID** (Id. de la cuenta de Azure Remote Rendering) es el mismo valor de **Account ID** (Id. de cuenta) que ha estado usando para **RemoteRenderingCoordinator**.
 
-    ![Componente de autenticación de AAD](./media/app-overview-data.png)
+    ![Captura de pantalla que resalta el identificador de la aplicación (cliente) y el identificador de directorio (inquilino).](./media/app-overview-data.png)
 
 1. Presione el botón de reproducción en el editor de Unity y dé su consentimiento a la ejecución de una sesión.
     Puesto que el componente **AADAuthentication** tiene un controlador de vista, se enlaza automáticamente para mostrar un aviso después del panel modal de autorización de la sesión.
 1. Siga las instrucciones que se encuentran en el panel a la derecha de **AppMenu**.
-    Verá algo parecido a esto: ![Componente de autenticación de AAD](./media/device-flow-instructions.png) Después de escribir el código proporcionado en el dispositivo secundario (o en el explorador del mismo dispositivo) e iniciar sesión con sus credenciales, se devolverá un token de acceso a la aplicación que realiza la solicitud, en este caso, el editor de Unity.
+    Verá algo parecido a esto: ![Ilustración en la que se muestra el panel de instrucciones que aparece a la derecha de AppMenu.](./media/device-flow-instructions.png)
+    Después de escribir el código proporcionado en el dispositivo secundario (o en el explorador del mismo dispositivo) e iniciar sesión con sus credenciales, se devolverá un token de acceso a la aplicación que realiza la solicitud, en este caso, el editor de Unity.
 1. Llegados a este punto, todas las fases de la aplicación proseguirán normalmente. Si no es así, compruebe la consola de Unity para ver si hay errores.
 
 ## <a name="build-to-device"></a>Compilación en el dispositivo

@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85701f3d073b8f743ddf48910822f152420c4fc0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001389"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714808"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de comprobación de escalabilidad y rendimiento para Blob Storage
 
@@ -66,7 +66,7 @@ Para más información acerca de los objetivos de escalabilidad de Queue service
 Si se está aproximando al número máximo de cuentas de almacenamiento permitidas para una combinación determinada de región y suscripción, evalúe su caso y determine si se aplica alguna de las condiciones siguientes:
 
 - ¿Usa cuentas de almacenamiento para almacenar discos no administrados y agregar esos discos a las máquinas virtuales (VM)? En este caso, Microsoft recomienda usar discos administrados. Los discos administrados se escalan automáticamente y sin necesidad de crear y administrar cuentas de almacenamiento individuales. Para más información, consulte [Introducción a los discos administrados de Azure](../../virtual-machines/managed-disks-overview.md).
-- ¿Usa una cuenta de almacenamiento por cliente, con el fin de aislar los datos? En este caso, Microsoft recomienda usar un contenedor de blobs para cada cliente, en lugar de una cuenta de almacenamiento completa. Azure Storage ahora le permite asignar roles de Azure para cada contenedor. Para más información, consulte [Conceder acceso a datos de blob y cola de Azure con RBAC en Azure Portal](../common/storage-auth-aad-rbac-portal.md).
+- ¿Usa una cuenta de almacenamiento por cliente, con el fin de aislar los datos? En este caso, Microsoft recomienda usar un contenedor de blobs para cada cliente, en lugar de una cuenta de almacenamiento completa. Azure Storage ahora le permite asignar roles de Azure para cada contenedor. Para más información, consulte [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-portal.md).
 - ¿Usa varias cuentas de almacenamiento como particiones para aumentar las operaciones de entrada, salida e IOPS (operaciones de E/S por segundo) o la capacidad? En este escenario, Microsoft recomienda aprovechar las ventajas del aumento de los límites de las cuentas de almacenamiento para reducir el número de cuentas de almacenamiento necesarias para la carga de trabajo, siempre que sea posible. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para solicitar el aumento de los límites de la cuenta de almacenamiento. Para más información, consulte [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) (Anuncio de cuentas de almacenamiento más grandes y con mayor escala).
 
 ### <a name="capacity-and-transaction-targets"></a>Objetivos de capacidad y transacción

@@ -162,13 +162,15 @@
       href: client-libraries.md
     - name: 'Códigos de error de la API de REST: Azure Key Vault'
       href: rest-error-codes.md
+    - name: 'Códigos de error comunes: Azure Key Vault'
+      href: common-error-codes.md
     - name: Parámetros y encabezados comunes
       href: common-parameters-and-headers.md
     - name: Versiones de Key Vault
       href: versions.md
     - name: Azure PowerShell
       href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/keyvault
     - name: .NET
       href: /dotnet/api/overview/azure/keyvault/management?view=azure-dotnet

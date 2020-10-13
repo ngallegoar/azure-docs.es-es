@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: ff6bd1a52e05d55d43969644141f39aed8c8eb63
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62c3d4533dd04dbb5a2ce0c73afa52b81d433913
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072647"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570788"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformación de XML con asignaciones en Azure Logic Apps con Enterprise Integration Pack
 
@@ -69,7 +69,7 @@ No necesita una aplicación lógica al crear y agregar asignaciones. Sin embargo
 
 1. Una vez que se abre la página **Ensamblados**, elija **Agregar**.
 
-   ![Elección de "Agregar"](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
+   ![Captura de pantalla en la que se resalta el botón Agregar en la página Ensamblados.](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
 
 Según el tamaño del archivo de ensamblado, siga los pasos para cargar un ensamblado de [hasta 2 MB](#smaller-assembly) o de [más de 2 MB, pero solo hasta 8 MB](#larger-assembly).
 Para conocer los límites de las cantidades de ensamblados en cuentas de integración, consulte [Límites y configuración de Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: be8e43585fca77fc891a9142066d406444b674d8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7274627ccf0aaab29f3ca569568e0085d53f1dea
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253241"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818095"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Procedimientos para modelar y crear particiones de datos en Azure Cosmos DB mediante un ejemplo real
 
@@ -54,7 +54,7 @@ Esta es la lista de solicitudes que se deberá exponer nuestra plataforma:
 - **[Q5]**  Enumerar los "Me gusta" de una publicación
 - **[P6]**  Enumerar las *x* publicaciones más recientes creadas en formato abreviado (fuente)
 
-En esta fase aún no hemos pensado en los detalles de lo que va a contener cada entidad (usuario, publicación, etc.) Este paso suele ser de los primeros en abordarse al diseñar en un almacén relacional, ya que tenemos que averiguar cómo se traducirán dichas entidades en términos de tablas, columnas, claves externas, etc. El problema es mucho menor cuando se trabaja con una base de datos documental que no exige ningún esquema en la escritura.
+En esta fase aún no hemos pensado en los detalles de lo que va a contener cada entidad (usuario, publicación, etc.). Este paso suele ser de los primeros en abordarse al diseñar en un almacén relacional, ya que tenemos que averiguar cómo se traducirán dichas entidades en términos de tablas, columnas, claves externas, etc. El problema es mucho menor cuando se trabaja con una base de datos documental que no exige ningún esquema en la escritura.
 
 El motivo principal por el que es importante identificar los patrones de acceso desde el principio, es que esta lista de solicitudes va a ser nuestro conjunto de pruebas. Cada vez que recorramos el modelo de datos, vamos a pasar por todas y cada una de las solicitudes y a comprobar su rendimiento y escalabilidad.
 

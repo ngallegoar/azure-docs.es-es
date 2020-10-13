@@ -4,14 +4,14 @@ description: Aprenda a administrar recursos de Azure Cosmos DB mediante Azure Po
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 09/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 35659eba274b4b93ca74e480f6ad2b5edfd2e293
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98210f26072504c129ba32f765cf6bab74fef604
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116764"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570716"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Administración de una cuenta de Azure Cosmos
 
@@ -69,7 +69,7 @@ Consulte [Agregar o quitar regiones con PowerShell](manage-with-powershell.md#up
 
 Abra la pestaña **Replicar datos globalmente** y seleccione **Habilitar** para habilitar las escrituras en varias regiones. Después de habilitar las escrituras en varias regiones, todas las regiones de lectura que actualmente tiene en la cuenta se convertirán en regiones de lectura y escritura.
 
-:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Captura de pantalla de la cuenta de Azure Cosmos que configura la arquitectura multimaestro":::
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Menú Agregar o eliminar regiones":::
 
 ### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
@@ -77,11 +77,11 @@ Consulte [Habilitar regiones de varias escrituras con la CLI de Azure](manage-wi
 
 ### <a name="azure-powershell"></a><a id="configure-multiple-write-regions-ps"></a>Azure PowerShell.
 
-Consulte [Habilitar regiones de varias escrituras con PowerShell](manage-with-powershell.md#multi-master).
+Consulte [Habilitar regiones de varias escrituras con PowerShell](manage-with-powershell.md#multi-region-writes).
 
 ### <a name="resource-manager-template"></a><a id="configure-multiple-write-regions-arm"></a>plantilla de Resource Manager
 
-Es posible migrar una cuenta desde un maestro único a una arquitectura multimaestro mediante la implementación de la plantilla de Resource Manager que se usa para crear la cuenta y estableciendo `enableMultipleWriteLocations: true`. La plantilla de Azure Resource Manager siguiente es una plantilla mínima que implementará una cuenta de Azure Cosmos para SQL API con dos regiones y varias ubicaciones de escritura habilitadas.
+Es posible migrar una cuenta desde una única región de escritura a varias regiones de escritura mediante la implementación de la plantilla de Resource Manager utilizada para crear la cuenta y estableciendo `enableMultipleWriteLocations: true`. La plantilla de Azure Resource Manager siguiente es una plantilla mínima que implementará una cuenta de Azure Cosmos para SQL API con dos regiones y varias ubicaciones de escritura habilitadas.
 
 ```json
 {
@@ -149,13 +149,13 @@ La opción de conmutación automática por error permite que Azure Cosmos DB c
 
 2. En la parte superior del panel, seleccione **Conmutación automática por error**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Replicar datos globalmente":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Agregar o eliminar regiones":::
 
 3. En el panel **Conmutación automática por error**, asegúrese de que **Habilitar la conmutación automática por error** está establecido en **Activado**. 
 
 4. Seleccione **Guardar**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menú Conmutación por error automática del portal":::
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menú Agregar o eliminar regiones":::
 
 ### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
@@ -178,7 +178,7 @@ Una vez que una cuenta de Cosmos se configura para la conmutación automática p
 
 2. En la parte superior del panel, seleccione **Conmutación automática por error**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Replicar datos globalmente":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Agregar o eliminar regiones":::
 
 3. En el panel **Conmutación automática por error**, asegúrese de que **Habilitar la conmutación automática por error** está establecido en **Activado**.
 
@@ -186,7 +186,7 @@ Una vez que una cuenta de Cosmos se configura para la conmutación automática p
 
 5. Seleccione **Guardar**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menú Conmutación por error automática del portal":::
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menú Agregar o eliminar regiones":::
 
 ### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Azure CLI
 
@@ -204,7 +204,7 @@ Consulte [Establecimiento de la prioridad de conmutación por error con PowerShe
 El proceso para realizar una conmutación por error manual implica cambiar la región de escritura de la cuenta (prioridad de conmutación por error = 0) a otra región configurada para la cuenta.
 
 > [!NOTE]
-> Las cuentas de arquitectura multimaestro no se puede conmutar por error de manera manual. Para las aplicaciones que usan el SDK de Azure Cosmos, el SDK detectará cuando una región deja de estar disponible y luego redirige automáticamente a la región más cercana siguiente si se usa una API de hospedaje múltiple en el SDK.
+> No se puede realizar la conmutación por error manual de cuentas con varias regiones de escritura. Para las aplicaciones que usan el SDK de Azure Cosmos, el SDK detectará cuando una región deja de estar disponible y luego redirige automáticamente a la región más cercana siguiente si se usa una API de hospedaje múltiple en el SDK.
 
 ### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Azure Portal
 
@@ -212,13 +212,13 @@ El proceso para realizar una conmutación por error manual implica cambiar la re
 
 2. En la parte superior del menú, seleccione **Conmutación por error manual**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Replicar datos globalmente":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menú Agregar o eliminar regiones":::
 
 3. En el menú **Conmutación por error manual**, seleccione la nueva región de escritura. Active la casilla de verificación para indicar que comprende que esta opción cambia la región de escritura.
 
 4. Para desencadenar la conmutación por error, seleccione **Aceptar**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Menú Conmutación por error del portal":::
+   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Menú Agregar o eliminar regiones":::
 
 ### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Azure CLI
 

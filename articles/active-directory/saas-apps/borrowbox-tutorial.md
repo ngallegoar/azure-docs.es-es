@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: d7cab94520464662589ca952e9d50102f450ab8d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c0ffa67725c3178155c495754ca67270c946778b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548368"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744315"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Tutorial: Integración de Azure Active Directory con BorrowBox
 
@@ -100,11 +100,11 @@ Para configurar el inicio de sesión único de Azure AD con BorrowBox, siga esto
 
 4. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Atlassian Cloud](common/preintegrated.png)
+    ![[Captura de pantalla muestra la configuración básica de SAML.] Información de dominio y direcciones URL de inicio de sesión único](common/preintegrated.png)
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Atlassian Cloud](common/metadata-upload-additional-signon.png)
+    ![[Captura de pantalla que muestra Establecer direcciones U R L adicionales, donde puede escribir una dirección U R L de inicio de sesión.] Información de dominio y direcciones URL de inicio de sesión único](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
 

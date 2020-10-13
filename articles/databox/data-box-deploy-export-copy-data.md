@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 1d39b29ba340b34d6f0add8ff5da473408bd6360
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 204e89bdf8c660a7e96438f8cb3b8a18aeaec306
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259136"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742390"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Tutorial: Copia de datos de Azure Data Box a través de SMB (versión preliminar)
 
@@ -50,7 +50,7 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 
 1. El primer paso es autenticarse e iniciar sesión. Vaya a **Connect and copy** (Conectar y copiar). Seleccione **Get credentials** (Obtener credenciales) para obtener las credenciales de acceso a los recursos compartidos asociados con la cuenta de almacenamiento. 
 
-    ![Obtención de las credenciales del recurso compartido 1](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
+    ![Obtención de las credenciales de recursos compartidos](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
 
 2. En el cuadro de diálogo Access share and copy data (Acceder al recurso compartido y copiar datos), copie los valores de **Username** (Nombre de usuario) y **Password** (Contraseña) del recurso compartido. Seleccione **Aceptar**.
     
@@ -75,7 +75,7 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 
 4. Presione Windows + R. En la ventana **Ejecutar**, escriba `\\<device IP address>`. Seleccione **Aceptar** para abrir el Explorador de archivos.
     
-    ![Conexión al recurso compartido mediante el Explorador de archivos 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Conexión a un recurso compartido de archivos mediante el Explorador de archivos](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     Ahora debería ver los recursos compartidos como carpetas.
     

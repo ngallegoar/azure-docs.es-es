@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 382a6056076179be0d25e0fee0d55b978a3b7169
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 8dfc1eb35572a6b706deb47335357417bd837825
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420445"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819936"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de SaaS en el marketplace comercial
 
@@ -57,7 +57,7 @@ Las opciones de publicación _Obtener ahora (gratis)_ , _Evaluación gratuita_ y
 
 Estos requisitos técnicos adicionales se aplican solo a la opción de publicación _Venta mediante Microsoft_ (procesable):
 
-- se requiere Azure AD con la autenticación y la administración de identidades de inicio de sesión único (SSO). Para más información, consulte [Azure AD y ofertas de SaaS comercializables en el marketplace comercial](azure-ad-saas.md).
+- Se requiere Azure AD con la autenticación y la administración de identidades de inicio de sesión único (SSO) para el usuario comprador que accede a la página de aterrizaje. Para más información, consulte [Azure AD y ofertas de SaaS comercializables en el marketplace comercial](azure-ad-saas.md).
 - Debe usar las [API de cumplimiento de SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md) para la integración con Azure Marketplace y Microsoft AppSource. Debe exponer servicios que puedan interactuar con la suscripción de SaaS para crear, actualizar y eliminar una cuenta de usuario y un plan de servicio. Los cambios importantes en la API deben admitirse dentro de un plazo de 24 horas. Los cambios no importantes en la API se publicarán de forma periódica. En la documentación de las [API](./partner-center-portal/pc-saas-fulfillment-api-v2.md) hay diagramas y explicaciones detalladas que describen el uso de los campos recopilados.
 - Debe crear al menos un plan para la oferta. El precio del plan se basa en el modelo de precios seleccionado antes de la publicación: _tarifa plana_ o _por usuario_. Se proporcionan más detalles sobre los [planes](#plans) más adelante en este artículo.
 - El cliente puede cancelar su oferta en cualquier momento.
@@ -100,7 +100,7 @@ Se puede elegir habilitar una versión de prueba de la aplicación SaaS. Las ver
 
 Debe conectar su oferta al sistema de administración de relaciones con clientes (CRM) para recopilar información del cliente. El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre y el identificador de la oferta, además de la tienda en línea donde la encontró, se envían al sistema CRM que haya configurado. El marketplace comercial admite una gran variedad de sistemas CRM, junto con la opción de usar una tabla de Azure o de configurar un punto de conexión HTTPS con Power Automate.
 
-Puede agregar o modificar una conexión CRM en cualquier momento durante o después de la creación de la oferta. Se pueden encontrar instrucciones detalladas en [Administración de clientes potenciales del marketplace comercial](lead-management-for-cloud-marketplace.md).
+Puede agregar o modificar una conexión CRM en cualquier momento durante o después de la creación de la oferta. Para obtener instrucciones detalladas, vea [Clientes potenciales a partir de la oferta en el marketplace comercial](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## <a name="selecting-an-online-store"></a>Selección de una tienda en línea
 
@@ -158,11 +158,11 @@ Para facilitar la creación de la oferta, prepare algunos de estos elementos con
     Este cuadro de texto tiene controles de editor de texto enriquecido que puede utilizar para que su descripción sea más atractiva. También puede usar etiquetas HTML para dar formato a la descripción. En este cuadro puede escribir hasta 3000 caracteres de texto, incluido el marcado HTML. Consulte [Escribir una excelente descripción de la aplicación](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description) para encontrar más sugerencias.
 
 - **Instrucciones de inicio** Si opta por vender su oferta a través de Microsoft (oferta procesable), este campo es obligatorio. Estas son instrucciones para ayudar a los clientes a conectarse a su oferta de SaaS. Puede agregar hasta 3000 caracteres de texto y vínculos a documentación en línea más detallada.
-- **Palabras clave de búsqueda** (opcional): escriba al menos tres palabras clave de búsqueda que los clientes puedan usar para buscar su oferta en los marketplaces. No es necesario incluir el **nombre** y la **descripción** de la oferta: ese texto se incluye automáticamente en la búsqueda.
+- **Palabras clave de búsqueda** (opcional): escriba al menos tres palabras clave de búsqueda que los clientes puedan usar para buscar su oferta en las tiendas en línea. No es necesario incluir el **nombre** y la **descripción** de la oferta: ese texto se incluye automáticamente en la búsqueda.
 - **Vínculo a la directiva de privacidad**: la dirección URL que lleva a la directiva de privacidad de su empresa. Debe proporcionar una directiva de privacidad válida y usted es responsable de garantizar que la aplicación cumple con las leyes y normativas de privacidad.
 - **Información de contacto**: debe designar los siguientes contactos de la organización:
   - **Contacto de soporte técnico**: proporcione el nombre, el teléfono y el correo electrónico de los asociados de Microsoft que se usarán cuando los clientes abran vales. También debe incluir la dirección URL del sitio web de soporte técnico.
-  - **Contacto de ingeniería**: proporcione el nombre, el teléfono y el correo electrónico que Microsoft usará directamente cuando haya problemas con la oferta. Esta información de contacto no aparece en el marketplace.
+  - **Contacto de ingeniería**: proporcione el nombre, el teléfono y el correo electrónico que Microsoft usará directamente cuando haya problemas con la oferta. Esta información de contacto no aparece en el marketplace comercial.
   - **Contacto del programa CSP** (opcional): proporcione el nombre, el teléfono y el correo electrónico si participa en el programa CSP, de modo que dichos asociados puedan ponerse en contacto con usted con cualquier pregunta. También puede incluir una dirección URL a sus materiales de marketing.
 - **Vínculos útiles** (opcional): puede proporcionar vínculos a varios recursos para los usuarios de su oferta. Por ejemplo, foros, preguntas más frecuentes y notas de la versión.
 - **Documentos relacionados**: puede proporcionar hasta tres documentos orientados al cliente, como notas del producto, folletos, listas de comprobación o presentaciones de PowerPoint.
@@ -174,9 +174,9 @@ Para facilitar la creación de la oferta, prepare algunos de estos elementos con
 
   Estos logotipos se usan en distintos lugares de las tiendas en línea:
 
-  -  El logotipo pequeño aparece en los resultados de la búsqueda de Azure Marketplace, y en la página principal y en la página de resultados de búsqueda de Microsoft AppSource.
-  -  El logotipo mediano aparece cuando se crea un recurso en Microsoft Azure.
-  -  El logotipo grande aparece en la página de descripción de la oferta de Azure Marketplace y Microsoft AppSource.
+  - El logotipo pequeño aparece en los resultados de la búsqueda de Azure Marketplace, y en la página principal y en la página de resultados de búsqueda de Microsoft AppSource.
+  - El logotipo mediano aparece cuando se crea un recurso en Microsoft Azure.
+  - El logotipo grande aparece en la página de descripción de la oferta de Azure Marketplace y Microsoft AppSource.
 
 - **Elementos multimedia (capturas de pantalla)** : debe agregar entre una y cinco capturas de pantallas que muestren el funcionamiento de la oferta, con los siguientes requisitos:
   - 1280 x 720 píxeles
@@ -194,7 +194,7 @@ Para facilitar la creación de la oferta, prepare algunos de estos elementos con
 Una audiencia preliminar puede tener acceso a la oferta antes de publicarla en las tiendas en línea a fin de probar la funcionalidad completa. En la página **Audiencia preliminar**, puede definir una audiencia preliminar limitada. Esta opción no está disponible si elige procesar las transacciones de forma independiente en lugar de vender su oferta mediante Microsoft. En este caso, puede omitir esta sección e ir a [Oportunidades de venta adicionales](#additional-sales-opportunities).
 
 > [!NOTE]
-> Una audiencia preliminar no es lo mismo que un plan privado. Un plan privado es el que solo está disponible para una audiencia determinada de su elección. Esto le permite negociar un plan personalizado con clientes específicos. Para más información, vea la siguiente sección. Planes
+> Una audiencia preliminar no es lo mismo que un plan privado. Un plan privado es el que solo está disponible para una audiencia determinada de su elección. Esto le permite negociar un plan personalizado con clientes específicos. Para obtener más información, vea la próxima sección: Planes
 
 Puede enviar invitaciones a direcciones de correo electrónico de cuentas de Microsoft (MSA) o de Azure Active Directory (Azure AD). Agregue hasta 10 direcciones de correo electrónico manualmente o importe hasta 20 con un archivo .csv. Aunque la oferta ya esté publicada, puede definir una audiencia preliminar para probar los cambios o las actualizaciones que realice en ella.
 

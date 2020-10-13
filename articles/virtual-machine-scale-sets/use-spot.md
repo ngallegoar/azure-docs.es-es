@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b5888000028ba87d503bb0bc690aad6628a51a37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4c5386e2fad0ebdd30ca8f9a8f4933e8adaf5d6b
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072747"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729022"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Máquinas virtuales de Azure Spot para los conjuntos de escalado 
 
@@ -163,8 +163,7 @@ Para eliminar la instancia después de que se haya expulsado, cambie el parámet
 
 **P:**  ¿Funciona el escalado automático con las dos directivas de expulsión (desasignar y eliminar)?
 
-**R:** Se recomienda establecer la directiva de expulsión en Eliminar cuando se usa el escalado automático. Esto es porque las instancias desasignadas se cuentan para el número de capacidad en el conjunto de escalado. Cuando se usa el escalado automático, es probable que alcance el número de instancias de destino rápidamente debido a las instancias expulsadas desasignadas. 
-
+**R:** Sí. No obstante, se recomienda establecer la directiva de expulsión en "Eliminar" cuando se use la escalabilidad automática. Esto es porque las instancias desasignadas se cuentan para el número de capacidad en el conjunto de escalado. Cuando se usa el escalado automático, es probable que alcance el número de instancias de destino rápidamente debido a las instancias expulsadas desasignadas. Además, las operaciones de escalado pueden verse afectadas por expulsiones puntuales. Por ejemplo, las instancias de VMSS podrían situarse por debajo del recuento mínimo establecido debido a varias expulsiones puntuales durante las operaciones de escalado. 
 
 **P:** ¿Qué canales admiten las máquinas virtuales de Spot?
 

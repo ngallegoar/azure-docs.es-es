@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: 6062e8a74af4bb0a19d02ccf9a4c50da0cc4a7c5
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80999575"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651452"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Exportación de datos desde Azure IoT Central y visualización de información en Power BI
 
@@ -409,7 +409,7 @@ Para agregar la lógica al diseño de la aplicación lógica, seleccione **Vista
     * Seleccione el campo **Timestamp** y, después, seleccione **x-opt-enqueuedtime** de la lista **Contenido dinámico**.
     * Seleccione el campo **Dwell Time 1** y, a continuación, seleccione **Ver más** junto a **Analizar telemetría**. A continuación, seleccione **DwellTime1**.
     * Seleccione el campo **Dwell Time 2** y, a continuación, seleccione **Ver más** junto a **Analizar telemetría**. A continuación, seleccione **DwellTime2**.
-    * Haga clic en **Guardar** para guardar los cambios. La acción **Interfaz de tiempo de permanencia** es similar a la captura de pantalla siguiente: ![Acción de ocupación](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    * Haga clic en **Guardar** para guardar los cambios. La acción **Interfaz de tiempo de permanencia** es similar a la captura de pantalla siguiente: ![Captura de pantalla que muestra la acción "Interfaz de tiempo de permanencia".](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. Seleccione la acción **Interfaz de recuento de personas** y seleccione **Agregar una acción**.
 1. En **Buscar conectores y acciones**, escriba **Power BI** y, a continuación, presione **Entrar**.
 1. Seleccione la acción **Agregar filas a un conjunto de datos (versión preliminar)** .
@@ -484,7 +484,7 @@ Agregue cuatro iconos de tarjeta para mostrar la longitud de la cola y el tiempo
 
 Cambie el tamaño y reorganice los iconos en el panel para que se parezca a la siguiente captura de pantalla:
 
-![Panel de Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+![Captura de pantalla que muestra el panel de Power BI con iconos cambiados y reorganizados.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
 
 Puede agregar algunos recursos gráficos adicionales para personalizar aún más el panel:
 

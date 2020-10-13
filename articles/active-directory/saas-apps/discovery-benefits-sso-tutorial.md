@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 3beefb467f7875e6bc76765811c6525f5dab9393
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 83f1eef14a5c22fbab998fb6c939775873748670
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536248"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774129"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-discovery-benefits-sso"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Discovery Benefits SSO
 
@@ -86,7 +86,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Identificador de usuario único (id. de nombre)** .
 
-    ![Configuración del inicio de sesión único de Discovery Benefits SSO](./media/discovery-benefits-sso-tutorial/attribute01.png)
+    ![Captura de pantalla que muestra la sección "User Attributes & Claims" (Atributos y reclamaciones del usuario) con los puntos suspensivos de "Required claim" (Notificación requerida) en el lado derecho seleccionados.](./media/discovery-benefits-sso-tutorial/attribute01.png)
 
     ![Configuración del inicio de sesión único de Discovery Benefits SSO](./media/discovery-benefits-sso-tutorial/attribute02.png)
 
@@ -103,7 +103,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     f. Hemos rellenado automáticamente las notificaciones adicionales que se requieren para la configuración del inicio de sesión único (`SSOInstance` y `SSOID`). Use el icono de **Editar** para asignar los valores en función de su organización.
 
-    ![Configuración del inicio de sesión único de Discovery Benefits SSO](./media/discovery-benefits-sso-tutorial/attribute03.png)
+    ![Captura de pantalla que muestra "User Attributes & Claims" (Atributos y reclamaciones del usuario) con los valores "SSO Instance" (Instancia de SSO) y "SSO ID" (Id. de SSO) resaltados.](./media/discovery-benefits-sso-tutorial/attribute03.png)
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 

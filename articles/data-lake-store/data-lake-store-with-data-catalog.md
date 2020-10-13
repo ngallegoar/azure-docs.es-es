@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 1484c4bf17d5f437d681e32559b7e6ed4115f5f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a48b30d83e3e7e1667552d107cb457e49494c575
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515138"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578519"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registro de datos de Azure Data Lake Storage Gen1 en Azure Data Catalog
 En este artículo, obtendrá información sobre cómo integrar Azure Data Lake Storage Gen1 con Azure Data Catalog para hacer que los datos sean reconocibles dentro de una organización mediante la integración con Data Catalog. Para más información sobre la catalogación de datos, consulte [¿Qué es Azure Data Catalog?](../data-catalog/data-catalog-what-is-data-catalog.md). Para saber en qué escenarios se puede utilizar Data Catalog, consulte [Escenarios comunes de Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
@@ -52,12 +52,12 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
     c. En el cuadro **Objetos que se registrarán** se enumeran los archivos y las carpetas que quiere registrar en Azure Data Catalog.
 
-    ![Visualización de la estructura de datos](./media/data-lake-store-with-data-catalog/view-data-structure.png "Visualización de la estructura de datos")
+    ![Captura de pantalla de Microsoft Azure Data Catalog: cuadro de diálogo de la cuenta del almacén.](./media/data-lake-store-with-data-catalog/view-data-structure.png "Visualización de la estructura de datos")
 1. Para este tutorial, deberá registrar todos los archivos del directorio. Para ello, haga clic en el botón (![movimiento de objetos](./media/data-lake-store-with-data-catalog/move-objects.png "Movimiento de objetos")) para mover todos los archivos al cuadro **Objetos que se registrarán** .
 
     Dado que los datos se registrarán en un catálogo de datos de toda la organización, es recomendable agregar algunos metadatos que podrá usar posteriormente para localizar rápidamente los datos. Por ejemplo, puede agregar una dirección de correo electrónico del propietario de los datos (por ejemplo, la persona que está cargando los datos) o agregar una etiqueta para identificar los datos. En la captura de pantalla siguiente se muestra una etiqueta que ha agregado a los datos.
 
-    ![Visualización de la estructura de datos](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "Visualización de la estructura de datos")
+    ![Captura de pantalla de Microsoft Azure Data Catalog: cuadro de diálogo de la cuenta del almacén con la etiqueta que se ha agregado a los datos resaltada.](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "Visualización de la estructura de datos")
 
     Haga clic en **Registrar**.
 1. La captura de pantalla siguiente indica que los datos se han registrado correctamente en el Catálogo de datos.

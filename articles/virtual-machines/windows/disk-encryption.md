@@ -2,18 +2,18 @@
 title: 'Cifrado del lado servidor de Azure Managed Disks: PowerShell'
 description: Azure Storage protege los datos mediante su cifrado en reposo antes de guardarlos en los clústeres de Storage. Puede confiar en las claves administradas por Microsoft para el cifrado de los discos administrados, o puede usar claves administradas por el cliente para administrar el cifrado con sus propias claves.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6174fbeb45c23c0ff04597305c6f65aef05bd26e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 49898f2215139c4460c639dc8caa3d2764082e34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815596"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274782"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>Cifrado del lado servidor de Azure Disk Storage para PowerShell
 
@@ -47,6 +47,10 @@ Por ahora, las claves administradas por el cliente tienen las siguientes restric
 - Si esta característica está habilitada para el disco, no puede deshabilitarla.
     Si necesita encontrar una solución alternativa, debe [copiar todos los datos](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) en un disco administrado totalmente diferente que no use claves administradas por el cliente.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
+
+#### <a name="supported-regions"></a>Regiones admitidas
+
+Las claves administradas por el cliente están disponibles en todas las regiones en las que están disponibles los discos administrados.
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Cifrado en el host: cifrado de un extremo a otro de los datos de la máquina virtual
 

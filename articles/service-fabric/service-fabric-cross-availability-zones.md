@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d763511032ebff9116702b1f649751a4b7b52afd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56f7224d93293a0a26d09692996d2c4a4ace344b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519003"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803745"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementación de un clúster de Azure Service Fabric en Availability Zones
 Availability Zones de Azure es una oferta de alta disponibilidad que protege las aplicaciones y los datos de los errores del centro de datos. Una zona de disponibilidad es una ubicación física única equipada con alimentación independiente, refrigeración y redes dentro de una región de Azure.
@@ -150,7 +150,7 @@ Para habilitar una zona, debe incluir los tres valores siguientes en el recurso 
 
 * El primer valor es la propiedad **zones**, que especifica en qué zona de disponibilidad se va a implementar el conjunto de escalado de máquinas virtuales.
 * El segundo valor es la propiedad "singlePlacementGroup", que se debe establecer en true.
-* El tercer valor es la propiedad "faultDomainOverride" en la extensión de conjunto de escalado de máquinas virtuales de Service Fabric. El valor de esta propiedad debe incluir la región y la zona en las que se colocará este conjunto de escalado de máquinas virtuales. Ejemplo: "faultDomainOverride": "eastus/az1" Todos los recursos de conjunto de escalado de máquinas virtuales se deben colocar en la misma región porque los clústeres de Azure Service Fabric no admiten la distribución entre regiones.
+* El tercer valor es la propiedad "faultDomainOverride" en la extensión de conjunto de escalado de máquinas virtuales de Service Fabric. El valor de esta propiedad debe incluir solo la zona en la que se colocará este conjunto de escalado de máquinas virtuales. Ejemplo: "faultDomainOverride": "az1" Todos los recursos del conjunto de escalado de máquinas virtuales se deben colocar en la misma región porque los clústeres de Azure Service Fabric no admiten la distribución entre regiones.
 
 ```json
 {
@@ -183,7 +183,7 @@ Para habilitar una zona, debe incluir los tres valores siguientes en el recurso 
             "systemLogUploadSettings": {
                 "Enabled": true
             },
-            "faultDomainOverride": "eastus/az1"
+            "faultDomainOverride": "az1"
         },
         "typeHandlerVersion": "1.0"
     }

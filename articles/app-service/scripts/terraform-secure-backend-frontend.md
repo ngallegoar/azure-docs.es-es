@@ -8,12 +8,12 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 76591b9f397bd84e5afac19a56dd2c6467f4650f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: c1de8ebbd9ad381628cfeb19413baa295b42b3db
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962237"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739840"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Cree dos aplicaciones web conectadas de forma segura con Punto de conexión privado e Integración con red virtual
 
@@ -21,7 +21,7 @@ En este artículo se muestra un ejemplo de uso de [Punto de conexión privado](.
 - Implementación de una red virtual
 - Creación de la primera subred para la integración
 - Creación de la segunda subred para el punto de conexión privado; para ello, tiene que establecer un parámetro específico y deshabilitar las directivas de red
-- Implementación de un plan de App Service de tipo PremiumV2, la SKU mínima necesaria para la característica Punto de conexión privado
+- Implementación de un plan de App Service de tipo PremiumV2 o PremiumV3, necesario para la característica Punto de conexión privado
 - Cree la aplicación web de front-end con una configuración de aplicación específica para usar la zona DNS privada; [consulte aquí más detalles](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
 - Conexión de la aplicación web front-end a la subred de integración
 - Creación de la aplicación web back-end

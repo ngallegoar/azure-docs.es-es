@@ -1,5 +1,5 @@
 ---
-title: Restablecimiento de TCP inactivo en Load Balancer en Azure
+title: Tiempo de espera de inactividad y restablecimiento de TCP de Load Balancer en Azure
 titleSuffix: Azure Load Balancer
 description: En este artículo, obtendrá información sobre Azure Load Balancer con paquetes de TCP RST bidireccionales en tiempo de espera de inactividad.
 services: load-balancer
@@ -11,21 +11,23 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2019
+ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: 68714053ac92faf8550a3e5f83a526afa1222971
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 060048bf786f424d5df6eb8fb4813877acb0fea0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808478"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823211"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer con restablecimiento de TCP inactivo
+# <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Tiempo de espera de inactividad y restablecimiento de TCP de Load Balancer
 
 Puede usar [Standard Load Balancer](load-balancer-standard-overview.md) para crear un comportamiento de aplicación más predecible para los escenarios si habilita el restablecimiento de TCP inactivo para una regla determinada. El comportamiento predeterminado de Load Balancer es descartar silenciosamente los flujos cuando se alcanza el tiempo de inactividad de un flujo.  Si habilita esta característica, Load Balancer enviará restablecimientos de TCP bidireccionales (paquete TCP RST) cuando se agote el tiempo de espera de inactividad.  Esto le informará a los puntos de conexión de la aplicación que el tiempo de espera se agotó y ya no se puede usar.  De ser necesario, los puntos de conexión pueden establecer una conexión nueva inmediatamente.
 
 ![Restablecimiento de TCP en Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
  
+## <a name="tcp-reset"></a>Restablecimiento de TCP
+
 Puede cambiar este comportamiento predeterminado y habilitar el envío de restablecimientos de TCP al agotarse el tiempo de espera de inactividad en las reglas NAT de entrada, en las reglas de equilibrio de carga y en las [reglas de salida](https://aka.ms/lboutboundrules).  Cuando se habilita en cada regla, Load Balancer envía restablecimientos TCP bidireccionales (paquetes RST de TCP) tanto a los puntos de conexión del cliente como a los del servidor en el momento en que se agota el tiempo de espera de inactividad para todos los flujos que correspondan.
 
 Los puntos de conexión que reciben los paquetes RST de TCP cierran inmediatamente el socket correspondiente. De este modo, se proporciona una notificación inmediata a los puntos de conexión para indicar que se ha liberado la conexión y cualquier comunicación posterior en la misma conexión TCP generará un error.  Las aplicaciones pueden purgar las conexiones cuando el socket se cierra y restablecer las conexiones según sea necesario sin tener que esperar que la conexión TCP, finalmente, agote el tiempo de espera.
@@ -36,41 +38,28 @@ Si la duración de la inactividad supera la permitida por la configuración o la
 
 Examine con cuidado todo el escenario completo para decidir si le beneficia habilitar los restablecimientos de TCP y ajustar el tiempo de espera de inactividad, y si es posible que se requieran pasos adicionales para garantizar el comportamiento deseado de la aplicación.
 
-## <a name="enabling-tcp-reset-on-idle-timeout"></a>Habilitación del restablecimiento de TCP al agotarse el tiempo de espera de inactividad
+## <a name="configurable-tcp-idle-timeout"></a>Tiempo de espera de inactividad de TCP configurable
 
-Con la API versión 2018-07-01, puede habilitar el envío de restablecimientos de TCP bidireccionales al agotarse el tiempo de espera de inactividad en cada regla:
+Azure Load Balancer tiene el siguiente intervalo de tiempo de espera de inactividad:
+-  De 4 a 100 minutos para las reglas de salida.
+-  De 4 a 30 minutos para reglas de Load Balancer y las reglas NAT de entrada.
 
-```json
-      "loadBalancingRules": [
-        {
-          "enableTcpReset": true | false,
-        }
-      ]
-```
+De forma predeterminada, se establece en 4 minutos. Si un período de inactividad es mayor que el valor de tiempo de espera, no hay ninguna garantía de que todavía exista la sesión TCP o HTTP entre el cliente y el servicio en la nube.
 
-```json
-      "inboundNatRules": [
-        {
-          "enableTcpReset": true | false,
-        }
-      ]
-```
+Cuando se cierra la conexión, la aplicación cliente puede recibir el mensaje de error siguiente: "The underlying connection was closed: A connection that was expected to be kept alive was closed by the server" (Se ha terminado la conexión: El servidor cerró una conexión que se esperaba estuviera activa).
 
-```json
-      "outboundRules": [
-        {
-          "enableTcpReset": true | false,
-        }
-      ]
-```
+Una práctica común es usar TCP Keep-alive. Esta práctica mantiene la conexión activa durante un periodo más largo. Para obtener más información, consulte estos [ejemplos de .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Con Keep-alive habilitado, los paquetes se envían durante los periodos de inactividad en la conexión. Los paquetes de Keep-alive garantizan que no se alcance el valor de tiempo de espera de inactividad y la conexión se mantenga durante un largo período.
 
-## <a name="region-availability"></a><a name="regions"></a> Disponibilidad en regiones
+La configuración funciona solo para conexiones entrantes. Para evitar la pérdida de la conexión, configure el TCP keep-alive con un intervalo menor que el valor de tiempo de espera de inactividad o aumentar el valor de tiempo de espera de inactividad. Para admitir estos escenarios, se agregó compatibilidad con un tiempo de espera de inactividad configurable.
 
-Disponible en todas las regiones.
+TCP keep-alive funciona en escenarios donde la batería no supone una restricción. No se recomienda para aplicaciones móviles. El uso de TCP Keep-alive desde una aplicación móvil puede agotarla batería del dispositivo más rápidamente.
+
 
 ## <a name="limitations"></a>Limitaciones
 
-- TCP RST solo se envía durante la conexión TCP en el estado ESTABLECIDO.
+- El restablecimiento de TCP solo se envía durante la conexión TCP en el estado ESTABLECIDO.
+- El restablecimiento de TCP no se envía para instancias de Load Balancer internas con puertos HA configurados.
+- El tiempo de espera de inactividad de TCP no afecta a las reglas de equilibrio de carga en el protocolo UDP.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

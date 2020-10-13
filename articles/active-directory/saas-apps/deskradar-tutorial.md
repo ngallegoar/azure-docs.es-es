@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: a9004577fa8d946281df88284139e2e507e485b7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 071b311466869321a12626190e894287c28e707b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536488"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774188"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-deskradar"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Deskradar
 
@@ -162,7 +162,7 @@ En esta sección, va a permitir que B.Simon acceda a Deskradar utilizando el ini
 
 1. En la pestaña **SAML 2.0**, realice los pasos siguientes:
 
-    ![Configuración de Deskradar](./media/deskradar-tutorial/14-paste-urls.jpg)
+    ![Captura de pantalla que muestra la pestaña "SAML 2.0" con flechas que apuntan a los campos "Identifier Provider Issuer" (Emisor del proveedor de identidades) y "SAML SSD URL"(URL del SSD de SAML).](./media/deskradar-tutorial/14-paste-urls.jpg)
 
     a. Habilite el método de autenticación **SAML**.
 

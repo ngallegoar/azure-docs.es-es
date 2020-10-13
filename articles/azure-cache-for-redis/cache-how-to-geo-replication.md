@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 6203c230f7ca27b1d4b48e9f56a7f46cd5a5ce78
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003707"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825326"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configuración de replicación geográfica para Azure Cache for Redis
 
@@ -111,6 +111,7 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 - [¿Por qué no se pudo realizar la operación al intentar eliminar la memoria caché vinculada?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [¿Qué región se debe usar para la caché vinculada secundaria?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [¿Cómo funciona la conmutación por error a la caché vinculada secundaria?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- [¿Puedo configurar el firewall con la replicación geográfica?](#can-i-configure-a-firewall-with-geo-replication)
 
 ### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>¿Puedo usar la replicación geográfica con una caché de nivel Estándar o Básico?
 
@@ -145,8 +146,8 @@ Sí, la replicación geográfica de cachés en redes virtuales es compatible con
 - Se admite la replicación geográfica entre cachés de la misma VNET.
 - También se admite la replicación geográfica entre cachés en distintas redes virtuales.
   - Si las redes virtuales están en la misma región, puede conectarlas mediante un [emparejamiento de la red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) o una [conexión de red virtual a red virtual de VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - Si las redes virtuales están en distintas regiones, la replicación geográfica que utiliza el emparejamiento de la red virtual no es compatible debido a una restricción con equilibradores de carga internos básicos. Para obtener más información sobre las restricciones de emparejamiento de redes virtuales, consulte [Red virtual - Emparejamiento - Requisitos y restricciones](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). La solución recomendada es usar una conexión de red virtual a red virtual de VPN Gateway.
-
+  - Si las redes virtuales están en diferentes regiones, se admite la replicación geográfica mediante el emparejamiento de VNET, pero una VM cliente de la red virtual 1 (región 1) no podrá acceder a la memoria caché de la red virtual 2 (región 2) a través de su nombre DNS debido a una restricción de los equilibradores de carga internos básicos. Para obtener más información sobre las restricciones de emparejamiento de redes virtuales, consulte [Red virtual - Emparejamiento - Requisitos y restricciones](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). La solución recomendada es usar una conexión de red virtual a red virtual de VPN Gateway.
+  
 Puede usar [esta plantilla de Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/) para implementar rápidamente dos cachés con replicación geográfica en una red virtual conectada con una conexión puerta de enlace a puerta de enlace de VPN Gateway.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>¿Qué es la programación de replicación para la replicación geográfica de Redis?
@@ -185,7 +186,12 @@ No se admite la conmutación automática por error entre regiones de Azure para 
 
 Para ejecutar una conmutación por error iniciada por el cliente, desvincule primero las cachés. A continuación, cambie el cliente de Redis para utilizar el punto de conexión de la caché secundaria (anteriormente vinculada). Cuando se desvinculan las dos cachés, la réplica secundaria se vuelve a convertir en una caché normal de lectura y escritura, y acepta solicitudes directamente de los clientes de Redis.
 
+### <a name="can-i-configure-a-firewall-with-geo-replication"></a>¿Puedo configurar un firewall con la replicación geográfica?
+
+Sí, puede configurar un [firewall](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) con la replicación geográfica. Para que la replicación geográfica funcione junto con un firewall, asegúrese de que la dirección IP de la caché secundaria está agregada a las reglas de firewall de la caché principal.
+
 ## <a name="next-steps"></a>Pasos siguientes
+
 Más información sobre las características de Azure Cache for Redis.
 
 * [Niveles de servicio de Azure Cache for Redis](cache-overview.md#service-tiers)

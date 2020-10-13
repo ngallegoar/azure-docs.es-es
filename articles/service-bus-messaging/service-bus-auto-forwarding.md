@@ -4,12 +4,12 @@ description: En este artículo se describe cómo encadenar una cola o suscripci�
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: af1c8a8e043ae964c4917a58ea67275e8379817f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8f5f93f65871c0b9658a75264ab959dbae7fefe7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021721"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819568"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Encadenamiento de entidades de Service Bus con reenvío automático
 
@@ -29,11 +29,11 @@ La entidad de destino debe existir en el momento en que se creó la entidad de o
 
 El reenvío automático se puede usar para escalar horizontalmente un tema individual. Service Bus limita el [número de suscripciones de un tema dado](service-bus-quotas.md) a 2000. Para alojar suscripciones adicionales, cree temas de segundo nivel. Aunque no tenga la limitación de Service Bus sobre el número de suscripciones, el hecho de agregar un segundo nivel de temas puede mejorar el rendimiento general del tema.
 
-![Escenario de reenvío automático][0]
+![Diagrama de un escenario de reenvío automático que muestra un mensaje procesado a través de un tema de pedidos que se puede bifurcar a cualquiera de los tres temas de pedidos de segundo nivel.][0]
 
 También puede usarlo para desacoplar los remitentes de los destinatarios. Por ejemplo, suponga que un sistema ERP consta de tres módulos: procesamiento de pedidos, administración de inventario y administración de relaciones con clientes. Cada uno de estos módulos genera mensajes que se ponen en cola en el tema correspondiente. Alice y Bob son representantes de ventas que están interesados en todos los mensajes relacionados con sus clientes. Para recibir dichos mensajes, Alice y Bob crean una cola personal y una suscripción en cada uno de los temas de ERP que reenvían automáticamente todos los mensajes a su cola.
 
-![Escenario de reenvío automático][1]
+![Diagrama de un escenario de reenvío automático que muestra tres módulos de procesamiento que envían mensajes a través de tres temas correspondientes a dos colas independientes.][1]
 
 Si Alice se va de vacaciones, se llena su cola personal, en lugar del tema de ERP. En este escenario, como un representante de ventas no ha recibido ningún mensaje, ninguno de los temas de ERP alcanza la cuota.
 
@@ -52,6 +52,8 @@ Al encadenar temas individuales para obtener un tema compuesto con muchas suscri
 Service Bus factura una operación por cada mensaje reenviado. Por ejemplo, el envío de un mensaje a un tema con 20 suscripciones, cada una de ellas configurada para reenviar automáticamente mensajes a otra cola, o a otro tema, se factura como 21 operaciones si todas las suscripciones del primer nivel reciben una copia del mensaje.
 
 Para crear una suscripción encadenada a otra cola o a otro tema, el creador debe tener permisos de **administración** tanto en la entidad de origen como en la de destino. Para enviar mensajes al tema de origen, solo se requieren permisos de **envío** en el tema de origen.
+
+No cree una cadena que supere los 4 saltos. Los mensajes que superan los 4 saltos se colocan en la cola de mensajes fallidos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,28 +3,30 @@ title: Configuración de clúster en Azure Kubernetes Service (AKS)
 description: Aprenda a configurar un clúster en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5b26054ae8dfb73dea8d064292beb73220be5e09
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 6446e138df1fe744d70be085d0aecac58e2c1c45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433456"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255305"
 ---
 # <a name="configure-an-aks-cluster"></a>Configuración de un clúster de AKS
 
 Como parte de la creación de un clúster de AKS, puede que tenga que personalizar la configuración del clúster para que se adapte a sus necesidades. En este artículo se presentan algunas opciones para personalizar el clúster de AKS.
 
-## <a name="os-configuration-preview"></a>Configuración del sistema operativo (versión preliminar)
+## <a name="os-configuration"></a>Configuración del sistema operativo
 
-AKS admite ya Ubuntu 18.04 como sistema operativo de nodo en versión preliminar. Durante el período de versión preliminar, se encuentran disponibles tanto Ubuntu 16.04 como Ubuntu 18.04.
+AKS ahora es compatible con Ubuntu 18.04 como el sistema operativo del nodo (SO) en disponibilidad general para clústeres en versiones de Kubernetes posteriores a la 1.18.8. En el caso de las versiones anteriores a la 1.18.x, AKS Ubuntu 16.04 sigue siendo la imagen base predeterminada. A partir de Kubernetes v1.18.x y posteriores, la base predeterminada es AKS Ubuntu 18.04.
 
 > [!IMPORTANT]
-> Los grupos de nodos creados en Kubernetes v1.18 o versiones posteriores requieren una imagen de nodo `AKS Ubuntu 18.04` de forma predeterminada. Los grupos de nodos de una versión de Kubernetes compatible inferior a la versión 1.18 reciben `AKS Ubuntu 16.04` como la imagen de nodo, pero se actualizarán a `AKS Ubuntu 18.04` una vez que la versión Kubernetes del grupo de nodos se actualice a la versión 1.18 o posteriores.
+> Los grupos de nodos creados en Kubernetes v1.18 o versiones posteriores tienen una imagen de nodo `AKS Ubuntu 18.04` de forma predeterminada. Los grupos de nodos de una versión de Kubernetes compatible inferior a la versión 1.18 reciben `AKS Ubuntu 16.04` como la imagen de nodo, pero se actualizarán a `AKS Ubuntu 18.04` una vez que la versión Kubernetes del grupo de nodos se actualice a la versión 1.18 o posteriores.
 > 
 > Es muy recomendable que pruebe sus cargas de trabajo en los grupos de nodos de AKS Ubuntu 18.04 antes de usar los clústeres en la versión 1.18 o posteriores. Obtenga información sobre cómo [probar los grupos de nodos de Ubuntu 18.04](#use-aks-ubuntu-1804-existing-clusters-preview).
+
+En la sección siguiente se explicará cómo usar y probar AKS Ubuntu 18.04 en clústeres que todavía no usan la versión Kubernetes 1.18.x o posteriores o que se crearon antes de que esta característica estuviera disponible con carácter general, mediante la versión preliminar de la configuración del sistema operativo.
 
 Debe tener instalados los siguientes recursos:
 
@@ -44,13 +46,13 @@ Registre la característica `UseCustomizedUbuntuPreview`:
 az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
 ```
 
-Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true):
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
 ```
 
-Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true):
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -122,14 +124,14 @@ az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.Cont
 
 ```
 
-Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true):
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedContainerRuntime')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
 ```
 
-Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true):
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -179,7 +181,7 @@ Azure admite [máquinas virtuales de generación 2 (Gen2)](../virtual-machines/
 Las VM de generación 2 usan la nueva arquitectura de arranque basado en UEFI en lugar de la arquitectura basada en BIOS que utilizan las VM de generación 1.
 Solo determinadas SKU y tamaños admiten máquinas virtuales de generación 2. Consulte la [lista de tamaños admitidos](../virtual-machines/windows/generation-2.md#generation-2-vm-sizes) para ver si la SKU admite o requiere Gen2.
 
-Además, no todas las imágenes de máquina virtual admiten Gen2; en ASK, las máquinas virtuales Gen2 usaran la nueva [imagen de Ubuntu 18.04 para AKS](#os-configuration-preview). Esta imagen admite todas las SKU y tamaños de Gen2.
+Además, no todas las imágenes de máquina virtual admiten Gen2; en ASK, las máquinas virtuales Gen2 usaran la nueva [imagen de Ubuntu 18.04 para AKS](#os-configuration). Esta imagen admite todas las SKU y tamaños de Gen2.
 
 Para usar las máquinas virtuales Gen2 durante la versión preliminar, necesitará:
 - La extensión de la CLI `aks-preview` instalada.
@@ -191,13 +193,13 @@ Registre la característica `Gen2VMPreview`:
 az feature register --name Gen2VMPreview --namespace Microsoft.ContainerService
 ```
 
-Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true):
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Gen2VMPreview')].{Name:name,State:properties.state}"
 ```
 
-Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true):
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -248,17 +250,19 @@ Registre la característica `EnableEphemeralOSDiskPreview`:
 az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
 ```
 
-Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true):
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
 ```
 
-Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true):
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
 ```
+
+El sistema operativo efímero requiere la versión 0.4.63 como mínimo de la extensión de la CLI aks-preview.
 
 Para instalar la extensión aks-preview de la CLI, use los siguientes comandos de la CLI de Azure:
 
@@ -274,25 +278,25 @@ az extension update --name aks-preview
 
 ### <a name="use-ephemeral-os-on-new-clusters-preview"></a>Uso del sistema operativo efímero en clústeres nuevos (versión preliminar)
 
-Configure el clúster para que utilice discos de sistema operativo efímero al crearlo. Use la marca `--aks-custom-headers` para establecer el sistema operativo efímero como el tipo de disco de sistema operativo para el nuevo clúster.
+Configure el clúster para que utilice discos de sistema operativo efímero al crearlo. Use la marca `--node-osdisk-type` para establecer el sistema operativo efímero como el tipo de disco de sistema operativo para el nuevo clúster.
 
 ```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-Si desea crear un clúster normal con discos de sistema operativo conectados a red, omita la etiqueta `--aks-custom-headers` personalizada. También puede optar por añadir más grupos de nodos de sistema operativo efímero, tal y como se indica a continuación.
+Si desea crear un clúster normal con discos de sistema operativo conectados a la red, omita la etiqueta `--node-osdisk-type` personalizada o especifique `--node-osdisk-type=Managed`. También puede optar por añadir más grupos de nodos de sistema operativo efímero, tal y como se indica a continuación.
 
 ### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Uso del sistema operativo efímero en clústeres existentes (versión preliminar)
-Configure un nuevo grupo de nodos para usar discos de sistema operativo efímero. Utilice la marca `--aks-custom-headers` para establecerla como el tipo de disco de para ese grupo de nodos.
+Configure un nuevo grupo de nodos para usar discos de sistema operativo efímero. Utilice la marca `--node-osdisk-type` para establecerla como el tipo de disco de para ese grupo de nodos.
 
 ```azurecli
-az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
 > [!IMPORTANT]
 > El sistema operativo efímero permite implementar imágenes de instancias y de máquinas virtuales cuyo tamaño máximo sea equivalente al de la memoria caché de máquina virtual. En el caso de AKS, la configuración predeterminada del disco de sistema operativo del nodo utiliza 100 GiB, lo cual significa que necesitará una máquina virtual con una memoria caché cuyo tamaño sea superior 100 GiB. La máquina virtual Standard_DS2_v2 tiene un tamaño de caché de 86 GiB, que no es lo suficientemente grande. Las máquinas virtuales Standard_DS3_v2 tienen un tamaño de caché de 172 GiB, que es lo suficientemente grande. También puede reducir el tamaño predeterminado del disco de sistema operativo mediante `--node-osdisk-size`. El tamaño mínimo de las imágenes de AKS es 30 GiB. 
 
-Si desea crear grupos de nodos con discos de sistema operativo conectados a red, omita la etiqueta `--aks-custom-headers` personalizada.
+Si desea crear grupos de nodos con discos de sistema operativo conectados a red, omita la etiqueta `--node-osdisk-type` personalizada.
 
 ## <a name="custom-resource-group-name"></a>Nombre del grupo de recursos personalizado
 

@@ -1,18 +1,18 @@
 ---
 title: Información de Digital Twins de IoT Plug and Play
-description: Información de cómo la versión preliminar de IoT Plug and Play usa Digital Twins
+description: Información de cómo IoT Plug and Play usa los gemelos digitales
 author: prashmo
 ms.author: prashmo
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1908abfb3d0ea20c69a68344d54076c6760e9e63
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352045"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578060"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Información de Digital Twins de IoT Plug and Play
 
@@ -34,7 +34,7 @@ Las API de gemelo digital funcionan en construcciones de nivel superior, en leng
 
 En un dispositivo gemelo, el estado de una propiedad grabable se divide entre las secciones desired y reported. Todas las propiedades de solo lectura están disponibles en la sección reported.
 
-En un gemelo digital, hay una vista unificada del estado actual y deseado de la propiedad. El estado de sincronización de una propiedad determinada se almacena en la sección `$metadata` correspondiente del componente o de nivel de raíz.
+En un gemelo digital, hay una vista unificada del estado actual y deseado de la propiedad. El estado de sincronización de una propiedad determinada se almacena en la sección `$metadata` del componente predeterminado.
 
 ### <a name="digital-twin-json-format"></a>Formato JSON de gemelo digital
 
@@ -51,9 +51,9 @@ Si se representa como un objeto JSON, un gemelo digital incluye los campos sigui
 | `$metadata.{propertyName}.ackCode` | [Obligatorio, solo para propiedades grabables] Código `ack` devuelto por la aplicación del dispositivo que implementa el gemelo digital. |
 | `$metadata.{propertyName}.ackDescription` | [Opcional, solo para propiedades grabables] Descripción `ack` devuelta por la aplicación del dispositivo que implementa el gemelo digital. |
 | `$metadata.{propertyName}.lastUpdateTime` | IoT Hub conserva la marca de tiempo de la última actualización de la propiedad por parte del dispositivo. Las marcas de tiempo están en formato UTC y se codifican con el formato ISO8601 AAAA-MM-DDTHH:MM:SS.mmmZ. |
-| `{componentName}` | Objeto JSON que contiene los valores de propiedad y los metadatos del componente, similar a un objeto raíz. |
+| `{componentName}` | Objeto JSON que contiene los valores de propiedad y los metadatos del componente. |
 | `{componentName}.{propertyName}` | Valor de la propiedad del componente en formato JSON. |
-| `{componentName}.$metadata` | Información de metadatos del componente, similar al nivel de raíz `$metadata`. |
+| `{componentName}.$metadata` | Información de metadatos del componente. |
 
 #### <a name="device-twin-sample"></a>Ejemplo de dispositivo gemelo
 
@@ -171,7 +171,7 @@ En los fragmentos de código siguientes se muestra la representación JSON en pa
 
 #### <a name="writable-property"></a>Propiedad grabable
 
-Supongamos que el dispositivo también tenía la siguiente propiedad grabable en el nivel raíz:
+Supongamos que el dispositivo también tenía la siguiente propiedad grabable en el componente predeterminado:
 
 ```json
 {
@@ -373,6 +373,9 @@ content-encoding:utf-8
   }
 ]
 ```
+
+> [!NOTE]
+> Los mensajes de notificación de cambios de gemelo se duplican cuando se activan en la notificación de cambio de dispositivo y de gemelo digital.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

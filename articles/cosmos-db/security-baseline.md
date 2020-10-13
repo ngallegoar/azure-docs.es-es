@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 051f6e6ef15cc94e2b607c74e666bae9c91c1160
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 75344204e03920c96d0868ad584b8701813fabf0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401629"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569519"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Base de referencia de seguridad de Azure para Cosmos DB
 
@@ -290,7 +290,7 @@ Azure Cosmos DB proporciona un control de acceso basado en role (RBAC) integrado
 
 Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc a fin de detectar cuentas que son miembros de grupos administrativos. 
 
-Además, algunas acciones de Azure Cosmos DB se pueden controlar con Azure Active Directory y claves maestras específicas de la cuenta.  Use la configuración de la cuenta "disableKeyBasedMetadataWriteAccess" para controlar el acceso a las claves.
+Además, algunas acciones de Azure Cosmos DB se pueden controlar con Azure Active Directory y claves principales específicas de la cuenta.  Use la configuración de la cuenta "disableKeyBasedMetadataWriteAccess" para controlar el acceso a las claves.
 
 Información acerca del control de acceso basado en roles de Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
@@ -298,9 +298,9 @@ Cree sus propios roles personalizados con acciones de Azure Cosmos DB (espacio d
 
 Creación de un rol en Azure Active Directory: https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
-Cómo obtener un rol de directorio en Azure Active Directory con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Cómo obtener un rol de directorio en Azure Active Directory con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true
 
-Cómo obtener los miembros de un rol de directorio en Azure Active Directory con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Cómo obtener los miembros de un rol de directorio en Azure Active Directory con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true
 
 Restricción del acceso de los usuarios solo a las operaciones de datos: https://docs.microsoft.com/azure/cosmos-db/how-to-restrict-user-data
 
@@ -310,7 +310,7 @@ Restricción del acceso de los usuarios solo a las operaciones de datos: https:/
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: Cambie las contraseñas predeterminadas cuando proceda
 
-**Guía**: El concepto de contraseñas en blanco o predeterminadas no existe en relación con Azure AD o Azure Cosmos DB. En su lugar, Azure Cosmos DB usa dos tipos de claves para autenticar usuarios y proporcionar acceso a sus datos y recursos; claves maestras y token de recurso. Las claves se pueden regenerar en cualquier momento.
+**Guía**: El concepto de contraseñas en blanco o predeterminadas no existe en relación con Azure AD o Azure Cosmos DB. En su lugar, Azure Cosmos DB usa dos tipos de claves para autenticar usuarios y proporcionar acceso a sus datos y recursos; claves principales y tokens de recurso. Las claves se pueden regenerar en cualquier momento.
 
 Información sobre la protección del acceso a los datos en Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
 
@@ -640,7 +640,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 Creación de consultas con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Visualización de las suscripciones de Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Visualización de las suscripciones de Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true
 
 Información sobre el control de acceso basado en rol de Azure: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -792,7 +792,7 @@ Configuración del acceso condicional para bloquear el acceso a Azure Resource M
 
 - Cosmos DB debe usar un punto de conexión de servicio de red virtual
 
-Visualización de los alias de Azure Policy disponibles: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Visualización de los alias de Azure Policy disponibles: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -834,7 +834,7 @@ Descripción de los efectos de Azure Policy: https://docs.microsoft.com/azure/go
 
 **Guía**: Si usa definiciones personalizadas de Azure Policy para los recursos de Cosmos DB u otros relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
 
-Documentación de Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Documentación de Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -894,7 +894,7 @@ Cómo crear un almacén de claves: https://docs.microsoft.com/azure/key-vault/ge
 
 Autenticación en Azure Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
 
-Asignación de una directiva de acceso de Azure Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
+Asignación de una directiva de acceso de Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -1003,7 +1003,7 @@ https://docs.microsoft.com/azure/cosmos-db/how-to-backup-and-restore
 
 Cómo restaurar secretos de Azure Key Vault:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true
 
 **Supervisión de Azure Security Center**: No aplicable
 

@@ -3,14 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 09/30/2019
 ms.author: alkohli
-ms.openlocfilehash: a23b0b2c71207bf84a4938d54a78a62efb6cbcbd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ca7b83d24f2416b224963559361faf5a7775cd0d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71172638"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631550"
 ---
 Cuando Microsoft recibe y examina el dispositivo, el estado del pedido se actualiza a **Received** (Recibido). El dispositivo, a continuación, se somete a una verificación física de daños o signos de manipulación.
 
@@ -20,7 +20,7 @@ Una vez finalizada la copia, el estado del pedido se actualiza a **Completed** (
 
 Compruebe que los datos se han cargado en Azure antes de eliminarlos del origen. Los datos pueden estar en:
 
-- Sus cuentas de Azure Storage. Al copiar los datos en Data Box, dependiendo del tipo, estos se cargan en una de las siguientes rutas de acceso de la cuenta de Azure Storage.
+- Sus cuentas de Azure Storage. Al copiar los datos en Data Box, estos se cargan en una de las siguientes rutas de acceso de la cuenta de Azure Storage:
 
   - Para los blobs en bloques y los blobs en páginas: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - Para Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
@@ -37,7 +37,7 @@ Compruebe que los datos se han cargado en Azure antes de eliminarlos del origen.
 
         ![Disco administrado conectado a grupos de recursos](media/data-box-verify-upload-return/managed-disks-resource-group.png)
 
-    - Si copió un VHDX o un disco duro virtual dinámico o de diferenciación, el VHD o VHDX se carga en la cuenta de almacenamiento provisional como si fuera un blob en páginas, pero se producen un error en la conversión del disco duro virtual a disco administrado. Vaya a su almacenamiento provisional **Cuenta de almacenamiento > Blobs** y seleccione el contenedor adecuado (SSD estándar, HDD estándar o SSD Premium). Los discos duros virtuales se cargan como blobs en páginas en la cuenta de almacenamiento provisional.
+    - Si copió un VHDX o un VHD dinámico o de diferenciación, el VHD o VHDX se cargan en la cuenta de almacenamiento provisional como si fueran un blob en páginas, pero se producen un error en la conversión del disco duro virtual a disco administrado. Vaya a su almacenamiento provisional **Cuenta de almacenamiento > Blobs** y seleccione el contenedor adecuado (SSD estándar, HDD estándar o SSD Premium). Los discos duros virtuales se cargan como blobs en páginas en la cuenta de almacenamiento provisional y acumulan cargos.
 
 
 ## <a name="erasure-of-data-from-data-box"></a>Eliminación de datos de Data Box

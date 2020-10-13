@@ -1,5 +1,5 @@
 ---
-title: Creación de recursos técnicos para máquinas virtuales de Azure
+title: Creación de recursos técnicos para una oferta de máquina virtual de Azure Marketplace
 description: Obtenga información sobre cómo crear y configurar recursos técnicos para una oferta de máquina virtual (VM) en Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,22 +7,22 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 07c8de2a9d94b51f7183829466bd68d56e19efba
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a83532e2dd6fc8e83206a3b4a055170b40d131fd
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646798"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803524"
 ---
-# <a name="create-azure-virtual-machine-technical-assets"></a>Creación de recursos técnicos para máquinas virtuales de Azure
+# <a name="create-technical-assets-for-an-azure-marketplace-virtual-machine-offer"></a>Creación de recursos técnicos para una oferta de máquina virtual de Azure Marketplace
 
 Al publicar sus imágenes de máquina virtual en Azure Marketplace, el equipo de Azure valida la imagen de máquina virtual para garantizar el arranque, la seguridad y la compatibilidad con Azure. Si alguna de las pruebas de alta calidad fracasa, la publicación generará un mensaje con el error y los posibles [pasos de rectificación](https://docs.microsoft.com/azure/marketplace/partner-center-portal/vm-certification-issues-solutions).
 
 En este artículo se describe cómo crear y configurar recursos técnicos para una oferta de máquina virtual (VM) para Azure Marketplace. Una máquina virtual contiene dos componentes: el disco duro virtual (VHD) del sistema operativo y los discos duros virtuales de los discos de datos asociados opcionales:
 
-1. **Disco duro virtual del sistema operativo**: contiene el sistema operativo y la solución que se implementa con la oferta. El proceso de preparación del disco duro virtual es diferente en función de si se basa en Linux, en Windows o una máquina virtual personalizada.
+- **VHD del sistema operativo**: Contiene el sistema operativo y la solución que se implementa con la oferta. El proceso de preparación del disco duro virtual es diferente en función de si se basa en Linux, en Windows o una máquina virtual personalizada.
 
-2. **Discos duros virtuales de discos de datos**: el almacenamiento persistente dedicado para una máquina virtual. No use el disco duro virtual del sistema operativo (por ejemplo, la unidad C:) para almacenar la información persistente.
+- **VHD del disco de datos**: el almacenamiento persistente dedicado para una VM. No use el disco duro virtual del sistema operativo (por ejemplo, la unidad C:) para almacenar la información persistente.
 
 Una imagen de máquina virtual contiene un disco del sistema operativo y hasta 16 discos de datos. Use un VHD por cada disco de datos, incluso si el disco está vacío.
 
@@ -98,17 +98,17 @@ Siga estos pasos para crear una imagen base de máquina virtual en [Azure Portal
 4. Seleccione **+ Agregar** para abrir la **experiencia Crear una máquina virtual**.
 5. Seleccione la imagen en la lista desplegable o **Examinar todas las imágenes públicas y privadas** para buscar o examinar todas las imágenes de máquina virtual disponibles. Ejemplo:
 
-    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Muestra una imagen de máquina virtual de ejemplo.":::
+    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Se muestra cómo comenzar a crear un grupo de recursos.":::
 
 6. Seleccione el tamaño de la máquina virtual que se va a implementar mediante las recomendaciones siguientes:
     1. Si planea desarrollar el VHD en modo local, el tamaño no importa. Considere usar una de las máquinas virtuales de menor tamaño.
     2. Si planea desarrollar la imagen en Azure, considere usar uno de los tamaños de máquina virtual recomendados para la imagen seleccionada.
 
-    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Muestra la selección del tamaño de máquina virtual.":::
+    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Se muestra cómo comenzar a crear un grupo de recursos.":::
 
 7. En la sección **Discos**, expanda **Avanzado** y establezca la opción **Usar discos administrados** en **No**.
 
-    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Muestra la opción para usar discos administrados.":::
+    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Se muestra cómo comenzar a crear un grupo de recursos.":::
 
 8. Proporcione los otros detalles necesarios para crear la máquina virtual.
 9. Seleccione **Revisar y crear** para revisar sus selecciones. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**.
@@ -129,7 +129,7 @@ Cree una máquina virtual de generación 2 (Gen2) en Azure Portal.
 8. Seleccione un tamaño recomendado de [máquina virtual Gen 2 compatible](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) y un tamaño.
 9. Realice el [flujo de creación de Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) para terminar de crear la máquina virtual.
 
-    :::image type="content" source="media/vm/vm-generation.png" alt-text="Muestra la opción para seleccionar la generación de máquina virtual.":::
+    :::image type="content" source="media/vm/vm-generation.png" alt-text="Se muestra cómo comenzar a crear un grupo de recursos.":::
 
 ## <a name="connect-to-your-azure-vm"></a>Conexión a una máquina virtual de Azure
 
@@ -157,7 +157,7 @@ Para conectarse a una máquina virtual basada en Linux, necesita un cliente de p
 7. Abra la aplicación PuTTY.
 8. En el cuadro de diálogo Configuración de PuTTY, escriba la dirección IP o el nombre DNS de la máquina virtual.
 
-    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Muestra la configuración de terminal PuTTY y se resaltan los campos Nombre de host o Puerto":::.
+    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Se muestra cómo comenzar a crear un grupo de recursos.":::.
 
 9. Seleccione **Abrir** para abrir un terminal PuTTY.
 10. Cuando se le pida, escriba el nombre y la contraseña de la cuenta de máquina virtual Linux.

@@ -1,5 +1,5 @@
 ---
-title: Novedades de Azure Key Vault | Microsoft Docs
+title: Novedades de Azure Key Vault
 description: Actualizaciones recientes de Azure Key Vault
 services: key-vault
 author: msmbaldwin
@@ -7,39 +7,42 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 78d0f483bb18213fa7d6718f15dd77733a10049c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 194b0122987d4fdc5d100112c60006588d28f96c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069363"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826917"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Novedades de Azure Key Vault
 
-> [!WARNING]
-> **Julio de 2020**: hay dos actualizaciones para Key Vault que pueden afectar a las implementaciones del servicio: [activación predeterminada de la eliminación temporal de almacenes de claves](#soft-delete-on-by-default) y [cambios en los certificados TLS de Azure](#azure-tls-certificate-changes). Consulte a continuación para más información.
-
 Estas son las novedades de Azure Key Vault. También se anuncian nuevas características y mejoras en el [Canal de Key Vault de actualizaciones de Azure](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
-## <a name="soft-delete-on-by-default"></a>Activación predeterminada de la eliminación temporal
+## <a name="july-2020"></a>Julio de 2020
+
+> [!WARNING]
+> Estas dos actualizaciones pueden afectar a las implementaciones de Azure Key Vault.
+
+### <a name="soft-delete-on-by-default"></a>Activación predeterminada de la eliminación temporal
 
 A finales de 2020, la **eliminación temporal estará activada de forma predeterminada en todos los almacenes de claves**, tanto nuevos como existentes. Para obtener toda la información no solo sobre este posible cambio importante, sino también sobre los pasos necesarios para buscar los almacenes de claves afectados y actualizarlos de antemano, consulte el artículo [La eliminación temporal se habilitará en todos los almacenes de claves](soft-delete-change.md). 
 
-## <a name="azure-tls-certificate-changes"></a>Cambios en los certificados TLS de Azure  
+### <a name="azure-tls-certificate-changes"></a>Cambios en los certificados TLS de Azure  
 
-Microsoft está actualizando los servicios de Azure para que usen los certificados TLS de un conjunto diferente de entidades de certificación (CA) raíz. Este cambio se realiza porque los certificados de entidad de certificación actuales no cumplen uno de los requisitos de la base de referencia del foro CA/Browser.
+Microsoft está actualizando los servicios de Azure para que usen los certificados TLS de un conjunto diferente de entidades de certificación (CA) raíz. Este cambio se realiza porque los certificados de entidad de certificación actuales [no cumplen uno de los requisitos de la base de referencia del foro CA/Browser](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951).
 
 ### <a name="when-will-this-change-happen"></a>¿Cuándo se producirá este cambio?
 
-- Los servicios de Azure Active Directory (Azure AD) comenzaron esta transición el 7 de julio de 2020.
-- Todos los puntos de conexión de TLS/SSL de Azure recién creados contienen certificados actualizados que se encadenan a las nuevas entidades de certificación raíz. 
+- Los servicios de [Azure Active Directory](/azure/active-directory) (Azure AD) comenzaron esta transición el 7 de julio de 2020.
+- Todos los puntos de conexión de TLS/SSL de Azure recién creados contienen certificados actualizados que se encadenan a las nuevas entidades de certificación raíz.
 - Los puntos de conexión de Azure existentes realizarán la transición de forma escalonada a partir del 13 de agosto de 2020 y finalizarán el 26 de octubre de 2020.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) y [DPS](/azure/iot-dps/) permanecerán en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) y [DPS](/azure/iot-dps/) permanecerán en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. Para obtener información más detallada, consulte el mensaje del blob[Azure IoT TLS: Changes are coming! (…and why you care)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
+- [Azure Storage](/azure/storage) permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. Para obtener información más detallada, consulte el mensaje del blob[Azure Storage TLS: Changes are coming! (…and why you care)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 
 > [!IMPORTANT]
-> Es posible que los clientes necesiten actualizar sus aplicaciones después de este cambio, con el fin de evitar errores de conectividad al intentar conectarse a los servicios de Azure. 
+> Es posible que los clientes necesiten actualizar sus aplicaciones después de este cambio, con el fin de evitar errores de conectividad al intentar conectarse a los servicios de Azure.
 
 ### <a name="what-is-changing"></a>¿Qué está cambiando?
 
@@ -62,26 +65,26 @@ Los certificados TLS usados por los servicios de Azure se encadenarán a una de 
 
 ### <a name="when-can-i-retire-the-old-intermediate-thumbprint"></a>¿Cuándo puedo retirar la huella digital intermedia anterior?
 
-Los certificados de CA actuales *no se* revocarán hasta el 15 de febrero de 2021. Después de esa fecha, puede quitar las huellas digitales anteriores del código.
+Los certificados de CA actuales *no* se revocarán hasta el 15 de febrero de 2021. Después de esa fecha, puede quitar las huellas digitales anteriores del código.
 
 Si esta fecha cambia, se le notificará la nueva fecha de revocación.
 
-### <a name="will-this-affect-me"></a>¿Me afectará esto?
+### <a name="will-this-change-affect-me"></a>¿Me afectará este cambio? 
 
 Esperamos que la **mayoría de los clientes de Azure no** se vean afectados.  Sin embargo, la aplicación puede resultar afectada si especifica explícitamente una lista de entidades de certificación aceptables. Esta práctica se conoce como anclaje de certificados.
 
 Estas son algunas maneras de detectar si una aplicación se ve afectada:
 
-- Busque en el código fuente la huella digital, el nombre común y otras propiedades de certificado de cualquiera de las entidades de certificación de Microsoft IT TLS que se encuentran [aquí](https://www.microsoft.com/pki/mscorp/cps/default.htm). Si hay alguna coincidencia, la aplicación se verá afectada. Para resolver este problema, actualice el código fuente para incluir las nuevas entidades de certificación. Como procedimiento recomendado, asegúrese de que las entidades de certificación se pueden agregar o editar rápidamente. Las regulaciones del sector requieren que los certificados de entidad de certificación se reemplacen en un plazo máximo de siete días, por lo que es preciso que los clientes que usan el anclaje reaccionen con rapidez.
+- Busque en el código fuente la huella digital, el nombre común y otras propiedades de certificado de cualquiera de las entidades de certificación de Microsoft IT TLS que se encuentran [aquí](https://www.microsoft.com/pki/mscorp/cps/default.htm). Si hay alguna coincidencia, la aplicación se verá afectada. Para resolver este problema, actualice el código fuente para incluir las nuevas entidades de certificación. Como procedimiento recomendado, asegúrese de que las entidades de certificación se pueden agregar o editar rápidamente. Las regulaciones del sector requieren que los certificados de las entidades de certificación se reemplacen en un plazo máximo de siete días, por lo que es preciso que los clientes que usan anclaje reaccionen con rapidez.
 
 - Si tiene alguna aplicación que se integra con las API de Azure u otros servicios de Azure y no está seguro de si usa el anclaje de certificados, póngase en contacto con el proveedor de la aplicación.
 
-- Los distintos sistemas operativos y entornos de ejecución de lenguaje que se comunican con los servicios de Azure pueden requerir pasos adicionales para compilar correctamente la cadena de certificados con estas nuevas raíces: 
-    - **Linux**: muchas distribuciones requieren que se agreguen las entidades de certificación anteriores a /etc/SSL/certs. Para obtener instrucciones específicas, consulte la documentación de la distribución.
+- Los distintos sistemas operativos y entornos de ejecución de lenguaje que se comunican con los servicios de Azure pueden requerir pasos adicionales para compilar correctamente la cadena de certificados con estas nuevas raíces:
+    - **Linux**: muchas distribuciones requieren que se agreguen entidades de certificación a /etc/SSL/certs. Para obtener instrucciones específicas, vea la documentación de la distribución.
     - **Java**: asegúrese de que el almacén de claves de Java contenga las entidades de certificación indicadas anteriormente.
-    - **Windows se ejecuta en entornos desconectados**: los sistemas que se ejecuten en entornos desconectados deberán tener agregadas las CA raíz indicadas anteriormente en el almacén de entidades de certificación raíz de confianza y las CA intermedias agregadas en el almacén de entidades de certificación intermedias.
+    - **Windows se ejecuta en entornos desconectados**: los sistemas que se ejecuten en entornos desconectados deberán agregar las nuevas raíces al almacén de entidades de certificación raíz de confianza y las intermedias al almacén de entidades de certificación intermedias.
     - **Android**: consulte la documentación del dispositivo y la versión de Android.
-    - **Otros dispositivos de hardware, especialmente IoT**: póngase en contacto con el fabricante del dispositivo. 
+    - **Otros dispositivos de hardware, especialmente IoT**: póngase en contacto con el fabricante del dispositivo.
 
 - Si en su entorno se ha establecido que las reglas de firewall permitan llamadas salientes solo a determinadas ubicaciones de descarga de la lista de revocación de certificados (CRL) o de comprobación del Protocolo de estado de certificados en línea (OCSP), tendrá que permitir las siguientes direcciones URL de CRL y OCSP:
 

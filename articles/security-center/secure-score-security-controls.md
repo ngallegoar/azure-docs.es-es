@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b7cbba051dd0833a039d378cd73a59314c0221c8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905583"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268271"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Puntuación de seguridad de Azure Security Center
 
@@ -179,7 +179,7 @@ En la tabla siguiente se enumeran los controles de seguridad de Azure Security C
     <td class="tg-lboi"; width=55%>- La auditoría de SQL Server debe estar habilitada.<br>- Los registros de diagnóstico de App Services deben estar habilitados.<br>- Los registros de diagnóstico de Azure Data Lake Store deben estar habilitados.<br>- Los registros de diagnóstico de Azure Stream Analytics deben estar habilitados.<br>- Los registros de diagnóstico de las cuentas de Batch deben estar habilitados.<br>- Los registros de diagnóstico de Data Lake Analytics deben estar habilitados.<br>- Los registros de diagnóstico de Event Hubs deben estar habilitados.<br>- Los registros de diagnóstico de IoT Hub deben estar habilitados.<br>- Los registros de diagnóstico de Key Vault deben estar habilitados.<br>- Los registros de diagnóstico de Logic Apps deben estar habilitados.<br>- Los registros de diagnóstico del servicio Search deben estar habilitados.<br>- Los registros de diagnóstico de Service Bus deben estar habilitados.<br>- Los registros de diagnóstico de Virtual Machine Scale Sets deben estar habilitados.<br>- Las reglas de alerta de métricas deben configurarse en las cuentas de Batch.<br>- La configuración de auditoría de SQL debe tener grupos de acción configurados para capturar actividades críticas.<br>- Debe configurar los servidores SQL Server para que realicen una retención de la auditoría durante más de 90 días.</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Habilitar Advanced Threat Protection (puntuación máxima 0)</p></strong>La protección contra amenazas de Azure Security Center proporciona defensas completas para el entorno. Cuando Security Center detecta una amenaza en cualquiera de las áreas del entorno, genera una alerta. Estas alertas describen los detalles de los recursos afectados, los pasos de corrección sugeridos y, en algunos casos, una opción para desencadenar una aplicación lógica como respuesta.<br>Cada paquete de protección contra amenazas es una oferta independiente y opcional que puede habilitar con la recomendación correspondiente en este control de seguridad.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Más información sobre la protección contra amenazas en Security Center</a>.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Habilitar Advanced Threat Protection (puntuación máxima 0)</p></strong>Los planes opcionales de protección contra amenazas de Azure Defender de Azure Security Center proporcionan defensas completas para el entorno. Cuando Security Center detecta una amenaza en cualquiera de las áreas del entorno, genera una alerta. Estas alertas describen los detalles de los recursos afectados, los pasos de corrección sugeridos y, en algunos casos, una opción para desencadenar una aplicación lógica como respuesta.<br>Cada plan de Azure Defender es una oferta independiente y opcional que puede habilitar con la recomendación correspondiente en este control de seguridad.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Más información sobre la protección contra amenazas en Security Center</a>.</td>
     <td class="tg-lboi"; width=55%>- Advanced Data Security debe estar habilitado en los servidores de Azure SQL Database<br>- Advanced Data Security debe estar habilitado en los servidores SQL Server en las máquinas<br>- Advanced Threat Protection debe estar habilitado en Virtual Machines<br>- Advanced Threat Protection debe estar habilitado en los planes de Azure App Service<br>- Advanced Threat Protection debe estar habilitado en las cuentas de almacenamiento de Azure<br>- Advanced Threat Protection debe estar habilitado en los clústeres de Azure Kubernetes Service<br>- Advanced Threat Protection debe estar habilitado en los registros de Azure Container Registry<br>- Advanced Threat Protection debe estar habilitado en los almacenes de Azure Key Vault</td>
   </tr>
   <tr>
@@ -197,14 +197,8 @@ En la tabla siguiente se enumeran los controles de seguridad de Azure Security C
 
 ## <a name="secure-score-faq"></a>Preguntas frecuentes sobre la puntuación de seguridad
 
-### <a name="why-has-my-secure-score-gone-down"></a>¿Por qué ha dejado de funcionar mi puntuación de seguridad?
-Security Center ha cambiado a una puntuación de seguridad mejorada que incluye los cambios en la forma de calcular la puntuación. Ahora, debe resolver todas las recomendaciones de un recurso para recibir puntos. Las puntuaciones también han cambiado a una escala de 0-10.
-
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Si solo se corrigen tres de las cuatro recomendaciones de un control de seguridad, ¿cambiará mi puntuación de seguridad?
 No. No cambiará hasta que corrija todas las recomendaciones para un único recurso. Para obtener la puntuación máxima de un control, debe corregir todas las recomendaciones de todos los recursos.
-
-### <a name="is-the-previous-experience-of-the-secure-score-still-available"></a>¿La experiencia de Puntuación de seguridad anterior todavía está disponible? 
-No. Durante un tiempo se ejecutaron en paralelo para facilitar la transición. El modelo anterior ya está en desuso. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Si una recomendación no es aplicable a mí y la deshabilito en la directiva, ¿se cumplirá mi control de seguridad y se actualizará mi puntuación de seguridad?
 Sí. Se recomienda deshabilitar las recomendaciones cuando no son aplicables a su entorno. Para obtener instrucciones sobre cómo deshabilitar una recomendación específica, consulte [Deshabilitar las directivas de seguridad](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).

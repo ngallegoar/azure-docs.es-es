@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 8e48a5c896c4927b82f7d77f31b7f1c47fd156c5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932629"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816815"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuales
 
@@ -43,12 +43,12 @@ Antes de intentar habilitar Azure Automanage en las máquinas virtuales, debe te
 
 - Máquinas virtuales solo de Windows Server
 - Las máquinas virtuales deben estar en ejecución
-- Solo máquinas virtuales sin conjunto de escalado
-- Las máquinas virtuales deben estar en una región admitida
+- Las máquinas virtuales deben estar en una región admitida.
 - El usuario debe tener los permisos correctos
 - Las máquinas virtuales no deben vincularse a un área de trabajo de Log Analytics de otra suscripción
+- Automanage no admite suscripciones de espacio aislado en este momento
 
-El siguiente permiso de RBAC es necesario para habilitar Automanage: el rol **Propietario** o **Colaborador** junto con el rol **Administrador de acceso de usuario**.
+Debe tener el rol de **colaborador** para habilitar Automanage mediante una cuenta existente de Automanage. Si va a habilitar Automanage con una cuenta nueva de Automanage, necesita los siguientes permisos: el rol **Propietario** o **Colaborador** junto con el rol **Administrador de acceso de usuario**.
 
 También es importante advertir que Automanage solo es compatible con máquinas virtuales Windows ubicadas en las siguientes regiones: Europa Occidental, Este de EE. UU., Oeste de EE. UU. 2, Centro de Canadá, Centro-oeste de EE. UU.
 
@@ -105,14 +105,14 @@ La cuenta de Automanage es el contexto de seguridad o la identidad bajo los que 
 En la experiencia de Azure Portal, al habilitar Automanage en las máquinas virtuales, hay una lista desplegable de opciones avanzadas en la hoja **Enable Azure VM best practice** (Habilitar procedimiento recomendado de máquina virtual de Azure) que le permite asignar o crear manualmente la cuenta de Automanage.
 
 > [!NOTE]
-> El siguiente permiso de RBAC es necesario para habilitar Automanage: el rol **Propietario** o **Colaborador** junto con el rol **Administrador de acceso de usuario**.
+> Debe tener el rol de **colaborador** para habilitar Automanage mediante una cuenta existente de Automanage. Si va a habilitar Automanage con una cuenta nueva de Automanage, necesita los siguientes permisos: el rol **Propietario** o **Colaborador** junto con el rol **Administrador de acceso de usuario**.
 
 
 ## <a name="status-of-vms"></a>Estado de las máquinas virtuales
 
 En Azure Portal, vaya a la página **Automanage – Azure virtual machine best practices** (Automanage: procedimientos recomendados de máquina virtual de Azure), que muestra todas las máquinas virtuales administradas automáticamente. Aquí verá el estado general de cada máquina virtual.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Lista de máquinas virtuales configuradas.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Incorporación inteligente de servicios.":::
 
 Para cada máquina virtual de la lista, se muestran los detalles siguientes: nombre, perfil de configuración, preferencia de configuración, estado, cuenta, suscripción y grupo de recursos.
 
@@ -130,17 +130,17 @@ Puede decidir un día deshabilitar Automanage en determinadas máquinas virtuale
 
 Para ello, en Azure Portal, vaya a la página **Automanage – Azure virtual machine best practices** (Automanage: procedimientos recomendados de máquina virtual de Azure), que muestra todas las máquinas virtuales administradas automáticamente. Active la casilla situada junto a la máquina virtual en la que quiere deshabilitar Automanage y, luego, haga clic en el botón **Disable automanagment** (Deshabilitar la administración automática).
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Deshabilitación de Automanage en una máquina virtual.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Incorporación inteligente de servicios.":::
 
 Lea detenidamente los mensajes del elemento emergente resultante antes de aceptar **Disable** (Deshabilitar).
 
-```
-Disabling automanagement in a VM results in the following behavior:
+> [!NOTE]
+> Al deshabilitar la administración en una VM, se produce el comportamiento siguiente:
+>
+> - La configuración de la VM y los servicios que se incorporan no cambian.
+> - Los cargos en los que incurran esos servicios se seguirán facturando y se continuarán generando.
+> - Cualquier comportamiento de Automanage se detiene inmediatamente.
 
-1.    The configuration of the VM and the services it's onboarded to will not be changed
-2.    Any changes incurred by those services will remain billable and will continue to be incurred
-3.    Any Automanage behaviors will stop immediately
-```
 
 En primer lugar, no se desactivará la máquina virtual de ninguno de los servicios que hayamos incorporado y configurado. Los cargos que generen esos servicios se seguirán facturando. Si es necesario, debe desactivarlos. Cualquier acción de Automanage se detendrá inmediatamente. Por ejemplo, ya no se supervisarán las desviaciones de la máquina virtual.
 
@@ -149,7 +149,7 @@ En primer lugar, no se desactivará la máquina virtual de ninguno de los servic
 
 En este artículo, ha aprendido que Automanage para máquinas virtuales proporciona un medio para eliminar la necesidad de conocer, incorporar y configurar servicios de Azure de procedimientos recomendados. Además, si una máquina que se ha incorporado a Automanage para máquinas virtuales se desvía de los perfiles de configuración establecidos, la devolveremos automáticamente a su estado de conformidad.
 
-Pruebe a habilitar Automanage para máquinas virtuales en Azure Portal.
+Intente habilitar Automanage para máquinas virtuales en Azure Portal.
 
 > [!div class="nextstepaction"]
 > [Habilitación de Automanage para máquinas virtuales en Azure Portal](quick-create-virtual-machines-portal.md)

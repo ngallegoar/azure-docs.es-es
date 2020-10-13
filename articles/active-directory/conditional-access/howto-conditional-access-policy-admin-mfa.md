@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45263ca0448042aa972ee53093b51dd47bd51190
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bac3e0dc6c6bcc98bb57989e1335ce6a60872a37
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049356"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818330"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Acceso condicional: Exigir autenticación multifactor para administradores
 
@@ -24,11 +24,12 @@ Las cuentas a las que se asignan derechos administrativos son el objetivo de los
 
 Microsoft recomienda exigir MFA en los roles siguientes como mínimo:
 
+* Administrador de autenticación
 * Administrador de facturación
 * Administrador de acceso condicional
 * Administrador de Exchange
 * Administrador global
-* Administrador del departamento de soporte técnico (contraseñas)
+* Administrador del departamento de soporte técnico
 * Administrador de contraseñas
 * Administrador de seguridad
 * Administrador de SharePoint
@@ -72,7 +73,7 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional qu
    1. En **Excluir**, seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
    1. Seleccione **Listo**.
 1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Todas las aplicaciones en la nube** y, luego, **Listo**.
-1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)** , en **Seleccionar aplicaciones cliente a las que se aplicará la directiva** mantenga todos los valores seleccionados y haga clic en **Hecho**.
+1. En **Condiciones** > **Aplicaciones cliente**, cambie **Configurar** a **Sí** y, en **Seleccionar aplicaciones cliente a las que se aplicará la directiva**, deje todas las opciones predeterminadas seleccionadas y elija **Hecho**.
 1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir autenticación multifactor** y **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
 1. Seleccione **Crear** para crear la directiva.

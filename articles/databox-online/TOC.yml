@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: Guías de inicio rápido
       items:
-        - name: Primeros pasos
+        - name: Introducción
           href: azure-stack-edge-gpu-quickstart.md
     - name: Tutoriales
       items:
@@ -165,6 +165,8 @@
               href: azure-stack-edge-gpu-troubleshoot.md
             - name: Problemas de ordenación
               href: azure-stack-edge-troubleshoot-ordering.md
+            - name: Problemas de activación
+              href: azure-stack-edge-gpu-troubleshoot-activation.md
             - name: Ponerse en contacto con el servicio de soporte técnico de Microsoft
               href: azure-stack-edge-contact-microsoft-support.md
     - name: Notas de la versión

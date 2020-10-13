@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: d629e5d572f1e8fff05104a4a5004b7aaa8c7a0d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 12f6e66140b3654f1283cad45c97325e2bfb1a28
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892973"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775694"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Confluence SAML SSO by Microsoft
 
@@ -159,11 +159,11 @@ En esta sección va a permitir que B. Simon acceda a SAML SSO by Microsoft medi
 
 1. Mantenga el mouse encima del icono de engranaje y haga clic en **Complementos**.
 
-    ![Configurar inicio de sesión único](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![Captura de pantalla que muestra el icono de engranaje seleccionado y la opción "Complementos" resaltada en el menú desplegable.](./media/confluencemicrosoft-tutorial/addon1.png)
 
 1. Descargue el complemento del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=56503). Cargue manualmente el complemento proporcionado por Microsoft mediante el menú **Cargar complemento**. La descarga del complemento está contemplada en el [Acuerdo de servicio de Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Configurar inicio de sesión único](./media/confluencemicrosoft-tutorial/addon12.png)
+    ![Captura de pantalla que muestra la página "Administrar complementos" con la acción "Cargar complemento" seleccionada.](./media/confluencemicrosoft-tutorial/addon12.png)
 
 1. Para ejecutar el escenario de proxy inverso de Confluence o el escenario del equilibrador de carga, realice los pasos siguientes:
 
@@ -174,19 +174,19 @@ En esta sección va a permitir que B. Simon acceda a SAML SSO by Microsoft medi
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Configurar inicio de sesión único](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    ![Captura de pantalla que muestra el archivo "server.xml" con el atributo agregado al puerto del conector.](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
 
     b. Cambie la **URL base** en **Configuración del sistema** en función del proxy o equilibrador de carga.
 
-    ![Configurar inicio de sesión único](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    ![Captura de pantalla que muestra la página "Administración - Configuración" con la opción "URL base" resaltada.](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
 
 1. Una vez instalado el complemento, aparece en la sección de complementos **Instalados por el usuario** de **Administrar complemento**. Haga clic en **Configurar** para configurar el nuevo complemento.
 
-    ![Configurar inicio de sesión único](./media/confluencemicrosoft-tutorial/addon15.png)
+    ![Captura de pantalla que muestra la sección "Instalados por el usuario" con el botón "Configurar" resaltado.](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. Siga estos pasos en la página de configuración:
 
-    ![Configurar inicio de sesión único](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Captura de pantalla que muestra la página de configuración de inicio de sesión único.](./media/confluencemicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Asegúrese de que hay un solo certificado asignado a la aplicación, de forma que no se produzca ningún error en la resolución de los metadatos. Si hay varios certificados, el administrador recibe un error después de resolver los metadatos.
@@ -237,7 +237,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en el servidor local 
 
 1. En la sección Usuarios, haga clic en la pestaña **Agregar usuarios**. En la página del cuadro de diálogo **Agregar un usuario**, realice los siguientes pasos:
 
-    ![Agregar empleado](./media/confluencemicrosoft-tutorial/user2.png)
+    ![Captura de pantalla que muestra la página de administración de Confluence con la pestaña "Agregar usuarios" seleccionada e información escrita en "Agregar un usuario".](./media/confluencemicrosoft-tutorial/user2.png)
 
     a. En el cuadro de texto **Nombre de usuario**, escriba el correo electrónico de un usuario, por ejemplo, B. Simon.
 

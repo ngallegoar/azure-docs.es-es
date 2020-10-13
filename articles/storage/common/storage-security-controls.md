@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: b816e7bd5e00b21700bc994fc0860195d39f2915
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3b4d74e7ba869e0438a936817d824e841823d472
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826524"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715709"
 ---
 # <a name="security-controls-for-azure-storage"></a>Controles de seguridad para los servicios de Azure Storage
 
@@ -55,7 +55,7 @@ En este artículo, se explican los controles de seguridad integrados en Azure St
 | Control de seguridad | Sí/No | Notas|
 |---|---|--|
 | Authentication| Sí | Azure Active Directory, clave compartida, el token de acceso compartido. |
-| Authorization| Sí | Compatible con la autorización mediante RBAC, listas de control de acceso de POSIX y tokens de SAS |
+| Authorization| Sí | Compatible con la autorización mediante Azure RBAC, listas de control de acceso de POSIX y tokens de SAS |
 
 ## <a name="configuration-management"></a>Administración de configuración
 

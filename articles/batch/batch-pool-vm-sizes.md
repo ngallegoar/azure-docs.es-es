@@ -2,14 +2,14 @@
 title: Selección de los tamaños de máquina virtual para grupos
 description: Cómo elegir uno de los tamaños de máquina virtual disponibles para los nodos de proceso en grupos de Azure Batch
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9aef1fc21120401252d188b7373c6ce4139c71c4
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2819bb5e4000f18653e47b616a551d69ec525d2c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005140"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271314"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -37,11 +37,11 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | Dv3, Dsv3 | Todos los tamaños |
 | Dav4<sup>1</sup> | Todos los tamaños |
 | Dav4<sup>1</sup> | Todos los tamaños |
-| Ddv4, Ddsv4 |  Ninguno: no disponible todavía |
-| Ev3, Esv3 | Todos los tamaños, excepto E64is_v3 y E64i_v3 |
+| Ddv4, Ddsv4 |  Todos los tamaños |
+| Ev3, Esv3 | Todos los tamaños, excepto E64is_v3 |
 | Eav4<sup>1</sup> | Todos los tamaños |
 | Easv4<sup>1</sup> | Todos los tamaños |
-| Edv4, Edsv4 |  Ninguno: no disponible todavía |
+| Edv4, Edsv4 |  Todos los tamaños |
 | F, Fs | Todos los tamaños |
 | Fsv2 | Todos los tamaños |
 | G, Gs | Todos los tamaños |
@@ -52,7 +52,7 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | LS | Todos los tamaños |
 | Lsv2<sup>1</sup> | Todos los tamaños |
 | M<sup>1</sup> | Todos los tamaños |
-| Mv2 | Ninguno: no disponible todavía |
+| Mv2<sup>1,2</sup> | Todos los tamaños |
 | NC | Todos los tamaños |
 | NCv2<sup>1</sup> | Todos los tamaños |
 | NCv3<sup>1</sup> | Todos los tamaños |
@@ -60,10 +60,15 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | NDv2<sup>1</sup> | Ninguno: no disponible todavía |
 | NV | Todos los tamaños |
 | NVv3<sup>1</sup> | Todos los tamaños |
-| NVv4 | None |
+| NVv4 | Ninguno: no disponible todavía |
 | SAP HANA | None |
 
-<sup>1</sup> Estos tamaños de máquina virtual se pueden asignar en grupos de Batch en la configuración de la máquina virtual, pero debe crear una nueva cuenta de Batch y solicitar un [aumento de cuota](batch-quota-limit.md#increase-a-quota) específico. Esta limitación se eliminará una vez que la cuota de vCPU por serie de máquinas virtuales sea totalmente compatible con las cuentas de Batch.
+<sup>1</sup> Estas series de máquina virtual se pueden asignar en grupos de Batch en la configuración de la máquina virtual, pero debe crear una cuenta de Batch y solicitar un [aumento de cuota](batch-quota-limit.md#increase-a-quota) específico. Esta limitación se eliminará una vez que la cuota de vCPU por serie de máquinas virtuales sea totalmente compatible con las cuentas de Batch.
+
+<sup>2</sup> Estas series de máquina virtual solo se pueden usar con imágenes de máquina virtual de segunda generación.
+
+### <a name="using-generation-2-vm-images"></a>Uso de imágenes de máquina virtual de segunda generación
+Algunas series de máquina virtual, como [Mv2](../virtual-machines/mv2-series.md), solo se pueden usar con [imágenes de máquina virtual de segunda generación](../virtual-machines/generation-2.md). Las imágenes de máquina virtual de segunda generación se especifican como cualquier imagen de máquina virtual, con la propiedad "sku" de la configuración de ["imageReference"](/rest/api/batchservice/pool/add#imagereference); las cadenas "sku" tienen un sufijo del tipo "-g2" o "-gen2". Para obtener una lista de imágenes de máquina virtual admitidas por Batch, incluidas las imágenes de segunda generación, use la API ["list supported images"](/rest/api/batchservice/account/listsupportedimages), [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) o la [CLI de Azure](/cli/azure/batch/pool/supported-images).
 
 ### <a name="pools-in-cloud-service-configuration"></a>Grupos en la configuración de Cloud Service
 

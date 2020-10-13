@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 43679c52727f8cc84c7292592b68dddae7f1ea68
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 81c4c26f252cdd9eb302a7f8f362c8bf52e48629
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362085"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825594"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migración de Bing Speech al servicio de voz
 
@@ -42,8 +42,8 @@ El servicio de voz es similar en gran medida a Bing Speech, con las siguientes d
 | SDK DE C# | :heavy_check_mark: | :heavy_check_mark: | El servicio de voz admite Windows 10, Plataforma universal de Windows (UWP) y .NET Standard 2.0. |
 | SDK de C++ | :heavy_minus_sign: | :heavy_check_mark: | El servicio de voz admite Windows y Linux. |
 | SDK de Java | :heavy_check_mark: | :heavy_check_mark: | El servicio de voz admite dispositivos Android y Speech. |
-| Reconocimiento de voz continua | 10 minutos | Ilimitado (con SDK) | Tanto los protocolos de WebSockets del servicio de voz como Bing Speech admiten hasta 10 minutos por llamada. Sin embargo, el Speech SDK se vuelve a conectar automáticamente en tiempo de expiración o desconexiones. |
-| Resultados intermedios o parciales | :heavy_check_mark: | :heavy_check_mark: | Con el protocolo WebSockets o el SDK. |
+| Reconocimiento de voz continua | 10 minutos | Sin límite | El SDK de Voz admite el reconocimiento continuo ilimitado y se vuelve a conectar automáticamente tras el tiempo de espera o la desconexión. |
+| Resultados intermedios o parciales | :heavy_check_mark: | :heavy_check_mark: | Es compatible con el SDK de Voz. |
 | Modelos de voz personalizados | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requiere una suscripción independiente de Habla personalizada. |
 | Cuentes de voz personalizadas | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requiere una suscripción independiente de Custom Voice. |
 | Voces de 24 kHz | :heavy_minus_sign: | :heavy_check_mark: |
@@ -53,7 +53,7 @@ El servicio de voz es similar en gran medida a Bing Speech, con las siguientes d
 | Modo de reconocimiento | Manual a través de URI de punto de conexión | Automático | El modo de reconocimiento no está disponible en el servicio de voz. |
 | Localidad de punto de conexión | Global | Regional | Los puntos de conexión regionales mejoran la latencia. |
 | API de REST | :heavy_check_mark: | :heavy_check_mark: | Las API REST del servicio de voz son compatibles con Bing Speech (punto de conexión diferente). Las API de REST admiten la funcionalidad de texto a voz y la funcionalidad de voz a texto de forma limitada. |
-| Protocolos de WebSockets | :heavy_check_mark: | :heavy_check_mark: | La API WebSockets del servicio de voz es compatible con Bing Speech (punto de conexión diferente). Migre a Speech SDK si es posible para simplificar el código. |
+| Protocolos de WebSockets | :heavy_check_mark: | :heavy_minus_sign: | El SDK de Voz abstrae las conexiones de socket web para la funcionalidad que requiere una conexión constante con el servicio, por lo que ya no se admite para suscribirse a ellas manualmente. |
 | Llamadas API de servicio a servicio | :heavy_check_mark: | :heavy_minus_sign: | Proporcionado en Bing Speech a través de la biblioteca de servicio de C#. |
 | SDK de código abierto | :heavy_check_mark: | :heavy_minus_sign: |
 
@@ -65,13 +65,9 @@ Si su organización o usted tienen aplicaciones en desarrollo o producción que 
 
 Las [API REST](rest-apis.md) del servicio de voz son compatibles con las API Bing Speech. Si actualmente usa las API REST Bing Speech, solo debe cambiar el punto de conexión de REST y cambiar a una clave de suscripción del servicio de voz.
 
-Los protocolos de WebSockets del servicio de voz también son compatibles con los utilizados por Bing Speech. Para nuevos desarrollos, se recomienda usar el SDK de Voz en lugar de WebSockets. También es una buena idea migrar el código existente al SDK. No obstante, como con las API de REST, el código existente que utiliza Bing Speech a través de WebSockets requiere solo un cambio en el punto de conexión y una clave actualizada.
-
 Si usa una biblioteca de cliente de Bing Speech para un lenguaje de programación específico, migrar al [Speech SDK](speech-sdk.md) requerirá cambios en la aplicación porque la API es diferente. El Speech SDK puede simplificar el código al mismo tiempo que le proporciona acceso a nuevas características. El Speech SDK está disponible en una amplia variedad de lenguajes de programación. Las API en todas las plataformas son similares, lo que acelera el desarrollo multiplataforma.
 
 El servicio de voz no ofrece un punto de conexión global. Determine si la aplicación funciona eficazmente con un único punto de conexión regional para todo su tráfico. Si no lo hace, use la ubicación geográfica para determinar el punto de conexión más eficaz. Necesitará una suscripción del servicio de voz independiente en cada región que use.
-
-Si la aplicación usa conexiones de larga duración y no puede usar un SDK disponible, puede usar una conexión de WebSockets. Administre el límite de tiempo de espera de 10 minutos volviendo a conectarse en los momentos adecuados.
 
 Para empezar a usar el Speech SDK:
 
@@ -88,9 +84,11 @@ Para información sobre compatibilidad de API, SDK y el servicio de voz, visite 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Prueba gratuita del servicio de voz](overview.md#try-the-speech-service-for-free)
-* [Inicio rápido: Reconocimiento de voz en una aplicación de UWP mediante el SDK de Voz](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Introducción a la conversión de voz a texto](get-started-speech-to-text.md)
+* [Introducción a la conversión de texto a voz](get-started-text-to-speech.md)
 
 ## <a name="see-also"></a>Consulte también
+
 * [Notas de la versión del servicio de voz](releasenotes.md)
 * [¿Qué es el servicio Voz?](overview.md)
 * [Documentación del servicio de voz y del SDK de voz](speech-sdk.md#get-the-speech-sdk)

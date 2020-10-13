@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 52b45bf7457a81b605df91e63a7c6ad539309dd8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5f7e85cc37d5a899681b5dd1466c216f1be39a61
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538661"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708811"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con 8x8
 
@@ -147,11 +147,11 @@ La siguiente parte del tutorial depende del tipo de suscripción que tenga de 8x
 
 1. En la página principal, haga clic en **Identity Management** (Administración de identidades).
 
-    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure1.png)
+    ![Captura de pantalla que resalta el icono Identity Management (Administración de identidades).](./media/8x8virtualoffice-tutorial/configure1.png)
 
 1. Active **Single Sign On (SSO)** (Inicio de sesión único [SSO]) y, a continuación, seleccione **Microsoft Azure AD**.
 
-    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure2.png)
+    ![Captura de pantalla que resalta las opciones de inicio de sesión único (SSO) y Microsoft Azure AD.](./media/8x8virtualoffice-tutorial/configure2.png)
 
 1. Copie las tres direcciones URL y el certificado de firma de la página **Configurar inicio de sesión único con SAML** de Azure AD en la sección **Microsoft Azure AD SAML Settings** (Configuración de SAML de Microsoft Azure AD) de Configuration Manager de 8x8.
 
@@ -173,23 +173,23 @@ La siguiente parte del tutorial depende del tipo de suscripción que tenga de 8x
 
 1. Seleccione el **administrador de cuentas de Virtual Office** en el panel de la aplicación.
 
-    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
+    ![Captura de pantalla que resalta el icono Virtual Office Account Mgr (Administrador de cuentas de la oficina virtual).](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
 1. Seleccione la cuenta **empresarial** que se va a administrar y haga clic en el botón **Iniciar sesión**.
 
-    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
+    ![Captura de pantalla que resalta la opción Business (Empresa) y el botón Sign In (Iniciar sesión).](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
 1. Haga clic en la pestaña **CUENTAS** en la lista de menús.
 
-    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+    ![Captura de pantalla que resalta la pestaña ACCOUNTS (CUENTAS) de la lista de menús.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
 1. Haga clic en **Inicio de sesión único** en la lista de cuentas.
 
-    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
+    ![Captura de pantalla que resalta la opción Single Sign On (Inicio de sesión único).](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
 1. Seleccione **Inicio de sesión único** en los método de autenticación y haga clic en **SAML**.
 
-    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+    ![Captura de pantalla que resalta SAML en Single Sign On (Inicio de sesión único).](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
 1. En la sección **Inicio de sesión único de SAML**, siga estos pasos:
 

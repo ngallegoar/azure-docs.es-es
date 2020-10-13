@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c9e0b6a81742ea4022bb8db2dd8d933f917331b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b5739ea49bb9f5823538e9a41660a572a3cede04
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530132"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760738"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integración de Azure Active Directory con el software Cezanne HR
 
@@ -130,19 +130,19 @@ Para configurar el inicio de sesión único de Azure AD con Cezanne HR Software,
 
 2. En el panel de navegación de la izquierda, haga clic en **System Setup**(Configuración del sistema). Vaya a **Security Settings**(Configuración de seguridad). Luego, navegue hasta **Single Sign-On Configuration**(Configuración de inicio de sesión único).
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+    ![Captura de pantalla que muestra el inquilino del software Cezanne HR con Security Settings (Configuración de seguridad) y Single Sign-On Configuration (Configuración de inicio de sesión único) seleccionados.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
 3. En el panel **Allow users to log in using the following Single Sign-On (SSO) Service** (Permitir a los usuarios iniciar sesión mediante el siguiente servicio de inicio de sesión único), marque la casilla **SAML 2.0** y seleccione la opción **Advanced Configuration** (Configuración avanzada).
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
+    ![Captura de pantalla que muestra el panel Allow users (Permitir usuarios) con SAML 2.0 y Advanced Configuration (Configuración avanzada) seleccionados.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
 4. Haga clic en el botón **Add New** (Agregar nuevo).
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
+    ![Captura de pantalla que muestra el botón Add New (Agregar nuevo).](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
 5. Realice los pasos siguientes en la sección **SAML 2.0 IDENTITY PROVIDERS** (PROVEEDORES DE IDENTIDADES SAML 2.0).
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
+    ![Captura de pantalla que muestra un panel para escribir los valores que se describen en este paso.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
 
     a. Escriba el nombre de su proveedor de identidades como **nombre para mostrar**.
 
@@ -160,7 +160,7 @@ Para configurar el inicio de sesión único de Azure AD con Cezanne HR Software,
 
 6. Haga clic en el botón **Guardar** .
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
+    ![Captura de pantalla que muestra el botón Save (Guardar) para Single Sign-On Configuration (configuración de inicio de sesión único).](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -223,11 +223,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en el software Cezann
 
 2. En el panel de navegación de la izquierda, haga clic en **System Setup**(Configuración del sistema). Vaya a **Administrar usuarios**. A continuación, vaya a **Add New User**(Agregar nuevo usuario).
 
-    ![New User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Nuevo usuario") (Usuario nuevo)
+    ![Captura de pantalla que muestra el inquilino del software Cezanne HR con Manage Users (Administrar usuarios) y Add New User (Agregar nuevo usuario) seleccionados.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Nuevo usuario")
 
 3. En la sección **PERSON DETAILS** (Datos de la persona), siga estos pasos:
 
-    ![New User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Nuevo usuario") (Usuario nuevo)
+    ![Captura de pantalla que muestra la sección PERSON DETAILS (DATOS DE LA PERSONA) para escribir los valores que se describen en este paso.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Nuevo usuario")
 
     a. En **Internal User** (Usuario interno), seleccione OFF (Desactivado).
 
@@ -239,7 +239,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en el software Cezann
 
 4. En la sección **Account Information** (Información de la cuenta), siga estos pasos:
 
-    ![New User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Nuevo usuario") (Usuario nuevo)
+    ![Captura de pantalla que muestra ACCOUNT INFORMATION (INFORMACIÓN DE CUENTA) para escribir los valores que se describen en este paso.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Nuevo usuario")
 
     a. En el cuadro de texto **Nombre de usuario**, escriba el correo electrónico de un usuario, por ejemplo, Brittasimon@contoso.com.
 
@@ -251,15 +251,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en el software Cezann
 
 5. Navegue a la pestaña **Single Sign-On** (Inicio de sesión único) y seleccione **Add New** (Agregar nuevo) en el área **SAML 2.0 Identifiers** (Identificadores SAML 2.0).
 
-    ![User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Usuario")
+    ![Captura de pantalla que muestra la pestaña Single Sign-On (Inicio de sesión único) para seleccionar Add New (Agregar nuevo).](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Usuario")
 
 6. Elija el proveedor de identidades en **Identity Provider** (Proveedor de identidades) y en el cuadro de texto **User Identifier** (Identificador de usuario), escriba la dirección de correo electrónico de la cuenta de Britta Simon.
 
-    ![User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Usuario")
+    ![Captura de pantalla que muestra SAML 2.0 Identifiers (Identificadores de SAML 2.0) ara seleccionar el proveedor de identidades y el identificador de usuario.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Usuario")
 
 7. Haga clic en el botón **Guardar** .
 
-    ![User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Usuario")
+    ![Captura de pantalla que muestra el botón Save (Guardar) para User Settings (Configuración de usuario).](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Usuario")
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

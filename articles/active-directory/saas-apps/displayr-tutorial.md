@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: a69b4a068e62c6376660a79b3a7c8ab5402b5704
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b91f24f9c1a2cedd4292d98fc66630c6b66d37b0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536264"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775174"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Tutorial: Integración de Displayr con Azure Active Directory
 
@@ -88,15 +88,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación Displayr espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra la sección "User Attributes" (Atributos de usuario) con el icono "Edit" (Editar) resaltado.](common/edit-attribute.png)
 
 1. Además de lo anterior, la aplicación Displayr espera que se usen algunos atributos más en la respuesta de SAML. En la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) del cuadro de diálogo **Group Claims (Preview)** (Notificaciones de grupo [versión preliminar]), siga estos pasos:
 
     a. Haga clic en el **lápiz** junto a **Groups returned in claim** (Grupos devueltos en la notificación).
 
-    ![imagen](./media/displayr-tutorial/config04.png)
+    ![Captura de pantalla que muestra la sección "User Attributes & Claims" (Atributos y notificaciones del usuario) con el icono de lápiz junto a la opción "Groups returned in claim" (Grupos devueltos en la notificación) seleccionada.](./media/displayr-tutorial/config04.png)
 
-    ![imagen](./media/displayr-tutorial/config05.png)
+    ![Captura de pantalla que muestra la ventana "Group Claims (Preview)" (Notificaciones de grupo [versión preliminar]) con la configuración seleccionada.](./media/displayr-tutorial/config05.png)
 
     b. Seleccione **Todos los grupos** en la lista de selección.
 
@@ -126,11 +126,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 4. Haga clic en **Settings** (Configuración) y, después, vaya a **Account** (Cuenta).
 
-    ![Configuración](./media/displayr-tutorial/config01.png)
+    ![Captura de pantalla que muestra el icono "Settings" (Configuración) y "Account" (Cuenta) seleccionado.](./media/displayr-tutorial/config01.png)
 
 5. Cambie a **Settings** (Configuración) en el menú superior y desplácese hacia abajo en la página para hacer clic en **Configure Single Sign On (SAML)** [Configurar inicio de sesión único (SAML)].
 
-    ![Configuración](./media/displayr-tutorial/config02.png)
+    ![Captura de pantalla que muestra la pestaña "Settings" (Configuración) seleccionada y la acción "Configure Single Sign On (S A M L)" [Configurar inicio de sesión único (S A M L)] seleccionada.](./media/displayr-tutorial/config02.png)
 
 6. Siga estos pasos en la página **Single Sign On (SAML)** [Inicio de sesión único (SAML)]:
 
@@ -190,11 +190,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Displayr, deben ap
 
 2. Haga clic en **Settings** (Configuración) y, después, vaya a **Account** (Cuenta).
 
-    ![Configuración de Displayr](./media/displayr-tutorial/config01.png)
+    ![Captura de pantalla que muestra el icono de engranaje "Settings" (Configuración) con "Account" (Cuenta) seleccionado.](./media/displayr-tutorial/config01.png)
 
 3. Cambie a **Settings** (Configuración) en el menú superior y desplácese hacia abajo en la página hasta la sección **Users** (Usuarios) y después haga clic en **New User** (Nuevo usuario).
 
-    ![Configuración de Displayr](./media/displayr-tutorial/config07.png)
+    ![Captura de pantalla que muestra la pestaña "Settings" (Configuración) con "Users" (Usuarios) resaltado y el botón "New User" (Nuevo usuario) seleccionado.](./media/displayr-tutorial/config07.png)
 
 4. En la página **New User** (Nuevo usuario), realice estos pasos:
 

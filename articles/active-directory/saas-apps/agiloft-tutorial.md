@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ca2e37c3524dc75328b0b6615e15c58652d20d1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a7ab3d32253b354f759c4d348526e22521a5fde4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542962"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760737"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutorial: Integración de Azure Active Directory con Agiloft
 
@@ -100,7 +100,7 @@ Para configurar el inicio de sesión único de Azure AD con Agiloft, realice los
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Agiloft](common/idp-intiated.png)
+    ![Captura de pantalla con los cuadros de texto Identificador y URL de respuesta resaltados.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
 
@@ -150,11 +150,11 @@ Para configurar el inicio de sesión único de Azure AD con Agiloft, realice los
 
 2. Haga clic en **Setup** (Configuración) (en el panel izquierdo) y, luego, seleccione **Access** (Acceso).
 
-    ![Configuración de Agiloft](./media/agiloft-tutorial/setup1.png)
+    ![Captura de pantalla que resalta la sección Access (Acceso).](./media/agiloft-tutorial/setup1.png)
 
 3. Haga clic en el botón **Configure SAML 2.0 Single Sign-On** (Configurar inicio de sesión único de SAML 2.0).
 
-    ![Configuración de Agiloft](./media/agiloft-tutorial/setup2.png)
+    ![Captura de pantalla que resalta el botón Configure SAML 2.0 Single Sign-On (Configurar inicio de sesión único de SAML 2.0).](./media/agiloft-tutorial/setup2.png)
 
 4. Aparece un cuadro de diálogo del asistente. En el cuadro de diálogo, haga clic en la pestaña **Identity Provider Details** (Detalles del proveedor de identidades) y rellene los campos siguientes:  
 

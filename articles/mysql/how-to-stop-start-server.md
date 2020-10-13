@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 706748018c9f32ab2300b290c6929d344b82e0b0
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 95be6aa576d9d059ce419443f8c7e32af5ff397a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653101"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826200"
 ---
 # <a name="stopstart-an-azure-database-for-mysql"></a>Inicio o detención de una instancia de Azure Database for MySQL
 
@@ -20,7 +20,7 @@ ms.locfileid: "91653101"
 
 En este artículo se proporciona un procedimiento detallado para iniciar y detener un único servidor.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar esta guía, necesita:
 

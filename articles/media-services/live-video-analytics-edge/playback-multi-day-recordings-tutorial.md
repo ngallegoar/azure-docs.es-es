@@ -3,12 +3,12 @@ title: 'Reproducción de las grabaciones de varios días: Azure'
 description: En este tutorial, obtendrá información sobre cómo usar las API de Azure Media Services para reproducir una grabación continua de vídeo de varios días.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: e01c8603869f17ef2d68a39861f11818a4cea975
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 1ec9260be7241057478b06446ac2aa53c14bcb47
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530580"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803439"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reproducción de las grabaciones de varios días  
 
@@ -70,22 +70,16 @@ Después, en Visual Studio Code, abra src/ams-asset-player. Esta carpeta contie
 } 
 ```
 
-En Visual Studio Code, puede hacer clic en el icono de ejecución de la izquierda (o Ctrl + Mayús + D) para que se ejecuten las aplicaciones disponibles:
+1. En Visual Studio Code, abra la pestaña **Extensiones** (o presione Ctrl + Mayús + X) y busque Azure IoT Hub.
+1. Haga clic con el botón derecho y seleccione la **Configuración de la extensión**.
 
-![Captura de pantalla que muestra un menú en Visual Studio Code con el elemento de ejecución seleccionado.](./media/playback-multi-day-recordings-tutorial/run.png)
- 
-Seleccione la aplicación del reproductor de recursos de AMS en el cuadro desplegable, como se muestra a continuación, y presione F5 para iniciar la depuración.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Configuración de la extensión&quot;:::
+1. Busque y habilite &quot;Show Verbose Message" (Mostrar mensaje detallado).
 
-![Captura de pantalla que muestra un menú en Visual Studio Code con el reproductor de recursos de AMS seleccionado.](./media/playback-multi-day-recordings-tutorial/debug.png)
-
-La aplicación de ejemplo compilará e iniciará la aplicación predeterminada del explorador y abrirá la página del reproductor de recursos de AMS.
-
-> [!NOTE]
-> En función de la configuración de seguridad del explorador, es posible que aparezca un mensaje de advertencia. Dado que la página web se ejecuta localmente, puede omitir la advertencia.
-
-El reproductor de recursos de AMS le pide que escriba el nombre de un recurso de Media Services. Debe usar el nombre del recurso que usó para grabar vídeo en [Tutorial: Grabación continua de vídeo](continuous-video-recording-tutorial.md).
-
-Tras escribir el nombre del recurso y pulsar el botón de envío, el código del reproductor cargará la dirección URL de streaming. Para más información, consulte [Guía de procedimientos: Reproducción de grabaciones](playback-recordings-how-to.md). Si, como se recomienda, todavía sigue la grabación en el recurso, el reproductor lo detectará e intentará situar la reproducción en la parte más reciente del vídeo grabado. Puede ver la marca de tiempo (en UTC) en la parte superior izquierda del reproductor. En la captura de pantalla siguiente, puede observar que está seleccionado el botón "Live" (En directo).
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Configuración de la extensión&quot;:::
+1. Busque y habilite &quot;Show Verbose Message" (En directo).
 
 ![STREAM](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
  

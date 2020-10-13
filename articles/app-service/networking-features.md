@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d2b74af723e3ba8b1d71e9f481bf96d009540a52
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: af4c333fb539ad533756c538cb3ecde1d9a91413
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962101"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743053"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
 Las aplicaciones de Azure App Service se pueden implementar de varias maneras. De forma predeterminada, las aplicaciones hospedadas en App Service son directamente accesibles desde Internet y solo pueden alcanzar puntos de conexión hospedados en Internet. Sin embargo, muchas aplicaciones de cliente necesitan controlar el tráfico de red entrante y saliente. En App Service hay varias características disponibles para satisfacer esas necesidades. El desafío consiste en saber qué característica se debe usar para resolver un problema determinado. Este documento está pensado para ayudar a los clientes a determinar qué característica se debe utilizar según algunos casos de uso de ejemplo.
 
-Hay dos tipos de implementación principales para Azure App Service. Está el servicio público multiinquilino, que hospeda planes de App Service en las SKU de precios Gratis, Compartido, Básico, Estándar, Premium y Premium v2. Y también está App Service Environment (ASE) de un único inquilino, que hospeda planes de App Service de SKU aislada directamente en su red virtual (VNet) de Azure. Las características que puede usar variarán en función de si está en el servicio multiinquilino o en un entorno de ASE. 
+Hay dos tipos de implementación principales para Azure App Service. Está el servicio público multiinquilino, que hospeda planes de App Service en las SKU de precios Gratis, Compartido, Básico, Estándar, Premium, PremiumV2 y PremiumV3. Y también está App Service Environment (ASE) de un único inquilino, que hospeda planes de App Service de SKU aislada directamente en su red virtual (VNet) de Azure. Las características que puede usar variarán en función de si está en el servicio multiinquilino o en un entorno de ASE. 
 
 ## <a name="multi-tenant-app-service-networking-features"></a>Características de redes de App Service multiinquilino 
 
@@ -62,7 +62,7 @@ Los siguientes casos de uso de salida sugieren cómo usar las características d
 
 ### <a name="default-networking-behavior"></a>Comportamiento predeterminado de la redes
 
-Las unidades de escalado de Azure App Service admiten muchos clientes en cada implementación. Los planes de SKU Gratis y Compartido hospedan cargas de trabajo de clientes en roles de trabajo multiinquilino. El plan Básico y los planes superiores hospedan cargas de trabajo que se dedican a un único plan de App Service (ASP). Si tuviera un plan de App Service Estándar, todas las aplicaciones de ese plan se ejecutarán en el mismo rol de trabajo. Si escala horizontalmente el rol de trabajo, todas las aplicaciones de ese ASP se replicarán en un rol de trabajo nuevo para cada instancia del ASP. Los roles de trabajo que se usan para planes Premium v2 son diferentes de los roles de trabajo que se usan para los otros planes. Cada implementación de App Service tiene una dirección IP que se usa para todo el tráfico entrante a las aplicaciones de esa implementación de App Service. Sin embargo, hay de 4 a 11 direcciones utilizadas para realizar llamadas salientes. Estas direcciones se comparten para todas las aplicaciones de esa implementación de App Service. Las direcciones de salida son diferentes en función de los diferentes tipos de roles de trabajo. Esto significa que las direcciones usadas por los ASP Gratis, Compartido, Básico, Estándar y Premium son diferentes de las direcciones usadas para las llamadas salientes desde los ASP Premium v2. Si observa en las propiedades de la aplicación, podrá ver las direcciones de entrada y de salida utilizadas por la aplicación. Si necesita bloquear una dependencia con una ACL de IP, utilice las direcciones de salida posibles. 
+Las unidades de escalado de Azure App Service admiten muchos clientes en cada implementación. Los planes de SKU Gratis y Compartido hospedan cargas de trabajo de clientes en roles de trabajo multiinquilino. El plan Básico y los planes superiores hospedan cargas de trabajo que se dedican a un único plan de App Service (ASP). Si tuviera un plan de App Service Estándar, todas las aplicaciones de ese plan se ejecutarán en el mismo rol de trabajo. Si escala horizontalmente el rol de trabajo, todas las aplicaciones de ese ASP se replicarán en un rol de trabajo nuevo para cada instancia del ASP. Los roles de trabajo que se usan para planes PremiumV2 y PremiumV3 son diferentes de los roles de trabajo que se usan para los otros planes. Cada implementación de App Service tiene una dirección IP que se usa para todo el tráfico entrante a las aplicaciones de esa implementación de App Service. Sin embargo, hay de 4 a 11 direcciones utilizadas para realizar llamadas salientes. Estas direcciones se comparten para todas las aplicaciones de esa implementación de App Service. Las direcciones de salida son diferentes en función de los diferentes tipos de roles de trabajo. Esto significa que las direcciones usadas por los ASP Gratis, Compartido, Básico, Estándar y Premium son diferentes de las direcciones usadas para las llamadas salientes desde los ASP PremiumV2 y PremiumV3. Si observa en las propiedades de la aplicación, podrá ver las direcciones de entrada y de salida utilizadas por la aplicación. Si necesita bloquear una dependencia con una ACL de IP, utilice las direcciones de salida posibles. 
 
 ![Propiedades de la aplicación](media/networking-features/app-properties.png)
 

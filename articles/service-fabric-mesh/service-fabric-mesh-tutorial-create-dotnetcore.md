@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: 4a64d1999f13ee09cf92633fd188bfc7ed0e4856
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6531b8a631c38339733aa5fdad60bb1917fe7d9b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011216"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653118"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutorial: Creación, depuración, implementación y actualización de una aplicación multiservicio en Service Fabric Mesh
 
@@ -59,7 +59,7 @@ En el cuadro **Nombre**, escriba `todolistapp` y en el cuadro **Ubicación**, es
 
 Asegúrese de que la opción **Create directory for solution** (Crear directorio para la solución) esté activada y haga clic en **Aceptar** para crear el proyecto de Service Fabric mesh.
 
-![Cuadro de diálogo de proyecto nuevo de Service Fabric mesh en Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
+![Captura de pantalla que muestra cómo crear un proyecto de Service Fabric Mesh.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
 
 Luego verá el cuadro de diálogo **Nuevo servicio de Service Fabric**.
 
@@ -73,7 +73,7 @@ En **Service Name** (Nombre de servicio), seleccione **WebFrontEnd**. Presione *
 
 A continuación verá el cuadro de diálogo Aplicación web ASP.NET Core. Seleccione **Aplicación web** y, después, haga clic en **Aceptar**.
 
-![Nueva aplicación web ASP.NET Core de Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
+![Captura de pantalla que resalta la plantilla Aplicación web.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
 Ya tiene una aplicación de Service Fabric Mesh. A continuación, cree el modelo para la información de tareas pendientes.
 

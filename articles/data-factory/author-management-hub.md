@@ -9,12 +9,12 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.date: 06/02/2020
-ms.openlocfilehash: bba49014fd6b082ea015da259402a8e87bf4afff
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: df5a13b3d7c3fea98cd571a241b9d25e36ffeea6
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852001"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570627"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Centro de administración de Azure Data Factory
 
@@ -56,7 +56,7 @@ Para reemplazar los parámetros de la plantilla de Resource Manager generados al
 
 Los desencadenadores determinan cuándo se debe iniciar una ejecución de canalización. Actualmente, los desencadenadores pueden estar en una programación de reloj, operar en un intervalo periódico o depender de un evento. Para más información, consulte acerca de la [ejecución de desencadenadores](concepts-pipeline-execution-triggers.md#trigger-execution). En el centro de administración, puede crear, editar, eliminar o ver el estado actual de un desencadenador.
 
-![Administración de los parámetros personalizados](media/author-management-hub/management-hub-triggers.png)
+![Captura de pantalla que muestra dónde crear, editar, eliminar o ver el estado actual de un desencadenador.](media/author-management-hub/management-hub-triggers.png)
 
 ### <a name="global-parameters"></a>Parámetros globales
 

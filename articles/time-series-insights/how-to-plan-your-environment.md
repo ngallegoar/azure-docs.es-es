@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289915"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598107"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planeamiento del entorno de Azure Time Series Insights Gen2
 
@@ -36,7 +36,6 @@ Azure Time Series Insights emplea un modelo comercial de pago por uso. Para más
 ## <a name="the-gen2-environment"></a>El entorno de Gen2
 
 Cuando se aprovisiona entorno de Azure Time Series Insights Gen2, se crean también dos recursos de Azure:
-
 
 * Un entorno de Azure Time Series Insights Gen2
 * Una cuenta de Azure Storage.
@@ -69,10 +68,7 @@ Puede seleccionar hasta tres claves para diferenciar los recursos de forma únic
 
 La propiedad **Timestamp** también es importante. Esta propiedad se puede designar al agregar orígenes de eventos. Cada origen de eventos tiene una propiedad Timestamp opcional que se usa para realizar el seguimiento de los orígenes de eventos con el tiempo. Los valores de Timestamp distinguen mayúsculas de minúsculas y su formato debe seguir la especificación de cada origen de evento.
 
-> [!TIP]
-> Compruebe los requisitos de formato y análisis de los orígenes de eventos.
-
-Si se deja en blanco, la hora de puesta en cola del evento se usa como marca de tiempo del evento. Si envía datos históricos o eventos por lotes, personalizar la propiedad Timestamp es más útil que la hora predeterminada de puesta en cola del evento. Para más información, lea acerca de cómo [agregar orígenes de eventos en Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+Cuando se deja en blanco, la hora en que el evento se puso en cola en IoT Hub o en el centro de eventos se utiliza como marca de tiempo del evento. En general, los usuarios elegirán personalizar la propiedad de marca de tiempo y usar la hora en que el sensor o la etiqueta generaron la lectura, en lugar de la hora en que se pusieron en cola en el centro. Para obtener más información y leer acerca de los desfases de zona horaria, lea [Marca de tiempo del origen de eventos](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp).
 
 ## <a name="understand-the-time-series-model"></a>El modelo de serie temporal
 
@@ -91,14 +87,14 @@ Una buena regla general es la siguiente:
 * Almacenar los metadatos en el modelo de Time Series.
 * Asegúrese de que el modo de serie temporal, los campos de instancia y los eventos incluyen únicamente la información necesaria, como los identificadores de serie temporal o la propiedad Timestamp.
 
-Para más información, lea [Moldeo de eventos](./time-series-insights-send-events.md#supported-json-shapes).
+Para obtener más información y entender cómo se van a acoplar y almacenar los eventos, lea las [Reglas de acoplamiento y escape de JSON](./concepts-json-flattening-escaping-rules.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise [Azure Advisor](../advisor/advisor-overview.md) para planear las opciones de configuración de recuperación de negocio.
-- Revise [Azure Advisor](../advisor/advisor-overview.md) para planear las opciones de configuración de recuperación de negocio.
-- Obtenga más información sobre la [ingesta de datos](./concepts-ingestion-overview.md) en Azure Time Series Insights Gen2.
-- Revise el artículo sobre el [almacenamiento de datos](./concepts-storage.md) en Azure Time Series Insights Gen2.
-- Obtenga información sobre el [modelado de datos](./concepts-model-overview.md) en Azure Time Series Insights Gen2.
+* Revise [Azure Advisor](../advisor/advisor-overview.md) para planear las opciones de configuración de recuperación de negocio.
+* Revise [Azure Advisor](../advisor/advisor-overview.md) para planear las opciones de configuración de recuperación de negocio.
+* Obtenga más información sobre la [ingesta de datos](./concepts-ingestion-overview.md) en Azure Time Series Insights Gen2.
+* Revise el artículo sobre el [almacenamiento de datos](./concepts-storage.md) en Azure Time Series Insights Gen2.
+* Obtenga información sobre el [modelado de datos](./concepts-model-overview.md) en Azure Time Series Insights Gen2.

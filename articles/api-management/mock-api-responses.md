@@ -1,28 +1,24 @@
 ---
-title: Simulación de respuestas de API con Azure Portal | Microsoft Docs
-description: Este tutorial muestra cómo utilizar API Management (APIM) con el fin de establecer una directiva para una API para que devuelva una respuesta simulada. Este método permite a los desarrolladores continuar con la implementación y las pruebas de la instancia de API Management en caso de que el back-end no esté disponible para enviar respuestas reales.
-services: api-management
-documentationcenter: ''
+title: 'Tutorial: Simulación de respuestas de API en API Management: Azure Portal | Microsoft Docs'
+description: En este tutorial, usará API Management para establecer una directiva en una API de forma que devuelva una respuesta simulada si el back-end no está disponible para enviar respuestas reales.
 author: vladvino
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 09/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 6841695cca5d3864e6823085520d8e9162e54043
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 78743c5f045f2544cafe88414ed996d08bacd2a0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70067938"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631123"
 ---
-# <a name="mock-api-responses"></a>Simulación de respuestas de API
+# <a name="tutorial-mock-api-responses"></a>Tutorial: Simulación de respuestas de API
 
-Pueden importarse API de back-end en una API de APIM, o bien crearse o administrarse manualmente. Los pasos descritos en este tutorial muestran cómo usar APIM para crear una API en blanco y administrarla de forma manual. El tutorial muestra cómo establecer una directiva en una API para que devuelva una respuesta simulada. Este método permite a los desarrolladores continuar con la implementación y las pruebas de la instancia de APIM en caso de que el back-end no esté disponible para enviar respuestas reales. La funcionalidad de simular respuestas puede resultar útil en una serie de escenarios:
+Se pueden importar API de back-end en una API de API Management (APIM), o bien se pueden crear o administrar manualmente. En los pasos de este tutorial se muestra cómo usar APIM para crear una API en blanco y administrarla manualmente. Después, establecerá una directiva en una API para que devuelva una respuesta simulada. Este método permite a los desarrolladores continuar con la implementación y las pruebas de la instancia de APIM en caso de que el back-end no esté disponible para enviar respuestas reales. 
+
+La funcionalidad de simulación de respuestas puede resultar útil en varios escenarios:
 
 + Cuando la fachada de API se ha diseñado primero y la implementación de back-end se realiza más tarde. El back-end se está desarrollando en paralelo.
 + Cuando el back-end no está temporalmente operativo o no se puede escalar.
@@ -35,89 +31,95 @@ En este tutorial, aprenderá a:
 > * Habilitación de la simulación de respuesta
 > * Probar la API simulada
 
-![Respuesta de la operación simulada](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>Prerequisites
+:::image type="content" source="media/mock-api-responses/mock-api-responses01.png" alt-text="Respuesta de API simulada":::
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 + Comprender el [concepto de directivas en API Management de Azure](api-management-howto-policies.md).
-+ Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
++ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Creación de una API de prueba 
 
-Los pasos de esta sección muestran cómo crear una API en blanco sin back-end. También se explica cómo agregar una operación a la API. Al llamar a la operación después de completar los pasos de esta sección, se produce un error. No se devolverá ningún error después de finalizar los pasos descritos en la sección "Habilitación de la simulación de respuesta".
+Los pasos de esta sección muestran cómo crear una API en blanco sin back-end. 
 
-![Crear API en blanco](./media/mock-api-responses/03-MockAPIResponses-01-CreateTestAPI.png)
 
-1. Seleccione **API** en el servicio **API Management**.
-2. En el menú izquierdo, seleccione **+ Agregar API**.
-3. Seleccione **API en blanco** en la lista.
-4. Escriba "*API de prueba*" en **Nombre para mostrar**.
-5. Escriba "*Sin límite*" en **Productos**.
-6. Seleccione **Crear**.
+1. Inicie sesión en Azure Portal y vaya a la instancia de API Management.
+1. Seleccione **API** >  **+ Agregar API** > **API en blanco**.
+1. En la ventana **Crear una API en blanco**, seleccione **Completa**.
+1. En **Nombre para mostrar**, escriba *API de prueba*.
+1. En **Productos **, seleccione** Ilimitado**.
+1. Compruebe que, en **Puertas de enlace**, está seleccionada la opción **Administrada**.
+1. Seleccione **Crear**.
+
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-01-create-test-api.png" alt-text="Respuesta de API simulada":::
 
 ## <a name="add-an-operation-to-the-test-api"></a>Adición de una operación a la API de prueba
 
-![Agregar operación a la API](./media/mock-api-responses/03-MockAPIResponses-02-AddOperation.png)
+Una API expone una o varias operaciones. En esta sección, agregue una operación a la API en blanco que creó. Al llamar a la operación después de completar los pasos de esta sección, se produce un error. Dejará de recibir errores después de realizar los pasos de la sección [Habilitación de la simulación de respuesta](#enable-response-mocking), más adelante.
 
 1. Seleccione la API que creó en los pasos anteriores.
-2. Haga clic en **+ Agregar operación**.
+1. Seleccione **+ Agregar operación**.
+1. En la ventana **Front-end**, escriba los siguientes valores.
 
-    | Configuración             | Value                             | Descripción                                                                                                                                                                                   |
+     | Configuración             | Value                             | Descripción                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Nombre para mostrar**    | *Llamada de prueba*                       | El nombre se muestra en el **Portal para desarrolladores**.                                                                                                                                       |
-    | **URL** (verbo HTTP) | GET                               | Puede elegir uno de los verbos HTTP predefinidos.                                                                                                                                         |
+    | **Nombre para mostrar**    | *Llamada de prueba*                       | El nombre se muestra en el [portal para desarrolladores](api-management-howto-developer-portal.md).                                                                                                                                       |
+    | **URL** (verbo HTTP) | GET                               | Seleccione uno de los verbos HTTP predefinidos.                                                                                                                                         |
     | **URL**             | */test*                           | Una ruta de acceso URL de la API.                                                                                                                                                                       |
-    | **Descripción**     |                                   | Especifique una descripción de la operación que se usa para proporcionar documentación a los desarrolladores que usen esta API en el **Portal para desarrolladores**.                                                    |
-    | Pestaña **Consulta**       |                                   | Puede agregar parámetros de consulta. Además de proporcionar un nombre y una descripción, puede especificar valores que se pueden asignar a este parámetro. Uno de los valores se puede marcar como predeterminado (opcional). |
-    | Pestaña **Solicitud**     |                                   | Puede definir esquemas, ejemplos y tipos de contenido de solicitud.                                                                                                                                  |
-    | Pestaña **Respuesta**    | Consulte los pasos que figuran abajo de esta tabla. | Defina esquemas, ejemplos, tipos de contenido y códigos de estado de respuesta.                                                                                                                           |
+    | **Descripción**     |                                   |  Descripción opcional de la operación que se usa para proporcionar documentación en el portal para desarrolladores a aquellos que usan esta API.                                                    |
+    
+1. Seleccione la pestaña **Respuestas**, que se encuentra bajo los campos URL, Nombre para mostrar y Descripción. Especifique la configuración de esta pestaña para definir códigos de estado de respuesta, tipos de contenido, ejemplos y esquemas.
+1. Seleccione **+ Agregar respuesta** y, en la lista, elija **200 - Correcto**.
+1. En el encabezado **Representaciones** de la derecha, seleccione **+ Agregar representación**.
+1. Escriba *application/json* en el cuadro de búsqueda y seleccione el tipo de contenido **application/json**.
+1. En el cuadro de texto **Ejemplo**, escriba `{ "sampleField" : "test" }`.
+1. Seleccione **Guardar**.
 
-3. Seleccione la pestaña **Respuesta**, que se encuentra bajo los campos URL, Nombre para mostrar y Descripción.
-4. Haga clic en **+ Agregar respuesta**.
-5. Seleccione **200 OK** en la lista.
-6. En el encabezado **Representaciones** de la derecha, seleccione **+ Agregar representación**.
-7. Escriba "*application/json*" en el cuadro de búsqueda y seleccione el tipo de contenido **application/json**.
-8. En el cuadro de texto **Ejemplo**, escriba `{ "sampleField" : "test" }`.
-9. Seleccione **Crear**.
+:::image type="content" source="media/mock-api-responses/03-mock-api-responses-02-add-operation.png" alt-text="Respuesta de API simulada" border="false":::
+
+Aunque no es necesario en este ejemplo, se pueden configurar opciones adicionales para una operación de API en otras pestañas, por ejemplo:
+
+
+|Pestaña      |Descripción  |
+|---------|---------|
+|**Consultar**     |  Agregue parámetros de consulta. Además de proporcionar un nombre y una descripción, puede especificar valores que se asignan a un parámetro de consulta. Uno de los valores se puede marcar como predeterminado (opcional).        |
+|**Solicitud**     |  Defina esquemas, ejemplos y tipos de contenido de solicitud.       |
 
 ## <a name="enable-response-mocking"></a>Habilitación de la simulación de respuesta
 
-![Habilitación de la simulación de respuesta](./media/mock-api-responses/03-MockAPIResponses-03-EnableMocking.png)
+1. Seleccione la API que creó en [Creación de una API de prueba](#create-a-test-api).
+1. Seleccione la operación de prueba que agregó.
+1. En la ventana de la derecha, asegúrese de que esté seleccionada la pestaña **Diseño**.
+1. En la ventana **Procesamiento de entrada**, seleccione **+ Agregar directiva**.
 
-1. Seleccione la API que creó en el paso "Creación de una API de prueba".
-2. Seleccione la operación de prueba que agregó.
-3. En la ventana de la derecha, haga clic en **Diseño**.
-4. En la ventana **Procesamiento de entrada**, haga clic en **+ Agregar directiva**.
-5. Seleccione el icono de **respuestas simuladas** en la galería.
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-03-enable-mocking.png" alt-text="Respuesta de API simulada" border="false":::
 
-    ![Icono de directiva de respuestas simuladas](./media/mock-api-responses/mock-responses-policy-tile.png)
+1. En la galería, seleccione **Mock responses** (Simular respuestas).
 
-6. En el cuadro de texto **API Management response** (Respuesta de API Management), escriba **200 OK, application/json**. Esta selección indica que la API debe devolver la respuesta de ejemplo que definió en la sección anterior.
+    :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Respuesta de API simulada" border="false":::
 
-    ![Habilitación de la simulación de respuesta](./media/mock-api-responses/mock-api-responses-set-mocking.png)
+1. En el cuadro de texto **API Management response** (Respuesta de API Management), escriba **200 OK, application/json**. Esta selección indica que la API debe devolver la respuesta de ejemplo que definió en la sección anterior.
 
-7. Haga clic en **Save**(Guardar).
+    :::image type="content" source="media/mock-api-responses/mock-api-responses-set-mocking.png" alt-text="Respuesta de API simulada":::
+
+1. Seleccione **Guardar**.
+
+    > [!TIP]
+    > Una barra amarilla con el texto **La simulación de respuesta está habilitada** en la API indica que las respuestas devueltas por API Management envían una directiva de simulación y no una respuesta de back-end real.
 
 ## <a name="test-the-mocked-api"></a>Probar la API simulada
 
-![Probar API simulada](./media/mock-api-responses/03-MockAPIResponses-04-TestMocking.png)
+1. Seleccione la API que creó en [Creación de una API de prueba](#create-a-test-api).
+1. Seleccione la pestaña **Prueba**.
+1. Asegúrese de que la API de **Llamada de prueba** está seleccionada. Seleccione **Enviar** para realizar una llamada de prueba.
 
-1. Seleccione la API que creó en el paso "Creación de una API de prueba".
-2. Abra la pestaña **Prueba**.
-3. Asegúrese de que la API de **Llamada de prueba** está seleccionada.
+   :::image type="content" source="media/mock-api-responses/03-mock-api-responses-04-test-mocking.png" alt-text="Respuesta de API simulada":::
 
-    > [!TIP]
-    > Una barra amarilla con el texto **La simulación de respuesta está habilitada** indica que las respuestas devueltas desde API Management envían una directiva de simulación y no una respuesta de back-end real.
+1. **Respuesta HTTP** muestra el JSON especificado como un ejemplo en la primera sección del tutorial.
 
-4. Seleccione **Enviar** para realizar una llamada de prueba.
-5. **Respuesta HTTP** muestra el JSON especificado como un ejemplo en la primera sección del tutorial.
-
-    ![Habilitación de la simulación de respuesta](./media/mock-api-responses/mock-api-responses-test-response.png)
-
-## <a name="video"></a>Vídeo
-
-> [!VIDEO https://www.youtube.com/embed/i9PjUAvw7DQ]
+    :::image type="content" source="media/mock-api-responses/mock-api-responses-test-response.png" alt-text="Respuesta de API simulada":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

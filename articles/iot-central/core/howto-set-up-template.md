@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: aa70c9e5d67c759afe905e9e110d6bcd18555a8c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019247"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803796"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central
 
@@ -171,6 +171,21 @@ En la tabla siguiente se muestran las opciones de configuración de una funciona
 | Descripción | Una descripción de la funcionalidad del comando: |
 | Solicitud | Si está habilitada, una definición del parámetro de solicitud que incluye lo siguiente: nombre, nombre para mostrar, esquema, unidad y unidad de visualización. |
 | Response | Si está habilitada, una definición de la respuesta del comando que incluye lo siguiente: nombre, nombre para mostrar, esquema, unidad y unidad de visualización. |
+
+#### <a name="offline-commands"></a>Comandos sin conexión
+
+Puede elegir comandos de cola si un dispositivo está sin conexión; para ello, habilite la opción **Queue if offline** (Poner en cola si no está conectado) en un comando de la plantilla de dispositivo.
+
+Esta opción usa los mensajes de la nube al dispositivo de IoT Hub para enviar notificaciones a los dispositivos. Para obtener más información, consulte el artículo de IoT Hub [Envío de mensajes de la nube al dispositivo](../../iot-hub/iot-hub-devguide-messages-c2d.md).
+
+Los mensajes de la nube al dispositivo:
+
+- Son notificaciones unidireccionales al dispositivo de la solución.
+- Ofrecen la garantía de que el mensaje se entrega al menos una vez. IoT Hub conserva los mensajes de la nube al dispositivo en las colas por dispositivo, garantizando así la resistencia frente a errores de conectividad y de dispositivo.
+- Requieren que el dispositivo implemente un controlador de mensajes para procesar el mensaje de la nube al dispositivo.
+
+> [!NOTE]
+> Esta opción solo está disponible en la interfaz de usuario web de IoT Central. Esta configuración no se incluye si exporta un modelo o una interfaz desde la plantilla de dispositivo.
 
 ## <a name="manage-an-interface"></a>Administración de una interfaz
 

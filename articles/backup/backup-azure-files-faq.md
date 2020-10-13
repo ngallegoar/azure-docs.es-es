@@ -3,12 +3,12 @@ title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
 description: En este artículo, encontrará respuestas a preguntas habituales sobre cómo proteger los recursos compartidos de archivos de Azure con el servicio Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c62f8376b220911edd26edbe18955d0103440b81
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 74d8cc9cdb1d9c01c8238f205ae485b61d665cd7
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377427"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729073"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 
@@ -75,6 +75,23 @@ Sí. Consulte [aquí](backup-azure-afs-automation.md) la documentación detallad
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-them"></a>¿Puedo acceder a las instantáneas realizadas por las instancias de Azure Backup y montarlas?
 
 Es posible acceder a todas las instantáneas realizadas por Azure Backup desde el portal, PowerShell o la CLI. Para más información acerca de las instantáneas de recurso compartido de Azure Files, consulte [Información general de instantáneas de recurso compartido de Azure Files](../storage/files/storage-snapshots-files.md).
+
+### <a name="what-happens-after-i-move-a-backed-up-file-share-to-a-different-subscription"></a>¿Qué ocurre después de trasladar un recurso compartido de archivos con copia de seguridad a otra suscripción?
+
+Cuando un recurso compartido de archivos se traslada a una suscripción diferente, Azure Backup lo considera un nuevo recurso compartido de archivos. A continuación se muestran los pasos recomendados:
+ 
+Escenario: Supongamos que tiene un recurso compartido de archivos FS1 en la suscripción S1 y está protegido mediante el almacén v1. Ahora quiere trasladar el recurso compartido de archivos a la suscripción S2.
+ 
+1.  Traslada la cuenta de almacenamiento deseada y el recurso compartido de archivos (FS1) a una suscripción diferente (S2).
+2.  En el almacén v1, ejecuta la operación de eliminación de datos para FS1 para activar la protección contra paradas.
+3.  Anula el registro de la cuenta de almacenamiento que hospeda FS1 del almacén v1.
+4.  Vuelve a configurar la copia de seguridad de FS1, ahora ubicada en S2, con un almacén (V2) en la suscripción S2. 
+ 
+Tenga en cuenta que, después de volver a configurar la copia de seguridad con V2, las instantáneas tomadas con V1 dejarán de estar administradas por Azure Backup y, por lo tanto, tendrá que eliminar esas instantáneas manualmente si es necesario.
+
+### <a name="can-i-move-my-backed-up-file-share-to-a-different-resource-group"></a>¿Puedo trasladar mi recurso compartido de archivos con copia de seguridad a un grupo de recursos diferente?
+ 
+Sí, puede trasladar el recurso compartido de archivos con copia de seguridad a otro grupo de recursos. Sin embargo, tendrá que volver a configurar la copia de seguridad para el recurso compartido de archivos, ya que Azure Backup lo trataría como un recurso nuevo. Además, las instantáneas que se crearon antes del traslado de grupo de recursos ya no se administrarán mediante Azure Backup. Por lo tanto, tendrá que eliminar esas instantáneas manualmente si fuera necesario.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>¿Cuál es la retención máxima que puedo configurar para las copias de seguridad?
 

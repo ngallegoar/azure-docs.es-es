@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9d508afac64e448ca220a36b2be983da85d96b0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9360fc000e01e1c52561cbaa3e2f2968e67e2fa2
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002630"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740877"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Creación de un filtro de faceta en Azure Cognitive Search 
 
@@ -29,7 +29,8 @@ La navegación por facetas se usa para aplicar filtros autodirigidos en resultad
 
 Las facetas son dinámicas y se devuelven en una consulta. Las respuestas de búsqueda incluyen las categorías de faceta que se usan para navegar por los resultados. Si no está familiarizado con las facetas, el ejemplo siguiente es una ilustración de una estructura de navegación por facetas.
 
-  ![Imagen que muestra un cuadro de diálogo de búsqueda con resultados de búsqueda filtrados agrupados por título de negocio. Una flecha indica que los resultados son facetas que se muestran en una estructura de navegación por facetas.](./media/search-filters-facets/facet-nav.png)
+:::image type="complex" source="media/search-filters-facets/facet-nav.png" alt-text="resultados de la búsqueda filtrados":::
+"Imagen que muestra un cuadro de diálogo de búsqueda con resultados de búsqueda filtrados agrupados por título de negocio. Una flecha indica que los resultados son facetas que se muestran en una estructura de navegación por facetas".:::image-end:::
 
 ¿No conoce la navegación por facetas y quiere más detalles? Consulte [Procedimiento para implementar la navegación por facetas en Azure Cognitive Search](search-faceted-navigation.md).
 

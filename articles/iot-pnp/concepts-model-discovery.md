@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9752589c8863cc911369225d268035d9f61c0273
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 165f83e0f021d23c26333a294ffe992838bda6b0
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032034"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577720"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Uso de los modelos IoT Plug and Play en una solución de IoT
 
@@ -26,7 +26,7 @@ Existen dos grandes categorías para una solución de IoT:
 
 Para usar un modelo IoT Plug and Play, una solución de IoT realiza lo siguiente:
 
-1. Identifica el id. de modelo del modelo que implementó el dispositivo IoT Plug and Play conectado a la solución.
+1. Identifica el identificador de modelo del modelo implementado por el dispositivo IoT Plug and Play, el módulo o el módulo IoT Edge conectados a la solución.
 
 1. Usa el id. del modelo para recuperar la definición del modelo del dispositivo conectado desde un repositorio de modelos o un almacén personalizado.
 
@@ -40,7 +40,10 @@ Una solución puede obtener el id. de modelo del dispositivo IoT Plug and Play m
 
 ### <a name="get-device-twin-api"></a>Get Device Twin API
 
-La solución puede usar la API [Get Device Twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) para recuperar el id. de modelo del dispositivo IoT Plug and Play.
+La solución puede usar la API [Get Device Twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable&preserve-view=true) para recuperar el id. de modelo del dispositivo IoT Plug and Play.
+
+> [!TIP]
+> Para módulos y módulos IoT Edge, use [ModuleClient.getTwin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?view=azure-java-stable&preserve-view=true).
 
 En el siguiente fragmento de código de respuesta del dispositivo gemelo, `modelId` contiene el id. de modelo de un dispositivo IoT Plug and Play:
 

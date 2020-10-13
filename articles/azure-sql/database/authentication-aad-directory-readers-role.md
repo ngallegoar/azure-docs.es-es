@@ -1,6 +1,6 @@
 ---
 title: Rol Lectores de directorios en Azure Active Directory para Azure SQL
-description: Las aplicaciones de Azure AD (entidades de servicio) admiten la creación de usuarios de Azure AD en Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics
+description: Obtenga información sobre el rol del lector de directorios en Azure AD para Azure SQL.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: a517a4b14a64be2b9bf12270eef3d08e14d8f3c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5a6fb2c1c539c5b8e353f5c3720cb9d001dcbbc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556163"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277961"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Rol Lectores de directorios en Azure Active Directory para Azure SQL
 

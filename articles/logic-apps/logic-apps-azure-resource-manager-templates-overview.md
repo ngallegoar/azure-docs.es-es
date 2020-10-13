@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 9d3c5a914fe472dd7e4f797cb633e65951bf07e7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: a3d7386e976551d70fbbc08930b2ab5603aa5d50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871469"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269053"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
@@ -34,12 +34,14 @@ Para obtener más información sobre las plantillas de Resource Manager, consult
 * [Azure Resource Manager template best practices](../azure-resource-manager/templates/template-best-practices.md) (Procedimientos recomendados de plantillas de Azure Resource Manager)
 * [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
+Para obtener información sobre los recursos de plantilla específicos de Logic Apps, las cuentas de integración, los artefactos de la cuenta de integración y los entornos del servicio de integración, vea [Tipos de recursos de Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
+
 Para ver muestras de las plantillas de aplicaciones lógicas, consulte estos ejemplos:
 
 * [Plantilla completa](#full-example-template) que se usa para los ejemplos de este tema
 * [Ejemplo de la plantilla de aplicación lógica de inicio rápido](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) en GitHub
 
-Para obtener información sobre los recursos de plantilla específicos de Logic Apps, las cuentas de integración y los artefactos de la cuenta de integración, consulte [Tipos de recursos de Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
+En el caso de la API de REST de Logic Apps, comience con la [información general sobre la API de REST de Azure Logic Apps](/rest/api/logic).
 
 <a name="template-structure"></a>
 
@@ -280,7 +282,7 @@ Para obtener información general sobre los recursos de plantilla y sus atributo
 
 ### <a name="logic-app-resource-definition"></a>Definición de recursos de la aplicación lógica
 
-La definición de recursos de la aplicación lógica se inicia con el objeto `properties`, que incluye esta información:
+La [definición de recursos del flujo de trabajo de la aplicación lógica de una plantilla](/azure/templates/microsoft.logic/workflows) empieza con el objeto `properties`, que incluye esta información:
 
 * El estado de la aplicación lógica en la implementación
 * El identificador de cualquier cuenta de integración que use la aplicación lógica
@@ -334,7 +336,31 @@ Estos son los atributos que son específicos de la definición de recursos de la
 | `accessControl` | No | Object | Se usa para especificar los atributos de seguridad de la aplicación lógica, por ejemplo, para restringir el acceso IP a los desencadenadores de solicitud o ejecutar entradas y salidas del historial. Para obtener más información, consulte [Protección del acceso a las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-Para obtener información sobre los recursos de plantilla específicos de Logic Apps, las cuentas de integración y los artefactos de la cuenta de integración, consulte [Tipos de recursos de Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
+Para más información sobre las definiciones de recursos para estos objetos de Logic Apps, vea [Tipos de recursos de Microsoft.Logic](/azure/templates/microsoft.logic/allversions):
+
+* [Definición de recursos de flujo de trabajo](/azure/templates/microsoft.logic/workflows)
+* [Definición de recursos del entorno del servicio de integración](/azure/templates/microsoft.logic/integrationserviceenvironments)
+* [Definición de recursos de la API administrada del entorno del servicio de integración](/azure/templates/microsoft.logic/integrationserviceenvironments/managedapis)
+
+* [Definición de recursos de la cuenta de integración](/azure/templates/microsoft.logic/integrationaccounts)
+
+* Artefactos de la cuenta de integración:
+
+  * [Definición de recursos de acuerdo](/azure/templates/microsoft.logic/integrationaccounts/agreements)
+
+  * [Definición de recursos de ensamblado](/azure/templates/microsoft.logic/integrationaccounts/assemblies)
+
+  * [Definición de recursos de configuración de Batch](/azure/templates/microsoft.logic/integrationaccounts/batchconfigurations)
+
+  * [Definición de recursos de certificado](/azure/templates/microsoft.logic/integrationaccounts/certificates)
+
+  * [Definición de recursos de asignación](/azure/templates/microsoft.logic/integrationaccounts/maps)
+
+  * [Definición de recursos de asociados](/azure/templates/microsoft.logic/integrationaccounts/partners)
+
+  * [Definición de recursos de esquema](/azure/templates/microsoft.logic/integrationaccounts/schemas)
+
+  * [Definición de recursos de sesión](/azure/templates/microsoft.logic/integrationaccounts/sessions)
 
 <a name="workflow-definition-parameters"></a>
 

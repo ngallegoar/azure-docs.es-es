@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/11/2019
 ms.author: jeedes
-ms.openlocfilehash: eb59d7ecd6183d144fd275a50f3682a2b961df98
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c953297d4e66f737250451b9a5f42ce7f45dd2e4
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550973"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821260"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Freshworks
 
@@ -95,7 +95,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
      ![imagen](common/edit-certificate.png)
 
-     ![Configuración de Freshworks](./media/freshworks-tutorial/response.png)
+     ![Captura de pantalla que muestra el cuadro de diálogo "Certificado de firma de S A M L" con el botón "Editar" seleccionado.](./media/freshworks-tutorial/response.png)
 
     a. Seleccione **Firmar respuesta SAML** como **Opción de firma**.
 
@@ -141,7 +141,7 @@ En esta sección, va a permitir que B.Simon acceda a Freshworks mediante el inic
 
 2. En el lado izquierdo del menú, haga clic en el icono  **Seguridad** ; a continuación, active la opción **Inicio de sesión único** y seleccione **Inicio de sesión único de SAML** en **Métodos de autenticación**.
 
-    ![Configuración de Freshworks](./media/freshworks-tutorial/configure01.png)
+    ![Captura de pantalla que muestra la sección "Métodos de autenticación de seguridad" con la opción "Inicio de sesión único" activada y la opción "S A M L S S O" (S S O d e S A M L) seleccionada.](./media/freshworks-tutorial/configure01.png)
 
 3. En la sección **Inicio de sesión único**, siga estos pasos:
 

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperfq1
-ms.openlocfilehash: 4a9f243ce32dee9948cd2f2410b5c7f1382bf7c8
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a4c32877ddb260e90fb4121b16a9b318616c2a4d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088857"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715839"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Elección de la forma de autorizar el acceso a los datos de blob en Azure Portal
 
@@ -26,11 +26,11 @@ También puede especificar cómo autorizar una operación de carga de blobs indi
 
 ## <a name="permissions-needed-to-access-blob-data"></a>Permisos necesarios para acceder a datos de blob
 
-Necesitará permisos específicos según cómo quiera autorizar el acceso a los datos de blob en Azure Portal. En la mayoría de los casos, estos permisos se proporcionan a través del control de acceso basado en roles (RBAC). Para más información acerca de RBAC, consulte [¿Qué es el control de acceso basado en rol (RBAC) de Azure?](../../role-based-access-control/overview.md)
+Necesitará permisos específicos según cómo quiera autorizar el acceso a los datos de blob en Azure Portal. En la mayoría de los casos, estos permisos se proporcionan a través del control de acceso basado en rol de Azure (Azure RBAC). Para más información acerca de Azure RBAC, consulte [¿Qué es el control de acceso basado en rol de Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 ### <a name="use-the-account-access-key"></a>Uso de la clave de acceso de la cuenta
 
-Para acceder a los datos de blob con la clave de acceso a la cuenta, debe tener asignado un rol de Azure que incluya la acción de RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Este rol de Azure puede ser un rol integrado o personalizado. Los roles integrados que admiten **Microsoft.Storage/storageAccounts/listkeys/action** son estos:
+Para acceder a los datos de blob con la clave de acceso a la cuenta, debe tener asignado un rol de Azure que incluya la acción de Azure RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Este rol de Azure puede ser un rol integrado o personalizado. Los roles integrados que admiten **Microsoft.Storage/storageAccounts/listkeys/action** son estos:
 
 - El rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
 - El rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
@@ -111,6 +111,6 @@ Para especificar cómo autorizar una operación de carga de blobs, siga estos pa
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Autenticar el acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md)
-- [Conceder acceso a contenedores y colas de Azure con RBAC en Azure Portal](../common/storage-auth-aad-rbac-portal.md)
-- [Conceder acceso a datos de blob y de cola de Azure con RBAC mediante la CLI de Azure](../common/storage-auth-aad-rbac-cli.md)
-- [Conceder acceso a datos de blob y cola de Azure con RBAC mediante PowerShell](../common/storage-auth-aad-rbac-powershell.md)
+- [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-portal.md)
+- [Uso de la CLI de Azure para asignar un rol de Azure para obtener acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-cli.md)
+- [Uso del módulo de Azure PowerShell para asignar un rol de Azure para el acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-powershell.md)

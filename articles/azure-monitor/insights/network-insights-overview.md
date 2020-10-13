@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/24/2020
-ms.openlocfilehash: 2559c4f54aa19df248ddf756e376809dea516997
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5f076f477c36f96d1807ce7071720225a6df8e03
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330979"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803813"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor for Networks (versión preliminar)
 Azure Monitor para redes ofrece una vista completa del [estado](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) y las [métricas](../platform/metrics-supported.md) de todos los recursos de red implementados sin ninguna configuración.  También proporciona acceso a todas las funcionalidades de supervisión de la red, como [Connection Monitor](../../network-watcher/connection-monitor-preview.md), [registro de flujo de los grupos de seguridad de red (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [Análisis de tráfico](../../network-watcher/traffic-analytics.md) y otras características de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) de red.
@@ -108,6 +108,43 @@ El kit de herramientas de diagnóstico proporciona acceso a todas las caracterí
 
 ![Pestaña del kit de herramientas de diagnóstico](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## <a name="troubleshooting"></a>Solución de problemas 
+
+Para obtener instrucciones generales para la solución de problemas, consulte el [artículo dedicado de solución de problemas](troubleshoot-workbooks.md) de conclusiones basadas en libros.
+
+Esta sección le ayudará con el diagnóstico y la solución de algunos de los problemas habituales que pueden producirse en la aplicación al usar Azure Monitor para redes. Utilice la siguiente lista para buscar la información relacionada con el problema específico.
+
+### <a name="resolving-performance-issues-or-failures"></a>Resolución de problemas de rendimiento o errores
+
+Para solucionar cualquier problema relacionado con la red y que haya identificado con Azure Monitor para redes, consulte la documentación para la solución de problemas del recurso que no funcione correctamente. A continuación se enumeran los vínculos para la solución de problemas de aquellos servicios que se usan con frecuencia.
+* Virtual Network (VNET)
+* Application Gateway
+* VPN Gateway
+* ExpressRoute 
+* Load Balancer 
+
+### <a name="why-dont-i-see-the-resources-from-all-the-subscriptions-i-have-selected"></a>¿Por qué no veo los recursos de todas las suscripciones que he seleccionado?
+
+La información de red solo puede mostrar los recursos de 5 suscripciones a la vez. 
+
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-network-insights-how-do-i-do-so"></a>Quiero realizar cambios o agregar visualizaciones adicionales a la información de red, ¿cómo lo hago?
+
+Para realizar cambios, seleccione "Modo de edición" para modificar el libro y después puede guardar el trabajo como un libro nuevo que esté asociado a una suscripción y un grupo de recursos designados.
+
+### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>¿Cuál es el intervalo de agregación una vez que se ancla cualquier parte de los libros?
+
+Se usa el intervalo de agregación "automático", por lo que depende del intervalo de agregación seleccionado.
+
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>¿Cuál es el intervalo de agregación cuando se ancla cualquier parte del libro?
+
+El intervalo de agregación dependerá de la configuración del panel.
+
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-network-insights"></a>¿Qué ocurre si deseo ver otros datos o crear mis propias visualizaciones? ¿Cómo puedo realizar cambios en la información de red?
+
+Puede editar el libro existente mediante el panel lateral y la vista de métrica detallada; para ello, debe usar el modo de edición y, a continuación, guardar el trabajo como un libro nuevo que tendrá todos los cambios nuevos.
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre la supervisión de red en [¿Qué es Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md)
+- Conozca los escenarios para los que están concebidos los libros, cómo crear informes y personalizar los ya existentes y otros muchos temas en el artículo [Crear informes interactivos con libros de Azure Monitor](../platform/workbooks-overview.md).

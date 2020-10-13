@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 09/24/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 84f488863a39307ac7b55d5238fab786084a3614
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486750"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259550"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario en Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Si usa [flujos de usuario](user-flow-overview.md), puede cambiar el aspecto de l
 Use [Azure Portal](tutorial-customize-ui.md) para configurar la personalización de la interfaz de usuario para los flujos de usuarios.
 
 > [!TIP]
-> Si solo desea modificar el logotipo del banner, la imagen de fondo y el color de fondo de las páginas de flujo de usuario, puede probar la característica [Personalización de marca de empresa (versión preliminar)](#company-branding-preview) que se describe más adelante en este artículo.
+> Si solo desea modificar el logotipo del banner, la imagen de fondo y el color de fondo de las páginas de flujo de usuario, puede probar la característica [Personalización de marca de empresa](#company-branding) que se describe más adelante en este artículo.
 
 ### <a name="custom-policies"></a>Directivas personalizadas
 
@@ -158,13 +158,11 @@ En la tabla siguiente se muestran fragmentos de HTML que Azure AD B2C combina en
 | Multi-Factor Authentication | Los usuarios pueden comprobar sus números de teléfono (mediante mensajes de texto o con la voz) durante el registro o el inicio de sesión. |
 | Error | Proporciona información del error al cliente. |
 
-## <a name="company-branding-preview"></a>Personalización de marca de empresa (versión preliminar)
+## <a name="company-branding"></a>Personalización de marca de empresa
 
 Puede personalizar las páginas del flujo de usuario con un logotipo de banner, una imagen de fondo y un color de fondo mediante [Personalización de marca de empresa](../active-directory/fundamentals/customize-branding.md) de Azure Active Directory.
 
 Antes de personalizar las páginas del flujo de usuario, debe configurar la personalización de marca de empresa en Azure Active Directory y, a continuación, habilitarla en los diseños de página de los flujos de usuario en Azure AD B2C.
-
-[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
 
 ### <a name="configure-company-branding"></a>Configuración de la personalización de marca de la compañía
 

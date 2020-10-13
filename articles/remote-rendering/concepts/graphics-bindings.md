@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 332213adf64e17c0935ddf612acac5bbca413a87
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561880"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802300"
 ---
 # <a name="graphics-binding"></a>Enlace de gráficos
 
@@ -120,7 +120,10 @@ El puntero anterior `ptr` debe ser un puntero a un objeto `ABI::Windows::Percept
 
 #### <a name="render-remote-image"></a>Representación de la imagen remota
 
-Al principio de cada fotograma, el marco remoto debe representarse en el búfer de reserva. Esto se hace mediante una llamada a `BlitRemoteFrame`, que rellenará la información de color y de profundidad en el destino de representación enlazado actualmente. Por lo tanto, es importante que esto se realice después de enlazar el búfer de reserva como destino de representación.
+Al principio de cada fotograma, el marco remoto debe representarse en el búfer de reserva. Esto se hace mediante una llamada a `BlitRemoteFrame`, que rellenará la información de color y de profundidad de ambos ojos, en el destino de representación enlazado actualmente. Por lo tanto, es importante hacerlo después de enlazar el búfer de reserva completo como destino de representación.
+
+> [!WARNING]
+> Después de que la imagen remota se agregue en el búfer de reserva, el contenido local debe representarse mediante una técnica de representación estéreo de un único paso; por ejemplo, con **SV_RenderTargetArrayIndex**. El uso de otras técnicas de representación estéreo, como la representación de cada ojo en un paso independiente, puede dar lugar a una degradación importante del rendimiento o de los artefactos gráficos, y debe evitarse.
 
 ```cs
 AzureSession currentSession = ...;

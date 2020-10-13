@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a07365dd313f75a844e41b71427d8ddcf78ded85
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85921947"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742509"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Creación de una página web de Custom Search
 
@@ -118,7 +118,7 @@ Custom Search proporciona una interfaz de usuario hospedada para presentar la re
   
 5. Seleccione las claves de suscripción en las listas desplegables. O bien, puede escribir manualmente la clave de suscripción.
   
-   ![Captura de pantalla del paso Configuración adicional de interfaz de usuario hospedada](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Captura de pantalla de la clave de suscripción de la interfaz de usuario hospedada](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -144,7 +144,7 @@ En el resto del tutorial, se ilustra la **Opción 1: fragmento de código de Jav
   
 4. En la ventana **Nueva aplicación web ASP.NET Core**, seleccione **Aplicación web** y haga clic en **Aceptar**.  
   
-   ![Captura de pantalla de la ventana Nuevo proyecto](./media/custom-search-new-webapp.png)  
+   ![Captura de pantalla de la nueva ventana de aplicación web](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Edite index.cshtml.
 

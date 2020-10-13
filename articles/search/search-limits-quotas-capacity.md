@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/21/2020
-ms.openlocfilehash: b541af5351a0dd98e782c584d869de0d98445b74
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.date: 10/07/2020
+ms.openlocfilehash: 570481eab44c64db3ec3f513281badd124a2bbdc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462520"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825496"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Límites de servicio en Azure Cognitive Search
 
@@ -50,7 +50,7 @@ Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantid
 
 <sup>1</sup> Los servicios básicos creados antes de diciembre de 2017 tienen límites inferiores (5 en lugar de 15) en los índices. El nivel básico es la única SKU con un límite inferior de 100 campos por índice.
 
-<sup>2</sup> Tener muchos elementos en colecciones complejas por documento actualmente provoca un uso elevado del almacenamiento. Este es un problema conocido. Mientras tanto, un límite de 3000 es un límite superior seguro para todos los niveles de servicio. Este límite solo se aplica a las operaciones de indexación que utilizan la versión de API de disponibilidad general más temprana (GA) que admite los campos de tipo complejo (`2019-05-06`) en adelante. Para no interrumpir a los clientes que puedan estar usando versiones preliminares de la API anteriores (que admiten campos de tipo complejo), no aplicaremos este límite para las operaciones de indexación que usan estas versiones preliminares de la API. Tenga en cuenta que no está previsto que las versiones preliminares de la API se usen en escenarios de producción y se recomienda encarecidamente que los clientes pasen a la versión de API de disponibilidad general más reciente.
+<sup>2</sup> Existe un límite superior para los elementos, porque tener una cantidad elevada de estos provoca un uso elevado del almacenamiento. Un elemento de una colección compleja se define como un miembro de esa colección. Por ejemplo, supongamos [un documento de hotel con una colección de habitaciones compleja](search-howto-complex-data-types.md#indexing-complex-types), donde cada habitación de dicha colección se considera un elemento. Durante la indexación, el motor de indexación puede procesar de forma segura un máximo de 3000 elementos en el documento en su totalidad. [Este límite](search-api-migration.md#upgrade-to-2019-05-06) se presentó en `api-version=2019-05-06` y se aplica solo a colecciones complejas, no a colecciones de cadenas ni a campos complejos.
 
 <a name="document-limits"></a>
 

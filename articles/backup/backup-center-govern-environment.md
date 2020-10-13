@@ -3,18 +3,20 @@ title: Gobernanza del estado de copia de seguridad mediante el Centro de copias 
 description: Aprenda a gobernar el entorno de Azure para asegurarse de que, desde la perspectiva de la copia de seguridad, todos los recursos son compatibles con el Centro de copias de seguridad.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 009ee461b0372a3fb73ffb3b0ee5151b77bd8ef8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8a16769be827bf34e5be82409d5b8eb014cdcf1a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90993821"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614352"
 ---
 # <a name="govern-your-backup-estate-using-backup-center"></a>Gobernanza del estado de copia de seguridad mediante el Centro de copias de seguridad
 
 El Centro de copias de seguridad le ayuda a regular el entorno de Azure para garantizar que todos los recursos son compatibles desde la perspectiva de la copia de seguridad. A continuación, se muestran algunas de las funcionalidades de gobernanza del Centro de copias de seguridad:
 
 * Visualización y asignación de directivas de Azure para copia de seguridad
+
+* Revise el cumplimiento de copias de seguridad de los recursos en todas las directivas de Azure integradas.
 
 * Vea todos los orígenes de información que no se han configurado para la copia de seguridad.
 
@@ -29,6 +31,12 @@ Para ver todas las [directivas de Azure](https://docs.microsoft.com/azure/govern
 La selección de cualquiera de las definiciones le permite [asignar la directiva](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) a un ámbito.
 
 ![Selección de definiciones de Azure Policy](./media/backup-center-govern-environment/azure-policy-definitions.png)
+
+## <a name="backup-compliance"></a>Cumplimiento de copias de seguridad
+
+Al hacer clic en el elemento de menú Cumplimiento de copias de seguridad, verá el [cumplimiento](https://docs.microsoft.com/azure/governance/policy/how-to/get-compliance-data) de los recursos según las diversas directivas integradas que haya asignado a su entorno de Azure. Puede ver el porcentaje de recursos que son compatibles con todas las directivas, así como las directivas que tienen uno o más recursos no compatibles.
+
+![Ver el cumplimiento de copias de seguridad](./media/backup-center-govern-environment/azure-policy-compliance.png)
 
 ## <a name="protectable-datasources"></a>Orígenes de datos que se pueden proteger
 

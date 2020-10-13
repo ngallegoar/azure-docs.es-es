@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53f10996a7f15e32261f151600163f41df4e58ca
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708219"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666796"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Administración de la filtración de datos a cuentas de Azure Storage con directivas de punto de conexión de servicio de red virtual mediante la CLI de Azure
 
@@ -252,7 +252,7 @@ az storage account network-rule add \
 
 Las directivas de punto de conexión de servicio de Azure solo están disponibles para Azure Storage. Por lo tanto, habilitaremos el punto de conexión de servicio para *Microsoft.Storage* en esta subred para este ejemplo de configuración.
 
-Las directivas de punto de conexión de servicio se aplican a los puntos de conexión de servicio. Comenzaremos por crear una directiva de punto de conexión de servicio. A continuación, vamos a crear las definiciones de directiva en esta directiva para las cuentas de Azure Storage que se van a incluir en la lista de permitidos para esta subred.
+Las directivas de punto de conexión de servicio se aplican a los puntos de conexión de servicio. Comenzaremos por crear una directiva de punto de conexión de servicio. A continuación, crearemos las definiciones de directiva como parte de esta directiva para las cuentas de Azure Storage que se aprobarán para la subred.
 
 Creación de una directiva de punto de conexión de servicio
 

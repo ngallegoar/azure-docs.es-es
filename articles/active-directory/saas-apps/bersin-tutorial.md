@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 6fb8117a3e834dec71b9dbc98b4a34512a43f646
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c032d8a5dc6cbfe181dccc6c7b4fd1db35a9a3a9
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540820"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741564"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Tutorial: Integración de Azure Active Directory con Bersin
 
@@ -98,7 +98,7 @@ Para configurar el inicio de sesión único de Azure AD con Bersin, siga estos p
 
 4. Si desea configurar la aplicación de modo que se inicie mediante **IDP**, en la sección **Configuración básica de SAML**, haga lo siguiente:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Bersin](common/idp-identifier-relay.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-identifier-relay.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.bersin.com/shibboleth`
 
@@ -108,7 +108,7 @@ Para configurar el inicio de sesión único de Azure AD con Bersin, siga estos p
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga estos pasos si desea configurar la aplicación de modo que se inicie mediante **SP**:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Bersin](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.bersin.com/Login.aspx`
 

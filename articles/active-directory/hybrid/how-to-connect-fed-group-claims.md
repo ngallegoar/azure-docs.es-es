@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359966"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265476"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configuración de notificaciones de grupo para aplicaciones con Azure Active Directory
 
@@ -78,11 +78,11 @@ Para configurar las notificaciones de grupo de una aplicación SAML de la galer�
 
 Haga clic en **Agregar una notificación de grupo**.  
 
-![Interfaz de usuario de notificaciones](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
+![Captura de pantalla en la que se muestra la página "Atributos y notificaciones de usuario" con la opción "Agregar una notificación de grupo" seleccionada.](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
 Use los botones de radio para seleccionar qué grupos deben incluirse en el token.
 
-![Interfaz de usuario de notificaciones](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+![Captura de pantalla en la que se muestra la ventana "Notificaciones de grupo" con la opción "Grupos de seguridad" seleccionada.](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
 | Número de selección | Descripción |
 |----------|-------------|
@@ -93,15 +93,15 @@ Use los botones de radio para seleccionar qué grupos deben incluirse en el toke
 
 Por ejemplo, para emitir todos los grupos de seguridad a los que pertenece el usuario, seleccione Grupos de seguridad.
 
-![Interfaz de usuario de notificaciones](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+![Captura de pantalla en la que se muestra la ventana "Notificaciones de grupo" con la opción "Grupos de seguridad" seleccionada y el menú desplegable "Atributo de origen".](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
 Para emitir grupos mediante los atributos de Active Directory sincronizados desde Active Directory en lugar de los valores de objectID de Azure AD, seleccione el formato requerido en el menú desplegable. Solo los grupos sincronizados desde Active Directory se incluirán en las notificaciones.
 
-![Interfaz de usuario de notificaciones](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+![Captura de pantalla en la que se muestra el menú desplegable "Atributo de origen" abierto.](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
 Para emitir solo grupos asignados a la aplicación, seleccione **Grupos asignados a la aplicación**.
 
-![Interfaz de usuario de notificaciones](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+![Captura de pantalla en la que se muestra la ventana "Notificaciones de grupo" con la opción "Grupos asignados a la aplicación".](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
 Los grupos asignados a la aplicación se incluirán en el token.  Otros grupos de los que el usuario sea miembro se omitirán.  Con esta opción, no se incluyen los grupos anidados y el usuario debe ser miembro directo del grupo asignado a la aplicación.
 
@@ -115,11 +115,11 @@ La forma en que se emiten las notificaciones de grupo se puede modificar mediant
 
 Personalice el nombre de la notificación del grupo:  Si se selecciona esta opción, se puede especificar un tipo de notificación diferente para las notificaciones de grupo.   Escriba el tipo de notificación en el campo Nombre y el espacio de nombres opcional para la notificación en el campo de espacio de nombres.
 
-![Interfaz de usuario de notificaciones](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
+![Captura de pantalla en la que se muestra la sección "Opciones avanzadas" con la opción "Personalizar nombre de la notificación del grupo" seleccionada y los valores "Nombre" y "Espacio de nombres" definidos.](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
 Algunas aplicaciones requieren que la información de suscripción del grupo aparezca en la notificación “rol”. Opcionalmente, puede emitir los grupos de usuarios como roles marcando la casilla “Emitir notificaciones de rol”.
 
-![Interfaz de usuario de notificaciones](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
+![Captura de pantalla en la que se muestra la sección "Opciones avanzadas" con las opciones "Personalizar nombre de la notificación del grupo" y "Emitir grupos como notificaciones de roles" seleccionadas.](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 > [!NOTE]
 > Si se usa la opción de emitir datos de grupo como roles, solo los grupos aparecerán en la notificación de rol.  Cualquier rol de aplicación que el usuario haya asignado no aparecerá en la notificación de rol.

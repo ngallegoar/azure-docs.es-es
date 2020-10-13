@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 20a6702a37a4432504d85c787218eb10a10931b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 17e2d04a39a2ef5a935ea6e56ef16958419eddb1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555914"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775650"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coralogix"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Coralogix
 
@@ -95,13 +95,14 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
  1. La aplicación Coralogix espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, seleccione el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "User Attributes" (Atributos de usuario) con el botón "Edit" (Editar) resaltado.](common/edit-attribute.png)
 
 1. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, edite las notificaciones con el icono **Editar**. Tal como se muestra en la imagen anterior, también puede agregar las notificaciones con **Agregar nueva notificación** para configurar el atributo de token SAML. A continuación, siga estos pasos:
     
     a. Seleccione el **icono Editar** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![imagen](./media/coralogix-tutorial/tutorial_usermail.png) ![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "User Attributes & Claims" (Atributos y reclamaciones del usuario) con el botón "Edit" (Editar) resaltado.](./media/coralogix-tutorial/tutorial_usermail.png)
+    ![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
     b. En la lista **Elija el formato del identificador de nombre**, seleccione **Dirección de correo electrónico**.
 
