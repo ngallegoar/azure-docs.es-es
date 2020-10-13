@@ -3,12 +3,12 @@ title: Configuración de reglas de firewall de IP para Azure Service Bus
 description: Uso de las reglas de firewall para permitir las conexiones desde direcciones IP específicas a Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 699ece2e78ff0605ff4076b09c023d14e289b1f7
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2ba6b1902213af8d968b220a387e419e56e8aa67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064645"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300962"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Permitir el acceso al espacio de nombres de Azure Service Bus desde intervalos o direcciones IP específicas
 De forma predeterminada, los espacios de nombres de Service Bus son accesibles desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -51,7 +51,7 @@ En esta sección se muestra cómo usar Azure Portal para crear reglas de firewal
     
     Si selecciona la opción **Todas las redes**, el espacio de nombres de Service Bus aceptará conexiones procedentes de cualquier dirección IP. Esta configuración predeterminada es equivalente a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0. 
 
-    ![Firewall: opción Todas las redes seleccionada](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+    ![Captura de pantalla de la página Redes de Azure Portal. La opción para permitir el acceso desde todas las redes está seleccionada en la pestaña Firewalls y redes virtuales.](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
 1. Para permitir el acceso solo desde una dirección IP especificada, seleccione la opción **Redes seleccionadas** si aún no lo está. En la sección **Firewall**, haga lo siguiente:
     1. Seleccione la opción **Agregar la dirección IP del cliente** para dar acceso a esa IP de cliente actual al espacio de nombres. 
     2. En **Intervalo de direcciones**, escriba una dirección IPv4 específica o un intervalo de direcciones IPv4 en notación CIDR. 
@@ -60,7 +60,7 @@ En esta sección se muestra cómo usar Azure Portal para crear reglas de firewal
         > [!WARNING]
         > Si elige la opción **Redes seleccionadas** y no especifica ninguna dirección IP o un intervalo de direcciones, el servicio permitirá el tráfico desde todas las redes. 
 
-        ![Firewall: opción Todas las redes seleccionada](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
+        ![Captura de pantalla de la página Redes de Azure Portal. La opción para permitir el acceso desde las redes seleccionadas está seleccionada y la sección Firewall está resaltada.](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. Seleccione **Guardar** en la barra de herramientas para guardar la configuración. Espere unos minutos hasta que la confirmación se muestre en las notificaciones de Azure Portal.
 
     > [!NOTE]

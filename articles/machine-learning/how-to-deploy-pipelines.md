@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: ddc8186e85001a2a3ed2ed9f57b8f025133ef16a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46a5f4036be2d670689f7e936a31dc63e0690ddc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897759"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302390"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicación y seguimiento de canalizaciones de aprendizaje automático
 
@@ -84,6 +84,74 @@ response = requests.post(published_pipeline1.endpoint,
                          json={"ExperimentName": "My_Pipeline",
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
+
+El argumento `json` de la solicitud POST debe contener, para la clave `ParameterAssignments`, un diccionario que contenga los parámetros de canalización y sus valores. Además, el argumento `json` puede contener las claves siguientes:
+
+| Clave | Descripción |
+| --- | --- | 
+| `ExperimentName` | El nombre del experimento asociado a este punto de conexión |
+| `Description` | Texto de forma libre que describe el punto de conexión | 
+| `Tags` | Pares clave-valor de forma libre que se pueden usar para etiquetar y anotar solicitudes  |
+| `DataSetDefinitionValueAssignments` | Diccionario usado para cambiar conjuntos de datos sin volver a entrenar (vea la siguiente explicación) | 
+| `DataPathAssignments` | Diccionario usado para cambiar rutas de acceso de datos sin volver a entrenar (vea la siguiente explicación) | 
+
+### <a name="changing-datasets-and-datapaths-without-retraining"></a>Cambio de conjuntos de datos y rutas de acceso de datos sin volver a entrenar
+
+Tal vez quiera entrenar e inferir en diferentes conjuntos de datos y rutas de acceso de datos. Por ejemplo, puede que desee entrenar un conjunto de datos menor y escaso, pero inferir en el conjunto de datos completo. Puede cambiar los conjuntos de datos con la clave `DataSetDefinitionValueAssignments` en el argumento `json` de la solicitud. Puede cambiar las rutas de acceso de datos con `DataPathAssignments`. La técnica para ambos es similar:
+
+1. En el script de definición de la canalización, cree un parámetro `PipelineParameter` para el conjunto de datos. Cree un `DatasetConsumptionConfig` o `DataPath` a partir de `PipelineParameter`:
+
+    ```python
+    tabular_dataset = Dataset.Tabular.from_delimited_files('https://dprepdata.blob.core.windows.net/demo/Titanic.csv')
+    tabular_pipeline_param = PipelineParameter(name="tabular_ds_param", default_value=tabular_dataset)
+    tabular_ds_consumption = DatasetConsumptionConfig("tabular_dataset", tabular_pipeline_param)
+    ```
+
+1. En el script de ML, acceda al conjunto de datos especificado de forma dinámica mediante `Run.get_context().input_datasets`:
+
+    ```python
+    from azureml.core import Run
+    
+    input_tabular_ds = Run.get_context().input_datasets['tabular_dataset']
+    dataframe = input_tabular_ds.to_pandas_dataframe()
+    # ... etc ...
+    ```
+
+    Observe que el script de ML tiene acceso al valor especificado para `DatasetConsumptionConfig` (`tabular_dataset`) y no al valor de `PipelineParameter` (`tabular_ds_param`).
+
+1. En el script de definición de la canalización, establezca `DatasetConsumptionConfig` como un parámetro en `PipelineScriptStep`:
+
+    ```python
+    train_step = PythonScriptStep(
+        name="train_step",
+        script_name="train_with_dataset.py",
+        arguments=["--param1", tabular_ds_consumption],
+        inputs=[tabular_ds_consumption],
+        compute_target=compute_target,
+        source_directory=source_directory)
+    
+    pipeline = Pipeline(workspace=ws, steps=[train_step])
+    ```
+
+1. Para cambiar los conjuntos de datos de forma dinámica en la llamada de REST de inferencia, use `DataSetDefinitionValueAssignments`:
+    
+    ```python
+    tabular_ds1 = Dataset.Tabular.from_delimited_files('path_to_training_dataset')
+    tabular_ds2 = Dataset.Tabular.from_delimited_files('path_to_inference_dataset')
+    ds1_id = tabular_ds1.id
+    d22_id = tabular_ds2.id
+    
+    response = requests.post(rest_endpoint, 
+                             headers=aad_token, 
+                             json={
+                                "ExperimentName": "MyRestPipeline",
+                               "DataSetDefinitionValueAssignments": {
+                                    "tabular_ds_param": {
+                                        "SavedDataSetReference": {"Id": ds1_id #or ds2_id
+                                    }}}})
+    ```
+
+Los cuadernos [Presentación del conjunto de datos y PipelineParameter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb) y [Presentación de la ruta de acceso de datos y PipelineParameter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-datapath-and-pipelineparameter.ipynb) contienen ejemplos completos de esta técnica.
 
 ## <a name="create-a-versioned-pipeline-endpoint"></a>Creación de un punto de conexión de canalización con versiones
 
