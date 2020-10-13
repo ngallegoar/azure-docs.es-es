@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
-ms.openlocfilehash: 164e5a8c107f445b376d26f9be7db92a7983b0d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3957a9cde957c8e92806f10d39c949d73f20153e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73743082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323029"
 ---
 # <a name="face-recognition-concepts"></a>Conceptos del reconocimiento facial
 
@@ -69,6 +69,6 @@ Utilice las siguientes sugerencias para asegurarse de que las imágenes de entra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que está familiarizado con los conceptos de reconocimiento facial, aprenda a escribir un script que identifique las caras con un objeto PersonGroup entrenado.
+Ahora que está familiarizado con los conceptos de reconocimiento facial, escriba un script que identifique las caras con un objeto PersonGroup entrenado.
 
-* [Identificación de caras en imágenes](../Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
+* [Inicio rápido de la biblioteca cliente de Face](../Quickstarts/client-libraries.md)

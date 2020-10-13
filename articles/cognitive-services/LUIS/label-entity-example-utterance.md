@@ -1,14 +1,16 @@
 ---
 title: Etiquetado de una entidad en una expresión de ejemplo
 description: Aprenda a etiquetar una entidad de aprendizaje automático con subentidades en una expresión de ejemplo en una página de detalles de la intención del portal de LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: ffbaa2e40d5924ba61e548398e63295cf7dba2b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610496"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303733"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Etiquetado de una entidad de aprendizaje automático en una expresión de ejemplo
 
@@ -53,7 +55,7 @@ La paleta de entidades ofrece una alternativa a la experiencia de etiquetado ant
 3. En la expresión de ejemplo, _pinte_ la entidad con el cursor.
 
     > [!div class="mx-imgBorder"]
-    > ![Paleta de entidades para la entidad de aprendizaje automático](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+    > ![Captura de pantalla que muestra la entidad pintada con el cursor.](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
 ## <a name="adding-entity-as-a-feature-from-the-entity-palette"></a>Incorporación de entidades como una característica de la paleta de entidades
 

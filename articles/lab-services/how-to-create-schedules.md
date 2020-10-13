@@ -3,12 +3,12 @@ title: Creación de programaciones para laboratorios educativos en Azure Lab Ser
 description: Aprenda a crear programaciones para laboratorios educativos en Azure Lab Services de forma que las máquinas virtuales de los laboratorios se inicien y apaguen a una hora determinada.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d6dcdd8d09c2c71c2d41aebd358639883ccfb33d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445787"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326446"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Creación y administración de programaciones para laboratorios educativos en Azure Lab Services 
 Las programaciones le permiten configurar un laboratorio educativo de forma que las máquinas virtuales que contiene se inicien y apaguen automáticamente a una hora determinada. Puede definir una programación puntual o periódica. Los procedimientos siguientes le proporcionan los pasos para crear y administrar programaciones para un laboratorio educativo: 
@@ -27,7 +27,7 @@ Cree un evento programado para el laboratorio de modo que las máquinas virtuale
 
 1. Cambie a la página **Schedules** (Programaciones) y seleccione **Add scheduled event** (Agregar evento programado) en la barra de herramientas. 
 
-    ![Botón Add schedule (Agregar programación) en la página Schedules (Programaciones)](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Captura de pantalla que muestra la página "Programación" de Azure Lab Services con el botón Agregar programación seleccionado.](./media/how-to-create-schedules/add-schedule-button.png)
 2. Confirme que esté seleccionado **Standard** (Estándar) como **Event type** (Tipo de evento). Seleccione **Start only** (Solo inicio) para especificar solo la hora de inicio de las máquinas virtuales. Seleccione **Stop only** (Solo detención) para especificar solo la hora de detención de las máquinas virtuales. 
 7. En la sección **Repeat** (Repetir), seleccione la programación actual. 
 
