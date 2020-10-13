@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: d9a4f7aa270aa4ed2b02e61da984e14379a241a9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b994e8ce34319da4827d389b49e23ed6e5bcde95
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289922"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653764"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnóstico y solución de problemas de un entorno de Azure Time Series Insights Gen2
 
@@ -43,17 +43,17 @@ Hay varias razones por las cuales es posible que los datos no aparezcan en el [e
 
 - A la clave de origen del evento le falta un permiso necesario.
 
-  * Para IoT Hub, debe proporcionar la clave con el permiso de **conexión de servicio**.
+  - Para IoT Hub, debe proporcionar la clave con el permiso de **conexión de servicio**.
 
     [![Verifique los permisos de IoT Hub](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox).
 
-    * Las directivas **iothubowner** y el **servicio** funcionan porque tienen permiso **Conexión de servicios**.
+    - Las directivas **iothubowner** y el **servicio** funcionan porque tienen permiso **Conexión de servicios**.
 
-  * Para una instancia de Event Hubs, debe proporcionar la clave con el permiso de **escucha**.
+  - Para una instancia de Event Hubs, debe proporcionar la clave con el permiso de **escucha**.
   
     [![Revise los permisos del centro de eventos.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-    * Las directivas **Leer** y **Administrar** funcionan porque tienen el permiso **Escuchar**.
+    - Las directivas **Leer** y **Administrar** funcionan porque tienen el permiso **Escuchar**.
 
 - El grupo de consumidores proporcionado no es exclusivo de Time Series Insights.
 
@@ -75,30 +75,30 @@ Podría estar enviando datos sin el identificador de Time Series.
 
 ## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problema: Los datos se mostraban, pero la ingesta ahora se detuvo
 
-- Es posible que se haya regenerado la clave de origen del evento y que el entorno Gen2 necesite la clave de origen del evento nueva.
+- Es posible que se haya regenerado la clave de origen del evento y que el entorno de Gen2 necesite la nueva clave de origen del evento.
 
-Este problema se produce cuando la clave proporcionada al crear el origen del evento ya no es válida. Vería la telemetría en el centro, pero ningún mensaje de entrada recibido en Time Series Insights. Si no está seguro de si se ha regenerado la clave, puede buscar "crear o actualizar reglas de autorización de espacio de nombres" o "crear o actualizar recursos de IotHub" para IoT Hub en el registro de actividad de Event Hubs. 
+Este problema se produce cuando la clave proporcionada al crear el origen del evento ya no es válida. Vería la telemetría en el centro, pero ningún mensaje de entrada recibido en Time Series Insights. Si no está seguro de si se ha regenerado la clave, puede buscar "crear o actualizar reglas de autorización de espacio de nombres" o "crear o actualizar recursos de IotHub" en el registro de actividad de Event Hubs.
 
-Para actualizar el entorno de Time Series Insights Gen2 con la clave nueva, abra el recurso del centro en Azure Portal y copie la nueva clave. Vaya al recurso de TSI y haga clic en Orígenes de eventos. 
+Para actualizar el entorno de Time Series Insights Gen2 con la clave nueva, abra el recurso del centro en Azure Portal y copie la nueva clave. Vaya al recurso de TSI y haga clic en Orígenes de eventos.
 
-   [![Actualización de la clave.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+   [![Captura de pantalla que muestra el recurso de TSI con el elemento de menú Orígenes de eventos seleccionado.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
 Seleccione los orígenes de eventos en los que se ha detenido la ingesta, pegue la nueva clave y haga clic en Guardar.
 
-   [![Actualización de la clave.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
+   [![Captura de pantalla que muestra el recurso de TSI con la clave de directiva del centro de IoT especificada.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
 ## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problema: mi nombre de propiedad Timestamp del origen del evento no funciona
 
 Asegúrese de que el nombre y el valor se ajustan a las reglas siguientes:
 
-* El nombre de la propiedad Timestamp distingue mayúsculas de minúsculas.
-* El valor de propiedad Timestamp que procede del origen del evento, como una cadena JSON, tiene el formato `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Un ejemplo de este tipo de cadena es `"2008-04-12T12:53Z"`.
+- El nombre de la propiedad Timestamp distingue mayúsculas de minúsculas.
+- El valor de propiedad Timestamp que procede del origen del evento, como una cadena JSON, tiene el formato `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Un ejemplo de este tipo de cadena es `"2008-04-12T12:53Z"`.
 
 La manera más fácil de asegurarse de que el nombre de la propiedad timestamp se captura y funciona correctamente consiste en utilizar el explorador de Time Series Insights Gen2. En el explorador de Time Series Insights Gen2, utilice el gráfico para seleccionar un período de tiempo después de que proporcionara el nombre de la propiedad Timestamp. Haga clic con el botón derecho en la selección y elija la opción de **exploración de eventos**. El primer encabezado de columna es el nombre de propiedad Timestamp. Debe tener `($ts)` junto a la palabra `Timestamp`, en lugar de:
 
-* `(abc)`, que indica que Time Series Insights lee los valores de datos como cadenas.
-* El icono de **calendario**, que indica que Time Series Insights lee los valores de datos como datetime.
-* `#`, que indica que Time Series Insights lee los valores de datos como un entero.
+- `(abc)`, que indica que Time Series Insights lee los valores de datos como cadenas.
+- El icono de **calendario**, que indica que Time Series Insights lee los valores de datos como datetime.
+- `#`, que indica que Time Series Insights lee los valores de datos como un entero.
 
 Si no se especifica explícitamente la propiedad Timestamp, se utiliza como marca de tiempo predeterminado la hora de puesta en cola de un centro de IoT o centro de eventos de un evento.
 
@@ -129,9 +129,9 @@ Este problema puede producirse si el entorno no tiene una jerarquía de modelo d
 
 Este problema se puede producir si no usa la versión más reciente del conector de Power BI en Power BI Desktop.
 
-[![Las instancias no primarias mostrarán una advertencia.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
+[![Captura de pantalla que muestra el cuadro de diálogo No se puede conectar.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
 
-* Compruebe la versión de Power BI Desktop y asegúrese de que está usando la versión de julio de 2020. Si no es así, actualice Power BI Desktop y vuelva a ejecutar el conector. 
+- Compruebe la versión de Power BI Desktop y asegúrese de que está usando la versión de julio de 2020. Si no es así, actualice Power BI Desktop y vuelva a ejecutar el conector.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
