@@ -6,20 +6,24 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+keywords: cognitive services, inteligencia cognitiva, soluciones cognitivas, servicios de inteligencia artificial, servicios de IA
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 36e21a131181831c2a87c0c6d2c24c9aa6e0acf7
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 41dc99c206fb66aa87ccca6e40d6e9488f801a22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245016"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262440"
 ---
-# <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Creación de un recurso de Cognitive Services mediante la interfaz de la línea de comandos (CLI) de Azure
+# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Inicio rápido: Creación de un recurso de Cognitive Services mediante la interfaz de la línea de comandos (CLI) de Azure
 
-Use esta guía de inicio rápido para empezar a trabajar con Azure Cognitive Services mediante la [interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Los servicios de Cognitive Services se representan por medio de [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) de Azure que se crean en la suscripción de Azure. Después de crear el recurso, use las claves y el punto de conexión generados para autenticar las aplicaciones.
+Use esta guía de inicio rápido para empezar a trabajar con Azure Cognitive Services mediante la [interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
+Azure Cognitive Services es un conjunto de servicios en la nube con API de REST y SDK de biblioteca cliente que ayudan a los desarrolladores a integrar la inteligencia cognitiva en las aplicaciones sin tener inteligencia artificial (IA) directa ni habilidades o conocimientos sobre ciencia de datos. Azure Cognitive Services permite a los desarrolladores agregar fácilmente características cognitivas en sus aplicaciones con soluciones cognitivas que pueden ver, oír, hablar, comprender e incluso empezar a pensar.
+
+Los servicios de Cognitive Services se representan por medio de [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) de Azure que se crean en la suscripción de Azure. Después de crear el recurso, use las claves y el punto de conexión generados para autenticar las aplicaciones.
 
 En este artículo de inicio rápido, aprenderá a suscribirse a Azure Cognitive Services y a crear una cuenta con una suscripción de un solo servicio o de varios servicios mediante la [interfaz de la línea de comandos de Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Estos servicios se representan mediante los [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) de Azure, que le permitirán conectarse a una o varias API de Azure Cognitive Services.
 
@@ -50,7 +54,7 @@ Para crear un recurso, necesitará una de las ubicaciones de Azure disponibles p
 
 > [!IMPORTANT]
 > * No olvide su ubicación de Azure, ya que la necesitará cuando llame a Azure Cognitive Services.
-> * La disponibilidad de algunas instancias de Cognitive Services puede variar según la región. Para obtener más información, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).  
+> * La disponibilidad de algunas instancias de Cognitive Services puede variar según la región. Para obtener más información, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).
 
 ```azurecli-interactive
 az account list-locations \
@@ -175,7 +179,7 @@ Use el comando [az cognitiveservices account keys list](https://docs.microsoft.c
 ## <a name="pricing-tiers-and-billing"></a>Planes de tarifas y facturación
 
 Los planes de tarifas (y la cantidad que se factura) se basan en el número de transacciones que se envían con la información de autenticación. Cada plan de tarifa especifica lo siguiente:
-* el número máximo de transacciones permitidas por segundo (TPS).
+* El número máximo de transacciones permitidas por segundo (TPS).
 * las características de servicio habilitadas en el plan de tarifa.
 * El costo de una cantidad predefinida de transacciones. Por encima de esta cantidad se producirá un cargo adicional, tal como se especifica en los [detalles de precios](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) del servicio.
 
