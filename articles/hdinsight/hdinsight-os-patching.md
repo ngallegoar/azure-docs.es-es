@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: bf22e20a6c6187677f000e0c50ac64582233c3cd
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019672"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447208"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configuración de la programación de aplicación de revisiones del SO para clústeres de HDInsight basado en Linux
 
 > [!IMPORTANT]
-> Las imágenes de Ubuntu estarán disponibles para la creación del clúster de HDInsight tres meses después de publicarse. A partir de enero de 2019, la ejecución de clústeres no se revisa automáticamente. Los clientes deben usar acciones de script u otros mecanismos para revisar un clúster en ejecución. Los clústeres creados recientemente siempre tendrán las últimas actualizaciones disponibles, incluidas las revisiones de seguridad más recientes.
+> Las imágenes de Ubuntu estarán disponibles para la creación del clúster de HDInsight tres meses después de publicarse. Los clústeres en ejecución no se revisan automáticamente. Los clientes deben usar acciones de script u otros mecanismos para revisar un clúster en ejecución. Como procedimiento recomendado, puede ejecutar estas acciones de script y aplicar las actualizaciones de seguridad justo después de crear el clúster.
 
 HDInsight permite realizar tareas comunes en el clúster, como instalar revisiones del sistema operativo, aplicar actualizaciones de seguridad y reiniciar nodos. Estas tareas se realizan mediante los dos scripts siguientes que se pueden ejecutar como [acciones de script](hdinsight-hadoop-customize-cluster-linux.md) y que se pueden configurar con parámetros:
 
