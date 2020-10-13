@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 32d0c44abed2d4ace4c8896922ed7f6ed8b596ff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987039"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326106"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauración a un momento dado para blobs en bloques
 
@@ -37,15 +37,8 @@ Recuerde que solo se puede ejecutar una operación de restauración en una cuent
 
 La operación **Restore Blob Ranges** devuelve un id. de restauración que identifica de forma única la operación. Para comprobar el estado de una restauración a un momento dado, llame a la operación **Get Restore Status** con el id. de restauración que se devolvió de la operación **Restore Blob Ranges**.
 
-Tenga en cuenta las siguientes limitaciones en las operaciones de restauración:
-
-- Un bloque que se ha cargado mediante la operación [Put Block](/rest/api/storageservices/put-block) o [Put Block from URL](/rest/api/storageservices/put-block-from-url), pero que no se ha confirmado a través de [Put Block List](/rest/api/storageservices/put-block-list), no es parte de un blob y, por tanto, no se restaura como parte de una operación de restauración.
-- No se puede restaurar un blob con una concesión activa. Si un blob con una concesión activa se incluye en el rango de blobs que se van a restaurar, la operación de restauración producirá un error de forma atómica.
-- Las instantáneas no se crean ni se eliminan como parte de una operación de restauración. Solo el blob base se restaura a su estado anterior.
-- Si un blob se ha desplazado entre los niveles de acceso frecuente y esporádico en el período comprendido entre el momento actual y el punto de restauración, el blob se restaura a su nivel anterior. Sin embargo, no se restaurará un blob que se haya llevado al nivel de archivo.
-
 > [!IMPORTANT]
-> Cuando se realiza una operación de restauración, Azure Storage bloquea las operaciones de datos en los blobs de los rangos que se están restaurando mientras dure la operación. Las operaciones de lectura, escritura y eliminación se bloquean en la ubicación principal. Por este motivo, es posible que las operaciones como la enumeración de contenedores en Azure Portal no funcionen según lo esperado mientras se realiza la operación de restauración.
+> Cuando se realiza una operación de restauración, Azure Storage bloquea las operaciones de datos en los blobs del intervalo que se está restaurando mientras dure la operación. Las operaciones de lectura, escritura y eliminación se bloquean en la ubicación principal. Por este motivo, es posible que las operaciones como la enumeración de contenedores en Azure Portal no funcionen según lo esperado mientras se realiza la operación de restauración.
 >
 > Asimismo, las operaciones de lectura de la ubicación secundaria pueden continuar durante la operación de restauración si la cuenta de almacenamiento tiene replicación geográfica.
 
@@ -76,9 +69,12 @@ Para iniciar una operación de restauración, un cliente debe tener permisos de 
 
 La restauración a un momento dado para los blobs en bloques tiene las siguientes limitaciones y problemas conocidos:
 
-- Solo los blobs en bloques de una cuenta de almacenamiento estándar de uso general v2 pueden restaurarse como parte de una operación de restauración a un momento dado. Los blobs en anexos, blobs en páginas y blobs en bloques Premium no se restauran. Si ha eliminado un contenedor durante el período de retención, dicho contenedor no se restaurará con la operación de restauración a un momento dado. Para aprender a proteger los contenedores contra la eliminación, consulte [Eliminación temporal de contenedores (versión preliminar)](soft-delete-container-overview.md).
-- Los blobs en bloques de los niveles de acceso frecuente o esporádico se pueden restaurar en una operación de restauración a un momento dado. No se admite la restauración de blobs en blob en bloques en el nivel de archivo. Por ejemplo, si un blob en el nivel de acceso frecuente se movió al nivel de archivo hace dos días y se realiza una operación de restauración a un momento de hace tres días, el blob no se restaura en el nivel de acceso frecuente. Para restaurar un blob archivado, sáquelo antes del nivel de archivo.
-- Si un blob en bloques del intervalo que se va a restaurar tiene una concesión activa, se producirá un error en la operación de restauración a un momento dado. Interrumpa las concesiones activas antes de iniciar la operación de restauración.
+- Solo los blobs en bloques de una cuenta de almacenamiento estándar de uso general v2 pueden restaurarse como parte de una operación de restauración a un momento dado. Los blobs en anexos, blobs en páginas y blobs en bloques Premium no se restauran. 
+- Si ha eliminado un contenedor durante el período de retención, dicho contenedor no se restaurará con la operación de restauración a un momento dado. Si intenta restaurar un intervalo de blobs que incluye blobs en un contenedor eliminado, se producirá un error en la operación de restauración a un momento dado. Para aprender a proteger los contenedores contra la eliminación, consulte [Eliminación temporal de contenedores (versión preliminar)](soft-delete-container-overview.md).
+- Si un blob se ha desplazado entre los niveles de acceso frecuente y esporádico en el período comprendido entre el momento actual y el punto de restauración, el blob se restaura a su nivel anterior. No se admite la restauración de blobs en blob en bloques en el nivel de archivo. Por ejemplo, si un blob en el nivel de acceso frecuente se movió al nivel de archivo hace dos días y se realiza una operación de restauración a un momento de hace tres días, el blob no se restaura en el nivel de acceso frecuente. Para restaurar un blob archivado, sáquelo antes del nivel de archivo. Para más información, consulte [Rehidratación de los datos de blob desde el nivel de archivo](storage-blob-rehydration.md).
+- Un bloque que se ha cargado mediante la operación [Put Block](/rest/api/storageservices/put-block) o [Put Block from URL](/rest/api/storageservices/put-block-from-url), pero que no se ha confirmado a través de [Put Block List](/rest/api/storageservices/put-block-list), no es parte de un blob y, por tanto, no se restaura como parte de una operación de restauración.
+- No se puede restaurar un blob con una concesión activa. Si un blob con una concesión activa se incluye en el rango de blobs que se van a restaurar, la operación de restauración producirá un error de forma atómica. Interrumpa las concesiones activas antes de iniciar la operación de restauración.
+- Las instantáneas no se crean ni se eliminan como parte de una operación de restauración. Solo el blob base se restaura a su estado anterior.
 - No se admite la restauración de los espacios de nombres planos y jerárquicos de Azure Data Lake Storage Gen2.
 
 > [!IMPORTANT]

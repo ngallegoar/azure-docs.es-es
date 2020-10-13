@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 10/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a249d5f3c47e8e8789f91f355c791cc50341ab01
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75443569"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827911"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Preguntas más frecuentes sobre Identity Protection en Azure Active Directory
 
@@ -99,3 +99,7 @@ Dado que el riesgo del usuario es de naturaleza acumulativa y no expira, un usua
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>¿Por qué un inicio de sesión tiene una puntuación alta en "sign-in risk (aggregate)" [Riesgo de inicio de sesión (agregado)] cuando las detecciones asociadas con él son de riesgo medio o bajo?
 
 La puntuación agregada de riesgo alto podría basarse en otras características del inicio de sesión, o en el hecho de que se desencadenó más de una detección para ese inicio de sesión. Y a la inversa, un inicio de sesión puede tener un riesgo de inicio de sesión (agregado) de nivel Medio, incluso si las detecciones asociadas con el inicio de sesión son de riesgo alto. 
+
+### <a name="why-is-the-detection-which-is-linked-to-a-risky-sign-in-have-a-different-risk-level-than-the-sign-in-risk-level-real-time"></a>¿Por qué la detección vinculada a un inicio de sesión de riesgo tiene un nivel de riesgo diferente que el nivel de riesgo de inicio de sesión (en tiempo real)? 
+
+Recientemente hicimos mejoras en el modo en que se calcula el riesgo de inicio de sesión en tiempo real. Las discrepancias observadas entre el nivel de detección de riesgos y el nivel de riesgo de inicio de sesión son consecuencia de estos cambios. Tenga en cuenta que el riesgo de inicio de sesión en tiempo real es el valor que se usa durante la aplicación de la directiva. 
