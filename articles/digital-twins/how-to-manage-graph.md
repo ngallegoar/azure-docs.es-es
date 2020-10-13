@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f7239e0c13478af712d8e8d9dad8fda23fe42c7
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ad0111f9be8c0b981093618be7296d0ec7f90e30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125539"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326548"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Administración de un grafo de gemelos digitales con relaciones
 
 El corazón de Azure Digital Twins es el [grafo de gemelos](concepts-twins-graph.md) que representa todo el entorno. El grafo de gemelos se compone de gemelos digitales individuales conectados a través de **relaciones**.
 
-Una vez que tenga una [instancia de Azure Digital Twins](how-to-set-up-instance-scripted.md) en funcionamiento y que haya configurado el código de [autenticación](how-to-authenticate-client.md) para la aplicación cliente, puede usar las [**API DigitalTwins**](how-to-use-apis-sdks.md) para crear, modificar y eliminar gemelos digitales y sus relaciones en una instancia de Azure Digital Twins. También puede usar el [SDK de .NET ( C# )](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
+Una vez que tenga una [instancia de Azure Digital Twins](how-to-set-up-instance-portal.md) en funcionamiento y que haya configurado el código de [autenticación](how-to-authenticate-client.md) para la aplicación cliente, puede usar las [**API DigitalTwins**](how-to-use-apis-sdks.md) para crear, modificar y eliminar gemelos digitales y sus relaciones en una instancia de Azure Digital Twins. También puede usar el [SDK de .NET ( C# )](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
 Este artículo está centrado en la administración de las relaciones y el grafo en conjunto; para trabajar con gemelos digitales individuales, consulte [*Procedimiento: Administración de Digital Twins*](how-to-manage-twin.md).
 
@@ -63,6 +63,14 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 ```
 
 Para obtener más información sobre la clase auxiliar `BasicRelationship`, consulte [*Procedimiento: Uso de las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md).
+
+### <a name="create-multiple-relationships-between-twins"></a>Creación de varias relaciones entre gemelos
+
+No hay ninguna restricción en el número de relaciones que puede tener entre dos gemelos: puede tener tantas como desee. 
+
+Esto significa que puede expresar varios tipos diferentes de relaciones entre dos gemelos a la vez. Por ejemplo, el *gemelo A* puede tener una relación de *almacenamiento* y una relación de *fabricación* con el *gemelo B*.
+
+También puede crear varias instancias del mismo tipo de relación entre los mismos dos gemelos, si lo desea. En este ejemplo, eso significa que el *gemelo A* podría tener dos relaciones de *almacenamiento* distintas con el *gemelo B*.
 
 ## <a name="list-relationships"></a>Enumeración de las relaciones
 

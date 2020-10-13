@@ -4,12 +4,12 @@ description: En este artículo, descubra las respuestas a preguntas comunes sobr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 7206a62e3148c1bbb8d2e3704d991025deeece37
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 8813794d44803a32bc6e156d3ca76360d84604c5
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377325"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370834"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -20,6 +20,12 @@ En este artículo se responde a preguntas comunes sobre la copia de seguridad de
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>¿Qué imágenes de máquina virtual se pueden habilitar para la copia de seguridad cuando se crean?
 
 Cuando se crea una máquina virtual, puede habilitar la copia de seguridad de máquinas virtuales que ejecutan [sistemas operativos admitidos](backup-support-matrix-iaas.md#supported-backup-actions).
+
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>¿Por qué la copia de seguridad inicial tarda tanto en completarse?
+
+La copia de seguridad inicial siempre es una copia de seguridad completa y el tiempo que tarde dependerá del tamaño de los datos y del momento de procesamiento de la copia de seguridad. <br>
+Para mejorar el rendimiento de la copia de seguridad, consulte [Procedimientos recomendados de copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices); [Consideraciones de copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) y [Rendimiento de copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+Aunque el tiempo total de copia de seguridad para copias de seguridad incrementales es menor que 24 horas, es posible que esto no sea el caso para la primera copia de seguridad.
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>¿Están los costos de la copia de seguridad incluidos en el costo de la máquina virtual?
 
@@ -154,6 +160,10 @@ Las operaciones como la sustitución de claves o secretos no requieren este paso
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>¿Puedo acceder a la máquina virtual una vez que se ha restaurado porque una máquina virtual tiene una relación rota con el controlador de dominio?
 
 Si, puede acceder a la máquina virtual una vez que se haya restaurado porque una máquina virtual tiene una relación rota con el controlador de dominio. Para más información, consulte este [artículo](./backup-azure-arm-restore-vms.md#post-restore-steps).
+
+### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>¿Por qué la operación de restauración tarda tanto tiempo en completarse?
+
+El tiempo total de restauración depende de las operaciones de entrada/salida por segundo (IOPS) y el rendimiento de la cuenta de almacenamiento. El tiempo total de la restauración puede verse afectado si la cuenta de almacenamiento de destino se carga con otras operaciones de lectura y escritura de aplicación. Para mejorar la operación de restauración, seleccione una cuenta de almacenamiento que no tenga cargados otros datos de aplicación.
 
 ## <a name="manage-vm-backups"></a>Administrar copias de seguridad de máquina virtual
 

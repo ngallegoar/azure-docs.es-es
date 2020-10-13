@@ -4,17 +4,17 @@ description: Los ámbitos de cifrado ofrecen la posibilidad de administrar el ci
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 041b0bf57f57fd8ddd74c8330888d75e31aacc83
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90993611"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326123"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Ámbitos de cifrado para Blob Storage (versión preliminar)
 
@@ -22,7 +22,7 @@ Los ámbitos de cifrado ofrecen la posibilidad de administrar el cifrado en el n
 
 De forma predeterminada, una cuenta de almacenamiento está cifrada con una clave cuyo ámbito es toda la cuenta de almacenamiento. Con un ámbito de cifrado, puede especificar que uno o varios contenedores estén cifrados con una clave cuyo ámbito sea exclusivo para esos contenedores.
 
-Puede optar por usar claves administradas por Microsoft o claves administradas por el cliente almacenadas en Azure Key Vault o en el modelo de seguridad de hardware (HSM) administrado de Key Vault (versión preliminar) para proteger y controlar el acceso a la clave que cifra sus datos. Distintos ámbitos de cifrado de una misma cuenta de almacenamiento pueden usar claves administradas por Microsoft o por el cliente.
+Puede optar por usar claves administradas por Microsoft o claves administradas por el cliente almacenadas en Azure Key Vault para proteger y controlar el acceso a la clave que cifra sus datos. Distintos ámbitos de cifrado de una misma cuenta de almacenamiento pueden usar claves administradas por Microsoft o por el cliente.
 
 Después de crear un ámbito de cifrado, puede especificar ese ámbito de cifrado en una solicitud para crear un contenedor o un blob. Para obtener más información acerca de cómo crear un ámbito de cifrado, consulte [Creación y administración de ámbitos de cifrado (versión preliminar)](encryption-scope-manage.md).
 
@@ -50,7 +50,7 @@ Al deshabilitar un ámbito de cifrado, las operaciones de lectura o escritura po
 
 Cuando se deshabilita un ámbito de cifrado, ya no se le facturará. Deshabilite los ámbitos de cifrado que no sean necesarios para evitar cargos innecesarios.
 
-Si el ámbito de cifrado está protegido con claves administradas por el cliente, también puede eliminar la clave asociada en el almacén de claves o el HSM administrado para deshabilitar el ámbito de cifrado. Tenga en cuenta que las claves administradas por el cliente están protegidas por la protección de eliminación y purga temporal en el almacén de claves o el HSM administrado, y que una clave eliminada está sujeta al comportamiento definido por esas propiedades. Para más información, consulte uno de los siguientes temas en la documentación de Azure Key Vault:
+Si el ámbito de cifrado está protegido con claves administradas por el cliente, también puede eliminar la clave asociada en el almacén de claves para deshabilitar el ámbito de cifrado. Tenga en cuenta que las claves administradas por el cliente están protegidas por la protección de eliminación y purga temporal en el almacén de claves, y que una clave eliminada está sujeta al comportamiento definido por esas propiedades. Para más información, consulte uno de los siguientes temas en la documentación de Azure Key Vault:
 
 - [Uso de la eliminación temporal con PowerShell](../../key-vault/general/soft-delete-powershell.md)
 - [Uso de la eliminación temporal con la CLI](../../key-vault/general/soft-delete-cli.md).

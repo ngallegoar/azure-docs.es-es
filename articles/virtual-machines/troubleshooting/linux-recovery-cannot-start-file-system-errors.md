@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas de inicio de máquinas virtuales Linux debido a errores del sistema de archivos | Microsoft Docs
-description: Se explica por qué no se puede iniciar la máquina virtual Linux y cómo resolver el problema.
+description: Obtenga información sobre cómo solucionar problemas de inicio de VM Linux debido a errores del sistema de archivos.
 services: virtual-machines-linux
 documentationcenter: ''
 author: v-miegge
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: bae0eb91460bf7ab72abbaa7fa56b2515367d37d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8f12b88a0ddbc6ae31f40ab31b0126e4fd66b1a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436194"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325953"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Solución de problemas de inicio de máquinas virtuales Linux debido a errores del sistema de archivos
 

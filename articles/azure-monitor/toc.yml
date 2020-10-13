@@ -141,7 +141,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Introducción
+        - name: Información general
           href: platform/alerts-overview.md
         - name: Alertas de métricas
           href: platform/alerts-metric-overview.md
@@ -394,7 +394,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Introducción
+            - name: Información general
               href: platform/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension
@@ -658,6 +658,8 @@
                       href: app/javascript-react-plugin.md
                     - name: Complemento React Native
                       href: app/javascript-react-native-plugin.md
+                    - name: Complemento Angular
+                      href: app/javascript-angular-plugin.md
                 - name: Solución de problemas
                   items:
                     - name: Error de carga de SDK
@@ -1056,7 +1058,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md

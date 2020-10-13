@@ -1,6 +1,7 @@
 ---
-title: Inicio rápido de la Plataforma de identidad de Microsoft para Android | Azure
-description: Más información acerca cómo las aplicaciones Android pueden llamar a una API que requiere tokens de acceso de un punto de conexión de la plataforma de identidad de Microsoft.
+title: 'Inicio rápido: Incorporación del inicio de sesión con Microsoft a una aplicación para Android | Azure'
+titleSuffix: Microsoft identity platform
+description: En este inicio rápido, aprenderá cómo las aplicaciones para Android pueden llamar a una API que requiere tokens de acceso emitidos por la plataforma de identidad de Microsoft.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: a46cd1b916edeae8a24fb997db46e5a0651567cb
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 37859a8571355dcd61175d7b1b4d9888e058bf3a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115278"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91612904"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Inicio rápido: Inicie sesión de los usuarios y llame a Microsoft Graph API desde una aplicación de Android
 
@@ -24,17 +25,14 @@ En esta guía de inicio rápido se usa un ejemplo de código para mostrar cómo 
 
 Las aplicaciones tienen que estar representadas por un objeto de aplicación en Azure Active Directory para que la Plataforma de identidad de Microsoft pueda proporcionar tokens a la aplicación.
 
-> [!div renderon="docs"]
-> Por comodidad, el ejemplo de código incluye una predeterminada `redirect_uri`preconfigurada en el `AndroidManifest.xml` archivo para que no tenga que registrar primero su propio objeto de aplicación. Una `redirect_uri` se basa en parte en la clave de firma de la aplicación. El proyecto de ejemplo está preconfigurado con una clave de firma para que el `redirect_uri` proporcionado funcione. Para más información sobre el registro de un objeto de aplicación y su integración con su aplicación, consulte el [Inicio de sesión de los usuarios y llame al Microsoft Graph desde un tutorial de aplicaciones de Android](tutorial-v2-android.md).
+## <a name="prerequisites"></a>Prerrequisitos
 
-
-> [!NOTE]
-> **Requisitos previos**
-> * Android Studio 
-> * Android 16 +
+* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Android Studio
+* Android 16 +
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal 
+> ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
 >  Para que el código de ejemplo de esta guía de inicio rápido funcione, debe agregar un identificador URI de redirección compatible con el agente de autenticación.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Realizar estos cambios por mí]()
@@ -42,15 +40,15 @@ Las aplicaciones tienen que estar representadas por un objeto de aplicación en 
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Ya configurada](media/quickstart-v2-android/green-check.png) La aplicación está configurada con estos atributos
 >
-> ### <a name="step-2-download-the-project"></a>Paso 2: Descarga del proyecto 
+> ### <a name="step-2-download-the-project"></a>Paso 2: Descarga del proyecto
 > [!div class="sxs-lookup" renderon="portal"]
 > Ejecute el proyecto con Android Studio.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Descargar el código de ejemplo](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Paso 3: La aplicación está configurada y lista para ejecutarse
-> Hemos configurado el proyecto con los valores de las propiedades de su aplicación y está preparado para ejecutarse. 
+> Hemos configurado el proyecto con los valores de las propiedades de su aplicación y está preparado para ejecutarse.
 > La aplicación de ejemplo se inicia en la pantalla **Modo de cuenta única**. De forma predeterminada, se proporciona un ámbito predeterminado, **user.read**, que se usa al leer sus propios datos de perfil en la llamada a Microsoft Graph API. La dirección URL de la llamada a Microsoft Graph API se proporciona de forma predeterminada. Ambos elementos se pueden cambiar si se desea.
 >
 > ![Aplicación de ejemplo de MSAL que muestra el uso de una cuenta y de varias](./media/quickstart-v2-android/quickstart-sample-app.png)
@@ -112,7 +110,7 @@ Ahora vamos a examinar estos archivos con más detalle y a llamar al código esp
 
 MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) es la biblioteca que se usa para iniciar la sesión de los usuarios y solicitar tokens de acceso a una API protegida por la Plataforma de identidad de Microsoft. Gradle 3.0 + instala la biblioteca cuando agrega lo siguiente a **Scripts de Gradle** > **build.gradle (Module: app)** en **Dependencias**:
 
-```gradle  
+```gradle
 implementation 'com.microsoft.identity.client:msal:1.+'
 ```
 
@@ -384,9 +382,9 @@ private void loadAccounts() {
 Estas son algunas situaciones en las que puede que se pida al usuario que seleccione su cuenta, escriba sus credenciales o dé su consentimiento a los permisos que ha solicitado la aplicación:
 
 * La primera vez que los usuarios inician sesión en la aplicación
-* Si un usuario restablece su contraseña, deberá escribir sus credenciales. 
-* Si se revoca el consentimiento. 
-* Si la aplicación requiere explícitamente el consentimiento. 
+* Si un usuario restablece su contraseña, deberá escribir sus credenciales.
+* Si se revoca el consentimiento.
+* Si la aplicación requiere explícitamente el consentimiento.
 * Cuando la aplicación solicita acceso a un recurso por primera vez.
 * Cuando se requieren MFA u otras directivas de acceso condicional.
 
@@ -476,20 +474,11 @@ A diferencia del archivo de configuración [auth_config_single_account.json](#au
 }
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Más información sobre los pasos para crear la aplicación que se usa en esta guía de inicio rápido
-
-Pruebe el [Inicio de sesión de usuarios y llame al Microsoft Graph desde una aplicación de Android](tutorial-v2-android.md) para obtener una guía paso a paso para crear una aplicación de Android que obtenga un token de acceso y la use para llamar a la API de Microsoft Graph.
+Continúe con el tutorial de Android en el que va a compilar una aplicación para Android que obtiene un token de acceso de la plataforma de identidad de Microsoft y la usa para llamar a Microsoft Graph API.
 
 > [!div class="nextstepaction"]
-> [Tutorial para llamar a Graph API desde Android](./tutorial-v2-android.md)
-
-### <a name="msal-for-android-library-wiki"></a>Wiki de la biblioteca MSAL para Android
-
-Obtenga más información acerca de la biblioteca MSAL para Android:
-
-> [!div class="nextstepaction"]
-> [Wiki de la biblioteca MSAL para Android](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph desde una aplicación Android](tutorial-v2-android.md)

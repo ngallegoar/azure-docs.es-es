@@ -8,7 +8,7 @@
       href: data-lake-analytics-whats-new.md
 - name: Introducción
   items:
-    - name: Azure Portal
+    - name: Azure portal
       href: data-lake-analytics-get-started-portal.md
     - name: Visual Studio
       href: data-lake-analytics-data-lake-tools-get-started.md
@@ -31,7 +31,7 @@
   items:
     - name: Administración con Data Lake Analytics
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: data-lake-analytics-manage-use-portal.md
         - name: Línea de comandos
           items:
