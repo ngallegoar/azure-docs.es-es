@@ -4,12 +4,12 @@ description: Conmutación por error de máquinas virtuales y servidores físicos
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 481e7c692be24bbebd14584f8158740a5b7043ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563988"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317895"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Ejecutar una conmutación por error del entorno local a Azure
 
@@ -46,7 +46,7 @@ Ejecute la conmutación por error del plan de recuperación como sigue:
 1. En el almacén de Site Recovery, seleccione **Planes de recuperación** > *recoveryplan_name*.
 2. Haga clic en **Conmutación por error**.
 
-    ![Captura de pantalla que muestra el panel ADRP con Conmutación por error seleccionado en el menú Más.](./media/site-recovery-failover/Failover.png)
+    ![Captura de pantalla de Azure Site Recovery que muestra el panel ADRP con Conmutación por error seleccionado en el menú Más.](./media/site-recovery-failover/Failover.png)
 
 3. En **Conmutación por error** > **Dirección de conmutación por error**, deje la opción predeterminada si va a replicar en Azure.
 4. En **Conmutación por error**, seleccione un **punto de recuperación** en el que realizar la conmutación por error.
@@ -81,7 +81,7 @@ Puede ejecutar una conmutación por error planeada para las máquinas virtuales 
 
 Hay una serie de trabajos asociados a la conmutación por error.
 
-![Conmutación por error](./media/site-recovery-failover/FailoverJob.png)
+![Captura de pantalla de la página Trabajos en la que se muestra una lista de trabajos con Group 1: Start (1) expandido en la columna Name. La línea del trabajo SQLServer está resaltada.](./media/site-recovery-failover/FailoverJob.png)
 
 - **Comprobación de requisitos previos**: Garantiza que se cumplen todas las condiciones necesarias para la conmutación por error.
 - **Conmutación por error**: Sirve para procesar los datos, de modo que se pueda crear una máquina virtual de Azure a partir de ellos. Si ha elegido el punto de recuperación **más reciente**, se crea un punto de recuperación a partir de los datos enviados al servicio.

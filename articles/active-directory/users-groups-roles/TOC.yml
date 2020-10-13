@@ -183,6 +183,8 @@
                   href: roles-custom-available-permissions.md
                 - name: Permisos de aplicaciones empresariales
                   href: custom-enterprise-app-permissions.md
+                - name: Permisos para el consentimiento de aplicaciones
+                  href: custom-consent-permissions.md
             - name: Delegación de permisos de administración de aplicaciones
               href: roles-delegate-app-roles.md
         - name: Uso de grupos para las asignaciones de roles

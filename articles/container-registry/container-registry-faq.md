@@ -3,14 +3,14 @@ title: Preguntas más frecuentes
 description: Respuestas a las preguntas más frecuentes relacionadas con el servicio Azure Container Registry
 author: sajayantony
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 02facedda206a5621cabe62a07520303635dc3ff
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 499ef509fc9f8d9365d8db3f7058d12352db9bb2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245373"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570517"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -261,8 +261,8 @@ La cuarentena de imágenes actualmente es una característica de versión prelim
 
 La configuración de una instancia de Azure Container Registry para el acceso de extracción anónimo (público) es actualmente una característica en versión preliminar. Si tiene una [asignación de ámbito (usuario) o recursos de token](https://aka.ms/acr/repo-permissions) en el registro, elimínelos antes de generar una incidencia de soporte técnico (se pueden omitir las asignaciones de ámbito del sistema). Para habilitar el acceso público, abra una incidencia de soporte técnico en https://aka.ms/acr/support/create-ticket. Para más información, consulte [Foro de comentarios de Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
-
-
+> [!NOTE]
+> Solo se puede acceder de forma anónima a las API necesarias para extraer una imagen conocida. No se puede acceder de forma anónima a ninguna otra API para operaciones como la lista de etiquetas o la lista de repositorios.
 
 ## <a name="diagnostics-and-health-checks"></a>Comprobaciones de mantenimiento y diagnóstico
 
@@ -443,7 +443,7 @@ Póngase en contacto con el administrador de red o compruebe la configuración y
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>¿Por qué se produce un error de operación no permitida en la solicitud de extracción o de inserción?
 
 Estos son algunos escenarios en los que es posible que no se permitan operaciones:
-* Ya no se admiten los registros clásicos. Actualice a un [nivel de servicio](https://aka.ms/acr/skus) compatible mediante [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) o Azure Portal.
+* Ya no se admiten los registros clásicos. Actualice a un [nivel de servicio](https://aka.ms/acr/skus) compatible mediante [az acr update](/cli/azure/acr#az-acr-update) o Azure Portal.
 * Es posible que la imagen o el repositorio estén bloqueados para que no se puedan eliminar ni actualizar. Puede usar el comando [az acr show repository](./container-registry-image-lock.md) para ver los atributos actuales.
 * Algunas operaciones no se permiten si la imagen está en cuarentena. Más información sobre la [cuarentena](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Puede que el registro haya alcanzado su [límite de almacenamiento](container-registry-skus.md#service-tier-features-and-limits).
@@ -456,7 +456,7 @@ Para obtener las reglas de nomenclatura de repositorios completas, vea la [Espec
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>¿Cómo se pueden recopilar los seguimientos http en Windows?
 
-#### <a name="prerequisites"></a>Prerrequisitos
+#### <a name="prerequisites"></a>Requisitos previos
 
 - Habilite el descifrado de https en Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Habilite Docker para que use un proxy mediante la interfaz de usuario de Docker: <https://docs.docker.com/docker-for-windows/#proxies>

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f323b563d90de315bdbb317f88d7f9449be6c008
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 623ec6999add175e85f117e547fba61734d2b892
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546703"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286019"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutorial: Configuración de Smartsheet para el aprovisionamiento automático de usuarios
 
@@ -69,15 +69,15 @@ Antes de configurar Smartsheet para el aprovisionamiento automático de usuarios
 
 5. Genere el **token secreto** necesario para configurar el aprovisionamiento automático de usuarios con Azure AD; para ello, vaya a **Apps and Integrations** (Aplicaciones e integraciones).
 
-    ![Instalación de Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
+    ![Captura de pantalla de la página de administración de Smartsheet con el avatar de usuario y la opción de aplicaciones e integraciones resaltados.](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
 
 6. Elija el **acceso a la API**. Haga clic en **Generate new access token** (Generar nuevo token de acceso).
 
-    ![Instalación de Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
+    ![Captura de pantalla del cuadro de diálogo Configuración personal con las opciones de acceso de API y de generación de un nuevo token de acceso resaltadas.](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
 7. Defina el nombre del token de acceso de la API. Haga clic en **OK**.
 
-    ![Instalación de Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
+    ![Captura de pantalla del paso 1 de 2: generación de token de acceso de API con la opción Aceptar resaltada.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
 8. Copie el token de acceso de la API y guárdelo, ya que esta será la única vez que podrá verlo. Este se pedirá en el campo del **token secreto**  en Azure AD.
 
@@ -117,11 +117,11 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba los valores de **URL base de SCIM 2.0 y token de acceso** que recuperó anteriormente desde Smartsheet en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Smartsheet. Si la conexión no se establece, asegúrese de que la cuenta de Smartsheet tiene permisos de administrador del sistema e inténtelo de nuevo.
 
