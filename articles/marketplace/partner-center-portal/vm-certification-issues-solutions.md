@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181449"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296457"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas y soluciones durante la certificación de máquinas virtuales 
 
@@ -33,6 +33,9 @@ Para corregir el problema, recupere la imagen de Azure Marketplace y haga cambi
 
 - [Imágenes de Linux](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Imágenes de Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
+
+> [!Note]
+> Si usa una imagen base de Linux que no se ha tomado de marketplace, puede desplazar la primera partición en 2048 KB. Esto permite que el espacio sin formato se use para agregar nueva información de facturación y permite que Azure continúe con la publicación de la máquina virtual en marketplace.  
 
 ## <a name="vm-extension-failure"></a>Error de la extensión de máquina virtual
 
@@ -270,9 +273,12 @@ Consulte la tabla siguiente para ver los problemas que surgen al descargar la im
 |6|Encabezado condicional HTTP|La dirección URL no es válida.|Obtenga la dirección URL de SAS correcta.|
 |7|El nombre del disco duro virtual no es válido|Compruebe si hay algún carácter especial, como un signo de porcentaje (%) o comillas ("), existen en el nombre del disco duro virtual.|Cambie el nombre del archivo del disco duro virtual y quite los caracteres especiales.|
 
-## <a name="first-1-mb-partition"></a>Primera partición de 1 MB
+## <a name="first-mb-2048-kb-partition-only-for-linux"></a>Primera partición de MB (2048 KB) (solo para Linux)
 
-Al enviar el disco duro virtual, asegúrese de que la primera partición de 1 MB esté vacía. De lo contrario, se producirá un error en la solicitud.
+Al enviar el disco duro virtual, asegúrese de que los primeros 2048 KB estén vacíos. De lo contrario, se producirá un error en la solicitud*.
+
+>[!NOTE]
+>\* Para ciertas imágenes especiales, como las que se basan en imágenes base de Windows de Azure tomadas de Azure Marketplace, se busca una etiqueta de facturación y se omite la partición de MB si la etiqueta de facturación está presente y coincide con los valores disponibles internamente.
 
 ## <a name="default-credentials"></a>Credenciales predeterminadas
 

@@ -85,7 +85,7 @@
               href: diagnose-vm-network-routing-problem-cli.md
         - name: Diagnóstico de problemas de conexión de salida
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: network-watcher-connectivity-portal.md
             - name: Azure PowerShell
               href: network-watcher-connectivity-powershell.md
@@ -97,7 +97,7 @@
           items:
             - name: Administración de una captura de paquetes
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: network-watcher-packet-capture-manage-portal.md
                 - name: Azure PowerShell
                   href: network-watcher-packet-capture-manage-powershell.md
@@ -127,6 +127,8 @@
               href: network-watcher-nsg-flow-logging-rest.md
             - name: Azure Resource Manager
               href: network-watcher-nsg-flow-logging-azure-resource-manager.md
+            - name: Directiva integrada
+              href: nsg-flow-logs-policy-portal.md
         - name: Eliminación de blobs de almacenamiento de registros de flujo de grupos de seguridad de red
           href: network-watcher-delete-nsg-flow-log-blobs.md
         - name: Análisis de registros de flujo de grupo de seguridad de red
@@ -186,7 +188,7 @@
           href: resource-move.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/network/watcher
     - name: Azure PowerShell
       href: /powershell/module/az.network/#network_watcher
