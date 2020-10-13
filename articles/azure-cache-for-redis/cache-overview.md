@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 3751560125ea8ac6cc00ed63521bff30b751e688
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 26f6c8e3aceddc6f766bb43a1e384d761dee32bf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009603"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631390"
 ---
 # <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 Azure Cache for Redis proporciona un almacén de datos en memoria basado en el software de código abierto [Redis](https://redis.io/). Redis mejora el rendimiento y la escalabilidad de una aplicación que use en gran medida los almacenes de datos de back-end. Es capaz de procesar grandes volúmenes de solicitudes de aplicación al mantener los datos a los que se accede con frecuencia en la memoria del servidor en la que se puede escribir y leer rápidamente. Redis incorpora una solución crítica de almacenamiento de datos de baja latencia y alto rendimiento en las aplicaciones modernas.
@@ -31,12 +31,20 @@ Azure Cache for Redis mejora el rendimiento de las aplicaciones, ya que admite p
 | Almacenamiento en cola de trabajos y mensajes | Las aplicaciones agregan a menudo tareas a una cola cuando las operaciones asociadas a la solicitud tardan tiempo en ejecutarse. Las operaciones con ejecuciones más largas se ponen en cola para procesarse en secuencia, a menudo por parte de otro servidor.  Este método de aplazar trabajo se denomina puesta en cola de tareas. Azure Cache for Redis proporciona una cola distribuida que habilita este patrón en la aplicación.|
 | Distributed transactions | A veces, las aplicaciones requieren una serie de comandos en un almacén de datos de back-end para ejecutarse como una única operación atómica. El resultado de todos los comandos debe ser satisfactorio, o todos deben revertirse al estado inicial. Azure Cache for Redis admite la ejecución de un lote de comandos como [transacción](https://redis.io/topics/transactions) única. |
 
+## <a name="redis-versions"></a>Versiones de Redis
+
+Azure Cache for Redis admite la versión 4.x de Redis y la versión preliminar 6.0. Hemos decidido omitir Redis 5.0 para proporcionarle la versión más reciente. Anteriormente, Azure Cache for Redis mantenía una versión única de Redis. Con vistas al futuro, se proporcionará una nueva actualización de la versión principal y al menos una versión anterior estable. El usuario puede [elegir qué versión](cache-how-to-version.md) funciona mejor para su aplicación.
+
+> [!NOTE]
+> Redis 6.0 se encuentra actualmente en versión preliminar: [póngase en contacto con nosotros](mailto:azurecache@microsoft.com) si está interesado. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+
 ## <a name="service-tiers"></a>Niveles de servicio
 Azure Redis Cache está disponible en los niveles siguientes:
 
 | Nivel | Descripción |
 |---|---|
-Básico | Caché de un solo nodo. Este nivel admite varios tamaños de memoria (250 MB-53 GB) y es ideal para el desarrollo o la realización de pruebas, así como para cargas de trabajo no críticas. El nivel Básico no tiene ningún Acuerdo de Nivel de Servicio (SLA). |
+| Básico | Caché de un solo nodo. Este nivel admite varios tamaños de memoria (250 MB-53 GB) y es ideal para el desarrollo o la realización de pruebas, así como para cargas de trabajo no críticas. El nivel Básico no tiene ningún Acuerdo de Nivel de Servicio (SLA). |
 | Estándar | Una memoria caché replicada en una configuración de dos nodos, principal y de réplica, administrada por Azure y con un [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) de alta disponibilidad. |
 | Premium | El nivel Premium es el nivel específico para la empresa. Las memorias caché de nivel Premium admiten más características y tienen un rendimiento mayor con latencias más bajas. En el nivel Premium, las memorias caché se implementan en un hardware más potente, lo que proporciona un mejor rendimiento en comparación con los niveles Estándar o Básico. Esta ventaja significa que el rendimiento de una caché del mismo tamaño será mayor en el nivel Premium, en comparación con el nivel Estándar. |
 

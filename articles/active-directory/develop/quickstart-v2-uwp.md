@@ -1,6 +1,7 @@
 ---
-title: Inicio rápido de la Plataforma de identidad de Microsoft para UWP de Windows | Azure
-description: Obtenga más información acerca de cómo una aplicación de la Plataforma universal de Windows (XAML) puede obtener un token de acceso y llamar a una API protegida por un punto de conexión de la Plataforma de identidad de Microsoft.
+title: 'Inicio rápido: Inicio de sesión de usuarios y llamada a Microsoft Graph en una aplicación de la Plataforma universal de Windows | Azure'
+titleSuffix: Microsoft identity platform
+description: En este inicio rápido, obtendrá información sobre cómo una aplicación de la plataforma universal de Windows (UWP) puede obtener un token de acceso y llamar a una API protegida por la plataforma de identidad de Microsoft.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,18 +12,23 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: d68017bcddf43066dd989904578b7d09a84f4a9e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 5b954c5eae9c203efa65dc9dc1883d8e00f3937a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85553864"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91630532"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Inicio rápido: Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (UWP)
 
 En esta guía de inicio rápido, se incluye código de ejemplo que muestra cómo una aplicación de la Plataforma universal de Windows (UWP) puede iniciar la sesión de los usuarios con cuentas personales, profesionales o educativas, obtener un token de acceso y llamar a Microsoft Graph API. (Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).)
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Prerrequisitos
+>
+> * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Registro y descarga de la aplicación de inicio rápido
 > [!div renderon="docs" class="sxs-lookup"]
 > Tiene dos opciones para comenzar con la aplicación de inicio rápido:

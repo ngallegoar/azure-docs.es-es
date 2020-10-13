@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: creación de un perfil para alta disponibilidad de aplicaciones Azure PowerShell Azure Traffic Manager'
+title: 'Inicio rápido: Creación de un perfil de Traffic Manager para la alta disponibilidad de las aplicaciones mediante Azure PowerShell'
 description: En este artículo de inicio rápido se describe cómo crear un perfil de Traffic Manager para crear una aplicación web de alta disponibilidad.
 services: traffic-manager
 author: duongau
@@ -10,20 +10,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: f3ecdfb03a6e6d1aab355edf7c370b29240e0543
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9b34a17cc9add0bed4bffb7677aa81bb17f3125b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929523"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631569"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Inicio rápido: Creación de un perfil de Traffic Manager para una aplicación web de alta disponibilidad mediante Azure PowerShell
 
 En esta guía de inicio rápido se describe cómo crear un perfil de Traffic Manager que ofrece alta disponibilidad para la aplicación web.
 
 En este inicio rápido, creará dos instancias de una aplicación web. Cada una de ellas se ejecuta en una región de Azure distinta. Creará un perfil de Traffic Manager según la [prioridad del punto de conexión](traffic-manager-routing-methods.md#priority-traffic-routing-method). El perfil dirige el tráfico de usuario al sitio principal que ejecuta la aplicación web. Traffic Manager supervisa continuamente la aplicación web. Si el sitio principal no está disponible, proporciona la conmutación automática por error al sitio de copia de seguridad.
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ahora.
 
@@ -35,7 +37,6 @@ Si decide instalar y usar PowerShell de forma local, para realizar los pasos de 
 Cree un grupo de recursos con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 ```azurepowershell-interactive
-
 
 # Variables
 $Location1="WestUS"
@@ -67,7 +68,7 @@ New-AzTrafficManagerProfile `
 
 ## <a name="create-web-apps"></a>Creación de aplicaciones web
 
-Para este inicio rápido, debe haber implementado dos instancias de una aplicación web en dos regiones de Azure distintas (*Oeste de EE. UU.* y *Este de EE. UU.* ). Cada una de ellas servirá como los puntos de conexión principal y de conmutación por error de Traffic Manager.
+Para este inicio rápido, debe haber implementado dos instancias de una aplicación web en dos regiones de Azure distintas (*Oeste de EE. UU.* y *Este de EE. UU.*). Cada una de ellas servirá como los puntos de conexión principal y de conmutación por error de Traffic Manager.
 
 ### <a name="create-web-app-service-plans"></a>Creación de planes de Web App Service
 Cree planes de Web App Service mediante [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) para las dos instancias de la aplicación web que implementará en dos regiones de Azure distintas.

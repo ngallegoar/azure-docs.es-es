@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 808320f89c4dbeca835fc5a710ea1566199f6884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c448d7e5a5e0bea29063930bed3a59a0461b8cf5
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791850"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767627"
 ---
 <!--for build: for each metric, if you understand what it is, it's ok. otw add more info.  -->
 # <a name="understand-iot-hub-metrics"></a>Comprender las métricas de IoT Hub
@@ -22,7 +22,7 @@ Las métricas de IoT Hub ofrecen información sobre el estado de los recursos de
 Las métricas están habilitadas de forma predeterminada. Puede ver las métricas de IoT Hub desde Azure Portal.
 
 > [!NOTE]
-> Puede usar métricas de IoT Hub para ver información acerca de los dispositivos IoT Plug and Play conectados a su centro de IoT. Los dispositivos IoT Plug and Play forman parte de la [versión preliminar pública de IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md).
+> Puede usar las métricas de IoT Hub para ver información acerca de los dispositivos [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) conectados a su centro de IoT.
 
 ## <a name="how-to-view-iot-hub-metrics"></a>Cómo ver las métricas de IoT Hub
 

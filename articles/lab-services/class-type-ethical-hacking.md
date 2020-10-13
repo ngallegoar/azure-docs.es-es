@@ -3,12 +3,12 @@ title: Configuración de un laboratorio de piratería ética con Azure Lab Servi
 description: Aprenda a configurar un laboratorio con Azure Lab Services para enseñar técnicas de piratería ética.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5134a7db824bad69f42a4051319479f712051446
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ae0d57223edb68d1bed4ad64a005dd33da019dd0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297593"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631688"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configuración de un laboratorio para impartir una clase de piratería ética 
 En este artículo se muestra cómo configurar una clase que se centra en la parte referida al análisis forense de la piratería ética. Las pruebas de penetración son una práctica que usa la comunidad de piratería ética y que se producen cuando alguien intenta obtener acceso al sistema o a la red para mostrar los puntos vulnerables que un atacante malintencionado podría aprovechar. 
@@ -70,26 +70,23 @@ Kali es una distribución de Linux que incluye herramientas para pruebas de pene
 ## <a name="set-up-a-nested-vm-with-metasploitable-image"></a>Configuración de una máquina virtual anidada con una imagen de Metasploitable  
 La imagen de Rapid7 Metasploitable es una imagen configurada de forma intencionada con puntos vulnerables de seguridad. Usará esta imagen para probar y encontrar problemas. Las instrucciones siguientes le muestran cómo usar una imagen de Metasploitable creada previamente. Sin embargo, si se necesita una versión más reciente de la imagen de Metasploitable, consulte [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3).
 
-1. Vaya a [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html). Rellene el formulario para descargar la imagen y seleccione el botón **Enviar**.
-1. Seleccione el botón **Download Metasploitable Now** (Descargar Metasploitable ahora).
-1. Cuando se descargue, extraiga el archivo zip y recuerde la ubicación.
-1. Convierta el archivo vmdk extraído en un archivo vhdx para que pueda usarlo con Hyper-V. Para ello, abra PowerShell con privilegios administrativos y vaya a la carpeta donde reside el archivo vmdk y siga estas instrucciones:
-    1. Descargue [Microsoft Virtual Machine Converter](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi) y ejecute el archivo mvmc_setup.msi cuando se le solicite.
-    1. Importe el módulo de PowerShell.  La ubicación predeterminada en la que se instala el módulo es C:\Archivos de Programa\Microsoft Virtual Machine Converter\
-
-        ```powershell
-        Import-Module 'C:\Program Files\Microsoft Virtual Machine Converter\MvmcCmdlet.psd1'
-        ```
-    1. Convierta el archivo vmdk en un archivo vhd que pueda usar Hyper-V. Es posible que esta operación tarde varios minutos.
-    
-        ```powershell
-        ConvertTo-MvmcVirtualHardDisk -SourceLiteralPath .\Metasploitable.vmdk -DestinationLiteralPath .\Metasploitable.vhdx -VhdType DynamicHardDisk -VhdFormat vhdx
-        ```
-    1. Copie el archivo metasploitable.vhdx recién creado en C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks\. 
+1. Descargue la imagen de Metasploitable.
+    1. Vaya a [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html). Rellene el formulario para descargar la imagen y seleccione el botón **Enviar**.
+    2. Seleccione el botón **Download Metasploitable Now** (Descargar Metasploitable ahora).
+    3. Cuando se haya descargado el archivo ZIP, extráigalo y recuerde la ubicación del archivo Metasploitable.vmdk.
+1. Convierta el archivo vmdk extraído en un archivo vhdx para que pueda usar dicho vhdx con Hyper-V. Hay disponibles varias herramientas para convertir imágenes de VMware en imágenes de Hyper-V y viceversa.  Usaremos [StarWind V2V Converter](https://www.starwindsoftware.com/starwind-v2v-converter).  Para descargarlo, consulte la [página de descarga de StarWind V2V Converter](https://www.starwindsoftware.com/starwind-v2v-converter#download).
+    1. Inicie **StarWind V2V Converter**.
+    1. En la página **Select location of image to convert** (Seleccionar la ubicación de la imagen que se va a convertir), elija **Local file** (Archivo local).  Seleccione **Siguiente**.
+    1. En la página **Source image** (Imagen de origen), diríjase al archivo Metasploitable.vmdk extraído en el paso anterior y selecciónelo como el valor de **File name** (Nombre de archivo).  Seleccione **Siguiente**.
+    1. En la página **Select location of destination image** (Seleccionar la ubicación de la imagen de destino), elija **Local file** (Archivo local).  Seleccione **Siguiente**.
+    1. En la página **Select destination image format** (Seleccionar el formato de la imagen de destino), elija **VHD/VHDX**.  Seleccione **Siguiente**.
+    1. En la página **Select option for VHD/VHDX image format** (Seleccionar la opción del formato de imagen VHD/VHDX), elija **VHDX growable image** (Imagen VHDX expandible).  Seleccione **Siguiente**.
+    1. En la página **Select destination file name** (Seleccionar nombre del archivo de destino), acepte el nombre de archivo predeterminado.  Seleccione **Convertir**.
+    1. En la página **Converting** (Convirtiendo), espere a que se convierta la imagen.  Esto podría tardar varios minutos.  Seleccione **Finish** (Finalizar) cuando se complete la conversión.
 1. Cree una nueva máquina virtual de Hyper-V.
     1. Abra el **administrador de Hyper-V**.
     1. Elija **Acción** -> **Nuevo** -> **Máquina virtual**.
-    1. En la página **Antes de comenzar** del **Asistente para nueva máquina virtual**, haga clic en **Siguiente**.
+    1. En la página **Antes de comenzar** del **Asistente para nueva máquina virtual**, seleccione **Siguiente**.
     1. En la página **Especificar nombre y ubicación**, escriba **Metasploitable** como **nombre** y seleccione **Siguiente**.
 
         ![Asistente para nueva imagen de máquina virtual](./media/class-type-ethical-hacking/new-vm-wizard-1.png)
