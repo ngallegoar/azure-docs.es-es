@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d15b12b758adbf99ddabc88eb06be9daba1ece3e
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6140f5fd431a0b089b45892130e075bde02a2eb2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276208"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299772"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure AD Connect Health
 Este artículo incluye respuestas a preguntas más frecuentes (P+f) sobre Azure Active Directory (Azure AD) Connect Health. Estas preguntas más frecuentes abarcan cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
@@ -129,6 +129,10 @@ Puede restablecer la imagen inicial de un servidor o crear un nuevo servidor con
 
 En este caso, elimine manualmente la entrada que pertenece al servidor anterior. Los datos para este servidor deben estar obsoletos.
 
+**P: ¿Puedo instalar el agente de Azure AD Connect Health en Windows Server Core?**
+
+No.  No se admite la instalación en Server Core.
+
 ## <a name="health-agent-registration-and-data-freshness"></a>Registro del agente de mantenimiento y actualización de datos
 
 **P: ¿Cuáles son las causas comunes de los errores de registro del agente de mantenimiento y cómo puedo solucionarlos?**
@@ -198,6 +202,7 @@ Utilice el cmdlet de PowerShell <i>Get-AdfsProperties - AuditLevel</i> para aseg
 
 **P: ¿Cuándo se renovará automáticamente el certificado de agente antes de la expiración?**
 La certificación de agente se renovará automáticamente **6 meses** antes de la fecha de expiración. Si no se renueva, asegúrese de que la conexión de red del agente es estable. Reiniciar los servicios del agente o actualizar a la versión más reciente también pueden resolver el problema.
+
 
 
 ## <a name="related-links"></a>Vínculos relacionados

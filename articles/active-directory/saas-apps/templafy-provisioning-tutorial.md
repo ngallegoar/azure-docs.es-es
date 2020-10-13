@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: af75c80c4380754ef1b0020108d3b6ad953f242f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 98eae8b63b9eaaa8cff800bade091f4b5d36d005
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88541976"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255718"
 ---
 # <a name="tutorial-configure-templafy-for-automatic-user-provisioning"></a>Tutorial: Configuración de Templafy para el aprovisionamiento automático de usuarios
 
@@ -58,11 +58,11 @@ Antes de configurar Templafy para el aprovisionamiento automático de usuarios c
 
 2. Haga clic en **Authentication Method** (Método de autenticación).
 
-    ![Adición de SCIM en Templafy](media/templafy-provisioning-tutorial/image01.png)
+    ![Captura de pantalla de la sección de administración de Templafy con la opción Método de autenticación resaltada.](media/templafy-provisioning-tutorial/image01.png)
 
 3. Copie el valor de la **clave de API de SCIM**. Este valor se escribe en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación Templafy en Azure Portal.
 
-    ![Adición de SCIM en Templafy](media/templafy-provisioning-tutorial/image02.png)
+    ![Una captura de pantalla de la clave de API de SCIM.](media/templafy-provisioning-tutorial/image02.png)
 
 ## <a name="add-templafy-from-the-gallery"></a>Adición de Templafy desde la galería
 
@@ -105,11 +105,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba `https://scim.templafy.com/scim` en la **URL de inquilino**. Escriba el valor de la **clave de API de SCIM** recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Templafy. Si la conexión no se establece, asegúrese de que la cuenta de Templafy tiene permisos de administrador y pruebe de nuevo.
 
