@@ -6,17 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.subservice: secrets
+ms.subservice: general
 ms.topic: quickstart
-ms.custom: mvc
 ms.date: 11/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e24f1e546de1ce01896e271dbc9155c47f6c2bb6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41254accbfff8f1d68a8bbef4d74ed01c64891b9
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101327"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803920"
 ---
 # <a name="quickstart-create-a-key-vault-using-powershell"></a>Inicio rápido: Creación de un almacén de claves mediante PowerShell
 
@@ -42,7 +41,7 @@ New-AzResourceGroup -Name 'myResourceGroup" -Location "EastUS"
 
 ## <a name="create-a-key-vault"></a>Creación de un Almacén de claves
 
-Cree una instancia de Key Vault en el grupo de recursos del paso anterior. Tendrá que proporcionar algo de información:
+Cree un almacén de claves en el grupo de recursos del paso anterior. Tendrá que proporcionar algo de información:
 
 - Nombre del almacén de claves: cadena de entre 3 y 24 caracteres que puede contener solo números (0-9), letras (a-z, A-Z) y guiones (-).
 
@@ -53,13 +52,13 @@ Cree una instancia de Key Vault en el grupo de recursos del paso anterior. Tendr
 - Ubicación: **EastUS**.
 
 ```azurepowershell-interactive
-New-AzKeyVault -Name "&lt;your-unique-key-vault-name&gt; -ResourceGroupName "myResourceGroup" -Location "East US"
+New-AzKeyVault -Name <your-unique-key-vault-name> -ResourceGroupName "myResourceGroup" -Location "East US"
 ```
 
 La salida de este cmdlet muestra las propiedades del almacén de claves que acaba de crear. Tome nota de las dos propiedades siguientes:
 
 - **Nombre del almacén**: nombre que proporcionó al parámetro --name anterior.
-- **URI de almacén**: en el ejemplo, es https://&lt;su-nombre-de-almacén-de-claves-único&gt;.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
+- **URI de almacén**: en el ejemplo, es https://<su-nombre-de-almacén-de-claves-único>.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
 
 En este momento, su cuenta de Azure es la única autorizada para realizar operaciones en este nuevo almacén.
 
@@ -78,5 +77,5 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 En este inicio rápido, ha creado una instancia de Key Vault y ha almacenado un secreto en ella. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
 
 - Lea una [introducción a Azure Key Vault](overview.md).
-- Consulte la referencia para los [cmdlets de Key Vault de Azure PowerShell](/powershell/module/az.keyvault/?view=azps-2.6.0#key_vault).
+- Consulte la referencia para los [cmdlets de Key Vault de Azure PowerShell](/powershell/module/az.keyvault/).
 - Consulte los [procedimientos recomendados de Azure Key Vault](best-practices.md).
