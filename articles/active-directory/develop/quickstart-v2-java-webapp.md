@@ -1,6 +1,7 @@
 ---
-title: Inicio rápido de la aplicación web de Java para la Plataforma de identidad de Microsoft | Azure
-description: Obtenga información sobre cómo implementar el inicio de sesión de Microsoft en una aplicación web de Java mediante OpenID Connect
+title: 'Inicio rápido: Incorporación del inicio de sesión con Microsoft a una aplicación web de Java | Azure'
+titleSuffix: Microsoft identity platform
+description: En este inicio rápido, aprenderá a implementar el inicio de sesión de Microsoft en una aplicación web de Java mediante OpenID Connect.
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: d1b79d60bba89ef01b261c403fe3b25939669d0b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f00a935815b64f7c2c06dd33130c1a950582e5c3
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258105"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743495"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java
 
@@ -257,4 +258,4 @@ import com.microsoft.aad.msal4j.*;
 Para obtener información más detallada sobre la compilación de aplicaciones web que inicien sesión de los usuarios en la plataforma de identidad de Microsoft, pase a nuestra serie de escenarios de varias partes:
 
 > [!div class="nextstepaction"]
-[Escenario: Aplicación web que permite iniciar sesión a los usuarios](scenario-web-app-sign-user-overview.md?tabs=java)
+> [Escenario: Aplicación web que permite iniciar sesión a los usuarios](scenario-web-app-sign-user-overview.md?tabs=java)
