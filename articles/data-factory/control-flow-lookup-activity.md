@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: e75921e5ee5b148d81c637800f46403d3d410f42
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.date: 09/23/2020
+ms.openlocfilehash: fd345f0eed5bd7140047b12a3c1a7471872c8bb7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613475"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270447"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
 
@@ -31,7 +31,7 @@ La actividad de búsqueda lee y devuelve el contenido de una tabla o un archivo 
 
 Se admiten los siguientes orígenes de datos para la actividad de búsqueda. 
 
-La actividad de búsqueda puede devolver hasta 5000 filas; si el conjunto de resultados contiene más registros, se devolverán las primeras 5000 filas. La salida de la actividad de búsqueda admite hasta 2 MB de tamaño; la actividad producirá un error si el tamaño supera el límite. Actualmente, la duración máxima de la actividad de búsqueda antes del tiempo de expiración es una hora.
+La actividad de búsqueda puede devolver hasta 5000 filas; si el conjunto de resultados contiene más registros, se devolverán las primeras 5000 filas. La salida de la actividad de búsqueda admite hasta aproximadamente 4 MB de tamaño; la actividad producirá un error si el tamaño supera el límite. Actualmente, la duración máxima de la actividad de búsqueda antes del tiempo de expiración es una hora.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 

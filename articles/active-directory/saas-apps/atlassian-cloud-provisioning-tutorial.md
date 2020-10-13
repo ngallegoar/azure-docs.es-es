@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 14418d4d280f4da629aecd5a95b5a49e6856e2c1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ca2284e3e2f581d1935a8978d26fd674154d581b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549396"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333528"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Tutorial: Configuración de Atlassian Cloud para el aprovisionamiento automático de usuarios
 
@@ -49,11 +49,12 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 1. Navegue a [Atlassian Organization Manager](https://admin.atlassian.com) **> seleccione la organización > directorio**.
 
-    ![Aprovisionamiento de Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
+    ![Captura de pantalla de la página de administración con la opción de directorio resaltada.](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
 
 2. Haga clic en **Aprovisionamiento de usuarios** y en **Crear un directorio**. Copie la **Directory base URL** (URL base de directorio) y **Token de portador** que se escribirán en los campos **URL de inquilino** y **Token secreto** en la pestaña Aprovisionamiento de la aplicación Atlassian Cloud en el portal de Azure AD, respectivamente.
 
-    ![Aprovisionamiento de Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Aprovisionamiento de Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png) ![Aprovisionamiento de Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
+    ![Captura de pantalla de la página de administración con la opción de aprovisionamiento de usuarios resaltada.](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Captura de pantalla de la página para crear un token.](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
+    ![Captura de pantalla de la página de token de directorio en tiempo de demostración.](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
 
 ## <a name="step-3-add-atlassian-cloud-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Atlassian Cloud desde la galería de aplicaciones de Azure AD
@@ -85,11 +86,11 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba la **URL de inquilino** y el **Token secreto** que obtuvo anteriormente de la cuenta de Atlassian Cloud. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Atlassian Cloud. Si la conexión no se establece, asegúrese de que la cuenta de Atlassian Cloud tiene permisos de administrador y pruébelo de nuevo.
 

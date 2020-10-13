@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 10/8/2019
-ms.openlocfilehash: a47a6e1860edcb9b2bf89c25e78f6a66e8a7cf4d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e1c6825820ae943d10157279dfe93922a7521b75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117719"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295624"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Solución de problemas de conexión a Azure Database for PostgreSQL- Hiperescala (Citus)
 
@@ -27,7 +27,7 @@ Los problemas de conexión pueden tener varias causas, por ejemplo:
 * Mantenimiento de servicio
 * Conmutación por error del nodo de coordinación al nuevo hardware
 
-Por lo general, los problemas de conexión a Hiperescala se pueden clasificar en los siguientes:
+Por lo general, los problemas de conexión a Hiperescala (Citus) se pueden clasificar en los siguientes:
 
 * Errores transitorios (corta duración o intermitentes)
 * Errores persistentes o no transitorios (errores que se repiten con frecuencia)
@@ -36,7 +36,7 @@ Por lo general, los problemas de conexión a Hiperescala se pueden clasificar en
 
 Los errores transitorios se producen por diversos motivos. Entre los más comunes se incluyen el mantenimiento del sistema, un error con hardware o software y las actualizaciones del núcleo virtual del nodo de coordinación.
 
-La habilitación de la alta disponibilidad para los nodos del grupo de servidores de Hiperescala puede mitigar estos tipos de problemas automáticamente. Sin embargo, la aplicación debe estar preparada para perder su conexión brevemente. Además, otros eventos pueden tardar más tiempo en mitigarse; por ejemplo, cuando una transacción grande requiere una recuperación de larga duración.
+La habilitación de la alta disponibilidad para los nodos del grupo de servidores de Hiperescala (Citus) puede mitigar estos tipos de problemas automáticamente. Sin embargo, la aplicación debe estar preparada para perder su conexión brevemente. Además, otros eventos pueden tardar más tiempo en mitigarse; por ejemplo, cuando una transacción grande requiere una recuperación de larga duración.
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Pasos para resolver los problemas de conectividad transitorios
 
@@ -49,7 +49,7 @@ La habilitación de la alta disponibilidad para los nodos del grupo de servidore
 
 Si la aplicación no se puede conectar de forma persistente a Hiperescala (Citus), seguramente se deba a una configuración incorrecta del firewall o un error del usuario.
 
-* Configuración del firewall del nodo de coordinación: Asegúrese de que el firewall del servidor de Hiperescala está configurado para permitir las conexiones desde el cliente, incluidas las puertas de enlace y los servidores proxy.
+* Configuración del firewall del nodo de coordinación: Asegúrese de que el firewall de servidor de Hiperescala (Citus) está configurado para permitir las conexiones desde el cliente, incluidas las puertas de enlace y los servidores proxy.
 * Configuración del firewall del cliente: El firewall en el cliente debe permitir las conexiones con el servidor de bases de datos. Algunos firewalls requieren no solo permitir la aplicación por nombre, sino permitir además las direcciones IP y los puertos del servidor.
 * Error del usuario: compruebe de nuevo la cadena de conexión. Puede que haya escrito incorrectamente parámetros como el del nombre del servidor. Puede encontrar cadenas de conexión para diversas plataformas de lenguaje y psql en Azure Portal. Vaya a la página **Cadenas de conexión** en el grupo de servidores de Hiperescala (Citus). Tenga en cuenta también que los clústeres de Hiperescala (Citus) tienen una sola base de datos y su nombre predefinido es **citus**.
 

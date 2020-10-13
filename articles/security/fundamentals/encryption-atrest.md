@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 337deec076a25183a4dd866362c7dc55a485834d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224499"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397256"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado de datos en reposo de Azure
 
@@ -81,13 +81,13 @@ Las claves de cifrado de datos cifradas con las claves de cifrado de claves se a
 
 Los Servicios en la nube de Microsoft se utilizan en los tres modelos de la nube: IaaS, PaaS, SaaS. A continuación encontrará ejemplos de cómo encajan en cada modelo:
 
-- Servicios de software, que se conocen como software como servicio o SaaS, que tienen la aplicación proporcionada por la nube, como Office 365.
+- Servicios de software, que se conocen como software como servicio o SaaS, que tienen las aplicaciones proporcionadas por la nube, como Microsoft 365.
 - Servicios de la plataforma de los que los clientes sacan provecho en la nube en sus aplicaciones, que usan la nube para tareas como almacenamiento, análisis y funcionalidad de bus de servicio.
 - Servicios de infraestructura o infraestructura como servicio (IaaS) en los que el cliente implementa sistemas operativos y aplicaciones que se hospedan en la nube y, posiblemente, saca provecho de otros servicios en la nube.
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Cifrado en reposo para clientes de SaaS
 
-Los clientes del software como servicio (SaaS) suelen tener el cifrado en reposo habilitado o disponible en cada servicio. Office 365 dispone de varias opciones para que los clientes comprueben o habiliten el cifrado en reposo. Para información sobre los servicios de Office 365, vea [Cifrado en Office 365](https://docs.microsoft.com/office365/securitycompliance/encryption).
+Los clientes del software como servicio (SaaS) suelen tener el cifrado en reposo habilitado o disponible en cada servicio. Microsoft 365 dispone de varias opciones para que los clientes comprueben o habiliten el cifrado en reposo. Para información sobre los servicios de Microsoft 365, consulte [Cifrado en Microsoft 365](/microsoft-365/compliance/encryption).
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Cifrado en reposo para clientes PaaS
 

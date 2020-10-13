@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: c11fd7a9cb6fdd3eb976d0b9e6a91fdc69bf9fba
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 888f8c96e8c1aa596c76cf09cd95a104821740ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136652"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320462"
 ---
 # <a name="system-tables-and-views"></a>Selección de tablas y vistas
 
@@ -27,7 +27,7 @@ Puede ver y consultar estas tablas mediante SQL después de iniciar sesión en e
 
 > [!NOTE]
 >
-> Es posible que los grupos de servidores de Hiperescala que ejecutan versiones anteriores del motor de Citus no ofrezcan todas las tablas que se enumeran a continuación.
+> Es posible que los grupos de servidores de Hiperescala (Citus) que ejecutan versiones anteriores del motor de Citus no ofrezcan todas las tablas que se enumeran a continuación.
 
 ### <a name="partition-table"></a>Tabla de particiones
 
@@ -524,5 +524,5 @@ En este ejemplo, las consultas se originaron en el coordinador, pero la vista ta
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre cómo algunas [funciones de Hiperescala](reference-hyperscale-functions.md) modifican tablas del sistema
+* Más información sobre cómo algunas [funciones de Hiperescala (Citus)](reference-hyperscale-functions.md) modifican tablas del sistema
 * Revisión de los conceptos de [nodos y tablas](concepts-hyperscale-nodes.md)

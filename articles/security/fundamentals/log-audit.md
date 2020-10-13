@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: bd0f42507e22559690e2682a391c53b9c090aa6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5ac9daeb741d400a759603c7a3e3e462cc9294f
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75750792"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398876"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Registro y auditoría de seguridad de Azure
 
@@ -68,4 +68,4 @@ En [Integración de alertas de Security Center](../../security-center/security-c
 
 - [Configuración de auditoría para una colección de sitios](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): si es el administrador de una colección de sitios, recupere el historial de las acciones de un usuario individua y el historial de las acciones realizadas durante un intervalo de fechas concreto.
 
-- [Búsqueda en el registro de auditoría en el Centro de seguridad y cumplimiento de Office 365](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US): utilice el Centro de seguridad y cumplimiento de Office 365 para buscar en el registro de auditoría unificado y ver la actividad de usuario y de administrador en la organización de Office 365.
+- [Busque en el registro de auditoría del Centro de seguridad de Microsoft 365](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance): utilice el Centro de seguridad de Microsoft 365 para buscar en el registro de auditoría unificado y consultar la actividad de usuario y de administrador en su organización.

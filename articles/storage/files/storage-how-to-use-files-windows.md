@@ -8,12 +8,12 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 485a054a91bd3db9b116cf80a4e457d013c20ea1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071081"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329353"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
@@ -34,8 +34,8 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 | Windows 7<sup>3</sup> | SMB 2.1 | Sí | No |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Sí | No |
 
-<sup>1</sup>Windows 10, versiones 1507, 1607, 1709, 1803, 1809, 1903 y 1909.  
-<sup>2</sup>Windows Server, versiones 1809, 1903 y 1909.  
+<sup>1</sup>Windows 10, versiones 1507, 1607, 1803, 1809, 1903, 1909 y 2004.  
+<sup>2</sup>Windows Server, versiones 1809, 1903, 1909, 2004.  
 <sup>3</sup>Finalizó el soporte técnico habitual de Microsoft para Windows 7 y Windows Server 2008 R2. Es posible adquirir soporte técnico adicional para las actualizaciones de seguridad solo a través del programa [Actualización de seguridad extendida (ESU)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). Se recomienda encarecidamente migrar de estos sistemas operativos.
 
 > [!Note]  
@@ -67,12 +67,12 @@ Para obtener este script:
 
 1. Seleccione **Conectar**.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Captura de pantalla del icono de conexión para el recurso compartido de archivos.":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="ejemplo":::
 
 1. Seleccione la letra de unidad en la que montar el recurso compartido.
 1. Copie el script proporcionado.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Texto de ejemplo":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="ejemplo":::
 
 1. Pegue el script en un shell del host en el que desea montar el recurso compartido de archivos y ejecútelo.
 

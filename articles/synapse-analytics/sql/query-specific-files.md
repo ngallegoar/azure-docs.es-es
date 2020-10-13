@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 04a308805dd69c4d9245d287a391f1e7fa7d50f2
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.reviewer: jrasnick
+ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055573"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288110"
 ---
 # <a name="use-file-metadata-in-queries"></a>Uso de metadatos de archivo en consultas
 
@@ -22,7 +22,7 @@ SQL a petición puede tratar varios archivos y carpetas, tal y como se describe 
 
 A veces, puede que necesite saber qué origen de archivo o carpeta se correlaciona con una fila específica en el conjunto de resultados.
 
-Puede usar las funciones `filepath` y `filename` para devolver nombres de archivo o la ruta de acceso en el conjunto de resultados. O bien puede usarlas para filtrar los datos según el nombre de archivo o la ruta de acceso de la carpeta. Estas funciones se describen en las secciones [Función filename](query-data-storage.md#filename-function) y [Función filepath](query-data-storage.md#filepath-function) de la sintaxis. A continuación encontrará breves descripciones, junto con ejemplos.
+Puede usar las funciones `filepath` y `filename` para devolver nombres de archivo o la ruta de acceso en el conjunto de resultados. O bien puede usarlas para filtrar los datos según el nombre de archivo o la ruta de acceso de la carpeta. Estas funciones se describen en las secciones [Función filename](query-data-storage.md#filename-function) y [Función filepath](query-data-storage.md#filepath-function) de la sintaxis. En las siguientes secciones, encontrará descripciones cortas, junto con ejemplos.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

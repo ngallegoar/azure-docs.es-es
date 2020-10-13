@@ -3,12 +3,12 @@ title: Uso de Azure Service Bus Explorer para realizar operaciones de datos en S
 description: En este artículo se proporciona información sobre cómo usar la instancia de Azure Service Bus Explorer basada en el portal para acceder a los datos de Azure Service Bus.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 3fa619334f1918e16c487269fe3715f5338adf85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e97c6860c2cc01048f4f7caf9f40f9e07592d0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340536"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295607"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Uso de Azure Service Bus Explorer para realizar operaciones de datos en Service Bus (versión preliminar)
 
@@ -51,7 +51,7 @@ Después de seleccionar **Colas** o **Temas**, seleccione la cola o el tema espe
 
 Seleccione **Azure Service Bus Explorer (versión preliminar)** en el menú de navegación izquierdo.
 
-:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Menú de navegación izquierdo de Azure Service Bus Explorer":::
+:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Selección de entidad":::
 
 ### <a name="sending-a-message-to-a-queue-or-topic"></a>Envío de un mensaje a una cola o un tema
 
@@ -66,17 +66,17 @@ Para redactar un mensaje aquí:
 
 Una vez redactado el mensaje, presione Enviar.
 
-:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Redacción del mensaje":::
+:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Selección de entidad":::
 
 Si la operación de envío se completa correctamente, 
 
 * si se envía a la cola, se incrementará el contador de la métrica **Mensajes activos**.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Selección de entidad":::
 
 * Si envía al tema, se incrementará el contador de la métrica **Mensajes activos** en la suscripción a la que se enrutó el mensaje.
 
-    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="TopicAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="Selección de entidad":::
 
 ### <a name="receiving-a-message-from-a-queue"></a>Recepción de un mensaje de una cola
 
@@ -93,18 +93,18 @@ Para recibir un mensaje de una cola (o su subcola de mensajes fallidos)
 1. Haga clic en la pestaña ***Recibir*** de Azure Service Bus Explorer.
 2. Compruebe en las métricas si hay **mensajes activos** o **mensajes no enviados** por recibir.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Selección de entidad":::
 
 3. Elija entre la subcola ***Cola*** o ***Mensajes fallidos***.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="Selección de entidad":::
 
 4. Haga clic en el botón ***Recibir*** y después en ***Sí*** para confirmar la operación Recibir y eliminar.
 
 
 Cuando la operación de recepción se realice correctamente, los detalles del mensaje se verán en la cuadrícula como se muestra a continuación. Puede seleccionar el mensaje de la cuadrícula para mostrar sus detalles.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Selección de entidad":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>Inspección de un mensaje de una cola
@@ -113,21 +113,21 @@ Con la funcionalidad de inspección, puede usar Azure Service Bus Explorer para 
 
 1. Para inspeccionar el mensaje de una cola, haga clic en la pestaña ***Ver*** de Azure Service Bus Explorer.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="PeekTab":::
+    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="Selección de entidad":::
 
 2. Compruebe en las métricas si hay **mensajes activos** o **mensajes fallidos** que inspeccionar.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Selección de entidad":::
 
 3. A continuación, elija entre las subcolas ***Cola*** o ***Mensajes fallidos***.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="Selección de entidad":::
 
 4. Haga clic en el botón ***Ver***. 
 
 Una vez completada la operación de inspección, se mostrarán hasta 32 mensajes en la cuadrícula, como se muestra a continuación. Para ver los detalles de un mensaje determinado, selecciónelo en la cuadrícula. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="PeekMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="Selección de entidad":::
 
 > [!NOTE]
 >
@@ -146,17 +146,17 @@ Al igual que con una cola, la operación de ***recepción*** se puede realizar e
 
 1. Haga clic en la pestaña ***Recibir*** y seleccione la ***suscripción*** específica en el selector desplegable.
 
-    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="ReceiveTabSelected":::
+    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="Selección de entidad":::
 
 2. Elija entre la subentidad ***Suscripción*** o ***Mensajes fallidos***.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="Selección de entidad":::
 
 3. Haga clic en el botón ***Recibir*** y después en ***Sí*** para confirmar la operación Recibir y eliminar.
 
 Si la operación de recepción se realiza correctamente, el mensaje recibido se mostrará en la cuadrícula como se indica a continuación. Para ver los detalles del mensaje, haga clic en él.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Selección de entidad":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Inspección de un mensaje desde una suscripción
 
@@ -164,17 +164,17 @@ Para examinar simplemente los mensajes de una suscripción o de su subentidad de
 
 1. Haga clic en la pestaña ***Ver*** y seleccione la ***suscripción*** específica en el selector desplegable.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="PeekTabSelected":::
+    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="Selección de entidad":::
 
 2. Elija entre la ***suscripción*** o la subentidad de ***mensajes fallidos***.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="Selección de entidad":::
 
 3. Haga clic en el botón ***Ver***.
 
 Una vez completada la operación de inspección, se mostrarán hasta 32 mensajes en la cuadrícula, como se muestra a continuación. Para ver los detalles de un mensaje determinado, selecciónelo en la cuadrícula. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="PeekMessageFromSubscription":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="Selección de entidad":::
 
 > [!NOTE]
 >

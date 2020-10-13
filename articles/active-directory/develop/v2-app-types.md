@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f8906c5fb934546ac8b1a95f817874f91f6c3b95
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: c468ecb390a3ad321f9fe0619204994dfbf3fbb4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015813"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256763"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicaciones para la Plataforma de identidad de Microsoft
 
@@ -117,6 +117,9 @@ Las aplicaciones instaladas en un dispositivo, como las aplicaciones móviles y 
 En este flujo, la aplicación recibe un código de autorización del punto de conexión de la Plataforma de identidad de Microsoft cuando el usuario inicia sesión. El código de autorización representa el permiso de la aplicación para llamar a servicios de back-end en nombre del usuario que inició la sesión. La aplicación podrá intercambiar el código de autorización en segundo plano para un token de acceso de OAuth 2.0 y un token de actualización. La aplicación puede usar el token de acceso para autenticar las API web en las solicitudes HTTP y utilizar el token de actualización para obtener nuevos tokens de acceso cuando expiren los antiguos.
 
 ![Muestra el flujo de autenticación de la aplicación nativa](./media/v2-app-types/convergence-scenarios-native.svg)
+
+> [!NOTE]
+> Si la aplicación usa la vista previa predeterminada del sistema, consulte la información sobre la funcionalidad "Confirmar mi inicio de sesión" y el código de error AADSTS50199 en [Códigos de error de autenticación y autorización de Azure AD](reference-aadsts-error-codes.md).
 
 ## <a name="daemons-and-server-side-apps"></a>Demonios y aplicaciones de servidor
 

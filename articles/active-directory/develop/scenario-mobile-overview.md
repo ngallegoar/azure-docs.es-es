@@ -13,31 +13,24 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1f90f7f23fbdf10b91d8dfc7cd00cca83cd32fbc
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 70ddc2191cc06a1bede87adc5940e0f7dea63384
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882580"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257544"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Escenario: Una aplicación móvil que llama a las API web
 
 Obtenga información sobre cómo compilar una aplicación móvil que llama a las API web.
 
-## <a name="prerequisites"></a>Prerrequisitos
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="getting-started"></a>Introducción
 
-Cree su primera aplicación móvil y pruebe una guía de inicio rápido.
+Si aún no lo ha hecho, cree su primera aplicación siguiendo un inicio rápido:
 
-> [!div class="nextstepaction"]
-> [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de Android](./quickstart-v2-android.md)
->
-> [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de iOS](./quickstart-v2-ios.md)
->
-> [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de Android y Xamarin iOS](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+- [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de Android](./quickstart-v2-android.md)
+- [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de iOS](./quickstart-v2-ios.md)
+- [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de Android y Xamarin iOS](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) (GitHub)
 
 ## <a name="overview"></a>Información general
 
@@ -59,6 +52,10 @@ Tenga en cuenta las siguientes consideraciones al compilar una aplicación móvi
 - En función de la plataforma, podría ser necesaria alguna interacción del usuario la primera vez que inicia sesión. Por ejemplo, iOS requiere que las aplicaciones muestren interacción del usuario cuando usan el inicio de sesión único por primera vez a través de Microsoft Authenticator (y Portal de empresa de Intune en Android).
 - En iOS y Android, MSAL podría usar un explorador externo para iniciar la sesión de los usuarios. El explorador externo podría aparecer en la parte superior de la aplicación.
 - Nunca use un secreto en una aplicación móvil. En estas aplicaciones, los secretos son accesibles para todos los usuarios.
+
+## <a name="recommended-reading"></a>Lecturas recomendadas
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

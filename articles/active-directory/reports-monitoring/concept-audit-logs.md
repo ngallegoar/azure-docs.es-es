@@ -13,20 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/17/2019
+ms.date: 09/17/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86eec0cf7108e2d3b47f7b98dbdaffe76be8afd8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 23cfc2ea17e1801ec4caeea9e8933cfdc72e33d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603519"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331257"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
 
 Con los informes de Azure Active Directory (Azure AD), puede obtener toda la información que necesita para determinar cómo funciona el entorno.
+
+
 
 Esta arquitectura de informes consta de los siguientes componentes:
 
@@ -45,7 +47,7 @@ En este artículo se proporciona información general del informe de auditoría.
 
 ## <a name="audit-logs"></a>Registros de auditoría
 
-Los registros de auditoría de Azure AD proporcionan registros de las actividades del sistema de cara al cumplimiento. Para acceder al informe de auditoría, seleccione **Registros de auditoría** en la sección **Supervisión** de **Azure Active Directory**. Tenga en cuenta que los registros de auditoría pueden tener una latencia de hasta una hora, por lo que los datos de la actividad de auditoría pueden tardar tiempo en aparecer en el portal una vez que haya completado la tarea.
+Los registros de auditoría de Azure AD proporcionan registros de las actividades del sistema de cara al cumplimiento. Para acceder al informe de auditoría, seleccione **Registros de auditoría** en la sección **Supervisión** de **Azure Active Directory**. 
 
 
 
@@ -62,15 +64,15 @@ Un registro de auditoría tiene una vista de lista predeterminada que muestra:
 
 Puede personalizar la vista de lista, haga clic en **Columnas** en la barra de herramientas.
 
-![Registros de auditoría](./media/concept-audit-logs/columns.png "Registros de auditoría")
+![Columnas de auditoría](./media/concept-audit-logs/columns.png "Columnas de auditoría")
 
 Esto le permite mostrar los campos adicionales o quitar los campos que ya se están mostrando.
 
-![Registros de auditoría](./media/concept-audit-logs/columnselect.png "Registros de auditoría")
+![Quitar campos](./media/concept-audit-logs/columnselect.png "Quitar campos")
 
 Seleccione un elemento de la vista de lista para obtener información más detallada.
 
-![Registros de auditoría](./media/concept-audit-logs/details.png "Registros de auditoría")
+![seleccionar elemento](./media/concept-audit-logs/details.png "Seleccionar elemento")
 
 
 ## <a name="filtering-audit-logs"></a>Filtrado de registros de auditoría
@@ -85,7 +87,7 @@ Puede filtrar los datos de auditoría por los siguientes campos:
 - Iniciado por (actor)
 - Intervalo de fechas
 
-![Registros de auditoría](./media/concept-audit-logs/filter.png "Registros de auditoría")
+![Objeto de filtro](./media/concept-audit-logs/filter.png "Filter, objeto")
 
 El filtro **Service** (Servicio) le permite seleccionar los siguientes servicios de una lista desplegable:
 
@@ -157,7 +159,7 @@ Cuando se selecciona un intervalo de tiempo personalizado, puede configurar una 
 
 También puede descargar los datos filtrados, hasta 250 000 registros, si selecciona el botón **Download** (Descargar). Puede descargar los registros en formato CSV o JSON. El número de registros que se puede descargar también está restringido por las [directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).
 
-![Registros de auditoría](./media/concept-audit-logs/download.png "Registros de auditoría")
+![Descarga de datos](./media/concept-audit-logs/download.png "Descarga de datos")
 
 ## <a name="audit-logs-shortcuts"></a>Métodos abreviados de los registros de auditoría
 
@@ -188,11 +190,11 @@ Con los informes de auditoría basadas en grupos y usuarios, puede obtener respu
 
 Si quiere revisar solo los datos de auditoría relacionados con los usuarios, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Supervisión** de la pestaña **Usuarios**. Este punto de entrada tiene **UserManagement** como categoría preseleccionada.
 
-![Registros de auditoría](./media/concept-audit-logs/users.png "Registros de auditoría")
+![User](./media/concept-audit-logs/users.png "Usuario")
 
 Si quiere revisar solo los datos de auditoría relacionados con los grupos, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Supervisión** de la pestaña **Grupos**. Este punto de entrada tiene **GroupManagement** como categoría preseleccionada.
 
-![Registros de auditoría](./media/concept-audit-logs/groups.png "Registros de auditoría")
+![Grupos de filtro](./media/concept-audit-logs/groups.png "Grupos de filtro")
 
 ### <a name="enterprise-applications-audit-logs"></a>Registros de auditoría de aplicaciones empresariales
 
@@ -206,7 +208,7 @@ Con los informes de auditoría basadas en aplicaciones, puede obtener respuestas
 
 Si quiere revisar los datos de auditoría relacionados con las aplicaciones, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la hoja **Aplicaciones empresariales**. Este punto de entrada tiene la opción **Aplicaciones empresariales** preseleccionada en **Tipo de aplicación**.
 
-![Registros de auditoría](./media/concept-audit-logs/enterpriseapplications.png "Registros de auditoría")
+![Aplicaciones empresariales](./media/concept-audit-logs/enterpriseapplications.png "Aplicaciones empresariales")
 
 ## <a name="microsoft-365-activity-logs"></a>Registros de actividad de Microsoft 365
 

@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f4eba1b48b651c8efe9e9d737e226727cb244fb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 779b29c8d31dffa495926a7f2ca5e1f77870078c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662475"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319918"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API de los puntos de conexión de Azure AD Connect Sync V2 (versión preliminar pública) 
 Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Connect que mejora el rendimiento de las operaciones del servicio de sincronización para Azure Active Directory. Al usar el nuevo punto de conexión V2, experimentará mejoras de rendimiento notables en la exportación y la importación respecto a Azure AD. Este nuevo punto de conexión admite lo siguiente:
@@ -116,12 +116,12 @@ Los siguientes pasos se pueden usar para aumentar el límite de pertenencia:
 1. Abra el editor de reglas de sincronización de Azure AD. 
 2. En el editor, elija **Saliente** para la dirección. 
 3. Haga clic en la regla de sincronización **Out to AAD – Group Join**. 
-4. Haga clic en el botón **Editar**. ![Editar regla de sincronización](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
+4. Haga clic en el botón **Editar** ![Captura de pantalla que muestra "View and manage your synchronization rules" (Ver y administrar las reglas de sincronización) con la opción "Out to AAD - Group Join" (Salida a AAD: Unión a grupo).](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
 
 6. Haga clic en el botón **Sí** para deshabilitar la regla predeterminada y crear una copia editable.
- ![Editar regla de sincronización](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
+ ![Captura de pantalla que muestra la ventana "Edit Reserved Rule Confirmation" (Editar confirmación de regla reservada) con el botón "Sí" seleccionado.](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
 
-7. En la ventana emergente de la página **Description**, establezca la prioridad en un valor disponible entre 1 y 99. ![Editar regla de sincronización](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
+7. En la ventana emergente de la página **Descripción**, establezca la precedencia en un valor disponible entre 1 y 99 ![Captura de pantalla que muestra la ventana "Edit outbound synchronization rule" (Editar regla de sincronización de salida) con la opción "Precedencia" resaltada.](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
 8. En la página **Transformations**, actualice el valor de **Source** por la transformación **member**, reemplazando "50000" por un valor comprendido entre 50001 y 250000. Este cambio aumentará el tamaño máximo de pertenencia de los grupos que se sincronizarán con Azure AD. Se recomienda comenzar con un número de 100 000 para saber el impacto que tendrá la sincronización de grupos grandes en el rendimiento de la sincronización. 
  

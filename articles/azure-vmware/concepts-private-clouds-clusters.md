@@ -3,14 +3,14 @@ title: Conceptos sobre nubes privadas y clústeres
 description: Obtenga información sobre las funcionalidades clave de los centros de datos definidos por software de VMware en Azure y los clústeres de vSphere en la solución de VMware en Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 06161d2ce95415ae3309d58ad18ad0d40b3782fb
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 715293d9951876ff0f794f8f6b580093f89571b3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752279"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316875"
 ---
-# <a name="azure-vmware-solution-preview-private-cloud-and-cluster-concepts"></a>Conceptos de nubes privadas y clústeres de Azure VMware Solution en versión preliminar
+#  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Conceptos de nubes privadas y clústeres de Azure VMware Solution
 
 Azure VMware Solution ofrece nubes privadas basadas en VMware en Azure. Las nubes privadas se crean a partir de clústeres de hosts dedicados sin sistema operativo, y se implementan y administran mediante Azure Portal. Los clústeres en las nubes privadas se aprovisionan con el software VMware vSphere, vCenter, vSAN y NSX. Las implementaciones de software y hardware en nubes privadas de Azure VMware Solution están totalmente integradas y automatizadas en Azure.
 
@@ -61,7 +61,7 @@ Las directivas y procesos de actualización generales del software de la platafo
 
 El mantenimiento y la administración del ciclo de vida de los hosts se realizan sin afectar a la capacidad ni al rendimiento de los clústeres de la nube privada. Entre los ejemplos de mantenimiento automatizado de los hosts se incluyen las actualizaciones de firmware y la reparación o sustitución de hardware.
 
-Microsoft es responsable de la administración del ciclo de vida de los dispositivos NSX-T, como NSX-T Manager y NSX-T Edge. Microsoft también es responsable de la configuración de la red de arranque, como la creación de la puerta de enlace de nivel 0 y la habilitación del enrutamiento vertical de arriba abajo. Como administrador de la nube privada de Azure VMware Solution, usted es responsable de la configuración de SDN de NSX-T, como los segmentos de red, las reglas de firewall distribuidas, las puertas de enlace de nivel 1 y los equilibradores de carga.
+Microsoft es responsable de la administración del ciclo de vida de los dispositivos NSX-T, como NSX-T Manager y NSX-T Edge. Microsoft también es responsable de la configuración de la red de arranque, como la creación de la puerta de enlace de nivel 0 y la habilitación del enrutamiento vertical de arriba abajo. El administrador de la nube privada de Azure VMware Solution es responsable de configurar SDN NSX-T. Por ejemplo, segmentos de red, reglas de firewall distribuidas, puertas de enlace de nivel 1 y equilibradores de carga.
 
 > [!IMPORTANT]
 > Un administrador de Azure VMware Solution no debe modificar la configuración de NSX-T Edge ni la puerta de enlace de nivel 0. Esto puede provocar una pérdida del servicio.

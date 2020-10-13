@@ -2,15 +2,17 @@
 title: Cómo usar las claves de creación y tiempo de ejecución - LUIS
 description: La primera vez que use Language Understanding (LUIS), no es necesario crear una clave de suscripción. Cuando quiera publicar la aplicación, use el punto de conexión en tiempo de ejecución; a continuación, debe crear y asignar la clave de tiempo de ejecución a la aplicación.
 services: cognitive-services
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 99f73399c410641be352111302b1d4999d1ebc1b
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 949ad4176cc7bf65e07e40323fc72a0a144b53b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565912"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327228"
 ---
 # <a name="create-luis-resources"></a>Creación de recursos de LUIS
 
@@ -27,9 +29,9 @@ LUIS permite tres tipos de recursos de Azure y uno que no es de Azure:
 
 |Recurso|Propósito|Cognitive Service `kind`|Cognitive Service `type`|
 |--|--|--|--|
-|Recurso de creación|Permite crear, administrar, entrenar, probar y publicar las aplicaciones. [Cree un recurso de creación de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-luis-resources-in-azure-portal) si quiere crear aplicaciones de LUIS mediante programación o desde el portal de LUIS. Primero debe [migrar su cuenta de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) para poder vincular los recursos de creación de Azure con su aplicación. Puede controlar los permisos para el recurso de creación mediante la asignación de usuarios al [rol de colaborador](#contributions-from-other-authors). <br><br> Hay un nivel disponible para el recurso de creación de LUIS:<br> * **Recurso de creación F0**, que le otorga 1 millón de transacciones de creación gratis y 1000 solicitudes de punto de conexión de predicción gratis al mes. |`LUIS.Authoring`|`Cognitive Services`|
-|Recurso de predicción| Después de publicar la aplicación de LUIS, use la clave o el recurso de predicción para consultar las solicitudes de puntos de conexión de predicción. Cree un recurso de predicción de LUIS antes de que la aplicación cliente solicite predicciones más allá de las 1000 solicitudes proporcionadas por el recurso de inicio o de creación. <br><br> Hay dos niveles disponibles para el recurso de predicción:<br> * **Recurso de predicción F0**, que le otorga 10 000 solicitudes de punto de conexión de predicción gratis al mes.<br> * **Recurso de predicción S0**, que es el nivel de pago. [Más información sobre los detalles de los precios](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
-|Recurso de inicio/evaluación|Permite crear, administrar, entrenar, probar y publicar las aplicaciones. Se crea de manera predeterminada si elige la opción del recurso de inicio al registrarse por primera vez en LUIS. Sin embargo, la clave de inicio quedará en desuso y todos los usuarios de LUIS tendrán que [migrar sus cuentas](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) y vincular sus aplicaciones de LUIS a un recurso de creación. Este recurso no proporciona permisos para el control de acceso basado en rol como el recurso de creación. <br><br> Al igual que el recurso de creación, el recurso de inicio le otorga 1 millón de transacciones de creación gratis y 1000 solicitudes de punto de conexión de predicción gratis.|-|No es un recurso de Azure|
+|Recurso de creación|Permite crear, administrar, entrenar, probar y publicar las aplicaciones. [Cree un recurso de creación de LUIS](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) si quiere crear aplicaciones de LUIS mediante programación o desde el portal de LUIS. Primero debe [migrar su cuenta de LUIS](luis-migration-authoring.md#what-is-migration) para poder vincular los recursos de creación de Azure con su aplicación. Puede controlar los permisos para el recurso de creación mediante la asignación de usuarios al [rol de colaborador](#contributions-from-other-authors). <br><br> Hay un nivel disponible para el recurso de creación de LUIS:<br> * **Recurso de creación F0 gratis**, que le otorga 1 millón de transacciones de creación gratis y 1000 solicitudes de punto de conexión de predicción de prueba gratis al mes. |`LUIS.Authoring`|`Cognitive Services`|
+|Recurso de predicción| Después de publicar la aplicación de LUIS, use la clave o el recurso de predicción para consultar las solicitudes de puntos de conexión de predicción. Cree un recurso de predicción de LUIS antes de que la aplicación cliente solicite predicciones más allá de las 1000 solicitudes proporcionadas por el recurso de inicio o de creación. <br><br> Hay dos niveles disponibles para el recurso de predicción:<br> * **Recurso de predicción F0 gratis**, que le otorga 10 000 solicitudes de punto de conexión de predicción gratis al mes.<br> * **Recurso de predicción S0 estándar**, que es el nivel de pago. [Más información sobre los detalles de los precios](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
+|Recurso de inicio/evaluación|Permite crear, administrar, entrenar, probar y publicar las aplicaciones. Se crea de manera predeterminada si elige la opción del recurso de inicio al registrarse por primera vez en LUIS. Sin embargo, la clave de inicio quedará en desuso y todos los usuarios de LUIS tendrán que [migrar sus cuentas](luis-migration-authoring.md#what-is-migration) y vincular sus aplicaciones de LUIS a un recurso de creación. Este recurso no proporciona permisos para el control de acceso basado en rol como el recurso de creación. <br><br> Al igual que el recurso de creación, el recurso de inicio le otorga 1 millón de transacciones de creación gratis y 1000 solicitudes de punto de conexión de predicción de prueba gratis.|-|No es un recurso de Azure|
 |[Clave de recursos de varios servicios de Cognitive Services](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Consulte las solicitudes de punto de conexión de predicción compartidas con LUIS y otros servicios de Cognitive Services admitidos.|`CognitiveServices`|`Cognitive Services`|
 
 

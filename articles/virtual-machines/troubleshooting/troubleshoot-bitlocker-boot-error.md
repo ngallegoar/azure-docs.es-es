@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: 23523a3618ad31e34a81152e48d4ee0f606e5aac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ac1105f1fce2ac04abfa8a809161580104952917
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088539"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404908"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Errores de inicio de BitLocker en una máquina virtual de Azure
 
@@ -43,7 +43,7 @@ Este problema puede producirse si la máquina virtual no puede encontrar el arch
 
 ## <a name="solution"></a>Solución
 
-Para resolver este problema, detenga y desasocie la máquina virtual y, a continuación, reiníciela. Esta operación hace que la máquina virtual recupere el archivo BEK desde Azure Key Vault y lo coloque en el disco cifrado. 
+Para resolver este problema, detenga y desasocie la máquina virtual y, a continuación, iníciela. Esta operación hace que la máquina virtual recupere el archivo BEK desde Azure Key Vault y lo coloque en el disco cifrado. 
 
 Si este método no resuelve el problema, siga estos pasos para restaurar el archivo BEK manualmente:
 

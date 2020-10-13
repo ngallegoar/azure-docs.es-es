@@ -1,6 +1,6 @@
 ---
 title: Creación de una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder (versión preliminar)
-description: Cree una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder.
+description: Creación de una nueva versión de una imagen de máquina virtual a partir de otra existente mediante Azure Image Builder en Linux.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: f233a6fc557d9dbb62585e8cca85f175b3bc3e26
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 142b4a85826b9e9a95b17dc631045aab603f3859
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010604"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307337"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>Vista previa: Creación de una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder en Linux
 

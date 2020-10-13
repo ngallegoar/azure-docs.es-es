@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9e909db0041979eb7bc4fc30bd9551382e83c488
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90892507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323644"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Descripción de la aplicación y la implementación en Azure Spring Cloud
 
@@ -29,11 +29,11 @@ El nivel estándar de Azure Spring Cloud permite que una aplicación tenga una i
 ## <a name="app"></a>Aplicación
 Las siguientes características o propiedades se definen en el nivel de aplicación.
 
-| Enum | Definición |
+| Características | Description |
 |:--|:----------------|
 | Público</br>Punto de conexión | Dirección URL para acceder a la aplicación |
 | Personalizado</br>Domain | Registro CNAME que protege el dominio personalizado |
-| Servicio</br>Enlace | Enlazar las propiedades de configuración establecidas en el archivo function.json y el atributo *ServiceBusTrigger* |
+| Servicio</br>Enlace | Conexión predeterminada con otros servicios de Azure |
 | Administrado</br>Identidad | La identidad administrada de Azure Active Directory permite a la aplicación acceder fácilmente a otros recursos protegidos por Azure AD, como Azure Key Vault |
 | Persistente</br>Storage | Configuración que permite que los datos se conserven más allá del reinicio de la aplicación |
 
@@ -41,14 +41,14 @@ Las siguientes características o propiedades se definen en el nivel de aplicaci
 
 Las siguientes características o propiedades se definen en el nivel de implementación y se intercambiarán al cambiar la implementación de producción o de almacenamiento provisional.
 
-| Enum | Definición |
+| Características | Descripción |
 |:--|:----------------|
 | CPU | Número de núcleos virtuales por instancia de aplicación |
-| Memoria | Configuración que asigna memoria para escalar vertical u horizontalmente las implementaciones |
+| Memoria | Número de GB de memoria por instancia de aplicación|
 | Instancia</br>Count | El número de instancias de aplicación, establecido manual o automáticamente |
 | Escalado automático | Escalado automático del recuento de instancias en función de reglas y programaciones predefinidas |
-| JVM</br>Opciones | Configuración: JAVA_OPTS |
-| Entorno</br>variables | Configuración aplicable al entorno de Azure Spring Cloud |
+| JVM</br>Opciones | Configuración de las opciones de JVM  |
+| Entorno</br>variables | Configuración de las variables de entorno |
 | Tiempo de ejecución</br>Versión | Java 8/Java 11|
 
 ## <a name="restrictions"></a>Restricciones

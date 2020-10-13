@@ -1,6 +1,6 @@
 ---
-title: Requisitos del sistema de Microsoft Azure Stack Edge Pro | Microsoft Docs
-description: Conozca los requisitos de software y de red de Azure Stack Edge Pro
+title: Requisitos del sistema de Microsoft Azure Stack Edge | Microsoft Docs
+description: Obtenga información sobre los requisitos del sistema de la solución Microsoft Azure Stack Edge y de los clientes que se conectan a Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 091d272ff00982a0d0a5ae44885a04cc62d7a4b4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899152"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320734"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisitos del sistema de Azure Stack Edge Pro con GPU 
 

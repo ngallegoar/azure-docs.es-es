@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 336409b8b6f804b224b87d5fb11fded0654b8619
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0cdc9e242c2254cafaf0af75bcb8f8879cf3eb58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895520"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287835"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Características admitidas de Azure Synapse Link (versión preliminar) para Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Hay dos tipos de contenedores en Azure Cosmos DB:
 > [!IMPORTANT]
 > Azure Synapse Link para Azure Cosmos DB es actualmente compatible con las áreas de trabajo de Synapse que no tienen habilitada la red virtual administrada. 
 
-Puede conectarse a un contenedor de Azure Cosmos DB sin habilitar Synapse Link, en cuyo caso solo podrá leer o escribir contenido en el almacén transaccional. A continuación, se muestra la lista de las características admitidas actualmente en Synapse Link para Azure Cosmos DB. 
+Puede conectarse a un contenedor de Azure Cosmos DB sin habilitar Synapse Link. En este escenario, solo se puede leer y escribir en el almacén transaccional. A continuación, se muestra la lista de las características admitidas actualmente en Synapse Link para Azure Cosmos DB. 
 
 | Category              | Descripción |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL sin servidor](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
@@ -39,9 +39,9 @@ Puede conectarse a un contenedor de Azure Cosmos DB sin habilitar Synapse Link, 
 | **Lectura**    | Tipo de contenedor de Azure Cosmos DB que se puede leer | OLTP/HTAP | HTAP  |
 | **Escritura**   | ¿Se puede usar el tiempo de ejecución de Azure Synapse para escribir datos en un contenedor de Azure Cosmos DB? | Sí | No |
 
-* Si escribe datos en un contenedor de Azure Cosmos DB desde Spark, esto se llevará a cabo a través del almacén transaccional de Azure Cosmos DB y afectará al rendimiento de las cargas de trabajo transaccionales de Azure Cosmos DB y consumirá unidades de solicitud.
-* Actualmente no se admite la integración del grupo de Synapse SQL a través de tablas externas.
-
+* Si escribe datos en un contenedor de Azure Cosmos DB desde Spark, este proceso se lleva a cabo a través del almacén transaccional de Azure Cosmos DB. Esta operación afectará al rendimiento transaccional de Azure Cosmos DB al consumir unidades de solicitud.
+* Actualmente, no se admite la integración del grupo de SQL a través de tablas externas.
+ 
 ## <a name="supported-code-generated-actions-for-spark"></a>Acciones generadas por el código compatibles con Spark
 
 | Gesto              | Descripción |OLTP |HTAP  |
@@ -51,7 +51,6 @@ Puede conectarse a un contenedor de Azure Cosmos DB sin habilitar Synapse Link, 
 | **Escribir un DataFrame en el contenedor** |Permite escribir un DataFrame en el contenedor.|✓| ✓ |
 | **Cargar un DataFrame de streaming desde un contenedor** |Permite hacer streaming de datos con la fuente de cambios de Azure Cosmos DB.|✓| ✓ |
 | **Escribir un DataFrame de streaming en un contenedor** |Permite hacer streaming de datos con la fuente de cambios de Azure Cosmos DB.|✓| ✓ |
-
 
 
 ## <a name="supported-code-generated-actions-for-sql-serverless"></a>Acciones generadas por el código compatibles con SQL sin servidor

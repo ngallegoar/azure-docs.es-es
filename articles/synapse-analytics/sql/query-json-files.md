@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 04b2d7842222426010b76a1a7ed4c72ee74e3d87
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0757c867d46144ac9fb9b9eca8b2a588aeeb15d6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489731"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288331"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consulta de archivos JSON con SQL a petición (versión preliminar) en Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ En este artículo, aprenderá a escribir una consulta con SQL a petición (versi
 
 ## <a name="read-json-documents"></a>Lectura de documentos JSON
 
-La forma más fácil de ver el contenido del archivo JSON es proporcionar la dirección URL del archivo a la función `OPENROWSET`, especificar el elemento `FORMAT` de csv y establecer los valores `0x0b`para `fieldterminator` y `fieldquote`. Si necesita leer archivos JSON delimitados por líneas, esto es suficiente. Si tiene un archivo JSON clásico, debería establecer valores `0x0b` para `rowterminator`. La función `OPENROWSET` analizarán JSON y devolverá cada documento en el formato siguiente:
+La forma más fácil de ver el contenido del archivo JSON es proporcionar la dirección URL del archivo a la función `OPENROWSET`, especificar el elemento `FORMAT` de CSV y establecer los valores `0x0b` para `fieldterminator` y `fieldquote`. Si necesita leer archivos JSON delimitados por líneas, esto es suficiente. Si tiene un archivo JSON clásico, debería establecer valores `0x0b` para `rowterminator`. La función `OPENROWSET` analizarán JSON y devolverá cada documento en el formato siguiente:
 
 | doc |
 | --- |
@@ -33,7 +33,7 @@ La forma más fácil de ver el contenido del archivo JSON es proporcionar la dir
 |{"date_rep":"2020-07-26","day":26,"month":7,"year":2020,"cases":4,"deaths":0,"geo_id":"AF"}|
 |{"date_rep":"2020-07-27","day":27,"month":7,"year":2020,"cases":8,"deaths":0,"geo_id":"AF"}|
 
-Si el archivo está disponible públicamente o si la identidad de Azure AD puede tener acceso a este archivo, debería poder ver el contenido del archivo mediante la consulta como la que se muestra en los ejemplos siguientes.
+Si el archivo está disponible públicamente o si la identidad de Azure AD puede acceder a este archivo, debería poder ver el contenido del archivo mediante una consulta como la que se muestra en los ejemplos siguientes.
 
 ### <a name="read-json-files"></a>Lectura de archivos JSON
 
@@ -58,7 +58,7 @@ from openrowset(
     ) with (doc nvarchar(max)) as rows
 ```
 
-Esta consulta devolverá cada documento JSON como una fila independiente del conjunto de resultados. Asegúrese de que puede tener acceso a este archivo. Si el archivo está protegido con una clave SAS o una identidad personalizada, necesitaría configurar una [credencial de nivel de servidor para el inicio de sesión de SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
+Esta consulta devolverá cada documento JSON como una fila independiente del conjunto de resultados. Asegúrese de que puede tener acceso a este archivo. Si el archivo está protegido con una clave SAS o una identidad personalizada, deberá configurar una [credencial de nivel de servidor para el inicio de sesión de SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
 
 ### <a name="data-source-usage"></a>Uso del origen de datos
 

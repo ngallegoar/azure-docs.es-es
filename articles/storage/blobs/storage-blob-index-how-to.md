@@ -1,6 +1,6 @@
 ---
-title: Uso del índice de blobs para administrar y buscar datos en Azure Blob Storage
-description: Vea ejemplos de cómo usar etiquetas de índice de blobs para categorizar, administrar y consultar a fin de detectar objetos de blobs.
+title: Uso de etiquetas de índice de blobs para administrar y buscar datos en Azure Blob Storage
+description: Vea ejemplos de cómo usar etiquetas de índice de blobs para clasificar, administrar y consultar objetos de blobs.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 04/24/2020
@@ -9,21 +9,21 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adc510ef89a912e6d76949794aacbf130a8f066d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 41a21545939c5d15c8e2c4034a9648e98aa5a73e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018882"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280290"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Uso de etiquetas de índice de blobs (versión preliminar) para administrar y buscar datos en Azure Blob Storage
 
-Las etiquetas de índice de blobs clasifican los datos de la cuenta de almacenamiento mediante atributos de etiqueta de clave-valor. Estas etiquetas se indexan y se exponen automáticamente como un índice multidimensional que se puede consultar para encontrar fácilmente los datos. En este artículo se muestra cómo establecer, obtener y buscar datos mediante etiquetas de índice de blobs.
+Las etiquetas de índice de blobs clasifican los datos de la cuenta de almacenamiento mediante atributos de etiqueta clave-valor. Estas etiquetas se indexan y se exponen automáticamente como un índice multidimensional que se puede consultar para encontrar fácilmente los datos. En este artículo se muestra cómo establecer, obtener y buscar datos mediante etiquetas de índice de blobs.
 
-Para más información sobre el índice de blobs, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
+Para más información sobre la característica de índice de blobs, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
 
 > [!NOTE]
-> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Canadá**, **Este de Canadá**, **Centro de Francia** y **Sur de Francia**. Para más información sobre esta característica junto con las limitaciones y los problemas conocidos, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
+> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Canadá**, **Este de Canadá**, **Centro de Francia** y **Sur de Francia**. Para más información sobre esta característica junto con las limitaciones y los problemas conocidos, consulte [Administración y búsqueda de datos en Azure Blob Storage con el índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 # <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -86,7 +86,7 @@ static async Task BlobIndexTagsOnCreate()
           // Create an append blob
           AppendBlobClient appendBlobWithTags = container.GetAppendBlobClient("myAppendBlob0.logs");
 
-          // Blob Index tags to upload
+          // Blob index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
           {
@@ -139,7 +139,7 @@ static async Task BlobIndexTagsExample()
           AppendBlobClient appendBlob = container.GetAppendBlobClient("myAppendBlob1.logs");
           await appendBlob.CreateAsync();
 
-          // Set or Update Blob Index tags on existing blob
+          // Set or update blob index tags on existing blob
           Dictionary<string, string> tags = new Dictionary<string, string>
           {
               { "Project", "Contoso" },
@@ -148,7 +148,7 @@ static async Task BlobIndexTagsExample()
           };
           await appendBlob.SetTagsAsync(tags);
 
-          // Get Blob Index tags
+          // Get blob index tags
           Response<IDictionary<string, string>> tagsResponse = await appendBlob.GetTagsAsync();
           Console.WriteLine(appendBlob.Name);
           foreach (KeyValuePair<string, string> tag in tagsResponse.Value)
@@ -156,7 +156,7 @@ static async Task BlobIndexTagsExample()
               Console.WriteLine($"{tag.Key}={tag.Value}");
           }
 
-          // List Blobs with all options returned including Blob Index tags
+          // List blobs with all options returned including blob index tags
           await foreach (BlobItem blobItem in container.GetBlobsAsync(BlobTraits.All))
           {
               Console.WriteLine(Environment.NewLine + blobItem.Name);
@@ -166,7 +166,7 @@ static async Task BlobIndexTagsExample()
               }
           }
 
-          // Delete existing Blob Index tags by replacing all tags
+          // Delete existing blob index tags by replacing all tags
           Dictionary<string, string> noTags = new Dictionary<string, string>();
           await appendBlob.SetTagsAsync(noTags);
 
@@ -191,7 +191,7 @@ En Azure Portal, el filtro de las etiquetas de índice de blobs aplica automáti
 
 3. Seleccione el botón **Blob Index tags filter** (Filtro de etiquetas de índice de blobs) para filtrar en el contenedor seleccionado.
 
-4. Escriba una clave de etiqueta de índice de blobs y un valor de etiqueta.
+4. Entrada de un valor de clave y etiqueta de índice de blobs
 
 5. Seleccione el botón **Blob Index tags filter** (Filtro de etiquetas de índice de blobs) para agregar filtros de etiquetas adicionales (hasta diez).
 
@@ -205,7 +205,7 @@ static async Task FindBlobsByTagsExample()
       BlobContainerClient container1 = serviceClient.GetBlobContainerClient("mycontainer");
       BlobContainerClient container2 = serviceClient.GetBlobContainerClient("mycontainer2");
 
-      // Blob Index queries and selection
+      // Blob index queries and selection
       String singleEqualityQuery = @"""Archive"" = 'false'";
       String andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
       String rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
@@ -227,7 +227,7 @@ static async Task FindBlobsByTagsExample()
           AppendBlobClient appendBlobWithTags4 = container2.GetAppendBlobClient("myAppendBlob04.logs");
           AppendBlobClient appendBlobWithTags5 = container2.GetAppendBlobClient("myAppendBlob05.logs");
            
-          // Blob Index tags to upload
+          // Blob index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
           {
@@ -286,19 +286,18 @@ static async Task FindBlobsByTagsExample()
 
 3. Seleccione *Agregar regla* y rellene los campos del formulario Conjunto de acciones.
 
-4. Seleccione Conjunto de filtros para agregar un filtro opcional para Coincidencia de prefijo y Coincidencia del índice de blobs. ![Adición de filtros de etiquetas de índice de blobs para la administración del ciclo de vida](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
+4. Seleccione **Conjunto de filtros** para agregar un filtro opcional para la coincidencia de prefijo y la coincidencia de índice de blobs. ![Adición de filtros de etiquetas de índice de blobs para la administración del ciclo de vida](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
 
 5. Seleccione **Revisar y agregar** para revisar la configuración de la regla. ![Regla de administración del ciclo de vida con ejemplo de filtro de etiquetas de índice de blobs](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
 
 6. Seleccione **Agregar** para aplicar la nueva regla a la directiva de administración del ciclo de vida.
 
 # <a name="net"></a>[.NET](#tab/net)
-Las directivas de [administración del ciclo de vida](storage-lifecycle-management-concepts.md) se aplican a cada cuenta de almacenamiento en el nivel del plano de control. En .NET, instale [Microsoft Azure Management Storage Library, versión 16.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) o superior para aprovechar el filtro de coincidencia de índice de blobs de una regla de administración del ciclo de vida.
+Las directivas de [administración del ciclo de vida](storage-lifecycle-management-concepts.md) se aplican a cada cuenta de almacenamiento en el nivel del plano de control. Para .NET, instale la [versión 16.0.0 de la biblioteca de almacenamiento de Microsoft Azure Management](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/), o una versión posterior, para aprovechar el filtro de coincidencia de índice de blobs dentro de una regla de administración del ciclo de vida.
 
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre el índice de blobs. Consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md ).
-
-Más información sobre la administración del ciclo de vida. Consulte [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md).
+ - Para más información sobre el índice de blobs, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md ).
+ - Más información sobre la administración del ciclo de vida. Consulte [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md).

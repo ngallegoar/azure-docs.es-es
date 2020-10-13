@@ -2,66 +2,63 @@
 title: Implementación de paquetes de aplicación en nodos de proceso
 description: Utilice la característica paquetes de aplicación de Azure Batch para administrar fácilmente varias aplicaciones y versiones para la instalación en nodos de proceso de Batch.
 ms.topic: how-to
-ms.date: 09/16/2020
-ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 0d705ca731c40563deaeb02c29da120211db7ff4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/24/2020
+ms.custom:
+- H1Hack27Feb2017
+- devx-track-csharp
+- contperfq1
+ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985044"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277706"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
 
-La característica de paquetes de aplicación de Azure Batch permite administrar fácilmente las aplicaciones de tareas y su implementación en nodos de proceso de los grupos. Los paquetes de aplicación pueden simplificar el código de su solución de Batch y reducir la sobrecarga requerida para administrar las aplicaciones que ejecutan las tareas. Con paquetes de aplicación, puede cargar y administrar fácilmente varias versiones de las aplicaciones que las tareas ejecutan, incluidos los archivos auxiliares. A continuación, se pueden implementar automáticamente una o varias de estas aplicaciones en los nodos de proceso del grupo.
-
-Los paquetes de aplicación pueden ayudar a los clientes a seleccionar las aplicaciones para sus trabajos y especificar la versión exacta que deben usar al procesar los trabajos con el servicio habilitado para Batch. También puede proporcionar a los clientes la capacidad de cargar y hacer un seguimiento de sus propias aplicaciones en el servicio.
+Los paquetes de aplicación pueden simplificar el código de la solución de Azure Batch y facilitar la administración de las aplicaciones que las tareas ejecutan. Con paquetes de aplicación, puede cargar y administrar varias versiones de las aplicaciones que las tareas ejecutan, incluidos los archivos auxiliares. A continuación, se pueden implementar automáticamente una o varias de estas aplicaciones en los nodos de proceso del grupo.
 
 Las API para crear y administrar paquetes de aplicaciones forman parte de la biblioteca [Batch Management .NET](/dotnet/api/overview/azure/batch/management). Las API para la instalación de paquetes de aplicaciones en un nodo de proceso forman parte de la biblioteca de [Batch para .NET](/dotnet/api/overview/azure/batch/client). Las características comparables están en las API de Batch disponibles para otros idiomas.
 
-En este artículo se explica cómo cargar y administrar paquetes de aplicación en Azure Portal y cómo instalarlos en los nodos de proceso de un grupo con la biblioteca de [Batch para .NET](/dotnet/api/overview/azure/batch/client).
+En este artículo, se explica cómo cargar y administrar paquetes de aplicación en Azure Portal. También se muestra cómo instalarlos en los nodos de proceso de un grupo mediante la biblioteca de [.NET para Batch](/dotnet/api/overview/azure/batch/client).
 
 ## <a name="application-package-requirements"></a>Requisitos de los paquetes de aplicación
 
 Para utilizar paquetes de aplicación, primero se debe [vincular una cuenta de Azure Storage](#link-a-storage-account) a su cuenta de Batch.
 
-Hay restricciones en el número de aplicaciones y paquetes de aplicación que puede haber en una cuenta de Batch, así como en el tamaño máximo del paquete de aplicación. Para más información sobre estos límites, consulte [Cuotas y límites del servicio Azure Batch](batch-quota-limit.md) .
+Hay restricciones en el número de aplicaciones y paquetes de aplicación que puede haber en una cuenta de Batch, así como en el tamaño máximo del paquete de aplicación. Para más información, consulte [Límites y cuotas del servicio Azure Batch](batch-quota-limit.md).
 
 > [!NOTE]
-> Los grupos de Batch creados antes del 5 de julio de 2017 no admiten paquetes de aplicación (a menos que se hayan creado después del 10 de marzo de 2016 mediante la configuración de Cloud Services).
->
-> La característica de paquetes de aplicaciones que se describe aquí reemplaza a la característica de aplicaciones de Batch disponible en versiones anteriores del servicio.
+> Los grupos de Batch creados antes del 5 de julio de 2017 no admiten paquetes de aplicación (a menos que se hayan creado después del 10 de marzo de 2016 mediante la configuración de Cloud Services). La característica de paquetes de aplicaciones que se describe aquí reemplaza a la característica de aplicaciones de Batch disponible en versiones anteriores del servicio.
 
-## <a name="about-applications-and-application-packages"></a>Acerca de las aplicaciones y los paquetes de aplicación
+## <a name="understand-applications-and-application-packages"></a>Aplicaciones y paquetes de aplicación
 
-En Azure Batch, una *aplicación* hace referencia a un conjunto de archivos binarios con versiones que se pueden descargar automáticamente en los nodos de proceso del grupo. Un *paquete de aplicación* hace referencia a un conjunto específico de dichos archivos binarios y representa una versión determinada de la aplicación.
+En Azure Batch, una *aplicación* hace referencia a un conjunto de archivos binarios con versiones que se pueden descargar automáticamente en los nodos de proceso del grupo. Una aplicación contiene uno o varios *paquetes de aplicación*, que representan diferentes versiones de la aplicación.
+
+Cada *paquete de aplicación* es un archivo .zip que contiene los archivos binarios de la aplicación y los archivos auxiliares. Solo se admite el formato. zip.
 
 :::image type="content" source="media/batch-application-packages/app_pkg_01.png" alt-text="Diagrama que muestra una vista de alto nivel de aplicaciones y paquetes de aplicación.":::
 
-Una *aplicación* en Batch contiene uno o más paquetes de aplicación y especifica las opciones de configuración de la aplicación. Por ejemplo, una aplicación puede especificar la versión predeterminada del paquete de aplicación que se instala en los nodos de proceso y si sus paquetes se pueden actualizar o eliminar.
-
-Un *paquete de aplicación* es un archivo .zip que contiene los archivos binarios de la aplicación y los archivos auxiliares que se requieren para que las tareas ejecuten la aplicación. Cada paquete de aplicación representa una versión específica de la aplicación. Solo se admite el formato. zip.
-
-Los paquetes de aplicaciones se pueden especificar a niveles de grupo o de tarea. Puede especificar uno o varios de estos paquetes y (opcionalmente) una versión cuando crea un grupo o tarea.
+Los paquetes de aplicación se pueden especificar en el nivel de grupo o de tarea.
 
 - **paquetes de aplicación del grupo** se implementan en cada nodo del grupo. Las aplicaciones se implementan cuando un nodo se une a un grupo y cuando se reinicia o se restablece la imagen inicial.
   
-    Los paquetes de aplicación de grupo son adecuados cuando todos los nodos de un grupo ejecutan las tareas de un trabajo. Puede especificar uno o más paquetes de aplicación cuando se crea un grupo y puede agregar o actualizar los paquetes de un grupo ya existente. Si actualiza los paquetes de aplicaciones de un grupo existente, debe reiniciar los nodos para instalar el nuevo paquete.
+    Los paquetes de aplicación de grupo son adecuados cuando todos los nodos de un grupo van a ejecutar las tareas de un trabajo. Al crear un grupo, puede especificar uno o varios paquetes de aplicación para implementarlos. También puede agregar o actualizar los paquetes de un grupo existente. Para instalar un nuevo paquete en un grupo existente, debe reiniciar sus nodos.
 
 - **paquetes de aplicación de tareas** solo se implementan en un nodo de proceso programado para ejecutar una tarea, justo antes de ejecutar la línea de comandos de la tarea. Si el paquete de aplicación y la versión especificados ya están en el nodo, este no se volverá a implementar y se utilizará el paquete existente.
   
-    Los paquetes de aplicaciones de tareas son útiles en entornos de grupo compartido, donde los distintos trabajos se ejecutan en un grupo que no se elimina cuando se completa un trabajo. Si el trabajo tiene menos tareas que nodos en el grupo, los paquetes de aplicación de las tareas pueden minimizar la transferencia de datos, ya que la aplicación se implementa solo en los nodos que ejecutan tareas.
+    Los paquetes de aplicaciones de tareas son útiles en entornos de grupo compartido, donde distintos trabajos se ejecutan en un grupo que no se elimina cuando se completa un trabajo. Si el trabajo tiene menos tareas que nodos en el grupo, los paquetes de aplicación de las tareas pueden minimizar la transferencia de datos, ya que la aplicación se implementa solo en los nodos que ejecutan tareas.
   
-    Otros escenarios que pueden beneficiarse de los paquetes de aplicación de tareas son los trabajos que ejecutan una aplicación grande, pero solo para unas pocas tareas. Por ejemplo, en una fase previa al procesamiento o una tarea de combinación, donde la aplicación de procesamiento previo o combinación es pesada, puede ser útil usar paquetes de aplicación de tareas.
+    Otros escenarios que pueden beneficiarse de los paquetes de aplicación de tareas son los trabajos que ejecutan una aplicación grande, pero solo para unas pocas tareas. Por ejemplo, las aplicaciones de tareas pueden ser útiles para una fase de procesamiento previo pesada o una tarea de combinación.
 
-Con los paquetes de aplicación, la tarea de inicio del grupo no tiene que especificar una larga lista de archivos de recursos individuales que se deben instalar en los nodos. No es preciso administrar manualmente varias versiones de los archivos de la aplicación en Azure Storage ni en los nodos. Y tampoco es preciso preocuparse de generar [direcciones URL de SAS](../storage/common/storage-sas-overview.md) para proporcionar acceso a los archivos de su cuenta de Almacenamiento. Batch funciona en segundo plano con Azure Storage para almacenar paquetes de aplicación e implementarlos en los nodos de proceso.
+Con los paquetes de aplicación, la tarea de inicio del grupo no tiene que especificar una larga lista de archivos de recursos individuales que se deben instalar en los nodos. No es preciso administrar manualmente varias versiones de los archivos de la aplicación en Azure Storage ni en los nodos. Tampoco es preciso preocuparse de generar [direcciones URL de SAS](../storage/common/storage-sas-overview.md) para proporcionar acceso a los archivos de su cuenta de almacenamiento. Batch funciona en segundo plano con Azure Storage para almacenar paquetes de aplicación e implementarlos en los nodos de proceso.
 
 > [!NOTE]
-> El tamaño total de una tarea de inicio debe ser menor o igual a 32 768 caracteres, incluidos los archivos de recursos y las variables de entorno. Si la tarea de inicio supera este límite, en este caso usar paquetes de aplicación es otra opción. Puede crear también un archivo .zip que contenga los archivos de recursos, cargarlo como un blob en Azure Storage y luego descomprimirlo desde la línea de comandos de la tarea de inicio.
+> El tamaño total de una tarea de inicio debe ser menor o igual a 32 768 caracteres, incluidos los archivos de recursos y las variables de entorno. Si la tarea de inicio supera este límite, otra opción es usar paquetes de aplicación. Puede crear también un archivo .zip que contenga los archivos de recursos, cargarlo como un blob en Azure Storage y luego descomprimirlo desde la línea de comandos de la tarea de inicio.
 
 ## <a name="upload-and-manage-applications"></a>Carga y administración de aplicaciones
 
-Puede usar [Azure Portal](https://portal.azure.com) o las API de Batch Management para administrar los paquetes de aplicaciones en la cuenta de Batch. En las siguientes secciones, primero se muestra cómo vinculará primero una cuenta de Storage y, después, se analizará la incorporación de paquetes y aplicaciones y su administración con el portal.
+Puede usar [Azure Portal](https://portal.azure.com) o las API de Batch Management para administrar los paquetes de aplicaciones en la cuenta de Batch. En las secciones siguientes se explica cómo vincular una cuenta de almacenamiento y cómo agregar y administrar aplicaciones y paquetes de aplicación en Azure Portal.
 
 ### <a name="link-a-storage-account"></a>Vínculo a una cuenta de almacenamiento
 
@@ -88,19 +85,19 @@ Al seleccionar esta opción de menú se abre la ventana **Aplicaciones**. Esta v
 - **Versión predeterminada**: si procede, versión de la aplicación que se instalará si no se especifica ninguna versión al implementar la aplicación.
 - **Permitir actualizaciones**: especifica si se permiten las actualizaciones y eliminaciones de paquetes.
 
-Si quiere ver la [estructura de archivos](files-and-directories.md) del paquete de aplicación en su nodo de ejecución, diríjase a su cuenta de Batch en Azure Portal. Seleccione **Grupos** y elija el grupo que contiene los nodos de ejecución en los que está interesado. A continuación, seleccione el nodo de ejecución en el que está instalado el paquete de aplicación y abra la carpeta **Aplicaciones**.
+Si quiere ver la [estructura de archivos](files-and-directories.md) del paquete de aplicación en un nodo de proceso, vaya a su cuenta de Batch en Azure Portal. Seleccione **Grupos**. Seleccione el grupo que contiene los nodos de proceso. Seleccione el nodo de proceso en el que está instalado el paquete de aplicación y abra la carpeta **applications**.
 
 ### <a name="view-application-details"></a>Visualización de los detalles de una aplicación
 
 Para consultar los detalles de una aplicación, selecciónela en la ventana **Aplicaciones**. Puede configurar los siguientes valores para la aplicación.
 
-- **Permitir actualizaciones**: indica si sus paquetes de aplicación se pueden [actualizar o eliminar](#update-or-delete-an-application-package). El valor predeterminado es **Sí**. Si se establece en **No**, no se permitirán actualizaciones ni eliminaciones de paquetes para la aplicación, aunque se pueden agregar nuevas versiones de paquetes de aplicación.
+- **Permitir actualizaciones**: indica si sus paquetes de aplicación se pueden [actualizar o eliminar](#update-or-delete-an-application-package). El valor predeterminado es **Sí**. Si se establece en **No**, los paquetes de aplicación existentes no se pueden actualizar ni eliminar, pero todavía se pueden agregar nuevas versiones de paquetes de aplicación.
 - **Versión predeterminada**: paquete de aplicación predeterminado que se utilizará cuando se implemente la aplicación si no se especifica ninguna versión.
 - **Nombre para mostrar**: nombre descriptivo que la solución de Batch puede usar cuando muestra información sobre la aplicación. Por ejemplo, este nombre se puede usar en la interfaz de usuario de un servicio que se proporciona a los clientes a través de Batch.
 
 ### <a name="add-a-new-application"></a>Adición de una nueva aplicación
 
-Para crear una aplicación, agregue un paquete de aplicación y especifique un identificador de aplicación nuevo y exclusivo.
+Para crear una aplicación, agregue un paquete de aplicación y especifique un identificador de aplicación único.
 
 En la cuenta de Batch, seleccione **Aplicaciones** y luego elija **Agregar**.
 
@@ -143,7 +140,7 @@ Ahora que ha aprendido cómo administrar paquetes de aplicación en Azure Portal
 
 ### <a name="install-pool-application-packages"></a>Instalación de paquetes de aplicación de grupos
 
-Para instalar un paquete de aplicación en todos los nodos de proceso de un grupo, especifique una o varias referencias de paquetes de aplicación para el grupo. Los paquetes de aplicación que especifique para un grupo se instalan en cada nodo de proceso cuando este se una al grupo, además de cuando se reinicie o se restablezca la imagen inicial.
+Para instalar un paquete de aplicación en todos los nodos de proceso de un grupo, especifique una o varias referencias de paquetes de aplicación para el grupo. Los paquetes de aplicación que especifique para un grupo se instalan en cada nodo de proceso que se une al grupo, y en cualquier nodo que se reinicie o del que se restablezca la imagen inicial.
 
 En el entorno de .NET para Batch, especifique uno o varios valores [CloudPool.ApplicationPackageReferences](/dotnet/api/microsoft.azure.batch.cloudpool.applicationpackagereferences) al crear un grupo o utilizar un grupo existente. La clase [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) especifica una versión y un identificador de la aplicación que se va a instalar en los nodos de proceso de un grupo.
 
@@ -170,7 +167,7 @@ await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Si, por cualquier motivo, se produce un error en una implementación del paquete de aplicación, el servicio Batch marca el nodo como [inutilizable](/dotnet/api/microsoft.azure.batch.computenode.state) y no se programarán tareas de ejecución en ese nodo. En este caso, debería reiniciar el nodo para reiniciar la implementación del paquete. Al reiniciar el nodo, también se vuelve a habilitar la programación de tareas en el nodo.
+> Si la implementación de un paquete de aplicación produce un error, el servicio Batch marca el nodo como [inutilizable](/dotnet/api/microsoft.azure.batch.computenode.state) y no se programarán tareas de ejecución en ese nodo. Si esto sucede, reinicie el nodo para reiniciar la implementación del paquete. Al reiniciar el nodo, también se vuelve a habilitar la programación de tareas en el nodo.
 
 ### <a name="install-task-application-packages"></a>Instalación de paquetes de aplicación de tareas
 
@@ -246,7 +243,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## <a name="update-a-pools-application-packages"></a>Actualización de los paquetes de aplicación de un grupo
 
-Si un grupo existente ya se ha configurado con un paquete de aplicación, se puede especificar un paquete nuevo para el grupo. Si especifica una nueva referencia de paquete para un grupo, se aplica lo siguiente:
+Si un grupo existente ya se ha configurado con un paquete de aplicación, se puede especificar un paquete nuevo para el grupo. Esto significa lo siguiente:
 
 - El servicio Batch instala el paquete recién especificado en todos los nodos nuevos que se unen al grupo y en cualquier nodo existente que se reinicie o cuya imagen inicial se restablezca.
 - Los nodos de proceso que ya estén en el grupo cuando se actualicen las referencias del paquete no instalan automáticamente el paquete de aplicación nuevo. Estos nodos de proceso deben reiniciarse o se debe restablecer su imagen inicial para recibir el nuevo paquete.

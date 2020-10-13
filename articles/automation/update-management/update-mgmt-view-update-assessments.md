@@ -3,18 +3,18 @@ title: Visualización de las valoraciones de actualizaciones de Azure Automation
 description: En este artículo se explica cómo ver las valoraciones de actualizaciones para las implementaciones de Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 92861304a946e357b2b265cd825eceb8e22f7d2d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2e32fc7c1872bf18b7f1c995f281a9b09ec45dc8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264487"
 ---
-# <a name="view-update-assessments"></a>Visualización de valoraciones de las actualizaciones
+# <a name="view-update-assessments-in-update-management"></a>Visualización de las evaluaciones de las actualizaciones en Update Management
 
-En Update Management, puede ver información sobre las máquinas, las actualizaciones que faltan, las implementaciones de actualizaciones y las implementaciones de actualizaciones programadas.
+En Update Management, puede ver información sobre las máquinas, las actualizaciones que faltan, las implementaciones de actualizaciones y las implementaciones de actualizaciones programadas. Puede ver la información sobre la evaluación en el ámbito de la máquina virtual de Azure seleccionada, desde el servidor habilitado para Arc seleccionado o la cuenta de Automation en todos los equipos y servidores configurados.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -22,27 +22,33 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com)
 
 ## <a name="view-update-assessment"></a>Ver evaluación de la actualización
 
+Para ver la evaluación de las actualizaciones desde una máquina virtual de Azure, vaya a **Máquinas virtuales** y seleccione la máquina virtual en la lista. En el menú de la izquierda, seleccione **Actualizaciones de invitado y host** y, a continuación, seleccione **Ir a Update Management** en la página **Actualizaciones de invitado y host**.
+
 En Update Management, puede ver información sobre las máquinas, las actualizaciones que faltan, las implementaciones de actualizaciones y las implementaciones de actualizaciones programadas.
+
+[ ![Vista de la evaluación de Update Management de las máquinas virtuales de Azure](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm.png)](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
+
+Para ver la evaluación de la actualización desde un servidor habilitado para Arc, vaya a **Servidores: Azure Arc** y seleccione el servidor en la lista. En el menú de la izquierda, seleccione **Actualizaciones de invitado y host**. En la página **Actualizaciones de invitado y host**, seleccione **Ir a Update Management**.
+
+En Update Management, puede ver información sobre la máquina habilitada para Arc, las actualizaciones que faltan, las implementaciones de actualizaciones y las implementaciones de actualizaciones programadas.
+
+[ ![Vista de la evaluación de Update Management de los servidores habilitados para Arc](./media/update-mgmt-view-update-assessments/update-assessment-arc-server.png)](./media/update-mgmt-view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
+
+Para ver la evaluación de las actualizaciones en todos los equipos, incluidos los servidores habilitados para Arc de la cuenta de Automation, vaya a **Cuentas de Automation** y, en la lista, seleccione su cuenta de Automation con Update Management habilitado. En su cuenta de Automation, seleccione **Administración de actualizaciones** en el menú de la izquierda.
+
+Las actualizaciones de su entorno se muestran en la página **Administración de actualizaciones**. Si alguna actualización se identifica como ausente, verá una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
 
 [ ![Vista predeterminada de Update Management](./media/update-mgmt-overview/update-management-view.png)](./media/update-mgmt-overview/update-management-view-expanded.png#lightbox)
 
-Para ver una valoración de actualizaciones, realice lo siguiente.
+En la columna **CUMPLIMIENTO**, puede ver la última vez que se evaluó la máquina. En la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**, puede ver el estado del agente de actualización. Si hay un problema, seleccione el vínculo para dirigirse a la documentación de solución de problemas, que le ayudará a corregirlo.
 
-1. En Azure Portal, vaya a **Cuentas de Automation** y seleccione su cuenta de Automation con Update Management habilitado en la lista.
+En **Vínculo información**, seleccione el vínculo de una actualización para abrir el artículo de soporte técnico que le proporciona información importante acerca de la actualización.
 
-2. En su cuenta de Automation, seleccione **Administración de actualizaciones** en el panel de la izquierda.
+[ ![Visualización del estado de la actualización](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
 
-3. Las actualizaciones de su entorno se muestran en la página **Administración de actualizaciones**. Si alguna actualización se identifica como ausente, verá una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
+Haga clic en cualquier otro lugar de la actualización para abrir el panel de búsqueda de registros. La consulta para la búsqueda de registros está predefinida para esa actualización específica. Puede modificar esta consulta o crear su propia consulta para ver información detallada.
 
-   En la columna **CUMPLIMIENTO**, puede ver la última vez que se evaluó la máquina. En la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**, puede ver el estado del agente de actualización. Si hay un problema, seleccione el vínculo para dirigirse a la documentación de solución de problemas, que le ayudará a corregirlo.
-
-4. En **Vínculo información**, seleccione el vínculo de una actualización para abrir el artículo de soporte técnico que le proporciona información importante acerca de la actualización.
-
-     [ ![Visualización del estado de la actualización](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
-
-5. Haga clic en cualquier otro lugar de la actualización para abrir el panel de búsqueda de registros. La consulta para la búsqueda de registros está predefinida para esa actualización específica. Puede modificar esta consulta o crear su propia consulta para ver información detallada.
-
-    [ ![Visualización de resultados de consultas de registro](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
+[ ![Visualización de resultados de consultas de registro](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
 
 ## <a name="view-missing-updates"></a>Visualización de actualizaciones que faltan
 

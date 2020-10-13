@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 562acfe1ae96f7f88b72945846bcb49c0cc1f216
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 96603de7014419b142cc35714b891f9e4b15ec99
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179545"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405093"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copia de datos desde un servidor HDFS mediante Azure Data Factory
 
@@ -34,6 +34,7 @@ El conector HDFS es compatible con las actividades siguientes:
 
 - [Actividad de copia](copy-activity-overview.md) con [matriz de origen y receptor compatible](copy-activity-overview.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
+- [Actividad de eliminación](delete-activity.md)
 
 En concreto, el conector HDFS admite las siguientes funcionalidades:
 
@@ -171,7 +172,9 @@ Las propiedades siguientes se admiten para HDFS en la configuración `storeSetti
 | OPCIÓN 3: una lista de archivos<br>- fileListPath | Indica que se copie un conjunto de archivos especificado. Apunte a un archivo de texto que incluya una lista de archivos que quiera copiar (un archivo por línea, con la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos).<br/>Al usar esta opción, no especifique un nombre de archivo en el conjunto de datos. Para ver más ejemplos, consulte [Ejemplos de lista de archivos](#file-list-examples). |No |
 | ***Configuración adicional*** |  | |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Cuando `recursive` se establece en *true* y el receptor es un almacén basado en archivos, no se copia ni crea ninguna carpeta o subcarpeta vacías en el receptor. <br>Los valores permitidos son: *True* (valor predeterminado) y *False*.<br>Esta propiedad no se aplica al configurar `fileListPath`. |No |
+| deleteFilesAfterCompletion | Indica si los archivos binarios se eliminarán del almacén de origen después de moverse correctamente al almacén de destino. Cada archivo se elimina individualmente, de modo que cuando se produzca un error en la actividad de copia, algunos archivos ya se habrán copiado al destino y se habrán eliminado del origen, mientras que otros seguirán aún en el almacén de origen. <br/>Esta propiedad solo es válida en el escenario de copia de archivos binarios. El valor predeterminado es false. |No |
 | modifiedDatetimeStart    | Los archivos se filtran en función del atributo *Last Modified*. <br>Los archivos se seleccionan si la hora de su última modificación está dentro del intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato *2018-12-01T05:00:00Z*. <br> Las propiedades pueden ser NULL, lo que significa que no se aplica ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene un valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.<br/>Esta propiedad no se aplica al configurar `fileListPath`. | No                                            |
+| modifiedDatetimeEnd      | Igual que el anterior.  
 | enablePartitionDiscovery | En el caso de archivos con particiones, especifique si quiere analizar las particiones de la ruta de acceso del archivo y agregarlas como columnas de origen adicionales.<br/>Los valores permitidos son **false** (valor predeterminado) y **true**. | No                                            |
 | partitionRootPath | Cuando esté habilitada la detección de particiones, especifique la ruta de acceso raíz absoluta para poder leer las carpetas con particiones como columnas de datos.<br/><br/>Si no se especifica, de forma predeterminada,<br/>- Cuando se usa la ruta de acceso de archivo en un conjunto de datos o una lista de archivos del origen, la ruta de acceso raíz de la partición es la ruta de acceso configurada en el conjunto de datos.<br/>- Cuando se usa el filtro de carpeta con caracteres comodín, la ruta de acceso raíz de la partición es la subruta antes del primer carácter comodín.<br/><br/>Por ejemplo, supongamos que configura la ruta de acceso en el conjunto de datos como "root/folder/year=2020/month=08/day=27":<br/>- Si especifica la ruta de acceso raíz de la partición como "root/folder/year=2020", la actividad de copia generará dos columnas más, `month` y `day`, con el valor "08" y "27", respectivamente, además de las columnas de los archivos.<br/>- Si no se especifica la ruta de acceso raíz de la partición, no se generará ninguna columna adicional. | No                                            |
 | maxConcurrentConnections | Número de conexiones que se pueden conectar al almacén de almacenamiento de forma simultánea. Especifique un valor solamente cuando desee limitar la conexión simultánea al almacén de datos. | No                                            |
@@ -276,6 +279,34 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 * Opción 1: [Unir una máquina del entorno de ejecución de integración autohospedado en el dominio Kerberos](#kerberos-join-realm)
 * Opción 2: [Habilitar la confianza mutua entre el dominio de Windows y el dominio Kerberos](#kerberos-mutual-trust)
 
+Para ambas opciones, asegúrese de activar webhdfs en el clúster de Hadoop:
+
+1. Cree la entidad de seguridad HTTP y el archivo keytab de webhdfs.
+
+    > [!IMPORTANT]
+    > La entidad de seguridad HTTP de Kerberos debe comenzar por "**HTTP/** " según la especificación SPNEGO de HTTP de Kerberos.
+
+    ```bash
+    Kadmin> addprinc -randkey HTTP/<namenode hostname>@<REALM.COM>
+    Kadmin> ktadd -k /etc/security/keytab/spnego.service.keytab HTTP/<namenode hostname>@<REALM.COM>
+    ```
+
+2. Opciones de configuración de HDFS: agregue las tres propiedades siguientes en el archivo `hdfs-site.xml`.
+    ```xml
+    <property>
+        <name>dfs.webhdfs.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.principal</name>
+        <value>HTTP/_HOST@<REALM.COM></value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.keytab</name>
+        <value>/etc/security/keytab/spnego.service.keytab</value>
+    </property>
+    ```
+
 ### <a name="option-1-join-a-self-hosted-integration-runtime-machine-in-the-kerberos-realm"></a><a name="kerberos-join-realm"></a>Opción 1: Unir una máquina del entorno de ejecución de integración autohospedado en el dominio Kerberos
 
 #### <a name="requirements"></a>Requisitos
@@ -284,13 +315,24 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 #### <a name="how-to-configure"></a>Cómo se configura
 
+**En el servidor KDC:**
+
+Cree una entidad de seguridad para que Azure Data Factory la use y especifique la contraseña.
+
+> [!IMPORTANT]
+> El nombre de usuario no debe contener el nombre de host.
+
+```bash
+Kadmin> addprinc <username>@<REALM.COM>
+```
+
 **En la máquina del entorno de ejecución de integración autohospedado:**
 
 1.  Ejecute la utilidad Ksetup para configurar el dominio y el servidor del Centro de distribución de claves (KDC) de Kerberos.
 
     La máquina debe configurarse como miembro de un grupo de trabajo, porque un dominio Kerberos es diferente a un dominio de Windows. Para lograr esta configuración, establezca el dominio Kerberos y agregue un servidor KDC mediante la ejecución de los siguientes comandos. Reemplace *REALM.COM* por su propio nombre de dominio.
 
-    ```console
+    ```cmd
     C:> Ksetup /setdomain REALM.COM
     C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
     ```
@@ -299,7 +341,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 2.  Compruebe la configuración con el comando `Ksetup`. La salida debe ser como la siguiente:
 
-    ```output
+    ```cmd
     C:> Ksetup
     default realm = REALM.COM (external)
     REALM.com:
@@ -431,6 +473,10 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
 Para obtener información sobre las propiedades de la actividad de búsqueda, consulte [Actividad de búsqueda en Azure Data Factory](control-flow-lookup-activity.md).
+
+## <a name="delete-activity-properties"></a>Propiedades de la actividad de eliminación
+
+Para más información sobre las propiedades de la actividad de eliminación, consulte [Actividad de eliminación en Azure Data Factory](delete-activity.md).
 
 ## <a name="legacy-models"></a>Modelos heredados
 

@@ -6,19 +6,19 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 2a06c182f1f37942ac0921db254bf63bf177fec2
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 29033cbabfcfa00c9f8458cbc161af67df5806cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595740"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325970"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamaños de VM para informática de alto rendimiento
 
-La máquinas virtuales de la serie H de Azure están diseñada para ofrecer rendimiento de primer nivel, escalabilidad de MPI y rentabilidad para diversas cargas de trabajo de HPC del mundo real.
+La máquinas virtuales de la serie H de Azure están diseñada para ofrecer rendimiento de primer nivel, escalabilidad y rentabilidad para diversas cargas de trabajo de HPC del mundo real.
 
 Las máquinas virtuales de la [serie HBv2](hbv2-series.md) están optimizadas para aplicaciones controladas por el ancho de banda de memoria, como la dinámica de fluidos, el análisis de elementos finitos y la simulación de yacimientos. Las máquinas virtuales HBv2 cuentan con 120 núcleos de procesador AMD EPYC 7742, 4 GB de RAM por núcleo de CPU y sin multithreading simultáneo. Cada máquina virtual de HBv2 proporciona hasta 340 GB/s de ancho de banda de memoria y hasta 4 teraFLOPS de proceso FP64.
 
@@ -31,22 +31,23 @@ Las máquinas virtuales de la [serie HC](hc-series.md) están optimizadas para a
 Las máquinas virtuales de la [serie H](h-series.md) están optimizadas para aplicaciones basadas en frecuencias altas de CPU o requisitos de gran cantidad de memoria por núcleo. Las máquinas virtuales de la serie H cuentan con 8 o 16 núcleos de procesador Intel Xeon E5 2667 v3, 7 o 14 GB de RAM por núcleo de CPU y no tienen hyperthreading. Las máquinas de la serie H cuentan con una interconexión Mellanox FDR InfiniBand de 56 Gb/s en una configuración de árbol de FAT sin bloqueo para proporcionar un rendimiento de RDMA consistente. Las máquinas virtuales de la serie H admiten Intel MPI 5.x y MS-MPI.
 
 > [!NOTE]
-> Está previsto que las VM A8-A11 se retiren en 3/2021. Para obtener más información, consulte la [guía de migración de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> Está previsto que las [VM A8-A1](./sizes-previous-gen.md#a-series---compute-intensive-instances)1 se retiren en marzo de 2021. Para obtener más información, consulte la [guía de migración de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 ## <a name="rdma-capable-instances"></a>Instancias compatibles con RDMA
 
-La mayoría de los tamaños de VM para HPC (HBv2, HB, HC, H16r, H16mr, A8 y A9) incluye una interfaz de red para la conectividad de acceso directo a memoria remota (RDMA). Los tamaños seleccionados de la [serie N](./nc-series.md) designados con la letra "r", (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 y NC24r) también son compatibles con RDMA. Esta interfaz se agrega a la interfaz de red estándar de Azure disponible en los otros tamaños de máquina virtual.
+La mayoría de los tamaños de VM para HPC (HBv2, HB, HC, H16r, H16mr, A8 y A9) incluye una interfaz de red para la conectividad de acceso directo a memoria remota (RDMA). Los tamaños seleccionados de la [serie N](./nc-series.md) designados con la letra "r", (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 y NC24r) también son compatibles con RDMA. Esta interfaz se agrega a la interfaz de red estándar de Azure Ethernet disponible en los otros tamaños de máquina virtual.
 
 Esta interfaz permite que las instancias compatibles con RDMA se comuniquen través de una red InfiniBand (IB), que funciona a velocidades HDR en la serie HBv2, a velocidades EDR en las series HB, HC y NDv2, a velocidades FDR en las series H16r y H16mr y en otras máquinas virtuales de la serie N compatibles con RDMA, y a velocidades QDR en máquinas virtuales A8 y A9. Estas funcionalidades RDMA pueden mejorar la escalabilidad y el rendimiento de determinadas aplicaciones de la Interfaz de paso de mensajes (MPI).
 
 > [!NOTE]
 > En Azure HPC, hay dos clases de máquinas virtuales en función de si están habilitadas para SR-IOV de InfiniBand. Actualmente, las máquinas virtuales que tienen habilitada la opción de SR-IOV para InfiniBand son: HBv2, HB, HC, NCv3 y NDv2. El resto de las máquinas virtuales compatibles con InfiniBand no están habilitadas para SR-IOV actualmente.
-> RDMA a través de IB se admite en todas las máquinas virtuales compatibles con RDMA.
+> RDMA solo se habilita a través de la red InfiniBand (IB) y es compatible con todas las máquinas virtuales que admiten RDMA.
 > Solo se admite IP sobre IB en máquinas virtuales habilitadas para SR-IOV.
+> RDMA no se habilita a través de la red Ethernet.
 
 - **Sistema operativo**: Linux es muy compatible con las máquinas virtuales de HPC; habitualmente se usan distribuciones como CentOS, RHEL, Ubuntu y SUSE. En cuanto a la compatibilidad con Windows, en todas las máquinas virtuales de la serie HPC se admite Windows Server 2016 y versiones más recientes. También se admiten Windows Server 2012 R2 y Windows Server 2012 en las máquinas virtuales habilitadas que no son SR-IOV (H16r, H16mr, A8 t A9). Tenga en cuenta que [Windows Server 2012 R2 no se admite en HBv2 ni en otras máquinas virtuales con más de 64 núcleos (virtuales o físicos)](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Consulte [Imágenes de máquina virtual](./workloads/hpc/configure.md) para obtener una lista de imágenes de máquina virtual compatibles en Marketplace y cómo se pueden configurar de forma adecuada.
 
-- **Controladores de InfiniBand y RDMA**: en las máquinas virtuales compatibles con InfiniBand, se necesitan los controladores adecuados para habilitar RDMA. En Linux, tanto en el caso de las máquinas virtuales compatibles con SR-IOV como las que no, las imágenes de máquinas virtuales de CentOS-HPC en Marketplace se configuran previamente con los controladores adecuados. Las imágenes de máquinas virtuales de Ubuntu se pueden configurar con los controladores adecuados mediante las [instrucciones que se indican aquí](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Consulte [Configuración y optimización de las máquinas virtuales para Linux OS](./workloads/hpc/configure.md) para obtener más información sobre las imágenes de sistema operativo Linux de máquinas virtuales listas para usar.
+- **InfiniBand y controladores**: en las máquinas virtuales compatibles con InfiniBand, se necesitan los controladores adecuados para habilitar RDMA. En Linux, tanto en el caso de las máquinas virtuales compatibles con SR-IOV como las que no, las imágenes de máquinas virtuales de CentOS-HPC en Marketplace se configuran previamente con los controladores adecuados. Las imágenes de máquinas virtuales de Ubuntu se pueden configurar con los controladores adecuados mediante las [instrucciones que se indican aquí](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Consulte [Configuración y optimización de las máquinas virtuales para Linux OS](./workloads/hpc/configure.md) para obtener más información sobre las imágenes de sistema operativo Linux de máquinas virtuales listas para usar.
 
    En Linux, se puede usar la [extensión de máquina virtual InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) para instalar los controladores OFED de Mellanox y habilitar InfiniBand en las máquinas virtuales de serie H y serie N compatibles con SR-IOV. Obtenga más información sobre cómo habilitar InfiniBand en máquinas virtuales compatibles con RDMA en [Cargas de trabajo de HPC](./workloads/hpc/enable-infiniband.md).
 

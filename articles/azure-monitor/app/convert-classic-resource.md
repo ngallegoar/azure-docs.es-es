@@ -4,13 +4,13 @@ description: Obtenga información sobre los pasos necesarios para actualizar un 
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: caaf5469eace891f2996a565af183b411ad1d740
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: aab2d1ec5a6c3e046840e736ced0993e560c4661
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932061"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333348"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migración a recursos de Application Insights basados en áreas de trabajo
 
@@ -34,12 +34,11 @@ Application Insights basado en áreas de trabajo permite aprovechar todas las c
 
 Al migrar a un recurso basado en áreas de trabajo no se transfieren datos del almacenamiento del recurso clásico al nuevo almacenamiento basado en áreas de trabajo. Por el contrario, si se decide migrar, la ubicación donde se escriben los nuevos datos cambia a un área de trabajo de Log Analytics, a la vez que se conserva el acceso a los datos del recurso clásico. 
 
-Los datos del recurso clásico se conservan y están sujetos a la configuración de retención en el momento de su ingesta. Todos los nuevos datos ingeridos después de la migración están sujetos a la configuración de retención del área de trabajo asociada de Log Analytics. 
-
+Los datos de recursos clásicos se conservarán y estarán sujetos a la configuración de retención en el recurso de Application Insights clásico. Todos los nuevos datos ingeridos después de la migración están sujetos a la [configuración de retención](../platform/manage-cost-storage.md#change-the-data-retention-period) del área de trabajo asociada de Log Analytics, que admite diferentes [configuraciones de retención por tipo datos](../platform/manage-cost-storage.md#retention-by-data-type).
 El proceso de migración es **permanente y no se puede deshacer**. Una vez que se migra un recurso a Application Insights basado en áreas de trabajo, siempre va a ser un recurso basado en áreas de trabajo. Pero, una vez migrado, se puede cambiar el área de trabajo de destino siempre que sea necesario. 
 
 > [!NOTE]
-> La ingesta de datos y la retención de recursos de Application Insights basados en área de trabajo se facturan por medio del área de trabajo de Log Analytics en la que se encuentran los datos. [Más información]( ./pricing.md#workspace-based-application-insights) sobre la facturación de recursos de Application Insights basados en área de trabajo. (A los datos del recurso clásico de Application Insights ingeridos antes de la migración se les siguen aplicando los precios y la retención de Application Insights mientras se conserven). 
+> La ingesta de datos y la retención de recursos de Application Insights basados en área de trabajo [se facturan por medio del área de trabajo de Log Analytics](../platform/manage-cost-storage.md) en la que se encuentran los datos. Si ha seleccionado una retención de datos superior a 90 días en los datos ingeridos en el recurso de Application Insights clásico antes de la migración, la retención de datos se seguirá facturando a través de ese recurso de Application Insights. [Más información]( ./pricing.md#workspace-based-application-insights) sobre la facturación de recursos de Application Insights basados en área de trabajo.
 
 Si no tiene que migrar un recurso existente y quiere crear un nuevo recurso de Application Insights basado en áreas de trabajo, use la [guía de creación de recursos basados en áreas de trabajo](create-workspace-resource.md).
 

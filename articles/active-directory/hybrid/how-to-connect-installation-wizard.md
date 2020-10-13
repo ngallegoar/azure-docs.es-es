@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 900471675c0e77cc5d82641fead3f019a0fa90c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d81836b47acb19f624075480aafef74c9c0934c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358691"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306130"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronización de Azure AD Connect: ejecución por segunda vez del Asistente para la instalación
 La primera vez que ejecute el Asistente para la instalación de Azure AD Connect, este lo guiará a través de la configuración de la instalación. Si vuelve a ejecutarlo, le ofrecerá opciones para el mantenimiento.
@@ -79,7 +79,7 @@ Cuando se selecciona esta opción, se muestran todos los directorios en la confi
 Esta opción le permite habilitar y deshabilitar el modo de almacenamiento provisional en el servidor. Puede encontrar más información acerca del modo de almacenamiento provisional y cómo se utiliza en [Sincronización de Azure AD Connect: tareas y consideraciones operativas](how-to-connect-sync-staging-server.md).
 
 La opción mostrará si el almacenamiento provisional está habilitado o deshabilitado:  
-![Opción que también muestra el estado actual del modo de almacenamiento provisional](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
+![Captura de pantalla que muestra el modo de almacenamiento provisional deshabilitado.](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
 Para cambiar el estado, seleccione esta opción y seleccione o anule la selección de la casilla.  
 ![Opción que también muestra el estado actual del modo de almacenamiento provisional](./media/how-to-connect-installation-wizard/stagingmodeenable.png)

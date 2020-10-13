@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 2a39e27c0a9fc7999d7f363767ad62513d383192
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/24/2020
+ms.openlocfilehash: 5df596560e97ea9dba38dca4d4ca58e38caabd37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520739"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333960"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configuración de registros de Azure Monitor y recopilación de datos de diagnóstico para Azure Logic Apps
 
@@ -19,7 +19,7 @@ Si necesita información de depuración más completa sobre las aplicaciones ló
 
 Para configurar el registro de la aplicación lógica, puede [habilitar Log Analytics al crear la aplicación lógica](#logging-for-new-logic-apps), o bien [instalar la solución de administración de Logic Apps](#install-management-solution) en el área de trabajo de Log Analytics para las aplicaciones lógicas existentes. Esta solución proporciona información agregada para las ejecuciones de aplicaciones lógicas e incluye detalles específicos, como el estado, el tiempo de ejecución, el estado de reenvío y los identificadores de correlación. Luego, para habilitar el registro y la creación de consultas con esta información, [configure los registros de Azure Monitor](#set-up-resource-logs).
 
-En este artículo se muestra cómo habilitar Log Analytics al crear aplicaciones lógicas, cómo instalar y configurar la solución de administración de Logic Apps y cómo configurar y crear consultas para los registros de Azure Monitor.
+En este artículo se muestra cómo habilitar en aplicaciones lógicas nuevas y existentes, cómo instalar y configurar la solución de administración de Logic Apps y cómo configurar y crear consultas para los registros de Azure Monitor.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -89,6 +89,9 @@ Si ya activó Log Analytics cuando creó su aplicación lógica, omita este paso
 
 Al almacenar información sobre eventos y datos en tiempo de ejecución en los [registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md), puede crear [consultas de registro](../azure-monitor/log-query/log-query-overview.md) que le ayuden a buscar y revisar esta información.
 
+> [!NOTE]
+> Después de habilitar la configuración de diagnóstico, es posible que los datos de diagnóstico no fluyan durante un periodo de hasta 30 minutos en el destino especificado, como Log Analytics, el centro de eventos o la cuenta de almacenamiento. Este retraso significa que es posible que los datos de diagnóstico de este período de tiempo no estén disponibles para que los pueda revisar. Los eventos completados y las [propiedades de las que se ha realizado un seguimiento](#extend-data) podrían no aparecer en el área de trabajo de Log Analytics durante 10-15 minutos.
+
 1. En [Azure Portal](https://portal.azure.com), busque y seleccione la aplicación lógica.
 
 1. En el menú de la aplicación lógica, en **Supervisión**, seleccione **Configuración de diagnóstico** > **Agregar configuración de diagnóstico**.
@@ -140,13 +143,12 @@ Una vez ejecutada la aplicación lógica, puede ver los datos sobre esas ejecuci
 
    ![Vista de las ejecuciones y el estado de la aplicación lógica](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
 
+   > [!NOTE]
+   > La funcionalidad **Reenviar** de esta página no está disponible actualmente.
+
    En el caso de las acciones en las que [configura propiedades con seguimiento](#extend-data), también puede verlas seleccionando **Ver** en la columna **Propiedades controladas**. Para buscar las propiedades controladas, use el filtro de columna.
 
    ![Ver propiedades controladas de una aplicación lógica](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
-
-   > [!NOTE]
-   > Las propiedades controladas o los eventos completados podrían experimentar retrasos de 10 a 15 minutos antes de aparecer en el área de trabajo de Log Analytics.
-   > Además, la funcionalidad **Reenviar** de esta página no está disponible actualmente.
 
 1. Para filtrar los resultados, puede aplicar un filtro en el cliente y en el servidor.
 

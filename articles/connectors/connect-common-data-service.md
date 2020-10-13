@@ -7,12 +7,12 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284122"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334589"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Creación y administración de registros de Common Data Service mediante Azure Logic Apps
 
@@ -108,7 +108,7 @@ En el caso de los desencadenadores que se ejecutan cuando se actualizan los regi
 
 1. En el desencadenador, en la lista **Agregar nuevo parámetro**, seleccione **Filtros de atributo**.
 
-   ![Agregar la propiedad "Filtros de atributo"](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
+   ![Captura de pantalla que muestra la acción "Al actualizar un registro" y la lista "Agregar nuevo parámetro" abierta con la propiedad "Filtros de atributos" seleccionada.](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
 
 1. En cada **elemento de Filtros de atributo**, seleccione el atributo del que desea supervisar las actualizaciones, como, por ejemplo:
 

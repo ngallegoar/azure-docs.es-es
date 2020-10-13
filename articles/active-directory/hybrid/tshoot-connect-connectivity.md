@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 897c0f3c51d6d9bea1f90a66ccf50aa51e22f118
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: c46d977b6ce4eaa62aefc6874ce2b855a4711670
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088313"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317519"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Solución de problemas de conectividad de Azure AD
 Este artículo explica cómo funciona la conectividad entre Azure AD Connect y Azure AD y cómo solucionar los problemas de conectividad. Estos problemas suelen aparecer en un entorno con un servidor proxy.
@@ -85,7 +85,7 @@ Para verificar si el servidor de Azure AD Connect tiene conectividad real con el
 
 PowerShell usa la configuración de machine.config para establecer conexión con el servidor proxy. La configuración de winhttp/netsh no debería afectar a estos cmdlets.
 
-Si el servidor proxy está configurado correctamente, debe obtener un estado correcto: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+Si el servidor proxy está configurado correctamente, debe obtener un estado correcto:  ![Captura de pantalla que muestra el estado correcto cuando el proxy está configurado adecuadamente.](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
 Si recibe **No es posible conectar con el servidor remoto**, PowerShell está intentando realizar una llamada directa sin utilizar el servidor proxy o DNS no está configurado correctamente. Asegúrese de que el archivo **machine.config** está configurado correctamente.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)

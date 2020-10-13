@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 76c0f4f021646b4cbf1a09559e085176353a4a3c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312913"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configuración de Box para el aprovisionamiento automático de usuarios
 
@@ -93,17 +93,17 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**. 
 
-    ![Aprovisionamiento](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Captura de pantalla de la pestaña Aprovisionamiento de Box en Azure Portal. El modo de aprovisionamiento se establece en Automático y la opción Autorizar está resaltada en Credenciales de administrador.](./media/box-userprovisioning-tutorial/provisioning.png)
 
 5. En la sección **Credenciales de administrador**, haga clic en **Authorize** (Autorizar) para abrir un cuadro de diálogo de inicio de sesión de Box en una nueva ventana del explorador.
 
 6. En la página **Log in to grant access to Box** (Iniciar sesión para otorgar acceso a Box), proporcione las credenciales necesarias y haga clic en **Authorize** (Autorizar). 
    
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/box-userprovisioning-tutorial/IC769546.png "Habilitar el aprovisionamiento automático de usuarios")
+    ![Captura de pantalla de la página Log in to grant access to box (Iniciar sesión para conceder acceso a Box), que muestra la entrada para correo electrónico y contraseña, y el botón Autorizar.](./media/box-userprovisioning-tutorial/IC769546.png "Habilitar el aprovisionamiento automático de usuarios")
 
 7. Haga clic en **Grant access to Box** (Otorgar acceso a Box) para autorizar esta operación y volver a Azure Portal. 
    
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/box-userprovisioning-tutorial/IC769549.png "Habilitar el aprovisionamiento automático de usuarios")
+    ![Captura de pantalla de la página de autorización del acceso en Box, que muestra un mensaje explicativo y el botón Grant access to Box (Otorgar acceso a Box).](./media/box-userprovisioning-tutorial/IC769549.png "Habilitar el aprovisionamiento automático de usuarios")
 
 8. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación Box. Si se produce un error de conexión, asegúrese de que su cuenta de Box tiene permisos de administrador de equipo y vuelva a intentar el paso de **Autorizar**.
 

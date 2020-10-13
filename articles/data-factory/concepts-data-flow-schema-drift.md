@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5edea4b3d3834d8f99159546c0279394ec3986f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886629"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324355"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Desfase de esquema en el flujo de datos de asignación
 
@@ -60,7 +60,7 @@ Si está habilitado el desfase de esquema, asegúrese de que el control deslizan
 Cuando el flujo de datos tiene columnas desfasadas, puede acceder a ellas en las transformaciones con los métodos siguientes:
 
 * Utilice las expresiones `byPosition` y `byName` para hacer referencia explícita a una columna por nombre o número de posición.
-* Agregue un patrón de columna en una transformación Agregar o Columna derivada para que coincida con cualquier combinación de nombre, flujo, posición o tipo.
+* Agregue un patrón de columna en una transformación Agregar o Columna derivada para que coincida con cualquier combinación de nombre, flujo, posición, origen o tipo.
 * Agregue una asignación basada en reglas en una transformación Selección o Receptor para asociar columnas desfasadas con alias de columnas mediante un patrón.
 
 Para más información sobre cómo implementar patrones de columna, consulte [Patrones de columna en flujos de datos de asignación](concepts-data-flow-column-pattern.md).

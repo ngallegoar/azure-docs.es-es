@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 8a086830398555d962bb13d1d9b0fea3554f7924
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 9f0a7b6f68c5a3adeb320fd18bec2f195a833dbf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032527"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310006"
 ---
 # <a name="log-analytics-agent-overview"></a>Introducción al agente de Log Analytics
 El agente de Azure Log Analytics recopila la telemetría de las máquinas virtuales Windows y Linux en cualquier nube, en máquinas locales y en aquellas supervisadas por [System Center Operations Manager](/system-center/scom/) y envía los datos recopilados al área de trabajo de Log Analytics en Azure Monitor. El agente de Log Analytics también permite utilizar información detallada y otros servicios de Azure Monitor, como [Azure Monitor para VM](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml) y [Azure Automation](../../automation/automation-intro.md). En este artículo se proporciona una descripción detallada del agente, de los requisitos del sistema y de la red, y de los métodos de implementación.
@@ -59,7 +59,7 @@ Consulte [Configurar el agente para que envíe notificaciones a un grupo de admi
 
 * Los agentes de Windows pueden conectarse con hasta cuatro áreas de trabajo, incluso si estas están conectadas a un grupo de administración de System Center Operations Manager.
 * El agente de Linux no admite el hospedaje múltiple y solo puede conectarse con un área de trabajo o grupo de administración.
-  
+
 
 ## <a name="security-limitations"></a>Limitaciones de seguridad
 
@@ -69,6 +69,8 @@ Consulte [Configurar el agente para que envíe notificaciones a un grupo de admi
 ## <a name="installation-options"></a>Opción de instalación
 
 Existen diferentes métodos para instalar el agente de Log Analytics y conectar la máquina a Azure Monitor en función de los requisitos. En las secciones siguientes se enumeran los posibles métodos para distintos tipos de máquinas virtuales.
+> [!NOTE]
+> No se permite la clonación de una máquina con el agente de Log Analytics ya configurado. Si el agente ya se ha asociado con un área de trabajo, no funcionará con "imágenes maestras".
 
 ### <a name="azure-virtual-machine"></a>Máquina virtual de Azure
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 27e8eaa7b8171d6ccc43f6abc8a4b3d1017d30cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804393"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311604"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2
 
@@ -36,6 +36,8 @@ Existe un script de Azure PowerShell que hace lo siguiente:
 
 * La nueva puerta de enlace v2 tiene nuevas direcciones IP públicas y privadas. Es complicado mover las direcciones IP asociadas con la puerta de enlace v1 existente a la v2, pero puede asignar una dirección IP pública o privada existente (sin asignar) a la nueva puerta de enlace v2.
 * Debe proporcionar un espacio de direcciones IP para otra subred dentro de la red virtual en la que está ubicada la puerta de enlace v1. El script no puede crear la puerta de enlace v2 en las subredes existentes que ya tengan una puerta de enlace v1. Aun así, si la subred existente ya tiene una puerta de enlace v2, esto podría funcionar siempre y cuando haya suficiente espacio de direcciones IP.
+* Si tiene un grupo de seguridad de red o rutas definidas por el usuario asociadas a la subred de puerta de enlace v2, asegúrese de que se ajusta a los [requisitos de grupo de seguridad de red](../application-gateway/configuration-infrastructure.md#network-security-groups) y a los [requisitos de UDR](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) para que la migración se realice correctamente.
+* Actualmente, no se admiten [directivas de punto de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoint-policies-overview.md) en una subred de Application Gateway.
 * Para migrar una configuración de TLS/SSL, debe especificar todos los certificados TLS/SSL que se usan en la puerta de enlace v1.
 * Si tiene el modo FIPS habilitado para la puerta de enlace v1, no se migrará a la nueva puerta de enlace v2. El modo FIPS no se admite en v2.
 * v2 no es compatible con IPv6, por lo que las puertas de enlace v1 con IPv6 habilitado no se pueden migrar. Si ejecuta el script, podría no completarse.

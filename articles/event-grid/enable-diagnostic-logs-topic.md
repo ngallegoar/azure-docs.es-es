@@ -3,12 +3,12 @@ title: 'Azure Event Grid: Habilitación de los registros de diagnóstico de tema
 description: En este artículo se proporcionan instrucciones paso a paso sobre cómo habilitar los registros de diagnóstico para un tema de Azure Event Grid.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 7811c2eef4379b7e3d5ed07dbd0df8e2a52dba85
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2d76d3ededd6d241197b26ac357c3b5406f43f02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114710"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297528"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Habilitación de registros de diagnóstico para los temas o dominios de Azure Event Grid
 La configuración de diagnóstico permite a los usuarios de Event Grid capturar y ver los registros de **error de publicación y entrega** en una cuenta de almacenamiento, un centro de eventos o un área de trabajo de Log Analytics. En este artículo se proporcionan instrucciones paso a paso sobre cómo habilitar estas opciones en un tema de Event Grid.
@@ -37,19 +37,19 @@ La configuración de diagnóstico permite a los usuarios de Event Grid capturar 
     
     ![Botón Agregar configuración de diagnóstico](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Especifique un **nombre** para la configuración de diagnóstico. 
-7. Seleccione las opciones **DeliveryFailures** y **PublishFailures** en la sección **Registro**. 
+6. Seleccione las opciones **DeliveryFailures** y **PublishFailures** en la sección **Registro**. 
     ![Seleccione los errores](./media/enable-diagnostic-logs-topic/log-failures.png)
-6. Habilite uno o varios destinos de captura para los registros y, a continuación, configúrelos; para ello, seleccione un recurso de captura creado anteriormente. 
+7. Habilite uno o varios destinos de captura para los registros y, a continuación, configúrelos; para ello, seleccione un recurso de captura creado anteriormente. 
     - Si selecciona **Archive to a storage account** (Archivar en una cuenta de almacenamiento), seleccione **Cuenta de almacenamiento: configurar** y, a continuación, seleccione la cuenta de almacenamiento en la suscripción de Azure. 
 
-        ![Archivo en una cuenta de almacenamiento de Azure](./media/enable-diagnostic-logs-topic/archive-storage.png)
+        ![Captura de pantalla que muestra la página "Configuración de diagnóstico" con la opción "Archive to an Azure storage account" (Archivar en una cuenta de almacenamiento de Azure) y una cuenta de almacenamiento seleccionada.](./media/enable-diagnostic-logs-topic/archive-storage.png)
     - Si selecciona **Stream to an event hub** (Transmitir a un centro de eventos), seleccione **Centro de eventos: Configurar** y, a continuación, seleccione el espacio de nombres de Event Hubs, el centro de eventos y la directiva de acceso. 
-        ![Transmisión a un centro de eventos](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
+        ![Captura de pantalla que muestra la página "Configuración de diagnóstico" con la opción "Transmitir a un centro de eventos" activada.](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - Si selecciona **Send to Log Analytics** (Enviar a Log Analytics), seleccione un área de trabajo de Log Analytics.
-        ![Enviar a Log Analytics](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
+        ![Captura de pantalla que muestra la página "Configuración de diagnóstico" con la opción "Enviar a Log Analytics" activada.](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
 8. Seleccione **Guardar**. Después, Seleccione **X** en la esquina derecha para cerrar la página. 
 9. Ahora, vuelva a la página **Configuración de diagnóstico**, confirme que ve una nueva entrada en la tabla **Configuración de diagnóstico**. 
-    ![Configuración de diagnóstico en la lista](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
+    ![Captura de pantalla que muestra la página "Configuración de diagnóstico" con una nueva entrada resaltada en la tabla "Configuración de diagnóstico".](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
      También puede habilitar la recopilación de todas las métricas del tema. 
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5953e5d5f6bc50c913c3e92aa92775c34c0fd170
-ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
+ms.openlocfilehash: 613ba527c8f86257dd271d3cc9e43c97fc475068
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512341"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257459"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: Configuración del código
 
@@ -111,6 +111,12 @@ Si ha aceptado el URI del identificador de aplicación propuesto por el portal d
 
 Cuando se llama a una aplicación en una acción de controlador que contiene un atributo **[Authorize]** , ASP.NET y ASP.NET Core extraen el token de acceso del token de portador del encabezado de autorización. Después, el token se reenvía al middleware JwtBearer, que llama a las extensiones de Microsoft IdentityModel para .NET.
 
+#### <a name="microsoftidentityweb"></a>Microsoft.Identity.Web
+
+Microsoft recomienda usar el paquete NuGet [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) al desarrollar una API web con ASP.NET Core.
+
+_Microsoft.Identity.Web_ es el pegamento entre ASP.NET Core, el middleware de autenticación y la [Biblioteca de autenticación de Microsoft (MSAL)](msal-overview.md) para .NET. Ofrece una experiencia de desarrollador más clara y sólida, y aprovecha la eficacia de la Plataforma de identidad de Microsoft y Azure AD B2C.
+
 #### <a name="using-microsoftidentityweb-templates"></a>Uso de plantillas de Microsoft.Identity.Web
 
 Puede crear una API web desde cero con plantillas del proyecto Microsoft.Identity.Web. Para obtener más información, consulte [Plantillas de proyecto de API web de Microsoft.Identity.Web](https://aka.ms/ms-id-web/webapi-project-templates).
@@ -134,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Actualmente, las plantillas de ASP.NET Core crean API web de Azure Active Directory (Azure AD) a las que se conectan usuarios dentro de su organización o de cualquier organización. No inician la sesión de los usuarios con cuentas personales. Sin embargo, puede cambiar las plantillas para usar el punto de conexión de la Plataforma de identidad de Microsoft mediante [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web), disponible como paquete NuGet, y reemplazar el código en *Startup.cs*:
+ Actualmente, las plantillas de ASP.NET Core crean API web de Azure Active Directory (Azure AD) a las que se conectan usuarios dentro de su organización o de cualquier organización. No inician la sesión de los usuarios con cuentas personales. Sin embargo, puede cambiar las plantillas para usar el punto de conexión de la Plataforma de identidad de Microsoft mediante [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web), y reemplazar el código en *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;

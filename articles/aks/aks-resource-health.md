@@ -6,12 +6,12 @@ author: yunjchoi
 ms.topic: troubleshooting
 ms.date: 08/18/2020
 ms.author: yunjchoi
-ms.openlocfilehash: d14ed7e714eac175dc7a17bbccd2150f9bb01ef9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f830debafb1a9b6b303ee6af987c7cd4fbf34aea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752699"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358260"
 ---
 # <a name="check-for-resource-health-events-impacting-your-aks-cluster-preview"></a>Comprobación de eventos de Resource Health que afectan al clúster de AKS (versión preliminar)
 
@@ -33,7 +33,7 @@ Al ejecutar las cargas de trabajo de contenedor en AKS, quiere asegurarse de que
 - Seleccione **Resource Health** en el panel de navegación izquierdo.
 - Seleccione su suscripción y establezca el tipo de recurso en Azure Kubernetes Service (AKS).
 
-![comprobación-del-estado-de-recursos](./media/aks-resource-health/resource-health-check.png)
+![Captura de pantalla que muestra el estado de los recursos de los clústeres AKS.](./media/aks-resource-health/resource-health-check.png)
 
 ## <a name="check-the-health-status"></a>Comprobación del estado de mantenimiento
 

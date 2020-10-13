@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: ce60f360a6839d43b0cbc209242a1385a0984c9d
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d4d25d8e79c30933546af2b823e328a652f482eb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088551"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360538"
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights
 
@@ -218,8 +218,8 @@ En el archivo **PerformanceDiagnostics\_aaaa-MM-dd\_hh-mm-ss-fff.tar.gz** puede 
 
 La pestaña **Overview** (Información general) proporciona detalles básicos sobre la ejecución e información sobre la máquina virtual. La pestaña **Findings** (Resultados) muestra un resumen de las recomendaciones de las distintas secciones del informe de PerfInsights.
 
-![Captura de pantalla del informe de PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
-![Captura de pantalla del informe de PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
+![Captura de pantalla de la pestaña Información general del informe de PerfInsights.](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
+![Captura de pantalla de la pestaña Linux del informe de PerfInsights.](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
 
 > [!NOTE]
 > Las conclusiones clasificadas como altas son problemas conocidos que pueden provocar problemas de rendimiento. Las conclusiones clasificadas como medias representan configuraciones no óptimas que no provocan necesariamente problemas de rendimiento. Las conclusiones clasificadas como bajas son solo declaraciones informativas.

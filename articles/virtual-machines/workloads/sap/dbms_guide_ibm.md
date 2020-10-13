@@ -3,21 +3,22 @@ title: Implementación de DBMS de Azure Virtual Machines de IBM Db2 para la carg
 description: Implementación de DBMS de Azure Virtual Machines de IBM Db2 para carga de trabajo de SAP
 services: virtual-machines-linux,virtual-machines-windows
 author: msjuergent
-manager: patfilot
+manager: bburns
 tags: azure-resource-manager
+keywords: Azure, Db2, SAP, IBM
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/18/2020
+ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc881b1b366a152c2d592463c8025ea1087307cf
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: a2be5daf5bcad0f5b4530ba7a76986dae4833aa5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461968"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331274"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines de IBM Db2 para carga de trabajo de SAP
 
@@ -80,13 +81,13 @@ Para la máquina virtual de Azure de la serie M, se puede reducir la latencia de
 
 Las aplicaciones de IBM Db2 para SAP NetWeaver se admiten en cualquier tipo de máquina virtual que aparezca en la nota de soporte de SAP [1928533].  Las familias de máquinas virtuales recomendadas para ejecutar la base de datos IBM Db2 son las series Esd_v4/Eas_v4/Es_v3 y M/M_v2 para grandes bases de datos de varios terabytes. El rendimiento de escritura en disco del registro de transacciones de IBM Db2 se puede mejorar si se habilita el Acelerador de escritura de la serie M. 
 
-A continuación, se facilita una configuración de línea de base para varios tamaños y usos de las implementaciones de SAP en DB2, que van de pequeña a muy grande:
+A continuación, se facilita una configuración de línea de base para varios tamaños y usos de las implementaciones de SAP en DB2, que van de pequeña a grande. La lista se basa en Azure Premium Storage. Sin embargo, el disco Ultra de Azure también es totalmente compatible con DB2 y también se puede usar. Simplemente use los valores de capacidad, rendimiento de ráfaga e IOPS de ráfaga para definir la configuración del disco Ultra. Puede limitar la IOPS para /db2/<SID>/log_dir en torno a 5000 IOPS. 
 
 #### <a name="extra-small-sap-system-database-size-50---200-gb-example-solution-manager"></a>Sistema SAP extra pequeño: tamaño de la base de datos de 50 a 200 GB: ejemplo de administrador de soluciones
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  ||  |
-|vCPU: 4 |/db2/<SID>/sapdata |P10 |2 |1000  |200  |256  |7000  |340  |256 KB |ReadOnly |
+|vCPU: 4 |/db2/<SID>/sapdata |P10 |2 |1,000  |200  |256  |7000  |340  |256 KB |ReadOnly |
 |RAM: 32 GiB |/db2/<SID>/saptmp |P6 |1 |240  |50  |128  |3500  |170  | ||
 | |/db2/<SID>/log_dir |P6 |2 |480  |100  |128  |7000  |340  |64 KB ||
 | |/db2/<SID>/offline_log_dir |P10 |1 |500  |100  |128  |3500  |170  || |
@@ -104,10 +105,10 @@ A continuación, se facilita una configuración de línea de base para varios ta
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
-|vCPU: 32 |/db2/<SID>/sapdata |P30 |2 |10 000  |400  |2048  |10 000  |400  |256 KB |ReadOnly |
-|RAM: 256 GiB |/db2/<SID>/saptmp |P10 |2 |1000  |200  |256  |7000  |340  |128 KB ||
+|vCPU: 32 |/db2/<SID>/sapdata |P30 |2 |10 000  |400  |2048  |10 000  |400  |256 KB |ReadOnly |
+|RAM: 256 GiB |/db2/<SID>/saptmp |P10 |2 |1,000  |200  |256  |7000  |340  |128 KB ||
 | |/db2/<SID>/log_dir |P20 |2 |4600  |300  |1024  |7000  |340  |64 KB ||
-| |/db2/<SID>/offline_log_dir |P15 |1 |1100  |125  |256  |3500  |170  ||| 
+| |/db2/<SID>/offline_log_dir |P15 |1 |1 100  |125  |256  |3500  |170  ||| 
 
 #### <a name="large-sap-system-database-size-750---2000-gb-business-suite"></a>Sistema SAP grande: tamaño de la base de datos de 750 a 2000 GB: Business Suite
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
@@ -115,23 +116,23 @@ A continuación, se facilita una configuración de línea de base para varios ta
 |E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
 |vCPU: 64 |/db2/<SID>/sapdata |P30 |4 |20 000  |800  |4.096  |20 000  |800  |256 KB |ReadOnly |
 |RAM: 504 GiB |/db2/<SID>/saptmp |P15 |2 |2200  |250  |512  |7000  |340  |128 KB ||
-| |/db2/<SID>/log_dir |P20 |4 |9200  |600  |2048  |14 000  |680  |64 KB ||
-| |/db2/<SID>/offline_log_dir |P20 |1 |2300  |150  |512  |3500  |170  || |
+| |/db2/<SID>/log_dir |P20 |4 |9200  |600  |2048  |14 000  |680  |64 KB ||
+| |/db2/<SID>/offline_log_dir |P20 |1 |2,300  |150  |512  |3500  |170  || |
 
-#### <a name="large-multi-terabyte-sap-system-database-size-2tb-global-business-suite-system"></a>Sistema SAP grande de varios terabytes: tamaño de base de datos de 2 TB o más: Sistema Global Business Suite
+#### <a name="large-multi-terabyte-sap-system-database-size-2-tb-global-business-suite-system"></a>Sistema SAP grande de varios terabytes: tamaño de base de datos de 2 TB o más: Sistema Global Business Suite
 | Nombre/tamaño de la máquina virtual |Punto de montaje de Db2 |Disco Premium de Azure |Número de discos |E/S |Rendimiento [MB/s] |Tamaño [GB] |IOPS de ráfaga |Rendimiento de ráfaga [GB] | Stripe size (Tamaño de las franjas) | Almacenamiento en memoria caché |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |M128s |/db2 |P10 |1 |500  |100  |128  |3500  |170  || |
-|vCPU: 128 |/db2/<SID>/sapdata |P40 |4 |30 000  |1000  |8192  |30 000  |1000  |256 KB |ReadOnly |
+|vCPU: 128 |/db2/<SID>/sapdata |P40 |4 |30,000  |1000  |8192  |30,000  |1000  |256 KB |ReadOnly |
 |RAM:  2048 GiB |/db2/<SID>/saptmp |P20 |2 |4600  |300  |1024  |7000  |340  |128 KB ||
 | |/db2/<SID>/log_dir |P30 |4 |20 000  |800  |4.096  |20 000  |800  |64 KB |WriteAccelerator |
-| |/db2/<SID>/offline_log_dir |P30 |1 |5.000  |200  |1024  |5.000  |200  || |
+| |/db2/<SID>/offline_log_dir |P30 |1 |5\.000  |200  |1024  |5\.000  |200  || |
 
 
 ### <a name="backuprestore"></a>Copia de seguridad y restauración
 La funcionalidad de copia de seguridad y restauración para IBM Db2 para LUW es compatible del mismo modo que en los sistemas operativos Windows Server y Hyper-V estándares.
 
-Debe asegurarse de seguir una estrategia establecida de copias de seguridad de bases de datos válida. 
+Asegúrese de seguir una estrategia establecida de copias de seguridad de bases de datos válida. 
 
 Como en las implementaciones sin sistema operativo, el rendimiento de las copias de seguridad y las restauraciones depende de cuántos volúmenes puedan leerse en paralelo y el rendimiento que estos volúmenes puedan tener. Además, el consumo de CPU que se emplea en la compresión de copias de seguridad podría desempeñar un papel importante en las máquinas virtuales con ocho subprocesos de CPU como máximo. Por lo tanto, se pueden asumir los siguientes puntos:
 
@@ -226,6 +227,12 @@ Todas las demás áreas generales, como los conjuntos de disponibilidad de Azure
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
+
+
+## <a name="next-steps"></a>Pasos siguientes
+Lea el artículo 
+
+- [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md)
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com

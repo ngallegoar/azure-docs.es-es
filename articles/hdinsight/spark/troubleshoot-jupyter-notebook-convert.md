@@ -1,18 +1,18 @@
 ---
 title: No se puede crear un cuaderno de Jupyter en Azure HDInsight
-description: Describe los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al interactuar con clústeres de Azure HDInsight.
+description: Obtenga información sobre los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al interactuar con clústeres de Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
-ms.openlocfilehash: 61e7cd8d37108b8f4eea88c4f6b6b2a8cdbfd605
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4f4fcfa52733ec8f1f0ceedc669b8307efabf3c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77186797"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324015"
 ---
 # <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>No se puede crear un cuaderno de Jupyter en Azure HDInsight
 

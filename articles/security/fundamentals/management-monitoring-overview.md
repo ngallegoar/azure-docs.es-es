@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7e6fe4f0db31687d402f960f2752fe021d3ec9d3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448358"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395777"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Información general sobre la administración y la supervisión de la seguridad en Azure
 En este artículo se proporciona información general sobre los servicios y características de seguridad que proporciona Azure para ayudarle a administrar y supervisar servicios en la nube y máquinas virtuales de Azure.
@@ -66,7 +66,7 @@ Más información:
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Puede usar Azure ExpressRoute para ampliar sus redes locales en Microsoft Cloud a través de una conexión privada y dedicada que facilita un proveedor de conectividad. Con ExpressRoute se pueden establecer conexiones a servicios en la nube de Microsoft, como Azure, Office 365 y CRM Online. La conectividad puede provenir de:
+Puede usar Azure ExpressRoute para ampliar sus redes locales en Microsoft Cloud a través de una conexión privada y dedicada que facilita un proveedor de conectividad. Mediante ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Azure, Microsoft 365 y CRM Online. La conectividad puede provenir de:
 
 * Una red cualquiera (IP VPN).
 * Una red de ethernet de punto a punto.

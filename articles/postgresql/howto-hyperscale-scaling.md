@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/18/2020
-ms.openlocfilehash: fef873d5122fefb48c85281f71e206f95f3fbe48
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: dd59d0b09a28febfc0afe35d9f008ba0e0ee19ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986718"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295721"
 ---
 # <a name="server-group-size"></a>Tamaño del grupo de servidores
 
@@ -26,13 +26,13 @@ El tamaño de un grupo de servidores, en términos de número de nodos y su capa
 
 Para aquellos que migran a Hiperescala (Citus) desde una instancia existente de base de datos de PostgreSQL de un solo nodo, se recomienda elegir un clúster en el que el número de núcleos virtuales de trabajo y la RAM total sean iguales a los de la instancia original. En estos escenarios se han detectado mejoras de rendimiento de dos a tres veces mayores porque el particionamiento mejora el uso de recursos, lo que permite, por ejemplo, índices más pequeños.
 
-El número de núcleos virtuales necesarios para el nodo de coordinación depende de la carga de trabajo existente (rendimiento de escritura y lectura). El nodo de coordinación no requiere tanta RAM como los nodos de trabajo, pero la asignación de RAM se determina en función del número de núcleos virtuales (tal y como se describe en el artículo sobre [opciones de configuración de Hiperescala](concepts-hyperscale-configuration-options.md)) para que el número de núcleos virtuales sea en esencia la decisión real.
+El número de núcleos virtuales necesarios para el nodo de coordinación depende de la carga de trabajo existente (rendimiento de escritura y lectura). El nodo de coordinación no requiere tanta RAM como los nodos de trabajo, pero la asignación de RAM se determina en función del número de núcleos virtuales (tal y como se describe en el artículo sobre [opciones de configuración de Hiperescala (Citus)](concepts-hyperscale-configuration-options.md)) para que este número sea en esencia la decisión real.
 
 ### <a name="real-time-analytics-use-case"></a>Caso de uso de análisis en tiempo real
 
 Total de núcleos virtuales: cuando los datos de trabajo se ajustan a la RAM, se puede esperar una mejora de rendimiento lineal en Hiperescala (Citus) proporcional al número de núcleos de trabajo. Para determinar el número adecuado de núcleos virtuales para sus necesidades, tenga en cuenta la latencia actual de las consultas en la base de datos de un solo nodo y la latencia necesaria en Hiperescala (Citus). Divida la latencia actual según la latencia deseada y redondee el resultado.
 
-RAM del trabajo: el mejor caso sería proporcionar suficiente memoria para que la mayor parte del espacio de trabajo se ajuste a la memoria. El tipo de consultas que utiliza la aplicación afecta a los requisitos de memoria. Puede ejecutar EXPLAIN ANALYZE en una consulta para determinar cuánta memoria se requiere. Recuerde que los núcleos virtuales y la RAM se escalan a la vez, tal y como se describe en el artículo sobre [opciones de configuración de Hiperescala](concepts-hyperscale-configuration-options.md).
+RAM del trabajo: el mejor caso sería proporcionar suficiente memoria para que la mayor parte del espacio de trabajo se ajuste a la memoria. El tipo de consultas que utiliza la aplicación afecta a los requisitos de memoria. Puede ejecutar EXPLAIN ANALYZE en una consulta para determinar cuánta memoria se requiere. Recuerde que los núcleos virtuales y la RAM se escalan a la vez, tal y como se describe en el artículo sobre [opciones de configuración de Hiperescala (Citus)](concepts-hyperscale-configuration-options.md).
 
 ## <a name="scale-a-hyperscale-citus-server-group"></a>Escalado de un grupo de servidores Hiperescala (Citus)
 

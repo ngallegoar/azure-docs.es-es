@@ -1,18 +1,18 @@
 ---
 title: Interpretación de la puntuación | Microsoft Docs
-description: Las preguntas más frecuentes sobre Azure Internet Analyzer.
+description: Obtenga información sobre cómo interpretar la puntuación. La pestaña de puntuación contiene los resultados agregados y analizados de las pruebas.
 services: internet-analyzer
 author: mattcalder
 ms.service: internet-analyzer
 ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 5ed8621fbfd1528bfffeaa986fa9c2e17c19f82b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f43d094193fb266d1ecec7089b44d8b3fd5e9b43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744041"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330220"
 ---
 # <a name="interpreting-your-scorecard"></a>Interpretación de la puntuación
 

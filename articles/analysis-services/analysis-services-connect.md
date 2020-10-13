@@ -8,12 +8,12 @@ ms.date: 09/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 71caad8ce650b86f4350b32974bb8d980538b223
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 10e091ed58146d992d7b9c1f65b8b64f881a41b9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489024"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400288"
 ---
 # <a name="connecting-to-servers"></a>Conexión a servidores
 
@@ -23,7 +23,7 @@ En este artículo se describe la conexión a un servidor mediante aplicaciones d
 
 [Obtener las bibliotecas de cliente más recientes](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 
-Todas las conexiones a un servidor, con independencia del tipo, requieren las bibliotecas de cliente AMO, ADOMD.NET, y OLEDB actualizadas para conectarse a un servidor de Analysis Services e interaccionar con él. En el caso de SSMS, Visual Studio, Excel 2016 y versiones posteriores y Power BI, las bibliotecas cliente más recientes se instalan o actualizan con las versiones mensuales. Sin embargo, en algunos casos, es posible que una aplicación no tenga la más reciente. Por ejemplo, cuando las directivas retrasan las actualizaciones o las actualizaciones de Office 365 están en el canal diferido.
+Todas las conexiones a un servidor, con independencia del tipo, requieren las bibliotecas de cliente AMO, ADOMD.NET, y OLEDB actualizadas para conectarse a un servidor de Analysis Services e interaccionar con él. En el caso de SSMS, Visual Studio, Excel 2016 y versiones posteriores y Power BI, las bibliotecas cliente más recientes se instalan o actualizan con las versiones mensuales. Sin embargo, en algunos casos, es posible que una aplicación no tenga la más reciente. Por ejemplo, cuando las directivas retrasan las actualizaciones o las actualizaciones de Microsoft 365 están en el canal diferido.
 
 > [!NOTE]
 > Las bibliotecas de cliente no se pueden conectar a Azure Analysis Services a través de servidores proxy que requieran un nombre de usuario y contraseña. 

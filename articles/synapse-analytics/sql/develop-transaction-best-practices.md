@@ -1,6 +1,6 @@
 ---
 title: Optimización de transacciones para un grupo de SQL
-description: Aprenda a optimizar el rendimiento del código transaccional en el grupo de SQL (almacenamiento de datos) al tiempo que minimiza el riesgo de que se produzcan reversiones extensas.
+description: Aprenda a optimizar el rendimiento del código transaccional en el grupo de SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 174ae84e66f10db4ad24ed561b228f0031492d97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503198"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288654"
 ---
 # <a name="optimize-transactions-in-sql-pool"></a>Optimización de transacciones en un grupo de SQL
 
@@ -23,7 +23,7 @@ Aprenda a optimizar el rendimiento del código transaccional en el grupo de SQL 
 
 ## <a name="transactions-and-logging"></a>Transacciones y registro
 
-Las transacciones son un componente importante de un motor de base de datos relacional. El grupo de SQL usa transacciones durante la modificación de los datos. Estas transacciones pueden ser explícitas o implícitas. Las instrucciones INSERT, UPDATE y DELETE son ejemplos de transacciones implícitas. Las transacciones explícitas usan BEGIN TRAN, COMMIT TRAN y ROLLBACK TRAN. Las transacciones explícitas se usan normalmente cuando es necesario vincular varias instrucciones de modificación entre sí en una unidad atómica única.
+Las transacciones son un componente importante de un motor de base de datos relacional. El grupo de SQL usa transacciones durante la modificación de los datos. Estas transacciones pueden ser explícitas o implícitas. Las instrucciones INSERT, UPDATE y DELETE son ejemplos de transacciones implícitas. Las transacciones explícitas usan BEGIN TRAN, COMMIT TRAN y ROLLBACK TRAN. Las transacciones explícitas se usan normalmente cuando es necesario vincular varias instrucciones de modificación entre sí en una sola unidad atómica.
 
 El grupo de SQL confirma los cambios en la base de datos con registros de transacciones. Cada distribución tiene su propio registro de transacciones. Las escrituras en el registro de transacciones son automáticas. No es necesario realizar ninguna configuración. Sin embargo, si bien este proceso garantiza la escritura, introduce una sobrecarga en el sistema. Para minimizar este impacto, puede escribir código transaccionalmente eficiente. De forma amplia, un código transaccionalmente eficiente pertenece en dos categorías.
 
@@ -84,7 +84,7 @@ A menudo, la carga de datos en una tabla no vacía con un índice agrupado puede
 
 ## <a name="optimize-deletes"></a>Optimización de eliminaciones
 
-DELETE es una operación con registro completo.  Si necesita eliminar una gran cantidad de datos de una tabla o una partición, suele tener más sentido realizar una instrucción `SELECT` en los datos que desea conservar, que pueden ejecutarse como operación con registro completo.  Para seleccionar los datos, cree una nueva tabla con [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Cuando lo haya hecho, utilice [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para intercambiar la tabla por la que acaba de crear.
+DELETE es una operación con registro completo.  Si necesita eliminar una gran cantidad de datos de una tabla o una partición, suele tener más sentido realizar una instrucción `SELECT` en los datos que desea conservar, que pueden ejecutarse como operación con registro completo.  Para seleccionar los datos, cree una nueva tabla con [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Cuando lo haya hecho, utilice [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para intercambiar la tabla por la que acaba de crear.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.

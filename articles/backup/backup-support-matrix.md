@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 94a795ad91be1d648ad025287f5c5bc6f1d8d07e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d9da2ee893244afc7150ab6249dbe51845d5d0c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985019"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332719"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -39,6 +39,7 @@ En esta tabla se describen las características de los almacenes de Recovery Ser
 **Move vaults** (Mover almacenes) | Puede [mover almacenes](./backup-azure-move-recovery-services-vault.md) entre suscripciones o entre grupos de recursos de la misma suscripción. Sin embargo, no se admite el traslado de almacenes entre regiones.
 **Move data between vaults** (Movimiento de datos entre almacenes) | No se admite el movimiento de datos con copia de seguridad realizada entre almacenes.
 **Modify vault storage type** (Modificación del tipo de almacenamiento de almacén) | Puede modificar el tipo de replicación de almacenamiento (almacenamiento con redundancia geográfica o almacenamiento con redundancia local) para un almacén antes de que se almacenen las copias de seguridad. Una vez iniciadas las copias de seguridad en el almacén, el tipo de replicación no se puede modificar.
+**Almacenamiento con redundancia de zona (ZRS)** | Disponible en las regiones Sur de Reino Unido (UKS) y Sudeste Asiático (SEA).
 
 ## <a name="on-premises-backup-support"></a>Compatibilidad con las copias de seguridad locales
 
@@ -150,9 +151,9 @@ Azure Backup ha agregado la característica Restauración entre regiones para re
 | Tipo de administración de copias de seguridad | Compatible                                                    | Regiones admitidas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Sí.   Se admite para las máquinas virtuales cifradas y las máquinas virtuales con discos de menos de 4 TB. | Todas las regiones públicas de Azure y nubes soberanas.  |
-| SQL/SAP HANA | Sí                                                          | Todas las regiones públicas de Azure y nubes soberanas.             |
+| SQL/SAP HANA | Sí                                                          | Oeste de EE. UU. 2 (WUS2), Centro-oeste de EE. UU. (WCUS), Centro de Canadá (CNC), Este de Canadá (CNE), Este de EE. UU. (EUS), Oeste de EE. UU. (WUS), Este de Japón (JPE) |
 | Agente de MARS/local  | No                                                           | N/D               |
-| AFS                    | No                                                           | N/D               |
+| AFS (recursos compartidos de archivos de Azure)                 | No                                                           | N/D               |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: d93ff81bacbb537cc5891e0b869f164e0d6824c6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/24/2020
+ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440548"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324338"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Características de optimización del rendimiento de la actividad de copia
 
@@ -124,31 +124,35 @@ Cuando especifique un valor para la propiedad `parallelCopies`, tenga en cuenta 
 
 ## <a name="staged-copy"></a>copia almacenada provisionalmente
 
-Al copiar datos de un almacén de datos de origen a un almacén de datos receptor, podría elegir usar Almacenamiento de blobs como almacenamiento provisional. El almacenamiento provisional es especialmente útil en los siguientes casos:
+Al copiar datos de un almacén de datos de origen a un almacén de datos receptor, podría elegir usar Azure Blob Storage o Azure Data Lake Storage Gen2 como almacenamiento provisional. El almacenamiento provisional es especialmente útil en los siguientes casos:
 
-- **Desea ingerir datos de varios almacenes de datos en Azure Synapse Analytics (anteriormente SQL Data Warehouse) mediante PolyBase.** Azure Synapse Analytics emplea PolyBase como mecanismo de alto rendimiento para cargar una gran cantidad de datos en Azure Synapse Analytics. Los datos de origen deben estar en Blob Storage o Azure Data Lake Store y deben satisfacer criterios adicionales. Al cargar datos desde un almacén de datos distinto de Blob Storage o Azure Data Lake Store, puede activar la copia de datos mediante Blob Storage de almacenamiento provisional. En ese caso, Azure Data Factory realiza las transformaciones de datos necesarias para garantizar que se cumplen los requisitos de PolyBase. Después, usa PolyBase para cargar datos en Azure Synapse Analytics eficientemente. Para más información, consulte este artículo sobre el [uso de PolyBase para cargar datos en Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
+- **Quiere ingerir datos de varios almacenes de datos en Azure Synapse Analytics (anteriormente SQL Data Warehouse) a través de PolyBase, copiar datos con Snowflake como origen y destino o introducir datos desde Amazon Redshift/HDFS de manera eficaz.** Obtenga más información sobre lo siguiente:
+  - [Uso de PolyBase para cargar datos en Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics)
+  - [Conector de Snowflake](connector-snowflake.md)
+  - [Conector de Amazon Redshift](connector-amazon-redshift.md)
+  - [Conector de HDFS](connector-hdfs.md)
+- **Solo desea abrir los puertos 80 y el 443 en el firewall, a causa de las directivas de TI corporativas**. Por ejemplo, al copiar datos de un almacén de datos local a Azure SQL Database o a una instancia de Azure Synapse Analytics, debe activar la comunicación TCP saliente en el puerto 1433 tanto para el firewall de Windows como para el firewall corporativo. En este escenario, la copia almacenada provisionalmente usa el entorno de ejecución de integración autohospedado para copiar primero los datos en un almacenamiento provisional a través de HTTP o HTTPS en el puerto 443 y, luego, cargar los datos desde el almacenamiento provisional en SQL Database o Azure Synapse Analytics. En este flujo, no es necesario habilitar el puerto 1433.
 - **En ocasiones, se tarda un tiempo en realizar un movimiento de datos híbridos (es decir, copiar desde un almacén de datos local a un almacén de datos en la nube) a través de una conexión de red lenta.** Para mejorar el rendimiento se puede usar una copia almacenada provisionalmente para comprimir los datos de forma local, con el fin de que se tarde menos tiempo en mover datos al almacén de datos provisional en la nube. Luego, puede descomprimir los datos en dicho almacén antes de cargarlos en el almacén de datos de destino.
-- **Solo desea abrir los puertos 80 y el 443 en el firewall, a causa de las directivas de TI corporativas**. Por ejemplo, al copiar datos de un almacén de datos local a un receptor de Azure SQL Database o a un receptor de Azure Synapse Analytics, debe activar la comunicación TCP saliente en el puerto 1433 tanto para el firewall de Windows como para el firewall corporativo. En ese escenario, una copia almacenada provisionalmente puede aprovechar la ventaja de IR autohospedado para copiar primero los datos en una instancia provisional de Blob Storage a través de HTTP o HTTPS en el puerto 443. Luego, puede cargar dichos datos en SQL Database o en Azure Synapse Analytics desde la instancia provisional de Blob Storage. En este flujo, no es necesario habilitar el puerto 1433.
 
 ### <a name="how-staged-copy-works"></a>Funcionamiento de las copias almacenadas provisionalmente
 
-Al activar la característica de almacenamiento provisional, primero se copian los datos desde el almacén de datos de origen a la instancia de Blob Storage provisional (use su propio). A continuación, los datos se copian desde el almacén de datos provisional al almacén de datos receptor. Azure Data Factory administra automáticamente el flujo de dos fases. Azure Data Factory también limpia los datos temporales del almacenamiento provisional cuando se completa el movimiento de los datos.
+Al activar la característica de almacenamiento provisional, primero se copian los datos desde el almacén de datos de origen al almacenamiento provisional (aporte su propio Azure Blob o Azure Data Lake Storage Gen2). A continuación, los datos se copian desde el almacén de datos provisional al almacén de datos receptor. La actividad de copia de Azure Data Factory administra automáticamente el flujo de dos fases y también limpia los datos temporales del almacenamiento provisional una vez completado el movimiento de datos.
 
 ![copia almacenada provisionalmente](media/copy-activity-performance/staged-copy.png)
 
-Cuando activa el movimiento de datos mediante un almacén provisional, puede especificar si quiere que los datos se compriman antes de moverlos del almacén de datos de origen a uno provisional o intermedio, y luego descomprimirlos antes de moverlos desde este último al almacén de datos receptor.
+Cuando activa el movimiento de datos mediante un almacén provisional, puede especificar si quiere que los datos se compriman antes de moverlos del almacén de datos de origen al almacenamiento provisional y luego se descompriman antes de moverlos desde este último al almacén de datos receptor.
 
 Actualmente, no es posible copiar datos entre dos almacenes de datos que estén conectados a través de distintos IR autohospedados, ni con copia almacenada provisionalmente ni sin ella. Para dicho escenario, puede configurar dos actividades de copia explícitamente encadenadas, con el fin de copiar desde el origen al almacenamiento provisional y, después, desde este al receptor.
 
 ### <a name="configuration"></a>Configuración
 
-Configure el valor **enableStaging** de la actividad de copia para especificar si desea que los datos se almacenen provisionalmente en Blob Storage antes de cargarlos en un almacén de datos de destino. Cuando establezca **enableStaging** en `TRUE`, especifique las propiedades adicionales que se muestran en la tabla siguiente. Si no tiene un servicio vinculado a la firma de acceso compartido de Azure Storage o de Storage, debe crearlo.
+Configure el valor **enableStaging** de la actividad de copia para especificar si desea que los datos se almacenen provisionalmente antes de cargarlos en un almacén de datos de destino. Cuando establezca **enableStaging** en `TRUE`, especifique las propiedades adicionales que se muestran en la tabla siguiente. 
 
 | Propiedad | Descripción | Valor predeterminado | Obligatorio |
 | --- | --- | --- | --- |
 | enableStaging |Especifique si desea copiar los datos a través de un almacén provisional. |False |No |
-| linkedServiceName |Especifique el nombre de un servicio vinculado [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) que haga referencia a la instancia de Storage que se usa como almacenamiento provisional. <br/><br/> Storage no se puede usar con una firma de acceso compartido para cargar datos en Azure Synapse Analytics mediante PolyBase. Puede usarlo en todos los demás casos. |N/D |Sí, cuando el valor de **enableStaging** está establecido en True. |
-| path |Especifique la ruta de acceso de Almacenamiento de blobs que quiere que contenga los datos almacenados provisionalmente. Si no se proporciona una ruta de acceso, el servicio crea un contenedor para almacenar los datos temporales. <br/><br/> Especifique una ruta de acceso solo si usa Almacenamiento con una firma de acceso compartido o si necesita que los datos temporales estén en una ubicación específica. |N/D |No |
+| linkedServiceName |Especifique el nombre de un servicio vinculado [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) que haga referencia a la instancia de almacenamiento que se usa como almacenamiento provisional. |N/D |Sí, cuando el valor de **enableStaging** está establecido en True. |
+| path |Especifique la ruta de acceso que quiere que contenga los datos almacenados provisionalmente. Si no se proporciona una ruta de acceso, el servicio crea un contenedor para almacenar los datos temporales. |N/D |No |
 | enableCompression |Especifica si se deben comprimir los datos antes de copiarlos en el destino. Esta configuración reduce el volumen de datos que se va a transferir. |False |No |
 
 >[!NOTE]
@@ -159,25 +163,24 @@ Este es un ejemplo de definición de una actividad de copia con las propiedades 
 ```json
 "activities":[
     {
-        "name": "Sample copy activity",
+        "name": "CopyActivityWithStaging",
         "type": "Copy",
         "inputs": [...],
         "outputs": [...],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "OracleSource",
             },
             "sink": {
-                "type": "SqlSink"
+                "type": "SqlDWSink"
             },
             "enableStaging": true,
             "stagingSettings": {
                 "linkedServiceName": {
-                    "referenceName": "MyStagingBlob",
+                    "referenceName": "MyStagingStorage",
                     "type": "LinkedServiceReference"
                 },
-                "path": "stagingcontainer/path",
-                "enableCompression": true
+                "path": "stagingcontainer/path"
             }
         }
     }

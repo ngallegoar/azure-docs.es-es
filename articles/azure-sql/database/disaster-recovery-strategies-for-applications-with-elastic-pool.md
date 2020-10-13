@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 8ba9edc129cc169ccc146c7bc314d8f5ffe573b9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 0463d11466859c0f30901a0afd960bdc7b2599a5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84038776"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357796"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-azure-sql-database-elastic-pools"></a>Estrategias de recuperación ante desastres para aplicaciones que usan grupos elásticos de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Tengo una aplicación de SaaS desarrollada con ofertas de servicio en capas y di
 
 Para admitir este escenario, separe los inquilinos de versiones de prueba de los inquilinos de versiones de pago, colocándolos en grupos elásticos independientes. Los clientes de versiones de prueba tienen menos eDTU o núcleos virtuales por inquilino y un Acuerdo de Nivel de Servicio menor con un tiempo de recuperación mayor. Los clientes de versiones de pago se encuentran en un grupo con más eDTU o núcleos virtuales por inquilino y un Acuerdo de Nivel de Servicio superior. Para garantizar el menor tiempo de recuperación, las bases de datos de inquilino de los clientes de versiones de pago deben replicarse geográficamente. En el siguiente diagrama se ilustra esta configuración.
 
-![Figura 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
+![En el diagrama se muestra una región primaria y una región de recuperación ante desastres que emplean la replicación geográfica entre la base de datos de administración y el grupo principal de clientes de pago y el grupo secundario sin replicación para el grupo de clientes de prueba.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
 Al igual que en el primer escenario, las bases de datos de administración estarán bastante activas, por tanto puede utilizar una base de datos única de replicación geográfica para ello (1). Esto garantiza un rendimiento predecible para las nuevas suscripciones de cliente, actualizaciones del perfil y otras operaciones de administración. La región en la que residen los principales de las bases de datos de administración será la región primaria y la región en la que residen los secundarios de las bases de datos de administración será la región de recuperación ante desastres.
 
@@ -86,7 +86,7 @@ Las bases de datos de inquilino de los clientes con versiones de pago tienen bas
 
 En el caso de una interrupción en la región principal, en el diagrama siguiente se muestran los pasos de recuperación para volver a conectar la aplicación.
 
-![Figura 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
+![En el diagrama se muestra una interrupción de la región principal, con conmutación por error a la base de datos de administración, el grupo secundario de clientes de pago y la creación y restauración para clientes de prueba.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
 * Realice inmediatamente una conmutación por error en las bases de datos de administración en la región de recuperación ante desastres (3).
 * Cambie la cadena de conexión de la aplicación para que apunte a la región de recuperación ante desastres. Ahora todas las cuentas nuevas y las bases de datos de inquilino se crean en la región de recuperación ante desastres. Los clientes de versiones de prueba existentes verán que sus datos no están disponibles temporalmente.
@@ -99,7 +99,7 @@ En este momento la aplicación vuelve a estar en línea en la región de recuper
 
 Cuando Azure recupera la región primaria *después* de haber restaurado la aplicación en la región de recuperación ante desastres, puede continuar ejecutando la aplicación en dicha región, o bien decidir realizar una conmutación por recuperación en la región principal. Si se recupera la región primaria *antes* de que se complete el proceso de conmutación por error, debe plantearse utilizar la conmutación por recuperación inmediatamente. La conmutación por recuperación realiza los pasos que se muestran en el diagrama siguiente:
 
-![Ilustración 6.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
+![En el diagrama se muestran los pasos de conmutación por recuperación que se deben implementar después de restaurar la región primaria.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
 * Cancele todas las solicitudes de restauración geográfica pendientes.
 * Realice una conmutación por error en las bases de datos de administración (8). Después de la recuperación de la región, la primaria anterior se convierte automáticamente en secundaria. Ahora vuelve a convertir en principal.  
@@ -128,7 +128,7 @@ Para este escenario, use tres grupos elásticos independientes. Aprovisione dos 
 
 Para garantizar el menor tiempo de recuperación durante las interrupciones en las bases de datos de inquilino de los clientes de versiones de pago, deben replicarse geográficamente con el 50 % de las bases de datos principales en cada una de las dos regiones. De forma similar, cada región tiene el 50 % de las bases de datos secundarias. De este modo si una región está sin conexión, solo el 50 % de las bases de datos de los clientes de versiones de pago se ven afectados y tienen que realizar la conmutación por error. Las otras bases de datos permanecen intactas. Esta configuración se ilustra en el diagrama siguiente:
 
-![Figura 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
+![En el diagrama se muestra una región primaria llamada Región A y una región secundaria llamada Región B que emplean la replicación geográfica entre la base de datos de administración y el grupo principal de clientes de pago y el grupo secundario sin replicación para el grupo de clientes de prueba.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
 Al igual que en los escenarios anteriores, las bases de datos de administración están bastante activas, por tanto debe configurarlas como bases de datos únicas de replicación geográfica (1). Esto garantiza un rendimiento predecible para las nuevas suscripciones de cliente, actualizaciones del perfil y otras operaciones de administración. La región A es la región primaria de las bases de datos de administración y la región B se usa para la recuperación de las bases de datos de administración.
 
@@ -136,7 +136,7 @@ Las bases de datos de inquilino de los clientes de versiones de pago también se
 
 El siguiente diagrama ilustra los pasos de recuperación que hay que llevar a cabo si se produce una interrupción en la región A.
 
-![Figura 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
+![En el diagrama se muestra una interrupción de la región principal, con conmutación por error a la base de datos de administración, el grupo secundario de clientes de pago y la creación y restauración para clientes de prueba en la región B.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
 * Realice inmediatamente una conmutación por error en las bases de datos de administración en la región B (3).
 * Cambie la cadena de conexión de la aplicación para que señale a las bases de datos de administración de la región B. Modifique las bases de datos de administración para asegurarse de que las nuevas cuentas y bases de datos de inquilino se crearán en la región B y que las bases de datos de inquilino existentes se encontrarán allí también. Los clientes de versiones de prueba existentes verán que sus datos no están disponibles temporalmente.
@@ -152,7 +152,7 @@ En este punto, la aplicación vuelve a estar en línea en la región B. Todos lo
 
 Cuando se recupera la región A, debe decidir si quiere usar la región B para clientes de versiones prueba o realizar una conmutación por recuperación mediante el grupo de clientes de versiones de prueba en la región A. Un criterio podría ser el porcentaje de bases de datos de inquilino de versiones de prueba modificadas desde la recuperación. Con independencia de esta decisión, debe volver a equilibrar los inquilinos de versiones de pago entre los dos grupos. En el siguiente diagrama se muestra el proceso de la conmutación por recuperación de las bases de datos de inquilino de versiones de prueba en la región A.  
 
-![Ilustración 6.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
+![En el diagrama se muestran los pasos de conmutación por recuperación que se deben implementar después de restaurar la región A.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
 * Cancele todas las solicitudes de restauración geográfica pendientes en el grupo de recuperación ante desastres de versiones de prueba.
 * Realice una conmutación por error en la base de datos de administración (8). Después de la recuperación de la región, la región primaria anterior se convierte automáticamente en secundaria. Ahora vuelve a convertir en principal.  

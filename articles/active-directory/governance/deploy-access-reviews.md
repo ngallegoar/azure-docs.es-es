@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461041"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306572"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamiento de una implementación de revisiones de acceso de Azure Active Directory
 
@@ -37,7 +37,7 @@ ms.locfileid: "89461041"
 
 * Automatizar los resultados de las revisiones (por ejemplo, eliminar el acceso de los usuarios a los recursos).
 
-  ![Planeamiento de revisiones de acceso](./media/deploy-access-review/1-planning-review.png)
+  ![Diagrama que muestra el flujo de revisiones de acceso.](./media/deploy-access-review/1-planning-review.png)
 
 Las revisiones de acceso son una funcionalidad de [Azure AD Identity Governance](identity-governance-overview.md). Otras funcionalidades son la [administración de derechos](entitlement-management-overview.md), [Privileged Identity Management](../privileged-identity-management/pim-configure.md) y los [términos de uso](../conditional-access/terms-of-use.md). Juntas, permiten a las organizaciones dar respuesta a estas cuatro preguntas:
 
@@ -300,7 +300,7 @@ Al [crear un paquete de acceso](entitlement-management-access-package-create.md)
 
 Abra la pestaña Ciclo de vida y desplácese a Revisiones de acceso.
 
- ![Editar directiva](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ ![Captura de pantalla que muestra "Editar directiva" en la pestaña "Ciclo de vida".](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## <a name="plan-access-reviews-for-groups"></a>Planeamiento de revisiones de acceso para grupos
 
@@ -446,7 +446,7 @@ Las necesidades de acceso a grupos y aplicaciones para empleados e invitados pro
 
 Para reducir el riesgo asociado a las asignaciones de roles obsoletas, debe revisar periódicamente el acceso a roles de Azure AD con privilegios.
 
-![revisión de roles de Azure AD](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![Captura de pantalla que muestra la lista "Pertenencia de la revisión" de los roles de Azure AD.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 Siga las instrucciones del vínculo que se incluye a continuación:
 

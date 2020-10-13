@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf57bea87fcb5e1d1f1bde4eada5a79d2fef52c8
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 555673d1496ac33642e04c09233ba554ee2cca95
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706326"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531248"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS
 
@@ -38,12 +38,12 @@ Para proteger los recursos de la nube, configure una regla de notificaciones par
 
 5. En el Asistente para agregar regla de notificaciones de transformación, seleccione **Pasar por una notificación entrante o filtrarla** en la lista desplegable y haga clic en **Siguiente**.
 
-   ![Asistente para agregar reglas de notificación de transformación](./media/howto-mfa-adfs/trustedip3.png)
+   ![Captura de pantalla que muestra el Asistente para agregar regla de notificaciones de transformación donde se selecciona una plantilla de regla de notificaciones.](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Asigne un nombre a la regla. 
 7. Seleccione **Referencias de métodos de autenticación** como tipo de notificación entrante.
 8. Seleccione **Pasar a través todos los valores de notificaciones**.
-    ![Asistente para agregar reglas de notificación de transformación](./media/howto-mfa-adfs/configurewizard.png)
+    ![Captura de pantalla que muestra el Asistente para agregar regla de notificaciones de transformación donde se selecciona Pasar a través todos los valores de notificaciones.](./media/howto-mfa-adfs/configurewizard.png)
 9. Haga clic en **Finalizar** Cierre la consola de administración de AD FS.
 
 ## <a name="trusted-ips-for-federated-users"></a>Direcciones IP de confianza para usuarios federados
@@ -63,7 +63,7 @@ Utilice el procedimiento siguiente para configurar las notificaciones de AD FS. 
 4. En Reglas de transformación de emisión, haga clic en **Agregar regla**.
    ![Agregar una regla de notificaciones](./media/howto-mfa-adfs/trustedip2.png)
 5. En el Asistente para agregar regla de notificaciones de transformación, seleccione **Pasar por una notificación entrante o filtrarla** en la lista desplegable y haga clic en **Siguiente**.
-   ![Asistente para agregar reglas de notificación de transformación](./media/howto-mfa-adfs/trustedip3.png)
+   ![Captura de pantalla que muestra el Asistente para agregar regla de notificaciones de transformación donde se selecciona Pasar por una notificación entrante o filtrarla.](./media/howto-mfa-adfs/trustedip3.png)
 6. En el cuadro situado junto al nombre de la regla de notificación, asigne un nombre a la regla. Por ejemplo: InsideCorpNet.
 7. En la lista desplegable, junto a Tipo de notificación entrante, seleccione **Dentro de la red corporativa**.
    ![Agregar una notificación de una red corporativa](./media/howto-mfa-adfs/trustedip4.png)

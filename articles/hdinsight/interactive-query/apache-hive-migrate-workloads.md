@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 313b6afb8bd96f8ae507118cd552110d5f07ff78
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 26dfe8d134f9f38d8272895583ba2eff614d78e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087526"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308391"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migración de cargas de trabajo de Hive de Azure HDInsight 3.6 a HDInsight 4.0
 
@@ -208,30 +208,9 @@ Una vez que haya confirmado que la versión está completa y totalmente operativ
 
 ## <a name="query-execution-across-hdinsight-versions"></a>Ejecución de consultas entre diferentes versiones de HDInsight
 
-Hay dos maneras de ejecutar y depurar las consultas de Hive/LLAP dentro de un clúster de HDInsight 3.6. HiveCLI proporciona una experiencia de línea de comandos y la vista de Hive/vista de Tez proporciona un flujo de trabajo basado en una GUI.
+Hay dos maneras de ejecutar y depurar las consultas de Hive/LLAP dentro de un clúster de HDInsight 3.6. HiveCLI proporciona una experiencia de línea de comandos y la [vista de Tez/Hive](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) proporciona un flujo de trabajo basado en una interfaz gráfica de usuario.
 
-En HDInsight 4.0, HiveCLI se ha reemplazado por Beeline. HiveCLI es un cliente de Thrift para Hiveserver 1 y Beeline es un cliente JDBC que proporciona acceso a Hiveserver 2. Beeline también se puede usar para conectarse a cualquier otro punto de conexión de la base de datos compatible con JDBC. Beeline está disponible como componente integrado en HDInsight 4.0 sin necesidad de instalación.
-
-En HDInsight 3.6, el cliente de la interfaz gráfica de usuario para interactuar con el servidor de Hive es la vista de Hive de Ambari. HDInsight 4.0 no se incluye en la vista Ambari. Hemos proporcionado una manera para que nuestros clientes usen Data Analytics Studio (DAS), que no es un servicio principal de HDInsight. DAS no se suministra integrado con clústeres de HDInsight y no es un paquete oficialmente compatible. Sin embargo, DAS se puede instalar en el clúster mediante una [acción de script](../hdinsight-hadoop-customize-cluster-linux.md), de la forma siguiente:
-
-|Propiedad | Value |
-|---|---|
-|Tipo de script|- Personalizado|
-|Nombre|DAS|
-|URI de script de Bash|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
-|Tipos de nodo|Head|
-
-Espere entre 10 y 15 minutos y luego inicie Data Analytics Studio mediante esta dirección URL: `https://CLUSTERNAME.azurehdinsight.net/das/`.
-
-Es posible que sea necesaria una actualización de la interfaz de usuario de Ambari o un reinicio de todos sus componentes para acceder a DAS.
-
-Una vez instalado DAS, si no ve las consultas que haya ejecutado en el visor de consultas, realice los pasos siguientes:
-
-1. Establezca las configuraciones de Hive, Tez y DAS, como se describe en [esta guía para solucionar problemas de instalación de DAS](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
-2. Asegúrese de que las siguientes configuraciones de directorio de almacenamiento de Azure son blobs en páginas, y que aparecen en `fs.azure.page.blob.dirs`:
-    * `hive.hook.proto.base-directory`
-    * `tez.history.logging.proto-base-dir`
-3. Reinicie HDFS, Tez, Hive y DAS en ambos nodos principales.
+En HDInsight 4.0, HiveCLI se ha reemplazado por Beeline. La vista Tez/Hive proporciona un flujo de trabajo basado en una interfaz gráfica de usuario. HiveCLI es un cliente de Thrift para Hiveserver 1 y Beeline es un cliente JDBC que proporciona acceso a Hiveserver 2. Beeline también se puede usar para conectarse a cualquier otro punto de conexión de base de datos compatible con JDBC. Beeline está disponible como componente integrado en HDInsight 4.0 sin necesidad de instalación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

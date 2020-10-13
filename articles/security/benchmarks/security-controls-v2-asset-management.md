@@ -4,17 +4,17 @@ description: Administración de recursos de Azure Security Benchmark v2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ba010c0dd3384af895c68d980fcae788c2d6d45a
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 845c4f3194f35c68306e74734e5ecc6109d9c103
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059087"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318031"
 ---
-# <a name="security-control-asset-management"></a>Control de seguridad: Administración de recursos
+# <a name="security-control-v2-asset-management"></a>Control de seguridad v. 2: Administración de recursos
 
 La administración de recursos cubre controles para garantizar la visibilidad y la gobernanza de la seguridad de los recursos de Azure. Esto incluye recomendaciones sobre permisos para el personal de seguridad, acceso de seguridad al inventario de recursos y administración de aprobaciones de servicios y recursos (inventario, seguimiento y corrección).
 
@@ -22,7 +22,7 @@ La administración de recursos cubre controles para garantizar la visibilidad y 
 
 | Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
 |--|--|--|--|
-| AM-1 | 1.1, 1.2, 1.3, 1.4, 9.1, 12.1 | CM-7, CM-8, CM-11, PM-5 |
+| AM-1 | 1.1, 1.2 | CM-8, PM-5 |
 
 Asegúrese de que se conceden a los equipos de seguridad permisos de lector de seguridad en el inquilino y las suscripciones de Azure para que puedan supervisar los riesgos de seguridad mediante Azure Security Center. 
 
@@ -38,7 +38,7 @@ Nota: Es posible que se requieran permisos adicionales para obtener visibilidad 
 
 **Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -48,7 +48,7 @@ Nota: Es posible que se requieran permisos adicionales para obtener visibilidad 
 
 | Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
 |--|--|--|--|
-| AM-2 | 1.5 | CM-8, PM-5 |
+| AM-2 | 1.1, 1.2,  1.4, 1.5, 9.1, 12.1 | CM-8, PM-5 |
 
 Asegúrese de que los equipos de seguridad tienen acceso a un inventario de recursos actualizado continuamente en Azure. Los equipos de seguridad suelen necesitar este inventario para evaluar la exposición potencial de su organización a los riesgos emergentes y como una entrada para mejoras de seguridad continuas. 
 
@@ -64,7 +64,7 @@ Organice de forma lógica los recursos según la taxonomía de su organización 
 
 **Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -86,7 +86,7 @@ Use Azure Policy para auditar y restringir qué servicios pueden aprovisionar lo
 
 **Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Administración del cumplimiento de la seguridad](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -106,7 +106,7 @@ Quite los recursos de Azure cuando ya no los necesite.
 
 **Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -126,7 +126,7 @@ Use el acceso condicional de Azure AD para limitar la capacidad de los usuarios
 
 **Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Administración de la posición](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
@@ -136,7 +136,7 @@ Use el acceso condicional de Azure AD para limitar la capacidad de los usuarios
 
 | Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
 |--|--|--|--|
-| AM-6 | 2.6 | AC-3, CM-7, CM-8, CM-10, CM-11 |
+| AM-6 | 2.6, 2.7 | AC-3, CM-7, CM-8, CM-10, CM-11 |
 
 Asegúrese de que solo se ejecute software autorizado y de que todo el software no autorizado no se ejecute en Azure Virtual Machines.
 
@@ -156,7 +156,7 @@ También puede usar una solución de terceros para descubrir e identificar softw
 
 **Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 

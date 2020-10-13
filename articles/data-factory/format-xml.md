@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: 12e6ae9dd14ebafb1da6bfbcfef64e2d65e876d8
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e0fadf4ac8cea1c8804b17f5549a99bc360e2950
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531719"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334300"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Formato XML en Azure Data Factory
 
@@ -85,10 +85,12 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | El tipo de formatSettings debe establecerse en **XmlReadSettings**. | Sí      |
 | validationMode | Especifica si se debe validar el esquema XML.<br>Los valores permitidos son **ninguno** (predeterminado, sin validación), **xsd** (validar con XSD) y **dtd** (validar con DTD). | No |
+| espacios de nombres | Indica si habilitar el espacio de nombres al analizar los archivos XML. Los valores permitidos son: **True** (valor predeterminado) y **False**. | No |
 | namespacePrefixes | Identificador URI del espacio de nombres a la asignación del prefijo, que se usa para asignar un nombre a los campos al analizar el archivo XML.<br/>Si un archivo XML tiene un espacio de nombres y este está habilitado, de forma predeterminada, el nombre del campo es el mismo que en el documento XML.<br>Si hay un elemento definido para el URI del espacio de nombres en esta asignación, el nombre del campo es `prefix:fieldName`. | No |
+| detectDataType | Si se van a detectar tipos de datos enteros, dobles y booleanos. Los valores permitidos son: **True** (valor predeterminado) y **False**.| No |
 | compressionProperties | Un grupo de propiedades sobre cómo descomprimir datos para un códec de compresión determinado. | No       |
 | preserveZipFileNameAsFolder<br>(*en `compressionProperties`->`type` como `ZipDeflateReadSettings`* )  | Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate**. Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`.<br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en archivos ZIP de origen diferentes para evitar comportamientos acelerados o inesperados.  | No |
-| preserveCompressionFileNameAsFolder<br>(*en `compressionProperties`->`type` como `TarGZipReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada se configura con compresión **TarGzip**. Indica si se debe conservar el nombre del archivo de origen comprimido como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no haya nombres de archivo duplicados en distintos archivos de origen para evitar comportamientos acelerados o inesperados. | No |
+| preserveCompressionFileNameAsFolder<br>(*en `compressionProperties`->`type` como `TarGZipReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada se configura con compresión **TarGzip**. Indica si se debe conservar el nombre del archivo de origen comprimido como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en distintos archivos de origen comprimidos para evitar comportamientos acelerados o inesperados. | No |
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
@@ -109,6 +111,7 @@ En la tabla siguiente se enumeran las propiedades que admite un origen XML. Pued
 | Modo de validación | Especifica si se debe validar el esquema XML. | No | `None` (predeterminado, sin validación)<br>`xsd` (validar con XSD)<br>`dtd` (validar con DTD). | validationMode |
 | Espacios de nombres | Indica si habilitar el espacio de nombres al analizar los archivos XML. | No | `true` (predeterminado) o `false` | espacios de nombres |
 | Pares de prefijo de espacio de nombres | Identificador URI del espacio de nombres a la asignación del prefijo, que se usa para asignar un nombre a los campos al analizar el archivo XML.<br/>Si un archivo XML tiene un espacio de nombres y este está habilitado, de forma predeterminada, el nombre del campo es el mismo que en el documento XML.<br>Si hay un elemento definido para el URI del espacio de nombres en esta asignación, el nombre del campo es `prefix:fieldName`. | No | Matriz con patrón`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| No permitir que se encuentren archivos | Si es true, no se devuelve un error si no se encuentra ningún archivo. | no | `true` o `false` | ignoreNoFilesFound |
 
 ### <a name="xml-source-script-example"></a>Ejemplo de script de origen XML
 

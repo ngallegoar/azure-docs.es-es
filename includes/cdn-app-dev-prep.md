@@ -4,12 +4,12 @@ ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
-ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4967991b0edaa854acbf6b308596859d662311fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77608728"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316770"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de escribir el código de administración de la red CDN, tiene que realizar algunos preparativos para habilitar el código para que interactúe con Azure Resource Manager. Para hacer esta preparación, deberá:
@@ -26,10 +26,10 @@ Antes de escribir el código de administración de la red CDN, tiene que realiza
     ![Crear un grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
 3. Llame al grupo de recursos *CdnConsoleTutorial*.  Seleccione la suscripción y elija una ubicación cercana.  Si lo desea, puede hacer clic en la casilla **Anclar al panel** para anclar el grupo de recursos al panel en el portal.  El anclaje hará que sea más fácil encontrarlo luego.  Cuando termine las selecciones, haga clic en **Crear**.
 
-    ![Asignar un nombre al grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
+    ![Captura de pantalla del cuadro de diálogo Grupo de recursos.](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
 4. Una vez creado el grupo de recursos, si no lo ancló al panel, para buscarlo, haga clic en **Examinar** y en **Grupos de recursos**.  Para abrirlo, haga clic en el grupo de recursos.  Tome nota del valor en **Id. de suscripción**. Lo necesitará más adelante.
 
-    ![Asignar un nombre al grupo de recursos](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
+    ![Captura de pantalla de la sección del tutorial de la consola de CDN.](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Creación de la aplicación de Azure AD y aplicación de los permisos
 Existen dos enfoques para la autenticación de la aplicación con Azure Active Directory: usuarios individuales o una entidad de servicio. Una entidad de servicio se parece a una cuenta de servicio en Windows.  En lugar de conceder permisos a usuarios concretos para que interactúen con los perfiles de CDN, los permisos se conceden a la entidad de servicio.  Las entidades de servicio se suelen utilizar para procesos automatizados no interactivos.  Aunque en este tutorial escribimos una aplicación de consola interactiva, nos centraremos en el enfoque de entidad de servicio.

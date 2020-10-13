@@ -1,7 +1,7 @@
 ---
 title: 'Creación de un proyecto de Voz personalizada: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Cuando esté listo para cargar los datos, vaya al portal de voz personalizada. Cree o seleccione un proyecto de voz personalizada. El proyecto debe compartir el idioma/configuración regional y las propiedades de género correctos con los datos que pretende usar para el entrenamiento de voz.
+description: Cuando esté listo para cargar los datos, vaya al portal de voz personalizada. Cree o seleccione un proyecto de voz personalizada. El proyecto debe compartir el idioma o configuración regional y las propiedades de género correctos con los datos que pretende usar para el entrenamiento de voz.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f087a2880c16218905a4410a2f591511a155ffd
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 3747033fcaf65e0c6da07e9f1bb625771958bb4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629013"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319068"
 ---
 # <a name="create-a-custom-voice"></a>Creación de una voz personalizada
 
@@ -28,7 +28,7 @@ Compruebe los idiomas admitidos para la voz personalizada: [idioma para la perso
 
 ## <a name="upload-your-datasets"></a>Cargar los conjuntos de datos
 
-Cuando esté listo para cargar los datos, vaya al [portal de voz personalizada](https://aka.ms/custom-voice-portal). Cree o seleccione un proyecto de voz personalizada. El proyecto debe compartir el idioma/configuración regional y las propiedades de género correctos con los datos que pretende usar para el entrenamiento de voz. Por ejemplo, seleccione `en-GB` si las grabaciones de audio se han realizado en inglés con acento británico.
+Cuando esté listo para cargar los datos, vaya al [portal de voz personalizada](https://aka.ms/custom-voice-portal). Cree o seleccione un proyecto de voz personalizada. El proyecto debe compartir el idioma o configuración regional y las propiedades de género correctos con los datos que pretende usar para el entrenamiento de voz. Por ejemplo, seleccione `en-GB` si las grabaciones de audio se han realizado en inglés con acento británico.
 
 Vaya a la pestaña **Data** (Datos) y haga clic en **Upload data** (Cargar datos). En el asistente, seleccione el tipo de datos correcto que coincida con lo que ha preparado.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 03e6f51d2ab7138675f7d79c04faa2e4dffec60c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825691"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361473"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Solución de problemas de una VM de Linux cuando no se tiene acceso a la consola serie de Azure y el diseño de disco usa LVM (Administrador de volúmenes lógicos)
 
@@ -143,7 +143,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 Los comandos se pueden usar para instalar, quitar y actualizar software. Solucionar problemas de VM para corregir errores.
 
 
-Ejecute el comando lsblk; /rescue es ahora / y /rescue/boot es /boot ![Chrooted](./media/chroot-logical-volume-manager/chrooted.png).
+Ejecute el comando lsblk, /rescue es ahora / y /rescue/boot es /boot. ![La captura de pantalla muestra una ventana de consola con el comando lsblk y el árbol de salida.](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>Realización de correcciones
 
@@ -169,7 +169,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 *walkthrough*
 
 El comando **grep** muestra los kernels que **grub.cfg** conoce.
-![Kernels](./media/chroot-logical-volume-manager/kernels.png)
+![La captura de pantalla muestra una ventana de consola, con el resultado de una búsqueda de grep para kernels.](./media/chroot-logical-volume-manager/kernels.png)
 
 **grub2-editenv list** muestra el kernel que se cargará en el siguiente inicio. ![Valor predeterminado del kernel](./media/chroot-logical-volume-manager/kernel-default.png).
 
@@ -190,7 +190,7 @@ Ejecute el comando **lvs** para comprobar qué **LV** están disponibles para el
 
 Salga del entorno **chroot** y monte el **LV** necesario.
 
-![Avanzado](./media/chroot-logical-volume-manager/advanced.png)
+![La captura de pantalla muestra una ventana de consola, con un comando lvs y, a continuación, el montaje de LV.](./media/chroot-logical-volume-manager/advanced.png)
 
 A continuación, acceda nuevamente al entorno **chroot** ejecutando:
 

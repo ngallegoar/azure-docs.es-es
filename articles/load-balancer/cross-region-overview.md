@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/01/2020
+ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 11184b2e9770ba6fd7c4ec9d04862c0890ac94c6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90931975"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336537"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Equilibrador de carga entre regiones (versión preliminar)
 
@@ -55,7 +55,7 @@ Si se produce un error en una región, el tráfico se enruta al siguiente equili
 
 El sondeo de estado del equilibrador de carga entre regiones recopila información sobre la disponibilidad cada 20 segundos. Si la disponibilidad de un equilibrador de carga regional baja a 0, el equilibrador de carga entre regiones detectará el error. A continuación, el equilibrador de carga regional se excluye de la rotación. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama de la vista del tráfico de la región global." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama del equilibrador de carga entre regiones." border="true":::
 
 ### <a name="ultra-low-latency"></a>Latencia ultrabaja
 

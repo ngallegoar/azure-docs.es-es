@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e9faea3462ae953e474b5053b651808b03f07c23
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 9fe4d5cfb4b0b31a257dfecdeeb191a9c7920772
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855449"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403181"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>API web que llama a API web: Configuración del código
 
@@ -27,9 +27,18 @@ El código que usa para configurar su API web para que llame a las API web de ba
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
+## <a name="microsoftidentityweb"></a>Microsoft.Identity.Web
+
+Microsoft recomienda usar el paquete NuGet [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) al desarrollar API web de nivel inferior de llamada API protegidas por ASP.NET Core. Consulte [API web protegida: Configuración de código | Microsoft.Identity.Web](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) para ver una presentación rápida de la biblioteca en el contexto de una API web.
+
 ## <a name="client-secrets-or-client-certificates"></a>Secretos de cliente o certificados de cliente
 
-Dado que la API web ahora llama a una API web de nivel inferior, debe proporcionar un secreto de cliente o un certificado de cliente en el archivo *appsettings.json*.
+Dado que la API web ahora llama a una API web de nivel inferior, debe proporcionar un secreto de cliente o un certificado de cliente en el archivo *appsettings.json*. También puede agregar una sección que especifique:
+
+- La dirección URL de la API web de nivel inferior.
+- Los ámbitos necesarios para llamar a la API.
+
+En el ejemplo siguiente, la sección `GraphBeta` especifica esta configuración.
 
 ```JSON
 {
@@ -37,12 +46,16 @@ Dado que la API web ahora llama a una API web de nivel inferior, debe proporcion
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
     "TenantId": "common"
-  
+
    // To call an API
    "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
    "ClientCertificates": [
   ]
- }
+ },
+ "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+    }
 }
 ```
 
@@ -54,7 +67,7 @@ En lugar de un secreto de cliente, puede proporcionar un certificado de cliente.
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
     "TenantId": "common"
-  
+
    // To call an API
    "ClientCertificates": [
       {
@@ -62,8 +75,12 @@ En lugar de un secreto de cliente, puede proporcionar un certificado de cliente.
         "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
         "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
       }
-  ]
- }
+   ]
+  },
+  "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+  }
 }
 ```
 
@@ -71,28 +88,88 @@ Microsoft.Identity.Web proporciona varias maneras de describir certificados, tan
 
 ## <a name="startupcs"></a>Startup.cs
 
-Con Microsoft.Identity.Web, si desea que la API web llame a las API web de nivel inferior, agregue la línea `.EnableTokenAcquisitionToCallDownstreamApi()` después de `.AddMicrosoftIdentityWebApi(Configuration)` y, después, elija una implementación de la caché de tokens, por ejemplo `.AddInMemoryTokenCaches()`, en *Startup.cs*:
+La API web tendrá que adquirir un token para la API de nivel inferior. Para especificarlo, agregue la línea `.EnableTokenAcquisitionToCallDownstreamApi()` después de `.AddMicrosoftIdentityWebApi(Configuration)`. Esta línea expone el servicio `ITokenAcquisition`, que puede usar en las acciones de controlador o páginas. Sin embargo, como verá en los dos puntos siguientes, puede hacer que sea más sencillo. También deberá elegir una implementación de la caché de tokens, por ejemplo `.AddInMemoryTokenCaches()`, en *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
 
 public class Startup
 {
-  ...
+  // ...
   public void ConfigureServices(IServiceCollection services)
   {
-   // ...
-    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
-                .EnableTokenAcquisitionToCallDownstreamApi()
-                .AddInMemoryTokenCaches();
   // ...
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+          .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
+            .EnableTokenAcquisitionToCallDownstreamApi()
+            .AddInMemoryTokenCaches();
+   // ...
   }
   // ...
 }
 ```
 
-Al igual que con las aplicaciones web, puede elegir varias implementaciones de la caché de tokens. Para obtener más información, consulte el [wiki de Microsoft.Identity.Web: Serialización de la caché de tokens](https://aka.ms/ms-id-web/token-cache-serialization) en GitHub.
+Si no desea adquirir el token por sí mismo, *Microsoft.Identity.Web* proporciona dos mecanismos para llamar a una API web de nivel inferior desde otra API. La opción que elija dependerá de si desea llamar a Microsoft Graph o a otra API.
+
+### <a name="option-1-call-microsoft-graph"></a>Opción 1: Llamada a Microsoft Graph
+
+Si desea llamar a Microsoft Graph, Microsoft.Identity.Web le permite usar directamente `GraphServiceClient` (expuesto por el SDK de Microsoft Graph) en las acciones de la API. Para exponer Microsoft Graph:
+
+1. Agregue el paquete NuGet [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) al proyecto.
+1. Agregue `.AddMicrosoftGraph()` después de `.EnableTokenAcquisitionToCallDownstreamApi()` en el archivo *Startup.cs*. `.AddMicrosoftGraph()` tiene varias invalidaciones. Cuando se utiliza la invalidación que toma una sección de la configuración como parámetro, el código se convierte en:
+
+```csharp
+using Microsoft.Identity.Web;
+
+public class Startup
+{
+  // ...
+  public void ConfigureServices(IServiceCollection services)
+  {
+  // ...
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+          .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
+            .EnableTokenAcquisitionToCallDownstreamApi()
+               .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
+            .AddInMemoryTokenCaches();
+   // ...
+  }
+  // ...
+}
+```
+
+### <a name="option-2-call-a-downstream-web-api-other-than-microsoft-graph"></a>Opción 2: Llamada a una API web de nivel inferior que no sea Microsoft Graph
+
+Para llamar a una API de nivel inferior que no sea Microsoft Graph, *Microsoft.Identity.Web* proporciona `.AddDownstreamWebApi()`, que solicita tokens y llama a la API web de nivel inferior.
+
+```csharp
+using Microsoft.Identity.Web;
+
+public class Startup
+{
+  // ...
+  public void ConfigureServices(IServiceCollection services)
+  {
+  // ...
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+          .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
+            .EnableTokenAcquisitionToCallDownstreamApi()
+               .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+            .AddInMemoryTokenCaches();
+   // ...
+  }
+  // ...
+}
+```
+
+Al igual que con las aplicaciones web, puede elegir varias implementaciones de la caché de tokens. Para obtener más información, consulte [Microsoft.Identity.Web: Serialización de la caché de tokens](https://aka.ms/ms-id-web/token-cache-serialization) en GitHub.
+
+En la imagen siguiente se muestran las distintas posibilidades de *Microsoft.Identity.Web* y su impacto en el archivo *Startup.cs*:
+
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagrama de bloques que muestra las opciones de configuración del servicio en startup punto c s para llamar a una API web y especificar una implementación de la caché de tokens":::
+
+> [!NOTE]
+> Para comprender por completo los ejemplos de código que se indican a continuación, debe estar familiarizado con los [aspectos básicos de ASP.NET Core](/aspnet/core/fundamentals) y, en particular, con la [inserción de dependencias](/aspnet/core/fundamentals/dependency-injection) y las [opciones](/aspnet/core/fundamentals/configuration/options).
 
 # <a name="java"></a>[Java](#tab/java)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 49ab515c265b4b4444e7d4ca5b93c4e898e4cf54
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527316"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534206"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
@@ -26,6 +26,8 @@ Un área de trabajo de Log Analytics proporciona lo siguiente:
 * Una ubicación geográfica para el almacenamiento de datos.
 * Aislamiento de datos, ya que se conceden diferentes derechos de acceso a los usuarios en base a una de nuestras estrategias de diseño recomendadas.
 * Ámbito para la configuración de opciones, como el [plan de tarifa](./manage-cost-storage.md#changing-pricing-tier), la [retención](./manage-cost-storage.md#change-the-data-retention-period) y el [límite de datos](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
+
+Las áreas de trabajo se hospedan en clústeres físicos. De forma predeterminada, el sistema crea y administra estos clústeres. Se espera que los clientes que ingieran más de 4 TB al día creen sus propios clústeres dedicados para sus áreas de trabajo, lo que les permitirá tener un mejor control y una mayor tasa de ingesta.
 
 En este artículo se proporciona información general detallada acerca de las consideraciones de diseño y migración, información general sobre el control de acceso y una descripción de las implementaciones de diseño que recomendamos para su organización de TI.
 
@@ -125,27 +127,15 @@ En la tabla siguiente se resumen los modos de acceso:
 
 Para obtener información sobre cómo cambiar el modo de control de acceso en el portal, con PowerShell o mediante una plantilla de Resource Manager, vea [Configuración del modo de control de acceso](manage-access.md#configure-access-control-mode).
 
-## <a name="ingestion-volume-rate-limit"></a>Límite de velocidad por volumen de ingesta
+## <a name="scale-and-ingestion-volume-rate-limit"></a>Escala y límite de la velocidad de ingesta
 
-Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. Lo que se pretende con el límite de velocidad de volumen es evitar que los clientes de Azure Monitor tengan de picos de ingesta repentinos en entornos con varios inquilinos. En las áreas de trabajo se define un umbral de velocidad de volumen de ingesta de datos de 500 MB (comprimidos), lo que se traduce en, aproximadamente, **6 GB/min** sin comprimir (el tamaño real puede variar entre los tipos de datos en función de la longitud del registro y su relación de compresión). El límite de velocidad de volumen se aplica a todos los datos ingeridos, tanto si se envían desde recursos de Azure mediante la [Configuración de diagnóstico](diagnostic-settings.md), [Data Collector API](data-collector-api.md) o agentes.
+Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían petabytes de datos cada mes a un ritmo creciente. El espacio de almacenamiento de las áreas de trabajo no está limitado y puede crecer hasta petabytes de datos. No es necesario dividir las áreas de trabajo debido a su escala.
 
-Cuando se envían datos a un área de trabajo a una velocidad superior al 80 % del umbral configurado en el área de trabajo, se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Cuando la velocidad de ingesta del volumen supera el umbral, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si la velocidad de ingesta sigue superando el umbral o prevé que lo va a alcanzar pronto, puede abrir una solicitud de soporte técnico para solicitar su aumento. 
+Para proteger y aislar a los clientes de Azure Monitor y su infraestructura de back-end, hay un límite predeterminado de velocidad de ingesta, diseñado para protegerse de situaciones de picos y desbordamientos. El valor predeterminado del límite de velocidad es de unos **6 GB/minuto**, y está diseñado para permitir una ingesta normal. Para más información sobre la medida del límite de volumen de ingesta, consulte [Límites del servicio Azure Monitor](../service-limits.md#data-ingestion-volume-rate).
 
-Para recibir una notificación tanto si se acerca al límite de ingesta de datos del volumen del área de trabajo como si lo ha alcanzado, cree una [regla de alerta de registro](alerts-log.md) mediante la siguiente consulta cuya base lógica de alerta sea el número de resultados mayores que cero, un período de evaluación de 5 minutos y una frecuencia de 5 minutos.
+Los clientes que ingieran menos de 4 TB al día normalmente no alcanzarán estos límites. Los clientes que ingieran volúmenes mayores o que tengan picos como parte de sus operaciones normales deben considerar la posibilidad de cambiar a [clústeres dedicados](../log-query/logs-dedicated-clusters.md) en los que se pueda aumentar el límite de velocidad de ingesta.
 
-La velocidad de ingesta del volumen ha alcanzado el 80 % del umbral:
-```Kusto
-Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
-```
-
-La velocidad de ingesta del volumen ha alcanzado el umbral:
-```Kusto
-Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed the threshold"
-```
+Cuando se activa el límite de velocidad de ingesta o se alcanza el 80 % del umbral, se agrega un evento a la tabla *Operación* del área de trabajo. Se recomienda supervisarlo y crear una alerta. Consulte más detalles sobre la [tasa de volumen de ingesta de datos](../service-limits.md#data-ingestion-volume-rate).
 
 
 ## <a name="recommendations"></a>Recomendaciones

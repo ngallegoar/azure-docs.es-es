@@ -4,19 +4,19 @@ description: Con la API REST de alertas de Log Analytics, se pueden crear y admi
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
-ms.openlocfilehash: eec7aeab32aa071ce9d4476b15740c89210f0606
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dce340db90c1528c46c1be0bc172751a04feaf31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322336"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294082"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creación y administración de reglas de alerta de Log Analytics con la API de REST 
 
-La API REST de alertas de Log Analytics le permite crear y administrar alertas en Log Analytics.  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.
-
 > [!IMPORTANT]
-> Como [se anunció anteriormente](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), las áreas de trabajo de Log Analytics creadas después del *1 de junio de 2019* podrán administrar reglas de alerta **únicamente** mediante la [API REST](/rest/api/monitor/scheduledqueryrules/) scheduledQueryRules de Azure, la [plantilla de Azure Resource Manager](./alerts-log.md#managing-log-alerts-using-azure-resource-template) y el [cmdlet de PowerShell](./alerts-log.md#managing-log-alerts-using-powershell). Los clientes pueden [cambiar fácilmente su forma preferida de administración de reglas de alertas](./alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para que las áreas de trabajo anteriores aprovechen scheduledQueryRules de Azure Monitor como valor predeterminado y consigan muchas de las [nuevas ventajas](./alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api), como la posibilidad de usar cmdlets nativos de PowerShell, el aumento del período de retrospectiva en las reglas, la creación de reglas en un grupo de recursos o una suscripción independientes y mucho más.
+> Como ya se [anunció](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), las áreas de trabajo de Log Analytics creadas después del *1 de junio de 2019* administran las reglas de alertas mediante la versión actual de [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules/). Se anima a los clientes a [cambiar a la API actual](./alerts-log-api-switch.md) en áreas de trabajo más antiguas para aprovechar las [ventajas](./alerts-log-api-switch.md#benefits) de scheduledQueryRules de Azure Monitor. En este artículo se describe la administración de reglas de alerta mediante la API heredada.
+
+La API REST de alertas de Log Analytics le permite crear y administrar alertas en Log Analytics.  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.
 
 La API de REST de búsqueda de Log Analytics es de tipo RESTful y se puede obtener acceso a ella a través de la API de REST de Azure Resource Manager. En este documento encontrará ejemplos donde se tiene acceso a la API desde una línea de comandos de PowerShell a través de [ARMClient](https://github.com/projectkudu/ARMClient), una herramienta de línea de comandos de código abierto que simplifica la tarea de invocar a la API de Azure Resource Manager. El uso de ARMClient y PowerShell es una de las muchas opciones para tener acceso a la API de búsqueda de Log Analytics. Con estas herramientas, puede usar la API de RESTful de Azure Resource Manager para realizar llamadas a las áreas de trabajo de Log Analytics y ejecutar comandos de búsqueda dentro de ellas. La API generará resultados de búsqueda, en formato JSON, lo que le permite usar los resultados de búsqueda de muchas formas distintas mediante programación.
 

@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/17/2020
+ms.date: 9/29/2020
 ms.author: yohaddad
-ms.openlocfilehash: bb2b9da291bf75542c942d785d995018b597f742
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: bdcf9417aca6ece24e5ef577620734eeb48d9362
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024305"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531163"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
@@ -47,11 +47,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 |  Versión 20-09 |  [4569778]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 2.102 | 8 de septiembre de 2020 |
 |  Versión 20-09 |  [4578013]  |  Actualización de seguridad | 2.102 | 8 de septiembre de 2020 |
 |  Versión 20-09 |  [4576750]  |  Actualización de la pila de servicio | 5,47 | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4576479]  |  Acumulación de seguridad y calidad de .NET Framework 4.8 | 5,47 | 8 de septiembre de 2020 |
 |  Versión 20-09 |  [4494175]  |  Microcódigo | 5,47 | 8 de septiembre de 2020 |
 |  Versión 20-09 |  [4570332]  |  Actualización de la pila de servicio | 6.23 | 8 de septiembre de 2020 |
 |  Versión 20-09 |  [4570720]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | 6.23 | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4576483]  |  Acumulación de seguridad y calidad de .NET Framework 4.8 | 6.23 | 8 de septiembre de 2020 |
 |  Versión 20-09 |  [4494174]  |  Microcódigo | 6.23 | 8 de septiembre de 2020 |
 
 [4577010]: https://support.microsoft.com/kb/4577010
@@ -72,11 +70,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4569778]: https://support.microsoft.com/kb/4569778
 [4578013]: https://support.microsoft.com/kb/4578013
 [4576750]: https://support.microsoft.com/kb/4576750
-[4576479]: https://support.microsoft.com/kb/4576479
 [4494175]: https://support.microsoft.com/kb/4494175
 [4570332]: https://support.microsoft.com/kb/4570332
 [4570720]: https://support.microsoft.com/kb/4570720
-[4576483]: https://support.microsoft.com/kb/4576483
 [4494174]: https://support.microsoft.com/kb/4494174
 
 ## <a name="august-2020-guest-os"></a>SO invitado de agosto de 2020
@@ -84,29 +80,26 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 20-08 |  [4571687]  |  Actualización acumulativa de IE | 2.101, 3.88, 4.81 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4561600]  |  Actualización de Flash | 3.88, 4.81, 5.46, 6.22 | 9 de junio de 2020 |
-|  Versión 20-08 |  [4571694]  |  Actualización acumulativa más reciente | 6,22 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4565349]  |  Actualización acumulativa más reciente | 5.46 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4570673]  |  Actualización de la pila de servicio | 2.101 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4571729]  |  Acumulación mensual | 2.101 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4569767]  |  Acumulación de seguridad y calidad de .NET Framework 3.5.1 | 2.101 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4569780]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 2.101 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4569765]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 3,88 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4569779]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 3,88 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4566426]  |  Actualización de la pila de servicio | 3,88 | 14 de julio de 2020 |
-|  Versión 20-08 |  [4571736]  |  Acumulación mensual | 3,88 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4566425]  |  Actualización de la pila de servicio | 4.81 | 14 de julio de 2020 |
-|  Versión 20-08 |  [4571703]  |  Acumulación mensual | 4.81 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4569768]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 4.81 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4569778]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 4.81 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4494175]  |  Microcódigo | 5.46 | 25 de febrero de 2020 |
-|  Versión 20-08 |  [4565912]  |  Actualización de la pila de servicio | 5.46 | 14 de julio de 2020 |
-|  Versión 20-08 |  [4569746]  |  Acumulación de seguridad y calidad de .NET Framework 4.8 | 5.46 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4569776]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | 6,22 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4569750]  |  Actualización acumulativa de .NET Framework 3.5 y 4.8 | 6,22 | 11 de agosto de 2020 |
-|  Versión 20-08 |  [4566424]  |  Actualización de la pila de servicio | 6,22 | 11 de agosto de 2020 |
-
+|  Versión 20-08 |  [4571687]  |  Actualización acumulativa de IE | [2.101], [3.88], [4.81] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4561600]  |  Actualización de Flash | [3.88], [4.81], [5.46], [6.22] | 9 de junio de 2020 |
+|  Versión 20-08 |  [4571694]  |  Actualización acumulativa más reciente | [6,22] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4565349]  |  Actualización acumulativa más reciente | [5.46] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4570673]  |  Actualización de la pila de servicio | [2.101] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4571729]  |  Acumulación mensual | [2.101] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569767]  |  Acumulación de seguridad y calidad de .NET Framework 3.5.1 | [2.101] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569780]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [2.101] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569765]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [3,88] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569779]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [3,88] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4566426]  |  Actualización de la pila de servicio | [3,88] | 14 de julio de 2020 |
+|  Versión 20-08 |  [4571736]  |  Acumulación mensual | [3,88] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4566425]  |  Actualización de la pila de servicio | [4.81] | 14 de julio de 2020 |
+|  Versión 20-08 |  [4571703]  |  Acumulación mensual | [4.81] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569768]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [4.81] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4569778]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [4.81] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4494175]  |  Microcódigo | [5.46] | 25 de febrero de 2020 |
+|  Versión 20-08 |  [4565912]  |  Actualización de la pila de servicio | [5.46] | 14 de julio de 2020 |
+|  Versión 20-08 |  [4569776]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | [6,22] | 11 de agosto de 2020 |
+|  Versión 20-08 |  [4566424]  |  Actualización de la pila de servicio | [6,22] | 11 de agosto de 2020 |
 
 
 [4571687]: https://support.microsoft.com/kb/4571687
@@ -127,10 +120,13 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4569778]: https://support.microsoft.com/kb/4569778
 [4494175]: https://support.microsoft.com/kb/4494175
 [4565912]: https://support.microsoft.com/kb/4565912
-[4569746]: https://support.microsoft.com/kb/4569746
 [4569776]: https://support.microsoft.com/kb/4569776
-[4569750]: https://support.microsoft.com/kb/4569750
 [4566424]: https://support.microsoft.com/kb/4566424
+[2.101]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,88]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.81]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.46]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,22]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="july-2020-guest-os"></a>SO invitado de julio de 2020
@@ -740,8 +736,6 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 |  N/D  |  [4499151]  |  Mayo de 2019, no de seguridad  |  4.67  |  14 de mayo de 2019  |
 |  N/D  |  [4495608]  |  Mayo de 2019, .NET 3.5, no de seguridad  |  4.67  |  14 de mayo de 2019  |
 |  N/D  |  [4495592]  |  Mayo de 2019, .NET 4.5.2, no de seguridad  |  4.67  |  14 de mayo de 2019  |
-|  N/D  |  [4495610]  |  Mayo de 2019, .NET 4.8, no de seguridad  |  6,8  |  14 de mayo de 2019  |
-|  N/D  |  [4495618]  |  Mayo de 2019, .NET 4.8, acumulativa  |  6,8  |  14 de mayo de 2019  |
 |  N/D  |  [4501226]  |  Actualizaciones de zona horaria de horario de verano de Marruecos y la Autoridad Palestina  |  2.87, 3.74, 4.67  |  23 de mayo de 2019  |
 |  N/D  |  [4490128]  |  Actualizaciones de zona horaria de horario de verano de Santo Tomé y Príncipe y Qyzylorda  |  2.87, 3.74, 4.67  |  17 de abril de 2019  |
 
@@ -763,8 +757,6 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4499151]: https://support.microsoft.com/kb/KB4499151
 [4495608]: https://support.microsoft.com/kb/KB4495608
 [4495592]: https://support.microsoft.com/kb/KB4495592
-[4495610]: https://support.microsoft.com/kb/KB4495610
-[4495618]: https://support.microsoft.com/kb/KB4495618
 [4501226]: https://support.microsoft.com/kb/KB4501226
 [4490128]: https://support.microsoft.com/kb/KB4490128
 

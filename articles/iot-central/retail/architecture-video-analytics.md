@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 087c5e5716a4c8c640faebd7470905fde85d0136
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 916d491c45a2979c59580328a721c11bd79d49c0
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038149"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372211"
 ---
 # <a name="video-analytics---object-and-motion-detection-application-architecture"></a>Arquitectura de la aplicación Video analytics - object and motion detection
 
 La plantilla de la aplicación de **detección de objetos y movimiento de Video Analytics** permite compilar soluciones de IoT entre las que se incluyen las funcionalidades de análisis de vídeo en directo.
 
-:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Architecture":::
+:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Diagrama de información general sobre los componentes de detección de movimiento y objetos de análisis de vídeo.":::
 
 Los componentes clave de la solución de análisis de vídeo incluyen:
 

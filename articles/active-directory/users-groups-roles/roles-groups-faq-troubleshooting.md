@@ -1,6 +1,6 @@
 ---
 title: 'Preguntas frecuentes sobre la solución de problemas de roles asignados a grupos en la nube: Azure Active Directory | Microsoft Docs'
-description: Asigne un rol de Azure AD a un grupo al que se pueden asignar roles en Azure Portal, PowerShell o Graph API.
+description: Estas son algunas preguntas y sugerencias para solucionar problemas comunes para la asignación de roles a grupos en Azure Active Directory.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3f2a23da5baa3a5d1955b10d18411fcedc3acd1
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7acbb9aa443cde8df7016d3f2a38d58002b98dcd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798302"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317402"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Solución de problemas de roles asignados a grupos en la nube
 

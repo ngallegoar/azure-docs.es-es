@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: ea2fae483da495bce9551899b9646868251f0454
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: cc49bec71f6c591ca3036592b0949e3fc7cef48e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030834"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263783"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Información general del agente de Azure Monitor (versión preliminar)
 El agente de Azure Monitor (AMA) recopila datos de supervisión del sistema operativo invitado de máquinas virtuales y los entrega a Azure Monitor. En este artículo se proporciona información general sobre el agente de Azure Monitor, incluido cómo instalarlo y cómo configurar la recopilación de datos.
@@ -38,6 +38,14 @@ Los métodos para definir la recopilación de datos de los agentes existentes so
 - La extensión de Diagnostics tiene una configuración para cada máquina virtual. Resulta fácil establecer definiciones independientes para diferentes máquinas virtuales, pero difícil de administrar de forma centralizada. Solo puede enviar datos a métricas de Azure Monitor, Azure Event Hubs o Azure Storage. En el caso de los agentes de Linux, se necesita el agente de Telegraf de código abierto para enviar datos a las métricas de Azure Monitor.
 
 El agente de Azure Monitor utiliza las [reglas de recopilación de datos (DCR)](data-collection-rule-overview.md) para configurar los datos que se van a recopilar de cada agente. Las reglas de recopilación de datos permiten la capacidad de administración de la configuración de la recopilación a escala y, al mismo tiempo, habilitan configuraciones únicas con ámbito para subconjuntos de máquinas. Son independientes del área de trabajo e independientes de la máquina virtual, lo que permite definirlas una vez y reutilizarlas en distintas máquinas y entornos. Consulte [Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)](data-collection-rule-azure-monitor-agent.md).
+
+## <a name="should-i-switch-to-azure-monitor-agent"></a>¿Debo cambiar al agente de Azure Monitor agente?
+El agente de Azure Monitor coexiste con los [agentes disponibles con carácter general para Azure Monitor ](agents-overview.md), pero puede considerar la posibilidad de realizar la transición de las máquinas virtuales fuera de los agentes actuales durante el período de versión preliminar pública del agente de Azure Monitor. Tenga en cuenta los siguientes factores al realizar esta determinación.
+
+- **Requisitos de entorno.** El agente de Azure Monitor tiene un conjunto más limitado de requisitos de red, entornos y sistemas operativos compatibles que los agentes actuales. Lo más probable es que la compatibilidad con el entorno futuro, como las nuevas versiones de sistema operativo y los tipos de requisitos de red, se proporcione solo en el agente de Azure Monitor. Debe evaluar si el entorno el agente de Azure Monitor admite el entorno. Si no lo admite, tendrá que permanecer con el agente actual. Si el agente de Azure Monitor admite el entorno actual, debería considerar la posibilidad de realizar la transición a él.
+- **Tolerancia de riesgos de la versión preliminar pública.** Mientras el agente de Azure Monitor se ha probado exhaustivamente para los escenarios admitidos actualmente, el agente todavía se encuentra en versión preliminar pública. Las actualizaciones de versión y las mejoras de funcionalidad se producirán con frecuencia y pueden presentar errores. Debe evaluar el riesgo de un error en el agente en las máquinas virtuales que podría detener la recopilación de datos. Si un intervalo de recopilación de datos no va a tener un impacto significativo en los servicios, entonces continúe con el agente de Azure Monitor. Si tiene una tolerancia baja para cualquier inestabilidad, debe permanecer con los agentes disponibles con carácter general hasta que el agente de Azure Monitor alcance este estado.
+- **Requisitos de características actuales y nuevas.** El agente de Azure Monitor presenta varias funcionalidades nuevas, como el filtrado, el ámbito y el hospedaje múltiple, pero aún no está a la par con los agentes actuales para otras funcionalidades, como la recopilación de registros personalizados y la integración con las soluciones. La mayoría de las nuevas funcionalidades de Azure Monitor solo estarán disponibles con el agente de Azure Monitor, por lo que, con el tiempo, las funcionalidades adicionales solo estarán disponibles en el nuevo agente. Debe considerar si el agente de Azure Monitor tiene las características que necesita y si hay algunas características de las que puede prescindir temporalmente para obtener otras características importantes en el nuevo agente. Si el agente de Azure Monitor tiene todas las funcionalidades principales que necesita, considere la posibilidad de realizar la transición a él. Si hay características críticas que necesita, continúe con el agente actual hasta que el agente de Azure Monitor alcance la paridad.
+- **Tolerancia al reprocesamiento.** Si está configurando un nuevo entorno con recursos como scripts de implementación y plantillas de incorporación, debe considerar si podrá reprocesarlos cuando el agente de Azure Monitor esté disponible con carácter general. Si el esfuerzo de este reprocesamiento es mínimo, siga con los agentes actuales por ahora. Si va a implicar una cantidad significativa de trabajo, considere la posibilidad de configurar el nuevo entorno con el nuevo agente. Se espera que el agente de Azure Monitor esté disponible con carácter general y una fecha de desuso publicada para los agentes de Log Analytics en 2021. Los agentes actuales se admitirán durante varios años una vez que se inicie el desuso.
 
 
 
@@ -76,24 +84,8 @@ El agente de Azure Monitor envía datos a métricas de Azure Monitor o a un áre
 
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
-Los siguientes sistemas operativos son compatibles actualmente con el agente de Azure Monitor.
+Consulte [Sistemas operativos admitidos](agents-overview.md#supported-operating-systems) para obtener una lista de las versiones del sistema operativo Windows y Linux compatibles con el agente de Log Analytics.
 
-### <a name="windows"></a>Windows 
-  - Windows Server 2019
-  - Windows Server 2016
-  - Windows Server 2012
-  - Windows Server 2012 R2
-
-### <a name="linux"></a>Linux
-  - CentOS 6<sup>1</sup>, 7
-  - Debian 9, 10
-  - Oracle Linux 6<sup>1</sup>, 7
-  - RHEL 6<sup>1</sup>, 7
-  - SLES 11, 12, 15
-  - Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS
-
-> [!IMPORTANT]
-> <sup>1</sup>Para que estas distribuciones envíen datos de Syslog, es necesario reiniciar el servicio rsyslog una vez después de haber instalado el agente.
 
 
 ## <a name="security"></a>Seguridad

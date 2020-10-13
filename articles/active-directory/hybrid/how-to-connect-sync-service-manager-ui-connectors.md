@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a013af680ecc84a2a981341ba4bb95148adc799f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357263"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319884"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso de conectores con Sync Service Manager de Azure AD Connect
 
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
+![Captura de pantalla que muestra Sync Service Manager.](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
 
 La pestaña Conectores se usa para administrar todos los sistemas a los que está conectado el motor de sincronización.
 
@@ -47,7 +47,7 @@ La pestaña Conectores se usa para administrar todos los sistemas a los que est�
 
 ### <a name="delete"></a>Eliminar
 La acción de eliminación se usa para dos objetivos diferentes.  
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
+![Captura de pantalla que muestra la ventana "Eliminación del conector" con la opción "Delete connector space only" (Eliminar solo el espacio del conector) seleccionada.](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
 Con la opción **Delete connector space only** (Eliminar solo el espacio del conector) se eliminarán todos los datos, pero se mantendrá la configuración.
 
@@ -58,17 +58,17 @@ Ambas sincronizarán todos los objetos y actualizarán los objetos del metaverso
 ### <a name="configure-run-profiles"></a>Configurar perfiles de ejecución
 Esta opción permite ver los perfiles de ejecución configurados para un conector.
 
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
+![Captura de pantalla que muestra la ventana "Configure Run Profiles" (Configurar la ejecución de perfiles) con la opción "Delta Import" (Importación diferencial) seleccionada.](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
 
 ### <a name="search-connector-space"></a>Espacio del conector de búsqueda
 La acción del espacio del conector de búsqueda es útil para buscar objetos y solucionar problemas de datos.
 
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
+![Captura de pantalla que muestra la ventana "Search Connector Space" (Espacio del conector de búsqueda).](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
 
 Empiece seleccionando un **ámbito**. Puede buscar según los datos (RDN, DN, delimitador, subárbol) o el estado del objeto (todas las demás opciones).  
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
+![Captura de pantalla que muestra el menú desplegable "Ámbito".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
 Por ejemplo, si hace una búsqueda de un subárbol, obtiene todos los objetos de una unidad organizativa.  
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
+![Captura de pantalla que muestra un ejemplo de una búsqueda de "subárbol".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 En esta cuadrícula, puede seleccionar un objeto, elegir las **propiedades** y [realizar un seguimiento](tshoot-connect-object-not-syncing.md) desde el espacio del conector de origen, a través del metaverso, y hasta el espacio del conector de destino.
 
 ### <a name="changing-the-ad-ds-account-password"></a>Cambio de la contraseña de la cuenta de AD DS

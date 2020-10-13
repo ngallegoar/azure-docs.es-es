@@ -3,12 +3,12 @@ title: Exclusión de discos de una replicación con Azure Site Recovery
 description: Cómo excluir discos de una replicación en Azure con Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 778bb030d9768c5fbe1cb8aeba0becfc68c00629
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245405"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333671"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exclusión de discos de una recuperación ante desastres
 
@@ -207,7 +207,7 @@ DB-Disk3 | Disk3 | F:\ | Datos del usuario 2
 
 La configuración del archivo de paginación en la máquina virtual de origen es la siguiente:
 
-![Configuración del archivo de paginación en la máquina virtual de origen](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
+![Captura de pantalla del cuadro de diálogo de memoria virtual, con la unidad D: resaltada. Línea de unidad resaltada que muestra [Pagefile volume] y un tamaño de archivo de paginación (MB) de 3000-7000.](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. Habilitamos la replicación de la máquina virtual.
 2. Excluimos DB-Disk1 de la replicación.
@@ -260,7 +260,7 @@ DB-Disk3 | Disk3 | F:\ | Datos del usuario 2
 
 La configuración de nuestro archivo de paginación en la máquina virtual de Azure es la siguiente:
 
-![Configuración del archivo de paginación en la máquina virtual de Azure](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
+![Captura de pantalla del cuadro de diálogo de memoria virtual, con la unidad C: resaltada. Línea de la unidad que aparece resaltada y muestra la opción de tamaño de archivo de paginación como "Administrado por el sistema".](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

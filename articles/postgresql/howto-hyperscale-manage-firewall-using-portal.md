@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/11/2020
-ms.openlocfilehash: d369614357bd62dc13073f650fbe5ce358d6dc6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dadd04497eae0e91bdf5ea3caad38beda35f7fa3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884330"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275428"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Administración de reglas de firewall en Azure Database for PostgreSQL: Hiperescala (Citus)
 Se pueden usar reglas de firewall de nivel de servidor para administrar el acceso a un nodo de coordinación de Hiperescala (Citus) desde una dirección IP o un intervalo de direcciones IP especificados.
@@ -30,18 +30,18 @@ Para seguir esta guía, necesitará:
 
 1. En la página del grupo de servidores PostgreSQL, en el encabezado Seguridad, haga clic en **Redes** para abrir las reglas de firewall.
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Azure Portal: clic en Redes":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Azure Portal: pestaña Redes":::
 
 2. Haga clic en **Add current client IP address** (Agregar la dirección IP actual del cliente) para crear una regla de firewall con la IP pública del equipo, según la percibe el sistema de Azure.
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Azure Portal: clic en Agregar IP de cliente":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Azure Portal: pestaña Redes":::
 
 Como alternativa, al hacer clic en **+Agregar 0.0.0.0-255.255.255.255** (a la derecha de la opción B), no solo se permite que la dirección IP acceda al puerto 5432 del nodo de coordinador, sino todo Internet. En esta situación, los clientes todavía deben iniciar sesión con el nombre de usuario y la contraseña correctos para usar el clúster. No obstante, se recomienda permitir el acceso global solo durante breves períodos de tiempo y solo para bases de datos que no sean de producción.
 
 3. Compruebe la dirección IP antes de guardar la configuración. En algunos casos, la dirección IP observada por Azure Portal difiere de la dirección IP utilizada para acceder a Internet y a los servidores de Azure. Por tanto, puede necesitar cambiar las direcciones IP inicial y final para que la regla funcione según lo previsto.
    Use un motor de búsqueda u otra herramienta en línea para comprobar su propia dirección IP. Por ejemplo, busque "¿cuál es mi IP?".
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Búsqueda en Bing "cuál es mi ip"":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Azure Portal: pestaña Redes":::
 
 4. Agregue intervalos de direcciones adicionales. En las reglas de firewall, puede especificar una sola dirección IP o un intervalo de direcciones. Si desea limitar la regla a una única dirección IP, escriba la misma dirección en los campos de dirección IP inicial y dirección IP final. Al abrir el firewall, los administradores, los usuarios y las aplicaciones pueden acceder al nodo de coordinación en el puerto 5432.
 
@@ -49,7 +49,7 @@ Como alternativa, al hacer clic en **+Agregar 0.0.0.0-255.255.255.255** (a la de
 
 ## <a name="connecting-from-azure"></a>Conexión desde Azure
 
-Existe una manera sencilla de conceder a la base de datos de Hiperescala acceso a las aplicaciones hospedadas en Azure (por ejemplo, aplicaciones de Azure Web Apps o las que se ejecutan en una máquina virtual de Azure). Basta con establecer la opción **Permitir que los servicios y recursos de Azure accedan a este grupo de servidores** en **Sí** en el portal, en el panel **Redes**, y hacer clic en **Guardar**.
+Existe una manera sencilla de conceder a la base de datos de Hiperescala (Citus) acceso a las aplicaciones hospedadas en Azure (por ejemplo, aplicaciones de Azure Web Apps o las que se ejecutan en una máquina virtual de Azure). Basta con establecer la opción **Permitir que los servicios y recursos de Azure accedan a este grupo de servidores** en **Sí** en el portal, en el panel **Redes**, y hacer clic en **Guardar**.
 
 > [!IMPORTANT]
 > Esta opción configura el firewall para permitir todas las conexiones de Azure, incluidas las de las suscripciones de otros clientes. Al seleccionar esta opción, asegúrese de que los permisos de usuario y el inicio de sesión limiten el acceso solamente a los usuarios autorizados.

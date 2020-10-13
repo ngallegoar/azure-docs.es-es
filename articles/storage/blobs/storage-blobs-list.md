@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9295b1d8a54d9c3c1a138a54f4b3706bd39227fd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e8a35902c198412f6e41c0cf39162836deb5e443
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009549"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280103"
 ---
 # <a name="list-blobs-with-net"></a>Enumeración de blobs con .NET
 
@@ -59,7 +59,7 @@ En el código, compruebe el valor del token de continuación para determinar si 
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrado de los resultados con un prefijo
 
-Para filtrar la lista de contenedores, especifique una cadena para el parámetro `prefix`. La cadena de prefijo puede incluir uno o varios caracteres. Después, Azure Storage solo devuelve los blobs cuyos nombres empiecen por ese prefijo.
+Para filtrar la lista de blobs, especifique una cadena para el parámetro `prefix`. La cadena de prefijo puede incluir uno o varios caracteres. Después, Azure Storage solo devuelve los blobs cuyos nombres empiecen por ese prefijo.
 
 ### <a name="return-metadata"></a>Devolución de metadatos
 

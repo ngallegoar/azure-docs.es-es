@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/20/2020
-ms.openlocfilehash: f7327079e365bcd8a99a8274828f7c14e2337a34
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3487b5a069b1862ec302a979318ea78722b1433c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361694"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrato estándar para el Marketplace comercial de Microsoft
 
@@ -21,7 +21,7 @@ Microsoft ofrece un Contrato estándar para el Marketplace comercial de Microsof
 Los términos y condiciones de una oferta se definen al crearla en el Centro de partners. Puede optar por usar el Contrato estándar para el Marketplace comercial de Microsoft en lugar de proporcionar sus propios términos y condiciones personalizados.
 
 >[!Note]
->Después de publicar una oferta con el Contrato estándar para el Marketplace comercial de Microsoft, no puede usar sus propios términos y condiciones personalizados. Solo puede elegir una de las dos opciones. Puede ofrecer su solución con el Contrato estándar *o* con sus propios términos y condiciones. Si quiere modificar los términos del Contrato estándar, puede hacerlo a través de las modificaciones del Contrato estándar.
+>Después de publicar una oferta con el Contrato estándar para el Marketplace comercial de Microsoft, no podrá usar sus propios términos y condiciones personalizados. Puede ofrecer su solución con el Contrato estándar *o* con sus propios términos y condiciones. Los términos y condiciones personalizados se definen en el nivel de oferta y se aplican a todos los planes; escriba los términos y condiciones personalizados en la página **Propiedades** de la oferta en el Centro de partners. Si quiere modificar los términos del contrato estándar, puede hacerlo mediante las Modificaciones del Contrato estándar.
 
 ## <a name="standard-contract-amendments"></a>Modificaciones del Contrato estándar
 

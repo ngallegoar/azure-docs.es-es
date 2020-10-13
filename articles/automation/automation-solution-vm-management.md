@@ -3,14 +3,14 @@ title: Introducción a la característica Start/Stop VMs during off-hours de Azu
 description: En este artículo se describe la característica Start/Stop VMs during off-hours, que inicia o detiene las máquinas virtuales según una programación y las supervisa de forma proactiva desde los registros de Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/04/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064459"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317368"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Introducción a la característica Start/Stop VMs during off-hours
 
@@ -37,13 +37,15 @@ Las siguientes son limitaciones de la característica actual:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Los runbooks de la característica Start/Stop VMs during off hours funcionan con una [cuenta de ejecución de Azure](./manage-runas-account.md). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
+- Los runbooks de la característica Start/Stop VMs during off hours funcionan con una [cuenta de ejecución de Azure](./manage-runas-account.md). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
 
-Se recomienda usar otra cuenta de Automation para trabajar con máquinas virtuales habilitadas para la característica Start/Stop VMs during off-hours. Las versiones del módulo de Azure se actualizan con frecuencia y puede que sus parámetros cambien. La característica no se actualiza al mismo ritmo y es posible que no funcione con versiones más recientes de los cmdlets que usa. Se recomienda probar las actualizaciones del módulo en una cuenta de prueba de Automation antes de importarlas a su(s) cuenta(s) de producción de Automation.
+- La cuenta de Automation vinculada y el espacio de trabajo de Log Analytics deben estar en el mismo grupo de recursos.
+
+- Se recomienda usar otra cuenta de Automation para trabajar con máquinas virtuales habilitadas para la característica Start/Stop VMs during off-hours. Las versiones del módulo de Azure se actualizan con frecuencia y puede que sus parámetros cambien. La característica no se actualiza al mismo ritmo y es posible que no funcione con versiones más recientes de los cmdlets que usa. Se recomienda probar las actualizaciones del módulo en una cuenta de prueba de Automation antes de importarlas a su(s) cuenta(s) de producción de Automation.
 
 ## <a name="permissions"></a>Permisos
 
-Para habilitar la característica Start/Stop VMs during off-hours en las máquinas virtuales, debe tener determinados permisos. Los permisos son diferentes según si la característica usa una cuenta de Automation o un área de trabajo de Log Analytics creadas previamente o se crean unas nuevas. 
+Para habilitar la característica Start/Stop VMs during off-hours en las máquinas virtuales, debe tener determinados permisos. Los permisos son diferentes según si la característica usa una cuenta de Automation o un área de trabajo de Log Analytics creadas previamente o se crean unas nuevas.
 
 Si es colaborador de la suscripción y administrador global del inquilino de Azure Active Directory, no tiene que configurar permisos. Si no tiene estos derechos o necesita configurar un rol personalizado, asegúrese de que dispone de los permisos que se describen a continuación.
 
@@ -82,11 +84,11 @@ Puede habilitar la característica Start/Stop VMs during off-hours en las máqui
 
 | Permiso |Ámbito|
 | --- | --- |
-| Microsoft.Authorization/Operations/read | Suscripción|
-| Microsoft.Authorization/permissions/read |Suscripción|
-| Microsoft.Authorization/roleAssignments/read | Suscripción |
-| Microsoft.Authorization/roleAssignments/write | Suscripción |
-| Microsoft.Authorization/roleAssignments/delete | Suscripción || Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
+| Microsoft.Authorization/Operations/read | Subscription|
+| Microsoft.Authorization/permissions/read |Subscription|
+| Microsoft.Authorization/roleAssignments/read | Subscription |
+| Microsoft.Authorization/roleAssignments/write | Subscription |
+| Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/certificates/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/write | Grupo de recursos |
 | Microsoft.OperationalInsights/workspaces/write | Grupo de recursos |

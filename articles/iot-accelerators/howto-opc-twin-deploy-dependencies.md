@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 231d1efa02ec80e8ad56a8895d4262d774480111
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae0e18a2dfbce52e50b4a8b58d478a46dff12922
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73824095"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282109"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Implementación de dependencias para el desarrollo local
+
+> [!IMPORTANT]
+> Mientras se actualiza este artículo, consulte [IoT industrial de ](https://azure.github.io/Industrial-IoT/) para encontrar el contenido más actualizado.
 
 En este artículo se explica cómo implementar solo los servicios de la plataforma Azure necesarios para el desarrollo local y la depuración.   Al final, tendrá un grupo de recursos implementado con todo lo necesario para el desarrollo y la depuración locales.
 
@@ -32,7 +35,7 @@ En este artículo se explica cómo implementar solo los servicios de la platafor
    deploy -type local
    ```
 
-2. Siga las indicaciones para asignar un nombre al grupo de recursos para la implementación.  El script implementa solo las dependencias para este grupo de recursos en su suscripción de Azure, pero no los microservicios.  El script también registra una aplicación en Azure Active Directory.  Esto es necesario para admitir la autenticación basada en OAUTH.  La implementación puede tardar varios minutos.
+2. Siga las indicaciones para asignar un nombre al grupo de recursos para la implementación.  El script implementa solo las dependencias para este grupo de recursos en su suscripción de Azure, pero no los microservicios.  El script también registra una aplicación en Azure AD.  Esto es necesario para admitir la autenticación basada en OAUTH.  La implementación puede tardar varios minutos.
 
 3. Una vez completado el script, puede optar por guardar el archivo .env.  El archivo de entorno .env es el archivo de configuración de todos los servicios y herramientas que quiere ejecutar en el equipo de desarrollo.  
 
@@ -42,12 +45,12 @@ En este artículo se explica cómo implementar solo los servicios de la platafor
 
 Asegúrese de usar un nombre de grupo de recursos corto y sencillo.  El nombre se usa también para denominar recursos y debe cumplir los requisitos de nomenclatura de los recursos.  
 
-### <a name="azure-active-directory-aad-registration"></a>Registro de Azure Active Directory (AAD)
+### <a name="azure-active-directory-ad-registration"></a>Registro de Azure Active Directory (AD)
 
-El script de implementación intenta registrar aplicaciones de AAD en Azure Active Directory.  En función de sus derechos para el inquilino de AAD seleccionado, esto podría generar un error.   Hay tres opciones:
+El script de implementación intenta registrar aplicaciones de Azure AD en Azure AD.  En función de sus derechos para el inquilino de Azure AD seleccionado, podría generarse un error. Hay tres opciones:
 
-1. Si ha elegido un inquilino de AAD de una lista de inquilinos, reinicie el script y elija otro de la lista.
-2. Como alternativa, implemente un inquilino de AAD privado, reinicie el script y seleccione la opción para usarlo.
+1. Si ha elegido un inquilino de Azure AD de una lista de inquilinos, reinicie el script y elija otro de la lista.
+2. Como alternativa, implemente un inquilino de Azure AD privado, reinicie el script y seleccione la opción para usarlo.
 3. Continúe con la autenticación.  Puesto que los microservicios se ejecutan localmente, esta operación es aceptable, pero no imita los entornos de producción.  
 
 ## <a name="next-steps"></a>Pasos siguientes

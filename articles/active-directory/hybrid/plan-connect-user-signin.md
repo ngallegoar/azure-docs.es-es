@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd198a132f64c26f775a8212c22b77201d579260
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3365a58a0c667ca55b74a5120cdd7a78ad0abc79
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657155"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299917"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opciones para el inicio de sesión de los usuarios en Azure AD Connect
 Azure Active Directory (Azure AD) Connect permite que los usuarios inicien sesión en los recursos en la nube y locales con las mismas contraseñas. En este artículo se describen los conceptos clave para cada modelo de identidad para ayudarlo a elegir la identidad que desea utilizar con el fin de iniciar sesión en Azure AD.
@@ -179,7 +179,7 @@ Puede cambiar el método de inicio de sesión de federación a sincronización d
 
 En la página siguiente, deberá proporcionar las credenciales de Azure AD.
 
-![Conectarse a Azure](./media/plan-connect-user-signin/changeusersignin2.png)
+![Captura de pantalla que muestra dónde debe escribir las credenciales de Azure AD.](./media/plan-connect-user-signin/changeusersignin2.png)
 
 En la página **Inicio de sesión de usuario**, seleccione el inicio de sesión de usuario deseado.
 

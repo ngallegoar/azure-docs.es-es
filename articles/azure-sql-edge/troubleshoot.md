@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: d8da8bcf3d2bb6b2af2b5c69ce003289d83d3884
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 517fed0dd9eb1736344546bde9f79e52ee17182f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932283"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333110"
 ---
 # <a name="troubleshooting-azure-sql-edge-deployments"></a>Solución de problemas de implementaciones de Azure SQL Edge 
 
@@ -138,32 +138,12 @@ docker exec -it <Container ID> /bin/bash
 
 Ahora puede ejecutar comandos como si los estuviera ejecutando en el terminal dentro del contenedor. Cuando termine, escriba `exit`. Esto cierra la sesión de comandos interactiva, pero el contenedor continúa ejecutándose.
 
-## <a name="troubleshooting-issues-with-data-streaming"></a>Solución de problemas con el streaming de datos
-
-De forma predeterminada, los registros del motor de streaming de Azure SQL Edge se escriben en un archivo denominado `current` en el directorio **/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000**. Se puede acceder al archivo directamente a través del volumen asignado o del contenedor de volúmenes de datos, o mediante el inicio de una sesión interactiva del símbolo del sistema en el contenedor de SQL Edge. 
-
-Además, si puede conectarse a la instancia de SQL Edge con las herramientas de cliente, puede usar el comando siguiente de T-SQL para acceder al registro del motor de streaming actual. 
-
-```sql
-
-select value as log, try_convert(DATETIME2, substring(value, 0, 26)) as timestamp 
-from 
-    STRING_SPLIT
-    (
-        (
-            select BulkColumn as logs
-            FROM OPENROWSET (BULK '/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000/current', SINGLE_CLOB) MyFile
-        ),
-        CHAR(10)
-    ) 
-where datalength(value) > 0
-
-```
-
 ### <a name="enabling-verbose-logging"></a>Habilitación del registro detallado
 
 Si el nivel de registro predeterminado para el motor de streaming no proporciona suficiente información, el registro de depuración del motor de streaming se puede habilitar en SQL Edge. Para habilitar el registro de depuración, agregue la variable de entorno `RuntimeLogLevel=debug` a la implementación de SQL Edge. Después de habilitar el registro de depuración, intente reproducir el problema y compruebe si hay mensajes o excepciones relevantes en los registros. 
 
+> [!NOTE]
+> La opción de registro detallado solo se debe usar para solucionar problemas y no para cargas de trabajo de producción normales. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

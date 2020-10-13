@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae4a7dc400b347a963e07a8c696e7581e2dcd703
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60d889b232857ae69372df8ebabbd0edd01a2f17
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507852"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529837"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Instalación y configuración de SAP HANA (instancias grandes) en Azure
 
@@ -179,7 +179,7 @@ Estos puntos de montaje se configuran en /etc/fstab como se muestra en los gráf
 
 La salida del comando df -h en una unidad de instancia grande de HANA S72m tiene este aspecto:
 
-![fstab de volúmenes montados en la unidad de instancia grande de HANA](./media/hana-installation/image2_df_output.PNG)
+![Captura de pantalla que muestra la salida del comando para la unidad de instancia grande de HANA.](./media/hana-installation/image2_df_output.PNG)
 
 
 El controlador de almacenamiento y los nodos de las marcas de instancia grandes se sincronizan con los servidores NTP. Cuando sincroniza SAP HANA en unidades de Azure (instancias grandes) y Azure Virtual Machines con un servidor NTP, no debería haber un desfase de tiempo significativo entre la infraestructura y las unidades de proceso de Azure o los sellos de instancias grandes.

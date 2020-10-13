@@ -2,13 +2,13 @@
 title: Introducción a Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe Azure Monitor para contenedores, que supervisa la solución de AKS Container Insights y el valor que entrega mediante la supervisión del estado de los clústeres de AKS y Container Instances en Azure.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 85adae1b79609f13be6bb73eb4e57000beda6d77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/08/2020
+ms.openlocfilehash: 215427adc38ebd554ca7ac650ec65a05f5a781e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320279"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317164"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Introducción a Azure Monitor para contenedores
 
@@ -17,11 +17,11 @@ Azure Monitor para contenedores es una característica diseñada para supervisar
 - Clústeres de Kubernetes administrados que se hospedan en [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md)
 - Clústeres de Kubernetes autoadministrados que se hospedan en Azure con [AKS Engine](https://github.com/Azure/aks-engine)
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
-- Clústeres de Kubernetes autoadministrados que se hospedan en [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) o en el entorno local
+- Clústeres de Kubernetes autoadministrados que se hospedan en [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910&preserve-view=true) o en el entorno local
 - [Red Hat OpenShift en Azure](../../openshift/intro-openshift.md)
 - [Kubernetes habilitado para Azure Arc](../../azure-arc/kubernetes/overview.md) (versión preliminar)
 
-Azure Monitor para contenedores es compatible con los clústeres que ejecutan el sistema operativo Linux y Windows Server 2019.
+Azure Monitor para contenedores es compatible con los clústeres que ejecutan el sistema operativo Linux y Windows Server 2019. Los entornos de ejecución de contenedor que admite son Docker, Moby y cualquiera compatible con CRI, como CRI-O y ContainerD.
 
 La supervisión de los contenedores es fundamental, sobre todo cuando se ejecuta un clúster de producción, a escala, con varias aplicaciones.
 
@@ -40,7 +40,7 @@ Azure Monitor para contenedores ofrece una experiencia de supervisión completa 
 * Conocer el comportamiento del clúster tanto con cargas medias como con las más pesadas. Este conocimiento puede ayudarle a identificar los requisitos de capacidad y determinar la carga máxima que el clúster puede admitir.
 * Configure alertas para que le notifiquen de manera proactiva o registren el hecho de que el uso de la CPU y la memoria en nodos o contenedores supera los umbrales, o cuando se produzca un cambio del estado de mantenimiento en el clúster en la infraestructura o la acumulación de estado de los nodos.
 * Integrarse con [Prometheus](https://prometheus.io/docs/introduction/overview/) para ver las métricas de la aplicación y de la carga de trabajo que recopila de los nodos y Kubernetes mediante [consultas](container-insights-log-search.md) para crear alertas personalizadas y paneles y realizar un análisis detallado.
-* Supervise las cargas de trabajo de contenedor [implementadas en AKS Engine](https://github.com/Azure/aks-engine) de manera local y [AKS Engine en Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+* Supervise las cargas de trabajo de contenedor [implementadas en AKS Engine](https://github.com/Azure/aks-engine) de manera local y [AKS Engine en Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true).
 * Supervise las cargas de trabajo de contenedor [implementadas en Red Hat OpenShift en Azure](../../openshift/intro-openshift.md).
 
     >[!NOTE]

@@ -3,12 +3,12 @@ title: Valoraciones de máquinas virtuales de Azure en el Server Assessment de A
 description: Obtenga información sobre las evaluaciones en Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 1d9c887f42089611ce7402aa32174958cd8c0b07
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261861"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275530"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Introducción a la evaluación del servidor (migración a máquinas virtuales de Azure)
 
@@ -80,7 +80,7 @@ Si usa el dispositivo para la detección, los datos de rendimiento de la configu
     - **VM de Hyper-V**: se recopila un punto de ejemplo cada 30 segundos.
     - **Servidores físicos**: se recopila un punto de ejemplo cada cinco minutos.
 
-1. El dispositivo combina los puntos de ejemplo para crear un único punto de datos cada 10 minutos. Para crear el punto de datos, el dispositivo selecciona los valores máximos de todos los ejemplos. A continuación, envía el punto de datos a Azure.
+1. El dispositivo combina los puntos de ejemplo para crear un único punto de datos cada 10 minutos para los servidores de VMware y Hyper-V, y cada 5 minutos para los servidores físicos. Para crear el punto de datos, el dispositivo selecciona los valores máximos de todos los ejemplos. A continuación, envía el punto de datos a Azure.
 1. Server Assessment almacena todos los puntos de ejemplo de 10 minutos del último mes.
 1. Al crear una evaluación, Server Assessment identifica el punto de datos adecuado que se va a usar para elegir el tamaño adecuado. La identificación se basa en los valores de percentil de *historial de rendimiento* y *uso de percentil*.
 

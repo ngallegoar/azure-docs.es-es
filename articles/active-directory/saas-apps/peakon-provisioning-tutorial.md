@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: b16ca0c396e2c406677af351cf6b1de2a3499353
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 06fca39b1170d36f22040ccf48eb02f948e47e41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543682"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304709"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Tutorial: Configurar Peakon para el aprovisionamiento automático de usuarios
 
@@ -56,11 +56,11 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 2.  Seleccione **Integraciones**.
     
-    ![Peakon-employee-provision](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
+    ![Captura de pantalla de las opciones de configuración con la opción Integrations (Integraciones) seleccionada.](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
 
 3.  Habilite **Employee Provisioning** (Aprovisionamiento de empleados).
 
-    ![Peakon-employee-provision](media/Peakon-provisioning-tutorial/peakon05.png)
+    ![Captura de pantalla de la sección Employee Provisioning (Aprovisionamiento de empleados) con la opción Enable (Habilitar) seleccionada.](media/Peakon-provisioning-tutorial/peakon05.png)
 
 4.  Copie los valores de **SCIM 2.0 URL** y **Token de portador de OAuth**. Estos valores se escriben en el campo **URL de inquilino** y **Token secreto** de la pestaña Aprovisionamiento de la aplicación Peakon en Azure Portal.
 
@@ -105,11 +105,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba los valores de **SCIM 2.0 URL** y **Token de portador de OAuth** recuperados anteriormente en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Peakon. Si la conexión no se establece, asegúrese de que la cuenta de Peakon tiene permisos de administrador y pruebe otra vez.
 

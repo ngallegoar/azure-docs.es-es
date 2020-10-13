@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: cf32938b534272a13af5891d6a31e64b8136a528
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7717c02fb460c41543ae810820ba01efb13a1ca7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271195"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Llamada a puntos de conexión REST mediante Azure Logic Apps
 
@@ -54,17 +54,17 @@ Este desencadenador integrado envía una solicitud HTTP a una URL de un archivo 
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Escribir la URL del punto de conexión de Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   ![Captura de pantalla que muestra el diseñador de aplicaciones lógicas con el desencadenador "HTTP + Swagger" y la propiedad "dirección URL del punto de conexión de Swagger" establecida en un valor de dirección URL.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
 1. Cuando el diseñador muestra las operaciones que describe el archivo de Swagger, seleccione la operación que quiera usar.
 
-   ![Operaciones en el archivo de Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
+   ![Captura de pantalla que muestra el diseñador de aplicaciones lógicas con el desencadenador "HTTP + Swagger" y una lista que muestra las operaciones de Swagger.](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
 1. Proporcione los valores de los parámetros de desencadenador, que varían en función de la operación que haya seleccionado, que quiere incluir en la llamada de punto de conexión. Configure la periodicidad con la que quiere que el desencadenador llame al punto de conexión.
 
    En este ejemplo se cambia el nombre del desencadenador por "HTTP + Swagger trigger: Face - Detect" (Desencadenador HTTP + Swagger: detección de cara) para que el paso tenga un nombre más descriptivo.
 
-   ![Detalles de la operación](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
+   ![Captura de pantalla que muestra el diseñador de aplicaciones lógicas con el desencadenador "HTTP + Swagger" que muestra la operación "Detección de cara".](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
 1. Para agregar otros parámetros disponibles, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera.
 

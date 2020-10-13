@@ -1,22 +1,22 @@
 ---
-title: 'Base de referencia de seguridad de Azure para Azure Database for PostgreSQL: Hiperescala'
-description: La base de referencia de seguridad de Azure Database for PostgreSQL Hiperescala es una guía de procedimientos y recursos para implementar las recomendaciones de seguridad especificadas en Azure Security Benchmark.
+title: 'Línea de base de seguridad de Azure para Azure Database for PostgreSQL: Hiperescala (Citus)'
+description: La base de referencia de seguridad de Azure Database for PostgreSQL Hiperescala (Citus) es una guía de procedimientos y recursos para implementar las recomendaciones de seguridad especificadas en Azure Security Benchmark.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 37ebd1702ed8ef059b38378b89f5a5cb61748568
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c82451ca9f1f974aba7578b0dfc4f6f0eb99ac16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231306"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318133"
 ---
-# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Base de referencia de seguridad de Azure para Azure Database for PostgreSQL: Hiperescala
+# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Línea de base de seguridad de Azure para Azure Database for PostgreSQL: Hiperescala (Citus)
 
-La base de referencia de seguridad de Azure Database for PostgreSQL Hiperescala contiene recomendaciones que le ayudarán a mejorar la posición de seguridad de la implementación.
+La línea de base de seguridad de Azure Database for PostgreSQL: Hiperescala (Citus) contiene recomendaciones que le ayudarán a mejorar la posición de seguridad de la implementación.
 
 La base de referencia de este servicio se extrae de la [versión 1.0 de Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
 

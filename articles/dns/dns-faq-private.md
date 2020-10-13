@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: d6faf5bd42c90ea1510d454a2ab7939f121b3d0d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9d183f2da7b916b1547fa1f81aa877b1b5488b41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925012"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308442"
 ---
 # <a name="azure-private-dns-faq"></a>Preguntas frecuentes sobre Azure DNS privado
 
@@ -28,7 +28,7 @@ Para sobre otras opciones de DNS internas de Azure, consulte [Resolución de nom
 
 Sí. Las zonas privadas se admiten para la resolución DNS entre redes virtuales de distintas regiones de Azure. Las zonas privadas funcionan incluso sin emparejamiento explícito de las redes virtuales. Todas las redes virtuales están vinculadas a la zona DNS privada.
 
-## <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>Para las zonas privadas, ¿se requiere que las redes virtuales tengan conectividad con Internet?
+## <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>¿Requieren las zonas privadas que las redes virtuales tengan conectividad con Internet?
 
 No. Las zonas privadas funcionan junto con las redes virtuales. Úselas para administrar los dominios de las máquinas virtuales u otros recursos dentro y entre redes virtuales. No se requiere conectividad con Internet para la resolución de nombres.
 
@@ -43,6 +43,14 @@ Sí. Debe tener permiso para la operación de escritura en las redes virtuales y
 ## <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-you-delete-the-virtual-machine"></a>¿Se eliminarán automáticamente los registros de DNS de una máquina virtual registrada en una zona privada cuando se elimine la máquina virtual?
 
 Sí. Si elimina una máquina virtual que se encuentra dentro de una red virtual vinculada que tiene habilitado el registro automático, se eliminan automáticamente los registros anotados.
+
+## <a name="ive-reconfigured-the-os-in-my-virtual-machine-to-have-a-new-host-name-or-static-ip-address-why-dont-i-see-that-change-reflected-in-the-private-zone"></a>He reconfigurado el sistema operativo en mi máquina virtual para tener un nombre de host o una dirección IP estática nuevos. ¿Por qué no veo ese cambio reflejado en la zona privada?
+
+El servicio DHPC de rellena los registros de la zona privada; se omiten los mensajes de registro del cliente. Si ha deshabilitado la compatibilidad con el cliente DHCP en la máquina virtual mediante la configuración de una dirección IP estática, los cambios en el nombre de host o en la dirección IP estática de la máquina virtual no se reflejan en la zona.
+
+## <a name="i-have-configured-a-preferred-dns-suffix-in-my-windows-virtual-machine-why-are-my-records-still-registered-in-the-zone-linked-to-the-virtual-network"></a>He configurado un sufijo DNS preferido en mi máquina virtual Windows. ¿Por qué mis registros todavía aparecen anotados en la zona vinculada a la red virtual?
+
+El servicio DHCP de Azure omite todos los sufijos DNS cuando registra la zona DNS privada. Por ejemplo, si la máquina virtual está configurada con el sufijo DNS principal de `contoso.com`, pero la red virtual está vinculada a la zona DNS privada de `fabrikam.com`, el registro de la máquina virtual aparece en la zona DNS privada de `fabrikam.com`.
 
 ## <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-linked-virtual-network-be-deleted-manually"></a>¿Se puede eliminar manualmente un registro de máquina virtual registrado automáticamente en una zona privada de una red virtual vinculada?
 

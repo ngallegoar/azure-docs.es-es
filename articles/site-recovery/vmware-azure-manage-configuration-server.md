@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 83535fde7f577c4cd5d0b3866afcc0a916c16337
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134830"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361490"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico o VM de VMware
 
@@ -71,7 +71,7 @@ Si no agregó las credenciales durante la implementación de OVF del servidor de
 
 1. Después de [iniciar sesión](#access-configuration-server), seleccione **Manage virtual machine credentials** (Administrar las credenciales de la máquina virtual)
 2. Haga clic en **Add virtual machine credentials** (Agregar credenciales de máquina virtual).
-    ![adición de credenciales de Mobility Service](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![Captura de pantalla que muestra el panel Administrar las credenciales de la máquina virtual con el vínculo Agregar credenciales de máquina virtual.](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Escriba las nuevas credenciales y haga clic en **Add** (Agregar).
 
 También puede agregar las credenciales con CSPSConfigtool.exe.

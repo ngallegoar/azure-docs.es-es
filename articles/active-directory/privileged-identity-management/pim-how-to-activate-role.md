@@ -14,12 +14,12 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 2a2c3c112183e102f6c3c4a0bebb83376c7e8d85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055459"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317545"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Activación de mis roles de Azure AD en PIM
 
@@ -40,7 +40,7 @@ Desde noviembre de 2019, la parte de roles de Azure AD de Privileged Identity Ma
 
 # <a name="new-version"></a>[Nueva versión](#tab/new)
 
-## <a name="activate-a-role"></a>Activación de un rol
+## <a name="activate-a-role-for-new-version"></a>Activación de un rol de nueva versión
 
 Cuando necesite asumir un rol de Azure AD, puede solicitar la activación al abrir **Mis roles** en Privileged Identity Management.
 
@@ -80,7 +80,7 @@ Cuando necesite asumir un rol de Azure AD, puede solicitar la activación al abr
 
     ![La solicitud de activación está pendiente de notificación de aprobación](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## <a name="view-the-status-of-your-requests"></a>Visualización del estado de las solicitudes
+## <a name="view-the-status-of-your-requests-for-new-version"></a>Visualización del estado de las solicitudes de nueva versión
 
 Puede ver el estado de las solicitudes pendientes de activación.
 
@@ -92,7 +92,7 @@ Puede ver el estado de las solicitudes pendientes de activación.
 
 1. Desplácese a la derecha para ver la columna **Estado de solicitud**.
 
-## <a name="cancel-a-pending-request"></a>Cancelación de una solicitud pendiente
+## <a name="cancel-a-pending-request-for-new-version"></a>Cancelación de una solicitud pendiente de nueva versión
 
 Si no necesita activar un rol que requiera aprobación, puede cancelar una solicitud pendiente en cualquier momento.
 
@@ -106,7 +106,7 @@ Si no necesita activar un rol que requiera aprobación, puede cancelar una solic
 
    ![Mi lista de solicitudes con la acción Cancelar resaltada](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>Solución de problemas
+## <a name="troubleshoot-for-new-version"></a>Solución de problemas de nueva versión
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Permisos no concedidos después de activar un rol
 

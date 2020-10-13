@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcc6de1ce50e86f177023a0a66c436633c8d502c
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 9c8dcc8766b21551f3cd62289805fe735ef0f333
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053293"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317623"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Actualización automática
 Esta característica se introdujo con la compilación [1.1.105.0 (publicada en febrero de 2016)](reference-connect-version-history.md).  Esta característica se actualizó en la [compilación 1.1.561](reference-connect-version-history.md) y ahora admite otros escenarios que antes no eran compatibles.
@@ -63,8 +63,8 @@ También es posible obtener un resultado que no sea UpgradeResult; es decir, "AA
 
 A continuación, asegúrese de que ha abierto las direcciones URL necesarias en su servidor proxy o firewall. La actualización automática utiliza Azure AD Connect Health, como se describe en la [información general](#overview). Si utiliza un servidor proxy, asegúrese de que Health se ha configurado para usar un [servidor proxy](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Pruebe también la [conectividad de Health](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) con Azure AD.
 
-Una vez verificada la conectividad a Azure AD, es el momento de buscar en los registros de eventos. Inicie el visor de eventos y busque en el registro de eventos **Application** . Agregue un filtro de registro de eventos para el origen **Azure AD Connect Upgrade** y el intervalo de identificadores de eventos **300-399**.  
-![Filtro de registro de eventos para la actualización automática](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
+Una vez verificada la conectividad a Azure AD, es el momento de buscar en los registros de eventos. Inicie el visor de eventos y busque en el registro de eventos **Application** . Agregue un filtro de registro de eventos para el origen **Actualización de Azure AD Connect** y el intervalo de identificadores de eventos **300-399**.  
+![Captura de pantalla que muestra la ventana "Filtrar registro actual" con "Orígenes de eventos" y el cuadro de identificadores de evento "Incluir/Excluir" resaltado.](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
 
 Ahora puede ver los registros de eventos asociados con el estado de la actualización automática.  
 ![Filtro de registro de eventos para la actualización automática](./media/how-to-connect-install-automatic-upgrade/eventlogresult.png)  

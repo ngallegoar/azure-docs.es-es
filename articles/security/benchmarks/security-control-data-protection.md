@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2622d7a2e54dac710ac09d61dee639ab1d104f02
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f2162ee6df551e1bc64741229aec99d5e697fd29
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079003"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395998"
 ---
 # <a name="security-control-data-protection"></a>Control de seguridad: Protección de datos
 
@@ -74,7 +74,7 @@ Siga las recomendaciones de Azure Security Center para el cifrado en reposo y el
 
 Si no hay ninguna característica disponible para el servicio específico en Azure, use una herramienta de detección activa de terceros para identificar toda la información confidencial almacenada, procesada o transmitida por los sistemas tecnológicos de la organización, incluidos los del ubicación local o los que se encuentran en un proveedor de servicios remoto, y actualizar el inventario de información confidencial de la organización.
 
-Use Azure Information Protection para identificar información confidencial en documentos de Office 365.
+Use Azure Information Protection para identificar información confidencial en documentos de Microsoft 365.
 
 Use Information Protection de Azure SQL para ayudar en la clasificación y el etiquetado de la información almacenada en las instancias de Azure SQL Database.
 

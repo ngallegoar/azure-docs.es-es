@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2018
 ms.author: curtand
-ms.openlocfilehash: 9de054162a59b10fbd02bed9b3e84634ee12125b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 84588130788e9be8d3be52a8ea0f3988dce7b952
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799203"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537011"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Creación de contraseñas de aplicaciones desde la página Información de seguridad (versión preliminar)
 
@@ -59,7 +59,7 @@ Si utiliza la verificación en dos pasos con su cuenta profesional o educativa y
 
 4. Escriba el nombre de la aplicación que requiere la contraseña de la aplicación y, a continuación, seleccione **Siguiente**.
 
-    ![Página de contraseña de aplicación, con el nombre de la aplicación](media/security-info/securityinfo-myprofile-password-appname.png)
+    ![Captura de pantalla que muestra la página de la contraseña de la aplicación, con el nombre de la aplicación especificada.](media/security-info/securityinfo-myprofile-password-appname.png)
 
 5. Copie el texto del cuadro **Contraseña**, pegue la contraseña en el área de contraseña de aplicaciones (en este ejemplo, Outlook 2010) y, a continuación, seleccione **Listo**.
 

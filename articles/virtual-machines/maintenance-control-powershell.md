@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 5cb504e10c9a1b10c5bad201f4f599a3c00992fe
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530767"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306946"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Control de las actualizaciones con el control de mantenimiento y Azure PowerShell
 
@@ -66,6 +66,33 @@ Puede consultar las configuraciones de mantenimiento disponibles mediante [Get-A
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window-in-preview"></a>Creación de una configuración de mantenimiento con una ventana programada (en versión preliminar)
+
+
+> [!IMPORTANT]
+> La característica de ventana programada se encuentra actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Use New-AzMaintenanceConfiguration para crear una configuración de mantenimiento con una ventana programada en que Azure aplicará las actualizaciones en los recursos. En este ejemplo se crea una configuración de mantenimiento denominada myConfig con una ventana programada de 5 horas el cuarto lunes de cada mes. Una vez que cree una ventana programada, ya no tendrá que aplicar las actualizaciones manualmente.
+
+```azurepowershell-interactive
+$config = New-AzMaintenanceConfiguration `
+   -ResourceGroup $RGName `
+   -Name $MaintenanceConfig `
+   -MaintenanceScope Host `
+   -Location $location `
+   -StartDateTime "2020-10-01 00:00" `
+   -TimeZone "Pacific Standard Time" `
+   -Duration "05:00" `
+   -RecurEvery "Month Fourth Monday"
+```
+> [!IMPORTANT]
+> La **duración** del mantenimiento debe ser de *2 horas* o más. La **periodicidad** del mantenimiento debe establecerse en al menos una vez en 35 días.
+
+La **periodicidad** del mantenimiento puede expresarse como programaciones diarias, semanales o mensuales. Ejemplos de programación diaria son recurEvery: Day, recurEvery: 3Days. Ejemplos de programación semanal son recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Ejemplos de programación mensual son recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday.
+
 
 ## <a name="assign-the-configuration"></a>Asignación de la configuración
 

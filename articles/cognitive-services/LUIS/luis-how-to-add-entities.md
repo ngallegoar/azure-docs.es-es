@@ -2,20 +2,18 @@
 title: 'Agregar entidades: LUIS'
 description: Cree entidades para extraer datos clave de las expresiones de usuario de las aplicaciones de Language Understanding (LUIS). La aplicación cliente usa los datos de entidad extraídos para satisfacer las solicitudes de los clientes.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 61e53e6110e545d253dae81e94f8738ee17c4141
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344482"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540972"
 ---
 # <a name="add-entities-to-extract-data"></a>Agregar entidades para extraer datos
 
@@ -179,14 +177,14 @@ En este procedimiento, se agregan los roles `origin` y `destination` a una entid
 1. Para etiquetar con el rol, seleccione la etiqueta de la entidad (con una línea sólida debajo del texto) en la expresión de ejemplo y, a continuación, seleccione **View in entity pane** (Ver en panel de entidades) en la lista desplegable.
 
     > [!div class="mx-imgBorder"]
-    > ![Captura de pantalla de la selección de la visualización en la paleta de entidades](media/add-entities/view-in-entity-pane.png)
+    > ![Captura de pantalla que muestra el elemento de menú Ver en panel de entidades seleccionado.](media/add-entities/view-in-entity-pane.png)
 
     La paleta de entidades se abre a la derecha.
 
 1. Seleccione la entidad y, a continuación, vaya a la parte inferior de la paleta y seleccione el rol.
 
     > [!div class="mx-imgBorder"]
-    > ![Captura de pantalla de la selección de la visualización en la paleta de entidades](media/add-entities/select-role-in-entity-palette.png)
+    > ![Captura de pantalla que muestra dónde seleccionar el rol.](media/add-entities/select-role-in-entity-palette.png)
 
 <a name="add-pattern-any-entities"></a>
 <a name="add-a-patternany-entity"></a>

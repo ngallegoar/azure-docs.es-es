@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 05f81e4d93244db854bf8d0ec254ee647f81d9cc
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: afee95f6a8776c3506e10c29cfd8e776734a915a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069176"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326684"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Conector Azure Cosmos DB Apache Spark para Core (SQL) API: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -56,12 +56,20 @@ Este conector se puede usar con [Azure Databricks](https://azure.microsoft.com/s
 
 | Recurso | Vínculo |
 |---|---|
-| **Descarga del SDK** | [Descarga desde Apache Spark](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG) |
+| **Descarga del SDK** | [Descarga del archivo .jar más reciente](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [Maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
 |**Documentación de la API** | [Referencia del conector de Spark]() |
 |**Contribuciones al SDK** | [Conector de Apache Spark para Azure Cosmos DB en GitHub](https://github.com/Azure/azure-cosmosdb-spark) | 
 |**Introducción** | [Aceleración de análisis de macrodatos mediante el conector de Apache Spark a Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/spark-connector#bk_working_with_connector) <br> [Uso del flujo estructurado de Apache Spark con Apache Kafka y Azure Cosmos DB](https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
 
 ## <a name="release-history"></a>Historial de versiones
+
+### <a name="330"></a>3.3.0
+#### <a name="new-features"></a>Nuevas características
+- Agrega una nueva opción de configuración, `changefeedstartfromdatetime`, que se puede usar para especificar la hora de inicio para cuando se debe procesar el cambio. Para más información, consulte [Opciones de configuración](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references).
+
+### <a name="320"></a>3.2.0
+#### <a name="key-bug-fixes"></a>Correcciones de errores clave
+- Corrige una regresión que causó un consumo excesivo de memoria en los ejecutores de grandes conjuntos de resultados (por ejemplo, con millones de filas), lo que en última instancia genera el error `java.lang.OutOfMemoryError: GC overhead limit exceeded`.
 
 ### <a name="311"></a>3.1.1
 #### <a name="key-bug-fixes"></a>Correcciones de errores clave

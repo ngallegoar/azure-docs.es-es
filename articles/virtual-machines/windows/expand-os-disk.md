@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 3f1c7fb08c3dcaa078de8f1ee0b90409289cfb43
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469258"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336010"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Cómo ampliar la unidad de sistema operativo de una máquina virtual
 
@@ -30,7 +30,7 @@ Cuando se crea una nueva máquina virtual (VM) en un grupo de recursos mediante 
 - Para migrar una VM o un equipo físico del entorno local con una unidad del sistema operativo más grande.
 
 > [!IMPORTANT]
-> Para cambiar el tamaño del disco del sistema operativo de una máquina virtual de Azure requiere que se desasigne la máquina virtual.
+> Para cambiar el tamaño de un disco de datos o de sistema operativo de una máquina virtual de Azure, es necesario desasignar la máquina virtual.
 >
 > Después de expandir los discos, necesita [expandir el volumen dentro del sistema operativo](#expand-the-volume-within-the-os) para aprovechar el disco más grande.
 > 

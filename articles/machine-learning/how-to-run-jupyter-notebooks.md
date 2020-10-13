@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: b310f195477f4cba83ef30c6fb5ea2fd24c4df9a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897380"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460040"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Ejecución de los cuadernos de Jupyter Notebook en el área de trabajo
 
@@ -80,15 +80,20 @@ Para tener acceso al terminal:
 1. Seleccione un destino de **Proceso** o cree uno nuevo y espere hasta que se esté ejecutando.
 1. Seleccione el icono de **Abrir terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Abra el terminal":::.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Crear un nuevo archivo":::.
 
 1. Si no ve el icono, seleccione los puntos **...** que se encuentran a la derecha del destino de proceso y, a continuación, seleccione **Abrir terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Abrir el terminal desde los puntos ...":::.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Crear un nuevo archivo":::.
 
 
 Obtenga más información sobre [la clonación de repositorios de GIT de en el sistema de archivos del área de trabajo](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
 
+### <a name="copy-and-paste-in-terminal"></a>Copiar y pegar en el terminal
+
+> * Windows: `Ctrl-Insert` para copiar y `Ctrl-Shift-v` o `Shift-Insert` para pegar.
+> * Mac OS: `Cmd-c` para copiar y `Cmd-v` para pegar.
+> * Es posible que Firefox o IE no admitan los permisos del Portapapeles correctamente.
 
 ### <a name="share-notebooks-and-other-files"></a>Compartición de cuadernos y otros archivos
 
@@ -121,7 +126,7 @@ Durante la creación de un cuaderno, normalmente acaba con las celdas usadas par
 1. Ejecute todas las celdas del cuaderno.
 1. Seleccione la celda que contiene el código que desea que ejecute el nuevo cuaderno. Por ejemplo, el código que envía un experimento o quizás el código que registra un modelo.
 1. Seleccione el icono de **recopilación** que aparece en la barra de herramientas de celda.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Captura de pantalla: seleccione el icono de recopilación":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Crear un nuevo archivo":::
 1. Escriba el nombre del nuevo cuaderno "recopilado".  
 
 El nuevo cuaderno solo contiene celdas de código, con todas las celdas necesarias para generar los mismos resultados que la celda seleccionada para la recopilación.
@@ -132,7 +137,7 @@ Azure Machine Learning crea un archivo de punto de comprobación cuando se crea 
 
 En la barra de herramientas del cuaderno, seleccione el menú y luego, **Archivo&gt;Guardar y punto de control** para guardar manualmente el cuaderno y agregará un archivo de punto de control asociado con el cuaderno.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Captura de pantalla de la herramienta guardar en la barra de herramientas del cuaderno":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Crear un nuevo archivo":::
 
 Cada cuaderno se guarda automáticamente cada 30 segundos. El guardado automático actualiza solo el archivo inicial  *ipynb* , no el archivo de punto de control.
  

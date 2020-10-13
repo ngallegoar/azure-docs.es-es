@@ -6,12 +6,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
-ms.openlocfilehash: d4b9a7be36bd4c0a4044f3e76b96b21a16eb80de
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f91619860b577981d9717904a3d4a3074c2eaf0f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132524"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320853"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Administración de Azure Data Lake Analytics mediante la Interfaz de la línea de comandos (CLI) de Azure
 
@@ -141,7 +141,7 @@ Para mostrar la cuenta de Blob Storage:
    az dla account blob-storage list --account "<Data Lake Analytics account name>"
    ```
 
-![Origen de datos de lista de Análisis de Data Lake](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+![Captura de pantalla que muestra la C L I de Azure con la información "dataLakeStoreAccounts:" resaltada.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
 ### <a name="delete-data-sources"></a>Eliminar orígenes de datos:
 
@@ -185,7 +185,7 @@ Debe tener una cuenta de Análisis de Data Lake para poder crear un trabajo.  Pa
 >    ```
 
 ### <a name="cancel-jobs"></a>Cancelación de trabajos
-Use el comando de la lista para buscar el identificador del trabajo y, a continuación, use Cancelar para cancelar el trabajo.
+Use el comando de lista para buscar el identificador del trabajo y, luego, use Cancelar para cancelar el trabajo.
 
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"

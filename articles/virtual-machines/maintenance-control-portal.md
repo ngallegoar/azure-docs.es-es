@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 4232f4cd39c3f6dd6efa0bf78959798ea842e2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676053"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397290"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Control de las actualizaciones con el control de mantenimiento y Azure Portal
 
@@ -76,7 +76,7 @@ También hay dos maneras de comprobar si las actualizaciones tienen una configur
 
 También puede comprobar un host específico mediante **Virtual Machines** o las propiedades del host dedicado. 
 
-![Captura de pantalla en la que se muestra cómo comprobar el mantenimiento de un host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
+![Captura de pantalla en la que aparece el estado de mantenimiento resaltado.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
 
 ## <a name="apply-updates"></a>Aplicación de actualizaciones
 
@@ -94,7 +94,7 @@ El progreso de las actualizaciones de una configuración se puede consultar en *
 
 Para eliminar una configuración, abra los detalles de la misma y haga clic en **Eliminar**.
 
-![Captura de pantalla en la que se muestra cómo comprobar el mantenimiento de un host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
+![Captura de pantalla que muestra cómo eliminar una configuración.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

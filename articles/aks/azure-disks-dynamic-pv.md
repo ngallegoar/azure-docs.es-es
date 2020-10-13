@@ -4,20 +4,20 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a crear de forma dinámica un volumen persistente con discos de Azure en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
-ms.openlocfilehash: 06aad076836c0f6fdc59c4ed5d0116231080d15c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 09/21/2020
+ms.openlocfilehash: fd2bc698a107599dccf8f142b0d318400b40aaf3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683613"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299330"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con discos de Azure en Azure Kubernetes Service (AKS)
 
 Un volumen persistente representa un fragmento de almacenamiento aprovisionado para su uso con pods de Kubernetes. Un volumen persistente puede usarse en uno o varios pods y puede aprovisionarse de forma dinámica o estática. En este artículo se muestra cómo crear dinámicamente volúmenes persistentes con discos de Azure para usarlos en un solo pod de un clúster de Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Solo se puede montar un disco de Azure con el tipo de *modo de acceso* *ReadWriteOnce*, que lo pone a disposición de un único pod en AKS. Si tiene que compartir un volumen persistente en varios pods, use [Azure Files][azure-files-pvc].
+> Un disco de Azure solo se puede montar con el tipo de *Modo de acceso* establecido en *ReadWriteOnce*, lo que hace que esté disponible para un nodo en AKS. Si tiene que compartir un volumen persistente entre varios nodos, use [Azure Files][azure-files-pvc].
 
 Para más información sobre los volúmenes de Kubernetes, consulte [Opciones de almacenamiento para aplicaciones en AKS][concepts-storage].
 

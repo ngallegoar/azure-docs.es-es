@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 02e9426c7fc537a43fadddb5e2c34fd9c311d69b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b486b94a74d98f5630bd0bf40ebf0864c2ec5ab8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753267"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333909"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Creación y administración de valores mediante el uso de variables en Azure Logic Apps
 
@@ -55,7 +55,7 @@ Puede crear una variable y declarar el tipo de datos y el valor inicial de la mi
 
    * Para agregar una acción en el último paso, elija **Nuevo paso**.
 
-     ![Agregar una acción](./media/logic-apps-create-variables-store-values/add-action.png)
+     ![Captura de pantalla que muestra la acción "Nuevo paso" seleccionada en la página "Diseñador de aplicaciones lógicas".](./media/logic-apps-create-variables-store-values/add-action.png)
 
    * Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión para que el signo más ( **+** ) aparezca. Haga clic en el signo más y, a continuación, seleccione **Agregar una acción**.
 

@@ -12,38 +12,28 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 92f0909660427e414264442523dba3ed2abe0142
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: a6cbb574245c7b11d2437693d60fd952becedba3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257561"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Escenario: Aplicación de escritorio que llama a las API web
 
 Aprenda a crear una aplicación de escritorio que llame a las API web.
 
-## <a name="prerequisites"></a>Prerrequisitos
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="get-started"></a>Introducción
 
-Si aún no lo ha hecho, cree su primera aplicación siguiendo el inicio rápido de escritorio de .NET, el inicio rápido de la Plataforma universal de Windows (UWP) o el inicio rápido de aplicación nativa de macOS:
+Si aún no lo ha hecho, cree su primera aplicación siguiendo un inicio rápido:
 
-> [!div class="nextstepaction"]
-> [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows](./quickstart-v2-windows-desktop.md)
-
-
-> [!div class="nextstepaction"]
-> [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de UWP](./quickstart-v2-uwp.md)
-
-> [!div class="nextstepaction"]
-> [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación nativa de macOS](./quickstart-v2-ios.md)
+- [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows](./quickstart-v2-windows-desktop.md)
+- [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de UWP](./quickstart-v2-uwp.md)
+- [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación nativa de macOS](./quickstart-v2-ios.md)
 
 ## <a name="overview"></a>Información general
 
-Supongamos que escribe una aplicación de escritorio y que desea que los usuarios inicien sesión en la aplicación, así como llamar a alguna API web como Microsoft Graph, otras API de Microsoft o su propia API web. Tiene varias posibilidades:
+Supongamos que escribe una aplicación de escritorio y que desea que los usuarios inicien sesión en la aplicación, así como llamar a alguna API web como Microsoft Graph, otras API de Microsoft o su propia API web. Tiene varias opciones:
 
 - Puede utilizar la adquisición interactiva de tokens:
 
@@ -64,6 +54,10 @@ Supongamos que escribe una aplicación de escritorio y que desea que los usuario
 ## <a name="specifics"></a>Características específicas
 
 Las aplicaciones de escritorio tienen una serie de características específicas. Dependen principalmente de si la aplicación usa la autenticación interactiva o no.
+
+## <a name="recommended-reading"></a>Lecturas recomendadas
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

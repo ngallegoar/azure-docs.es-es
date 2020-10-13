@@ -12,18 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 9c4eebae6909c9ef0969bc85bcb9a985db2a7c02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142153"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325613"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modelo de costo de Azure NetApp Files 
 
-Entender el modelo de costo de Azure NetApp Files ayuda a administrar los gastos del servicio.
+Entender el modelo de costo de Azure NetApp Files ayuda a administrar los gastos del servicio. 
+
+Para el modelo de costos específico de la replicación entre regiones, consulte [Modelo de costos de la replicación entre regiones](cross-region-replication-introduction.md#cost-model-for-cross-region-replication).
 
 ## <a name="calculation-of-capacity-consumption"></a>Cálculo del consumo de la capacidad
 
@@ -61,6 +63,7 @@ Puede aumentar o disminuir el tamaño del grupo de forma manual. Pero se aplican
 * Un incremento de 1 TiB después de la compra mínima de 4 TiB iniciales.
 * Un incremento de facturación mínimo de una hora.
 * El tamaño del grupo aprovisionado no se puede disminuir a menos del total de capacidad usada del grupo.
+* En el caso de los grupos de capacidad con QoS manual, el tamaño del grupo solo se puede reducir si el tamaño y el nivel de servicio proporcionan más rendimiento que el rendimiento real asignado de todos los volúmenes.
 
 ## <a name="behavior-of-maximum-size-pool-overage"></a>Comportamiento del uso por encima del límite del grupo de tamaño máximo   
 
@@ -94,3 +97,4 @@ El consumo de la capacidad de instantáneas de Azure NetApp Files se cobra en fu
 * [Página de precios de Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Niveles de servicio para Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Modelo de costos de la replicación entre regiones](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)

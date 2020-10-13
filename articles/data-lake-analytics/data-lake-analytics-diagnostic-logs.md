@@ -5,12 +5,12 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: c8c24134c4694a9a2df36ac278452a532a5125ad
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f1f4320f0bfb924883eb7ae4807dcb714cd89983
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132609"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331937"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acceso a los registros de diagnóstico de Azure Data Lake Analytics
 
@@ -26,7 +26,7 @@ Los registros de diagnóstico le permiten recopilar seguimientos de auditoría d
 
 2. Abra su cuenta de Data Lake Analytics y seleccione **Registros de diagnósticos** en la __sección Supervisión__. Después, seleccione __Activar diagnósticos__.
 
-    ![Activar los diagnósticos para recopilar registros de solicitudes y auditoría](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+    ![Captura de pantalla que muestra la acción "Registros de diagnóstico" seleccionada y la opción de activar diagnósticos para recopilar registros resaltada.](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
 3. En __Configuración de diagnóstico__, escriba un __Nombre__ para esta configuración de registro y, a continuación, seleccione las opciones de registro.
 

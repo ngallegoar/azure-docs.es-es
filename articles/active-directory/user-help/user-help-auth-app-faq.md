@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/16/2020
+ms.date: 09/23/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 051d88494049662891e1891f900aa580a005ffe4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 00771f950271cfbc86994c01b6d866c5983f1b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799475"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278675"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Preguntas frecuentes (P+F) sobre la aplicación Microsoft Authenticator
 
@@ -29,6 +29,7 @@ La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenti
 
 | Pregunta | Respuesta |
 | -------- | ------ |
+| ¿Por qué tengo problemas con Apple Watch en watchOS 7? | Hay un problema con la aprobación de notificaciones en watchOS 7 y estamos trabajando con Apple para solucionarlo. Mientras tanto, todas las notificaciones que requieran la aplicación watchOS de Microsoft Authenticator se deben autenticar en el teléfono.  |
 | ¿Está registrando un dispositivo y acepta la concesión de acceso a dicho dispositivo para la empresa o el servicio? | El registro de un dispositivo permite que el dispositivo acceda a los servicios de la organización, pero no que la organización acceda al dispositivo. |
 | ¿Qué es Bloqueo de aplicación y cómo se puede usar para ayudar a mantenerme más seguro? | Bloqueo de aplicación ayuda a mantener sus códigos de acceso de un solo uso, la información de aplicación y la configuración de la aplicación más seguros. Cuando la característica Bloqueo de aplicación está habilitada, se le pedirá que se autentique con el PIN del dispositivo o características biométricas cada vez que abra la aplicación Authenticator. Bloqueo de aplicación también ayuda a asegurarse de que es la única persona que puede aprobar notificaciones solicitando el PIN o características biométricas cada vez que aprueba una notificación de inicio de sesión. Puede activar o desactivar la característica Bloqueo de aplicación en la página de configuración de Authenticator. De forma predeterminada, la característica Bloqueo de aplicación se activa al configurar un PIN o características biométricas en el dispositivo.<br><br>Desafortunadamente, no hay ninguna garantía de que Bloqueo de aplicación vaya a impedir que alguien acceda a Authenticator. Esto se debe a que el registro del dispositivo puede realizarse en ubicaciones distintas de Authenticator, como en la configuración de la cuenta de Android o en la aplicación Portal de empresa. |
 | Tengo un dispositivo Windows Mobile y Microsoft Authenticator está en desuso en Windows Mobile. ¿Puedo continuar autenticándome con la aplicación? | Todas las autenticaciones que usen el Microsoft Authenticator en Windows Mobile se retirarán después del 15 de julio de 2020. Se recomienda encarecidamente que use un método de autenticación alternativo para evitar que no pueda entrar en sus cuentas.<br>Entre las opciones alternativas para los usuarios de empresa se incluyen:<br><ul><li>Configuración de Microsoft Authenticator para [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) o [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>[Configuración de SMS](multi-factor-authentication-setup-phone-number.md) para recibir códigos de verificación.</li><li>Configuración del número de teléfono para recibir [llamadas telefónicas para comprobar su identidad](multi-factor-authentication-setup-office-phone.md).</li></ul><br>Entre las opciones alternativas para los usuarios de la cuenta personal de Microsoft se incluyen:<br><ul><li>Configuración de Microsoft Authenticator para [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) o [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>Configuración de un método de inicio de sesión alternativo (SMS o correo electrónico) actualizando la información de seguridad de la [página de seguridad de la cuenta de Microsoft](https://account.microsoft.com/security/).</li></ul> |

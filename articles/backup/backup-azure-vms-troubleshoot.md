@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar los errores detectados a
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376186"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316739"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -105,7 +105,7 @@ Mensaje de error: Error en la operación de instantánea porque los VSS Writers 
 
 Este error se produce porque las instancias de VSS Writer se encontraban en un estado incorrecto. Las extensiones de Azure Backup interactúan con las instancias de VSS Writer para tomar instantáneas de los discos. Para resolver el problema, siga estos pasos:
 
-Reinicie los VSS Writers que se encuentran en estado incorrecto.
+Paso 1: Reinicie los VSS Writers que se encuentran en estado incorrecto.
 - En un símbolo del sistema con privilegios elevados, ejecute ```vssadmin list writers```.
 - La salida contiene todos los VSS Writers y su estado. Para cada VSS Writer con un estado que no sea **[1] Estable**, reinicie el servicio de la instancia de VSS Writer correspondiente. 
 - Para reiniciar el servicio, ejecute los siguientes comandos desde un símbolo del sistema con privilegios elevados:
@@ -117,12 +117,20 @@ Reinicie los VSS Writers que se encuentran en estado incorrecto.
 > El reinicio de algunos servicios puede afectar al entorno de producción. Asegúrese de que se sigue el proceso de aprobación y de que el servicio se reinicia en el tiempo de inactividad programado.
  
    
-Si el reinicio de las instancias de VSS Writer no resolvió el problema y este todavía persiste debido a un tiempo de espera, haga lo siguiente:
-- Ejecute el siguiente comando desde un símbolo del sistema con privilegios elevados (como administrador) para evitar que se creen subprocesos para las instantáneas de blob.
+Paso 2: Si reiniciar VSS Writer no resolvió el problema, ejecute el siguiente comando desde un símbolo del sistema con privilegios elevados (como administrador) para evitar que se creen subprocesos para las instantáneas de blob.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+Paso 3: Si los pasos 1 y 2 no resolvieron el problema, el error podría deberse a que se agota el tiempo de espera de VSS Writer debido a IOPS limitadas.<br>
+
+Para comprobarlo, vaya a los ***registros de aplicaciones del sistema y del Visor de eventos*** y busque el mensaje de error siguiente:<br>
+*El proveedor de instantáneas superó el tiempo de espera mientras limpiaba datos en el volumen del que se estaba obteniendo la instantánea. Esto se debe probablemente a la actividad excesiva del volumen. Vuelva a intentarlo más tarde cuando el volumen no se esté utilizando con tanta intensidad.*<br>
+
+Solución:
+- Considere la posibilidad de distribuir la carga entre los discos de la máquina virtual. Esto reducirá la carga en los discos individuales. Para [comprobar la limitación de IOPS, puede habilitar las métricas de diagnóstico en el nivel de almacenamiento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+- Cambie la directiva de copia de seguridad para hacer copias de seguridad durante las horas de menor actividad, cuando la carga en la máquina virtual se encuentre en el nivel más bajo.
+- Actualice los discos de Azure para que admitan más IOPS. [Más información aquí](https://docs.microsoft.com/azure/virtual-machines/disks-types).
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState: Error en la operación de instantánea debido a que el Servicio de instantáneas de volumen (VSS) tiene un estado incorrecto.
 
@@ -306,6 +314,13 @@ Si tiene una instancia de Azure Policy que [rige las etiquetas dentro de su ento
 | La copia de seguridad no pudo cancelar el trabajo: <br>espere hasta que el trabajo finalice. |None |
 
 ## <a name="restore"></a>Restauración
+
+#### <a name="disks-appear-offline-after-file-restore"></a>Los discos aparecen sin conexión después de la restauración de archivos
+
+Si después de la restauración observa que los discos están sin conexión: 
+* Compruebe si el equipo en el que se ejecuta el script cumple los requisitos del sistema operativo. [Obtenga más información](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
+* Asegúrese de que no esté restaurando en el mismo origen. [Más información](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+
 
 | Detalles del error | Solución alternativa |
 | --- | --- |

@@ -4,17 +4,17 @@ description: Respuesta a incidentes de Azure Security Benchmark v2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2dbdb1af139472d5c7f4537399d434e045bb05cb
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 172607a7f8f036bbfb68e8d15e77b2a3e3fb5377
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059091"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326395"
 ---
-# <a name="security-control-incident-response"></a>Control de seguridad: Respuesta a los incidentes
+# <a name="security-control-v2-incident-response"></a>Control de seguridad V2: Respuesta a los incidentes
 
 La respuesta a los incidentes cubre los controles del ciclo de vida de respuesta a los incidentes: actividades de preparación, detección y análisis, contención y posteriores a incidentes. Esto incluye el uso de servicios de Azure como Azure Security Center y Sentinel para automatizar el proceso de respuesta a los incidentes.
 
@@ -28,13 +28,13 @@ Asegúrese de que la organización tenga procesos para responder a incidentes de
 
 - [Implementación de la seguridad en todo el entorno empresarial](https://aka.ms/AzSec4)
 
-- [Guía de referencia de respuesta a incidentes](https://aka.ms/IRRG)
+- [Guía de referencia de respuesta a incidentes](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
 **Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operaciones de seguridad (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operaciones de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparación de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -52,9 +52,9 @@ Configure la información de contacto en caso de incidentes de seguridad en Azur
 
 **Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operaciones de seguridad (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operaciones de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparación de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -78,9 +78,9 @@ Exporte las alertas y recomendaciones de Azure Security Center mediante la carac
 
 **Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operaciones de seguridad (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operaciones de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparación de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -92,17 +92,19 @@ Exporte las alertas y recomendaciones de Azure Security Center mediante la carac
 |--|--|--|--|
 | IR-4 | 19 | IR-4 |
 
-Asegúrese de que los analistas pueden consultar y usar diversos orígenes de datos a medida que investigan posibles incidentes, para conseguir una visión global de lo que ha sucedido. Asegúrese de que se capturan detalles y aprendizajes para otros analistas y para futuras referencias históricas. 
+Asegúrese de que los analistas pueden consultar y usar diversos orígenes de datos a medida que investigan posibles incidentes, para conseguir una visión global de lo que ha sucedido. Se deben recopilar diversos registros para realizar un seguimiento de las actividades de un posible atacante en la cadena de eliminación para evitar puntos ciegos.  También debe asegurarse de que se capturan detalles y aprendizajes para otros analistas y para futuras referencias históricas.  
 
 Los orígenes de datos para la investigación incluyen los orígenes de registro centralizados que ya se recopilan de los servicios en el ámbito y los sistemas en ejecución, pero también pueden incluir:
 
-Datos de red: use registros de flujo de grupos de seguridad de red, Azure Network Watcher y Azure Monitor para capturar registros de flujo de red y otra información de análisis. Instantáneas de sistemas en ejecución: 
+- Datos de red: use registros de flujo de grupos de seguridad de red, Azure Network Watcher y Azure Monitor para capturar registros de flujo de red y otra información de análisis. 
 
--   Use la funcionalidad de instantáneas de la máquina virtual de Azure para crear una instantánea del disco del sistema en ejecución. 
+- Instantáneas de sistemas en ejecución: 
 
--   Use la funcionalidad de volcado de la memoria nativa del sistema operativo para crear una instantánea de la memoria del sistema en ejecución.
+    - Use la funcionalidad de instantáneas de la máquina virtual de Azure para crear una instantánea del disco del sistema en ejecución. 
 
--   Use la característica de instantánea de los servicios de Azure o la propia funcionalidad del software para crear instantáneas de los sistemas en ejecución.
+    - Use la funcionalidad de volcado de la memoria nativa del sistema operativo para crear una instantánea de la memoria del sistema en ejecución.
+
+    - Use la característica de instantánea de los servicios de Azure o la propia funcionalidad del software para crear instantáneas de los sistemas en ejecución.
 
 Azure Sentinel proporciona amplios análisis de datos en prácticamente cualquier origen de registro y un portal de administración de casos para administrar todo el ciclo de vida de los incidentes. La información de inteligencia durante una investigación puede asociarse a un incidente con fines de seguimiento e informes. 
 
@@ -116,9 +118,9 @@ Azure Sentinel proporciona amplios análisis de datos en prácticamente cualquie
 
 **Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operaciones de seguridad (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operaciones de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparación de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -134,7 +136,7 @@ Proporcione contexto a los analistas sobre los incidentes en los que deberán ce
 
 Azure Security Center asigna una gravedad a cada alerta para ayudarle a priorizar aquellas que se deben investigar en primer lugar. La gravedad se basa en la confianza que tiene Security Center en el hallazgo o en el análisis utilizados para emitir la alerta, así como en el nivel de confianza de que ha habido un intento malintencionado detrás de la actividad que ha provocado la alerta.
 
-Adicionalmente, marque las suscripciones con etiquetas y cree un sistema de nomenclatura para identificar y clasificar los recursos de Azure, especialmente los que procesan datos confidenciales.  Es su responsabilidad asignar prioridades a la corrección de las alertas en función de la importancia de los recursos y el entorno de Azure donde se produjo el incidente.
+Adicionalmente, marque los recursos con etiquetas y cree un sistema de nomenclatura para identificar y clasificar los recursos de Azure, especialmente los que procesan datos confidenciales.  Es su responsabilidad asignar prioridades a la corrección de las alertas en función de la importancia de los recursos y el entorno de Azure donde se produjo el incidente.
 
 - [Alertas de seguridad en el Centro de seguridad de Azure](../../security-center/security-center-alerts-overview.md)
 
@@ -142,9 +144,9 @@ Adicionalmente, marque las suscripciones con etiquetas y cree un sistema de nome
 
 **Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operaciones de seguridad (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operaciones de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparación de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -166,9 +168,9 @@ Automatice las tareas repetitivas manuales para acelerar el tiempo de respuesta 
 
 **Responsabilidad**: Customer
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operaciones de seguridad (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operaciones de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparación de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 

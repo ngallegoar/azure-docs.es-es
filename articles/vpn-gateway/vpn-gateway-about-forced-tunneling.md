@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: configuración de la tunelización forzada para conexiones de sitio a sitio: clásica'
-description: Cómo redirigir o forzar todo el tráfico vinculado a Internet a la ubicación local.
+description: Aprenda a configurar la tunelización forzada para las redes virtuales creadas mediante el modelo de implementación clásica.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: fe06257127ff352f68fb27d3507cee0229e31498
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5999ef8431ce1e128c3775450eedf13644505918
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77201584"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313542"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuración de la tunelización forzada mediante el modelo de implementación clásica
 

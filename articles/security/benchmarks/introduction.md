@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 53473b6be9e91adb636c3c9528e97ec644616115
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058621"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328265"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introducción a las pruebas comparativas de seguridad de Azure
 
@@ -23,8 +23,8 @@ Microsoft ha descubierto que el uso de *pruebas comparativas de seguridad* puede
 
 Azure Security Benchmark incluye una recopilación de recomendaciones de seguridad de gran impacto que puede usar para ayudar a proteger los servicios que usa en Azure:
 
-- Controles de seguridad: Estas recomendaciones se suelen aplicar tanto en el inquilino de Azure como en los servicios de Azure. Cada recomendación señala una lista de partes interesadas que suelen estar implicadas en el planeamiento, la aprobación o la implementación de la prueba comparativa. 
-- Líneas de base del servicio: Estos controles se aplican a los servicios individuales de Azure para ofrecer recomendaciones sobre la configuración de seguridad de dicho servicio.
+- **Controles de seguridad**: Estas recomendaciones se suelen aplicar tanto en el inquilino de Azure como en los servicios de Azure. Cada recomendación señala una lista de partes interesadas que suelen estar implicadas en el planeamiento, la aprobación o la implementación de la prueba comparativa. 
+- **Líneas de base del servicio**: Estos controles se aplican a los servicios individuales de Azure para ofrecer recomendaciones sobre la configuración de seguridad de dicho servicio.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Implementación de Azure Security Benchmark
 - **Planifique** la implementación de Azure Security Benchmark mediante la revisión de la [documentación](overview.md) para los controles empresariales y las líneas de base específicas del servicio con el fin de planear el marco de control y cómo se adapta a directrices como las del marco CIS (controles v7.1) y NIST (SP800-53).

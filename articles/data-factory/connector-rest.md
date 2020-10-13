@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7b6fa2395e81089e8b4523929a4a7a583b0788a2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852300"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360776"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión REST mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -404,7 +404,7 @@ La plantilla define dos parámetros:
 3. Seleccione **Usar esta plantilla**.
     ![Usar esta plantilla](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
-4. Verá la canalización creada tal y como se muestra en el ejemplo siguiente:  ![Canalización](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. Verá la canalización creada tal y como se muestra en el ejemplo siguiente:  ![Captura de pantalla que muestra la canalización creada a partir de la plantilla.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
 5. Seleccione la actividad **web**. En **Configuración**, especifique la **URL**, **Método**, **Encabezados** y **Cuerpo** correspondientes para recuperar el token de portador OAuth de la API de inicio de sesión del servicio desde el que quiere copiar los datos. El marcador de posición de la plantilla muestra un ejemplo de OAuth de Azure Active Directory (AAD). Nota: la autenticación de AAD es compatible de forma nativa con el conector REST; este es solo un ejemplo de flujo de OAuth. 
 

@@ -2,15 +2,15 @@
 title: Preguntas más frecuentes sobre las plantillas de Resource Manager
 description: Preguntas más frecuentes (P+F) sobre las plantillas de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327266"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333127"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Preguntas más frecuentes sobre las plantillas de Resource Manager
 
@@ -88,7 +88,7 @@ En este artículo se responde a preguntas frecuentes sobre las plantillas de Azu
 
 * **He oído que se está trabajando en un nuevo lenguaje de plantilla. ¿Dónde puedo encontrar más información al respecto?**
 
-  Para más información sobre el nuevo lenguaje de plantilla, [suscríbase a las notificaciones](https://aka.ms/armLangUpdates).
+  Para obtener una versión preliminar del nuevo lenguaje, consulte el [repositorio del proyecto Bicep](https://github.com/Azure/bicep). Para mantenerse informado sobre el nuevo lenguaje, [regístrese para recibir notificaciones](https://aka.ms/armLangUpdates).
 
 * **¿Hay un plan que admita la creación de plantillas en YAML?**
 

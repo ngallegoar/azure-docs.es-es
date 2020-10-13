@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: d76af4901103b0eed8cd1cffac744f8fb41d9689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b52ad50854092cddd7b9e79cbeebd4a83017081
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325424"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configuración de un grupo de capacidad
 
@@ -49,16 +49,27 @@ Debe haber creado ya una cuenta de NetApp.
      Este campo muestra el rendimiento de destino para el grupo de capacidad.  
      Especifique el nivel de servicio del grupo de capacidad: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium) o [**Estándar**](azure-netapp-files-service-levels.md#Standard).
 
-   * **Tamaño**     
+    * **Tamaño**     
      Especifique el tamaño del grupo de capacidad que va a adquirir.        
      El tamaño mínimo del grupo de capacidad es de 4 TiB. Puede crear un grupo con un tamaño que sea múltiplo de 4 TiB.   
-      
-     ![Nuevo grupo de capacidad](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
-4. Haga clic en **OK**.
+   * **QoS**   
+     Especifique si el grupo de capacidad debe usar el tipo de QoS **manual** o **automático**.  
+
+     Consulte [Jerarquía de almacenamiento](azure-netapp-files-understand-storage-hierarchy.md) y [Consideraciones de rendimiento](azure-netapp-files-performance-considerations.md) para comprender los tipos de QoS.  
+
+     > [!IMPORTANT] 
+     > Establezca **Tipo de QoS** en **Manual** si es permanente. No se puede convertir un grupo de capacidad de QoS manual para que use el QoS automático. Sin embargo, puede convertir un grupo de capacidad de QoS automático para que utilice QoS manual. Vea [Cambio de un grupo de capacidad para usar QoS manual](manage-manual-qos-capacity-pool.md#change-to-qos).   
+     > El uso del tipo de QoS manual para un grupo de capacidad requiere el registro. Consulte [Administración de un grupo de capacidad de QoS manual](manage-manual-qos-capacity-pool.md#register-the-feature). 
+
+    ![Nuevo grupo de capacidad](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+
+4. Haga clic en **Crear**.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
+- [Jerarquía de almacenamiento](azure-netapp-files-understand-storage-hierarchy.md) 
 - [Niveles de servicio para Azure NetApp Files](azure-netapp-files-service-levels.md)
-- Consulte la [página de precios de Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/) para conocer el precio de los diferentes niveles de servicio
+- [Página de precios de Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
+- [Administración de un grupo de capacidad de QoS manual](manage-manual-qos-capacity-pool.md)
 - [Delegación de una subred en Azure NetApp Files](azure-netapp-files-delegate-subnet.md)

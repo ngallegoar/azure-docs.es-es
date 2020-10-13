@@ -3,12 +3,12 @@ title: Creación e implementación de proyectos de grupos de recursos de Visual 
 description: Use Visual Studio para crear un proyecto del grupo de recursos de Azure e implementar los recursos en Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: eacab3e1919b68661dd24eb78e3b0eca51cf4972
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 479dbed1f288148c24fc8464f7895cd3e2b182f9
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985251"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372653"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creación e implementación de grupos de recursos de Azure mediante Visual Studio
 
@@ -370,7 +370,7 @@ No está limitado únicamente a los recursos que están disponibles a través de
 
    ![Panel personalizado](./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png)
 
-Puede administrar el acceso al panel con los grupos de RBAC. También puede personalizar la apariencia del panel después de implementarlo. Sin embargo, si vuelve a implementar el grupo de recursos, el panel se restablece a su estado predeterminado en la plantilla. Para más información sobre cómo crear paneles, consulte [Creación mediante programación de paneles de Azure](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+Puede administrar el acceso al panel mediante el control de acceso basado en rol de Azure (Azure RBAC). También puede personalizar la apariencia del panel después de implementarlo. Sin embargo, si vuelve a implementar el grupo de recursos, el panel se restablece a su estado predeterminado en la plantilla. Para más información sobre cómo crear paneles, consulte [Creación mediante programación de paneles de Azure](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

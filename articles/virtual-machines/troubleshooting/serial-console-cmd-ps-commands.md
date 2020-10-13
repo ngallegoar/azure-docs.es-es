@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 571df9c07e71682e2be51a73e3837c79cb074c3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef533b3566ac557b57f1435a2a9b2dbe26896993
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028471"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306895"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandos de Windows: CMD y PowerShell
 
@@ -34,7 +34,7 @@ Dado que SAC está limitado a un búfer de pantalla de 80 x 24 sin desplazamient
 
 Como el búfer de pantalla de SAC está limitado, puede que sea más fácil escribir los comandos más largos en un editor de texto local y luego pegarlos en SAC.
 
-## <a name="view-and-edit-windows-registry-settings"></a>Visualización y edición de la configuración del Registro de Windows
+## <a name="view-and-edit-windows-registry-settings-using-cmd"></a>Visualización y edición de la configuración del Registro de Windows mediante CMD
 ### <a name="verify-rdp-is-enabled"></a>Comprobar que RDP está habilitado
 `reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections`
 
@@ -49,7 +49,7 @@ La segunda clave (en \Policies) solo existe si está configurada la opción de d
 
 La segunda clave (en \Policies) solo se necesitaría si se ha configurado la opción de directiva de grupo pertinente. El valor se volverá a escribir en la siguiente actualización de directiva de grupo si está configurado en la directiva de grupo.
 
-## <a name="manage-windows-services"></a>Administración de los servicios de Windows
+## <a name="manage-windows-services-using-cmd"></a>Administración de servicios de Windows mediante CMD
 
 ### <a name="view-service-state"></a>Ver el estado del servicio
 `sc query termservice`
@@ -79,7 +79,7 @@ or
 or
 
 `sc stop termservice`
-## <a name="manage-networking-features"></a>Administración de las características de red
+## <a name="manage-networking-features-using-cmd"></a>Administración de características de red mediante CMD
 ### <a name="show-nic-properties"></a>Mostrar las propiedades de NIC
 `netsh interface show interface`
 ### <a name="show-ip-properties"></a>Mostrar las propiedades de IP
@@ -120,7 +120,7 @@ Cuando se limita a los métodos disponibles en Windows de forma predeterminada, 
 Puede usar este comando al solucionar problemas para excluir temporalmente el Firewall de Windows. Se habilitará en el siguiente reinicio o cuando lo habilite mediante el siguiente comando. No detenga el servicio Firewall de Windows (MPSSVC) o el servicio Motor de filtrado de base (BFE) como forma de excluir el Firewall de Windows. Si lo hace, se bloqueará toda la conectividad.
 ### <a name="enable-windows-firewall"></a>Habilitar el Firewall de Windows
 `netsh advfirewall set allprofiles state on`
-## <a name="manage-users-and-groups"></a>Administración de usuarios y grupos
+## <a name="manage-users-and-groups-using-cmd"></a>Administrar usuarios y grupos mediante CMD
 ### <a name="create-local-user-account"></a>Crear una cuenta de usuario local
 `net user /add <username> <password>`
 ### <a name="add-local-user-to-local-group"></a>Agregar un usuario local a un grupo local
@@ -150,7 +150,7 @@ Líneas de ejemplo de interés de una cuenta de administrador local:
 
 ### <a name="view-local-groups"></a>Ver los grupos locales
 `net localgroup`
-## <a name="manage-the-windows-event-log"></a>Administración del registro de eventos de Windows
+## <a name="manage-the-windows-event-log-using-cmd"></a>Administración del registro de eventos de Windows mediante CMD
 ### <a name="query-event-log-errors"></a>Consultar los errores del registro de eventos
 `wevtutil qe system /c:10 /f:text /q:"Event[System[Level=2]]" | more`
 
@@ -165,7 +165,7 @@ Cambie `/c:10` por el número deseado de eventos que se devolverán o muévalo p
 Use `604800000` para recuperar 7 días en lugar de 24 horas.
 ### <a name="query-event-log-by-event-id-provider-and-eventdata-in-the-last-7-days"></a>Consultar el registro de eventos por identificador de evento, proveedor y datos de evento en los últimos 7 días
 `wevtutil qe security /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## <a name="view-or-remove-installed-applications"></a>Visualización o eliminación de las aplicaciones instaladas
+## <a name="view-or-remove-installed-applications-using-cmd"></a>Visualización o eliminación de aplicaciones instaladas mediante CMD
 ### <a name="list-installed-applications"></a>Mostrar las aplicaciones instaladas
 `wmic product get Name,InstallDate | sort /r | more`
 
@@ -175,7 +175,7 @@ El comando `sort /r` ordena de forma descendente por fecha de instalación para 
 
 Reemplace `<name>` por el nombre devuelto en el comando anterior en la aplicación que quiere quitar.
 
-## <a name="file-system-management"></a>Administración del sistema de archivos
+## <a name="file-system-management-using-cmd"></a>Administración del sistema de archivos mediante CMD
 ### <a name="get-file-version"></a>Obtener la versión del archivo
 `wmic datafile where "drive='C:' and path='\\windows\\system32\\drivers\\' and filename like 'netvsc%'" get version /format:list`
 
@@ -206,7 +206,7 @@ La ruta de acceso al usar `/restore` debe ser la carpeta primaria de la carpeta 
 ## <a name="manage-group-policy"></a>Administración de directiva de grupo
 ### <a name="force-group-policy-update"></a>Forzar la actualización de la directiva de grupo
 `gpupdate /force /wait:-1`
-## <a name="miscellaneous-tasks"></a>Herramientas varias
+## <a name="miscellaneous-tasks-using-cmd"></a>Tareas varias mediante CMD
 ### <a name="show-os-version"></a>Mostrar la versión del sistema operativo
 `ver`
 
@@ -259,7 +259,7 @@ Si el comando anterior devuelve la versión del módulo PSReadLine, ejecute el s
 
 `remove-module psreadline`
 
-## <a name="view-and-edit-windows-registry-settings"></a>Visualización y edición de la configuración del Registro de Windows
+## <a name="view-and-edit-windows-registry-settings-using-powershell"></a>Visualización y edición de la configuración del Registro de Windows mediante PowerShell
 ### <a name="verify-rdp-is-enabled"></a>Comprobar que RDP está habilitado
 `get-itemproperty -path 'hklm:\system\curRentcontrolset\control\terminal server' -name 'fdenytsconNections'`
 
@@ -272,7 +272,7 @@ La segunda clave (en \Policies) solo existe si está configurada la opción de d
 `set-itemproperty -path 'hklm:\software\policies\microsoft\windows nt\terminal services' -name 'fdenytsconNections' 0 -type dword`
 
 La segunda clave (en \Policies) solo se necesitaría si se ha configurado la opción de directiva de grupo pertinente. El valor se volverá a escribir en la siguiente actualización de directiva de grupo si está configurado en la directiva de grupo.
-## <a name="manage-windows-services"></a>Administración de los servicios de Windows
+## <a name="manage-windows-services-using-powershell"></a>Administración de servicios de Windows mediante PowerShell
 ### <a name="view-service-details"></a>Ver los detalles del servicio
 `get-wmiobject win32_service -filter "name='termservice'" |  format-list Name,DisplayName,State,StartMode,StartName,PathName,ServiceType,Status,ExitCode,ServiceSpecificExitCode,ProcessId`
 
@@ -291,7 +291,7 @@ Cuando se use una cuenta de servicio distinta de `NT AUTHORITY\LocalService`, `N
 `start-service termservice`
 ### <a name="stop-service"></a>Detener el servicio
 `stop-service termservice`
-## <a name="manage-networking-features"></a>Administración de las características de red
+## <a name="manage-networking-features-using-powershell"></a>Administración de características de red mediante PowerShell
 ### <a name="show-nic-properties"></a>Mostrar las propiedades de NIC
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} |  format-list status,name,ifdesc,macadDresS,driverversion,MediaConNectState,MediaDuplexState`
 
@@ -357,7 +357,7 @@ or
 `Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False`
 
 `Set-NetFirewallProfile` está disponible en 2012+. Para 2008R2, use `netsh advfirewall` como se hace referencia en la sección de CMD anterior.
-## <a name="manage-users-and-groups"></a>Administración de usuarios y grupos
+## <a name="manage-users-and-groups-using-powershell"></a>Administración de usuarios y grupos mediante PowerShell
 ### <a name="create-local-user-account"></a>Crear una cuenta de usuario local
 `new-localuser <name>`
 ### <a name="verify-user-account-is-enabled"></a>Comprobar que la cuenta de usuario está habilitada
@@ -386,7 +386,7 @@ or
 `(get-localgroup).name | sort` `(get-wmiobject win32_group).Name | sort`
 
 `Get-LocalUser` está disponible en 2012+. Para 2008R2, use `Get-WmiObject`.
-## <a name="manage-the-windows-event-log"></a>Administración del registro de eventos de Windows
+## <a name="manage-the-windows-event-log-using-powershell"></a>Administración del registro de eventos de Windows mediante PowerShell
 ### <a name="query-event-log-errors"></a>Consultar los errores del registro de eventos
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Level=2]]" | more`
 
@@ -401,12 +401,12 @@ Cambie `/c:10` por el número deseado de eventos que se devolverán o muévalo p
 Use `604800000` para recuperar 7 días en lugar de 24 horas. |
 ### <a name="query-event-log-by-event-id-provider-and-eventdata-in-the-last-7-days"></a>Consultar el registro de eventos por identificador de evento, proveedor y datos de evento en los últimos 7 días
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## <a name="view-or-remove-installed-applications"></a>Visualización o eliminación de las aplicaciones instaladas
+## <a name="view-or-remove-installed-applications-using-powershell"></a>Visualización o eliminación de aplicaciones instaladas mediante PowerShell
 ### <a name="list-installed-software"></a>Mostrar el software instalado
 `get-wmiobject win32_product | select installdate,name | sort installdate -descending | more`
 ### <a name="uninstall-software"></a>Desinstalar el software
 `(get-wmiobject win32_product -filter "Name='<name>'").Uninstall()`
-## <a name="file-system-management"></a>Administración del sistema de archivos
+## <a name="file-system-management-using-powershell"></a>Administración del sistema de archivos mediante PowerShell
 ### <a name="get-file-version"></a>Obtener la versión del archivo
 `(get-childitem $env:windir\system32\drivers\netvsc*.sys).VersionInfo.FileVersion`
 
@@ -415,7 +415,7 @@ En este ejemplo se devuelve la versión del archivo del controlador NIC virtual,
 `$path='c:\bin';md $path;cd $path;(new-object net.webclient).downloadfile( ('htTp:/'+'/download.sysinternals.com/files/SysinternalsSuite.zip'),"$path\SysinternalsSuite.zip");(new-object -com shelL.apPlication).namespace($path).CopyHere( (new-object -com shelL.apPlication).namespace("$path\SysinternalsSuite.zip").Items(),16)`
 
 En este ejemplo se crea una carpeta `c:\bin`, y luego se descarga y se extrae el conjunto de herramientas de Sysinternals en `c:\bin`.
-## <a name="miscellaneous-tasks"></a>Herramientas varias
+## <a name="miscellaneous-tasks-using-powershell"></a>Tareas varias mediante PowerShell
 ### <a name="show-os-version"></a>Mostrar la versión del sistema operativo
 `get-wmiobject win32_operatingsystem | format-list caption,version,buildnumber`
 ### <a name="view-os-install-date"></a>Ver la fecha de instalación del sistema operativo

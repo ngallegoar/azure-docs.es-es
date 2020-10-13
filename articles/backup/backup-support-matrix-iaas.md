@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: c50a19acceeb68ead4d86a59bbe8275ae97ecb5f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019596"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332736"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -155,7 +155,7 @@ Copia de seguridad de máquinas virtuales de Azure con bloqueos | No se admite p
 
 **Componente** | **Soporte técnico**
 --- | ---
-Discos de datos de máquinas virtuales de Azure | La compatibilidad con la copia de seguridad de máquinas virtuales de Azure con hasta 32 discos está en versión preliminar pública en todas las regiones.<br><br> La compatibilidad con la copia de seguridad de máquinas virtuales de Azure con discos no administrados o máquinas virtuales clásicas solo tiene hasta 16 discos.
+Discos de datos de máquinas virtuales de Azure | Compatibilidad con la copia de seguridad de máquinas virtuales de Azure con hasta 32 discos<br><br> La compatibilidad con la copia de seguridad de máquinas virtuales de Azure con discos no administrados o máquinas virtuales clásicas solo tiene hasta 16 discos.
 Tamaño del disco de datos | El tamaño de disco individual puede ser de hasta 32 TB y se admite un máximo de 256 TB si se combinan todos los discos de una máquina virtual.
 Tipo de almacenamiento | HDD estándar, SSD estándar y SSD Premium.
 Discos administrados | Compatible.

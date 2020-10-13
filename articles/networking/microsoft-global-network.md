@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 9420d52cf7d88ff84fd23928f92cdc62e9627619
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 00199f81e2dc8ca699fabf312955bf7a8a2b5cbd
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280909"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398396"
 ---
 # <a name="microsoft-global-network"></a>Red global de Microsoft
 
 Microsoft posee y opera una de las mayores redes troncales del mundo. Esta arquitectura global y sofisticada, que abarca más de 160 000 millas, conecta nuestros centros de datos y clientes. 
  
-Cada día, clientes de todo el mundo se conectan y pasan billones de solicitudes a Microsoft Azure, Bing, Dynamics 365, Office 365, XBox y muchos otros. Con independencia del tipo, los clientes esperan la confiabilidad y capacidad de respuesta instantánea de nuestros servicios. 
+Cada día, clientes de todo el mundo se conectan y pasan billones de solicitudes a Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox y muchos otros. Con independencia del tipo, los clientes esperan la confiabilidad y capacidad de respuesta instantánea de nuestros servicios. 
  
 La [red global de Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) es una parte fundamental de la oferta de una experiencia de nube excelente. Nuestra red global, que conecta los [centros de datos](https://azure.microsoft.com/global-infrastructure/) de Microsoft en 54 regiones de Azure y una gran red de nodos perimetrales estratégicamente ubicados en todo el mundo, ofrece la disponibilidad, capacidad y flexibilidad para satisfacer cualquier demanda.
 

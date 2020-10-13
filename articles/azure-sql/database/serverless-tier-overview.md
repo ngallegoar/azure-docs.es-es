@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein, carlrab
-ms.date: 9/8/2020
-ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.reviewer: sstein
+ms.date: 9/17/2020
+ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565096"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321414"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ A diferencia de las bases de datos de proceso aprovisionadas, la memoria de la c
 
 En el caso de las bases de datos sin servidor y las de proceso aprovisionadas, se pueden expulsar entradas de la caché si se usa toda la memoria disponible.
 
-Tenga en cuenta que cuando el uso de la CPU es bajo, el uso de la memoria caché activa puede ser alto en función del patrón de uso y prevenir la reclamación de memoria.  Además, puede haber un retraso adicional después de que la actividad del usuario se detenga antes de que se produzca la recuperación de memoria, debido a que los procesos en segundo plano periódicos responden a la actividad anterior del usuario.  Por ejemplo, las operaciones de eliminación generan registros fantasma marcados para su eliminación, pero no se eliminan físicamente hasta que se ejecuta el proceso de limpieza de registros fantasma, lo que puede implicar la lectura de páginas de datos en la memoria caché.
+Tenga en cuenta que cuando el uso de la CPU es bajo, el uso de la memoria caché activa puede ser alto en función del patrón de uso y prevenir la reclamación de memoria.  Además, puede haber un retraso adicional después de que la actividad del usuario se detenga antes de que se produzca la recuperación de memoria, debido a que los procesos en segundo plano periódicos responden a la actividad anterior del usuario.  Por ejemplo, las operaciones de eliminación y las operaciones de limpieza de QDS generan registros fantasmas marcados para su eliminación, pero no se eliminan físicamente hasta que se ejecuta el proceso de limpieza de dichos registros, lo que puede conllevar la lectura de páginas de datos en la caché.
 
 #### <a name="cache-hydration"></a>Hidratación de la memoria caché
 

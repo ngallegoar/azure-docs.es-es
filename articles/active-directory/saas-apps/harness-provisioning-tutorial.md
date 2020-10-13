@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 56a865de8cb1be079f4935ef2a8f840f10589b26
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550017"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305681"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Tutorial: Configuración de Harness para el aprovisionamiento automático de usuarios
 
@@ -126,7 +126,7 @@ Para configurar el aprovisionamiento automático de usuarios para Harness en Azu
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. En el cuadro **URL de inquilino**, escriba **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** .  
+   a. En el cuadro **URL de inquilino**, escriba **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`** . Puede obtener el identificador de la cuenta de Harness con la dirección URL en el explorador cuando haya iniciado sesión en Harness.
    b. En el cuadro **Token secreto**, escriba el valor del token de autenticación SCIM que guardó en el paso 6 de la sección "Configuración de Harness para el aprovisionamiento".  
    c. Para asegurarse de que Azure AD puede conectarse a Harness, seleccione **Probar conexión**. Si la conexión no se establece, asegúrese de que la cuenta de Harness tiene permisos de *administrador* y pruebe otra vez.
 

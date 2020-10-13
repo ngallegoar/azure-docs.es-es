@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 21b90f423a3ba3c7fa38334c79aec9dc65a250cd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b79bf5e8ead16bbdf9c69e8d7faae43fa778ab3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079181"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316586"
 ---
 # <a name="limits-and-quotas"></a>Límites y cuotas
 
@@ -39,7 +39,7 @@ Se espera que el número de etiquetas y de imágenes de aprendizaje por proyecto
 |[Otras llamadas API](https://go.microsoft.com/fwlink/?linkid=865446) (transacciones por segundo)|10|10|
 |Tipos de imágenes aceptadas|JPG, PNG, BMP, GIF|JPG, PNG, BMP, GIF|
 |Alto y ancho mínimos de la imagen, en píxeles|256 (vea la nota)|256 (vea la nota)|
-|Alto y ancho máximos de la imagen, en píxeles|sin límite|Sin límite|
+|Alto y ancho máximos de la imagen, en píxeles|10 240|10 240|
 |Tamaño de imagen máximo (carga de la imagen de aprendizaje) |6 MB|6 MB|
 |Tamaño de imagen máximo (predicción)|4 MB|4 MB|
 |Núm. máximo de regiones por imagen de entrenamiento de detección de objetos|300|300|
@@ -47,3 +47,4 @@ Se espera que el número de etiquetas y de imágenes de aprendizaje por proyecto
 
 > [!NOTE]
 > Se aceptarán imágenes de menos de 256 píxeles, pero se escalarán.
+> La relación de aspecto de la imagen no debe ser mayor que 25.

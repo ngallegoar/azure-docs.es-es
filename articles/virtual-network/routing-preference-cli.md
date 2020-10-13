@@ -1,7 +1,7 @@
 ---
 title: Configuración de la preferencia de enrutamiento para una dirección IP pública mediante la CLI de Azure
 titlesuffix: Azure Virtual Network
-description: Obtenga información sobre cómo crear una dirección IP pública con una preferencia de enrutamiento de tráfico de Internet
+description: Aprenda a crear una dirección IP pública con una preferencia de enrutamiento de tráfico de Internet mediante la CLI de Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 64284b198fc76c219ffe0dfbc57461b587b23130
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 39514f8a34e85525e2a8900a8e6e3cc8656fb84a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504609"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329302"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Configuración de la preferencia de enrutamiento para una dirección IP pública mediante la CLI de Azure
 

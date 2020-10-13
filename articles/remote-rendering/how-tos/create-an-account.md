@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 7a4e6d80d80441a1b94c1fb2bd8f82f247235fe3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057677"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318099"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Creación de una cuenta de Azure Remote Rendering
 
@@ -83,7 +83,7 @@ Ahora se supone que tiene una cuenta de almacenamiento. Vaya a ella en el portal
 
  Haga clic en el botón **Agregar** en el icono "Agregar una asignación de roles" para agregar el primer rol:
 
-![IAM de la cuenta de almacenamiento](./media/azure-add-role-assignment.png)
+![IAM de la cuenta de almacenamiento: Agregar asignación de roles](./media/azure-add-role-assignment.png)
 
 * El primer rol que se va a asignar es el de **Propietario**, como se muestra en la captura de pantalla anterior.
 * Seleccione la cuenta **Remote Rendering** en la lista desplegable de **Asignar acceso a**.
@@ -100,6 +100,8 @@ Repita la adición de nuevos roles dos veces más para las selecciones correspon
 Las demás listas desplegables se seleccionan como en el primer paso.
 
 Si ha agregado los tres roles, la cuenta de Azure Remote Rendering tiene acceso a la cuenta de almacenamiento mediante las identidades de servicio administradas asignadas por el sistema.
+> [!IMPORTANT]
+> Azure Storage almacena en caché las asignaciones de roles de Azure, por lo que puede haber un retraso de hasta 30 minutos entre el momento en que se concede acceso a la cuenta de representación remota y el momento en que se puede usar para acceder a la cuenta de almacenamiento. Para más información, consulte la [documentación sobre el control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#role-assignment-changes-are-not-being-detected).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

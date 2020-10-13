@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69373e039320cd733fb859bb84e03e5493e05403
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b78d3cab17b0cc4085c824cf35d4c6037f0e2af5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277211"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319867"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: actualización de una versión anterior a la versión más reciente
 En este tema se describen los distintos métodos que se puede utilizar para actualizar la instalación de Azure Active Directory (Azure AD) Connect a la versión más reciente. Le recomendamos mantenerse al día con las versiones de Azure AD Connect. Los pasos de la sección [Migración oscilante](#swing-migration) también se utilizan al realizar un cambio de configuración considerable.
@@ -106,7 +106,7 @@ Puede que haya situaciones en las no quiere que estas invalidaciones se produzca
 
 1. Durante la actualización, **desactive** la opción **Inicie el proceso de sincronización cuando se complete la configuración**. Así, deshabilita el programador de sincronización e impide que el ciclo de sincronización se produzca automáticamente antes de quitar las invalidaciones.
 
-   ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
+   ![Captura de pantalla que muestra la opción Start the synchronization process when configuration completes (Iniciar el proceso de sincronización cuando finalice la configuración), que debe desactivar.](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
 2. Una vez completada la actualización, ejecute el siguiente cmdlet para averiguar qué invalidaciones se han agregado: `Get-ADSyncSchedulerConnectorOverride | fl`
 

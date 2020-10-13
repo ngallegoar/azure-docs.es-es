@@ -1,17 +1,17 @@
 ---
 title: 'Microsoft Threat Modeling Tool, versión 03/22/2020: Azure'
-description: Documentación de las notas de la versión de la herramienta de modelado de amenazas
+description: Documentación de las notas de la versión de Threat Modeling Tool 7.3.00316.1.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 03/22/2020
-ms.openlocfilehash: 6fea4d48b62d6ea429d37924ffd15855db6294cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39963e9dadca0ee0be7bb8ad0ebf824c287bfee0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80137644"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317912"
 ---
 # <a name="threat-modeling-tool-update-release-73003161---03222020"></a>Threat Modeling Tool, versión actualizada 7.3.00316.1: 22 de marzo de 2020
 

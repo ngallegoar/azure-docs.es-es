@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4ab403ebafbf078accd2ee2256c0c5bb69548e9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c837a4020ab1aaad1798d6b19e72e09edafea1f5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288266"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360359"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Escenarios y arquitectura de alta disponibilidad para SAP NetWeaver
 
@@ -344,7 +344,7 @@ En la siguiente sección se tratara el tema de cómo lograr alta disponibilidad 
 
 > Esta sección es aplicable a:
 >
-> ![Windows][Logo_Windows] Windows como para ![Linux][Logo_Linux] Linux
+> ![Logotipo de Windows.][Logo_Windows] Windows como para ![Logotipo de Linux.][Logo_Linux] Linux
 >
 
 Por lo general, no se necesita una solución de alta disponibilidad específica para las instancias de diálogo y servidores de aplicaciones de SAP. La alta disponibilidad se obtiene mediante redundancia y se configuran varias instancias de diálogo en distintas instancias de Azure Virtual Machines. Debe tener, como mínimo, dos instancias de aplicaciones de SAP instaladas en dos instancias de Azure Virtual Machines.
@@ -382,7 +382,7 @@ Para obtener más información, vea la sección [Conjuntos de disponibilidad de 
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Arquitectura de alta disponibilidad para una instancia de ASCS/SCS de SAP en Windows
 
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo de Windows.][Logo_Windows] Windows
 >
 
 Puede usar una solución WSFC para proteger la instancia de ASCS/SCS de SAP. La solución tiene dos variantes:
@@ -395,7 +395,7 @@ Puede usar una solución WSFC para proteger la instancia de ASCS/SCS de SAP. La 
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Arquitectura de alta disponibilidad para una instancia de ASCS/SCS de SAP en Linux
 
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo de Linux.][Logo_Linux] Linux
 > 
 > Para más información sobre la agrupación en clústeres de la instancia de ASCS/SCS de SAP mediante el marco de clústeres de SLES, consulte [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications][sap-suse-ascs-ha]. Para información sobre la arquitectura de alta disponibilidad alternativa en SLES, que no requiere NFS de alta disponibilidad, consulte [Guía de alta disponibilidad para SAP NetWeaver en SUSE Linux Enterprise Server con Azure NetApp Files para aplicaciones SAP][sap-suse-ascs-ha-anf].
 
@@ -404,7 +404,7 @@ Para más información acerca de la agrupación en clústeres de la instancia de
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Configuración de varios identificadores de seguridad de SAP NetWeaver para una instancia de ASCS/SCS de SAP agrupada en clúster
 
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo de Windows.][Logo_Windows] Windows
 > 
 > Se admiten varios identificadores de seguridad con WSFC mediante los recursos compartidos de archivos y discos compartidos.
 > 
@@ -414,7 +414,7 @@ Para más información acerca de la agrupación en clústeres de la instancia de
 
 * [Alta disponibilidad con varios identificadores de seguridad de instancia SAP ASCS/SCS para los clústeres de conmutación por error de Windows Server y el disco compartido][sap-ascs-ha-multi-sid-wsfc-shared-disk]
 
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo de Linux.][Logo_Linux] Linux
 > 
 > La agrupación en clústeres de varios SID es compatible con los clústeres de Linux Pacemaker para ASCS/ERS de SAP, limitado a **cinco** SID de SAP en el mismo clúster.
 > Para más información sobre la arquitectura de alta disponibilidad con varios identificadores de seguridad en Linux, consulte:

@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f859700be32bda5d8245429076c2359d1adf9d5a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 33022d005deca5d1350278218fb6f1fca1a35ca1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988055"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287754"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Solución de problemas de Azure Synapse Studio (versión preliminar)
 
@@ -31,7 +31,8 @@ La opción "SQL a petición" aparece atenuada en la lista desplegable "Conectars
 
 La ejecución de la consulta con "SQL a petición" muestra el mensaje de error "No se pudo establecer una conexión al servidor".
 
-![La captura de pantalla muestra un mensaje que indica que no se ha podido establecer la conexión con el servidor.](media/troubleshooting-synapse-studio/symptom2.png)
+![Síntoma 2](media/troubleshooting-synapse-studio/symptom2.png)
+ 
 
 ## <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 
@@ -54,7 +55,7 @@ Asegúrese de que la opción "Disable cache" en el panel "Network" esté activad
 
 Vuelva a intentar la operación que realizó en Azure Synapse Studio. Puede ver los nuevos elementos que se muestran en la lista "Network" en "Developer Tools". Anote la hora actual del sistema para indicarla en la incidencia de soporte técnico.
 
-![La captura de pantalla muestra la ventana DevTools con las opciones (Network) Red y Disable cache Online (Deshabilitar caché En línea) seleccionadas.](media/troubleshooting-synapse-studio/network-panel.png)
+![panel de red 1](media/troubleshooting-synapse-studio/network-panel.png)
 
 Busque el elemento cuya columna URL coincida con el siguiente patrón:
 
@@ -64,9 +65,9 @@ Donde [*A*] es el nombre del área de trabajo y "-ondemand" podría ser "-sqlod"
 
 Si alguno de ellos tiene un valor distinto de "20x" y:
 
-- el estado comienza con "(failed)", amplíe la columna "Status" o mantenga el puntero sobre el texto de estado para ver el texto completo. Incluya el texto o la captura de pantalla al abrir la incidencia de soporte técnico.
+- El estado comienza con "(failed)". Amplíe la columna "Status" o coloque el puntero sobre el texto de estado para ver el texto completo. Incluya el texto o la captura de pantalla al abrir la incidencia de soporte técnico.
 
-    ![La captura de pantalla muestra los resultados, que incluyen un valor de error e la columna Status.](media/troubleshooting-synapse-studio/status-text.png)
+    ![texto de estado](media/troubleshooting-synapse-studio/status-text.png)
 
     - Si ve ERR_NAME_NOT_RESOLVED y creó el área de trabajo en un plazo de 10 minutos, espere 10 minutos y vuelva a intentarlo para ver si el problema aún existe.
     - Si ve ERR_INTERNET_DISCONNECTED o ERR_NETWORK_CHANGED, puede indicar que la conexión de red de su equipo tiene problemas. Compruebe la conexión de red y vuelva a intentar la operación.
@@ -74,7 +75,7 @@ Si alguno de ellos tiene un valor distinto de "20x" y:
     - Si ve ERR_NETWORK_ACCESS_DENIED, es posible que tenga que consultar con el administrador si su directiva de firewall local ha bloqueado el acceso a un dominio *.database.windows.net o a un puerto remoto 1443.
     - Opcionalmente, intente la misma operación inmediatamente en otra máquina o entorno de red para descartar un problema de configuración de red en el equipo.
 
-- el estado es "40x", "50x" u otros números, seleccione los elementos para ver los detalles. Debería ver los detalles del elemento a la derecha. Busque la sección "Response Header"; a continuación, compruebe si existe un elemento denominado "access-control-allow-origin". De ser así, compruebe si tiene uno de los siguientes valores:
+- El estado es "40x", "50x" u otro número. Seleccione los elementos para ver los detalles. Debería ver los detalles del elemento a la derecha. Busque la sección "Response Header"; a continuación, compruebe si existe un elemento denominado "access-control-allow-origin". De ser así, compruebe si tiene uno de los siguientes valores:
 
     - `*` (asterisco único)
     - https://web.azuresynapse.net/ (u otro valor con el que empiece el texto de la barra de direcciones del explorador)
@@ -83,21 +84,22 @@ Si el encabezado de respuesta contiene uno de los valores anteriores, significa 
 
 Si no puede ver el encabezado o este no tiene uno de los valores enumerados anteriormente, adjunte una captura de pantalla de los detalles del elemento al abrir la incidencia.
 
-![Captura de pantalla que muestra la ventana DevTools con una dirección URL resaltada en Encabezados de respuesta.](media/troubleshooting-synapse-studio/item-details.png)
-
+ 
+![detalles de elemento](media/troubleshooting-synapse-studio/item-details.png)
+ 
 Si los pasos anteriores no resuelven el problema, es posible que tenga que abrir una incidencia de soporte técnico. Al enviar la incidencia de soporte técnico, incluya "Id. de sesión" o la "Información de diagnóstico" descargados al principio de esta guía.
 
 Al notificar el problema, tiene la opción de realizar una captura de pantalla de la pestaña "Console" de "Developer Tools" y adjuntarla a la incidencia de soporte técnico. Desplácese por el contenido y tome más de una captura de pantalla si es necesario para capturar todo el mensaje.
 
-![Captura de pantalla que muestra la ventana DevTools, cuyo tamaño se ha ajustado para mostrar todo el mensaje para una posible captura de pantalla.](media/troubleshooting-synapse-studio/developer-tool-console.png)
+![consola de herramientas para desarrolladores](media/troubleshooting-synapse-studio/developer-tool-console.png)
 
 Si va a adjuntar capturas de pantallas, indique la hora (o un intervalo de tiempo estimado) de cuando tomó las capturas de pantallas. Nos ayudará al examinar el problema.
 
 Algunos exploradores admiten la visualización de marcas de tiempo en la pestaña "Console". Para Chromium Edge/Chrome, abra el cuadro de diálogo "Settings" en "Developer Tools" y active "Show timestamps" en la pestaña "Preferences".
 
-![Captura de pantalla que muestra la ventana DevTools con la opción Configuración seleccionada en un menú contextual.](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
+![configuración de la consola de herramientas para desarrolladores](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
 
-![Captura de pantalla muestra las preferencias de la ventana de DevTools con la opción Mostrar marcas de tiempo seleccionada.](media/troubleshooting-synapse-studio/show-time-stamp.png)
+![mostrar marca de tiempo](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si los pasos anteriores no le ayudan a resolver el problema, [cree una incidencia de soporte técnico](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

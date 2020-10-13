@@ -4,14 +4,14 @@ description: Descubra cómo interactuar con recursos de Kubernetes para administ
 services: container-service
 author: laurenhughes
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: lahugh
-ms.openlocfilehash: 4a0acf284475f3c9119f3b9d012debad656b1faa
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661357"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335609"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Acceso a recursos de Kubernetes en Azure Portal (versión preliminar)
 
@@ -48,19 +48,19 @@ En este ejemplo, usaremos el clúster de AKS de ejemplo para implementar la apli
 
 Una vez que se añade el archivo YAML, el visor de recursos muestra los dos servicios de Kubernetes creados: el servicio interno (azure-vote-back) y el servicio externo (azure-vote-front) para acceder a la aplicación Azure Vote. El servicio externo incluye una dirección IP externa vinculada para que pueda ver fácilmente la aplicación en el explorador.
 
-:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Información de la aplicación Azure Vote mostrada en Azure Portal." lightbox="media/kubernetes-portal/portal-services.png":::
+:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Información del pod de Kubernetes en Azure Portal." lightbox="media/kubernetes-portal/portal-services.png":::
 
 ### <a name="monitor-deployment-insights"></a>Supervisión de la información de implementación
 
 Los clústeres de AKS que tengan activado [Azure Monitor para contenedores][enable-monitor] pueden ver rápidamente la información de implementación. En la vista de recursos de Kubernetes, los usuarios pueden ver el estado activo de implementaciones individuales, incluido el uso de la CPU y de la memoria, además de cambiar a Azure Monitor para ver información más detallada. A continuación, se incluye un ejemplo de información de implementación de un clúster de AKS de ejemplo:
 
-:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Información de implementación en Azure Portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
+:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Información del pod de Kubernetes en Azure Portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
 ## <a name="edit-yaml"></a>Edición de YAML
 
 La vista de recursos de Kubernetes también incluye un editor YAML. Tener un editor YAML integrado significa que puede actualizar o crear servicios e implementaciones desde el portal y aplicar los cambios inmediatamente.
 
-:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Editor YAML para un servicio de Kubernetes en Azure Portal.":::
+:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Información del pod de Kubernetes en Azure Portal.":::
 
 Después de editar el archivo YAML, los cambios se aplicarán al seleccionar **revisar + guardar**, confirmarlos y, a continuación, volver a guardar.
 
@@ -75,11 +75,25 @@ En esta sección se abordan problemas comunes y los pasos para solucionarlos.
 
 Para acceder a recursos de Kubernetes, debe tener acceso al clúster, la API y los objetos de Kubernetes. El usuario debe ser administrador de clústeres o tener los permisos adecuados para acceder al clúster de AKS. Para obtener más información sobre la seguridad de clúster, consulte [Opciones de acceso e identidad en Azure Kubernetes Service (AKS)][concepts-identity].
 
+>[!NOTE]
+> La vista de recursos de Kubernetes en Azure Portal solo se admite en [clústeres habilitados administrados con AAD](managed-aad.md) o en clústeres habilitados no administrados con AAD. Si usa un clúster habilitado administrado con AAD, el usuario o la identidad de AAD debe tener los roles o enlaces de rol correspondientes para tener acceso a la API de Kubernetes, además de los permisos para extraer el [usuario`kubeconfig`](control-kubeconfig-access.md).
+
 ### <a name="enable-resource-view"></a>Activación de la vista de recursos
 
 En el caso de clústeres existentes, es posible que tenga que activar la vista de recursos de Kubernetes. Para activar la vista de recursos, siga las indicaciones del portal para el clúster.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Mensaje de Azure Portal para activar la vista de recursos Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Información del pod de Kubernetes en Azure Portal." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+
+> [!TIP]
+> La característica de [**intervalos de IP autorizados del servidor de API**](api-server-authorized-ip-ranges.md) de AKS se puede agregar para limitar el acceso del servidor de API solo al punto de conexión público del firewall. Otra opción para estos clústeres es actualizar `--api-server-authorized-ip-ranges` para incluir el acceso de un equipo cliente local o un intervalo de direcciones IP (desde la que se examina el portal). Para permitir este acceso, necesita la dirección IPv4 pública del equipo. Para encontrar esta dirección, use el siguiente comando o busque "cuál es mi dirección IP" en un explorador de Internet.
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

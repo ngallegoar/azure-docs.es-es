@@ -10,22 +10,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/23/2019
+ms.date: 09/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4950906e016b9e1915d18ecacc1edcfda8b4d09
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 2a5a4659671f8d4ded64a4f04f84abf1f67d8825
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279404"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265262"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect: msExchUserHoldPolicies y cloudMsExchUserHoldPolicies
 En el documento de referencia siguiente se describen estos atributos usados por Exchange y la manera adecuada de editar las reglas de sincronización predeterminadas.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>¿Qué son msExchUserHoldPolicies y cloudMsExchUserHoldPolicies?
-Hay dos tipos de [suspensiones](/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) para una instancia de Exchange Server: suspensión por litigio y conservación local. Cuando se habilita la suspensión por litigio, todos los elementos del buzón se colocan en suspensión.  Una conservación local se usa para conservar solo los elementos que cumplen los criterios de una consulta de búsqueda que se ha definido mediante la herramienta eDiscovery local.
+Hay dos tipos de [suspensiones](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) para una instancia de Exchange Server: suspensión por litigio y conservación local. Cuando se habilita la suspensión por litigio, todos los elementos del buzón se colocan en suspensión.  Una conservación local se usa para conservar solo los elementos que cumplen los criterios de una consulta de búsqueda que se ha definido mediante la herramienta eDiscovery local.
 
 Los atributos MsExchUserHoldPolcies y cloudMsExchUserHoldPolicies permiten a AD y Azure AD locales determinar qué usuarios están sujetos a una suspensión en función de si usan Exchange local o Exchange en línea.
 
@@ -38,7 +38,7 @@ Entrada desde Active Directory local:
 
 |Atributo de Active Directory|Nombre del atributo|Tipo de flujo|Atributo de metaverso|Regla de sincronización|
 |-----|-----|-----|-----|-----|
-|Active Directory local|msExchUserHoldPolicies|Directo|msExchUserHoldPolices|Entrada desde AD: intercambio de usuarios|
+|Active Directory local|msExchUserHoldPolicies|Directo|msExchUserHoldPolicies|Entrada desde AD: intercambio de usuarios|
 
 Salida a Azure AD:
 
@@ -47,7 +47,7 @@ Salida a Azure AD:
 |Azure Active Directory|msExchUserHoldPolicies|Directo|msExchUserHoldPolicies|Salida a AAD: UserExchangeOnline|
 
 ## <a name="cloudmsexchuserholdpolicies-synchronization-flow"></a>Flujo de sincronización de cloudMsExchUserHoldPolicies
-De forma predeterminada, cloudMsExchUserHoldPolicies se sincroniza mediante Azure AD Connect directamente con el atributo cloudMsExchUserHoldPolicies del metaverso. A continuación, si msExchUserHoldPolices no es null en el metaverso, el atributo fluirá a Active Directory.
+De forma predeterminada, cloudMsExchUserHoldPolicies se sincroniza mediante Azure AD Connect directamente con el atributo cloudMsExchUserHoldPolicies del metaverso. A continuación, si msExchUserHoldPolicies no es null en el metaverso, el atributo fluirá a Active Directory.
 
 Las tablas siguientes describen el flujo:
 

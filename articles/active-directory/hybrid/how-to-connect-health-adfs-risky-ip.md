@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 431b45f4ef3431e7fd1d34cf80278892470c36ef
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660835"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306402"
 ---
 # <a name="risky-ip-report-public-preview"></a>Informe de direcciones IP de riesgo (versión preliminar pública)
 Los clientes de AD FS pueden exponer puntos de conexión de autenticación de contraseña en Internet para proporcionar servicios de autenticación para que los usuarios finales tengan acceso a aplicaciones de SaaS, como Microsoft 365. En este caso, es posible que un actor no deseado intente inicios de sesión en el sistema de AD FS para adivinar la contraseña de usuario final y acceder a los recursos de la aplicación. AD FS proporciona la funcionalidad de bloqueo de cuenta de extranet para evitar estos tipos de ataques desde AD FS en Windows Server 2012 R2. Si se encuentra en una versión anterior, se recomienda que actualice el sistema de AD FS a Windows Server 2016. <br />
@@ -39,7 +39,7 @@ Además, es posible que una única dirección IP intente varios inicios de sesi�
 > 
 
 ## <a name="what-is-in-the-report"></a>Contenido del informe
-Las direcciones IP del cliente de la actividad de inicio de sesión con error se agregan mediante los servidores proxy de aplicación web. Cada elemento del informe de direcciones IP de riesgo muestra información agregada sobre las actividades de inicio de sesión de AD FS con errores que sobrepasan el umbral designado. Este ofrece la siguiente información: ![Portal de Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+Las direcciones IP del cliente de la actividad de inicio de sesión con error se agregan mediante los servidores proxy de aplicación web. Cada elemento del informe de direcciones IP de riesgo muestra información agregada sobre las actividades de inicio de sesión de AD FS con errores que sobrepasan el umbral designado. Este ofrece la siguiente información: ![Captura de pantalla que muestra un informe de IP de riesgo con los encabezados de columna resaltados.](./media/how-to-connect-health-adfs/report4a.png)
 
 | Elemento de informe | Descripción |
 | ------- | ----------- |
@@ -52,7 +52,7 @@ Las direcciones IP del cliente de la actividad de inicio de sesión con error se
 
 Por ejemplo, el siguiente elemento del informe indica que en la ventana de las 6 p.m. a las 7 p.m. el 28/02/2018, la dirección IP <i>104.2XX.2XX.9</i> no tenía errores de contraseña incorrecta y tenía 284 errores de bloqueo de extranet. 14 usuarios únicos resultaron afectados dentro de los criterios. El evento de actividad había superado el umbral horario del informe designado. 
 
-![portal de Azure AD Connect Health](./media/how-to-connect-health-adfs/report4b.png)
+![Captura de pantalla que muestra un ejemplo de una entrada de informe de IP de riesgo.](./media/how-to-connect-health-adfs/report4b.png)
 
 > [!NOTE]
 > - En la lista del informe se mostrarán únicamente las actividades que superan el umbral designado. 
@@ -60,7 +60,7 @@ Por ejemplo, el siguiente elemento del informe indica que en la ventana de las 6
 > - Este informe de alertas no muestra las direcciones IP de Exchange ni las direcciones IP privadas. En cambio, se incluyen en la lista de exportación. 
 >
 
-![portal de Azure AD Connect Health](./media/how-to-connect-health-adfs/report4c.png)
+![Captura de pantalla que muestra el informe de IP de riesgo con las opciones "Descargar", "Configuración de notificación" y "Configuración del umbral" resaltadas.](./media/how-to-connect-health-adfs/report4c.png)
 
 ## <a name="load-balancer-ip-addresses-in-the-list"></a>Direcciones IP del equilibrador de carga de la lista
 La instancia agregada de Load Balancer no pudo iniciar la sesión de las actividades y alcanzó el umbral de alerta. Si ve direcciones IP del equilibrador de carga, es muy probable que el equilibrador de carga externo no esté enviando la dirección IP del cliente cuando pasa la solicitud al servidor proxy de la aplicación web. Configure el equilibrador de carga correctamente para que pase la dirección IP de reenvío del cliente. 

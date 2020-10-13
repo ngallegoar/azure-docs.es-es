@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280307"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Habilitación y administración de la eliminación temporal para contenedores (versión preliminar)
 
@@ -86,7 +86,7 @@ Para ver los contenedores eliminados temporalmente en Azure Portal, siga estos p
 1. Vaya a su cuenta de almacenamiento en Azure Portal y acceda a la lista de contenedores.
 1. Alterne el conmutador Show deleted containers (Mostrar contenedores eliminados) para incluir los contenedores eliminados en la lista.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Captura de pantalla que muestra cómo ver los contenedores eliminados temporalmente en Azure Portal":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Captura de pantalla que muestra cómo habilitar la eliminación temporal de contenedores en Azure Portal":::
 
 ## <a name="restore-a-soft-deleted-container"></a>Restauración de un contenedor eliminado temporalmente
 
@@ -95,7 +95,7 @@ Puede restaurar un contenedor eliminado temporalmente y su contenido dentro del 
 1. Vaya a su cuenta de almacenamiento en Azure Portal y acceda a la lista de contenedores.
 1. Muestre el menú contextual del contenedor que desea eliminar y elija **Recuperar** en el menú.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Captura de pantalla que muestra cómo restaurar un contenedor eliminado temporalmente en Azure Portal":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Captura de pantalla que muestra cómo habilitar la eliminación temporal de contenedores en Azure Portal":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: dda911add42568e76160e4233502a1f4f550520d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e749f27875612136c50938712fded6a371f8c7ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483727"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325630"
 ---
 # <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Configuración del dominio predeterminado de NFS, versión 4.1, para Azure NetApp Files
 
@@ -54,7 +54,7 @@ Como se muestra en el ejemplo anterior, el usuario para `file1` debe ser `root`,
 
 El siguiente ejemplo muestra el cambio de usuario o grupo resultante: 
 
-![Configuración resultante para NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
+![Captura de pantalla que muestra un ejemplo del cambio de usuario o grupo resultante.](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
 
 Como se muestra en el ejemplo, el usuario o grupo ahora ha cambiado de `nobody` a `root`.
 
@@ -64,7 +64,7 @@ Azure NetApp Files admite usuarios locales (usuarios creados localmente en un ho
 
 En el ejemplo siguiente, `Host1` tiene tres cuentas de usuario de prueba existentes (`testuser01`, `testuser02` y `testuser03`): 
 
-![Configuración resultante para NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
+![Captura de pantalla que muestra que Host1 tiene tres cuentas de usuario de prueba existentes.](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
 
 En `Host2`, observe que las cuentas de usuario de prueba no se han creado, pero el mismo volumen está montado en ambos hosts:
 

@@ -3,18 +3,18 @@ title: Configuración del entorno para un operador de plano técnico
 description: Aprenda a configurar el entorno de Azure para su uso con el rol integrado de Azure en el operador del plano técnico.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: ef911553b4985a6497fb397a1ae405387c6539fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ae881ac6d0714401f8c80e880b4d288f594b7cf3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051464"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535789"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configuración del entorno para un operador de plano técnico
 
 La administración de las definiciones del plano técnico y las asignaciones del plano técnico se pueden conceder a distintos equipos. Es habitual que un arquitecto o equipo de gobernanza sea el responsable de la administración del ciclo de vida de las definiciones del plano técnico, y que un equipo de operaciones sea el responsable de administrar las asignaciones de esas definiciones de plano técnico controladas centralmente.
 
-El control de acceso basado en rol (RBAC) integrado del **operador de plano técnico** está diseñado específicamente para su uso en este tipo de escenario. El rol permite a los equipos de los tipos de operaciones administrar la asignación de las definiciones del plano técnico de las organizaciones, pero no concede la capacidad de modificarlas. Para ello, se requiere cierta configuración en el entorno de Azure, y en este artículo se explican los pasos necesarios.
+El rol integrado **Operador de Azure Blueprints** está diseñado específicamente para su uso en este tipo de escenario. El rol permite a los equipos de los tipos de operaciones administrar la asignación de las definiciones del plano técnico de las organizaciones, pero no concede la capacidad de modificarlas. Para ello, se requiere cierta configuración en el entorno de Azure, y en este artículo se explican los pasos necesarios.
 
 ## <a name="grant-permission-to-the-blueprint-operator"></a>Concesión de permiso al operador de plano técnico
 

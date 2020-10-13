@@ -2,13 +2,13 @@
 title: Mejora del rendimiento de las aplicaciones de Azure con Advisor
 description: Use recomendaciones sobre rendimiento de Azure Advisor para mejorar la velocidad y la capacidad de respuesta de las aplicaciones empresariales críticas.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 9a8499e85a264488c756a3d497565398f2e1c229
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 07/29/2020
+ms.openlocfilehash: 9625bb3b063234e9cadb20aacfcc5ca8a28b35cc
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651572"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405163"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 
@@ -63,8 +63,6 @@ Advisor identifica las tablas que no tienen [estadísticas de tabla](../synapse-
 
 El análisis de Advisor puede indicar que la aplicación que se conecta al servidor de MySQL puede no administrar las conexiones de forma eficaz. Esta condición puede dar lugar a un consumo innecesario de recursos y a una mayor latencia de la aplicación. Para mejorar la administración de conexiones, se recomienda reducir el número de conexiones de corta duración y eliminar las conexiones innecesarias. Puede llevar a cabo estas mejoras mediante la configuración de un agrupador de conexiones del lado servidor, como ProxySQL.
 
-## <a name="update-your-current-compute-management-sdk-version-to-the-most-recent-version"></a>Actualice la versión actual del SDK de administración de procesos a la versión más reciente.
-Advisor identifica las suscripciones que tienen operaciones que usan versiones obsoletas del SDK de administración de procesos. Esto podría afectar a la seguridad y el rendimiento de las cargas de trabajo y, por lo tanto, Advisor recomienda cambiar a la versión más reciente del SDK de administración de procesos. 
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Escalado vertical para optimizar el uso de la memoria caché en las tablas de Azure Synapse Analytics para mejorar el rendimiento de las consultas
 
@@ -170,6 +168,14 @@ El análisis de Advisor indica que el servidor MySQL puede estar incurriendo en 
 ## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribución de los datos en el grupo de servidores para distribuir la carga de trabajo entre los nodos
 Advisor identifica los grupos de servidores donde los datos no se han distribuido, pero permanecen en el coordinador. En base a esto, Advisor recomienda que, para obtener las ventajas completas de Hiperescala (Citus), distribuya datos en los nodos de trabajo de grupos de servidores. Con ello se mejorará el rendimiento de las consultas mediante el uso de recursos de cada nodo en el grupo de servidores. [Más información](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
+## <a name="improve-user-experience-and-connectivity-by-deploying-vms-closer-to-windows-virtual-desktop-deployment-location"></a>Mejore la experiencia y la conectividad del usuario mediante la implementación de máquinas virtuales más cerca de la ubicación de implementación de Windows Virtual Desktop.
+Hemos determinado que las máquinas virtuales se encuentran en una región distinta o lejos de la ubicación desde la que se conectan los usuarios, mediante Windows Virtual Desktop (WVD). Esto puede dar lugar a tiempos de respuesta de conexión prolongados y afectará a la experiencia global del usuario en WVD. Al crear máquinas virtuales para los grupos de hosts, debe intentar usar una región más cercana al usuario. Tener una estrecha proximidad garantiza una satisfacción continuada con el servicio WVD y una mejor calidad de experiencia general. [Obtenga más información sobre la latencia de conexión aquí](https://docs.microsoft.com/azure/virtual-desktop/connection-latency).
+
+## <a name="upgrade-to-the-latest-version-of-the-immersive-reader-sdk"></a>Actualice a la versión más reciente del SDK de Lector inmersivo.
+Hemos identificado recursos en esta suscripción con versiones obsoletas del SDK de Lector inmersivo. El uso de la versión más reciente del SDK de Lector inmersivo le proporciona seguridad actualizada, rendimiento y un conjunto expandido de características para personalizar y mejorar la experiencia de integración.
+Más información sobre el [SDK de Lector inmersivo](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
+
+
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Obtención de acceso a las recomendaciones sobre rendimiento en Advisor
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después abra [Azure Advisor](https://aka.ms/azureadvisordashboard).
@@ -182,6 +188,7 @@ Para aprender más sobre las recomendaciones de Advisor, consulte:
 
 * [Introducción a Advisor](advisor-overview.md)
 * [Introducción a Advisor](advisor-get-started.md)
+* [Puntuación de Advisor](azure-advisor-score.md)
 * [Recomendaciones sobre el costo de Advisor](advisor-cost-recommendations.md)
 * [Recomendaciones de confiabilidad de Advisor](advisor-high-availability-recommendations.md)
 * [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)

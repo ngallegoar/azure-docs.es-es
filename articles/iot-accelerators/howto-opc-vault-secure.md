@@ -8,18 +8,21 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: caa3717fdf915e205c1a4f82f4e199346ca29fcb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e95edf21b7d6dce29b31220533269439fac120e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082823"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281970"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Uso del servicio de administración de certificados de OPC Vault
 
+> [!IMPORTANT]
+> Mientras se actualiza este artículo, consulte [IoT industrial de ](https://azure.github.io/Industrial-IoT/) para encontrar el contenido más actualizado.
+
 En este artículo se explica cómo registrar las aplicaciones y cómo emitir certificados de aplicación firmados para los dispositivos OPC UA.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="deploy-the-certificate-management-service"></a>Implementar el servicio de administración de certificados
 
@@ -31,7 +34,7 @@ Si todavía no lo ha hecho, cree el certificado de entidad de certificación del
 
 ## <a name="secure-opc-ua-applications"></a>Protección de las aplicaciones OPC UA
 
-### <a name="step-1-register-your-opc-ua-application"></a>Paso 1: registro de la aplicación OPC UA 
+### <a name="step-1-register-your-opc-ua-application"></a>Paso 1: registro de la aplicación OPC UA 
 
 > [!IMPORTANT]
 > El rol Escritor es necesario para registrar una aplicación.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 675d9c76841ba1a4b94b666c7ff4ac4287fc5264
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3f480cb0d478ca60555fa15849d5fcbed6cda684
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525197"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286122"
 ---
 # <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>Tutorial: Configuración de SmartFile para el aprovisionamiento automático de usuarios
 
@@ -58,9 +58,9 @@ Antes de configurar SmartFile para el aprovisionamiento automático de usuarios 
 
 2. Para generar un token de portador, copie la **clave del producto** y la **contraseña del producto**. Péguelas en un bloc de notas separadas por dos puntos (:).
     
-     ![SmartFile Agregar SCIM](media/smartfile-provisioning-tutorial/auth.png)
+     ![Captura de pantalla de la sección de clave de producto con los cuadros de texto de clave de producto y contraseña del producto resaltadas.](media/smartfile-provisioning-tutorial/auth.png)
 
-    ![SmartFile Agregar SCIM](media/smartfile-provisioning-tutorial/key.png)
+    ![Captura de pantalla de texto sin formato que muestra la clave de producto y la contraseña del producto separadas por dos puntos.](media/smartfile-provisioning-tutorial/key.png)
 
 ## <a name="add-smartfile-from-the-gallery"></a>Incorporación de SmartFile desde la galería
 
@@ -103,11 +103,11 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5.  En la sección **Credenciales de administrador**, escriba `https://<SmartFile sitename>.smartfile.com/ftp/scim` en la **URL de inquilino**. Un ejemplo podría tener un aspecto similar a `https://demo1test.smartfile.com/ftp/scim`. Escriba el valor **Token de portador** (ClaveDelProducto:ContraseñaDelProducto) que recuperó anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a SmartFile. Si la conexión no se establece, asegúrese de que la cuenta de SmartFile tiene permisos de administrador e inténtelo de nuevo.
 

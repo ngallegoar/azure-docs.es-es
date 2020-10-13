@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3ccb8d29d0ec52c31913a43358c7daa1c0693df7
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308853"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447846"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticación de un dispositivo de bajada en Azure IoT Hub
 
@@ -69,7 +69,7 @@ También puede usar la [extensión IoT para la CLI de Azure](https://github.com/
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
-Para obtener más información sobre los comandos de la CLI de Azure para la creación de dispositivos y la administración de elementos primarios y secundarios, vea el contenido de referencia para los comandos [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest).
+Para obtener más información sobre los comandos de la CLI de Azure para la creación de dispositivos y la administración de elementos primarios y secundarios, vea el contenido de referencia para los comandos [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 A continuación, [recupere y modifique la cadena de conexión](#retrieve-and-modify-connection-string) para que el dispositivo sepa conectarse a través de su puerta de enlace.
 
@@ -126,7 +126,7 @@ También puede usar la [extensión IoT para la CLI de Azure](https://github.com/
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
-Para obtener más información sobre los comandos de la CLI de Azure para la creación de dispositivos, la generación de certificados y la administración de elementos primarios y secundarios, vea el contenido de referencia para los comandos [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest).
+Para obtener más información sobre los comandos de la CLI de Azure para la creación de dispositivos, la generación de certificados y la administración de elementos primarios y secundarios, vea el contenido de referencia para los comandos [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 A continuación, [recupere y modifique la cadena de conexión](#retrieve-and-modify-connection-string) para que el dispositivo sepa conectarse a través de su puerta de enlace.
 
@@ -172,7 +172,7 @@ También puede usar la [extensión IoT para la CLI de Azure](https://github.com/
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
-Para más información, consulte el contenido de referencia de la CLI de Azure de los comandos [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest).
+Para más información, consulte el contenido de referencia de la CLI de Azure de los comandos [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 A continuación, [recupere y modifique la cadena de conexión](#retrieve-and-modify-connection-string) para que el dispositivo sepa conectarse a través de su puerta de enlace.
 
@@ -184,13 +184,21 @@ Las cadenas de conexión de los dispositivos de bajada necesitan los componentes
 
 * La instancia de IoT Hub a la que se conecta el dispositivo: `Hostname={iothub name}.azure-devices.net`
 * El id. de dispositivo que se ha registrado con el centro: `DeviceID={device ID}`
-* La clave principal o la secundaria: `SharedAccessKey={key}`
+* El método de autenticación, si es una clave simétrica o certificados X.509.
+  * Si el uso de la autenticación de clave simétrica proporciona la clave principal o secundaria: `SharedAccessKey={key}`
+  * Si el uso de la autenticación de certificado X.509 proporciona una marca: `x509=true`
 * El dispositivo de puerta de enlace a través del que se conecta el dispositivo. Proporcione el valor **hostname** (nombre de host) del archivo config.yaml del dispositivo de puerta de enlace de IoT Edge: `GatewayHostName={gateway hostname}`
 
 Con todos los elementos, una cadena de conexión completa tiene este aspecto:
 
 ```
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
+```
+
+O:
+
+```
+HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
 Si ha establecido una relación de tipo primario-secundario para este dispositivo de bajada, puede simplificar la cadena de conexión mediante una llamada a la puerta de enlace directamente como el host de la conexión. Las relaciones de elementos primarios y secundarios son obligatorias para la autenticación X. 509, pero opcionales para la autenticación de clave simétrica. Por ejemplo:

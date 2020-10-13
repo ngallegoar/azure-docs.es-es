@@ -2,22 +2,24 @@
 title: Especificación de los puntos de conexión de servicio de Service Fabric
 description: Cómo describir los recursos de punto de conexión en un manifiesto de servicio, incluida la configuración de puntos de conexión HTTPS
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/16/2020
+ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610751"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354766"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificación de los recursos en un manifiesto de servicio
 ## <a name="overview"></a>Información general
-El manifiesto de servicio permite que los recursos que utilizará el servicio se declaren o modifiquen sin cambiar el código compilado. Service Fabric admite la configuración de recursos de puntos de conexión para el servicio. El acceso a los recursos especificados en el manifiesto de servicio puede controlarse a través de SecurityGroup en el manifiesto de aplicación. La declaración de recursos permite cambiar estos recursos durante la implementación, lo que significa que no es necesario que el servicio introduzca un nuevo mecanismo de configuración. La definición de esquema para el archivo ServiceManifest.xml se instala con el SDK y las herramientas de Service Fabric en *C:\Archivos de programa\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Las aplicaciones y servicios de Service Fabric se definen y permiten la creación de versiones mediante archivos de manifiesto. Para obtener información general de nivel superior de ServiceManifest.xml y ApplicationManifest.xml, consulte [Manifiestos de servicio y de aplicación de Service Fabric](service-fabric-application-and-service-manifests.md).
+
+El manifiesto de servicio permite que los recursos que utilizará el servicio se declaren o modifiquen sin cambiar el código compilado. Service Fabric admite la configuración de recursos de puntos de conexión para el servicio. El acceso a los recursos especificados en el manifiesto de servicio puede controlarse a través de SecurityGroup en el manifiesto de aplicación. La declaración de recursos permite cambiar estos recursos durante la implementación, lo que significa que no es necesario que el servicio introduzca un nuevo mecanismo de configuración. La definición de esquema para el archivo ServiceManifest.xml se instala con el SDK y las herramientas de Service Fabric en *C:\Archivos de programa\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd* y está documentado en la [documentación del esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
 
 ## <a name="endpoints"></a>Puntos de conexión
 Cuando se define un recurso de punto de conexión en el manifiesto de servicio, Service Fabric asigna puertos desde el intervalo de puertos reservados de aplicación cuando un puerto no se especifica expresamente. Por ejemplo, analice el punto de conexión *ServiceEndpoint1* especificado en el fragmento de manifiesto que encontrará después de este párrafo. Además, los servicios también pueden solicitar un puerto específico en un recurso. Es posible asignar números de puerto diferentes a réplicas de servicio que se ejecutan en nodos de clúster, mientras que las réplicas del mismo servicio que se ejecuta en el mismo nodo comparten el mismo puerto. Las réplicas de servicio pueden usar estos puertos según sea necesario para la replicación y procesar solicitudes de cliente.
 
-Al activar un servicio que especifica un punto de conexión HTTPS, Service Fabric establecerá la entrada del control de acceso para el puerto, enlazará el certificado del servidor especificado al puerto y también concederá la identidad que el servicio ejecuta como permisos para la clave privada del certificado. El flujo de activación se invocará cada vez que se inicie Service Fabric o cuando se cambie la declaración de certificado de la aplicación mediante una actualización. También se supervisará el certificado del punto de conexión en busca de cambios o renovaciones, y los permisos se volverán a aplicar periódicamente según sea necesario.
+Al activar un servicio que especifica un punto de conexión HTTPS, Service Fabric establecerá la entrada del control de acceso para el puerto, enlazará el certificado del servidor especificado al puerto y concederá la identidad que el servicio ejecuta como permisos para la clave privada del certificado. El flujo de activación se invocará cada vez que se inicie Service Fabric o cuando se cambie la declaración de certificado de la aplicación mediante una actualización. También se supervisará el certificado del punto de conexión en busca de cambios o renovaciones, y los permisos se volverán a aplicar periódicamente según sea necesario.
 
 Tras la finalización del servicio, Service Fabric borrará la entrada de control de acceso del punto de conexión y eliminará el enlace de certificado. Sin embargo, no se borrarán los permisos aplicados a la clave privada del certificado.
 
@@ -155,14 +157,16 @@ Este es un ejemplo de ApplicationManifest que muestra la configuración necesari
 
 En los clústeres de Linux, el valor predeterminado del almacén **MY** es la carpeta **/var/lib/sfcerts**.
 
+Para ver un ejemplo de una aplicación completa que utiliza un punto de conexión HTTPS, consulte [Incorporación de un punto de conexión HTTPS a un servicio de front-end de ASP.NET Core Web API mediante Kestrel](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
+
 ## <a name="port-acling-for-http-endpoints"></a>Realización de ACL en el puerto para puntos de conexión HTTP
-Service Fabric agregará automáticamente los puntos de conexión ACL HTTP(S) especificados de forma predeterminada. **No** realizar un ACL de forma automática si un punto de conexión no tiene una propiedad [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) asociad y Service Fabric está configurado para ejecutarse con una cuenta con privilegios de administrador.
+Service Fabric agregará automáticamente los puntos de conexión ACL HTTP(S) especificados de forma predeterminada. **No** realizará un ACL de forma automática si un punto de conexión no tiene una propiedad [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) asociada y Service Fabric está configurado para ejecutarse con una cuenta con privilegios de administrador.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Invalidación de Endpoints en ServiceManifest.xml
 
-En ApplicationManifest, agregue una sección denominada ResourceOverrides que será un elemento del mismo nivel que la sección ConfigOverrides. En esta sección puede especificar la invalidación de la sección Endpoints en la sección de recursos especificada en el manifiesto del servicio. Se admite el reemplazo de puntos de conexión en el entorno en tiempo de ejecución 5.7.217/SDK 2.7.217 y versiones posteriores.
+En ApplicationManifest, agregue una sección denominada ResourceOverrides, que será un elemento del mismo nivel que la sección ConfigOverrides. En esta sección puede especificar la invalidación de la sección Endpoints en la sección de recursos especificada en el manifiesto del servicio. Se admite el reemplazo de puntos de conexión en el entorno en tiempo de ejecución 5.7.217/SDK 2.7.217 y versiones posteriores.
 
-Para invalidar Endpoint en ServiceManifest mediante ApplicationParameters cambie ApplicationManifest como se indica a continuación:
+Para invalidar punto de conexión en ServiceManifest mediante ApplicationParameters, cambie ApplicationManifest como se indica a continuación:
 
 En la sección ServiceManifestImport, agregue una nueva sección "ResourceOverrides".
 
@@ -194,13 +198,13 @@ En Parameters, agregue a continuación:
   </Parameters>
 ```
 
-Al implementar la aplicación puede pasar estos valores como ApplicationParameters.  Por ejemplo:
+Al implementar la aplicación, estos valores se pueden pasar como ApplicationParameters.  Por ejemplo:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Nota: Si los valores proporcionados para ApplicationParameters están vacíos, se vuelve al valor predeterminado proporcionado en ServiceManifest para el EndPointName correspondiente.
+Nota: Si algún valor proporcionado para un ApplicationParameter está vacío, se vuelve al valor predeterminado proporcionado en ServiceManifest para el EndPointName correspondiente.
 
 Por ejemplo:
 
@@ -214,6 +218,18 @@ Si en ServiceManifest ha especificado
   </Resources>
 ```
 
-Y el valor de Port1 y Protocol1 en ApplicationParameters es nulo o está vacío. El puerto lo decide aún Service Fabric. Y el protocolo sera TCP.
+Supongamos que el valor de Port1 y Protocol1 en ApplicationParameters es nulo o está vacío. El puerto lo decidirá ServiceFabric y el protocolo será TCP.
 
-Imagine que especifica un valor incorrecto. Supongamos que para el puerto ha especificado un valor de cadena "Foo" en lugar de un valor entero.  El comando New-ServiceFabricApplication generará el siguiente error: The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid (el parámetro de invalidación con el nombre 'ServiceEndpoint1' y el atributo 'Port1' de la sección 'ResourceOverrides' no es válido). El valor especificado es 'Foo' y se requiere 'int'.
+Imagine que especifica un valor incorrecto. Supongamos que para el puerto se ha especificado un valor de cadena "Foo" en lugar de un valor entero.  El comando New-ServiceFabricApplication generará un error: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En este artículo se explica cómo definir puntos de conexión en el manifiesto de servicio de Service Fabric. Para obtener ejemplos detallados, consulte:
+
+> [!div class="nextstepaction"]
+> [Ejemplos de manifiestos de aplicación y servicio](service-fabric-manifest-examples.md)
+
+Para ver un tutorial sobre cómo empaquetar e implementar una aplicación existente en un clúster de Service Fabric, consulte:
+
+> [!div class="nextstepaction"]
+> [Empaquetado e implementación de un ejecutable existente en Service Fabric](service-fabric-deploy-existing-app.md)

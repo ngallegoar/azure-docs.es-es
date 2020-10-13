@@ -1,6 +1,6 @@
 ---
 title: Consola serie de Azure para Linux | Microsoft Docs
-description: Consola serie bidireccional para máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure.
+description: Consola serie bidireccional para Azure Virtual Machines y Virtual Machine Scale Sets con un ejemplo de Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: cacb517c783416994fa95bd0f6a6d15a95a52ab4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9a31a22a5b037162198f594d9bcf35c91a0a4654
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423463"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306878"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola serie de Azure para Linux
 

@@ -6,19 +6,19 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: c6a2d38644d844cb1231a24465478b7f70a85111
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/16/2020
+ms.openlocfilehash: 74656401d7b0ef12cf509674921a6a5153ce992d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531169"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282942"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Uso de patrones de columnas en el flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Varias transformaciones de flujo de datos de asignación permiten hacer referencia a columnas de plantilla en función de patrones en lugar de nombres de columna codificados de forma rígida. Esta coincidencia se conoce como *patrones de columna*. Puede definir patrones para que coincidan con las columnas según el nombre, el tipo de datos, la secuencia o la posición, en lugar de requerir nombres de campo exactos. Hay dos escenarios en los que resultan útiles los patrones de columna:
+Varias transformaciones de flujo de datos de asignación permiten hacer referencia a columnas de plantilla en función de patrones en lugar de nombres de columna codificados de forma rígida. Esta coincidencia se conoce como *patrones de columna*. Puede definir patrones para buscar la coincidencia de columnas según el nombre, el tipo de datos, la secuencia, el origen o la posición, en lugar de requerir nombres de campo exactos. Hay dos escenarios en los que resultan útiles los patrones de columna:
 
 * Si los campos de origen de entrada cambian a menudo, como en el caso de columnas que cambian en los archivos de texto o bases de datos NoSQL. Este escenario se conoce como [desfase de esquema](concepts-data-flow-schema-drift.md).
 * Si desea realizar una operación común en un grupo grande de columnas. Por ejemplo, si desea convertir cada columna que contiene "total" en el nombre de columna en un valor doble.
@@ -31,7 +31,7 @@ Para agregar un patrón de columna a una columna derivada, de agregado o de tran
 
 ![patrones de columna](media/data-flow/add-column-pattern.png "Patrones de columnas")
 
-Use el [generador de expresiones](concepts-data-flow-expression-builder.md) para escribir la condición de coincidencia. Cree una expresión booleana que coincida con las columnas en función de los elementos `name`, `type`, `stream` y `position` de la columna. El patrón afectará a cualquier columna, desfasada o definida, donde la condición devuelva true.
+Use el [generador de expresiones](concepts-data-flow-expression-builder.md) para escribir la condición de coincidencia. Cree una expresión booleana que busque la coincidencia con las columnas en función de los elementos `name`, `type`, `stream`, `origin` y `position` de la columna. El patrón afectará a cualquier columna, desfasada o definida, donde la condición devuelva true.
 
 Los dos cuadros de expresión situados debajo de la condición de coincidencia especifican los nuevos nombres y valores de las columnas afectadas. Use `$$` para hacer referencia al valor existente del campo coincidente. El cuadro de expresión de la izquierda define el nombre y el cuadro de expresión de la derecha define el valor.
 
@@ -45,7 +45,7 @@ Para comprobar que la condición de coincidencia es correcta, puede validar el e
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Asignación basada en reglas en selección y receptor
 
-Cuando asigna columnas en transformaciones de origen y selección, puede agregar asignación fija o asignación basada en reglas. Coincidencia basada en los valores `name`, `type`, `stream` y `position` de las columnas. Puede usar cualquier combinación de asignaciones basadas en reglas y fijas. De forma predeterminada, todas las proyecciones con más de 50 columnas tendrán como valor predeterminado una asignación basada en reglas que coincida con todas las columnas y que genere el nombre insertado. 
+Cuando asigna columnas en transformaciones de origen y selección, puede agregar asignación fija o asignación basada en reglas. Busque la coincidencia según los elementos `name`, `type`, `stream`, `origin` y `position` de las columnas. Puede usar cualquier combinación de asignaciones basadas en reglas y fijas. De forma predeterminada, todas las proyecciones con más de 50 columnas tendrán como valor predeterminado una asignación basada en reglas que coincida con todas las columnas y que genere el nombre insertado. 
 
 Para agregar una asignación basada en reglas, haga clic en **Agregar asignación** y seleccione **Rule based mapping** (Asignación basada en reglas).
 
@@ -82,6 +82,7 @@ En el ejemplo anterior se hace coincidir con todas las subcolumnas de la columna
 * `type` representa el tipo de datos de cada columna de entrada
 * `stream` representa el nombre asociado a cada secuencia o transformación del flujo
 * `position` es la posición ordinal de las columnas en el flujo de datos
+* `origin` es la transformación en la que se ha originado o se ha actualizado por última vez una columna
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el [lenguaje de expresiones](data-flow-expression-functions.md) del flujo de datos de asignación para las transformaciones de datos.

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019910"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308119"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Explicación de los conceptos de certificados de entidad de certificación X.509 en el sector de IoT
 
@@ -87,7 +87,7 @@ El proceso de carga del certificado de entidad de certificación X.509 consiste 
 
 ### <a name="proof-of-possession-of-the-certificate"></a>Prueba de posesión del certificado
 
-El certificado de entidad de certificación X.509, al igual que cualquier certificado digital, es información pública que es susceptible de interceptación. Por lo tanto, un intruso puede interceptar un certificado e intentar cargarlo como si fuera suyo. En nuestro ejemplo, IoT Hub querría asegurarse de que el certificado de entidad de certificación que Company-X está cargando realmente pertenece a Company-X. Para ello, instará a Company-X a que demuestre que realmente posee el certificado mediante un [flujo de prueba de posesión](https://tools.ietf.org/html/rfc5280#section-3.1). El flujo de la prueba de posesión conlleva que IoT Hub genere un número aleatorio que Company-X debe firmar con su clave privada. Si Company-X siguió los procedimientos recomendados de la infraestructura de clave pública y protegió su clave privada, entonces solo esta empresa podrá responder correctamente al desafío de la prueba de posesión. IoT Hub procede con el registro del certificado de entidad de certificación X.509 tras superar satisfactoriamente el desafío de la prueba de posesión.
+El certificado de entidad de certificación X.509, al igual que cualquier certificado digital, es información pública que es susceptible de interceptación. Por lo tanto, un intruso puede interceptar un certificado e intentar cargarlo como si fuera suyo. En nuestro ejemplo, IoT Hub querría asegurarse de que el certificado de entidad de certificación que Company-X está cargando realmente pertenece a Company-X. Para ello, se insta a Company-X a que demuestre que realmente posee el certificado mediante un [flujo de prueba de posesión (PoP)](https://tools.ietf.org/html/rfc5280#section-3.1). El flujo de la prueba de posesión conlleva que IoT Hub genere un número aleatorio que Company-X debe firmar con su clave privada. Si Company-X siguió los procedimientos recomendados de la infraestructura de clave pública y protegió su clave privada, entonces solo esta empresa podrá responder correctamente al desafío de la prueba de posesión. IoT Hub procede con el registro del certificado de entidad de certificación X.509 tras superar satisfactoriamente el desafío de la prueba de posesión.
 
 El registro de la entidad de certificación X.509 se completa tras obtener la respuesta correcta de IoT Hub al desafío de la prueba de posesión.
 

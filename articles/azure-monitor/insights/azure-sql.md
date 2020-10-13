@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 02/21/2020
+ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: c871f5fbbe63747c71e1f6ecf83a47c0cd30970e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318035"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397086"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Supervisión de instancias de Azure SQL Database con Azure SQL Analytics (versión preliminar)
 
@@ -90,11 +90,11 @@ Si no hay transmisión de ninguna métrica o registro en Azure Monitor, los icon
 
 Una vez que se selecciona el icono de Azure SQL Analytics para la base de datos, aparece el panel de supervisión.
 
-![Información general de Azure SQL Analytics](./media/azure-sql/azure-sql-sol-overview.png)
+![Captura de pantalla que muestra el panel de supervisión.](./media/azure-sql/azure-sql-sol-overview.png)
 
 Si selecciona cualquiera de los iconos, se abre un informe detallado de la perspectiva específica. Una vez que se ha seleccionado la perspectiva, se abre el informe de la exploración en profundidad.
 
-![Tiempos de expiración de Azure SQL Analytics](./media/azure-sql/azure-sql-sol-metrics.png)
+![Captura de pantalla que muestra el informe detallado en la perspectiva específica.](./media/azure-sql/azure-sql-sol-metrics.png)
 
 Cada perspectiva de esta vista proporciona resúmenes en los niveles de suscripción, servidor, grupo elástico y base de datos. Además, cada perspectiva muestra a la derecha una perspectiva específica del informe. Seleccione suscripción, servidor, grupo o base de datos en la lista para seguir obteniendo los detalles.
 
@@ -230,6 +230,9 @@ AzureMetrics
 > - La salida es una lista de recursos de la base de datos que superan el valor storage_threshold dentro del valor de time_range definido.
 
 #### <a name="alert-on-intelligent-insights"></a>Alerta sobre Intelligent Insights
+
+> [!IMPORTANT]
+> Si una base de datos funciona correctamente y no se ha generado información inteligente, se producirá un error en esta consulta con el mensaje de error: No se pudo resolver la expresión escalar "rootCauseAnalysis_s". Este comportamiento se espera en todos los casos en los que no haya información inteligente para la base de datos.
 
 ```
 let alert_run_interval = 1h;

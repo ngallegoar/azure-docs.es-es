@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 88a0177755fbd913bdaaf0ecf3e12c62dee294c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dcf377797709b56b4db735dabf4d48cfae4fc06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885079"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257170"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Escenario: API web que llama a API web
 
@@ -24,7 +24,7 @@ Aprenda a compilar una API web que llame a las API web.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Este escenario, en el que una API web protegida llama a otras API web, se basa en el escenario de "Proteger una API web". Para más información sobre este escenario básico, consulte [Escenario: API web protegida](scenario-protected-web-api-overview.md).
+Este escenario, en el que una API web protegida llama a otras API web, se basa en [Escenario: API web protegida](scenario-protected-web-api-overview.md).
 
 ## <a name="overview"></a>Información general
 

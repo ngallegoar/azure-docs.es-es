@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 141b19ca73c3465e59d8c94a3bdc3657d0900b8d
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 413d1f787a39a5a79b94fa06b49436b49337d286
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325596"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creación de un volumen de NFS para Azure NetApp Files
 
@@ -62,7 +62,7 @@ Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), 
 
         Un nombre de volumen debe ser único dentro de cada grupo de capacidad. Debe tener tres caracteres de longitud, como mínimo. Puede usar cualquier carácter alfanumérico.   
 
-        No se puede usar `default` como nombre del volumen.
+        No se puede usar `default` ni `bin` como nombre del volumen.
 
     * **Grupo de capacidad**  
         Especifique el grupo de capacidad en el que desee que el volumen se cree.
@@ -71,6 +71,11 @@ Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), 
         Especifique la cantidad de almacenamiento lógico que se asigna al volumen.  
 
         El campo **Cuota disponible** muestra la cantidad de espacio no utilizado en el grupo de capacidad elegido que puede usar para crear un nuevo volumen. El tamaño del volumen nuevo no debe superar la cuota disponible.  
+
+    * **Rendimiento (MiB/S)**    
+        Si el volumen se crea en un grupo de capacidad con QoS manual, especifique el rendimiento que desea para el volumen.   
+
+        Si el volumen se crea en un grupo de capacidad con QoS automático, el valor que se muestra en este campo es (rendimiento de cuota x nivel de servicio).   
 
     * **Red virtual**  
         Especifique la red virtual de Azure desde la que desea tener acceso al volumen.  
@@ -91,7 +96,7 @@ Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), 
 
         Para obtener información sobre cómo crear una directiva de instantáneas, consulte [Administración de directivas de instantánea](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
-        ![Selección de Mostrar la sección avanzada](../media/azure-netapp-files/volume-create-advanced-selection.png)
+        ![Mostrar la sección avanzada](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 3. Haga clic en **Protocolo** y realice las siguientes acciones:  
     * Seleccione **NFS** como tipo de protocolo para el volumen.   

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: 255fa9e058fdbb3b7edb73e75fd53f4a2490bfca
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023863"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405180"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copia y transformación de datos en Snowflake mediante Azure Data Factory
 
@@ -357,7 +357,7 @@ Si el almacén de datos y el formulario de origen cumplen los criterios descrito
 
 #### <a name="staged-copy-to-snowflake"></a>Copia almacenada provisionalmente en Snowflake
 
-Cuando el formato o el almacén de datos receptor no sea compatible de forma nativa con el comando COPY de Snowflake, como se mencionó en la última sección, habilite la copia preconfigurada de Azure BLOB Storage con una instancia intermedia de almacenamiento de blobs de Azure. La característica de copia almacenada provisionalmente también proporciona un mejor rendimiento. Data Factory convierte automáticamente los datos para satisfacer los requisitos del formato de datos de Snowflake. A continuación, invoca el comando COPY para cargar datos en Snowflake. Por último, limpia los datos temporales del almacenamiento de blobs. Consulte [Copia almacenada provisionalmente](copy-activity-performance-features.md#staged-copy) para obtener más información sobre cómo copiar datos con el almacenamiento provisional.
+Cuando el formato o el almacén de datos de origen no sea compatible de forma nativa con el comando COPY de Snowflake, como se mencionó en la última sección, habilite la copia preconfigurada con una instancia intermedia de Azure Blob Storage. La característica de copia almacenada provisionalmente también proporciona un mejor rendimiento. Data Factory convierte automáticamente los datos para satisfacer los requisitos del formato de datos de Snowflake. A continuación, invoca el comando COPY para cargar datos en Snowflake. Por último, limpia los datos temporales del almacenamiento de blobs. Consulte [Copia almacenada provisionalmente](copy-activity-performance-features.md#staged-copy) para obtener más información sobre cómo copiar datos con el almacenamiento provisional.
 
 Para utilizar esta característica, cree un [servicio vinculado de Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) que haga referencia a la cuenta de Azure Storage como almacenamiento provisional temporal. Luego especifique las propiedades `enableStaging` y `stagingSettings` en la actividad de copia.
 

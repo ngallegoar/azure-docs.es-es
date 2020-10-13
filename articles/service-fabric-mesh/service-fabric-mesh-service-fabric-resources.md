@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7f25d4156c3d2671e1a15a1253ed7ba22265af0
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847001"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354877"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Introducción al modelo de recursos de Service Fabric
 
@@ -66,7 +66,7 @@ Los recursos de secretos se implementan de forma independiente a una aplicación
 
 Los contenedores suelen habilitar discos temporales. Sin embargo, los discos temporales son efímeros, por lo que puede obtener un nuevo disco temporal y perder la información cuando un contenedor se bloquea. También es difícil compartir información de los discos temporales con otros contenedores. Los volúmenes son directorios que se montan dentro de las instancias de contenedor que puede usar para conservar el estado. Los volúmenes proporcionan almacenamiento de archivos de propósito general y permiten leer y escribir archivos mediante las API de archivos de E/S de disco normal. El recurso de volumen es una manera declarativa de describir cómo se monta un directorio y su almacenamiento de respaldo (un volumen de Azure Files o un volumen confiable de Service Fabric).  Para más información, vea el [estado de almacenamiento](service-fabric-mesh-storing-state.md#volumes).
 
-![Volúmenes][Image3]
+![En el diagrama se muestra un servicio que se dirige a un volumen de disco, que se dirige a un volumen confiable de Service Fabric y, después, a un disco local replicado, a un volumen de Azure Files y al almacenamiento de red.][Image3]
 
 ## <a name="programming-models"></a>Modelos de programación
 Un recurso de servicio solo requiere una imagen de contenedor para ejecutarse, a la que se hace referencia en los paquetes de código asociados con el recurso. Puede ejecutar cualquier código, escrito en cualquier lenguaje, con cualquier marco, dentro del contenedor sin necesidad de conocer ni usar API específicas de Service Fabric mesh. 

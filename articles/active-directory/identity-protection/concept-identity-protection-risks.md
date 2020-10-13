@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3dd4d5f413238e0d0da79ff43deeee6245681f4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 7bc7b0ce521522e677e0dc53809c8c33e0743f0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016408"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327925"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -30,7 +30,7 @@ Identity Protection proporciona a las organizaciones el acceso a recursos eficac
 
 Hay dos tipos de riesgo, **Usuario** e **Inicio de sesión** y dos tipos de detección o cálculo **Tiempo real** y **Sin conexión**.
 
-Es posible que las detecciones en tiempo real no se muestren en los informes durante un tiempo comprendido entre cinco y diez minutos. Es posible que las detecciones sin conexión no se muestren en los informes durante un tiempo comprendido entre dos y cuatro horas.
+Es posible que las detecciones en tiempo real no se muestren en los informes durante un tiempo comprendido entre cinco y diez minutos. Es posible que las detecciones sin conexión no se muestren en los informes durante un tiempo comprendido entre dos y veinticuatro horas.
 
 ### <a name="user-risk"></a>Riesgo de usuario
 

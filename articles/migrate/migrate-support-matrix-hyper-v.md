@@ -3,12 +3,12 @@ title: Compatibilidad con la evaluación de Hyper-V en Azure Migrate
 description: Obtenga información sobre la compatibilidad con la evaluación de Hyper-V con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641830"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318184"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de compatibilidad para la evaluación de Hyper-V
 
@@ -46,7 +46,7 @@ Para configurar la evaluación de máquinas virtuales de Hyper-V, cree un proyec
 | :----------------------------- | :------------------- |
 | **Sistema operativo** | Todos los sistemas operativos se pueden evaluar para la migración.  |
 | **Servicio de integración**       | Los [servicio de integración de Hyper-V](/virtualization/hyper-v-on-windows/reference/integration-services) deben ejecutarse en las VM que evalúe, con el fin de capturar la información del sistema operativo. |
-
+| **Storage** | Disco local, DAS, JBOD, espacios de almacenamiento, CSV, SMB. Se admite el almacenamiento de host de Hyper-V en el que se almacena VHD/VHDX. <br/> Se admiten controladores virtuales IDE y SCSI.| 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos del dispositivo de Azure Migrate
 

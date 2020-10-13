@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: c48ef0321ece2e7e0ffcdfcb8c0907c5f839e738
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aba47500400004c1d6a7044a266bad6f20d5d9c9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831369"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360555"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Garantizar de forma proactiva el acceso a GRUB y a SysRq podría ahorrarle mucho tiempo de inactividad.
 
@@ -210,11 +210,11 @@ Interrumpa el proceso de arranque y acceda al menú de GRUB.
 
 Seleccione Advanced Options for Ubuntu (Opciones avanzadas para Ubuntu) y presione Entrar.
 
-![ubunturec1](./media/virtual-machines-serial-console/ubunturec1.png)
+![Captura de pantalla que muestra la consola serie con Opciones avanzadas para Ubuntu seleccionado.](./media/virtual-machines-serial-console/ubunturec1.png)
 
 Seleccione la línea que muestra *(recovery mode)* [(modo de recuperación)], pero no presione Entrar sino "e".
 
-![ubunturec2](./media/virtual-machines-serial-console/ubunturec2.png)
+![Captura de pantalla que muestra la consola serie con la versión del modo de recuperación seleccionada.](./media/virtual-machines-serial-console/ubunturec2.png)
 
 Busque la línea que cargará el kernel y sustituya el último parámetro **nomodeset** con destino como **console=ttyS0**.
 
@@ -226,12 +226,12 @@ change to
 linux /boot/vmlinuz-4.15.0-1023-azure root=UUID=21b294f1-25bd-4265-9c4e-d6e4aeb57e97 ro recovery console=ttyS0
 ```
 
-![ubunturec3](./media/virtual-machines-serial-console/ubunturec3.png)
+![Captura de pantalla que muestra la consola serie con el valor modificado.](./media/virtual-machines-serial-console/ubunturec3.png)
 
 Presione **Ctrl-x** para iniciar y cargar el kernel.
 Si todo va bien, verá estas otras opciones, lo que puede ayudar a realizar otras opciones de recuperación.
 
-![ubunturec4](./media/virtual-machines-serial-console/ubunturec4.png)
+![Captura de pantalla muestra la consola serie en el menú recuperación, que ofrece opciones de recuperación adicionales.](./media/virtual-machines-serial-console/ubunturec4.png)
 
 
 ## <a name="red-hat-grub-configuration"></a>Configuración de GRUB para Red Hat
@@ -337,11 +337,11 @@ terminal --timeout=5 serial console
 
 La última línea *terminal –-timeout=5 serial console* aumentará aún más el tiempo de espera de **GRUB** al agregar una solicitud de cinco segundos que muestra **Presione cualquier tecla para continuar**.
 
-![rh6-1](./media/virtual-machines-serial-console/rh6-1.png)
+![Captura de pantalla que muestra una consola con salida.](./media/virtual-machines-serial-console/rh6-1.png)
 
 El menú de GRUB debe aparecer en pantalla durante el tiempo configurado timeout=15 sin necesidad de presionar Esc. Asegúrese de hacer clic en la consola del explorador para activar el menú y seleccionar el kernel necesario.
 
-![rh6-2](./media/virtual-machines-serial-console/rh6-2.png)
+![Captura de pantalla que muestra una consola con dos opciones de Linux.](./media/virtual-machines-serial-console/rh6-2.png)
 
 ## <a name="suse"></a>SuSE
 
@@ -405,18 +405,18 @@ Obtendrá acceso al shell sin tener que escribir una contraseña. Después, pued
 El acceso a GRUB permite interrumpir el proceso de inicialización y esta interacción resulta útil para muchos procedimientos de recuperación.
 Si no tiene la contraseña raíz y el usuario único requiere esa contraseña, puede arrancar el kernel reemplazando el programa init con un símbolo del sistema de Bash: esta interrupción se puede lograr mediante la anexión de init=/bin/bash a la línea de arranque del kernel.
 
-![bash1](./media/virtual-machines-serial-console/bash1.png)
+![Captura de pantalla que muestra una consola con la línea de arranque actualizada.](./media/virtual-machines-serial-console/bash1.png)
 
 Vuelva a montar el RW del sistema de archivos / (root) con el comando
 
 `mount -o remount,rw /`
 
-![bash2](./media/virtual-machines-serial-console/bash2.png)
+![Captura de pantalla que muestra una consola con una acción de volver a montar.](./media/virtual-machines-serial-console/bash2.png)
 
 
 Ahora puede realizar el cambio de contraseña raíz o muchos otros cambios de configuración de Linux.
 
-![bash3](./media/virtual-machines-serial-console/bash3.png)
+![Captura de pantalla muestra una consola en la que puede cambiar la contraseña raíz y otra configuración.](./media/virtual-machines-serial-console/bash3.png)
 
 Reinicie la máquina virtual con 
 

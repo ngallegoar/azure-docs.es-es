@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dcf80ffa26ecaeb0f4481b3997146c07bd89be10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7d89942ad5209b854b8df486ad3e59a3976edfc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85398008"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259058"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Tutorial para configurar TypingDNA con Azure Active Directory B2C
 
@@ -36,9 +36,9 @@ En este tutorial, aprenderá a integrar una aplicación de pago en línea de eje
 
 2. Cuando el usuario envía la página, la biblioteca de TypingDNA procesará las características de la escritura del usuario. Después, inserte la información en un campo de texto oculto que Azure AD B2C ha representado. Este campo se oculta con CSS.  
 
-    El ejemplo contiene archivos HTML con las modificaciones de JavaScript y CSS, y se hace referencia a ellos en las definiciones de contenido de `api.selfasserted.tdnasignin` y `api.selfasserted.tdnasignup`. Consulte [Hospedaje del contenido de la página](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#hosting-the-page-content) para hospedar los archivos HTML.
+    El [ejemplo contiene archivos HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) con las modificaciones de JavaScript y CSS, y se hace referencia a ellos en las definiciones de contenido de `api.selfasserted.tdnasignin` y `api.selfasserted.tdnasignup`. Consulte [Hospedaje del contenido de la página](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#hosting-the-page-content) para hospedar los archivos HTML.
 
-3. Azure AD B2C tiene ahora el patrón de escritura en el contenedor de notificaciones cuando el usuario envía sus credenciales. Debe llamar a una API (suya) para pasar estos datos al punto de conexión de la API de REST de TypingDNA. Esta API se incluye en el ejemplo (typingDNA-API-Interface).
+3. Azure AD B2C tiene ahora el patrón de escritura en el contenedor de notificaciones cuando el usuario envía sus credenciales. Debe llamar a una API (suya) para pasar estos datos al punto de conexión de la API de REST de TypingDNA. Esta API se incluye en el [ejemplo (typingDNA-API-Interface)](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).
 4. A continuación, la API de capa intermedia pasa los datos del patrón de escritura a la API de REST de TypingDNA. Al registrarse, se llama al punto de conexión de [comprobar usuario](https://api.typingdna.com/index.html#api-API_Services-GetUser) para confirmar que el usuario no existe y, a continuación, se llama al punto de conexión de [guardar patrón](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) para guardar el primer patrón de escritura del usuario.
 
 > [!NOTE]
@@ -61,7 +61,7 @@ Las llamadas a la API de REST se modelan con `validationTechnicalProfiles` dentr
 
 ### <a name="sign-in"></a>Inicio de sesión
 
-En los inicios de sesión posteriores, el patrón de escritura del usuario se procesa de la misma manera que al registrarse con HTML personalizado. Una vez que el perfil de escritura se encuentra dentro del contenedor de notificaciones de Azure AD B2C, Azure AD B2C llamará a la API para llamar al punto de conexión de la API de REST de TypingDNA. Se llama al punto de conexión de [comprobar usuario](https://api.typingdna.com/index.html#api-API_Services-GetUser) para confirmar que el usuario existe. Después, se llama al punto de conexión de [comprobar patrón](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) para devolver el elemento `net_score`. Este elemento `net_score` es una indicación de la proximidad del patrón de escritura al registro original.
+En los inicios de sesión posteriores, el patrón de escritura del usuario se procesa de la misma manera que al registrarse con [HTML personalizado](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml). Una vez que el perfil de escritura se encuentra dentro del contenedor de notificaciones de Azure AD B2C, Azure AD B2C llamará a la API para llamar al punto de conexión de la API de REST de TypingDNA. Se llama al punto de conexión de [comprobar usuario](https://api.typingdna.com/index.html#api-API_Services-GetUser) para confirmar que el usuario existe. Después, se llama al punto de conexión de [comprobar patrón](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) para devolver el elemento `net_score`. Este elemento `net_score` es una indicación de la proximidad del patrón de escritura al registro original.
 
 Este patrón de escritura se modela con `validationTechnicalProfiles` dentro de `SelfAsserted-LocalAccountSignin-Email-TDNA`:
 
@@ -158,14 +158,14 @@ Estos umbrales deben ajustarse al caso de uso.
 
 ## <a name="integrate-typingdna-with-azure-ad-b2c"></a>Integración de TypingDNA con Azure AD B2C
 
-1. Hospede TypingDNA-API-Interface en el proveedor de hospedaje que prefiera.
-2. Reemplace todas las instancias de `apiKey` y `apiSecret` en la solución TypingDNA-API-Interface por las credenciales del panel de TypingDNA
+1. Hospede [TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) en el proveedor de hospedaje que prefiera.
+2. Reemplace todas las instancias de `apiKey` y `apiSecret` en la solución [TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) por las credenciales del panel de TypingDNA.
 3. Hospede los archivos HTML en el proveedor que prefiera siguiendo los requisitos de CORS [aquí](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors)
 4. Reemplace los elementos LoadURI de las definiciones de contenido `api.selfasserted.tdnasignup` y `api.selfasserted.tdnasignin` en el archivo `TrustFrameworkExtensions.xml` por el URI de los archivos HTML hospedados, respectivamente.
 5. Cree una clave de directiva B2C en el marco de la experiencia de identidad en la hoja de Azure AD de **Azure Portal**. Use la opción `Generate` y asigne a esta clave el nombre `tdnaHashedId`.
 6. Reemplazo de TenantId en los archivos de directiva
-7. Reemplace los elementos ServiceURL en todos los perfiles técnicos de la API de REST de TypingDNA (REST-TDNA-VerifyUser, REST-TDNA-SaveUser, REST-TDNA-CheckUser) por el punto de conexión de la API de TypingDNA-API-Interface.
-8. Cargue los archivos de directiva en el inquilino.
+7. Reemplace los elementos ServiceURL en todos los perfiles técnicos de la API de REST de TypingDNA (REST-TDNA-VerifyUser, REST-TDNA-SaveUser, REST-TDNA-CheckUser) por el punto de conexión de la [API TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).
+8. Cargue los [archivos de directiva](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/policy) en el inquilino.
 
 ## <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 

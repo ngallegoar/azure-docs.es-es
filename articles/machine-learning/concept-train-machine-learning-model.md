@@ -1,7 +1,7 @@
 ---
 title: Creación y entrenamiento de modelos
 titleSuffix: Azure Machine Learning
-description: Conozca los distintos métodos que puede usar para entrenar modelos con Azure Machine Learning. Los estimadores proporcionan una manera sencilla de trabajar con marcos populares como Scikit-learn, TensorFlow, Keras, PyTorch y Chainer. Las canalizaciones de Machine Learning facilitan la programación de ejecuciones desatendidas, el uso de entornos de proceso heterogéneos y la reutilización de partes del flujo de trabajo. Además, las configuraciones de ejecución proporcionan un control granular sobre los destinos de proceso en los que se ejecuta el proceso de entrenamiento.
+description: Aprenda a entrenar modelos con Azure Machine Learning, incluido el trabajo con marcos populares como Scikit-learn, TensorFlow y PyTorch. Las canalizaciones de Machine Learning facilitan la programación de ejecuciones desatendidas, el uso de entornos de proceso heterogéneos y la reutilización de partes del flujo de trabajo. Además, las configuraciones de ejecución proporcionan un control granular sobre los destinos de proceso en los que se ejecuta el proceso de entrenamiento.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: b0a0420b470ee6bf0c7fbb9885e496eaabaf7ef4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1714c1c3c9efb0e78d137ed042420f1c7ba2139f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893537"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330118"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
@@ -25,12 +25,11 @@ Azure Machine Learning proporciona varias maneras de entrenar los modelos, desde
 
     | Método de entrenamiento | Descripción |
     | ----- | ----- |
-    | [Configuración de ejecución](#run-configuration) | Una **manera genérica de entrenar modelos** es usar un script de entrenamiento y una configuración de ejecución. La configuración de ejecución proporciona la información necesaria para configurar el entorno de entrenamiento que se usa para entrenar el modelo. Puede tomar una configuración de ejecución, el script de entrenamiento y un destino de proceso (el entorno de entrenamiento) y ejecutar un trabajo de aprendizaje. |
+    | [Configuración de ejecución](#run-configuration) | Una **manera típica de entrenar modelos** es usar un script de entrenamiento y una configuración de ejecución. La configuración de ejecución proporciona la información necesaria para configurar el entorno de entrenamiento que se usa para entrenar el modelo. Puede especificar el script de entrenamiento, el destino de proceso y el entorno de aprendizaje automático de Azure en la configuración de ejecución y ejecutar un trabajo de entrenamiento. |
     | [Aprendizaje automático automatizado](#automated-machine-learning) | El aprendizaje automático automatizado el permite **entrenar modelos sin un amplio conocimiento de programación ni de ciencia de datos**. En el caso de las personas con conocimientos de programación y de ciencia de datos, proporciona una manera de ahorrar tiempo y recursos mediante la automatización de la selección de algoritmos y la optimización de los hiperparámetros. No tiene que preocuparse de definir una configuración de ejecución al usar el aprendizaje automático automatizado. |
-    | [Estimadores](#estimators) | Las clases de estimador **facilitan el entrenamiento de modelos en función de marcos populares de aprendizaje automático**. Hay clases de estimador para **Scikit-learn**, **PyTorch**, **TensorFlow**, **Chainer** y **Ray RLlib**. También hay un estimador genérico que se puede usar con marcos que aún no tienen una clase de estimador dedicada. No tiene que preocuparse de definir una configuración de ejecución al usar estimadores. |
-    | [Canalización de aprendizaje automático](#machine-learning-pipeline) | Las canalizaciones no son un método de entrenamiento distinto, sino una **manera de definir un flujo de trabajo con pasos modulares y reutilizables**, que puede incluir el entrenamiento como parte del flujo de trabajo. Las canalizaciones de aprendizaje automático admiten el uso de aprendizaje automático automatizado, estimadores y configuración de ejecución para entrenar modelos. Como las canalizaciones no se centran específicamente en el entrenamiento, las razones para usar una canalización son más variadas que los demás métodos de entrenamiento. Por lo general, puede usar una canalización cuando:<br>* Quiere **programar procesos desatendidos**, como trabajos de entrenamiento de larga duración o la preparación de los datos.<br>* Use **varios pasos** coordinados entre ubicaciones de almacenamiento y recursos de proceso heterogéneos.<br>* Use la canalización como una **plantilla reutilizable** para escenarios específicos, como el reentrenamiento o la puntuación por lotes.<br>* **Haga seguimiento y realice versiones de sus orígenes de datos, entradas y salidas** del flujo de trabajo.<br>* El flujo de trabajo **lo implementan distintos equipos que trabajan en pasos específicos de manera independiente**. Luego, los pasos se pueden reunir en una canalización para implementar el flujo de trabajo. |
+    | [Canalización de aprendizaje automático](#machine-learning-pipeline) | Las canalizaciones no son un método de entrenamiento distinto, sino una **manera de definir un flujo de trabajo con pasos modulares y reutilizables**, que puede incluir el entrenamiento como parte del flujo de trabajo. Las canalizaciones de aprendizaje automático admiten el uso de aprendizaje automático automatizado y configuración de ejecución para entrenar modelos. Como las canalizaciones no se centran específicamente en el entrenamiento, las razones para usar una canalización son más variadas que los demás métodos de entrenamiento. Por lo general, puede usar una canalización cuando:<br>* Quiere **programar procesos desatendidos**, como trabajos de entrenamiento de larga duración o la preparación de los datos.<br>* Use **varios pasos** coordinados entre ubicaciones de almacenamiento y recursos de proceso heterogéneos.<br>* Use la canalización como una **plantilla reutilizable** para escenarios específicos, como el reentrenamiento o la puntuación por lotes.<br>* **Haga seguimiento y realice versiones de sus orígenes de datos, entradas y salidas** del flujo de trabajo.<br>* El flujo de trabajo **lo implementan distintos equipos que trabajan en pasos específicos de manera independiente**. Luego, los pasos se pueden reunir en una canalización para implementar el flujo de trabajo. |
 
-+ [SDK de Azure Machine Learning para R](#r-sdk): el SDK para R usa el paquete de reticulate para enlazar con el SDK de Python de Azure Machine Learning. Esto permite acceder a los objetos y métodos principales implementados en el SDK de Python desde cualquier entorno de R.
++ [SDK de Azure Machine Learning para R (versión preliminar)](#r-sdk-preview): el SDK para R usa el paquete de reticulate para enlazar con el SDK de Python de Azure Machine Learning. Esto permite acceder a los objetos y métodos principales implementados en el SDK de Python desde cualquier entorno de R.
 
 + **Diseñador**: el diseñador de Azure Machine Learning proporciona un punto de entrada sencillo al aprendizaje automático para crear una prueba de conceptos o para los usuarios que no tengan mucha experiencia en la codificación. Permite entrenar modelos mediante una interfaz de usuario basada en web de arrastrar y colocar. Puede usar el código de Python como parte del diseño o entrenar modelos sin necesidad de escribir nada de código.
 
@@ -48,18 +47,18 @@ El SDK de Azure Machine Learning para Python permite compilar y ejecutar flujos 
 
 ### <a name="run-configuration"></a>Configuración de ejecución
 
-Se puede definir un trabajo de entrenamiento genérico con Azure Machine Learning mediante [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true). A continuación, se usa la configuración de ejecución junto con los scripts de entrenamiento para entrenar un modelo en un destino de proceso.
+Se puede definir un trabajo de entrenamiento genérico con Azure Machine Learning mediante [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true). A continuación, se usa la configuración de ejecución del script junto con los scripts de entrenamiento para entrenar un modelo en un destino de proceso.
 
 Puede empezar con una configuración de ejecución para el equipo local y, a continuación, cambiar a una para un destino de proceso basado en la nube según sea necesario. Al cambiar el destino de proceso, solo se cambia la configuración de ejecución que se usa. Una ejecución también registra información sobre el trabajo de entrenamiento, como las entradas, las salidas y los registros.
 
 * [¿En qué consiste una configuración de ejecución?](concept-azure-machine-learning-architecture.md#run-configurations)
 * [Tutorial: Entrenamiento del primer modelo de Machine Learning](tutorial-1st-experiment-sdk-train.md)
-* [Ejemplos: ejemplos de Jupyter Notebook del entrenamiento de modelos](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
-* [Cómo: Uso de los destinos de proceso para el entrenamiento de modelos](how-to-set-up-training-targets.md)
+* [Ejemplos: ejemplos de Jupyter Notebook del entrenamiento de modelos](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
+* [Cómo: Configurar una ejecución de entrenamiento](how-to-set-up-training-targets.md)
 
 ### <a name="automated-machine-learning"></a>Automated Machine Learning
 
-Defina las iteraciones, la configuración de hiperparámetros, la caracterización y otras opciones. Durante el entrenamiento, Azure Machine Learning intenta diferentes algoritmos y parámetros en paralelo. El entrenamiento se detiene una vez que alcanza los criterios de salida definidos. No tiene que preocuparse de definir una configuración de ejecución al usar estimadores.
+Defina las iteraciones, la configuración de hiperparámetros, la caracterización y otras opciones. Durante el entrenamiento, Azure Machine Learning intenta diferentes algoritmos y parámetros en paralelo. El entrenamiento se detiene una vez que alcanza los criterios de salida definidos.
 
 > [!TIP]
 > Además del SDK de Python, también puede usar el aprendizaje automático automatizado a través de [Azure Machine Learning Studio](https://ml.azure.com).
@@ -72,25 +71,15 @@ Defina las iteraciones, la configuración de hiperparámetros, la caracterizaci�
 * [Cómo: Entrenamiento automático de un modelo de previsión de series temporales](how-to-auto-train-forecast.md)
 * [Cómo: Cree, explore e implemente experimentos de aprendizaje automático automatizado con Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md)
 
-### <a name="estimators"></a>Estimadores
-
-Los estimadores facilitan el entrenamiento de modelos con marcos populares de aprendizaje automático. Si usa **Scikit-learn**, **PyTorch**, **TensorFlow**, **Chainer** o **Ray RLlib**, debe considerar la posibilidad de usar un estimador para el aprendizaje. También hay un estimador genérico que se puede usar con marcos que aún no tienen una clase de estimador dedicada. No tiene que preocuparse de definir una configuración de ejecución al usar estimadores.
-
-* [¿Qué son los estimadores?](concept-azure-machine-learning-architecture.md#estimators)
-* [Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn mediante Azure Machine Learning](tutorial-train-models-with-aml.md)
-* [Ejemplos: ejemplos de Jupyter Notebook del uso de estimadores](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
-* [Cómo: Creación de estimadores de entrenamiento](how-to-train-ml-models.md)
-
 ### <a name="machine-learning-pipeline"></a>Canalización de aprendizaje automático
 
-Las canalizaciones de aprendizaje automático pueden usar los métodos de entrenamiento mencionados anteriormente (configuración de ejecución, estimadores y aprendizaje automático automatizado). Las canalizaciones tienen más que ver con la creación de un flujo de trabajo, por lo que abarcan algo más que solo el entrenamiento de los modelos. En una canalización, puede entrenar un modelo mediante el aprendizaje automático automatizado, los estimadores o las configuraciones de ejecución.
+Las canalizaciones de aprendizaje automático pueden usar los métodos de entrenamiento mencionados anteriormente. Las canalizaciones tienen más que ver con la creación de un flujo de trabajo, por lo que abarcan algo más que solo el entrenamiento de los modelos. En una canalización, puede entrenar un modelo mediante el aprendizaje automático automatizado o las configuraciones de ejecución.
 
 * [¿Qué son las canalizaciones de Machine Learning en Azure Machine Learning?](concept-ml-pipelines.md)
 * [Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning](how-to-create-your-first-pipeline.md)
 * [Tutorial: Uso de canalizaciones de Azure Machine Learning para la puntuación por lotes](tutorial-pipeline-batch-scoring-classification.md)
 * [Ejemplos: ejemplos de Jupyter Notebook para las canalizaciones de aprendizaje automático](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Ejemplos: canalización con aprendizaje automático automatizado](https://aka.ms/pl-automl)
-* [Ejemplos: canalización con estimadores](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb)
 
 ### <a name="understand-what-happens-when-you-submit-a-training-job"></a>Descripción de lo que ocurre cuando se envía un trabajo de entrenamiento
 
@@ -114,7 +103,7 @@ El ciclo de vida de entrenamiento de Azure consta de los pasos siguientes:
 
 Si elige entrenar en la máquina local ("configurar como ejecución local"), no es necesario usar Docker. Si lo prefiere, puede usar Docker localmente (consulte [Configurar de la canalización de ML](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) para ver un ejemplo).
 
-## <a name="r-sdk"></a>SDK de R
+## <a name="r-sdk-preview"></a>SDK de R (versión preliminar)
 
 El SDK de R permite usar el lenguaje R con Azure Machine Learning. El SDK usa el paquete de reticulate para enlazar con el SDK de Python de Azure Machine Learning. Esto le permite acceder a los objetos y métodos principales implementados en el SDK de Python desde cualquier entorno de R.
 
@@ -160,4 +149,4 @@ Puede usar la extensión de VS Code para ejecutar y administrar los trabajos de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre el [uso de destinos de proceso para el entrenamiento del modelo](how-to-set-up-training-targets.md).
+Obtenga información acerca de cómo [configurar una ejecución de entrenamiento](how-to-set-up-training-targets.md).

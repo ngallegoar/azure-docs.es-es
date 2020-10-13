@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4afaf536a9c65758ad030e5cdeeee5fb97074d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7cf9f18701317482284a3f1fa4b69a2c2927f64a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046666"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287719"
 ---
 # <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>Diagnóstico de problemas de conectividad de Azure Synapse Studio (versión preliminar) con un script de PowerShell
 
@@ -27,13 +27,13 @@ Azure Synapse Studio (versión preliminar) depende de un conjunto de puntos de c
 
 ## <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 
-Haga clic con el botón derecho en el siguiente vínculo y haga clic en "Guardar destino como":
+Haga clic con el botón derecho en el siguiente vínculo y seleccione "Guardar destino como":
 
 - [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
 
 Como alternativa, puede abrir el vínculo directamente y guardar el archivo de script abierto. No guarde la dirección del vínculo anterior, ya que puede cambiar en el futuro.
 
-En el Explorador de archivos, haga clic con el botón derecho en el archivo de script descargado y haga clic en "Ejecutar con PowerShell".
+En el Explorador de archivos, haga clic con el botón derecho en el archivo de script descargado y seleccione "Ejecutar con PowerShell".
 
 ![Ejecución del archivo de script descargado con PowerShell](media/troubleshooting-synapse-studio-powershell/run-with-powershell.png)
 
@@ -58,4 +58,4 @@ Si es administrador de red y está ajustando la configuración del firewall para
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si los pasos anteriores no le ayudan a resolver el problema, [cree una incidencia de soporte técnico](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+Si los pasos anteriores no ayudan a resolver el problema, [cree una incidencia de soporte técnico](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

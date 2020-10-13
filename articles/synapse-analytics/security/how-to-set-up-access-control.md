@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6b1fe78ac00b57d7627a64970e84ae8b717ae5c3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501923"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260162"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Protección del área de trabajo de Synapse (versión preliminar)
 
@@ -97,8 +97,8 @@ El área de trabajo de Synapse necesita acceso a STG1 y CNT1 para que ejecutar c
 
 - Abra Azure Portal.
 - Vaya a al área de trabajo WS1.
-- En **Configuración**, haga clic en **SQL Active Directory admin** (Administrador de SQL Active Directory).
-- Haga clic en **Establecer administrador** y seleccione WS1\_SQLAdmins.
+- En **Configuración**, seleccione **Administrador de SQL Active Directory**.
+- Seleccione **Establecer administrador** y seleccione WS1\_SQLAdmins.
 
 ## <a name="step-6-maintain-access-control"></a>PASO 6: Mantenimiento del control de acceso
 
@@ -123,8 +123,9 @@ Los usuarios de cada rol deben completar los siguientes pasos:
 
 > [!NOTE]
 > [1] Para crear grupos de SQL o Spark, el usuario debe tener como mínimo el rol de Colaborador en el área de trabajo de Synapse.
-> [!TIP]
 >
+ 
+>[!TIP]
 > - Algunos de los pasos no estarán permitidos de forma deliberada en función del rol.
 > - Tenga en cuenta que pueden producirse errores en algunas tareas si la seguridad no se configuró por completo. Dichas tareas se indican en la tabla.
 

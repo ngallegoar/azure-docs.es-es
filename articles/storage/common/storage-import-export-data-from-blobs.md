@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513508"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441890"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Uso del servicio Azure Import/Export para exportar datos de Azure Blob Storage
 
@@ -32,7 +32,7 @@ Debe:
   - Generar un número de seguimiento del trabajo de exportación.
   - Cada trabajo debe tener un número de seguimiento independiente. No se admiten varios trabajos con el mismo número de seguimiento.
   - Si no tiene una cuenta de transportista, vaya a:
-    - [Crear una cuenta de FedEX](https://www.fedex.com/en-us/create-account.html), o
+    - [Crear una cuenta de FedEx](https://www.fedex.com/en-us/create-account.html), o
     - [Crear una cuenta de DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Paso 1: Crear un trabajo de exportación
@@ -85,7 +85,7 @@ Siga estos pasos para crear un trabajo de exportación en Azure Portal.
 
     - Seleccione el transportista en la lista desplegable. Si desea usar una empresa de mensajería que no sea FedEx o DHL, elija una de las opciones de la lista desplegable. Póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com` con la información relacionada con el transportista que quiere usar.
     - Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de exportación.
-    - Proporcione información completa y válida del contacto: nombre, teléfono, correo electrónico, dirección postal, ciudad, código postal, estado o provincia y país o región.
+    - Proporcione la siguiente información completa y válida: nombre de contacto, teléfono, correo electrónico, dirección postal, ciudad, código postal, estado o provincia y país o región.
 
         > [!TIP]
         > En lugar de especificar una dirección de correo electrónico para un solo usuario, proporcione un correo electrónico de grupo. Esto garantiza que recibirá notificaciones incluso si sale un administrador.
@@ -119,7 +119,7 @@ Cuando el panel notifica que el trabajo está completo, se le envían los discos
 1. Después de que haya recibido las unidades de disco con los datos exportados, tiene que obtener las claves de BitLocker para desbloquear las unidades de disco. Vaya al trabajo de exportación en Azure Portal. Haga clic en la pestaña **Import/Export**.
 2. Seleccione el trabajo de exportación de la lista y haga clic en él. Vaya a **Cifrado** y copie las claves.
 
-   ![Visualización de claves de BitLocker de un trabajo de exportación](./media/storage-import-export-service/export-job-bitlocker-keys-02.png)
+   ![Visualización de claves de BitLocker de un trabajo de exportación](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
 3. Use las claves de BitLocker para desbloquear los discos.
 
@@ -127,15 +127,13 @@ La exportación se ha terminado.
 
 ## <a name="step-5-unlock-the-disks"></a>Paso 5: Desbloqueo de los discos
 
-Si usa la versión 1.4.0.300 de la herramienta WAImportExport, utilice el siguiente comando para desbloquear la unidad:
+Escriba el siguiente comando para desbloquear la unidad:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
 
 Este es un ejemplo de la entrada.
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
-
-Si usa versiones anteriores de la herramienta, use el cuadro de diálogo BitLocker para desbloquear la unidad.
 
 En este momento, puede eliminar el trabajo o dejarlo. Los trabajos se eliminan automáticamente después de 90 días.
 

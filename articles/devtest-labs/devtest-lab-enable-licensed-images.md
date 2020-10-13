@@ -3,12 +3,12 @@ title: Habilitación de una imagen con licencia en su laboratorio en Azure DevTe
 description: Aprenda a habilitar una imagen con licencia en Azure DevTest Labs mediante Azure Portal
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2b6e495be2257548782143517f5a970b424860c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286519"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276363"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Habilitación de una imagen con licencia en su laboratorio en Azure DevTest Labs
 
@@ -47,7 +47,7 @@ Siga estos pasos para habilitar la implementación mediante programación para u
 
 1. Identifique una imagen con licencia para la que desee que los usuarios tengan acceso, pero cuyos términos no se hayan aceptado. Por ejemplo, podría ver una máquina virtual de ciencia de datos que muestra un estado de **Términos aceptados** o **Revisión de términos necesaria**.
 
-    ![Configuración de la ventana de implementación mediante programación](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
+    ![Captura de pantalla que muestra imágenes de Data Science Virtual Machine con las opciones "Términos aceptados" y "Revisión de términos necesaria" del estado de la oferta.](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
    > Las máquinas virtuales de ciencia de datos son imágenes de Azure Virtual Machines preinstaladas, configuradas y probadas con varias de las herramientas más populares que se usan habitualmente para análisis de datos, aprendizaje automático y entrenamiento con inteligencia artificial. La [Introducción a la máquina virtual de ciencia de datos de Azure ](../machine-learning/data-science-virtual-machine/overview.md) es una gran oportunidad para obtener información sobre DSVM.

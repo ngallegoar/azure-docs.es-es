@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: 7438351aa9849e3110952043eff8f7d860b5b7de
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015839"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400696"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Administración de la cuenta de marketplace comercial en el Centro de partners
 
@@ -306,7 +306,7 @@ Para más información sobre la administración de roles y permisos en otras ár
 
 ## <a name="manage-tenants"></a>Administración de inquilinos
 
-Un inquilino de Azure Active Directory (AD), también denominado como "cuenta profesional" en esta documentación, es una representación de la configuración de la organización en Azure Portal y le ayuda a administrar una instancia específica de los servicios en la nube de Microsoft para los usuarios internos y externos. Si la organización se suscribió a un servicio en la nube de Microsoft, como Azure, Microsoft Intune u Office 365, ya se estableció un inquilino de Azure AD.
+Un inquilino de Azure Active Directory (AD), también denominado como "cuenta profesional" en esta documentación, es una representación de la configuración de la organización en Azure Portal y le ayuda a administrar una instancia específica de los servicios en la nube de Microsoft para los usuarios internos y externos. Si la organización se suscribió a un servicio en la nube de Microsoft, como Azure, Microsoft Intune u Microsoft 365, ya se estableció automáticamente un inquilino de Azure AD.
 
 Puede configurar varios inquilinos para su uso con el Centro de partners. Cualquier usuario con el rol **Administrador** en la cuenta del Centro de partners tendrá la opción de agregar y quitar inquilinos de Azure AD de la cuenta.  
 

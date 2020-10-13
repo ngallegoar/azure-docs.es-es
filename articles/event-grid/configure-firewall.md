@@ -3,12 +3,12 @@ title: Configuración del firewall de IP para temas o dominios de Azure Event Gr
 description: En este artículo se describe cómo configurar las opciones de firewall para los temas o dominios de Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: df6098df4817ee6c47378704c25d07433d6b9480
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509425"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324168"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Configuración del firewall de IP para temas o dominios de Azure Event Grid 
 De forma predeterminada, el tema y el dominio son accesibles desde Internet siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones IPv4 o intervalos de direcciones IPv4 en la notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Los publicadores que se originen desde cualquier otra dirección IP se rechazarán y recibirán una respuesta 403 (Prohibido). Para más información sobre las características de seguridad de red admitidas por Event Grid, consulte [Seguridad de red para Event Grid](network-security.md).
@@ -23,7 +23,7 @@ En esta sección se muestra cómo usar Azure Portal para crear reglas de firewal
 
     Puede restringir el tráfico mediante reglas de firewall basadas en IP. Especifique una única dirección IPv4 o un intervalo de direcciones IP en la notación de enrutamiento de interdominios sin clases (CIDR). 
 
-    ![Página de redes públicas](./media/configure-firewall/public-networks-page.png)
+    ![Captura de pantalla que muestra la página "Acceso a la red pública" con "Redes públicas" seleccionado.](./media/configure-firewall/public-networks-page.png)
 3. Seleccione **Private endpoints only** (Solo puntos de conexión privados) para permitir que sean solo las conexiones de puntos de conexión privados las que tengan acceso a este recurso. Use la pestaña **Conexiones de punto de conexión privado** de esta página para administrar las conexiones. 
 
     ![Página de redes públicas](./media/configure-firewall/private-endpoints-page.png)

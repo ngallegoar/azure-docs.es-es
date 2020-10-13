@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/17/2019
 ms.author: Zhchia
-ms.openlocfilehash: aa11cd9dedc2446b3952378e53b1f7248abbfa47
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3c2fba1cba2c06e07b262e37eac651afb5c102cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526234"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317552"
 ---
 # <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>Tutorial: Configuración de Workteam para el aprovisionamiento automático de usuarios
 
@@ -54,15 +54,15 @@ Antes de configurar Workteam para el aprovisionamiento automático de usuarios c
 
 1. Inicie sesión en [Workteam](https://app.workte.am/account/signin). Haga clic en **Configuración de la organización** > **CONFIGURACIÓN**.
 
-    ![Workteam](media/workteam-provisioning-tutorial/settings.png)
+    ![Captura de pantalla de la I U de Workteam con las opciones Organization settings (Configuración de la organización) y SETTINGS (CONFIGURACIÓN) seleccionadas.](media/workteam-provisioning-tutorial/settings.png)
 
 2. Desplácese hacia abajo y habilite las funcionalidades de aprovisionamiento de Workteam.
 
-    ![Workteam](media/workteam-provisioning-tutorial/icon.png)
+    ![Captura de pantalla de la parte inferior de la sección SETTINGS (CONFIGURACIÓN) con el icono de engranaje de aprovisionamiento de usuarios S C I M seleccionado.](media/workteam-provisioning-tutorial/icon.png)
 
 3. Copie la **dirección URL base** y el **token de portador**. Estos valores se escriben en el campo **URL de inquilino** y **Token secreto** de la pestaña Aprovisionamiento de la aplicación Workteam en Azure Portal.
 
-    ![Workteam](media/workteam-provisioning-tutorial/scim.png)
+    ![Captura de pantalla del cuadro de diálogo S C I M Settings (Configuración de S C I M) con los cuadros de texto BASE U R L (U R L base) y BEARER TOKEN (TOKEN DE PORTADOR) seleccionadas.](media/workteam-provisioning-tutorial/scim.png)
 
 
 ## <a name="add-workteam--from-the-gallery"></a>Adición de Workteam desde la galería
@@ -106,11 +106,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección Credenciales de administrador, escriba los valores de **URL base** y **Token de portador** recuperados anteriormente en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Workteam. Si la conexión no se establece, asegúrese de que la cuenta de Workteam tiene permisos de administrador y pruebe de nuevo.
 

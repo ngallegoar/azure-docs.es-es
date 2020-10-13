@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.openlocfilehash: 6fe256660dc73aa411cf06e2b56ce9ef26934e2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9be2205ad0664d58c7a2ef0c07481b1c7aa02402
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548011"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273354"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Tutorial: Configuración de MerchLogix para el aprovisionamiento automático de usuarios
 
@@ -55,7 +55,7 @@ Antes de configurar MerchLogix para el aprovisionamiento automático de usuarios
 
 5. En el panel de resultados, seleccione **MerchLogix** y, luego, haga clic en el botón **Agregar** para agregar MerchLogix a la lista de aplicaciones SaaS.
 
-    ![Aprovisionamiento de MerchLogix][4]
+    ![Captura de pantalla de la sección Agregar de la galera con el cuadro de texto Enter a name (Escriba un nombre) resaltado.][4]
 
 ## <a name="assigning-users-to-merchlogix"></a>Asignación de usuarios a MerchLogix
 
@@ -88,7 +88,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Aprovisionamiento de MerchLogix](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
+    ![Captura de pantalla de la sección MerchLogix - Prisioning con la opción de aprovisionamiento resaltada, el modo de aprovisionamiento establecido en automático y la opción para probar la conexión resaltada.](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
 
 5. En la sección **Credenciales de administrador**:
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configuración de Jive para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Jive.
+description: Conozca los pasos que debe seguir en Jive y en Azure AD para aprovisionar y cancelar el aprovisionamiento de forma automática de cuentas de usuario de Azure AD a Jive.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 351c7e21bfe59b22f451adddad8fed220c218358
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: fa45ece76499b50694d366ed2dcdd57cc1e0c7dc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983118"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312103"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configuración de Jive para aprovisionar usuarios automáticamente
 

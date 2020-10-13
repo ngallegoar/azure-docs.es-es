@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 50d2d974815e0921d99154bce67f604b7314970d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 86a6c1a15d804a6c758e90dbd4bdd7057a7a2716
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90892032"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295295"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Salida de Event Hubs desde Azure Stream Analytics
 
@@ -46,7 +46,23 @@ El tamaño máximo del mensaje es 256 KB o 1 MB por mensaje. Para obtener más
 
 ## <a name="custom-metadata-properties-for-output"></a>Propiedades de metadatos personalizadas para la salida
 
-Puede asociar las columnas de la consulta como propiedades de usuario a los mensajes salientes. Estas columnas no se envían a la carga útil. Las propiedades están presentes como diccionario en el mensaje de salida. *Key* es el nombre de columna y *value* es el valor de columna en el diccionario de propiedades. Se admiten todos los tipos de datos de Stream Analytics, excepto los tipos de registro y matriz.  
+Puede asociar las columnas de la consulta como propiedades de usuario a los mensajes salientes. Estas columnas no se envían a la carga útil. Las propiedades están presentes como diccionario en el mensaje de salida. *Key* es el nombre de columna y *value* es el valor de columna en el diccionario de propiedades. Se admiten todos los tipos de datos de Stream Analytics, excepto los tipos de registro y matriz.
+
+En el ejemplo siguiente, los campos `DeviceId` y `DeviceStatus` se agregan a los metadatos.
+
+1. Use la consulta siguiente:
+
+   ```sql
+   select *, DeviceId, DeviceStatus from iotHubInput
+   ```
+
+1. Configure `DeviceId,DeviceStatus` como columnas de propiedades en la salida.
+
+   :::image type="content" source="media/event-hubs-output/property-columns.png" alt-text="Columnas de propiedades":::
+
+En la siguiente imagen se muestran las propiedades esperadas del mensaje de salida inspeccionadas en EventHub mediante [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Columnas de propiedades":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

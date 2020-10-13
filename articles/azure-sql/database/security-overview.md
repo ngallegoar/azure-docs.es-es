@@ -12,19 +12,19 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 09/21/2020
-ms.openlocfilehash: f3ae5e1ef4dc2968724daeafb32f26cf445b0d2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885303"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321431"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Información general sobre las capacidades de seguridad de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 En este artículo se detallan los fundamentos de la protección de la capa de datos de una aplicación con [Azure SQL Database](sql-database-paas-overview.md) e [Instancia administrada de Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md). La estrategia de seguridad descrita sigue el enfoque por capas de defensa en profundidad, como se muestra en la siguiente imagen, y se mueve desde el exterior hacia el centro:
 
-![sql security layer.png](./media/security-overview/sql-security-layer.png)
+![Diagrama de capas de defensa en profundidad. Los datos del cliente se revisten de capas de seguridad de red, administración de acceso e información sobre amenazas.](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Seguridad de las redes
 
@@ -77,7 +77,7 @@ Como procedimiento recomendado, cree roles personalizados cuando sea necesario. 
 
 La seguridad de nivel de fila permite a los clientes controlar el acceso a las filas de una tabla de base de datos según las características del usuario que ejecuta una consulta (por ejemplo, la pertenencia a grupos o el contexto de ejecución). La seguridad de nivel de fila también puede utilizarse para implementar los conceptos de seguridad basados en etiquetas personalizados. Para más información, consulte [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security).
 
-![azure database rls.png](./media/security-overview/azure-database-rls.png)
+![Diagrama que muestra que la seguridad de nivel de fila protege filas individuales de una base de datos SQL del acceso de los usuarios a través de una aplicación cliente.](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Protección contra amenazas
 
@@ -91,7 +91,7 @@ La auditoría de SQL Database e Instancia administrada de SQL hace un seguimient
 
 Advanced Threat Protection analiza los registros para detectar un comportamiento poco habitual e intentos potencialmente peligrosos de acceder o aprovechar las bases de datos. Las alertas se crean para detectar actividades sospechosas, como inyección de código SQL, infiltración potencial de datos y ataques de fuerza bruta, o anomalías en los patrones de acceso para detectar elevaciones de privilegios y uso de credenciales vulneradas. Las alertas se ven desde [Azure Security Center](https://azure.microsoft.com/services/security-center/), donde se proporcionan detalles de las actividades sospechosas y se dan recomendaciones para una investigación más minuciosa, junto con las acciones para mitigar la amenaza. La protección contra amenazas avanzada se puede habilitar por servidor, bajo una cuota adicional. Para más información, vea [Introducción a la protección de amenazas avanzadas de SQL Database](threat-detection-configure.md).
 
-![azure database td.jpg](./media/security-overview/azure-database-td.jpg)
+![Diagrama que muestra cómo la detección de amenazas de SQL supervisa el acceso a la base de datos SQL en una aplicación web por un atacante externo y una persona interna malintencionado.](./media/security-overview/azure-database-td.jpg)
 
 ## <a name="information-protection-and-encryption"></a>Protección y cifrado de información
 
@@ -122,13 +122,13 @@ La compatibilidad de [Bring Your Own Key](transparent-data-encryption-byok-overv
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (cifrado en uso)
 
-![azure database ae.png](./media/security-overview/azure-database-ae.png)
+![Diagrama que muestra los aspectos básicos de la característica Always Encrypted. Solo las aplicaciones que contengan una clave pueden acceder a las bases de datos SQL con bloqueo.](./media/security-overview/azure-database-ae.png)
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) es una característica creada para proteger la información confidencial almacenada en columnas específicas de bases de datos (por ejemplo, números de tarjeta de crédito, números de identificación nacional o datos según la _necesidad de conocimiento_). Esto incluye a administradores de bases de datos u otros usuarios con privilegios que tengan autorización para acceder a la base de datos para realizar tareas de administración, pero que no tienen necesidades empresariales de acceder a datos específicos de las columnas cifradas. Los datos están siempre cifrados, lo que significa que los datos cifrados se descifran solo para el procesamiento por parte de las aplicaciones cliente con acceso a la clave de cifrado. La clave de cifrado nunca se expone a SQL Database ni a Instancia administrada de SQL, y se puede almacenar en el [almacén de certificados de Windows](always-encrypted-certificate-store-configure.md) o en [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos
 
-![azure database ddm.png](./media/security-overview/azure-database-ddm.png)
+![Diagrama que muestra el enmascaramiento dinámico de datos. Una aplicación empresarial envía datos a una base de datos SQL que los enmascara antes de enviarlos de vuelta a la aplicación empresarial.](./media/security-overview/azure-database-ddm.png)
 
 El enmascaramiento dinámico de datos limita la exposición de información confidencial ocultándolos a los usuarios sin privilegios. La característica Enmascaramiento dinámico de datos detecta automáticamente datos posiblemente confidenciales en Azure SQL Database e Instancia administrada de SQL y proporciona recomendaciones accionables para enmascarar estos campos, con un impacto mínimo en la capa de aplicación. Su funcionamiento consiste en ocultar los datos confidenciales del conjunto de resultados de una consulta en los campos designados de la base de datos, mientras que los datos de la base de datos no cambian. Para obtener más información, vea [Introducción al enmascaramiento dinámico de datos de SQL Database e Instancia administrada de SQL](dynamic-data-masking-overview.md).
 

@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa8f2d14124e7cfc5db0025c295f9b38d96bf56c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 0a79f6883a150cb95724a7be30dcbd2e8e03f01f
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921844"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396083"
 ---
-# <a name="choose-the-right-consistency-level"></a>Selección del nivel de coherencia adecuado 
+# <a name="how-to-choose-the-right-consistency-level-for-your-azure-cosmos-db-application"></a>¿Cómo elegir el nivel de coherencia adecuado para la aplicación de Azure Cosmos DB? 
 
 Las bases de datos distribuidas que dependen de la replicación para su alta disponibilidad, su baja latencia o ambas, constituyen el compromiso fundamental entre la coherencia de lectura y la disponibilidad, la latencia y el rendimiento. La mayoría de las bases de datos distribuidas disponibles comercialmente solicitan a los desarrolladores que elijan entre los dos modelos de coherencia extrema: coherencia *alta* y *posible* coherencia. Azure Cosmos DB permite a los desarrolladores elegir entre cinco modelos de coherencia bien definidos: *alta*, de *obsolescencia limitada*, de *sesión*, de *prefijo coherente* y *final*. Cada uno de estos modelos de coherencia está bien definido, es intuitivo y puede utilizarse para escenarios específicos del mundo real. Cada uno de los cinco modelos de coherencia ofrecen [contrapartidas entre rendimiento y disponibilidad](consistency-levels-tradeoffs.md) precisas, y están respaldados por Acuerdos de Nivel de Servicio. Puede configurar una coherencia predeterminada en el nivel de cuenta e [invalidarla en el nivel de solicitud](how-to-manage-consistency.md#override-the-default-consistency-level). Las siguientes consideraciones sencillas le ayudarán a tomar la decisión correcta en muchos escenarios comunes.
 

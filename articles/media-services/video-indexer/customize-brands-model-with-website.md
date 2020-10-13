@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: kumud
-ms.openlocfilehash: c3223bed6c8335a31b1bfb918e6d44e3b54a7787
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5bd88493324867dc957922a732506f5cfb8bbc20
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047273"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361241"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personalización de un modelo de marcas con el sitio web de Video Indexer
 
@@ -42,7 +42,7 @@ Tiene la opción de establecer si quiere que las marcas de la base de datos de m
 
 3. Para editar las marcas, seleccione la pestaña **Brands** (Marcas).
 
-    ![Personalización de un modelo de marcas en Video Indexer](./media/customize-brand-model/customize-brand-model.png)
+    ![Captura de pantalla que muestra la pestaña de marcas del cuadro de diálogo de personalización del modelo de contenido.](./media/customize-brand-model/customize-brand-model.png)
 
 4. Marque la opción **Show brands suggested by Bing** (Mostrar marcas sugeridas por Bing) si quiere que Video Indexer incluya las marcas sugeridas por Bing. En caso contrario, déjela sin marcar.
 
@@ -54,7 +54,7 @@ La sección **Include brands** (Incluir marcas) representa las marcas personaliz
 
 1. Seleccione **+ Add brand** (Agregar marca).
 
-    ![Personalización de un modelo de marcas en Video Indexer](./media/customize-brand-model/add-brand.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo para incluir marcas, donde puede agregar marcas.](./media/customize-brand-model/add-brand.png)
 
     Proporcione un nombre (obligatorio), la categoría (opcional), la descripción (opcional) y la dirección URL de referencia (opcional).
     El campo de categoría tiene como fin ayudarle a etiquetar sus marcas. Este campo se muestra como las *etiquetas* de la marca al usar las API de Video Indexer. Por ejemplo, la marca "Azure" se puede etiquetar o clasificar como "Nube".

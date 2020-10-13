@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5dd1fd1209be29774d19a155b6e585fa6ebcc036
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b695205c08f9039fbf91eaeddb7622b784d81d12
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930492"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400594"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -264,7 +264,7 @@ La retención predeterminada de los recursos de Application Insights es de 90 d�
 
 Para cambiar la retención, en el recurso de Application Insights, vaya a la página **Uso y costos estimados** y seleccione la opción **Retención de datos**:
 
-![Ajuste del límite de volumen de telemetría diario](./media/pricing/pricing-005.png)
+![Captura de pantalla que muestra dónde cambiar el período de retención de datos.](./media/pricing/pricing-005.png)
 
 Cuando se reduce la retención, hay un período de gracia de varios días antes de que se quiten los datos más antiguos.
 

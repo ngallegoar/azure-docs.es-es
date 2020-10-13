@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5b4e74d5db2d1454360370c05d75cdf826875143
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d56f9890396d0381d24676964dabc57e2020ec28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535941"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317436"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutorial: Configuración de DocuSign para el aprovisionamiento automático de usuarios
 
@@ -65,7 +65,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 1. Establezca el **modo de aprovisionamiento** en **Automático**. 
 
-    ![Aprovisionamiento](./media/docusign-provisioning-tutorial/provisioning.png)
+    ![Captura de pantalla de la pestaña Aprovisionamiento de DocuSign en Azure Portal. El modo de aprovisionamiento se establece en Automático y Nombre de usuario de administrador, Contraseña y Probar conexión se resaltan.](./media/docusign-provisioning-tutorial/provisioning.png)
 
 1. En la sección **Credenciales de administrador**, proporcione los siguientes valores de configuración:
    

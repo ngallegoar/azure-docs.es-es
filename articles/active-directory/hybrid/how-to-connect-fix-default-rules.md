@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: a0fc1bc3158e04c9b1f677af7ef2375ac3ed2ce7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320054"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corrección de las reglas predeterminadas modificadas en Azure AD Connect
 
@@ -73,7 +73,7 @@ Si las extensiones no funcionan, pruebe a agregar dos nuevas reglas de sincroniz
 #### <a name="add-an-inbound-sync-rule"></a>Agregar una regla de sincronización de entrada
 Una regla de sincronización de entrada significa que el origen del atributo es un espacio conector y el destino es el metaverso. Por ejemplo, para que exista un nuevo flujo de atributo de Active Directory local a Azure Active Directory, cree una nueva regla de sincronización de entrada. Inicie el **Editor de reglas de sincronización**, seleccione la dirección **Entrante** y seleccione **Agregar nueva regla**. 
 
- ![Editor de reglas de sincronización](media/how-to-connect-fix-default-rules/default3a.png)
+ ![Captura de pantalla que muestra el "Editor de reglas de sincronización" con las opciones "Entrante" y "Agregar nueva regla" seleccionadas.](media/how-to-connect-fix-default-rules/default3a.png)
 
 Siga su propia convención de nomenclatura para asignar un nombre a la regla. En este caso, utilizamos **Custom In from AD - User**. Esto significa que la regla es personalizada y de entrada del espacio del conector de Active Directory al metaverso.   
 
@@ -176,7 +176,7 @@ Seleccione **Vista previa...**
 
 En la ventana de vista previa, seleccione **Generate Preview** (Generar vista previa) e **Import Attribute Flow** (importar flujo de atributo) en el panel izquierdo.
 
-![Vista previa](media/how-to-connect-fix-default-rules/default14.png)
+![Captura de pantalla que muestra la ventana "Vista previa" con las opciones "Import Attribute Flow" (Importar flujo de atributos) y "Generate Preview" (Generar vista previa) seleccionadas.](media/how-to-connect-fix-default-rules/default14.png)
  
 En este caso, tenga en cuenta que la regla recién agregada se ejecuta en el objeto y la propiedad `cloudFiltered` está establecida en true.
 

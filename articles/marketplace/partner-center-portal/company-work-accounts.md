@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/30/2019
-ms.openlocfilehash: 6fca3429ab96a63b01eaa7e9d1f0ae83dc46e9c7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 246fbcd9bc72683e41489daf105f174f9380c029
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119759"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400271"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Cuentas profesionales y el Centro de partners
 
@@ -20,7 +20,7 @@ El Centro de partners usa cuentas profesionales de empresa, también conocidas c
 
 ## <a name="check-whether-your-company-already-has-a-work-account"></a>Comprobación de si su empresa ya tiene una cuenta profesional
 
-Si su empresa se ha suscrito a un servicio en la nube de Microsoft, como Azure, Microsoft Intune u Office 365, ya tiene un dominio de cuenta de correo electrónico profesional (también denominada inquilino de Azure Active Directory) que se puede usar con el Centro de partners.
+Si su empresa se ha suscrito a un servicio en la nube de Microsoft, como Azure, Microsoft Intune o Microsoft 365, ya tiene un dominio de cuenta de correo electrónico profesional (también denominada inquilino de Azure Active Directory) que se puede usar con el Centro de partners.
 
 Siga estos pasos para comprobar:
 1. Inicie sesión en Azure Portal en https://portal.azure.com.

@@ -3,12 +3,12 @@ title: Suscripciones de Azure Event Grid a través del portal
 description: En este artículo se explica cómo crear suscripciones a Event Grid para los orígenes admitidos, como Azure Blob Storage, mediante Azure Portal.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: acbf83d6df0c7d74da5e561d98d0c3df23d5fbd5
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e80e2243c93ab38187646256f567d6ab73c40100
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526466"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308510"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Suscripción a eventos a través del portal
 
@@ -40,7 +40,7 @@ Para crear una suscripción de Event Grid para cualquiera de los [orígenes de e
 
 1. Proporcione detalles adicionales sobre la suscripción a los eventos, como el punto de conexión para el control de eventos y un nombre de la suscripción.
 
-   ![Indicación de detalles de la suscripción](./media/subscribe-through-portal/provide-subscription-details.png)
+   ![Captura de pantalla que muestra las secciones "Detalles de punto de conexión" y "Detalles de suscripciones de eventos" con un valor de nombre de suscripción especificado.](./media/subscribe-through-portal/provide-subscription-details.png)
 
 1. Para habilitar la cola de mensajes fallidos y personalizar las directivas de reintento, seleccione **Características adicionales**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 9f3d95d7ae725dba700b0a060ba74552d6b83ad5
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172250"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329268"
 ---
 # <a name="public-ip-addresses"></a>Direcciones IP públicas
 
@@ -165,6 +165,13 @@ Puede asociar una dirección IP pública con una [puerta de enlace de aplicacion
 * Asigne una dirección IP pública **dinámica** de nivel básico a una configuración front-end V1 de la puerta de enlace de aplicaciones. 
 * Asigne un dirección de SKU estándar **estática** a una configuración de front-end V2.
 
+## <a name="azure-firewall"></a>Azure Firewall
+
+[Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) permite crear, aplicar y registrar directivas de conectividad de red y de aplicaciones, en suscripciones y redes virtuales.
+
+Solo es posible asociar direcciones IP públicas estándar **estáticas** con un firewall. Esto permite que los firewalls externos identifiquen el tráfico que procede de su red virtual. 
+
+
 ## <a name="at-a-glance"></a>De un vistazo
 
 En la siguiente tabla se muestra la propiedad a través de la cual una dirección IP pública se puede asociar a un recurso de nivel superior y los métodos de asignación posibles.
@@ -175,6 +182,7 @@ En la siguiente tabla se muestra la propiedad a través de la cual una direcció
 | Equilibrador de carga accesible desde Internet |Configuración de front-end |Sí |Sí |
 | puerta de enlace de VPN |Configuración de dirección IP de puerta de enlace |Sí |No |
 | puerta de enlace de aplicaciones |Configuración de front-end |Sí (solo en V1) |Sí (solo en V2) |
+| Azure Firewall | Configuración de front-end | No | Sí|
 
 ## <a name="limits"></a>Límites
 

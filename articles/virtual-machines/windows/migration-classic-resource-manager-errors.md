@@ -1,6 +1,6 @@
 ---
 title: Errores comunes durante la migración del modelo clásico a Azure Resource Manager
-description: En este artículo se catalogan los errores y las soluciones más comunes durante la migración de recursos de IaaS de la administración de servicios de Azure a la pila de Azure Resource Manager.
+description: Conozca los errores y las soluciones más comunes durante la migración de recursos de IaaS de Azure Service Management a la pila de Azure Resource Manager.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 00ecb64bceafbacafc007754e8bcc0aa94c8b984
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b052951b0d601681239701711a6636156ad4ebf1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505009"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320037"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Errores comunes durante la migración del modelo clásico a Azure Resource Manager
 

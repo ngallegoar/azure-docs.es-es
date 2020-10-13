@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9d4f30c5946e07b9f71c007d6f3f61efcae28637
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b2a01e816c0f0569c207aa65e5027b935210e3b9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296522"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331784"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solución de problemas del dispositivo de Azure Migrate y la detección
 
@@ -234,6 +234,7 @@ Los errores de detección de aplicaciones típicos se resumen en la tabla.
 9033: No se puede detectar porque el nombre de usuario de la máquina virtual contiene caracteres no válidos.     |   Se han detectado caracteres no válidos en el nombre de usuario.   |   Proporcione de nuevo la credencial de máquina virtual asegurándose de que no hay caracteres no válidos.
 9034: El nombre de usuario proporcionado no está en formato UPN.    |   El nombre de usuario no está en formato UPN.  |   Asegúrese de que el nombre de usuario está en formato de nombre principal de usuario (UPN).
 9035: No se puede detectar porque el modo de lenguaje de PowerShell no está establecido en 'Lenguaje completo'.  |   El modo de lenguaje de PowerShell en la máquina virtual invitada no se estableció en idioma completo.   |   Asegúrese de que el modo de lenguaje de PowerShell se estableció en 'Lenguaje completo'.
+9037: La recopilación de datos se pausa temporalmente porque el tiempo de respuesta de la máquina virtual es demasiado alto.    |   La máquina virtual detectada está tardando demasiado tiempo en responder     |   No es necesaria ninguna acción. Se probará con un nuevo intento en 24 horas para la detección de aplicaciones y 3 horas para el análisis de dependencias (sin agente).
 10000: El tipo de sistema operativo no es compatible.   |   El sistema operativo que se ejecuta en el servidor no es Windows ni Linux.    |   Los tipos de sistema operativo admitidos son solo Windows y Linux.
 10001: No se encuentra el script de detección de servidores en el dispositivo.    |   La detección no funciona según lo esperado.   |   Para resolverlo, póngase en contacto con el servicio de Soporte técnico de Microsoft.
 10002: La tarea de detección no se ha completado a tiempo.     |   El agente de detección no funciona según lo esperado.     |   El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft.

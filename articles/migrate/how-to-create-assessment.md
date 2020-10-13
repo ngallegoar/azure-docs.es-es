@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: ec95cde1f023b4d034c2fae9cc5a54744ccdc9a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4132ca675af136d7fd50b8ddd02277919a5ed28
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549802"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361099"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Creación de una valoración de máquina virtual de Azure
 
@@ -43,7 +43,7 @@ Las evaluaciones se realizan como se indica a continuación:
 1. Consulte los [procedimientos recomendados](best-practices-assessment.md) para crear evaluaciones.
 2. En la pestaña **Servidores**, en el icono **Azure Migrate: Server Assessment**, haga clic en **Evaluar**.
 
-    ![Evaluar](./media/how-to-create-assessment/assess.png)
+    ![Captura de pantalla que muestra los servidores de Azure Migrate con la opción Evaluar seleccionada en Herramientas de evaluación.](./media/how-to-create-assessment/assess.png)
 
 3. En **Evaluar los servidores**, seleccione el tipo de evaluación como "Máquina virtual de Azure", seleccione el origen de detección y especifique el nombre de la evaluación.
 

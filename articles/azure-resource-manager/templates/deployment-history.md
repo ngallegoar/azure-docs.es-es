@@ -3,13 +3,13 @@ title: Historial de implementación
 description: Se describe cómo ver las operaciones de implementación de Azure Resource Manager con el portal, PowerShell, CLI de Azure y API de REST.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 09/23/2020
+ms.openlocfilehash: 00e0c51244d5c191d4c9f05f689b90ece81ec5a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117846"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284625"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Visualización del historial de implementación con Azure Resource Manager
 
@@ -21,7 +21,7 @@ Para obtener ayuda con la resolución de errores de implementación concretos, c
 
 ## <a name="get-deployments-and-correlation-id"></a>Obtención de las implementaciones y el Id. de correlación
 
-Se pueden ver los detalles sobre una implementación mediante Azure Portal, PowerShell, la CLI de Azure o la API REST. Cada implementación tiene un id. de correlación que se usa para realizar el seguimiento de los eventos relacionados. Puede resultar útil al trabajar con el soporte técnico para solucionar problemas de una implementación.
+Se pueden ver los detalles sobre una implementación mediante Azure Portal, PowerShell, la CLI de Azure o la API REST. Cada implementación tiene un id. de correlación que se usa para realizar el seguimiento de los eventos relacionados. Si [crea una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md), puede que el servicio de soporte técnico le pida un identificador de correlación. Este identificador de correlación lo usan para identificar las operaciones de la implementación que ha dado error.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -61,13 +61,13 @@ Para obtener el Id. de correlación, use:
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para mostrar la implementación de un grupo de recursos, use [az deployment group list](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
+Para mostrar la implementación de un grupo de recursos, use [az deployment group list](/cli/azure/group/deployment#az-deployment-group-list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-Para obtener una implementación concreta, use [az deployment group show](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show).
+Para obtener una implementación concreta, use [az deployment group show](/cli/azure/group/deployment#az-deployment-group-show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment

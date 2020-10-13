@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7bf9e7a4c17134a47cbaafbc2bde25d467c6a978
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f6bb119e5e82ce642722d0f739177fc1e4c06c25
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548555"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255742"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Tutorial: Configuración de Signagelive para aprovisionar usuarios automáticamente
 
@@ -95,11 +95,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección Credenciales de administrador, escriba ` https://samlapi.signagelive.com/scim/v2` en la **URL de inquilino**. En el campo **Token secreto**, escriba el valor del **token de portador** proporcionado por el equipo de desarrollo de ingeniería. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Signagelive. Si la conexión no se establece, asegúrese de que la cuenta de Signagelive tiene permisos de administrador e inténtelo de nuevo.
     ![URL de inquilino y token](common/provisioning-testconnection-tenanturltoken.png)
@@ -112,19 +112,19 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 8. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con Signagelive**.
 
-    ![Asignaciones de usuario de Signagelive](media/signagelive-provisioning-tutorial/usermapping.png)
+    ![Captura de pantalla de la sección de asignaciones con la opción para sincronizar los usuarios de Azure Active Directory con Signagelive resaltada.](media/signagelive-provisioning-tutorial/usermapping.png)
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y Signagelive en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Signagelive con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Atributos de usuario de Signagelive](media/signagelive-provisioning-tutorial/userattribute.png)
+    ![Captura de pantalla de la sección de asignaciones de atributos, con siete asignaciones mostradas.](media/signagelive-provisioning-tutorial/userattribute.png)
 
 10. En la sección **Asignaciones**, seleccione **Sincronizar grupo de Azure Active Directory con Signagelive**.
 
-    ![Asignaciones de usuario de Signagelive](media/signagelive-provisioning-tutorial/groupmapping.png)
+    ![Captura de pantalla de la sección de asignaciones con la opción de sincronizar el grupo de Azure Active Directory con Signagelive resaltada.](media/signagelive-provisioning-tutorial/groupmapping.png)
 
 11. Examine los atributos de grupo que se sincronizan entre Azure AD y Signagelive en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de grupo de Signagelive con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Atributos de usuario de Signagelive](media/signagelive-provisioning-tutorial/groupattribute.png)
+    ![Captura de pantalla de la sección de asignaciones de atributos, con tres asignaciones mostradas.](media/signagelive-provisioning-tutorial/groupattribute.png)
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

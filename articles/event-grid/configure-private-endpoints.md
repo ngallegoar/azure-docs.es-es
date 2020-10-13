@@ -4,12 +4,12 @@ description: En este artículo se describe cómo configurar los puntos de conexi
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa67ba8dbe8106c0311bafec07a1510ca0c25c3f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508845"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324151"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configuración de puntos de conexión privados para temas o dominios de Azure Event Grid
 Puede usar [puntos de conexión privados](../private-link/private-endpoint-overview.md) para permitir la entrada de eventos directamente desde su red virtual a sus temas y dominios de forma segura a través de un [vínculo privado](../private-link/private-link-overview.md) sin tener que ir a la red pública de Internet. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el tema o dominio. Para más información conceptual, consulte [Seguridad de las redes](network-security.md).
@@ -42,7 +42,7 @@ En esta sección se muestra cómo usar Azure Portal para crear un punto de conex
         3. Confirme que el **subrecurso de destino** está establecido en **tema** o **dominio** (según el tipo de recurso que haya seleccionado).    
         4. Seleccione **Siguiente: Configuración >** situado en la parte inferior de la página. 
 
-            ![Punto de conexión privado: página Recurso](./media/configure-private-endpoints/resource-page.png)
+            ![Captura de pantalla que muestra la página "Crear un punto de conexión privado: recurso".](./media/configure-private-endpoints/resource-page.png)
     2. Si selecciona **Connect to a resource using a resource ID or an alias** (Conectarse a un recurso mediante un id. de recurso o un alias), siga estos pasos:
         1. Especifique el identificador del recurso. Por ejemplo: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. En **Recurso**, escriba **tema** o **dominio**. 
@@ -108,7 +108,7 @@ Puede rechazar un punto de conexión privado que tenga el estado Pendiente o Apr
 
 1. Seleccione el **punto de conexión privado** que desea rechazar y seleccione **Rechazar** en la barra de herramientas.
 
-    ![Punto de conexión privado: rechazo](./media/configure-private-endpoints/reject-button.png)
+    ![Captura de pantalla que muestra "Redes: conexiones de punto de conexión privado (versión preliminar)" con la opción "Rechazar" seleccionada.](./media/configure-private-endpoints/reject-button.png)
 1. En el cuadro de diálogo **Rechazo de la conexión**, escriba un comentario (opcional), y seleccione **Sí**. 
 
     ![Punto de conexión privado: rechazo](./media/configure-private-endpoints/reject.png)

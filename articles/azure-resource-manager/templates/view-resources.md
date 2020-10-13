@@ -3,12 +3,12 @@ title: Descubra las propiedades de los recursos
 description: Describe cómo buscar propiedades de recursos.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 75c089ac9d0ca08c788fea1ac9011f018ef0195e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: c8bbe0dcb1bc9dc9751a1dc0d0b98a6368473546
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327755"
 ---
 # <a name="discover-resource-properties"></a>Descubra las propiedades de los recursos
 
@@ -74,7 +74,7 @@ El explorador de recursos se incrusta en Azure Portal. Antes de usar este métod
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En el cuadro de búsqueda, introduzca el **explorador de recursos** y, luego, seleccione **Explorador de recursos**.
 
-    ![Explorador de recursos de Azure Portal](./media/view-resources/azure-portal-resource-explorer.png)
+    ![Captura de pantalla que muestra la búsqueda del Explorador de recursos en Azure Portal.](./media/view-resources/azure-portal-resource-explorer.png)
 
 1. En la izquierda, expanda **Suscripciones** y, después, expanda su suscripción de Azure. Puede encontrar la cuenta de almacenamiento en **proveedores** o **ResourceGroups**.
 
