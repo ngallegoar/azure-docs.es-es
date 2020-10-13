@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fd500b80f0c564fc0f4c7e311483790a83a4101a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c1e9e3d63e8a4f7fe461e2d33603da91d3d9bec6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923745"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441788"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -113,11 +113,9 @@ Todavía no se admite la configuración de los días de retención, pero puede e
 
 ### <a name="lifecycle-management-policies"></a>Directivas de administración del ciclo de vida
 
-- Las directivas de administración del ciclo de vida todavía no se admiten en cuentas de almacenamiento BlockBlobStorage premium. 
+- Las directivas de administración del ciclo de vida solo se admiten en las cuentas de uso general v2. Todavía no se admiten en cuentas de almacenamiento BlockBlobStorage premium.
+- Los datos no se pueden pasar del nivel Premium a niveles inferiores.
 
-- Los datos no se pueden pasar del nivel Premium a niveles inferiores. 
-
-- La acción **Eliminar blob** no se admite actualmente. 
 
 ### <a name="hdinsight-support"></a>Compatibilidad con HDInsight
 
