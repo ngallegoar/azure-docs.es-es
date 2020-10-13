@@ -1,14 +1,14 @@
 ---
 title: Introducción a Azure Arc
 description: Obtenga información sobre qué es Azure Arc y cómo ayuda a los clientes a habilitar la administración y el gobierno de sus recursos híbridos con otros servicios y características de Azure.
-ms.date: 08/25/2020
+ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: 46bd2089dbc2794d0fb98ceb9a5e97011e36d6ea
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8e48378e5032768b3f56a5d99c1189e282ff37f8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052049"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714155"
 ---
 # <a name="azure-arc-overview"></a>Introducción a Azure Arc
 
@@ -34,7 +34,7 @@ Entre las principales características de Azure Arc se incluyen:
 
 * Configuración de [extensiones de máquina virtual de Azure](./servers/manage-vm-extensions.md) para usar los servicios de administración de Azure y supervisar, proteger y actualizar los servidores.
 
-* Administración y control de los clústeres de Kubernetes a escala. 
+* Administración y control de los clústeres de Kubernetes a escala.
 
 * Uso de la configuración basada en GitOps como administración de código para implementar las aplicaciones y las configuraciones en uno o varios clústeres directamente desde el control de origen, como GitHub.
 
@@ -50,7 +50,17 @@ A continuación se muestran los detalles de precios de las características disp
 
 ### <a name="arc-enabled-servers"></a>Servidores habilitados para Arc
 
-En la fase de versión preliminar actual, los servidores habilitados para Azure Arc se ofrecen sin costo adicional.
+La funcionalidad de plano de control de Azure Arc se ofrece sin costo adicional.Esto incluye:
+
+* Organización de recursos mediante etiquetas y grupos de administración de Azure.
+
+* Búsqueda e indexación mediante Azure Resource Graph.
+
+* Acceso y seguridad mediante Azure RBAC y suscripciones.
+
+* Entornos y automatización mediante plantillas y extensiones.
+
+* Administración de actualizaciones
 
 Cualquier servicio de Azure que se use en los servidores habilitados para Arc, como Azure Security Center o Azure Monitor, se cobrará según los precios de ese servicio. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/).
 

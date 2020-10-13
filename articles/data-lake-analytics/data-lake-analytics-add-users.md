@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 7f9af576640e6d269ff5a44d7b0e2a529c20c505
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4819b5cb252d2c646905d277fcbedc57a55fe692
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502943"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450217"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Agregar un usuario en Azure Portal
 
@@ -21,7 +21,7 @@ ms.locfileid: "87502943"
 2. Haga clic en **Asistente para agregar usuarios**.
 3. En el paso **Seleccionar usuario**, busque al usuario que quiera agregar. Haga clic en **Seleccionar**.
 4. En el paso **Seleccionar rol**, seleccione **Desarrollador de Data Lake Analytics**. Este rol tiene el conjunto mínimo de permisos necesarios para enviar, supervisar y administrar trabajos de U-SQL. Asigne este rol si el grupo no está pensado para administrar servicios de Azure.
-5. En el paso **Seleccionar permisos del catálogo**, seleccione cualquier base de datos adicional a la que pueda necesitar acceder el usuario. Es necesario que el usuario disponga de acceso de lectura y escritura para poder enviar trabajos. Cuando termine, haga clic en **Aceptar**.
+5. En el paso **Seleccionar permisos del catálogo**, seleccione cualquier base de datos adicional a la que pueda necesitar acceder el usuario. Es necesario que el usuario disponga de acceso de lectura y escritura a la base de datos estática predeterminada denominada "master" para poder enviar trabajos. Cuando termine, haga clic en **Aceptar**.
 6. En el paso final, denominado **Asignar los permisos seleccionados**, revise los cambios que realizará el asistente. Haga clic en **OK**.
 
 

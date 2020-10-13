@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
-ms.openlocfilehash: 4291e0df9f3a99cb45d4f96d4a316f9bb29a9c79
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4cc96a8183e07a17ae880549cdc2b8bdca516322
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396155"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651503"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configuración de conexiones de ExpressRoute y de sitio a sitio coexistentes (modelo de implementación clásica)
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Puede configurar una conexión VPN de sitio a sitio como una copia de seguridad 
 > 
 > 
 
-![Coexistencia](media/expressroute-howto-coexist-classic/scenario1.jpg)
+![Diagrama que muestra una conexión VPN de sitio a sitio como copia de seguridad para ExpressRoute.](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
 ### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Configuración de una VPN de sitio a sitio para conectarse a sitios no conectados mediante ExpressRoute
 Puede configurar la red para sitios que se conectan directamente a Azure mediante una VPN de sitio a sitio y otros que se conectan a través de ExpressRoute. 

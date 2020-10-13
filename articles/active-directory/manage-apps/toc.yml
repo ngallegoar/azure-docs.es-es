@@ -110,18 +110,26 @@
   items:
     - name: Asignación de usuarios y administración del acceso a las aplicaciones
       items:
-        - name: Configuración del consentimiento del usuario
-          href: configure-user-consent.md
-        - name: Administración y evaluación de solicitudes de consentimiento
-          href: manage-consent-requests.md
-        - name: Concesión del consentimiento del administrador para todo el inquilino
-          href: grant-admin-consent.md
-        - name: Configuración del flujo de trabajo de consentimiento del administrador (versión preliminar)
-          href: configure-admin-consent-workflow.md
+        - name: Consentimiento y permisos
+          items:
+            - name: Configuración del consentimiento del usuario
+              href: configure-user-consent.md
+            - name: Configuración del consentimiento del propietario del grupo
+              href: configure-user-consent-groups.md
+            - name: Configuración de las clasificaciones de los permisos
+              href: configure-permission-classifications.md
+            - name: Administración de directivas de consentimiento de aplicaciones
+              href: manage-app-consent-policies.md
+            - name: Configuración del flujo de trabajo de consentimiento del administrador (versión preliminar)
+              href: configure-admin-consent-workflow.md
+            - name: Administración y evaluación de solicitudes de consentimiento
+              href: manage-consent-requests.md
+            - name: Concesión del consentimiento del administrador para todo el inquilino
+              href: grant-admin-consent.md
+            - name: Revisión de los permisos concedidos a las aplicaciones
+              href: manage-application-permissions.md
         - name: Administración de la asignación de usuarios para una aplicación
           href: assign-user-or-group-access-portal.md
-        - name: Revisión de los permisos concedidos a las aplicaciones
-          href: manage-application-permissions.md
         - name: Creación de colecciones en Aplicaciones
           href: access-panel-collections.md
         - name: Uso del acceso de autoservicio a las aplicaciones

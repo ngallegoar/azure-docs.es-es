@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c3b1cf01cbaa8de8ec33bbf9c19ee991ae898d58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49400ad0da86eddf7bbbd51dd92101084cdf1ee1
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82182759"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570108"
 ---
-# <a name="conflict-types-and-resolution-policies"></a>Tipos de conflicto y directivas de resolución de conflictos
+# <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Tipos de conflicto y directivas de resolución al usar varias regiones de escritura
 
 Los conflictos y las directivas de resolución de conflictos son aplicables si la cuenta de Azure Cosmos DB está configurada con varias regiones de escritura.
 
@@ -50,6 +50,6 @@ Azure Cosmos DB ofrece un mecanismo flexible controlado por directivas para reso
 
 Obtenga información sobre cómo configurar directivas de resolución de conflictos:
 
-* [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md)
+* [Configuración de varias regiones de escritura para las aplicaciones](how-to-multi-master.md)
 * [Administración de directivas de resolución de conflictos](how-to-manage-conflicts.md)
 * [Lectura desde la fuente de conflictos](how-to-manage-conflicts.md#read-from-conflict-feed)
