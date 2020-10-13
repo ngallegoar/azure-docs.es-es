@@ -3,12 +3,12 @@ title: Reglas de firewall de Azure Event Hubs | Microsoft Docs
 description: Use las reglas de firewall para permitir las conexiones desde direcciones IP específicas a Azure Event Hubs.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: fbf3e67cdde43dbe3d5e02cd4b044d5473f409ac
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ab7f835187a33b5e4d95c160831337172a5ed74e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185135"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318541"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Permitir el acceso a los espacios de nombres de Azure Event Hubs desde intervalos o direcciones IP específicas
 Los espacios de nombres de Azure Event Hubs son accesibles de forma predeterminada desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -43,7 +43,7 @@ En esta sección se muestra cómo usar Azure Portal para crear reglas de firewal
 
     Si selecciona la opción **Todas las redes**, el centro de eventos aceptará conexiones procedentes de cualquier dirección IP (mediante la tecla de acceso). Esta configuración equivale a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0. 
 
-    ![Firewall: opción Todas las redes seleccionada](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+    ![Captura de pantalla que muestra la página "Firewall y redes virtuales" con la opción "Todas las redes" seleccionada.](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Para restringir el acceso a únicamente algunas direcciones IP, asegúrese de que la opción **Redes seleccionadas** está seleccionada. En la sección **Firewall**, haga lo siguiente:
     1. Seleccione la opción **Agregar la dirección IP del cliente** para dar acceso a esa IP de cliente actual al espacio de nombres. 
     2. En **Intervalo de direcciones**, escriba una dirección IPv4 específica o un intervalo de direcciones IPv4 en notación CIDR. 

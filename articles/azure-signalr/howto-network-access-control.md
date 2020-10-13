@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 78b9859adbcf61ae3a9fc0d72a63d5973f90a487
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 72532029b2d9258dba7dea82bb5c5fc8b2673300
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302167"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536229"
 ---
 # <a name="configure-network-access-control"></a>Configuración del control de acceso de red
 
@@ -48,7 +48,7 @@ Puede administrar el control de acceso de red para Azure SignalR Service a trav�
 1. Para editar la acción predeterminada, alterne el botón **Permitir/Denegar**.
 
     > [!TIP]
-    > La acción predeterminada es la acción que se realiza cuando no hay ninguna coincidencia de regla de ACL. Por ejemplo, si la acción predeterminada es **Denegar**, se denegarán los tipos de solicitud que no se incluyan explícitamente en la lista blanca que aparece.
+    > La acción predeterminada es la acción que se realiza cuando no hay ninguna coincidencia de regla de ACL. Por ejemplo, si la acción predeterminada es **Denegar**, se denegarán los tipos de solicitud que no se aprueben explícitamente.
 
 1. Para editar la regla de red pública, seleccione los tipos de solicitudes permitidos en **Red pública**.
 

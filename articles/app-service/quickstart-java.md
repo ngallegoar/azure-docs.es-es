@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7f8e87b22e3d8f6e265789f910863b2790024cbf
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f6a4045308aa0ae8488839b0d5ea4d476c4dc883
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532416"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776330"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Inicio rápido: Creación de una aplicación de Java en Azure App Service
 
@@ -71,21 +71,24 @@ El proceso de implementación en Azure App Service utilizará sus credenciales d
 Ejecute el siguiente comando de Maven para configurar la implementación. Este comando le ayudará a configurar el sistema operativo de App Service, la versión de Java y la versión de Tomcat.
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 ```
 
 ::: zone pivot="platform-windows"
 
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Cuando se le solicite, seleccione **Windows**; para ello, escriba `2`.
-2. Use la versión de Java predeterminada (1.8); para ello, presione Entrar.
-3. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
+1. Cuando se le aparezca la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
+1. Cuando se le aparezca la opción **Aplicación web**, presione Entrar para aceptar la opción predeterminada `<create>`.
+1. Cuando se le aparezca la opción **SO**, especifique `2` para seleccionar **Windows**.
+1. Use la versión de Java predeterminada (1.8); para ello, presione Entrar.
+1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     La salida del resumen tendrá un aspecto similar al fragmento de código que se muestra a continuación.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007390755
     ResourceGroup : spring-boot-1599007390755-rg
     Region : westeurope
@@ -106,7 +109,9 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Cuando se le solicite, seleccione **Windows**; para ello, escriba `2`.
+1. Cuando se le aparezca la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
+1. Cuando se le aparezca la opción **Aplicación web**, presione Entrar para aceptar la opción predeterminada `<create>`.
+1. Cuando se le aparezca la opción **SO**, especifique `2` para seleccionar **Windows**.
 1. Use la versión de Java predeterminada (1.8); para ello, presione Entrar.
 1. Use el contenedor web predeterminado (Tomcat 8.5); para ello, presione Entrar.
 1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
@@ -115,6 +120,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003152123
     ResourceGroup : helloworld-1599003152123-rg
     Region : westeurope
@@ -140,12 +146,15 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Cuando se le solicite, seleccione **Linux**; para ello, presione Entrar.
-2. Use la versión de Java predeterminada (1.8); para ello, presione Entrar.
-3. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
+1. Cuando se le aparezca la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
+1. Cuando se le aparezca la opción **Aplicación web**, presione Entrar para aceptar la opción predeterminada `<create>`.
+1. Cuando se le aparezca la opción **SO**, presione Entrar para seleccionar **Linux**.
+1. Use la versión de Java predeterminada (1.8); para ello, presione Entrar.
+1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007116351
     ResourceGroup : spring-boot-1599007116351-rg
     Region : westeurope
@@ -165,13 +174,16 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Cuando se le solicite, seleccione **Linux**; para ello, presione Entrar.
+1. Cuando se le aparezca la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
+1. Cuando se le aparezca la opción **Aplicación web**, presione Entrar para aceptar la opción predeterminada `<create>`.
+1. Cuando se le aparezca la opción **SO**, presione Entrar para seleccionar **Linux**.
 1. Use la versión de Java predeterminada (1.8); para ello, presione Entrar.
 1. Use el contenedor web predeterminado (Tomcat 8.5); para ello, presione Entrar.
 1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003744223
     ResourceGroup : helloworld-1599003744223-rg
     Region : westeurope
@@ -198,6 +210,7 @@ Las configuraciones de App Service se pueden modificar directamente en el archiv
 Propiedad | Obligatorio | Descripción | Versión
 ---|---|---|---
 `<schemaVersion>` | false | Especifique la versión del esquema de configuración. Los valores admitidos son: `v1`, `v2`. | 1.5.2
+`<subscriptionId>` | false | Especifique el identificador de la suscripción. | 0.1.0+
 `<resourceGroup>` | true | Grupo de recursos de Azure para la aplicación web. | 0.1.0+
 `<appName>` | true | El nombre de la aplicación web. | 0.1.0+
 `<region>` | true | Especifica la región donde se hospedará la aplicación web. El valor predeterminado es **westeurope**. Todas las regiones válidas en la sección [Regiones admitidas](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
@@ -244,26 +257,24 @@ az group delete --name <your resource group name; for example: helloworld-155840
 Este comando puede tardar varios segundos en ejecutarse.
 
 ## <a name="next-steps"></a>Pasos siguientes
-> [!div class="nextstepaction"]
-> [Conexión a Azure SQL Database con Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
-
-> [!div class="nextstepaction"]
-> [Conexión a Azure DB para MySQL con Java](../mysql/connect-java.md)
 
 > [!div class="nextstepaction"]
 > [Conexión a Azure DB para PostgreSQL con Java](../postgresql/connect-java.md)
 
 > [!div class="nextstepaction"]
+> [Configure CI/CD](deploy-continuous-deployment.md)
+
+> [!div class="nextstepaction"]
+> [Información de precios](https://azure.microsoft.com/pricing/details/app-service/linux/)
+
+> [!div class="nextstepaction"]
+> [Incorporación de registros y métricas](troubleshoot-diagnostic-logs.md)
+
+> [!div class="nextstepaction"]
+> [Escalado vertical](manage-scale-up.md)
+
+> [!div class="nextstepaction"]
 > [Recursos de Azure para desarrolladores de Java](/java/azure/)
 
 > [!div class="nextstepaction"]
-> [Configuración de una aplicación Java](configure-language-java.md)
-
-> [!div class="nextstepaction"]
-> [CI/CD con Jenkins](/azure/developer/jenkins/deploy-to-azure-app-service-using-plugin)
-
-> [!div class="nextstepaction"]
-> [Asignación de un dominio personalizado](app-service-web-tutorial-custom-domain.md)
-
-> [!div class="nextstepaction"]
-> [Más información sobre los complementos de Maven para Azure](https://github.com/microsoft/azure-maven-plugins)
+> [Configuración de la aplicación de Java](configure-language-java.md)
