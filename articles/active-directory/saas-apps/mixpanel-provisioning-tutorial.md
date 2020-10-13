@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: c17d0d927fab86774f25a3ada1fbb3e675957af8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d37034057f7d1bc39c065110b20a8a2cdce13b62
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552516"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360504"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Tutorial: Configuración de Mixpanel para el aprovisionamiento automático de usuarios
 
@@ -80,15 +80,15 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba los valores de **URL de inquilino** y **Token de secreto** de Mixpanel. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Mixpanel. Si no se establece la conexión, asegúrese de que la cuenta de Mixpanel tiene permisos de administrador y pruebe de nuevo.
 
-    ![Aprovisionamiento](./media/mixpanel-provisioning-tutorial/provisioning.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/mixpanel-provisioning-tutorial/provisioning.png)
 
 6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 

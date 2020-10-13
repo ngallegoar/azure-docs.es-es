@@ -1,6 +1,7 @@
 ---
-title: 'Incorporación del inicio de sesión de OIDC a una aplicación web de Node.js: Plataforma de identidad de Microsoft | Azure'
-description: Aprenda a implementar la autenticación en una aplicación web de Node.js mediante OpenID Connect.
+title: 'Inicio rápido: Incorporación del inicio de sesión de usuario a una aplicación web Node.js | Azure'
+titleSuffix: Microsoft identity platform
+description: En este inicio rápido, aprenderá a implementar la autenticación en una aplicación web Node.js mediante OpenID Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 8e42d906cce65cf51d6359343bc4f218b94a05fb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 34baa054104a6cf2c78864cc2827b16c1eedb084
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257697"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613312"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Inicio rápido: Incorporación del inicio de sesión mediante OpenID Connect a una aplicación web de Node.js
 
@@ -24,11 +25,8 @@ En esta guía de inicio rápido, aprenderá a configurar la autenticación de Op
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para ejecutar este ejemplo, necesitará lo siguiente:
-
-* Instalar Node.js desde http://nodejs.org/.
-
-* Una [cuenta de Microsoft](https://www.outlook.com) o el [programa de desarrolladores de Microsoft 365](/office/developer-program/office-365-developer-program).
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="register-your-application"></a>Registrar su aplicación
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta personal, profesional o educativa de Microsoft.

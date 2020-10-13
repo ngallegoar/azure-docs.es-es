@@ -17,12 +17,12 @@ ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0d8c835cdc501061607dc05d0b40ebf95deb36a8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: cf9f484a3f9285d1be06443b39bd50ec73ccf632
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90969157"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665300"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
 
@@ -129,7 +129,7 @@ Solución alternativa para identidades administradas en una suscripción que se 
  - Para las identidades administradas asignadas por el sistema, tiene que desactivarlas y volver a activarlas. 
  - Para las identidades administradas asignadas por el usuario, tiene que eliminarlas, volver a crearlas y adjuntarlas de nuevo a los recursos necesarios (por ejemplo, máquinas virtuales).
 
-Para más información, consulte [Transferencia de una suscripción de Azure a otro directorio de Azure AD (versión preliminar)](../../role-based-access-control/transfer-subscription.md).
+Para obtener más información, vea [Transferencia de una suscripción de Azure a otro directorio de Azure AD](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Movimiento de una identidad administrada asignada por el usuario a otro grupo de recursos o suscripción
 

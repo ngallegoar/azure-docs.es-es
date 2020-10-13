@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: aaaa073f798998ed97be1bd3cd66795d7b3dfb23
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: dc83ea424aca1166d2b9c45b45255fbca865a7d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069669"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278760"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutorial: Configuración de RingCentral para el aprovisionamiento automático de usuarios
 
@@ -88,15 +88,15 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba `https://platform.ringcentral.com/scim/v2` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a RingCentral. Si la conexión no se establece, asegúrese de que la cuenta de RingCentral tiene permisos de administrador y pruebe otra vez.
 
-    ![Pestaña Aprovisionamiento](./media/ringcentral-provisioning-tutorial/provisioning.png)
+    ![Captura de pantalla de los campos URL de inquilino y Token secreto con la opción Probar conexión resaltada.](./media/ringcentral-provisioning-tutorial/provisioning.png)
 
 6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
