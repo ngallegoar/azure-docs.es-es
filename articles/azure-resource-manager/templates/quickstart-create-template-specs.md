@@ -2,15 +2,15 @@
 title: Creación e implementación de una especificación de plantilla
 description: Obtenga información sobre cómo crear una especificación de plantilla a partir de una plantilla de Resource Manager. A continuación, implemente la especificación de plantilla en un grupo de recursos de su suscripción.
 author: tfitzmac
-ms.date: 09/25/2020
+ms.date: 10/02/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: a4f24e69f29614de27947573d968d817dce4a57b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369222"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728784"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Inicio rápido: Creación e implementación de una especificación de plantilla (versión preliminar)
 
@@ -27,7 +27,7 @@ Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](http
 
 ## <a name="create-template-spec"></a>Creación de una especificación de plantilla
 
-La especificación de plantilla es un nuevo tipo de recurso con el nombre **Microsoft.Resources/templateSpecs**. Para crear la especificación de plantilla, puede usar Azure PowerShell, la CLI de Azure o una plantilla de ARM. En todas las opciones, necesita una plantilla de Resource Manager que esté empaquetada en la especificación de la plantilla.
+La especificación de plantilla es un tipo de recurso llamado **Microsoft.Resources/templateSpecs**. Para crear la especificación de plantilla, puede usar Azure PowerShell, la CLI de Azure o una plantilla de ARM. En todas las opciones, necesita una plantilla de Resource Manager que esté empaquetada en la especificación de la plantilla.
 
 Con PowerShell y la CLI, la plantilla de ARM se pasa como un parámetro al comando. Con la plantilla de Resource Manager, la que se empaquetará dentro de la especificación de plantilla se inserta dentro de la definición de la especificación de plantilla.
 

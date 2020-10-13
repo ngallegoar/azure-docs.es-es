@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a86d34fca9a88b0df601533a0f3de1cc97ad1a2f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7a5a69bedb45f8037f3a97f5ebf4e2128930330a
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80050596"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728359"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Qué es el aprovisionamiento en la nube de Azure AD Connect
 El aprovisionamiento en la nube de Azure AD Connect es un nuevo agente de Microsoft diseñado para cumplir objetivos de identidad híbrida para la sincronización de usuarios, grupos y contactos en Azure AD.  Se puede usar junto con la sincronización de Azure AD Connect y proporciona las siguientes ventajas:
@@ -30,6 +30,14 @@ El aprovisionamiento en la nube de Azure AD Connect es un nuevo agente de Micro
 
 ## <a name="how-is-azure-ad-connect-cloud-provisioning-different-from-azure-ad-connect-sync"></a>¿En qué se diferencia el aprovisionamiento en la nube de Azure AD Connect de la sincronización de Azure AD Connect?
 Con el aprovisionamiento en la nube de Azure AD Connect, el aprovisionamiento de AD a Azure AD se organiza en Microsoft Online Services. Una organización solo tiene que implementar en su entorno local y hospedado en IaaS un agente ligero que actúa como puente entre Azure AD y AD. La configuración de aprovisionamiento se almacena en Azure AD y se administra como parte del servicio.
+
+## <a name="azure-ad-connect-cloud-provisioning-video"></a>Vídeo sobre el aprovisionamiento en la nube de Azure AD Connect
+El siguiente vídeo breve ofrece una excelente introducción al aprovisionamiento en la nube de Azure AD Connect:
+
+> [!VIDEO https://youtube/embed/mOT3ID02_YQ]
+
+
+## <a name="comparison-between-azure-ad-connect-and-cloud-provisioning"></a>Comparación entre Azure AD Connect y el aprovisionamiento en la nube
 
 En la tabla siguiente se proporciona una comparación entre Azure AD Connect y el aprovisionamiento en la nube de Azure AD Connect:
 

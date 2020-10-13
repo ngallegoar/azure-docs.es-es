@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9e6e1388465542e9fb3ac69540c981a1fd70d4b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497767"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570113"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Procedimientos de uso de Azure Kubernetes con Azure Cosmos DB (versión preliminar)
 
@@ -27,7 +27,7 @@ Para obtener información sobre la API etcd de Azure Cosmos DB, consulte el art
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-1. Instale la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Puede descargar la CLI de Azure específica para su sistema operativo e instalarla.
+1. Instale la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Puede descargar la CLI de Azure específica para su sistema operativo e instalarla.
 
 1. Instale la [versión más reciente](https://github.com/Azure/aks-engine/releases) de Azure Kubernetes Engine. Las instrucciones de instalación para los distintos sistemas operativos están disponibles en la página [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine). Solo son necesarios los pasos de la sección **Instalación de AKS Engine** de la documentación vinculada. Después de la descarga, extraiga el archivo zip.
 

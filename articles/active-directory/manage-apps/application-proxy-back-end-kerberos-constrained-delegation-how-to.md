@@ -2,26 +2,21 @@
 title: 'Solución de problemas de la delegación restringida de Kerberos: App Proxy'
 description: Solucionar problemas de las configuraciones de delegación restringida de Kerberos para el proxy de aplicación
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
-ms.reviewer: asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d086d816be17699989aafda144493d80837188b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: asteen, japere
+ms.openlocfilehash: 3ca3df010426347846b29734426edfad4536516b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760446"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568732"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Solucionar problemas de las configuraciones de delegación restringida de Kerberos para el proxy de aplicación
 
@@ -165,7 +160,7 @@ Si aún no puede realizar ningún progreso, póngase en contacto con el servicio
 
 ## <a name="other-scenarios"></a>Otros escenarios
 
-- El proxy de aplicación de Azure solicita un vale de Kerberos antes de enviar su solicitud a una aplicación. Algunas aplicaciones de terceros no permiten este método de autenticación. Estas aplicaciones esperan que se lleven a cabo negociaciones más convencionales. La primera solicitud es anónima, lo que permite que la aplicación responda con los tipos de autenticación que admite mediante un error 401.
+- El proxy de aplicación de Azure solicita un vale de Kerberos antes de enviar su solicitud a una aplicación. Algunas aplicaciones de terceros no permiten este método de autenticación. Estas aplicaciones esperan que se lleven a cabo negociaciones más convencionales. La primera solicitud es anónima, lo que permite que la aplicación responda con los tipos de autenticación que admite mediante un error 401. Este tipo de negociación de Kerberos se puede habilitar con los pasos descritos en este documento: [Delegación restringida de Kerberos para el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md).
 - La autenticación de varios saltos se usa normalmente en escenarios con una aplicación en niveles y con un back-end y un front-end, los cuales requieren realizar una autenticación, como SQL Server Reporting Services. Para configurar el escenario de múltiples saltos, consulte el artículo de soporte técnico [La delegación restringida de Kerberos puede requerir un protocolo de transición en escenarios de múltiples saltos](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Pasos siguientes

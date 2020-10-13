@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708009"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567594"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre el rendimiento aprovisionado por Escalabilidad automática en Azure Cosmos DB
 
@@ -37,14 +37,14 @@ Use las [métricas de Azure Monitor](how-to-choose-offer.md#measure-and-monitor-
 Cada hora, se le facturará el mayor rendimiento `T` al que se escaló el sistema en dicha hora. Si el recurso no tiene ninguna solicitud durante dicha hora o no se escaló más allá de `0.1 * Tmax`, se le facturará por el mínimo de `0.1 * Tmax`. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) de Azure Cosmos DB. 
 
 ### <a name="how-does-autoscale-show-up-on-my-bill"></a>¿Cómo se muestra la escalabilidad automática en la factura?
-En las cuentas con un solo maestro, la tasa de escalabilidad automática por 100 RU/s es 1,5 veces la tasa del rendimiento aprovisionado estándar (manual). En la factura, verá el medidor de rendimiento aprovisionado estándar existente. La cantidad de este medidor se multiplicará por 1,5. Por ejemplo, si el número mayor de RU/s al que se escaló el sistema en una hora fue de 6000 RU/s, se le facturarán 60 * 1,5 = 90 unidades del medidor durante esa hora.
+En las cuentas con una sola región de escritura, la tasa de escalabilidad automática por cada 100 RU/s es 1,5 veces la tasa del rendimiento aprovisionado estándar (manual). En la factura, verá el medidor de rendimiento aprovisionado estándar existente. La cantidad de este medidor se multiplicará por 1,5. Por ejemplo, si el número mayor de RU/s al que se escaló el sistema en una hora fue de 6000 RU/s, se le facturarán 60 * 1,5 = 90 unidades del medidor durante esa hora.
 
-En cuentas con varios maestros, la tasa de escalabilidad automática por 100 RU/s es la misma que la tasa del rendimiento aprovisionado estándar (manual) de varios maestros. En la factura, verá el medidor de varios maestros existente. Dado que las tarifas son las mismas, si usa la escalabilidad automática, verá la misma cantidad que con el rendimiento estándar.
+En las cuentas con varias regiones de escritura, la tasa de escalabilidad automática por cada 100 RU/s es la misma que la tasa del rendimiento aprovisionado estándar (manual) de varias regiones de escritura. En la factura, verá el medidor de varias regiones de escritura existente. Dado que las tarifas son las mismas, si usa la escalabilidad automática, verá la misma cantidad que con el rendimiento estándar.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>¿Funciona la escalabilidad automática con capacidad reservada?
-Sí. Al adquirir capacidad reservada con un solo maestro, el descuento por reserva de los recursos de escalabilidad automática se aplica al uso del medidor con una proporción de 1,5 * la [proporción de la región específica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Sí. Al adquirir capacidad reservada para las cuentas con varias regiones de escritura, el descuento por reserva de los recursos de escalabilidad automática se aplica al uso del medidor con una proporción de 1,5 * la [proporción de la región específica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
-La capacidad reservada con varios maestros funciona del mismo modo para la escalabilidad automática y el rendimiento aprovisionado estándar (manual). Consulte [Capacidad reservada de Azure Cosmos DB](cosmos-db-reserved-capacity.md).
+La capacidad reservada con varias regiones de escritura funciona del mismo modo para la escalabilidad automática y el rendimiento aprovisionado estándar (manual). Consulte [Capacidad reservada de Azure Cosmos DB](cosmos-db-reserved-capacity.md).
 
 ### <a name="does-autoscale-work-with-free-tier"></a>¿Funciona la escalabilidad automática con el nivel Gratis?
 Sí. En el nivel Gratis, puede usar el rendimiento de escalabilidad automática en un contenedor. La compatibilidad con las bases de datos de rendimiento compartido de escalabilidad automática con el número máximo de RU/s personalizado todavía no está disponible. Consulte [cómo funciona la facturación del nivel Gratis con la escalabilidad automática](understand-your-bill.md#billing-examples-with-free-tier-accounts).
@@ -52,7 +52,7 @@ Sí. En el nivel Gratis, puede usar el rendimiento de escalabilidad automática 
 ### <a name="is-autoscale-supported-for-all-apis"></a>¿La escalabilidad automática se admite para todas las API?
 Sí, la escalabilidad automática es compatible con todas las API: Core (SQL), Gremlin, Table, Cassandra y API para MongoDB.
 
-### <a name="is-autoscale-supported-for-multi-master-accounts"></a>¿Se admite la escalabilidad automática para cuentas de arquitectura multimaestro?
+### <a name="is-autoscale-supported-for-multi-region-write-accounts"></a>¿Se admite la escalabilidad automática para las cuentas con varias regiones de escritura?
 Sí. Las RU/s máximas están disponibles en cada región que se agregue a la cuenta de Azure Cosmos DB. 
 
 ### <a name="how-do-i-enable-autoscale-on-new-databases-or-containers"></a>¿Cómo habilito la escalabilidad automática para nuevos contenedores o bases de datos?
