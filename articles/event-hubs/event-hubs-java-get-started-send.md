@@ -4,12 +4,12 @@ description: Este artículo es un tutorial para crear una aplicación de Java qu
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5ca03883cf7daa66e94fd78df9e03535fe6f51e6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f543fae8087a7dd3a18da7b44bc2896d7607f3d2
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934011"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728971"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Use Java para enviar eventos a Azure Event Hubs o recibir eventos de él (azure-messaging-eventhubs)
 En este inicio rápido se muestra cómo enviar y recibir eventos desde un centro de eventos mediante el paquete de Java **azure-messaging-eventhubs**.
@@ -18,7 +18,7 @@ En este inicio rápido se muestra cómo enviar y recibir eventos desde un centro
 > Este inicio rápido usa el nuevo paquete **azure-messaging-eventhubs**. Para ver un inicio rápido que use los paquetes **azure-eventhubs** y **azure-eventhubs-eph** anteriores, consulte [Envío y recepción de eventos mediante azure-eventhubs y azure-eventhubs-eph](event-hubs-java-get-started-send-legacy.md). 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Si es la primera vez que usa Azure Event Hubs, consulte la [información general de Event Hubs](event-hubs-about.md) antes de continuar con este inicio rápido. 
 
 Para completar este tutorial de inicio rápido, debe cumplir los siguientes requisitos previos:
@@ -136,8 +136,11 @@ Compile el programa y asegúrese de que no hay errores. Este programa se ejecuta
 ## <a name="receive-events"></a>Recepción de eventos
 El código de este tutorial se basa en el [ejemplo EventProcessorClient de GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorBlobCheckpointStoreSample.java), que se puede examinar para ver toda la aplicación en funcionamiento.
 
-> [!NOTE]
-> Si trabaja en Azure Stack Hub, esa plataforma puede admitir una versión diferente del SDK de Blob Storage que las que suelen estar disponibles en Azure. Por ejemplo, si trabaja [en la versión 2002 de Azure Stack Hub](/azure-stack/user/event-hubs-overview), la versión más alta disponible para el servicio Storage es 2017-11-09. En este caso, además de seguir los pasos de esta sección, también tendrá que agregar código para usar como destino la versión 2017-11-09 de la API del servicio de almacenamiento. Consulte [este ejemplo en GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java) para ver cómo usar como destino una versión específica de la API de Storage. Para más información sobre las versiones del servicio Azure Storage que se admiten en Azure Stack Hub, consulte [Almacenamiento de Azure Stack Hub: diferencias y consideraciones](/azure-stack/user/azure-stack-acs-differences).
+> [!WARNING]
+> Si ejecuta este código en Azure Stack Hub, experimentará errores en tiempo de ejecución a menos que tenga como destino una versión específica de la API de Storage. Esto se debe a que el SDK de Event Hubs usa la API de Azure Storage más reciente disponible en Azure, que puede que no esté disponible en la plataforma de Azure Stack Hub. Azure Stack Hub puede admitir una versión diferente del SDK de Blob Storage que las que suelen estar disponibles en Azure. Si usa Azure Blob Storage como almacén de puntos de control, compruebe la [versión de la API de Azure Storage admitida para la compilación de Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) y establezca esa versión como destino en el código. 
+>
+> Por ejemplo, si trabaja en la versión 2005 de Azure Stack Hub, la versión más reciente disponible para el servicio Storage es la 2019-02-02. De forma predeterminada, la biblioteca de cliente del SDK de Event Hubs usa la versión más reciente disponible en Azure (2019-07-07 en el momento de la versión del SDK). En este caso, además de seguir los pasos de esta sección, también tendrá que agregar código para usar como destino la versión 2019-02-02 de la API del servicio de almacenamiento. Consulte [este ejemplo en GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java) para ver cómo usar como destino una versión específica de la API de Storage. 
+
 
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Creación de una instancia de Azure Storage y un contenedor de blobs de Azure Storage
 En este inicio rápido, se usa Azure Storage (concretamente Blob Storage) como almacén de puntos de control. La creación de puntos de control es un proceso por el que un procesador de eventos marca o confirma la posición del último evento procesado correctamente en una partición. Normalmente, el marcado de un punto de control se realiza en la función que procesa los eventos. Para obtener más información acerca de la creación de puntos de control, consulte la sección sobre el [procesador de eventos](event-processor-balance-partition-load.md).
