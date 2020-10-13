@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: ec3f8f71713abb818f29458748eb0054390f474e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396682"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653645"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para proveedores de soluciones en la nube (CSP)
 Microsoft proporciona servicios de hiperescala para que los revendedores y distribuidores tradicionales (CSP) puedan aprovisionar rápidamente nuevos servicios y soluciones para sus clientes, sin que sea preciso invertir en el desarrollo de dichos servicios nuevos. Para que el proveedor de soluciones en la nube (CSP) disponga de la capacidad para administrar directamente estos nuevos servicios, Microsoft proporciona programas y API que permiten que el CSP administre recursos de Microsoft Azure en nombre de sus clientes. Uno de esos recursos es ExpressRoute. ExpressRoute permite que el CSP conecte recursos existentes de clientes a servicios de Azure. ExpressRoute es un vínculo privado de comunicaciones a gran velocidad con los servicios de Azure. 
@@ -34,18 +34,18 @@ Microsoft proporciona a los CSP las API para administrar las suscripciones de cl
 La forma en que se administre la suscripción dependerá del contrato que haya firmado con su cliente. El CSP puede administrar directamente la creación y el mantenimiento de los recursos o el cliente puede mantener el control sobre la suscripción de Microsoft Azure y crear los recursos de Azure cuando los necesite. Si el cliente administra la creación de recursos en su suscripción de Microsoft Azure, usará uno de estos modelos: "*Conexión a través*" o "*Conexión directa*". Estos modelos se describen con más detalle en las secciones siguientes.  
 
 ### <a name="connect-through-model"></a>Modelo Conexión a través
-![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
+![Diagrama que muestra el modelo "Conexión a través".](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 En el modelo Conexión a través, el CSP crea una conexión directa entre el centro de datos y suscripción de Azure del cliente. La conexión directa se realiza mediante ExpressRoute, entre Azure y su red, a la que después se conecta el cliente. En este escenario, es necesario que el cliente pase a través de la red del CSP para acceder a los servicios de Azure. 
 
 Si el cliente tiene otras suscripciones de Azure que administra de forma independiente, usará la red pública de Internet o su propia conexión privada para conectarse a esos servicios aprovisionados en la suscripción que no es del CSP. 
 
-En el caso de los CSP que administran servicios de Azure, se da por supuesto que el CSP ya tenía establecido un almacén de identidades para clientes que, luego, se replica en Azure Active Directory para administrar su suscripción del CSP mediante la modalidad de administración en nombre de (AOBO, por sus siglas en inglés). Entre los factores determinantes clave de este escenario se incluyen las situaciones en que un asociado o proveedor de servicios disfruta de una relación establecida con el cliente, el cliente ya está consumiendo servicios de un proveedor o el asociado desea proporcionar una combinación de soluciones hospedadas por el proveedor y por Azure para ofrecer flexibilidad y solucionar las dificultades del cliente que el CSP no puede afrontar en solitario. Este modelo se muestra en la **figura**siguiente.
+En el caso de los CSP que administran servicios de Azure, se da por supuesto que el CSP ya tenía establecido un almacén de identidades para clientes que, luego, se replica en Azure Active Directory para administrar su suscripción del CSP mediante la modalidad de administración en nombre de (AOBO, por sus siglas en inglés). Entre los factores determinantes clave de este escenario se incluyen las situaciones en que un asociado o proveedor de servicios disfruta de una relación establecida con el cliente, el cliente ya está consumiendo servicios de un proveedor o el asociado desea proporcionar una combinación de soluciones hospedadas por el proveedor y por Azure para ofrecer flexibilidad y solucionar las dificultades del cliente que el CSP no puede afrontar en solitario. Este modelo se muestra en la **figura** siguiente.
 
-![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
+![Diagrama que muestra un escenario detallado del modelo "Conexión a través".](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
 ### <a name="connect-to-model"></a>Modelo Conexión directa
-![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-to.png)
+![Diagrama que muestra el modelo "Conexión directa".](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 En el modelo Conexión directa, el proveedor de servicios crea una conexión directa entre el centro de datos de su cliente y la suscripción de Azure aprovisionada por CSP mediante ExpressRoute a través de la red del cliente (cliente).
 
@@ -56,7 +56,7 @@ En el modelo Conexión directa, el proveedor de servicios crea una conexión dir
 
 En este escenario de conectividad se necesario que el cliente se conecte directamente a través de una red de cliente para acceder a la suscripción a Azure administrada por el CSP, mediante una conexión de red directa que el cliente crea, posee y administra total o parcialmente. Con estos clientes se asume que el proveedor no tiene establecido actualmente un almacén de identidades de cliente y les ayudará a replicar su almacén de identidades actual en Azure Active Directory para la administración de sus suscripciones mediante AOBO. Entre los impulsores clave para este escenario, se incluyen las situaciones en que un asociado o proveedor de servicios dado disfruta de una relación establecida con el cliente, el cliente ya está consumiendo servicios de un proveedor o el asociado desea proporcionar servicios basados únicamente en soluciones hospedadas por Azure sin necesidad de que el proveedor contribuya una infraestructura o un centro de datos.
 
-![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
+![Diagrama que muestra un escenario detallado del modelo "Conexión directa".](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 La elección entre ambas opciones se basa en los requisitos del cliente y la necesidad del proveedor de prestar servicios de Azure. Los detalles de estos modelos y los modelos de diseño asociados para el control de acceso basado en rol, las redes y las identidades se explican en los siguientes vínculos:
 
@@ -109,7 +109,7 @@ La tabla de enrutamiento predeterminada incluye las siguientes rutas:
 * Entre redes virtuales mediante un puerta de enlace de VPN
 * Entre una red virtual y una red local mediante una puerta de enlace de VPN o ExpressRoute
 
-![texto alternativo](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
+![Diagrama que muestra las opciones de enrutamiento predeterminadas.](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>Enrutamiento definido por el usuario (UDR)
 Las rutas definidas por el usuario permiten controlar el tráfico saliente de la subred asignada a otras subredes de la red virtual o a través de una de las otras puertas de enlace predefinidas (ExpressRoute; Internet o VPN). La tabla de enrutamiento predeterminado del sistema se puede reemplazar por una definida por el usuario que contiene rutas personalizadas. Con el enrutamiento definido por el usuario, los clientes pueden crear rutas específicas hacia dispositivos como firewalls o dispositivos de detección de intrusiones, o bien bloquear el acceso a subredes específicas desde la subred que hospeda la ruta definida por el usuario. Para ver información general sobre las rutas definidas por el usuario, lea [este artículo](../virtual-network/virtual-networks-udr-overview.md). 
