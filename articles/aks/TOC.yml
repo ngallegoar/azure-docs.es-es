@@ -59,7 +59,7 @@
           href: ./security-controls-policy.md
     - name: Redes
       href: concepts-network.md
-    - name: Almacenamiento
+    - name: Storage
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
