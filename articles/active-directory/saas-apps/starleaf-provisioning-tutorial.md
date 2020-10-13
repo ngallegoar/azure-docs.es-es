@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: 68484d2047e09dc82d44e15e86b13c4c54c49b03
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bf75c4fe2053483b94c5f645816422909645854a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533817"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286011"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Tutorial: Configuración de StarLeaf para el aprovisionamiento automático de usuarios
 
@@ -52,15 +52,15 @@ Antes de configurar StarLeaf para aprovisionar automáticamente usuarios con Azu
 
 1. Inicie sesión en la [consola de administración de StarLeaf](https://portal.starleaf.com/#page=login). Vaya a **Integraciones** > **Agregar integración**.
 
-    ![StarLeaf: Agregar SCIM](media/starleaf-provisioning-tutorial/image00.png)
+    ![Captura de pantalla de la consola de administración de StarLeaf con las opciones Integraciones y Agregar integración.](media/starleaf-provisioning-tutorial/image00.png)
 
 2. En **Tipo**, seleccione Microsoft Azure Active Directory. Escriba un nombre adecuado en **Nombre**. Haga clic en **Aplicar**.
 
-    ![StarLeaf: Agregar SCIM](media/starleaf-provisioning-tutorial/image01.png)
+    ![Captura de pantalla del cuadro de diálogo Agregar integración con los cuadros de texto Tipo y Nombre seleccionados.](media/starleaf-provisioning-tutorial/image01.png)
 
 3.  Se mostrarán los valores de **URL base de SCIM** y **Token de acceso**. Estos valores se escriben en los campos **URL de inquilino** y **Token secreto** de la pestaña Aprovisionamiento de la aplicación StarLeaf en Azure Portal. 
 
-    ![StarLeaf: Crear token](media/starleaf-provisioning-tutorial/image02.png)
+    ![Captura de pantalla del cuadro de diálogo Editar la integración con los cuadros de texto Tipo, Nombre y SCIM seleccionados.](media/starleaf-provisioning-tutorial/image02.png)
 
 ## <a name="add-starleaf-from-the-gallery"></a>Adición de StarLeaf desde la galería
 
@@ -97,11 +97,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección Credenciales de administrador, escriba los valores de **URL base de SCIM** y **Token de acceso** que recuperó anteriormente en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a StarLeaf. Si la conexión no se establece, asegúrese de que la cuenta de StarLeaf tiene permisos de administrador e inténtelo de nuevo.
 
@@ -115,11 +115,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to StarLeaf** (Sincronizar usuarios de Azure Active Directory con StarLeaf).
 
-    ![StarLeaf: Crear token](media/starleaf-provisioning-tutorial/usermapping.png)
+    ![Captura de pantalla de la sección Asignaciones con la opción para sincronizar usuarios de Azure Active Directory con StarLeaf.](media/starleaf-provisioning-tutorial/usermapping.png)
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y StarLeaf en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de StarLeaf con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![StarLeaf: Crear token](media/starleaf-provisioning-tutorial/userattribute.png)
+    ![Captura de pantalla de la sección Asignaciones de atributos que muestran nueve asignaciones mostradas.](media/starleaf-provisioning-tutorial/userattribute.png)
 
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 4/2/2020
-ms.openlocfilehash: 34fcb8d28ae8deda88a6ce91261301ab5d08a743
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 10/1/2020
+ms.openlocfilehash: 7a3515850027963dcabbf2cef4efd8bf43802cbe
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104561"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653067"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Crear usuarios en Azure Database for MariaDB 
 En este artículo se describe cómo puede crear usuarios en Azure Database for MariaDB.
@@ -29,7 +29,8 @@ El usuario administrador del servidor obtiene ciertos privilegios para el servid
 Una vez creado el servidor de Azure Database for MariaDB, puede usar la primera cuenta de usuario administrador del servidor para crear usuarios adicionales y concederles acceso de administrador. Además, la cuenta de administrador del servidor puede usarse para crear usuarios con menos privilegios que tengan acceso a esquemas de base de datos individuales.
 
 > [!NOTE]
-> El privilegio SUPER y el rol DBA no se admiten. Revise los [privilegios](concepts-limits.md#privilege-support) en el artículo que trata sobre las limitaciones para saber lo que no se admite en el servicio.
+> El privilegio SUPER y el rol DBA no se admiten. Revise los [privilegios](concepts-limits.md#privileges--data-manipulation-support) en el artículo que trata sobre las limitaciones para saber lo que no se admite en el servicio.<br><br>
+> Los complementos de contraseñas como "validate_password" y "caching_sha2_password" no son compatibles con el servicio.
 
 ## <a name="create-additional-admin-users"></a>Crear usuarios administradores adicionales
 1. Obtenga la información de conexión y el nombre de usuario administrador.
@@ -90,6 +91,10 @@ Una vez creado el servidor de Azure Database for MariaDB, puede usar la primera 
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
    Para obtener más información respecto a la administración de cuentas de usuario, consulte la documentación del producto MariaDB relativa a la [administración de cuentas de usuario](https://mariadb.com/kb/en/library/user-account-management/), la [sintaxis GRANT](https://mariadb.com/kb/en/library/grant/) y los [privilegios](https://mariadb.com/kb/en/library/grant/#privilege-levels).
+
+## <a name="azure_superuser"></a>azure_superuser
+
+Todos los servidores de Azure Database for MySQL se crean con un usuario denominado "azure_superuser". Se trata de una cuenta del sistema creada por Microsoft para administrar el servidor con el fin de realizar tareas de supervisión, copias de seguridad y otros tipos de mantenimiento habitual. Los ingenieros de guardia también pueden usar esta cuenta para acceder al servidor durante un incidente con autenticación de certificado y deben solicitar acceso mediante procesos Just-in-Time (JIT).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Abra el firewall para las direcciones IP de las máquinas de los nuevos usuarios para permitirles conectarse: [Crear y administrar reglas de firewall de Azure Database for MariaDB mediante Azure Portal](howto-manage-firewall-portal.md)  

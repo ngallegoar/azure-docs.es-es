@@ -3,14 +3,14 @@ title: Consulta de registros de Update Management en Azure Automation
 description: En este artículo se explica cómo consultar los registros de Update Management en el área de trabajo de Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 290fb0165038eea8740361a12a6d4bfe2c1bf138
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 777d794716c7c17caf8d4c73007b91a625f40043
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449764"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264310"
 ---
 # <a name="query-update-management-logs"></a>Consulta de registros de Update Management
 
@@ -110,7 +110,7 @@ Se crea un registro con un tipo de `UpdateRunProgress` que proporciona el estado
 | Computer | Nombre de dominio completo del equipo que genera el informe. |
 | ComputerEnvironment | Entorno. Los valores posibles son Azure y Non-Azure. |
 | CorrelationId | Identificador único del trabajo de runbook ejecutado para la actualización. |
-| EndTime | La hora a la que ha finalizado el proceso de sincronización. |
+| EndTime | La hora a la que ha finalizado el proceso de sincronización. *Esta propiedad no se usa actualmente. Consulte TimeGenerated.* |
 | ErrorResult | Código de error de Windows Update generado si no se puede instalar una actualización. |
 | InstallationStatus | Los estados de instalación posibles de una actualización en el equipo cliente,<br> `NotStarted`: el trabajo aún no se ha desencadenado.<br> `FailedToStart`: no se puede iniciar el trabajo en la máquina.<br> `Failed`: el trabajo se inició, pero devolvió una excepción.<br> `InProgress`: trabajo en curso.<br> `MaintenanceWindowExceeded`: la ejecución seguía en curso pero se alcanzó el intervalo de la ventana de mantenimiento.<br> `Succeeded`: el trabajo finalizó correctamente.<br> `InstallFailed`: error de instalación de la actualización.<br> `NotIncluded`<br> `Excluded` |
 | KBID | Identificador del artículo de Knowledge base para la actualización de Windows. |
@@ -123,8 +123,8 @@ Se crea un registro con un tipo de `UpdateRunProgress` que proporciona el estado
 | ResourceType | Tipo de recurso. |
 | SourceComputerId | Identificador único que representa el equipo de origen. |
 | SourceSystem | Sistema de origen del registro. El valor es `OperationsManager`. |
-| StartTime | Hora a la que se ha programado la instalación de la actualización. |
-| SubscriptionId | Identificador único de la suscripción de Azure. | 
+| StartTime | Hora a la que se ha programado la instalación de la actualización. *Esta propiedad no se usa actualmente. Consulte TimeGenerated.* |
+| SubscriptionId | Identificador único de la suscripción de Azure. |
 | SucceededOnRetry | Valor que indica si se ha producido un error en la ejecución de la actualización en el primer intento y la operación actual es un reintento. |
 | TimeGenerated | Fecha y hora de creación del registro. |
 | Título | Título de la actualización. |

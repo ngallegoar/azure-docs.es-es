@@ -3,12 +3,12 @@ title: 'Procedimiento para proteger la jerarquía de recursos: Gobernanza en Azu
 description: Obtenga información sobre cómo proteger la jerarquía de recursos con configuraciones de jerarquía que incluyen la configuración del grupo de administración predeterminado.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469786"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533986"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Procedimiento para proteger la jerarquía de recursos
 
@@ -16,9 +16,9 @@ Los recursos, grupos de recursos, suscripciones, grupos de administración y el 
 
 Ahora los grupos de administración tienen una configuración de jerarquía que permite al administrador de inquilinos controlar estos comportamientos. En este artículo se describe cada una de las configuraciones de jerarquía disponibles y cómo establecerlas.
 
-## <a name="rbac-permissions-for-hierarchy-settings"></a>Permisos de RBAC para la configuración de jerarquía
+## <a name="azure-rbac-permissions-for-hierarchy-settings"></a>Permisos de Azure RBAC para la configuración de jerarquía
 
-La configuración de cualquiera de las opciones de jerarquía requiere las dos operaciones de RBAC siguientes en el grupo de administración raíz:
+La configuración de cualquiera de las opciones de jerarquía requiere las dos operaciones de proveedor de recursos siguientes en el grupo de administración raíz:
 
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
@@ -27,7 +27,7 @@ Estas operaciones solo permiten que un usuario lea y actualice la configuración
 
 ## <a name="setting---default-management-group"></a>Configuración: Grupo de administración predeterminado
 
-De forma predeterminada, una nueva suscripción agregada dentro de un inquilino se agrega como miembro del grupo de administración raíz. Si las asignaciones de directivas, el control de acceso basado en rol (RBAC) y otras construcciones de gobernanza se asignan al grupo de administración raíz, afectan inmediatamente a estas nuevas suscripciones. Por este motivo, muchas organizaciones no aplican estas construcciones en el grupo de administración raíz, aunque es el lugar deseado para asignarlas. En otros casos, se recomienda un conjunto de controles más restrictivos para las suscripciones nuevas, pero no se deben asignar a todas las suscripciones. Este valor admite los dos casos de uso.
+De forma predeterminada, una nueva suscripción agregada dentro de un inquilino se agrega como miembro del grupo de administración raíz. Si hay asignaciones de directivas, el control de acceso basado en rol de Azure (Azure RBAC) y otras construcciones de gobernanza se asignan al grupo de administración raíz, por lo que afectan inmediatamente a estas nuevas suscripciones. Por este motivo, muchas organizaciones no aplican estas construcciones en el grupo de administración raíz, aunque es el lugar deseado para asignarlas. En otros casos, se recomienda un conjunto de controles más restrictivos para las suscripciones nuevas, pero no se deben asignar a todas las suscripciones. Este valor admite los dos casos de uso.
 
 Al permitir que se defina el grupo de administración predeterminado para las suscripciones nuevas, se pueden aplicar construcciones de gobernanza para toda la organización en el grupo de administración raíz y definir un grupo de administración independiente con asignaciones de directivas o de roles de Azure más adecuadas para una suscripción nueva.
 
