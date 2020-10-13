@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41cb02e77fa77c5a7452c5e3e0d2080ee3d472d5
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183231"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742254"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Copia de seguridad de recursos compartidos o volúmenes de la matriz virtual de StorSimple
 
@@ -76,7 +76,7 @@ Además de las copias de seguridad programadas, es posible realizar una copia de
    
     Se inicia una copia de seguridad a petición y verá que se ha iniciado un trabajo de copia de seguridad.
    
-    ![inicio de la copia de seguridad](./media/storsimple-virtual-array-backup/takebackup3m.png) 
+    ![inicio de la copia de seguridad 2](./media/storsimple-virtual-array-backup/takebackup3m.png) 
    
     Una vez que el trabajo se haya completado correctamente, volverá a recibir una notificación. Después, se inicia el proceso de copia de seguridad.
    

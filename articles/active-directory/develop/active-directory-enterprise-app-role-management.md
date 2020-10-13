@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 85c406fc561424d7b02d39dfd58dc3c8fe34aab2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116094"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704555"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
 
@@ -159,7 +159,7 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
     a. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos y notificaciones de usuario**.
 
-      ![Botón "Agregar atributo"](./media/active-directory-enterprise-app-role-management/editattribute.png)
+      ![Captura de pantalla que resalta el icono Editar que se usó para abrir el cuadro de diálogo Atributos y reclamaciones del usuario.](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
     b. En el cuadro de diálogo **Administrar las notificaciones del usuario**, agregue el atributo de token SAML al hacer clic en **Agregar nueva notificación**.
 

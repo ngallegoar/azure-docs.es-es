@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 114f26c71ee1aecdb1a0ad3d1c01e558843c0969
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024390"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705065"
 ---
 # <a name="common-conditional-access-policies"></a>Directivas de acceso condicional habituales
 
@@ -42,7 +42,7 @@ En los siguientes artículos encontrará más información sobre las cuentas de 
 
 ## <a name="additional-policies"></a>Directivas adicionales
 
-* [Acceso condicional basado en riesgos de inicio de sesión (requiere Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Acceso condicional basado en el riesgo del inicio de sesión (requiere Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Acceso condicional basado en el riesgo (se necesita Azure AD Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Exigir ubicaciones de confianza para el registro de la autenticación multifactor](howto-conditional-access-policy-registration.md)
 * [Bloquear el acceso por ubicación](howto-conditional-access-policy-location.md)
