@@ -5,15 +5,15 @@ services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 01/22/2020
+ms.date: 10/01/2020
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 8f7a69b81430d964d1aade26ed179354171e4164
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1d7af1b29d1ed2d8ff0ae60da0a171b9d8b98bbf
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77134610"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743166"
 ---
 1. En una nueva ventana del explorador, inicie sesión en [Azure Portal](https://portal.azure.com/).
 
@@ -35,7 +35,7 @@ ms.locfileid: "77134610"
     API|Cassandra|La API determina el tipo de cuenta que se va a crear. Azure Cosmos DB proporciona cinco API: Core (SQL) para bases de datos de documentos, Gremlin para bases de datos de grafos, MongoDB para bases de datos de documentos, Azure Table y Cassandra. Debe crear una cuenta independiente para cada API. <br><br>Seleccione **Cassandra**, ya que en este inicio rápido va a crear una tabla que funciona con Cassandra API. <br><br>[Más información acerca de Cassandra API](../articles/cosmos-db/cassandra-introduction.md).|
     Location|Seleccionar la región más cercana a los usuarios|Seleccione una ubicación geográfica para hospedar la cuenta de Azure Cosmos DB. Use la ubicación más cercana a los usuarios para proporcionarles el acceso más rápido a los datos.
 
-    Seleccione **Revisar y crear**. Puede omitir las secciones **Red** y **Etiquetas**. 
+    Seleccione **Revisar y crear**. Puede omitir las secciones **Redes**, **Copia de seguridad**, **Cifrado** y **Etiquetas**. 
 
     ![Página de la nueva cuenta de Azure Cosmos DB](./media/cosmos-db-create-dbaccount-cassandra/azure-cosmos-db-create-new-account.png)
 

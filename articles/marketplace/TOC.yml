@@ -115,7 +115,7 @@
               href: partner-center-portal/azure-vm-create-offer.md
             - name: Creación de recursos técnicos de máquina virtual de Azure
               items:
-                - name: 'Certificación de máquinas virtuales: problemas y soluciones'
+                - name: Problemas de certificación de máquina virtual
                   href: partner-center-portal/vm-certification-issues-solutions.md
                 - name: Creación de un recurso técnico de máquina virtual de Azure
                   href: partner-center-portal/create-azure-vm-technical-asset.md
@@ -324,17 +324,27 @@
       href: marketplace-faq-publisher-guide.md
     - name: Preguntas frecuentes de migración desde Cloud Partner Portal
       href: cloud-partner-portal-migration-faq.md
+    - name: Horario oficina de oportunidad empresarial
+      href: 'https://aka.ms/marketplaceofficehours'
+    - name: Horario de oficina técnico y de publicación
+      href: 'https://aka.ms/marketplacepublishingofficehours'
     - name: Opciones de soporte técnico en el Centro de partners
       href: partner-center-portal/support.md
+    - name: Anuncios del Centro de partners
+      href: /partner-center/announcements
+    - name: Comunidad de partners de Microsoft
+      href: 'https://www.microsoftpartnercommunity.com/'
+    - name: Foro de Partner Community
+      href: 'https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222'
     - name: Disponibilidad geográfica y moneda
       href: marketplace-geo-availability-currencies.md
+    - name: Búsqueda de identificadores de inquilino y objeto
+      href: find-tenant-object-id.md
     - name: Países y regiones admitidos
       href: sell-from-countries.md
-    - name: Etiquetas HTML que se admiten
-      href: supported-html-tags.md
     - name: Códigos de país y región de venta conjunta
       href: partner-center-portal/commercial-marketplace-co-sell-countries.md
     - name: Códigos de estado de venta conjunta
       href: partner-center-portal/commercial-marketplace-co-sell-states.md
-    - name: 'Foros, blogs y vínculos rápidos'
-      href: marketplace-roadmap.md
+    - name: Etiquetas HTML que se admiten
+      href: supported-html-tags.md
