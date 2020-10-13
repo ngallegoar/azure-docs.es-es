@@ -1,15 +1,15 @@
 ---
 title: Trabajo con grandes conjuntos de datos
 description: Aprenda a obtener, paginar, omitir y aplicar formato a registros de grandes conjuntos de datos mientras trabaja con Azure Resource Graph.
-ms.date: 08/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3073986e424c641d884e1c2427d3d519658d37
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ee552908696aa652931bf3555391adcfec0fc6d3
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005945"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578502"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabajo con grandes conjuntos de datos de recursos de Azure
 
@@ -48,7 +48,7 @@ El control que sea _más restrictivo_ ganará. Por ejemplo, si la consulta usa l
 La siguiente opción para trabajar con grandes conjuntos de datos es el control **Skip**. Este control permite que la consulta salte u omita el número definido de registros antes de devolver los resultados. **Skip** es útil con consultas que ordenan los resultados de una manera significativa donde la intención es obtener los recursos que se encuentran hacia la mitad del conjunto de resultados. Si los resultados necesarios están al final del conjunto de datos devuelto, es mejor usar una configuración de ordenación diferente y recuperar los resultados del principio del conjunto de datos.
 
 > [!NOTE]
-> Al usar la opción **Skip**, se recomienda ordenar los resultados con al menos una columna con `asc` o `desc`. Si los resultados no están ordenados, los resultados devueltos son aleatorios y no se pueden repetir.
+> Al usar la opción **Skip**, se recomienda ordenar los resultados con al menos una columna con `asc` o `desc`. Si los resultados no están ordenados, los resultados devueltos son aleatorios y no se pueden repetir. Si se usan `limit` o `take` en la consulta, se omite **Skip**.
 
 En los ejemplos siguientes se muestra cómo omitir los primeros _10_ registros que devolvería una consulta, en lugar de comenzar el conjunto de resultados devuelto con el registro número 11:
 

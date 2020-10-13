@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 25f74fb78979313acc068320d842d09a982d8d16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ccc9725ffe5304942b740d460a67129f9c1c5d8
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339151"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743852"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Uso de Azure Portal para administrar las programaciones del ancho de banda en Azure Data Box Gateway  
 
@@ -46,7 +46,7 @@ Para agregar un usuario siga estos pasos en Azure Portal.
    4. Seleccione el ancho de banda **Ilimitado** si no desea regular la carga y la descarga de la fecha. 
    5. Haga clic en **Agregar**.
 
-      ![Hacer clic en agregar usuario](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Hacer clic en agregar usuario 2](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. Se crea una programación con los parámetros especificados. Esta programación se muestra en la lista de programaciones de ancho de banda del portal.
 
@@ -61,11 +61,11 @@ Siga estos pasos para editar una programación del ancho de banda.
 
 3. Realice los cambios deseados y guárdelos.
 
-    ![Modificación de un usuario](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
+    ![Modificación de un usuario 2](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
 
 4. Después de que se modifique la programación, se actualiza la lista de programaciones para reflejar la programación modificada.
 
-    ![Modificación de un usuario](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![Modificación de un usuario 3](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## <a name="delete-a-schedule"></a>Eliminación de una programación

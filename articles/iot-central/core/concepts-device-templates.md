@@ -1,6 +1,6 @@
 ---
 title: ¿Qué son las plantillas de dispositivos en Azure IoT Central | Microsoft Docs
-description: Las plantillas de dispositivos de Azure IoT Central permiten especificar el comportamiento de los dispositivos conectados a la aplicación.
+description: Las plantillas de dispositivos de Azure IoT Central permiten especificar el comportamiento de los dispositivos conectados a la aplicación. Una plantilla de dispositivo especifica la telemetría, las propiedades y los comandos que el dispositivo debe implementar. Una plantilla de dispositivo también define la interfaz de usuario del dispositivo en IoT Central como los formularios y paneles que utiliza un operador.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/21/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: cdc85029ec004060abf69b111d8a0ebca42147a4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 75317b5c6af2d0ce89d2db32f4343d9cc73a1a81
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015099"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813175"
 ---
 # <a name="what-are-device-templates"></a>¿Qué son las plantillas de dispositivo?
 
@@ -26,12 +26,10 @@ Un generador de soluciones agrega plantillas de dispositivos a una aplicación d
 En una plantilla de dispositivo se incluyen las secciones siguientes:
 
 - _Un modelo de funcionalidad del dispositivo (DCM)_ . Esta parte de la plantilla de dispositivo define cómo interactúa el dispositivo con la aplicación. Un desarrollador de dispositivos implementa los comportamientos definidos en el DCM.
+    - _Interfaces_. Un DCM contiene una o más interfaces que definen la telemetría, las propiedades y los comandos que el dispositivo debe implementar.
 - _Propiedades de la nube_. Esta parte de la plantilla de dispositivo permite al desarrollador de soluciones especificar los metadatos del dispositivo que se van a almacenar. Las propiedades de la nube nunca se sincronizan con los dispositivos y solo existen en la aplicación. Las propiedades de la nube no afectan al código que escribe el desarrollador de dispositivos para implementar el DCM.
 - _Personalizaciones_. Esta parte de la plantilla de dispositivo permite que el desarrollador de soluciones reemplace algunas de las definiciones del DCM. Las personalizaciones son útiles si el desarrollador de soluciones desea restringir el modo en que la aplicación controla un valor, como cambiar el nombre para mostrar de una propiedad o el color usado para mostrar un valor de telemetría. Las personalizaciones no afectan al código que escribe el desarrollador de dispositivos para implementar el DCM.
 - _Vistas_. Esta parte de la plantilla de dispositivo permite que el desarrollador de soluciones defina visualizaciones para ver los datos del dispositivo y los formularios para administrar y controlar un dispositivo. Las vistas usan el DCM, las propiedades de la nube y las personalizaciones. Las vistas no afectan al código que escribe el desarrollador de dispositivos para implementar el DCM.
-
-> [!NOTE]
-> La [versión de actualización de IoT Plug and Play Public (versión preliminar)](../../iot-pnp/overview-iot-plug-and-play.md) está dirigida a los desarrolladores de dispositivos y OEM para que empiecen a crear dispositivos que puedan certificarse en IoT Plug and Play con anterioridad al lanzamiento de disponibilidad general.
 
 ## <a name="device-capability-models"></a>Modelos de funcionalidad del dispositivo
 
@@ -108,11 +106,11 @@ Una interfaz tiene varios campos obligatorios:
 
 Hay algunos campos opcionales que puede usar para agregar más detalles al modelo de funcionalidad, como el de nombre para mostrar y el de descripción.
 
-### <a name="interface"></a>Interfaz
+## <a name="interfaces"></a>Interfaces
 
 DTDL permite describir las funcionalidades del dispositivo. Las funcionalidades relacionadas se agrupan en interfaces. Las interfaces describen las propiedades, la telemetría y los comandos que implementa un elemento del dispositivo:
 
-- `Properties`. Las propiedades son campos de datos que representan el estado de un dispositivo. Se usan para representar el estado duradero del dispositivo, como el estado de encendido-apagado de una bomba de líquido refrigerante. Las propiedades también pueden representar propiedades básicas del dispositivo, como la versión del firmware del dispositivo. Las propiedades se pueden declarar como de solo lectura o de escritura.
+- `Properties`. Las propiedades son campos de datos que representan el estado de un dispositivo. Se usan para representar el estado duradero del dispositivo, como el estado de encendido-apagado de una bomba de líquido refrigerante. Las propiedades también pueden representar propiedades básicas del dispositivo, como la versión del firmware del dispositivo. Las propiedades se pueden declarar como de solo lectura o de escritura. Solo los dispositivos pueden actualizar el valor de una propiedad de solo lectura. Un operador puede establecer el valor de una propiedad grabable que se vaya a enviar a un dispositivo.
 - `Telemetry`. Los campos de telemetría representan las medidas de los sensores. Cada vez que un dispositivo toma una medida de un sensor, debe enviar un evento de telemetría que contenga los datos del sensor.
 - `Commands`. Los comandos representan métodos que los usuarios del dispositivo pueden ejecutar en el dispositivo. Por ejemplo, un comando de restablecimiento o un comando para encender o apagar un ventilador.
 
@@ -159,7 +157,7 @@ En el ejemplo siguiente se muestra la definición de la interfaz del sensor ambi
 }
 ```
 
-En este ejemplo se muestran dos propiedades, un tipo de telemetría y dos comandos. Una descripción de campo mínima tiene:
+En este ejemplo se muestran dos propiedades (una de solo lectura y otra grabable), un tipo de telemetría y dos comandos. Una descripción de campo mínima tiene:
 
 - `@type` para especificar el tipo de funcionalidad: `Telemetry`, `Property`o `Command`.  En algunos casos, el tipo incluye un tipo semántico para permitir que IoT Central realice algunas suposiciones sobre cómo controlar el valor.
 - `name` para el valor de telemetría.
@@ -168,7 +166,7 @@ En este ejemplo se muestran dos propiedades, un tipo de telemetría y dos comand
 
 Los campos opcionales, como el nombre para mostrar y la descripción, permiten agregar más detalles a la interfaz y las funcionalidades.
 
-### <a name="properties"></a>Propiedades
+## <a name="properties"></a>Propiedades
 
 De forma predeterminada, las propiedades son de solo lectura. Las propiedades de solo lectura significan que el dispositivo informa de las actualizaciones de valores de propiedad a la aplicación de IoT Central. La aplicación de IoT Central no puede establecer el valor de una propiedad de solo lectura.
 
@@ -180,13 +178,13 @@ No use las propiedades para enviar datos de telemetría desde un dispositivo. Po
 
 En el caso de las propiedades de escritura, la aplicación de dispositivo devuelve un código de estado deseado, una versión y una descripción para indicar si ha recibido y aplicado el valor de propiedad.
 
-### <a name="telemetry"></a>Telemetría
+## <a name="telemetry"></a>Telemetría
 
 IoT Central le permite ver la telemetría en paneles y gráficos, y usar reglas para desencadenar acciones cuando se alcanzan los umbrales. IoT Central usa la información del DCM, como los tipos de datos, las unidades y los nombres para mostrar, para determinar cómo se muestran los valores de telemetría.
 
 Puede usar la característica de exportación de datos de IoT Central para transmitir la telemetría a otros destinos, como Storage o Event Hubs.
 
-### <a name="commands"></a>Comandos:
+## <a name="commands"></a>Comandos:
 
 Los comandos son sincrónicos o asincrónicos. Un comando sincrónico debe ejecutarse en un plazo máximo de 30 segundos de forma predeterminada y el dispositivo debe estar conectado cuando llegue el comando. Si el dispositivo no responde a tiempo o no está conectado, se produce un error en el comando.
 

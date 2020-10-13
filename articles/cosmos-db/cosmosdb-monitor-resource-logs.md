@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sngun
-ms.openlocfilehash: 881ddfec587df61201f2c251fd0dd0a8164496c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9284fca6a96441ad5e6c23f9c6920ba184e03086
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549982"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801425"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Supervisión de datos de Azure Cosmos DB mediante la configuración de diagnóstico en Azure
 
@@ -99,12 +99,12 @@ Para obtener información detallada sobre cómo crear una configuración de diag
    | render timechart
    ```
     
-1. Cómo puedo obtener estadísticas de clave de partición para evaluar el sesgo entre las tres primeras particiones de la cuenta de base de datos:
+1. Cómo puedo obtener estadísticas de clave de partición para evaluar el sesgo entre las tres primeras particiones de una cuenta de base de datos:
 
    ```Kusto
    AzureDiagnostics 
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId 
    ```
 
 1. ¿Cómo puedo obtener los cargos de solicitud para las consultas costosas?
@@ -214,14 +214,6 @@ Para obtener información detallada sobre cómo crear una configuración de diag
    | where todouble(sizeKb_d) > 800000
    ```
 
-1. ¿Cómo puedo obtener las estadísticas de clave de partición para evaluar el sesgo entre las tres primeras particiones de la cuenta de base de datos?
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId
-   ```
-
 1. ¿Cómo puedo obtener latencias de replicación P99 o P50 en las operaciones, los cargos de solicitud o la longitud de la respuesta?
 
    ```Kusto
@@ -238,7 +230,7 @@ Para obtener información detallada sobre cómo crear una configuración de diag
  
 1. ¿Cómo se obtienen los registros Controlplane?
  
-   Recuerde activar la marca como se describe en el artículo [Deshabilitar el acceso de escritura de metadatos basado en claves](audit-control-plane-logs.md#disable-key-based-metadata-write-access) y ejecutar las operaciones mediante Azure PowerShell, la CLI o ARM.
+   Recuerde activar la marca tal como se describe en el artículo [Deshabilitar el acceso de escritura de metadatos basados en claves](audit-control-plane-logs.md#disable-key-based-metadata-write-access) y ejecutar las operaciones con Azure PowerShell, la CLI de Azure o Azure Resource Manager.
  
    ```Kusto  
    AzureDiagnostics 

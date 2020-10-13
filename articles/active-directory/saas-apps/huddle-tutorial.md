@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 77472e27a11614b7b5600f48e020afcceaeb967c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1cbc47820f4a9eeffc4e9fa3cf01290f7c35fd14
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525911"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826433"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Tutorial: integración de Azure Active Directory con Huddle
 
@@ -102,7 +102,7 @@ Para configurar el inicio de sesión único de Azure AD con Huddle, realice los 
     > [!NOTE]
     > La instancia de Huddle se detectará automáticamente en el dominio que especifique a continuación.
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Huddle](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL:
 
@@ -121,7 +121,7 @@ Para configurar el inicio de sesión único de Azure AD con Huddle, realice los 
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Huddle](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
 

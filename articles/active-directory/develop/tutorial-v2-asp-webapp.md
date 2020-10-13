@@ -1,7 +1,7 @@
 ---
-title: Adición de inicio de sesión en la Plataforma de identidad de Microsoft a una aplicación web de ASP.NET
+title: 'Tutorial: Creación de una aplicación web de ASP.NET que usa la Plataforma de identidad de Microsoft para la autenticación | Azure'
 titleSuffix: Microsoft identity platform
-description: Implementación del inicio de sesión de Microsoft en una solución ASP.NET mediante una aplicación basada en un explorador web tradicional y el estándar OpenID Connect
+description: En este tutorial, creará una aplicación web de ASP.NET que usa la Plataforma de identidad de Microsoft y el middleware OWIN para habilitar el inicio de sesión de usuario.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,23 +12,31 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 740d62136393cf0c9cf31d367735bffed1c05276
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9ff43202bdace577024413c9cc177de2997a0ad5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165590"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627965"
 ---
-# <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
+# <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
 
 Esta guía muestra cómo implementar el inicio de sesión en Microsoft a través de una solución ASP.NET MVC mediante una aplicación basada en explorador web tradicional y OpenID Connect.
 
 Cuando haya completado esta guía, la aplicación podrá aceptar inicios de sesión de cuentas personales de outlook.com y live.com. Además, tanto las cuentas profesionales como las educativas de cualquier empresa u organización que esté integrada con la Plataforma de identidad de Microsoft podrán iniciar sesión en la aplicación.
 
-> Esta guía requiere Microsoft Visual Studio 2019.  ¿No lo tiene?  [Descargue Visual Studio 2019 de manera gratuita](https://www.visualstudio.com/downloads/).
+En este tutorial, aprenderá a:
 
->[!NOTE]
-> Si es la primera vez que usa la plataforma de identidad de Microsoft, es aconsejable que comience por el artículo [Adición del inicio de sesión de la plataforma de identidad de Microsoft a una aplicación web de ASP.NET](quickstart-v2-aspnet-webapp.md).
+> [!div class="checklist"]
+> * Crear un proyecto de *Aplicación web de ASP.NET* en Visual Studio
+> * Agregar los componentes de middleware Open Web Interface para .NET (OWIN)
+> * Agregar código para admitir el inicio y el cierre de sesión de usuario
+> * Registro de la aplicación en Azure Portal
+> * Prueba de la aplicación
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con la carga de trabajo **ASP.NET y desarrollo web** instalada
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funcionamiento de la aplicación de ejemplo generada por esta guía
 
@@ -264,7 +272,7 @@ En Visual Studio, cree otra vista para agregar el botón de inicio de sesión y
     ```
 
 ### <a name="more-information"></a>Más información
-Esta página agrega un botón de inicio de sesión en formato SVG con un fondo negro:<br/>![Iniciar sesión con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para más botones de inicio de sesión, vaya a [Directrices de personalización de marca](./howto-add-branding-in-azure-ad-apps.md "Directrices de marca").
+Esta página agrega un botón de inicio de sesión en formato SVG con un fondo negro:<br/>![Botón Iniciar sesión con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para más botones de inicio de sesión, vaya a [Directrices de personalización de marca](./howto-add-branding-in-azure-ad-apps.md "Directrices de marca").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Agregar un controlador para mostrar las notificaciones del usuario
 Este controlador muestra los usos del atributo `[Authorize]` para proteger un controlador. Este atributo restringe el acceso al controlador, ya que solo permite usuarios autenticados. El código siguiente usa el atributo para mostrar las notificaciones de usuario que se recuperaron como parte del inicio de sesión:
@@ -287,7 +295,7 @@ Este controlador muestra los usos del atributo `[Authorize]` para proteger un co
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
 
-            //You get the user’s first and last name below:
+            //You get the user's first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
 
             // The 'preferred_username' claim can be used for showing the username
@@ -305,7 +313,7 @@ Este controlador muestra los usos del atributo `[Authorize]` para proteger un co
     ```
 
 ### <a name="more-information"></a>Más información
-Debido al uso del atributo `[Authorize]`, todos los métodos de este controlador solo pueden ejecutarse si el usuario está autenticado. Si no lo está e intenta acceder al controlador, OWIN inicia un desafío de autenticación y le obliga al usuario a autenticarse. El código anterior busca en la lista de notificaciones atributos de usuario específicos que se hayan incluido en el token del usuario. Estos atributos incluyen el nombre completo del usuario y el nombre de usuario, así como el firmante del identificador de usuario global. También contienen el *Id. del inquilino*, que representa el identificador de la organización del usuario.
+Debido al uso del atributo `[Authorize]`, todos los métodos de este controlador solo pueden ejecutarse si el usuario está autenticado. Si no lo está e intenta acceder al controlador, OWIN inicia un desafío de autenticación y le obliga al usuario a autenticarse. El código anterior busca en la lista de notificaciones atributos de usuario específicos que se hayan incluido en el token identificador del usuario del usuario. Estos atributos incluyen el nombre completo del usuario y el nombre de usuario, así como el firmante del identificador de usuario global. También contienen el *Id. del inquilino*, que representa el identificador de la organización del usuario.
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Creación de una vista que muestre las notificaciones del usuario
 
@@ -392,7 +400,7 @@ Para probar la aplicación en Visual Studio, presione F5 para ejecutar el proye
 
 Cuando esté listo para realizar la prueba, use una cuenta de Azure AD (profesional o educativa) o una cuenta Microsoft personal (<span>live.</span>com, <span>outlook.</span>com) para iniciar sesión.
 
-![Iniciar sesión con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![El botón Iniciar sesión con Microsoft se muestra en la página de inicio de sesión del explorador](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Iniciar sesión en la cuenta de Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
@@ -419,7 +427,7 @@ Una vez en la vista del controlador, verá una tabla que contiene las propiedade
 
 |Propiedad |Value |Descripción |
 |---|---|---|
-|**Nombre** |Nombre completo del usuario | Nombre y apellido del usuario
+|**Nombre** |Nombre completo del usuario | Nombre y apellidos del usuario
 |**Nombre de usuario** |usuario<span>@domain.com</span> | Nombre de usuario que se usa para identificar al usuario|
 |**Subject** |Asunto |Cadena que identifica al usuario de forma exclusiva en la web|
 |**Id. de inquilino** |Guid | Un **GUID** que representa de forma única la organización de Azure AD del usuario|
@@ -470,20 +478,11 @@ Puede restringir el acceso al proceso de inicio de sesión solo a aquellas cuent
 
 Puede implementar un método personalizado para validar los emisores con el parámetro **IssuerValidator**. Para más información acerca de cómo usar este parámetro, consulte clase [TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información acerca de la forma en que las aplicaciones web pueden llamar a las API web.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Aprenda a crear la aplicación que se ha usado en este inicio rápido.
-
-Más información acerca de las aplicaciones web que llaman a API web con la plataforma de identidad de Microsoft:
+Más información acerca de las aplicaciones web que llaman a las API web protegidas con la Plataforma de identidad de Microsoft:
 
 > [!div class="nextstepaction"]
 > [Aplicaciones web que llaman a las API web](scenario-web-app-sign-user-overview.md)
-
-Aprenda a crear aplicaciones web que llamen a Microsoft Graph:
-
-> [!div class="nextstepaction"]
-> [Tutorial de Microsoft Graph ASP.NET](/graph/tutorials/aspnet)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

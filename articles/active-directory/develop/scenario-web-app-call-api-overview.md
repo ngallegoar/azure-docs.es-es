@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c4bef25a0be12c0335a82345ec998274f1faa67
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 174db339079de91a87cef9551bc79e6f03701605
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058399"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257136"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Escenario: Aplicación web que llama a las API web
 
@@ -24,12 +24,7 @@ Obtenga información sobre cómo compilar una aplicación web que permita inicia
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
-Este escenario supone que ya ha pasado por el escenario siguiente:
-
-> [!div class="nextstepaction"]
-> [Aplicación web que permite iniciar sesión a los usuarios](scenario-web-app-sign-user-overview.md)
+En este escenario se supone que ya ha completado [Escenario: Aplicación web que permite iniciar sesión a los usuarios](scenario-web-app-sign-user-overview.md) de Azure AD.
 
 ## <a name="overview"></a>Información general
 
@@ -51,6 +46,10 @@ El desarrollo de este escenario implica estas tareas específicas:
 
 - Durante el [registro de la aplicación](scenario-web-app-call-api-app-registration.md), debe proporcionar un URI de respuesta, un secreto o un certificado que se compartirán con Azure AD. Si implementa la aplicación en varias ubicaciones, proporcionará un URI de respuesta para cada ubicación.
 - La [configuración de la aplicación](scenario-web-app-call-api-app-configuration.md) tiene que proporcionar las credenciales de cliente que se compartieron con Azure AD durante el registro de la aplicación.
+
+## <a name="recommended-reading"></a>Lecturas recomendadas
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

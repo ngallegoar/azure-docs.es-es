@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
 ms.date: 08/31/2020
-ms.openlocfilehash: 96fba5c27115dab65f26be80ce03bef35abcdb92
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a936fbec23a38c5b96c678b38b92eed9346b88bf
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230844"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567543"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parámetros globales en Azure Data Factory
 
@@ -25,11 +25,11 @@ Los parámetros globales son constantes en una factoría de datos que una canali
 
 Para crear un parámetro global, vaya a la pestaña *Parámetros globales* de la sección *Administrar*. Seleccione **Nuevo** para abrir el panel de navegación lateral de creación.
 
-![Creación de parámetros globales](media/author-global-parameters/create-global-parameter-1.png)
+![Captura de pantalla en la que se resalta el botón Nuevo que ha seleccionado para crear los parámetros globales.](media/author-global-parameters/create-global-parameter-1.png)
 
 En el panel de navegación lateral, escriba un nombre, seleccione un tipo de datos y especifique el valor del parámetro.
 
-![Creación de parámetros globales](media/author-global-parameters/create-global-parameter-2.png)
+![Captura de pantalla que muestra dónde se agrega el nombre, el tipo de datos y el valor del nuevo parámetro global.](media/author-global-parameters/create-global-parameter-2.png)
 
 Una vez creado un parámetro global, puede editarlo con un clic en el nombre del parámetro. Para modificar varios parámetros a la vez, seleccione **Editar todo**.
 

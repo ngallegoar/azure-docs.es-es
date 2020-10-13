@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 007f4d0c0e56051c369d8d06cdd40c9251647673
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b26ee6d6e82903a3dad91ae931885f62daf5d15b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985902"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821169"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GitHub
 
@@ -91,7 +91,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 5. La aplicación GitHub espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde a **Unique User Identifier (Name ID)** (Identificador de usuario único [Identificador de nombre]) se le ha asignado **user.userprincipalname**. La aplicación GitHub espera que al **identificador de usuario único (Identificador de nombre)** se le haya asignado **user.mail**, por lo que se debe editar la asignación de atributos. Para ello, haga clic en el icono **Editar** y cambie la asignación de atributos.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra la sección "User Attributes" (Atributos de usuario) con el icono "Edit" (Editar) resaltado.](common/edit-attribute.png)
 
 6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -149,11 +149,11 @@ En esta sección va a permitir que B.Simon acceda a GitHub mediante el inicio de
 
 2. Vaya a **Configuración** y haga clic en **Seguridad**
 
-    ![Configuración](./media/github-tutorial/security.png)
+    ![Captura de pantalla que muestra el menú "Organization settings" (Configuración de la organización) de GitHub con la opción "Security" (Seguridad) seleccionada.](./media/github-tutorial/security.png)
 
 3. Active la casilla **Habilitar autenticación SAML** para ver los campos de configuración del inicio de sesión único. Realice los siguientes pasos:
 
-    ![Configuración](./media/github-tutorial/saml-sso.png)
+    ![Captura de pantalla que muestra la sección "SAML Single Sign-On" (Inicio de sesión único de SAML) con los cuadros de texto "Enable SAML authentication" (Habilitar autenticación SAML) y URL resaltados.](./media/github-tutorial/saml-sso.png)
 
     a. Copie el valor de **Single sign-on URL** (Dirección URL de inicio de sesión único) y pegue el valor en el cuadro de texto **URL de inicio de sesión** de la sección **Configuración básica de SAML** de Azure Portal.
     
@@ -161,7 +161,7 @@ En esta sección va a permitir que B.Simon acceda a GitHub mediante el inicio de
 
 4. Configure los campos siguientes:
 
-    ![Configuración](./media/github-tutorial/configure.png)
+    ![Captura de pantalla que muestra los cuadros de texto "URL de inicio de sesión", "Emisor" y "Certificado público".](./media/github-tutorial/configure.png)
 
     a. En el cuadro de texto **Sign-On URL** (Dirección URL de inicio de sesión), pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -208,7 +208,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
     b. Haga clic en **Enviar invitación**.
 
-    ![Invite People (Invitar a personas)](./media/github-tutorial/send-invitation.png "Invitar a contactos")
+    ![Captura de pantalla que muestra la página de diálogo "Invitar a un miembro" con la opción "Miembro" seleccionada y el botón "Enviar invitación" seleccionado.](./media/github-tutorial/send-invitation.png "Invitar a contactos")
 
     > [!NOTE]
     > El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.

@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8e73ed8ac4712e84a900dcd85dbc8d756ccbdd62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a44655571099d936b34a4233bc12fa099e5bc338
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905774"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660962"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualización de anomalías con detección por lotes y Power BI
 
@@ -56,7 +56,7 @@ Power BI convertirá las marcas de tiempo de la primera columna en un tipo de d
 
 Haga clic en la pestaña **Transformar** de la cinta de opciones del editor Power Query. En el grupo **Cualquier columna**, abra el menú desplegable **Tipo de datos:** y seleccione **Texto**.
 
-![Una imagen de la pantalla "Navegador" del origen de datos en Power BI](../media/tutorials/data-type-drop-down.png)
+![Imagen de la lista desplegable de tipos de datos](../media/tutorials/data-type-drop-down.png)
 
 Si recibe un aviso sobre el cambio de tipo de columna, haga clic en **Sustituir la actual**. Después, haga clic en **Cerrar y aplicar** o en **Aplicar** en la pestaña **Inicio** de la cinta de opciones.
 
@@ -66,7 +66,7 @@ Para dar formato y enviar el archivo de datos a Anomaly Detector API, puede invo
 
 Asegúrese de que está seleccionada la nueva consulta y, a continuación, haga clic en **Editor avanzado**.
 
-![Una imagen del botón "Editor avanzado" en Power BI](../media/tutorials/advanced-editor-screen.png)
+![Imagen de la pantalla "Editor avanzado"](../media/tutorials/advanced-editor-screen.png)
 
 En el Editor avanzado, use el siguiente fragmento de Power Query M para extraer las columnas de la tabla y enviarlas a la API. Después, la consulta creará una tabla a partir de la respuesta JSON y la devolverá. Reemplace la variable `apiKey` por la clave de Anomaly Detector API y `endpoint` por el punto de conexión. Después de haber especificado la consulta en el Editor avanzado, haga clic en **Listo**.
 
@@ -80,7 +80,7 @@ En el Editor avanzado, use el siguiente fragmento de Power Query M para extraer 
     jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Content-Type" = "application/json", #"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = bytesresp  = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
+    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
     jsonresp    = Json.Document(bytesresp),
 
     respTable = Table.FromColumns({
@@ -114,7 +114,7 @@ En el Editor avanzado, use el siguiente fragmento de Power Query M para extraer 
 
 Invoque la consulta en la hoja de datos seleccionando `Sheet1` debajo de **Escribir parámetro** y haga clic en **Invocar**.
 
-![Una imagen del botón "Editor avanzado"](../media/tutorials/invoke-function-screenshot.png)
+![Imagen de la función de invocación](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>Privacidad y autenticación en el origen de datos
 
@@ -148,11 +148,11 @@ Agregue los siguientes campos desde **Función invocada** al campo **Valores** d
 * LowerMargins
 * ExpectedValues
 
-![Una imagen de la nueva pantalla de medida rápida](../media/tutorials/chart-settings.png)
+![Imagen de la configuración de gráficos](../media/tutorials/chart-settings.png)
 
 Después de agregar los campos, haga clic en el gráfico y cambie su tamaño para que aparezcan todos los puntos de datos. El gráfico tendrá un aspecto similar al de la siguiente captura de pantalla:
 
-![Una imagen de la nueva pantalla de medida rápida](../media/tutorials/chart-visualization.png)
+![Imagen de la visualización de gráficos](../media/tutorials/chart-visualization.png)
 
 ### <a name="display-anomaly-data-points"></a>Visualización de puntos de datos de anomalías
 
@@ -162,15 +162,15 @@ En el lado derecho de la ventana de Power BI, bajo el panel **CAMPOS**, haga cl
 
 En la pantalla que aparece, seleccione **Valor filtrado** como cálculo. Establezca **Valor base** en `Sum of Value`. A continuación, arrastre `IsAnomaly` desde los campos de **Función invocada** a **Filtro**. Seleccione `True` en el menú desplegable **Filtro**.
 
-![Una imagen de la nueva pantalla de medida rápida](../media/tutorials/new-quick-measure-2.png)
+![Imagen de la nueva pantalla de medida rápida](../media/tutorials/new-quick-measure-2.png)
 
 Después de hacer clic en **Aceptar**, tendrá un campo `Value for True`, en la parte inferior de la lista de los campos. Haga clic con el botón derecho en ella y cambie su nombre a **Anomalías**. Agréguela a los **valores** del gráfico. A continuación, seleccione la herramienta **Formato** y establezca el tipo de eje X en **Categórico**.
 
-![Una imagen de la nueva pantalla de medida rápida](../media/tutorials/format-x-axis.png)
+![Imagen del formato del eje x](../media/tutorials/format-x-axis.png)
 
 Aplique colores al gráfico haciendo clic en la herramienta **Formato** y en **Colores de datos**. El gráfico debe tener un aspecto parecido al siguiente:
 
-![Una imagen de la nueva pantalla de medida rápida](../media/tutorials/final-chart.png)
+![Imagen del gráfico final](../media/tutorials/final-chart.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

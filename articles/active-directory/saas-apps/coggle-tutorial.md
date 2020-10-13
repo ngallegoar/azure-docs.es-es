@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: jeedes
-ms.openlocfilehash: ffa4f0ab40e413da78257bde81a00fd3910131b1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08a9cbadb86f59cca1f361dc66ee03a300f91968
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555979"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759550"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coggle"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Coggle
 
@@ -146,19 +146,19 @@ En esta sección, va a permitir que B.Simon acceda a Coggle mediante el inicio d
 
 2. Haga clic en **Coggle** y seleccione **My Settings** (Mi configuración).
 
-    ![Configuración de Coggle](./media/Coggle-tutorial/configure1.png)
+    ![Captura de pantalla que muestra el sitio de la compañía Coggle con My Settings (Mi configuración) seleccionado.](./media/Coggle-tutorial/configure1.png)
 
 3. Haga clic en el siguiente **logotipo** y seleccione **Autenticación**.
 
-    ![Configuración de Coggle](./media/Coggle-tutorial/configure2.png)
+    ![Captura de pantalla que muestra un icono de ballena y la opción Authentication (Autenticación) seleccionada.](./media/Coggle-tutorial/configure2.png)
 
 4. Haga clic en **Edit SAML Config** (Editar configuración de SAML).
 
-    ![Configuración de Coggle](./media/Coggle-tutorial/configure3.png)
+    ![Captura de pantalla que muestra la página de integración de SAML con la opción Edit SAML Config (Editar configuración de SAML).](./media/Coggle-tutorial/configure3.png)
 
 5. En la página de diálogo **SAML Integration** (Integración de SAML), siga estos pasos:
 
-    ![Configuración de Coggle](./media/Coggle-tutorial/configure4.png)
+    ![Captura de pantalla que muestra la página SAML Integration (Integración de SAML), donde puede especificar la información de este paso.](./media/Coggle-tutorial/configure4.png)
 
     a. En el cuadro de texto **Entrypoint (ID Provider SSO URL)** (Punto de entrada [Dirección URL del inicio de sesión único del proveedor de identidades)], pegue el valor de la **dirección URL de inicio de sesión**  que ha copiado de Azure Portal.
 

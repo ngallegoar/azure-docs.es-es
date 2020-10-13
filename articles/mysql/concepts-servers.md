@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 300470b2e8fb10fda7cfc59517cef00c07bf0632
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a6aabe7ef3500a114525fe6c8bc993826295e36
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79537013"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275360"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Conceptos sobre servidores de Azure Database for MySQL
 
@@ -45,6 +45,20 @@ Los elementos siguientes ayudan a garantizar el acceso seguro a la base de datos
 | **TCP/IP** | Se admite el protocolo a través de TCP/IP y a través de sockets de dominio de Unix. |
 | **Firewall** | Para ayudar a mantener los datos protegidos, una regla de firewall impide todo acceso al servidor de bases de datos, hasta que se especifique qué equipos cuentan con permiso. Vea [Azure Database for MySQL Server firewall rules](./concepts-firewall-rules.md) (Reglas de firewall del servidor de Azure Database for MySQL). |
 | **SSL** | El servicio permite establecer conexiones SSL entre las aplicaciones y el servidor de bases de datos.  Consulte [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (Configuración de la conectividad SSL en la aplicación para conectarse de forma segura a Azure Database for MySQL). |
+
+## <a name="stopstart-an-azure-database-for-mysql-preview"></a>Inicio o detención de una instancia de Azure Database for MySQL (versión preliminar)
+
+Azure Database for MySQL permite **detener** el servidor cuando no está en uso e **iniciar** el servidor cuando se reanuda la actividad. Esto se hace básicamente para ahorrar costos en los servidores de bases de datos, ya que el recurso solo se paga cuando se usa. Esto cobra aún más importancia en las cargas de trabajo de desarrollo y pruebas, y cuando el servidor solo se usa durante una parte del día. Al detener el servidor, se anularán todas las conexiones activas. Más adelante, cuando desee volver a poner el servidor en línea, puede usar [Azure Portal](how-to-stop-start-server.md) o la [CLI](how-to-stop-start-server.md).
+
+Si el servidor está en estado **detenido**, el proceso del mismo no se factura. Sin embargo, el almacenamiento se sigue facturando mientras se mantiene el almacenamiento del servidor, con el fin de asegurarse de que los archivos de datos están disponibles cuando se vuelve a iniciar el servidor.
+
+> [!IMPORTANT]
+> Cuando se **detiene** el servidor permanece en ese estado durante los siete días siguientes. Si no lo **inicia** de forma manual durante ese tiempo, se iniciará automáticamente al final de los siete días. Puede optar por volver a **detenerlo** si no va a usar el servidor.
+
+Durante el tiempo en que el servidor está detenido, no se pueden realizar operaciones de administración en él. Para cambiar cualquier valor de la configuración del servidor, deberá [iniciar el servidor](how-to-stop-start-server.md).
+
+### <a name="limitations-of-stopstart-operation"></a>Limitaciones de las operaciones de detención e inicio
+- No es compatible con las configuraciones de réplica de lectura (tanto de origen como de réplicas).
 
 ## <a name="how-do-i-manage-a-server"></a>¿Cómo se administra un servidor?
 

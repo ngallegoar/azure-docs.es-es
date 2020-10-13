@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/14/2020
 ms.author: jeedes
-ms.openlocfilehash: ac881d19ee4ba7efc2dcbab93775f59cfec5effa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 82fced2d504af1823b3e6e1561ee875067a962c5
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549296"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741421"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beekeeper-azure-ad-sso"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Beekeeper Azure AD SSO
 
@@ -89,7 +89,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     c. Una vez que se haya cargado correctamente el archivo de metadatos, el valor de **Identificador** y **URL de respuesta** se rellena automáticamente en la sección Configuración básica de SAML.
 
-    ![imagen](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     > [!Note]
     > Si los valores **Identificador** y **URL de respuesta** no se rellenan automáticamente, hágalo manualmente según sus necesidades.
@@ -103,7 +103,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación Beekeeper Azure AD SSO espera que las aserciones de SAML estén en un formato específico, así que es necesario agregar asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
-    ![imagen](common/default-attributes.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/default-attributes.png)
 
 1. Además de lo anterior, la aplicación espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 

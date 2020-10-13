@@ -1,20 +1,20 @@
 ---
-title: 'Certificación de máquinas virtuales: problemas y soluciones'
-description: En este artículo se explican los mensajes de error comunes de las imágenes de máquina virtual. También se describen las soluciones relacionadas.
+title: Problemas comunes al certificar imágenes de máquina virtual para Azure Marketplace
+description: En este artículo se explican los mensajes de error y problemas comunes al probar y certificar imágenes de VM para Azure Marketplace. También se analizan las soluciones relacionadas.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296457"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803473"
 ---
-# <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas y soluciones durante la certificación de máquinas virtuales 
+# <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Problemas comunes al certificar imágenes de máquina virtual para Azure Marketplace
 
 Cuando publica sus imágenes de máquina virtual en Azure Marketplace, el equipo de Azure la valida para garantizar su arranque, seguridad y compatibilidad con Azure. Si se produce un error en alguna de las pruebas de alta calidad, se producirá un error en la publicación y recibirá un mensaje de error que describe el problema.
 

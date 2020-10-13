@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: 9a36e0903945a974f73187e4799e978c32f2d961
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: c41f6dbd3b85125ef290539040819ffa1833ef6f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576280"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629649"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutorial: Actualización de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -143,10 +143,7 @@ En este tutorial, actualizó Kubernetes en un clúster de AKS. Ha aprendido a:
 > * Actualización de los nodos de Kubernetes
 > * Validación de una actualización correcta
 
-Siga este vínculo para conocer más acerca de AKS.
-
-> [!div class="nextstepaction"]
-> [Introducción a AKS][aks-intro]
+Para más información sobre AKS, consulte [Introducción a AKS][aks-intro]. Para instrucciones sobre cómo crear soluciones completas con AKS, consulte [Guía de soluciones de AKS][aks-solution-guidance].
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -160,3 +157,4 @@ Siga este vínculo para conocer más acerca de AKS.
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-group-delete]: /cli/azure/group#az-group-delete
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here

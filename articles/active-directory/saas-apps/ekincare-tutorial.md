@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: abd6382a9bf07f198e0344b8730c585cff0f96ca
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 987a8676fa9f738b788b183a1f3d964c0d0b88ad
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544290"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Tutorial: integración de Azure Active Directory con eKincare
 
@@ -112,7 +112,7 @@ Para configurar el inicio de sesión único de Azure AD con eKincare, siga estos
 
 5. La aplicación eKincare espera las instrucciones de aserción de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "User Attributes" (Atributos de usuario) con el botón "Edit" (Editar) seleccionado.](common/edit-attribute.png)
 
 6. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, edite las notificaciones mediante el **icono Editar** o agregue notificaciones mediante **Agregar nueva notificación** para configurar el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos: 
 
@@ -124,7 +124,7 @@ Para configurar el inicio de sesión único de Azure AD con eKincare, siga estos
     
     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![imagen](common/new-save-attribute.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "User claims" (Reclamaciones de usuario) con los botones "Add new claim" (Agregar nueva reclamación) y "Save" (Guardar) seleccionados.](common/new-save-attribute.png)
 
     ![imagen](common/new-attribute-details.png)
 

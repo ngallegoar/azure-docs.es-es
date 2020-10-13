@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 06c4945c6fee82b3ce622304351c3ad6d9ae282d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 21899ab40836b8ad083c0f005d43084c65c1b6fa
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544713"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760026"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: Integración de Azure Active Directory con Clear Review
 
@@ -102,7 +102,7 @@ Para configurar el inicio de sesión único de Azure AD con Clear Review, siga e
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Clear Review](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<customer name>.clearreview.com/sso/metadata/`
 
@@ -110,7 +110,7 @@ Para configurar el inicio de sesión único de Azure AD con Clear Review, siga e
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Clear Review](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<customer name>.clearreview.com`
 
@@ -119,15 +119,15 @@ Para configurar el inicio de sesión único de Azure AD con Clear Review, siga e
 
 6. La aplicación Clear Review espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde **nameidentifier** se asigna con **user.userprincipalname**. La aplicación Clear Review espera que **nameidentifier** se asigne con **user.mail**, por lo que debe editar la asignación de atributos haciendo clic en el icono **Editar** y cambiar esa asignación.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra User Attributes (Atributos de usuario) con el icono de edición seleccionado.](common/edit-attribute.png)
 
 7. En el cuadro de diálogo **Atributos y notificaciones de usuario**, realice estos pasos:
 
     a. Haga clic en el **icono Editar** situado a la derecha del **valor de identificador de nombre**.
 
-    ![imagen](./media/clearreview-tutorial/attribute02.png)
+    ![Captura de pantalla que muestra los atributos y las notificaciones del usuario con el icono de edición seleccionado.](./media/clearreview-tutorial/attribute02.png)
 
-    ![imagen](./media/clearreview-tutorial/attribute01.png)
+    ![Captura de pantalla que muestra Manage user claims (Administrar reclamaciones de usuario) para escribir los valores que se describen.](./media/clearreview-tutorial/attribute01.png)
 
     b. En la lista **Atributo de origen**, seleccione el valor de atributo **user.mail** de esa fila.
 
@@ -153,15 +153,15 @@ Para configurar el inicio de sesión único de Azure AD con Clear Review, siga e
 
 2. Seleccione **Administrador** en el panel de navegación izquierdo.
 
-    ![Botón Configurar inicio de sesión único](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
+    ![Captura de pantalla que muestra el portal de Clear Review con la opción Admin (Administrador) seleccionada.](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
 3. En la sección **Integraciones** situada en la parte inferior de la página, haga clic en el botón **Cambiar** situado a la derecha de **Configuración de inicio de sesión único**.
 
-    ![Botón Configurar inicio de sesión único](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+    ![Captura de pantalla que muestra el botón Change (Cambiar) del inicio de sesión único.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
 4. Siga estos pasos en la página **Configuración de inicio de sesión único**:
 
-    ![Botón Configurar inicio de sesión único](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+    ![Captura de pantalla que muestra la página Single Sign-On Settings (Configuración del inicio de sesión único), donde puede especificar la información de este paso.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
     a. En el cuadro de texto **URL del emisor**, pegue el valor de **Identificador de Azure AD**  que ha copiado de Azure Portal.
 

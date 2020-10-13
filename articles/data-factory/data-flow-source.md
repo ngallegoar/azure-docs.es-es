@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/27/2020
-ms.openlocfilehash: d850bcf2ffbd3867ab28d7dee54df3f8b427fd6e
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 22f524ed4f01ad5b3be110008a82cd31c5c476c5
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91404760"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827856"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformación de origen en flujo de datos de asignación 
 
@@ -57,7 +57,9 @@ Azure Data Factory tiene acceso a más de [90 conectores nativos](connector-over
 
 ## <a name="source-settings"></a>Configuración de origen
 
-Una vez que haya agregado un origen, configúrelo mediante la pestaña **Configuración de origen**. Aquí puede elegir o crear el conjunto de datos al que apunta el origen. También puede seleccionar las opciones de muestreo y esquema para los datos.
+Una vez que haya agregado un origen, configúrelo mediante la pestaña **Configuración de origen**. Aquí puede elegir o crear el conjunto de datos al que apunta el origen. También puede seleccionar las opciones de muestreo y esquema para los datos. 
+
+Los valores de desarrollo de los parámetros del conjunto de datos se pueden configurar en [Configuración de depuración](concepts-data-flow-debug-mode.md) (requiere que esté activado el modo Depuración).
 
 ![Pestaña de configuración de origen](media/data-flow/source1.png "Pestaña de configuración de origen")
 

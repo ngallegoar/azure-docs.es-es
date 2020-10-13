@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: af2630b977c1ce34712a582175674277799f105b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a48772c4325717a64bd36873675ff19c6a332de0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550626"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817167"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Tutorial: Integración de Azure Active Directory con HighGear
 
@@ -99,7 +99,7 @@ Para configurar el inicio de sesión único de Azure AD con el sistema HighGear,
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de HighGear](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identifier** (Identificador), pegue el valor del campo **Service Provider Entity ID** (Id. de entidad de servicio de proveedor) que se encuentra en la página de configuración del inicio de sesión único en el sistema HighGear.
 
@@ -116,7 +116,7 @@ Para configurar el inicio de sesión único de Azure AD con el sistema HighGear,
 
     c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-     ![Información de dominio y direcciones URL de inicio de sesión único de HighGear](common/metadata-upload-additional-signon.png)
+     ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
      En el cuadro de texto **Sign-on URL** (URL de inicio de sesión), pegue el valor del campo **Service Provider Entity ID** (Id. de entidad de servicio de proveedor) que se encuentra en la página de configuración del inicio de sesión único en el sistema HighGear. (Este identificador de entidad también es la dirección URL base del sistema HighGear que se va a usar para el inicio de sesión iniciado por SP).
 

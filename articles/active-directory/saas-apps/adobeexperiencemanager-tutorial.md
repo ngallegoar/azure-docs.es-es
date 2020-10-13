@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1088827ead320007c758d8e843a15328f108c035
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4607d4dfba68ca8f78ec4e3aaa4da36966ea843a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543030"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760842"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Tutorial: Integración de Azure Active Directory con Adobe Experience Manager
 
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de direcciones URL de inicio de sesión único y dominio de Adobe Experience Manager](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la sección Configuración básica de SAML y resalta los cuadros de texto Identificador y Dirección URL de respuesta.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba un valor único que se define también en el servidor AEM.
 
@@ -136,35 +136,35 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
 2. Seleccione **Settings** >  (Configuración) **Security** >  (Seguridad) **Users** (Usuarios).
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
+    ![Captura de pantalla que muestra el icono Usuarios en Adobe Experience Manager.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
 3. Seleccione **Administrator** (Administrador) o cualquier otro usuario pertinente.
 
-    ![Botón Configurar inicio de sesión único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
+    ![Captura de pantalla que resalta el usuario Administrator (Administrador).](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
 4. Seleccione **Account Settings** > **Manage TrustStore** (Configuración de la cuenta > Administrar TrustStore).
 
-    ![Botón Configurar inicio de sesión único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
+    ![Captura de pantalla que muestra Manage TrustStore (Administrar TrustStore) en Account settings (Configuración de cuenta).](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
 5. En **Add Certificate from CER file** (Agregar certificado desde archivo CER), haga clic en **Select Certificate File** (Seleccionar archivo de certificado). Busque el archivo de certificado que ha descargado de Azure Portal y selecciónelo.
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+    ![Captura de pantalla que resalta el botón Select Certificate File (Seleccionar archivo de certificado).](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
 6. El certificado se agrega a TrustStore. Anote el alias del certificado.
 
-    ![Botón Configurar inicio de sesión único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
+    ![Captura de pantalla que muestra que el certificado se ha agregado a TrustStore.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
 
 7. En la página **Users** (Usuarios), seleccione **authentication-service**.
 
-    ![Botón Configurar inicio de sesión único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
+    ![Captura que resalta el servicio de autenticación en la pantalla.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
 8. Seleccione **Account Settings** >  (Configuración de la cuenta) **Create/Manage KeyStore** (Crear o administrar KeyStore). Proporcione una contraseña para crear KeyStore.
 
-    ![Botón Configurar inicio de sesión único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
+    ![Captura de pantalla que resalta Manage KeyStore (Administrar KeyStore).](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
 9. Vuelva a la pantalla de administración. Después, seleccione **Settings** > **Operations** > **Web Console** (Configuración > Operaciones > Consola web).
 
-    ![Botón Configurar inicio de sesión único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
+    ![Captura de pantalla que resalta Web Console (Consola web) en Operations (Operaciones) en la sección Settings (Configuración).](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
     Se abre la página de configuración.
 
@@ -172,7 +172,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
 10. Busque **Adobe Granite SAML 2.0 Authentication Handler** (Controlador de autenticación de Adobe Granite SAML 2.0). Después, seleccione el botón **Agregar**.
 
-    ![Botón Configurar inicio de sesión único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
+    ![Captura de pantalla que resalta Adobe Granite SAML 2.0 Authentication Handler (Controlador de autenticación de Adobe Granite SAML 2.0).](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
 11. En esta página, realice las acciones siguientes.
 

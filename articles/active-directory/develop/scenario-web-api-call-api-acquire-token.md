@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7e0701cc5a9bb14800a48e2281dba1eb6ea0cf72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab0b74ffbcd8167613c6a8470e2f9102566edc60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026465"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257238"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>API web que llama a API web: Adquisición de un token para la aplicación
 
@@ -27,7 +27,10 @@ Una vez que ha creado un objeto de aplicación cliente, lo puede usar para adqui
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Este es un ejemplo de código que usa Microsoft.Identity.Web, que se llama en las acciones de los controladores de API. Llama a una API de bajada denominada *todolist*. Para obtener un token para llamar a la API de nivel inferior, se inserta el servicio `ITokenAcquisition` mediante la inserción de dependencias en el constructor del controlador (o el constructor de la página si utiliza Blazor) y se usa en las acciones del controlador, de modo que se obtiene un token para el usuario (`GetAccessTokenForUserAsync`) o para la propia aplicación (`GetAccessTokenForAppAsync`) en caso de un escenario de demonio.
+*Microsoft.Identity.Web* agrega métodos de extensión que proporcionan servicios útiles para llamar a Microsoft Graph o a una API web de nivel inferior. Estos métodos se explican en detalle en [Una API web que llama a las API web: llamada a una API](scenario-web-api-call-api-call-api.md). Con estos métodos auxiliares, no es necesario adquirir un token manualmente.
+
+Sin embargo, si desea adquirir manualmente un token, el código siguiente muestra un ejemplo de uso de *Microsoft.Identity.Web* para hacerlo en un controlador de API. Llama a una API de bajada denominada *todolist*.
+Para obtener un token para llamar a la API de nivel inferior, se inserta el servicio `ITokenAcquisition` mediante la inserción de dependencias en el constructor del controlador (o el constructor de la página si utiliza Blazor) y se usa en las acciones del controlador, de modo que se obtiene un token para el usuario (`GetAccessTokenForUserAsync`) o para la propia aplicación (`GetAccessTokenForAppAsync`) en caso de un escenario de demonio.
 
 ```csharp
 [Authorize]
@@ -83,7 +86,7 @@ public class ApiController {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Una API web de Python deberá usar algún middleware para validar el token de portador recibido del cliente. A continuación, la API web podrá obtener el token de acceso para la API de nivel inferior mediante la biblioteca de MSAL para Python al llamar al método [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of). Aún no hay disponible ningún ejemplo de este flujo con MSAL Python.
+Una API web de Python requiere el uso de middleware para validar el token de portador recibido del cliente. A continuación, la API web podrá obtener el token de acceso para una API de nivel inferior mediante la biblioteca de MSAL para Python al llamar al método [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of). Aún no hay disponible ningún ejemplo de este flujo con MSAL Python.
 
 ---
 

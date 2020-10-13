@@ -1,14 +1,14 @@
 ---
 title: Configuración de un laboratorio centrado en el aprendizaje profundo mediante Azure Lab Services | Microsoft Docs
-description: Aprenda a configurar un laboratorio para enseñar el scripting de shell en Linux.
+description: Aprenda a configurar un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural (NLP) mediante Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c5ac93109d24c0d5936c8f271276c02e4e6f6c19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01199e76b7b9cb1a6360b5aba010d0cfd8936c23
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443951"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251463"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Configuración de un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural mediante Azure Lab Services
 En este artículo se muestra cómo configurar un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural (NLP) mediante Azure Lab Services. El procesamiento de lenguaje natural (NLP) es una forma de inteligencia artificial (AI) que permite a los equipos utilizar la traducción, el reconocimiento de voz y otras capacidades de comprensión de lenguajes.  

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 8f6c815bf6b8be6d280dcdc60401f7a91e171e66
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b8593873774575635b31176b162086795e8a1320
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542766"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744294"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Boomi
 
@@ -89,14 +89,16 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     c. Una vez que se haya cargado correctamente el archivo de metadatos, el valor de **Identificador** y **URL de respuesta** se rellena automáticamente en la sección Configuración básica de SAML.
 
-    ![imagen](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde aparecen los valores del identificador y la dirección U R L de respuesta.](common/idp-intiated.png)
+
+    d. Escriba la **dirección URL de inicio de sesión**, por ejemplo, `https://platform.boomi.com/AtomSphere.html#build;accountId={your-accountId}`.
 
     > [!Note]
     > Obtendrá el **archivo de metadatos del proveedor de servicios** en la sección **Configuración del inicio de sesión único en Boomi**, que se explica más adelante en el tutorial. Si los valores **Identificador** y **URL de respuesta** no se rellenan automáticamente, hágalo manualmente según sus necesidades.
 
 1. La aplicación espera las aserciones de SAML en un formato específico, lo cual requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
-    ![imagen](common/default-attributes.png)
+    ![Captura de pantalla que muestra User Attributes & Claims (Atributos y reclamaciones del usuario) con valores predeterminados, como emailaddress User.mail y givenname user.givenname.](common/default-attributes.png)
 
 1. Además de lo anterior, la aplicación Boomi espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
@@ -160,7 +162,7 @@ En esta sección va a permitir que B.Simon acceda a Boomi mediante el inicio de 
 
     d. En **Federation Id Location** (Ubicación del identificador de federación), seleccione el botón de radio **Federation Id is in FEDERATION_ID Attribute element** (El id. de federación está en el elemento de atributo FEDERATION_ID).
 
-    e. Copie el valor de **AtomSphere MetaData URL** (Dirección URL de metadatos de AtomSphere), vaya a la **dirección URL de metadatos**  a través del explorador que prefiera y guarde la salida en un archivo. Cargue la **dirección URL de metadatos** en la sección **Configuración básica de SAML** en Azure Portal.
+    e. Copie el valor de **AtomSphere MetaData URL** (Dirección URL de metadatos de AtomSphere), vaya a la **dirección URL de metadatos ** a través del explorador que prefiera y guarde la salida en un archivo. Cargue la **dirección URL de metadatos** en la sección **Configuración básica de SAML** en Azure Portal.
 
     f. Haga clic en el botón **Guardar** .
 
@@ -174,13 +176,13 @@ Para permitir que los usuarios de Azure AD inicien sesión en Boomi, es necesar
 
 1. Después de iniciar sesión, vaya a **User Management** (Administración de usuarios) y vaya a **Users** (Usuarios).
 
-    ![Usuarios](./media/boomi-tutorial/tutorial_boomi_001.png "Usuarios")
+    ![Captura de pantalla que muestra la página de User Management (Administración de usuarios) con Users (Usuarios) seleccionados.](./media/boomi-tutorial/tutorial_boomi_001.png "Usuarios")
 
 1. Haga clic en el icono **+** , se abre el cuadro de diálogo **Add/Maintain User Roles** (Agregar o mantener roles de usuario).
 
-    ![Usuarios](./media/boomi-tutorial/tutorial_boomi_002.png "Usuarios")
+    ![Captura de pantalla que muestra el icono + seleccionado.](./media/boomi-tutorial/tutorial_boomi_002.png "Usuarios")
 
-    ![Usuarios](./media/boomi-tutorial/tutorial_boomi_003.png "Usuarios")
+    ![Captura de pantalla muestra Add / Maintain User Roles (Agregar o mantener roles de usuario) donde se configuran los usuarios.](./media/boomi-tutorial/tutorial_boomi_003.png "Usuarios")
 
     a. En el cuadro de texto **Dirección de correo electrónico del usuario**, escriba la dirección de correo electrónico de un usuario, por ejemplo, B.Simon@contoso.com.
 

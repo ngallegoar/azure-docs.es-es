@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: fd4c059b7f37960f0a76de8df3d99d2aefae94ef
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c9ca3b98d01e44c0c899e165e5f892ab5d9a5954
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548402"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715913"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Tutorial: Integración de Azure Active Directory con Allbound SSO
 
@@ -100,7 +100,7 @@ Para configurar el inicio de sesión único de Azure AD con Allbound SSO, realic
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Allbound SSO](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde puede escribir el identificador y la dirección URL de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SUBDOMAIN>.allbound.com/`
 
@@ -108,7 +108,7 @@ Para configurar el inicio de sesión único de Azure AD con Allbound SSO, realic
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Allbound SSO](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones URL adicionales donde puede escribir una URL de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.allbound.com/`
 

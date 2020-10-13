@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 6358c41ab6d63baa8ed1fa6960d7d887825a1d78
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c620393903ee08199632d457ece3b4c06db8ed68
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88529492"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760655"
 ---
 # <a name="tutorial-integrate-chargebee-with-azure-active-directory"></a>Tutorial: Integración de Chargebee con Azure Active Directory
 
@@ -132,11 +132,11 @@ En esta sección, va a permitir que B.Simon acceda a Chargebee mediante el inici
 
 4. En el lado izquierdo del menú, haga clic en **Configuración** > **Seguridad** > **Administrar**.
 
-    ![Configuración de Chargebee](./media/chargebee-tutorial/config01.png)
+    ![Captura de pantalla que muestra el sitio de la compañía Chargebee con las opciones Configuración, Seguridad y Administrar seleccionadas.](./media/chargebee-tutorial/config01.png)
 
 5. En el elemento emergente **Inicio de sesión único**, siga estos pasos:
 
-    ![Configuración de Chargebee](./media/chargebee-tutorial/config02.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Inicio de sesión único con SAML seleccionado y la opción para confirmar.](./media/chargebee-tutorial/config02.png)
 
     a. Seleccione **SAML**.
 
@@ -156,11 +156,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Chargebee, tienen 
 
 2. En el lado izquierdo del menú, haga clic en **Clientes** y después vaya a **Crear un nuevo cliente**.
 
-    ![Configuración de Freedcamp](./media/chargebee-tutorial/config03.png)
+    ![Captura de pantalla que muestra el sitio de Chargebee con las opciones Clientes y Crear un nuevo cliente seleccionadas.](./media/chargebee-tutorial/config03.png)
 
 3. En la página **Nuevo cliente**, rellene los campos correspondientes que se muestran a continuación y haga clic en **Crear cliente** para crear el usuario.
 
-    ![Configuración de Freedcamp](./media/chargebee-tutorial/config04.png)
+    ![Captura de pantalla muestra la página Nuevo cliente, donde puede especificar la información del cliente.](./media/chargebee-tutorial/config04.png)
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

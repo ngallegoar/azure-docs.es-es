@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: c43cac4d599753ecc3486ef7b86aa54b5697b0f6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: db5384f843173bdc795fba64f277ff8bf85dc4f5
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435666"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827140"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integración de datos mediante Azure Data Factory y Azure Data Share
 
@@ -105,7 +105,7 @@ Para activar la depuración, haga clic en el control deslizante **Data flow debu
 
 ## <a name="ingest-data-using-the-copy-activity"></a>Ingesta de datos mediante la actividad de copia
 
-En esta sección, creará una canalización con una actividad de copia que ingiere una tabla de una instancia de Azure SQL Database en una cuenta de almacenamiento de ADLS Gen2. Aprenderá a agregar una canalización, a configurar un conjunto de datos y a depurar una canalización a través de la experiencia del usuario de ADF. El patrón de configuración que se usa en esta sección se puede aplicar a la copia desde un almacén de datos relacional a un almacén de datos basado en archivos.
+En esta sección, creará una canalización con una actividad de copia que ingiere una tabla de una instancia de Azure SQL Database en una cuenta de almacenamiento de ADLS Gen2. Aprenderá a agregar una canalización, a configurar un conjunto de datos y a depurar una canalización a través de la experiencia del usuario de ADF. El patrón de configuración que se usa en esta sección se puede aplicar a la copia desde un almacén de datos relacional hasta un almacén de datos basado en archivos.
 
 En Azure Data Factory, una canalización es una agrupación lógica de actividades que realizan conjuntamente una tarea. Una actividad define una operación que se realizará en los datos. Un conjunto de datos apunta a los datos que se desean usar en un servicio vinculado.
 

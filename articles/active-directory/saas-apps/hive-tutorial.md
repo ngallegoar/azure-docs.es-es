@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 8abf36e79f83c69dd927acd21c5c8652122fc82d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6050b9f4a14f39245c7424f47dae081e9efc6ff1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544087"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826131"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hive"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Hive
 
@@ -147,11 +147,11 @@ En esta sección va a conceder a B.Simon acceso a Hive mediante el inicio de ses
 
 1. Haga clic en **User profile** (Perfil de usuario) y en **Your workspace** (Su área de trabajo).
 
-    ![Configuración de Hive](./media/hive-tutorial/configure1.png)
+    ![Captura de pantalla que muestra el sitio web de Hive con Your workspace (Su área de trabajo) seleccionado en el menú.](./media/hive-tutorial/configure1.png)
 
 1. Haga clic en **Auth** (Aut.) y realice los siguientes pasos:
 
-    ![Configuración de Hive](./media/hive-tutorial/configure2.png)
+    ![Captura de pantalla que muestra la página de autenticación en la que se describen las tareas.](./media/hive-tutorial/configure2.png)
 
     a. Copie el valor de **Your Workspace ID** (Id. de área de trabajo) y agréguelo en **URL de inicio de sesión** y **URL de respuesta** en la sección **Configuración básica de SAML** de Azure Portal.
 

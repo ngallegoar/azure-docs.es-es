@@ -3,12 +3,12 @@ title: Autenticación con una identidad administrada
 description: Proporcione acceso a las imágenes en el registro de contenedor privado mediante una identidad de Azure administrada que haya asignado el usuario o el sistema.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: e5fd8ead989838c0ba74b42a9766bc63936379fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a144f0e865cfc9bf857752eed65dbe5cda88bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537908"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253469"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Use la identidad administrada de Azure para autenticarse en Azure Container Registry 
 
@@ -230,6 +230,8 @@ Verá el mensaje `Login succeeded`. A continuación, puede ejecutar los comandos
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
+> [!NOTE]
+> Las identidades de servicio administradas asignadas por el sistema se pueden usar para interactuar con ACR, y App Service puede usar identidades de servicio administradas asignadas por el sistema. Sin embargo, no puede combinarlas, ya que App Service no puede usar MSI para comunicarse con un ACR. La única manera es habilitar el administrador en ACR y usar el nombre de usuario y la contraseña del administrador.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

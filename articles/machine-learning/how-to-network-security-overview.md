@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
-ms.date: 07/07/2020
+ms.author: peterlu
+author: peterclu
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, devx-track-python, references_regions, contperfq1
+ms.openlocfilehash: d08c1d23539c817792415d359b8e1cbb3979ca40
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893180"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825500"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Información general sobre la privacidad y el aislamiento de la red virtual
 
@@ -70,7 +70,7 @@ Realice los pasos siguientes para proteger el área de trabajo y los recursos as
 
 1. Cree una [área de trabajo habilitada para Private Link](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) para habilitar la comunicación entre la red virtual y el área de trabajo.
 1. Agregue Azure Key Vault a la red virtual con un [punto de conexión de servicio](../key-vault/general/overview-vnet-service-endpoints.md) o un [punto de conexión privado](../key-vault/general/private-link-service.md). Establezca Key Vault para ["permitir que los servicios de confianza de Microsoft puedan omitir este firewall"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
-1. Agregue una cuenta de Azure Storage a la red virtual con un [punto de conexión de servicio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) o un [punto de conexión privado](../storage/common/storage-private-endpoints.md).
+1. Agregue una cuenta de almacenamiento de Azure a la red virtual con un [punto de conexión de servicio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) o un [punto de conexión privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
 1. [Configure Azure Container Registry para usar un punto de conexión privado](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) y [habilite la delegación de subred en Azure Container Instances](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
 
 ![Diagrama de arquitectura que muestra cómo el área de trabajo y los recursos asociados se comunican entre sí a través de puntos de conexión de servicio o puntos de conexión privados en una red virtual](./media/how-to-network-security-overview/secure-workspace-resources.png)
@@ -80,10 +80,8 @@ Para obtener instrucciones detalladas sobre cómo completar estos pasos, consult
 ### <a name="limitations"></a>Limitaciones
 
 La protección del área de trabajo y los recursos asociados en una red virtual presenta las siguientes limitaciones:
-- La instancia de Private Link del área de trabajo solo está disponible en las siguientes regiones: eastus, westus2, southcentralus
-    - Esta limitación no se aplica a los recursos asociados. Por ejemplo, puede habilitar la red virtual para el almacenamiento en cualquier región de Azure Machine Learning.
+- El uso de un área de trabajo Azure Machine Learning con un vínculo privado no está disponible en las regiones de Azure Government ni Azure China 21Vianet.
 - Todos los recursos deben estar detrás de la misma red virtual. Sin embargo, se permiten subredes en la misma red virtual.
-- Algunas características de Studio como el diseñador, AutoML, etiquetado y generación de perfiles de datos no se pueden usar con cuentas de almacenamiento configuradas para usar un punto de conexión privado. Si necesita usar estas características de Studio, utilice puntos de conexión de servicio en su lugar.
 
 ## <a name="secure-the-training-environment"></a>Protección del entorno de entrenamiento
 
@@ -143,17 +141,17 @@ En el diagrama de red siguiente se muestra un área de trabajo de Azure Machine 
 
 [Proteger el área de trabajo](#secure-the-workspace-and-associated-resources) > [Proteger el entorno de entrenamiento](#secure-the-training-environment) > [Proteger el entorno de inferencia](#secure-the-inferencing-environment) > **Habilitar la funcionalidad de Studio** > [Configurar el firewall](#configure-firewall-settings)
 
-Aunque Studio puede acceder a los datos de una cuenta de almacenamiento configurada con un punto de conexión de servicio, algunas características están deshabilitadas de forma predeterminada:
+Si el almacenamiento se encuentra en una red virtual, primero debe realizar pasos de configuración adicionales para habilitar la funcionalidad completa en [Studio](overview-what-is-machine-learning-studio.md). De forma predeterminada, la característica siguiente está deshabilitada:
 
 * Vista previa de los datos en Studio.
 * Visualización de los datos en el diseñador.
 * Envío de un experimento de AutoML.
 * Inicio de un proyecto de etiquetado.
 
-Para habilitar la funcionalidad completa mientras se usa un punto de conexión de servicio de almacenamiento, consulte [Uso de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Actualmente, Studio no admite puntos de conexión privados de almacenamiento.
+Para habilitar la funcionalidad de Studio completa desde una red virtual, consulte [Uso de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Studio admite cuentas de almacenamiento que usan puntos de conexión de servicio o puntos de conexión privados.
 
 ### <a name="limitations"></a>Limitaciones
-- Studio no puede acceder a los datos de las cuentas de almacenamiento configuradas para usar puntos de conexión privados. Para obtener la funcionalidad completa, debe usar puntos de conexión de servicio para el almacenamiento y utilizar la identidad administrada.
+- [El etiquetado de datos asistido por ML](how-to-create-labeling-projects.md#use-ml-assisted-labeling) no es compatible con las cuentas de almacenamiento predeterminadas que están protegidas en una red virtual. Debe usar una cuenta de almacenamiento no predeterminada para el etiquetado de datos asistidos por ML. No obstante, la cuenta de almacenamiento no predeterminada se puede proteger en la red virtual. 
 
 ## <a name="configure-firewall-settings"></a>Configuración del firewall
 
@@ -161,11 +159,17 @@ Configure el firewall para controlar el acceso a los recursos del área de traba
 
 Para obtener más información sobre la configuración del firewall, consulte [Uso de áreas de trabajo detrás de un firewall](how-to-access-azureml-behind-firewall.md).
 
+## <a name="custom-dns"></a>DNS personalizado
+
+Si necesita usar una solución DNS personalizada para la red virtual, debe agregar registros de host para el área de trabajo.
+
+Para obtener más información sobre los nombres de dominio y las direcciones IP que se requieren, consulte [Uso de un área de trabajo con un servidor DNS personalizado](how-to-custom-dns.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Este artículo forma parte de una serie sobre redes virtuales de cuatro capítulos. Vea el resto de los artículos para obtener información sobre cómo proteger una red virtual:
+Este artículo es la primera parte de una serie de cuatro capítulos sobre redes virtuales. Vea el resto de los artículos para obtener información sobre cómo proteger una red virtual:
 
 * [Parte 2: Introducción a las redes virtuales](how-to-secure-workspace-vnet.md)
 * [Parte 3: Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)
 * [Parte 4: Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
-* [Parte 5: Habilitación de la funcionalidad de Studio](how-to-enable-studio-virtual-network.md)
+* [Parte 5: Habilitación de la funcionalidad de Studio](how-to-enable-studio-virtual-network.md)

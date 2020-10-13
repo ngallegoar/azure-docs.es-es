@@ -3,12 +3,12 @@ title: Implementación de una aplicación .NET de un contenedor en Azure Service
 description: Aprenda a incluir una aplicación .NET existente en un contenedor mediante Visual Studio y a depurar contenedores en Service Fabric localmente. La aplicación incluida en el contenedor se inserta en un registro de contenedor de Azure y se implementa en un clúster de Service Fabric. Cuando se implementa en Azure, la aplicación utiliza Azure SQL DB para conservar los datos.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 4970cf6492da38ad76a51df88eeb73538c850c67
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b841591bb200bca7edbde24744c5b47302816ea0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258875"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817628"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementación de una aplicación .NET de un contenedor de Windows en Azure Service Fabric
 
@@ -39,13 +39,13 @@ En este tutorial, aprenderá a:
 
 2. Compruebe que la aplicación Fabrikam Fiber CallCenter se compila y se ejecuta sin error.  Inicie Visual Studio como **administrador** y abra el archivo [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Presione F5 para depurar y ejecutar la aplicación.
 
-   ![Ejemplo web de Fabrikam][fabrikam-web-page]
+   ![Captura de pantalla de la página principal de la aplicación Fabrikam Fiber CallCenter que se ejecuta en el host local. La página muestra un panel con una lista de llamadas de soporte técnico.][fabrikam-web-page]
 
 ## <a name="containerize-the-application"></a>Incluir la aplicación en contenedores
 
 1. Haga clic con el botón derecho en el proyecto **FabrikamFiber.Web** > **Agregar** > **Compatibilidad con el orquestador de contenedores**.  Seleccione **Service Fabric** como orquestador de contenedores y haga clic en **Aceptar**.
 
-2. Haga clic en **Sí** cambiar Docker a contenedores de Windows ahora.
+2. Si se le solicita, haga clic en **Sí** para conmutar Docker a los contenedores Windows ahora.
 
    Se crea un nuevo proyecto de aplicación de Service Fabric **FabrikamFiber.CallCenterApplication** en la solución.  Se agrega un archivo Dockerfile al proyecto **FabrikamFiber.Web** existente.  También se agrega un directorio **PackageRoot** al proyecto **FabrikamFiber.Web**, que contiene el manifiesto del servicio y la configuración para el nuevo servicio de FabrikamFiber.Web.
 
@@ -109,7 +109,7 @@ Write-Host "Server name is $servername"
 
 ## <a name="update-the-web-config"></a>Actualización de web config
 
-En el proyecto **FabrikamFiber.Web**, actualice la cadena de conexión en el archivo **web.config** para que apunte a la instancia de SQL Server del contenedor.  Actualice la parte *Server* de la cadena de conexión con el nombre del servidor creado por el script anterior. Debe ser algo parecido a "fab-fiber-751718376.database.windows.net".
+En el proyecto **FabrikamFiber.Web**, actualice la cadena de conexión en el archivo **web.config** para que apunte a la instancia de SQL Server del contenedor.  Actualice la parte *Server* de la cadena de conexión con el nombre del servidor creado por el script anterior. Debe ser algo parecido a "fab-fiber-751718376.database.windows.net". En el siguiente XML, es preciso actualizar solo el `connectionString` atributo; los atributos `providerName` y `name` no necesitan cambiarse.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -235,7 +235,7 @@ Ahora que la aplicación está lista, puede implementarla en un clúster de Azur
 
 Siga el progreso de la implementación en la ventana de salida. Cuando la aplicación esté implementada, abra un explorador y escriba la dirección del clúster y el puerto de la aplicación. Por ejemplo, `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
-![Ejemplo web de Fabrikam][fabrikam-web-page-deployed]
+![Captura de pantalla de la página principal de la aplicación Fabrikam Fiber CallCenter que se ejecuta en azure.com. La página muestra un panel con una lista de llamadas de soporte técnico.][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configuración de la integración e implementación continuas (CI/CD) con un clúster de Service Fabric
 

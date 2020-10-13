@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04642e69adba82cf33b933829d72c51109ad2ee1
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75666880"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578199"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Control de tipos de contenido en Azure Logic Apps
 
@@ -61,7 +61,7 @@ Logic Apps ofrece la posibilidad de generar tokens fáciles de usar que represen
   
   2. En **Enter or paste a sample JSON payload** (Especificar o pegar una carga de JSON de ejemplo), proporcione una carga de ejemplo y luego elija **Listo**. Por ejemplo: 
 
-     ![Proporcionar una carga JSON de ejemplo](./media/logic-apps-content-type/request-trigger.png)
+     ![Captura de pantalla que muestra la acción "Cuando se recibe una solicitud HTTP" con una carga JSON de ejemplo.](./media/logic-apps-content-type/request-trigger.png)
 
      El esquema generado aparece ahora en el desencadenador.
 

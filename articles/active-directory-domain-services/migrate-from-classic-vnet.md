@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 09/24/2020
 ms.author: iainfou
-ms.openlocfilehash: de27ee713caae0310f185cd717d5db2095feff32
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ef05704ea03316ef0c95510e27ee630ddcfb0b44
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054296"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266911"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migración de Azure Active Directory Domain Services desde el modelo de red virtual clásica a Resource Manager
 
@@ -139,6 +139,14 @@ Existen algunas restricciones en las redes virtuales a las que se puede migrar u
 
 Para más información sobre los requisitos de red virtual, consulte [Consideraciones de diseño y opciones de configuración de redes virtuales][network-considerations].
 
+También debe crear un grupo de seguridad de red para restringir el tráfico de la red virtual en el dominio administrado. Se crea un equilibrador de carga estándar de Azure durante el proceso de migración que exige la presencia de estas reglas. Este grupo de seguridad de red protege Azure AD DS y es necesario para que el dominio administrado funcione correctamente.
+
+Para más información sobre las reglas que se requieren, vea [Grupos de seguridad de red y puertos necesarios de Azure AD DS](network-considerations.md#network-security-groups-and-required-ports).
+
+### <a name="ldaps-and-tlsssl-certificate-expiration"></a>Expiración del certificado TLS/SSL y LDAPS
+
+Si el dominio administrado está configurado para LDAPS, confirme que el certificado TLS/SSL actual es válido durante más de 30 días. Un certificado que expire dentro de los 30 días siguientes provocará un error en los procesos de migración. Si es necesario, renueve el certificado y aplíquelo al dominio administrado y, a continuación, inicie el proceso de migración.
+
 ## <a name="migration-steps"></a>Pasos de migración
 
 La migración al modelo de implementación y la red virtual de Resource Manager se divide en cinco pasos principales:
@@ -166,7 +174,9 @@ Antes de comenzar el proceso de migración, lleve a cabo las siguientes comproba
 
     Asegúrese de que la configuración de red no bloquea los puertos necesarios para Azure AD DS. Los puertos deben estar abiertos tanto en la red virtual clásica como en la red virtual de Resource Manager. Esta configuración incluye las tablas de rutas (aunque no se recomienda usarlas) y los grupos de seguridad de red.
 
-    Para ver los puertos necesarios, consulte [Grupos de seguridad de red y puertos necesarios][network-ports]. Para reducir a un mínimo los problemas de comunicación de red, se recomienda esperar y aplicar un grupo de seguridad de red o una tabla de rutas a la red virtual de Resource Manager después de que la migración se haya completado correctamente.
+    Azure AD DS necesita un grupo de seguridad de red para proteger los puertos necesarios para el dominio administrado y bloquear el resto del tráfico entrante. Este grupo de seguridad de red actúa como un nivel de protección adicional para bloquear el acceso al dominio administrado. Para ver los puertos necesarios, consulte [Grupos de seguridad de red y puertos necesarios][network-ports].
+
+    Si usa LDAP seguro, agregue una regla al grupo de seguridad de red para permitir el tráfico entrante en el puerto *TCP* *636*. Para obtener más información, consulte [Bloqueo del acceso LDAP seguro a través de Internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet).
 
     Tome nota de este grupo de recursos de destino, de la red virtual de destino y de la subred de la red virtual de destino. Estos nombres de recursos se usan durante el proceso de migración.
 
@@ -295,13 +305,6 @@ Si es necesario, puede actualizar la directiva de contraseñas específica para 
 1. Si la máquina virtual está expuesta a Internet, revise los nombres de cuenta genéricos, como *administrador*, *usuario* o *invitado*, con un gran número de intentos de inicio de sesión. Siempre que sea posible, actualice estas máquinas virtuales para que usen cuentas con nombre menos genéricos.
 1. Use un seguimiento de red en la máquina virtual para localizar el origen de los ataques y bloquee esas direcciones IP para que no puedan realizar intentos de inicio de sesión.
 1. Cuando haya problemas mínimos de bloqueo, actualice la directiva de contraseñas específica para que sea tan restrictiva como sea necesario.
-
-### <a name="creating-a-network-security-group"></a>Creación de un grupo de seguridad de red
-
-Azure AD DS necesita un grupo de seguridad de red para proteger los puertos necesarios para el dominio administrado y bloquear el resto del tráfico entrante. Este grupo de seguridad de red actúa como un nivel de protección adicional para bloquear el acceso al dominio administrado y no se crea automáticamente. Para crear el grupo de seguridad de red y abrir los puertos necesarios, revise los pasos siguientes:
-
-1. En Azure Portal, seleccione el recurso Azure AD DS. En la página Información general se muestra un botón para crear un grupo de seguridad de red si no hay ninguno asociado a Azure AD Domain Services.
-1. Si usa LDAP seguro, agregue una regla al grupo de seguridad de red para permitir el tráfico entrante en el puerto *TCP* *636*. Para más información, consulte [Configuración de LDAP seguro][secure-ldap].
 
 ## <a name="roll-back-and-restore-from-migration"></a>Reversión y restauración de la migración
 

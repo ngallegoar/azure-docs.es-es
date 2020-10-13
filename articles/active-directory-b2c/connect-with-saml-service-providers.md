@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 10/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09edfc91f98e51a7dce7e98b48f2970ccba33586
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 9e67f24cf670024432f64487df20b9fca515c006
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611609"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740384"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -252,6 +252,9 @@ El archivo de directiva de usuario de confianza final debe tener un aspecto simi
   </RelyingParty>
 </TrustFrameworkPolicy>
 ```
+
+> [!NOTE]
+> Al implementar otros tipos de flujos de usuario (por ejemplo,inicio de sesión, restablecimiento de contraseña o edición de perfiles), el proceso es esencialmente el mismo que se describe en esta sección. En el paso 4 anterior, cambiará el último paso del recorrido del usuario de `JWTIssuer` a `Saml2AssertionIssuer`. Y en el paso 6 anterior, en la sección de usuario de confianza, cambiará **Protocolo** de `OpenIdConnect` a `SAML2`.
 
 ### <a name="32-upload-and-test-your-policy-metadata"></a>3.2 Cargar y probar los metadatos de la directiva
 

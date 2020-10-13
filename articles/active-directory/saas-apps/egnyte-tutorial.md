@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 4890ee7fe013aa4dba8cdc9740481874ccfc1430
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a01a503a9fe2eede01f6a173e233cb39de7d03f3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657598"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775123"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egnyte"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Egnyte
 
@@ -121,10 +121,10 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, va a permitir que B.Simon acceda a BambooHR mediante el inicio de sesión único de Azure.
+En esta sección, va a permitir que B.Simon acceda a Egnyte mediante el inicio de sesión único de Azure.
 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **BambooHR**.
+1. En la lista de aplicaciones, seleccione **Egnyte**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)

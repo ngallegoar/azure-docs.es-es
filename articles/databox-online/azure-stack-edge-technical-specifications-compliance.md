@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 91aa386311452ae08ead2b8eac9005b2c730f3f3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c177de3a862370f4d1daa19c6560950b66b18352
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883438"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826829"
 ---
 # <a name="azure-stack-edge-pro-technical-specifications"></a>Especificaciones técnicas de Azure Stack Edge Pro
 
@@ -25,8 +25,8 @@ El dispositivo Azure Stack Edge Pro tiene las especificaciones de proceso y memo
 
 | Especificación           | Value                  |
 |-------------------------|----------------------------|
-| CPU    | Dos CPU de 10 núcleos                     |
-| Memoria              | 128 GB de RAM                  |
+| CPU    | 2 CPU de 10 núcleos Intel Xeon Silver 4114 de 2,2 G                    |
+| Memoria              | 128 GB de RAM (RDIMM 8x de 16 GB)                 |
 
 ## <a name="fpga-specifications"></a>Especificaciones de FPGA
 
@@ -63,6 +63,15 @@ El dispositivo Azure Stack Edge Pro tiene seis interfaces de red: PORT1-PORT6.
 | Especificación           | Descripción                 |
 |-------------------------|----------------------------|
 |  Interfaces de red    | 2 interfaces de 1 GbE: 1 administración, no es configurable por el usuario y se usa para la configuración inicial. La otra interfaz la puede configurar el usuario, se puede usar para la transferencia de datos y es DHCP de forma predeterminada. <br>2 interfaces de 25 GbE: estas pueden funcionar como interfaces de 10 GbE. El usuario puede configurar estas interfaces como DHCP (predeterminado) o estáticas. <br> 2 interfaces de 25 GbE: el usuario puede configurar estas interfaces como DHCP (predeterminado) o estáticas.                  |
+
+Los adaptadores de red utilizados son: 
+
+| Especificación           | Descripción                 |
+|-------------------------|----------------------------|
+|Tarjeta secundaria de red (rNDC) |QLogic FastLinQ 41264 de puerto dual, 25 GbE SFP+, puerto dual 1 GbE, rNDC|
+|Adaptador de red PCI |Adaptador QLogic FastLinQ 41262 de puerto dual de 25 Gbit/s, SFP28|
+
+Consulte la lista de compatibilidad de hardware de Intel QLogic para averiguar el convertidor de interfaz Gigabit compatible (GBIC). El convertidor de interfaz Gigabit (GBIC) no se incluye en la entrega de Azure Stack Edge. 
 
 ## <a name="storage-specifications"></a>Especificaciones de almacenamiento
 

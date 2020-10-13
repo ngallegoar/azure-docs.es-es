@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 0e60ba0517fb3b9388045762853c651869cffb6a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 4f540c7e853efe370c84b7c4d0a7d74911b8cd6c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986464"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823947"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Ejemplos de escenarios de usuario de Text Analytics API
 
@@ -41,7 +41,7 @@ Use la Extracción de frases clave y el reconocimiento de entidades para procesa
 
 ## <a name="monitor-your-products-social-media-feeds"></a>Supervisión de las fuentes de sus productos en las redes sociales
 
-Supervise los comentarios de los usuarios sobre productos en la página de Twitter o Facebook de su producto. Use los datos para analizar el sentimiento del cliente acerca del lanzamiento de nuevos productos, extraiga frases clave sobre características y solicitudes de características, o bien aborde las quejas de los clientes a medida que surgen. Consulte el ejemplo de la [plantilla de Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
+Supervise los comentarios de los usuarios sobre productos en la página de Twitter o Facebook de su producto. Use los datos para analizar el sentimiento del cliente acerca del lanzamiento de nuevos productos, extraiga frases clave sobre características y solicitudes de características, o bien aborde las quejas de los clientes a medida que surgen. Consulte el ejemplo de la [plantilla de Microsoft Power Automate](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
 
 ![Imagen que describe cómo supervisar los comentarios sobre su empresa y producto en las redes sociales mediante la Extracción de frases clave](media/use-cases/social-feed.svg)
 

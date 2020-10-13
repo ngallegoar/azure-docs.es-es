@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: b65b5b847712ce32c6723d725be9cf2ed1f99050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcbf48081484941fd93f209bee21eb14c2c38310
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801558"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570134"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Supervise visualmente Azure Data Factory
 
@@ -136,7 +136,7 @@ También puede ver el historial de repetición de ejecuciones de una ejecución 
 
 Para ver los recursos utilizados por una ejecución de canalización, haga clic en el icono de consumo junto a la ejecución. 
 
-![Supervisión del consumo](media/monitor-visually/monitor-consumption-1.png)
+![Captura de pantalla que muestra dónde puede ver los recursos consumidos por una canalización.](media/monitor-visually/monitor-consumption-1.png)
 
 Al hacer clic en el icono, se abre un informe de consumo de recursos usados por esa canalización. 
 
@@ -190,7 +190,7 @@ Si desea una demostración y una introducción de siete minutos de esta caracter
 
     ![Cuadro para los criterios de destino](media/monitor-visually/add-criteria-1.png)
 
-    ![Lista de criterios](media/monitor-visually/add-criteria-2.png)
+    ![Captura de pantalla que muestra dónde se selecciona una métrica para configurar la condición de la alerta.](media/monitor-visually/add-criteria-2.png)
 
     ![Lista de criterios](media/monitor-visually/add-criteria-3.png)
 

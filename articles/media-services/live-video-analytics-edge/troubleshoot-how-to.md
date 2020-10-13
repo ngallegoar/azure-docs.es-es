@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: bbd3cb88b017209adff58a646e274caf31ab425f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c297a189f3b13ca8e72daf4eef009bc28fac32bf
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486449"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823195"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Solución de problemas de Live Video Analytics on IoT Edge
 
@@ -321,9 +321,11 @@ Para configurar el módulo de Live Video Analytics on IoT Edge para que genere r
     `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
 
     > [!NOTE] 
-    > Este comando enlaza las carpetas de registros entre el dispositivo Edge y el contenedor. Si desea recopilar los registros en una ubicación diferente, use el comando siguiente, reemplazando **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** por la ubicación que desea usar:  
-    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE"`  
-
+    > Este comando enlaza las carpetas de registros entre el dispositivo Edge y el contenedor. Si quiere recopilar los registros en una ubicación diferente en el dispositivo:
+    > 1. Cree un enlace para la ubicación del registro de depuración en la sección **Enlaces**, y reemplace los elementos **$DEBUG _LOG_LOCATION_ON_EDGE_DEVICE** y **$DEBUG_LOG_LOCATION** por la ubicación que desee: `/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
+    > 2. Use el comando siguiente y reemplace **$DEBUG _LOG_LOCATION** por la ubicación usada en el paso anterior:  
+    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`  
+    
     d. Seleccione **Guardar**.
 
 1. Reproduzca el problema.

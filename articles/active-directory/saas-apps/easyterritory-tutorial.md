@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 8152244d2e05d6e05843a2b84151d6b6a8df7f26
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6c209d59e3e0552db5d7e7dd64af2ce5d233881a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555623"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826296"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-easyterritory"></a>Tutorial: Integración de Azure Active Directory con EasyTerritory
 
@@ -99,7 +99,7 @@ Para configurar el inicio de sesión único de Azure AD con EasyTerritory, siga 
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de EasyTerritory](common/idp-intiated.png)
+    ![Captura de pantalla que muestra "Configuración básica de S A M L" con los botones "Identificador", "U R L de respuesta" y "Guardar" resaltados.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://apps.easyterritory.com/<tenant id>/dev/`
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 2fadfac3fe9e66c3a05e2cceed19def607ff72c3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d980e0a5dd4b042f919775c205a20ea69e51f0bd
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539290"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709023"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-123formbuilder-sso"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con 123FormBuilder SSO
 
@@ -133,7 +133,7 @@ En esta sección va a permitir que B.Simon acceda a 123FormBuilder SSO mediante 
 
 1. Para configurar el inicio de sesión único en **123FormBuilder SSO**, vaya a [https://www.123formbuilder.com/form-2709121/](https://www.123formbuilder.com/form-2709121/) y siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/123formbuilder-tutorial/submit.png) 
+    ![Captura de pantalla que muestra la pantalla de configuración SSO SAML - Identity Provider (SSO de SAML: proveedor de identidades).](./media/123formbuilder-tutorial/submit.png) 
 
     a. En el cuadro de texto **Email** (Correo electrónico), escriba el correo electrónico del usuario, en el ejemplo `B.Simon@Contoso.com`.
 

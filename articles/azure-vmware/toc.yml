@@ -61,9 +61,11 @@
     - name: Implementación de la recuperación ante desastres para máquinas virtuales
       href: disaster-recovery-for-virtual-machines.md
     - name: Implementación de una máquina virtual a través de la biblioteca de contenido
-      href: tutorial-deploy-vm-content-library.md
+      href: ./deploy-vm-content-library.md
     - name: Configuración del servidor de GitHub Enterprise
       href: github-enterprise-server.md
+    - name: Creación de un túnel IPSec
+      href: create-ipsec-tunnel.md
     - name: Integración nativa de Azure
       items:
         - name: API Management

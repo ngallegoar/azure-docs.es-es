@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 61c5917c1e4cb9dbf96e90af9a30777ea7c2e66c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f8f2e352ae458e3e2825c9701437ea652ba07375
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594114"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825655"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Revisión de las solicitudes de incorporación de cambios en entornos de pre-producción en Azure Static Web Apps (versión preliminar)
 
@@ -51,11 +51,11 @@ Comience por realizar un cambio en su repositorio. Puede hacerlo directamente en
 
 1. Vaya a la carpeta _app_ y cambie el contenido de texto. Por ejemplo, puede cambiar un título o párrafo. Una vez que encuentre el archivo que desea editar, haga clic en **Editar** para hacer el cambio.
 
-    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Botón Editar archivo en la interfaz de GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Creación de una nueva rama con la interfaz de GitHub":::
 
 1. Después de realizar los cambios, haga clic en **Confirmar cambios** para confirmar los cambios en la rama.
 
-    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Botón Confirmar cambios en la interfaz de GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Creación de una nueva rama con la interfaz de GitHub":::
 
 ## <a name="create-a-pull-request"></a>Creación de una solicitud de incorporación de cambios
 
@@ -63,13 +63,13 @@ A continuación, cree una solicitud de incorporación de cambios a partir de est
 
 1. Abra la pestaña **Solicitud de incorporación de cambios** del proyecto en GitHub:
 
-    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Pestaña Solicitud de incorporación de cambios en un repositorio de GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Creación de una nueva rama con la interfaz de GitHub":::
 
 1. Haga clic en el botón **Compare & pull request** (Solicitud de comparación e incorporación de cambios) de la rama.
 
 1. Opcionalmente, puede rellenar algunos detalles sobre los cambios y, luego, hacer clic en **Crear solicitud de incorporación de cambios**.
 
-    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Creación de una solicitud de incorporación de cambios en GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Creación de una nueva rama con la interfaz de GitHub":::
 
 Puede asignar revisores y agregar comentarios para analizar los cambios si es necesario.
 
@@ -82,7 +82,7 @@ Una vez creada la solicitud de incorporación de cambios, el flujo de trabajo de
 
 Una vez que el flujo de trabajo ha terminado de compilar e implementar la aplicación, el bot de GitHub agrega un comentario a la solicitud de incorporación de cambios que contiene la dirección URL del entorno de preproducción. Puede hacer clic en este vínculo para ver los cambios "staged".
 
-:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Comentario de la solicitud de incorporación de cambios con la dirección URL de preproducción":::
+:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Creación de una nueva rama con la interfaz de GitHub":::
 
 Haga clic en la dirección URL generada para ver los cambios.
 
@@ -96,7 +96,7 @@ Una vez que se aprueben los cambios, podrá publicar los cambios en producción 
 
 Haga clic en **Merge pull request** (Combinar solicitud de incorporación de cambios):
 
-:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Botón Combinar solicitud de incorporación de cambios en la interfaz de GitHub":::
+:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Creación de una nueva rama con la interfaz de GitHub":::
 
 La combinación copia los cambios en la rama de seguimiento (la rama de "producción"). Después, el flujo de trabajo de implementación se inicia en la rama de seguimiento, y los cambios estarán activos después de que la aplicación se haya recompilado.
 

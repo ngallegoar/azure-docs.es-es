@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 16783d344c6a0dedec4e24d49150e0b4b2edbe3e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1c6faf2bb1811f7b27a49f8029c833499273d8a1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548152"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: integración de Azure Active Directory con Help Scout
 
@@ -89,7 +89,7 @@ Para configurar el inicio de sesión único de Azure AD con Help Scout, realice 
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Help Scout](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. **Identificador** es la opción **Audience URI (Service Provider Entity ID)** [URI de audiencia (Identificador de entidad del proveedor de servicios)] de Help Scout y empieza por `urn:`
 
@@ -100,7 +100,7 @@ Para configurar el inicio de sesión único de Azure AD con Help Scout, realice 
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Help Scout](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una URL como: `https://secure.helpscout.net/members/login/`
 
@@ -183,15 +183,15 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
 1. Haga clic en **Manage** (Administrar) en el menú superior y seleccione **Company** (Compañía) en el menú desplegable.
 
-    ![Configurar inicio de sesión único](./media/helpscout-tutorial/settings1.png)
+    ![Captura de pantalla que muestra el menú Manage (Administrar) con Company (Empresa) seleccionado.](./media/helpscout-tutorial/settings1.png)
 
 1. Seleccione **Autenticación** en el panel de navegación izquierdo.
 
-    ![Configurar inicio de sesión único](./media/helpscout-tutorial/settings2.png)
+    ![Captura de pantalla que muestra Authentication (Autenticación) seleccionado.](./media/helpscout-tutorial/settings2.png)
 
 1. Esto le lleva a la sección de configuración de SAML, donde debe seguir estos pasos:
 
-    ![Configurar inicio de sesión único](./media/helpscout-tutorial/settings3.png)
+    ![Captura de pantalla que muestra la pestaña Single Sign-On (Inicio de sesión único) en la que se especifica la información especificada.](./media/helpscout-tutorial/settings3.png)
 
     a. Copie el valor de **Post-back URL (Assertion Consumer Service URL)** [URL de devolución (URL del Servicio de consumidor de aserciones)] y péguelo en el cuadro **URL de respuesta**, en la sección **Configuración básica de SAML** de Azure Portal.
 
@@ -199,7 +199,7 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
 1. Active **Enable SAML** (Habilitar SAML) y siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/helpscout-tutorial/settings4.png)
+    ![Captura de pantalla que muestra la pestaña Single Sign-On (Inicio de sesión único) para habilitar SAML y agregar más información.](./media/helpscout-tutorial/settings4.png)
 
     a. En el cuadro de texto **Single Sign-on URL** (Dirección URL de inicio de sesión único), pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 

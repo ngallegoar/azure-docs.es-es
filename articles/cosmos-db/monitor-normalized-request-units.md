@@ -6,18 +6,18 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 06/25/2020
-ms.openlocfilehash: e7005a3786bb2d538450b076c113e159c766d72e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 183b161039b86ce824fd0bfde82cf291d54024fc
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642085"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801484"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Cómo supervisar RU/s normalizadas para un contenedor de Azure Cosmos o una cuenta
 
 Azure Monitor para Azure Cosmos DB proporciona una vista de métricas para supervisar la cuenta y crear paneles. Las métricas de Azure Cosmos DB se recopilan de forma predeterminada, esta característica no requiere que habilite ni configure nada explícitamente.
 
-La métrica de **Consumo de RU normalizado** se usa para ver la saturación de los intervalos de claves de partición con respecto al tráfico. Azure Cosmos DB distribuye el rendimiento de forma uniforme entre todos los intervalos de claves de partición. Esta métrica proporciona una vista por segundo del uso máximo de rendimiento dentro para el intervalo de claves de partición. Use esta métrica para calcular el uso de RU/s entre los intervalos de claves de partición de un contenedor determinado. Al usar esta métrica, si ve un porcentaje elevado del uso de unidades de solicitud entre todos los intervalos de claves de partición en Azure Monitor, debe aumentar el rendimiento para satisfacer las necesidades de la carga de trabajo. 
+La métrica de **Consumo de RU normalizado** se usa para ver la saturación de los intervalos de claves de partición con respecto al tráfico. Azure Cosmos DB distribuye el rendimiento de forma uniforme entre todos los intervalos de claves de partición. Esta métrica proporciona una vista por segundo del uso máximo de rendimiento dentro para el intervalo de claves de partición. Use esta métrica para calcular el uso de RU/s entre los intervalos de claves de partición de un contenedor determinado. Al usar esta métrica, si ve un porcentaje elevado del uso de unidades de solicitud entre todos los intervalos de claves de partición en Azure Monitor, debe aumentar el rendimiento para satisfacer las necesidades de la carga de trabajo. Ejemplo: el uso normalizado se define como el máximo del uso de las RU por segundo, en todos los intervalos de claves de partición. Por ejemplo, supongamos que el rendimiento máximo es de 20 000 RU por segundo y tiene dos intervalos de claves de partición, P_1 y P_2, cada uno con capacidad de escalado a 10 000 RU por segundo. En un segundo determinado, si P_1 ha usado 6000 RU y P_2 ha usado 8000 RU, la utilización normalizada es MAX(6000 RU/10 000 RU, 8000 RU/10 000 RU) = 0,8.
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>Qué esperar y hacer cuando el consumo de RU/s normalizado es mayor
 
@@ -43,13 +43,13 @@ En resumen, la métrica de **Consumo de RU normalizado** se usa para ver cuál e
 
 3. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción**, y el **grupo de recursos** requeridos. En **Tipo de recurso**, seleccione **Cuentas de Azure Cosmos DB**, elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar**.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Elección de una cuenta de Azure Cosmos DB para ver las métricas":::
+   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Panel Métricas en Azure Monitor":::
 
 4. A continuación, puede seleccionar una métrica de la lista de métricas disponibles. Puede seleccionar métricas específicas de unidades de solicitud, almacenamiento, latencia, disponibilidad, Cassandra, etc. Para conocer los detalles de todas las métricas disponibles en esta lista, consulte el artículo [Métricas por categoría](monitor-cosmos-db-reference.md). En este ejemplo, vamos a seleccionar la métrica de **Consumo de RU normalizado** y **Max** como valor de agregación.
 
    Además de estos detalles, también puede seleccionar los valores de **Intervalo de tiempo** y **Granularidad de tiempo** de las métricas. Como máximo, puede ver las métricas de los últimos 30 días.  Después de aplicar el filtro, se muestra un gráfico basado en dicho filtro.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Elección de una métrica en Azure Portal":::
+   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Panel Métricas en Azure Monitor":::
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>Filtros para el consumo normalizado de unidades de solicitud
 
@@ -59,7 +59,7 @@ Para agrupar las métricas puede usar la opción **Apply splitting** (Aplicar di
 
 La métrica de consumo normalizado de unidades de solicitud para cada contenedor aparece como se muestra en la siguiente imagen:
 
-:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Aplicar filtros a la métrica de consumo normalizado de unidades de solicitud":::
+:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Panel Métricas en Azure Monitor":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: jeedes
-ms.openlocfilehash: dba77045f8aef1799717c6f6af91046b3ca6119e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3b8f91bca3650004472d8fe51d4e92b42ade3122
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520318"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759851"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Claromentis
 
@@ -138,19 +138,19 @@ En esta sección, va a permitir que B.Simon acceda a Claromentis mediante el ini
 
 1. Haga clic en el **icono de aplicación** y seleccione **Administrador**.
 
-    ![Configuración de Claromentis](./media/claromentis-tutorial/config1.png)
+    ![Captura de pantalla que muestra el sitio web de Claromentis con la opción Admin (Administrador) seleccionada.](./media/claromentis-tutorial/config1.png)
 
 1. Seleccione la pestaña **Custom Login Handler** (Controlador del inicio de sesión personalizado).
 
-    ![Configuración de Claromentis](./media/claromentis-tutorial/config2.png)
+    ![Captura de pantalla que muestra la página Administration (Administración) con la opción Custom Login Handler (Controlador de inicio de sesión personalizado) seleccionada.](./media/claromentis-tutorial/config2.png)
 
 1. Seleccione **SAML Config** (Configuración de SAML).
 
-    ![Configuración de Claromentis](./media/claromentis-tutorial/config3.png)
+    ![Captura de pantalla que muestra la página de configuración de SAML.](./media/claromentis-tutorial/config3.png)
 
 1. En la pestaña **SAML Config** (Configuración de SAML), desplácese hacia abajo a la sección **Config** (Configuración) y realice los pasos siguientes:
 
-    ![Configuración de Claromentis](./media/claromentis-tutorial/config4.png)
+    ![Captura de pantalla que muestra la sección Config (Configuración) de la página, donde puede especificar la información que se describe en este paso.](./media/claromentis-tutorial/config4.png)
 
     a. En el cuadro de texto **Nombre del contacto técnico**, escriba el nombre de la persona de contacto del soporte técnico.
 
@@ -160,7 +160,7 @@ En esta sección, va a permitir que B.Simon acceda a Claromentis mediante el ini
 
 1. Desplácese hacia abajo hasta la opción **Auth Sources** (Orígenes de autenticación) y realice los pasos siguientes:
 
-    ![Configuración de Claromentis](./media/claromentis-tutorial/config5.png)
+    ![Captura de pantalla que muestra la sección Auth Sources (Orígenes de autenticación), donde puede especificar la información que se describe en este paso.](./media/claromentis-tutorial/config5.png)
 
     a. En el cuadro de texto **IDP**, pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
 
@@ -172,7 +172,7 @@ En esta sección, va a permitir que B.Simon acceda a Claromentis mediante el ini
 
 1. Ahora observará que todas las direcciones URL se han rellenado en la sección **Proveedor de identidades** de **SAML Config** (Configuración de SAML).
 
-    ![Configuración de Claromentis](./media/claromentis-tutorial/config6.png)
+    ![Captura de pantalla que muestra la página Proveedor de identidades rellenada con las direcciones U R L.](./media/claromentis-tutorial/config6.png)
 
     a. Copie el valor de **Identificador (id. de entidad)** y péguelo en el cuadro de texto **Identificador** de la sección **Configuración básica de SAML** de Azure Portal.
 

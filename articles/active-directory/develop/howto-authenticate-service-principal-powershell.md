@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 5d9bf672aae3cf55ae7cf22aa1437f01ced99901
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e034149372ba061ec958e0c1e22187d33009080c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178814"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265840"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procedimientos: Uso de Azure PowerShell para crear una entidad de servicio con un certificado
 
@@ -225,3 +225,4 @@ Durante la creación de una entidad de servicio pueden producirse los siguientes
 * Para configurar una entidad de servicio con contraseña, consulte [Creación de una entidad de servicio de Azure con Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 * Para obtener una explicación más detallada de las aplicaciones y entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio](app-objects-and-service-principals.md).
 * Para más información sobre la autenticación de Azure AD, vea [Escenarios de autenticación para Azure AD](./authentication-vs-authorization.md).
+* Para obtener información sobre cómo trabajar con registros de aplicaciones mediante **Microsoft Graph**, vea la referencia de la API de [aplicaciones](/graph/api/resources/application).

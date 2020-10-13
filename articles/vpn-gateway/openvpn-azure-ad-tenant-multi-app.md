@@ -5,22 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
-ms.author: alzam
-ms.openlocfilehash: 9a98383c359135f90fd787008704d1ce389a4d57
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.date: 10/07/2020
+ms.author: cherylmc
+ms.openlocfilehash: 1305ca603aef63dafcc7b055d55e3f0fe281f4fc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425004"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819683"
 ---
 # <a name="create-an-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Active Directory (AD) para conexiones del protocolo P2S OpenVPN
 
 Al conectarse a la red virtual, puede usar la autenticación basada en certificados o la autenticación RADIUS. Sin embargo, cuando use el protocolo de VPN abierto, también puede usar la autenticación de Azure Active Directory. Si quiere que un conjunto de usuarios diferente pueda conectarse a diferentes puertas de enlace de VPN, puede registrar varias aplicaciones en AD y vincularlas a diferentes puertas de enlace de VPN. Este artículo le ayuda a configurar un inquilino de Azure AD para la autenticación de OpenVPN de P2S y a crear y registrar varias aplicaciones en Azure AD a fin de permitir un acceso distinto a los diferentes usuarios y grupos.
 
-> [!NOTE]
-> La autenticación de Azure AD solo se admite para las conexiones de protocolo de OpenVPN®.
->
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
 
@@ -30,7 +28,7 @@ En este paso, habilitará la autenticación de Azure AD en la puerta de enlace 
 
 1. Habilite la autenticación de Azure AD en la puerta de enlace de VPN. Para ello, navegue hasta **Configuración de punto a sitio** y seleccione **OpenVPN (SSL)** como **Tipo de túnel**. Seleccione **Azure Active Directory** como **Tipo de autenticación**, a continuación, rellene la información de la sección **Azure Active Directory**.
 
-    ![VPN de Azure](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
+    ![Visualización de Azure Portal](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
 
     > [!NOTE]
     > No use el identificador de la aplicación del cliente VPN de Azure: Concederá acceso a todos los usuarios a la puerta de enlace VPN. Use el identificador de las aplicaciones que registró.

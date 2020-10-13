@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 6f65a43cf5730f56b43d79388a0e73ea93e3225b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602071"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801994"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acceso condicional: Aplicaciones o acciones en la nube
 
@@ -31,9 +31,9 @@ Las aplicaciones o acciones en la nube son una señal esencial en una directiva 
 
 En la lista de aplicaciones que se pueden seleccionar están muchas de las aplicaciones en la nube de Microsoft existentes. 
 
-Los administradores pueden asignar una directiva de acceso condicional a las siguientes aplicaciones en la nube de Microsoft. Algunas aplicaciones, como Office 365 (versión preliminar) y Administración de Microsoft Azure, incluyen varios servicios o aplicaciones secundarios relacionados. La lista siguiente no es exhaustiva y está sujeta a cambios.
+Los administradores pueden asignar una directiva de acceso condicional a las siguientes aplicaciones en la nube de Microsoft. Algunas aplicaciones, como Office 365 y la Administración de Microsoft Azure, incluyen varios servicios o aplicaciones secundarios relacionados. La lista siguiente no es exhaustiva y está sujeta a cambios.
 
-- [Office 365 (versión preliminar)](#office-365-preview)
+- [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
 - [Azure SQL Database y Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
@@ -67,15 +67,15 @@ Los administradores pueden asignar una directiva de acceso condicional a las sig
 - Red privada virtual (VPN)
 - ATP de Windows Defender
 
-### <a name="office-365-preview"></a>Office 365 (versión preliminar)
+### <a name="office-365"></a>Office 365
 
 Microsoft 365 proporciona servicios de colaboración y productividad basados en la nube, como Exchange, SharePoint y Microsoft Teams. Los servicios en la nube de Microsoft 365 están profundamente integrados para garantizar experiencias de colaboración fluidas. Esta integración puede producir confusión a la hora de crear directivas, ya que algunas aplicaciones, como Microsoft Teams, dependen de otras, como SharePoint o Exchange.
 
-La aplicación Office 365 (versión preliminar) permite la segmentación de todos estos servicios a la vez. Se recomienda usar la nueva aplicación Office 365 (versión preliminar) en lugar de aplicaciones en la nube individuales para evitar problemas con las [dependencias de servicio](service-dependencies.md). Trabajar con este grupo de aplicaciones ayuda a evitar problemas que pueden surgir debido a directivas y dependencias incoherentes.
+La aplicación Office 365 permite la segmentación de todos estos servicios a la vez. Se recomienda usar la nueva aplicación Office 365 en lugar de aplicaciones en la nube individuales para evitar problemas con las [dependencias de servicio](service-dependencies.md). Trabajar con este grupo de aplicaciones ayuda a evitar problemas que pueden surgir debido a directivas y dependencias incoherentes.
 
-Los administradores pueden optar por excluir aplicaciones específicas de la directiva si lo desean, incluyendo la aplicación Office 365 (versión preliminar) y excluyendo las aplicaciones específicas que decidan.
+Los administradores pueden optar por excluir aplicaciones específicas de la directiva si lo desean, incluyendo la aplicación Office 365 y excluyendo las aplicaciones específicas que decidan.
 
-Aplicaciones clave que se incluyen en la aplicación cliente Office 365 (versión preliminar):
+Aplicaciones clave que se incluyen en la aplicación cliente Office 365:
 
    - Microsoft Flow
    - Microsoft Forms
@@ -102,6 +102,7 @@ La aplicación de administración de Microsoft Azure incluye varios servicios su
    - Proveedor de Azure Resource Manager
    - API del modelo de implementación clásica
    - Azure PowerShell
+   - Azure CLI
    - Portal de administrador de suscripciones de Visual Studio
    - Azure DevOps
    - Portal de Azure Data Factory

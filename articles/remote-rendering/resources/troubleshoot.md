@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322196"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803830"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
@@ -88,7 +88,7 @@ La calidad de vídeo puede verse afectada por la calidad de la red o la falta de
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>El vídeo grabado con MRC no refleja la calidad de la experiencia en directo
 
-Se puede grabar un vídeo en Hololens a través de [Captura de realidad mixta (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Sin embargo, el vídeo resultante tiene una calidad peor que la experiencia en directo por dos motivos:
+Se puede grabar un vídeo en HoloLens a través de [Captura de realidad mixta (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Sin embargo, el vídeo resultante tiene una calidad peor que la experiencia en directo por dos motivos:
 * La velocidad de fotogramas de vídeo se limita a 30 Hz en lugar de 60 Hz.
 * Las imágenes de vídeo no se someten al paso de procesamiento de [reproyección de la fase final](../overview/features/late-stage-reprojection.md), por lo que el vídeo parece más entrecortado.
 
@@ -185,7 +185,7 @@ Detectamos errores falsos al intentar compilar los ejemplos de Unity (quickstart
 
 ### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Error "biblioteca no encontrada" para la aplicación para UWP o Dll
 
-Dentro del paquete Nuget de C++, hay archivo `microsoft.azure.remoterendering.Cpp.targets` que define qué tipo binario se va a usar. Para identificar `UWP`, las condiciones del archivo comprueban `ApplicationType == 'Windows Store'`. Por lo tanto, debe asegurarse de que este tipo esté establecido en el proyecto. Este caso se daría al crear una aplicación para UWP o Dll a través del asistente de proyectos de Visual Studio.
+Dentro del paquete NuGet de C++, hay un archivo `microsoft.azure.remoterendering.Cpp.targets` que define qué tipo binario se va a usar. Para identificar `UWP`, las condiciones del archivo comprueban `ApplicationType == 'Windows Store'`. Por lo tanto, debe asegurarse de que este tipo esté establecido en el proyecto. Este caso se daría al crear una aplicación para UWP o Dll a través del asistente de proyectos de Visual Studio.
 
 ## <a name="unstable-holograms"></a>Hologramas inestables
 
@@ -193,7 +193,7 @@ En caso de que parezca que los objetos representados se mueven con movimientos d
 
 Otra causa de los hologramas inestables (hologramas con tambaleo, deformación, vibración o saltos) puede ser una conectividad de red deficiente, en particular, un ancho de banda de red insuficiente o una latencia demasiado alta. Un buen indicador de la calidad de la conexión de red es el valor de [estadísticas de rendimiento](../overview/features/performance-queries.md)`ARRServiceStats.VideoFramesReused`. Los fotogramas reutilizados indican situaciones en las que un fotograma de vídeo antiguo necesitaba reutilizarse en el lado cliente porque no había ningún nuevo fotograma de vídeo disponible (por ejemplo, debido a la pérdida de paquetes o a variaciones en la latencia de red). Si `ARRServiceStats.VideoFramesReused` suele ser mayor que cero, significa que hay un problema de red.
 
-Otro valor que se debe examinar es `ARRServiceStats.LatencyPoseToReceiveAvg`. Debe estar siempre por debajo de 100 ms. Si ve valores más altos, significa que está conectado a un centro de datos que está demasiado lejos.
+Otro valor que se debe examinar es `ARRServiceStats.LatencyPoseToReceiveAvg`. Debe estar siempre por debajo de 100 ms. Si se ven valores más altos, podría significar que está conectado a un centro de datos que está demasiado lejos.
 
 Para obtener una lista de posibles mitigaciones, consulte las [instrucciones sobre la conectividad de red](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
@@ -245,7 +245,9 @@ Las superficies coplanarias pueden tener varias causas:
 
 * Las superficies se han creado de forma intencionada para tocarse, como las marcas o el texto en las paredes.
 
+## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Artefactos gráficos que usan la representación estéreo de múltiples pasadas en aplicaciones de C++ nativas
 
+En algunos casos, las aplicaciones de C++ nativas personalizadas que usan un modo de representación estéreo de varias pasadas para el contenido local (que se representan en el ojo izquierdo y derecho en pasadas independientes), después de llamar a [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image), pueden desencadenar un error de controlador. El error provoca problemas de rasterización no deterministas, lo que provoca que triángulos individuales o partes de los triángulos del contenido local desaparezcan de forma aleatoria. Por motivos de rendimiento, se recomienda representar el contenido local con una técnica de representación estéreo de pasada única más moderno, por ejemplo, con **SV_RenderTargetArrayIndex**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

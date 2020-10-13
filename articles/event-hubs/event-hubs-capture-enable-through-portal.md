@@ -3,12 +3,12 @@ title: 'Event Hubs: Capturar eventos de streaming mediante Azure Portal'
 description: En este artículo se describe cómo habilitar la captura de eventos que se transmiten en secuencias a través de Azure Event Hubs mediante Azure Portal.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 103aa4e3da84e41275bec6310035c117fe780a18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2381bfa627d00a78ed91af0ba81579588ee016ce
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315737"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613584"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Habilitación de la captura de eventos que se transmiten por streaming mediante Azure Event Hubs
 
@@ -17,6 +17,9 @@ Azure [Event Hubs Capture][capture-overview] permite entregar automáticamente l
 Puede configurar la funcionalidad de captura en el momento de creación del centro de eventos mediante [Azure Portal](https://portal.azure.com). Puede capturar los datos para un contenedor de [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) o para una cuenta de [Azure Data Lake Storage Gen1 o Gen2](https://azure.microsoft.com/services/data-lake-store/).
 
 Para más información, consulte [Introducción a Event Hubs Capture][capture-overview].
+
+> [!IMPORTANT]
+> La cuenta de almacenamiento de destino (Azure Storage o Azure Data Lake Storage) debe estar en la misma suscripción que el centro de eventos.
 
 ## <a name="capture-data-to-azure-storage"></a>Captura de datos para Azure Storage
 

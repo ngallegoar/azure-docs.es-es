@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f765b950074958f801bef2fdc8e555acf9a47986
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2dfc8bbb570c57ef22c2bde210dc7a64b48fb06d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522159"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convercent"></a>Tutorial: Integración de Azure Active Directory con Convercent
 
@@ -98,7 +98,7 @@ Para configurar el inicio de sesión único de Azure AD con Convercent, realice 
 
 4. En la sección **Configuración básica de SAML**, si quiere configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Convercent](common/both-identifier.png)
+    ![Captura de pantalla que muestra la sección "Configuración básica de S A M L" con los botones "Identificador (Identificador de entidad)" y "Guardar" resaltados.](common/both-identifier.png)
 
     En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<instancename>.convercent.com/`.
 

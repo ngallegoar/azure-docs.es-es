@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: a47721122456d32cef91de4bd5ef2b92738bf496
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ed68e02be500ebd863eb7d6d54ddffe63873fe61
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520165"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Tutorial: integración de Azure Active Directory con Comeet Recruiting Software
 
@@ -99,7 +99,7 @@ Para configurar el inicio de sesión único de Azure AD con Comeet Recruiting So
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Comeet Recruiting Software](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la sección "Configuración básica de S A M L" con la acción "Guardar", el campo "Identificador" y el campo "U R L de respuesta" resaltados.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
@@ -116,7 +116,7 @@ Para configurar el inicio de sesión único de Azure AD con Comeet Recruiting So
 
 5. La aplicación Comeet Recruiting Software espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra la sección "User Attributes" (Atributos de usuario) con el botón "Edit" (Editar) seleccionado.](common/edit-attribute.png)
 
 6. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, edite las notificaciones mediante el **icono Editar** o agregue notificaciones mediante **Agregar nueva notificación** para configurar el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos: 
 
@@ -127,7 +127,7 @@ Para configurar el inicio de sesión único de Azure AD con Comeet Recruiting So
 
     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![imagen](common/new-save-attribute.png)
+    ![Captura de pantalla que muestra la sección "Notificaciones de usuario" con las acciones "Agregar nueva notificación" y "Guardar" resaltadas.](common/new-save-attribute.png)
 
     ![imagen](common/new-attribute-details.png)
 

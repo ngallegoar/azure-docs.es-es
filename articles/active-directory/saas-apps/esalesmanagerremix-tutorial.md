@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: dd5a200d1c17f0417b2ee88f7f905ee6de3cfe62
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: efcf634c9f34fd2b479140af800bb650f66bd821
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555396"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826743"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integración de Azure Active Directory con E Sales Manager Remix
 
@@ -121,7 +121,7 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En **E Sales Manager Remix Configuration** (Configuración de E Sales Manager Remix), seleccione **Configure E Sales Manager Remix** (Configurar E Sales Manager Remix).
 
-    ![Configuración de E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+    ![Captura de pantalla que muestra la sección "Configuración de E Sales Manager Remix" con la opción "Configurar E Sales Manager Remix" seleccionada.](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     Se abre la ventana **Configure sign-on** (Configurar inicio de sesión).
 

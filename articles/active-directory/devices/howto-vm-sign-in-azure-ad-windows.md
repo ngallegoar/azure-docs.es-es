@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e692540d376c95a4a981249eba42060ed4ab80
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 27ffc176fc890d90e4201069ec1728eed69d4011
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287107"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826671"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -236,7 +236,7 @@ Para que la VM complete el proceso de unión a Azure AD, la extensión AADLoginF
 
    > [!NOTE]
    > Si la extensión se reinicia después del error inicial, el registro con el error de implementación se guardará como CommandExecution_AAAAMMDDHHMMSSSSS.log. "
-1. Abra un símbolo del sistema en la VM y compruebe estas consultas con el punto de conexión de Instance Metadata Service (IMDS) que se ejecuta en el host de Azure:
+1. Abra un símbolo del sistema de PowerShell en la VM y compruebe estas consultas con el punto de conexión de Instance Metadata Service (IMDS) que se ejecuta en el host de Azure:
 
    | Comando para ejecutar | Salida prevista |
    | --- | --- |

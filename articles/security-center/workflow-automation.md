@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
-ms.date: 09/12/2020
+ms.topic: how-to
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 7933cc692ebc3b40e5f608a917dce51f5298fbe3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b713977d811411ea2ccd7dfa22c7757321ecd7aa
+ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904619"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712296"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Creación de respuestas automáticas a alertas y recomendaciones con automatización del flujo de trabajo
 
@@ -33,12 +33,12 @@ En este artículo se describe la característica de automatización de flujos de
 |Estado de la versión:|Disponible con carácter general|
 |Precios:|Gratuito|
 |Roles y permisos necesarios:|**Rol Administrador de seguridad** o **Propietario** en el grupo de recursos<br>También debe tener permisos de escritura para el recurso de destino.<br><br>Para trabajar con flujos de trabajo de Azure Logic Apps, también debe tener los siguientes roles o permisos de Logic Apps:<br> Son necesarios los permisos de - [Operador de aplicación lógica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) o el acceso de lectura o desencadenamiento de aplicación lógica (este rol no puede crear ni editar aplicaciones lógicas, solo *ejecutar* las existentes).<br> Los permisos de - [Colaborador de la aplicación lógica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) son necesarios para la creación y modificación de aplicaciones lógicas.<br>Si quiere usar conectores de aplicaciones lógicas, es posible que necesite credenciales adicionales para iniciar sesión en sus servicios respectivos (por ejemplo, en las instancias de Outlook, Teams o Slack).|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![Sí](./media/icons/yes-icon.png) China Gov, otros gobiernos|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
 |||
 
 
 
-## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Crear una aplicación lógica y definir cuándo debe ejecutarse automáticamente 
+## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Creación de una aplicación lógica y definición de cuándo debería ejecutarse automáticamente 
 
 1. En la barra lateral de Security Center, seleccione **Automatización de flujos de trabajo**.
 
@@ -53,7 +53,7 @@ En este artículo se describe la característica de automatización de flujos de
     1. Los desencadenadores que iniciarán este flujo de trabajo automático. Por ejemplo, cuando quiera que la aplicación lógica se ejecute cuando se genere una alerta de seguridad que contenga "SQL".
     1. La aplicación lógica que se ejecutará cuando se cumplan las condiciones del desencadenador. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Panel para agregar automatizaciones del flujo de trabajo":::
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Lista de automatizaciones de flujos de trabajo":::
 
 1. En la sección Acciones, haga clic en **Crear una nueva** para comenzar el proceso de creación de la aplicación lógica.
 
@@ -67,14 +67,12 @@ En este artículo se describe la característica de automatización de flujos de
 
     En el diseñador de la aplicación lógica se admiten los siguientes desencadenadores de los conectores de Security Center:
 
-    * **Cuando se crea o se desencadena una recomendación de Azure Security Center**
-    * **Cuando se crea o se desencadena una alerta de Azure Security Center** 
-    
-    > [!TIP]
-    > Se puede personalizar el desencadenador para que haga referencia solo a las alertas con los niveles de gravedad que le interesen.
+    * **Cuando se crea o se desencadena una recomendación de Azure Security Center**: si la aplicación lógica se basa en una recomendación que entra en desuso o se reemplaza, la automatización dejará de funcionar y deberá actualizar el desencadenador. Para hacer un seguimiento de los cambios en las recomendaciones, vea las [notas de la versión de Azure Security Center](release-notes.md).
+
+    * **Cuando se crea o se desencadena una alerta de Azure Security Center**: puede personalizar el desencadenador para que se refiera solo a las alertas con los niveles de gravedad que le interesen.
     
     > [!NOTE]
-    > Si utiliza el desencadenador heredado "Cuando se desencadena una respuesta a una alerta de Azure Security Center", la característica de automatización de flujos de trabajo no iniciará la instancia de Logic Apps. En su lugar, use cualquiera de los desencadenadores mencionados anteriormente. 
+    > Si utiliza el desencadenador heredado "Cuando se desencadena una respuesta a una alerta de Azure Security Center", la característica de automatización de flujos de trabajo no iniciará su instancia de aplicación lógica. En su lugar, use cualquiera de los desencadenadores mencionados anteriormente. 
 
     [![Aplicación lógica de ejemplo](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 

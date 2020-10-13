@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 7dd13df6222f6441b7edb2bd9a789c1f102168d7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 596a6657018658d2d00abe7f221ffae9a6730a7a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554981"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826459"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutorial: integración de Azure Active Directory con Flatter Files
 
@@ -121,11 +121,11 @@ Para configurar el inicio de sesión único de Azure AD con Flatter Files, reali
 
 2. Haga clic en **PANEL**. 
    
-    ![Configurar inicio de sesión único](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
+    ![Captura de pantalla que muestra "PANEL" seleccionado en la aplicación "Flatter Files".](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. Haga clic en **Settings** (Configuración) y, después, siga estos pasos siguientes en la pestaña **Company** (Compañía): 
    
-    ![Configurar inicio de sesión único](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+    ![Captura de pantalla que muestra la pestaña Compañía con la opción "Usar S A M L 2.0 para autenticación" activada y el botón "Configurar S A M L" seleccionado.](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
     a. Seleccione **Usar SAML 2.0 para autenticación**.
     
@@ -207,7 +207,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 2. En el panel de navegación de la izquierda, haga clic en **Configuración** y, luego, en la pestaña **Usuarios**.
    
-    ![Creación de un usuario de Flatter Files](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
+    ![Captura de pantalla que muestra la página "Configuración" con la pestaña "Usuarios" seleccionada.](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
 3. Haga clic en **Agregar usuario**. 
 

@@ -1,24 +1,24 @@
 ---
-title: Revisión de la factura de Azure
-description: Aprenda a interpretar la factura y el uso de los recursos y a comprobar los cargos de su suscripción de Azure.
+title: Examen de la factura de una suscripción individual a Azure
+description: Aprenda a interpretar la factura y el uso de los recursos y a comprobar los cargos de su suscripción de Azure, incluido el pago por uso.
 author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: 0c93375abd57ff5e96906ef7befbbb546a3a1caf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 95af762e0ff1986f9d1395e787c73b3a886a7a2e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270532"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653288"
 ---
-# <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Revisión de la factura de Azure
+# <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Tutorial: Examen de la factura de una suscripción individual a Azure
 
-Este artículo le ayudará a comprender y a revisar su factura de Azure. Lo normal es recibir una factura por email de cada período de facturación. Esta es una representación de su factura de Azure. En Azure Portal está disponible la misma información sobre los costos de la factura. En este tutorial se compara la factura con el archivo de uso diario detallado y con el análisis de costos de Azure Portal.
+Este artículo le ayuda a comprender y a examinar la factura de su suscripción de pago por uso o a Visual Studio Azure, que incluye pago por uso y Visual Studio. Lo normal es recibir una factura por email de cada período de facturación. Esta es una representación de su factura de Azure. En Azure Portal está disponible la misma información sobre los costos de la factura. En este tutorial se compara la factura con el archivo de uso diario detallado y con el análisis de costos de Azure Portal.
 
 Este tutorial se aplica solo a los clientes de Azure con una suscripción individual. Las suscripciones individuales comunes son aquellas con las tarifas de pago por uso compradas directamente desde el sitio web de Azure.
 
@@ -42,7 +42,7 @@ Deben haber transcurrido más de 30 días desde el momento de suscripción a Az
 
 - Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="compare-invoiced-charges-with-usage-file"></a>Comparación de los cargos facturados con el archivo de uso
+## <a name="compare-billed-charges-with-your-usage-file"></a>Comparación de los cargos facturados con su archivo de uso
 
 <a name="charges"></a>
 
@@ -109,7 +109,7 @@ La suma de los valores de *Costo* debe coincidir exactamente con el costo de los
 
 Para más información, consulte los artículos sobre la [descripción de la factura de Azure](understand-invoice.md) y la [descripción detallada del uso de Azure](understand-usage.md).
 
-## <a name="compare-charges-and-usage-in-cost-analysis"></a>Comparación de los cargos y el uso en el análisis de costos
+## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>Comparación de los cargos facturados y el uso en el análisis de costos
 
 El análisis de los costos en Azure Portal también puede ayudarle a comprobar los cargos. Para obtener una visión general rápida del uso y los cargos facturados, seleccione su suscripción en la [página Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) de Azure Portal. Después, haga clic en **Análisis de costos** y, en la lista de vistas, haga clic en **Detalles de la factura**.
 
@@ -123,13 +123,15 @@ Los costos que aparecen en el análisis de costos deben coincidir exactamente co
 
 ![Cargos de uso de la factura](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external-services-billed-separately"></a><a name="external"></a>Servicios externos que se facturan por separado
+## <a name="external-marketplace-services-are-billed-separately"></a>Los servicios de Marketplace externos se facturan por separado
+
+<a name="external"></a>
 
 Los servicios externos, o cargos de Azure Marketplace, son para aquellos recursos creados por proveedores de software de otros fabricantes. Estos recursos están disponibles para su uso desde Azure Marketplace. Por ejemplo, un firewall Barracuda es un recurso de Azure Marketplace que ofrecen otros fabricantes. Todos los cargos por el firewall y sus medidores correspondientes aparecerán como cargos por servicios externos.
 
 Los servicios externos se facturan por separado. Los cargos no se muestran en la factura de Azure. Para aprender más, consulte [Descripción de los gastos de servicios externos de Azure](understand-azure-marketplace-charges.md).
 
-### <a name="resources-billed-by-usage-meters"></a>Recursos que se facturan mediante medidores de uso
+### <a name="resources-are-billed-by-usage-meters"></a>Los recursos se facturan por medidores de uso
 
 Azure no factura directamente en función del costo del recurso. Los gastos de un recurso se calculan mediante uno o varios medidores. Los medidores se usan para realizar un seguimiento del uso de un recurso durante su vigencia. Estos medidores se usan entonces para calcular la factura.
 
@@ -152,7 +154,9 @@ Cuando se crea la máquina virtual, cada medidor comienza a emitir registros de 
 
 Puede ver los medidores que se usaron para calcular la factura en el archivo CSV de uso, como en el ejemplo anterior.
 
-## <a name="pay-your-bill"></a><a name="payment"></a>Pagar la factura
+## <a name="pay-your-bill"></a>Pagar la factura
+
+<a name="payment"></a>
 
 Si ha configurado una tarjeta de crédito como forma de pago, el pago se cargará automáticamente en un plazo de diez días después de finalizar el período de facturación. En el extracto de la tarjeta de crédito, el elemento de línea diría **MSFT Azure**.
 

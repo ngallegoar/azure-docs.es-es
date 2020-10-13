@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: jeedes
-ms.openlocfilehash: ecaeea625bc4891c95614292a44d31b616d39eb2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a70216286e6f19f565d189c1c16f8862494e3aef
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549303"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743087"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BeyondTrust Remote Support
 
@@ -155,7 +155,7 @@ En esta sección va a permitir que B.Simon acceda a BeyondTrust Remote Support m
 
 1. Haga clic en el menú **STATUS** (ESTADO) y copie los valores de **identifier** (Identificador), **Reply URL** (URL de respuesta) y **Sign on URL** (URL de inicio de sesión), y úselos en la sección **Configuración básica de SAML** de Azure Portal.
 
-    ![Configuración de BeyondTrust Remote Support](./media/bomgarremotesupport-tutorial/config-url-values.png)
+    ![Captura de pantalla que muestra el menú Estado de BeyondTrust Remote Support para recopilar esta información.](./media/bomgarremotesupport-tutorial/config-url-values.png)
 
 1. Vaya a la interfaz /login de BeyondTrust Remote Support de `https://support.example.com/login`, donde **support.example.com** es el nombre de host principal de su dispositivo, y realice la autenticación con sus credenciales administrativas.
 
@@ -165,20 +165,20 @@ En esta sección va a permitir que B.Simon acceda a BeyondTrust Remote Support m
 
 1. En la sección Identity Provider Settings (Configuración del proveedor de identidades) hay una opción para cargar los metadatos del proveedor de identidades. Busque el archivo XML de metadatos que ha descargado de Azure Portal y haga clic en el botón **Upload** (Cargar). Los valores de **Entity ID** (Id. de entidad), **Single Sign-On Service URL** (URL de servicio de inicio de sesión único) y el certificado se cargarán automáticamente y **Protocol Binding** (Enlace de protocolo) deberá cambiarse a **HTTP POST**. Consulte la captura de pantalla siguiente:
 
-    ![Configuración de BeyondTrust Remote Support](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
+    ![Captura de pantalla que muestra la sección Configuración del proveedor de identidades para realizar estas acciones.](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
 
 ### <a name="create-beyondtrust-remote-support-test-user"></a>Creación de un usuario de prueba en BeyondTrust Remote Support
 
 Aquí se configurarán las opciones de aprovisionamiento de usuarios. Se hará referencia a los valores de esta sección desde la sección **Atributos y reclamaciones del usuario** de Azure Portal. Los hemos configurado como los valores predeterminados que ya se han importado en el momento de la creación; no obstante, se pueden personalizar.
 
-![Creación del usuario](./media/bomgarremotesupport-tutorial/config-user1.png)
+![Captura de pantalla que muestra User Provision Settings (Configurar aprovisionamiento de usuarios) para configurar los valores de los usuarios.](./media/bomgarremotesupport-tutorial/config-user1.png)
 
 > [!NOTE]
 > Los grupos y el atributo e-mail no son necesarios para esta implementación. Si utiliza grupos de Azure AD y los asigna a las directivas de grupo de BeyondTrust Remote Support para los permisos, será necesario hacer referencia al identificador de objeto del grupo a través de sus propiedades en Azure Portal y colocarlo en la sección "Available Groups" (Grupos disponibles). Cuando haya terminado, el identificador de objeto o el grupo de AD estarán ya disponibles para su asignación a una directiva de grupo para los permisos.
 
-![Creación del usuario](./media/bomgarremotesupport-tutorial/config-user2.png)
+![Captura de pantalla que muestra la sección IT (TI) con Membership type (Tipo de pertenencia), Source (Origen), Type (Tipo) y Object ID (Id. de objeto).](./media/bomgarremotesupport-tutorial/config-user2.png)
 
-![Creación del usuario](./media/bomgarremotesupport-tutorial/config-user3.png)
+![Captura de pantalla muestra la página Basic Settings (Configuración básica) de una directiva de grupo.](./media/bomgarremotesupport-tutorial/config-user3.png)
 
 > [!NOTE]
 > Como alternativa, se puede establecer una directiva de grupo predeterminada en el proveedor de seguridad SAML2. Al definir esta opción, se asignarán los permisos especificados en la directiva de grupo a todos los usuarios que se autentiquen mediante SAML. La directiva General Members (Miembros generales) está incluida en BeyondTrust Remote Support/Privileged Remote Access (Acceso privilegiado remoto) con permisos limitados y se puede usar para probar la autenticación y asignar usuarios a las directivas correctas. Los usuarios no se rellenarán en la lista de usuarios de SAML2 a través de /login > Users & Security (Usuarios y seguridad) hasta el primer intento de autenticación correcto. Puede encontrar más información sobre las directivas de grupo en el vínculo siguiente: `https://www.beyondtrust.com/docs/remote-support/getting-started/admin/group-policies.htm`

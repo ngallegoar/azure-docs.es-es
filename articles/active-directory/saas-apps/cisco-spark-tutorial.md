@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 4fd6b46353cdeb4493c1a767c92e75d602e52843
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b6da84c1be38dde72b663de1db3756e77f4db915
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528907"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759856"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cisco Webex
 
@@ -151,13 +151,13 @@ En esta sección, va a permitir que B. Simon acceda a Cisco Webex mediante el i
 
 4. Seleccione **Settings** (Configuración) y en la sección **Authentication** (Autenticación), haga clic en **Modify** (Modificar).
 
-    ![Configurar inicio de sesión único](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
+    ![Captura de pantalla que muestra Authentication Settings (Configuración de autenticación) donde puede seleccionar Modify (Modificar).](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 5. Seleccione **Integrate a 3rd-party identity provider. (Advanced)** (Integrar un proveedor de identidades de terceros [avanzado]).y vaya a la pantalla siguiente.
 
 6. En la página **Import Idp Metadata** (Importar metadatos de LDP) arrastre y coloque el archivo de metadatos de Azure AD en la página o utilice la opción de explorador de archivos para buscar y cargar el archivo de metadatos de Azure AD. Después, seleccione **Require certificate signed by a certificate authority in Metadata (more secure)** (Requerir certificado firmado por una entidad de certificación en metadatos [más seguro]) y haga clic en **Next** (Siguiente).
 
-    ![Configurar inicio de sesión único](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
+    ![Captura de pantalla que muestra la página Import IdP Metadata (Importar metadatos del IdP).](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 7. Seleccione **Test SSO Connection** (Probar SSO de conexión) y cuando se abra una nueva pestaña de explorador, autentíquese con Azure AD mediante el inicio de sesión.
 
@@ -171,13 +171,13 @@ En esta sección, creará una usuaria llamada B. Simon en Cisco Webex. En esta 
 
 2. Haga clic en **Usuarios** y después en **Administrar usuarios**.
    
-    ![Configurar inicio de sesión único](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
+    ![Captura de pantalla que muestra la página Users (Usuarios) donde se administran los usuarios.](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. En la ventana **Manage User** (Administrar usuario), seleccione **Manually add or modify users** (Agregar o modificar usuarios manualmente) y haga clic en **Next** (Siguiente).
 
 4. Seleccione **Names and Email address** (Nombres y direcciones de correo electrónico). Después, rellene el cuadro de texto de la forma siguiente:
 
-    ![Configurar inicio de sesión único](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
+    ![Captura de pantalla que muestra el cuadro de diálogo Manage Users (Administrar usuarios) agregar o modificar usuarios manualmente.](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
     a. En el cuadro de texto **First Name** (Nombre), escriba el nombre del usuario, en este caso, **B**.
 

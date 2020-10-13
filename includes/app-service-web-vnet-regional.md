@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 926a1867a77b543057fa1de170cdb64ccfefe7cb
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255267"
 ---
 Cuando se utiliza la versión regional de Integración con red virtual, la aplicación puede acceder a:
 
@@ -56,7 +56,7 @@ Se usa una dirección para cada instancia del plan. Si escala la aplicación a c
 
 Si quiere que las aplicaciones de otro plan lleguen a una VNet a la que ya están conectadas aplicaciones de otro plan, debe seleccionar una subred distinta a la usada por la característica Integración con VNet ya existente.
 
-La característica es totalmente compatible con aplicaciones web para Windows y Linux. Todos los comportamientos actúan del mismo modo entre aplicaciones para Windows y Linux.
+La característica es totalmente compatible con aplicaciones para Windows y Linux, incluidos los [contenedores personalizados](../articles/app-service/quickstart-custom-container.md). Todos los comportamientos actúan del mismo modo entre aplicaciones para Windows y Linux.
 
 ### <a name="service-endpoints"></a>Puntos de conexión del servicio
 

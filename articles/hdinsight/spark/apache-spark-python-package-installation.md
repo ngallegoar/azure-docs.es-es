@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 09d1063f704c37eb31546be08765f2b5b6fb8632
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: a6ad1c068a41b4b865c148ebb7cdb509821609d4
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060754"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823421"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Administración segura del entorno de Python en Azure HDInsight mediante la acción de scripts
 
-HDInsight tiene dos instalaciones de Python integradas en el clúster de Spark: Anaconda Python 2.7 y Python 3.5. Es posible que los clientes necesiten personalizar el entorno de Python, como la instalación de paquetes de Python externos u otra versión de Python. En este artículo, se muestra el procedimiento recomendado de administración segura de entornos de Python para clústeres de Apache Spark en HDInsight.
+HDInsight tiene dos instalaciones de Python integradas en el clúster de Spark: Anaconda Python 2.7 y Python 3.5. Es posible que los clientes tengan que personalizar el entorno de Python, por ejemplo con la instalación de paquetes de Python externos. En este artículo, se muestra el procedimiento recomendado de administración segura de entornos de Python para clústeres de Apache Spark en HDInsight.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md). Si aún no tiene un clúster de Spark en HDInsight, puede ejecutar acciones de script durante la creación del clúster. Consulte la documentación sobre [cómo usar acciones de script personalizadas](../hdinsight-hadoop-customize-cluster-linux.md).
 

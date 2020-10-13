@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/08/2020
+ms.date: 09/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: cf7719487d4f03b8d9524234e1a58cf792a4843b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1d207e7cc052af32917eb6c871f332136580e56c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899860"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743285"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Pro con GPU 
 
@@ -66,14 +66,16 @@ A continuación, encontrará los requisitos previos para configurar su recurso d
 
 Antes de comenzar, asegúrese de que:
 
-- Su suscripción de Microsoft Azure está habilitada para un recurso de Azure Stack Edge. Asegúrese de que ha usado una suscripción admitida como [Contrato Enterprise (EA) de Microsoft](https://azure.microsoft.com/overview/sales-number/), [Proveedor de soluciones en la nube (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) o [Patrocinio de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). No se admiten suscripciones de pago por uso.
+- Su suscripción de Microsoft Azure está habilitada para un recurso de Azure Stack Edge. Asegúrese de que ha usado una suscripción admitida como [Contrato Enterprise (EA) de Microsoft](https://azure.microsoft.com/overview/sales-number/), [Proveedor de soluciones en la nube (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) o [Patrocinio de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). No se admiten suscripciones de pago por uso. Para identificar el tipo de suscripción de Azure que tiene, consulte [¿Qué es una oferta de Azure?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)
 - Tiene acceso de propietario o colaborador en el nivel de grupo de recursos para los recursos de Azure Stack Edge Pro o Data Box Gateway, IoT Hub y Azure Storage.
 
-    - Para crear cualquier recurso de Azure Stack Edge o Data Box Gateway, debe tener permisos de colaborador (o superiores) con ámbito en el nivel del grupo de recursos. También deberá asegurarse de que el proveedor `Microsoft.DataBoxEdge` está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - Para crear cualquier recurso de IoT Hub, asegúrese de que el proveedor Microsoft.Devices está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Para crear cualquier recurso de Azure Stack Edge o Data Box Gateway, debe tener permisos de colaborador (o superiores) con ámbito en el nivel del grupo de recursos. 
+    - También deberá asegurarse de que los proveedores de recursos `Microsoft.DataBoxEdge` y `MicrosoftKeyVault` estén registrados. Para crear cualquier recurso de IoT Hub, es necesario registrar el proveedor `Microsoft.Devices`. 
+        - Para registrar un proveedor de recursos, en Azure Portal, vaya a **Inicio > Suscripciones > Su suscripción > Proveedores de recursos**. 
+        - Busque el proveedor de recursos específico, por ejemplo, `Microsoft.DataBoxEdge`, y regístrelo. 
     - Para crear un recurso de una cuenta de Storage también se necesita acceso de colaborador, o superior, con ámbito en el nivel de grupo de recursos. De forma predeterminada Azure Storage es un proveedor de recursos registrado.
-- Debe tener acceso de administrador o usuario a Graph API de Azure Active Directory. Para más información, vea [Graph API de Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
-- Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
+- Tiene acceso de administrador o de usuario a Graph API de Azure Active Directory con fines de generación de claves de activación u operaciones de credenciales, como la creación de recursos compartidos que utilizan una cuenta de almacenamiento. Para más información, vea [Graph API de Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+
 
 ### <a name="for-the-azure-stack-edge-pro-device"></a>Para el dispositivo de Azure Stack Edge Pro
 
@@ -150,11 +152,15 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
 10. En la pestaña **Revisar y crear**, revise la información de **Detalles de precios**, **Términos de uso** y los detalles de su recurso. Seleccione el cuadro combinado **I have reviewed the privacy terms** (He revisado los términos de privacidad).
 
-    ![Creación de un recurso 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+    ![Creación de un recurso 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
+
+    También se le notifica que, durante la creación de recursos, se habilita una identidad de servicio administrada (MSI) que le permite autenticarse en los servicios en la nube. Esta identidad existe mientras exista el recurso.
 
 11. Seleccione **Crear**.
 
-Se tarda unos minutos en crear el recurso. Cuando el recurso se haya creado e implementado correctamente, recibirá una notificación. Haga clic en **Go to resource** (Ir al recurso).
+Se tarda unos minutos en crear el recurso. También se crea una MSI que permite al dispositivo de Azure Stack Edge comunicarse con el proveedor de recursos en Azure.
+
+Cuando el recurso se haya creado e implementado correctamente, recibirá una notificación. Haga clic en **Go to resource** (Ir al recurso).
 
 ![Ir al recurso de Azure Stack Edge Pro](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
 
@@ -172,9 +178,16 @@ Cuando el recurso de Azure Stack Edge esté en funcionamiento, tendrá que obten
 
     ![Selección de instalación del dispositivo](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. En el icono **Activar**, seleccione **Generar clave** para crear una clave de activación. Seleccione el icono de copia para copiar la clave y guárdela para su uso posterior.
+2. En el icono **Activar**, proporcione un nombre para Azure Key Vault o acepte el nombre predeterminado. El nombre puede tener entre 3 y 24 caracteres. 
+
+    Se crea un almacén de claves para cada recurso de Azure Stack Edge que se activa con el dispositivo. El almacén de claves permite almacenar los secretos y acceder a ellos; por ejemplo, la clave de integridad del canal (CIK) del servicio se almacena en el almacén de claves. 
+
+    Una vez que haya especificado un nombre de almacén de claves, seleccione **Generar clave** para crear una clave de activación. 
 
     ![Obtención de la clave de activación](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
+
+    Espere unos minutos a que se creen el almacén de claves y la clave de activación. Seleccione el icono de copia para copiar la clave y guárdela para su uso posterior.
+
 
 > [!IMPORTANT]
 > - La clave de activación expira tres días después de generarla.

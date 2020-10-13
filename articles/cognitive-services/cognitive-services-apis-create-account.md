@@ -5,28 +5,28 @@ description: Comience a usar Azure Cognitive Services mediante la creación y su
 services: cognitive-services
 author: aahill
 manager: nitinme
-keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
+keywords: cognitive services, inteligencia cognitiva, soluciones cognitivas, servicios de inteligencia artificial, servicios de IA
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 623982826f82e44b8d031d19002d33e0a8e798bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cad20f589bb5a6d3e73481081d9fe532381ab647
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326871"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827402"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Inicio rápido: Creación de un recurso de Cognitive Services con Azure Portal
 
 Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. Después de crear un recurso de Cognitive Services en Azure Portal, obtendrá un punto de conexión y una clave para autenticar las aplicaciones.
 
-Azure Cognitive Services es un conjunto de servicios en la nube con API de REST y SDK de biblioteca cliente que ayudan a los desarrolladores a integrar la inteligencia cognitiva en las aplicaciones sin tener inteligencia artificial (IA) directa ni habilidades o conocimientos sobre ciencia de datos. Azure Cognitive Services permite a los desarrolladores agregar fácilmente características cognitivas en sus aplicaciones con soluciones cognitivas que pueden ver, oír, hablar, comprender e incluso empezar a pensar.
+Azure Cognitive Services es un conjunto de servicios en la nube con API de REST y SDK de biblioteca cliente, que ayudan a los desarrolladores a integrar la inteligencia cognitiva en las aplicaciones sin tener inteligencia artificial (IA) directa ni habilidades o conocimientos sobre ciencia de datos. Azure Cognitive Services permite a los desarrolladores agregar fácilmente características cognitivas en sus aplicaciones con soluciones cognitivas que pueden ver, oír, hablar, comprender e incluso empezar a pensar.
 
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure válida: [cree una de manera gratuita](https://azure.microsoft.com/free/cognitive-services/).
 

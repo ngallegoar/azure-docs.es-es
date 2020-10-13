@@ -3,18 +3,24 @@ title: 'Azure Service Fabric: uso de las referencias de KeyVault de la aplicaci�
 description: En este artículo se explica cómo usar la compatibilidad con KeyVaultReference de Service Fabrica para los secretos de aplicación.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f1ac3ac50c5ac7cbabb03561c5db7f9c14150de4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c4de6ae17ae728e1dbadbd6d6e2d94c0e1471112
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246170"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261148"
 ---
-#  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Compatibilidad de KeyVaultReference para aplicaciones de Service Fabric (versión preliminar)
+# <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Compatibilidad de KeyVaultReference para aplicaciones de Service Fabric (versión preliminar)
 
 Un desafío común al compilar aplicaciones en la nube es cómo almacenar de manera segura los secretos que requiere la aplicación. Por ejemplo, es posible que quiera almacenar las credenciales del repositorio del contenedor en keyvault y hacer referencia a él en el manifiesto de aplicación. KeyVaultReference de Service Fabric usa la identidad administrada de Service Fabric y facilitar la referencia a los secretos de keyvault. En el resto de este artículo se detalla cómo usar KeyVaultReference de Service Fabric e incluye cierto uso típico.
 
-## <a name="prerequisites"></a>Prerequisites
+> [!IMPORTANT]
+> No se recomienda utilizar esta característica en versión preliminar en entorno de producción.
+
+> [!NOTE]
+> La característica en versión preliminar de referencia de KeyVault solo admite secretos [con versión](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning). No se admiten secretos sin versión.
+
+## <a name="prerequisites"></a>Requisitos previos
 
 - Identidad administrada para la aplicación (MIT)
     

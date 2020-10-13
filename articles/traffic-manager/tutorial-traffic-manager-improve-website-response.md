@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: duau
-ms.openlocfilehash: e79dde0178c74965bde14956203e31e82e80d93e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4f646cdb4a3f000df219f627cbd7e7c841ed68ab
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398416"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651248"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Mejorar la respuesta del sitio web mediante Traffic Manager
 
@@ -203,7 +203,7 @@ En esta sección, puede ver a Traffic Manager en acción.
 5. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Si recibe la advertencia, seleccione **Sí** o **Continuar** para continuar con la conexión.
 1. En un explorador web, escriba la máquina virtual *myVMEastUS*, escriba el nombre DNS del perfil de Traffic Manager para ver el sitio web. Puesto que la máquina virtual se encuentra en **Este de EE. UU.** , se le dirigirá al sitio web más cercano hospedado en el servidor IIS más cercano *myIISVMEastUS* que se encuentra en **Este de EE. UU.** .
 
-   ![Prueba del perfil de Traffic Manager](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
+   ![Captura de pantalla que muestra el perfil de "Traffic Manager" en un explorador web.](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
 2. A continuación, conéctese a la máquina virtual *myVMWestEurope* ubicada en **Oeste de Europa** mediante los pasos 1-5 y vaya al nombre de dominio del perfil de Traffic Manager de esta máquina virtual. Puesto que la máquina virtual se encuentra en **Oeste de Europa**, ahora se le enruta al sitio web hospedado en el servidor IIS más cercano *myIISVMWestEurope* que se encuentra en **Oeste de Europa**.
 

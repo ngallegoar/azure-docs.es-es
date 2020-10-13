@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4de696e2538bf1fa4823aafe30f931b7852535a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e2cb2b93010478338cd40236403da4ca0ca99fc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82191743"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825275"
 ---
-# <a name="consistency-availability-and-performance-tradeoffs"></a>Inconvenientes de la coherencia, disponibilidad y rendimiento
+# <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Inconvenientes para la latencia, la disponibilidad y el rendimiento con los distintos niveles de coherencia de Azure Cosmos DB
 
 Las bases de datos distribuidas que dependen de la replicación para la alta disponibilidad, la baja latencia o ambas deben realizar compensaciones. Tales compensaciones se realizan entre la coherencia y la disponibilidad de lectura, la latencia y el rendimiento.
 
@@ -65,20 +65,20 @@ En la tabla siguiente se define la relación entre el modelo de coherencia y la 
 
 |**Regiones**|**Modo de replicación**|**Nivel de coherencia**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
-|1|Arquitectura única o multimaestro|Cualquier nivel de coherencia|< 240 minutos|<1 semana|
-|>1|Maestro único|Sesión, prefijo coherente, eventual|< 15 minutos|< 15 minutos|
-|>1|Maestro único|De obsolescencia entrelazada|*K* & *T*|< 15 minutos|
-|>1|Maestro único|Alta|0|< 15 minutos|
-|>1|Arquitectura multimaestro|Sesión, prefijo coherente, eventual|< 15 minutos|0|
-|>1|Arquitectura multimaestro|De obsolescencia entrelazada|*K* & *T*|0|
+|1|Una o varias regiones de escritura|Cualquier nivel de coherencia|< 240 minutos|<1 semana|
+|>1|Región de escritura única|Sesión, prefijo coherente, eventual|< 15 minutos|< 15 minutos|
+|>1|Una región de escritura|De obsolescencia entrelazada|*K* & *T*|< 15 minutos|
+|>1|Una región de escritura|Alta|0|< 15 minutos|
+|>1|Varias regiones de escritura|Sesión, prefijo coherente, eventual|< 15 minutos|0|
+|>1|Varias regiones de escritura|De obsolescencia entrelazada|*K* & *T*|0|
 
 *K* = número de versiones *"K"* (es decir, actualizaciones) de un elemento.
 
 *T* = intervalo de tiempo *"T"* desde la última actualización.
 
-## <a name="strong-consistency-and-multi-master"></a>Coherencia fuerte y arquitectura multimaestro
+## <a name="strong-consistency-and-multiple-write-regions"></a>Coherencia fuerte y varias regiones de escritura
 
-Las cuentas de Cosmos configuradas para la arquitectura multimaestro no se pueden configurar para coherencia fuerte, ya que no es posible que un sistema distribuido proporcione un RPO de cero y un RTO de cero. Además, no hay ventaja en la latencia de escritura por usar la coherencia fuerte con la arquitectura multimaestro, ya que cualquier escritura en cualquier región debe replicarse y confirmarse en todas las regiones configuradas dentro de la cuenta. Esto produce la misma latencia de escritura que una sola cuenta maestra.
+Las cuentas de Cosmos configuradas con varias regiones de escritura no se pueden configurar para lograr una coherencia fuerte, ya que no es posible que un sistema distribuido proporcione un RPO de cero y un RTO de cero. Además, no existe ninguna ventaja en la latencia de escritura por usar la coherencia fuerte con varias regiones de escritura, ya que la solicitud de escritura en cualquier región debe replicarse y confirmarse en todas las regiones configuradas dentro de la cuenta. Esto produce la misma latencia de escritura que una cuenta con una sola región de escritura.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -86,4 +86,4 @@ Obtenga más información sobre las compensaciones entre distribución global y 
 
 - [Consistency Tradeoffs in Modern Distributed Database Systems Design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) (Compromisos de coherencia en el diseño de sistemas modernos de bases de datos distribuidas)
 - [Alta disponibilidad](high-availability.md)
-- [Acuerdo de Nivel de Servicio de Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+- [Acuerdo de Nivel de Servicio de Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

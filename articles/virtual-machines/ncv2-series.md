@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f7d4403fa480aa03868df5a0daa09e54ce8ecda7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 19ed565cbc68cc49da9daa5460e4dca41ce01cbc
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286230"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653492"
 ---
 # <a name="ncv2-series"></a>Serie NCv2
 
@@ -20,13 +20,11 @@ Las máquinas virtuales de la serie NCv2 disponen de la tecnología de GPU NVIDI
 
 La configuración NC24rs v2 proporciona una interfaz de red de baja latencia y alto rendimiento optimizada para cargas de trabajo de computación paralelas estrechamente unidas.
 
-Premium Storage:  Compatible
-
-Almacenamiento en caché de Premium Storage:  Compatible
-
-Migración en vivo: No compatible
-
-Actualizaciones con conservación de memoria: No compatible
+[Premium Storage](premium-storage-performance.md): Compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
+[Migración en vivo](maintenance-and-updates.md): No compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 
 > [!IMPORTANT]
 > Para esta serie de máquinas virtuales, la cuota de vCPU (núcleo) en su suscripción está establecida inicialmente en 0 en cada región. [Solicite un aumento de cuota de vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) para esta serie en una [región donde esté disponible](https://azure.microsoft.com/regions/services/).

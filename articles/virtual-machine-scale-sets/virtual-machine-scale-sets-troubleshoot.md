@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 11302c301bee466f678d544d0c4838c39cec9c8e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830689"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818540"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales
 **Problema**: ha creado una infraestructura de escalado automático en Azure Resource Manager mediante conjuntos de escalado de máquinas virtuales (por ejemplo, mediante la implementación de una plantilla como esta: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale ), tiene sus reglas de escalado definidas y funciona perfectamente, salvo que sin importar la cantidad de carga que coloque en las máquinas virtuales, no se escala automáticamente.
@@ -62,7 +62,7 @@ Entre los aspectos que debe considerar se incluyen:
     
     Si el servicio de Insights no puede leer datos de las máquinas virtuales, este debería enviarle un correo electrónico. Por ejemplo, recibirá un correo electrónico si las máquinas virtuales están fuera de servicio. Asegúrese de comprobar el correo electrónico, en la dirección de correo electrónico especificada al crear la cuenta de Azure.
     
-    También puede comprobar los datos usted mismo. Observe la cuenta de almacenamiento de Azure mediante Cloud Explorer. Por ejemplo, si usa [Visual Studio Cloud Explorer](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2), inicie sesión y elija la suscripción de Azure que use. Después, mire el nombre de la cuenta de almacenamiento de Diagnostics al que se hace referencia en la definición de extensión de Diagnostics en la plantilla de la implementación.
+    También puede comprobar los datos usted mismo. Observe la cuenta de almacenamiento de Azure mediante Cloud Explorer. Por ejemplo, si usa [Visual Studio Cloud Explorer](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2), inicie sesión y elija la suscripción de Azure que utiliza. Después, mire el nombre de la cuenta de almacenamiento de Diagnostics al que se hace referencia en la definición de extensión de Diagnostics en la plantilla de la implementación.
     
     ![Cloud Explorer][explorer]
     

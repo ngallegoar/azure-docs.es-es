@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 1db1589561968cf1e2974edcee2bfe1cccb4a327
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b32c5576ef38f07d28777e1a72aafa935042930
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549257"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775735"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Tutorial: Integración de Costpoint con Azure Active Directory
 
@@ -43,7 +43,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 La configuración del inicio de sesión único de SAML de Costpoint se explica en la guía **DeltekCostpoint711Security.pdf**. Descargue esta guía desde el sitio de soporte técnico de Deltek Costpoint y consulte la sección **SAML Single Sign-on Setup** > **Configure SAML Single Sign-on between Costpoint and Microsoft Azure** (Configuración del inicio de sesión único de SAML -> Configuración del inicio de sesión único de SAML entre Costpoint y Microsoft Azure). Siga las instrucciones y genere un archivo **XML de metadatos de federación del proveedor de servicios de Costpoint**. 
 
-![Utilidad de configuración de Costpoint](./media/costpoint-tutorial/config-utility.png)
+![Captura de pantalla que muestra la utilidad de configuración del producto con la pestaña "Weblogic - Security" (Weblogic - Seguridad) seleccionada.](./media/costpoint-tutorial/config-utility.png)
 
 ## <a name="add-costpoint-from-the-gallery"></a>Adición de Costpoint desde la galería
 

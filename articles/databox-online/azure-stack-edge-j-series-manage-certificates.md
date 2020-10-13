@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 59924312fe0483d11d0f70ce83b8f6e4b0e198dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5cec5eda7cf398949865bf6d3d3e8be5b2d5e840
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890759"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767371"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Uso de certificados con el dispositivo Azure Stack Edge Pro con GPU
 
@@ -61,7 +61,7 @@ Estos certificados podrían ser certificados raíz o intermedios. Los certificad
 - Los certificados raíz deben ser certificados de cadena de firma.
 - Los certificados raíz se pueden cargar en el dispositivo con el siguiente formato: 
     - **DER**: están disponibles como extensión de archivo `.cer`.
-    - **Con codificación Base 64 o PEM**: están disponibles también como extensión `.cer`.
+    - **Codificado con Base 64**: están disponibles como extensión de archivo `.cer`.
     - **P7b**: este formato se usa solo para certificados de cadena de firma que incluyen los certificados raíz e intermedio.
 - Los certificados de cadena de firma siempre se cargan antes que cualquier otro.
 
@@ -275,11 +275,11 @@ Los certificados creados para el dispositivo de manera predeterminada residen en
 
     1. Cargue primero los certificados raíz. En la interfaz de usuario web local, vaya a **Certificados > + Agregar certificado**.
 
-        ![Incorporación del certificado de cadena de firma](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
+        ![Incorporación del certificado de cadena de firma 1](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
 
     2. A continuación, cargue los certificados de punto de conexión. 
 
-        ![Incorporación del certificado de cadena de firma](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
+        ![Incorporación del certificado de cadena de firma 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
 
         Elija los archivos de certificado en formato *.pfx* y escriba la contraseña que proporcionó al exportar el certificado. El certificado de Azure Resource Manager puede tardar unos minutos en aplicarse.
 
@@ -383,20 +383,19 @@ La copia de seguridad del archivo .pfx se guarda en la ubicación seleccionada y
 
 1. En el almacén de certificados Personal, seleccione el certificado raíz. Haga clic con el botón derecho y seleccione **Todas las tareas -> Exportar...**
 
-    ![Exportación del certificado 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
+    ![Exportación de certificados DER 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
 
 2. Se abrirá el asistente de certificados. Seleccione el formato **DER binario codificado X.509 (.cer)** . Seleccione **Next** (Siguiente).
 
-    ![Exportación del certificado 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
+    ![Exportación de certificados DER 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
 
 3. Busque y seleccione la ubicación en la que desea exportar el archivo con formato .cer.
 
-    ![Exportación del certificado 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
-
+    ![Exportación de certificados DER 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
 
 4. Seleccione **Finalizar**.
 
-    ![Exportación del certificado 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
+    ![Exportación de certificados DER 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
 
 
 ## <a name="supported-certificate-algorithms"></a>Algoritmos de certificado admitidos
@@ -410,11 +409,11 @@ La copia de seguridad del archivo .pfx se guarda en la ubicación seleccionada y
 
 Si incorpora sus propios certificados, estos expirarán normalmente en 1 año o 6 meses. Para ver la fecha de expiración del certificado, vaya a la página **Certificados** en la interfaz de usuario web local del dispositivo. Si selecciona un certificado específico, verá en él la fecha de expiración.
 
-## <a name="rotate-certificates"></a>Rotación de certificados
+<!--## Rotate certificates
 
-No se ha implementado la rotación de certificados en esta versión. Tampoco recibirá una notificación de la fecha de expiración pendiente en el certificado. 
+Rotation of certificates is not implemented in this release. You are also not notified of the pending expiration date on your certificate. 
 
-Consulte la fecha de expiración del certificado en la página **Certificados** en la interfaz de usuario web local del dispositivo. Cuando se aproxime la fecha de expiración del certificado, cree y cargue nuevos certificados según las instrucciones detalladas en [Creación y carga de certificados](azure-stack-edge-j-series-manage-certificates.md).
+View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates](azure-stack-edge-j-series-manage-certificates.md).-->
 
 ## <a name="next-steps"></a>Pasos siguientes
 

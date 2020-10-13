@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 1020dec2069d609cf5f919c5802da906ae172ed2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2b4d3e75f6e2f3e6313541b0b146ff64cc403ce5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550250"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713824"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Tutorial: Tutorial: Integración de Azure Active Directory con AuditBoard
 
@@ -99,7 +99,7 @@ Para configurar el inicio de sesión único de Azure AD con AuditBoard, realice 
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo **iniciado por IDP** siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de AuditBoard](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
 
@@ -109,7 +109,7 @@ Para configurar el inicio de sesión único de Azure AD con AuditBoard, realice 
 
     d. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.auditboardapp.com/`
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de AuditBoard](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico del cliente AuditBoard](mailto:support@auditboard.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

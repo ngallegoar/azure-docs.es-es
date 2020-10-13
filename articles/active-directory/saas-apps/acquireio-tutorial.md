@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1bdda60d3b6f5e763bd31b25ab0fd8c2783f978d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cd07370c75ac64fa8e3806fed50a64db90122c76
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537943"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708329"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AcquireIO
 
@@ -134,15 +134,15 @@ En esta sección, va a permitir que B. Simon acceda a AcquireIO utilizando el in
 
 1. En el lado izquierdo del menú, haga clic en **App Store**.
 
-     ![Configuración de AcquireIO](./media/acquireio-tutorial/config01.png)
+     ![Captura de pantalla que resalta App Store.](./media/acquireio-tutorial/config01.png)
 
 1. Desplácese hacia abajo hasta **Active Directory** y haga clic en **Instalar**.
 
-    ![Configuración de AcquireIO](./media/acquireio-tutorial/config02.png)
+    ![Captura de pantalla que resalta la sección Active Directory y el botón Install (Instalar).](./media/acquireio-tutorial/config02.png)
 
 1. En el elemento emergente de Active Directory, realice los siguientes pasos:
 
-    ![Configuración de AcquireIO](./media/acquireio-tutorial/config03.png)
+    ![Captura de pantalla que muestra la pantalla Active Directory.](./media/acquireio-tutorial/config03.png)
 
     a. Haga clic en **Copiar** para copiar la dirección URL de respuesta de la instancia y péguela en el cuadro de texto **URL de respuesta** de la sección **Configuración básica de SAML** de Azure Portal.
 
@@ -162,7 +162,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en AcquireIO, deben 
 
 1. En el lado izquierdo del menú, haga clic en **Perfiles** y vaya a **Agregar perfil**.
 
-     ![Configuración de AcquireIO](./media/acquireio-tutorial/config04.png)
+     ![Captura de pantalla que resalta Profiles (Perfiles) en el menú del lado izquierdo de la pantalla y la opción Add Profile (Agregar perfil).](./media/acquireio-tutorial/config04.png)
 
 1. En el elemento emergente **Agregar cliente**, lleve a cabo los pasos siguientes:
 

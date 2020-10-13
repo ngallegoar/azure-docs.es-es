@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Introducción al análisis de datos con un grupo de SQL'
+title: 'Tutorial: Introducción al análisis de datos con grupos de SQL dedicados'
 description: En este tutorial, usará los datos de ejemplo de NYC Taxi para explorar las funcionalidades de análisis del grupo de SQL.
 services: synapse-analytics
 author: saveenr
@@ -9,16 +9,16 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: b1060bcc8603cb7f7395a50056424b3d6c0ebe5a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 11c11d3e43f15b569a74c282b15a95525cea7e7c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015507"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620042"
 ---
-# <a name="analyze-data-with-sql-pools"></a>Análisis de datos con grupos de SQL
+# <a name="analyze-data-with-dedicated-sql-pools"></a>Análisis de datos con grupos de SQL dedicados
 
-Azure Synapse Analytics le ofrece la capacidad de analizar datos con el grupo de SQL. En este tutorial, usará los datos de ejemplo de NYC Taxi para explorar las funcionalidades de análisis del grupo de SQL.
+Azure Synapse Analytics le ofrece la funcionalidad de analizar datos con un grupo de SQL dedicado. En este tutorial, usará los datos de NYC Taxi para explorar las capacidades de un grupo de SQL dedicado.
 
 ## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Carga de los datos NYC Taxi en SQLDB1
 
@@ -71,7 +71,7 @@ Azure Synapse Analytics le ofrece la capacidad de analizar datos con el grupo de
     ```
 1. Este script tardará aproximadamente un minuto en ejecutarse. Carga dos millones filas de datos de NYC Taxi en una tabla denominada **dbo.Trip**.
 
-## <a name="explore-the-nyc-taxi-data-in-the-sql-pool"></a>Exploración de los datos de taxis de Nueva York en el grupo de SQL
+## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Exploración de los datos de NYC Taxi en el grupo de SQL dedicado
 
 1. En Synapse Studio, vaya al centro **Data** (Datos).
 1. Vaya a **SQLDB1** > **Tablas**. Verá que se han cargado varias tablas.

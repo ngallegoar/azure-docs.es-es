@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 7909f793407956247a8378a86e20bbe7b1bcddb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 75e4937966c549c4d815a8776c70aa6366abe3e0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542809"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Tutorial: Integración de Azure Active Directory con Brightidea
 
@@ -112,14 +112,14 @@ Para configurar el inicio de sesión único de Azure AD con Brightidea, realice 
 
     c. Una vez que se haya cargado correctamente el archivo de metadatos, los valores **Identificador** y **URL de respuesta** se rellenan automáticamente en el cuadro de texto de la sección Brightidea:
 
-    ![imagen](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     > [!Note]
     > Si los valores **Identificador** y **URL de respuesta** no se rellenan automáticamente, hágalo manualmente según sus necesidades.
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![imagen](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.brightidea.com`
 
@@ -143,21 +143,21 @@ Para configurar el inicio de sesión único de Azure AD con Brightidea, realice 
 
 2. Para ir a la característica de inicio de sesión único en el sistema Brightidea, vaya a **Enterprise Setup** -> **Authentication Tab** (Configuración de empresa > pestaña Autenticación). Habrá dos subpestañas: Auth Selection (Selección automática) y SAML Profiles (Perfiles de SAML)
 
-    ![Configuración de Brightidea](./media/brightidea-tutorial/configure1.png)
+    ![Captura de pantalla que muestra el sitio de Brightidea con la pestaña Authentication (Autenticación) seleccionada.](./media/brightidea-tutorial/configure1.png)
 
 3. Seleccione **Auth Selection** (Selección automática). De forma predeterminada, solo se muestran dos métodos estándar: Brightidea Login (Inicio de sesión en Brightidea) y Registration (Registro). Cuando se agrega un método de inicio de sesión único, aparece en la lista.
 
-    ![Configuración de Brightidea](./media/brightidea-tutorial/configure2.png)
+    ![Captura de pantalla que muestra la pestaña Authentication (Autenticación) de Brightidea con la opción Auth Selection (Selección de autenticación) seleccionada.](./media/brightidea-tutorial/configure2.png)
 
 4. Seleccione **SAML Profiles** (Perfiles de SAML) y realice los siguientes pasos:
 
-    ![Configuración de Brightidea](./media/brightidea-tutorial/configure3.png)
+    ![Captura de pantalla que muestra la pestaña Authentication (Autenticación) de Brightidea con SAML Profiles (Perfiles de SAML) seleccionado, que proporciona las opciones Download Metadata (Descargar metadatos) y Add New (Agregar nuevo).](./media/brightidea-tutorial/configure3.png)
 
     a. Haga clic en **Download Metadata** (Descargar metadatos) y cargue la sección **Basic SAML Configuration** (Configuración básica de SAML) en Azure Portal.
 
     b. Haga clic en el botón **Add New** (Agregar nuevo) en **Identity Provider Setting** (Configuración del proveedor de identidades), realice los pasos siguientes:
     
-    ![Configuración de Brightidea](./media/brightidea-tutorial/configure4.png)
+    ![Captura de pantalla que muestra Identity Provider Setting (Configuración del proveedor de identidades) de Brightidea para escribir información.](./media/brightidea-tutorial/configure4.png)
     
    * Escriba el **nombre del perfil de SAML**, por ejemplo, `Azure Ad SSO`.
     

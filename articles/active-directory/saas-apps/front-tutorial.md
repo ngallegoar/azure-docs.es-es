@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 606ee409a241db7b4deb9d15db86b034b8fbffd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bbd39c85385d6690a80f540c9e0cd23a321e7e84
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550986"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821221"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Tutorial: integración de Azure Active Directory con Front
 
@@ -128,23 +128,23 @@ Para configurar el inicio de sesión único de Azure AD con Front, realice los s
 
 2. Vaya a **Settings (cog icon at the bottom of the left sidebar) > Preferences** (Configuración (icono de engranaje en la parte inferior de la barra lateral izquierda) > Preferencias).
    
-    ![Configuración del inicio de sesión único en la aplicación](./media/front-tutorial/tutorial_front_000.png)
+    ![Captura de pantalla que muestra la página "Settings (cog icon)" (Configuración [icono de engranaje])" seleccionada con la opción "Preferences" (Preferencias) resaltada.](./media/front-tutorial/tutorial_front_000.png)
 
 3. Haga clic en el vínculo **Inicio de sesión único** .
    
-    ![Configuración del inicio de sesión único en la aplicación](./media/front-tutorial/tutorial_front_001.png)
+    ![Captura de pantalla que muestra la sección "Company preferences" (Preferencias de la compañía) con el vínculo "Single Sign On" (Inicio de sesión único) seleccionado.](./media/front-tutorial/tutorial_front_001.png)
 
 4. Seleccione **SAML** en la lista desplegable de **Single Sign On** (Inicio de sesión único).
    
-    ![Configuración del inicio de sesión único en la aplicación](./media/front-tutorial/tutorial_front_002.png)
+    ![Captura de pantalla que muestra la lista desplegable "Single Sign On" (Inicio de sesión único) con la opción "S A M L" seleccionada.](./media/front-tutorial/tutorial_front_002.png)
 
 5. En el cuadro de texto **Punto de entrada**, coloque el valor de **Dirección URL de inicio de sesión** del Asistente para configuración de aplicaciones de Azure AD.
     
-    ![Configuración del inicio de sesión único en la aplicación](./media/front-tutorial/tutorial_front_003.png)
+    ![Captura de pantalla que muestra el cuadro de texto "Entry Point" (Punto de entrada).](./media/front-tutorial/tutorial_front_003.png)
 
 6. Abra el archivo descargado de **certificado (Base64)** en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de firma**.
     
-    ![Configuración del inicio de sesión único en la aplicación](./media/front-tutorial/tutorial_front_004.png)
+    ![Captura de pantalla que muestra la opción "Signing certificate" (Certificado de firma) resaltada, con el cuadro de texto atenuado.](./media/front-tutorial/tutorial_front_004.png)
 
 7. En la sección **Service provider settings** (configuración del proveedor de servicios), siga estos pasos:
 

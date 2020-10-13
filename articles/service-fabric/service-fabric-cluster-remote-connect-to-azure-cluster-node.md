@@ -3,12 +3,12 @@ title: Conexión remota a un nodo de clúster de Azure Service Fabric
 description: Aprenda a conectarse de forma remota a una instancia del conjunto de escalado (un nodo de clúster de Service Fabric).
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98d573af4fc2026134e75d4caf24a09e57e52c87
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458318"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268101"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Conexión remota a una instancia de conjunto de escalado de máquinas virtuales o a un nodo de clúster
 En un clúster de Service Fabric que se ejecuta Azure, cada tipo de nodo de clúster que defina [configura una escala independiente de la máquina virtual](service-fabric-cluster-nodetypes.md).  También puede conectarse de forma remota a instancias específicas del conjunto de escalado (nodos de clúster).  A diferencia de las máquinas virtuales de instancia única, las instancias de conjuntos de escalado no tienen direcciones IP virtuales. Esto puede resultar un poco complicado si desea obtener una dirección IP y un puerto que pueda usar para conectarse de manera remota a una instancia específica.
@@ -21,11 +21,11 @@ Para buscar una dirección IP y un puerto que pueda usar para conectarse remotam
     
     En Azure Portal, en la página del equilibrador de carga, seleccione **Configuración** > **Reglas NAT de entrada**. 
 
-    ![Reglas NAT de entrada del equilibrador de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
+    ![Captura de pantalla de la página de un equilibrador de carga en Azure Portal. En el menú de la izquierda, en CONFIGURACIÓN, la opción Reglas NAT de entrada está seleccionada.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
     La siguiente captura de pantalla muestra las reglas NAT de entrada para un tipo de nodo con el nombre FrontEnd: 
 
-    ![Reglas NAT de entrada del equilibrador de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
+    ![Captura de pantalla en la que se muestran las reglas NAT de entrada de un equilibrador de carga. El nombre, la versión de IP, el destino, el objetivo y el servicio se muestran para cada regla.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
     Para cada nodo, la dirección IP aparece en la columna **DESTINO**, la columna **OBJETIVO** indica la instancia del conjunto de escalado y la columna **SERVICIO** indica el número de puerto. Para la conexión remota, los puertos se asignan a cada nodo en orden ascendente a partir del puerto 3389.
 

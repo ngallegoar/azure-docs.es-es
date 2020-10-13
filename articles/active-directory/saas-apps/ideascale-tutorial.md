@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ef388426584dc013d102b929627ce2ba45431d5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32dd392965e8bf33c835b435b5a2a01460740d2b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547512"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823686"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Tutorial: integración de Azure Active Directory con IdeaScale
 
@@ -137,7 +137,7 @@ Para configurar el inicio de sesión único de Azure AD con IdeaScale, realice l
 
 3. Vaya a **Security \> Single Signon Settings** (Seguridad > Configuración de inicio de sesión único).
 
-    ![Single Signon Settings (Configuración de inicio de sesión único)](./media/ideascale-tutorial/ic790848.png "Configuración de inicio de sesión único")
+    ![Captura de pantalla muestra Single Sign-On (Inicio de sesión único) seleccionado en el menú Security (Seguridad).](./media/ideascale-tutorial/ic790848.png "Configuración de inicio de sesión único")
 
 4. En **Single-Signon Type** (Tipo de inicio de sesión único), seleccione **SAML 2.0**.
 
@@ -145,7 +145,7 @@ Para configurar el inicio de sesión único de Azure AD con IdeaScale, realice l
 
 5. En el cuadro de diálogo **Configuración de inicio de sesión único** , siga estos pasos:
 
-    ![Single Signon Settings (Configuración de inicio de sesión único)](./media/ideascale-tutorial/ic790850.png "Configuración de inicio de sesión único")
+    ![Captura de pantalla que muestra el cuadro de diálogo Single Sign-On Settings (Configuración del inicio de sesión único).](./media/ideascale-tutorial/ic790850.png "Configuración de inicio de sesión único")
 
     a. En el cuadro de texto **SAML IdP Entity ID** (Identificador de la entidad de IdP de SAML), pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
 

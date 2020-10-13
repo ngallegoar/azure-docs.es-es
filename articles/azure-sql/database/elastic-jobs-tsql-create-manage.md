@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: 5c05db4d6e0c98935fc13325b5656f8023c6228e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: bbecfac4bfd3d5ce1510cb671b93df5f4982cbc4
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443336"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803864"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Base de datos elástica (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -1023,13 +1023,13 @@ Agrega una base de datos o un grupo de bases de datos a un grupo de destino.
 Nombre del grupo de destino al que se agregará el miembro. target_group_name es nvarchar(128), sin ningún valor predeterminado.
 
 [ **\@membership_type =** ] 'membership_type'  
-Especifica si se incluirá o excluirá el miembro del grupo de destino. target_group_name es nvarchar(128), con un valor predeterminado de ‘Include’. Los valores válidos de target_group_name son ‘Include’ o ‘Exclude’.
+Especifica si se incluirá o excluirá el miembro del grupo de destino. target_group_name es nvarchar(128), con un valor predeterminado de ‘Include’. Los valores permitidos para membership_type son "Include" o "Exclude".
 
 [ **\@target_type =** ] 'target_type'  
 Tipo de base de datos de destino o colección de bases de datos que incluye todas las bases de datos de un servidor, todas las bases de datos de un grupo elástico, todas las bases de datos de un mapa de particiones o una base de datos individual. target_type es nvarchar(128), sin ningún valor predeterminado. Los valores válidos para target_type son ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’ o ‘SqlShardMap’.
 
 [ **\@refresh_credential_name =** ] 'refresh_credential_name'  
-El nombre del servidor. refresh_credential_name es nvarchar(128), sin ningún valor predeterminado.
+El nombre de la credencial con ámbito de base de datos. refresh_credential_name es nvarchar(128), sin ningún valor predeterminado.
 
 [ **\@server_name =** ] 'server_name'  
 Nombre del servidor que se debe agregar al grupo de destino especificado. server_name debe especificarse cuando target_type es ‘SqlServer’. server_name es nvarchar(128), sin ningún valor predeterminado.
@@ -1041,7 +1041,7 @@ Nombre de la base de datos que debe agregarse al grupo de destino especificado. 
 Nombre del grupo elástico que se debe agregar al grupo de destino especificado. elastic_pool_name debe especificarse cuando target_type es ‘SqlElasticPool’. elastic_pool_name es nvarchar(128), sin ningún valor predeterminado.
 
 [ **\@shard_map_name =** ] 'shard_map_name'  
-Nombre del grupo de mapas de particiones que se debe agregar al grupo de destino especificado. elastic_pool_name debe especificarse cuando target_type es ‘SqlSqlShardMap’. shart_map_name es nvarchar(128), sin ningún valor predeterminado.
+Nombre del grupo de mapas de particiones que se debe agregar al grupo de destino especificado. El valor elastic_pool_name debe especificarse cuando el elemento target_type es "SqlShardMap". shart_map_name es nvarchar(128), sin ningún valor predeterminado.
 
 [ **\@target_id =** ] target_group_id OUTPUT  
 Número de identificación de destino asignado al miembro del grupo de destino si se agregó al grupo de destino. target_id es una variable de salida de tipo uniqueidentifier, con un valor predeterminado de NULL.

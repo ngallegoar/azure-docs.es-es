@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 3e1386fdfafdea3112e26ce6480c7d20061236ba
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 494a698ac4b6f8262851878cfee4bb91126d9f02
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549677"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823021"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Litmus
 
@@ -167,7 +167,7 @@ En esta sección, va a permitir que B.Simon acceda a Litmus mediante el inicio d
 
     ![Configuración de Litmus](./media/litmus-tutorial/user-profile.png)
 
-    a. En el cuadro de texto **Email** (Correo electrónico), escriba la dirección de correo electrónico del usuario, en este caso, **B.Simon@contoso.com** .
+    a. En el cuadro de texto **Email** (Dirección de correo electrónico), escriba la dirección de correo electrónico del usuario, en este caso, **B.Simon\@contoso.com**.
 
     b. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso, **B**.
 

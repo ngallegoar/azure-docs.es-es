@@ -3,12 +3,12 @@ title: Ejemplo de plano técnico de Fundación CAF, introducción
 description: Introducción y arquitectura del ejemplo de plano técnico de una base de Cloud Adoption Framework (CAF) para Azure.
 ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: cce5ea001b32ae92542f38f8f11427e85075cee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3e2a5bcbb68ef0b51cf02ebb7a7e34913e2a1e6
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531702"
+ms.locfileid: "91929615"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Introducción al ejemplo de plano técnico de fundamentos de Microsoft Cloud Adoption Framework para Azure
 
@@ -27,17 +27,18 @@ Esta implementación incorpora varios servicios de Azure que se usan para propor
 - Una instancia de [Azure Key Vault](../../../../key-vault/general/overview.md) utilizada para hospedar los secretos empleados por las máquinas virtuales implementadas en el entorno de servicios compartidos
 - La implementación de [Log Analytics](../../../../azure-monitor/overview.md) se realiza para garantizar que todas las acciones y servicios se registran en una ubicación central desde el momento en que empieza la implementación segura en las [cuentas de almacenamiento](../../../../storage/common/storage-introduction.md) para el registro de diagnóstico.
 - La implementación de [Azure Security Center](../../../../security-center/security-center-intro.md) (versión estándar) proporciona protección contra amenazas para las cargas de trabajo migradas.
-- El plano técnico también define e implementa las [directivas de Azure](../../../policy/overview.md), para lo siguiente: 
-  - El etiquetado (CostCenter) aplicado a los grupos de recursos
-  - Los recursos anexados al grupo de recursos con la etiqueta CostCenter
-  - La región de Azure permitida para recursos y grupos de recursos
-  - Las SKU de la cuenta de almacenamiento permitida (se eligen durante la implementación)
-  - SKU de máquinas virtuales de Azure permitidas (se eligen durante la implementación)
-  - La implementación de Network Watcher requerida 
-  - El cifrado de transferencia segura de la cuenta de almacenamiento de Azure requerido
-  - Tipos de recursos denegados (se elige durante la implementación)  
-- Iniciativas
-  - Habilitación de la supervisión en Azure Security Center (definiciones de más de cien directivas)
+- El plano técnico también establece e implementa las definiciones de [Azure Policy](../../../policy/overview.md):
+  - Definiciones de Policy:
+    - El etiquetado (CostCenter) aplicado a los grupos de recursos
+    - Los recursos anexados al grupo de recursos con la etiqueta CostCenter
+    - La región de Azure permitida para recursos y grupos de recursos
+    - Las SKU de la cuenta de almacenamiento permitida (se eligen durante la implementación)
+    - SKU de máquinas virtuales de Azure permitidas (se eligen durante la implementación)
+    - La implementación de Network Watcher requerida 
+    - El cifrado de transferencia segura de la cuenta de almacenamiento de Azure requerido
+    - Tipos de recursos denegados (se elige durante la implementación)  
+  - Iniciativas de Policy:
+    - Habilitación de la supervisión en Azure Security Center (definiciones de más de cien directivas)
 
 Todos estos elementos se atienen a los procedimientos probados que se publicaron en [Centro de arquitectura de Azure: Arquitecturas de referencia](/azure/architecture/reference-architectures/).
 

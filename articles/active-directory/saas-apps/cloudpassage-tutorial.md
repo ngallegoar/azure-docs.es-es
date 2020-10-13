@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 34e36be8ee9444b5612901439aa5dca4771f2dda
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8fdb59db7e11e3c8b946be940a2f98bd42810b88
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551694"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758360"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudpassage"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con CloudPassage
 
@@ -85,7 +85,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://portal.cloudpassage.com/saml/consume/accountid`. Para obtener el valor de este atributo, haga clic en **SSO Setup documentation** (Documentación de instalación de inicio de sesión única) en la sección **Single Sign-on Settings** (Configuración de inicio de sesión único) del portal de CloudPassage.
 
-    ![Configurar inicio de sesión único](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
+    ![Captura de pantalla que muestra el portal de CloudPassage con el vínculo S S O Setup Documentation (Documentación de instalación de inicio de sesión única) seleccionado.](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de CloudPassage](https://www.cloudpassage.com/company/contact/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -146,15 +146,15 @@ En esta sección, va a conceder a B.Simon acceso a CloudPassage mediante el inic
 
 1. En el menú de la parte superior, haga clic en **Settings** (Configuración) y en **Site Administration** (Administración del sitio). 
    
-    ![Configurar inicio de sesión único][12]
+    ![Captura de pantalla que muestra el sitio de CloudPassage con Site Administration (Administración del sitio) seleccionado.][12]
 
 1. Haga clic en la pestaña **Authentication Settings** (Configuración de autenticación). 
    
-    ![Configurar inicio de sesión único][13]
+    ![Captura de pantalla que muestra el sitio de CloudPassage con la pestaña Authentication (Autenticación) seleccionada.][13]
 
 1. En la sección **Single Sign-on Settings** (Configuración del inicio de sesión único), siga estos pasos: 
    
-    ![Configurar inicio de sesión único][14]
+    ![Captura de pantalla que muestra la sección Single Sign-on Settings (Configuración del inicio de sesión único), donde puede especificar la información de este paso.][14]
 
     a. Seleccione la casilla **Enable Single sign-on(SSO)(SSO Setup Documentation)** (Habilitar el inicio de sesión único (SSO) (Documentación de configuración de SSO)).
     
@@ -178,15 +178,15 @@ El objetivo de esta sección es crear un usuario llamado B.Simon en CloudPassage
 
 1. En la barra de herramientas de la parte superior, haga clic en **Settings** (Configuración) y en **Site Administration** (Administración del sitio). 
    
-    ![Creación de un usuario de prueba de CloudPassage][22] 
+    ![Captura de pantalla que muestra el sitio de CloudPassage con Site Administration (Administración del sitio) seleccionado.][22] 
 
 1. Haga clic en la pestaña **Users** (Usuarios) y, a continuación, en **Add New User** (Agregar nuevo usuario). 
    
-    ![Creación de un usuario de prueba de CloudPassage][23]
+    ![Captura de pantalla que muestra el sitio de administración de CloudPassage con la pestaña Users (Seleccionada) seleccionada y la opción Add New User (Agregar nuevo usuario).][23]
 
 1. En la sección **Agregar nuevo usuario** , lleve a cabo estos pasos: 
    
-    ![Creación de un usuario de prueba de CloudPassage][24]
+    ![Captura de pantalla que muestra la sección Add New User (Agregar nuevo usuario) en la que se especifica la información de usuario.][24]
     
     a. En el cuadro de texto **First Name** (Nombre), escriba Britta. 
   

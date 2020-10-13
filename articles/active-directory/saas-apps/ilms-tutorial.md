@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 219dd6e4a8f04da8b28a28e5473394f0721e4013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 03b8110db94a08f44035e75371fd7641fcd91626
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545218"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826356"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Tutorial: Integración de iLMS con Azure Active Directory
 
@@ -130,29 +130,29 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 2. Haga clic en **SSO:SAML** en **Settings** (Configuración) para abrir la configuración de SAML y realice los siguientes pasos:
 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/1.png)
+    ![Captura de pantalla que muestra la pestaña de configuración de I L M S, donde puede seleccionar S S O: SAML.](./media/ilms-tutorial/1.png)
 
 3. Expanda la sección **Service Provider** (Proveedor de servicios) y copie los valores **Identifier** (Identificador) y **Endpoint (URL)** (Punto de conexión [URL]).
 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/2.png) 
+    ![Captura de pantalla que muestra la configuración de SAML, donde puede obtener los valores.](./media/ilms-tutorial/2.png) 
 
 4. En la sección **Identity Provider** (Proveedor de identidades), haga clic en **Import Metadata** (Importar metadatos).
 
 5. Seleccione el archivo de **metadatos de federación** descargado de Azure Portal en la sección **Certificado de firma de SAML**.
 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
+    ![Captura de pantalla que muestra la configuración de SAML, donde puede seleccionar el archivo de metadatos.](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
 6. Si desea habilitar el aprovisionamiento JIT para crear cuentas de iLMS para usuarios no reconocidos, realice los pasos siguientes:
 
     a. Active **Create Un-recognized User Account** (Crear cuenta de usuario no reconocido).
 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+    ![Captura de pantalla que muestra la opción Create Un-recognized User Account (Crear cuenta de usuario no reconocido).](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
     b. Asigne los atributos de Azure AD a los atributos de iLMS. En la columna de atributos, especifique el nombre de los atributos o el valor predeterminado.
 
     c. Vaya a la pestaña **Business Rules** (Reglas empresariales) y realice los pasos siguientes:
 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/5.png)
+    ![Captura de pantalla que muestra la configuración Business Rules (Reglas empresariales), donde puede especificar la información de este paso.](./media/ilms-tutorial/5.png)
 
     d. Active **Create Un-recognized Regions, Divisions and Departments** (Crear regiones, divisiones y departamentos no reconocidos) para crear regiones, divisiones y departamentos que todavía no existen en el momento del inicio de sesión único.
 
@@ -164,7 +164,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 7. Haga clic en el botón **Save** (Guardar) para guardar la configuración.
 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/save.png)
+    ![Captura de pantalla que muestra el botón Save (Guardar).](./media/ilms-tutorial/save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -206,11 +206,11 @@ Si debe crear un usuario manualmente, siga estos pasos:
 
 2. Haga clic en **Register User** (Registrar usuario) en la pestaña **Users** (Usuarios) para abrir la página **Register User** (Registrar usuario).
 
-   ![Agregar empleado](./media/ilms-tutorial/3.png)
+   ![Captura de pantalla que muestra la pestaña de configuración de I L M S, donde puede Register User (Registrar usuario).](./media/ilms-tutorial/3.png)
 
 3. En la página **Register User** (Registrar usuario), siga estos pasos.
 
-    ![Agregar empleado](./media/ilms-tutorial/create_testuser_add.png)
+    ![Captura de pantalla que muestra la página Register User (Registrar usuario) en la que se escribe la información especificada.](./media/ilms-tutorial/create_testuser_add.png)
 
     a. En el cuadro de texto **First Name** (Nombre), escriba el nombre, por ejemplo, Britta.
 

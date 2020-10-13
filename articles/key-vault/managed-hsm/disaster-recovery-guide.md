@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 13f62631e4913434699f4c5dd5eb1956ca3e3a36
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992459"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760400"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Recuperación ante desastres de Managed HSM
 
@@ -61,7 +61,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 La salida de este comando muestra las propiedades del HSM administrado que ha creado. Las dos propiedades más importantes son:
 
 * **name**: en el ejemplo, el nombre es ContosoMHSM. Usará este nombre para otros comandos de Key Vault.
-* **hsmUri**: en el ejemplo, el URI es https://contosohsm.managedhsm.azure.net. Las aplicaciones que utilizan el HSM a través de su API REST deben usar este identificador URI.
+* **hsmUri**: en el ejemplo, el URI es "https://contosohsm.managedhsm.azure.net". Las aplicaciones que utilizan el HSM a través de su API REST deben usar este identificador URI.
 
 Su cuenta de Azure ahora está autorizada para realizar operaciones en este HSM administrado. Hasta ahora, nadie más está autorizado.
 

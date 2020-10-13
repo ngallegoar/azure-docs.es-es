@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: bf6828ff96f5bff8a65b5f62793df8bf0e65a309
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 6be01bdd94d5fb9f5e6ea62bbd41b73d57734ea9
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595162"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652948"
 ---
 # <a name="hbv2-series"></a>Serie HBv2
 
@@ -21,13 +21,14 @@ Las máquinas virtuales de la serie HBv2 están optimizadas para aplicaciones im
 
 Las máquinas virtuales de la serie HBv2 incluyen la característica MeliBox HDR InfiniBand a 200 GB/s. Estas máquinas virtuales están conectadas en un árbol FAT sin bloqueos para un rendimiento de RDMA optimizado y coherente. Estas máquinas virtuales admiten el enrutamiento adaptativo y el transporte conectado dinámico (DCT, además de los transportes estándar RC y UD). Estas características mejoran el rendimiento, la escalabilidad y la coherencia de las aplicaciones, y se recomienda totalmente su uso.
 
-Premium Storage: Compatible
+[Premium Storage](premium-storage-performance.md): Compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
+[Migración en vivo](maintenance-and-updates.md): No compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+<br>
 
-Migración en vivo: No compatible
-
-Actualizaciones con conservación de memoria: No compatible
-
-| Size | vCPU | Procesador | Memoria (GB) | Ancho de banda de memoria, en GB/s | Frecuencia de CPU base (GHz) | Frecuencia de todos los núcleos (GHz, pico) | Frecuencia de cada núcleo (GHz, pico) | Rendimiento de RDMA (GB/s) | Compatibilidad con MPI | Almacenamiento temporal (GB) | Discos de datos máx. | NIC Ethernet máx. |
+| Size | vCPU | Procesador | Memoria (GiB) | Ancho de banda de memoria, en GB/s | Frecuencia de CPU base (GHz) | Frecuencia de todos los núcleos (GHz, pico) | Frecuencia de cada núcleo (GHz, pico) | Rendimiento de RDMA (GB/s) | Compatibilidad con MPI | Almacenamiento temporal (GiB) | Discos de datos máx. | NIC Ethernet máx. |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 480 | 350 | 2.45 | 3.1 | 3.3 | 200 | All | 480 + 960 | 8 | 1 |
 

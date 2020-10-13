@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: b7aaaa589b92814694bee2838332f6823b3351de
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 137a077ac73b5dd5ca9c68c6be2b30beb8e92ce0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521919"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826230"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Tutorial: Integración de Azure Active Directory con Hosted Graphite
 
@@ -100,7 +100,7 @@ Para configurar el inicio de sesión único de Azure AD con Hosted Graphite, rea
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Hosted Graphite](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.hostedgraphite.com/metadata/<user id>`
 
@@ -108,7 +108,7 @@ Para configurar el inicio de sesión único de Azure AD con Hosted Graphite, rea
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Hosted Graphite](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.hostedgraphite.com/login/saml/<user id>/`
 
@@ -135,23 +135,23 @@ Para configurar el inicio de sesión único de Azure AD con Hosted Graphite, rea
 
 2. Vaya a la **página de configuración de SAML** en la barra lateral (**Acceso -> Configuración de SAML**).
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
+    ![Captura de pantalla que muestra el menú Access (Acceso) con SAML Setup (Configuración de SAML) seleccionado.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
 3. Confirme que estos identificadores URI coinciden con la configuración realizada en la sección **Configuración básica de SAML** de Azure Portal.
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
+    ![Captura de pantalla que muestra Configuración básica de SAML.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
 
 4. En los cuadros de texto **Entity or Issuer ID** (Identificador de entidad o de emisor) y **SSO Login URL** (Dirección URL de inicio de sesión de SSO), pegue el valor de **Identificador de Azure AD** y **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
+    ![Captura de pantalla que muestra entradas para el proveedor de identidades.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
 
 5. Seleccione **Read-only** (Solo lectura) en **Default User Role** (Rol de usuario predeterminado).
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
+    ![Captura de pantalla que muestra el rol de usuario predeterminado, que es Read-only (Solo lectura).](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
 
 6. Abra el certificado codificado en base 64 descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509**.
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
+    ![Captura de pantalla que muestra el certificado X punto 509.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
 
 7. Haga clic en el botón **Guardar** .
 

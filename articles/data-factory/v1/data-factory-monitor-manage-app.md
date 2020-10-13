@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846907"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570087"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración
 > [!div class="op_single_selector"]
@@ -124,7 +124,7 @@ Puede hacer clic en una ventana de actividad para ver sus detalles en la ventana
 
 En el panel derecho, cambie a la pestaña **Activity Window Explorer** (Explorador de ventanas de actividad) para ver más información.
 
-![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![Captura de pantalla que muestra cómo obtener acceso a la pestaña del explorador de ventanas de actividad.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
 También verá las **variables resueltas** de cada intento de ejecución de una actividad en la sección **Intentos**.
 
@@ -217,7 +217,7 @@ Las ventanas de actividad pueden estar en uno de los siguientes estados:
 
 Al hacer clic en una de las ventanas de actividad de la lista, verá sus detalles en **Activity Windows Explorer** (Explorador de ventanas de actividad) o en la ventana **Propiedades** de la derecha.
 
-![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![Captura de pantalla que muestra cómo ver los detalles de una ventana de actividad.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### <a name="refresh-activity-windows"></a>Actualizar las ventanas de actividad
 Los detalles no se actualizan automáticamente, por lo que debe usar el segundo botón, Actualizar, de la barra de comandos para actualizar manualmente la lista de ventanas de actividad.  

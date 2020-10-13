@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 41dc4e97e847e9e7d9863631cdb20b72d3f35d9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598426"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269376"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Administración del entorno del servicio de integración (ISE) en Azure Logic Apps
 
@@ -122,7 +122,7 @@ La unidad base del ISE Premium tiene una capacidad fija, por lo que si necesita 
    * [**Escala manual**](#manual-scale): el escalado se hace según el número de unidades de procesamiento que desee usar.
    * [**Custom autoscale**](#custom-autoscale) (Escalabilidad automática personalizada): el escalado se hace según las métricas de rendimiento, seleccionando entre varios criterios y especificando las condiciones del umbral para cumplir con esos criterios.
 
-   ![Seleccionar el tipo de escalado deseado](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
+   ![Captura de pantalla en la que se muestra la página "Escalar horizontalmente" con la opción "Escala manual" seleccionada.](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
 
 <a name="manual-scale"></a>
 

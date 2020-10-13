@@ -3,12 +3,12 @@ title: Restauración de archivos en Windows Server mediante el agente de MARS
 description: En este artículo, aprenderá a restaurar datos almacenados en Azure en un equipo Windows Server o Windows con el agente de Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 0d2f9e8197ac397bf61e4cb293e354a10ba0e1da
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 79a4d32d6dbca5ca5be5d46c6b44a07ef42de061
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178564"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813260"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restauración de archivos en Windows Server mediante el agente de MARS
 
@@ -107,7 +107,7 @@ Estos pasos incluyen la siguiente terminología:
 
 5. Proporcione el archivo de credenciales de almacén que se corresponde con el almacén de ejemplo y seleccione **Siguiente**.
 
-    Si el archivo de credenciales de almacén no es válido o ha expirado, descargue un nuevo archivo de credenciales de almacén desde el almacén de ejemplo en Azure Portal. Una vez proporcionada una credencial de almacén válida, aparecerá el nombre del almacén de Backup correspondiente.
+    Si el archivo de credenciales de almacén no es válido o ha expirado, [descargue un nuevo archivo de credenciales de almacén desde el almacén de ejemplo](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) en Azure Portal. Una vez proporcionada una credencial de almacén válida, aparecerá el nombre del almacén de Backup correspondiente.
 
 6. En la página **Seleccionar servidor de copia de seguridad**, seleccione la máquina de origen en la lista de máquinas mostradas y proporcione la frase de contraseña. Luego, seleccione **Siguiente**.
 

@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo funcionan los planes de App Servic
 keywords: app service, azure app service, escala, escalable, escalabilidad, plan de app service, costo de app service
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: f30221de81b6bef199c0a25e770558c4db8c4006
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4c3003a5cbb55464f3a089c3045ac28f3786cb6b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958519"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742980"
 ---
 # <a name="azure-app-service-plan-overview"></a>Introducción a los planes de Azure App Service
 
@@ -22,32 +22,32 @@ Cuando se crea un plan de App Service en una región determinada (por ejemplo, O
 - Región (oeste de EE. UU., este de EE. UU., etc.)
 - Número de instancias de VM
 - Tamaño de las instancias de VM (pequeño, mediano, grande)
-- Plan de tarifa (Gratis, Compartido, Básico, Estándar, Premium, PremiumV2 y Aislado)
+- Plan de tarifa (Gratis, Compartido, Básico, Estándar, Premium, PremiumV2, PremiumV3 y Aislado)
 
 El _plan de tarifa_ de un plan de App Service determina qué características de App Service obtendrá y cuánto paga por el plan. Existen algunas categorías de planes de tarifa:
 
 - **Proceso de compartido**: **Gratis** y **Compartido**, los dos planes básicos, ejecutan una aplicación en la misma VM de Azure que otras aplicaciones de App Service, incluidas las aplicaciones de otros clientes. Estos planes asignan cuotas de CPU a cada aplicación que se ejecuta en los recursos compartidos, y los recursos no pueden escalarse horizontalmente.
-- **Dedicated compute** (Proceso dedicado): Los planes **Básico**, **Estándar**, **Premium** y **PremiumV2** ejecutan aplicaciones en VM de Azure dedicadas. Solo las aplicaciones del mismo plan de App Service comparten los mismos recursos de proceso. Cuanto mayor sea el plan, más instancias de VM estarán disponibles para la escalabilidad horizontal.
+- **Dedicated compute** (Proceso dedicado): Los planes **Básico**, **Estándar,** **Premium**, **PremiumV2** y **PremiumV3** ejecutan aplicaciones en VM de Azure dedicadas. Solo las aplicaciones del mismo plan de App Service comparten los mismos recursos de proceso. Cuanto mayor sea el plan, más instancias de VM estarán disponibles para la escalabilidad horizontal.
 - **Aislado**: Este nivel ejecuta máquinas virtuales de Azure dedicadas en instancias de Microsoft Azure Virtual Network. Proporciona aislamiento de red, además de aislamiento de proceso a sus aplicaciones. Proporciona las máximas posibilidades de escalabilidad horizontal.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Además, cada plan proporciona un subconjunto específico de características de App Service. Estas características incluyen dominios personalizados y certificados TLS/SSL, escalado automático, ranuras de implementación, copias de seguridad, integración de Traffic Manager y mucho más. Cuanto mayor sea el plan, más características estarán disponibles. Para averiguar qué características se admiten en cada plan de tarifa, consulte los [detalles del plan de App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
-<a name="new-pricing-tier-premiumv2"></a>
+<a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> El nuevo plan de tarifa **PremiumV2** incluye las [máquinas virtuales de la serie Dv2](../virtual-machines/dv2-dsv2-series.md), que cuentan con procesadores más rápidos, almacenamiento SSD y el doble de memoria en proporción de núcleo en comparación con el nivel **Estándar**. **PremiumV2** permite también una escala mayor con un número más alto de instancias, al tiempo que proporciona toda la funcionalidad avanzada del plan Estándar. Todas las características disponibles en el nivel **Premium** existente se incluyen en el nivel **PremiumV2**.
+> El nuevo plan de tarifa **PremiumV3** garantiza [máquinas virtuales de la serie Dv3](../virtual-machines/dv3-dsv3-series.md) con procesadores más rápidos, almacenamiento SSD y el cuádruple de memoria en proporción de núcleo en comparación con el nivel **Estándar**. **PremiumV3** permite también una escala mayor con un número más alto de instancias, al tiempo que proporciona toda la funcionalidad avanzada del plan **Estándar**. Todas las características disponibles en el nivel **PremiumV2** existente se incluyen en el nivel **PremiumV3**.
 >
 > De manera similar a otros niveles dedicados, existen tres tamaños de VM disponibles para este nivel:
 >
-> - Pequeño (un núcleo de CPU, 3,5 GiB de memoria) 
-> - Mediano (dos núcleos de CPU, 7 GiB de memoria) 
-> - Grande (cuatro núcleos de CPU, 14 GiB de memoria)  
+> - Pequeña (2 núcleos de CPU, 8 GiB de memoria) 
+> - Mediana (4 núcleos de CPU, 16 GiB de memoria) 
+> - Grande (8 núcleos de CPU, 32 GiB de memoria)  
 >
-> Para obtener más información sobre el precio del plan **PremiumV2**, consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/).
+> Para obtener más información sobre el precio del plan **PremiumV3**, consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/).
 >
-> Para empezar a usar el nuevo plan de tarifa **PremiumV2**, consulte [Configuración del nivel PremiumV2 para App Service](app-service-configure-premium-tier.md).
+> Para empezar a usar el nuevo plan de tarifa **PremiumV3**, consulte [Configuración del nivel PremiumV3 para App Service](app-service-configure-premium-tier.md).
 
 ## <a name="how-does-my-app-run-and-scale"></a>¿Cómo se ejecuta y escala mi aplicación?
 
@@ -68,7 +68,7 @@ En esta sección se describe cómo se facturan las aplicaciones de App Service. 
 Salvo en el caso del nivel **Gratis**, un plan de App Service conlleva un cargo asociado a los recursos de proceso que se utilicen.
 
 - En el nivel **Compartido**, cada aplicación recibe una cuota de minutos de CPU, por lo que _cada aplicación_ tiene un cargo asociado a la cuota de CPU.
-- En los niveles de proceso dedicados (**Básico**, **Estándar**, **Premium** y **PremiumV2**), el plan de App Service define el número de instancias de máquina virtual al que se escalan las aplicaciones, de manera que se apliquen cargos a _cada instancia de máquina virtual_ del plan de App Service. Estas instancias de VM se cobran igual, independientemente de cuántas aplicaciones se ejecuten en ellas. Para evitar cargos inesperados, consulte [Clean up an App Service plan](app-service-plan-manage.md#delete) (Eliminar un plan de App Service).
+- En los niveles de proceso dedicados (**Básico**, **Estándar**, **Premium**, **PremiumV2**, **PremiumV3**), el plan de App Service define el número de instancias de máquina virtual al que se escalan las aplicaciones, de manera que se apliquen cargos a _cada instancia de máquina virtual_ del plan de App Service. Estas instancias de VM se cobran igual, independientemente de cuántas aplicaciones se ejecuten en ellas. Para evitar cargos inesperados, consulte [Clean up an App Service plan](app-service-plan-manage.md#delete) (Eliminar un plan de App Service).
 - En el nivel **Aislado**, el entorno de App Service define el número de trabajos aislados que ejecutan las aplicaciones, y se aplican cargos a _cada trabajo_. Además, hay una tarifa plana para el stamp por la ejecución de App Service Environment.
 
 No se le cobra por usar las características de App Service que tiene a su disposición (configurar dominios personalizados, certificados TLS/SSL, ranuras de implementación, copias de seguridad, etc.). Las excepciones son estas:

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 6f5b6bfdb523a22fc4dd9593bfec556da7493aa9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c753e9a18f9869e1bf11aa437fb60484f2553e17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371199"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259261"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Tutorial para configurar LexisNexis con Azure Active Directory B2C
 
@@ -73,7 +73,7 @@ Una vez creada la cuenta, recibirá la información que necesita para la configu
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1: implementación de la API
 
-Implemente el código de la API proporcionado en un servicio de Azure. El código se puede publicar desde Visual Studio siguiendo estas [instrucciones](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Implemente el [código de la API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) proporcionado en un servicio de Azure. El código se puede publicar desde Visual Studio siguiendo estas [instrucciones](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Necesitará la dirección URL del servicio implementado para configurar Azure AD con la configuración necesaria.
@@ -95,9 +95,9 @@ La configuración de la aplicación se puede [configurar en App Service en Azure
 
 Esta solución utiliza plantillas de interfaz de usuario personalizadas que se cargan mediante Azure AD B2C. Estas plantillas de interfaz de usuario realizan la generación de perfiles que se envía directamente al servicio ThreatMetrix.
 
-Consulte estas [instrucciones](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#custom-page-content-walkthrough) para implementar los archivos de interfaz de usuario incluidos en una cuenta de almacenamiento de blobs. Las instrucciones incluyen la configuración de una cuenta de almacenamiento de blobs, la configuración de CORS y la habilitación del acceso público.
+Consulte estas [instrucciones](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#custom-page-content-walkthrough) para implementar los [archivos de interfaz de usuario](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) incluidos en una cuenta de almacenamiento de blobs. Las instrucciones incluyen la configuración de una cuenta de almacenamiento de blobs, la configuración de CORS y la habilitación del acceso público.
 
-La interfaz de usuario se basa en la plantilla de página azul océano. Todos los vínculos dentro de la interfaz de usuario deben actualizarse para hacer referencia a la ubicación implementada. En la carpeta de la interfaz de usuario, busque y reemplace https://yourblobstorage/blobcontainer por la ubicación implementada.
+La interfaz de usuario se basa en la [plantilla azul océano](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). Todos los vínculos dentro de la interfaz de usuario deben actualizarse para hacer referencia a la ubicación implementada. En la carpeta de la interfaz de usuario, busque y reemplace https://yourblobstorage/blobcontainer por la ubicación implementada.
 
 ### <a name="part-4---create-api-policy-keys"></a>Parte 4: creación de claves de directiva de API
 
@@ -111,21 +111,21 @@ La directiva de ejemplo utiliza estos nombres de clave:
 
 ### <a name="part-5---update-the-api-url"></a>Parte 5: actualización de la URL de API
 
-En la directiva de TrustFrameworkExtensions proporcionada, busque el perfil técnico llamado `Rest-LexisNexus-SessionQuery` y actualice el elemento de metadatos `ServiceUrl` con la ubicación de la API implementada anteriormente.
+En la [directiva de TrustFrameworkExtensions](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml) proporcionada, busque el perfil técnico llamado `Rest-LexisNexus-SessionQuery` y actualice el elemento de metadatos `ServiceUrl` con la ubicación de la API implementada anteriormente.
 
 ### <a name="part-6---update-ui-url"></a>Parte 6: actualización de la URL de interfaz de usuario
 
-En la directiva de TrustFrameworkExtensions proporcionada, realice la acción de buscar y reemplazar para buscar https://yourblobstorage/blobcontainer/ con la ubicación en la que se implementaron los archivos de interfaz de usuario.
-
-### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>Parte 7: configuración de la directiva de Azure AD B2C
-
-Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) para descargar el [paquete de inicio de LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) y configure la directiva para el inquilino de Azure AD B2C.
-
->[!NOTE]
->Actualice las directivas proporcionadas para que se relacionen con su inquilino específico.
+En la directiva de [TrustFrameworkExtensions](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml) proporcionada, realice la acción de buscar y reemplazar para buscar https://yourblobstorage/blobcontainer/ con la ubicación en la que se implementaron los archivos de interfaz de usuario.
 
 >[!NOTE]
 > Como procedimiento recomendado, se sugiere que los clientes agreguen una notificación de consentimiento en la página de colección de atributos. Notifique a los usuarios que la información se enviará a servicios de terceros para la verificación de identidad.
+
+### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>Parte 7: configuración de la directiva de Azure AD B2C
+
+Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) para descargar el [paquete de inicio de cuentas locales](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) y configure la [directiva](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) para el inquilino de Azure AD B2C.
+
+>[!NOTE]
+>Actualice las directivas proporcionadas para que se relacionen con su inquilino específico.
 
 ## <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 

@@ -3,18 +3,18 @@ title: Eliminación temporal de Azure Backup
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 76928b98bdb21ffa79fce8435bfe4dda92e0c72d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d7998c7f9def6ce9965ded3b6ec700f7975891eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179970"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271552"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Eliminación temporal de Azure Backup
 
 Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen los datos de las copias de seguridad incluso después de su eliminación.
 
-Una de estas características es la eliminación temporal. Con la eliminación temporal, aunque un actor malintencionado elimine una copia de seguridad (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado "eliminación temporal" no acarrea ningún costo para el cliente.
+Una de estas características es la eliminación temporal. Con la eliminación temporal, aunque un actor malintencionado elimine una copia de seguridad (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. La retención adicional de 14 días de los datos de copia de seguridad con el estado de "eliminación temporal" no tiene costo alguno para el cliente.
 
 La protección de eliminación temporal está disponible para estos servicios:
 
@@ -29,7 +29,7 @@ En este diagrama de flujo se explican los diferentes pasos y estados de un eleme
 
 La eliminación temporal se habilita de forma predeterminada en los almacenes recién creados para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  No se recomienda deshabilitar esta característica. La única circunstancia en la que debe considerar la posibilidad de deshabilitar la eliminación temporal es si está planeando mover los elementos protegidos a un nuevo almacén y no puede esperar los 14 días necesarios para realizar la acción de eliminar y volver a proteger (por ejemplo, en un entorno de prueba). Solo el propietario del almacén puede deshabilitar esta característica. Si se deshabilita, todas las eliminaciones posteriores de elementos protegidos se convertirán en eliminaciones inmediatas, sin la posibilidad de restaurar. Los datos de copia de seguridad que se encuentren en estado de eliminación temporal antes de deshabilitar esta característica permanecerán en ese estado durante el período de 14 días. Si quiere eliminarlos permanentemente de inmediato, debe recuperarlos y eliminarlos de nuevo para eliminarlos de forma permanente.
 
- Es importante recordar que una vez deshabilitada la eliminación temporal, la característica se deshabilita para todos los tipos de cargas de trabajo, incluidas las cargas de trabajo de SQL Server y SAP HANA. Por ejemplo, una vez que la [versión preliminar de SQL Server / SAP HANA](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) esté habilitada en una suscripción, no es posible deshabilitar la eliminación temporal solo en servidores SQL Server o bases de SAP HANA si está habilitada al mismo tiempo en máquinas virtuales del mismo almacén. Puede crear almacenes independientes para llevar a cabo un control granular.
+Es importante recordar que una vez deshabilitada la eliminación temporal, la característica se deshabilita para todos los tipos de cargas de trabajo. Por ejemplo, no es posible deshabilitar la eliminación temporal solo en servidores SQL Server o bases de SAP HANA si está habilitada al mismo tiempo en máquinas virtuales del mismo almacén. Puede crear almacenes independientes para llevar a cabo un control granular.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Deshabilitación de la eliminación temporal con Azure Portal
 

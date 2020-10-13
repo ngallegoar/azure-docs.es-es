@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7509a17127f04220a8e8450a81627354b28bdacd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006472"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653679"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualización de un modelo representado de forma remota
 
@@ -76,10 +76,10 @@ Debe modificar el archivo `Packages/manifest.json` que se encuentra en la carpet
 
 Después de modificar y guardar el manifiesto, Unity se actualiza automáticamente. Confirme que los paquetes se han cargado en la ventana *Project*:
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="Confirmación de las importaciones del paquete":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="Nuevo proyecto de Unity":::
 
 Si los paquetes no se están cargando, compruebe la consola de Unity para ver si hay errores. Si no tiene errores y sigue sin ver ningún paquete en la carpeta **Packages**, active el botón de alternancia de visibilidad de paquetes.
-![Propiedades de la cámara de Unity](./media/unity-package-visibility.png)
+![Captura de pantalla con una flecha que apunta al botón de alternancia de visibilidad del paquete.](./media/unity-package-visibility.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Asegúrese de que tiene la versión más reciente del paquete
 
@@ -120,7 +120,7 @@ Los siguientes pasos garantizan que en el proyecto se usa la versión más recie
 
 1. Seleccione **Graphics** (Gráficos) en el menú de lista izquierdo.
 1. Cambie el valor de **Scriptable Rendering Pipeline** (Canalización de representación mediante script) a *HybridRenderingPipeline*.
-    ![Cambio de la configuración de gráficos del proyecto](./media/settings-graphics-render-pipeline.png)\
+    ![Captura de pantalla que señala dónde cambiar el valor de Scriptable Rendering Pipeline (Canalización de representación mediante script) a HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
     A veces, la interfaz de usuario no rellena la lista de tipos de canalización disponibles a partir de los paquetes. Si esto ocurre, se debe arrastrar el recurso *HybridRenderingPipeline* al campo manualmente:
     ![Cambio de la configuración de gráficos del proyecto](./media/hybrid-rendering-pipeline.png)
 
@@ -597,7 +597,7 @@ Para pasar de **NotAuthorized** a **NoSession**, normalmente presentaríamos al 
 1. Arrastre el componente a su propio evento para que se haga referencia a sí mismo.
 ![Omisión de la autenticación](./media/bypass-authorization-add-event.png)\
 1. En el menú desplegable, seleccione **RemoteRenderingCoordinator-> BypassAuthorization**.
-![Omisión de la autenticación](./media/bypass-authorization-event.png)
+![Captura de pantalla que muestra la opción RemoteRenderingCoordinator.BypassAuthorization seleccionada.](./media/bypass-authorization-event.png)
 
 ## <a name="create-or-join-a-remote-session"></a>Creación de una sesión remota o unión a ella
 
@@ -724,7 +724,7 @@ private void LateUpdate()
 
 Con la base ya establecida, está listo para cargar un modelo en la sesión remota y comenzar a recibir fotogramas.
 
-![Pila de ARR 4](./media/remote-render-stack-4.png)
+![Diagrama que muestra el flujo del proceso para preparar la carga y visualización de un modelo.](./media/remote-render-stack-4.png)
 
 El método **LoadModel** está diseñado para aceptar una ruta de acceso de modelo, un controlador de progreso y una transformación principal. Estos argumentos se usarán para cargar un modelo en la sesión remota, actualizar el usuario durante el progreso de la carga y orientar el modelo representado de forma remota en función de la transformación principal.
 

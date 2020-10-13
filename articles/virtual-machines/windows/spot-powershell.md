@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 8bcf90368e8d43dce2d10fa3744024bcbc7e4b52
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 44d23710db169fa27aaba8928d421918bef93fec
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816548"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825132"
 ---
 # <a name="deploy-spot-vms-using-azure-powershell"></a>Implementación de máquinas virtuales de Spot mediante Azure PowerShell
 
@@ -73,8 +73,25 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
    Select-Object Name,@{Name="maxPrice"; Expression={$_.BillingProfile.MaxPrice}}
 ```
 
+## <a name="simulate-an-eviction"></a>Simulación de una expulsión
+
+Puede [simular una expulsión](/rest/api/compute/virtualmachines/simulateeviction) de una VM de Spot para probar de qué manera la aplicación responderá a una expulsión repentina. 
+
+Reemplazar lo siguiente por su propia información: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-También puede crear una máquina virtual de Spot mediante la [CLI de Azure](../linux/spot-cli.md), el [portal](spot-portal.md) o una [plantilla](../linux/spot-template.md).
+También puede crear una máquina virtual de Spot mediante la [CLI de Azure](../linux/spot-cli.md), el [portal](../spot-portal.md) o una [plantilla](../linux/spot-template.md).
+
+Consulte la información sobre precios con la [API de precios de venta directa de Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para conocer los precios de Spot. Tanto `meterName` como `skuName` contendrán `Spot`.
 
 Si se produce un error, consulte [Códigos de error](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

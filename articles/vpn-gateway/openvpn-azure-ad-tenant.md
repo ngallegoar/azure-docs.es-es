@@ -5,23 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
-ms.author: alzam
-ms.openlocfilehash: 74df878baa6ed4e2ba902a73a7830c0b075c58ce
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 10/07/2020
+ms.author: cherylmc
+ms.openlocfilehash: 9ee5959c124636e64ef73b901fbc461f36cd27f9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981530"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817294"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Azure Active Directory para conexiones del protocolo P2S OpenVPN
 
 Al conectarse a la red virtual, puede usar la autenticación basada en certificados o la autenticación RADIUS. Sin embargo, cuando use el protocolo de VPN abierto, también puede usar la autenticación de Azure Active Directory. Este artículo le ayuda a configurar un inquilino de Azure AD para la autenticación de P2S VPN abierta.
 
-> [!NOTE]
-> La autenticación de Azure AD solo es compatible con las conexiones del protocolo OpenVPN® y requiere el cliente VPN de Azure, que solo está disponible para Windows 10.
->
-
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="1-verify-azure-ad-tenant"></a><a name="tenant"></a>1. Comprobación del inquilino de Azure AD
 
@@ -47,7 +44,7 @@ Siga los pasos descritos en [este artículo](../active-directory/fundamentals/ad
 
 1. Busque el ID. de directorio del directorio que desea utilizar para la autenticación. Aparece en la sección propiedades de la página Active Directory.
 
-    ![Identificador de directorio](./media/openvpn-create-azure-ad-tenant/directory-id.png)
+    ![Captura de pantalla que muestra la página "Propiedades de directorio" con la opción "Id. de directorio" resaltada.](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
 2. Copie el ID. del directorio.
 
@@ -89,7 +86,7 @@ Siga los pasos descritos en [este artículo](../active-directory/fundamentals/ad
 
 7. En el Azure AD, en **Aplicaciones empresariales**, verá la **VPN de Azure** en la lista.
 
-    ![VPN de Azure](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
+    ![Captura de pantalla que muestra la página "Todas las aplicaciones".](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
     
 8. Si no dispone de un entorno de punto a sitio funcionando, siga las instrucciones para crear uno. Consulte [Creación de una VPN de punto a sitio](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para crear una puerta de enlace de VPN de punto a sitio. 
 

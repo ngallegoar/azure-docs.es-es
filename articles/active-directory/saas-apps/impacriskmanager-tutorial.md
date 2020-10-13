@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 28b754a90b20a26d55b3c905f7cddafee4f0aa3d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4f34f8dc7ae042b48e117ebadaee1d7aa2481505
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545214"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821242"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Tutorial: Integración de Azure Active Directory con IMPAC Risk Manager
 
@@ -99,7 +99,7 @@ Para configurar el inicio de sesión único de Azure AD con IMPAC Risk Manager, 
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de IMPAC Risk Manager](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba un valor proporcionado por IMPAC
 
@@ -116,7 +116,7 @@ Para configurar el inicio de sesión único de Azure AD con IMPAC Risk Manager, 
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de IMPAC Risk Manager](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
 

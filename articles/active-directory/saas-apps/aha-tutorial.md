@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
-ms.openlocfilehash: b11955c040225f66bc3eda9fe762cb1cbfc2d308
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9836c4e8f644a4e1b39e5aef7208262d6701f5bb
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542860"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760697"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Tutorial: Integración de Aha! con Azure Active Directory
 
@@ -148,7 +148,7 @@ En esta sección, va a permitir que B.Simon acceda a Aha! mediante el inicio de 
 
 6. Haga clic en **Seguridad e inicio de sesión único**.
 
-    ![Seguridad e inicio de sesión único](./media/aha-tutorial/IC798952.png "Seguridad e inicio de sesión único")
+    ![Captura de pantalla que resalta la opción de menú Seguridad e inicio de sesión único.](./media/aha-tutorial/IC798952.png "Seguridad e inicio de sesión único")
 
 7. En la sección **Inicio de sesión único**, en **Proveedor de identidades**, seleccione **SAML2.0**.
 

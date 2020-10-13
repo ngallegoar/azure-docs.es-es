@@ -8,17 +8,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 08796b0a9b232c7b42b3f62fea69ab49b8957c60
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322094"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825430"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Azure a Azure
 
 
-En este artículo se describen la arquitectura, loc componentes y los procesos que se usan al implementar la recuperación ante desastres de máquinas virtuales de Azure mediante el servicio [Azure Site Recovery](site-recovery-overview.md). Con la configuración de la recuperación de desastres, las máquinas virtuales de Azure se replican continuamente en una región de destino diferente. Si se produce una interrupción, puede conmutar por error las máquinas virtuales en la región secundaria y acceder a ellas desde allí. Cuando todo se ejecute con normalidad de nuevo, puede realizar la conmutación por recuperación y seguir trabajando en la ubicación principal.
+En este artículo se describen la arquitectura, loc componentes y los procesos que se usan al implementar la recuperación ante desastres de máquinas virtuales de Azure mediante el servicio [Azure Site Recovery](site-recovery-overview.md). Con la configuración de la recuperación ante desastres, las VM de Azure se replican continuamente en una región de destino diferente. Si se produce una interrupción, puede conmutar por error las máquinas virtuales en la región secundaria y acceder a ellas desde allí. Cuando todo se ejecute con normalidad de nuevo, puede realizar la conmutación por recuperación y seguir trabajando en la ubicación principal.
 
 
 

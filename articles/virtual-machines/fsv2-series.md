@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 50653b0da2bb488f2a0d4254df2e27ba7c6a5f1f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 039045b613e57ee396201ee93c3962c5970cf02b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648316"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651928"
 ---
 # <a name="fsv2-series"></a>Serie Fsv2
 
@@ -20,15 +20,13 @@ La Serie Fsv2 se ejecuta con los procesadores Intel® Xeon® Platino 8272CL (Ca
 
 Las máquinas virtuales de la serie Fsv2 cuentan con la tecnología Hyper-Threading de Intel®.
 
-ACU: 195 - 210
-
-Premium Storage:  Compatible
-
-Almacenamiento en caché de Premium Storage:  Compatible
-
-Migración en vivo: Compatible
-
-Actualizaciones con conservación de memoria: Compatible
+[ACU](acu.md): 195 - 210<br>
+[Premium Storage](premium-storage-performance.md): Compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
+[Migración en vivo](maintenance-and-updates.md): Compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+<br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|---|

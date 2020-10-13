@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Biblioteca de autenticación de Microsoft (MSAL) para iOS y macOS | Azure'
+title: 'Tutorial: Creación de una aplicación de iOS o macOS que usa la Plataforma de identidad de Microsoft para la autenticación | Azure'
 titleSuffix: Microsoft identity platform
-description: Obtenga información sobre cómo las aplicaciones de iOS y macOS (Swift) pueden llamar a una API que requiera tokens de acceso mediante la plataforma de identidad de Microsoft.
+description: En este tutorial creará una aplicación de iOS o macOS que utiliza la Plataforma de identidad de Microsoft para que los usuarios inicien sesión y obtengan un token de acceso para llamar a Microsoft Graph API en su nombre.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,20 +13,33 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 238f8426ae51bec64dfdb5edaa3107ca1f430914
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 70194c7adc55a00c5cb65928daac184499eb124d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256915"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611119"
 ---
-# <a name="sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Inicio de sesión de los usuarios y llamada a Microsoft Graph desde una aplicación para iOS o macOS
+# <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Tutorial: Inicio de sesión de los usuarios y llamada a Microsoft Graph desde una aplicación para iOS o macOS
 
 En este tutorial, aprenderá a integrar una aplicación para iOS o macOS con la plataforma de identidad de Microsoft. La aplicación iniciará la sesión de un usuario, obtendrá un token de acceso para llamar a Microsoft Graph API y realizará una solicitud a Microsoft Graph API.
 
-Cuando haya completado la guía, la aplicación podrá aceptar inicios de sesión de cuentas Microsoft personales (como outlook.com, live.com y otras), y cuentas profesionales y educativas de cualquier empresa u organización que utilice Azure Active Directory.
+Cuando haya completado la guía, la aplicación podrá aceptar inicios de sesión de cuentas Microsoft personales (como outlook.com, live.com y otras), y cuentas profesionales y educativas de cualquier empresa u organización que utilice Azure Active Directory. Este tutorial es aplicable a las aplicaciones para iOS y macOS. Algunos pasos son diferentes entre las dos plataformas.
 
-## <a name="how-this-tutorial-works"></a>Funcionamiento de este tutorial
+En este tutorial, aprenderá a:
+
+> [!div class="checklist"]
+> * Crear un proyecto de aplicación de iOS o macOS en *Xcode*
+> * Registro de la aplicación en Azure Portal
+> * Agregar código para admitir el inicio y el cierre de sesión de usuario
+> * Agregar código para llamar a Microsoft Graph API
+> * Prueba de la aplicación
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+- [Xcode 11.x+](https://developer.apple.com/xcode/)
+
+## <a name="how-tutorial-app-works"></a>Cómo funciona la aplicación tutorial
 
 ![Muestra cómo funciona la aplicación de ejemplo generada por este tutorial](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro.svg)
 
@@ -42,16 +55,10 @@ Más concretamente:
 
 Este ejemplo utiliza la Biblioteca de autenticación de Microsoft (MSAL) para implementar la autenticación. MSAL renovará automáticamente los tokens, proporcionará el inicio de sesión único entre las otras aplicaciones del dispositivo y administrará las cuentas.
 
-Este tutorial es aplicable a las aplicaciones para iOS y macOS. Algunos pasos son diferentes entre esas dos plataformas.
+Si desea descargar una versión completa de la aplicación que va a crear en este tutorial, puede encontrar ambas versiones en GitHub:
 
-## <a name="prerequisites"></a>Requisitos previos
-
-- En esta guía se requiere la versión 11.x o posterior de XCode para compilar la aplicación. Puede descargar XCode desde [Mac App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de descarga de XCode").
-- Biblioteca de autenticación de Microsoft ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Puede usar un administrador de dependencias o agregar la biblioteca manualmente. Las instrucciones siguientes muestran cómo hacerlo.
-
-En este tutorial, vamos a crear un nuevo proyecto. Si desea descargar el tutorial completado en su lugar, descargue el código:
-- [Código de ejemplo de iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
-- [Código de ejemplo de macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
+- [Código de ejemplo de iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/) (GitHub)
+- [Código de ejemplo de macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/) (GitHub)
 
 ## <a name="create-a-new-project"></a>Creación de un nuevo proyecto
 
@@ -159,7 +166,7 @@ Agregue un nuevo grupo de cadena de claves al proyecto **Signing & Capabilities*
 
 En este paso, registrará `CFBundleURLSchemes` para que se pueda redirigir al usuario a la aplicación después de iniciar sesión. Por cierto, `LSApplicationQueriesSchemes` también permite a la aplicación hacer uso de Microsoft Authenticator.
 
-En Xcode, abra `Info.plist` como un archivo de código fuente y agregue lo siguiente en la sección `<dict>`. Reemplace `[BUNDLE_ID]` por el valor que usó en Azure Portal que, si descargó el código, es `com.microsoft.identitysample.MSALiOS`. Si va a crear su propio proyecto, seleccione el proyecto en Xcode y abra la pestaña **General**. El identificador de la agrupación aparece en la sección **Identidad**.
+En Xcode, abra `Info.plist` como un archivo de código fuente y agregue lo siguiente en la sección `<dict>`. Reemplace `[BUNDLE_ID]` por el valor que usó en Azure Portal. Si descargó el código, el identificador de la agrupación es `com.microsoft.identitysample.MSALiOS`. Si va a crear su propio proyecto, seleccione el proyecto en Xcode y abra la pestaña **General**. El identificador de la agrupación aparece en la sección **Identidad**.
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -509,7 +516,7 @@ Agregue el siguiente código a la clase `ViewController`:
 
 #### <a name="get-a-token-interactively"></a>Obtención de un token interactivamente
 
-El código siguiente obtiene un token por primera vez mediante la creación de un objeto `MSALInteractiveTokenParameters` y la llamada a `acquireToken`. A continuación, agregará código que:
+El siguiente fragmento de código obtiene un token por primera vez mediante la creación de un objeto `MSALInteractiveTokenParameters` y la llamada a `acquireToken`. A continuación, agregará código que:
 
 1. Crea `MSALInteractiveTokenParameters` con ámbitos.
 2. Llama a `acquireToken()` con los parámetros creados.
@@ -847,4 +854,7 @@ Después de iniciar sesión, esta aplicación mostrará los datos devueltos desd
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si necesita admitir roles de trabajo de primera línea que compartan dispositivos entre turnos, consulte [Modo de dispositivo compartido para dispositivos iOS](msal-ios-shared-devices.md).
+Más información sobre la creación de aplicaciones móviles que llaman a las API web protegidas en nuestra serie de escenarios de varias partes.
+
+> [!div class="nextstepaction"]
+> [Escenario: Una aplicación móvil que llama a las API web](scenario-mobile-overview.md)

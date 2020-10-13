@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: df04cc41f2b5947bb0cf23715a857a3449627f23
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d8050b87d122ef676b52f1cab5e06175a55602b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550266"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713864"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Tutorial: Integración de Azure Active Directory con Attendance Management Services
 
@@ -128,11 +128,11 @@ Para configurar el inicio de sesión único de Azure AD con Attendance Managemen
 
 1. Haga clic en **SAML authentication** (Autenticación SAML) en la sección **Administración de seguridad**.
 
-    ![Configuración de Attendance Management Services](./media/attendancemanagementservices-tutorial/user1.png)
+    ![Captura de pantalla que muestra la autenticación SAML seleccionada en una página que usa caracteres no latinos.](./media/attendancemanagementservices-tutorial/user1.png)
 
 1. Lleve a cabo los siguiente pasos:
 
-    ![Configuración de Attendance Management Services](./media/attendancemanagementservices-tutorial/user2.png)
+    ![Captura de pantalla que muestra una ventana donde puede realizar las tareas descritas en este paso.](./media/attendancemanagementservices-tutorial/user2.png)
 
     a. Seleccione **Use SAML authentication** (Usar autenticación SAML).
 
@@ -206,15 +206,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en Attendance Managem
 
 1. Haga clic en **Administración de usuarios** en la sección **Administración de seguridad**.
 
-    ![Agregar empleado](./media/attendancemanagementservices-tutorial/user5.png)
+    ![Captura de pantalla que muestra la opción User management (Administración de usuarios) seleccionada en una página que usa caracteres no latinos.](./media/attendancemanagementservices-tutorial/user5.png)
 
 1. Haga clic en **New rules login** (Nuevas reglas de inicio de sesión).
 
-    ![Agregar empleado](./media/attendancemanagementservices-tutorial/user3.png)
+    ![Captura de pantalla que muestra la selección de la opción más.](./media/attendancemanagementservices-tutorial/user3.png)
 
 1. En la sección **OBCiD information** (Información de OBCiD), lleve a cabo estos pasos:
 
-    ![Agregar empleado](./media/attendancemanagementservices-tutorial/user4.png)
+    ![Captura de pantalla que muestra una ventana donde puede realizar las tareas descritas.](./media/attendancemanagementservices-tutorial/user4.png)
 
     a. En el cuadro de texto **OBCiD**, escriba el correo electrónico del usuario, por ejemplo, `BrittaSimon\@contoso.com`.
 

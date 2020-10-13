@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 31fc1877dd0edd2fd670f0f9466692ac7bc8ad15
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d1e2b91b46bee761c7feb1000920d5ae1e65ba4c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531198"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713629"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Tutorial: Integración de Azure Active Directory con Andromeda
 
@@ -100,7 +100,7 @@ Para configurar el inicio de sesión único de Azure AD con Andromeda, realice 
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Andromeda](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<tenantURL>.ngcxpress.com/`
 
@@ -108,7 +108,7 @@ Para configurar el inicio de sesión único de Azure AD con Andromeda, realice 
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Andromeda](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
 
@@ -117,7 +117,7 @@ Para configurar el inicio de sesión único de Azure AD con Andromeda, realice 
 
 6. La aplicación Andromeda espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra User Attributes (Atributos de usuario) con atributos como emailaddress user.mail y givenname user.givenname.](common/edit-attribute.png)
 
     > [!Important]
     > Desactive las definiciones de espacio de nombres al realizar esta configuración.
@@ -135,9 +135,9 @@ Para configurar el inicio de sesión único de Azure AD con Andromeda, realice 
 
     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![imagen](common/new-save-attribute.png)
+    ![Captura de pantalla que muestra User claims (Reclamaciones de usuario) con las opciones Add new claim (Agregar nueva reclamación) y Save (Guardar).](common/new-save-attribute.png)
 
-    ![imagen](common/new-attribute-details.png)
+    ![Captura de pantalla que muestra Manage user claims (Administrar reclamaciones de usuario) para escribir los valores que se describen en este paso.](common/new-attribute-details.png)
 
     b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 

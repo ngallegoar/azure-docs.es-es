@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f2b7ec07583859e12711237c6a899d61335c969
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b05a85dd61cdf4edc366edc3fbf20e4097308d09
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545482"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713581"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amplitude"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Amplitude
 
@@ -141,15 +141,15 @@ En esta sección, va a permitir que B. Simon acceda a Amplitude utilizando el in
 
 1. Haga clic en **Plan Admin** (Planear administración) en la barra de navegación izquierda.
 
-    ![Configurar inicio de sesión único](./media/amplitude-tutorial/configure1.png)
+    ![Captura de pantalla que muestra el menú de Amplitude con Plan Admin (Planear administración) seleccionado.](./media/amplitude-tutorial/configure1.png)
 
 1. Seleccione **Microsoft Azure Active Directory Metadata** (Metadatos de Microsoft Azure Active Directory) desde **SSO Integration** (Integración de SSO).
 
-    ![Configurar inicio de sesión único](./media/amplitude-tutorial/configure2.png)
+    ![Captura de pantalla que muestra el panel Plan Admin (Planear administración) con el vínculo de metadatos de Microsoft Azure Active Directory seleccionado.](./media/amplitude-tutorial/configure2.png)
 
 1. En la sección **Set Up Single Sign-On** (Configurar inicio de sesión único), realice los pasos siguientes:
 
-    ![Configurar inicio de sesión único](./media/amplitude-tutorial/configure3.png)
+    ![Captura de pantalla que muestra la sección Set Up Single Sign-on (Configurar inicio de sesión único) con los valores descritos en este paso.](./media/amplitude-tutorial/configure3.png)
 
     a. Abra el **XML de metadatos** descargado de Azure Portal en Bloc de notas y pegue el contenido en el cuadro de texto **Microsoft Azure Active Directory Metadata** (Metadatos de Microsoft Azure Active Directory).
 

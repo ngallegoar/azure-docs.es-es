@@ -4,17 +4,17 @@ description: Use características como análisis de almacenamiento, registro del
 author: normesta
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/23/2019
+ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 79e108303575d5a9969e04f01bdeb126bf078762
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a63af55161c2e60724fd35987f9dcbf05b12df2e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031490"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667918"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -256,6 +256,14 @@ El servicio de almacenamiento genera automáticamente identificadores de solicit
 >
 >
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+El código del ejemplo siguiente muestra cómo usar un identificador de solicitud de cliente personalizado. 
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_UseCustomRequestID":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 Si la biblioteca de cliente de Almacenamiento inicia una **StorageException** en el cliente, la propiedad **RequestInformation** contendrá un objeto **RequestResult** que incluirá una propiedad **ServiceRequestID**. También puede acceder a los objetos **RequestResult** desde una instancia de **OperationContext**.
 
 El ejemplo de código siguiente muestra cómo establecer un valor de **ClientRequestId** personalizado adjuntando un objeto **OperationContext** a la solicitud que se realiza al servicio de almacenamiento. También muestra cómo recuperar el valor de **ServerRequestId** a partir del mensaje de respuesta.
@@ -291,6 +299,8 @@ catch (StorageException storageException)
     }
 }
 ```
+
+---
 
 ### <a name="timestamps"></a><a name="timestamps"></a>Marcas de tiempo
 También puede usar marcas de tiempo para buscar entradas de registro relacionadas, pero tenga cuidado con los posibles sesgos del reloj que pueda haber entre el cliente y el servidor. Busque en un intervalo de entre 15 minutos menos y 15 minutos más para encontrar entradas coincidentes del lado servidor a partir de la marca de tiempo del cliente. Recuerde que los metadatos de blob de los blobs que contienen métricas indican el intervalo de tiempo de las métricas almacenadas en el blob. Este intervalo de tiempo resulta útil si tiene muchos blobs de métricas para el mismo minuto u hora.
@@ -358,13 +368,19 @@ Uno de los posibles motivos de que el cliente responda lentamente es que haya un
 
 Para los servicios de tablas y colas, el algoritmo de Nagle también puede provocar un valor alto de **AverageE2ELatency** en comparación con el de **AverageServerLatency**: para más información, consulte la entrada [Nagle’s Algorithm is Not Friendly towards Small Requests](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests) (El algoritmo de Nagle no responde bien a las solicitudes pequeñas). Puede deshabilitar el algoritmo Nagle en el código utilizando la clase **ServicePointManager** en el espacio de nombres **System.Net**. Esto debe hacerlo antes de realizar ninguna llamada a los servicios Tabla o Cola en la aplicación, dado que esto no afecta a las conexiones que ya están abiertas. El siguiente ejemplo proviene del método **Application_Start** de un rol de trabajo.
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_DisableNagle":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
-ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
-tableServicePoint.UseNagleAlgorithm = false;
 ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
 queueServicePoint.UseNagleAlgorithm = false;
 ```
+
+---
 
 Para ver cuántas solicitudes envía su aplicación cliente y comprobar la existencia de cuellos de botella relacionados con el rendimiento general de .NET en el cliente, como CPU, recolección de elementos no utilizados de .NET, utilización de red o memoria, debe comprobar los registros del lado cliente. Como punto de partida para solucionar los problemas de las aplicaciones cliente .NET, consulte [Debugging, Tracing, and Profiling](https://msdn.microsoft.com/library/7fe0dd2y)(Depuración, seguimiento y generación de perfiles).
 
@@ -594,6 +610,12 @@ Una solución alternativa al problema de JavaScript consiste en configurar el Us
 
 El siguiente ejemplo de código muestra cómo configurar el servicio BLOB para permitir que el JavaScript que se ejecuta en el dominio Contoso acceda a un BLOB de su servicio de almacenamiento de BLOB:
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_ConfigureCORS":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
 // Set the service properties.
@@ -609,6 +631,8 @@ sp.Cors.CorsRules.Clear();
 sp.Cors.CorsRules.Add(cr);
 client.SetServiceProperties(sp);
 ```
+
+---
 
 #### <a name="network-failure"></a><a name="network-failure"></a>Error de red
 En algunas circunstancias, la pérdida de paquetes de red puede hacer que el servicio de almacenamiento devuelva mensajes HTTP 404 al cliente. Por ejemplo, cuando la aplicación cliente está eliminando una entidad del servicio Tabla, ve que el cliente inicia una excepción de almacenamiento que informa de un mensaje de estado “HTTP 404 (no encontrado)” desde el servicio Tabla. Al investigar la tabla del servicio de almacenamiento de tabla, ve que el servicio sí que eliminó la entidad, como se solicitó.

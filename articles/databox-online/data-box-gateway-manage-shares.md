@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 785fcbbcde0c4efe3c2d1cd84bf19bd03371ab06
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 847c8a07bfa245d0c9859bb3cf6f6ed233934250
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883549"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743886"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Data Box Gateway 
 
@@ -94,7 +94,7 @@ Siga estos pasos en Azure Portal para actualizar un recurso compartido.
 
 1. En Azure Portal, vaya a **Recursos compartidos**. Seleccione y haga clic en el recurso compartido que desea actualizar.
 
-   ![Seleccionar recurso compartido](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Seleccionar recurso compartido 2](media/data-box-gateway-manage-shares/refresh-1.png)
 
 2. Haga clic en **Actualizar**. 
 
@@ -124,11 +124,11 @@ Realice los pasos siguientes en Azure Portal para sincronizar la clave de acceso
 1. Vaya a **Información general** en el recurso. 
 2. En la lista de recursos compartidos, elija y haga clic en un recurso compartido asociado con la cuenta de almacenamiento que necesita sincronizar. Haga clic en **Sincronizar clave de almacenamiento**. 
 
-     ![Sincronizar clave de almacenamiento 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
+     ![Sincronizar clave de almacenamiento](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
 3. Haga clic en **Sí** cuando se pida confirmación. Salga del cuadro de diálogo cuando haya finalizado la sincronización.
 
-     ![Sincronizar clave de almacenamiento 1](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
+     ![Sincronizar clave de almacenamiento 2](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 
 >[!NOTE]
 > Esta operación solo debe realizarse una vez en cada cuenta de almacenamiento. No es necesario repetir la acción para todos los recursos compartidos asociados con la misma cuenta de almacenamiento.

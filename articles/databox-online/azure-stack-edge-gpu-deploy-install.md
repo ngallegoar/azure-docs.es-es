@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: b9f3b564e36939197acd532a37f9a6098fbc870f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ba903793844e44b26931a70183860c983adaf18a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900015"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743410"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutorial: Instalación de Azure Stack Edge Pro con GPU
 
@@ -124,7 +124,7 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 3. Encaje los raíles de montaje izquierdo y derecho a las pestañas anteriores del bastidor en vertical con 4 tornillos.
 4. Deslice los soportes posteriores izquierdo y derecho hacia delante contra las pestañas posteriores del bastidor en vertical y encájelos con 4 tornillos.
 
-    ![Instalación y retirada de raíles no mecanizados](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Instalación y retirada de raíles no mecanizados 2](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>Instalación del sistema en un bastidor
 
@@ -207,11 +207,11 @@ Realice los pasos siguientes para realizar el cableado de los cables de alimenta
 
     - Dispositivo con 3 ranuras PCI y una GPU
 
-        ![Backplane de un dispositivo cableado](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
+        ![Backplane de un dispositivo cableado 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
     - Dispositivo con 3 ranuras PCI y dos GPU
 
-        ![Backplane de un dispositivo cableado](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
+        ![Backplane de un dispositivo cableado 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 
 2. Busque las ranuras de los discos y el botón de encendido en el frontal del dispositivo.
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d398cfe063dbbb2bc87a3debf1669afa6a16b43e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891995"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822999"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Salida de Power BI desde Azure Stream Analytics
 
@@ -43,6 +43,9 @@ Para ver un tutorial sobre la configuración de una salida y panel de Power BI, 
 Azure Stream Analytics crea un esquema de tabla y un conjunto de datos de Power BI para el usuario si todavía no existen. En todos los demás casos, la tabla se actualiza con los nuevos valores. Actualmente, solo puede existir una tabla dentro de un conjunto de datos. 
 
 Power BI utiliza la directiva de retención primero en entrar, primero en salir (FIFO). Se recopilan los datos en una tabla hasta que alcance las 200 000 filas.
+
+> [!NOTE]
+> No se recomienda usar varias salidas para escribir en el mismo conjunto de datos, ya que puede causar varios problemas. Cada salida intenta crear el conjunto de datos de Power BI de forma independiente, lo que puede dar lugar a varios conjuntos de datos con el mismo nombre. Además, si las salidas no tienen esquemas coherentes, el conjunto de datos cambia el esquema en cada escritura, lo que conduce a demasiadas solicitudes de cambio de esquema. Incluso si se evitan estos problemas, varias salidas tendrán un rendimiento inferior que una sola salida combinada.
 
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Conversión de un tipo de datos de Stream Analytics a Power BI
 

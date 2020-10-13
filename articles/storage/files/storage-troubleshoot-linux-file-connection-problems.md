@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 4044690bf042d05e4efd531826fab6cb5459b3b7
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: da60d6a2146385e1dfd0717afb1172b378e52533
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707652"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716011"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Solución de problemas de Azure Files en Linux (SMB)
 
@@ -49,7 +49,7 @@ Las causas comunes de este problema son las siguientes:
 
 ### <a name="solution"></a>Solución
 
-Para resolver el problema, use la [herramienta de solución de problemas para los errores de montaje de Azure Files en Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Esta herramienta:
+Para resolver el problema, use la [herramienta de solución de problemas para los errores de montaje de Azure Files en Linux](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux). Esta herramienta:
 
 * Le ayuda a validar el cliente que ejecuta el entorno.
 * Detecta la configuración de cliente incompatible que podría provocar un error de acceso para Azure Files.
@@ -150,7 +150,7 @@ Compruebe que las reglas de firewall y de red virtual están configuradas correc
 
 ### <a name="solution-for-cause-2"></a>Solución para la causa 2
 
-Vaya a la cuenta de almacenamiento donde se encuentra el recurso compartido de archivos de Azure, haga clic en **Control de acceso (IAM)** y compruebe que su cuenta de usuario tiene acceso a la cuenta de almacenamiento. Para más información, consulte [Protección de su cuenta de almacenamiento con el control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Vaya a la cuenta de almacenamiento donde se encuentra el recurso compartido de archivos de Azure, haga clic en **Control de acceso (IAM)** y compruebe que su cuenta de usuario tiene acceso a la cuenta de almacenamiento. Para obtener más información, consulte [cómo proteger su cuenta de almacenamiento mediante el control de acceso basado en roles de Azure (Azure RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>No se puede eliminar un archivo o un directorio en un recurso compartido de archivos de Azure
@@ -298,6 +298,32 @@ Este error se registra porque Azure Files [no admite SMB multicanal actualmente]
 
 ### <a name="solution"></a>Solución
 Se puede omitir este error.
+
+
+### <a name="unable-to-access-folders-or-files-which-name-has-a-space-or-a-dot-at-the-end"></a>No se puede acceder a carpetas o archivos cuyo nombre contiene un espacio o un punto al final
+
+No se puede acceder a carpetas o archivos desde el recurso compartido de archivos de Azure mientras está montado en Linux. Comandos como du y ls, o aplicaciones de terceros, podrían generar el error "No se encontró el archivo o directorio" al acceder al recurso compartido. Sin embargo, sí se pueden cargar archivos en esas carpetas a través del portal.
+
+### <a name="cause"></a>Causa
+
+Las carpetas o los archivos se han cargado desde un sistema que codifica los caracteres al final del nombre con un carácter diferente. Los archivos cargados desde un equipo Macintosh pueden contener los caracteres "0xF028" o "0xF029" en lugar de 0x20 (espacio) o 0X2E (punto).
+
+### <a name="solution"></a>Solución
+
+Use la opción mapchars en el recurso compartido al montarlo en Linux: 
+
+En lugar de:
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+utilice:
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
+```
+
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: f47fe7f18c4054f65e7a6882d4003006b1a896ad
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9a0318b8deedf8f4725efee2f3c2723f1a4fe6d3
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547586"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740248"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Tutorial: Integración de Bynder con Azure Active Directory
 
@@ -104,7 +104,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación Bynder espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra los atributos y las notificaciones del usuario con el icono de edición seleccionado.](common/edit-attribute.png)
 
 1. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, edite las notificaciones mediante el **icono Editar** o agregue notificaciones mediante **Agregar nueva notificación** para configurar el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
 
@@ -116,7 +116,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     1. Haga clic en **Save**(Guardar).
 
-        ![imagen](./media/bynder-tutorial/config08.png)
+        ![Captura de pantalla que muestra la sección Group Claims (Notificaciones de grupo) con las opciones Security groups (Grupos de seguridad) y Group ID (Id. de grupo) seleccionadas.](./media/bynder-tutorial/config08.png)
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos** y seleccione **Descargar** para descargar el certificado y guardarlo en el equipo.
 

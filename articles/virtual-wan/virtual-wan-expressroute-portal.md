@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 536d233a9c135b0b7dde6d6d80c705d2008226e6
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 1694c8a602315ab5f0ffa5d4e0bc218f03220c30
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569644"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821890"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN
 
@@ -38,7 +38,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 * Su red virtual no tiene ninguna puerta de enlace de red virtual. Si la red virtual tiene alguna puerta de enlace (ya sea VPN o ExpressRoute), tiene que quitarla. Esta configuración requiere que las redes virtuales estén conectadas a la puerta de enlace del centro de conectividad de Virtual WAN.
 
-* Obtenga un intervalo de direcciones IP para la región del concentrador. El centro de conectividad es una red virtual que Virtual WAN crea y usa. El intervalo de direcciones que especifique para el centro de conectividad no se puede superponer a ninguna de las redes virtuales existentes a las que ya esté conectado. Igualmente no se puede superponer a los intervalos de direcciones con las que esté conectadas en el entorno local. Si no está familiarizado con los intervalos de direcciones IP ubicados en la configuración de la red local, póngase de acuerdo con alguien que pueda proporcionarle estos detalles.
+* Obtenga un intervalo de direcciones IP para la región del concentrador. El centro de conectividad es una red virtual que Virtual WAN crea y usa. El intervalo de direcciones que especifique para el centro de conectividad no se puede superponer a ninguna de las redes virtuales existentes a las que ya esté conectado. Tampoco puede superponerse con los intervalos de direcciones a los que se conecta en el entorno local. Si no está familiarizado con los intervalos de direcciones IP ubicados en la configuración de la red local, póngase de acuerdo con alguien que pueda proporcionarle estos detalles.
 
 * El circuito ExpressRoute debe ser un circuito Premium o Standard para conectarse a la puerta de enlace del centro.
 
@@ -105,7 +105,7 @@ En esta sección, creará la conexión de emparejamiento entre el centro de cone
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Conexión del circuito a la puerta de enlace del centro de conectividad
 
-Una vez que se crea la puerta de enlace, puede conectarle un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Los circuitos ExpressRoute Premium y Standard que se encuentran en las ubicaciones compatibles de ExpressRoute Global Reach pueden conectarse a una puerta de enlace ExpressRoute Virtual WAN y disfrutar de todas las funcionalidades de tránsito de WAN Virtual (VPN a VPN, VPN y tránsito ExpressRoute). Los circuitos de ExpressRoute Premium y Standard que se encuentren en ubicaciones que no sean de Global Reach no podrán usar las funcionalidades de tránsito de WAN virtual.
+Una vez que se crea la puerta de enlace, puede conectarle un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Los circuitos Estándar o Premium de ExpressRoute que se encuentran en las ubicaciones compatibles con ExpressRoute Global Reach se pueden conectar a una puerta de enlace Virtual WAN ExpressRoute y disfrutar de todas las funcionalidades de tránsito de Virtual WAN (tránsito de VPN a VPN, de VPN y de ExpressRoute). Los circuitos Estándar o Premium de ExpressRoute que se encuentren en ubicaciones que no sean de Global Reach pueden conectarse a los recursos de Azure, pero no podrán usar las funcionalidades de tránsito de Virtual WAN. ExpressRoute Local no es compatible con Azure Virtual WAN.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Para conectar el circuito a la puerta de enlace del centro de conectividad
 

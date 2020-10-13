@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 155675d6d0f6026c528be66f9a67a21fe65d00ba
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f41312521202f406c3826880f345e0bbe7600bd3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555195"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817214"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Tutorial: integración de Azure Active Directory con FileCloud
 
@@ -130,19 +130,19 @@ Para configurar el inicio de sesión único de Azure AD con FileCloud, realice l
 
 2. En la barra de navegación de la izquierda, haga clic en **Settings**(Configuración). 
    
-    ![Configuración del inicio de sesión único en la aplicación](./media/filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Captura de pantalla que muestra la opción "Settings" (Configuración) resaltada en el panel de navegación izquierdo.](./media/filecloud-tutorial/tutorial_filecloud_000.png)
 
 3. Haga clic en la ficha **SSO** de la sección de configuración. 
    
-    ![Configuración del inicio de sesión único en la aplicación](./media/filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Captura de pantalla que muestra la sección "Settings" (Configuración) con la pestaña "S S O" seleccionada.](./media/filecloud-tutorial/tutorial_filecloud_001.png)
 
 4. Seleccione **SAML** como **Default SSO Type** (Tipo de SSO predeterminado) en el panel **Configuración de inicio de sesión único (SSO)** .
    
-    ![Configuración del inicio de sesión único en la aplicación](./media/filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Captura de pantalla que muestra el panel "Single Sign On (S S O) Settings" (Configuración de inicio de sesión único [S S O]) con la opción "S A M L" seleccionada.](./media/filecloud-tutorial/tutorial_filecloud_002.png)
 
 5. En el cuadro de texto **IdP End Point URL** (URL de punto de conexión de IdP), pegue el valor de **Identificador de Azure AD**, que ha copiado de Azure Portal.
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Captura de pantalla que muestra la sección "S A M L Settings" (Configuración de S A M L) con la opción "I d P End Point U R L" (U R L de punto de conexión de I d P) resaltada.](./media/filecloud-tutorial/tutorial_filecloud_003.png)
 
 6. Abra el archivo de metadatos descargado en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **IdP Meta Data** (Metadatos de IdP) en el panel **Configuración de SAML**.
 

@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0cf343ccd89ac5b00740d8c559538a0f97ec7905
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: dae2461336316defb6f2cfc63b775c67cf2196d0
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716578"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813073"
 ---
 # <a name="what-are-application-templates"></a>¿Qué son las plantillas de aplicación?
 
@@ -30,12 +30,7 @@ Seleccione la plantilla de aplicación al crear la aplicación. No puede cambiar
 
 ## <a name="custom-templates"></a>Plantillas personalizadas
 
-Si desea crear la aplicación desde el principio, elija una de las dos plantillas de aplicación personalizadas:
-
-- Aplicación personalizada
-- Aplicación personalizada (heredada)
-
-Elija la plantilla de **aplicación personalizada**, a menos que tenga una razón concreta para usar la plantilla heredada.
+Si quiere crear la aplicación desde el principio, elija una de las plantillas de **aplicación personalizadas**.
 
 ## <a name="industry-focused-templates"></a>Plantillas centradas en el sector
 

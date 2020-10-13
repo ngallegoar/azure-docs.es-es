@@ -1,20 +1,20 @@
 ---
 title: Autorización del acceso a Azure App Configuration con Azure Active Directory
-description: Habilitar RBAC para autorizar el acceso a la instancia de Azure App Configuration
+description: Habilitación de Azure RBAC para autorizar el acceso a la instancia de Azure App Configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 8889e7270127aa3991adb3c0575a4bce96090db2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7e7b524f125eda406adc9be2300c94e5944e1819
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830078"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715948"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorización del acceso a Azure App Configuration con Azure Active Directory
-Además de usar el Código de autenticación de mensajes basado en hash (HMAC), Azure App Configuration admite el uso de Azure Active Directory (Azure AD) para autorizar solicitudes a instancias de App Configuration.  Azure AD permite usar el control de acceso basado en roles (RBAC) para conceder permisos a una entidad de seguridad.  Una entidad de seguridad puede ser un usuario, una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) o una [entidad de servicio de aplicación](../active-directory/develop/app-objects-and-service-principals.md).  Para más información sobre los roles y las asignaciones de roles, consulte [Descripción de los distintos roles](../role-based-access-control/overview.md).
+Además de usar el Código de autenticación de mensajes basado en hash (HMAC), Azure App Configuration admite el uso de Azure Active Directory (Azure AD) para autorizar solicitudes a instancias de App Configuration.  Azure AD permite usar el control de acceso basado en rol de Azure (Azure RBAC) para conceder permisos a una entidad de seguridad.  Una entidad de seguridad puede ser un usuario, una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) o una [entidad de servicio de aplicación](../active-directory/develop/app-objects-and-service-principals.md).  Para más información sobre los roles y las asignaciones de roles, consulte [Descripción de los distintos roles](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Información general
 Las solicitudes realizadas por una entidad de seguridad para acceder a un recurso de App Configuration deben ser autorizadas. Con Azure AD, el acceso a un recurso es un proceso de dos pasos:

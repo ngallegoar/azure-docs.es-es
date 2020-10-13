@@ -4,16 +4,16 @@ description: Supervisión de aplicaciones de .NET Core/.NET Framework que no son
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 12be39e36c003531b815e137cbd1d360ca7f0fd6
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 643edf81d6a98c8f423267b657feb9dfb6da1070
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760485"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816398"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights para las aplicaciones de servicio de trabajo (aplicaciones sin HTTP)
 
-Application Insights va a lanzar un nuevo SDK, denominado `Microsoft.ApplicationInsights.WorkerService`, más adecuado para cargas de trabajo sin HTTP, como mensajería, tareas en segundo plano, aplicaciones de consola, etc. Estos tipos de aplicaciones no tienen la noción de una solicitud HTTP entrante como las aplicaciones web ASP.NET/ASP.NET Core tradicionales y, por tanto, no se admiten los paquetes de Application Insights para las aplicaciones [ASP.NET](asp-net.md) o [ASP.NET Core](asp-net-core.md).
+[El SDK de Application Insights para el servicio de trabajo](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) es un nuevo SDK que es más adecuado para realizar cargas de trabajo que no son HTTP, como mensajería, tareas en segundo plano, aplicaciones de consola, etc. Estos tipos de aplicaciones no tienen la noción de una solicitud HTTP entrante como las aplicaciones web ASP.NET/ASP.NET Core tradicionales y, por tanto, no se admiten los paquetes de Application Insights para las aplicaciones [ASP.NET](asp-net.md) o [ASP.NET Core](asp-net-core.md).
 
 El nuevo SDK no recopila telemetría por sí mismo. En su lugar, ofrece en otros recopiladores automáticos de Application Insights conocidos, como [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) o [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights). Este SDK expone métodos de extensión en `IServiceCollection` para habilitar y configurar la recopilación de telemetría.
 
@@ -138,7 +138,7 @@ En [este](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view
 
 El ejemplo completo se comparte [aquí](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 
-1. Instale el paquete Microsoft.ApplicationInsights.WorkerService (https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) ) en la aplicación.
+1. Instale el paquete [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) en la aplicación.
 2. Agregue `services.AddApplicationInsightsTelemetryWorkerService();` al método `ConfigureServices()`, como en este ejemplo:
 
 ```csharp
@@ -225,7 +225,7 @@ Como se mencionó al principio de este artículo, el nuevo paquete se puede usar
 
 El ejemplo completo se comparte [aquí](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 
-1. Instale el paquete Microsoft.ApplicationInsights.WorkerService (https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) ) en la aplicación.
+1. Instale el paquete [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) en la aplicación.
 
 2. Modifique Program.cs tal como se muestra en el ejemplo siguiente.
 
@@ -293,7 +293,7 @@ Esta aplicación de consola también usa el mismo `TelemetryConfiguration` prede
 
 ## <a name="run-your-application"></a>Ejecución de la aplicación
 
-Ejecute la aplicación. Todos los trabajos de ejemplo anteriores realizan una llamada HTTP por segundo a bing.com y emiten pocos registros mediante ILogger. Estas líneas se incluyen dentro de la llamada `StartOperation` de `TelemetryClient`, que se usa para crear una operación (en este ejemplo, `RequestTelemetry`, denominada "operation"). Application Insights recopilará estos registros de ILogger (de nivel advertencia o superior, de forma predeterminada) y las dependencias, y se correlacionarán con `RequestTelemetry` con relación de elementos primarios y secundarios. La correlación también funciona a través de límites proceso/red. Por ejemplo, si la llamada se realizó a otro componente supervisado, se correlacionará también con este elemento primario.
+Ejecute la aplicación. Todos los trabajos de ejemplo anteriores realizan una llamada HTTP por segundo a bing.com y emiten pocos registros mediante `ILogger`. Estas líneas se incluyen dentro de la llamada `StartOperation` de `TelemetryClient`, que se usa para crear una operación (en este ejemplo, `RequestTelemetry`, denominada "operation"). Application Insights recopilará estos registros de ILogger (de nivel advertencia o superior, de forma predeterminada) y las dependencias, y se correlacionarán con `RequestTelemetry` con relación de elementos primarios y secundarios. La correlación también funciona a través de límites proceso/red. Por ejemplo, si la llamada se realizó a otro componente supervisado, se correlacionará también con este elemento primario.
 
 Esta operación personalizada de `RequestTelemetry` puede considerarse como el equivalente de una solicitud web de entrada en una aplicación web típica. Aunque no es necesario usar una operación, se adapta mejor al [modelo de datos de correlación de Application Insights](./correlation.md), donde `RequestTelemetry` actúa como operación primaria y la telemetría generada en la iteración del trabajo se trata como que lógicamente pertenece a la misma operación. Este enfoque también garantiza que toda la telemetría generada (automática y manual) tendrá el mismo `operation_id`. Dado que el muestreo se basa en `operation_id`, el algoritmo de muestreo mantiene o quita toda la telemetría de una sola iteración.
 

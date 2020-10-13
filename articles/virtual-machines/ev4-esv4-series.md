@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: b8a6e1013c131778bacb11bd885b9280fb6c6077
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 97d3b87edad56394d42daca19cdb8dbf962fade9
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182180"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649514"
 ---
 # <a name="ev4-and-esv4-series"></a>Series Ev4 y Esv4
 
@@ -29,15 +29,13 @@ Los tamaños de la serie Ev4 se ejecutan en Intel Xeon&reg; Platinum 8272CL (Cas
 
 El almacenamiento en disco de datos remotos se factura de forma independiente a las máquinas virtuales. Para usar discos de Premium Storage, utilice los tamaños de la serie Esv4. Los precios y los medidores de facturación para los tamaños de la serie Esv4 son los mismos que para la serie Ev4.
 
-ACU: 195 - 210
-
-Premium Storage:  No compatible
-
-Almacenamiento en caché de Premium Storage:  No compatible
-
-Migración en vivo: Compatible
-
-Actualizaciones con conservación de memoria: Compatible
+[ACU](acu.md): 195 - 210<br>
+[Premium Storage](premium-storage-performance.md): No compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): No compatible<br>
+[Migración en vivo](maintenance-and-updates.md): Compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+<br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|
@@ -55,15 +53,13 @@ Actualizaciones con conservación de memoria: Compatible
 
 Los tamaños de la serie Esv4 se ejecutan en Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). Las instancias de la serie Esv4 son ideales para aplicaciones empresariales de uso intensivo de memoria. Las VM de la serie Evs4 cuentan con la tecnología Hyper-Threading de Intel&reg;. El almacenamiento en disco de datos remotos se factura de forma independiente a las máquinas virtuales.
 
-ACU: 195-210
-
-Premium Storage:  Compatible
-
-Almacenamiento en caché de Premium Storage:  Compatible
-
-Migración en vivo: Compatible
-
-Actualizaciones con conservación de memoria: Compatible
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): Compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
+[Migración en vivo](maintenance-and-updates.md): Compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+<br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|

@@ -1,5 +1,5 @@
 ---
-title: Uso de la extensión de Azure IoT para que la CLI de Azure interactúe con los dispositivos de la versión preliminar de IoT Plug and Play | Microsoft Docs
+title: Uso de la extensión de Azure IoT para que la CLI de Azure interactúe con los dispositivos de IoT Plug and Play | Microsoft Docs
 description: Instale la extensión de Azure IoT para la CLI de Azure y úsela para interactuar con los dispositivos IoT Plug and Play conectados a su centro de IoT.
 author: dominicbetts
 ms.author: dobett
@@ -7,18 +7,18 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: dadb1f044547acd6e5f0d274143123e89d7dae46
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 680cd4ef4f73c63850a2137b344fd0af6b27c673
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475488"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577465"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Instalación y uso de la extensión de Azure IoT para la CLI de Azure
 
-[La CLI de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) es una herramienta de línea de comandos multiplataforma y de código abierto para la administración de recursos de Azure, como IoT Hub. La CLI de Azure está disponible en Windows, Linux y macOS. Permite administrar los recursos de Azure IoT Hub, las instancias de Device Provisioning Service y los centros vinculados sin instalar ninguna extensión.
+[La CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) es una herramienta de línea de comandos multiplataforma y de código abierto para la administración de recursos de Azure, como IoT Hub. La CLI de Azure está disponible en Windows, Linux y macOS. Permite administrar los recursos de Azure IoT Hub, las instancias de Device Provisioning Service y los centros vinculados sin instalar ninguna extensión.
 
-La extensión de Azure IoT para la CLI de Azure es una herramienta de línea de comandos para interactuar con los dispositivos de la versión preliminar de IoT Plug and Play y probarlos. Puede usar la extensión para lo siguiente:
+La extensión de Azure IOT para la CLI de Azure es una herramienta de línea de comandos para interactuar con los dispositivos IoT Plug and Play y probarlos. Puede usar la extensión para lo siguiente:
 
 - Conectar con un dispositivo.
 - Ver la telemetría que envía el dispositivo.
@@ -34,11 +34,11 @@ En este artículo aprenderá a:
 
 ### <a name="step-1---install-the-azure-cli"></a>Paso 1: Instalación de la CLI de Azure
 
-Siga las [instrucciones de instalación](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para instalar la CLI de Azure en su entorno. Para obtener la mejor experiencia, la CLI de Azure debe ser de la versión 2.9.1 o posterior. Use `az -–version` para asegurarse.
+Siga las [instrucciones de instalación](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para instalar la CLI de Azure en su entorno. Para obtener la mejor experiencia, la CLI de Azure debe ser de la versión 2.9.1 o posterior. Use `az -–version` para asegurarse.
 
 ### <a name="step-2---install-iot-extension"></a>Paso 2: Instalación de la extensión de IoT
 
-En el [archivo Léame de la extensión de IoT](https://github.com/Azure/azure-iot-cli-extension) se describen varias maneras de instalarla. La manera más sencilla es ejecutar `az extension add --name azure-iot`. Después de la instalación, puede usar `az extension list` para validar las extensiones instaladas actualmente o `az extension show --name azure-iot` para ver los detalles acerca de la extensión de IoT. En el momento de escribir este documento, el número de versión de la extensión es `0.9.7`.
+En el [archivo Léame de la extensión de IoT](https://github.com/Azure/azure-iot-cli-extension) se describen varias maneras de instalarla. La manera más sencilla es ejecutar `az extension add --name azure-iot`. Después de la instalación, puede usar `az extension list` para validar las extensiones instaladas actualmente o `az extension show --name azure-iot` para ver los detalles acerca de la extensión de IoT. En el momento de escribir este documento, el número de versión de la extensión es `0.10.0`.
 
 Para quitar la extensión, puede usar `az extension remove --name azure-iot`.
 

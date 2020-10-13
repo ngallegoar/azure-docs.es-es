@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: f0f14bf24bd867344ec72c86a6fd517085b66d1f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: aff26d3b491896aa9a1b1fee93d39a5ec93d730c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317559"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665148"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Preguntas comunes y terminología de análisis de marketplace comercial
 
@@ -45,6 +45,7 @@ Si recibe este mensaje, significa que tiene datos de análisis pero no hay datos
 | Tipo de licencia de Azure: Enterprise | Cliente, pedido | El cliente final adquiere Azure y su oferta de Marketplace a través de un contrato Enterprise, firmado directamente con Microsoft.|
 | Tipo de licencia de Azure: Enterprise a través de revendedor  | Cliente, pedido | El cliente final adquiere Azure y su oferta de Marketplace a través de un revendedor que le facilita el contrato Enterprise con Microsoft.|
 | Tipo de licencia de Azure: Pago por uso| Cliente, pedido | El cliente final adquiere Azure y la oferta de Marketplace a través de un contrato de pago por uso firmado directamente con Microsoft.|
+| Identificador de la cuenta de facturación| Cliente, pedido, uso| Identificador de la cuenta en la que se genera la facturación. Asigne el **identificador de la cuenta de facturación** a **customerID** para conectar el informe de transacciones de pago con los informes de cliente, pedido y uso.|
 | Nombre de la instancia de nube| Pedido de| Microsoft Cloud donde se produjo la implementación de una VM.|
 | Nombre de la instancia en la nube: Azure Global| Pedido de| Nube pública global de Microsoft.|
 | Nombre de la instancia en la nube: Azure Government | Pedido de| Nubes de Microsoft específicas de la Administración Pública para una de las administraciones siguientes: China, Alemania o Estados Unidos de América.| |
@@ -100,5 +101,5 @@ Si recibe este mensaje, significa que tiene datos de análisis pero no hay datos
 - Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de marketplace comercial](./orders-dashboard.md).
 - Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](./usage-dashboard.md).
 - Para información detallada sobre los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de marketplace comercial](./customer-dashboard.md).
-- Para ver una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](./downloads-dashboard.md).
+- Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](./downloads-dashboard.md).
 - Para tener una vista consolidada de comentarios de los clientes sobre las ofertas de Azure Marketplace y AppSource, consulte [Panel Calificaciones y opiniones de los análisis de marketplace comercial](./ratings-reviews.md).

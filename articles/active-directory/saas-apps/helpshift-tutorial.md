@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
-ms.openlocfilehash: fb9c776061407669f27f61ac4bc536b859d04b66
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 41dd61182674d63e7c8b83232c53b9e7054de04d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550628"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816856"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-helpshift"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Helpshift
 
@@ -134,11 +134,11 @@ En esta sección, va a conceder a B.Simon acceso a Helpshift mediante el inicio 
 
 1. Abra el **Panel** de Helpshift y haga clic en el **icono de configuración**.
 
-    ![Configuración de Helpshift](./media/helpshift-tutorial/configuration01.png)
+    ![Captura de pantalla que muestra el icono de configuración de Helpshift.](./media/helpshift-tutorial/configuration01.png)
 
 1. Haga clic en la pestaña **Integrations** (Integraciones) y realice los pasos siguientes:
 
-    ![Configuración de Helpshift](./media/helpshift-tutorial/configuration02.png)
+    ![Captura de pantalla que muestra la pestaña Integración en la que puede realizar los pasos descritos.](./media/helpshift-tutorial/configuration02.png)
 
     a. Active **Single Sign-On(SAML – SSO)** (Inicio de sesión único [SAML: SSO]).
 

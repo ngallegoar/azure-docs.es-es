@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d570ddbcf974936bbaa78be5799e7bd42fa6d514
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b54cff85da02415bbc9dfa9ead037ced48cb58f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204088"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259448"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OAuth1 en una directiva personalizada en Azure Active Directory B2C
 
@@ -88,23 +88,8 @@ El elemento **CryptographicKeys** contiene el atributo siguiente:
 
 ## <a name="redirect-uri"></a>URI de redireccionamiento
 
-Cuando configure la dirección URL de redireccionamiento de su proveedor de identidades, escriba `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Asegúrese de reemplazar **tenant** por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com) y **policyId** por el identificador de la directiva (por ejemplo, b2c_1_policy). El URI de redireccionamiento necesita estar escrito todo en minúsculas. Agregue un URI de redirección para todas las directivas que usan el inicio de sesión del proveedor de identidades.
-
-Si usa el dominio **b2clogin.com** en lugar de **login.microsoftonline.com**, asegúrese de usar b2clogin.com en lugar de login.microsoftonline.com.
+Al configurar el URI de redireccionamiento del proveedor de identidades, escriba `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/{policy-id}/oauth1/authresp`. Asegúrese de reemplazar `{tenant-name}` por el nombre de su inquilino (por ejemplo, contosob2c) y `{policy-id}` por el identificador de la directiva (por ejemplo, b2c_1a_policy). El URI de redireccionamiento necesita estar escrito todo en minúsculas. Agregue un URI de redirección para todas las directivas que usan el inicio de sesión del proveedor de identidades.
 
 Ejemplos:
 
 - [Adición de Twitter como un proveedor de identidades de OAuth1 mediante directivas personalizadas](identity-provider-twitter-custom.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

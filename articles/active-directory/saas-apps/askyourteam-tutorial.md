@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ad68208f8993ce84c71c97d97de7e2b090f1e7da
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6ab6a355b986daeca41ffd18a51689cd9d880dcd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549430"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713817"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AskYourTeam
 
@@ -131,19 +131,19 @@ En esta sección va a permitir que B.Simon acceda a AskYourTeam mediante el inic
 
 1. Haga clic en **My Organisation** (Mi organización).
 
-    ![Configuración de AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![Captura de pantalla que muestra el vínculo My Organisation (Mi organización).](./media/askyourteam-tutorial/user1.png)
 
 1. Haga clic en **Integrations** (Integraciones).
 
-    ![Configuración de AskYourTeam](./media/askyourteam-tutorial/configure1.png)
+    ![Captura de pantalla que muestra el vínculo Integrations (Integraciones).](./media/askyourteam-tutorial/configure1.png)
 
 1. Haga clic en **Edit Settings** (Editar configuración).
 
-    ![Configuración de AskYourTeam](./media/askyourteam-tutorial/configure2.png)
+    ![Captura de pantalla que muestra el mensaje Single Sign-On (Inicio de sesión único) con un botón Edit Settings (Editar configuración).](./media/askyourteam-tutorial/configure2.png)
 
 1. En la página **Edit Single Sign-On Integration** (Editar la integración de inicio de sesión único), siga estos pasos: 
 
-    ![Configuración de AskYourTeam](./media/askyourteam-tutorial/configure3.png)
+    ![Captura de pantalla que muestra Edit Single Sign-On Integration (Editar la integración del inicio de sesión único) para especificar los valores para este paso.](./media/askyourteam-tutorial/configure3.png)
 
     a. En el cuadro de texto **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML), pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -168,15 +168,15 @@ En esta sección va a permitir que B.Simon acceda a AskYourTeam mediante el inic
 
 1. Haga clic en **My Organisation** (Mi organización).
 
-    ![Configuración de AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![Captura de pantalla que muestra el vínculo My organisation (Mi organización) en el que comienza esta tarea.](./media/askyourteam-tutorial/user1.png)
 
 1. Haz clic en **Users** (Usuarios) y seleccione **New User** (Nuevo usuario).
 
-    ![Configuración de AskYourTeam](./media/askyourteam-tutorial/user2.png)
+    ![Captura de pantalla que muestra el vínculo Users (Usuarios) con New User (Nuevo usuario).](./media/askyourteam-tutorial/user2.png)
 
 1. En la sección **New user** (Nuevo usuario), lleve a cabo estos pasos:
 
-    ![Configuración de AskYourTeam](./media/askyourteam-tutorial/user3.png)
+    ![Captura de pantalla que muestra una sección New User (Nuevo usuario) en la que se especifica la información de usuario.](./media/askyourteam-tutorial/user3.png)
 
     1. En el cuadro de texto **First name** (Nombre), escriba el nombre de usuario.
 

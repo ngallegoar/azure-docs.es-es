@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 049066ffc5ce0aea2af956343dfa7ba97b6b5bb4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2baff2ac2af10caf857fd08b0d7e7df5030220e4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542826"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758162"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Tutorial: Integración de AirWatch con Azure Active Directory
 
@@ -125,7 +125,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Haga clic en la pestaña **Usuario**; en el cuadro de texto **DN base**, escriba el nombre de dominio y haga clic en **Guardar**.
 
-   ![User](./media/airwatch-tutorial/ic791922.png "Usuario")
+   ![Captura de pantalla donde se resalta el cuadro de texto DN base.](./media/airwatch-tutorial/ic791922.png "Usuario")
 
 1. Haga clic en la pestaña **Server** (Servidor).
 
@@ -133,7 +133,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **LDAP**, realice los pasos siguientes:
 
-    ![Cargar](./media/airwatch-tutorial/ic791924.png "LDAP")   
+    ![Captura de pantalla que muestra los cambios que debe realizar en la sección LDAP.](./media/airwatch-tutorial/ic791924.png "LDAP")   
 
     a. En **Directory Type** (Tipo de directorio), seleccione **None** (Ninguno).
 
@@ -223,7 +223,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en AirWatch, tienen 
 
 3. En el menú **Users** (Usuarios), haga clic en **List View** (Vista de lista) y, a continuación, haga clic en **Add > Add User** (Agregar > Agregar usuario).
   
-   ![Agregar usuario](./media/airwatch-tutorial/ic791930.png "Agregar usuario")
+   ![Captura de pantalla donde se resaltan los botones Agregar y Agregar usuario.](./media/airwatch-tutorial/ic791930.png "Agregar usuario")
 
 4. En el cuadro de diálogo **Add / Edit User** (Agregar/Editar usuario), realice los siguientes pasos:
 

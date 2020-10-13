@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: eab9004b37da83b5d571ff700c32215354286c94
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a3ceb78a85546e5e75c4c484f131b67ff7fc9249
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443857"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824144"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Configuración de la conectividad de Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -38,6 +38,9 @@ Cuando la opción **Denegar acceso desde red pública** está establecida en **S
  ![Captura de pantalla de la conectividad con la opción Denegar acceso desde red pública][2]
 
 Cualquier intento de establecer la opción **Denegar acceso desde red pública** en **Sí** sin puntos de conexión privados existentes en el servidor lógico producirá un error con un mensaje similar al siguiente:  
+
+> [!NOTE]
+> Para definir las reglas de firewall de red virtual en un servidor lógico que ya está configurado con puntos de conexión privados, establezca **Deny public network access** (Denegar acceso a la red pública) en **No**.
 
 ```output
 Error 42102

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 424a05d6a096538aa296bb11863702b816410fb9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0eed3b6d68e8bfe62e9589b2ef4074df92445095
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480652"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258786"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Funcionamiento de las relaciones de confianza para los bosques de recursos en Azure Active Directory Domain Services
 
@@ -99,12 +99,12 @@ Por ejemplo, cuando se crea una confianza de bosque unidireccional entre el *Bos
 Para poder crear una confianza de bosque, debe comprobar que cuenta con la infraestructura del sistema de nombres de dominio (DNS) correcta. Solo se pueden crear confianzas de bosque cuando está disponible una de las siguientes configuraciones de DNS:
 
 * Un solo servidor DNS raíz es el servidor DNS raíz para ambos espacios de nombres DNS de bosque: la zona raíz contiene delegaciones para cada uno de los espacios de nombres DNS y las sugerencias de raíz de todos los servidores DNS incluyen el servidor DNS raíz.
-* No hay ningún servidor DNS raíz compartido y los servidores DNS raíz de cada espacio de nombres DNS de bosque usan reenviadores condicionales DNS para cada espacio de nombres DNS, con el fin de enrutar consultas sobre nombres en el otro espacio de nombres.
+* Cuando no hay ningún servidor DNS raíz compartido y los servidores DNS raíz de cada espacio de nombres DNS de bosque usan reenviadores condicionales DNS para cada espacio de nombres DNS, con el fin de enrutar consultas sobre nombres en el otro espacio de nombres.
 
     > [!IMPORTANT]
     > El bosque de recursos de Azure AD Domain Services debe usar esta configuración de DNS. El hospedaje de un espacio de nombres DNS que no sea el espacio de nombres DNS del bosque de recursos no es una característica de Azure AD Domain Services. La configuración correcta precisa de reenviadores condicionales.
 
-* No hay ningún servidor DNS raíz compartido y los servidores DNS raíz de cada espacio de nombres DNS de bosque usan zonas secundarias DNS configuradas en cada espacio de nombres DNS para enrutar las consultas sobre nombres en el otro espacio de nombres.
+* Cuando no hay ningún servidor DNS raíz compartido y los servidores DNS raíz de cada espacio de nombres DNS de bosque usan zonas secundarias DNS configuradas en cada espacio de nombres DNS para enrutar las consultas sobre nombres en el otro espacio de nombres.
 
 Para crear una confianza de bosque, debe ser miembro del grupo de administradores de dominio (en el dominio raíz del bosque) o del grupo de administradores de empresa en Active Directory. A cada confianza se le asigna una contraseña que deben conocer los administradores de ambos bosques. Los miembros del grupo de administradores de empresa de ambos bosques pueden crear las confianzas en ambos bosques a la vez; en este escenario, se genera y escribe automáticamente una contraseña criptográficamente aleatoria para ambos bosques.
 

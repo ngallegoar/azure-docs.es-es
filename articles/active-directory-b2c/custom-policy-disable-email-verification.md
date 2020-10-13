@@ -1,7 +1,7 @@
 ---
 title: Deshabilitación de la comprobación de correo electrónico durante la suscripción de clientes con una directiva personalizada
 titleSuffix: Azure AD B2C
-description: Aprenda a deshabilitar la comprobación del correo electrónico durante la suscripción de consumidores en Azure Active Directory B2C.
+description: Obtenga información sobre cómo deshabilitar la comprobación de correo electrónico durante la suscripción de clientes mediante una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29426f8e3797c89deb712e89e0d972dd1ac8028e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9372a9caff5aefb53bfa8adf7eb1c68d2a3b7b2e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389316"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259624"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Deshabilitación de la comprobación de correo electrónico durante la suscripción de clientes mediante una directiva personalizada en Azure Active Directory B2C
 

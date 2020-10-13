@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 159a14b30113a251c6ac61c4c04a2a3c4d69d3e5
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 132711b4a3fc584261cd577b4b8f1d4fb13da09d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907703"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819384"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder a los usuarios B2B de Azure AD acceso a las aplicaciones locales
 
@@ -41,6 +41,9 @@ Para proporcionar a los usuarios B2B acceso a las aplicaciones locales que está
 
 - **Autenticación mediante Azure AD Application Proxy**. Los usuarios B2B deben poder autenticarse en la aplicación local. Para ello, debe publicar la aplicación local a través de Azure AD Application Proxy. Para más información, consulte [Empezar a trabajar con Application Proxy e instalar el conector](../manage-apps/application-proxy-enable.md) y [Publicación de aplicaciones mediante Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md).
 - **Autorización mediante un objeto de usuario B2B en el directorio local**. La aplicación debe poder realizar comprobaciones de acceso de usuario y conceder acceso a los recursos correctos. IWA y KCD requieren un objeto de usuario en Windows Server Active Directory local para realizar esta autorización. Como se describe en [Cómo funciona el inicio de sesión único con KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy necesita este objeto de usuario para suplantar al usuario y obtener un token de Kerberos para la aplicación. 
+
+   > [!NOTE]
+   > Al configurar el proxy de aplicación de Azure AD, asegúrese de que la opción **Identidad de inicio de sesión delegada** esté establecida en **Nombre principal del usuario** (valor predeterminado) para el inicio de sesión único de IWA.
 
    En el escenario de usuario B2B, hay dos métodos disponibles que se pueden usar para crear los objetos de usuario invitado que son necesarios para la autorización en el directorio local:
 

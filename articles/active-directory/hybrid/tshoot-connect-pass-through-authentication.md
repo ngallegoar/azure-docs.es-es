@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89275930"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741200"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solución de problemas de autenticación de paso a través de Azure Active Directory
 
@@ -96,6 +96,7 @@ Vaya a **Azure Active Directory** -> **Inicios de sesión** en el [centro de adm
 | 80007 | El agente de autenticación no puede conectarse a Active Directory. | Compruebe si Active Directory es accesible desde el agente de autenticación.
 | 80010 | El agente de autenticación no puede descifrar la contraseña. | Si el problema se puede reproducir habitualmente, instale y registre un nuevo agente de autenticación. Después, desinstale el actual. 
 | 80011 | El agente de autenticación no puede recuperar la clave de descifrado. | Si el problema se puede reproducir habitualmente, instale y registre un nuevo agente de autenticación. Después, desinstale el actual.
+| 80014 | Solicitud de validación respondida después de que se supere el tiempo máximo transcurrido. | El agente de autenticación agotó el tiempo de espera. Abra una incidencia de soporte técnico con el código de error, el identificador de correlación y la marca de tiempo para conocer más detalles sobre este error.
 
 >[!IMPORTANT]
 >Para autenticar a los usuarios de Azure AD, los agentes de autenticación de paso a través validan sus nombres de usuario y contraseñas en Active Directory mediante la llamada a la [API LogonUser de Win32](/windows/win32/api/winbase/nf-winbase-logonusera). Como resultado, si ha establecido la configuración de inicio de sesión en Active Directory para limitar el acceso de inicio de sesión de la estación de trabajo, tendrá que agregar también los servidores que hospedan los agentes de autenticación de paso a través a la lista de servidores de inicio de sesión. Si no lo hace, los usuarios no podrán iniciar sesión en Azure AD.

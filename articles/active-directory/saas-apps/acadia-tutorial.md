@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 39339803945034765fbc30e6f5fc11e737f750c4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f3fa61e7c00dca8cb133ec21ba395d943ebdc956
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538440"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708465"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Tutorial: Integración de Azure Active Directory con Acadia
 
@@ -100,7 +100,7 @@ Para configurar el inicio de sesión único de Azure AD con Acadia, realice los 
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Acadia](common/idp-intiated.png)
+    ![Captura de pantalla que muestra los elementos de pantalla necesarios para configurar la aplicación en modo iniciado por IDP.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<CUSTOMER>.acadia.sysalli.com/shibboleth`
 

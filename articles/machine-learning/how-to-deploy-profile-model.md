@@ -10,12 +10,12 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: aac5fba68c43892216cbd16dd99b0c6a9bf70217
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935592"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660996"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Generar perfiles del modelo para determinar el uso de recursos
 
@@ -24,6 +24,10 @@ En este artículo se muestra cómo generar perfiles de modelo de aprendizaje aut
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por supuesto que ya ha entrenado y registrado un modelo con Azure Machine Learning. Vea [este tutorial de muestra](how-to-train-scikit-learn.md) para obtener un ejemplo de entrenamiento y registro de un modelo scikit-learn con Azure Machine Learning.
+
+## <a name="limitations"></a>Limitaciones
+
+* La generación de perfiles no funciona cuando la instancia de Azure Container Registry (ACR) del área de trabajo está detrás de una red virtual.
 
 ## <a name="run-the-profiler"></a>Ejecución del generador de perfiles
 

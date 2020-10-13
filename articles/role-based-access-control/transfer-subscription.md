@@ -1,5 +1,5 @@
 ---
-title: Transferencia de una suscripción de Azure a otro directorio de Azure AD (versión preliminar)
+title: Transferencia de una suscripción de Azure a otro directorio de Azure AD
 description: Aprenda a transferir una suscripción de Azure y recursos relacionados conocidos a otro directorio de Azure Active Directory (Azure AD).
 services: active-directory
 author: rolyon
@@ -8,28 +8,23 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/31/2020
+ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: ab004c11b46428c5fad28177b0d94edc04b95654
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 35c6d94ce69acf59ae6cd8b26b0ad75645eb526a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400551"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819718"
 ---
-# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD (versión preliminar)
-
-> [!IMPORTANT]
-> Actualmente, el proceso de seguir estos pasos para transferir una suscripción a otro directorio de Azure AD se encuentra en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD
 
 Las organizaciones pueden tener varias suscripciones de Azure. Cada suscripción está asociada con un directorio concreto de Azure Active Directory (Azure AD). Para facilitar la administración, puede transferir una suscripción a otro directorio de Azure AD. Al transferir una suscripción a otro directorio de Azure AD, algunos recursos no se transfieren al directorio de destino. Por ejemplo, todas las asignaciones de roles y los roles personalizados en el control de acceso basado en roles de Azure (RBAC de Azure) se eliminan **permanentemente** del directorio de origen y no se transfieren al de destino.
 
 En este artículo se describen los pasos básicos que puede seguir para transferir una suscripción a otro directorio de Azure AD diferente y volver a crear algunos recursos después de la transferencia.
 
 > [!NOTE]
-> En el caso de las suscripciones de proveedores de servicios en la nube (CSP) de Azure, no se admite el cambio del directorio de Azure AD de la suscripción.
+> En el caso de las suscripciones de Proveedor de soluciones en la nube (CSP) de Azure, no se admite el cambio del directorio de Azure AD de la suscripción.
 
 ## <a name="overview"></a>Información general
 
@@ -79,7 +74,7 @@ Varios recursos de Azure tienen una dependencia de una suscripción o un directo
 | Azure Data Lake Storage Gen1 | Sí | Sí |  | Debe volver a crear las ACL. |
 | Azure Files | Sí | Sí |  | Debe volver a crear las ACL. |
 | Azure File Sync | Sí | Sí |  |  |
-| Azure Managed Disks | Sí | N/D |  |  |
+| Azure Managed Disks | Sí | Sí |  |  Si usa conjuntos de cifrado de disco para cifrar instancias de Managed Disks con claves administradas por el cliente, debe deshabilitar y volver a habilitar las identidades asignadas por el sistema asociadas a los conjuntos de cifrado de disco. Además, debe volver a crear las asignaciones de roles, es decir, volver a conceder los permisos necesarios a los conjuntos de cifrado de disco en las instancias de Key Vault. |
 | Azure Container Service para Kubernetes | Sí | Sí |  |  |
 | Azure Active Directory Domain Services | Sí | No |  |  |
 | Registros de aplicaciones | Sí | Sí |  |  |
@@ -91,7 +86,7 @@ Varios recursos de Azure tienen una dependencia de una suscripción o un directo
 
 Para completar estos pasos, necesitará lo siguiente:
 
-- [Bash en Azure Cloud Shell](/azure/cloud-shell/overview) o [CLI de Azure](https://docs.microsoft.com/cli/azure)
+- [Bash en Azure Cloud Shell](/azure/cloud-shell/overview) o [CLI de Azure](/cli/azure)
 - Administrador de cuenta de la suscripción que quiere transferir en el directorio de origen
 - Rol de [propietario](built-in-roles.md#owner) en el directorio de destino
 
@@ -101,13 +96,13 @@ Para completar estos pasos, necesitará lo siguiente:
 
 1. Inicie sesión en Azure como administrador.
 
-1. Obtenga la lista de suscripciones con el comando [az account list](/cli/azure/account#az-account-list).
+1. Obtenga la lista de suscripciones con el comando [az account list](/cli/azure/account#az_account_list).
 
     ```azurecli
     az account list --output table
     ```
 
-1. Use [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) para definir la suscripción activa que quiere transferir.
+1. Use [az account set](/cli/azure/account#az_account_set) para definir la suscripción activa que quiere transferir.
 
     ```azurecli
     az account set --subscription "Marketing"
@@ -115,9 +110,9 @@ Para completar estos pasos, necesitará lo siguiente:
 
 ### <a name="install-the-resource-graph-extension"></a>Instalación de la extensión resource-graph
 
- La extensión resource-graph le permite usar el comando [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) para consultar los recursos que administra Azure Resource Manager. Usará este comando en pasos posteriores.
+ La extensión resource-graph le permite usar el comando [az graph](/cli/azure/ext/resource-graph/graph) para consultar los recursos que administra Azure Resource Manager. Usará este comando en pasos posteriores.
 
-1. Use [az extension list](https://docs.microsoft.com/cli/azure/extension#az-extension-list) para ver si tiene instalada la extensión *resource-graph*.
+1. Use [az extension list](/cli/azure/extension#az_extension_list) para ver si tiene instalada la extensión *resource-graph*.
 
     ```azurecli
     az extension list
@@ -131,7 +126,7 @@ Para completar estos pasos, necesitará lo siguiente:
 
 ### <a name="save-all-role-assignments"></a>Guardar todas las asignaciones de roles
 
-1. Use [az role assignment list](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-list) para mostrar todas las asignaciones de roles (incluidas las heredadas).
+1. Use [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) para mostrar todas las asignaciones de roles (incluidas las heredadas).
 
     Para facilitar la revisión de la lista, puede exportar la salida como JSON, TSV o tabla. Para obtener más información, consulte [Lista de asignaciones de roles con RBAC y la CLI de Azure](role-assignments-list-cli.md).
 
@@ -149,7 +144,7 @@ Para completar estos pasos, necesitará lo siguiente:
 
 ### <a name="save-custom-roles"></a>Guardar roles personalizados
 
-1. Use [az role definition list](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) para enumerar los roles personalizados. Para más información, consulte [Creación o actualización de roles personalizados de Azure mediante la CLI de Azure](custom-roles-cli.md).
+1. Use [az role definition list](/cli/azure/role/definition#az_role_definition_list) para enumerar los roles personalizados. Para más información, consulte [Creación o actualización de roles personalizados de Azure mediante la CLI de Azure](custom-roles-cli.md).
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -193,7 +188,7 @@ Las identidades administradas no se actualizan cuando una suscripción se transf
 
 1. Revise la [lista de servicios de Azure que admiten identidades administradas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) para anotar dónde podría estar usando identidades administradas.
 
-1. Use [az ad sp list](/cli/azure/identity?view=azure-cli-latest#az-identity-list) para mostrar las identidades administradas asignadas por el sistema y por el usuario.
+1. Use [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) para mostrar las identidades administradas asignadas por el sistema y por el usuario.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
@@ -207,7 +202,7 @@ Las identidades administradas no se actualizan cuando una suscripción se transf
     | La propiedad `alternativeNames` no incluye `isExplicit`. | Asignada por el sistema |
     | La propiedad `alternativeNames` incluye `isExplicit=True`. | Asignada por el usuario |
 
-    También puede usar [az identity list](https://docs.microsoft.com/cli/azure/identity#az-identity-list) para enumerar las identidades administradas asignadas por el usuario. Para obtener más información, consulte [Creación, enumeración o eliminación de una identidad administrada asignada por el usuario mediante la CLI de Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
+    También puede usar [az identity list](/cli/azure/identity#az_identity_list) para enumerar las identidades administradas asignadas por el usuario. Para obtener más información, consulte [Creación, enumeración o eliminación de una identidad administrada asignada por el usuario mediante la CLI de Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
 
     ```azurecli
     az identity list
@@ -224,7 +219,7 @@ Cuando se crea un almacén de claves, se asocia automáticamente a un identifica
 > [!WARNING]
 > Si usa el cifrado en reposo para un recurso, como una cuenta de almacenamiento o una base de datos SQL, que tiene una dependencia de un almacén de claves que **no** está en la misma suscripción que se transfiere, puede provocar un escenario irrecuperable. Si tiene esta situación, debe seguir los pasos necesarios para usar un almacén de claves diferente o deshabilitar temporalmente las claves administradas por el cliente para evitar este escenario irrecuperable.
 
-- Si tiene un almacén de claves, use [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) para mostrar las directivas de acceso. Para más información, consulte [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-cli.md).
+- Si tiene un almacén de claves, use [az keyvault show](/cli/azure/keyvault#az_keyvault_show) para mostrar las directivas de acceso. Para más información, consulte [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-cli.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -232,7 +227,7 @@ Cuando se crea un almacén de claves, se asocia automáticamente a un identifica
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Lista de instancias de Azure SQL Database con autenticación de Azure AD
 
-- Use [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) y la extensión [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) para ver si está usando instancias de Azure SQL Database con integración de la autenticación de Azure AD habilitada. Para obtener más información, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL](../azure-sql/database/authentication-aad-configure.md).
+- Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) y la extensión [az graph](/cli/azure/ext/resource-graph/graph) para ver si está usando instancias de Azure SQL Database con integración de la autenticación de Azure AD habilitada. Para obtener más información, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -248,13 +243,13 @@ Cuando se crea un almacén de claves, se asocia automáticamente a un identifica
 
 ### <a name="list-other-known-resources"></a>Lista de otros recursos conocidos
 
-1. Use [az account show](https://docs.microsoft.com/cli/azure/account#az-account-show) para obtener el identificador de la suscripción.
+1. Use [az account show](/cli/azure/account#az_account_show) para obtener el identificador de la suscripción.
 
     ```azurecli
     subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
     ```
 
-1. Use la extensión [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) para mostrar otros recursos de Azure con dependencias de directorio de Azure AD conocidas.
+1. Use la extensión [az graph](/cli/azure/ext/resource-graph/graph) para mostrar otros recursos de Azure con dependencias de directorio de Azure AD conocidas.
 
     ```azurecli
     az graph query -q \
@@ -286,13 +281,13 @@ En este paso, transferirá la suscripción del directorio de origen al de destin
 
     Solo el usuario de la cuenta nueva que aceptó la solicitud de transferencia tendrá acceso para administrar los recursos.
 
-1. Obtenga la lista de suscripciones con el comando [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
+1. Obtenga la lista de suscripciones con el comando [az account list](/cli/azure/account#az_account_list).
 
     ```azurecli
     az account list --output table
     ```
 
-1. Use [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) para definir la suscripción activa que quiere usar.
+1. Use [az account set](/cli/azure/account#az_account_set) para definir la suscripción activa que quiere usar.
 
     ```azurecli
     az account set --subscription "Contoso"
@@ -300,7 +295,7 @@ En este paso, transferirá la suscripción del directorio de origen al de destin
 
 ### <a name="create-custom-roles"></a>Creación de roles personalizados
         
-- Use [az role definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) para crear cada rol personalizado a partir de los archivos que creó anteriormente. Para más información, consulte [Creación o actualización de roles personalizados de Azure mediante la CLI de Azure](custom-roles-cli.md).
+- Use [az role definition create](/cli/azure/role/definition#az_role_definition_create) para crear cada rol personalizado a partir de los archivos que creó anteriormente. Para más información, consulte [Creación o actualización de roles personalizados de Azure mediante la CLI de Azure](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -308,7 +303,7 @@ En este paso, transferirá la suscripción del directorio de origen al de destin
 
 ### <a name="create-role-assignments"></a>Crear asignaciones de roles
 
-- Use [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) para crear las asignaciones de roles para usuarios, grupos y entidades de servicio. Para obtener más información, vea [Incorporación o eliminación de asignaciones de roles con RBAC y la CLI de Azure](role-assignments-cli.md).
+- Use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para crear las asignaciones de roles para usuarios, grupos y entidades de servicio. Para obtener más información, vea [Incorporación o eliminación de asignaciones de roles con RBAC y la CLI de Azure](role-assignments-cli.md).
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -324,7 +319,7 @@ En este paso, transferirá la suscripción del directorio de origen al de destin
     | Conjuntos de escalado de máquinas virtuales | [Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante la CLI de Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | Otros servicios | [Servicios que admiten identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. Use [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) para crear asignaciones de roles para las identidades administradas asignadas por el sistema. Para más información, consulte [Asignación de un acceso de identidad administrada a un recurso mediante la CLI de Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para crear asignaciones de roles para las identidades administradas asignadas por el sistema. Para más información, consulte [Asignación de un acceso de identidad administrada a un recurso mediante la CLI de Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -340,7 +335,7 @@ En este paso, transferirá la suscripción del directorio de origen al de destin
     | Conjuntos de escalado de máquinas virtuales | [Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante la CLI de Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | Otros servicios | [Servicios que admiten identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Creación, enumeración o eliminación de una identidad administrada asignada por el usuario mediante la CLI de Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. Use [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) para crear asignaciones de roles para las identidades administradas asignadas por el usuario. Para más información, consulte [Asignación de un acceso de identidad administrada a un recurso mediante la CLI de Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para crear asignaciones de roles para las identidades administradas asignadas por el usuario. Para más información, consulte [Asignación de un acceso de identidad administrada a un recurso mediante la CLI de Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>

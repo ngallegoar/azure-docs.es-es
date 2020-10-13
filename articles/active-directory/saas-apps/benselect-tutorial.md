@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 98740153def94742a8bbba1ee6f4f022b614ecfa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 12c0647e0244464966c52bafe8c976eb4a35ddda
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537131"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741217"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benselect"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BenSelect
 
@@ -89,15 +89,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación BenSelect espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra User Attributes (Atributos de usuario) con atributos predeterminados, como emailaddress user.mail y givenname user.givenname.](common/edit-attribute.png)
 
 1. Haga clic en el icono **Editar** para editar el **Valor de identificador de nombre**.
 
-    ![imagen](media/benselect-tutorial/mail-prefix1.png)
+    ![Captura de pantalla que muestra el panel User Attributes & Claims (Atributos y reclamaciones del usuario) con el icono de edición seleccionado.](media/benselect-tutorial/mail-prefix1.png)
 
 1. En la sección **Administrar las notificaciones del usuario**, realice los siguientes pasos:
 
-    ![imagen](media/benselect-tutorial/mail-prefix2.png)
+    ![Captura de pantalla que muestra Manage user claims (Administrar reclamaciones de usuario) para escribir los valores que se describen en este paso.](media/benselect-tutorial/mail-prefix2.png)
 
     a. Seleccione **Transformación** como **Origen**.
 

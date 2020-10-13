@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/10/2020
+ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d205998ad5710ecad346db4d7be18a68747c087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388534"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664858"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Códigos de error: Azure Active Directory B2C
 
@@ -74,6 +74,7 @@ El servicio Azure Active Directory B2C puede devolver los errores siguientes.
 | `AADB2C90086` | El valor de grant_type [{0}] proporcionado no es compatible. |
 | `AADB2C90087` | La concesión proporcionada no se ha emitido para esta versión del punto de conexión del protocolo. |
 | `AADB2C90088` | La concesión proporcionada no se ha emitido para este punto de conexión. Valor real: {0} y valor esperado: {1} |
+| `AADB2C90091` | Cancelación del usuario. |
 | `AADB2C90092` | La aplicación proporcionada con el identificador "{0}" está deshabilitada para el inquilino "{1}". Habilite la aplicación e inténtelo de nuevo. |
 | `AADB2C90107` | La aplicación con el id. "{0}" no puede obtener un token de id. ya sea porque no se ha proporcionado el ámbito de openid en la solicitud, ya sea porque la aplicación no está autorizada para ello. |
 | `AADB2C90108` | El paso de orquestación "{0}" no especifica un objeto CpimIssuerTechnicalProfileReferenceId, cuando se esperaba uno. |

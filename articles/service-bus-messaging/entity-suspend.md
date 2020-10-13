@@ -2,13 +2,13 @@
 title: Entidades de mensajería de suspensión de Azure Service Bus
 description: En este artículo se explica cómo suspender y reactivar temporalmente entidades de mensaje de Azure Service Bus (colas, temas y suscripciones).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 2dad0b774f271ed719ca09b1e749559d5e1868bd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 09/29/2020
+ms.openlocfilehash: f89e17e494cc777691b7f7ca47538cd29114d2dc
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078874"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575265"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspensión y reactivación de entidades de mensajería (deshabilitar)
 
@@ -18,28 +18,29 @@ Normalmente la suspensión de una entidad se realiza por motivos administrativos
 
 El usuario o el sistema pueden realizar la suspensión o la reactivación. El sistema solo suspende las entidades por motivos administrativos graves como haber alcanzado el límite de gasto de suscripción. El usuario no puede reactivar las entidades deshabilitadas por el sistema, pero se restauran cuando se ha solucionado la causa de la suspensión.
 
-En Azure Portal, el estado se puede cambiar en la sección **Información general** de la entidad respectiva; el estado actual se muestra en **Estado** en forma de hipervínculo.
-
-En la siguiente captura de pantalla se muestran los estados disponibles a los que se puede cambiar la entidad tras seleccionar el hipervínculo: 
-
-![Captura de pantalla de la característica Service Bus en Información general para cambiar la opción de estado de la entidad.][1]
-
-El portal solo permite deshabilitar completamente las colas. También puede deshabilitar las operaciones de envío y recepción por separado mediante las API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) de Service Bus en el SDK de .NET Framework, o con una plantilla de Azure Resource Manager mediante la CLI de Azure o Azure PowerShell.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="suspension-states"></a>Estados de suspensión
-
+## <a name="queue-status"></a>Estado de la cola 
 Los estados que se pueden establecer para una cola son:
 
 -   **Activa**: la cola está activa.
--   **Disabled**: la cola se ha suspendido.
+-   **Disabled**: la cola se ha suspendido. Es equivalente a establecer **SendDisabled** y **ReceiveDisabled**. 
 -   **SendDisabled**: la cola se suspende parcialmente y se permite la recepción.
 -   **ReceiveDisabled**: la cola se suspende parcialmente y se permite el envío.
 
-En las suscripciones y los temas, solo se pueden establecer los estados **Activo** y **Deshabilitado**.
+### <a name="change-the-queue-status-in-the-azure-portal"></a>Cambie el estado de la cola en Azure Portal: 
 
-La enumeración [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) también define un conjunto de estados de transición que solo puede establecer el sistema. El comando de PowerShell para deshabilitar una cola se muestra en el ejemplo siguiente. El comando de reactivación es equivalente a establecer `Status` en **Activo**.
+1. En Azure Portal, vaya al espacio de nombres de Service Bus. 
+1. Seleccione la cola para la que desea cambiar el estado. Verá las colas en el panel inferior, en la parte central. 
+1. En la página **Cola de Service Bus**, vea el estado actual de la cola como un hipervínculo. Si no está seleccionada la opción de **información general** en el menú de la izquierda, selecciónela para ver el estado de la cola. Seleccione el estado actual de la cola para cambiarlo. 
+
+    :::image type="content" source="./media/entity-suspend/select-state.png" alt-text="Selección del estado de la cola":::
+4. Seleccione el nuevo estado de la cola y luego **Aceptar**. 
+
+    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Selección del estado de la cola":::
+    
+El portal solo permite deshabilitar completamente las colas. También puede deshabilitar las operaciones de envío y recepción por separado mediante las API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) de Service Bus en el SDK de .NET Framework, o con una plantilla de Azure Resource Manager mediante la CLI de Azure o Azure PowerShell.
+
+### <a name="change-the-queue-status-using-azure-powershell"></a>Cambio del estado de la cola mediante Azure PowerShell
+El comando de PowerShell para deshabilitar una cola se muestra en el ejemplo siguiente. El comando de reactivación es equivalente a establecer `Status` en **Activo**.
 
 ```powershell
 $q = Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
@@ -48,6 +49,30 @@ $q.Status = "Disabled"
 
 Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
+
+## <a name="topic-status"></a>Estado del tema
+Cambiar el estado del tema en el Azure Portal es similar a cambiar el estado de una cola. Cuando seleccione el estado actual del tema, verá la siguiente página que le permite cambiar el estado. 
+
+:::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Selección del estado de la cola":::
+
+Los estados que se pueden establecer para una tema son:
+- **Activa**: El tema está activo.
+- **Disabled**: El tema se ha suspendido.
+- **SendDisabled**: El mismo efecto que **Disabled**.
+
+## <a name="subscription-status"></a>Estado de la suscripción
+Cambiar el estado de la suscripción en Azure Portal es similar a cambiar el estado de un tema o de una cola. Cuando seleccione el estado actual de la suscripción, verá la siguiente página que le permite cambiar el estado. 
+
+:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Selección del estado de la cola":::
+
+Los estados que se pueden establecer para una tema son:
+- **Activa**: El tema está activo.
+- **Disabled**: El tema se ha suspendido.
+- **ReceiveDisabled**: El mismo efecto que **Disabled**.
+
+## <a name="other-statuses"></a>Otros estados
+La enumeración [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) también define un conjunto de estados de transición que solo puede establecer el sistema. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

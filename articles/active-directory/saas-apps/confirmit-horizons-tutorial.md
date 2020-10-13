@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff197a5603480e9143a14a4760f14dccf8b101b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 119b1fc646a0a781541784786b409d4a961c2dc3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544537"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775973"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Tutorial: Integración de Azure Active Directory con Confirmit Horizons
 
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con Confirmit Horizons, 
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Confirmit Horizons](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la sección "Configuración básica de SAML" con la acción "Guardar", el campo "Identificador" y el campo "U R L de respuesta" resaltados.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
 

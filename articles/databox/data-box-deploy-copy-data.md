@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a0622c7556896b7ae7201ffa3a7ecac8de1106a4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: fcdc5d0e7254b8e491285baae6c2a1bc6979e437
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053548"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766312"
 ---
 ::: zone target="docs"
 
@@ -72,11 +72,11 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 
 1. El primer paso es autenticarse e iniciar sesión. Vaya a **Connect and copy** (Conectar y copiar). Seleccione **SMB** para obtener las credenciales de acceso de los recursos compartidos asociados con la cuenta de almacenamiento. 
 
-    ![Obtención de las credenciales del recurso compartido 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+    ![Obtención de las credenciales de recursos compartidos para recursos compartido de archivos SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
 2. En el cuadro de diálogo Access share and copy data (Acceder al recurso compartido y copiar datos), copie los valores de **Username** (Nombre de usuario) y **Password** (Contraseña) del recurso compartido. Seleccione **Aceptar**.
     
-    ![Obtención de las credenciales del recurso compartido 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Obtención del nombre de usuario y la contraseña de un recurso compartido de archivos](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 3. Para acceder a los recursos compartidos asociados con su cuenta de almacenamiento (*utsac1* en el ejemplo siguiente) desde el equipo host, abra una ventana de comandos. En el símbolo del sistema, escriba:
 
@@ -97,11 +97,11 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 
 4. Presione Windows + R. En la ventana **Ejecutar**, escriba `\\<device IP address>`. Seleccione **Aceptar** para abrir el Explorador de archivos.
     
-    ![Conexión al recurso compartido mediante el Explorador de archivos 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Conexión a un recurso compartido de archivos mediante el Explorador de archivos](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
     Ahora debería ver los recursos compartidos como carpetas.
     
-    ![Conexión al recurso compartido mediante el Explorador de archivos 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
+    ![Recursos compartidos de archivos en el Explorador de archivos](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
     **Cree siempre una carpeta para los archivos que se va a copiar en el recurso compartido y, después, copie los archivos en ella**. La carpeta que se creó en los recursos compartidos de blob en bloques y blob en páginas representa un contenedor en el que los datos se cargan como blobs. No se pueden copiar los archivos directamente en la carpeta *root* de la cuenta de almacenamiento.
     
@@ -116,7 +116,7 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 Una vez que esté conectado a los recursos compartidos de Data Box, el siguiente paso es copiar los datos. Antes de comenzar la copia de datos, revise las consideraciones siguientes:
 
 * Asegúrese de que copia los datos en los recursos compartidos que se corresponden con el formato de datos adecuado. Por ejemplo, copie los datos de blobs en bloques en la carpeta para blobs en bloques. Copie los discos duros virtuales en blobs en páginas. Si el formato de los datos no coincide con el recurso compartido correspondiente, la carga de datos en Azure producirá un error más adelante.
-* Al copiar los datos, asegúrese de que el tamaño de los datos se ajusta a los límites descritos en los [límites de almacenamiento de Azure y de Data Box](data-box-limits.md).
+* Al copiar los datos, asegúrese de que su tamaño se ajusta a los límites descritos en los [límites de tamaño de las cuentas de almacenamiento de Azure](data-box-limits.md#azure-storage-account-size-limits).
 * Si los datos que va a cargar el dispositivo Data Box los están cargando a la vez otras aplicaciones fuera del dispositivo Data Box, podría provocar errores en el trabajo de carga y daños en los datos.
 * Es recomendable que:
   * No use SMB y NFS al mismo tiempo.
@@ -225,15 +225,15 @@ Para más información sobre el comando Robocopy, consulte [Robocopy and a few e
 
 Si durante el proceso de copia se produce algún error, aparecerá una notificación.
 
-![Descarga y visualización de errores en Conectar y copiar](media/data-box-deploy-copy-data/view-errors-1.png)
+![Una notificación de error de copia en Conectar y copiar](media/data-box-deploy-copy-data/view-errors-1.png)
 
 Seleccione **Descargar la lista de problemas**.
 
-![Descarga y visualización de errores en Conectar y copiar](media/data-box-deploy-copy-data/view-errors-2.png)
+![Descarga y visualización de errores en Conectar y copiar 2](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Abra la lista para ver los detalles del error y seleccione la dirección URL de resolución para ver la resolución recomendada.
 
-![Descarga y visualización de errores en Conectar y copiar](media/data-box-deploy-copy-data/view-errors-3.png)
+![Descarga y visualización de errores en Conectar y copiar 3](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Para más información, consulte [Ver registro de errores durante la copia de datos en Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obtener una lista detallada de errores durante la copia de datos, consulte [Solución de problemas de Data Box](data-box-troubleshoot.md).
 

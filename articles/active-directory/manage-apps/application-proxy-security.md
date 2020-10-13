@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f34355f790b56c43c2e9fae7ce23b6344b4739d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e8051621cf05b0f8c387c41cf0b95bb32e15e667
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362153"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825896"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD
 
@@ -83,7 +83,7 @@ Para mejorar la seguridad de las aplicaciones publicadas por el Proxy de aplicac
 
 #### <a name="azure-ddos-protection-service"></a>Servicio Azure DDoS Protection
 
-Las aplicaciones publicadas a través del servicio de proxy de aplicación están protegidas frente a ataques de denegación de servicio distribuido (DDoS). **Azure DDoS Protection** es un servicio que se ofrece con la plataforma Azure para proteger los recursos de Azure frente a ataques de denegación de servicio. El nivel de servicio **Básico** se habilita automáticamente, lo que proporciona supervisión del tráfico siempre activa y mitigación en tiempo real de los ataques de nivel de red comunes. Para más información, consulte [Introducción a Azure DDoS Protection estándar](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Las aplicaciones publicadas a través del servicio de proxy de aplicación están protegidas frente a ataques de denegación de servicio distribuido (DDoS). Esta protección la administra Microsoft y se habilita automáticamente en todos nuestros centros de recursos. El servicio Azure DDoS Protection proporciona supervisión continua del tráfico y mitigación en tiempo real de los ataques de nivel de red habituales. 
 
 ## <a name="under-the-hood"></a>En segundo plano
 

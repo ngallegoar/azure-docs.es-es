@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 5959ccd2699ef1162779a4a1d90ab6bb8af1bbbf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544857"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255881"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Tutorial: Configuración de OrgWiki para el aprovisionamiento automático de usuarios
 
@@ -55,23 +55,23 @@ Antes de configurar OrgWiki para el aprovisionamiento automático de usuarios co
 
 1. Inicie sesión en la [consola de administración de OrgWiki](https://www.theorgwiki.com/login/). Haga clic en **Admin Console** (Consola de administración).
 
-    ![OrgWiki: Agregar SCIM](media/theorgwiki-provisioning-tutorial/login.png)
+    ![Captura de pantalla de OrgWiki con el avatar del usuario y la consola de administración resaltados.](media/theorgwiki-provisioning-tutorial/login.png)
 
 2. En la consola de administración, haga clic en la pestaña **Settings** (Configuración). 
 
-    ![OrgWiki: Agregar SCIM](media/theorgwiki-provisioning-tutorial/settings.png)
+    ![Captura de pantalla de la consola de administración de OrgWiki con la pestaña Configuración resaltada.](media/theorgwiki-provisioning-tutorial/settings.png)
     
 3. Vaya a **Service Accounts** (Cuentas de servicio).
 
-    ![OrgWiki: Agregar SCIM](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
+    ![Captura de pantalla de la página Cuentas de servicio en la consola de administración de OrgWiki.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
 4. Haga clic en **+Service Account** (+Cuenta de servicio). En **Service Account Type** (Tipo de cuenta de servicio), seleccione **Token Based** (Basada en token). Haga clic en **Save**(Guardar).
 
-    ![OrgWiki: Agregar SCIM](media/theorgwiki-provisioning-tutorial/auth.png)
+    ![Captura de pantalla del cuadro de diálogo Cuenta de servicio con las opciones Tipo de cuenta de servicio, Basada en token y Guardar resaltadas.](media/theorgwiki-provisioning-tutorial/auth.png)
 
 5.  Copie los **tokens activos**. Este valor se escribirá en el campo Token secreto de la pestaña Aprovisionamiento de la aplicación OrgWiki en Azure Portal.
      
-    ![OrgWiki: Agregar SCIM](media/theorgwiki-provisioning-tutorial/token.png)
+    ![Captura de pantalla del cuadro de diálogo Administrar tokens para el aprovisionamiento de SCIM.](media/theorgwiki-provisioning-tutorial/token.png)
 
 ## <a name="add-theorgwiki-from-the-gallery"></a>Adición de OrgWiki desde la galería
 
@@ -95,15 +95,15 @@ Para configurar OrgWiki para el aprovisionamiento automático de usuarios con Az
 
 5. Seleccione el botón **Registrarse para OrgWiki**; se le redirigirá a la página de inicio de sesión de OrgWiki. 
 
-    ![OrgWiki: Agregar SCIM](media/theorgwiki-provisioning-tutorial/image00.png)
+    ![Captura de pantalla de la página de inicio de sesión de OrgWiki con la dirección URL resaltada](media/theorgwiki-provisioning-tutorial/image00.png)
 
 6.  En la esquina superior derecha, seleccione **Login** (Inicio de sesión).
 
-    ![OrgWiki: Agregar SCIM](media/theorgwiki-provisioning-tutorial/image02.png)
+    ![Captura de pantalla de la esquina superior derecha de la página de inicio de sesión con la opción Iniciar sesión resaltada.](media/theorgwiki-provisioning-tutorial/image02.png)
 
 7. Como OrgWiki es una aplicación de OpenIDConnect, elija iniciar sesión en OrgWiki con su cuenta Microsoft profesional.
 
-    ![OrgWiki: Agregar SCIM](media/theorgwiki-provisioning-tutorial/image03.png)
+    ![Captura de pantalla de la página de inicio de sesión de OrgWiki con la opción Iniciar sesión con Microsoft resaltada.](media/theorgwiki-provisioning-tutorial/image03.png)
     
 8. Después de una autenticación correcta, la aplicación se agregará automáticamente al inquilino y se le redirigirá a su cuenta de OrgWiki.
 
@@ -126,11 +126,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` en la **URL de inquilino**. 
 

@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: b51b44f3a3d0889836bb41e0bf2fa37234338cf4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a8879bed4160c7cd1bd74cb196ce271964e384f7
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287090"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813243"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnósticos de arranque de Azure
 
@@ -25,6 +25,8 @@ Una experiencia alternativa de los diagnósticos de arranque consiste en usar un
 
 > [!IMPORTANT]
 > A los clientes de Azure no se les cobrará por los costos de almacenamiento asociados a los diagnósticos de arranque que usan una cuenta de almacenamiento administrada hasta octubre de 2020.
+>
+> Los blobs de datos de diagnósticos de arranque (que constan de registros e imágenes de instantáneas) se almacenan en una cuenta de almacenamiento administrada. A los clientes solo se les cobrarán los GiB utilizados por los blobs, no por el tamaño aprovisionado del disco. Los medidores de las instantáneas se usarán para la facturación de la cuenta de almacenamiento administrada. Dado que las cuentas administradas se crean en ZRS estándar o LRS estándar, a los clientes se les cobrará a 0,05 USD/GB al mes solo para el tamaño de los blobs de datos de diagnóstico. Para obtener más información sobre los precios, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). Los clientes verán este cargo asociado al URI de recurso de la VM. 
 
 ## <a name="boot-diagnostics-view"></a>Vista de diagnósticos de arranque
 Situada en la hoja de la máquina virtual, la opción Diagnósticos de arranque se encuentra en la sección *Soporte técnico y solución de problemas* de Azure Portal. Al seleccionar los diagnósticos de arranque se mostrará una captura de pantalla e información de registro serie. El registro serie contiene la mensajería del kernel y la captura de pantalla es una instantánea del estado actual de las máquinas virtuales. El aspecto de la captura de pantalla esperada, depende de si la máquina virtual se ejecuta en Windows o Linux. En Windows, los usuarios verán un fondo de escritorio y en Linux, los usuarios verán un mensaje de inicio de sesión.

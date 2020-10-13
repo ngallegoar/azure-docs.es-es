@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: c14d70f7489115b980479e7225cc3b47f80b3f2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 64156741437a6805b7060d2aaa67b8de5b4aad13
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554975"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826442"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutorial: Integración de Azure Active Directory con Flock
 
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único de Azure AD con Flock, realice los p
 
 2. Seleccione la pestaña **Autenticación** en el panel de navegación izquierdo y, después, seleccione **Autenticación SAML**.
 
-    ![Configuración de Flock](./media/flock-tutorial/configure1.png)
+    ![Captura de pantalla que muestra la pestaña "Authentication" (Autenticación) con la opción "S A M L Authentication" (Autenticación de S A M L) seleccionada.](./media/flock-tutorial/configure1.png)
 
 3. En la sección **Autenticación SAML** , realice los pasos siguientes:
 
@@ -203,11 +203,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Flock, tienen que 
 
 2. Haga clic en **Administrar equipo** en el panel de navegación de la izquierda.
 
-    ![Agregar empleado](./media/flock-tutorial/user1.png)
+    ![Captura de pantalla que muestra la opción "Manage Team" (Administrar equipo) seleccionada.](./media/flock-tutorial/user1.png)
 
 3. Haga clic en las pestaña **Agregar miembro** y, después, seleccione **Miembros del equipo**.
 
-    ![Agregar empleado](./media/flock-tutorial/user2.png)
+    ![Captura de pantalla que muestra la pestaña "Add Member" (Agregar miembro) y la opción "Team Members" (Miembros del equipo) seleccionada.](./media/flock-tutorial/user2.png)
 
 4. Escriba la dirección de correo electrónico del usuario en formato **Brittasimon\@contoso.com** y después seleccione **Agregar usuarios**.
 

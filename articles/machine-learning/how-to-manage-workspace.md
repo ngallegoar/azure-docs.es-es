@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 38784b006acac4c3ff70b2aa3c38648e939eddeb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, fasttrack-edit
+ms.openlocfilehash: d2885c6cc259cba74ab991ecf5046856984824f1
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889923"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631260"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal
 
@@ -45,13 +45,14 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
    Nombre del área de trabajo |Escriba un nombre único que identifique el área de trabajo. En este ejemplo, se usa **docs-ws**. Los nombres deben ser únicos en el grupo de recursos. Utilice un nombre que sea fácil de recordar y que se diferencie del de las áreas de trabajo creadas por otros. El nombre del área de trabajo no distingue mayúsculas de minúsculas.
    Suscripción |Seleccione la suscripción de Azure que quiera usar.
    Resource group | Use un grupo de recursos existente en su suscripción o escriba un nombre para crear un nuevo grupo de recursos. Un grupo de recursos almacena los recursos relacionados con una solución de Azure. En este ejemplo, se usa **docs-aml**. Necesita el rol *colaborador* o *propietario* para usar un grupo de recursos existente.  Para obtener más información sobre el acceso, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
-   Location | Seleccione la ubicación más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
-   Location | Seleccione la ubicación más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
+   Region | Seleccione la región de Azure más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
+   Edición del área de trabajo | Seleccione **Basic** o **Enterprise**.  Esta edición del área de trabajo determina las características a las que tendrá acceso y los precios. Más información sobre [Azure Machine Learning](overview-what-is-azure-ml.md). 
 
     ![Configuración de un área de trabajo](./media/how-to-manage-workspace/select-edition.png)
 
-1. Cuando haya terminado de configurar el área de trabajo, seleccione **Revisar y crear**.
-2. Revise la configuración y realice cualquier cambio o corrección adicional. Cuando esté satisfecho con la configuración, seleccione **Crear**.
+1. Cuando haya terminado de configurar el área de trabajo, seleccione **Revisar y crear**. También puede usar las secciones [Redes](#networking) y [Opciones avanzadas](#advanced) para configurar otros valores del área de trabajo.
+
+1. Revise la configuración y realice cualquier cambio o corrección adicional. Cuando esté satisfecho con la configuración, seleccione **Crear**.
 
    > [!Warning] 
    > La creación del área de trabajo en la nube puede tardar varios minutos.
@@ -59,6 +60,65 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
    Cuando finalice el proceso, aparecerá un mensaje de implementación correcta. 
  
  1. Para ver la nueva área de trabajo, seleccione **Ir al recurso**.
+
+### <a name="networking"></a>Redes  
+
+> [!IMPORTANT]  
+> Para obtener más información sobre el uso de un punto de conexión privado y una red virtual con el área de trabajo, vea [Aislamiento de red y privacidad](how-to-enable-virtual-network.md).
+    
+1. La configuración de red predeterminada es usar un __Punto de conexión público__, que es accesible en la red pública de Internet. Para limitar el acceso al área de trabajo a una instancia de Azure Virtual Network que ha creado, puede seleccionar __Punto de conexión privado__ como el __Método de conectividad__ y, a continuación, usar __+ Agregar__ para configurar el punto de conexión. 
+    
+   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Selección del punto de conexión privado":::  
+
+1. En el formulario __Crear punto de conexión privado__, establezca la ubicación, el nombre y la red virtual que se va a usar. Si desea usar el punto de conexión con una zona DNS privada, seleccione __Integrar con la zona DNS privada__ y seleccione la zona mediante el campo __Zona DNS privada__. Seleccione __Aceptar__ para crear el punto de conexión.   
+
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Selección del punto de conexión privado":::   
+
+1. Cuando haya terminado de configurar las redes, puede seleccionar __Revisar y crear__, o bien avanzar hasta la configuración de __Avanzado__ opcional. 
+
+    > [!WARNING]    
+    > Al crear un punto de conexión privado, se crea una nueva zona DNS privada denominada __privatelink.api.azureml.ms__. Contiene un vínculo a la red virtual. Si crea varias áreas de trabajo con puntos de conexión privados en el mismo grupo de recursos, solo la red virtual del primer punto de conexión privado se puede agregar a la zona DNS. Para agregar entradas para las redes virtuales usadas por áreas de trabajo o puntos de conexión privados adicionales, siga estos pasos: 
+    >   
+    > 1. En [Azure Portal](https://portal.azure.com), seleccione el grupo de recursos que contiene el área de trabajo. A continuación, seleccione el recurso de zona DNS privada denominado __privatelink.api.azureml.ms__.    
+    > 2. En __Configuración__, seleccione __Vínculos de red virtual__. 
+    > 3. Seleccione __Agregar__. En la página __Agregar el vínculo de red virtual__, proporcione un __Nombre de vínculo__ único y, a continuación, seleccione la __Red virtual__ que se va a agregar. Seleccione __Aceptar__ para agregar el vínculo de red.    
+    >   
+    > Para obtener más información, vea [Configuración de DNS para puntos de conexión privados de Azure](/azure/private-link/private-endpoint-dns).   
+
+### <a name="vulnerability-scanning"></a>Examen de vulnerabilidades
+
+Azure Security Center proporciona administración unificada de la seguridad y protección avanzada contra amenazas para cargas de trabajo en la nube híbrida. Debe permitir que Azure Security Center examine los recursos y seguir sus recomendaciones. Para más información, consulte [Introducción a Azure Defender para registros de contenedor](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) e [Introducción a Azure Defender para Kubernetes](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
+
+### <a name="advanced"></a>Avanzado    
+
+De forma predeterminada, las métricas y los metadatos del área de trabajo se almacenan en una instancia de Azure Cosmos DB que Microsoft mantiene. Estos datos se cifran con claves administradas por Microsoft.  
+
+Para limitar los datos que Microsoft recopila sobre el área de trabajo, seleccione __High business impact workspace__ (Área de trabajo de alto impacto de negocio). Para más información sobre esta configuración, consulte [Cifrado en reposo](concept-enterprise-security.md#encryption-at-rest).
+
+> [!IMPORTANT]  
+> La selección de un alto impacto de negocio solo puede realizarse al crear un área de trabajo. Este valor no se puede cambiar tras la creación del área de trabajo.   
+Si va a usar la versión __Enterprise__ de Azure Machine Learning, puede proporcionar su propia clave. Así, se crea la instancia de Azure Cosmos DB que almacena las métricas y los metadatos en la suscripción de Azure. Siga estos pasos para usar su propia clave:    
+
+> [!IMPORTANT]  
+> Antes de seguir estos pasos, debe completar las siguientes acciones:   
+>   
+> 1. Autorice __Machine Learning App__ (en Administración de identidades y acceso) con permisos de colaborador en la suscripción.  
+> 1. Siga los pasos de [Configuración de claves administradas por el cliente](/azure/cosmos-db/how-to-setup-cmk) para:   
+>     * Registrar el proveedor de Azure Cosmos DB   
+>     * Creación y configuración de una instancia de Azure Key Vault 
+>     * Generar una clave  
+>   
+>     No es necesario crear manualmente la instancia de Azure Cosmos DB; se crea una automáticamente durante la creación del área de trabajo. Esta instancia de Azure Cosmos DB se crea en un grupo de recursos independiente con un nombre basado en este patrón: `<your-workspace-resource-name>_<GUID>`.   
+>   
+> Este valor no se puede cambiar tras la creación del área de trabajo. Si elimina la instancia de Azure Cosmos DB que usa el área de trabajo, también debe eliminar el área de trabajo que la está usando.
+
+1. Seleccione __Claves administradas por el cliente__ y, después, seleccione __Hacer clic para seleccionar una clave__.   
+
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Selección del punto de conexión privado":::   
+
+1. En el formulario __Seleccionar clave en Azure Key Vault__, seleccione una instancia de Azure Key Vault existente, una clave que contenga y la versión de la clave. Esta clave se usa para cifrar los datos almacenados en Azure Cosmos DB. Por último, use el botón __Seleccionar__ para usar esta clave. 
+
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Selección del punto de conexión privado":::
 
 ### <a name="download-a-configuration-file"></a>Descarga de un archivo de configuración
 
@@ -87,7 +147,7 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
 
 En [Azure Portal](https://portal.azure.com/), seleccione **Eliminar** en la parte superior del área de trabajo que desea eliminar.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Eliminación del área de trabajo":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Selección del punto de conexión privado":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

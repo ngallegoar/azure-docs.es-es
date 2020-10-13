@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38b4b701329cf35088d797b095fa3caca46f55b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e941007ddc27f809de7d43cd33e44c5b521a6bd
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338981"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743835"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Uso de Azure Portal para administrar usuarios en Azure Data Box Gateway
 
@@ -45,7 +45,7 @@ Para agregar un usuario siga estos pasos en Azure Portal.
 
 2. Especifique el nombre de usuario y la contraseña del usuario que desea agregar. Confirme la contraseña y haga clic en **Agregar**.
 
-    ![Hacer clic en agregar usuario](media/data-box-gateway-manage-users/add-user-2.png)
+    ![Hacer clic en agregar usuario 2](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > El sistema reserva a estos usuarios y no se deben usar: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
@@ -70,11 +70,11 @@ Siga estos pasos en Azure Portal para eliminar un usuario.
 
 2. Cuando se le solicite, confirme la eliminación. 
 
-   ![Eliminar un usuario](media/data-box-gateway-manage-users/delete-user-2.png)
+   ![Eliminación de un usuario 2](media/data-box-gateway-manage-users/delete-user-2.png)
 
 La lista de usuarios se actualiza para reflejar el usuario eliminado.
 
-![Eliminar un usuario](media/data-box-gateway-manage-users/delete-user-3.png)
+![Eliminación de un usuario 3](media/data-box-gateway-manage-users/delete-user-3.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
