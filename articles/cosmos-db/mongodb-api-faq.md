@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: de75ea1bc0a1cf63c74be3f7d9e486e1fe38db6f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 05b0ff7d4f56a61c5c91848044a30cb9bf1d0f46
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614005"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565316"
 ---
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>Preguntas más frecuentes sobre la API de Azure Cosmos DB para MongoDB
 
-La API de Azure Cosmos DB para MongoDB es una capa de compatibilidad de protocolo de transferencia que permite a las aplicaciones comunicarse de manera sencilla y transparente con el motor de base de datos nativo de Azure Cosmos mediante los controladores y los SDK para MongoDB admitidos por la comunidad. Los desarrolladores ahora pueden usar cadenas de herramienta de MongoDB existentes y aptitudes para compilar aplicaciones que aprovechan las ventajas de Azure Cosmos DB. Los desarrolladores pueden beneficiarse de las funcionalidades únicas de Azure Cosmos DB, que incluyen distribución global con replicación de arquitectura multimaestro, indexación automática, mantenimiento de copia de seguridad, contratos de nivel de servicio con respaldo financiero, etc.
+La API de Azure Cosmos DB para MongoDB es una capa de compatibilidad de protocolo de transferencia que permite a las aplicaciones comunicarse de manera sencilla y transparente con el motor de base de datos nativo de Azure Cosmos mediante los controladores y los SDK para MongoDB admitidos por la comunidad. Los desarrolladores ahora pueden usar cadenas de herramienta de MongoDB existentes y aptitudes para compilar aplicaciones que aprovechan las ventajas de Azure Cosmos DB. Los desarrolladores se benefician de las capacidades únicas de Azure Cosmos DB, que incluyen distribución global con replicación de escritura en varias regiones, indexación automática, mantenimiento de copias de seguridad, contratos de nivel de servicio con respaldo financiero, etc.
 
 ## <a name="how-do-i-connect-to-my-database"></a>¿Cómo me conecto a mi base de datos?
 
