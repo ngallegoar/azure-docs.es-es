@@ -1,7 +1,7 @@
 ---
-title: Adición del inicio de sesión con Microsoft a aplicaciones web de ASP.NET Core | Azure
+title: 'Inicio rápido: Incorporación del inicio de sesión con Microsoft a una aplicación web de ASP.NET Core | Azure'
 titleSuffix: Microsoft identity platform
-description: Aprenda a implementar el inicio de sesión de Microsoft en una aplicación web de ASP.NET Core mediante OpenID Connect.
+description: En este inicio rápido, aprenderá cómo una aplicación implementa el inicio de sesión de Microsoft en una aplicación web de ASP.NET mediante OpenID Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,18 +12,23 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 1d31fc70aaf8449ed8bdafe4e290113e20865906
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bf80a15131a8808359d21d5a9655ef04db236178
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902355"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613499"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de ASP.NET Core
 
 En este inicio rápido, utilizará un código de ejemplo para aprender cómo una aplicación web ASP.NET Core puede iniciar sesión en cuentas personales (hotmail.com, outlook.com y otras), profesionales y educativas desde cualquier instancia de Azure Active Directory (Azure AD). (Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).)
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Prerrequisitos
+>
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) o [Visual Studio Code](https://code.visualstudio.com/)
+> * [SDK de .NET Core 3.1+](https://dotnet.microsoft.com/download)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Registro y descarga de la aplicación de inicio rápido
 > Tiene dos opciones para comenzar con la aplicación de inicio rápido:
 > * [Rápido] [Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -44,7 +49,7 @@ En este inicio rápido, utilizará un código de ejemplo para aprender cómo una
 > 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 > 1. Busque y seleccione **Azure Active Directory**.
 > 1. En **Administrar**, seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
-> 1. Escriba el **Nombre** de la aplicación, por ejemplo: `AspNetCore-Quickstart`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
+> 1. Escriba el **Nombre** de la aplicación, por ejemplo `AspNetCore-Quickstart`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
 > 1. Escriba un **URI de redirección** de `https://localhost:44321/`.
 > 1. Seleccione **Registrar**.
 > 1. En **Administrar**, seleccione **Autenticación**.
@@ -108,7 +113,7 @@ En este inicio rápido, utilizará un código de ejemplo para aprender cómo una
 >
 > Después de haber dado su consentimiento a los permisos solicitados, la aplicación muestra que ha iniciado sesión correctamente con sus credenciales de Azure Active Directory.
 >
-> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Explorador web que muestra la aplicación web en ejecución y el usuario con la sesión iniciada":::
+> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Cuadro de diálogo de consentimiento que muestra los permisos que solicita la aplicación al usuario >":::
 
 ## <a name="more-information"></a>Más información
 
@@ -146,7 +151,7 @@ La línea que contiene `.AddMicrosoftIdentityWebApp` agrega la autenticación de
 | Clave de *appsettings.json* | Descripción                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `ClientId`             | El **Id. de aplicación (cliente)** de la aplicación registrada en Azure Portal.                                                                                       |
-| `Instance`             | El punto de conexión del servicio de token de seguridad (STS) para que el usuario se autentique. Normalmente, este valor es `https://login.microsoftonline.com/`, lo que indica la nube pública de Azure. |
+| `Instance`             | El punto de conexión del servicio de token de seguridad (STS) para que el usuario se autentique. Normalmente, este valor es `https://login.microsoftonline.com/`, que indica la nube pública de Azure. |
 | `TenantId`             | Nombre o id. (un GUID) del inquilino, o bien *common*, para el inicio de sesión de usuarios con cuentas profesionales o educativas o cuentas personales de Microsoft.                             |
 
 El método `Configure()` contiene dos métodos importantes, `app.UseCookiePolicy()` y `app.UseAuthentication()`, que habilitan su funcionalidad con nombre.
