@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: efbc0ba4ef39be6a2a8598ad006cb3aea090974c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 31b1ff3324c610c385ad793f124735be30cab9f9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177750"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327721"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimización de las consultas de registro en Azure Monitor
 Los registros de Azure Monitor usan [Azure Data Explorer (ADX)](/azure/data-explorer/) para almacenar los datos de registro y ejecutar consultas para analizar los datos. Crea, administra y mantiene los clústeres de ADX automáticamente y los optimiza para la carga de trabajo de análisis de registros. Al ejecutar una consulta, se optimiza y se redirige al clúster de ADX adecuado que almacena los datos del área de trabajo. Tanto los registros de Azure Monitor como Azure Data Explorer usan muchos mecanismos de optimización de consultas automática. Aunque las optimizaciones automáticas proporcionan un aumento significativo, en algunos casos se puede mejorar drásticamente el rendimiento de las consultas. En este artículo se explican las consideraciones de rendimiento y varias técnicas para corregirlas.
@@ -98,18 +98,34 @@ Por ejemplo, las siguientes consultas producen exactamente el mismo resultado, p
 
 ```Kusto
 //less efficient
-Heartbeat 
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| where IPRegion == "WestCoast"
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| extend Msg = strcat("Syslog: ",SyslogMessage)
+| where  Msg  has "Error"
+| count 
 ```
 ```Kusto
 //more efficient
-Heartbeat 
-| where RemoteIPLongitude  < -94
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| where  SyslogMessage  has "Error"
+| count 
 ```
+
+En algunos casos, la columna evaluada se crea implícitamente mediante el motor de procesamiento de consultas, ya que el filtrado se realiza no solo en el campo:
+```Kusto
+//less efficient
+SecurityEvent
+| where tolower(Process) == "conhost.exe"
+| count 
+```
+```Kusto
+//more efficient
+SecurityEvent
+| where Process =~ "conhost.exe"
+| count 
+```
+
+
+
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Uso de dimensiones y comandos de agregación efectivos para resúmenes y uniones
 
@@ -279,7 +295,7 @@ SecurityEvent
 | distinct FilePath, CallerProcessName1
 ```
 
-Cuando la situación anterior no permite evitar el uso de subconsultas, otra técnica es sugerir al motor de consultas que hay un único dato de origen que se usa en cada una de ellas mediante la función [materialize()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Esto resulta útil cuando los datos de origen proceden de una función que se usa varias veces dentro de la consulta.
+Cuando la situación anterior no permite evitar el uso de subconsultas, otra técnica es sugerir al motor de consultas que hay un único dato de origen que se usa en cada una de ellas mediante la función [materialize()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Esto resulta útil cuando los datos de origen proceden de una función que se usa varias veces dentro de la consulta. La función materialize es eficaz cuando la salida de la subconsulta es mucho menor que la entrada. El motor de consultas almacenará en caché la salida y la reutilizará en todas las repeticiones.
 
 
 
