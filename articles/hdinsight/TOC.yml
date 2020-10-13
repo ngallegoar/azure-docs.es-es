@@ -64,8 +64,14 @@
           href: ./hdinsight-capacity-planning.md
         - name: Procedimientos recomendados de administración de clústeres
           href: ./cluster-management-best-practices.md
-        - name: Disponibilidad y confiabilidad
-          href: ./hdinsight-high-availability-linux.md
+        - name: Continuidad empresarial
+          items:
+            - name: Información general sobre la continuidad empresarial
+              href: hdinsight-business-continuity.md
+            - name: Arquitectura de continuidad empresarial
+              href: ./hdinsight-business-continuity-architecture.md
+            - name: Caso práctico de alta disponibilidad
+              href: ./hdinsight-high-availability-case-study.md
         - name: Descripción de identidades administradas
           href: ./hdinsight-managed-identities.md
         - name: Comparación entre las opciones de almacenamiento
@@ -102,10 +108,14 @@
           items:
             - name: Uso de Azure Storage
               href: hdinsight-hadoop-use-blob-storage.md
-            - name: Uso de Azure Data Lake Storage Gen2
+            - name: Uso de Data Lake Storage Gen2
               href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-            - name: Uso de Azure Data Lake Storage Gen1
-              href: hdinsight-hadoop-use-data-lake-store.md
+            - name: Azure Data Lake Storage Gen2 en el portal
+              href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
+            - name: Uso de Data Lake Storage Gen2 con la CLI de Azure
+              href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
+            - name: Uso de Data Lake Storage Gen1
+              href: hdinsight-hadoop-use-data-lake-storage-gen1.md
         - name: Extensión de los clústeres
           items:
             - name: Instalación de aplicaciones de HDInsight
@@ -757,6 +767,8 @@
           href: ./interactive-query/gateway-best-practices.md
         - name: Directrices de ajuste de tamaño
           href: ./interactive-query/sizing-guidelines.md
+        - name: Replicación de Hive
+          href: ./interactive-query/apache-hive-replication.md
     - name: Guías paso a paso
       items:
         - name: Desarrollar
