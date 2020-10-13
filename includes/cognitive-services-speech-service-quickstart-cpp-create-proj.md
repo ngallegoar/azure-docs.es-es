@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 517b092f933bedae0f254461d9bfee4d4640db8b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 96a085e3183289d9f2add054128c0faa6b0cdb29
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374894"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91654407"
 ---
 Para crear un proyecto de Visual Studio C++ para el desarrollo de escritorio, debe configurar las opciones de desarrollo de Visual Studio, crear el proyecto, seleccionar la arquitectura de destino e instalar el SDK de voz.
 
@@ -19,13 +19,13 @@ Para empezar, asegúrese de que Visual Studio está configurado correctamente pa
 
 1. Abra Visual Studio 2019 para mostrar la ventana **Inicio**.
 
-   ![Ventana Inicio: Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
+   ![Captura de pantalla que muestra la ventana de inicio de Visual Studio 2019.](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
 
 1. Seleccione **Continuar sin código** para ir al IDE de Visual Studio.
 
 1. En la barra de menús de Visual Studio, seleccione **Herramientas** > **Get Tools and Features** (Obtener herramientas y características) para abrir el Instalador de Visual Studio y ver el cuadro de diálogo **Modificar**.
 
-   ![Pestaña Cargas de trabajo, cuadro de diálogo Modificar, Instalador de Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
+   ![Captura de pantalla que muestra la pestaña "Cargas de trabajo" del cuadro de diálogo "Modificando" para el "Instalador de Visual Studio".](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
 
 1. En la pestaña **Cargas de trabajo**, en **Windows**, busque la carga de trabajo del **desarrollo de escritorio con C++** . Si la casilla que hay junto a esa carga de trabajo no está seleccionada, selecciónela.
 
