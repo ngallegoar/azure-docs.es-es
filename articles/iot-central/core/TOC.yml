@@ -170,9 +170,11 @@
             - name: Alternancia de chat en directo
               href: howto-show-hide-chat.md
     - name: Solución de problemas
-      items: null
-      '-name': Device connections
-      href: troubleshoot-connection.md
+      items:
+        - name: Conexiones de dispositivos
+          href: troubleshoot-connection.md
+    - name: Preguntas más frecuentes
+      href: howto-faq.md
 - name: Referencia
   items:
     - name: Azure CLI

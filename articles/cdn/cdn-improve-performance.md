@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: bd32bbb5957832629fa19eb756b95356c0292ef1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887690"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358294"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Mejora del rendimiento comprimiendo archivos en Azure CDN
 La compresión de archivo es un método sencillo y eficaz para mejorar la velocidad de transferencia de archivos y aumentar el rendimiento de carga de página al reducir el tamaño de un archivo antes de enviarlo al servidor. La compresión de archivo reduce los costos de ancho de banda y proporciona una mayor capacidad de respuesta para los usuarios.
@@ -53,12 +53,12 @@ Los niveles Standard y Premium de CDN proporcionan la misma funcionalidad de com
     Se abre la página del punto de conexión de la red CDN.
 2. Seleccione **Compresión**.
 
-    ![Selección de compresión de CDN](./media/cdn-file-compression/cdn-compress-select-std.png)
+    ![Captura de pantalla que muestra un punto de conexión con la opción Compresión seleccionada en el menú del portal.](./media/cdn-file-compression/cdn-compress-select-std.png)
 
     Se abre la página de compresión.
 3. Seleccione **On** para activar la compresión.
 
-    ![Opciones de compresión de archivo de CDN](./media/cdn-file-compression/cdn-compress-standard.png)
+    ![Captura de pantalla que muestra la activación de la Compresión.](./media/cdn-file-compression/cdn-compress-standard.png)
 4. Use los tipos MIME predeterminados o modifique la lista agregando o quitando tipos MIME.
 
    > [!TIP]

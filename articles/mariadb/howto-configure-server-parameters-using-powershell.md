@@ -6,18 +6,21 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
-ms.date: 5/26/2020
+ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: be9e61363beeb2f040aba44e67076c3d66997eee
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5fe3017e1f39e4cf23f19e2b16a3d0406707083a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87490139"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626537"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-powershell"></a>Configuración de parámetros del servidor en Azure Database for MariaDB con PowerShell
 
 Puede enumerar, mostrar y actualizar los parámetros de configuración de un servidor de Azure Database for MariaDB mediante PowerShell. En el nivel del servidor, se expone y se puede modificar un subconjunto de las opciones de configuración del motor.
+
+>[!Note]
+> Los parámetros del servidor se pueden actualizar globalmente en el servidor; use la [CLI de Azure](./howto-configure-server-parameters-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md) o [Azure Portal](./howto-server-parameters.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
