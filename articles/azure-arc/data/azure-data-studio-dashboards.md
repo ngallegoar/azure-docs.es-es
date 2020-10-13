@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: c2dd0ce3c3e9a0f1f699b58ed2657394ad9acbe1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 608f984b3e3a3020863e0c28b0aa2ad504531e3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932355"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273230"
 ---
 # <a name="azure-data-studio-dashboards"></a>Paneles de Azure Data Studio
 
@@ -49,7 +49,7 @@ NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)
 controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
 ```
 
-Si usa un tipo de LoadBalancer, deberá copiar la dirección IP externa y el número de puerto 300080.  Si usa NodePort, deberá usar la dirección IP del servidor de la API de Kubernetes y el número de puerto que aparece en la columna PUERTOS.
+Si usa un tipo de LoadBalancer, deberá copiar la dirección IP externa y el número de puerto. Si usa NodePort, deberá usar la dirección IP del servidor de la API de Kubernetes y el número de puerto que aparece en la columna PUERTOS.
 
 Ahora, deberá crear una dirección URL para el punto de conexión combinando esta información de la siguiente manera:
 

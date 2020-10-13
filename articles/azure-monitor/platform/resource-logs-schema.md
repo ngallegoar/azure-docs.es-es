@@ -4,12 +4,12 @@ description: Conozca el esquema de los eventos y servicios admitidos para los re
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: d0f78b858da51838aacd9e3be9b0a069918710a7
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 17b4b161e76f018d8f669ee7e9b5dd578bb3e035
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421924"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278403"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema específico de servicio y común para los registros de recursos de Azure
 
@@ -69,6 +69,7 @@ El esquema para los registros de recursos varía según la categoría de registr
 | Event Hubs |[Registros de Azure Event Hubs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Esquema no disponible. |
 | Azure Firewall | Esquema no disponible. |
+| Front Door | [Registro de Front Door](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [Operaciones de IoT Hub](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Registro de Azure Key Vault](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Registro de Kubernetes de Azure](../../aks/view-master-logs.md#log-event-schema) |

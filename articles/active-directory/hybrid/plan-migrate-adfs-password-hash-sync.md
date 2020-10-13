@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afef3d41212c9366aa696bfcd0abff6c8cfc4eb3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3e85d2ef9d75bbff6357466e76ffcf60e3716e78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662415"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273681"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migración de la federación a la sincronización de hash de contraseña para Azure Active Directory
 
@@ -302,7 +302,7 @@ En primer lugar, cambie el método de inicio de sesión:
 
 5. En la página **Habilitar el inicio de sesión único**, escriba las credenciales de la cuenta del administrador del dominio y, después, seleccione **Siguiente**.
 
-   ![Captura de pantalla de la página Habilitar el inicio de sesión único](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
+   ![Captura de pantalla de la página Habilitar el inicio de sesión único donde puede escribir las credenciales de la cuenta del administrador del dominio.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
 
    > [!NOTE]
    > Las credenciales de la cuenta de administrador de dominio son necesarias para habilitar el inicio de sesión único de conexión directa. Durante el proceso se realizan las acciones siguientes, que requieren estos permisos elevados. Las credenciales de la cuenta de administrador de dominio no se almacenan en Azure AD Connect ni en Azure AD. Las credenciales de la cuenta de administrador de dominio se usan solo para activar la característica. Cuando el proceso finaliza correctamente, estas credenciales se descartan.
@@ -324,7 +324,7 @@ En primer lugar, cambie el método de inicio de sesión:
    * **Inicio de sesión único de conexión directa** está establecido en **Habilitado**.
    * **Sincronización de contraseñas** está establecido en **Habilitado**.<br /> 
 
-   ![Captura de pantalla que muestra la configuración de la sección de inicio de sesión de usuario](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Captura de pantalla que muestra la configuración de la sección de inicio de sesión de usuario del portal de Azure AD.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Vaya a [Pruebas y pasos siguientes](#testing-and-next-steps).
 

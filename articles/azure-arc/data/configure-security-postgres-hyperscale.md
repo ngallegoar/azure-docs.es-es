@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b166348031e9f72e8005e866a198855db9c01a9c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932247"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273207"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configuración de la seguridad del grupo de servidores de PostgreSQL Hyperscale habilitado para Azure Arc
 
@@ -156,14 +156,66 @@ Puede usar la forma estándar Postgres para crear usuarios o roles. Sin embargo,
 Hiperescala de PostgreSQL habilitado para Azure Arc incluye el usuario administrativo de Postgres estándar _postgres_, para el que se establece la contraseña al crear el grupo de servidores.
 El formato general del comando para cambiar su contraseña es:
 ```console
-azdata arc postgres server edit --name <server group name> --admin-password <new password>
+azdata arc postgres server edit --name <server group name> --admin-password
 ```
-La contraseña se establecerá en el valor de la variable de entorno de la **sesión** de  AZDATA_PASSWORD si existe. Si no es así, se solicitará al usuario un valor.
-Para comprobar qué sucede si existe la variable de entorno de la sesión de AZDATA_PASSWORD o el valor que se establece, ejecute:
-```console
-printenv AZDATA_PASSWORD
-```
-Es posible que desee eliminar su valor si prefiere que se le pida que escriba una nueva contraseña.
+
+Donde- -admin-password es un valor booleano relacionado con la presencia de un valor en la variable de entorno de **sesión** AZDATA_PASSWORD.
+Si existe la variable de entorno de **sesión** AZDATA_PASSWORD y tiene un valor, al ejecutar el comando anterior se establecerá la contraseña del usuario postgres en el valor de esta variable de entorno.
+
+Si existe la variable de entorno de **sesión** AZDATA_PASSWORD, pero no tiene ningún valor, o si no existe la variable de entorno de **sesión** AZDATA_PASSWORD, al ejecutar el comando anterior se solicitará al usuario que escriba una contraseña de forma interactiva.
+
+#### <a name="changing-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Cambio de la contraseña del usuario administrativo postgres de manera interactiva:
+1. Elimine la variable de entorno de **sesión** AZDATA_PASSWORD o elimine su valor
+2. Ejecute el comando:
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   Por ejemplo
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   Se le pedirá que escriba la contraseña y que la confirme:
+   ```console
+   Postgres Server password:
+   Confirm Postgres Server password:
+   ```
+   Cuando se actualiza la contraseña, se muestra el resultado del comando:
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+   
+#### <a name="changing-the-password-of-the-postgres-administrative-user-using-the-azdata_password-sessions-environment-variable"></a>Cambio de la contraseña del usuario administrativo postgres mediante la variable de entorno de **sesión** AZDATA_PASSWORD:
+1. Establezca el valor de la variable de entorno de **sesión** AZDATA_PASSWORD en el valor que quiera que tenga la contraseña.
+2. Ejecute el comando:
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   Por ejemplo
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   
+   Cuando se actualiza la contraseña, se muestra el resultado del comando:
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+
+> [!NOTE]
+> Para comprobar si existe la variable de entorno de sesión AZDATA_PASSWORD y qué valor tiene, ejecute:
+> - En un cliente Linux:
+> ```console
+> printenv AZDATA_PASSWORD
+> ```
+>
+> - En un cliente Windows con PowerShell:
+> ```console
+> echo $env:AZDATA_PASSWORD
+> ```
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

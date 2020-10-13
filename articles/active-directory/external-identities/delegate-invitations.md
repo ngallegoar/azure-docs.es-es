@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae8bb66141e4cc4e67f1502b208cf519d37c0374
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706014"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278794"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo habilitar la colaboración B2B de Azure Acti
 
 De manera predeterminada, todos los usuarios e invitados del directorio pueden invitar a otros usuarios, incluso si no tienen asignado un rol de administrador. La configuración de colaboración externa le permite activar o desactivar las invitaciones de invitados para los distintos tipos de usuarios de la organización. También puede delegar las invitaciones a usuarios individuales mediante la asignación de roles que les permitan invitar a otros usuarios.
 
-Azure AD le permite restringir qué usuarios invitados externos se pueden ver en el directorio de Azure AD. De forma predeterminada, los usuarios invitados tienen un nivel de permiso limitado que les impide enumerar usuarios, grupos u otros recursos de directorio, pero sí ver la pertenencia de grupos no ocultos. Una nueva opción en versión preliminar le permite restringir aún más el acceso de invitado, de modo que los invitados solo pueden ver su propia información de perfil. 
+Azure AD le permite restringir qué usuarios invitados externos se pueden ver en el directorio de Azure AD. De forma predeterminada, los usuarios invitados tienen un nivel de permiso limitado que les impide enumerar usuarios, grupos u otros recursos de directorio, pero sí ver la pertenencia de grupos no ocultos. Una nueva opción en versión preliminar le permite restringir aún más el acceso de invitado, de modo que los invitados solo pueden ver su propia información de perfil. Para los detalles, consulte [Restricción de los permisos de acceso de invitado (versión preliminar)](../users-groups-roles/users-restrict-guest-permissions.md).
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>Configuración de los valores de colaboración externa B2B
 
@@ -44,9 +44,6 @@ De manera predeterminada, todos los usuarios, incluidos los invitados, pueden in
 3. Seleccione **External Identities** > **Configuración de colaboración externa**.
 
 4. En **Restricciones de acceso de usuarios invitados (versión preliminar)** , elija el nivel de acceso que desea que tengan los usuarios invitados:
-
-   > [!IMPORTANT]
-   > Durante un corto tiempo, estos nuevos controles del portal de los permisos de usuario invitado serán visibles solo con la dirección URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess). Para más información, consulte [Restricción de los permisos de acceso de usuario (versión preliminar)](https://aka.ms/exid-users-restrict-guest-permissions).
 
    - **Guest users have the same access as members (most inclusive)** (Los usuarios invitados tienen el mismo acceso que los miembros [principalmente inclusivo]): esta opción permite a los invitados tener el mismo acceso a los recursos de Azure AD y a los datos del directorio que los usuarios miembros.
 
