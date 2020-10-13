@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae642df48fbd18d8ead439d89ced88aa3da327c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8320f5c034eb3a6de8c912ba23a9fb3f69a8a53c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317539"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299755"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación
 
@@ -32,7 +32,7 @@ Puede habilitar el inicio de sesión único a sus aplicaciones mediante la auten
 ## <a name="how-single-sign-on-with-kcd-works"></a>Cómo funciona el inicio de sesión único con KCD
 En este diagrama se explica el flujo que se crea cuando un usuario intenta tener acceso a una aplicación local que usa IWA.
 
-![Diagrama de flujos de autenticación de Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Diagrama de flujos de autenticación de Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/authdiagram.png)
 
 1. El usuario escribe la dirección URL para tener acceso a la aplicación local mediante Application Proxy.
 2. Proxy de aplicación redirige la solicitud a los servicios de autenticación de Azure AD para realizar la autenticación previa. En este momento, Azure AD aplica cualquier autenticación correspondiente, así como directivas de autorización, como la autenticación multifactor. Si se valida el usuario, Azure AD crea un token y lo envía al usuario.
@@ -62,7 +62,7 @@ La configuración de Active Directory varía, en función de si el conector de P
 5. Seleccione **Usar cualquier protocolo de autenticación**.
 6. En **Servicios a los que esta cuenta puede presentar credenciales delegadas**, agregue el valor de la identidad SPN del servidor de aplicaciones. Esto permite al conector del proxy de aplicación suplantar a los usuarios en AD en las aplicaciones definidas en la lista.
 
-   ![Captura de pantalla de ventana Conector-Propiedades SVR](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
+   ![Captura de pantalla de ventana Conector-Propiedades SVR](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Conector y servidor de aplicaciones en dominios diferentes
 1. Para obtener una lista de requisitos previos para trabajar con KCD entre dominios, vea [Delegación limitada Kerberos entre dominios](https://technet.microsoft.com/library/hh831477.aspx).
@@ -97,7 +97,6 @@ La configuración de Active Directory varía, en función de si el conector de P
 
    ![Configuración avanzada de aplicaciones](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
-
 ## <a name="sso-for-non-windows-apps"></a>SSO para las aplicaciones no son de Windows
 
 El flujo de la delegación de Kerberos del Proxy de aplicación de Azure AD se inicia cuando Azure AD autentica al usuario en la nube. Una vez que la solicitud se recibe en local, el conector de Proxy de aplicación de Azure AD emite un vale Kerberos en nombre del usuario mediante la interacción con Active Directory local. Este proceso se conoce como Delegación limitada de Kerberos (KCD). 
@@ -106,7 +105,7 @@ En la fase siguiente, se envía una solicitud a la aplicación back-end con este
 
 Hay varios mecanismos que definen cómo enviar el vale Kerberos en estas solicitudes. La mayoría de los servidores que no son de Windows esperan recibirlo en forma de token SPNEGO. Este mecanismo es compatible con Azure Active Directory Application Proxy pero está deshabilitado de forma predeterminada. Se puede configurar un conector para SPNEGO o para un token Kerberos estándar, pero no para ambos.
 
-Si configura una máquina de conector para SPNEGO, asegúrese de que todos los demás conectores del grupo de conectores también estén configurados con SPNEGO. Las aplicaciones que esperan un token Kerberos estándar deben enrutarse a través de otros conectores que no estén configurados para SPNEGO.
+Si configura una máquina de conector para SPNEGO, asegúrese de que todos los demás conectores del grupo de conectores también estén configurados con SPNEGO. Las aplicaciones que esperan un token Kerberos estándar deben enrutarse a través de otros conectores que no estén configurados para SPNEGO. Algunas aplicaciones web aceptan ambos formatos sin necesidad de ningún cambio en la configuración. 
  
 
 Para habilitar SPNEGO:
@@ -136,6 +135,8 @@ Con el proxy de aplicación, puede seleccionar qué identidad utilizar para obte
 ![Captura de pantalla de parámetro de identidad de inicio de sesión delegado](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_upn.png)
 
 Si se usa la identidad de inicio de sesión delegada, es posible que el valor no sea único para todos los dominios o bosques de la organización. Puede evitar este problema al publicar estas aplicaciones dos veces con dos grupos diferentes de conector. Puesto que cada aplicación tiene una audiencia de usuarios diferente, puede unir sus conectores a un dominio diferente.
+
+Si se utiliza **Nombre de cuenta SAM local** para la identidad de inicio de sesión, el equipo que hospeda el conector debe agregarse al dominio en el que se encuentra la cuenta de usuario.
 
 ### <a name="configure-sso-for-different-identities"></a>Configurar el inicio de sesión único para distintas identidades
 1. Configure Azure AD Connect para que la identidad principal sea la dirección de correo electrónico (correo). Esto se realiza como parte del proceso de personalización, al cambiar el campo **Nombre principal de usuario** en la configuración de sincronización. Esta configuración también determina la forma en que los usuarios inician sesión en dispositivos con Office 365 y Windows10, y otras aplicaciones que usan Azure AD como almacén de identidades.  

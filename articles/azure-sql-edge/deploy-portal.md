@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ffd967797a4e586387a0385169672220727f78a7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886768"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445722"
 ---
 # <a name="deploy-azure-sql-edge"></a>Implementación de Azure SQL Edge 
 
@@ -62,7 +62,6 @@ Azure Marketplace es un mercado de aplicaciones y servicios en línea en el que 
 
    |**Parámetro**  |**Descripción**|
    |---------|---------|
-   | Nombre | Nombre del módulo. |
    | MSSQL_SA_PASSWORD  | Cambie el valor predeterminado para especificar una contraseña segura para la cuenta de administrador de SQL Edge. |
    | MSSQL_LCID   | Cambie el valor predeterminado para establecer el identificador de idioma deseado que se va a usar para SQL Edge. Por ejemplo, 1036 es francés. |
    | MSSQL_COLLATION | Cambie el valor predeterminado para establecer la intercalación predeterminada para SQL Edge. Esta configuración invalida la asignación predeterminada de identificador de idioma (LCID) a la intercalación. |
@@ -110,7 +109,7 @@ Azure Marketplace es un mercado de aplicaciones y servicios en línea en el que 
    
 8. En el panel **Actualizar módulo IoT Edge**, haga clic en **Actualizar**.
 9. En la página **Establecer módulos en el dispositivo**, haga clic en **Siguiente: Rutas >** si necesita definir rutas para su implementación. De lo contrario, haga clic en **Revisar + crear**. Para obtener más información sobre la configuración de rutas, vea [Implementación de módulos y establecimiento de rutas en IoT Edge](../iot-edge/module-composition.md).
-11. En el panel **Actualizar módulo IoT Edge**, haga clic en **Crear**.
+11. En la página **Establecer módulos en el dispositivo**, haga clic en **Crear**.
 
 ## <a name="connect-to-azure-sql-edge"></a>Conexión a Azure SQL Edge
 

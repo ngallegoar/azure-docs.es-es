@@ -1,19 +1,19 @@
 ---
-title: Arquitectura de conectividad SD-WAN
+title: Arquitecturas de conectividad de Virtual WAN y SD WAN
 titleSuffix: Azure Virtual WAN
 description: Información acerca de la interconexión de una SD-WAN privada con Azure Virtual WAN
 services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/07/2020
 ms.author: sukishen
-ms.openlocfilehash: 87e9549419bccc36d743871755e782a71e93e5e0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e3f6f947b86b1cb34fde66c62199336403037827
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267472"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828053"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Arquitectura de conectividad SD WAN con Azure Virtual WAN
 
@@ -22,6 +22,7 @@ Azure Virtual WAN es un servicio de red que reúne muchos servicios de seguridad
 Aunque la propia Azure Virtual WAN es una WAN definida por software (SD-WAN), también se ha diseñado para permitir una interconexión perfecta con las tecnologías y los servicios SD-WAN basados en el entorno local. Muchos de estos servicios se ofrecen a través de nuestro ecosistema [Virtual WAN](virtual-wan-locations-partners.md) y los asociados de Azure Networking Managed Services [(MSP)](../networking/networking-partners-msp.md). Las empresas que transforman su WAN privada en SD-WAN tienen opciones cuando interconectan su SD-WAN privada con Azure Virtual WAN. Las empresas pueden elegir entre estas opciones:
 
 * Modelo de interconexión directa
+* Modelo de interconexión directa con NVA en centro de VWAN
 * Modelo de interconexión indirecta
 * Modelo WAN híbrido administrado con su proveedor de servicios administrados favorito [MSP](../networking/networking-partners-msp.md)
 
@@ -29,7 +30,7 @@ En todos estos casos, la interconexión de Virtual WAN con la SD-WAN es similar 
 
 ## <a name="direct-interconnect-model"></a><a name="direct"></a>Modelo de interconexión directa
 
-![Modelo de interconexión directa](./media/sd-wan-connectivity-architecture/direct.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/direct.png" alt-text="Modelo de interconexión directa":::
 
 En este modelo de arquitectura, el equipo local (CPE) de la rama SD-WAN se conecta directamente a los centros de Virtual WAN a través de las conexiones IPsec. La rama CPE también puede estar conectada a otras ramas a través de la SD-WAN privada, o aprovechar Virtual WAN para la conectividad de rama a rama. Las ramas que necesitan acceder a sus cargas de trabajo en Azure podrán acceder de forma directa y segura a Azure a través de los túneles IPsec que terminan en los centros Virtual WAN.
 
@@ -39,11 +40,22 @@ El CPE de SD-WAN se mantiene en el lugar donde se implementa y se aplica la opti
 
 En este modelo, es posible que algunas optimizaciones de tráfico propietario del proveedor basadas en características de tráfico en tiempo real no sean compatibles, ya que la conectividad con Virtual WAN se realiza a través de IPsec y la VPN de IPsec se termina en la puerta de enlace VPN de Virtual WAN. Por ejemplo, la selección de rutas de acceso dinámicas en el CPE de la rama es factible debido a que el dispositivo de rama intercambia diversa información de paquetes de red con otro nodo de SD-WAN, por lo que se identifica el mejor vínculo que se debe usar para el tráfico priorizado dinámicamente en la rama. Esta característica puede ser útil en áreas en las que se necesite la optimización de última etapa (rama al punto de referencia de Microsoft más cercano).
 
-Con Virtual WAN, los usuarios pueden obtener la selección de ruta de acceso de Azure, que es una selección de la ruta de acceso basada en directivas en varios vínculos de ISP desde la rama CPE a las puertas de enlace de VPN de Virtual WAN. Virtual WAN permite configurar varios vínculos (rutas de acceso) desde el mismo CPE de rama de SD-WAN; cada vínculo representa una conexión de túnel dual desde una dirección IP pública única del CPE de SD-WAN a dos instancias diferentes de la puerta de enlace de VPN de Azure Virtual WAN. Los proveedores de SD-WAN pueden implementar la ruta de acceso óptima a Azure, en función de las directivas de tráfico establecidas por el motor de directivas en los vínculos de CPE. En el extremo de Azure, todas las conexiones entrantes se tratan de forma equitativa.
+Con Virtual WAN, los usuarios pueden obtener la selección de ruta de acceso de Azure, que es una selección de la ruta de acceso basada en directivas en varios vínculos de ISP desde la rama CPE a las puertas de enlace de VPN de Virtual WAN. Virtual WAN permite configurar varios vínculos (rutas de acceso) desde el mismo CPE de rama de SD-WAN; cada vínculo representa una conexión de túnel dual desde una dirección IP pública única del CPE de SD-WAN a dos instancias diferentes de la puerta de enlace de VPN de Azure Virtual WAN. Los proveedores de SD-WAN pueden implementar la ruta de acceso óptima a Azure, en función de las directivas de tráfico establecidas por el motor de directivas en los vínculos de CPE. En el extremo de Azure, todas las conexiones entrantes se tratan de igual manera.
+
+## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a><a name="direct"></a>Modelo de interconexión directa con NVA en centro de VWAN
+
+:::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="Modelo de interconexión directa":::
+
+Este modelo de arquitectura admite la implementación de una [aplicación virtual de red (NVA) de un tercero directamente en el centro de conectividad virtual](https://docs.microsoft.com/azure/virtual-wan/about-nva-hub). Esto permite a los clientes conectar el CPE de su rama a la NVA de la misma marca en el centro de conectividad virtual para poder sacar provecho de todas las funcionalidades propias de SD-WAN al conectarse a cargas de trabajo de Azure. 
+
+Varios asociados de Virtual WAN se han esforzado para ofrecer una experiencia que configura la NVA de forma automática como parte del proceso de implementación. Una vez que la NVA se ha aprovisionado en el centro de conectividad virtual, cualquier otra configuración que necesite la NVA se debe realizar a través del portal de asociados o de la aplicación de administración de NVA. El acceso directo a la NVA no está disponible. Las NVA que están disponibles para implementarse directamente en el centro de Azure Virtual WAN se han diseñado específicamente para su uso en el centro de conectividad virtual. En el caso de los asociados que admiten NVA en un centro de VWAN, así como sus guías de implementación, se debe consulte el artículo [Asociados de Virtual WAN](virtual-wan-locations-partners.md#partners-with-integrated-virtual-hub-offerings).
+
+El CPE de SD-WAN se mantiene en el lugar donde se implementa y se aplica la optimización del tráfico, así como la selección de rutas de acceso.
+En este modelo, se admite la optimización del tráfico propio del proveedor en función de las características del tráfico en tiempo real porque la conectividad con Virtual WAN se realiza a través del NVA de SD-WAN en el centro.
 
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>Modelo de interconexión indirecta
 
-![Modelo de interconexión indirecta](./media/sd-wan-connectivity-architecture/indirect.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/indirect.png" alt-text="Modelo de interconexión directa":::
 
 En este modelo de arquitectura, los CPE de rama SD-WAN se conectan indirectamente a los centros de Virtual WAN. Como se muestra en la ilustración, se implementa un CPE virtual de SD-WAN en una red virtual de empresa. Este CPE virtual, a su vez, se conecta a los centros de Virtual WAN mediante IPsec. El CPE virtual sirve como puerta de enlace de SD-WAN en Azure. Las ramas que necesitan acceder a sus cargas de trabajo en Azure podrán acceder a ellas a través de la puerta de enlace v-CPE.
 
@@ -51,7 +63,7 @@ Dado que la conectividad con Azure se realiza a través de la puerta de enlace v
   
 ## <a name="managed-hybrid-wan-model"></a><a name="hybrid"></a>Modelo WAN híbrido administrado
 
-![Modelo WAN híbrido administrado](./media/sd-wan-connectivity-architecture/hybrid.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/hybrid.png" alt-text="Modelo de interconexión directa":::
 
 En este modelo de arquitectura, las empresas pueden aprovechar un servicio administrado de SD-WAN ofrecido por un asociado Proveedor de servicios administrados (MSP). Este modelo es similar a los modelos directo o indirecto descritos anteriormente. Sin embargo, en este modelo, el proveedor de la SD-WAN proporciona el diseño, la orquestación y las operaciones de la SD-WAN.
 

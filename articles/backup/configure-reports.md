@@ -3,12 +3,12 @@ title: Configuración de informes de Azure Backup
 description: Configure y vea informes para Azure Backup mediante Log Analytics y libros de Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 0ede2c8507032811eda26cfcb4d90f18578f3700
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d40da1ebd87ef7d7a43d0be9ae0d34911e854d0e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180293"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567441"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
@@ -23,6 +23,7 @@ En la actualidad, Azure Backup proporciona una solución de informes que usa [re
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
 - Los informes de Backup se admiten en máquinas virtuales de Azure, SQL en máquinas virtuales de Azure, SAP HANA en máquinas virtuales de Azure, el agente de Microsoft Azure Recovery Services (MARS), Microsoft Azure Backup Server (MABS) y System Center Data Protection Manager (DPM). Para la copia de seguridad de recursos compartidos de Azure, se muestran los datos de todos los registros creados el 1 de junio de 2020 o después de esa fecha.
+- En el caso de la copia de seguridad de recursos compartidos de Azure, los datos de las instancias protegidas no se muestran actualmente en los informes (el valor predeterminado es cero para todos los elementos de la copia de seguridad).
 - En las cargas de trabajo de DPM, se admiten los informes de Backup para la versión 5.1.363.0 de DPM y posteriores, y la versión 2.0.9127.0 del agente y posteriores.
 - En las cargas de trabajo de MABS, se admiten los informes de Backup para la versión 13.0.415.0 de MABS y posteriores, y la versión 2.0.9170.0 del agente y posteriores.
 - Los informes de Backup se pueden ver en todos los elementos de copia de seguridad, almacenes, suscripciones y regiones, siempre y cuando sus datos se envíen a un área de trabajo de Log Analytics a la que el usuario tenga acceso. Para ver los informes de un conjunto de almacenes, solo necesita tener acceso de lectura al área de trabajo de Log Analytics a la que los almacenes envían sus datos. No es necesario que tenga acceso a los almacenes individuales.

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 23af7ff9e4740b88d3d1f8cffb3d79a46c8d0d61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6cb2c90658a69f3e63e9ebe08db41eea0a9bc7fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544458"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299704"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configuración de GoToMeeting para el aprovisionamiento automático de usuarios
 
@@ -60,7 +60,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 1. Establezca el **modo de aprovisionamiento** en **Automático**. 
 
-    ![Aprovisionamiento](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Captura de pantalla de la pestaña Aprovisionamiento de GoToMeeting en Azure Portal. El modo de aprovisionamiento se establece en Automático y Nombre de usuario de administrador, Contraseña y Probar conexión se resaltan.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. En la sección Credenciales de administración, realice los pasos siguientes:
    

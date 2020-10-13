@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: fe8cf0da6cb6542646f3107980b49fb6fef9cb45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bbce84ad917da71ab363b20f3aef9da79ed3f2b0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317640"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828003"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Cifrado de ExpressRoute: IPsec sobre ExpressRoute para Virtual WAN
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo usar Azure Virtual WAN para establecer una co
 
 En el diagrama siguiente se muestra un ejemplo de conectividad de VPN a través del emparejamiento privado de ExpressRoute:
 
-![VPN a través de ExpressRoute](./media/vpn-over-expressroute/vwan-vpn-over-er.png)
+:::image type="content" source="./media/vpn-over-expressroute/vwan-vpn-over-er.png" alt-text="VPN a través de ExpressRoute":::
 
 El diagrama muestra una red dentro de la red local conectada a la puerta de enlace de VPN del centro de conectividad de Azure a través del emparejamiento privado de ExpressRoute. El establecimiento de la conectividad es sencillo:
 
@@ -76,7 +76,7 @@ El recurso del sitio es el mismo que el de los sitios VPN que no son de ExpressR
 >
 
 1. Vaya a Azure Portal en el explorador. 
-1. Seleccione la WAN que ha creado. En la página de la WAN, en **Conectividad**, seleccione **Sitios VPN**.
+1. Seleccione el centro que ha creado. En la página del centro de la WAN virtual, en **Conectividad**, seleccione **Sitios VPN**.
 1. En la página **Sitios de VPN**, seleccione **+Crear sitio**.
 1. En la página **Crear sitio** rellene los campos siguientes:
    * **Suscripción**: compruebe la suscripción.
@@ -104,12 +104,17 @@ El recurso del sitio es el mismo que el de los sitios VPN que no son de ExpressR
 Después de crear el sitio VPN y conectarlo al centro de conectividad, use estos pasos para configurar la conexión para que use el emparejamiento privado de ExpressRoute:
 
 1. Vuelva a la página de recursos de la red de área extensa virtual y seleccione el recurso del centro de conectividad. O bien, vaya desde el sitio VPN hasta el concentrador conectado.
-1. En **Conectividad**, seleccione **VPN (de sitio a sitio)** .
-1. Seleccione los puntos suspensivos ( **...** ) en el sitio VPN sobre ExpressRoute y seleccione **Editar la conexión de VPN a este concentrador**.
-1. En **Usar dirección IP privada de Azure**, seleccione **Sí**. El ajuste configura la puerta de enlace de VPN de concentrador para que use direcciones IP privadas dentro del intervalo de direcciones del concentrador en la puerta de enlace para esta conexión, en lugar de las direcciones IP públicas. Esto garantizará que el tráfico de la red local atraviesa las rutas de acceso del emparejamiento privado de ExpressRoute, en lugar de usar la red pública de Internet para esta conexión VPN. En la captura de pantalla siguiente se muestra la configuración.
 
-   ![Configuración para el uso de una dirección IP privada para la conexión VPN](./media/vpn-over-expressroute/vpn-link-configuration.png)
-   
+   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="VPN a través de ExpressRoute":::
+1. En **Conectividad**, seleccione **VPN (de sitio a sitio)**.
+
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="VPN a través de ExpressRoute":::
+1. Seleccione los puntos suspensivos (**...**) en el sitio VPN sobre ExpressRoute y seleccione **Editar la conexión de VPN a este concentrador**.
+
+   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="VPN a través de ExpressRoute":::
+1. En **Usar dirección IP privada de Azure**, seleccione **Sí**. El ajuste configura la puerta de enlace de VPN de concentrador para que use direcciones IP privadas dentro del intervalo de direcciones del concentrador en la puerta de enlace para esta conexión, en lugar de las direcciones IP públicas. Esto garantizará que el tráfico de la red local atraviesa las rutas de acceso del emparejamiento privado de ExpressRoute, en lugar de usar la red pública de Internet para esta conexión VPN. En la captura de pantalla siguiente se muestra la configuración:
+
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="VPN a través de ExpressRoute" border="false":::
 1. Seleccione **Guardar**.
 
 Después de guardar los cambios, la puerta de enlace de VPN del centro de conectividad usará las direcciones IP privadas en la puerta de enlace de VPN para establecer las conexiones IPsec/IKE con el dispositivo VPN local a través de ExpressRoute.
@@ -225,11 +230,11 @@ Si necesita instrucciones para configurar el dispositivo, puede utilizar las que
 1. En la página **Información general**, cada punto del mapa representa un centro de conectividad.
 1. En la sección **Centros y conexiones**, puede ver el centro de conectividad, sitio, región y el estado de la conexión VPN. También puede ver los bytes que entran y salen.
 
-## <a name="7-monitor-a-connection"></a><a name="connectmon"></a>7. Supervisar una conexión
+## <a name="6-monitor-a-connection"></a><a name="connectmon"></a>6. Supervisar una conexión
 
 Cree una conexión para supervisar la comunicación entre una máquina virtual de Azure y un sitio remoto. Para información acerca de cómo configurar una supervisión de conexión, consulte [Supervisar la comunicación de red](~/articles/network-watcher/connection-monitor.md). El campo de origen es la dirección IP de la máquina virtual en Azure y la IP de destino es la dirección IP del sitio.
 
-## <a name="8-clean-up-resources"></a><a name="cleanup"></a>8. Limpieza de recursos
+## <a name="7-clean-up-resources"></a><a name="cleanup"></a>7. Limpieza de recursos
 
 Cuando ya no necesite estos recursos, puede usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Ejecute el siguiente comando de PowerShell y reemplace `myResourceGroup` con el nombre del grupo de recursos:
 
