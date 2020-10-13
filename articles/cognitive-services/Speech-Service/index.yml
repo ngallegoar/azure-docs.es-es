@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 2d1d1057d522d082b3a5a3c757d1fe988bc24ba1
-  ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+  ms.openlocfilehash: 2d00466672318ef05218fce392797df215b6bb5f
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/02/2020
-  ms.locfileid: "91667459"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91857000"
 highlightedContent:
   items:
   - title: ¿Qué es Speech Service?
@@ -88,34 +88,6 @@ conceptualContent:
     footerLink:
       text: Más
       url: index-intent-recognition.yml
-  - title: Escenarios de conversación
-    links:
-    - itemType: overview
-      text: Acerca de la transcripción de conversaciones (reuniones)
-      url: conversation-transcription.md
-    - itemType: overview
-      text: Acerca de las conversaciones entre varios dispositivos (reuniones)
-      url: multi-device-conversation.md
-    - itemType: how-to-guide
-      text: Transcripción para los centros de llamadas
-      url: call-center-transcription.md
-    footerLink:
-      text: Más
-      url: index-conversation-scenarios.yml
-  - title: Asistentes de voz
-    links:
-    - itemType: overview
-      text: Acerca de los asistentes de voz
-      url: voice-assistants.md
-    - itemType: quickstart
-      text: Creación de un asistente de voz mediante comandos personalizados
-      url: custom-commands.md
-    - itemType: get-started
-      text: Creación de un asistente de voz mediante Bot Framework
-      url: direct-line-speech.md
-    footerLink:
-      text: Más
-      url: index-voice-assistants.yml
   - title: Speaker Recognition
     links:
     - itemType: overview
@@ -135,6 +107,26 @@ conceptualContent:
     - itemType: quickstart
       text: Introducción a Palabra clave personalizada
       url: custom-keyword-basics.md
+  - title: Profundización en el escenario
+    links:
+    - itemType: overview
+      text: Acerca de la transcripción de conversaciones (reuniones)
+      url: conversation-transcription.md
+    - itemType: overview
+      text: Acerca de las conversaciones entre varios dispositivos (reuniones)
+      url: multi-device-conversation.md
+    - itemType: overview
+      text: Acerca de los asistentes de voz
+      url: voice-assistants.md
+    - itemType: quickstart
+      text: Creación de un asistente de voz mediante comandos personalizados
+      url: custom-commands.md
+    - itemType: quickstart
+      text: Creación de un asistente de voz mediante Bot Framework
+      url: direct-line-speech.md
+    - itemType: how-to-guide
+      text: Habilitación de transcripción del centro de llamadas
+      url: call-center-transcription.md
   - title: Herramientas
     links:
     - itemType: overview
@@ -146,7 +138,7 @@ conceptualContent:
     - itemType: overview
       text: Acerca de Speech Studio (personalizaciones)
       url: https://speech.microsoft.com
-  - title: Hosting
+  - title: Hospedaje
     links:
     - itemType: how-to-guide
       text: Contenedores del servicio de voz
