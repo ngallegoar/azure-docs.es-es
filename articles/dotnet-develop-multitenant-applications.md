@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: ad77278d593e4b2165708e0c9110a9ffff19a255
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 71114b6663d010437e5778d288eacf4e120b3da5
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017709"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395981"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicaciones multiempresa en Azure
-Una aplicación multiinquilino es un recurso compartido que permite a los "usuarios en inquilinos independientes" ver la aplicación como si fuera propia. Un escenario típico de una aplicación multiinquilino es aquel en el que todos los usuarios de la aplicación de inquilinos diferentes pueden querer personalizar la experiencia de usuario pero, por otra parte, tienen los mismos requisitos empresariales básicos. Office 365, Outlook.com y visualstudio.com son ejemplos de grandes aplicaciones multiempresa.
+Una aplicación multiinquilino es un recurso compartido que permite a los "usuarios en inquilinos independientes" ver la aplicación como si fuera propia. Un escenario típico de una aplicación multiinquilino es aquel en el que todos los usuarios de la aplicación de inquilinos diferentes pueden querer personalizar la experiencia de usuario pero, por otra parte, tienen los mismos requisitos empresariales básicos. Microsoft 365, Outlook.com y visualstudio.com son ejemplos de grandes aplicaciones multiinquilino.
 
 Desde la perspectiva del proveedor de una aplicación, los beneficios de la arquitectura multiempresa se relacionan principalmente con la eficacia operativa y de costes. Una versión de la aplicación puede satisfacer las necesidades de muchos inquilinos/clientes, de manera que se permita la consolidación de las tareas de administración del sistema, como la supervisión, el ajuste del rendimiento, el mantenimiento del software y las copias de seguridad de los datos.
 
