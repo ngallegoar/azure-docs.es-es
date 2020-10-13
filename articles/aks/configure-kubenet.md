@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6f773f57bea40ba87f35ca2bbefe424d084afb2e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462146"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264616"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -162,7 +162,7 @@ Ya ha creado una red virtual y una subred y también ha creado y asignado permis
 
 Los siguientes intervalos de direcciones IP también se definen como parte del proceso de creación del clúster:
 
-* *--service-cidr* se usa para asignar servicios internos en una dirección IP del clúster de AKS. Este intervalo de direcciones IP debe ser un espacio de direcciones que no se use en ninguna otra parte del entorno de red. Este rango incluye todos los rangos de red local si conecta, o planea conectar, las redes virtuales de Azure mediante ExpressRoute o una conexión VPN de sitio a sitio.
+* *--service-cidr* se usa para asignar servicios internos en una dirección IP del clúster de AKS. Este intervalo de direcciones IP debe ser un espacio de direcciones que no se esté usando en ningún otro lugar del entorno de red, incluidos los intervalos de red locales, si conecta o tiene previsto conectar las redes virtuales de Azure mediante ExpressRoute o una conexión VPN de sitio a sitio.
 
 * La dirección *--dns-service-ip* debe ser la dirección *.10* del intervalo de direcciones IP del servicio.
 

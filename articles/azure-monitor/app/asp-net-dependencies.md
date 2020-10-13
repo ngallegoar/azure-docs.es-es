@@ -4,12 +4,12 @@ description: Supervise las llamadas de dependencia de su aplicación web o local
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d98fe91994c992d11fc58e3fec42d1796c0c966
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: df13042656aa077b30bf144aab0a47d9fc0a0662
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936544"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263936"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Seguimiento de dependencias en Azure Application Insights 
 
@@ -101,9 +101,10 @@ En el caso de las aplicaciones de ASP.NET, se recopila texto de la consulta SQL 
 | Plataforma | Pasos necesarios para obtener la consulta SQL completa |
 | --- | --- |
 | Aplicación web de Azure |En el panel de control de la aplicación web [abra la hoja de Application Insights](../../azure-monitor/app/azure-web-apps.md) y habilite los comandos SQL de .NET |
-| Servidor IIS (máquina virtual de Azure, del entorno local, entre otras). | Use el paquete de NuGet [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) o use el módulo Monitor de estado de PowerShell para [instalar el motor de instrumentación](../../azure-monitor/app/status-monitor-v2-api-reference.md) y reiniciar IIS. |
+| Servidor IIS (máquina virtual de Azure, del entorno local, entre otras). | Use el paquete de NuGet [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) o use el módulo Monitor de estado de PowerShell para [instalar el motor de instrumentación](../../azure-monitor/app/status-monitor-v2-api-reference.md#enable-instrumentationengine) y reiniciar IIS. |
 | Servicio en la nube de Azure | Agregue una [tarea de inicio para instalar StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional). <br> La aplicación se debe incorporar al SDK de ApplicationInsights en tiempo de compilación mediante la instalación de paquetes de NuGet para las aplicaciones de [ASP.NET](./asp-net.md) o [ASP.NET Core](./asp-net-core.md). |
 | IIS Express | Use el paquete NuGet [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient).
+| Trabajos web de Azure | Use el paquete NuGet [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient).
 
 Además de los pasos específicos de la plataforma anteriores, también **debe optar explícitamente por habilitar la colección de comandos SQL** al modificar el archivo applicationInsights.config con lo siguiente:
 

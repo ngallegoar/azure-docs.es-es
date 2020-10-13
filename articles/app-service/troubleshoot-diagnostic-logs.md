@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 5eaf107861d20cea395209418c343d25461b3836
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 6dffe2c6145e1596d92335defdc764c3c7bc3fa0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469939"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264378"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -185,16 +185,16 @@ Con la nueva [integración de Azure Monitor](https://aka.ms/appsvcblog-azmon), p
 
 En la tabla siguiente se muestran las descripciones y los tipos de registros admitidos: 
 
-| Tipo de registro | Soporte técnico de Windows | Compatibilidad con Linux (Docker) | Descripción |
-|-|-|-|
-| AppServiceConsoleLogs | TBA | Sí | Salida estándar y error estándar |
-| AppServiceHTTPLogs | Sí | Sí | Registros de servidor web |
-| AppServiceEnvironmentPlatformLogs | Sí | Sí | App Service Environment: escalado, cambios de configuración y registros de estado|
-| AppServiceAuditLogs | Sí | Sí | Actividad de inicio de sesión a través de FTP y KUDU |
-| AppServiceFileAuditLogs | Sí | TBD | Cambios de archivo realizados en el contenido del sitio; solo disponible para el nivel Premium y versiones posteriores |
-| AppServiceAppLogs | TBA | Java SE y Tomcat | Registros de aplicación |
-| AppServiceIPSecAuditLogs  | Sí | Sí | Solicitudes de reglas IP |
-| AppServicePlatformLogs  | TBA | Sí | Registros de contenedor |
+| Tipo de registro | Windows | Contenedor de Windows | Linux | Contenedor Linux | Descripción |
+|-|-|-|-|-|-|
+| AppServiceConsoleLogs | TBA | TBA | Sí | Sí | Salida estándar y error estándar |
+| AppServiceHTTPLogs | Sí | TBA | Sí | Sí | Registros de servidor web |
+| AppServiceEnvironmentPlatformLogs | Sí | N/D | Sí | Sí | App Service Environment: escalado, cambios de configuración y registros de estado|
+| AppServiceAuditLogs | Sí | TBA | Sí | Sí | Actividad de inicio de sesión a través de FTP y KUDU |
+| AppServiceFileAuditLogs | Sí | TBA | TBA | TBA | Cambios de archivo realizados en el contenido del sitio; solo disponible para el nivel Premium y versiones posteriores |
+| AppServiceAppLogs | ASP .NET | TBA | Java SE y Tomcat | Java SE y Tomcat | Registros de aplicación |
+| AppServiceIPSecAuditLogs  | Sí | TBA | Sí | Sí | Solicitudes de reglas IP |
+| AppServicePlatformLogs  | TBA | TBA | Sí | Sí | Registros de operación de contenedor |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Pasos siguientes
 * [Consulta de registros con Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
