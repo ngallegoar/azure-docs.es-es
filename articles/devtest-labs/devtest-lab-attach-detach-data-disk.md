@@ -3,12 +3,12 @@ title: Asociación de un disco de datos, o su desasociación, a una máquina vir
 description: Aprenda a asociar un disco de datos a una máquina virtual, o a desasociarlo, en Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 222bf06dc07cc2538bc0512b4a41b7bd91bc1ebf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8eebfbda421233bcec780d441a4020acce740618
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653926"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328520"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Asociación de un disco de datos, o su desasociación, a una máquina virtual en Azure DevTest Labs
 [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) administra las cuentas de almacenamiento asociadas a los discos de datos de máquina virtual. Un usuario asocia un nuevo disco de datos a una máquina virtual, especifica el tipo y el tamaño del disco que se necesita, y Azure crea y administra el disco automáticamente. El disco de datos se puede desasociar de la máquina virtual y volver a asociarlo más tarde a la misma máquina virtual, o bien se puede asociar a otra máquina virtual que pertenezca al mismo usuario.
@@ -46,7 +46,7 @@ Siga estos pasos para volver a asociar un disco de datos disponible a una máqui
 1. En el menú de la izquierda, seleccione **Discos**.
 1. Seleccione **Asociar existente** para asociar un disco de datos disponible a la máquina virtual.
 
-    ![Asociación de un disco de datos existente a una máquina virtual](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing-button.png)
+    ![Captura de pantalla que muestra las opciones "Discos" y "Adjuntar existente" seleccionadas.](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing-button.png)
 
 1. Desde el panel **Asociar disco existente**, seleccione Aceptar.
 
@@ -67,7 +67,7 @@ Si desea volver a usar los datos existentes en el disco, puede asociarlo de nuev
     ![Selección de discos de datos para una máquina virtual](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-button.png) 
 1. Seleccione **Asociar** en la parte superior del panel de detalles del disco.
 
-    ![Desacoplar un disco de datos](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk2.png)
+    ![Captura de pantalla que muestra el panel de detalles de un disco con la acción "Desasociar" resaltada.](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk2.png)
 1. Haga clic en **Sí** para confirmar que desea desasociar el disco de datos.
 
 El disco se desasocia y está disponible para asociarse a otra máquina virtual. 

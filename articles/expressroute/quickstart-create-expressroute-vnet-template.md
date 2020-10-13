@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f45fc32e99fff7403c40048b8c7ad117b0395cc9
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016561"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759244"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Inicio rápido: Creación de un circuito ExpressRoute con emparejamiento privado mediante una plantilla de Resource Manager
 
@@ -92,11 +92,11 @@ Azure PowerShell se usa para implementar la plantilla. Además de Azure PowerShe
 
 1. El grupo de recursos debe contener los recursos que se ven aquí:
 
-     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Grupo de recursos de implementación de ExpressRoute":::
+     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de ExpressRoute":::
 
 1. Seleccione el circuito ExpressRoute **er-ck01** para comprobar que su estado es **Habilitado**, que el estado del proveedor es **No aprovisionado** y que el emparejamiento privado tiene el estado **Aprovisionado**.
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Circuito de implementación de ExpressRoute":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de ExpressRoute":::
 
 > [!NOTE]
 > Deberá llamar al proveedor para completar el proceso de aprovisionamiento antes de poder vincular la red virtual al circuito.
@@ -120,11 +120,7 @@ En este inicio rápido, ha creado lo siguiente:
 * Dirección IP pública
 * grupos de seguridad de red
 
-Para más información sobre la vinculación de una red virtual a un circuito, vaya a los tutoriales de ExpressRoute.
+Para más información sobre cómo vincular una red virtual a un circuito, vaya a los tutoriales de ExpressRoute.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-* Para más información sobre los flujos de trabajo de ExpressRoute, vea [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).
-* Para más información sobre el emparejamiento de circuitos, vea [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md).
-* Para más información sobre redes virtuales, vea [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).

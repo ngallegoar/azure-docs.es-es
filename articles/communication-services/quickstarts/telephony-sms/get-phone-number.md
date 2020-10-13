@@ -1,24 +1,24 @@
 ---
 title: 'Inicio rápido: obtención de un número de teléfono de Azure Communication Services'
 description: Obtenga información sobre cómo comprar un número de teléfono de Communication Services mediante Azure Portal.
-author: ddematheu2
-manager: nimag
+author: prakulka
+manager: nmurav
 services: azure-communication-services
-ms.author: dademath
-ms.date: 07/09/2020
+ms.author: prakulka
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: 2743dc0164f604c9c5e033aacc3e58fae42a1fd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e06c3720e180c1dc4fa2f227fd86d15cbbb0ff33
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946051"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756912"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Inicio rápido: Obtención de un número de teléfono mediante Azure Portal
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Comience a usar Azure Communication Services mediante Azure Portal para comprar un número de teléfono.
 
@@ -37,36 +37,26 @@ Para empezar a aprovisionar números, vaya al recurso de Communication Services 
 
 Vaya a la hoja números de teléfono en el menú de recursos.
 
-:::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Captura de pantalla que muestra la página de teléfonos de un recurso de Communication Services.":::
+:::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Captura de pantalla que muestra la página principal de un recurso de Communication Services.":::
 
 Presione el botón `Get` para iniciar el asistente. El asistente de la hoja de `Phone numbers` le guiará a través de una serie de preguntas que le ayudarán a elegir el número de teléfono que mejor se adapte a su escenario. 
 
-En primer lugar, deberá elegir el `Country/region` en el que desea aprovisionar el número de teléfono. Después de seleccionar el país o la región, deberá seleccionar el `phone plan` que mejor se adapte a sus necesidades. 
+En primer lugar, deberá elegir el `Country/region` en el que desea aprovisionar el número de teléfono. Después de seleccionar el país o la región, deberá seleccionar el `use case` que mejor se adapte a sus necesidades. 
 
-:::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Captura de pantalla que muestra la vista para obtener números de teléfono.":::
+:::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Captura de pantalla que muestra la página principal de un recurso de Communication Services.":::
 
 ### <a name="select-a-phone-plan"></a>Selección de un plan de teléfono
 
 La selección de un plan de teléfono se divide en dos pasos: 
 
 1. La selección del tipo del [número de teléfono](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
-2. La selección del [plan](../../concepts/telephony-sms/plan-solution.md#plans)
+2. La selección del [plan](../../concepts/telephony-sms/plan-solution.md#phone-number-plans-in-azure-communication-services)
 
 Actualmente ofrecemos dos tipos de números: `Geographic` y `Toll-free`. Después de seleccionar un tipo de número, se le ofrecerán varios planes entre los que puede elegir.
 
-> [!NOTE]
-> Actualmente solo se admite la selección de números de teléfono con llamadas entrantes o salientes. No obstante, puede comprar un número de teléfono con una llamada entrante habilitada y, a continuación, configurar el id. del autor de llamada saliente para que coincida con el número habilitado para la llamada de entrada (lo que verán los usuarios al llamarlos desde la aplicación de Communication Services).
-> Esto solo se aplica a las llamadas bidireccionales. SMS bidireccional se admite de forma nativa.
+En nuestro ejemplo, hemos elegido un tipo de número `Toll-free` con los planes `Outbound calling` y `Inbound and Outbound SMS`.
 
-En nuestro ejemplo, hemos elegido un tipo de número `Toll-free` con el plan `Outbound calling`.
-
-:::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Captura de pantalla que muestra la vista para seleccionar planes.":::
-
-### <a name="declare-purpose"></a>Declaración de propósito
-
-A continuación, el asistente le preguntará el propósito de uso del número. Recopilamos esta información para aplicar las regulaciones correctas de los impuestos y las llamadas de emergencia.
-
-:::image type="content" source="../media/quickstart-search-and-acquire-bot-or-human.png" alt-text="Captura de pantalla que muestra la selección de un bot o un usuario en el proceso de adquisición del número de teléfono.":::
+:::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Captura de pantalla que muestra la página principal de un recurso de Communication Services.":::
 
 Desde aquí, haga clic en el botón `Next: Numbers` en la parte inferior de la página para personalizar los números de teléfono que le gustaría aprovisionar.
 
@@ -74,14 +64,14 @@ Desde aquí, haga clic en el botón `Next: Numbers` en la parte inferior de la p
 
 En la página `Numbers`, personalizará los números de teléfono que le gustaría aprovisionar.
 
-:::image type="content" source="../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="Captura de pantalla que muestra la página para la selección de números.":::
+:::image type="content" source="../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="Captura de pantalla que muestra la página principal de un recurso de Communication Services.":::
 
 > [!NOTE]
 > En esta guía de inicio rápido se muestra el flujo de personalización del tipo de número `Toll-free`. La experiencia puede ser ligeramente diferente si ha elegido el tipo de número `Geographic`, pero el resultado final será el mismo.
 
 Elija el `Area code` en la lista de códigos de área disponibles e introduzca la cantidad que desea aprovisionar y, a continuación, haga clic en `Search` para buscar números que cumplan los requisitos seleccionados. Los números de teléfono que satisfagan sus necesidades se mostrarán junto con el costo mensual.
 
-:::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="Captura de pantalla que muestra la página para la selección de números con números reservados.":::
+:::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="Captura de pantalla que muestra la página principal de un recurso de Communication Services.":::
 
 > [!NOTE]
 > La disponibilidad depende del tipo de número, la ubicación y el plan que haya seleccionado.
@@ -98,7 +88,7 @@ En la página de resumen se revisará el tipo de número, las características, 
 
 Finalmente, haga clic en `Place order` situado en la parte inferior de la página para confirmar.
 
-:::image type="content" source="../media/manage-phone-azure-portal-get-numbers-summary.png" alt-text="Captura de pantalla que muestra la página de resumen con el tipo de número, las características, los números de teléfono y el costo mensual total.":::
+:::image type="content" source="../media/manage-phone-azure-portal-get-numbers-summary.png" alt-text="Captura de pantalla que muestra la página principal de un recurso de Communication Services.":::
 
 ## <a name="find-your-phone-numbers-on-the-azure-portal"></a>Busque los números de teléfono en Azure Portal
 
@@ -106,20 +96,27 @@ En [Azure Portal](https://portal.azure.com), navegue hasta el recurso de comunic
 
 :::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Captura de pantalla que muestra la página principal de un recurso de Communication Services.":::
 
-Seleccione la pestaña de Números de teléfono en el menú para administrarlos.
+Seleccione la hoja Números de teléfono en el menú para administrar los números de teléfono.
 
-:::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Captura de pantalla que muestra la página de números de teléfono de un recurso de Communication Services.":::
+:::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Captura de pantalla que muestra la página principal de un recurso de Communication Services.":::
 
 > [!NOTE]
 > Los números aprovisionados pueden tardar unos minutos en mostrarse en esta página.
+
+### <a name="customizing-phone-number-plans"></a>Personalización de los planes de número de teléfono
+En la página `Numbers`, puede seleccionar el número de teléfono; para ello, haga clic en el número para el que desea personalizar el plan.
+
+:::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Captura de pantalla que muestra la página principal de un recurso de Communication Services.":::
+
+Seleccione las funcionalidades en la lista de funcionalidades de llamada y SMS disponibles y, a continuación, haga clic en `Confirm` para aplicar la selección.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
 Preguntas y problemas comunes:
 
-- En este momento, solo Estados Unidos y Canadá admiten la compra de números de teléfono. Esto se basa en la dirección de facturación de la suscripción a la que está asociado el recurso. En este momento, no se puede trasladar el recurso a otra suscripción.
+- En este momento, Estados Unidos es el único país en que se permite comprar números de teléfono. Esto se basa en la dirección de facturación de la suscripción a la que está asociado el recurso. En este momento, los recursos no se pueden cambiar de suscripción.
 
-- Si se elimina un número de teléfono, este no se liberará ni podrá volver a comprarse hasta el final del período de facturación.
+- Si se libera un número de teléfono, este no se liberará ni se podrá volver a comprar hasta el final del período de facturación.
 
 - Si se elimina un recurso de Communication Services, los números de teléfono asociados a ese recurso se liberarán automáticamente al mismo tiempo.
 
