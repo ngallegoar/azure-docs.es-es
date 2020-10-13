@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: ec9e6bc7daad05284893ce3148f9a80f500c5cbb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: c158bc176c329fb46d0acde64b043b1b3e669e18
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019953"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570678"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Administración de directivas de resolución de conflictos en Azure Cosmos DB
 
@@ -513,9 +513,9 @@ while conflict:
 Obtenga información acerca de los siguientes conceptos de Azure Cosmos DB:
 
 - [Distribución global en segundo plano](global-dist-under-the-hood.md)
-- [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md)
+- [Configuración de varias regiones de escritura en las aplicaciones](how-to-multi-master.md)
 - [Configuración de los clientes para el hospedaje múltiple](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Incorporación o eliminación de regiones de una cuenta de Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-- [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md).
+- [Configuración de varias regiones de escritura en las aplicaciones](how-to-multi-master.md).
 - [Creación de particiones y distribución de datos](partition-data.md)
 - [Indexación en Azure Cosmos DB](indexing-policies.md)

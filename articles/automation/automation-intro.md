@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, State Configuration, Update Managem
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448063"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715976"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introducción a Azure Automation
 
@@ -64,7 +64,7 @@ Azure Automation consta de un conjunto de recursos compartidos que le facilitan 
 
 ### <a name="role-based-access-control"></a>Control de acceso basado en rol
 
-Azure Automation admite el control de acceso basado en rol (RBAC) para regular el acceso a la cuenta de Automation y sus recursos. Para más información sobre la configuración de RBAC en su cuenta de Automation, runbooks y trabajos, consulte [Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md).
+Azure Automation admite el control de acceso basado en roles (RBAC) para regular el acceso a la cuenta de Automation y a sus recursos. Para más información sobre la configuración de Azure RBAC en su cuenta de Automation, runbooks y trabajos, consulte [Control de acceso basado en roles en Azure Automation](automation-role-based-access-control.md).
 
 ### <a name="source-control-integration"></a>Integración de control de código fuente
 
@@ -86,7 +86,7 @@ Azure Automation permite la administración de la infraestructura y las aplicaci
 * **Identificar cambios**: identifique los cambios que pueden provocar una configuración incorrecta y mejore el cumplimiento operativo.
 * **Supervisar**: aísle las máquinas que están ocasionando problemas y corríjalos o remítalos a una instancia superior de los sistemas de administración.
 * **Proteger**: ponga máquinas en cuarentena si se generan alertas de seguridad. Establezca los requisitos de invitado.
-* **Gobernar**: configure RBAC para equipos. Recupere recursos no utilizados.
+* **Gobernar**: configure Azure RBAC para equipos. Recupere recursos no utilizados.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
