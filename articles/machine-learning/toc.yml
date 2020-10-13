@@ -15,7 +15,7 @@
 - name: Tutoriales
   expanded: true
   items:
-    - name: "Introducción al día\_1 de Python"
+    - name: Introducción a Python (día 1)
       expanded: true
       items:
         - name: 1. Configuración del equipo local
@@ -188,6 +188,8 @@
             - name: Uso de Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: Uso de un DNS personalizado
+              href: how-to-custom-dns.md
             - name: Configuración de servicios web seguros
               displayName: 'ssl, tls'
               href: how-to-secure-web-service.md

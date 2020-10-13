@@ -4,17 +4,17 @@ description: Protección de datos de Azure Security Benchmark V2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e377c6669b1db96f549958173aded4f29bae6713
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059084"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314324"
 ---
-# <a name="security-control-data-protection"></a>Control de seguridad: Protección de datos
+# <a name="security-control-v2-data-protection"></a>Control de seguridad V2: Protección de datos
 
 La protección de datos cubre el control de la protección de datos en reposo, en tránsito y a través de mecanismos de acceso autorizados. Esto incluye detectar, clasificar, proteger y supervisar los recursos de datos confidenciales mediante el control de acceso, el cifrado y el registro en Azure.
 
@@ -22,7 +22,7 @@ La protección de datos cubre el control de la protección de datos en reposo, e
 
 | Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
 |--|--|--|--|
-| DP-1 | 14.5, 14.7 | SI-4, SC-28 |
+| DP-1 | 13.1, 14.5, 14.7 | SC-28 |
 
 Detecte, clasifique y etiquete los datos confidenciales para que se puedan diseñar los controles adecuados que garanticen que los sistemas tecnológicos de la organización almacenen, procesen y transmitan la información confidencial de forma segura. 
 
@@ -36,7 +36,7 @@ Puede utilizar Azure SQL Information Protection para ayudar en la clasificación
 
 **Responsabilidad**: Compartido
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -62,7 +62,7 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 **Responsabilidad**: Compartido
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -90,9 +90,9 @@ Si es necesario para el cumplimiento de la prevención de la pérdida de datos (
 
 **Responsabilidad**: Compartido
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Centro de operaciones de seguridad (SOC)](/azure/cloud-adoption-framework/organize/cloud-security) 
+- [Operaciones de seguridad](/azure/cloud-adoption-framework/organize/cloud-security) 
 
 - [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -118,7 +118,7 @@ De forma predeterminada, Azure proporciona el cifrado de los datos en tránsito 
 
 **Responsabilidad**: Compartido
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitectura de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -148,7 +148,7 @@ Azure proporciona cifrado de datos en reposo de forma predeterminada. En el caso
 
 **Responsabilidad**: Compartido
 
-**Partes interesadas de seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitectura de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

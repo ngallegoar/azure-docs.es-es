@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0b82d7dc8f6aaaa28a5293966440f058fbf42dc1
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460941"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761233"
 ---
 # <a name="pricing-scenarios"></a>Escenarios de precios
 
@@ -59,7 +59,7 @@ Puede usar Communication Services para mejorar su aplicación con la capacidad d
 
 ### <a name="price"></a>Price
 
-- Se le cobrarán 0,0008 USD por cada mensaje de chat enviado.
+Se le cobrarán 0,0008 USD por cada mensaje de chat enviado.
 
 ### <a name="pricing-example-chat-between-two-users"></a>Ejemplo de precios: Chat entre dos usuarios 
 
@@ -77,3 +77,46 @@ Rose ve los mensajes y comienza a responder. Mientras tanto, Casey recibe una ll
 **Cálculos de costos** 
 
 - Número de mensajes enviados (20 + 30 + 18 + 30 + 25 + 35) x 0,0008 USD = 0,1264 USD
+
+
+## <a name="telephony-and-sms"></a>Telefonía y SMS
+
+## <a name="price"></a>Price 
+
+Los precios de los servicios de telefonía se calculan por minuto, mientras que el precio de los SMS se calcula por mensaje. Los precios vienen determinados por el tipo y la ubicación del número que usa, así como el destino de las llamadas y los mensajes SMS.
+
+### <a name="telephone-calling"></a>Llamada telefónica
+
+Las llamadas telefónicas tradicionales (llamadas que se producen a través de la red telefónica conmutada pública) están disponibles con los precios de pago por uso para los números de teléfono de Estados Unidos. El precio es un cargo por minuto según el tipo de número utilizado y el destino de la llamada. En la tabla siguiente se incluyen los detalles de precios de los destinos de llamada más populares. Consulte la [lista de precios detallada](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv) para obtener una lista completa de destinos.
+
+
+#### <a name="united-states-calling-prices"></a>Precios de llamadas en Estados Unidos
+
+Los precios siguientes incluyen los impuestos y cuotas de comunicaciones necesarias hasta el 30 de junio de 2021:
+
+|Tipo de número   |Para realizar llamadas   |Para recibir llamadas|
+|--------------|-----------|------------|
+|Local     |A partir de 0,013 USD/minuto       |0,0085 USD/minuto        |
+|Llamada gratuita |0,013 USD/minuto   |0,0220 USD/minuto |
+
+#### <a name="other-calling-destinations"></a>Otros destinos de llamada
+
+Los precios siguientes incluyen los impuestos y cuotas de comunicaciones necesarias hasta el 30 de junio de 2021:
+
+|Realizar llamadas a   |Precio por minuto|
+|-----------|------------|
+|Canadá     |A partir de 0,013 USD/minuto   |
+|Reino Unido     |A partir de 0,015 USD/minuto   |
+|Alemania     |A partir de 0,015 USD/minuto   |
+|Francia     |A partir de 0,016 USD/minuto   |
+
+
+### <a name="sms"></a>SMS
+
+SMS ofrece precios de pago por uso. El precio es un cargo por mensaje en función del destino del mensaje. Los mensajes se pueden enviar mediante números de teléfono gratuitos a números de teléfono ubicados en Estados Unidos. Tenga en cuenta que los números de teléfono locales (geográficos) no se pueden usar para enviar mensajes SMS.
+
+Los precios siguientes incluyen los impuestos y cuotas de comunicaciones necesarias hasta el 30 de junio de 2021:
+
+|País   |Envío de mensajes|Recepción de mensajes|
+|-----------|------------|------------|
+|EE. UU. (gratuito)    |0,0075 USD/mensaje   | 0,0075 USD/mensaje |

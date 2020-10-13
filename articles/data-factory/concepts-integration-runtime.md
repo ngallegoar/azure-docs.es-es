@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 03b8deaa700d15a20571a8ec5f389c252c32eed2
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485726"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827529"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory 
 
@@ -69,7 +69,7 @@ Integration Runtime de Azure proporciona el proceso nativo para mover datos entr
 
 La distribución de actividades es una operación ligera para enrutar la actividad al servicio de proceso de destino, por lo que no hay necesidad de escalar verticalmente el tamaño de proceso para este escenario.
 
-Para obtener información sobre cómo crear y configurar una instancia de Azure IR, consulte cómo crear y configurar una instancia de Azure IR en las guías de procedimientos. 
+Para obtener información sobre cómo crear y configurar una instancia de Azure IR, consulte [Cómo crear y configurar una instancia de Azure Integration Runtime](create-azure-integration-runtime.md). 
 
 > [!NOTE] 
 > Azure Integration Runtime tiene propiedades relacionadas con el flujo de datos en el entorno de ejecución de Data Flow, que define la infraestructura de proceso subyacente que se usaría para ejecutar los flujos de datos. 

@@ -14,22 +14,60 @@ ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 230ccb3d10c7ba6f3abcac9d83309fd7fa3c5c3f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 3db95c7ad7998817f4818203632310fe4aacb57a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797690"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827748"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Ejemplos de PowerShell y Graph para licencias basadas en grupos de Azure AD
 
-Toda la funcionalidad de licencias basadas en grupos está disponible en [Azure Portal](https://portal.azure.com) y, actualmente, la compatibilidad con PowerShell y Microsoft Graph está limitada a las operaciones de solo lectura. Sin embargo, hay algunas tareas útiles que se pueden realizar con los [cmdlets existentes de MSOnline PowerShell](/powershell/module/msonline) y Microsoft Graph. Este documento proporciona ejemplos de lo que es posible.
+La funcionalidad completa de las licencias basadas en grupos está disponible a través de [Azure Portal](https://portal.azure.com) y, en la actualidad, hay algunas tareas útiles que se pueden realizar con los [cmdlets de PowerShell de MSOnline](/powershell/module/msonline) existentes y Microsoft Graph. Este documento proporciona ejemplos de lo que es posible.
 
 > [!NOTE]
 > Antes de comenzar a ejecutar los cmdlets, asegúrese de conectarse primero a su organización con el cmdlet `Connect-MsolService` .
 
 > [!WARNING]
 > Este código se proporciona como un ejemplo para fines de demostración. Si va a usarlo en su entorno, considere la posibilidad de probarlo primero a pequeña escala o en una organización de prueba independiente. Quizá deba ajustar el código para satisfacer las necesidades específicas de su entorno.
+
+## <a name="assign-licenses-to-a-group"></a>Asignación de licencias a un grupo
+
+Use el ejemplo siguiente para asignar licencias a un grupo mediante Microsoft Graph:
+
+```
+POST https://graph.microsoft.com/v1.0/groups/1ad75eeb-7e5a-4367-a493-9214d90d54d0/assignLicense
+Content-type: application/json
+{
+  "addLicenses": [
+    {
+      "disabledPlans": [ "11b0131d-43c8-4bbb-b2c8-e80f9a50834a" ],
+      "skuId": "c7df2760-2c81-4ef7-b578-5b5392b571df"
+    },
+    {
+      "disabledPlans": [ "a571ebcc-fqe0-4ca2-8c8c-7a284fd6c235" ],
+      "skuId": "sb05e124f-c7cc-45a0-a6aa-8cf78c946968"
+    }
+  ],
+  "removeLicenses": []
+}
+
+```
+Salida:
+```
+HTTP/1.1 202 Accepted
+Content-type: application/json
+location: https://graph.microsoft.com/v2/d056d009-17b3-4106-8173-cd3978ada898/directoryObjects/1ad75eeb-7e5a-4367-a493-9214d90d54d0/Microsoft.DirectoryServices.Group
+
+{
+  "id": "1ad75eeb-7e5a-4367-a493-9214d90d54d0",
+  "deletedDateTime": null,
+  "classification": null,
+  "createdDateTime": "2018-04-18T22:05:03Z",
+  "securityEnabled": true,
+
+}
+```
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Visualización de las licencias de producto asignadas a un grupo
 
@@ -628,5 +666,5 @@ Para más información sobre el conjunto de características de administración 
 * [Identificación y resolución de problemas de licencias de un grupo en Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Migración de usuarios individuales con licencia a licencias basadas en grupos en Azure Active Directory](licensing-groups-migrate-users.md)
 * [Cómo migrar usuarios entre diferentes licencias de productos con licencias basadas en grupos de Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md) (Escenarios adicionales de licencias basadas en grupos de Azure Active Directory)
+* [Escenarios adicionales de licencias basadas en grupos de Azure Active Directory](licensing-group-advanced.md)
 * [Ejemplos de PowerShell para licencias basadas en grupos de Azure AD](../users-groups-roles/licensing-ps-examples.md)

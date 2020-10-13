@@ -5,20 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: a3603c7a4b704327f829588f0fc5827d97288be0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 0b9b8ba555cddd56c49c750709e69ec180291c95
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440820"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827162"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Información sobre el enrutamiento de VPN de punto a sitio
 
 Este artículo lo ayudará a comprender el comportamiento del enrutamiento de VPN de punto a sitio de Azure. El comportamiento del enrutamiento de VPN de punto a sitio depende del SO cliente, el protocolo que se usa para la conexión de VPN y cómo las redes virtuales se conectan entre sí.
 
-Actualmente, Azure admite dos protocolos para el acceso remoto, IKEv2 y SSTP. El protocolo IKEv2 es compatible con muchos sistemas operativos cliente, como Windows, Linux, MacOS, iOS y Android. El protocolo SSTP solo es compatible con Windows. Si realiza un cambio en la topología de la red y tiene clientes VPN de Windows, el paquete de cliente VPN para clientes de Windows se debe descargar e instalar nuevamente para que los cambios se apliquen en el cliente.
+Actualmente, Azure admite dos protocolos para el acceso remoto, IKEv2 y SSTP. El protocolo IKEv2 es compatible con muchos sistemas operativos cliente, como Windows, Linux, macOS, iOS y Android. El protocolo SSTP solo es compatible con Windows. Si realiza un cambio en la topología de la red y tiene clientes VPN de Windows, el paquete de cliente VPN para clientes de Windows se debe descargar e instalar nuevamente para que los cambios se apliquen en el cliente.
 
 > [!NOTE]
 > Este artículo solo se aplica al protocolo IKEv2.
@@ -32,7 +32,7 @@ Hay varios diagramas distintos en este artículo. Cada sección muestra una conf
 
 La conexión de puerta de enlace de VPN de punto a sitio en este ejemplo es para una red virtual que no está conectada ni emparejada con ninguna otra red virtual (VNet1). En este ejemplo, los clientes pueden acceder a VNet1.
 
-![enrutamiento de red virtual aislado](./media/vpn-gateway-about-point-to-site-routing/1.jpg "enrutamiento de red virtual aislado")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg" alt-text="Enrutamiento de red virtual aislado" lightbox="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg":::
 
 ### <a name="address-space"></a>Espacio de direcciones
 
@@ -56,7 +56,7 @@ En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es par
 
 Los clientes que usan Windows pueden acceder directamente a redes virtuales emparejadas, pero el cliente VPN se debe descargar de nuevo si se hace algún cambio en el emparejamiento de VNet o en la topología de red. Los clientes no Windows pueden acceder directamente a las redes virtuales emparejadas. El acceso no es transitivo y está limitado solo a las redes virtuales emparejadas directamente.
 
-![varias redes virtuales emparejadas](./media/vpn-gateway-about-point-to-site-routing/2.jpg "varias redes virtuales emparejadas")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="Enrutamiento de red virtual aislado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
 
 ### <a name="address-space"></a>Espacio de direcciones:
 
@@ -86,7 +86,7 @@ En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es par
 
 Los clientes que usan Windows o cualquier otro SO compatible solo pueden acceder a VNet1. Para acceder a otras redes virtuales, se debe usar BGP.
 
-![varias redes virtuales y S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "varias redes virtuales y S2S")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg" alt-text="Enrutamiento de red virtual aislado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg":::
 
 ### <a name="address-space"></a>Espacio de direcciones
 
@@ -114,7 +114,7 @@ En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es par
 
 Los clientes que usan Windows o cualquier otro SO compatible pueden acceder a todas las redes virtuales que están conectadas mediante una conexión VPN de sitio a sitio, pero las rutas a las redes virtuales conectadas se deben agregar manualmente a los clientes Windows.
 
-![varias redes virtuales y S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "varias redes virtuales y S2S BGP")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg" alt-text="Enrutamiento de red virtual aislado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg":::
 
 ### <a name="address-space"></a>Espacio de direcciones
 
@@ -142,7 +142,7 @@ En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es par
 
 Los clientes Windows y no Windows solo pueden acceder a VNet1.
 
-![enrutamiento con una red virtual y una sucursal](./media/vpn-gateway-about-point-to-site-routing/5.jpg "enrutamiento con una red virtual y una sucursal")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg" alt-text="Enrutamiento de red virtual aislado" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg":::
 
 ### <a name="address-space"></a>Espacio de direcciones
 
@@ -168,7 +168,7 @@ En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es par
 
 Los clientes Windows pueden acceder a la red virtual y a la sucursal (Site1), pero las rutas a Site1 se deben agregar manualmente al cliente. Los clientes no Windows pueden acceder a la red virtual, así como a la sucursal local.
 
-![una red virtual y una sucursal (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "una red virtual y una sucursal")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg" alt-text="Enrutamiento de red virtual aislado" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg":::
 
 ### <a name="address-space"></a>Espacio de direcciones
 
@@ -195,7 +195,7 @@ En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es par
 
 Todo los clientes pueden acceder solo a VNet1.
 
-![varias redes virtuales S2S y una sucursal](./media/vpn-gateway-about-point-to-site-routing/7.jpg "varias redes virtuales S2S y una sucursal")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg" alt-text="Enrutamiento de red virtual aislado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg":::
 
 ### <a name="address-space"></a>Espacio de direcciones
 
@@ -225,7 +225,7 @@ En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es par
 
 Los clientes que usan Windows pueden acceder a las redes virtuales y los sitios que están conectados mediante una conexión VPN de sitio a sitio, pero las rutas a VNet2, VNet3 y Site1 se deben agregar manualmente al cliente. Los clientes no Windows pueden acceder a las redes virtuales y los sitios que están conectados mediante una conexión VPN de sitio a sitio sin intervención manual de ningún tipo. El acceso es transitivo y los clientes pueden acceder a los recursos de todas las redes virtuales y sitios (locales) conectados.
 
-![varias redes virtuales S2S y una sucursal](./media/vpn-gateway-about-point-to-site-routing/8.jpg "varias redes virtuales S2S y una sucursal")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg" alt-text="Enrutamiento de red virtual aislado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg":::
 
 ### <a name="address-space"></a>Espacio de direcciones
 
