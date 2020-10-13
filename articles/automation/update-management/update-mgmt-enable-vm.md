@@ -2,15 +2,15 @@
 title: Habilitación de Update Management de Azure Automation desde una máquina virtual de Azure
 description: En este artículo se indica cómo habilitar Update Management desde una máquina virtual de Azure.
 services: automation
-ms.date: 07/28/2020
+ms.date: 09/16/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 27832190125840e367edbfb2db8e4134f98b192d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dead4649635bebd9f73f79937dea1d24565f273e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449786"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327817"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Habilitación de Update Management desde una maquina virtual de Azure
 
@@ -35,13 +35,15 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Seleccione la máquina virtual para la que desea habilitar Update Management. Las máquina virtuales pueden existir en cualquier región, independientemente de la ubicación de la cuenta de Automation. Los
 
-3. En la página de la máquina virtual, en **Operaciones**, seleccione **Update Management**.
+3. En la página de la VM, en **Operaciones**, seleccione **Guest + host updates** (Actualizaciones de invitado y host).
+
+    ![Seleccionar Guest + host updates (Actualizaciones de invitado y host) en el panel izquierdo](media/update-mgmt-enable-vm/select-guest-and-os-updates.png)
 
 4. Debe tener el permiso `Microsoft.OperationalInsights/workspaces/read` para determinar si la máquina virtual está habilitada para un área de trabajo. Para obtener información sobre los permisos adicionales requeridos, vea los [permisos necesarios para habilitar máquinas](../automation-role-based-access-control.md#feature-setup-permissions). Para obtener información sobre cómo habilitar varias máquinas a la vez, vea [Habilitación de Update Management desde una cuenta de Automation](update-mgmt-enable-automation-account.md).
 
-5. Para habilitar Update Management, elija el área de trabajo de Log Analytics y la cuenta de Automation y haga clic en **Habilitar**. Una vez que haya habilitado Update Management, puede que tarde unos 15 minutos en poder ver la evaluación de la actualización desde la máquina virtual.
+5. En la página Habilitar Update Management, elija el área de trabajo de Log Analytics y la cuenta de Automation y haga clic en **Habilitar** para habilitar esta característica. Una vez que haya habilitado Update Management, puede que tarde unos 15 minutos en poder ver la evaluación de la actualización desde la máquina virtual.
 
-    ![Habilitación de la Administración de actualizaciones](media/update-mgmt-enable-vm/manageupdates-update-enable.png)
+    ![Habilitación de la Administración de actualizaciones](media/update-mgmt-enable-vm/enable-update-management.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
