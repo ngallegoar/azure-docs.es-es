@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: c47d573dab3e72a956f6f0b9d09a1dafadf0225c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029552"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827765"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Restablecimiento de la contraseña profesional o educativa con la información de seguridad
 
@@ -69,7 +69,7 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
 
     3. Escriba y confirme la nueva contraseña, y luego seleccione **Finalizar**.
 
-- **Restablezca la contraseña con un número de teléfono.** Se envía un mensaje de texto al número de teléfono que configuró previamente en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar un número de teléfono en el artículo [Configuración de la información de seguridad para usar una llamada telefónica (versión preliminar)](security-info-setup-phone-number.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar un número de teléfono en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
+- **Restablezca la contraseña con un número de teléfono.** Hace una llamada de voz automatizada al número de teléfono que configuró anteriormente en la información de seguridad. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar un número de teléfono en el artículo [Configuración de la información de seguridad para usar una llamada telefónica (versión preliminar)](security-info-setup-phone-number.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar un número de teléfono en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
     1. Seleccione **Llamar al teléfono móvil**, escriba el número de teléfono y después seleccione **Llamar**.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 096dbcb6b6a732bd21622658f6f30c5158a821c5
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: ff33bf771065e7af209934a5c54b6f8f2e34835e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80420519"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666790"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>Prefijo de dirección IPv6 pública reservada
 
@@ -28,7 +28,7 @@ Todas las direcciones IP públicas que reserva están asociadas a una región de
 > [!WARNING]
 > Tenga cuidado de no eliminar por accidente las IP públicas. La eliminación de una IP pública la quita de su suscripción y no podrá recuperarla (ni siquiera con la ayuda del Soporte técnico de Azure).
 
-Además de reservar direcciones IPv6 individuales, puede reservar intervalos contiguos de direcciones IPv6 de Azure (conocidos como prefijo IP) para su uso.  De manera similar a las direcciones IP individuales, los prefijos reservados se asocian con una región de Azure de su preferencia y con su suscripción de Azure. La reserva de un intervalo de direcciones contiguo y predecible tiene muchos usos. Por ejemplo, puede simplificar en gran medida la *lista blanca* de direcciones IP de las aplicaciones hospedadas en Azure por su empresa y sus clientes, ya que los intervalos de direcciones IP estáticas se pueden programar fácilmente en los firewalls locales.  Puede crear IP públicas individuales a partir del prefijo IP según sea necesario y, cuando elimine esas IP públicas individuales, se *devuelven* al intervalo reservado para que pueda volver a usarlas más adelante. Todas las direcciones IP del prefijo IP están reservadas para su uso exclusivo hasta que se elimine el prefijo.
+Además de reservar direcciones IPv6 individuales, puede reservar intervalos contiguos de direcciones IPv6 de Azure (conocidos como prefijo IP) para su uso.  De manera similar a las direcciones IP individuales, los prefijos reservados se asocian con una región de Azure de su preferencia y con su suscripción de Azure. La reserva de un intervalo de direcciones contiguo y predecible tiene muchos usos. Por ejemplo, puede simplificar en gran medida el *filtrado* de IP de las aplicaciones hospedadas en Azure por la empresa y los clientes, ya que los intervalos de direcciones IP estáticas se pueden programar fácilmente en los firewalls locales.  Puede crear IP públicas individuales a partir del prefijo IP según sea necesario y, cuando elimine esas IP públicas individuales, se *devuelven* al intervalo reservado para que pueda volver a usarlas más adelante. Todas las direcciones IP del prefijo IP están reservadas para su uso exclusivo hasta que se elimine el prefijo.
 
 
 
