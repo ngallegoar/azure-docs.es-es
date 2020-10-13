@@ -4,6 +4,8 @@
   items:
     - name: ¿Qué es la Plataforma de identidad de Microsoft?
       href: v2-overview.md
+    - name: Novedades de la documentación
+      href: whats-new-docs.md
 - name: Guías de inicio rápido
   expanded: true
   items:

@@ -61,6 +61,8 @@
           href: protect-with-aes128.md
         - name: Cifrado dinámico con DRM
           href: protect-with-drm.md
+        - name: "Protección de contenido con Azure\_AD"
+          href: azure-ad-content-protection.md
     - name: REST
       items:
         - name: Codificación y transmisión en secuencias de un archivo remoto REST
@@ -73,7 +75,7 @@
       items:
         - name: Codificación y transmisión en secuencias de un archivo remoto Node.js
           href: stream-files-nodejs-quickstart.md
-    - name: Azure portal
+    - name: Portal de Azure
       items:
         - name: Almacenamiento de eventos de Azure Media Services en Azure Log Analytics
           href: tutorial-events-log-analytics.md
@@ -188,8 +190,6 @@
           href: streaming-policy-concept.md
         - name: Directivas de claves de contenido
           href: content-key-policy-concept.md
-        - name: "Protección de contenido con Azure\_AD"
-          href: azure-ad-content-protection.md
     - name: Supervisión
       items:
         - name: Eventos con Event Grid
