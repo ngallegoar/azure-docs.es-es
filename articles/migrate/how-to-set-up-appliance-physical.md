@@ -4,12 +4,12 @@ description: Aprenda a configurar un dispositivo de Azure Migrate para la evalu
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: bace4ab03051a9febfe14cc30143bd4a5cfa7c84
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 348c12e08a9bed98016ac825921b67836b32b9e9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085955"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448076"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configuración de un dispositivo para servidores físicos
 
@@ -59,7 +59,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso para la nube pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
     - Ejemplo de uso para la nube gubernamental: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Compruebe la versión más reciente del dispositivo y la configuración de los valores hash.
+3.  Compruebe la versión más reciente del dispositivo y la [configuración](tutorial-discover-physical.md#verify-security) de los valores hash.
  
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Ejecución del script del instalador de Azure Migrate
