@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902931"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91667442"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>¿Qué es Azure Machine Learning Studio?
 
@@ -88,7 +88,7 @@ En la tabla siguiente se resumen las principales diferencias entre Machine Learn
 | Entrenamiento de destinos de proceso | Destino de proceso propietario, solo admite CPU | Amplia gama de [destinos de proceso de entrenamiento](concept-compute-target.md#train) personalizables. Incluye compatibilidad con GPU y CPU | 
 | Destinos de proceso de implementación | Formato del servicio web propietario, no personalizable | Amplia gama de [destinos de proceso de implementación](concept-compute-target.md#deploy) personalizables. Incluye compatibilidad con GPU y CPU |
 | Canalización de Machine Learning | No compatible | Creación de [canalizaciones](concept-ml-pipelines.md) flexibles y modulares para automatizar flujos de trabajo |
-| MLOps | Implementación y administración básicas de modelos | Control de versiones de entidades (modelo, datos, flujos de trabajo), automatización de flujos de trabajo, integración con herramientas de CICD [y más](concept-model-management-and-deployment.md) |
+| MLOps | Implementación y administración básicas de modelos; implementaciones exclusivas de CPU | Control de versiones de entidades (modelo, datos, flujos de trabajo), automatización de flujos de trabajo, integración con herramientas de CICD, implementaciones de CPU y GPU, [y más](concept-model-management-and-deployment.md) |
 | Formato del modelo | Formato propietario, solo Studio (clásico) | Se admiten varios formatos en función del tipo de trabajo de entrenamiento |
 | Entrenamiento de modelos y optimización de hiperparámetros automatizados |  No compatible | [Admitido](concept-automated-ml.md). Opciones de los tipos código primero y sin código. | 
 | Detección de desfase de datos | No compatible | [Compatible](how-to-monitor-datasets.md) |

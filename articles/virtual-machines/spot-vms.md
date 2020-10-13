@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: c0b8f395dde1d94c4c1efa32a2f78707d1456d88
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 66d62cde9ea17e73f561dfbce94eb3d3e7175b6d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817285"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827808"
 ---
 # <a name="use-spot-vms-in-azure"></a>Uso de las máquinas virtuales de Spot en Azure
 
@@ -67,8 +67,22 @@ Actualmente se admiten los siguientes [tipos de ofertas](https://azure.microsoft
 
 Los precios de las máquinas virtuales de Spot varían en función de la región y la SKU. Para más información, consulte precios de las máquinas virtuales para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) y [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
+También puede consultar la información sobre con la [API de precios de venta directa de Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para consultar información sobre los precios de Spot. Tanto `meterName` como `skuName` contendrán `Spot`.
 
 La variabilidad en los precios permite establecer un precio máximo, en dólares estadounidenses (USD), con un máximo de 5 decimales. Por ejemplo, el valor `0.98765` correspondería a un precio máximo de 0,98765 USD por hora. Si establece el precio máximo en `-1`, la máquina virtual no se expulsará por precio. El precio de la máquina virtual será el actual de Spot o el de una máquina virtual estándar, el menor de los dos, siempre que haya capacidad y cuota disponibles.
+
+## <a name="pricing-and-eviction-history"></a>Historial de precios y expulsiones
+
+Puede ver los precios históricos y las tasas de expulsión por tamaño en una región en el portal. Seleccione **View pricing history and compare prices in nearby regions** (Ver el historial de precios y comparar precios en regiones cercanas) para ver una tabla o gráfico de precios para un tamaño específico.  Los precios y las tasas de expulsión en las siguientes imágenes son solo ejemplos. 
+
+**Gráfico**:
+
+:::image type="content" source="./media/spot-chart.png" alt-text="Captura de pantalla de las opciones de región con la diferencia de precios y tasas de expulsión en forma de gráfico.":::
+
+**Tabla**:
+
+:::image type="content" source="./media/spot-table.png" alt-text="Captura de pantalla de las opciones de región con la diferencia de precios y tasas de expulsión en forma de gráfico.":::
+
 
 
 ##  <a name="frequently-asked-questions"></a>Preguntas más frecuentes
@@ -98,7 +112,7 @@ La variabilidad en los precios permite establecer un precio máximo, en dólares
 **R:** Puede publicar y etiquetar la pregunta con `azure-spot` en [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html) (Preguntas y respuestas). 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Use la [CLI](./linux/spot-cli.md), el [portal](./windows/spot-portal.md), una [plantilla de ARM](./linux/spot-template.md) o [PowerShell](./windows/spot-powershell.md) para implementar máquina virtuales de Spot.
+Use la [CLI](./linux/spot-cli.md), el [portal](spot-portal.md), una [plantilla de ARM](./linux/spot-template.md) o [PowerShell](./windows/spot-powershell.md) para implementar máquina virtuales de Spot.
 
 También puede implementar un [conjunto de escalado con instancias de máquinas virtuales de Spot](../virtual-machine-scale-sets/use-spot.md).
 

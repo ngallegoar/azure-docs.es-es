@@ -6,12 +6,12 @@ ms.service: azure-portal
 ms.topic: quickstart
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 21dcadaa929b90e72c7d429229fc6ac4e0a66683
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605480"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91650412"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Visualización y filtrado de información de los recursos de Azure
 
@@ -53,7 +53,11 @@ Para eliminar una vista:
 
 ## <a name="summarize-resources-with-visuals"></a>Resumen de los recursos con objetos visuales
 
-Las vistas que hemos examinado hasta ahora han sido _vistas de lista_, pero también hay _vistas de resumen_ que incluyen objetos visuales. Puede guardar y usar estas vistas de la misma manera que puede ver las vistas de listas. Los filtros se mantienen entre los dos tipos de vistas. Para guardar y usar una vista de resumen:
+Las vistas que hemos examinado hasta ahora han sido _vistas de lista_, pero también hay _vistas de resumen_ que incluyen objetos visuales. Puede guardar y usar estas vistas de la misma manera que puede ver las vistas de listas. Los filtros se mantienen entre los dos tipos de vistas. Hay vistas estándar, como la vista de **ubicación** que se muestra a continuación, además de vistas relevantes para servicios concretos, como la vista de **estado** de las máquinas virtuales.
+
+:::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Vista de todos los recursos en Azure Portal":::
+
+Para guardar y usar una vista de resumen:
 
 1. En el menú de la vista, seleccione **Vista de resumen**.
 

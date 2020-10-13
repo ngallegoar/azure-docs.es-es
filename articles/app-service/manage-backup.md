@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0393544f5744c6aaf428ca4b4c27922a0c287
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987842"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827455"
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
 La característica Copia de seguridad y restauración de [Azure App Service](overview.md) le permite crear fácilmente las copias de seguridad de la aplicación manualmente o con base en una programación. Puede configurar las copias de seguridad de modo que se conserven durante un período de tiempo indefinido. Puede restaurar la aplicación a una instantánea de un estado anterior sobrescribiendo la aplicación existente o restaurando en otra aplicación.
@@ -92,7 +92,7 @@ Las siguientes soluciones de base de datos son compatibles con la característic
 
     Verá un mensaje de progreso durante el proceso de realización de la copia de seguridad.
 
-Una vez configurados tanto la cuenta de almacenamiento como el contenedor, puede iniciar una copia de seguridad manual en cualquier momento.
+Una vez configurados tanto la cuenta de almacenamiento como el contenedor, puede iniciar una copia de seguridad manual en cualquier momento. Las copias de seguridad manuales se conservan indefinidamente.
 
 <a name="automatedbackups"></a>
 
@@ -141,7 +141,7 @@ Ejecute copias de seguridad de la misma forma que lo haría normalmente, [manual
 > [!NOTE]
 > La restauración de las copias de seguridad parciales del sitio se realizan de la misma manera que se hace para [restaurar una copia de seguridad regular](web-sites-restore.md). El proceso de restauración hace lo correcto.
 > 
-> Cuando se restaura una copia de seguridad completa, se reemplaza todo el contenido en el sitio por lo que haya en la copia de seguridad. Si un archivo está en el sitio pero no en la copia de seguridad, se elimina. Sin embargo, cuando se restaura una copia de seguridad parcial, cualquier contenido que se encuentre en uno de los directorios en la lista negra, o cualquier archivo en la lista negra, permanecerá tal y como está.
+> Cuando se restaura una copia de seguridad completa, se reemplaza todo el contenido en el sitio por lo que haya en la copia de seguridad. Si un archivo está en el sitio pero no en la copia de seguridad, se elimina. Sin embargo, cuando se restaura una copia de seguridad parcial, todo contenido que se encuentre en uno de los directorios restringidos, o todo archivo restringido, permanecerá tal y como está.
 > 
 
 

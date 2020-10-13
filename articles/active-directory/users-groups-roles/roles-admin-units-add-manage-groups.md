@@ -1,5 +1,5 @@
 ---
-title: 'Adición, eliminación y enumeración de grupos en una unidad administrativa (versión preliminar): Azure Active Directory | Microsoft Docs'
+title: 'Adición, eliminación y enumeración de grupos en una unidad administrativa: Azure Active Directory | Microsoft Docs'
 description: Administración de grupos y sus permisos de rol en una unidad administrativa en Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 06/23/2020
+ms.date: 10/07/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76026313eea8c8fbb2f3e55321e2e4ebbe5dcfc7
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 133ea21bf7a7c1df0fccaeacce7d7a29199c033d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850918"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827725"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Adición y administración de grupos en las unidades administrativas en Azure Active Directory
 
@@ -31,7 +31,7 @@ Consulte [Introducción](roles-admin-units-manage.md#get-started) para conocer l
 
 ### <a name="azure-portal"></a>Portal de Azure
 
-En la versión preliminar, solo puede asignar grupos individualmente a una unidad administrativa. No hay ninguna opción para asignar grupos de forma masiva a una unidad administrativa. En el portal, puede asignar un grupo a una unidad administrativa de dos formas:
+Solo puede asignar grupos individualmente a una unidad administrativa. No hay ninguna opción para asignar grupos de forma masiva a una unidad administrativa. En el portal, puede asignar un grupo a una unidad administrativa de dos formas:
 
 1. En la página **Azure AD > Grupos**
 
@@ -48,12 +48,12 @@ En la versión preliminar, solo puede asignar grupos individualmente a una unida
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+$administrative unitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
 $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
-Add-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
+Add-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
 ```
 
-En este ejemplo, el cmdlet Add-AzureADAdministrativeUnitMember se usa para agregar el grupo a la unidad administrativa. El id. de objeto de la unidad administrativa y el id. de objeto del grupo que se va a agregar se usan como argumento. La sección resaltada se puede cambiar según sea necesario para el entorno específico.
+En este ejemplo, el cmdlet Add-AzureADMSAdministrativeUnitMember se usa para agregar el grupo a la unidad administrativa. El id. de objeto de la unidad administrativa y el id. de objeto del grupo que se va a agregar se usan como argumento. La sección resaltada se puede cambiar según sea necesario para el entorno específico.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
@@ -63,7 +63,7 @@ POST /administrativeUnits/{Admin Unit id}/members/$ref
 
 Request body
 {
-"@odata.id":"https://graph.microsoft.com/beta/groups/{id}"
+"@odata.id":"https://graph.microsoft.com/v1.0/groups/{id}"
 }
 ```
 
@@ -71,7 +71,7 @@ Ejemplo:
 
 ```http
 {
-"@odata.id":"https://graph.microsoft.com/beta/groups/ 871d21ab-6b4e-4d56-b257-ba27827628f3"
+"@odata.id":"https://graph.microsoft.com/v1.0/groups/ 871d21ab-6b4e-4d56-b257-ba27827628f3"
 }
 ```
 
@@ -86,14 +86,14 @@ Vaya a **Azure AD > Unidades administrativas** en el portal. Seleccione la unida
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId
+$administrative unitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+Get-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId
 ```
 
 Esto le ayudará a obtener a todos los miembros de la unidad administrativa. Si quiere mostrar todos los grupos que son miembros de la unidad administrativa, puede usar el siguiente fragmento de código:
 
 ```http
-foreach ($member in (Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId)) 
+foreach ($member in (Get-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId)) 
 {
 if($member.ObjectType -eq "Group")
 {
@@ -101,11 +101,12 @@ Get-AzureADGroup -ObjectId $member.ObjectId
 }
 }
 ```
+
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
 ```http
 HTTP request
-GET /administrativeUnits/{Admin id}/members/$/microsoft.graph.group
+GET /directory/administrativeUnits/{Admin id}/members/$/microsoft.graph.group
 Request body
 {}
 ```
@@ -121,13 +122,13 @@ En el portal de Azure AD, puede abrir los detalles de un grupo al abrir **Grupos
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
+Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
 ```
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
 ```http
-https://graph.microsoft.com/beta/groups/<group-id>/memberOf/$/Microsoft.Graph.AdministrativeUnit
+https://graph.microsoft.com/v1.0/groups/<group-id>/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
 ## <a name="remove-a-group-from-an-au"></a>Eliminación de un grupo de una unidad administrativa
@@ -136,24 +137,31 @@ https://graph.microsoft.com/beta/groups/<group-id>/memberOf/$/Microsoft.Graph.Ad
 
 Hay dos maneras de quitar un grupo de una unidad administrativa en Azure Portal.
 
-Abra **Azure AD** > **Grupos** y abra el perfil para el grupo que quiere quitar de la unidad administrativa. Seleccione **Unidades administrativas** en el panel izquierdo para ver todas las unidades administrativas en las que el grupo es un miembro. Seleccione la unidad administrativa de la que quiere quitar el grupo y, a continuación, seleccione **Quitar de la unidad administrativa**.
+- Quitar de la información general de un grupo
 
-![Eliminación de un grupo de una unidad administrativa](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
+  1. Abra **Azure AD** > **Grupos** y abra el perfil para el grupo que quiere quitar de una unidad administrativa.
+  1. Seleccione **Unidades administrativas** en el panel izquierdo para ver todas las unidades administrativas en las que el grupo es un miembro. Seleccione la unidad administrativa de la que quiere quitar el grupo y, a continuación, seleccione **Quitar de la unidad administrativa**.
 
-También puede ir a **Azure AD** > **Unidades administrativas** y seleccionar la unidad administrativa en la que el grupo es miembro. Seleccione **Grupos** en el panel izquierdo para mostrar los grupos miembros. Seleccione el grupo que se va a quitar de la unidad administrativa y, a continuación, seleccione **Quitar grupos**.
+    ![Eliminación de un grupo de una unidad administrativa](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
 
-![Enumeración de los grupos en una unidad administrativa](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
+- Quitar de una unidad administrativa
+
+  1. Abra **Azure AD** > **Unidades administrativas** y seleccione la unidad administrativa de la que el grupo es miembro.
+  1. Seleccione **Grupos** en el panel izquierdo para mostrar los grupos miembros.
+  1. Seleccione el grupo que se va a quitar de la unidad administrativa y, a continuación, seleccione **Quitar grupos**.
+
+    ![Enumeración de los grupos en una unidad administrativa](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberGroupObjId
+Remove-AzureADMSAdministrativeUnitMember -ObjectId $auId -MemberId $memberGroupObjId
 ```
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
 ```http
-https://graph.microsoft.com/beta/administrativeUnits/<adminunit-id>/members/<group-id>/$ref
+https://graph.microsoft.com/v1.0/directory/AdministrativeUnits/<adminunit-id>/members/<group-id>/$ref
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

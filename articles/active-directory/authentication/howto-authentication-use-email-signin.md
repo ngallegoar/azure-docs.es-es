@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 10/01/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: scottsta
-ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.reviewer: calui
+ms.openlocfilehash: 9b9617b4109318257895587cc0d8e75054a7f729
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419536"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650313"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sesión en Azure mediante el correo electrónico como id. de inicio de sesión alternativo (versión preliminar)
 
@@ -28,6 +28,8 @@ Algunas organizaciones no han migrado a la autenticación híbrida por las sigui
 * Debido a motivos empresariales o de cumplimiento, la organización no desea usar el UPN local para iniciar sesión en Azure.
 
 Para facilitar la adopción de la autenticación híbrida, ahora puede configurar Azure AD para que los usuarios puedan iniciar sesión en Azure con un correo electrónico en su dominio verificado como un identificador de inicio de sesión alternativo. Por ejemplo, si *Contoso* cambia de nombre a *Fabrikam*, en lugar de seguir iniciando sesión con el UPN heredado `balas@contoso.com`, ahora se puede usar el correo electrónico como id. de inicio de sesión alternativo. Para acceder a una aplicación o a servicios, los usuarios inician sesión en Azure AD con su correo electrónico asignado, como `balas@fabrikam.com`.
+
+En este artículo se muestra cómo habilitar y usar el correo electrónico como id. de inicio de sesión alternativo. Esta característica está disponible en la edición Azure AD Free y en versiones posteriores.
 
 > [!NOTE]
 > Iniciar sesión en Azure AD con el correo electrónico como id. de inicio de sesión alternativo es una característica en vista previa (GB) pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -45,6 +47,8 @@ La solución habitual a este problema era configurar el UPN de Azure AD con la 
 Un enfoque diferente consiste en sincronizar los UPN de Azure AD y AD local con el mismo valor y, a continuación, configurar Azure AD para permitir que los usuarios inicien sesión con un correo electrónico verificado. Para ello, defina una o más direcciones de correo electrónico en el atributo *ProxyAddresses* del usuario en el directorio local. El atributo *ProxyAddresses* se sincroniza en Azure AD automáticamente mediante Azure AD Connect.
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
+
+El inicio de sesión en Azure AD con el correo electrónico como id. de inicio de sesión alternativo está disponible en la edición Azure AD Free y en versiones posteriores.
 
 En el estado de versión preliminar actual, rigen las siguientes limitaciones cuando un usuario inicia sesión con un correo electrónico que no es UPN como identificador de inicio de sesión alternativo:
 
