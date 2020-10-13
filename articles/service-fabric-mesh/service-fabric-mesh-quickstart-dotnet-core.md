@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 276f8860f407693a7ff08048399fa6edf16aaf0a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0828ad1acd23afdb7ebe7b89b20d8674e5876319
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75459072"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91653305"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Inicio rápido: Creación e implementación de una aplicación web en Azure Service Fabric mesh
 
@@ -33,7 +33,7 @@ En el cuadro **Nombre**, escriba **ServiceFabricMesh1** y, en el cuadro **Ubicac
 
 Asegúrese de que la opción **Create directory for solution** (Crear directorio para la solución) esté activada y haga clic en **Aceptar** para crear el proyecto de Service Fabric mesh.
 
-![Cuadro de diálogo de proyecto nuevo de Service Fabric mesh en Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
+![Captura de pantalla que muestra cómo crear un proyecto de Service Fabric Mesh.](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
 
 ### <a name="create-a-service"></a>Crear un servicio
 
@@ -67,9 +67,9 @@ Verá el cuadro de diálogo **Publicación de la aplicación de Service Fabric**
 
 Seleccione la cuenta y la suscripción de Azure. Elija una **ubicación**. En este artículo se utiliza **Este de EE. UU**.
 
-En **Grupo de recursos**, seleccione **\<Crear un nuevo grupo de recursos...>** . Aparece el cuadro de diálogo **Crear grupo de recursos**. Establezca el **nombre del grupo de recursos** y la **ubicación**.  En esta guía de inicio rápido se utiliza la ubicación de **Este de EE. UU.** y se denomina al grupo **sfmeshTutorial1RG** (si la organización tiene varias personas con la misma suscripción, elija un nombre de grupo de recursos único).  Haga clic en **Crear** para crear el grupo de recursos y volver al cuadro de diálogo Publicar.
+En **Grupo de recursos**, seleccione **\<Create New Resource Group...>** . Aparece el cuadro de diálogo **Crear grupo de recursos**. Establezca el **nombre del grupo de recursos** y la **ubicación**.  En esta guía de inicio rápido se utiliza la ubicación de **Este de EE. UU.** y se denomina al grupo **sfmeshTutorial1RG** (si la organización tiene varias personas con la misma suscripción, elija un nombre de grupo de recursos único).  Haga clic en **Crear** para crear el grupo de recursos y volver al cuadro de diálogo Publicar.
 
-![Cuadro de diálogo del nuevo grupo de recursos de Service Fabric mesh en Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
+![Captura de pantalla que muestra cómo crear un grupo de recursos.](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
 De nuevo en el cuadro de diálogo **Publicación de la aplicación de Service Fabric**, en **Azure Container Registry**, seleccione **\<Create New Container Registry...>** (Crear una instancia de Azure Container Registry...>). En el cuadro de diálogo **Crear Registro de contenedor**, utilice un nombre único para el **nombre de la instancia de Container Registry**. Especifique una **ubicación** (en esta guía de inicio rápido se utiliza **Este de EE. UU.** ). Seleccione el **grupo de recursos** que creó en el paso anterior en la lista desplegable, por ejemplo, **sfmeshTutorial1RG**. Establezca la **SKU** en **Básico** y, después, haga clic en **Crear** para volver al cuadro de diálogo Publicar.
 
