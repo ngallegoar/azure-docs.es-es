@@ -6,24 +6,24 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
-ms.reviewer: sstein
+ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 70d21170bfc172f30b01c2af093bc82a54c80dd3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 602ed2cca725814e4f150bc684036d166b8ff45a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84028376"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619044"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Uso de la restauración geográfica para recuperar una aplicación SaaS multiinquilino a partir de copias de seguridad de base de datos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 En este tutorial, exploraremos un escenario completo de recuperación ante desastres para una aplicación SaaS multiinquilino implementada con el modelo de base de datos por inquilino. Se usará la [restauración geográfica](recovery-using-backups.md) para recuperar el catálogo y las bases de datos de inquilino a partir de copias de seguridad con redundancia geográfica mantenidas automáticamente en una región de recuperación alternativa. Después de que se resuelva la interrupción, usará la [replicación geográfica](active-geo-replication-overview.md) para repatriar las bases de datos cambiadas a su región original.
 
-![Arquitectura de restauración geográfica](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![El diagrama muestra la región original y la de recuperación, ambas incluyen una aplicación, un catálogo, imágenes de servidores y grupos originales o reflejados, copias de seguridad automáticas en el almacenamiento, con una región de recuperación que acepta la replicación geográfica de la copia de seguridad y que dispone de un servidor y un grupo para los nuevos inquilinos.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
 La restauración geográfica es la solución de recuperación ante desastres de menor costo para Azure SQL Database. Sin embargo, la restauración desde copias de seguridad con redundancia geográfica puede producir pérdida de datos de hasta una hora. Además, puede tardar bastante tiempo, según el tamaño de cada base de datos. 
 
