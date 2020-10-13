@@ -1,6 +1,7 @@
 ---
-title: Eliminación de una aplicación registrada en la Plataforma de identidad de Microsoft | Azure
-description: Aprenda a quitar una aplicación registrada con la plataforma de identidad de Microsoft.
+title: 'Inicio rápido: Eliminación de una aplicación registrada en la plataforma de identidad de Microsoft | Azure'
+titleSuffix: Microsoft identity platform
+description: En este inicio rápido, aprenderá a registrar una aplicación mediante la plataforma de identidad de Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: bdcf32f53da49834b37471a8258262f0eb2b21da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0a0150112602cd34168f64132785faf1f8c33f62
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115329"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91612394"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Inicio rápido: Eliminación de una aplicación registrada con la plataforma de identidad de Microsoft
 
@@ -30,22 +31,19 @@ En esta guía de inicio rápido, aprenderá a hacer lo siguiente:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Debe tener un inquilino que tenga las aplicaciones registradas en él. Para saber cómo agregar y registrar aplicaciones, consulte [Registro de una aplicación con la plataforma de identidad de Microsoft](quickstart-register-app.md).
+* Finalización de [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md)
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Eliminación de una aplicación creada por el usuario o por la organización
 
 Las aplicaciones que el usuario o la empresa han registrado están representadas tanto por un objeto de aplicación como por un objeto de entidad de servicio en el inquilino. Para obtener más información, vea [Objetos de aplicación y objetos de entidad de servicio](./app-objects-and-service-principals.md).
 
-### <a name="to-remove-an-application"></a>Para quitar una aplicación
+Para eliminar una aplicación, es necesario que aparezca como propietario de la aplicación o que tenga privilegios de administrador.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-2. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-3. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones**. Busque y seleccione la aplicación que desea configurar. Cuando haya seleccionado la aplicación, verá la página **Introducción** de la aplicación.
-4. En la página **Introducción**, seleccione **Eliminar**.
-5. Seleccione **Sí** para confirmar que quiere eliminar la aplicación.
-
-   > [!NOTE]
-   > Para eliminar una aplicación, es necesario que aparezca como propietario de la aplicación o que tenga privilegios de administrador.
+1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
+1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones**. Busque y seleccione la aplicación que desea configurar. Cuando haya seleccionado la aplicación, verá la página **Introducción** de la aplicación.
+1. En la página **Introducción**, seleccione **Eliminar**.
+1. Seleccione **Sí** para confirmar que quiere eliminar la aplicación.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Eliminación de una aplicación creada por otra organización
 
@@ -55,9 +53,7 @@ Para quitar el acceso de una aplicación a su directorio (después de concederle
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información acerca de estas otras guías de inicio rápido de administración de aplicaciones relacionadas:
+Obtenga más información sobre los objetos de aplicación y de entidad de servicio en la plataforma de identidad de Microsoft:
 
-* [Registro de una aplicación con la plataforma de identidad de Microsoft](quickstart-register-app.md)
-* [Configuración de una aplicación cliente para tener acceso a las API web](quickstart-configure-app-access-web-apis.md)
-* [Configuración de una aplicación para exponer las API web](quickstart-configure-app-expose-web-apis.md)
-* [Modificación de las cuentas compatibles con una aplicación](quickstart-modify-supported-accounts.md)
+> [!div class="nextstepaction"]
+> [Objetos de aplicación y de entidad de servicio de Azure Active Directory](app-objects-and-service-principals.md)

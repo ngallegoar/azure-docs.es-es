@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 864225238c10ab2fda96e95448790201cc8a16ae
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4dcb6774990c03ce3d55fb6c519b0600a1086f9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423004"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536892"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>Uso del número de teléfono como nombre de usuario (versión preliminar)
 
@@ -52,7 +52,7 @@ Si ya usa un número de teléfono con una organización y pasa a estar disponibl
 
 1. Cuando el inicio de sesión mediante SMS está disponible, se muestra un banner en el que se le pregunta si desea habilitar el número de teléfono para el inicio de sesión mediante SMS:
 
-    [![Banner para habilitar el inicio de sesión mediante SMS en un número de teléfono.](media/sms-sign-in-explainer/sms-sign-in-banner.png)](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    :::image type="content" source="media/sms-sign-in-explainer/sms-sign-in-banner.png" alt-text="Captura de pantalla que muestra el banner para habilitar el inicio de sesión mediante SMS para un número de teléfono con la acción &quot;Habilitar&quot; seleccionada." lightbox="media/sms-sign-in-explainer/sms-sign-in-banner.png":::
 
 1. Además, aparece un botón **Habilitar** si selecciona el símbolo en el icono del método de teléfono:
 

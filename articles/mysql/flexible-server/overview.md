@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4b79ee0999db0a19794cc167ae79ed6e58193b30
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d3d58cab6e3b9ed0bf3b8ed409aa736357687f09
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946218"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759652"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Servidor flexible (versión preliminar) de Azure Database for MySQL
 
@@ -20,7 +20,7 @@ Azure Database for MySQL, con tecnología de MySQL Community Edition, está disp
 - Servidor único 
 - Servidor flexible (versión preliminar)
 
-En este artículo, se proporcionará información general y una introducción a los conceptos básicos del modelo de implementación de servidor flexible. 
+En este artículo, se proporcionará información general y una introducción a los conceptos básicos del modelo de implementación de servidor flexible. Para información sobre cómo decidir qué opción de implementación es adecuada para la carga de trabajo, consulte [Elección de la opción correcta de Servidor MySQL en Azure](./../select-right-deployment-type.md).
 
 ## <a name="overview"></a>Información general
 
@@ -50,11 +50,13 @@ Si está configurada la alta disponibilidad con redundancia de zona, el servicio
 
 Consulte los [conceptos de alta disponibilidad](concepts-high-availability.md) para obtener más detalles.
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagrama conceptual de la alta disponibilidad con redundancia de zona"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagrama conceptual de la alta disponibilidad de zona única"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Aplicación de revisiones automatizada con la ventana de mantenimiento administrado
 
-El servicio aplica automáticamente revisiones al hardware, sistema operativo y motor de base de datos subyacentes. La revisión incluye actualizaciones de seguridad y software. En el motor de MySQL, las actualizaciones de versión secundaria también se incluyen como parte de la versión de mantenimiento planeado. Los usuarios pueden configurar la programación de la aplicación de revisión para que la administre el sistema o definir su programación personalizada. Durante la programación de mantenimiento, se aplica la revisión y es posible que el servidor requiera un reinicio como parte del proceso de aplicación de revisiones para completar la actualización. Con la programación personalizada, los usuarios pueden hacer que el ciclo de aplicación de revisiones sea predecible y elegir una ventana de mantenimiento con un impacto mínimo en el negocio. En general, el servicio sigue una programación mensual de versiones como parte de la integración y publicación continuas. 
+El servicio aplica automáticamente revisiones al hardware, sistema operativo y motor de base de datos subyacentes. La aplicación de revisión incluye actualizaciones de seguridad y software. En el motor de MySQL, las actualizaciones de versión secundaria también se incluyen como parte de la versión de mantenimiento planeado. Los usuarios pueden configurar la programación de la aplicación de revisión para que la administre el sistema o definir su programación personalizada. Durante la programación de mantenimiento, se aplica la revisión y es posible que el servidor requiera un reinicio como parte del proceso de aplicación de revisiones para completar la actualización. Con la programación personalizada, los usuarios pueden hacer que el ciclo de aplicación de revisiones sea predecible y elegir una ventana de mantenimiento con un impacto mínimo en el negocio. En general, el servicio sigue una programación mensual de versiones como parte de la integración y publicación continuas.
+
+Consulte [Mantenimiento programado](concepts-maintenance.md) para más detalles. 
 
 ## <a name="automatic-backups"></a>Copias de seguridad automáticas
 
@@ -87,13 +89,15 @@ Consulte [Conceptos de proceso y almacenamiento](concepts-compute-storage.md) pa
 
 El servicio de servidor flexible le permite detener e iniciar el servidor a petición para optimizar los costos. La facturación del nivel de proceso se detiene inmediatamente al detener el servidor. De este modo puede lograr un importante ahorro en el costo durante el desarrollo, las pruebas y las cargas de trabajo de producción predecibles enlazadas con límites de tiempo. El servidor permanece en estado detenido durante siete días, a menos que se reinicie antes. 
 
+Consulte [Conceptos de servidor](concept-servers.md) para más información. 
+
 ## <a name="enterprise-grade-security-and-privacy"></a>Privacidad y seguridad de calidad empresarial
 
 El servicio de servidor flexible usa el módulo criptográfico con validación FIPS 140-2 para el cifrado del almacenamiento de los datos en reposo. Se cifran los datos, incluidas las copias de seguridad, y los archivos temporales creados mientras se ejecutan las consultas. El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de Azure Storage y las claves las puede administrar el sistema (valor predeterminado). 
 
 El servicio cifra los datos en movimiento con la seguridad de la capa de transporte que se aplica de manera predeterminada. Los servidores flexibles solo admiten conexiones cifradas mediante la Seguridad de la capa de transporte (TLS 1.2) y se denegarán todas las conexiones entrantes con TLS 1.0 y TLS 1.1. 
 
-Consulte el [Uso de conexiones cifradas para servidores flexibles](/articles/mysql/flexible-server/how-to-connect-tls-ssl.md) para obtener más información.
+Consulte el [Uso de conexiones cifradas para servidores flexibles](https://docs.mongodb.com/manual/tutorial/configure-ssl) para obtener más información.
 
 Los servidores flexibles permiten el acceso privado completo a los servidores mediante la integración con [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet). Solo puede acceder a los servidores de la red virtual de Azure y conectarse con ellos mediante las direcciones IP privadas. Con la integración con red virtual, se deniega el acceso público y no se puede acceder a los servidores mediante puntos de conexión públicos. 
 
@@ -112,6 +116,15 @@ El servicio ejecuta la versión Community de MySQL. Esto ofrece una compatibilid
 
 - **Volcado y restauración**: en el caso de las migraciones sin conexión en las que los usuarios pueden permitirse un tiempo de inactividad, el volcado y la restauración mediante herramientas de la comunidad como mysqldump/mydumper pueden proporcionar una manera más rápida de migrar. Consulte Migración mediante volcado y restauración para más información. 
 - **Azure Database Migration Service**: puede aprovechar [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) para las migraciones sin problemas y simplificadas a un servidor único con un tiempo de inactividad mínimo. 
+
+## <a name="contacts"></a>Contactos
+Para cualquier pregunta o sugerencia que pueda tener con respecto al uso de Azure Database for MySQL, envíe un correo electrónico al equipo de Azure Database for MySQL ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Esta dirección de correo electrónico no es un alias de soporte técnico.
+
+Además, tenga en cuenta los siguientes puntos de contacto según corresponda:
+
+- Para ponerse en contacto con el servicio de soporte técnico de Azure, [presente una incidencia de soporte técnico en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Para corregir un problema con la cuenta, envíe una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en Azure Portal.
+- Para proporcionar comentarios o solicitar nuevas características, cree una entrada mediante [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha leído la introducción al modo de implementación del servidor único de Azure Database for MySQL, ya está listo para lo siguiente:

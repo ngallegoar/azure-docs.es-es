@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 0bcdd315fe11b7472166a5a9ad4f7395e22d2126
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 35133b64e43ca3814410d7bbf2ac1be9f760b369
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72675630"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91654434"
 ---
 Para crear un proyecto de Visual Studio para el desarrollo en .NET de aplicaciones móviles multiplataforma con Xamarin, debe:
 - Configurar las opciones de desarrollo de Visual Studio.
@@ -24,7 +24,7 @@ Para empezar, asegúrese de que Visual Studio está configurado correctamente pa
 
 1. En la barra de menús de Visual Studio, seleccione **Herramientas** > **Get Tools and Features** (Obtener herramientas y características) para abrir el Instalador de Visual Studio y ver el cuadro de diálogo **Modificar**.
 
-   ![Pestaña Cargas de trabajo, cuadro de diálogo Modificar, Instalador de Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-workload.png)
+   ![Captura de pantalla que muestra la pestaña Cargas de trabajo, el cuadro de diálogo Modificando, el Instalador de Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-workload.png)
 
 1. En la pestaña **Cargas de trabajo**, en **Windows**, busque la carga de trabajo **Desarrollo para dispositivos móviles con .NET**. Si la casilla situada junto a esa carga de trabajo ya está seleccionada, cierre el cuadro de diálogo **Modificar** y vaya al paso 5.
 
@@ -36,13 +36,13 @@ Para empezar, asegúrese de que Visual Studio está configurado correctamente pa
 
 1. En la barra de menús de Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto** para mostrar la ventana **Crear un nuevo proyecto**.
 
-   ![Creación de un proyecto: Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-create-new-project.png)
+   ![Captura de pantalla que muestra cómo crear un proyecto en Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-create-new-project.png)
 
 1. Busque y seleccione **Aplicación móvil (Xamarin.Forms)** .
 
 1. Seleccione **Siguiente** para abrir la pantalla **Configurar el nuevo proyecto**.
 
-   ![Configuración de un nuevo proyecto: Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)
+   ![Captura de pantalla que muestra cómo configurar el nuevo proyecto en Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)
 
 1. En **Nombre del proyecto**, escriba *helloworld*.
 
@@ -50,7 +50,7 @@ Para empezar, asegúrese de que Visual Studio está configurado correctamente pa
 
 1. Seleccione **Crear** para ir a la ventana de **nuevo proyecto aplicación móvil de Xamarin Forms**.
 
-   ![Cuadro de diálogo Nuevo proyecto de la Plataforma universal de Windows: Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
+   ![Captura de pantalla que muestra el cuadro de diálogo Nuevo proyecto de la Plataforma universal de Windows en Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
 
 1. Seleccione la plantilla **En blanco**.
 
@@ -70,13 +70,13 @@ Instale el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y haga 
 
 1. Haga clic en **Examinar**.
 
-   ![Captura de pantalla del cuadro de diálogo Administrar paquetes para la solución](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
+   ![Captura de pantalla del cuadro de diálogo Administrar paquetes para la solución al instalar el SDK de Voz.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
 1. En **Origen del paquete**, seleccione nuget.org.
 
 1. En el cuadro de **búsqueda**, escriba *Microsoft.CognitiveServices.Speech*. A continuación, seleccione ese paquete después de que aparezca en los resultados de la búsqueda.
 
-   ![Captura de pantalla del cuadro de diálogo Administrar paquetes para la solución](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
+   ![Captura de pantalla que resalta el paquete Microsoft.CognitiveServices.Speech.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
 
    > [!NOTE] 
    > La biblioteca de iOS dentro del paquete NuGet `Microsoft.CognitiveServices.Speech` no tiene habilitado Bitcode. Si necesita que la biblioteca Bitcode esté habilitada para la aplicación, use el paquete NuGet `Microsoft.CognitiveServices.Speech.Xamarin.iOS` para el proyecto de iOS específicamente.
