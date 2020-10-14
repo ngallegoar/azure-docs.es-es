@@ -1,6 +1,6 @@
 ---
 title: Registros de aprovisionamiento en el portal de Azure Active Directory (versión preliminar) | Microsoft Docs
-description: Introducción a los informes de actividad de aprovisionamiento en el portal de Azure Active Directory
+description: Introducción a los informes de registro de aprovisionamiento en el portal de Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/02/2020
+ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8aa31c6e196f916b4c7633da0c54a30ab9d7b548
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361286"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812563"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)
 
@@ -42,6 +42,7 @@ Este tema ofrece una visión general del informe de aprovisionamiento.
 ## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
+* Propietarios de la aplicación
 * Los usuarios con los roles Administrador de seguridad, Lector de seguridad, Lector de informes, Administrador de aplicaciones y Administrador de aplicaciones en la nube.
 * Administradores globales
 
@@ -210,13 +211,11 @@ En la pestaña **Resumen** se proporciona información general sobre lo que suce
 
 ## <a name="what-you-should-know"></a>Qué debería saber
 
-- Azure Portal almacena durante 30 días los datos de aprovisionamiento detectados si tiene una edición Premium y durante siete días si tiene una edición gratuita.
+- Azure Portal almacena durante 30 días los datos de aprovisionamiento detectados si tiene una edición Premium, y durante siete días si tiene una edición gratuita. Los registros de aprovisionamiento pueden publicarse en Log Analytics si se quiere realizar una retención superior a 30 días. 
 
 - Puede usar el atributo Id. de cambio como identificador único. Esto es útil, por ejemplo, al hablar con el soporte técnico del producto.
 
 - Actualmente no hay ninguna opción para descargar los datos de aprovisionamiento como un archivo CSV, aunque puede exportar los datos mediante [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
-
-- Actualmente no se presta soporte técnico para el análisis de registros.
 
 - Es posible que vea eventos omitidos para los usuarios que no estén en el ámbito. Esto es normal, especialmente cuando el ámbito de sincronización se establece en todos los usuarios y grupos. Nuestro servicio evaluará todos los objetos del inquilino, incluso los que estén fuera del ámbito. 
 
@@ -252,3 +251,4 @@ Use la tabla siguiente para entender mejor cómo resolver los errores que puede 
 
 * [Comprobación del estado de aprovisionamiento de usuarios](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD](../app-provisioning/application-provisioning-config-problem.md)
+* [Registros de aprovisionamiento de Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

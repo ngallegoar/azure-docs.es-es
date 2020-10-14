@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcbd58c5d8dc12898fe343dbba6c3a6f8cd61b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258719"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818353"
 ---
 # <a name="conditional-access-conditions"></a>Acceso condicional: Condiciones
 
@@ -49,6 +49,9 @@ El acceso condicional de Azure AD admite las siguientes plataformas de dispositi
 - macOS
 
 Si bloquea la autenticación heredada con la condición **Otros clientes**, también puede establecer la condición de la plataforma del dispositivo.
+
+> [!IMPORTANT]
+> Microsoft le recomienda que tenga una directiva de acceso condicional para las plataformas de dispositivos que no sean compatibles. Por ejemplo, si quiere bloquear el acceso a los recursos corporativos desde Linux o cualquier otro cliente no compatible, debe configurar una directiva con una condición de plataformas de dispositivos que incluya cualquier dispositivo, excluya las plataformas de dispositivo compatibles y conceda el control establecido para bloquear el acceso.
 
 ## <a name="locations"></a>Ubicaciones
 

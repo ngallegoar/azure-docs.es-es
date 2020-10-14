@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 00199f81e2dc8ca699fabf312955bf7a8a2b5cbd
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398396"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819904"
 ---
 # <a name="microsoft-global-network"></a>Red global de Microsoft
 
-Microsoft posee y opera una de las mayores redes troncales del mundo. Esta arquitectura global y sofisticada, que abarca más de 160 000 millas, conecta nuestros centros de datos y clientes. 
+Microsoft posee y opera una de las mayores redes troncales del mundo. Esta arquitectura global y sofisticada, que abarca más de 165 000 millas, conecta nuestros centros de datos y clientes. 
  
 Cada día, clientes de todo el mundo se conectan y pasan billones de solicitudes a Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox y muchos otros. Con independencia del tipo, los clientes esperan la confiabilidad y capacidad de respuesta instantánea de nuestros servicios. 
  
-La [red global de Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) es una parte fundamental de la oferta de una experiencia de nube excelente. Nuestra red global, que conecta los [centros de datos](https://azure.microsoft.com/global-infrastructure/) de Microsoft en 54 regiones de Azure y una gran red de nodos perimetrales estratégicamente ubicados en todo el mundo, ofrece la disponibilidad, capacidad y flexibilidad para satisfacer cualquier demanda.
+La [red global de Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) es una parte fundamental de la oferta de una experiencia de nube excelente. Nuestra red global, que conecta los [centros de datos](https://azure.microsoft.com/global-infrastructure/) de Microsoft en 61 regiones de Azure y una gran red de nodos perimetrales estratégicamente ubicados en todo el mundo, ofrece la disponibilidad, capacidad y flexibilidad para satisfacer cualquier demanda.
 
 ![Red global de Microsoft](./media/microsoft-global-network/microsoft-global-wan.png)
  
 ## <a name="get-the-premium-cloud-network"></a>Obtención de la red en la nube Premium
  
-Optar por la [mejor experiencia posible](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) es fácil cuando se usa la nube de Microsoft. Desde el momento en que el tráfico de cliente entra en nuestra red global a través de nuestros nodos perimetrales estratégicamente ubicados, los datos viajan a través de rutas optimizadas prácticamente a la velocidad de la luz. Esto garantiza una latencia óptima para obtener el mejor rendimiento. Estos nodos perimetrales, todos conectados entre sí a más de 3500 asociados de Internet únicos (homólogos) mediante miles de conexiones en más de 165 ubicaciones, proporcionan la base de nuestra estrategia de interconexión. 
+Optar por la [mejor experiencia posible](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) es fácil cuando se usa la nube de Microsoft. Desde el momento en que el tráfico de cliente entra en nuestra red global a través de nuestros nodos perimetrales estratégicamente ubicados, los datos viajan a través de rutas optimizadas prácticamente a la velocidad de la luz. Esto garantiza una latencia óptima para obtener el mejor rendimiento. Estos nodos perimetrales, todos conectados entre sí a más de 4000 asociados de Internet únicos (homólogos) mediante miles de conexiones en más de 175 ubicaciones, proporcionan la base de nuestra estrategia de interconexión. 
  
 Con independencia de que se conecte desde Londres a Tokio o desde Washington DC a Los Ángeles, el rendimiento de la red se cuantifica y se ve afectado por aspectos como la latencia, la vibración, la pérdida de paquetes y el rendimiento.  En Microsoft, se prefieren y usan interconexiones directas en lugar de conexiones de tránsito, lo que hace que el tráfico de respuesta sea simétrico y ayuda a reducir la duración y la complejidad de los saltos, las entidades de emparejamiento y las rutas de acceso. 
 

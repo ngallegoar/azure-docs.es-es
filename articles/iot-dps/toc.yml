@@ -38,15 +38,17 @@
 - name: Tutoriales
   items:
     - name: '1: aprovisionamiento de conjuntos de dispositivos con grupos de inscripción'
-      href: how-to-legacy-device-symm-key.md
+      items:
+        - name: Aprovisionamiento de dispositivos con claves simétricas
+          href: how-to-legacy-device-symm-key.md
+        - name: Uso de directivas de asignación personalizadas
+          href: tutorial-custom-allocation-policies.md
     - name: '2: aprovisionamiento de dispositivos en varios centros'
       items:
         - name: Vinculación de varios centros a DPS
           href: tutorial-provision-multiple-hubs.md
         - name: Aprovisionamiento para varios inquilinos
           href: how-to-provision-multitenant.md
-        - name: Uso de directivas de asignación personalizadas
-          href: tutorial-custom-allocation-policies.md
 - name: Ejemplos
   items:
     - name: Ejemplo de certificación de dispositivo TPM simulado
