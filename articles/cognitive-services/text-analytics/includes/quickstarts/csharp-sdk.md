@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/27/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 7e074bf898667bb0019d4147ec9abaea2c674d74
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: b5249850a572090a32b0d3515cbeaec9bfb112ae
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91401002"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977831"
 ---
 <a name="HOLTop"></a>
 
@@ -175,11 +175,11 @@ Si va a usar la versión `3.x` del servicio, puede emplear una instancia de `Tex
 ## <a name="code-examples"></a>Ejemplos de código
 
 * [Análisis de opiniones](#sentiment-analysis)
+* [Minería de opiniones](#opinion-mining)
 * [Detección de idioma](#language-detection)
 * [Reconocimiento de entidades con nombre](#named-entity-recognition-ner)
 * [Vinculación de entidad](#entity-linking)
 * [Extracción de frases clave](#key-phrase-extraction)
-
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
@@ -301,7 +301,7 @@ static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
 }
 ```
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Document sentiment: Positive
@@ -834,7 +834,7 @@ static void KeyPhraseExtractionExample(TextAnalyticsClient client)
 }
 ```
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Key phrases:

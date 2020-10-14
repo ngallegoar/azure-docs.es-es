@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: ae3090689f9999c9ea6aa65447dadbdd7b0b2026
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2aa30f86b32005b9c85664b5bb2d0772a6e5f443
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998544"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940776"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Nodos de computación confidencial en Azure Kubernetes Service, versión preliminar pública
 
@@ -40,7 +40,7 @@ Azure Kubernetes Service permite agregar [nodos de computación confidencial de 
 
 #### <a name="sgx-device-plugin"></a>SGX Device Plugin <a id="sgx-plugin"></a>
 
-SGX Device Plugin implementa la interfaz del complemento de dispositivos Kubernetes para la memoria EPC. De hecho, este complemento hace que la memoria EPC sea un tipo de recurso adicional en Kubernetes. Los usuarios pueden especificar límites en este recurso tal como lo harían en cualquier otro. Además de la función de programación, el complemento del dispositivo ayuda a asignar los permisos del controlador de dispositivos de SGX a los contenedores de cargas de trabajo confidenciales. Para ver un ejemplo de la implementación basada en memoria de EPC (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) consulte [aquí](https://github.com/azure-samples/confidential-computing/blob/main/containersamples/helloworld/helloworld.yaml)
+SGX Device Plugin implementa la interfaz del complemento de dispositivos Kubernetes para la memoria EPC. De hecho, este complemento hace que la memoria EPC sea un tipo de recurso adicional en Kubernetes. Los usuarios pueden especificar límites en este recurso tal como lo harían en cualquier otro. Además de la función de programación, el complemento del dispositivo ayuda a asignar los permisos del controlador de dispositivos de SGX a los contenedores de cargas de trabajo confidenciales. Para ver un ejemplo de la implementación basada en memoria de EPC (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) consulte [aquí](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
 #### <a name="sgx-quote-helper-service"></a>Servicio SGX Quote Helper<a id="sgx-quote"></a>
 

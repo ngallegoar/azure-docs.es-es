@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fd60adf94e57be3892a264c2a8457b839e1c8778
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f23512bfd85c520c36cd98843db37371b84af293
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89011300"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939209"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para .NET
 
@@ -77,7 +77,7 @@ Desde el directorio del proyecto:
 1. Abra el archivo *Program.cs* en el editor.
 1. Quite la instrucción `Console.WriteLine("Hello World!");`.
 1. Agregue directivas `using`.
-1. Actualice la declaración del método `Main` para [admitir código asincrónico](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main).
+1. Actualice la declaración del método `Main` para [admitir código asincrónico](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#async-main).
 
 
 

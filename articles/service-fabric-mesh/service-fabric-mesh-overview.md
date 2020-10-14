@@ -1,16 +1,16 @@
 ---
 title: Información general de Azure Service Fabric Mesh
 description: Conozca Azure Service Fabric Mesh. Con Service Fabric Mesh, puede implementar y escalar las aplicaciones sin preocuparse por las necesidades de infraestructura de estas.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: b7061a178a3f5a9d126afab3fc1f9aa77d5cc050
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 32e855ef1580dd065ee681e635994064a9038f77
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87927035"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840275"
 ---
 # <a name="what-is-service-fabric-mesh"></a>¿Qué es Service Fabric Mesh?
 

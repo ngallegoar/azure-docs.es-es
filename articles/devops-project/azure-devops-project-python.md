@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 891b8a5a844691d46c121c254e04b73f2b8c2d62
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6aa0a1bd14072e6ea4ea42004209f332f46a2d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87872742"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856082"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Creación de una canalización de CI/CD para Python con Azure DevOps Starter
 
@@ -129,4 +129,4 @@ Azure App Service y los recursos relacionados se pueden eliminar cuando no se ne
 Cuando configuró el proceso de CI/CD, se crearon automáticamente canalizaciones de compilación y de versión. Puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. Para más información acerca de la canalización de CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Personalización del proceso de CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personalización del proceso de CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

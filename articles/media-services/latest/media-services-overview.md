@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: b11cd602850d23ac6ec37a9be51912adceb9afbc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 58a142f0be87bb56f9ded9ace5a5143931740e93
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89267622"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019871"
 ---
 # <a name="azure-media-services-v3-overview"></a>Introducción a Azure Media Services v3
 
@@ -33,7 +33,7 @@ Azure Media Services es una plataforma basada en la nube que le permite compilar
 Los SDK de Media Services v3 se basan en la [especificación OpenAPI (Swagger) de Media Services v3](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> Actualmente, se puede usar [Azure Portal](https://portal.azure.com/) para: administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3 de Media Services, ver (no administrar) [recursos](assets-concept.md) y [obtener información sobre el acceso a las API](./access-api-howto.md). Para las restantes tareas de administración (por ejemplo, [Transformaciones y trabajos](transforms-jobs-concept.md) y [Protección de contenido](content-protection-overview.md)), use la [API REST](/rest/api/media/), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los[SDK](media-services-apis-overview.md#sdks) compatibles.
+> Actualmente, se puede usar [Azure Portal](https://portal.azure.com/) para: administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3 de Media Services, ver (no administrar) [recursos](assets-concept.md) y [obtener información sobre el acceso a las API](./access-api-howto.md). Para las restantes tareas de administración (por ejemplo, [Transformaciones y trabajos](transforms-jobs-concept.md) y [Protección de contenido](content-protection-overview.md)), use la [API REST](/rest/api/media/), la [CLI](/cli/azure/ams), o uno de los[SDK](media-services-apis-overview.md#sdks) compatibles.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

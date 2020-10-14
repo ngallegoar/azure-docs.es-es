@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 95c4464d1ab8416f609f75f2b59fb85a578ef5b7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88815868"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979060"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Use Azure Portal para restringir el acceso de importación y exportación para discos administrados con Private Links
 
@@ -30,12 +30,6 @@ Puede establecer la propiedad NetworkAccessPolicy en `DenyAll` para evitar que a
 ## <a name="regional-availability"></a>Disponibilidad regional
 
 [!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
-
-## <a name="prerequisites"></a>Requisitos previos
-
-Para usar puntos de conexión privados para exportar e importar discos administrados, debe habilitar la característica en la suscripción. Envíe un correo electrónico a mdprivatelinks@microsoft.com con los identificadores de suscripción para que la característica se habilite para sus suscripciones.
-
-Tendrá que anotar la red virtual de la máquina virtual a la que están conectados los discos. La red virtual es necesaria cuando se configura el punto de conexión privado.
 
 ## <a name="create-a-disk-access-resource"></a>Creación de un recurso de acceso a disco
 
@@ -101,4 +95,4 @@ Ya ha completado la configuración de los vínculos privados que puede usar al i
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Preguntas más frecuentes sobre vínculos privados](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Exportación o copia de instantáneas administradas como VHD a una cuenta de almacenamiento en otra región con PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
+- [Exportación o copia de instantáneas administradas como VHD a una cuenta de almacenamiento en otra región con PowerShell](./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md)

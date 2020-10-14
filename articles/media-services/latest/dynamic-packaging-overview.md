@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 797ba00820e7ff9d96868acdfc1dddfff3d21623
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 7941d542ca2cab1637b9edaef057f740a9a1b7ef
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598277"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016832"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empaquetado dinámico en Media Services v3
 
@@ -30,7 +30,7 @@ Microsoft Azure Media Services se puede usar para codificar muchos formatos de a
 En Media Services, un [punto de conexión de streaming](streaming-endpoint-concept.md) (origen) representa un empaquetado dinámico (Just-In-Time) y el servicio de origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción de cliente. Usa uno de los protocolos de streaming de multimedia comunes que se mencionan en la sección siguiente. El *empaquetado dinámico* es una característica incluida en todos los puntos de conexión de streaming.
 
 > [!NOTE]
-> Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) de la versión 3, obtener información sobre el acceso a las API. Para las restantes tareas de administración (por ejemplo, Transformaciones y trabajos y Protección de contenido), use la [API REST](/rest/api/media/), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
+> Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) de la versión 3, obtener información sobre el acceso a las API. Para las restantes tareas de administración (por ejemplo, Transformaciones y trabajos y Protección de contenido), use la [API REST](/rest/api/media/), la [CLI](/cli/azure/ams), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Para preparar los archivos de origen para su entrega
 
@@ -88,7 +88,7 @@ En los pasos siguientes se muestra un flujo de trabajo común de streaming de Me
 1. [Cargue un archivo de entrada](job-input-from-http-how-to.md), como por ejemplo MP4, QuickTime/MOV, o cualquier otro formato de archivo compatible. Este archivo también se conoce como archivo de origen o intermedio. Para la lista de formatos admitidos, consulte [Códecs y formatos de Standard Encoder](media-encoder-standard-formats.md).
 1. [Codifique](#encode-to-adaptive-bitrate-mp4s) el archivo intermedio en un conjunto de archivos MP4 de velocidad de bits adaptable H.264/AAC.
 
-    Si ya ha codificado los archivos y solo quiere copiar y transmitir los archivos, use: [CopyVideo API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) y [CopyAudio API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio). Como resultado, se creará un archivo MP4 con un manifiesto de streaming (archivo .ism).
+    Si ya ha codificado los archivos y solo quiere copiar y transmitir los archivos, use: [CopyVideo API](/rest/api/media/transforms/createorupdate#copyvideo) y [CopyAudio API](/rest/api/media/transforms/createorupdate#copyaudio). Como resultado, se creará un archivo MP4 con un manifiesto de streaming (archivo .ism).
 1. Publicar el recurso de salida que contiene el conjunto de MP4 de velocidad de bits adaptable. Publicar mediante la creación de un [localizador de streaming](streaming-locators-concept.md).
 1. Generar direcciones URL que tienen como destino diferentes formatos (HLS, MPEG-DASH y Smooth Streaming). El *punto de conexión de streaming* se encarga de atender el manifiesto correcto y las solicitudes de todos estos formatos.
     

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: dbb28726d1c2eaf887ced818284d4b1e0298f8db
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: e25ebd181d0017885a24310e3dac3ff30a59a21e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767813"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973366"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Inicio rápido: Creación y modificación de un circuito ExpressRoute
 
@@ -170,7 +170,7 @@ Si el estado de aprovisionamiento del proveedor de servicios del circuito Expres
 >* Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprovisionamiento del proveedor de servicios está establecido en **No aprovisionado**), puede eliminar el circuito. Esto detiene la facturación del circuito.
 
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpieza de recursos
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Para eliminar el circuito ExpressRoute, puede seleccionar el icono **Eliminar**. 
 

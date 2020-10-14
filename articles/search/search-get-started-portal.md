@@ -2,18 +2,18 @@
 title: Creación de un índice de búsqueda en Azure Portal
 titleSuffix: Azure Cognitive Search
 description: En esta guía de inicio rápido de Azure Portal, utilizará el Asistente para importar datos para crear, cargar y consultar su primer índice de búsqueda de Azure Cognitive Search.
-author: tchristiani
 manager: nitinme
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/16/2020
-ms.openlocfilehash: 460c37107ac2dbd8bc3377d3716e708331db9904
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: b783366958380f391dc76583c42988badc9915c8
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740942"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056487"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Azure Portal
 

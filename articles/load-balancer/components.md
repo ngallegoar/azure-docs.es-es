@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: ccc6611f14903e47a76de938994552378bb3bc24
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4dbbd3443ec6c455ba9bcb88ff90dd4960aff5d2
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88589714"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930958"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes de Azure Load Balancer
 
@@ -125,6 +125,13 @@ Una regla de salida configura una traducción de direcciones de red (NAT) de sal
 Obtenga más información sobre las [conexiones y reglas de salida](load-balancer-outbound-connections.md).
 
 Load Balancer Básico no admite reglas de salida.
+
+## <a name="limitations"></a>Limitaciones
+
+- Load Balancer proporciona equilibrio de carga y reenvío de puertos para protocolos TCP o UDP concretos. Las reglas de equilibrio de carga y las reglas NAT de entrada admiten TCP y UDP, pero no otros protocolos IP, incluido ICMP.
+- No se generará el flujo saliente de una máquina virtual del back-end a un front-end de un equilibrador de carga interno.
+- Una regla de equilibrador de carga no puede abarcar dos redes virtuales.  Los front-end y sus instancias de back-end deben estar ubicados en la misma red virtual.  
+- No se admite el reenvío de fragmentos IP en reglas de equilibrio de carga. No se admite la fragmentación IP de paquetes UDP y TCP en reglas de equilibrio de carga. Las reglas de equilibrio de carga de los puertos de alta disponibilidad se pueden usar para reenviar fragmentos de IP existentes. Para más información, consulte [Información general sobre los puertos de alta disponibilidad](load-balancer-ha-ports-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

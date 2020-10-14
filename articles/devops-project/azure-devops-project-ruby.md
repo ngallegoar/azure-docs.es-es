@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: cde959d8e075b55cb6cbb37479ca49cdd8a8c0c1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b7ab2fb13be10d5992f1b26973e9735ac238090a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82233744"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856065"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-starter"></a>Creación de una canalización de CI/CD para Ruby on Rails con Azure DevOps Starter
 
@@ -126,4 +126,4 @@ Cuando dejen de ser necesarios, puede eliminar la instancia de Azure App Service
 Para más información acerca de cómo modificar las canalizaciones de compilación y versión para satisfacer las necesidades de su equipo, consulte:
 
 > [!div class="nextstepaction"]
-> [Definición de la canalización de implementación continua (CD) en varias fases](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definición de la canalización de implementación continua (CD) en varias fases](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

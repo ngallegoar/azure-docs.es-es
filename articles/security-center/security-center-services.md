@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 61e5c60317bf872b8e27a7bd2edea7247e01a3b8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a311439e8efc5481fbfd7431c1514ba6be576e39
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439419"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858020"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de características para las máquinas
 
@@ -107,6 +107,6 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [Security Center recopila datos y sobre el agente de Log Analytics](security-center-enable-data-collection.md).
+- Obtenga información sobre cómo [Security Center recopila datos mediante el agente de Log Analytics](security-center-enable-data-collection.md).
 - Obtenga información sobre cómo [Security Center administra y protege los datos](security-center-data-security.md).
 - Revise las [plataformas compatibles con Security Center](security-center-os-coverage.md).

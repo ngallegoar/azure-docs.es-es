@@ -8,12 +8,12 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: 0539dcecbbbfe28817122e0f47e813182a9abd9d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 27b74f99d926bf72bc22f153a8d76deb56646987
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87322149"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993884"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Comience a analizar la aplicación móvil con App Center y Application Insights.
 
@@ -124,7 +124,7 @@ Application Insights puede consultar, segmentar, filtrar y analizar la telemetr�
    1. Seleccione la consulta haciendo clic en cualquier parte de la consulta en el editor de texto.
    2. Después haga clic en **Ir** para ejecutar la consulta. 
 
-   Obtenga más información sobre [Analytics en Application Insights](../log-query/log-query-overview.md) y el [lenguaje de consulta de Log Analytics](https://aka.ms/LogAnalyticsLanguageReference).
+   Obtenga más información sobre [Analytics en Application Insights](../log-query/log-query-overview.md) y el [lenguaje de consulta de Log Analytics](/azure/data-explorer/kusto/query/).
 
 
 2. **Segmente y filtre la telemetría de eventos personalizados.** En la página de **información general** de Application Insights, seleccione **Usuarios** en la tabla de contenido.
@@ -168,4 +168,3 @@ Para eliminar el recurso de Application Insights:
 
 > [!div class="nextstepaction"]
 > [Información sobre la forma en que los clientes usan la aplicación](../app/usage-overview.md)
-

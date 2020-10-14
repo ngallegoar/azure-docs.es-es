@@ -2,18 +2,18 @@
 title: Inicio rápido de la biblioteca cliente de .NET de Anomaly Detector
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
-ms.author: aahi
-ms.openlocfilehash: 635b99df65676a4b8652d22db33002364abb1b23
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.author: mbullwin
+ms.openlocfilehash: 22732ae10fb328839c47194e0a33faf18514ff45
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319290"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018488"
 ---
 Comience a usar la biblioteca cliente de Anomaly Detector para .NET. Siga estos pasos para instalar el inicio del paquete con los algoritmos que proporciona el servicio. El servicio de Anomaly Detector le permite detectar anomalías en los datos de serie temporal mediante el uso automático de los mejores modelos, independientemente del sector, el escenario o el volumen de datos.
 
