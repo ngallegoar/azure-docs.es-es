@@ -20,7 +20,7 @@
         - name: Acceso a la API
           href: access-api-howto.md
         - name: Configuración de Azure Cloud Shell
-          href: 'https://docs.microsoft.com/azure/cloud-shell/overview'
+          href: ../../cloud-shell/overview.md
         - name: Desarrollo con REST
           items:
             - name: Conexión con Postman
@@ -75,7 +75,7 @@
       items:
         - name: Codificación y transmisión en secuencias de un archivo remoto Node.js
           href: stream-files-nodejs-quickstart.md
-    - name: Portal de Azure
+    - name: Azure portal
       items:
         - name: Almacenamiento de eventos de Azure Media Services en Azure Log Analytics
           href: tutorial-events-log-analytics.md
@@ -374,15 +374,15 @@
     - name: REST
       href: /rest/api/media/
     - name: Azure CLI
-      href: 'https://aka.ms/ams-v3-cli-ref'
+      href: /cli/azure/ams
     - name: SDK
       items:
         - name: .NET
-          href: 'https://aka.ms/ams-v3-dotnet-ref'
+          href: /dotnet/api/overview/azure/mediaservices/management
         - name: Java
-          href: 'https://aka.ms/ams-v3-java-ref'
+          href: /java/api/overview/azure/mediaservices/management
         - name: Python
-          href: 'https://aka.ms/ams-v3-python-ref'
+          href: /python/api/overview/azure/mediaservices/management
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
         - name: Go
@@ -411,7 +411,7 @@
     - name: SDK y herramientas
       items:
         - name: Azure CLI
-          href: 'https://aka.ms/ams-v3-cli'
+          href: /cli/azure/install-azure-cli
         - name: .NET
           href: 'https://aka.ms/ams-v3-dotnet-sdk'
         - name: Java
