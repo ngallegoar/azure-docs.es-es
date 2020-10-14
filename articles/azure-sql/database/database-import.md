@@ -4,19 +4,19 @@ description: Cree una base de datos en Azure SQL Database o en Instancia adminis
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: migrate
-ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 574bc4721f83d60fdd8c75b4fedb824522968822
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: ec3da815a9ca3e55fd65f1f0a64a81b74c6d2979
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070053"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91613754"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Inicio rápido: Importación de un archivo BACPAC a una base de datos de Azure SQL Database o Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -147,6 +147,10 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 - No se admite la importación a una base de datos que esté en un grupo elástico. Puede importar los datos en una base de datos única y después moverla a un grupo elástico.
 - El servicio de importación y exportación no funciona cuando "Permitir el acceso a servicios de Azure" se establece en "DESACTIVADO". Sin embargo, puede solucionar el problema con la ejecución manual de sqlpackage.exe desde una máquina virtual de Azure o la realización de la exportación directamente en el código mediante la API de DACFx.
+- La importación no admite la especificación de una redundancia del almacenamiento de copia de seguridad al crear una nueva base de datos y se crea con la redundancia predeterminada del almacenamiento de copia de seguridad con redundancia geográfica. Para solucionar el problema, cree primero una base de datos vacía con la redundancia deseada del almacenamiento de copia de seguridad mediante Azure Portal o PowerShell y, a continuación, importe el BACPAC en esta base de datos vacía. 
+
+> [!NOTE]
+> La redundancia del almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente como versión preliminar pública en la región Sudeste de Asia de Azure.
 
 ## <a name="import-using-wizards"></a>Importación mediante asistentes
 
