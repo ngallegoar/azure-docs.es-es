@@ -17,12 +17,12 @@ ms.date: 09/17/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23cfc2ea17e1801ec4caeea9e8933cfdc72e33d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 994fe6c5005eeeab1399091dca5f72024fdd7262
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331257"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812597"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
 
@@ -35,6 +35,7 @@ Esta arquitectura de informes consta de los siguientes componentes:
 - **Actividad** 
     - **Inicios de sesión**: el [informe de inicios de sesión](concept-sign-ins.md) proporciona información sobre el uso de aplicaciones administradas y actividades de inicio de sesión de usuario.
     - Los **registros de auditoría** proporcionan rastreabilidad mediante los registros de todos los cambios realizados por diversas características de Azure AD. Algunos ejemplos de registros de auditoría incluyen los cambios realizados en cualquier recurso de Azure AD como agregar o quitar usuarios, aplicaciones, grupos, roles y directivas.
+    - Los **registros de aprovisionamiento** - [Registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) permiten a los clientes supervisar la actividad del servicio de aprovisionamiento, como la creación de un grupo en ServiceNow o un usuario importado desde Workday. 
 - **Seguridad** 
     - **Inicios de sesión de riesgo**: un [inicio de sesión de riesgo](../identity-protection/overview-identity-protection.md) es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. 
     - **Usuarios marcados en riesgo**: un [usuario en riesgo](../identity-protection/overview-identity-protection.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
