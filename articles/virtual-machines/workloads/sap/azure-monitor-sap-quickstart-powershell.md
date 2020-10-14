@@ -7,13 +7,14 @@ ms.topic: quickstart
 ms.service: virtual-machines
 ms.devlang: azurepowershell
 ms.date: 09/08/2020
+ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ab64f3a5ee00296ca7e1d53f8a4c84542e322d71
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 466883de31f0967f593c3c1abf5c1725bc327e41
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89671064"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994122"
 ---
 # <a name="quickstart-deploy-azure-monitor-for-sap-solutions-with-azure-powershell"></a>Inicio rápido: Implementación de Azure Monitor para soluciones de SAP con Azure PowerShell
 
@@ -26,7 +27,7 @@ En este artículo se describe cómo puede crear recursos de Azure Monitor para s
 
 si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-Si decide usar PowerShell de forma local, para este artículo es preciso que instale el módulo Az PowerShell y que se conecte a su cuenta de Azure con el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para más información sobre cómo instalar el módulo Az PowerShell, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps). Si decide usar Cloud Shell, consulte [Introducción a Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para más información.
+Si decide usar PowerShell de forma local, para este artículo es preciso que instale el módulo Az PowerShell y que se conecte a su cuenta de Azure con el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para más información sobre cómo instalar el módulo Az PowerShell, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps). Si decide usar Cloud Shell, consulte [Introducción a Azure Cloud Shell](../../../cloud-shell/overview.md) para más información.
 
 > [!IMPORTANT]
 > Aunque el módulo de PowerShell **Az.HanaOnAzure** está en versión preliminar, se debe instalar por separado mediante el cmdlet `Install-Module`. Una vez que este módulo de PowerShell esté disponible con carácter general, formará parte de las futuras versiones del módulo Az PowerShell y estará disponible de forma nativa en Azure Cloud Shell.

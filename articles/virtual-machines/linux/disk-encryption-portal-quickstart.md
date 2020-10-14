@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 563b9c03141357eeacf9a7d890c386faae52c6df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2a5588940d4efacc08d89b72bde4433d725a4994
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88510712"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978414"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Inicio rápido: Creación y cifrado de una máquina virtual desde Azure Portal
 
@@ -38,7 +38,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
     :::image type="content" source="../media/disk-encryption/portal-quickstart-linux-vm-creation.png" alt-text="Pantalla de creación de máquinas virtuales Linux&quot;:::
 
     > [!WARNING]
-    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](managed-disks-overview.md) + CMK, **no** para Azure Disk Encryption.
+    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](../managed-disks-overview.md) + CMK, **no** para Azure Disk Encryption.
     >
     > Para evitar confusiones, se recomienda omitir la pestaña *Discos* completamente mientras se completa este tutorial.
 
@@ -47,7 +47,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
     :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Pantalla de creación de máquinas virtuales Linux&quot;:::
 
     > [!WARNING]
-    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](managed-disks-overview.md) + CMK, **no** para Azure Disk Encryption.
+    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](../managed-disks-overview.md) + CMK, **no** para Azure Disk Encryption.
     >
     > Para evitar confusiones, se recomienda omitir la pestaña *Discos* completamente mientras se completa este tutorial.
 
@@ -68,7 +68,7 @@ La implementación de la máquina virtual tardará unos minutos. Cuando finalice
     :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Pantalla de creación de máquinas virtuales Linux&quot;:::
 
     > [!WARNING]
-    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](managed-disks-overview.md) + CMK, **no** para Azure Disk Encryption.
+    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](../managed-disks-overview.md) + CMK, **no** para Azure Disk Encryption.
     >
     > Para evitar confusiones, se recomienda omitir la pestaña *Discos* completamente mientras se completa este tutorial.
 
@@ -80,7 +80,7 @@ La implementación de la máquina virtual tardará unos minutos. Cuando finalice
     :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Pantalla de creación de máquinas virtuales Linux&quot;:::
 
     > [!WARNING]
-    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](managed-disks-overview.md) + CMK, **no** para Azure Disk Encryption.
+    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](../managed-disks-overview.md) + CMK, **no** para Azure Disk Encryption.
     >
     > Para evitar confusiones, se recomienda omitir la pestaña *Discos* completamente mientras se completa este tutorial.
 
@@ -94,7 +94,7 @@ La implementación de la máquina virtual tardará unos minutos. Cuando finalice
     :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Pantalla de creación de máquinas virtuales Linux&quot;:::
 
     > [!WARNING]
-    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](managed-disks-overview.md) + CMK, **no** para Azure Disk Encryption.
+    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](../managed-disks-overview.md) + CMK, **no** para Azure Disk Encryption.
     >
     > Para evitar confusiones, se recomienda omitir la pestaña *Discos* completamente mientras se completa este tutorial.
 

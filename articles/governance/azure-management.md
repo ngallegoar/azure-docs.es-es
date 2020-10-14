@@ -3,12 +3,12 @@ title: 'Introducción a la administración de Azure: Gobernanza de Azure'
 description: Información general de las áreas de administración para las aplicaciones y los recursos de Azure con vínculos a contenido sobre las herramientas de administración de Azure.
 ms.date: 09/09/2020
 ms.topic: overview
-ms.openlocfilehash: 0aaa23dd2841802919cfdfcc857a189e072a5c6b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 8ffb37cd1db5740ed022b52cd9687bb3db1632bb
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662128"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949503"
 ---
 # <a name="what-are-the-azure-management-areas"></a>¿Qué son las áreas de administración de Azure?
 
@@ -44,7 +44,7 @@ Con esta característica, esos recursos se mantienen en cumplimiento con los est
 
 ## <a name="secure"></a>Seguridad
 
-Administre la seguridad de los recursos y los datos. Un programa de seguridad implica evaluar amenazas, recopilar y analizar datos y que las aplicaciones y los recursos cumplan con los requisitos. La supervisión de la seguridad y el análisis de amenazas los proporciona [Azure Security Center](../security-center/security-center-intro.md), que incluye una administración unificada de la seguridad y una protección avanzada contra amenazas para cargas de trabajo en la nube híbrida. Consulte [Introducción a la seguridad de Azure](../security/fundamentals/overview.md) para información y guías detalladas sobre cómo proteger los recursos de Azure.
+Administre la seguridad de los recursos y los datos. Un programa de seguridad implica evaluar amenazas, recopilar y analizar datos y que las aplicaciones y los recursos cumplan con los requisitos. La supervisión de la seguridad y el análisis de amenazas los proporciona [Azure Security Center](../security-center/security-center-introduction.md), que incluye una administración unificada de la seguridad y una protección avanzada contra amenazas para cargas de trabajo en la nube híbrida. Consulte [Introducción a la seguridad de Azure](../security/fundamentals/overview.md) para información y guías detalladas sobre cómo proteger los recursos de Azure.
 
 ## <a name="protect"></a>Protección
 

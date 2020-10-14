@@ -12,18 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2020
 ms.author: duau
-ms.openlocfilehash: bf0d802dc4ea4d18122a12b107dfb0cc0af80d63
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e5b8e5059d4d7df8d7061698ea29d7a6785236f9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773457"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825642"
 ---
 # <a name="what-is-azure-front-door"></a>¿Qué es Azure Front Door?
 
 Azure Front Door es un punto de entrada global y escalable que usa la red perimetral global de Microsoft para crear aplicaciones web rápidas, seguras y muy escalables. Con Front Door, las aplicaciones empresariales y de consumidor globales se pueden transformar en aplicaciones modernas personalizadas, sólidas y de alto rendimiento con contenido que llegue a un público global mediante Azure.
 
-:::image type="content" source="media/front-door-overview/front-door-visual-diagram.png#center" alt-text="Arquitectura de Front Door":::
+<p align="center">
+  <img src="./media/front-door-overview/front-door-visual-diagram.png" alt="Front Door architecture" width="600" title="Azure Front Door">
+</p>
 
 Front Door funciona en la capa 7 (capa HTTP/HTTPS) y usa el protocolo de difusión por proximidad con división TCP y la red global de Microsoft para mejorar la conectividad global. Según el método de enrutamiento, puede asegurarse de que Front Door enrute las solicitudes de cliente al back-end de aplicación más rápido y disponible. Un back-end de aplicación es cualquier servicio accesible desde Internet hospedado dentro o fuera de Azure. Front Door proporciona una serie de [métodos de enrutamiento del tráfico](front-door-routing-methods.md) y [opciones de seguimiento de estado del back-end](front-door-health-probes.md) para satisfacer las distintas necesidades de las aplicaciones y los escenarios de conmutación automática por error. Al igual que [Traffic Manager](../traffic-manager/traffic-manager-overview.md), Front Door es resistente a errores, incluidos los que afectan a una región completa de Azure.
 

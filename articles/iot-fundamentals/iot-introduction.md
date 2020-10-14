@@ -10,12 +10,12 @@ ms.author: dobett
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 73eb0b3164a386bb270e42ceba56d5dc7045af1c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ecc79eb52acbe393ac2777a0ec388e538a7f8fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81729002"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978907"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>¿Qué es Internet de las cosas (IoT) de Azure?
 
@@ -74,6 +74,8 @@ Por ejemplo, en una solución de supervisión remota de una estación de bombeo 
 
 Para ver ejemplos reales de cómo utilizan Azure IoT las organizaciones, consulte los [casos de estudio técnicos de Microsoft para IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
+Para ver un análisis detallado de la arquitectura de IoT, consulte [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Arquitectura de referencia de IoT de Microsoft Azure).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para algunos casos de negocio reales y la arquitectura utilizada, consulte [Estudios de casos técnicos para IoT de Microsoft Azure](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured).
@@ -81,5 +83,3 @@ Para algunos casos de negocio reales y la arquitectura utilizada, consulte [Estu
 Para algunos proyectos de ejemplo que puede probar con IoT DevKit, consulte el [Catálogo de proyectos de IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/). 
 
 Para obtener una explicación más completa de los distintos servicios, así como de su uso, consulte [Tecnologías y servicios de Azure para crear soluciones de IoT](iot-services-and-technologies.md).
-
-Para ver un análisis detallado de la arquitectura de IoT, consulte [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Arquitectura de referencia de IoT de Microsoft Azure).

@@ -2,19 +2,19 @@
 title: Ejemplo de elementos principales de una llamada grupal
 titleSuffix: An Azure Communication Services sample overview
 description: Información general sobre el ejemplo de elementos principales de llamada al usar Azure Communication Services para que los desarrolladores puedan obtener más información sobre el funcionamiento interno del ejemplo.
-author: ddematheu
+author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5aa168c8f280859112f3ab317ef83d32260cead4
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: d4c3c8e2f8470d187156f0dd98fab2bd74eb33bc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460601"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963115"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Introducción al ejemplo de elementos principales de una llamada
 
@@ -109,6 +109,6 @@ Para más información, consulte los siguientes artículos.
 
 - [GitHub de Azure Communication](https://github.com/Azure/communication): encuentre más ejemplos e información en la página oficial de GitHub.
 - [Redux](https://redux.js.org/): Administración de estado del lado cliente
-- [FluentUI](https://developer.microsoft.com/fluentui#/): Biblioteca de interfaz de usuario con tecnología de Microsoft
+- [FluentUI](https://aka.ms/fluent-ui): Biblioteca de interfaz de usuario con tecnología de Microsoft
 - [React](https://reactjs.org/): Biblioteca para compilar interfaces de usuario
 - [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true): Marco para compilar aplicaciones web

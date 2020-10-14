@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 6c88a1eaee50676cfe6bb9589779d7156b805e30
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 77dc64d9660f9a0bf66559c4a5a976362cf1acd0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920983"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951645"
 ---
 ::: zone target = "docs"
 
@@ -97,11 +97,11 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 
 1. El primer paso es autenticarse e iniciar sesión. Vaya a **Connect and copy** (Conectar y copiar). Haga clic en **Get credentials** (Obtener credenciales) para obtener las credenciales de acceso para los recursos compartidos asociados con la cuenta de almacenamiento.
 
-    ![Obtención de las credenciales del recurso compartido 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
+    ![Obtención de las credenciales de recursos compartidos](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
 
 2. En el cuadro de diálogo Access share and copy data (Acceder al recurso compartido y copiar datos), copie los valores de **Username** (Nombre de usuario) y **Password** (Contraseña) del recurso compartido. Haga clic en **OK**.
     
-    ![Obtención de las credenciales del recurso compartido 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
+    ![Obtención de las credenciales de recursos compartidos 2](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
 
 3. Para acceder a los recursos compartidos asociados con la cuenta de almacenamiento (*databoxe2etest* en el ejemplo siguiente) desde el equipo host, abra una ventana Comandos. En el símbolo del sistema, escriba:
 
@@ -122,7 +122,7 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 
 4. Presione Windows + R. En la ventana **Ejecutar**, escriba `\\<device IP address>`. Haga clic en **Aceptar** para abrir el Explorador de archivos.
     
-    ![Conexión al recurso compartido mediante el Explorador de archivos 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
+    ![Conexión al recurso compartido mediante el Explorador de archivos](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
 
     Ahora debería ver los recursos compartidos como carpetas.
     

@@ -3,17 +3,17 @@ title: Creación de un servicio de búsqueda en el portal
 titleSuffix: Azure Cognitive Search
 description: En este inicio rápido del portal, aprenderá a configurar un recurso de Azure Cognitive Search en Azure Portal. Elija grupos de recursos, regiones, SKU o planes de tarifa.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/05/2020
-ms.openlocfilehash: 713199dc6b1eb1330b49c320022af137d0d1402e
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 3ccc5ab07416f65270a7bd720f1e0884027b1fe7
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741013"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057729"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Inicio rápido: Creación de un servicio Azure Cognitive Search en el portal
 
