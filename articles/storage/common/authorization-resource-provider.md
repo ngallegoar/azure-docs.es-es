@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 162aa0c382ec22f946d20299fbb990b92481518f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714689"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822283"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Uso del proveedor de recursos de Azure Storage para acceder a los recursos de administración
 
@@ -47,7 +47,7 @@ Los roles integrados que conceden permisos para llamar a las operaciones de admi
 |    Rol de Azure    |    Descripción    |    ¿Incluye acceso a las claves de las cuentas?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Propietario** | Puede administrar todos los recursos de almacenamiento y acceder a los recursos.  | Si, proporciona permisos para ver y volver a generar las claves de la cuenta de almacenamiento. |
-| **Colaborador**  | Puede administrar todos los recursos de almacenamiento, pero no puede administrar la asignación a los recursos. | Si, proporciona permisos para ver y volver a generar las claves de la cuenta de almacenamiento. |
+| **Colaborador**  | Puede administrar todos los recursos de almacenamiento, pero no puede administrar el acceso a los recursos. | Si, proporciona permisos para ver y volver a generar las claves de la cuenta de almacenamiento. |
 | **Lector** | Puede ver información acerca de la cuenta de almacenamiento, pero no puede ver las claves de la cuenta. | No. |
 | **Colaborador de la cuenta de almacenamiento** | Puede administrar la cuenta de almacenamiento, obtener información acerca de los grupos de recursos y recursos de la suscripción, y crear y administrar implementaciones de los grupos de recursos de la suscripción. | Si, proporciona permisos para ver y volver a generar las claves de la cuenta de almacenamiento. |
 | **Administrador de acceso de usuario** | Puede administrar el acceso a la cuenta de almacenamiento.   | Sí, permite a una entidad de seguridad asignar cualquier permiso tanto a ella misma como a otras. |
