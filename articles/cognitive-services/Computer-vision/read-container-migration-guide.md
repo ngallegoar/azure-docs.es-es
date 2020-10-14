@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/21/2020
 ms.author: aahi
-ms.openlocfilehash: 714a4709eceea875798940de962716d34437f2a9
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530466"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973129"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migración a los contenedores OCR de Read v3.x
 
@@ -65,10 +65,10 @@ El núcleo y la memoria corresponden a los valores `--cpus` y `--memory`, que se
 >[!NOTE]
 > MongoDB ya no se admite en las versiones 3.x del contenedor. En su lugar, los contenedores admiten Azure Storage y sistemas de archivos sin conexión.
 
-| Implementación |  Argumentos en tiempo de ejecución necesarios |
+| Implementación |    Argumentos en tiempo de ejecución necesarios |
 |---------|---------|
-|Nivel de archivo (predeterminado)   | No se requieren argumentos en tiempo de ejecución. Se usará el directorio `/share`. |
-|Blob de Azure | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
+|Nivel de archivo (predeterminado)    | No se requieren argumentos en tiempo de ejecución. Se usará el directorio `/share`. |
+|Blob de Azure    | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
 ## <a name="queue-implementations"></a>Implementaciones de colas
 
@@ -78,7 +78,7 @@ En la versión 3.x del contenedor, no se admite actualmente RabbitMQ. Las implem
 |---------|---------|-------|
 | En memoria (predeterminado) | No se requieren argumentos en tiempo de ejecución. | Desarrollo y pruebas |
 | Colas de Azure | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Producción |
-| RabbitMQ  | No disponible | Producción |
+| RabbitMQ    | No disponible | Producción |
 
 Para agregar redundancia, el contenedor de Read v3.x emplea un temporizador de visibilidad para que las solicitudes se puedan procesar correctamente en caso de bloqueo, cuando se ejecuten en una instalación de varios contenedores. 
 
@@ -86,7 +86,7 @@ Establezca el temporizador con `Queue:Azure:QueueVisibilityTimeoutInMilliseconds
 
 | Valor predeterminado | Valor recomendado |
 |---------|---------|
-| 30000 |   120000 |
+| 30000 |    120000 |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

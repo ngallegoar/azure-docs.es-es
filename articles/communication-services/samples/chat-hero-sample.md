@@ -2,19 +2,19 @@
 title: Ejemplo de elementos principales de un chat grupal
 titleSuffix: An Azure Communication Services sample overview
 description: Información general sobre el ejemplo de elementos principales de chat al usar Azure Communication Services para que los desarrolladores puedan obtener más información sobre el funcionamiento interno del ejemplo y aprender a modificarlo.
-author: ddematheu
+author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b97b80927739d9a8658213a00b415c0bf321528b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 51b985cd67e1b540e2f24f2f37b19f9bff4223db
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460567"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962996"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introducción al ejemplo de elementos principales de un chat grupal
 
@@ -78,7 +78,6 @@ Para probar el ejemplo localmente, puede abrir varias sesiones del explorador co
 2. `git clone https://github.com/Azure/Communication.git`
 3. Obtenga `Connection String` de Azure Portal. Para obtener más información sobre las cadenas de conexión, consulte [Creación de un recurso de Azure Communication Services](../quickstarts/create-communication-resource.md).
 4. Una vez que obtenga `Connection String`, agregue la cadena de conexión al archivo **Chat/appsettings.json** que se encuentra en la carpeta Chat. Escriba la cadena de conexión en la variable: `ResourceConnectionString`.
-5. Actualice ENVIRONMENT_URL en `./Chat/ClientApp/src/constants.tsx` con la ubicación del recurso. (Por ejemplo, https://<RESOURCE_NAME>.communication.azure.com).
 
 ### <a name="local-run"></a>Ejecución local
 
@@ -115,6 +114,6 @@ Para más información, consulte los siguientes artículos.
 
 - [GitHub de Azure Communication](https://github.com/Azure/communication): encuentre más ejemplos e información en la página oficial de GitHub.
 - [Redux](https://redux.js.org/): Administración de estado del lado cliente
-- [FluentUI](https://developer.microsoft.com/fluentui#/): Biblioteca de interfaz de usuario con tecnología de Microsoft
+- [FluentUI](https://aka.ms/fluent-ui): Biblioteca de interfaz de usuario con tecnología de Microsoft
 - [React](https://reactjs.org/): Biblioteca para compilar interfaces de usuario
 - [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true): Marco para compilar aplicaciones web

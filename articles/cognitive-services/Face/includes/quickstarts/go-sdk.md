@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 09/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 382a04021053bef0b5d3378231e38453885b0ef2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1154bf3ddde67ba5074517ab4f96ed6764edf6a5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323009"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859817"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para Go. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -24,7 +24,6 @@ Use la biblioteca cliente del servicio Face para Go para la:
 * [Búsqueda de caras similares](#find-similar-faces)
 * [Creación y entrenamiento de un grupo de personas](#create-and-train-a-person-group)
 * [Identificación de una cara](#identify-a-face)
-* [Realización de una instantánea para la migración de datos](#take-a-snapshot-for-data-migration)
 
 [Documentación de referencia](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [Descarga de SDK](https://github.com/Azure/azure-sdk-for-go)
 
@@ -109,7 +108,6 @@ En estos ejemplos de código se muestra cómo realizar tareas básicas con la bi
 * [Búsqueda de caras similares](#find-similar-faces)
 * [Creación y entrenamiento de un grupo de personas](#create-and-train-a-person-group)
 * [Identificación de una cara](#identify-a-face)
-* [Realización de una instantánea para la migración de datos](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
@@ -246,53 +244,6 @@ El código siguiente compara cada una de las imágenes de origen con la imagen d
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver)]
 
-
-## <a name="take-a-snapshot-for-data-migration"></a>Tomar una instantánea para la migración de datos
-
-La característica de instantáneas permite trasladar los datos de la cara guardados, como un objeto **PersonGroup** entrenado, a otra suscripción de Face de Azure Cognitive Services. Podría usar esta característica si, por ejemplo, ha creado un objeto **PersonGroup** mediante una suscripción gratuita y ahora desea migrarlo a una de pago. Consulte el artículo de [Migración de los datos de las caras](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) para información general de la característica de instantáneas.
-
-En este ejemplo migrará el objeto **PersonGroup** que ha creado en [Crear y entrenar un grupo de personas](#create-and-train-a-person-group). Puede completar esa sección primero o usar sus propias construcciones de Face.
-
-### <a name="set-up-target-subscription"></a>Configuración de la suscripción de destino
-
-En primer lugar, debe tener una segunda suscripción de Azure con un recurso de Face. Para poder hacerlo, siga los pasos descritos en la sección [Instalación](#setting-up). 
-
-A continuación, cree las siguientes variables cerca de la parte superior del método **main**. También necesitará crear nuevas variables de entorno para el identificador de suscripción de la cuenta de Azure, así como la clave, punto de conexión y el identificador de suscripción de la cuenta nueva (de destino).
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_target_client)]
-
-A continuación, coloque el valor del identificador de la suscripción en una matriz en los pasos siguientes.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_target_id)]
-
-### <a name="authenticate-target-client"></a>Autenticación del cliente de destino
-
-Más adelante en el script, guarde el objeto de cliente original como cliente de origen y autentique un nuevo objeto de cliente para la suscripción de destino. 
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_target_auth)]
-
-### <a name="take-a-snapshot"></a>Realización de una instantánea
-
-El primer paso es tomar la instantánea con **[Take](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#SnapshotClient.Take)** , que guarda los datos de la cara de la suscripción original en una ubicación temporal en la nube. Este método devuelve un identificador que se utiliza para consultar el estado de la operación.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_take)]
-
-Después, consulte el identificador hasta que se haya completado la operación.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_query)]
-
-### <a name="apply-the-snapshot"></a>Aplicación de la instantánea
-
-Use la operación **[Apply](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#SnapshotClient.Apply)** para escribir los datos de la cara recientemente cargados en la suscripción de destino. Este método también devuelve un identificador.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_apply)]
-
-De nuevo, consulte el identificador hasta que se haya completado la operación.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_apply_query)]
-
-Una vez que haya completado estos pasos, puede acceder a las construcciones de datos faciales desde la nueva suscripción (de destino).
-
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
 Ejecute la aplicación de reconocimiento facial desde el directorio de la aplicación con el comando `go run <app-name>`.
@@ -308,7 +259,7 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI de Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-Si ha creado un objeto **PersonGroup** en este inicio rápido y desea eliminarlo, llame al método **[Delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** . Si migró los datos mediante la característica de instantánea, también deberá eliminar el objeto **PersonGroup** guardado en la suscripción de destino.
+Si ha creado un objeto **PersonGroup** en este inicio rápido y desea eliminarlo, llame al método **[Delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

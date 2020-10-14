@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Su primera consulta de Ruby'
 description: En este inicio rápido, dará los pasos necesarios para habilitar la gema de Resource Graph para Ruby y ejecutará la primera consulta.
-ms.date: 07/12/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 9763e2e9ec49d6fb4ea37fac12578ab23b7b5363
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4ffd7f33fb83b7a1f247f687b77dd2ef9c8e5bc9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87101143"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057321"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con Ruby
 
