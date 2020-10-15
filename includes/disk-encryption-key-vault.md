@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 6f7f319d2ebb4cd39933addf04f249df02d7819f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 234aa602cccb90d130e4d4b6aca375726ca29f0d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81314122"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91989434"
 ---
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -148,7 +148,7 @@ Azure Disk Encryption no admite la especificación de números de puerto como pa
 Use el comando [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) de la CLI de Azure para generar una clave de cifrado de claves y almacenarla en el almacén de claves.
 
 ```azurecli-interactive
-az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA-HSM
+az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
 ```
 
 En su lugar, puede importar una clave privada mediante el comando [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) de la CLI de Azure:

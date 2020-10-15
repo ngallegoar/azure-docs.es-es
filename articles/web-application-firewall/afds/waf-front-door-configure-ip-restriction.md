@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
 ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005623"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configuración de una regla de restricción de IP con un firewall de aplicaciones web para Azure Front Door
@@ -76,7 +76,7 @@ Para crear un perfil de Azure Front Door, siga las instrucciones que se describe
 1. Una vez finalizada la implementación de la directiva WAF, busque el nombre del host de front-end de Front Door.
 2. Debería ver el mensaje de bloque personalizado.
 
-   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Prueba de regla de WAF":::
+   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Regla personalizada":::
 
    > [!NOTE]
    > Se usó una dirección IP privada deliberadamente en la regla personalizada para garantizar que la regla se desencadene. En una implementación real, cree las reglas *allow* y *deny* mediante direcciones IP para su situación concreta.

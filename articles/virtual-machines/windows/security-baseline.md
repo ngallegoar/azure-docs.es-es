@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7726a0f1acb8f7fde2b491979d478badeca1b384
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e79055c3dbc710be23a82eede98e1b55b17e10d5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400388"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978027"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Base de referencia de seguridad de Azure para Windows Virtual Machines
 
@@ -32,7 +32,7 @@ Para obtener más información, consulte [Introducción a las líneas de base de
 
 Por otro lado, si tiene un caso de uso específico para un firewall centralizado, Azure Firewall también puede usarse para cumplir esos requisitos.
 
-* [Redes virtuales y máquinas virtuales en Azure](./network-overview.md)
+* [Redes virtuales y máquinas virtuales en Azure](../network-overview.md)
 
 * [Creación de una red virtual](../../virtual-network/quick-create-portal.md)
 
@@ -80,7 +80,7 @@ Puede usar el acceso de red Just-in-Time de Azure Security Center para limitar l
 
 * [Implementación de Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../../security-center/threat-protection.md)
+* [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../../security-center/azure-defender.md)
 
 * [Descripción de la protección de red adaptable de Azure Security Center](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -146,7 +146,7 @@ Puede usar el acceso de red Just-in-Time de Azure Security Center para limitar l
 
 * [Configuración y administración de Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Ejemplos de Azure Policy para redes](/azure/governance/policy/samples/#network)
+* [Ejemplos de Azure Policy para redes](../../governance/policy/samples/built-in-policies.md#network)
 
 * [Creación de un plano técnico de Azure](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -180,7 +180,7 @@ Use Azure Policy para validar (o corregir) las configuraciones de los recursos d
 
 * [Configuración y administración de Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Ejemplos de Azure Policy para redes](/azure/governance/policy/samples/#network)
+* [Ejemplos de Azure Policy para redes](../../governance/policy/samples/built-in-policies.md#network)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -252,7 +252,7 @@ Si su organización quiere conservar los datos del registro de eventos de seguri
 
 **Guía**: asegúrese de que todas las cuentas de almacenamiento o áreas de trabajo de Log Analytics usadas para almacenar registros de máquina virtual tengan el período de retención de registros configurado de acuerdo con la normativa de cumplimiento de la organización.
 
-* [Supervisión de máquinas virtuales en Azure](./monitor.md)
+* [Supervisión de máquinas virtuales en Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 * [Configuración del período de retención del área de trabajo de Log Analytics](../../azure-monitor/platform/manage-cost-storage.md)
 
@@ -458,7 +458,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Procedimiento para realizar consultas personalizadas en Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-* [Supervisión de máquinas virtuales en Azure](./monitor.md)
+* [Supervisión de máquinas virtuales en Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -508,7 +508,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Creación de suscripciones adicionales de Azure](../../cost-management-billing/manage/create-subscription.md)
 
-* [Creación de grupos de administración](../../governance/management-groups/create.md)
+* [Creación de grupos de administración](../../governance/management-groups/create-management-group-portal.md)
 
 * [Creación y uso de etiquetas](../../azure-resource-manager/management/tag-resources.md)
 
@@ -610,7 +610,7 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 **Guía**: siga las recomendaciones de Azure Security Center sobre cómo realizar evaluaciones de vulnerabilidades en Azure Virtual Machines. Use las recomendaciones de Azure Security o una solución de terceros para realizar evaluaciones de vulnerabilidades para las máquinas virtuales.
 
-* [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](../../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -692,7 +692,7 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 * [Creación de suscripciones adicionales de Azure](../../cost-management-billing/manage/create-subscription.md)
 
-* [Creación de grupos de administración](../../governance/management-groups/create.md)
+* [Creación de grupos de administración](../../governance/management-groups/create-management-group-portal.md)
 
 * [Creación y uso de etiquetas](../../azure-resource-manager/management/tag-resources.md)
 
@@ -775,7 +775,7 @@ Además de usar Change Tracking para la supervisión de las aplicaciones de soft
 
 * [Configuración y administración de Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Denegación de un tipo de recurso específico con Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Denegación de un tipo de recurso específico con Azure Policy](../../governance/policy/samples/index.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -817,13 +817,13 @@ Además de usar Change Tracking para la supervisión de las aplicaciones de soft
 
 **Instrucciones**: Las aplicaciones de alto riesgo implementadas en el entorno de Azure se pueden aislar mediante una red virtual, subred, suscripciones, grupos de administración, etc. y proteger suficientemente con una instancia de Azure Firewall, un firewall de aplicaciones web (WAF) o un grupo de seguridad de red (NSG).
 
-* [Redes virtuales y máquinas virtuales en Azure](./network-overview.md)
+* [Redes virtuales y máquinas virtuales en Azure](../network-overview.md)
 
 * [Información general de Azure Firewall](../../firewall/overview.md)
 
 * [Introducción al firewall de aplicaciones web](../../web-application-firewall/overview.md)
 
-* [Introducción a la seguridad de red](../../virtual-network/security-overview.md)
+* [Introducción a la seguridad de red](../../virtual-network/network-security-groups-overview.md)
 
 * [Introducción a Azure Virtual Network](../../virtual-network/virtual-networks-overview.md)
 
@@ -983,7 +983,7 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: Administre las identidades de forma segura y automática
 
-**Instrucciones**: Use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
+**Guía**: Use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
 
 * [Configuración de las identidades administradas](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 

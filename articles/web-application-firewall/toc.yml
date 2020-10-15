@@ -77,6 +77,10 @@
           href: ./afds/waf-front-door-geo-filtering.md
         - name: Preguntas más frecuentes
           href: ./afds/waf-faq.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
     - name: WAF y Azure Policy
       href: ./shared/waf-azure-policy.md
 - name: Guías paso a paso
@@ -131,6 +135,8 @@
           href: ./afds/waf-front-door-tutorial-geo-filtering.md
         - name: Supervisión y registro
           href: ./afds/waf-front-door-monitor.md
+    - name: Uso de Azure Sentinel con Web Application Firewall
+      href: waf-sentinel.md
     - name: Solución de problemas
       items:
         - name: Application Gateway

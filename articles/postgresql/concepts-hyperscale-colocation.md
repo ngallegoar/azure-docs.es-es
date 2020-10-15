@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 842563319e09a001fd6e85403d8aee6fb14690ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90884433"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Coubicación en tabla de Azure Database for PostgreSQL: Hiperescala (Citus)
@@ -96,7 +96,7 @@ Después, la aplicación debe combinar los resultados de los dos pasos.
 
 La ejecución de las consultas debe consultar los datos de particiones de base de datos repartidos entre los nodos.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Consultas ineficaces":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Particiones de base de datos":::
 
 En este caso, la distribución de datos crea inconvenientes importantes:
 
@@ -134,7 +134,7 @@ GROUP BY page_id;
 
 Debido al filtro y la combinación en tenant_id, Hiperescala (Citus) sabe que toda la consulta se puede responder con el conjunto de particiones de base de datos coubicadas que contienen los datos para ese inquilino determinado. Un único nodo de PostgreSQL puede resolver la consulta en un solo paso.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Consulta mejor":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Particiones de base de datos":::
 
 En algunos casos, las consultas y los esquemas de tabla deben cambiarse para incluir el id. de inquilino en las restricciones únicas y condiciones de combinación. Este cambio suele ser sencillo.
 

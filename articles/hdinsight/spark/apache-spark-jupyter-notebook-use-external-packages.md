@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
 ms.openlocfilehash: 772b136c00dc9c20f8bc35d7ebb324175a56e885
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061723"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Uso de paquetes externos con cuadernos de Jupyter en clústeres de Apache Spark en HDInsight
@@ -48,7 +48,7 @@ En este artículo, aprenderá a utilizar el paquete [spark-csv](https://search.m
     >[!IMPORTANT]  
     >Si se olvida de configurar el kernel en la primera celda, puede utilizar el parámetro `%%configure` con el parámetro `-f`, pero ello reiniciará la sesión y se perderá todo el trabajo.
 
-    | Versión de HDInsight | Comando |
+    | Versión de HDInsight | Get-Help |
     |-------------------|---------|
     | Para HDInsight 3.5 y HDInsight 3.6 | `%%configure`<br>`{ "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.11:1.5.0" }}`|
     |Para HDInsight 3.3 y HDInsight 3.4 | `%%configure` <br>`{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }`|
@@ -93,7 +93,7 @@ En este artículo, aprenderá a utilizar el paquete [spark-csv](https://search.m
     df.select("Time").count()
     ```
 
-## <a name="see-also"></a><a name="seealso"></a>Vea también
+## <a name="see-also"></a><a name="seealso"></a>Otras referencias
 
 * [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)
 

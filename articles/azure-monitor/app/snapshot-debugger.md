@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: ab142b4e0a2d5486727ffc71fc94ae4944513052
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b439dcfc755f0113ffabf792850a2bd0fbcf322e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935813"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996511"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantáneas cuando se producen excepciones en aplicaciones de .NET
 Cuando se produce una excepción, puede recopilar automáticamente una instantánea de depuración desde la aplicación web activa. La instantánea muestra el estado del código fuente y las variables en el momento en que se produjo la excepción. En [Application Insights](./app-insights-overview.md), Snapshot Debugger supervisa los datos de telemetría de las excepciones de su aplicación web. Recopila instantáneas de las excepciones más importantes con el fin de que tenga la información necesaria para diagnosticar problemas en producción. Incluya el [paquete NuGet del recopilador de instantáneas](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) en la aplicación y, opcionalmente, configure los parámetros de recopilación en [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Las instantáneas aparecen en [excepciones](./asp-net-exceptions.md) en el portal de Application Insights.
 
-Puede ver las instantáneas de depuración en el portal para examinar la pila de llamadas e inspeccionar las variables en cada marco de pila de llamadas. Para obtener una experiencia de depuración más eficaz con el código fuente, abra las instantáneas con Visual Studio 2019 Enterprise. En Visual Studio también puede [establecer puntos de acoplamiento para tomar instantáneas de forma interactiva](https://aka.ms/snappoint) sin tener que esperar una excepción.
+Puede ver las instantáneas de depuración en el portal para examinar la pila de llamadas e inspeccionar las variables en cada marco de pila de llamadas. Para obtener una experiencia de depuración más eficaz con el código fuente, abra las instantáneas con Visual Studio 2019 Enterprise. En Visual Studio también puede [establecer puntos de acoplamiento para tomar instantáneas de forma interactiva](/visualstudio/debugger/debug-live-azure-applications) sin tener que esperar una excepción.
 
 Las instantáneas de depuración se guardan durante 15 días. Esta directiva de retención se establece para cada aplicación. Si necesita aumentar este valor, puede solicitar un aumento abriendo una incidencia de soporte técnico en Azure Portal.
 
@@ -142,4 +142,3 @@ Más allá de Snapshot Debugger de Application Insights:
 * [Establezca puntos de ajuste en el código](/visualstudio/debugger/debug-live-azure-applications) para obtener instantáneas sin tener que esperar una excepción.
 * En el artículo sobre cómo [diagnosticar excepciones en aplicaciones web](./asp-net-exceptions.md) se explica cómo hacer más visibles las excepciones en Application Insights.
 * [Detección inteligente](./proactive-diagnostics.md) detecta automáticamente las anomalías de rendimiento.
-

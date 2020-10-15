@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1013e7f7fa824a7fef0535b8ab599e2a4e786b40
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: ce70a4df50be9004182e80711de449bab146a800
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032340"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91360912"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Tutorial: Configuración de Coda para el aprovisionamiento automático de usuarios
 
@@ -85,15 +85,15 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales del administrador**, escriba la dirección URL del inquilino de Coda y el token del secreto recuperado anteriormente en el paso 2. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Coda. Si la conexión no se establece, asegúrese de que la cuenta de Coda tiene permisos de administrador y vuelva a intentarlo.
 
-    ![Aprovisionamiento](./media/coda-provisioning-tutorial/provisioning.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/coda-provisioning-tutorial/provisioning.png)
 
 6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 

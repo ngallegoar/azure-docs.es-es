@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 4498e78b408f64ab5bc00b9f8730559b90c95d57
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88817229"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Use Azure Portal para habilitar el cifrado de un extremo a otro mediante el cifrado en host
@@ -63,7 +63,7 @@ Debe implementar una máquina virtual nueva para habilitar el cifrado en el host
 1. En la hoja **Discos**, seleccione **Sí** para **Cifrado en el host**.
 1. Realice las selecciones restantes como desee.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Captura de pantalla de la hoja Discos de la creación de máquinas virtuales, se resalta el cifrado en el host.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Captura de pantalla de la hoja Básico de la creación de máquinas virtuales, se resaltan la región y el tamaño de la máquina virtual.":::
 
 1. Finalice el proceso de implementación de la máquina virtual y realice las selecciones que se adapten a su entorno.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447326"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977038"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Error de detención de Windows: 0x00000074 la información de configuración del sistema no es correcta
 
@@ -27,7 +27,7 @@ En este artículo se proporcionan los pasos para resolver problemas en los que W
 
 ## <a name="symptom"></a>Síntoma
 
-Si usa [Diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la máquina virtual, verá que la captura muestra el código de detención de Windows **#0x00000074** o **BAD_SYSTEM_CONFIG_INFO**.
+Si usa [Diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la máquina virtual, verá que la captura muestra el código de detención de Windows **#0x00000074** o **BAD_SYSTEM_CONFIG_INFO**.
 
 *Se produjo un problema con su equipo y se debe reiniciar. Puede reiniciar.* 
 *Para más información sobre este problema y posibles soluciones, visite http://windows.com/stopcode* 
@@ -58,7 +58,7 @@ El código de detención **BAD_SYSTEM_CONFIG_INFO** se produce si el subárbol d
 
 ### <a name="create-and-access-a-repair-vm"></a>Creación de una máquina virtual de reparación y acceso a ella
 
-1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar una VM de reparación.
+1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar una VM de reparación.
 1. Compruebe si hay daños en el subárbol.
 1. Use Conexión a Escritorio remoto para conectarse a la máquina virtual de reparación.
 1. Copie la carpeta `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` y guárdela en la partición de disco correcta o en otra ubicación segura. Realice una copia de seguridad de esta carpeta como precaución, ya que modificará los archivos de registro críticos. 
@@ -133,4 +133,4 @@ Las instrucciones siguientes le ayudarán a determinar si la causa se debe a da�
    
 ### <a name="rebuild-the-vm"></a>Recompilación de la máquina virtual
 
-Realice el [paso 5 de los comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para volver a crear la VM.
+Realice el [paso 5 de los comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para volver a crear la VM.

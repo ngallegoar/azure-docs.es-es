@@ -9,12 +9,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: 3393cb66735ffb881520a11bf9d1680c35d3d374
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 3c5e19a948298dead5ab3fc1183fb11b09acf455
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89424810"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976137"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Windows mediante Ejecutar comando
 
@@ -43,7 +43,7 @@ Las siguientes consideraciones se aplican al usar el Ejecutar comando:
 * No se recomienda ejecutar un script que provoque la detención o actualización del agente de máquina virtual. Esto puede llevar a la extensión a un estado de transición, lo que da lugar a un tiempo de espera.
 
 > [!NOTE]
-> Para poder funcionar correctamente, Ejecutar comando requiere conectividad (puerto 443) a las direcciones IP públicas de Azure. Si la extensión no tiene acceso a estos puntos de conexión, los scripts pueden ejecutarse correctamente, pero no devuelven los resultados. Si va a bloquear el tráfico de la máquina virtual, puede usar las [etiquetas de servicio](../../virtual-network/security-overview.md#service-tags) para permitir el tráfico a las direcciones IP públicas de Azure mediante la etiqueta `AzureCloud`.
+> Para poder funcionar correctamente, Ejecutar comando requiere conectividad (puerto 443) a las direcciones IP públicas de Azure. Si la extensión no tiene acceso a estos puntos de conexión, los scripts pueden ejecutarse correctamente, pero no devuelven los resultados. Si va a bloquear el tráfico de la máquina virtual, puede usar las [etiquetas de servicio](../../virtual-network/network-security-groups-overview.md#service-tags) para permitir el tráfico a las direcciones IP públicas de Azure mediante la etiqueta `AzureCloud`.
 
 ## <a name="available-commands"></a>Comandos disponibles
 

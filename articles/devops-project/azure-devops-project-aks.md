@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 7e298afa7efa6035b24f689d1163308ac6b14bff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: af61254643e9f072995bceed1b6ecf8ecc29e5f8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233336"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855459"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Implementación de aplicaciones de ASP.NET Core en Azure Kubernetes Service con Azure DevOps Starter
 
@@ -24,7 +24,7 @@ DevOps Starter también:
 * Crea automáticamente recursos de Azure, como Azure Kubernetes Service (AKS).
 * Crea y configura una canalización de versión en Azure DevOps que configura una canalización de compilación y de versión de CI/CD.
 * Crea un recurso de Azure Application Insights para la supervisión.
-* Habilita [Azure Monitor para contenedores](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) para supervisar el rendimiento de las cargas de trabajo del contenedor en el clúster de AKS
+* Habilita [Azure Monitor para contenedores](../azure-monitor/insights/container-insights-overview.md) para supervisar el rendimiento de las cargas de trabajo del contenedor en el clúster de AKS
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -171,4 +171,4 @@ Si lo desea, puede modificar estas canalizaciones de compilación y de versión 
 Para más información acerca del uso del panel de Kubernetes, consulte:
 
 > [!div class="nextstepaction"]
-> [Uso del panel de Kubernetes](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)
+> [Uso del panel de Kubernetes](../aks/kubernetes-dashboard.md)

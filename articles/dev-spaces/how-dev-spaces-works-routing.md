@@ -5,14 +5,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Describe los procesos que posibilitan el funcionamiento de Azure Dev Spaces y cómo funciona el enrutamiento.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 6987bbaaebe342b571d5b19fe0e37bebd5b8b6e1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2d2c6f336222b4ae0907d6579289a8cad8d73aa6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981302"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977976"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Funcionamiento del enrutamiento con Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Azure Dev Spaces le ofrece varias formas de iterar y depurar rápidamente las aplicaciones Kubernetes y colaborar con su equipo en un clúster de Azure Kubernetes Service (AKS). Una vez que el proyecto se ejecuta en un espacio de desarrollo, Azure Dev Spaces proporciona funcionalidades de red y enrutamiento adicionales para el proyecto.
 

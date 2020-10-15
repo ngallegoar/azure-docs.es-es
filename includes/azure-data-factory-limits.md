@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: data-factory
-author: linda33wj
+author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 01/08/2020
-ms.author: jingwang
+ms.date: 10/06/2020
+ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: bfb42e0ba81eef145932db072c8a80a2f8e00932
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a5ea95e0ea958c495e28eaa1fee72e34362157a1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87425090"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91859661"
 ---
 Azure Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Para elevar los límites al máximo de la suscripción, póngase en contacto con el servicio de soporte técnico.
 
@@ -21,14 +21,14 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 
 | Recurso | Límite predeterminado | Límite máximo |
 | -------- | ------------- | ------------- |
-| Factorías de datos en una suscripción de Azure | 800 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Factorías de datos en una suscripción de Azure | 800 | 800 |
 | Número total de entidades como canalizaciones, conjuntos de datos, desencadenadores, servicios vinculados, puntos de conexión privados y entornos de ejecución de integración de una factoría de datos | 5\.000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Núcleos de CPU totales para Azure-SSIS Integration Runtime en una suscripción | 256 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Ejecuciones de canalizaciones simultáneas por factoría de datos compartida entre todas las canalizaciones de la factoría | 10 000  | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Ejecuciones de actividades externas simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Las actividades externas se administran en el entorno de ejecución de integración, pero se ejecutan en servicios vinculados, incluidos Databricks, procedimiento almacenado, HDInsights, Web, etc.</small> | 3000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Ejecuciones de actividades de canalización simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) <br><small>Las actividades de canalización se ejecutan en el entorno de ejecución de integración, lo que incluye Lookup, GetMetadata y Delete.</small>| 1000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Ejecuciones de canalizaciones simultáneas por factoría de datos compartida entre todas las canalizaciones de la factoría | 10 000  | 10 000 |
+| Ejecuciones de actividades externas simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Las actividades externas se administran en el entorno de ejecución de integración, pero se ejecutan en servicios vinculados, incluidos Databricks, procedimiento almacenado, HDInsights, Web, etc.</small> | 3,000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Ejecuciones de actividades de canalización simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) <br><small>Las actividades de canalización se ejecutan en el entorno de ejecución de integración, lo que incluye Lookup, GetMetadata y Delete.</small>| 1,000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Operaciones de creación simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Se incluye la prueba de la conexión, el examen de las listas de carpetas y tablas y la vista previa de los datos. | 200 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Uso de unidades de integración de datos simultáneas<sup>1</sup> por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Grupo de regiones 1<sup>2</sup>: 6000<br>Grupo de regiones 2<sup>2</sup>: 3000<br>Grupo de regiones 3<sup>2</sup>: 1.500 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Uso de unidades de integración de datos simultáneas<sup>1</sup> por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Grupo de regiones 1<sup>2</sup>: 6,000<br>Grupo de regiones 2<sup>2</sup>: 3000<br>Grupo de regiones 3<sup>2</sup>: 1500 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Número máximo de actividades por canalización, lo que incluye actividades internas de contenedores | 40 | 40 |
 | Número máximo de entornos vinculados de ejecución de integración que pueden crearse en un único entorno de ejecución de integración autohospedado | 100 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Parámetros máximos por canalización | 50 | 50 |
@@ -41,14 +41,13 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Bytes por objeto para objetos de canalización<sup>3</sup> | 200 KB | 200 KB |
 | Bytes por objeto para objetos de conjunto de datos y de servicio vinculados<sup>3</sup> | 100 KB | 2000 KB |
 | Unidades de integración de datos<sup>1</sup> por ejecución de la actividad de copia | 256 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Llamadas API de escritura | 1200/h<br/><br/> Este límite lo impone Azure Resource Manager, no Azure Data Factory. | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Llamadas API de lectura | 12 500/h<br/><br/> Este límite lo impone Azure Resource Manager, no Azure Data Factory. | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Supervisión de consultas por minuto | 1,000 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Operaciones CRUD de entidad por minuto | 50 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Llamadas API de escritura | 1200/h | 1200/h<br/><br/> Este límite lo impone Azure Resource Manager, no Azure Data Factory. |
+| Llamadas API de lectura | 12 500/h | 12 500/h<br/><br/> Este límite lo impone Azure Resource Manager, no Azure Data Factory. |
+| Supervisión de consultas por minuto | 1,000 | 1,000 |
 | Tiempo máximo de la sesión de depuración de flujo de datos | 8 h | 8 h |
 | Número simultáneo de flujos de datos por entorno de ejecución de integración | 50 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Número simultáneo de sesiones de depuración de flujo de datos por usuario y fábrica | 3 | 3 |
-| Límite de TTL de Azure IR de flujo de datos | 4 h | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Límite de TTL de Azure IR de flujo de datos | 4 h |  4 h |
 
 <sup>1</sup> La unidad de integración de datos (DIU) se usa en una operación de copia de nube a nube, obtenga más información en [Unidades de integración de datos (versión 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). Para obtener información sobre facturación, vea [Precios de Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 
@@ -66,7 +65,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 
 | **Recurso** | **Límite predeterminado** | **Límite máximo** |
 | --- | --- | --- |
-| Canalizaciones dentro de una factoría de datos |2500 |[Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Canalizaciones dentro de una factoría de datos |2,500 |[Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Conjuntos de datos dentro de una factoría de datos |5\.000 |[Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Fragmentos simultáneos por conjunto de datos |10 |10 |
 | Bytes por objeto para objetos de canalización<sup>1</sup> |200 KB |200 KB |

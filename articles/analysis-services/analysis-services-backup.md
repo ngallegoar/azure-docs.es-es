@@ -8,16 +8,16 @@ ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507002"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014059"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Copia de seguridad de datos y restauración de Analysis Services
 
-Realizar una copia de seguridad de bases de datos de modelo tabular en Azure Analysis Services es casi lo mismo que en Analysis Services local. La diferencia principal es el lugar donde se almacenan los archivos de copia de seguridad. Los archivos de copia de seguridad se deben guardar en un contenedor de una [cuenta de almacenamiento de Azure](../storage/common/storage-create-storage-account.md). Puede usar una cuenta de almacenamiento y un contenedor que ya tenga o puede crear estos al configurar el almacenamiento para el servidor.
+Realizar una copia de seguridad de bases de datos de modelo tabular en Azure Analysis Services es casi lo mismo que en Analysis Services local. La diferencia principal es el lugar donde se almacenan los archivos de copia de seguridad. Los archivos de copia de seguridad se deben guardar en un contenedor de una [cuenta de almacenamiento de Azure](../storage/common/storage-account-create.md). Puede usar una cuenta de almacenamiento y un contenedor que ya tenga o puede crear estos al configurar el almacenamiento para el servidor.
 
 > [!NOTE]
 > La creación de una cuenta de almacenamiento puede dar lugar a un nuevo servicio facturable. Para más información, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -75,10 +75,10 @@ Antes de realizar copias de seguridad, debe configurar los valores de almacenami
 
 
 ### <a name="powershell"></a>PowerShell
-Use el cmdlet [Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase).
+Use el cmdlet [Backup-ASDatabase](/powershell/module/sqlserver/backup-asdatabase).
 
 ## <a name="restore"></a>Restauración
-Para la restauración, el archivo de copia de seguridad debe estar en la cuenta de almacenamiento que configurada para el servidor. Si debe mover un archivo de copia de seguridad de una ubicación local a la cuenta de almacenamiento, utilice [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o la utilidad de línea de comandos [AzCopy](../storage/common/storage-use-azcopy.md). 
+Para la restauración, el archivo de copia de seguridad debe estar en la cuenta de almacenamiento que configurada para el servidor. Si debe mover un archivo de copia de seguridad de una ubicación local a la cuenta de almacenamiento, utilice [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) o la utilidad de línea de comandos [AzCopy](../storage/common/storage-use-azcopy-v10.md). 
 
 
 
@@ -102,11 +102,11 @@ Para la restauración, el archivo de copia de seguridad debe estar en la cuenta 
 
 ### <a name="powershell"></a>PowerShell
 
-Use el cmdlet [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase).
+Use el cmdlet [Restore-ASDatabase](/powershell/module/sqlserver/restore-asdatabase).
 
 
 ## <a name="related-information"></a>Información relacionada
 
-[Cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md)  
+[Cuentas de almacenamiento de Azure](../storage/common/storage-account-create.md)  
 [Alta disponibilidad](analysis-services-bcdr.md)      
 [Preguntas frecuentes acerca de la conectividad de red de Analysis Services](analysis-services-network-faq.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0cc54bcc23e354ae8cc807e63a0039286e295181
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1157a18954c30e1f1d93aa33dbea6104491b5353
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970949"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91396458"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk Encryption en una red aislada
 
@@ -43,7 +43,7 @@ Parte de la configuración del grupo de seguridad de red que se aplica debe perm
 
 Si usa [Azure Disk Encryption con Azure AD (versión anterior)](disk-encryption-overview-aad.md), la [biblioteca de Azure Active Directory](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) deberá instalarse manualmente para todas las distribuciones (además de los paquetes adecuados para la distribución, [como se indica anteriormente](#package-management)).
 
-Cuando se está habilitando el cifrado con [credenciales de Azure AD](disk-encryption-linux-aad.md), la máquina virtual de destino debe permitir la conectividad a los puntos de conexión de Azure Active Directory y Key Vault. Los puntos de conexión de autenticación actuales de Azure Active Directory se mantienen en las secciones 56 y 59 de la documentación sobre los [intervalos de direcciones IP y direcciones URL de Office 365](/office365/enterprise/urls-and-ip-address-ranges). En la documentación sobre cómo [acceder a Azure Key Vault detrás de un firewall](../../key-vault/general/access-behind-firewall.md) se proporcionan instrucciones de Key Vault.
+Cuando se está habilitando el cifrado con [credenciales de Azure AD](disk-encryption-linux-aad.md), la máquina virtual de destino debe permitir la conectividad a los puntos de conexión de Azure Active Directory y Key Vault. Los puntos de conexión de autenticación actuales de Azure Active Directory se mantienen en las secciones 56 y 59 de la documentación sobre [direcciones URL e intervalos de direcciones IP de Microsoft 365](/microsoft-365/enterprise/urls-and-ip-address-ranges). En la documentación sobre cómo [acceder a Azure Key Vault detrás de un firewall](../../key-vault/general/access-behind-firewall.md) se proporcionan instrucciones de Key Vault.
 
 ### <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure 
 

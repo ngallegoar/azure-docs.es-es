@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: b963cc459094e823499e962736550dcea2345ba2
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854106"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936129"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
 Los límites siguientes solo se aplican a los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
@@ -75,7 +75,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Recursos de back-end por Load Balancer <sup>1<sup> | 150                   |
 | Puertos de alta disponibilidad                 | 1 por front-end interno       |
 | Reglas de salida por Load Balancer        | 600                           |
-| [Tiempo de espera de inactividad de TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutos/30 minutos          |
+| Instancias de Load Balancer por máquina virtual                   | 2 (1 público y 1 interno)   |
 
 <sup>1</sup>El límite es de hasta 150 recursos, en cualquier combinación de recursos de máquinas virtuales independientes, recursos de conjuntos de disponibilidad y grupos de ubicación de conjuntos de escalado de máquinas virtuales.
 
@@ -88,7 +88,8 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Reglas por NIC (en todas las direcciones IP de una NIC) | 300                          |
 | Configuraciones de direcciones IP de front-end              | 200                          |
 | Tamaño de grupo de back-end                       | 300 configuraciones de IP, un solo conjunto de disponibilidad |
-| Conjuntos de disponibilidad por Load Balancer     | 150                          |
+| Conjuntos de disponibilidad por Load Balancer     | 1                            |
+| Instancias de Load Balancer por máquina virtual                   | 2 (1 público y 1 interno)  |
 
 <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación **clásico** por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 

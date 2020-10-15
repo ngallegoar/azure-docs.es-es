@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4e7c5f3f4bf84b7a267cb883df5f375f2a8cf981
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89017148"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o un contenedor de Azure Cosmos DB.
@@ -47,7 +47,7 @@ Para aprovisionar la escalabilidad automática en la base de datos de rendimient
 
 1. En **Escala**, seleccione la opción **Escalabilidad automática** y **Guardar**.
 
-   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Habilitación de la escalabilidad automática en un contenedor existente":::
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Creación de un contenedor y configuración del rendimiento aprovisionado de escalabilidad automática":::
 
 > [!NOTE]
 > Cuando se habilita la escalabilidad automática en una base de datos o un contenedor existente, el sistema determina el valor inicial para el número máximo de RU/s, en función de la configuración de rendimiento y el almacenamiento aprovisionados manualmente. Una vez completada la operación, puede cambiar el número máximo de RU/s si es necesario. [Más información.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 

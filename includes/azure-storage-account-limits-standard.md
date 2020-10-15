@@ -5,19 +5,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/08/2020
+ms.date: 09/30/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 509568b143c9fbbf236139ca83cb55b0ef39beb0
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 8c908b7f72e5581122427a7d711ae9cf61d2d90f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145924"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91665626"
 ---
 En la tabla siguiente se describen los límites predeterminados para las cuentas de blob en bloques, Blob Storage y de uso general v1 y v2 de Azure. El límite de *entrada* hace referencia a todos los datos que se envían a una cuenta de almacenamiento. El límite de *salida* hace referencia a todos los datos que se reciben de una cuenta de almacenamiento.
 
-| Recurso | Límite |
+> [!NOTE]
+> Puede solicitar unos límites de capacidad y de entrada mayores. Para solicitar un aumento, póngase en contacto con [Soporte técnico de Azure](https://azure.microsoft.com/support/faq/).
+
+| Resource | Límite |
 | --- | --- |
 | Número de cuentas de almacenamiento por región y suscripción, incluidas las cuentas de almacenamiento Estándar y Premium.| 250 |
 | Capacidad máxima de la cuenta de almacenamiento | 5 PiB <sup>1</sup>|
@@ -38,6 +41,5 @@ En la tabla siguiente se describen los límites predeterminados para las cuentas
 > [!NOTE]
 > Microsoft recomienda usar una cuenta de almacenamiento de uso general v2 en la mayoría de los escenarios. Puede actualizar fácilmente una cuenta de Azure Blob Storage o de uso general v1 a una cuenta de uso general v2 sin tiempo de inactividad y sin la necesidad de copiar datos. Para más información, consulte [Actualización a una cuenta de almacenamiento de uso general v2](../articles/storage/common/storage-account-upgrade.md).
 
-Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, puede compilar la aplicación de forma que use varias cuentas de almacenamiento. A continuación, puede dividir los objetos de datos en esas cuentas de almacenamiento. Para obtener información sobre los precios por volumen, vea [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
-
 Todas las cuentas de almacenamiento se ejecutan en una topología de red plana, independientemente del momento en que se hayan creado. Para obtener más información acerca de la arquitectura de red plana de Azure Storage y de la escalabilidad, vea [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets) (Microsoft Azure Storage: Un servicio de almacenamiento en nube altamente disponible de gran coherencia). 
+

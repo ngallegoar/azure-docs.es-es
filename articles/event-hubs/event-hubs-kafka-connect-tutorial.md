@@ -4,10 +4,10 @@ description: En este artículo se proporciona información sobre cómo usar Kafk
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: b063bb36ec17c22c0f093f1b33f11597eed5ea68
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061672"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integración de la compatibilidad con Apache Kafka Connect en Azure Event Hubs (versión preliminar)
