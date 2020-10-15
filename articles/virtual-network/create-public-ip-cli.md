@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 4d0934dd30f9738e2a67d4aff23c96a48aaaa61b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d868a2d9bc88be7faea161779c35110f13e2b2ac
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89301069"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939087"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Inicio rápido: Creación de una dirección IP pública mediante la CLI de Azure
 
@@ -95,7 +95,7 @@ Utilice [az network public-ip create](https://docs.microsoft.com/cli/azure/netwo
   az network public-ip create \
     --resource-group myResourceGroup \
     --name myBasicPublicIP \
-    --sku Standard
+    --sku Basic \
     --allocation-method Static
 ```
 Si es aceptable que la dirección IP cambie con el tiempo, se puede seleccionar la asignación de dirección IP **dinámica** mediante el cambio del método de asignación a "Dinámico".

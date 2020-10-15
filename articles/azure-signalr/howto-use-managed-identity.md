@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
 ms.openlocfilehash: abe7503e7eb73d533ae901af21de001960173fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85559415"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identidades administradas para Azure SignalR Service
@@ -46,7 +46,7 @@ La creación de una instancia de Azure SignalR Service con una identidad asignad
 
 5. Busque la identidad que creó anteriormente y selecciónela. Seleccione **Agregar**.
 
-    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Adición de una identidad asignada por el usuario en el portal":::
+    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Adición de una identidad asignada por el sistema en el portal":::
 
 ## <a name="use-a-managed-identity-in-serverless-scenarios"></a>Uso de una identidad administrada en escenarios sin servidor
 

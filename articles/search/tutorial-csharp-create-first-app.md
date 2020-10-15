@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2414570a1d483cd7630e628b13c92dbdc331370d
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ec98762ac5918437e8fdb8426b54b79b1fb5b222
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759142"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939729"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Tutorial: Creación de la primera aplicación de búsqueda con el SDK de .NET
 
@@ -69,7 +69,7 @@ Como está usando un índice de búsqueda de ejemplo público hospedado por Micr
 
 Si quiere ir directamente a una aplicación en funcionamiento, siga estos pasos para descargar y ejecutar el código terminado.
 
-1. Busque el ejemplo en GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples/v11) (Crear la primera aplicación).
+1. Busque el ejemplo en GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11) (Crear la primera aplicación).
 
 1. En la [carpeta raíz](https://github.com/Azure-Samples/azure-search-dotnet-samples), seleccione **Código**, seguido de **Clonar** o **Descargar archivo ZIP** para realizar su copia local privada del proyecto.
 

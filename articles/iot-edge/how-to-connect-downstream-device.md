@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 78db26318fc95adec1b31799ed143b3e4a6b3acc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4faec8f79d856b86052745ad530e17b9b25634e8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281463"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045846"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -77,7 +77,7 @@ Para más información acerca de los certificados de IoT Edge y algunas implicac
 
 ## <a name="provide-the-root-ca-certificate"></a>Inclusión del certificado de entidad de certificación raíz
 
-Para comprobar los certificados del dispositivo de puerta de enlace, el dispositivo de bajada necesita su propia copia del certificado de entidad de certificación raíz. Si ha usado los scripts proporcionados en el repositorio de Git de IoT Edge para crear certificados de prueba, el certificado de entidad de certificación raíz se denomina **azure-iot-test-only.root.ca.cert.pem**. Si no lo ha hecho ya como parte de los otros pasos de preparación del dispositivo de bajada, mueva este archivo de certificado a cualquier directorio de este dispositivo. Para ello, puede usar un servicio como [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una función como [Protocolo de copia segura](https://www.ssh.com/ssh/scp/).
+Para comprobar los certificados del dispositivo de puerta de enlace, el dispositivo de bajada necesita su propia copia del certificado de entidad de certificación raíz. Si ha usado los scripts proporcionados en el repositorio de Git de IoT Edge para crear certificados de prueba, el certificado de entidad de certificación raíz se denomina **azure-iot-test-only.root.ca.cert.pem**. Si no lo ha hecho ya como parte de los otros pasos de preparación del dispositivo de bajada, mueva este archivo de certificado a cualquier directorio de este dispositivo. Para ello, puede usar un servicio como [Azure Key Vault](../key-vault/index.yml) o una función como [Protocolo de copia segura](https://www.ssh.com/ssh/scp/).
 
 ## <a name="install-certificates-in-the-os"></a>Instalación de certificados en el sistema operativo
 
@@ -98,7 +98,7 @@ Verá un mensaje que dice "Updating certificates in /etc/ssl/certs... 1 added, 0
 
 Los siguientes pasos son un ejemplo de cómo instalar un certificado de entidad de certificación en un host con Windows. En este ejemplo se da por supuesto que usa el certificado **azure-iot-test-only.root.ca.cert.pem** de los artículos de requisitos previos y que ha copiado el certificado en una ubicación del dispositivo de bajada.
 
-Puede instalar certificados con [Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) de PowerShell como administrador:
+Puede instalar certificados con [Import-Certificate](/powershell/module/pkiclient/import-certificate?view=win10-ps) de PowerShell como administrador:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
@@ -113,7 +113,7 @@ También puede instalar certificados mediante la utilidad **certlm**:
 
 También puede instalar certificados mediante programación con las API de .NET, como se muestra más adelante en el ejemplo de .NET de este artículo.
 
-Normalmente, las aplicaciones utilizan la pila TLS proporcionada por Windows llamada [Schannel](https://docs.microsoft.com/windows/desktop/com/schannel) para conectarse de forma segura mediante TLS. Schannel *requiere* que todos los certificados se instalen en el almacén de certificados de Windows antes de intentar establecer una conexión TLS.
+Normalmente, las aplicaciones utilizan la pila TLS proporcionada por Windows llamada [Schannel](/windows/desktop/com/schannel) para conectarse de forma segura mediante TLS. Schannel *requiere* que todos los certificados se instalen en el almacén de certificados de Windows antes de intentar establecer una conexión TLS.
 
 ## <a name="use-certificates-with-azure-iot-sdks"></a>Uso de certificados con los SDK de Azure IoT
 

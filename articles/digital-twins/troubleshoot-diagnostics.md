@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723935"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047682"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solución de problemas de Azure Digital Twins: Registro de diagnóstico
 
@@ -49,7 +49,7 @@ Aquí se describe cómo habilitar la configuración de diagnóstico de la instan
     
 4. Guarde la configuración nueva. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico en la que el usuario ha rellenado un nombre de configuración de diagnóstico y ha realizado algunas selecciones para los detalles de la categoría y los detalles del destino. El botón Guardar está resaltado.":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico y el botón para agregarla":::
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino configurado en la página **Configuración de diagnóstico** de la instancia. 
 
@@ -73,7 +73,7 @@ Cada categoría de registro consta de operaciones de escritura, lectura, elimina
 | Eliminar | Delete |
 | Acción | POST |
 
-Esta es una lista completa de las operaciones y las [llamadas API REST de Azure Digital Twins](https://docs.microsoft.com/rest/api/azure-digitaltwins/) correspondientes que se registran en cada categoría. 
+Esta es una lista completa de las operaciones y las [llamadas API REST de Azure Digital Twins](/rest/api/azure-digitaltwins/) correspondientes que se registran en cada categoría. 
 
 >[!NOTE]
 > Cada categoría de registro contiene varias operaciones y llamadas API REST. En la tabla siguiente, cada categoría de registro se asigna a todas las operaciones y llamadas API REST que hay debajo hasta que se muestra la siguiente categoría de registro. 
