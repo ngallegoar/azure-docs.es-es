@@ -12,16 +12,16 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: joscot
 ms.custom: fasttrack-new
-ms.openlocfilehash: 45e16c9aa9e4b04e7225320951e9f839fae75ba3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8249cc543c6334841c8e5152d5d1ceb84d4097dc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75942365"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076120"
 ---
 # <a name="filter-on-request-ip-address-when-using-an-application-gateway"></a>Activación del filtro de solicitudes de direcciones IP al usar Application Gateway
 
-Este artículo incluye una directiva de ejemplo de Azure API Management que muestra cómo activar el filtro de la solicitud de dirección IP cuando se accede a la instancia de API Management mediante Application Gateway u otro intermediario. Para establecer o modificar un código de la directiva, siga los pasos descritos en [Establecimiento o modificación de directivas](../set-edit-policies.md). Para ver otros ejemplos, consulte los [ejemplos de directiva](../policy-samples.md).
+Este artículo incluye una directiva de ejemplo de Azure API Management que muestra cómo activar el filtro de la solicitud de dirección IP cuando se accede a la instancia de API Management mediante Application Gateway u otro intermediario. Para establecer o modificar un código de la directiva, siga los pasos descritos en [Establecimiento o modificación de directivas](../set-edit-policies.md). Para ver otros ejemplos, consulte los [ejemplos de directiva](../policy-reference.md).
 
 ## <a name="policy"></a>Directiva
 
@@ -34,4 +34,4 @@ Pegue el código en el bloque de **entrada**.
 Obtenga más información sobre las directivas APIM:
 
 + [Directivas de restricciones de acceso](../api-management-access-restriction-policies.md)
-+ [Ejemplos de directivas](../policy-samples.md)
++ [Ejemplos de directivas](../policy-reference.md)

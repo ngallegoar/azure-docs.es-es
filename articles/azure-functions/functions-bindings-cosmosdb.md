@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 9ae3ef133fa1b246c09fe0a9aa4ec27b0f75fd19
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 524df7805207ce517c7ae805fb17de1b041a2248
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531583"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876046"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Enlaces de Azure Cosmos DB para Azure Functions 1.x
 
@@ -214,6 +214,8 @@ El desencadenador no indica si un documento se actualizó o se insertó; solo pr
 ## <a name="input"></a>Entrada
 
 El enlace de entrada de Azure Cosmos DB usa SQL API para recuperar uno o varios documentos de Azure Cosmos DB y los pasa al parámetro de entrada de la función. Se puede determinar el identificador de documento o los parámetros de consulta según el desencadenador que invoca la función.
+
+## <a name="input---example"></a>Ejemplo de entrada
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1146,6 +1148,8 @@ Las actualizaciones no se realizan automáticamente al cerrar la función. Por e
 ## <a name="output"></a>Output
 
 El enlace de salida de Azure Cosmos DB permite escribir un nuevo documento en una base de datos de Azure Cosmos DB mediante SQL API.
+
+## <a name="output---example"></a>Salida: ejemplo
 
 # <a name="c"></a>[C#](#tab/csharp)
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
 ms.openlocfilehash: ded332813a840892f640aa6f6e48debbfe381b4b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90889298"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Uso de cuadernos de Jupyter para buscar amenazas de seguridad
@@ -63,7 +63,7 @@ Para usar los cuadernos, primero debe crear un área de trabajo de Azure Machine
 
     |Campo|Descripción|
     |--|--|
-    |Subscription|Seleccione la suscripción de Azure que quiera usar.|
+    |Suscripción|Seleccione la suscripción de Azure que quiera usar.|
     |Resource group|Use un grupo de recursos existente en su suscripción o escriba un nombre para crear un nuevo grupo de recursos. Un grupo de recursos almacena los recursos relacionados con una solución de Azure. En este ejemplo se usa **AzureMLRG**.|
     |Nombre del área de trabajo|Escriba un nombre único que identifique el área de trabajo. En este ejemplo se usa **testworkspace1**. Los nombres deben ser únicos en el grupo de recursos. Utilice un nombre que sea fácil de recordar y que se diferencie del de las áreas de trabajo creadas por otros.|
     |Region|Seleccione la ubicación más cercana a los usuarios y los recursos de datos para crear el área de trabajo.|

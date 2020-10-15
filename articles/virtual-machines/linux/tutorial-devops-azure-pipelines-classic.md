@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 6cc4fdb82e98c30ca33eec58675f2175dfcc2607
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: f77cc85bd62deb2cb2cb74c42cf245a409904b3a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612788"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978312"
 ---
 # <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial: Configuración de una estrategia de implementación gradual para máquinas virtuales de Linux en Azure
 
@@ -29,7 +29,7 @@ Azure DevOps es un servicio integrado de Azure que automatiza todas las partes 
 
 Azure Pipelines ofrece un conjunto completo de herramientas de automatización de CI/CD para las implementaciones en máquinas virtuales. En Azure Portal, se puede configurar directamente una canalización de entrega continua para una máquina virtual de Azure.
 
-En este artículo, se muestra cómo configurar una canalización de CI/CD para implementaciones graduales de varias máquinas desde Azure Portal. Azure Portal también admite otras estrategias, como las implementaciones [controladas](https://aka.ms/AA7jdrz) y [azul-verde](https://aka.ms/AA83fwu).
+En este artículo, se muestra cómo configurar una canalización de CI/CD para implementaciones graduales de varias máquinas desde Azure Portal. Azure Portal también admite otras estrategias, como las implementaciones [controladas](./tutorial-azure-devops-canary-strategy.md) y [azul-verde](./tutorial-azure-devops-blue-green-strategy.md).
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Configuración de CI/CD en máquinas virtuales
 
@@ -78,8 +78,8 @@ Mediante la opción de entrega continua, se pueden configurar las actualizacione
 
 ## <a name="other-deployment-strategies"></a>Otras estrategias de implementación
 
-- [Configuración de la estrategia de implementación controlada](https://aka.ms/AA7jdrz)
-- [Configuración de la estrategia de implementación azul-verde](https://aka.ms/AA83fwu)
+- [Configuración de la estrategia de implementación controlada](./tutorial-azure-devops-canary-strategy.md)
+- [Configuración de la estrategia de implementación azul-verde](./tutorial-azure-devops-blue-green-strategy.md)
 
 ## <a name="azure-devops-projects"></a>Azure DevOps Projects
 

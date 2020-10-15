@@ -7,19 +7,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5e457742d8a940ff3a1602cc3dcf1b1d77126ac3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223693"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076681"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Procedimiento para configurar el escalado automático para un servicio en la nube en el Portal
 
 Las condiciones se pueden definir para un rol de trabajo de servicio en la nube que desencadene una operación de reducción horizontal y de escalabilidad horizontal. Las condiciones del rol pueden basarse en la CPU, el disco o la carga de red del rol. También puede establecer una condición basada en una cola de mensajes o en la métrica de algún otro recurso de Azure asociado a la suscripción.
 
 > [!NOTE]
-> Este artículo se centra en los roles de trabajo y en los roles web de Servicio en la nube. Al crear una máquina virtual (clásica) directamente, esta se hospeda en un servicio en la nube. Puede escalar una máquina virtual estándar asociándola con un [conjunto de disponibilidad](../virtual-machines/windows/classic/configure-availability-classic.md) y activándola o desactivándola manualmente.
+> Este artículo se centra en los roles de trabajo y en los roles web de Servicio en la nube. Al crear una máquina virtual (clásica) directamente, esta se hospeda en un servicio en la nube. Puede escalar una máquina virtual estándar asociándola con un [conjunto de disponibilidad](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) y activándola o desactivándola manualmente.
 
 ## <a name="considerations"></a>Consideraciones
 Debe considerar la siguiente información antes de configurar el escalado para su aplicación:
@@ -105,6 +105,3 @@ Con esta configuración se elimina la escala automática del rol y podrá establ
 3. Las instancias del rol en las que se realizar la operación de escala.
 
 Después de configurar la configuración de escala, seleccione el icono de **Guardar** situado en la parte superior.
-
-
-

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 9a5925b9667cf0db5003584c3bf6a30d8611c5ce
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 881dbd02a6bf069fbe68108cc6eab0cb6b909a13
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985995"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91362657"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Uso de Log Analytics para examinar registros del firewall de aplicaciones web (WAF) de Application Gateway
 
@@ -80,7 +80,7 @@ AzureDiagnostics
 
 Una vez que se crea una consulta, se puede agregar al panel.  Seleccione **Anclar al panel** en la parte superior derecha del área de trabajo de Log Analytics. Con las cuatro consultas anteriores ancladas a un panel de ejemplo, estos son los datos que se pueden ver de un vistazo:
 
-![Panel](media/log-analytics/dashboard.png)
+![Captura de pantalla que muestra un panel de Azure en el que puede agregar una consulta.](media/log-analytics/dashboard.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

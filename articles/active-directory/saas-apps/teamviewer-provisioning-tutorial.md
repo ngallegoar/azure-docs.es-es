@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7cb83b53b6516de58c99859f3a0d4c9122b78322
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1363ccfcf20312fb7273526349e27e8f424b6b41
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542180"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361558"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutorial: Configuración de TeamViewer para el aprovisionamiento automático de usuarios
 
@@ -91,15 +91,15 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba `ttps://webapi.teamviewer.com/scim/v2` en el campo **Tentant URL** (URL de inquilino) y especifique el token de script creado anteriormente en **Token secreto**. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a TeamViewer. Si la conexión no se establece, asegúrese de que la cuenta de TeamViewer tiene permisos de administrador y pruebe de nuevo.
 
-    ![Aprovisionamiento](./media/teamViewer-provisioning-tutorial/provisioning.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/teamViewer-provisioning-tutorial/provisioning.png)
 
 6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 

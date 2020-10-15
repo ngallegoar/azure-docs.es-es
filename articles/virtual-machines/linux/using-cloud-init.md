@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: danis
-ms.openlocfilehash: 7ddbb48f3598780988feb25a11729a5086d31fde
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: a87c2b571027e0304909e69b252c9e080c4da9c1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869276"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978635"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Compatibilidad con cloud-init para máquinas virtuales en Azure
 En este artículo se explica la compatibilidad que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar una máquina virtual (VM) o conjuntos de escalado de máquinas virtuales en el momento del aprovisionamiento en Azure. Estas configuraciones de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos.  
@@ -152,7 +152,7 @@ az vm create \
 
 Cuando se haya creado la VM, la CLI de Azure mostrará información específica a la implementación. Anote el valor de `publicIpAddress`. Esta dirección se utiliza para tener acceso a la máquina virtual.  Transcurre algo de tiempo hasta que la máquina virtual se crea, los paquetes se instalan y la aplicación se inicia. Hay tareas en segundo plano que continúan ejecutándose después de que la CLI de Azure vuelve a abrir el símbolo del sistema. Puede usar SSH en la VM y usar los pasos descritos en la sección de solución de problemas para ver los registros de cloud-init. 
 
-También puede implementar una máquina virtual con cloud-init habilitado pasando los [parámetros en la plantilla de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli#inline-parameters).
+También puede implementar una máquina virtual con cloud-init habilitado pasando los [parámetros en la plantilla de Resource Manager](../../azure-resource-manager/templates/deploy-cli.md#inline-parameters).
 
 ## <a name="troubleshooting-cloud-init"></a>Solución de problemas de cloud-init
 Una vez que se ha aprovisionado la máquina virtual, cloud-init se ejecuta en todos los módulos y en el script definido en `--custom-data` para configurar dicha máquina virtual.  Si tiene que solucionar algún error u omisión de la configuración, debe buscar el nombre del módulo (`disk_setup` o `runcmd`,0 por ejemplo) en el registro de cloud-init, ubicado en **/var/log/cloud-init.log**.
@@ -173,4 +173,3 @@ Para ejemplos de cloud-init de cambios de configuración, vea los siguientes doc
 - [Ejecución de un administrador de paquetes para actualizar los existentes durante el primer arranque](cloudinit-update-vm.md)
 - [Cambio del nombre de host de la máquina virtual local](cloudinit-update-vm-hostname.md) 
 - [Instalación de un paquete de aplicación, actualización de los archivos de configuración e inserción de claves](tutorial-automate-vm-deployment.md)
- 

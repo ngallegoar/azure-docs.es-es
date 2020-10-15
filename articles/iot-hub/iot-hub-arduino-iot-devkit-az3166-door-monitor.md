@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: dae797e73d52391288a5e8b7cf4a5c6ab2a122fc
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d4f77cec793e13ff943c173d88948eb5b5de0957
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337881"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91356254"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitor de puerta: uso de Azure Functions y SendGrid, envío de correo electrónico cuando se abre una puerta           
 
@@ -171,7 +171,7 @@ Esta cadena de conexión que se obtuvo en el paso [Aprovisionamiento de los serv
 
 A continuación, VS Code comenzará a verificar y a cargar el boceto de Arduino en DevKit.
 
-![carga-dispositivo](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
+![Captura de pantalla que muestra Visual Studio Code comprobando y cargando el boceto de Arduino.](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
 
 El DevKit se reinicia y comienza a ejecutar el código.
 

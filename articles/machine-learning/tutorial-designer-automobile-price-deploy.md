@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
 ms.openlocfilehash: a4923e48c890a50d642d937f014e466e998171cf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90896630"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador
@@ -99,7 +99,7 @@ Después de que el servicio AKS haya terminado de aprovisionarse, vuelva a la ca
 
 1. Seleccione **Implementar**.
     
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Captura de pantalla que muestra cómo configurar un nuevo punto de conexión en tiempo real":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Captura de pantalla que muestra dónde encontrar el botón Crear canalización":::
 
     Aparece una notificación de finalización correcta en la parte superior del lienzo una vez que termina la implementación. Esto puede llevar unos minutos.
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 30e76ec3085922ec2a1d4693681eb97c9052c026
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322558"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978737"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Creación de imágenes generalizadas sin un agente de aprovisionamiento
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Este servicio de systemd realiza tres acciones para el aprovisionamiento básico:
 
 1. Informa a Azure de que está listo (para indicar que apareció correctamente).
-1. Cambia el nombre de la máquina virtual en función del nombre de la máquina virtual proporcionado por el usuario extrayendo estos datos de [Azure Instance Metadata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service). **Tenga en cuenta** que IMDS también proporciona otros [metadatos de instancia](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service), como las claves públicas SSH, por lo que puede establecer más de un nombre de host.
+1. Cambia el nombre de la máquina virtual en función del nombre de la máquina virtual proporcionado por el usuario extrayendo estos datos de [Azure Instance Metadata Service (IMDS)](./instance-metadata-service.md). **Tenga en cuenta** que IMDS también proporciona otros [metadatos de instancia](./instance-metadata-service.md#accessing-azure-instance-metadata-service), como las claves públicas SSH, por lo que puede establecer más de un nombre de host.
 1. Se deshabilita por su cuenta, de modo que solo se ejecute en el primer arranque y no en reinicios posteriores.
 
 Con la unidad en el sistema de archivos, ejecute lo siguiente para su habilitación:

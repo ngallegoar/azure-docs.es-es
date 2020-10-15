@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78d3cbac28a85452f23e4a7c7ba3904fe3d1f488
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ec7337ad798d586cb93bd13e60ead1ef9f2a4abe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997887"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857255"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Envío de datos mediante una puerta de enlace transparente
 
@@ -238,5 +238,8 @@ En este artículo, hemos usado la máquina virtual de desarrollo para simular un
 
 Puedes encontrar más información en las páginas siguientes:
 
-* [Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge](how-to-connect-downstream-device.md)
-* [Almacene datos en el perímetro con Azure Blob Storage en IoT Edge (versión preliminar)](how-to-store-data-blob.md)
+> [!div class="nextstepaction"]
+> [Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge](how-to-connect-downstream-device.md)
+
+> [!div class="nextstepaction"]
+> [Almacene datos en el perímetro con Azure Blob Storage en IoT Edge (versión preliminar)](how-to-store-data-blob.md)
