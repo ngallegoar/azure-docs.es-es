@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
 ms.openlocfilehash: 01dd8422658aa0c8982733e48782efd27c1bf5be
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81617845"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Actualización del agente Dependency Agent en Azure Monitor para VM

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
 ms.openlocfilehash: 42ec5a661bd7b42ba5de5bfa99b3898291cc60fa
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935609"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registros de Azure Monitor para el equilibrador de carga básica público
@@ -31,7 +31,7 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 > [!IMPORTANT]
 > **Los registros de eventos de sondeo de estado no funcionan en la actualidad y aparecen listados en los [problemas conocidos de Azure Load Balancer](whats-new.md#known-issues).** Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
 
-## <a name="enable-logging"></a>Habilitar registro
+## <a name="enable-logging"></a>Habilitación del registro
 
 El registro de actividades se habilita automáticamente para todos los recursos de Resource Manager. Habilite el registro de eventos y de sondeos de estado para iniciar la recopilación de los datos disponibles a través de esos registros. Para habilitar el registro, realice los siguientes pasos.
 

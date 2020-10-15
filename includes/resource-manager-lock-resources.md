@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tomfitz
 ms.openlocfilehash: 03e4053b65cf39101e8cb5d35ce439a759ec11d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67186702"
 ---
 1. En la hoja Configuración del recurso, del grupo de recursos o de la suscripción que desea bloquear, seleccione **Bloqueos**.

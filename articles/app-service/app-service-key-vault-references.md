@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 5b76c940066539995dbefa76d503b5412ce0c359
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2806216bff462a673eddd8eba994d38b1c5e1fdc
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557921"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930499"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Uso de referencias de Key Vault para App Service y Azure Functions
 
@@ -30,7 +30,7 @@ Para leer secretos desde Key Vault, debe tener creado un almacén y proporcionar
 
 1. Cree una [directiva de acceso en Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) para la identidad de aplicación que creó anteriormente. Habilite el permiso secreto "Get" en esta directiva. No configure la "aplicación autorizada" o la configuración `applicationId`, ya que no es compatible con una identidad administrada.
 
-    > [!NOTE]
+    > [!IMPORTANT]
     > Actualmente, las referencias de Key Vault no pueden resolver los secretos almacenados en un almacén de claves con [restricciones de red](../key-vault/general/overview-vnet-service-endpoints.md).
 
 ## <a name="reference-syntax"></a>Sintaxis de referencia

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: a8d81acc0fcb4afa0f981fca3fd099296a0361df
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 50669dcce044988f2e45acc2a17ae43c140d1ab5
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569499"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930312"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Instrucciones para el planeamiento de red de Azure NetApp Files
 
 La planeación de la arquitectura de red es un elemento clave del diseño de cualquier infraestructura de aplicación. En este artículo encontrará ayuda para diseñar una arquitectura de red eficaz para que sus cargas de trabajo se beneficien de las completas funcionalidades de Azure NetApp Files.
 
-Los volúmenes de Azure NetApp Files están diseñados para incluirse en una subred de propósito especial llamada [subred delegada](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) dentro de Azure Virtual Network. Por lo tanto, puede acceder a los volúmenes directamente desde la red virtual, desde redes virtuales emparejadas en la misma región o desde un entorno local a través de una puerta de enlace de red virtual (ExpressRoute o VPN Gateway) según sea necesario. La subred está dedicada a Azure NetApp Files y no hay ninguna conectividad a Internet ni a otros servicios de Azure.
+Los volúmenes de Azure NetApp Files están diseñados para incluirse en una subred de propósito especial llamada [subred delegada](../virtual-network/virtual-network-manage-subnet.md) dentro de Azure Virtual Network. Por lo tanto, puede acceder a los volúmenes directamente desde la red virtual, desde redes virtuales emparejadas en la misma región o desde un entorno local a través de una puerta de enlace de red virtual (ExpressRoute o VPN Gateway) según sea necesario. La subred está dedicada a Azure NetApp Files y no hay ninguna conectividad a Internet ni a otros servicios de Azure.
 
 ## <a name="considerations"></a>Consideraciones  
 
@@ -71,11 +71,11 @@ En esta sección se explican los conceptos que le ayudarán a planear la red vir
 
 ### <a name="azure-virtual-networks"></a>Redes virtuales de Azure
 
-Antes de aprovisionar un volumen de Azure NetApp Files, deberá crear una red virtual de Azure (VNet) o usar una ya existente en su suscripción. La red virtual define los límites de red del volumen.  Para más información acerca de cómo crear redes virtuales, consulte la [documentación de Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Antes de aprovisionar un volumen de Azure NetApp Files, deberá crear una red virtual de Azure (VNet) o usar una ya existente en su suscripción. La red virtual define los límites de red del volumen.  Para más información acerca de cómo crear redes virtuales, consulte la [documentación de Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 ### <a name="subnets"></a>Subredes
 
-Las subredes segmentan la red virtual en espacios de direcciones independientes utilizables por los recursos de Azure que se encuentran en ellos.  Los volúmenes de Azure NetApp Files están incluidos en una subred de propósito especial llamada [subred delegada](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet). 
+Las subredes segmentan la red virtual en espacios de direcciones independientes utilizables por los recursos de Azure que se encuentran en ellos.  Los volúmenes de Azure NetApp Files están incluidos en una subred de propósito especial llamada [subred delegada](../virtual-network/virtual-network-manage-subnet.md). 
 
 La delegación de la subred proporciona al servicio Azure NetApp Files permisos explícitos para crear recursos específicos del servicio en la subred.  Usa un identificador único para implementar el servicio. En este caso, se crea una interfaz de red para habilitar la conectividad a Azure NetApp Files.
 
@@ -102,7 +102,7 @@ Un escenario básico consiste en crear o conectarse a un volumen de Azure NetApp
 
 ### <a name="vnet-peering"></a>Emparejamiento de VNET
 
-Si en la misma región tiene redes virtuales adicionales que deben acceder a los recursos de las demás, las redes virtuales se pueden conectar mediante [emparejamiento de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) para habilitar la conectividad segura a través de la infraestructura de Azure. 
+Si en la misma región tiene redes virtuales adicionales que deben acceder a los recursos de las demás, las redes virtuales se pueden conectar mediante [emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md) para habilitar la conectividad segura a través de la infraestructura de Azure. 
 
 Piense en la red virtual 2 y la red virtual 3 en el diagrama anterior. Si la VM 1 tiene que conectarse a la VM 2 o al volumen 2, o si la VM 2 tiene que conectarse a la VM 1 o al volumen 1, tiene que habilitar el emparejamiento de redes virtuales entre la red virtual 2 y la red virtual 3. 
 
@@ -116,7 +116,7 @@ En el siguiente diagrama se ilustra un entorno híbrido:
 
 ![Entorno de conexión híbrido](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-En el escenario híbrido, las aplicaciones de centros de datos locales necesitan acceso a los recursos de Azure.  Esto es así si quiere expandir su centro de datos a Azure, o si quiere usar los servicios nativos de Azure o para la recuperación ante desastres. Consulte las [opciones de planeamiento de VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) para información sobre cómo conectar varios recursos locales a los recursos en Azure a través de una VPN de sitio a sitio o ExpressRoute.
+En el escenario híbrido, las aplicaciones de centros de datos locales necesitan acceso a los recursos de Azure.  Esto es así si quiere expandir su centro de datos a Azure, o si quiere usar los servicios nativos de Azure o para la recuperación ante desastres. Consulte las [opciones de planeamiento de VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%252fazure%252fvirtual-network%252ftoc.json#planningtable) para información sobre cómo conectar varios recursos locales a los recursos en Azure a través de una VPN de sitio a sitio o ExpressRoute.
 
 En una topología de red en estrella tipo hub-and-spoke híbrida, la red virtual del centro (hub) en Azure actúa como un punto central de conectividad para la red local. Los radios (spokes) son redes virtuales emparejadas con el centro y pueden usarse para aislar las cargas de trabajo.
 

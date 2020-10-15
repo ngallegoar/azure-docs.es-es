@@ -7,12 +7,12 @@ ms.service: azure-supportability
 ms.topic: troubleshooting
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: 87533b2e0c1397d0b8b2e9a89450a80a75c5e348
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fccde344a06d39bd4bb8e3178444ec20677e2f50
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763829"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078517"
 ---
 # <a name="region-or-sku-unavailable"></a>Región o SKU no disponible
 
@@ -80,7 +80,7 @@ Si no encuentra una región o SKU que sea adecuada, cree una [solicitud de sopor
 
 ## <a name="send-us-your-suggestions"></a>Envíenos sus sugerencias
 
-Siempre estamos abiertos a todo tipo de comentarios y sugerencias. No dude en enviarnos sus [sugerencias](https://feedback.azure.com/forums/266794-support-feedback). Además, puede ponerse en contacto con nosotros en [Twitter](https://twitter.com/azuresupport) o en la [página de Preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/products/azure).
+Siempre estamos abiertos a todo tipo de comentarios y sugerencias. No dude en enviarnos sus [sugerencias](https://feedback.azure.com/forums/266794-support-feedback). Además, puede ponerse en contacto con nosotros en [Twitter](https://twitter.com/azuresupport) o en la [página de Preguntas y respuestas de Microsoft](/answers/products/azure).
 
 ## <a name="learn-more"></a>Más información
 

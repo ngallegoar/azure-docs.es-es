@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 262d12e1b0ff74570b44b7794f8b55619a9afa97
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: eec913237ba978e52bb64fbd4c1f043a9214ffc8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905149"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077854"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparación de características de los planes de tarifa de Azure API Management
 
@@ -37,7 +37,7 @@ Cada [plan de tarifa](https://aka.ms/apimpricing) de API Management ofrece un co
 | Análisis integrado                                                                           | No          | Sí       | Sí   | Sí      | Sí     |
 | [Puerta de enlace autohospedada](self-hosted-gateway-overview.md)<sup>3</sup>                           | No          | Sí       | No    | No       | Sí     |
 | [Configuración de TLS](api-management-howto-manage-protocols-ciphers.md)                             | Sí         | Sí       | Sí   | Sí      | Sí     |
-| [Caché externa](https://aka.ms/apimbyoc)                                                    | Sí         | Sí       | Sí   | Sí      | Sí     |
+| [Caché externa](./api-management-howto-cache-external.md)                                                    | Sí         | Sí       | Sí   | Sí      | Sí     |
 | [Autenticación de certificados de clientes](api-management-howto-mutual-certificates-for-clients.md) | Sí         | Sí       | Sí   | Sí      | Sí     |
 | [Copia de seguridad y restauración](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Sí       | Sí   | Sí      | Sí     |
 | [Administración a través de Git](api-management-configuration-repository-git.md)                        | No          | Sí       | Sí   | Sí      | Sí     |

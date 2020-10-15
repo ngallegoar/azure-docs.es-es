@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 69b52be3a3eca2ab48ed09f6401780ea033f223c
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 2cc60af26754eddbe8699019ae8d906a4c1e9e62
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723986"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057695"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Análisis y validación de modelos con la biblioteca del analizador de DTDL
 
@@ -20,11 +20,11 @@ Los [modelos](concepts-models.md) de Azure Digital Twins se definen con el lengu
 
 Para facilitar esta tarea, se proporciona una biblioteca de análisis de DTDL del lado cliente de .NET en NuGet: [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
 
-Puede usar la biblioteca del analizador directamente en el código de C#, o bien usar el proyecto de ejemplo de código independiente del lenguaje que se basa en la biblioteca del analizador: [**Ejemplo de validador de DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+Puede usar la biblioteca del analizador directamente en el código de C#, o bien usar el proyecto de ejemplo de código independiente del lenguaje que se basa en la biblioteca del analizador: [**Ejemplo de validador de DTDL**](/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 ## <a name="use-the-dtdl-validator-sample"></a>Uso del ejemplo de validador de DTDL
 
-El [**validador de DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) es un proyecto de ejemplo que puede validar los documentos del modelo para garantizar que el DTDL sea válido. Se basa en la biblioteca del analizador de .NET y es independiente del lenguaje. Puede obtenerlo con el botón *Descargar archivo ZIP* en el vínculo de ejemplo.
+El [**validador de DTDL**](/samples/azure-samples/dtdl-validator/dtdl-validator) es un proyecto de ejemplo que puede validar los documentos del modelo para garantizar que el DTDL sea válido. Se basa en la biblioteca del analizador de .NET y es independiente del lenguaje. Puede obtenerlo con el botón *Descargar archivo ZIP* en el vínculo de ejemplo.
 
 El código fuente muestra ejemplos de cómo usar la biblioteca del analizador. Puede usar el ejemplo de validador como una utilidad de línea de comandos para validar un árbol de directorios de archivos DTDL. También proporciona un modo interactivo.
 

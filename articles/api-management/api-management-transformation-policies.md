@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 0182c3aa9095ad6f7bf3d8d86f115517e9efb020
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3097f7b0b6b69dc470877d4951efbcbd3c7482b1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249610"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078500"
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
-En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
+En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
 
 ##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a> Directivas de transformación
 
@@ -732,4 +732,4 @@ Para obtener más información, vea los temas siguientes:
 
 + [Directivas de Azure API Management](api-management-howto-policies.md)
 + En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
-+ [Ejemplos de directivas](policy-samples.md)
++ [Ejemplos de directivas](./policy-reference.md)

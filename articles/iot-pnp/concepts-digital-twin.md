@@ -7,12 +7,12 @@ ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: ea523045875e0abc9e14924c7bb388ea2cfcc2db
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578060"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046475"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Información de Digital Twins de IoT Plug and Play
 
@@ -307,7 +307,7 @@ En los fragmentos de código siguientes se muestra la representación JSON en pa
 
 ## <a name="digital-twin-apis"></a>API de gemelo digital
 
-Azure Digital Twins viene equipado con **Get Digital Twin** (Obtener gemelo digital), **Update Digital Twin** (Actualizar gemelo digital), **Invoke Component Command** (Invocar comando de componente) e **Invoke Command** (Invocar comando) para administrar el dispositivo de gemelo digital. Puede usar las [API de REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) directamente o a través de un [SDK de servicio](../iot-pnp/libraries-sdks.md).
+Azure Digital Twins viene equipado con **Get Digital Twin** (Obtener gemelo digital), **Update Digital Twin** (Actualizar gemelo digital), **Invoke Component Command** (Invocar comando de componente) e **Invoke Command** (Invocar comando) para administrar el dispositivo de gemelo digital. Puede usar las [API de REST](/rest/api/iothub/service/digitaltwin) directamente o a través de un [SDK de servicio](../iot-pnp/libraries-sdks.md).
 
 ## <a name="digital-twin-change-events"></a>Eventos de cambio de gemelo digital
 
@@ -383,5 +383,5 @@ Ahora que ha aprendido acerca de los gemelos digitales, estos son algunos recurs
 
 - [Uso de las API de gemelo digital de IoT Plug and Play](howto-manage-digital-twin.md)
 - [Interacción con un dispositivo desde su solución](quickstart-service-node.md)
-- [API de REST de gemelo digital de IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [API de REST de gemelo digital de IoT](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cd7b889560acbe484581f065b641375c222f7ca8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81536507"
 ---
 De forma predeterminada, los recursos compartidos de archivos estándar solo pueden abarcar hasta 5 TiB, aunque el límite de recursos compartidos se puede aumentar hasta 100 TiB. Para ello, la característica de *recursos compartidos de archivos grandes* debe estar habilitada en el nivel de cuenta de almacenamiento. Las cuentas de almacenamiento premium (cuentas de almacenamiento *FileStorage*) no tienen la marca de la característica de recursos compartidos de archivos grandes, ya que todos los recursos compartidos de archivos premium ya están habilitados para aprovisionar hasta la capacidad completa de 100 TiB.

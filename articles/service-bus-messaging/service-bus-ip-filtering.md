@@ -3,12 +3,12 @@ title: Configuración de reglas de firewall de IP para Azure Service Bus
 description: Uso de las reglas de firewall para permitir las conexiones desde direcciones IP específicas a Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2ba6b1902213af8d968b220a387e419e56e8aa67
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 561ee90fb6d1e25123d15a09bbf143aef59bcf6f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300962"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058070"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Permitir el acceso al espacio de nombres de Azure Service Bus desde intervalos o direcciones IP específicas
 De forma predeterminada, los espacios de nombres de Service Bus son accesibles desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -126,7 +126,7 @@ Parámetros de plantilla:
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "type": "Microsoft.ServiceBus/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
         ],

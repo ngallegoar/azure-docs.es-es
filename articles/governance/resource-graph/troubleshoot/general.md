@@ -1,14 +1,14 @@
 ---
 title: Solución de errores comunes
 description: Obtenga información sobre cómo solucionar problemas con los diversos SDK mientras consulta recursos de Azure con Azure Resource Graph.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 052c3e1c10f1b0ca94653f086e2df4f3d395070e
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 13c5d5ffde8b0b82fcafa5e8149400555a0b18a6
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056948"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056964"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Solución de problemas relativos a errores con Azure Resource Graph
 
@@ -28,7 +28,7 @@ Los clientes que realizan consultas de recursos de gran tamaño o frecuentes tie
 
 #### <a name="cause"></a>Causa
 
-Azure Resource Graph asigna un número de cuota para cada usuario basado en una ventana de tiempo. Por ejemplo, un usuario puede enviar como máximo 15 consultas dentro de cada ventana de 5 segundos sin que se vea limitado. El valor de la cuota se determina según varios factores y está sujeto a cambios. Para obtener más información, consulte [Limitaciones en Azure Resource Graph](../overview.md#throttling).
+Azure Resource Graph asigna un número de cuota para cada usuario basado en una ventana de tiempo. Por ejemplo, un usuario puede enviar como máximo 15 consultas dentro de cada ventana de 5 segundos sin que se vea limitado. El valor de la cuota se determina según varios factores y está sujeto a cambios. Para obtener más información, consulte [Limitaciones en Azure Resource Graph](../overview.md#throttling).
 
 #### <a name="resolution"></a>Resolución
 
@@ -100,13 +100,13 @@ Los clientes que pasan explícitamente una lista de suscripciones con una consul
 
 Si el cliente no tiene permiso de lectura para todas las suscripciones proporcionadas, se denegará la solicitud debido a la falta de los derechos de seguridad adecuados.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Incluya al menos una suscripción de la lista de suscripciones a la que el cliente que ejecuta la consulta tiene acceso de lectura como mínimo. Para obtener más información, vea [Permisos en Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener más soporte técnico:
+Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
 
 - Obtenga respuestas de expertos de Azure en los [foros de Azure](https://azure.microsoft.com/support/forums/).
 - Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport): la cuenta de Microsoft Azure oficial para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.

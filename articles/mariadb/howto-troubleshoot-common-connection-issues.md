@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: 521853fd361007159d7e497eb7e7c1f3d200731c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82101457"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Solución de problemas de conexión a Azure Database for MariaDB
@@ -46,7 +46,7 @@ Los errores transitorios se producen cuando se realiza el mantenimiento, el sist
 Si la aplicación no se puede conectar a Azure Database for MariaDB de forma persistente, normalmente indica un problema con uno de los siguientes elementos:
 
 * Configuración del firewall: el firewall del servidor o el cliente de Azure Database for MariaDB bloquea las conexiones.
-* Reconfiguración de red del cliente: Se agregó una nueva dirección IP o un servidor proxy.
+* Reconfiguración de la red en el lado cliente: se ha añadido un nuevo servidor de proxy o dirección IP.
 * Error del usuario: por ejemplo, puede que haya escrito incorrectamente los parámetros de conexión, como el nombre del servidor en la cadena de conexión, o que falte un sufijo *\@servername* en el nombre de usuario.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Pasos para resolver los problemas de conectividad persistentes

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: tagore
-ms.openlocfilehash: e3c4beac5bd88ba0bbefa91fc83976416b24d2fc
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: f0bf7fa56ca511981820f63cd7178493a7d048e3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141081"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077514"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Habilitar el diagnóstico en Azure Cloud Services mediante PowerShell
 Puede recopilar datos de diagnóstico como registros de aplicaciones, contadores de rendimiento, etc., de un servicio en la nube mediante la extensión de Diagnósticos de Azure. En este artículo se describe cómo habilitar la extensión de Diagnósticos de Azure para un servicio en la nube mediante PowerShell.  Para conocer los requisitos previos necesarios para este artículo, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/) .
@@ -131,8 +131,5 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener orientación adicional sobre el uso de diagnósticos de Azure y otras técnicas para solucionar problemas, consulte [Habilitación de diagnósticos en Azure Cloud Services y Virtual Machines](cloud-services-dotnet-diagnostics.md).
-* En el [Esquema de configuración de diagnósticos](/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3) se explican las distintas opciones de configuración xml para la extensión de diagnósticos.
-* Para obtener información sobre cómo habilitar la extensión de diagnósticos para las máquinas virtuales, consulte [Crear una máquina virtual de Windows con supervisión y diagnóstico mediante la plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md)
-
-
-
+* En el [Esquema de configuración de diagnósticos](../azure-monitor/platform/diagnostics-extension-schema-windows.md) se explican las distintas opciones de configuración xml para la extensión de diagnósticos.
+* Para obtener información sobre cómo habilitar la extensión de diagnósticos para las máquinas virtuales, consulte [Crear una máquina virtual de Windows con supervisión y diagnóstico mediante la plantilla de Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7fcced1833cb5f4ccb9c2c2fd44dd84a9abb3cb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764050"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077871"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creación mediante programación de paneles de Azure
 
@@ -78,13 +78,13 @@ Para publicar este panel para cualquier máquina virtual en el futuro, parametri
 Hay dos enfoques para las API que crean recursos en Azure:
 
 * Las API imperativas crean un recurso cada vez. Para obtener más información, consulte [Recursos](/rest/api/resources/resources).
-* Un sistema de implementación basado en plantillas que crea varios recursos dependientes con una única llamada API. Para obtener más información, vea [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+* Un sistema de implementación basado en plantillas que crea varios recursos dependientes con una única llamada API. Para obtener más información, vea [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
 La implementación basada en plantillas admite la parametrización y las plantillas. En este artículo se usa este enfoque.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Creación mediante programación de un panel a partir de la plantilla mediante una implementación de plantilla
 
-Azure ofrece la capacidad de organizar la implementación de varios recursos. Cree una plantilla de implementación que exprese el conjunto de recursos que se va a implementar, así como las relaciones entre ellos.  El formato JSON de los recursos es el mismo que si estuviera creándolos uno a uno. La diferencia es que el lenguaje de plantilla agrega algunos conceptos como variables, parámetros, funciones básicas, etc. Esta sintaxis extendida solo se admite en el contexto de una implementación de plantilla. No funciona si se usa con las API imperativas descritas anteriormente. Para obtener más información, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Azure ofrece la capacidad de organizar la implementación de varios recursos. Cree una plantilla de implementación que exprese el conjunto de recursos que se va a implementar, así como las relaciones entre ellos.  El formato JSON de los recursos es el mismo que si estuviera creándolos uno a uno. La diferencia es que el lenguaje de plantilla agrega algunos conceptos como variables, parámetros, funciones básicas, etc. Esta sintaxis extendida solo se admite en el contexto de una implementación de plantilla. No funciona si se usa con las API imperativas descritas anteriormente. Para obtener más información, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 La parametrización se debe realizar mediante la sintaxis de parámetros de la plantilla.  Reemplace todas las instancias del identificador del recurso encontrado anteriormente como se muestra aquí.
 
@@ -125,7 +125,7 @@ Declare los metadatos de plantilla requeridos y los parámetros en la parte supe
 Una vez configurada la plantilla, impleméntela con cualquiera de los métodos siguientes:
 
 * [API de REST](/rest/api/resources/deployments)
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [CLI de Azure](/cli/azure/group/deployment#az-group-deployment-create)
 * [Página de implementación de plantillas de Azure Portal](https://portal.azure.com/#create/Microsoft.Template)
 

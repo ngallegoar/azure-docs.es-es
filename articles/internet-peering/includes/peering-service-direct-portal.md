@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 3/18/2020
 ms.author: derekol
 ms.openlocfilehash: e5804aa1b005e670d8b430b1c0a3bd62efd0bb06
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81687047"
 ---
 1. Seleccione una conexión de emparejamiento que quiera habilitar para Azure Peering Service. Luego, seleccione **...**  > **Edit connection** (Editar conexión).
