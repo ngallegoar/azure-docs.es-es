@@ -166,6 +166,8 @@
               href: how-to-setup-authentication.md
             - name: Administración de los usuarios y los roles.
               href: how-to-assign-roles.md
+            - name: Uso de identidades administradas para el control de acceso
+              href: how-to-use-managed-identities.md
             - name: "Uso de la identidad de Azure\_AD en implementaciones de AKS"
               href: how-to-use-azure-ad-identity.md
         - name: Seguridad de las redes

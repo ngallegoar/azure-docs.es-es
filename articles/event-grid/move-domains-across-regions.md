@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: fff8638a819511f84f15c52ad0695cdd5759f971
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89082643"
 ---
 # <a name="move-azure-event-grid-domains-to-another-region"></a>Traslado de dominios de Azure Event Grid a otra región
@@ -37,10 +37,10 @@ Para empezar, exporte una plantilla de Resource Manager para el dominio.
     :::image type="content" source="./media/move-domains-across-regions/search-domains.png" alt-text="Búsqueda y selección de dominios de Event Grid":::
 3. Seleccione el **dominio** que desea exportar a una plantilla de Resource Manager. 
 
-    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Selección del dominio":::   
+    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Búsqueda y selección de dominios de Event Grid":::   
 4. En la página **Dominio de Event Grid**, seleccione **Exportar plantilla** en **Configuración** en el menú de la izquierda y, a continuación, seleccione **Descargar** en la barra de herramientas. 
 
-    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Exportar plantilla -> Descargar" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
+    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Búsqueda y selección de dominios de Event Grid" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
 
     > [!IMPORTANT]
     > El dominio y los temas del dominio se exportan. No se exportan las suscripciones a los temas del dominio. Por lo tanto, debes crear suscripciones para los temas del dominio después de trasladar los temas del dominio. 
@@ -73,7 +73,7 @@ Implemente la plantilla para crear los temas de dominio y dominio en la región 
     1. En el **nombre de dominio**, escriba un nuevo nombre para el dominio. 
     1. Seleccione **Revisar + crear**. 
     
-        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Implementar plantilla":::        
+        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Búsqueda y selección de dominios de Event Grid":::        
     1. Una vez que la validación de la plantilla sea correcta, seleccione **Crear** en la parte inferior de la página para implementar el recurso. 
     1. Una vez finalizada la implementación, seleccione **Ir al grupo de recursos** para ir a la página del grupo de recursos. Confirme que hay un dominio en el grupo de recursos. Seleccione el dominio. Confirme que hay temas del dominio en el dominio. 
 

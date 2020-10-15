@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 4909dde8efd7125a60509bb86b28f069bf6dbb24
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 5066169951409fa86aa75a64e8fc6d4189947f27
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903401"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072414"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Cómo registrar eventos en Azure Event Hubs en Azure API Management
 Azure Event Hubs es un servicio de introducción de datos altamente escalable que permite la introducción de millones de eventos por segundo para que pueda procesar y analizar grandes cantidades de datos generados por los dispositivos y aplicaciones conectados. Event Hubs actúa como la "puerta principal" de una canalización de eventos y, una vez que los datos se recopilan en un centro de eventos, se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes/almacenamiento. Event Hubs desacopla la producción de un flujo de eventos desde el consumo de los eventos, para que los consumidores de eventos pueden tener acceso a los eventos según su propia programación.
@@ -32,7 +32,7 @@ Para información detallada sobre cómo crear un centro de eventos y obtener las
 ## <a name="create-an-api-management-logger"></a>Creación de un registrador de administración de API
 Ahora que tiene un centro de eventos, el siguiente paso es configurar un [registrador](/rest/api/apimanagement/2019-12-01/logger) en el servicio Administración de API para que se puedan registrar eventos en el centro de eventos.
 
-Los registradores de API Management se configuran mediante la [API de REST de API Management](https://aka.ms/apimapi). Para ver ejemplos detallados de solicitudes, consulte [cómo crear registradores](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+Los registradores de API Management se configuran mediante la [API de REST de API Management](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). Para ver ejemplos detallados de solicitudes, consulte [cómo crear registradores](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
 ## <a name="configure-log-to-eventhub-policies"></a>Configuración de directivas log-to-eventhub
 

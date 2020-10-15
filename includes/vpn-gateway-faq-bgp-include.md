@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 32e4658af48a0ae3bde08de18cf1d8204878d671
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6054fe5f71f54794d4974a71cdfd61a7959534ff
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91025143"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082243"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite BGP en todas las SKU de Azure VPN Gateway?
 El protocolo de puerta de enlace de borde se admite en todas las SKU de Azure VPN Gateway, excepto en la SKU básica.
@@ -108,3 +108,6 @@ Sí.
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>¿Qué debo agregar a mi dispositivo VPN local para la sesión de emparejamiento BGP?
 Debe agregar una ruta de host de la dirección IP del par BGP de Azure en el dispositivo VPN que apunta al túnel VPN S2S de IPsec. Por ejemplo, si la dirección IP del par VPN de Azure es "10.12.255.30", debe agregar una ruta de host para "10.12.255.30" con una interfaz de próximo salto de la interfaz de túnel IPsec coincidente en el dispositivo VPN.
+
+### <a name="does-the-virtual-network-gateway-support-bidirectional-forwarding-detection-bfd-for-site-to-site-connections-with-bgp"></a>¿La puerta de enlace de red virtual admite detección de envío bidireccional (BFD) para las conexiones de sitio a sitio con BGP?
+No. Detección de reenvío bidireccional (BFD) es un protocolo que se puede usar en BGP para detectar el tiempo de inactividad del vecino más rápidamente que si se usan conexiones persistentes BGP estándar. BFD usa temporizadores de subsegundo diseñados para funcionar en entornos de LAN, pero no en las conexiones de red de área extensa o de la red pública de Internet. En el caso de las conexiones a través de la red pública de Internet, el retraso, o incluso la eliminación, de algunos paquetes no es inusual, por lo que la introducción de estos agresivos temporizadores agregaría inestabilidad, lo que podría llegar a provocar que se interrumpan las rutas mediante BGP. Como alternativa, puede configurar un dispositivo local con temporizadores inferiores al intervalo de conexión persistente predeterminado de 60 segundos el temporizador de retención de 180 segundos para lograr un menor tiempo de convergencia.

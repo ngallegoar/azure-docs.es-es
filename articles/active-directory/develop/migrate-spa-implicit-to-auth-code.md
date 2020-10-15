@@ -13,10 +13,10 @@ ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
 ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87027094"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migración de una aplicación de página única de JavaScript desde una concesión implícita a un flujo de código de autorización
@@ -48,11 +48,11 @@ Siga estos pasos con los registros de aplicaciones que están configurados actua
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Banner de advertencia de flujo implícito en el icono de aplicación web en Azure Portal":::
 1. Seleccione *solo* los URI de redirección cuyas aplicaciones van a usar MSAL.js 2.x y, a continuación, **Configurar**.
 
-    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Seleccione el panel de URI de redirección en el panel SPA de Azure Portal":::.
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Banner de advertencia de flujo implícito en el icono de aplicación web en Azure Portal":::.
 
 Estos URI de redirección deberían aparecer ahora en el icono de la plataforma de **aplicación de página única**, lo cual indica que la compatibilidad de CORS con el flujo de código de autorización y PKCE está habilitada para estos URI.
 
-:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Icono de aplicación de página única en el registro de aplicación en Azure Portal":::
+:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Banner de advertencia de flujo implícito en el icono de aplicación web en Azure Portal":::
 
 También puede [crear un nuevo registro de aplicación](scenario-spa-app-registration.md) en lugar de actualizar los URI de redirección en el registro existente.
 

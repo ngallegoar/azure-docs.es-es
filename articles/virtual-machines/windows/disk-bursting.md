@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ab54b68ab3f7984ee18a39cf3a81fa663af54dee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 547834542b605b226ebffd68e05296ee847dc6de
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889097"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974335"
 ---
 # <a name="disk-bursting"></a>Seguridad de disco
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
@@ -29,7 +29,7 @@ La expansión en el nivel de máquina virtual también está disponible en la re
 La seguridad está habilitada de forma predeterminada para las máquinas virtuales que la admiten.
 
 ## <a name="disk-level-bursting"></a>Seguridad en el nivel de disco
-La seguridad también está disponible en las unidades [SSD Premium](disks-types.md#premium-ssd) para tamaños de disco P20 e inferiores en todas las regiones. La ampliación del disco está habilitada de forma predeterminada en las nuevas implementaciones de los tamaños del disco que la admiten. Los tamaños del disco existentes, si admiten la ampliación del disco, pueden habilitar la seguridad a través de cualquiera de los métodos siguientes: 
+La seguridad también está disponible en las unidades [SSD Premium](../disks-types.md#premium-ssd) para tamaños de disco P20 e inferiores en todas las regiones. La ampliación del disco está habilitada de forma predeterminada en las nuevas implementaciones de los tamaños del disco que la admiten. Los tamaños del disco existentes, si admiten la ampliación del disco, pueden habilitar la seguridad a través de cualquiera de los métodos siguientes: 
 - **Reinicio de la máquina virtual** 
 - **Desasociación y reasociación del disco**
 

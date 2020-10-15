@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88893632"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Uso de la directiva de Azure Firewall para definir una jerarquía de reglas
@@ -48,7 +48,7 @@ Cree directivas para cada uno de los equipos de la aplicación:
 - Una directiva de firewall de base de datos. La directiva de firewall de base de datos hereda la directiva de firewall base.
 - Una directiva de firewall de ingeniería. La directiva de firewall de ingeniería también hereda la directiva de firewall base.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Jerarquía de directivas" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Equipos y requisitos" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>Creación de roles personalizados para acceder a los grupos de la colección de reglas 
 
@@ -134,9 +134,9 @@ Para enumerar todos los roles personalizados, use el comando Get-AzRoleDefinitio
 
 También puede ver el rol personalizado en Azure Portal. Vaya a su suscripción, seleccione **Control de acceso (IAM)** , **Roles**.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="Equipos y requisitos":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Permiso de lectura SalesAppPolicy":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Equipos y requisitos":::
 
 Para más información, consulte el [Tutorial: Creación de un rol personalizado para los recursos de Azure con Azure PowerShell](../role-based-access-control/tutorial-custom-role-powershell.md).
 
