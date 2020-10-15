@@ -3,12 +3,12 @@ title: 'Implementación de Live Video Analytics en un dispositivo IoT Edge: Azur
 description: En este artículo se enumeran los pasos que ayudarán a implementar Live Video Analytics en el dispositivo IoT Edge. Hará esto, por ejemplo, si tiene acceso a una máquina Linux local o ha creado previamente una cuenta de Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a64fc11d7afa70d5200fdbd24bd3facdb8a95a7e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887229"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019586"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implementación de Live Video Analytics en un dispositivo IoT Edge
 
@@ -20,7 +20,7 @@ En este artículo se enumeran los pasos que ayudarán a implementar Live Video A
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un dispositivo x86-64 o ARM64 que ejecute uno de los [sistemas operativos Linux admitidos](https://docs.microsoft.com/azure/iot-edge/support#operating-systems).
+* Un dispositivo x86-64 o ARM64 que ejecute uno de los [sistemas operativos Linux admitidos](../../iot-edge/support.md#operating-systems).
 * Suscripción de Azure en la que tenga [privilegios de propietario](../../role-based-access-control/built-in-roles.md#owner).
 * [Creación y configuración de IoT Hub](../../iot-hub/iot-hub-create-through-portal.md).
 * [Registro de un dispositivo de IoT Edge](../../iot-edge/how-to-register-device.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: 9338ad86595771c1c70d243250c2d57af5eb7858
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae284a6afa1f2e396aef8177229c344b569be6ec
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83683798"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075678"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Solucionar problemas de aplicaciones que no admiten TLS 1.2
 En este artículo se describe cómo habilitar los protocolos de TLS más antiguos (TLS 1.0 y 1.1), además de cómo aplicar los conjuntos de cifrado heredados para admitir los protocolos adicionales en los roles de trabajo y web del servicio en la nube de Windows Server 2019. 
@@ -25,7 +25,7 @@ En este artículo se describe cómo habilitar los protocolos de TLS más antiguo
 Somos conscientes de que, aunque estamos llevando a cabo pasos para dejar de usar TLS 1.0 y TLS 1.1, es posible que nuestros clientes tengan que admitir los protocolos y los conjuntos de cifrado más antiguos hasta que puedan planear su desuso.  Si bien no se recomienda volver a habilitar estos valores heredados, ofrecemos esto como orientación para ayudar a los clientes. Animamos a los clientes a evaluar el riesgo de regresión antes de implementar los cambios descritos en este artículo. 
 
 > [!NOTE]
-> La versión 6 del SO invitado aplica TLS 1.2 mediante la deshabilitación explícita de TLS 1.0 y 1.1, y la definición de una serie específica de conjuntos de cifrado. Para más información sobre las familias del sistema operativo invitado, consulte [Novedades de la versión del SO invitado](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases).
+> La versión 6 del SO invitado aplica TLS 1.2 mediante la deshabilitación explícita de TLS 1.0 y 1.1, y la definición de una serie específica de conjuntos de cifrado. Para más información sobre las familias del sistema operativo invitado, consulte [Novedades de la versión del SO invitado](./cloud-services-guestos-update-matrix.md#family-6-releases).
 
 
 ## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Eliminación de la compatibilidad con TLS 1.0, TLS 1.1 y los conjuntos de cifrado anteriores 
@@ -362,4 +362,3 @@ Ahora que se han completado los pasos anteriores, publique la actualización en 
 
 Puede usar [SSLLabs](https://www.ssllabs.com/) para validar el estado de TLS de sus puntos de conexión. 
 
- 

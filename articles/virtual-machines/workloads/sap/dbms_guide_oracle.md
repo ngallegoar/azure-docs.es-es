@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 4e72c9d64a71fceb90d0a6ae9984997f73c1b5c6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540717"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963540"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Oracle de Azure Virtual Machines para la carga de trabajo de SAP
 
@@ -444,7 +444,7 @@ En este caso, se recomienda instalar/ubicar Oracle Home, Stage, `saptrace`, `sap
 
 ### <a name="storage-configuration"></a>Configuración de almacenamiento
 
-Los sistemas de archivos ext4, xfs u Oracle ASM se admiten para los archivos de Oracle Database en Azure. Todos los archivos de la base de datos se deben almacenar en estos sistemas de archivos basados en discos VHD o Managed Disks. Estos discos se montan en la máquina virtual de Azure y se basan en [Azure Page BLOB Storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) o en [Azure Managed Disks](../../managed-disks-overview.md).
+Los sistemas de archivos ext4, xfs u Oracle ASM se admiten para los archivos de Oracle Database en Azure. Todos los archivos de la base de datos se deben almacenar en estos sistemas de archivos basados en discos VHD o Managed Disks. Estos discos se montan en la máquina virtual de Azure y se basan en [Azure Page BLOB Storage](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) o en [Azure Managed Disks](../../managed-disks-overview.md).
 
 Para los kernels de Oracle Linux UEK, se requiere como mínimo la versión 4 de UEK para que sea compatible con los [discos SSD Azure Premium](../../premium-storage-performance.md#disk-caching).
 
@@ -508,7 +508,7 @@ En las máquinas virtuales de Azure de la serie M, cuando se usa el Acelerador d
 ### <a name="backuprestore"></a>Copia de seguridad y restauración
 Para utilizar la funcionalidad de copia de seguridad y restauración, se admite SAP BR*Tools for Oracle del mismo modo que en un servidor físico e Hyper-V. También se admite Oracle Recovery Manager (RMAN) para las copias de seguridad en disco y las restauraciones desde disco.
 
-Para más información sobre cómo puede usar los servicios Azure Backup y Recovery para crear una copia de seguridad de las bases de datos de Oracle y recuperarlas, consulte el artículo [Copia de seguridad y recuperación de una base de datos de Oracle Database 12c en una máquina virtual Linux de Azure](../oracle/oracle-backup-recovery.md).
+Para más información sobre cómo puede usar los servicios Azure Backup y Recovery para crear una copia de seguridad de las bases de datos de Oracle y recuperarlas, consulte el artículo [Copia de seguridad y recuperación de una base de datos de Oracle Database 12c en una máquina virtual Linux de Azure](../oracle/oracle-overview.md).
 
 ### <a name="high-availability"></a>Alta disponibilidad
 Oracle Data Guard se admite con fines de alta disponibilidad y recuperación ante desastres. Para lograr una conmutación por error automática en Data Guard, debe usar Fast-Start Failover (FSFA). La funcionalidad Observador (FSFA) desencadena la conmutación por error. Si no usa FSFA, solo puede usar una configuración de conmutación por error manual. Para más información, consulte [Implementación de Oracle Data Guard en una máquina virtual Linux en Azure](../oracle/configure-oracle-dataguard.md).
@@ -531,5 +531,3 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 Lea el artículo 
 
 - [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md)
- 
-

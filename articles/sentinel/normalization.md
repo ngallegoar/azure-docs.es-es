@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
 ms.openlocfilehash: 0c6129a24e6ed083114971df5f254eca54924400
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90932358"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalización en Azure Sentinel
@@ -97,7 +97,7 @@ Los analizadores en tiempo de consulta disponibles se pueden encontrar en el [re
 
     1. **Categoría**: puede seleccionar una categoría existente o crear otra (como *NormalizedNetworkSessionsParsers*)
     
-        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Guardar el analizador":::
+        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Instalación de un nuevo analizador":::
 
 Para usar correctamente los analizadores, también debe instalar el analizador de esquema de red vacío (que crea una vista tabular vacía de todos los campos del esquema de sesiones de red) y el metaanalizador de red (que une todos los analizadores habilitados para crear una vista única de los datos de varios orígenes en el esquema de red). La instalación de estos dos analizadores se realiza de manera similar a los pasos mencionados anteriormente.
 
@@ -107,15 +107,13 @@ Al guardar una función de consulta, puede ser necesario cerrar el explorador de
 
 Una vez habilitado, puede usar el metaanalizador para consultar una vista unificada de todos los analizadores habilitados actualmente. Para ello, vaya a la página de registros de Sentinel y realice consultas con el metaanalizador:
 
-:::image type="content" source="./media/normalization/query-parser.png" alt-text="Realización de consultas con el analizador":::
+:::image type="content" source="./media/normalization/query-parser.png" alt-text="Instalación de un nuevo analizador":::
  
 También puede acceder al metaanalizador o a los analizadores individuales mediante el explorador de consultas de la página de registros de Sentinel; para ello, haga clic en "Explorador de consultas":
 
-:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Explorador de consultas":::
+:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Instalación de un nuevo analizador" (o el nombre de categoría que haya elegido al crear los analizadores):
 
-En el panel de la derecha, expanda la sección "Consultas guardadas" y busque la carpeta "NormalizedNetworkParsers" (o el nombre de categoría que haya elegido al crear los analizadores):
-
-:::image type="content" source="./media/normalization/find-parser.png" alt-text="Búsqueda del analizador":::
+:::image type="content" source="./media/normalization/find-parser.png" alt-text="Instalación de un nuevo analizador":::
 
 Puede hacer clic en cada analizador individual y ver la función subyacente que utiliza y ejecutarlo (o acceder directamente a él por su alias, como se describió anteriormente). Tenga en cuenta que, por motivos prácticos, algunos analizadores pueden conservar los campos originales a la vez que los campos normalizados. Esta opción puede cambiarse fácilmente en la consulta del analizador.
 
@@ -124,11 +122,9 @@ Puede hacer clic en cada analizador individual y ver la función subyacente que 
 Puede repetir los pasos anteriores (buscar el analizador en el explorador de consultas), hacer clic en el analizador pertinente y ver su implementación de función.
 Por ejemplo, puede decidir editar el metaanalizador para agregar o quitar analizadores individuales.
 
-:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Personalización del analizador":::
- 
-Una vez modificada la función, vuelva a hacer clic en "Guardar" y use el mismo nombre, alias y categoría. Se abrirá un cuadro de diálogo de invalidación; presione "Aceptar":
+:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Instalación de un nuevo analizador" y use el mismo nombre, alias y categoría. Se abrirá un cuadro de diálogo de invalidación; presione "Aceptar":
 
-:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="¿Está seguro de que desea continuar?":::
+:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Instalación de un nuevo analizador":::
 
 #### <a name="additional-information"></a>Información adicional
 

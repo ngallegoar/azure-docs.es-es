@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: af320b94950d5999b6dd181b7a8e0eb198088e98
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ec2782297f2659341c9fa7e87ce15d3dbceb022c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267639"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019569"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-rest"></a>Generación de miniaturas mediante Encoder Standard con REST
 
@@ -210,7 +210,7 @@ Aunque todos los ejemplos anteriores han explicado cómo enviar una tarea de cod
 
 ### <a name="json-preset"></a>Valor preestablecido JSON
 
-Para obtener información sobre el esquema, consulte [este](/azure/media-services/previous/media-services-mes-schema) artículo.
+Para obtener información sobre el esquema, consulte [este](../previous/media-services-mes-schema.md) artículo.
 
 ```json
 {

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5d5a00488321c9c67dd1469b1d8476636675aa8f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e841d1922beb3f0276ff94cacbbdf566b23cdf6e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281021"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017291"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Introducción a los codificadores multimedia a petición de Azure
 
@@ -53,7 +53,7 @@ De forma predeterminada cada cuenta de Media Services puede tener una tarea de c
 [Códecs y formatos](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Valores preestablecidos
-Codificador multimedia estándar se configura mediante uno de los valores preestablecidos descritos [aquí](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Codificador multimedia estándar se configura mediante uno de los valores preestablecidos descritos [aquí](./media-services-mes-presets-overview.md).
 
 ### <a name="input-and-output-metadata"></a>Metadatos de entrada y salida
 [Aquí](media-services-input-metadata-schema.md)se describen los metadatos de entrada de los codificadores.

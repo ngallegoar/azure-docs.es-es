@@ -10,10 +10,10 @@ ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
 ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081850"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Incorporación de datos a los registros de auditoría mediante encabezados HTTP personalizados
@@ -24,7 +24,7 @@ Por ejemplo, cuando el usuario de la API se autentica mediante un sistema extern
 
 Puede ver este flujo de datos en el diagrama siguiente:
 
-:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagrama de encabezados personalizados":::
+:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagrama de encabezados personalizados&quot;:::
 
 Puede usar los encabezados personalizados para capturar varios tipos de información. Por ejemplo:
 
@@ -47,9 +47,9 @@ Estos encabezados HTTP se incluyen en un contenedor de propiedades que se agrega
 A continuación, esta información se serializa en JSON cuando se agrega a la columna de propiedades del registro. Por ejemplo:
 
 ```json
-{ "X-MS-AZUREFHIR-AUDIT-USERID" : "1234",
-"X-MS-AZUREFHIR-AUDIT-USERLOCATION" : "XXXX",
-"X-MS-AZUREFHIR-AUDIT-XYZ" : "1234" }
+{ &quot;X-MS-AZUREFHIR-AUDIT-USERID&quot; : &quot;1234&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-USERLOCATION&quot; : &quot;XXXX&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-XYZ&quot; : &quot;1234&quot; }
 ```
  
 Como con cualquier encabezado HTTP, el mismo nombre de encabezado se puede repetir con valores diferentes. Por ejemplo:
@@ -59,7 +59,7 @@ Como con cualquier encabezado HTTP, el mismo nombre de encabezado se puede repet
 
 Cuando se agregan al registro, los valores se combinan con una lista delimitada por comas. Por ejemplo:
 
-{ "X-MS-AZUREFHIR-AUDIT-USERLOCATION" : "HospitalA, Emergencia" }
+{ &quot;X-MS-AZUREFHIR-AUDIT-USERLOCATION&quot; : &quot;HospitalA, Emergencia" }
  
 Puede Agregar un máximo de 10 encabezados únicos (las repeticiones del mismo encabezado con valores diferentes cuentan solo como uno). La longitud total máxima del valor de cualquier encabezado es de 2048 caracteres.
 

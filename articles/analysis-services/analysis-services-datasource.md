@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 174ad4692d043390e6773a98e31f0985d75c8e2e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749084"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018821"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -79,7 +79,7 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 **Notas:**  
 <a name="tab1400b">6</a>: Tabular 1400 y modelos posteriores solamente.  
 <a name="sqlim">7</a>: Cuando se especifica como un origen de datos de *proveedor* en los modelos tabulares 1200 y posteriores, especifique Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11.0 o Proveedor de datos .NET Framework para SQL Server.  
-<a name="instgw">8</a>: Si especifica MSOLEDBSQL como proveedor de datos, puede que sea necesario descargar e instalar [Microsoft OLE DB Driver for SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) en el mismo equipo que la puerta de enlace de datos local.  
+<a name="instgw">8</a>: Si especifica MSOLEDBSQL como proveedor de datos, puede que sea necesario descargar e instalar [Microsoft OLE DB Driver for SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server) en el mismo equipo que la puerta de enlace de datos local.  
 <a name="oracle">9</a>: Para los modelos tabulares 1200, o como origen de datos de *proveedor* en los modelos tabulares 1400 o posteriores, especifique el proveedor de datos de Oracle para .NET. Si se especifica como un origen de datos estructurado, no olvide [habilitar el proveedor administrado de Oracle](#enable-oracle-managed-provider).   
 <a name="teradata">10</a>: Para los modelos tabulares 1200, o como origen de datos de *proveedor* en los modelos tabulares 1400 o posteriores, especifique el proveedor de datos de Teradata para .NET.  
 <a name="filesSP">11</a>: No se admiten archivos en SharePoint en el entorno local.

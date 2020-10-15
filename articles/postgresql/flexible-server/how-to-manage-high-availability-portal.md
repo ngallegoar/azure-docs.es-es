@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: fc1bca1265139a438fad86bfce770026866d9a2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90931851"
 ---
 # <a name="manage-zone-redundant-high-availability-in-flexible-server"></a>Administración de la alta disponibilidad con redundancia de zona en un servidor flexible
@@ -35,24 +35,24 @@ En esta sección se proporcionan detalles específicos de los campos relacionado
     :::image type="content" source="./media/how-to-manage-high-availability-portal/subscription-region.png" alt-text="Visualización de la suscripción y la región":::
 
 2.  Elija su **zona de disponibilidad**. Resulta útil si quiere colocar la aplicación en la misma zona de disponibilidad que la base de datos a fin de reducir la latencia. Elija **No Preference** (Sin preferencias) si quiere que el servidor flexible se implemente en cualquier zona de disponibilidad.
-    ![Selección de AZ]() :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="Selección de la zona de disponibilidad":::  
+    ![Selección de AZ]() :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="Visualización de la suscripción y la región":::  
 
 3.  Haga clic en la casilla **Zone redundant high availability** (Alta disponibilidad con redundancia de zona) en la opción de disponibilidad.
 
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-checkbox.png" alt-text="Casilla Alta disponibilidad":::
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-checkbox.png" alt-text="Visualización de la suscripción y la región":::
 
 4.  Si quiere cambiar el proceso y el almacenamiento predeterminados, haga clic en **Configure server** (Configurar servidor).
  
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="configure server (configurar servidor): compute+storage (proceso y almacenamiento)":::  
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="Visualización de la suscripción y la región":::  
 
 5.  Si la opción de alta disponibilidad está activada, el nivel por ráfagas no estará disponible para elegirlo. Puede elegir los niveles de proceso **De uso general** u **Optimizado para memoria**. Después, puede seleccionar **tamaño de proceso** para elegirlo en la lista desplegable.
 
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="Selección del nivel de proceso":::  
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="Visualización de la suscripción y la región":::  
 
 
 6.  Seleccione el **tamaño de almacenamiento** en GiB con la barra deslizante y seleccione el **período de retención de copia de seguridad** entre 7 y 35 días.
    
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="Copia de seguridad de almacenamiento"::: 
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="Visualización de la suscripción y la región"::: 
 
 7. Haga clic en **Guardar**. 
 
@@ -64,11 +64,11 @@ Siga estos pasos para habilitar la alta disponibilidad para el servidor flexible
 
 2.  En la página del servidor flexible, haga clic en  **Alta disponibilidad** en el panel izquierdo para abrir la página de alta disponibilidad.
    
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Selección del panel izquierdo"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Visualización de la suscripción y la región"::: 
 
 3.  Haga clic en la casilla **Zone redundant high availability** (Alta disponibilidad con redundancia de zona) para **habilitar** la opción y haga clic en  **Guardar**  para guardar el cambio.
 
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/enable-high-availability.png" alt-text="Habilitación de la alta disponibilidad"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/enable-high-availability.png" alt-text="Visualización de la suscripción y la región"::: 
 
 4.  Aparece un cuadro de diálogo de confirmación que indica que, al habilitar la alta disponibilidad, el costo aumentará debido a la implementación adicional del servidor y del almacenamiento.
 
@@ -84,11 +84,11 @@ Siga estos pasos para deshabilitar la alta disponibilidad en el servidor flexibl
 
 2.  En la página del servidor flexible, haga clic en  **Alta disponibilidad** en el panel frontal para abrir la página de alta disponibilidad.
    
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Selección del panel izquierdo"::: 
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Visualización de la suscripción y la región"::: 
 
 3.  Haga clic en la casilla **Zone redundant high availability** (Alta disponibilidad con redundancia de zona) para **deshabilitar** la opción. A continuación, haga clic en **Guardar**  para guardar el cambio.
 
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/disable-high-availability.png" alt-text="Deshabilitación de la alta disponibilidad"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/disable-high-availability.png" alt-text="Visualización de la suscripción y la región"::: 
 
 4.  Aparece un cuadro de diálogo de confirmación en el que puede confirmar la deshabilitación de la alta disponibilidad.
 

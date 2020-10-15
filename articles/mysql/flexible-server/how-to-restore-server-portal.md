@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.openlocfilehash: 1c81ddad8a11cbad361ff84caf6f7200a0c010d5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90931899"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview"></a>Recuperación a un momento dado de Azure Database for MySQL: servidor flexible (versión preliminar)
@@ -72,7 +72,7 @@ Siga estos pasos para restaurar un servidor flexible mediante la copia de seguri
 
 6.  Indique un nombre de servidor nuevo en el campo **Restaurar en el servidor nuevo**. 
    
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="ver información general":::
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="Punto de restauración más antiguo":::
  
 7.  Haga clic en **Aceptar**.
 
