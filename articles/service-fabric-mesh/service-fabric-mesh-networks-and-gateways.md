@@ -1,17 +1,17 @@
 ---
 title: Introducción a las redes de Azure Service Fabric
 description: Obtenga información sobre redes, puertas de enlace y enrutamiento del tráfico inteligente en Service Fabric Mesh.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: dc793e2991783cc9b7b46d92fcc8e0267feb529b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 372e8a46bfe588aa22b0f3be0ef8ae442fa342e2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75459135"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842706"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introducción a las redes en las aplicaciones de Service Fabric Mesh
 En este artículo se describen los diferentes tipos de equilibradores de carga, cómo se conectan las puertas de enlace a la red con sus aplicaciones a otras redes y cómo se enruta el tráfico entre los servicios en sus aplicaciones.

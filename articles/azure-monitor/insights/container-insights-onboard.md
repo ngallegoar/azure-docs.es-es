@@ -3,12 +3,12 @@ title: Habilitar Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo habilitar y configurar Azure Monitor para contenedores, de forma que pueda conocer el rendimiento de su contenedor y qué problemas relacionados con su rendimiento se han identificado.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 69022643e3346444eee95f4487eeed292c4ef139
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320313"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994069"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Habilita Azure Monitor para contenedores.
 
@@ -43,7 +43,7 @@ Antes de comenzar, asegúrese de que cumple los requisitos siguientes:
    Puede crear un área de trabajo al habilitar la supervisión de su nuevo clúster de AKS o dejar que la experiencia de incorporación cree un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS. 
    
    Si decide crear el área de trabajo, puede hacerlo mediante: 
-   - [Azure Resource Manager](../platform/template-workspace-configuration.md)
+   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
    - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [Portal de Azure](../learn/quick-create-workspace.md) 
    
@@ -131,4 +131,3 @@ Para habilitar Azure Monitor para contenedores, puede usar uno de los métodos d
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ya ha habilitado la supervisión, puede empezar a analizar el rendimiento de los clústeres de Kubernetes hospedados en Azure Kubernetes Service (AKS), Azure Stack u otro entorno. Para aprender a usar Azure Monitor para contenedores, consulte [Visualización del rendimiento del clúster de Kubernetes](container-insights-analyze.md).
-

@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 0d00db9909f05028b55505400d0810b00e0114c0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e4598cb1d54fbbeb09e3bc5f58f0cce949b3c848
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932549"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073808"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
 
@@ -33,7 +33,7 @@ La aplicación es un tablón de anuncios publicitario. Los usuarios crean un anu
 La aplicación usa el [patrón de trabajo centrado en colas](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descargar el trabajo de uso intensivo de CPU de creación de miniaturas y pasarlo a un proceso back-end.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitectura alternativa: App Service y WebJobs
-En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en [Azure App Service](/azure/app-service/) y usar la característica [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para el back-end. Para ver un tutorial en el que se utiliza WebJobs, consulte [Introducción al SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki). Para información sobre cómo elegir los servicios que mejor se adapten a su escenario, consulte [Comparación de Azure App Service, Cloud Services y Virtual Machines](/azure/architecture/guide/technology-choices/compute-decision-tree).
+En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en [Azure App Service](../app-service/index.yml) y usar la característica [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para el back-end. Para ver un tutorial en el que se utiliza WebJobs, consulte [Introducción al SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki). Para información sobre cómo elegir los servicios que mejor se adapten a su escenario, consulte [Comparación de Azure App Service, Cloud Services y Virtual Machines](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="what-youll-learn"></a>Temas que se abordarán
 * Habilitar su equipo para desarrollar contenido de Azure mediante la instalación del SDK de Azure.
@@ -169,7 +169,7 @@ En una aplicación real, normalmente crearía cuentas independientes para los da
 
 4. Establezca la lista desplegable **Replicación** en **Almacenamiento con redundancia local**.
 
-    Cuando se habilita la replicación geográfica para una cuenta de almacenamiento, el contenido almacenado se replica en un centro de datos secundario para permitir la conmutación por error en caso de que se produzca un desastre importante en la ubicación principal. La replicación geográfica puede suponer costes adicionales. Lo normal es que no quiera pagar por el servicio de replicación geográfica para las cuentas de prueba y desarrollo. Para obtener más información, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md).
+    Cuando se habilita la replicación geográfica para una cuenta de almacenamiento, el contenido almacenado se replica en un centro de datos secundario para permitir la conmutación por error en caso de que se produzca un desastre importante en la ubicación principal. La replicación geográfica puede suponer costes adicionales. Lo normal es que no quiera pagar por el servicio de replicación geográfica para las cuentas de prueba y desarrollo. Para obtener más información, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage/common/storage-account-create.md).
 
 5. En **Grupo de recursos**, haga clic en **Usar existente** y seleccione el grupo de recursos usado para el servicio en la nube.
 6. Establezca la lista desplegable **Ubicación** en la misma región que eligió para el servicio en la nube.
@@ -290,7 +290,7 @@ La opción `<Instances>` especifica el número de máquinas virtuales en las que
 
     ![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    La configuración predeterminada de la pestaña **Avanzada** es correcta para este tutorial. Para obtener más información sobre la pestaña de opciones avanzadas, consulte [Asistente para publicar aplicación de Azure](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
+    La configuración predeterminada de la pestaña **Avanzada** es correcta para este tutorial. Para obtener más información sobre la pestaña de opciones avanzadas, consulte [Asistente para publicar aplicación de Azure](/visualstudio/azure/vs-azure-tools-publish-azure-application-wizard).
 4. En el paso **Resumen**, haga clic en **Publicar**.
 
     ![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)
@@ -776,5 +776,5 @@ Para obtener más información, consulte los siguientes recursos:
 
 * [Azure Cloud Services Part 1 (Azure Cloud Services, parte 1): Introducción](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Administración de Cloud Services](cloud-services-how-to-manage-portal.md)
-* [Almacenamiento de Azure](https://docs.microsoft.com/azure/storage/)
+* [Almacenamiento de Azure](../storage/index.yml)
 * [Cómo se elige un proveedor de servicios en la nube](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
