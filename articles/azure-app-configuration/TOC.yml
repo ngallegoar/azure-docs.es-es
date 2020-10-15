@@ -125,9 +125,9 @@
     - name: Configuración
       items:
         - name: Azure CLI
-          href: 'https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest'
+          href: /cli/azure/appconfig?view=azure-cli-latest
         - name: Proveedor de .NET Core
-          href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+          href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - name: Generador de .NET Framework
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
         - name: SDK de Azure para .NET
@@ -145,15 +145,15 @@
     - name: Administración de características
       items:
         - name: Biblioteca de .NET Core
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+          href: /dotnet/api/microsoft.featuremanagement
         - name: Biblioteca de filtros de .NET Core
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
+          href: /dotnet/api/microsoft.featuremanagement.featurefilters
     - name: Administración del almacén de configuración
       items:
         - name: API DE REST
-          href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
+          href: /rest/api/appconfiguration/
         - name: PowerShell
-          href: 'https://docs.microsoft.com/powershell/module/az.appconfiguration/'
+          href: /powershell/module/az.appconfiguration/
         - name: Terraform
           href: 'https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html'
     - name: Elementos integrados de Azure Policy

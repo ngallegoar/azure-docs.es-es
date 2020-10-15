@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: eb6029b206e7d47789371ee81e75c4e05c69ee65
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89082637"
 ---
 # <a name="move-azure-event-grid-system-topics-to-another-region"></a>Traslado de temas del sistema de Azure Event Grid a otra región
@@ -35,22 +35,7 @@ Para empezar, exporte una plantilla de Resource Manager para el grupo de recurso
     :::image type="content" source="./media/move-system-topics-across-regions/resource-group-page.png" alt-text="Página Grupo de recursos":::        
 3. En el menú de la izquierda, seleccione **Exportar plantilla** en **Configuración** y, a continuación, seleccione **Descargar** en la barra de herramientas. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Cuenta de almacenamiento: página Exportar plantilla":::        
-5. Busque el archivo **.zip** que descargó desde el portal y descomprímalo en la carpeta que prefiera. Este archivo .zip contiene los archivos JSON de plantilla y parámetros. 
-1. Abra **template.json** en el editor que prefiera. 
-1. La dirección URL del webhook no se exporta a la plantilla. Por tanto, siga estos pasos:
-    1. En el archivo de plantilla, busque **Webhook**. 
-    1. En la sección **Propiedades**, agregue un carácter de coma (`,`) al final de la última línea. En este ejemplo, es `"preferredBatchSizeInKilobytes": 64`. 
-    1. Agregue la propiedad `endpointUrl` con el valor establecido en la dirección URL del webhook, tal como se muestra en el ejemplo siguiente. 
-
-        ```json
-        "destination": {
-            "properties": {
-                "maxEventsPerBatch": 1,
-                "preferredBatchSizeInKilobytes": 64,
-                "endpointUrl": "https://mysite.azurewebsites.net/api/updates"
-            },
-            "endpointType": "WebHook"
+    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Página Grupo de recursos"
         }
         ```
 
@@ -91,7 +76,7 @@ Implemente la plantilla para crear una cuenta de almacenamiento y un tema del si
     1. En **Nombre del tema del sistema**, escriba un nombre para el tema del sistema que se asociará a la cuenta de almacenamiento.  
     1. En **Nombre de la cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento que se va a crear en la región de destino. 
 
-        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Implementación de la plantilla de Resource Manager":::
+        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Página Grupo de recursos":::
     5. En la parte inferior de la página, seleccione **Revisar y crear**. 
     1. En la página **Revisar y crear**, examine la configuración y seleccione **Crear**. 
 
@@ -110,7 +95,7 @@ Para eliminar un grupo de recursos (origen o destino) mediante Azure Portal:
 1. En la ventana de búsqueda de la parte superior de Azure Portal, escriba **Grupos de recursos** y seleccione **Grupos de recursos** en los resultados de la búsqueda. 
 2. Seleccione el grupo de recursos que desea eliminar y, a continuación, seleccione **Eliminar** en la barra de herramientas. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="Eliminación de un grupo de recursos":::
+    :::image type="content" source="./media/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="Página Grupo de recursos":::
 3. En la página de confirmación, escriba el nombre del grupo de recursos y seleccione **Eliminar**.  
 
 ## <a name="next-steps"></a>Pasos siguientes

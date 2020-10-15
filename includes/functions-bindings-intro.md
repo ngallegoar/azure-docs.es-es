@@ -8,10 +8,10 @@ ms.date: 01/09/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 1ae2d694853b72009af3f45013e147099943577c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76277396"
 ---
 Esta es la información de referencia para desarrolladores de Azure Functions. Si está familiarizado con Azure Functions, comience con los siguientes recursos:

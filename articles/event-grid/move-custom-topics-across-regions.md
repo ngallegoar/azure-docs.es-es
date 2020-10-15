@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89145353"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>Traslado de temas del sistema de Azure Event Grid a otra región
@@ -38,22 +38,10 @@ Para empezar, exporte una plantilla de Resource Manager para el tema personaliza
     :::image type="content" source="./media/move-custom-topics-across-regions/search-topics.png" alt-text="Búsqueda y selección de temas de Event Grid":::
 3. Seleccione el **tema** que desea exportar a una plantilla de Resource Manager. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Selección del tema personalizado":::   
+    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Búsqueda y selección de temas de Event Grid":::   
 4. En la página **Tema de Event Grid**, seleccione **Exportar plantilla** en **Configuración** en el menú de la izquierda y, a continuación, seleccione **Descargar** en la barra de herramientas. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Exportar plantilla -> Descargar":::   
-
-    > [!IMPORTANT]
-    > Solo se exporta el tema a la plantilla. No se exportan las suscripciones del tema. Por lo tanto, debe crear suscripciones para el tema después de trasladar el tema a la región de destino. 
-5. Busque el archivo **.zip** que descargó desde el portal y descomprímalo en la carpeta que prefiera. Este archivo .zip contiene los archivos JSON de plantilla y parámetros. 
-1. Abra **template.json** en el editor que prefiera. 
-8. Actualice `location` para el recurso de **tema** en la región o ubicación de destino. Para obtener los códigos de ubicación, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/). El código de una región es el nombre de la región sin espacios, por ejemplo, `West US` es igual a `westus`.
-
-    ```json
-    "type": "Microsoft.EventGrid/topics",
-    "apiVersion": "2020-06-01",
-    "name": "[parameters('topics_mytopic0130_name')]",
-    "location": "westus"
+    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Búsqueda y selección de temas de Event Grid"
     ```
 1. **Guarde** la plantilla. 
 
@@ -74,14 +62,14 @@ Implemente la plantilla para crear un tema personalizado en la región de destin
     1. En el **nombre de tema**, escriba un nuevo nombre para el tema. 
     1. En la parte inferior de la página, seleccione **Revisar y crear**. 
     
-        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Implementación personalizada":::
+        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Búsqueda y selección de temas de Event Grid":::
     1. En la página **Revisar y crear**, examine la configuración y seleccione **Crear**. 
 
 ## <a name="verify"></a>Comprobar
 
 1. Una vez que la implementación se haya realizado correctamente, seleccione **Ir al recurso**. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Ir al recurso":::
+    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Búsqueda y selección de temas de Event Grid":::
 1. Confirme que ve la página **Tema de Event Grid**  del tema personalizado.   
 1. Siga los pasos de la [Enrutamiento de eventos personalizados a un punto de conexión web](custom-event-quickstart-portal.md#send-an-event-to-your-topic) para enviar eventos al tema. Compruebe que se invoca el controlador de eventos de webhook. 
 
