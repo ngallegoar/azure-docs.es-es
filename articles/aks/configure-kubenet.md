@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3bc245fa02f57a433a76a316caac67ed5d884fe9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264616"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072754"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -56,7 +56,7 @@ Con *Azure CNI*, cada pod recibe una dirección IP en la subred IP y puede comun
 * A diferencia de los clústeres de Azure CNI, no se permite que varios clústeres de kubenet compartan una subred.
 * Las características **no admitidas en kubenet** son:
    * [Directivas de red de Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), aunque sí se admiten las de Calico
-   * [Grupos de nodos de Windows](windows-node-limitations.md)
+   * [Grupos de nodos de Windows](./windows-faq.md)
    * [Complemento de nodos virtuales](virtual-nodes-portal.md#known-limitations)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilidad y agotamiento de las direcciones IP

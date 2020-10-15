@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 7cbb67a215d44759b2b503929c37cb50ea94709c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: d4736515d8e011ce1e72c51ecb3ce1cfd2e1e1cd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069771"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978533"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Se produce un error interno al intentar conectarse a una máquina virtual de Azure a través de Escritorio remoto
 
@@ -97,7 +97,7 @@ Para empezar, conéctese a la [consola serie y abra una instancia de PowerShell]
         Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
         ```
 
-    3. [Actualice el grupo de seguridad de red del nuevo puerto](../../virtual-network/security-overview.md) en el puerto RDP de Azure Portal.
+    3. [Actualice el grupo de seguridad de red del nuevo puerto](../../virtual-network/network-security-groups-overview.md) en el puerto RDP de Azure Portal.
 
 #### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Paso 2: Establecer los permisos correctos en el certificado autofirmado de RDP
 

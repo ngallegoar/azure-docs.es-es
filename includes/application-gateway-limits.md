@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: a3fb3dbf026a696b9d472efcba139c371ff1e587
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92ec7c0a1469c9f02855cd6191faa8514e54c8f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334926"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91828929"
 ---
 | Resource | Límite | Nota: |
 | --- | --- | --- |
@@ -41,4 +41,4 @@ ms.locfileid: "80334926"
 | Máximo de reglas personalizadas de WAF|100||
 | Exclusiones máximas de WAF|100||
 
-<sup>1</sup> En el caso de las SKU habilitadas para WAF, se recomienda que limite el número de recursos a 40 para un rendimiento óptimo.
+<sup>1</sup> En caso de las SKU con WAF habilitado, debe limitar el número de recursos a 40.

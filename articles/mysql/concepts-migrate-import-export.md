@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/22/2020
 ms.openlocfilehash: 6d0a29d8ef8123eafd6a1616a24003c1e36e6e59
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905931"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migración de la base de datos de MySQL mediante importación y exportación
@@ -31,7 +31,7 @@ Para conectarse, busque la información de conexión en la página **Introducci�
 
 Agregue la información de conexión a MySQL Workbench.
 
-:::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Cadena de conexión de MySQL Workbench":::
+:::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Obtención de la información de conexión en Azure Portal":::
 
 ## <a name="determine-when-to-use-import-and-export-techniques"></a>Determinación de cuándo utilizar las técnicas de importación y exportación
 
@@ -68,7 +68,7 @@ Hay dos maneras de exportar e importar datos en MySQL Workbench. Cada una de ell
 > - En el caso del Servidor flexible de MySQL, solo puede usar "username". Si usa "username@servername" para conectarse, se producirá un error en la conexión.
 
 ### <a name="table-data-export-and-import-wizards-from-the-object-browsers-context-menu"></a>Asistentes para la exportación e importación de datos de tablas mediante el menú contextual del examinador de objetos
-:::image type="content" source="./media/concepts-migrate-import-export/p1.png" alt-text="Asistentes de MySQL Workbench en el menú contextual del examinador de objetos":::
+:::image type="content" source="./media/concepts-migrate-import-export/p1.png" alt-text="Obtención de la información de conexión en Azure Portal":::
 
 Los asistentes para datos de tablas admiten operaciones de importación y exportación mediante archivos CSV y JSON. Incluyen varias opciones de configuración, como separadores, selección de columnas y selección de codificación. Puede ejecutar cada asistente en servidores locales o servidores de MySQL conectados de forma remota. La acción de importación incluye la tabla, la columna y la asignación de tipos.
 
@@ -94,7 +94,7 @@ En el ejemplo siguiente se importa la tabla desde un archivo CSV:
 Use un asistente para exportar o importar datos de SQL generados desde MySQL Workbench o con el comando mysqldump. Acceda a estos asistentes desde el panel del **navegador** o seleccionando **Servidor** en el menú principal. A continuación, seleccione **Exportación de datos** o **Importación de datos**.
 
 #### <a name="data-export"></a>Exportación de datos
-:::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="Exportación de los datos en MySQL Workbench mediante el panel del navegador":::
+:::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="Obtención de la información de conexión en Azure Portal":::
 
 Puede usar la pestaña **Exportación de datos** para exportar los datos de MySQL.
 1. Seleccione cada esquema que desee exportar, elija opcionalmente objetos o tablas de esquema específicos de cada uno de ellos y genere la exportación. Entre las opciones de configuración se incluye la exportación a una carpeta de proyecto o un archivo independiente de SQL, el volcado de rutinas y eventos almacenados o la omisión de datos de tabla.
@@ -107,7 +107,7 @@ Puede usar la pestaña **Exportación de datos** para exportar los datos de MySQ
 
 
 #### <a name="data-import"></a>Importación de datos
-:::image type="content" source="./media/concepts-migrate-import-export/p3.png" alt-text="Importación de los datos en MySQL Workbench mediante Management Navigator":::
+:::image type="content" source="./media/concepts-migrate-import-export/p3.png" alt-text="Obtención de la información de conexión en Azure Portal":::
 
 Puede usar la pestaña **Importación de datos** para importar o restaurar los datos exportados con la operación de exportación de datos o con el comando mysqldump.
 1. Elija la carpeta de proyecto o archivo SQL independiente, elija el esquema en el que se importarán los datos o elija **Nuevo** para definir un nuevo esquema.

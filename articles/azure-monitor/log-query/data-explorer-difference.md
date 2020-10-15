@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/01/2020
-ms.openlocfilehash: 265179909c8ae4a6fa630b835bc9993f042d6460
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfa27b0df7febbfb8c97f11f69f87c352810699b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80585711"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993191"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Diferencias en el lenguaje de consulta de los registros de Azure Monitor
 
@@ -56,5 +56,5 @@ Los operadores siguientes admiten características específicas de Azure Monitor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga referencias a distintos [recursos para escribir consultas de Azure Monitor](query-language.md).
+- Obtenga referencias a distintos [recursos para escribir consultas de Azure Monitor](/azure/data-explorer/kusto/query/).
 - Acceda a la [documentación de referencia completa del lenguaje de consulta de Kusto](/azure/kusto/query/).

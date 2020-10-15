@@ -4,12 +4,12 @@ description: Supervisión de los roles web y de trabajo de manera eficaz con App
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 676d3543cbcbf86feb67cad4bd2b9709c2b81437
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: cae2e4e1d5b5e199e772c5263a46d82289f5d6ac
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759380"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992847"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
 [Application Insights][start] puede supervisar las [aplicaciones de Azure Cloud Service](https://azure.microsoft.com/services/cloud-services/) para comprobar la disponibilidad, el rendimiento, los errores y el uso al combinar datos de los SDK de Application Insights con datos de [Azure Diagnostics](../platform/diagnostics-extension-overview.md) de los servicios en la nube. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
@@ -67,7 +67,7 @@ Para evitar esta situación, cree recursos independientes para cada configuraci�
 
 Para enviar la telemetría a los recursos adecuados, puede configurar el SDK de Application Insights para que seleccione una clave de instrumentación diferente dependiendo de la configuración de compilación. 
 
-Obtenga información acerca de cómo [establecer dinámicamente la clave de instrumentación](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) para diferentes fases. 
+Obtenga información acerca de cómo [establecer dinámicamente la clave de instrumentación](./separate-resources.md#dynamic-ikey) para diferentes fases. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Creación de un recurso de Application Insights para cada rol
 
@@ -290,4 +290,3 @@ Si tiene una aplicación móvil cliente, utilice [App Center](../learn/mobile-ce
 [qna]: ../faq.md
 [redfield]: ./monitor-performance-live-website-now.md
 [start]: ./app-insights-overview.md
-

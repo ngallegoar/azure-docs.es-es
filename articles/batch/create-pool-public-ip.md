@@ -2,13 +2,13 @@
 title: Creación de un grupo con direcciones IP públicas
 description: Obtenga información sobre cómo crear un grupo de Batch que use sus propias direcciones IP públicas.
 ms.topic: how-to
-ms.date: 07/20/2020
-ms.openlocfilehash: 158facaf1fd5052c3626f065a69bfbd134ca4c3e
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.date: 10/08/2020
+ms.openlocfilehash: e822311718847e173763847d503335f71457308b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146494"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849335"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Creación de un grupo de Azure Batch con direcciones IP públicas especificadas
 
@@ -82,10 +82,10 @@ Cuerpo de la solicitud
        "resizeTimeout":"PT15M",
       "targetDedicatedNodes":5,
       "targetLowPriorityNodes":0,
-      "maxTasksPerNode":3,
+      "taskSlotsPerNode":3,
       "taskSchedulingPolicy": {
         "nodeFillType":"spread"
-      }, 
+      },
       "enableAutoScale":false,
       "enableInterNodeCommunication":true,
       "metadata": [ {

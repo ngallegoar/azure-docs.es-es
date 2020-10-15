@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
 ms.openlocfilehash: 734d52dadbb849925303febb0d3d1195bbddb0df
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89236570"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Uso de Azure Firewall para inspeccionar el tráfico destinado a un punto de conexión privado
@@ -55,7 +55,7 @@ Para obtener más información sobre los cargos relacionados con las conexiones 
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Escenario 2: Arquitectura en estrella tipo hub-and-spoke: red virtual compartida para máquinas virtuales y puntos de conexión privados
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Máquinas virtuales y puntos de conexión privados en la misma red virtual" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Red virtual dedicada para puntos de conexión privados" border="true":::
 
 Este escenario se implementa cuando:
 
@@ -78,7 +78,7 @@ Para obtener más información sobre los cargos relacionados con las conexiones 
 
 ## <a name="scenario-3-single-virtual-network"></a>Escenario 3: Red virtual única
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Red virtual única" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Red virtual dedicada para puntos de conexión privados" border="true":::
 
 Existen algunas limitaciones en la implementación: no es posible realizar una migración a una arquitectura en estrella tipo hub-and-spoke. Se aplican las mismas consideraciones que en el escenario 2. En este escenario, no se aplican cargos de emparejamiento de red virtual.
 
@@ -87,7 +87,7 @@ Existen algunas limitaciones en la implementación: no es posible realizar una m
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Escenario 4: Tráfico local en puntos de conexión privados
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Tráfico local en puntos de conexión privados" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Red virtual dedicada para puntos de conexión privados" border="true":::
 
 Esta arquitectura se puede implementar si ha configurado la conectividad con la red local mediante: 
 

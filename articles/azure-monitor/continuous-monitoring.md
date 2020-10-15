@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 0173d324da4f6cf2a24b825fe44fc07b7fe50b84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e41fa9f9918f4f17bd89e80610ae608e83eb3402
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318137"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996394"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervisión continua con Azure Monitor
 
@@ -43,7 +43,7 @@ Las aplicaciones solo son tan fiables como su infraestructura subyacente. Tener 
 
 La [infraestructura como código](/azure/devops/learn/what-is-infrastructure-as-code) es la administración de infraestructura en un modelo descriptivo, empleando las mismas versiones usadas por los equipos de DevOps para el código fuente. Agrega fiabilidad y escalabilidad a su entorno y le permite aprovechar procesos similares que solían administrar sus aplicaciones.
 
--  Use [plantillas de Resource Manager](platform/template-workspace-configuration.md) para habilitar la supervisión y configurar alertas a través de un gran conjunto de recursos.
+-  Use [plantillas de Resource Manager](./samples/resource-manager-workspace.md) para habilitar la supervisión y configurar alertas a través de un gran conjunto de recursos.
 - Use [Azure Policy](../governance/policy/overview.md) para hacer cumplir distintas reglas a través de sus recursos. Esto garantiza que esos recursos se mantengan compatibles con los estándares corporativos y los acuerdos de nivel de servicio. 
 
 
@@ -87,4 +87,3 @@ Garantizar que su desarrollo y operaciones tengan acceso a la misma telemetría 
 
 - Obtenga información sobre los componentes de diferencia de [Azure Monitor](overview.md).
 - [Agregue la supervisión continua](./app/continuous-monitoring.md) a su canalización de versión.
-

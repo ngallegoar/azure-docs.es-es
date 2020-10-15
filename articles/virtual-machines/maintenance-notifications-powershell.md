@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: 9942ad359bf1e1e7a02f30979ba4a9325d90d484
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336061"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Control del mantenimiento planeado con PowerShell
@@ -27,7 +27,7 @@ La información de mantenimiento se devuelve solo si hay mantenimiento planeado.
 Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
 ```
 
-Output
+Resultados
 
 ```
 MaintenanceRedeployStatus               : 
@@ -41,7 +41,7 @@ MaintenanceRedeployStatus               :
 
 Las siguientes propiedades se devuelven en MaintenanceRedeployStatus: 
 
-| Valor | Descripción   |
+| Value | Descripción   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica si puede iniciar el mantenimiento en la máquina virtual en este momento |
 | PreMaintenanceWindowStartTime         | El comienzo de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual |

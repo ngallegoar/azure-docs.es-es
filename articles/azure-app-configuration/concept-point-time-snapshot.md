@@ -8,12 +8,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: cbcfedc091fd111bceffe775cb337c118a87c767
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 23f613584638026a2b371849c7d1014b3bb1f136
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601085"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073077"
 ---
 # <a name="point-in-time-snapshot"></a>Instantánea en un momento dado
 
@@ -23,7 +23,7 @@ Azure App Configuration mantiene un registro de los cambios realizados en los pa
 
 Puede usar Azure Portal o la CLI para recuperar los pares de clave-valor anteriores. En la CLI de Azure, use `az appconfig revision list`, y agregue los parámetros adecuados para recuperar los valores necesarios.  Especifique la instancia de Azure App Configuration proporcionando el nombre del almacén (`--name <app-config-store-name>`) o mediante una cadena de conexión (`--connection-string <your-connection-string>`). Restrinja la salida especificando un punto concreto en el tiempo (`--datetime`) y el número máximo de elementos que se van a devolver (`--top`).
 
-Si no tiene la CLI de Azure instalada localmente, también puede usar [Azure Cloud Shell](/azure/cloud-shell/overview).
+Si no tiene la CLI de Azure instalada localmente, también puede usar [Azure Cloud Shell](../cloud-shell/overview.md).
 
 Recupere todos los cambios registrados en los pares clave-valor.
 
@@ -58,4 +58,4 @@ az appconfig revision list --name <your-app-config-store-name> --top 10 --fields
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Cree una aplicación web ASP.NET Core](./quickstart-aspnet-core-app.md)  
+> [Cree una aplicación web ASP.NET Core](./quickstart-aspnet-core-app.md)
