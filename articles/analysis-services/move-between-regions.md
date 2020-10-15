@@ -8,12 +8,12 @@ ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f7ecf960ae94fae4d829e73daf051b9062e478d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050361"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018201"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Traslado de Azure Analysis Services a otra región
 
@@ -88,7 +88,7 @@ Para exportar una plantilla mediante Azure Portal:
 
 Para exportar una plantilla mediante PowerShell:
 
-1. Inicie sesión en la suscripción a Azure con el comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) y siga las instrucciones de la pantalla:
+1. Inicie sesión en la suscripción a Azure con el comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) y siga las instrucciones de la pantalla:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -177,7 +177,7 @@ Para modificar la plantilla:
 
 #### <a name="regions"></a>Regions
 
-Para obtener las regiones de Azure, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/). Para obtener las regiones mediante PowerShell, ejecute el comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0).
+Para obtener las regiones de Azure, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/). Para obtener las regiones mediante PowerShell, ejecute el comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0).
 
 ```azurepowershell-interactive
    Get-AzLocation | format-table 
@@ -278,7 +278,7 @@ Opcional: Después de restaurar la base de datos modelo, procese el modelo y las
 
 Opcional: El [kit de herramientas de ALM](http://alm-toolkit.com/) es una herramienta de *código abierto* para comparar y administrar conjuntos de datos de Power BI *y* bases de datos de modelo tabulares de Analysis Services. Use el kit de herramientas para conectarse a las bases de datos del servidor de origen y de destino y compararlas. Si la migración de la base de datos se realiza correctamente, los objetos de modelo tendrán la misma definición. 
 
-:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Kit de herramientas de ALM":::
+:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Obtener SAS":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -301,4 +301,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 ---
 
 > [!NOTE]
-> Después de completar el traslado de región, se recomienda que el nuevo servidor de destino use un contenedor de almacenamiento de la misma región para las copias de seguridad, en lugar del contenedor de almacenamiento de la región del servidor de origen. 
+> Después de completar el traslado de región, se recomienda que el nuevo servidor de destino use un contenedor de almacenamiento de la misma región para las copias de seguridad, en lugar del contenedor de almacenamiento de la región del servidor de origen.

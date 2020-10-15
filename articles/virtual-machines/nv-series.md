@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6dd912313176eecce1973849875234149700c5e6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 62f27a07c868cc9cc7f37a7b26ab38127946e3c2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284785"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91652880"
 ---
 # <a name="nv-series"></a>Serie NV
 
@@ -20,13 +20,12 @@ Las máquinas virtuales de la serie NV dispone de tarjetas GPU [Tesla M60 de NVI
 
 Cada GPU de instancias de NV viene con una licencia de GRID. Esta licencia le ofrece flexibilidad para utilizar una instancia de NV como estación de trabajo virtual para un solo usuario; también se pueden conectar 25 usuarios simultáneos a la VM para un escenario de aplicación virtual.
 
-Premium Storage:  No compatible
-
-Almacenamiento en caché de Premium Storage:  No compatible
-
-Migración en vivo: No compatible
-
-Actualizaciones con conservación de memoria: No compatible
+[Premium Storage](premium-storage-performance.md): No compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): No compatible<br>
+[Migración en vivo](maintenance-and-updates.md): No compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+<br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Memoria de GPU: GiB | Discos de datos máx. | Nº máx. NIC | Estaciones de trabajo virtuales | Aplicaciones virtuales |
 |---|---|---|---|---|---|---|---|---|---|

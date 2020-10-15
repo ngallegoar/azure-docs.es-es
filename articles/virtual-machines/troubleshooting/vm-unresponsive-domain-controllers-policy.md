@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: v-miegge
-ms.openlocfilehash: 53e1daca47a2917a19cbc30db5348e4fcc06b325
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 4f181a6dee7ed182150bd0cad2b51690b6c77d7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90038934"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963132"
 ---
 # <a name="vm-is-unresponsive-while-applying-default-domain-controllers-policy"></a>La máquina virtual no responde cuando se aplica una directiva de controladores de dominio predeterminada
 
@@ -28,7 +28,7 @@ En este artículo se proporcionan los pasos para resolver problemas en los que l
 
 ## <a name="symptom"></a>Síntoma
 
-Cuando use los [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la máquina virtual, verá que dicha captura de pantalla muestra cómo el sistema operativo deja de responder mientras arranca con el mensaje **Directiva predeterminada de controladores de dominio**.
+Cuando use los [diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la máquina virtual, verá que dicha captura de pantalla muestra cómo el sistema operativo deja de responder mientras arranca con el mensaje **Directiva predeterminada de controladores de dominio**.
 
   ![La imagen 1 muestra al sistema operativo bloqueado con el mensaje "Directiva predeterminada de controladores de dominio".](./media/vm-unresponsive-domain-controllers-policy/1-default-domain-controllers-policy.png)
 
@@ -46,7 +46,7 @@ Para resolver este problema, primero debería recopilar el archivo de volcado de
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Conecte el disco del sistema operativo a una nueva VM de recuperación
 
-1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar una VM de reparación.
+1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar una VM de reparación.
 
 1. Use Conexión a Escritorio remoto para conectarse a la VM de reparación.
 
@@ -56,4 +56,4 @@ Para resolver este problema, primero debería recopilar el archivo de volcado de
 
 1. Busque el archivo memory.dmp y, luego, [envíe una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) con el archivo de volcado de memoria.
 
-1. Si tiene problemas para encontrar el archivo memory.dmp, puede que quiera usar en su lugar [llamadas de interrupción no enmascarable (NMI) en la consola serie](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls). Siga la guía para [generar un archivo de volcado de memoria completo mediante llamadas NMI](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+1. Si tiene problemas para encontrar el archivo memory.dmp, puede que quiera usar en su lugar [llamadas de interrupción no enmascarable (NMI) en la consola serie](./serial-console-windows.md#use-the-serial-console-for-nmi-calls). Siga la guía para [generar un archivo de volcado de memoria completo mediante llamadas NMI](/windows/client-management/generate-kernel-or-complete-crash-dump).

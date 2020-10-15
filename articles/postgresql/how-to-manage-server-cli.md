@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/22/2020
 ms.openlocfilehash: 6b76b5bc6158786c7f60e762590d41b7cb243c40
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90931835"
 ---
 # <a name="manage-an-azure-database-for-postgresql-single-server-using-the-azure-cli"></a>Administración con la CLI de Azure de una instancia de Azure Database for PostgreSQL: Servidor único
@@ -52,7 +52,7 @@ Estos son los detalles de los argumentos anteriores:
 name | mydemoserver | Escriba un nombre único para el servidor de Azure Database for PostgreSQL. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
 resource-group | myresourcegroup | Especifique el nombre del grupo de recursos de Azure.
 sku-name|GP_Gen5_2|Escriba el nombre del plan de tarifa y la configuración del proceso. Sigue la convención {plan de tarifa} _{generación de procesos}_ {núcleos virtuales} en forma abreviada. Para más información, consulte los [planes de tarifa](./concepts-pricing-tiers.md).
-storage-size | 6144 | La capacidad de almacenamiento del servidor (la unidad es megabytes). Mínimo de 5120 y aumenta en incrementos de 1024.
+storage-size | 6144 | La capacidad de almacenamiento del servidor (la unidad es megabytes). El mínimo es 5120 y aumenta en incrementos de 1024.
 
 > [!Important]
 > - El almacenamiento se puede escalar verticalmente, pero no reducir.
@@ -76,8 +76,8 @@ az postgres server update --resource-group myresourcegroup --name mydemoserver -
 ```
 
 > [!Important]
->  Asegúrese de que tenga un mínimo de 8 caracteres y un máximo de 128 caracteres de longitud.
-> La contraseña debe contener caracteres de tres de las categorías siguientes: Letras del alfabeto inglés mayúsculas y minúsculas, números y caracteres no alfanuméricos.
+>  Asegúrese de que tiene su longitud oscila entre 8 y 128 caracteres.
+> Debe contener caracteres de tres de las categorías siguientes: Letras del alfabeto inglés mayúsculas y minúsculas, números y caracteres no alfanuméricos.
 
 ## <a name="delete-a-server"></a>Eliminación de un servidor
 Si solo quiere eliminar el Servidor único de PostgreSQL, puede ejecutar el comando [az postgres server delete](/cli/azure/mysql/server#az-mysql-server-delete).

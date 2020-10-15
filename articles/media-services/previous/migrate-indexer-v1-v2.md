@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3da6dd877a94da64f85f093ae98a0b8a109ab2e1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e6b7c8cbcf6685ca2e781789fc508d005bcb5f88
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255110"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018906"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migración de Media Indexer y Media Indexer 2 a Video Indexer
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-Tanto el procesador de multimedia [Azure Media Indexer](media-services-index-content.md) como los procesadores de multimedia [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) se están retirando. Para ver las fechas de retirada, consulte el tema [componentes heredados](legacy-components.md). [Video Indexer de Azure Media Services ](../video-indexer/index.yml) reemplaza a estos procesadores multimedia heredados.
+Tanto el procesador de multimedia [Azure Media Indexer](media-services-index-content.md) como los procesadores de multimedia [Azure Media Indexer 2 Preview](./legacy-components.md) se están retirando. Para ver las fechas de retirada, consulte el tema [componentes heredados](legacy-components.md). [Video Indexer de Azure Media Services ](../video-indexer/index.yml) reemplaza a estos procesadores multimedia heredados.
 
 Video Indexer de Azure Media Services se basa en Azure Media Analytics, Azure Cognitive Search y Cognitive Services (como Face API, Microsoft Translator, Computer Vision API y el servicio Habla personalizada). Permite extraer conclusiones de los vídeos con los modelos de vídeo y audio de Video Indexer. Para ver en qué escenarios se puede usar Video Indexer, qué características ofrece y cómo empezar, consulte [Modelos de audio y vídeo de Video Indexer](../video-indexer/video-indexer-overview.md). 
 

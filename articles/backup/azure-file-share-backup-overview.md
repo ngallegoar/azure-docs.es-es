@@ -4,10 +4,10 @@ description: Aprenda a hacer una copia de seguridad de los recursos compartidos 
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: e955df7662bd18ed1d1d4ec1f0aa6c9474c5386f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378090"
 ---
 # <a name="about-azure-file-share-backup"></a>Acerca de la copia de seguridad de recursos compartidos de archivos de Azure

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90932178"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Restauración de un servidor flexible a un momento dado
@@ -40,7 +40,7 @@ Siga estos pasos para restaurar un servidor flexible mediante la copia de seguri
 
 4.  Seleccione **Punto de restauración más antiguo** y especifique un nombre de servidor nuevo en el campo **Restaurar en el servidor nuevo**. Se muestra la marca de tiempo más antigua a la que se puede realizar la restauración. 
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Punto de restauración más antiguo":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Introducción a la restauración":::
 
 5.  Haga clic en **Aceptar**.
 
@@ -61,7 +61,7 @@ Siga estos pasos para restaurar un servidor flexible mediante la copia de seguri
 
 5.  Seleccione la fecha y hora, y especifique un nombre de servidor nuevo en el campo **Restaurar en el servidor nuevo**. 
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Hora de restauración personalizada":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Introducción a la restauración":::
  
 6.  Haga clic en **Aceptar**.
 

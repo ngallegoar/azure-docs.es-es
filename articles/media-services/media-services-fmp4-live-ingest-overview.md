@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 9d0bfdf4719b4c3a92a0632a1edda63324d700e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7323ae611431e1d91fd1a8471914be388fcc4712
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072036"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019518"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services 
 
@@ -39,7 +39,7 @@ En el diagrama siguiente se muestra la arquitectura general del servicio de stre
 ![flujo de ingestión][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Formato de secuencia de bits: MP4 fragmentado según ISO 14496-12
-El formato de ingesta de streaming en vivo que se describe en este documento se basa en [ISO-14496-12]. Consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) para una explicación detallada del formato MP4 fragmentado y de las extensiones tanto para archivos de vídeo bajo demanda como para la ingesta de streaming en vivo.
+El formato de ingesta de streaming en vivo que se describe en este documento se basa en [ISO-14496-12]. Consulte [[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) para una explicación detallada del formato MP4 fragmentado y de las extensiones tanto para archivos de vídeo bajo demanda como para la ingesta de streaming en vivo.
 
 ### <a name="live-ingest-format-definitions"></a>Definiciones de formato de introducción en directo
 A continuación se muestra una lista de definiciones de formato especial que se aplican a la ingestión en vivo en Azure Media Services:
@@ -70,7 +70,7 @@ Estos son los requisitos detallados:
 1. Si la solicitud HTTP POST finaliza o se agota el tiempo con un error TCP antes del final de la secuencia, el codificador DEBE emitir una nueva solicitud POST con una conexión nueva y seguir los requisitos anteriores. Además, el codificador DEBE reenviar los dos fragmentos MP4 anteriores por cada pista en la secuencia y reanudar sin introducir una discontinuidad en la escala de tiempo multimedia. El reenvío de los dos últimos fragmentos de MP4 para cada pista garantiza que no hay ninguna pérdida de datos. En otras palabras, si una secuencia contiene tanto una pista de audio como una de vídeo y se produce un error en la solicitud POST actual, el codificador debe volver a conectarse y reenviar los últimos dos fragmentos de la pista de audio, que se enviaron correctamente anteriormente y los dos últimos fragmentos para la pista de vídeo, que se enviaron correctamente anteriormente, para asegurarse de que no hay ninguna pérdida de datos. El codificador DEBE mantener un búfer de “reenvío” de fragmentos multimedia, que vuelve a enviar al volver a conectarse.
 
 ## <a name="5-timescale"></a>5. Timescale
-[[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) describe el uso de la escala de tiempo para **SmoothStreamingMedia** (sección 2.2.2.1), **StreamElement** (sección 2.2.2.3), **StreamFragmentElement** (sección 2.2.2.6) y **LiveSMIL** (sección 2.2.7.3.1). Si el valor de la escala de tiempo no está presente, el valor predeterminado usado es 10.000.000 (10 MHz). Aunque la especificación de formato de Smooth Streaming no bloquea el uso de otros valores de escala de tiempo, la mayoría de las implementaciones del codificador usan este valor predeterminado (10 MHz) para generar ingestión de datos de Smooth Streaming. Debido a la característica de [empaquetado dinámico de Azure Media](./previous/media-services-dynamic-packaging-overview.md), se recomienda usar la escala de tiempo de 90 kHz para secuencias de vídeo y de 44,1 o 48,1 kHz para secuencias de audio. Si se usan valores de escala de tiempo diferentes para distintas secuencias, se DEBE enviar la escala de tiempo de nivel de secuencia. Para más información, consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
+[[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) describe el uso de la escala de tiempo para **SmoothStreamingMedia** (sección 2.2.2.1), **StreamElement** (sección 2.2.2.3), **StreamFragmentElement** (sección 2.2.2.6) y **LiveSMIL** (sección 2.2.7.3.1). Si el valor de la escala de tiempo no está presente, el valor predeterminado usado es 10.000.000 (10 MHz). Aunque la especificación de formato de Smooth Streaming no bloquea el uso de otros valores de escala de tiempo, la mayoría de las implementaciones del codificador usan este valor predeterminado (10 MHz) para generar ingestión de datos de Smooth Streaming. Debido a la característica de [empaquetado dinámico de Azure Media](./previous/media-services-dynamic-packaging-overview.md), se recomienda usar la escala de tiempo de 90 kHz para secuencias de vídeo y de 44,1 o 48,1 kHz para secuencias de audio. Si se usan valores de escala de tiempo diferentes para distintas secuencias, se DEBE enviar la escala de tiempo de nivel de secuencia. Para más información, consulte [[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251).     
 
 ## <a name="6-definition-of-stream"></a>6. Definición de "secuencia"
 "Secuencia" es la unidad básica de operación en la ingesta en vivo para crear presentaciones en directo, controlar la conmutación por error de streaming y los escenarios de redundancia. "Secuencia" se define como una única secuencia de bits MP4 fragmentada que puede contener una sola pista o varias pistas. Una presentación en directo completa podría contener una o varias secuencias en función de la configuración de los codificadores en directo. En los ejemplos siguientes se ilustran varias opciones de uso de secuencias para crear una presentación en directo completa.

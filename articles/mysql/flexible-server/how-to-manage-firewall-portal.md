@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 132319575147c2ff1075881b1f1faec8bc5029f4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90932493"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Creación y administración de reglas de firewall para un servidor flexible de Azure Database for MySQL mediante Azure Portal
@@ -48,21 +48,21 @@ Este artículo gira en torno a la creación de un servidor MySQL con **Acceso p�
 
 3. Haga clic en **Agregar dirección IP del cliente actual** en las reglas de firewall. Se crea automáticamente una regla de firewall con la dirección IP pública del equipo, según la percibe el sistema de Azure.
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/2-add-my-ip.png" alt-text="Azure portal - click Add My IP":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/2-add-my-ip.png" alt-text="Azure portal - click Connection Security":::-->
 
 4. Compruebe la dirección IP antes de guardar la configuración. En algunos casos, la dirección IP observada por Azure Portal difiere de la dirección IP utilizada para acceder a Internet y a los servidores de Azure. Por tanto, es posible que tenga que cambiar las direcciones IP inicial y final para que la regla funcione según lo previsto.
 
    Puede usar un motor de búsqueda u otra herramienta en línea para comprobar la dirección IP propia. Por ejemplo, busque "¿cuál es mi IP?".
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/3-what-is-my-ip.png" alt-text="Bing search for What is my IP":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/3-what-is-my-ip.png" alt-text="Azure portal - click Connection Security":::-->
 
 5. Agregue intervalos de direcciones adicionales. En las reglas de firewall del servidor flexible de Azure Database for MySQL, puede especificar una dirección IP única o un intervalo de direcciones. Si quiere limitar la regla a una única dirección IP, escriba la misma en los campos Dirección IP inicial y Dirección IP final. La apertura del firewall permite a administradores, usuarios y aplicaciones acceder a cualquier base de datos del servidor MySQL para la que tengan credenciales válidas.
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/4-specify-addresses.png" alt-text="Azure portal - firewall rules":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/4-specify-addresses.png" alt-text="Azure portal - click Connection Security":::-->
 
 6. Haga clic en **Guardar** en la barra de herramientas para guardar esta regla de firewall. Espere la confirmación de que la actualización de las reglas de firewall se realizó correctamente.
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/5-save-firewall-rule.png" alt-text="Azure portal - click Save":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/5-save-firewall-rule.png" alt-text="Azure portal - click Connection Security":::-->
 
 ## <a name="connect-from-azure"></a>Conexión desde Azure
 

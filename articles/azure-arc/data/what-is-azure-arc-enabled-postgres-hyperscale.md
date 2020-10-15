@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 7e8746d9b29b0b4af30ba799628328acc3fd8bc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90932219"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>¿Qué es Hiperescala de PostgreSQL habilitada para Azure Arc?
@@ -43,7 +43,7 @@ Este es el factor de forma de hiperescala del motor de base de datos de Postgres
 
 ## <a name="azure-arc-enabled-postgresql-hyperscale"></a>Hiperescala de PostgreSQL habilitada para Azure Arc
 
-:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Hiperescala de PostgreSQL habilitada para Azure Arc":::
+:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Hiperescala (Citus) de Azure SQL Database for PostgreSQL":::
 
 Este es el factor de forma de hiperescala del motor de base de datos de Postgres disponible con los servicios de datos habilitados para Azure Arc. También cuenta con tecnología de la extensión Citus, que habilita la experiencia de la hiperescala. En este factor de forma, los clientes proporcionan la infraestructura que hospeda los sistemas y los operan.
 

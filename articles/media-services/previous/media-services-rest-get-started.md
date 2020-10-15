@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c21ddd0aacde277f4cf796f133a3169a69798dda
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ddad462658465c07624f078e20c224750c5180c9
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264477"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019484"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introducción a la entrega de contenido a petición mediante REST
 
@@ -489,7 +489,7 @@ Date: Mon, 19 Jan 2015 07:54:09 GMT
 ### <a name="create-a-job"></a>Creación de un trabajo
 Cada trabajo puede tener una o más tareas según el tipo de procesamiento que desee llevar a cabo. A través de la API de REST, puede crear trabajos y sus tareas relacionadas en una de las dos maneras siguientes: Las tareas se pueden definir en línea mediante la propiedad de navegación de las tareas en entidades de trabajo o a través del procesamiento por lotes de OData. El SDK de Media Services usa el procesamiento por lotes. Sin embargo, para que sea fácil entender los ejemplos de código de este artículo, las tareas se definen en línea. Para obtener información sobre el procesamiento por lotes, consulte [Procesamiento por lotes del protocolo Open Data (OData)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. La siguiente sección de la documentación contiene la lista de todos los [valores preestablecidos de tareas](/azure/media-services/previous/media-services-mes-presets-overview) admitidos por el procesador de Codificador multimedia estándar.  
+En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. La siguiente sección de la documentación contiene la lista de todos los [valores preestablecidos de tareas](./media-services-mes-presets-overview.md) admitidos por el procesador de Codificador multimedia estándar.  
 
 **Solicitud HTTP**
 

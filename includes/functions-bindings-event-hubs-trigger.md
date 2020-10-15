@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
 ms.openlocfilehash: d8c6b79dca97de3dd46eb9c677f2c94191f276b0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89304087"
 ---
 Use el desencadenador de funciones para responder a un evento enviado a una secuencia de eventos del centro de eventos. Debe tener acceso de lectura al centro de eventos subyacente para configurar el desencadenador. Cuando esta función se desencadena, el mensaje que se pasa a la función se escribe como una cadena.

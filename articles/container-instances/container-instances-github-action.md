@@ -3,13 +3,13 @@ title: Implementación de una instancia de contenedor mediante una acción de Gi
 description: Configure una acción de GitHub que automatice los pasos necesarios para compilar, enviar e implementar una imagen de contenedor a Azure Container Instances.
 ms.topic: article
 ms.date: 08/20/2020
-ms.custom: ''
-ms.openlocfilehash: 8da72d3911797e8e3a4551f2af100afb0d7ea0fb
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.custom: github-actions-azure
+ms.openlocfilehash: c01075bcb64aa9b91869daba2e995957da74daf4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755014"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019195"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configuración de una acción de GitHub para crear una instancia de contenedor
 

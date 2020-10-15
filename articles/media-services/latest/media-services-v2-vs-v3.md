@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 23baa6ed92aa01251b4c7ccf34ef784910a0321f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651759"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019841"
 ---
 # <a name="media-services-v2-vs-v3"></a>Versiones 2 y 3 de Media Services
 
@@ -74,7 +74,7 @@ En este artículo se describen los cambios realizados en Azure Media Services v3
 
 La API v3 tiene las siguientes carencias de características con respecto a la API v2. El trabajo para la solución de deficiencias está en curso.
 
-* El [codificador premium](../previous/media-services-premium-workflow-encoder-formats.md) y los [procesadores de análisis multimedia](../previous/media-services-analytics-overview.md) heredados (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) no son accesibles mediante v3.<br/>Los clientes que deseen migrar de Media Indexer 1 o 2 Preview pueden usar inmediatamente el valor preestablecido de AudioAnalyzer en la API v3.  Este valor preestablecido nuevo contiene más características que la instancia anterior de Media Indexer 1 o 2. 
+* El [codificador premium](../previous/media-services-encode-asset.md) y los [procesadores de análisis multimedia](../previous/legacy-components.md) heredados (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) no son accesibles mediante v3.<br/>Los clientes que deseen migrar de Media Indexer 1 o 2 Preview pueden usar inmediatamente el valor preestablecido de AudioAnalyzer en la API v3.  Este valor preestablecido nuevo contiene más características que la instancia anterior de Media Indexer 1 o 2. 
 * Muchas de las [características avanzadas de Media Encoder Standard de las API v2](../previous/media-services-advanced-encoding-with-mes.md) actualmente no están disponibles en v3, como:
   
     * Unión de recursos

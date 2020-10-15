@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 1542bba53b51ffdf2129953a81e5d13975ade434
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90932254"
 ---
 # <a name="scale-operations-in-flexible-server"></a>Operaciones de escalado en un servidor flexible
@@ -43,18 +43,18 @@ Siga estos pasos para elegir el nivel de proceso.
  :::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="Vista de Proceso y almacenamiento":::
 
 4.  Hay tres clases de proceso (por ráfagas, de uso general y optimizada para memoria) y puede elegir cualquiera de ellas.
-   :::image type="content" source="./media/how-to-scale-compute-storage-portal/list-compute-tiers.png" alt-text="enumeración de niveles de proceso":::
+   :::image type="content" source="./media/how-to-scale-compute-storage-portal/list-compute-tiers.png" alt-text="Vista de Proceso y almacenamiento":::
 
 
 5.  Si le parecen bien los tamaños de memoria y los núcleos virtuales predeterminados, puede omitir el paso siguiente.
 
 6.  Si desea cambiar el número de núcleos virtuales, puede hacer clic en la lista desplegable **Compute size** (Tamaño de proceso) y en el número deseado de núcleos virtuales o memoria en la lista.
     
-    - Nivel de proceso Por ráfagas: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="proceso por ráfagas":::
+    - Nivel de proceso Por ráfagas: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="Vista de Proceso y almacenamiento":::
 
-    - Nivel de proceso De uso general: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png" alt-text="proceso de uso general":::
+    - Nivel de proceso De uso general: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png" alt-text="Vista de Proceso y almacenamiento":::
 
-    - Nivel de proceso Optimizado para memoria: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png" alt-text="proceso optimizado para memoria":::
+    - Nivel de proceso Optimizado para memoria: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png" alt-text="Vista de Proceso y almacenamiento":::
 
 7.  Haga clic en **Guardar**. 
 8.  Aparecerá un mensaje de confirmación. Si desea continuar, haga clic en **Aceptar**. 
@@ -70,12 +70,12 @@ Siga estos pasos para aumentar el tamaño de almacenamiento.
 
 3.  Se muestra una página con la configuración actual.
    
-:::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="haga clic en Proceso y almacenamiento":::
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="Vista de Proceso y almacenamiento":::
 4.  Aparece el campo **Storage size in GiB** (Tamaño de almacenamiento, en GiB) con una barra deslizante con el tamaño actual.
 
 5.  Deslice la barra hasta el tamaño que desee. Se muestra el número de IOPS correspondiente. Este número de IOPS depende del nivel de proceso y del tamaño. También se muestra la información del costo. 
 
- :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="escalado vertical del almacenamiento":::
+ :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="Vista de Proceso y almacenamiento":::
 
 6.  Si está conforme con el tamaño de almacenamiento, haga clic en **Guardar**. 
 7.  Aparecerá un mensaje de confirmación. Si desea continuar, haga clic en **Aceptar**. 
