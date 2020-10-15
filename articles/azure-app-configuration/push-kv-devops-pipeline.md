@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b2b903f259fdd2564fbcaed5eb0a750edf9c06e2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719592"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075882"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Envío de configuraciones a App Configuration con Azure Pipelines
 
@@ -56,7 +56,7 @@ Asigne las asignaciones de roles de App Configuration adecuadas a las credencial
 
 En esta sección se explicará cómo usar la tarea Azure App Configuration Push en una canalización de compilación de Azure DevOps.
 
-1. Vaya a la página de canalización de compilación al hacer clic en **Canalizaciones** > **Canalizaciones**. La documentación para las canalizaciones de compilación se puede encontrar [aquí](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2).
+1. Vaya a la página de canalización de compilación al hacer clic en **Canalizaciones** > **Canalizaciones**. La documentación para las canalizaciones de compilación se puede encontrar [aquí](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops).
       - Si va a crear una nueva canalización de compilación, seleccione **Mostrar ayudante** en el lado derecho de la canalización y busque la tarea **Azure App Configuration Push**.
       - Si usa una canalización de compilación existente, vaya a la pestaña **Tareas** al editar la canalización y busque la tarea **Azure App Configuration Push**.
 2. Configure los parámetros necesarios para que la tarea envíe los pares clave-valor del archivo de configuración al almacén de App Configuration. El parámetro **Ruta de archivo de configuración** comienza en la raíz del repositorio de archivos.
@@ -66,10 +66,10 @@ En esta sección se explicará cómo usar la tarea Azure App Configuration Push 
 
 En esta sección se explicará cómo usar la tarea Azure App Configuration Push en las canalizaciones de versión de Azure DevOps.
 
-1. Vaya a la página de canalización de versión; para ello, seleccione **Canalizaciones** > **Versiones**. La documentación para las canalizaciones de versión se puede encontrar [aquí](https://docs.microsoft.com/azure/devops/pipelines/release?view=azure-devops).
+1. Vaya a la página de canalización de versión; para ello, seleccione **Canalizaciones** > **Versiones**. La documentación para las canalizaciones de versión se puede encontrar [aquí](/azure/devops/pipelines/release?view=azure-devops).
 1. Elija una canalización de versión existente. Si no tiene una, seleccione **+ Nueva** para crear una nueva.
 1. Seleccione el botón **Editar** en la esquina superior derecha para editar la canalización de versión.
-1. Elija la **Fase** para agregar la tarea. Puede encontrar más información sobre las fases [aquí](https://docs.microsoft.com/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Elija la **Fase** para agregar la tarea. Puede encontrar más información sobre las fases [aquí](/azure/devops/pipelines/release/environments?view=azure-devops).
 1. Seleccione **+** para ese trabajo y, a continuación, agregue la tarea **Azure App Configuration Push** en la pestaña **Implementar**.
 1. Configure los parámetros necesarios dentro de la tarea para enviar los pares clave-valor del archivo de configuración al almacén de App Configuration. Las explicaciones de los parámetros están disponibles en la sección **Parámetros** siguiente y en la información sobre herramientas junto a cada parámetro.
 1. Guarde y ponga en cola una versión. El registro de versión mostrará los errores que se hayan encontrado durante la ejecución de la tarea.

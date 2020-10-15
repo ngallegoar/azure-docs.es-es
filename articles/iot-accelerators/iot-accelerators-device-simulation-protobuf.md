@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: c9c8aa86aa8a374a33750e306529ef212c9a8bfc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012337"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075967"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialización de datos de telemetría con búferes de protocolo
 
@@ -40,7 +40,7 @@ Para seguir los pasos de esta guía, necesita:
 * .NET Core. También puede descargar [.NET Core para Mac, Linux y Windows](https://www.microsoft.com/net/download).
 * Postman También puede descargar [Postman para Mac, Linux y Windows](https://www.getpostman.com/apps).
 * Una instancia de [IoT Hub implementada en la suscripción de Azure](../iot-hub/iot-hub-create-through-portal.md). Necesita la cadena de conexión de IoT Hub para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
-* Una [base de datos de Cosmos DB implementada en la suscripción de Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) que use SQL API y que esté configurada para tener una [coherencia fuerte](../cosmos-db/manage-account.md). Necesita la cadena de conexión de la base de datos de Cosmos DB para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
+* Una [base de datos de Cosmos DB implementada en la suscripción de Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) que use SQL API y que esté configurada para tener una [coherencia fuerte](../cosmos-db/how-to-manage-database-account.md). Necesita la cadena de conexión de la base de datos de Cosmos DB para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
 * Una [cuenta de Azure Storage implementada en la suscripción a Azure](../storage/common/storage-account-create.md). Necesita la cadena de conexión de la cuenta de almacenamiento para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
 
 ## <a name="prepare-your-development-environment"></a>Preparación del entorno de desarrollo
