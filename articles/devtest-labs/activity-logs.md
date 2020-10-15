@@ -4,10 +4,10 @@ description: En este artículo se indican los pasos para ver los registros de ac
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.openlocfilehash: 24b5eb25f1c8c9044ad6e77545381a43a11714f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87095145"
 ---
 # <a name="view-activity-logs-for-labs-in-azure-devtest-labs"></a>Visualización de registros de actividad para laboratorios en Azure DevTest Labs 
@@ -27,19 +27,19 @@ En este artículo se explica cómo ver los registros de actividad de un laborato
     :::image type="content" source="./media/activity-logs/configuration-policies-link.png" alt-text="Seleccione Configuración y directivas en el menú de la izquierda":::
 1. En la página **Configuración y directivas**, seleccione **Registro de actividad** en el menú debajo de **Administrar**. Debería ver las entradas de las operaciones realizadas en el laboratorio. 
 
-    :::image type="content" source="./media/activity-logs/activity-log.png" alt-text="Registro de actividad":::    
+    :::image type="content" source="./media/activity-logs/activity-log.png" alt-text="Seleccione Configuración y directivas en el menú de la izquierda":::    
 1. Seleccione un evento para ver detalles sobre él. En la página **Resumen**, verá información, como el nombre de la operación, la marca de tiempo y quién realizó la operación. 
     
-    :::image type="content" source="./media/activity-logs/stop-vm-event.png" alt-text="Evento de detención de VM: Resumen":::        
+    :::image type="content" source="./media/activity-logs/stop-vm-event.png" alt-text="Seleccione Configuración y directivas en el menú de la izquierda":::        
 1. Cambie a la pestaña **JSON** para ver más detalles. En el ejemplo siguiente, puede ver el nombre de la VM y la operación realizada en la VM (detenida).
 
-    :::image type="content" source="./media/activity-logs/stop-vm-event-json.png" alt-text="Evento de detención de VM: JSON":::           
+    :::image type="content" source="./media/activity-logs/stop-vm-event-json.png" alt-text="Seleccione Configuración y directivas en el menú de la izquierda":::           
 1. Cambie a la pestaña **Historial de cambios (vista previa)** para ver el historial de cambios. En el ejemplo siguiente, verá el cambio realizado en la VM. 
 
-    :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Evento de detención de VM: Historial de cambios":::             
+    :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Seleccione Configuración y directivas en el menú de la izquierda":::             
 1. Seleccione el cambio en la lista del historial de cambios para ver más detalles sobre el cambio. 
 
-    :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Evento de detención de VM: Detalles del cambio":::             
+    :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Seleccione Configuración y directivas en el menú de la izquierda":::             
 
 Para obtener más información sobre los registros de actividad, consulte [Registro de actividad de Azure](../azure-monitor/platform/activity-log.md).
 

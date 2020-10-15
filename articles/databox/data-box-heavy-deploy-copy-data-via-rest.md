@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9134b57d8a3e76417283e5d863724651b4f6a6f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e2fc174147b99b7b952c6d10084cfc969dacf5a6
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921170"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949146"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copia de datos a Azure Data Box Blob Storage mediante API REST  
 
@@ -122,11 +122,11 @@ Siga estos pasos para importar el archivo `.cer` en el almacén raíz de un clie
 
 3.  Seleccione **Colocar todos los certificados en el siguiente almacén** y, luego, haga clic en **Examinar**. Navegue al almacén raíz del host remoto y, a continuación, haga clic en **Siguiente**.
 
-    ![Importación del certificado mediante PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
+    ![Importación del certificado mediante PowerShell 2](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
 4.  Haga clic en **Finalizar** Aparece un mensaje que indica que la importación se ha realizado correctamente.
 
-    ![Importación del certificado mediante PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
+    ![Importación del certificado mediante PowerShell 3](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
 #### <a name="use-a-linux-system"></a>Uso de un sistema Linux
 

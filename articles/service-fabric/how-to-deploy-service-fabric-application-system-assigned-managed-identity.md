@@ -4,10 +4,10 @@ description: En este artículo se muestra cómo asignar una identidad administra
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415651"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el sistema

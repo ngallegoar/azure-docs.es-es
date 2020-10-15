@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
 ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68854006"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Uso de marcadores de decoración para resaltar texto
@@ -53,28 +53,28 @@ Si `textDecorations` es `true`, Bing puede incluir los siguientes marcadores en 
 
 |Unicode|HTML|Descripción
 |-|-|-
-|U+E000|\<b&gt;|Marca el principio del término de la consulta (resaltado de aciertos)
-|U+E001|\</b&gt;|Marca el final del término de la consulta
-|U+E002|\<i&gt;|Marca el principio del contenido en cursiva 
-|U+E003|\</i&gt;|Marca el final del contenido en cursiva
-|U+E004|\<br/&gt;|Marca un salto de línea
+|U+E000|\<b>|Marca el principio del término de la consulta (resaltado de aciertos)
+|U+E001|\</b>|Marca el final del término de la consulta
+|U+E002|\<i>|Marca el principio del contenido en cursiva 
+|U+E003|\</i>|Marca el final del contenido en cursiva
+|U+E004|\<br/>|Marca un salto de línea
 |U+E005||Marca el principio de un número de teléfono
 |U+E006||Marca el final de un número de teléfono
 |U+E007||Marca el principio de una dirección
 |U+E008||Marca el final de una dirección
 |U+E009|\&nbsp;|Marca un espacio de no separación
-|U+E00C|\<strong&gt;|Marca el principio del contenido en negrita
-|U+E00D|\</strong&gt;|Marca el final del contenido en negrita
+|U+E00C|\<strong>|Marca el principio del contenido en negrita
+|U+E00D|\</strong>|Marca el final del contenido en negrita
 |U+E00E||Marca el principio del contenido cuyo fondo debe ser más claro que el fondo circundante
 |U+E00F||Marca el final del contenido cuyo fondo debe ser más claro que el fondo circundante
 |U+E010||Marca el principio del contenido cuyo fondo debe ser más oscuro que el fondo circundante
 |U+E011||Marca el final del contenido cuyo fondo debe ser más oscuro que el fondo circundante
-|U+E012|\<del&gt;|Marca el principio del contenido que debe tacharse
-|U+E013|\</del&gt;|Marca el final del contenido que debe tacharse
-|U+E016|\<sub&gt;|Marca el principio del contenido de subíndice
-|U+E017|\</sub&gt;|Marca el final del contenido de subíndice
-|U+E018|\<sup&gt;|Marca el principio del contenido de superíndice
-|U+E019|\</sup&gt;|Marca el final del contenido de superíndice
+|U+E012|\<del>|Marca el principio del contenido que debe tacharse
+|U+E013|\</del>|Marca el final del contenido que debe tacharse
+|U+E016|\<sub>|Marca el principio del contenido de subíndice
+|U+E017|\</sub>|Marca el final del contenido de subíndice
+|U+E018|\<sup>|Marca el principio del contenido de superíndice
+|U+E019|\</sup>|Marca el final del contenido de superíndice
 
 ## <a name="next-steps"></a>Pasos siguientes
 

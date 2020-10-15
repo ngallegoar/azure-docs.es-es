@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 01/10/2020
 ms.author: alzam
 ms.openlocfilehash: a76cad8cb89e016d231566089ce30a337ea91d8f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086972"
 ---
 # <a name="configure-a-point-to-site-vpn-using-native-azure-certificate-authentication"></a>Configuración de una conexión VPN de punto a sitio mediante la autenticación nativa de certificados de Azure

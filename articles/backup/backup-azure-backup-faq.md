@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 50cbd1d28ca3f04b8963c58b443765d4280b14ed
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986420"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058087"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -174,7 +174,7 @@ Los productos con un punto de retención a largo plazo típicos almacenan los da
 - Los puntos completos *no son eficientes* para el almacenamiento, pero resultan más fáciles y rápidos de restaurar.
 - Las copias incrementales son *eficientes* para el almacenamiento, pero requieren que se restaure una cadena de datos, lo que afecta al tiempo de recuperación.
 
-La arquitectura de almacenamiento de Azure Backup le ofrece lo mejor de ambos mundos ya que permite almacenar de forma óptima datos para conseguir restauraciones más rápidas e incurrir en pocos costos de almacenamiento. Esto garantiza que el ancho de banda de entrada y salida se utilice de manera eficiente. La cantidad de almacenamiento de datos y el tiempo necesario para recuperar los datos se reducen al mínimo. Obtenga más información sobre [copias de seguridad incrementales](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
+La arquitectura de almacenamiento de Azure Backup le ofrece lo mejor de ambos mundos ya que permite almacenar de forma óptima datos para conseguir restauraciones más rápidas e incurrir en pocos costos de almacenamiento. Esto garantiza que el ancho de banda de entrada y salida se utilice de manera eficiente. La cantidad de almacenamiento de datos y el tiempo necesario para recuperar los datos se reducen al mínimo. Obtenga más información sobre [copias de seguridad incrementales](backup-architecture.md#backup-types).
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>¿Hay un límite en el número de puntos de recuperación que se pueden crear?
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82ab9bc0159528446a9de95769f1e433f03acb56
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 03069bc37333cbd26dfe4f40ce4496f3afe768ed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601952"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91266049"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedimientos: Uso obligatorio de directivas de protección de aplicaciones y una aplicación aprobada por el cliente para el acceso a aplicaciones en la nube con acceso condicional
 
@@ -51,7 +51,7 @@ Las organizaciones deben completar los pasos siguientes para requerir el uso de 
 1. En **Asignaciones**, seleccione **Usuarios y grupos**.
    1. En **Incluir**, seleccione **Todos los usuarios** o **Usuarios y grupos** específicos a los que desee aplicar esta directiva. 
    1. Seleccione **Listo**.
-1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Office 365 (versión preliminar)** .
+1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Office 365**.
 1. En **Condiciones**, seleccione **Plataformas de dispositivo**.
    1. Establezca **Configurar** en **Sí**.
    1. Incluya **Android** e **iOS**.
@@ -102,7 +102,7 @@ Las organizaciones deben completar los pasos siguientes para requerir el uso de 
 1. En **Asignaciones**, seleccione **Usuarios y grupos**.
    1. En **Incluir**, seleccione **Todos los usuarios** o **Usuarios y grupos** específicos a los que desee aplicar esta directiva. 
    1. Seleccione **Listo**.
-1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Office 365 (versión preliminar)** .
+1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Office 365**.
 1. En **Condiciones**, seleccione **Plataformas de dispositivo**.
    1. Establezca **Configurar** en **Sí**.
    1. Incluya **Android** e **iOS**.
