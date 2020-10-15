@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: d532b8aab87840f4b6ad90daedba743597f4fe43
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: c45d1668ad39e9584a89921f46218ba243978a05
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588065"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078058"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedimientos recomendados para Azure App Configuration
 
@@ -69,7 +69,7 @@ Una mejor opción es usar la característica de las identidades administradas en
 Puede proporcionar acceso a App Configuration para las aplicaciones web o las funciones mediante alguno de los métodos siguientes:
 
 * En Azure Portal, escriba la cadena de conexión para el almacén de App Configuration en la configuración de la aplicación de App Service.
-* Almacene la cadena de conexión para su almacén de App Configuration en Key Vault y [haga referencia a ella desde App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+* Almacene la cadena de conexión para su almacén de App Configuration en Key Vault y [haga referencia a ella desde App Service](../app-service/app-service-key-vault-references.md).
 * Use las identidades administradas de Azure para acceder al almacén de App Configuration. Para más información, consulte [Integración con identidades administradas de Azure](howto-integrate-azure-managed-service-identity.md).
 * Inserte la configuración de App Configuration en App Service. App Configuration proporciona una función de exportación (en Azure Portal y la CLI de Azure) que envía los datos directamente a App Service. Con este método, no es necesario cambiar el código de la aplicación.
 
@@ -85,7 +85,7 @@ Una cantidad excesiva de solicitudes a App Configuration puede dar lugar a cargo
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importación de datos de configuración en App Configuration
 
-App Configuration ofrece la opción de [importación](https://aka.ms/azconfig-importexport1) masiva de las opciones de los archivos de configuración actuales mediante Azure Portal o la CLI de Azure. También puede usar las mismas opciones para exportar valores de App Configuration, por ejemplo, entre almacenes relacionados. Si desea configurar una sincronización continua con el repositorio de GitHub, puede usar nuestra [acción de GitHub](https://aka.ms/azconfig-gha2) para poder seguir usando las prácticas de control de código fuente existentes a la vez que obtiene las ventajas de App Configuration.
+App Configuration ofrece la opción de [importación](./howto-import-export-data.md) masiva de las opciones de los archivos de configuración actuales mediante Azure Portal o la CLI de Azure. También puede usar las mismas opciones para exportar valores de App Configuration, por ejemplo, entre almacenes relacionados. Si desea configurar una sincronización continua con el repositorio de GitHub, puede usar nuestra [acción de GitHub](./concept-github-action.md) para poder seguir usando las prácticas de control de código fuente existentes a la vez que obtiene las ventajas de App Configuration.
 
 ## <a name="multi-region-deployment-in-app-configuration"></a>Implementación en varias regiones en App Configuration
 

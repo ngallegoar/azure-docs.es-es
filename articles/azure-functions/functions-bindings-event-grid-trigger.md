@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
 ms.openlocfilehash: 96daa93c28617bd34f263b11afcd244e3b7bacf0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88214143"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Desencadenador de Azure Event Grid para Azure Functions
@@ -407,7 +407,7 @@ En el caso de las funciones que se desarrollen en Azure Portal con el desencaden
 
 Al seleccionar este vínculo, el portal abre la página **Crear suscripciones de eventos** con el punto de conexión del desencadenador actual ya definido.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Crear una suscripción de eventos con el punto de conexión de función ya definido" :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Conectar una suscripción de eventos nueva para desencadenar en el portal." :::
 
 Para obtener más información sobre cómo crear suscripciones mediante el Azure Portal, consulte [Creación de eventos personalizados: Azure Portal](../event-grid/custom-event-quickstart-portal.md) en la documentación de Event Grid.
 

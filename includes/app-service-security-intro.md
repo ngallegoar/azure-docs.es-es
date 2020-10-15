@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: cephalin
 ms.openlocfilehash: 0fccb1ed092190f88d197c9bf2cd17678a4d1731
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83649029"
 ---
 Los componentes de plataforma de App Service, incluidas las máquinas virtuales de Azure, el almacenamiento, las conexiones de red, las plataformas web y las características de administración e integración se protegen y refuerzan activamente. App Service realiza exhaustivas comprobaciones de cumplimiento de forma continua para asegurarse de que:
