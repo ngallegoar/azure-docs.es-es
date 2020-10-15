@@ -1,6 +1,6 @@
 ---
 title: Traducción de vínculos y direcciones URL del Proxy de aplicación de Azure AD | Microsoft Docs
-description: Se explican los conceptos básicos acerca de los conectores del Proxy de aplicación de Azure AD.
+description: Aprenda a redirigir los vínculos codificados de manera rígida de las aplicaciones publicadas con Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563e5e811eec907ba286bdfb264fc51d32137e96
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 544aa1a4a859a9c328eb1d36e72d0f9f9ddb55b2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282932"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91327908"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con Azure AD Application Proxy
 

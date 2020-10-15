@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/13/2020
 ms.openlocfilehash: 1dc7bc8e119de7c8fdcf09713286be2633457486
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90895866"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Registros en Hiperescala (Citus) para Azure Database for PostgreSQL
@@ -26,11 +26,11 @@ Para acceder a los registros de PostgreSQL para un nodo de trabajo o coordinador
 
 En el nodo seleccionado, abra **Configuración de diagnóstico** y haga clic en **+ Agregar configuración de diagnóstico**.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Botón Agregar configuración de diagnóstico":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="lista de nodos":::
 
 Elija un nombre para la nueva configuración de diagnóstico y active la casilla **PostgreSQLLogs**.  Elija el o los destinos que deben recibir los registros.
 
-:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Elección de los registros de PostgreSQL":::
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="lista de nodos":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/15/2020
 ms.author: cynthn
 ms.reviewer: cynthn
-ms.openlocfilehash: 3a206a7aabee9f75524ab4715afa30ec05c612bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d01ac7d5b01f485c3b0100c468332475a9bd4274
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328070"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978550"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Solución de problemas de las galerías de imágenes compartidas de Azure
 
@@ -79,7 +79,7 @@ Causas posibles:
 
 *El usuario que intenta crear una VM o un conjunto de escalado de máquinas virtuales no tiene acceso de lectura a la versión de la imagen.*
 
-Póngase en contacto con el propietario de la suscripción y pídale que le conceda acceso de lectura a la versión de imagen o a los recursos principales (por ejemplo, la galería de imágenes compartidas o la definición de la imagen) mediante el [control de acceso basado en rol (RBAC de Azure)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+Póngase en contacto con el propietario de la suscripción y pídale que le conceda acceso de lectura a la versión de imagen o a los recursos principales (por ejemplo, la galería de imágenes compartidas o la definición de la imagen) mediante el [control de acceso basado en rol (RBAC de Azure)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 *No se encuentra la versión de la imagen.*
 
@@ -91,7 +91,7 @@ Compruebe que el valor de **OSType** de la versión de la imagen a partir de la 
 
 ## <a name="unable-to-share-resources"></a>No se pueden compartir los recursos
 
-El uso compartido de los recursos de la galería de imágenes compartidas, versiones de imágenes y definiciones de imágenes entre suscripciones se habilita mediante el [control de acceso basado en rol (RBAC de Azure)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+El uso compartido de los recursos de la galería de imágenes compartidas, versiones de imágenes y definiciones de imágenes entre suscripciones se habilita mediante el [control de acceso basado en rol (RBAC de Azure)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 ## <a name="replication-is-slow"></a>La replicación es lenta
 
@@ -99,7 +99,7 @@ Use la marca **--expand ReplicationStatus** para comprobar si se ha completado l
 
 ## <a name="azure-limits-and-quotas"></a>Límites y cuotas de Azure 
 
-Los[límites y cuotas de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) se aplican a todos los recursos de galería de imágenes compartidas, las versiones de imágenes, definiciones de imágenes. Asegúrese de encontrarse dentro de los límites para las suscripciones. 
+Los[límites y cuotas de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) se aplican a todos los recursos de galería de imágenes compartidas, las versiones de imágenes, definiciones de imágenes. Asegúrese de encontrarse dentro de los límites para las suscripciones. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

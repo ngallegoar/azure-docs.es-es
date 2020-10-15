@@ -43,7 +43,19 @@
         - name: Repositorio de ejemplos de Batch
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: Azure CLI
-      href: cli-samples.md
+      items:
+        - name: Creación de una cuenta de Batch en modo de servicio de Batch
+          href: ./scripts/batch-cli-sample-create-account.md
+        - name: Creación de una cuenta de Batch en modo de suscripción de usuario
+          href: ./scripts/batch-cli-sample-create-user-subscription-account.md
+        - name: Incorporación de una aplicación a una cuenta de Azure Batch
+          href: ./scripts/batch-cli-sample-add-application.md
+        - name: Creación y administración de un grupo de Linux
+          href: ./scripts/batch-cli-sample-manage-linux-pool.md
+        - name: Creación y administración de un grupo de Windows
+          href: ./scripts/batch-cli-sample-manage-windows-pool.md
+        - name: Ejecución de un trabajo y tareas
+          href: ./scripts/batch-cli-sample-run-job.md
 - name: Conceptos
   items:
     - name: Seguridad

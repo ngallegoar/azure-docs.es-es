@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 560a2df5946b9cfe1160864752595e86cc6eeb65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 270f8d471a95e67939a31357bc1cc056fe8ea4a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82981228"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072805"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Uso de identidades administradas para Azure App Configuration
 
@@ -33,7 +33,7 @@ Para configurar una identidad administrada mediante la CLI de Azure, use el coma
 
 - Usar [Azure Cloud Shell](../cloud-shell/overview.md) desde Azure Portal.
 - Use Azure Cloud Shell integrado mediante el botón "Pruébelo", situado en la esquina superior derecha de cada bloque de código.
-- [Instale la versión más reciente de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.1 o posterior) si prefiere usar una consola de la CLI local.
+- [Instale la versión más reciente de la CLI de Azure](/cli/azure/install-azure-cli) (2.1 o posterior) si prefiere usar una consola de la CLI local.
 
 Los siguientes pasos le guiarán en la creación de un almacén de App Configuration y la asignación al mismo de una identidad mediante la CLI:
 
@@ -66,7 +66,7 @@ Para configurar una identidad administrada mediante la CLI de Azure, use el coma
 
 - Usar [Azure Cloud Shell](../cloud-shell/overview.md) desde Azure Portal.
 - Use Azure Cloud Shell integrado mediante el botón "Pruébelo", situado en la esquina superior derecha de cada bloque de código.
-- [Instale la versión más reciente de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 o posterior) si prefiere usar una consola de CLI local.
+- [Instale la versión más reciente de la CLI de Azure](/cli/azure/install-azure-cli) (2.0.31 o posterior) si prefiere usar una consola de CLI local.
 
 Los pasos siguientes le guiarán en la creación de una identidad asignada por el usuario y un almacén de App Configuration y la asignación de la identidad al almacén mediante la CLI:
 

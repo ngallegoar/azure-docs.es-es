@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 057cbd5d42eafaa693abc418de62c3ae03a6b995
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 9eed237b1dd4d6bf6f2903b91c80847d615fe7a1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984584"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978295"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutorial: Uso de Azure Security Center para supervisar las máquinas virtuales Windows
 
@@ -66,7 +66,7 @@ Para configurar una directiva de seguridad para una suscripción entera:
 
 ## <a name="view-vm-configuration-health"></a>Visualización del estado de configuración de una máquina virtual
 
-Después de que haya activado la recolección de datos y establecido una directiva de seguridad, Security Center empieza a proporcionar alertas y recomendaciones. Cuando se implementan las máquinas virtuales, se instala el agente de recopilación de datos. Después, Security Center se rellena con datos de las nuevas máquinas virtuales. Para obtener información detallada acerca del estado de configuración de las máquinas virtuales, consulte [Protección de las máquinas virtuales en Azure Security Center](../../security-center/security-center-virtual-machine-protection.md). 
+Después de que haya activado la recolección de datos y establecido una directiva de seguridad, Security Center empieza a proporcionar alertas y recomendaciones. Cuando se implementan las máquinas virtuales, se instala el agente de recopilación de datos. Después, Security Center se rellena con datos de las nuevas máquinas virtuales. Para obtener información detallada acerca del estado de configuración de las máquinas virtuales, consulte [Protección de las máquinas virtuales en Azure Security Center](../../security-center/asset-inventory.md). 
 
 A medida que se recopilan datos, se agrega el estado de los recursos de cada máquina virtual y de los recursos de Azure relacionados, y esta información se presenta en un gráfico fácil de leer. 
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58ea65e53f4a1262b448a3abd08807113d016fcb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8c706ba6847334648fade1e8983e00433d3fa618
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833324"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978210"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidad de SAP HANA dentro de una región de Azure
 En este artículo se describen varios escenarios de disponibilidad dentro de una región de Azure. Azure tiene muchas regiones repartidas por todo el mundo. Para obtener la lista de las regiones de Azure, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). Para implementar SAP HANA en máquinas virtuales dentro de una región de Azure, Microsoft ofrece la implementación de una única máquina virtual con una instancia de HANA. Para una mayor disponibilidad, puede implementar dos máquinas virtuales con dos instancias de HANA dentro de un [conjunto de disponibilidad de Azure](../../windows/tutorial-availability-sets.md) que usen la replicación del sistema HANA para la disponibilidad. 
@@ -29,7 +29,7 @@ Actualmente, Azure ofrece [Azure Availability Zones](../../../availability-zones
 
 Las regiones de Azure donde se ofrecen zonas de disponibilidad tienen varios centros de datos. La fuente de alimentación, la refrigeración y la red de los centros de datos es independiente. El motivo de ofrecer distintas zonas dentro de una única región de Azure es implementar aplicaciones entre dos o tres zonas de disponibilidad ofertadas. Al implementar entre zonas, los problemas de energía y red afectarán solo a la infraestructura de una zona de disponibilidad de Azure y la implementación de aplicaciones dentro de una región de Azure seguirá siendo funcional. Podría experimentarse una reducción de la capacidad. Por ejemplo, las máquinas virtuales de una zona podrían perderse, pero las máquinas virtuales de las otras dos zonas aún seguirían funcionando. 
  
-Un conjunto de disponibilidad de Azure es una funcionalidad de agrupación lógica que sirve para asegurarse de que los recursos de máquina virtual que coloque en el conjunto de disponibilidad estén aislados entre sí cuando se implementen en un centro de datos de Azure. Azure garantiza que las máquinas virtuales colocados en un conjunto de disponibilidad se ejecuten en varios servidores físicos, grupos de proceso, unidades de almacenamiento y conmutadores de red. En determinada documentación de Azure, a esta configuración se le conoce como ubicaciones en diferentes [dominios de actualización y error](../../windows/manage-availability.md). Estas ubicaciones están normalmente dentro de un centro de datos de Azure. Suponiendo que los problemas en las fuentes de alimentación o la red afectaran al centro de datos que está implementando, toda la capacidad de una región de Azure resultaría afectada.
+Un conjunto de disponibilidad de Azure es una funcionalidad de agrupación lógica que sirve para asegurarse de que los recursos de máquina virtual que coloque en el conjunto de disponibilidad estén aislados entre sí cuando se implementen en un centro de datos de Azure. Azure garantiza que las máquinas virtuales colocados en un conjunto de disponibilidad se ejecuten en varios servidores físicos, grupos de proceso, unidades de almacenamiento y conmutadores de red. En determinada documentación de Azure, a esta configuración se le conoce como ubicaciones en diferentes [dominios de actualización y error](../../manage-availability.md). Estas ubicaciones están normalmente dentro de un centro de datos de Azure. Suponiendo que los problemas en las fuentes de alimentación o la red afectaran al centro de datos que está implementando, toda la capacidad de una región de Azure resultaría afectada.
 
 La ubicación de centros de datos que representan las zonas de disponibilidad de Azure es un equilibrio entre la entrega de latencia de red entre los servicios implementados en diferentes zonas que son aceptables para la mayoría de las aplicaciones y una determinada distancia entre los centros de datos. Idealmente, las catástrofes naturales no afectarían al suministro de energía y red, ni a la infraestructura de todas las zonas de disponibilidad de esta región. Sin embargo, como se ha demostrado en catástrofes naturales de gran alcance, las zonas de disponibilidad podrían no ser siempre capaces de proporcionar la disponibilidad deseada dentro de una región. Considérese, por ejemplo, el huracán María que alcanzó la isla de Puerto Rico el 20 de septiembre de 2017. Básicamente, el huracán causó un apagón casi en el 100 % de la isla de 145 km de superficie.
 
@@ -127,4 +127,4 @@ Para obtener instrucciones paso a paso sobre cómo configurar estas configuracio
 
 Para más información sobre la disponibilidad de SAP HANA entre regiones de Azure, consulte:
 
-- [Disponibilidad de SAP HANA entre regiones de Azure](./sap-hana-availability-across-regions.md) 
+- [Disponibilidad de SAP HANA entre regiones de Azure](./sap-hana-availability-across-regions.md)

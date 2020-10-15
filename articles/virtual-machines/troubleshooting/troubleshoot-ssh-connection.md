@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 678bad67b454ec0930d2cf30df45ba7b2c822e35
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 43e2f1c304a2ede10445fa656dbdd16a4b60ca3c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371463"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978958"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure que producen error o se rechazan.
 Este artículo le ayudará a detectar y corregir los problemas que se producen como consecuencia de errores de Secure Shell (SSH), errores de conexión de SSH o que se rechace SSH al intentar conectarse a una máquina virtual Linux. Para solucionar problemas de conexión, puede usar Azure Portal, la CLI de Azure o la extensión de acceso de máquina virtual para Linux.
@@ -46,7 +46,7 @@ Siga leyendo para conocer pasos y soluciones más detallados de solución de pro
 Puede restablecer las credenciales o la configuración de SSH mediante uno de los métodos siguientes:
 
 * [Azure Portal](#use-the-azure-portal): este método funciona muy bien si necesita restablecer rápidamente la configuración o la clave de SSH y no tiene instaladas las herramientas de Azure.
-* [Consola serie de máquina virtual en Azure](https://aka.ms/serialconsolelinux): la consola serie de máquina virtual funcionará independientemente de la configuración de SSH y proporcionará una consola interactiva a la máquina virtual. De hecho, la consola serie se ha diseñado para resolver específicamente las situaciones de tipo "no se puede SSH". Más detalles a continuación.
+* [Consola serie de máquina virtual en Azure](./serial-console-linux.md): la consola serie de máquina virtual funcionará independientemente de la configuración de SSH y proporcionará una consola interactiva a la máquina virtual. De hecho, la consola serie se ha diseñado para resolver específicamente las situaciones de tipo "no se puede SSH". Más detalles a continuación.
 * [CLI de Azure](#use-the-azure-cli): si ya está en la línea de comandos, restablezca rápidamente la configuración o las credenciales de SSH. Si está trabajando con una máquina virtual clásica, puede usar la [CLI clásica de Azure](#use-the-azure-classic-cli).
 * [Extensión Azure VMAccessForLinux](#use-the-vmaccess-extension): permite crear y reutilizar archivos de definición json para restablecer la configuración o las credenciales de usuario de SSH.
 

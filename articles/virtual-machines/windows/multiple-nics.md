@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: ed1c5b749b778ef8334ea3b31ef17d3bf106484f
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 66a135cd1629aa2befcd4c56d835473791d62ce8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835551"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974012"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Crear y administrar una máquina virtual con Windows que tiene varias NIC
 En Azure, las máquinas virtuales (VM) pueden tener varias tarjetas de interfaz de red virtual (NIC) conectadas a ellas. Un escenario común es tener distintas subredes para la conectividad front-end y back-end. Puede asociar varias NIC de una máquina virtual a varias subredes, pero esas subredes deben residir en la misma red virtual (vNet). En este artículo se describe cómo crear una máquina virtual con varias NIC conectadas. También obtendrá información sobre cómo agregar o quitar NIC de una máquina virtual existente. Diferentes [tamaños de máquina virtual](../sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta.
@@ -70,7 +70,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-Normalmente también crea un [grupo de seguridad de red](../../virtual-network/security-overview.md) para filtrar el tráfico de red a la máquina virtual y un [equilibrador de carga](../../load-balancer/load-balancer-overview.md) para distribuir el tráfico entre varias máquinas virtuales.
+Normalmente también crea un [grupo de seguridad de red](../../virtual-network/network-security-groups-overview.md) para filtrar el tráfico de red a la máquina virtual y un [equilibrador de carga](../../load-balancer/load-balancer-overview.md) para distribuir el tráfico entre varias máquinas virtuales.
 
 ### <a name="create-the-virtual-machine"></a>Creación de la máquina virtual
 Comience ahora a compilar la configuración de la máquina virtual. El tamaño de cada máquina virtual tiene un límite en cuanto al número total de NIC que se pueden agregar a una máquina virtual. Para más información, vea [Tamaños de las máquinas virtuales con Windows](../sizes.md).
@@ -288,4 +288,4 @@ Azure asigna una puerta de enlace predeterminada a la primera interfaz de red (p
     La ruta que se muestra con *192.168.1.1* debajo de **Puerta de enlace** es la ruta que aparece de manera predeterminada para la interfaz de red principal. La ruta con *192.168.2.1* debajo de **Puerta de enlace** es la ruta agregada.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Revise [Tamaños de máquina virtual con Windows](../sizes.md) cuando esté intentando crear una máquina virtual que tiene varias NIC. Preste atención al número máximo de NIC que admite cada tamaño de máquina virtual. 
+Revise [Tamaños de máquina virtual con Windows](../sizes.md) cuando esté intentando crear una máquina virtual que tiene varias NIC. Preste atención al número máximo de NIC que admite cada tamaño de máquina virtual.

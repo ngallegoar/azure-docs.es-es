@@ -4,10 +4,10 @@ description: En este artículo se indica cómo usar el almacén central de secre
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.openlocfilehash: e9fd435803ad5354b0eb2d4f5de50009a8cbbfe2
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869762"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Almacén central de secretos en Azure Service Fabric 

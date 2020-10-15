@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: da4f9fd9fd4305029f42dbe63326c8782d22d907
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: baeeeae54829fad7378df597965eec5ba2039d20
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825453"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972822"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Conexión de un disco a una VM Windows con PowerShell
 
@@ -117,4 +117,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-También puede implementar discos administrados mediante plantillas. Para más información, consulte [Uso de Managed Disks en plantillas de Azure Resource Manager](using-managed-disks-template-deployments.md) o la [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) para implementar varios discos de datos.
+También puede implementar discos administrados mediante plantillas. Para más información, consulte [Uso de Managed Disks en plantillas de Azure Resource Manager](../using-managed-disks-template-deployments.md) o la [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) para implementar varios discos de datos.

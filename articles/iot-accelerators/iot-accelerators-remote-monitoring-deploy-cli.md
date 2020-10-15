@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9dcf19f5318021df5d9fdde777b8786942e33d8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258301"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072261"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementación del acelerador de soluciones de supervisión remota mediante la CLI
 
@@ -73,12 +73,12 @@ Una implementación básica crea los siguientes servicios en la suscripción de 
 | 1     | [Máquina virtual con Linux](https://azure.microsoft.com/services/virtual-machines/) | Estándar D1 v2  | Hospedaje de microservicios |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1: nivel Estándar | Comunicación y administración de dispositivos |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Estándar        | Almacenamiento de datos de configuración, reglas, alertas y otro tipo de almacenamiento en frío |  
-| 1     | [Cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Estándar        | Almacenar puntos de comprobación de máquina virtual y streaming |
+| 1     | [Cuenta de Azure Storage](../storage/common/storage-introduction.md#types-of-storage-accounts)  | Estándar        | Almacenar puntos de comprobación de máquina virtual y streaming |
 | 1     | [Aplicación web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hospedaje de aplicación web front-end |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Administración de identidades y seguridad de usuarios |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Estándar                | Visualización de ubicaciones de recursos |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unidades              | Habilitación de análisis en tiempo real |
-| 1     | [Servicio de Azure Device Provisioning](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Aprovisionamiento de dispositivos a escala |
+| 1     | [Servicio de Azure Device Provisioning](../iot-dps/index.yml)        |       S1          | Aprovisionamiento de dispositivos a escala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1: 1 unidad              | Almacenamiento para datos de mensajes y permite el análisis detallado de telemetría |
 
 ### <a name="standard"></a>Estándar
@@ -94,12 +94,12 @@ Una implementación estándar crea los siguientes servicios en la suscripción d
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Use un servicio de orquestación de contenedores de Kubernetes totalmente administrados, con un valor predeterminado de tres agentes.|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2: nivel Estándar | Comando, control y administración de dispositivos |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Estándar        | Almacenar datos de configuración y telemetría de dispositivos como reglas, alertas y mensajes |
-| 5     | [Cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Estándar        | 4 para el almacenamiento de máquina virtual y 1 para los puntos de comprobación de streaming |
+| 5     | [Cuentas de Azure Storage](../storage/common/storage-introduction.md#types-of-storage-accounts)    | Estándar        | 4 para el almacenamiento de máquina virtual y 1 para los puntos de comprobación de streaming |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Estándar     | Application Gateway a través de TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Administración de identidades y seguridad de usuarios |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Estándar                | Visualización de ubicaciones de recursos |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unidades              | Habilitación de análisis en tiempo real |
-| 1     | [Servicio de Azure Device Provisioning](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Aprovisionamiento de dispositivos a escala |
+| 1     | [Servicio de Azure Device Provisioning](../iot-dps/index.yml)        |       S1          | Aprovisionamiento de dispositivos a escala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1: 1 unidad              | Almacenamiento para datos de mensajes y permite el análisis detallado de telemetría |
 
 > [!NOTE]

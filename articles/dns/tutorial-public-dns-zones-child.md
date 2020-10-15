@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
 ms.openlocfilehash: 3f35d39634470ccacffa4d35c272a82725e9001c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89081372"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Tutorial: Creación de una zona DNS secundaria
@@ -74,14 +74,14 @@ También puede crear una nueva zona DNS secundaria y delegarla en la zona DNS pr
 1.  En Azure Portal, en **Todos los recursos**, abra la zona DNS *contoso.com* en el grupo de recursos **MyResourceGroup**. Puede escribir *contoso.com* en el cuadro **Filtrar por nombre** para encontrarlo más fácilmente.
 1.  En la página de información general de la zona DNS, seleccione el botón **+ Zona secundaria**.
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="Captura de pantalla del botón Zona secundaria." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="Captura de pantalla de la página Crear zona DNS." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
 
 1.  Se abrirá la página Crear zona DNS. La opción de zona secundaria ya está activada y la suscripción de la zona primaria y la zona primaria ya se han rellenado en esta página.
 1.  Escriba *child* como nombre para este ejemplo de tutorial. Tenga en cuenta que el nombre de la zona DNS primaria, contoso.com, se agrega automáticamente como prefijo al nombre.
 1.  Seleccione **Siguiente: Etiquetas** y, a continuación, **Siguiente: Review + create** (Revisar y crear).
 1.  En la pestaña **Revisar y crear**, revise el resumen, corrija los errores de validación y, después, seleccione **Crear**.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Captura de pantalla de la zona secundaria seleccionada" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Captura de pantalla de la página Crear zona DNS." border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
 ## <a name="verify-child-dns-zone"></a>Comprobación de la zona DNS secundaria
 Ahora que ha creado nueva zona DNS secundaria *subdomain.contoso.com*, compruebe que la delegación se ha realizado correctamente; para ello, compruebe los registros de servidor de nombres (NS) para la zona secundaria se encuentren en la zona primaria, tal como se describe a continuación.  
 
@@ -90,7 +90,7 @@ Ahora que ha creado nueva zona DNS secundaria *subdomain.contoso.com*, compruebe
 1.  En Azure Portal, en **Todos los recursos**, abra la zona DNS *subdomain.contoso.com* en el grupo de recursos **MyResourceGroup**. Puede escribir *subdomain.contoso.com* en el cuadro **Filtrar por nombre** para encontrarlo más fácilmente.
 1.  Recupere los servidores de nombres de la página de información general de zona DNS. En este ejemplo, a la zona contoso.com se le han asignado los servidores de nombres *ns1-08.azure-dns.com, ns2-08.azure-dns.net, ns3-08.azure-dns.org* y *ns4-08.azure-dns.info*:
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-inline.png" alt-text="Captura de pantalla de los servidores de nombres de la zona secundaria" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-expanded.png":::
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-inline.png" alt-text="Captura de pantalla de la página Crear zona DNS." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-expanded.png":::
 **Compruebe el registro de NS en la zona DNS primaria:**
 
 Ahora, en este paso, diríjase a la zona DNS primaria *contoso.com* y compruebe que se ha creado su entrada de conjunto de registros de NS para los servidores de nombres de las zonas secundarias.
@@ -99,7 +99,7 @@ Ahora, en este paso, diríjase a la zona DNS primaria *contoso.com* y compruebe 
 1.  En la página de información general de las zonas DNS de *contoso.com*, busque los conjuntos de registros.
 1.  Observará que ya se creó el conjunto de registros de tipo NS y nombre subdominio en la zona DNS primaria. Compruebe los valores de este conjunto de registros sea similar a la lista de nombres de servidor recuperados de la zona DNS secundaria en el paso anterior.
 
-     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Captura de pantalla de la validación de servidores de nombres de la zona secundaria" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
+     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Captura de pantalla de la página Crear zona DNS." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Cuando ya no necesite los recursos que creó en este tutorial, quítelos mediante la eliminación del grupo de recursos **MyResourceGroup**. Abra el grupo de recursos **MyResourceGroup** y seleccione **Eliminar grupo de recursos**.
 

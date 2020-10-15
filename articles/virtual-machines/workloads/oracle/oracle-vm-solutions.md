@@ -1,24 +1,18 @@
 ---
 title: Soluciones de Oracle en máquinas virtuales de Azure | Microsoft Docs
 description: Obtenga información sobre las configuraciones admitidas y las limitaciones de las imágenes de máquinas virtuales de Oracle en Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: dbakevlar
-manager: ''
-tags: azure-resource-management
-ms.assetid: ''
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: 352c8c887899a2e15eed9736e8885c1b2cffec2b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: 32e79e12eae9997df8163401d2abc5f06bc02fc0
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331376"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993493"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imágenes de máquinas virtuales de Oracle y su implementación en Microsoft Azure
 
@@ -132,7 +126,7 @@ Con Data Guard de Oracle, se puede lograr alta disponibilidad con una base de da
 
 En el tutorial [Implementación de Oracle GoldenGate en Azure](configure-oracle-golden-gate.md) se describe el procedimiento de configuración básico en Azure.
 
-Además de tener una solución de alta disponibilidad y recuperación ante desastres diseñada en Azure, debe contar con una estrategia de copia de seguridad en vigor para restaurar la base de datos. En el tutorial [Copia de seguridad y recuperación de una instancia de Oracle Databas](oracle-backup-recovery.md) se describe el procedimiento básico para establecer una copia de seguridad coherente.
+Además de tener una solución de alta disponibilidad y recuperación ante desastres diseñada en Azure, debe contar con una estrategia de copia de seguridad en vigor para restaurar la base de datos. En el tutorial [Copia de seguridad y recuperación de una instancia de Oracle Databas](./oracle-overview.md) se describe el procedimiento básico para establecer una copia de seguridad coherente.
 
 ## <a name="support-for-jd-edwards"></a>Compatibilidad con JD Edwards
 

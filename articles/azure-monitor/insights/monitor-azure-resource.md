@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 70ab387018fc54b4dad9ee911d4c7557e1e7805c
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: e3a8e8b908c9d278654bfe992474811d6a9ddb86
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030351"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993711"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervisión de recursos de Azure con Azure Monitor
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión generados por los recursos de Azure y cómo puede usar las características de Azure Monitor para analizar y alertar sobre estos datos.
@@ -80,7 +80,7 @@ La configuración de diagnóstico define dónde se deben enviar los registros de
 - [Event Hubs](../platform/resource-logs.md#send-to-azure-event-hubs), para transmitir datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros. 
 - [Cuenta de almacenamiento de Azure](../platform/resource-logs.md#send-to-azure-storage), que resulta útil para la auditoría, el análisis estático o la copia de seguridad.
 
-Siga el procedimiento de [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../platform/diagnostic-settings.md) para crear y administrar la configuración de diagnóstico mediante Azure Portal. Consulte [Creación de la configuración de diagnóstico en Azure con una plantilla de Resource Manager](../platform/diagnostic-settings-template.md) para definirla en una plantilla y habilitar la supervisión completa para un recurso cuando se crea.
+Siga el procedimiento de [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../platform/diagnostic-settings.md) para crear y administrar la configuración de diagnóstico mediante Azure Portal. Consulte [Creación de la configuración de diagnóstico en Azure con una plantilla de Resource Manager](../samples/resource-manager-diagnostic-settings.md) para definirla en una plantilla y habilitar la supervisión completa para un recurso cuando se crea.
 
 
 ## <a name="monitoring-in-the-azure-portal"></a>Supervisión en Azure Portal
@@ -160,5 +160,4 @@ Use **Alertas** en el menú de un recurso para ver alertas y administrar las reg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](../platform/resource-logs-schema.md) para más información sobre los registros de recursos para los distintos servicios de Azure.  
-
+* Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](../platform/resource-logs-schema.md) para más información sobre los registros de recursos para los distintos servicios de Azure.

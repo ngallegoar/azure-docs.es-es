@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1d4c5b55dd2a24c1fb41540fdc5d3ae26849a2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258683"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992866"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planeamiento de la implementación del acceso condicional
 
@@ -89,7 +89,7 @@ Tenga en cuenta las necesidades de su organización al determinar la estrategia 
 
 ### <a name="engage-the-right-stakeholders"></a>Interactuar con las partes interesadas adecuadas
 
-Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de que interactúa con las partes interesadas adecuadas](https://aka.ms/deploymentplans) y que los roles del proyecto están claros.
+Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de que interactúa con las partes interesadas adecuadas](../fundamentals/active-directory-deployment-plans.md) y que los roles del proyecto están claros.
 
 ### <a name="plan-communications"></a>Planeamiento de las comunicaciones
 

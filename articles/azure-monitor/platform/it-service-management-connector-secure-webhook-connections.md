@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 39f277fffbb9a76a4be4bfa8aaedeaf3479a989f
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 9b6180f2480d8a92dc0ebdd2cad474a9eef3cbe4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068890"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91328860"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Conexión de Azure a las herramientas de ITSM mediante Exportación segura
 
@@ -112,11 +112,13 @@ En las secciones siguientes se proporcionan detalles sobre cómo conectar el pro
 Asegúrese de que se cumplen los requisitos previos siguientes:
 
 * Azure AD está registrado.
-* Tiene la versión compatible de BMC Helix Multi-Cloud Service Management (versión 20.02 o posterior).
+* Tiene la versión admitida de BMC Helix Multi-Cloud Service Management (19.08 o posterior).
 
 ### <a name="configure-the-bmc-helix-connection"></a>Configuración de la conexión de BMC Helix
 
-1. Siga las instrucciones que aparecen en el artículo sobre la [habilitación de la integración creada previamente con Azure Monitor para la versión 20.02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
+1. Siga las instrucciones correspondientes a la versión:
+   * [Habilitación de la integración precompilada con Azure Monitor para la versión 20.02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
+   * [Habilitación de la integración precompilada con Azure Monitor para la versión 19.11](https://docs.bmc.com/docs/multicloudprevious/enabling-prebuilt-integration-with-azure-monitor-904157623.html).
 
 1. Como parte de la configuración de la conexión en BMC Helix, vaya a la instancia de BMC de integración y siga estas instrucciones:
 
@@ -138,4 +140,4 @@ Asegúrese de que se cumplen los requisitos previos siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+* [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview)

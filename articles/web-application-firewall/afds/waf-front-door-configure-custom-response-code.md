@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: a995460793686d8293d77965e74e2cbf916925a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005606"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Configuración de una respuesta personalizada para el Firewall de aplicaciones web de Azure (WAF)
@@ -23,13 +23,13 @@ De forma predeterminada, cuando WAF bloquea una solicitud debido a una regla coi
 
 Puede configurar un cuerpo y un código de estado de respuesta personalizados en "Configuración de directiva", en el portal de WAF.
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Configuración de directiva de WAF":::
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Configuración de directiva de WAF&quot;:::
 
-En el ejemplo anterior, conservamos el código de respuesta como 403 y configuramos un breve mensaje "Póngase en contacto con nosotros" como se muestra en la siguiente imagen:
+En el ejemplo anterior, conservamos el código de respuesta como 403 y configuramos un breve mensaje &quot;Póngase en contacto con nosotros" como se muestra en la siguiente imagen:
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Ejemplo de respuesta de personalizada":::
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Configuración de directiva de WAF&quot;:::
 
-"{{azure-ref}}" inserta la cadena de referencia única en el cuerpo de la respuesta. El valor coincide con el campo TrackingReference de los registros `FrontdoorAccessLog` y `FrontdoorWebApplicationFirewallLog`.
+En el ejemplo anterior, conservamos el código de respuesta como 403 y configuramos un breve mensaje &quot;Póngase en contacto con nosotros" inserta la cadena de referencia única en el cuerpo de la respuesta. El valor coincide con el campo TrackingReference de los registros `FrontdoorAccessLog` y `FrontdoorWebApplicationFirewallLog`.
 
 ## <a name="configure-custom-response-status-code-and-message-use-powershell"></a>Configuración del código de estado de respuesta personalizada y el PowerShell de uso de mensajes
 

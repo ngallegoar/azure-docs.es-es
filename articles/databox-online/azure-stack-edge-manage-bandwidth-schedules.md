@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 9247ae6e6cfc276c871689df826935c519620573
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e73a02c93807072e30c8ce2a1a7feb30e9d3c8c6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908135"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978975"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar las programaciones de ancho de banda en Azure Stack Edge Pro  
 
@@ -66,7 +66,7 @@ Siga estos pasos para editar una programación del ancho de banda.
 
 4. Después de que se modifique la programación, se actualiza la lista de programaciones para reflejar la programación modificada.
 
-    ![Modificación de un usuario](media/azure-stack-edge-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![Modificación de un usuario 2](media/azure-stack-edge-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## <a name="delete-a-schedule"></a>Eliminación de una programación
