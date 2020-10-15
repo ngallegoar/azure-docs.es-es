@@ -1,25 +1,18 @@
 ---
 title: Implementación de Oracle Golden Gate en máquinas virtuales Linux de Azure | Microsoft Docs
 description: Ponga en funcionamiento rápidamente una base de datos de Oracle Golden Gate en el entorno de Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 24dfe52b7f08d93dfba70c7b63812eac53431d5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: c1890ab9f99999c88e28eb9a76d6270fa08fb87c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274799"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996676"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementación de Oracle Golden Gate en máquinas virtuales Linux de Azure 
 
@@ -68,7 +61,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Crear un conjunto de disponibilidad
 
-El paso siguiente es opcional pero recomendable. Para más información, consulte la [guía de conjuntos de disponibilidad de Azure](../../windows/infrastructure-example.md).
+El paso siguiente es opcional pero recomendable. Para más información, consulte la [guía de conjuntos de disponibilidad de Azure](/previous-versions/azure/virtual-machines/windows/infrastructure-example).
 
 ```azurecli
 az vm availability-set create \

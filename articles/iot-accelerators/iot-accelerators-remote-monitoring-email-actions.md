@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2776b18dc3faded103b49e8ff58a8a0a6dccf144
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74168364"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074471"
 ---
 # <a name="add-an-email-action"></a>Adición de una acción de correo electrónico
 
@@ -166,7 +166,7 @@ En los pasos siguientes se muestra cómo editar la plantilla HTML de correo elec
 
 ## <a name="throttling"></a>Limitaciones
 
-El acelerador de soluciones de supervisión remota utiliza Outlook para enviar la notificaciones por correo electrónico. Outlook limita el número de correos electrónicos enviados a [30 correos electrónicos por minuto](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Los clientes de correo electrónico que reciben los correos electrónicos también pueden limitar al número de correos recibidos por minuto. Póngase en contacto con el cliente de correo electrónico específico para comprobar las limitaciones. Al configurar las notificaciones por correo electrónico para una regla, la regla debe calcular valores promedio durante un período de al menos un minuto y no usar valores instantáneos:
+El acelerador de soluciones de supervisión remota utiliza Outlook para enviar la notificaciones por correo electrónico. Outlook limita el número de correos electrónicos enviados a [30 correos electrónicos por minuto](/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Los clientes de correo electrónico que reciben los correos electrónicos también pueden limitar al número de correos recibidos por minuto. Póngase en contacto con el cliente de correo electrónico específico para comprobar las limitaciones. Al configurar las notificaciones por correo electrónico para una regla, la regla debe calcular valores promedio durante un período de al menos un minuto y no usar valores instantáneos:
 
 ![Cálculo promedio](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 

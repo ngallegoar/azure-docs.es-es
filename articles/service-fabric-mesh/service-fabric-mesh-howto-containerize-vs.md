@@ -1,16 +1,16 @@
 ---
 title: Inclusión de una aplicación .NET existente en un contenedor para Service Fabric Mesh
 description: Agregue compatibilidad con la orquestación de contenedores de Service Fabric Mesh a ASP.NET y a proyectos de consola que usen el marco .NET completo.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a995f30872216a8b704d3d1714bbece4bb8271f8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75462038"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840071"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Inclusión de una aplicación .NET existente en un contenedor para Service Fabric Mesh
 

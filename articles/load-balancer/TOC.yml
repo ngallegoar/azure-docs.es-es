@@ -33,7 +33,7 @@
       href: tutorial-load-balancer-port-forwarding-portal.md
 - name: Ejemplos
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -63,9 +63,12 @@
       href: load-balancer-ha-ports-overview.md
     - name: Varios servidores front-end
       href: load-balancer-multivip-overview.md
-    - name: Conexiones de salida
+    - name: Proxy de salida
       href: load-balancer-outbound-connections.md
     - name: Restablecimiento de TCP y tiempo de expiración de inactividad de TCP
+    - name: Reglas de salida
+      href: outbound-rules.md
+    - name: Restablecimiento de TCP en tiempo de espera de inactividad
       href: load-balancer-tcp-reset.md
     - name: Load Balancer Estándar y zonas de disponibilidad
       href: load-balancer-standard-availability-zones.md
@@ -79,7 +82,7 @@
       href: backend-pool-management.md
     - name: Standard Load Balancer y Virtual Machine Scale Sets
       href: load-balancer-standard-virtual-machine-scale-sets.md
-- name: Procedimientos
+- name: Instrucciones
   items:
     - name: Configuración del portal
       href: manage.md
@@ -101,7 +104,7 @@
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Creación de Load Balancer público con IPv6
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli'
         - name: Azure PowerShell
           href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell'
@@ -148,7 +151,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=load-balancer'
     - name: Azure PowerShell
       href: /powershell/module/az.network
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/network/lb
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.network.models

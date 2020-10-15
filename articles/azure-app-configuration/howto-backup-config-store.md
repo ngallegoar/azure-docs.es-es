@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: a3c1699dd4b7b828c7dc652f14f431878f785061
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207148"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074862"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Copia de seguridad automática de almacenes de App Configuration
 
@@ -124,7 +124,7 @@ En este artículo, trabajará con funciones de C# que tienen las siguientes prop
 - Versión 3.x del entorno en tiempo de ejecución de Azure Functions
 - Función que desencadena un temporizador cada 10 minutos
 
-Para que le resulte más fácil empezar a realizar copias de seguridad de los datos, hemos [probado y publicado una función](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) que puede usar sin modificar el código. Descargue los archivos del proyecto y [publíquelos en su propia aplicación de funciones de Azure desde Visual Studio](/azure/azure-functions/functions-develop-vs#publish-to-azure).
+Para que le resulte más fácil empezar a realizar copias de seguridad de los datos, hemos [probado y publicado una función](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) que puede usar sin modificar el código. Descargue los archivos del proyecto y [publíquelos en su propia aplicación de funciones de Azure desde Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > No realice ningún cambio en las variables de entorno del código que ha descargado. Creará las opciones de configuración de la aplicación necesarias en la sección siguiente.
@@ -133,13 +133,13 @@ Para que le resulte más fácil empezar a realizar copias de seguridad de los da
 ### <a name="build-your-own-function"></a>Creación de una función propia
 
 Si el código de ejemplo proporcionado anteriormente no cumple sus requisitos, también puede crear su propia función. La función debe ser capaz de realizar las siguientes tareas para completar la copia de seguridad:
-- Lea periódicamente el contenido de la cola para saber si contiene notificaciones de Event Grid. Consulte el [SDK de la cola de Storage](/azure/storage/queues/storage-quickstart-queues-dotnet) para conocer los detalles de implementación.
-- Si la cola contiene [notificaciones de eventos de Event Grid](/azure/azure-app-configuration/concept-app-configuration-event?branch=pr-en-us-112982#event-schema), extraiga toda la información exclusiva de `<key, label>` de los mensajes de eventos. La combinación de clave y etiqueta es el identificador único para los cambios de pares clave-valor en el almacén primario.
+- Lea periódicamente el contenido de la cola para saber si contiene notificaciones de Event Grid. Consulte el [SDK de la cola de Storage](../storage/queues/storage-quickstart-queues-dotnet.md) para conocer los detalles de implementación.
+- Si la cola contiene [notificaciones de eventos de Event Grid](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema), extraiga toda la información exclusiva de `<key, label>` de los mensajes de eventos. La combinación de clave y etiqueta es el identificador único para los cambios de pares clave-valor en el almacén primario.
 - Lea toda la configuración del almacén primario. Actualice solo los valores del almacén secundario que tengan un evento correspondiente en la cola. Elimine toda la configuración del almacén secundario que estaba presente en la cola, pero no en el almacén primario. Puede usar el [SDK de App Configuration](https://github.com/Azure/AppConfiguration#sdks) para acceder a los almacenes de configuración mediante programación.
 - Elimine los mensajes de la cola si no hubo ninguna excepción durante el procesamiento.
 - Implemente el control de errores de acuerdo con sus necesidades. Consulte el ejemplo de código anterior para ver algunas excepciones comunes que quizá quiera administrar.
 
-Para obtener más información sobre la creación de una función, consulte: [Cree una función en Azure que se desencadena mediante un temporizador](/azure/azure-functions/functions-create-scheduled-function) y [Desarrollo de Azure Functions con Visual Studio](/azure/azure-functions/functions-develop-vs).
+Para obtener más información sobre la creación de una función, consulte: [Cree una función en Azure que se desencadena mediante un temporizador](../azure-functions/functions-create-scheduled-function.md) y [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md).
 
 
 > [!IMPORTANT]
@@ -167,16 +167,16 @@ az functionapp config appsettings set --name $functionAppName --resource-group $
 
 ## <a name="grant-access-to-the-managed-identity-of-the-function-app"></a>Concesión de acceso a la identidad administrada de la aplicación de funciones
 
-Use el comando siguiente o [Azure Portal](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity) para agregar una identidad administrada asignada por el sistema para la aplicación de funciones.
+Use el comando siguiente o [Azure Portal](../app-service/overview-managed-identity.md#add-a-system-assigned-identity) para agregar una identidad administrada asignada por el sistema para la aplicación de funciones.
 
 ```azurecli-interactive
 az functionapp identity assign --name $functionAppName --resource-group $resourceGroupName
 ```
 
 > [!NOTE]
-> Para crear los recursos necesarios y administrar los roles, la cuenta debe tener permisos de `Owner` en el ámbito adecuado (en su suscripción o en un grupo de recursos). Si necesita ayuda con las asignaciones de roles, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](/azure/role-based-access-control/role-assignments-portal).
+> Para crear los recursos necesarios y administrar los roles, la cuenta debe tener permisos de `Owner` en el ámbito adecuado (en su suscripción o en un grupo de recursos). Si necesita ayuda con las asignaciones de roles, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-Use los siguientes comandos o [Azure Portal](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) para conceder a la identidad administrada de la aplicación de funciones acceso a los almacenes de App Configuration. Use estos roles:
+Use los siguientes comandos o [Azure Portal](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) para conceder a la identidad administrada de la aplicación de funciones acceso a los almacenes de App Configuration. Use estos roles:
 - Asigne el rol `App Configuration Data Reader` al almacén de App Configuration primario.
 - Asigne el rol `App Configuration Data Owner` al almacén de App Configuration secundario.
 
@@ -196,7 +196,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Use el siguiente comando o [Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) para conceder a la identidad administrada de la aplicación de funciones acceso a la cola. Asigne el rol `Storage Queue Data Contributor` en la cola.
+Use el siguiente comando o [Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal) para conceder a la identidad administrada de la aplicación de funciones acceso a la cola. Asigne el rol `Storage Queue Data Contributor` en la cola.
 
 ```azurecli-interactive
 az role assignment create \
@@ -216,7 +216,7 @@ az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 Ha desencadenado el evento. En unos instantes, Event Grid enviará la notificación de eventos a la cola. *Después de la siguiente ejecución programada de la función*, consulte los valores de configuración en el almacén secundario para comprobar si este contiene el valor de clave actualizado del almacén primario.
 
 > [!NOTE]
-> Puede [desencadenar manualmente la función](/azure/azure-functions/functions-manually-run-non-http) durante las pruebas y la solución de problemas sin necesidad de esperar al desencadenador de temporizador programado.
+> Puede [desencadenar manualmente la función](../azure-functions/functions-manually-run-non-http.md) durante las pruebas y la solución de problemas sin necesidad de esperar al desencadenador de temporizador programado.
 
 Después de asegurarse de que la función de copia de seguridad se ha ejecutado correctamente, podrá ver que la clave ya estará presente en el almacén secundario.
 
@@ -243,9 +243,9 @@ Si la nueva configuración no se muestra en el almacén secundario:
 
 - Asegúrese de que la función de copia de seguridad se haya desencadenado *después* de crear la configuración en el almacén primario.
 - Es posible que Event Grid no haya podido enviar la notificación de eventos a la cola a tiempo. Compruebe si la cola aún contiene la notificación de eventos del almacén primario. Si es así, vuelva a desencadenar la función de copia de seguridad.
-- Compruebe los [registros de Azure Functions](/azure/azure-functions/functions-create-scheduled-function#test-the-function) para comprobar si hay algún error o advertencia.
-- Use [Azure Portal](/azure/azure-functions/functions-how-to-use-azure-function-app-settings#get-started-in-the-azure-portal) para asegurarse de que la aplicación de funciones de Azure contiene los valores correctos para la configuración de la aplicación que Azure Functions está intentando leer.
-- También puede configurar la supervisión y las alertas de Azure Functions con [Azure Application Insights.](/azure/azure-functions/functions-monitoring?tabs=cmd) 
+- Compruebe los [registros de Azure Functions](../azure-functions/functions-create-scheduled-function.md#test-the-function) para comprobar si hay algún error o advertencia.
+- Use [Azure Portal](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-started-in-the-azure-portal) para asegurarse de que la aplicación de funciones de Azure contiene los valores correctos para la configuración de la aplicación que Azure Functions está intentando leer.
+- También puede configurar la supervisión y las alertas de Azure Functions con [Azure Application Insights.](../azure-functions/functions-monitoring.md?tabs=cmd) 
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

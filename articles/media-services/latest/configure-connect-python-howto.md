@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-python
-ms.openlocfilehash: 68620b644ef85f7b627b7b6380c16959b25299f0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ac3cc39d458a3a01617d052c280fd66e6aad0f8b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297338"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013260"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Conexión a la API de Media Services v3: Python
 
@@ -107,4 +107,4 @@ pip3 install azure-mgmt-media==1.1.1
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Use el [SDK de Python](https://aka.ms/ams-v3-python-sdk).
-- Revise la documentación de [referencia de Python](https://aka.ms/ams-v3-python-ref) de Media Services.
+- Revise la documentación de [referencia de Python](/python/api/overview/azure/mediaservices/management) de Media Services.

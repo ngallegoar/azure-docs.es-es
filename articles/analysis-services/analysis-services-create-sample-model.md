@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5b84c2e50ae7f5038cf9cb8a96c0c51d6537c929
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f882a40940a5c7202e9cf1f5c8b8927f008f4a39
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230913"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013617"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adición de un modelo de ejemplo desde el portal
 
@@ -30,7 +30,7 @@ Para completar este tutorial, necesita:
 
 - Un servidor de Azure Analysis Services. Para más información, consulte [Creación de un servidor en el portal](analysis-services-create-server.md).
 - Permisos de administrador del servidor
-- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
@@ -74,5 +74,3 @@ En este tutorial, aprendió a agregar un modelo de ejemplo básico al servidor. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Configuración de los roles de administrador y usuario del servidor](tutorials/analysis-services-tutorial-roles.md)
-
-

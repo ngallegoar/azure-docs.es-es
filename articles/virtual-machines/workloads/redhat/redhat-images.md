@@ -1,23 +1,18 @@
 ---
 title: Información general sobre las imágenes de Red Hat Enterprise Linux en Azure
 description: Aprenda sobre las imágenes de Red Hat Enterprise Linux en Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
-editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 9aa0ca41f63da94e2dedaffe65ea518b8adff0dc
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.reviewer: cynthn
+ms.openlocfilehash: 46504f7d6d3a989119a3c851fc029bdf4494e01f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439482"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994308"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Introducción a las imágenes de Red Hat Enterprise Linux
 
@@ -108,7 +103,7 @@ A continuación se muestran los detalles de los tipos de imagen RHEL 8.
 |Publicador | Oferta | Valor de SKU | Versión | Detalles
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Valores concatenados de la versión secundaria de RHEL y la fecha de publicación (por ejemplo, 8.0.20191023) | Estas imágenes tienen particiones LVM de RHEL 8 conectadas a repositorios estándar de Red Hat.
-|RedHat | RHEL | 8-gen2 | Valores concatenados de la versión secundaria de RHEL y la fecha de publicación (por ejemplo, 8.0.20191024) | Estas imágenes tienen particiones LVM de RHEL 8 de Hyper-V generación 2 conectadas a repositorios estándar de Red Hat. Para más información sobre las máquinas virtuales de Generación 2, consulte [Compatibilidad con máquinas virtuales de generación 2 en Azure](../../linux/generation-2.md).
+|RedHat | RHEL | 8-gen2 | Valores concatenados de la versión secundaria de RHEL y la fecha de publicación (por ejemplo, 8.0.20191024) | Estas imágenes tienen particiones LVM de RHEL 8 de Hyper-V generación 2 conectadas a repositorios estándar de Red Hat. Para más información sobre las máquinas virtuales de Generación 2, consulte [Compatibilidad con máquinas virtuales de generación 2 en Azure](../../generation-2.md).
 
 ## <a name="rhel-longer-support-add-ons"></a>Complementos de compatibilidad más larga de RHEL
 
@@ -116,7 +111,7 @@ A continuación se muestran los detalles de los tipos de imagen RHEL 8.
 
 A partir de abril de 2019, están disponibles imágenes de RHEL que están conectadas a los repositorios de EUS de forma predeterminada. Puede encontrar más información sobre RHEL EUS en la [documentación de Red Hat](https://access.redhat.com/articles/rhel-eus).
 
-El cambio a los repositorios de EUS es posible y se admite. Para obtener instrucciones sobre cómo cambiar la máquina virtual a EUS y más información sobre las fechas de finalización del ciclo de vida de la compatibilidad con EUS, consulte [Bloqueo de versiones en máquinas virtuales de RHEL y RHEL EUS](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
+El cambio a los repositorios de EUS es posible y se admite. Para obtener instrucciones sobre cómo cambiar la máquina virtual a EUS y más información sobre las fechas de finalización del ciclo de vida de la compatibilidad con EUS, consulte [Bloqueo de versiones en máquinas virtuales de RHEL y RHEL EUS](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
 
 >[!NOTE]
 > EUS no es compatible con RHEL Extras. Esto significa que, si instala un paquete que está disponible normalmente en el canal de RHEL Extras, no podrá hacerlo mientras se encuentre en EUS. Para más información sobre el ciclo de vida de los productos de Red Hat Extras, consulte [Ciclo de vida de Red Hat Enterprise Linux Extras](https://access.redhat.com/support/policy/updates/extras/).
@@ -183,6 +178,6 @@ Nuestra directiva actual es mantener todas las imágenes publicadas anteriorment
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para ver la lista completa de imágenes de RHEL en Azure, consulte las [imágenes de Red Hat Enterprise Linux (RHEL) disponibles en Azure](./redhat-imagelist.md).
-* Para más información sobre la infraestructura de actualización de Azure Red Hat, consulte [Infraestructura de actualización de Red Hat para máquinas virtuales de RHEL a petición en Azure](https://aka.ms/rhui-update).
+* Para más información sobre la infraestructura de actualización de Azure Red Hat, consulte [Infraestructura de actualización de Red Hat para máquinas virtuales de RHEL a petición en Azure](./redhat-rhui.md).
 * Para más información, consulte [Imágenes Gold de tipo Traiga su propia suscripción (BYOS) de Red Hat Enterprise Linux en Azure](./byos.md).
 * Puede encontrar información sobre las directivas de soporte técnico de Red Hat para todas las versiones de RHEL en [Ciclo de vida de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).

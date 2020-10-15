@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: db7838224b004d50234586d14e43e77a9c2ce26b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a656ec60fd3cb1e6b94da2122d8f493f426cef07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552754"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91851312"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Tutorial: Integración de Azure Active Directory con Ivanti Service Manager (ISM)
 
@@ -100,7 +100,7 @@ Para configurar el inicio de sesión único de Azure AD con Ivanti Service Manag
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de direcciones URL de inicio de sesión único y dominio de Ivanti Service Manager (ISM)](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML para escribir el valor de Dirección URL de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
     
@@ -114,7 +114,7 @@ Para configurar el inicio de sesión único de Azure AD con Ivanti Service Manag
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de direcciones URL de inicio de sesión único y dominio de Ivanti Service Manager (ISM)](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<customer>.saasit.com/`
 

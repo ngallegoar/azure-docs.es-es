@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.openlocfilehash: a1b66528bee63fb123271e4277e122603ced2e75
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906515"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Selección de la opción adecuada de MySQL Server en Azure
@@ -99,9 +99,9 @@ Con IaaS, Microsoft:
 Con PaaS, Microsoft:
 
 - Administra la infraestructura subyacente.
-- Proporciona revisiones automatizadas para el hardware, el sistema operativo y el motor de base de datos subyacentes.
+- Proporciona una aplicación automatizada de revisiones para el hardware, el sistema operativo y el motor de base de datos subyacentes.
 - Administra la alta disponibilidad de la base de datos.
-- Realiza copias de seguridad y replicación automáticas de todos los datos para proporcionar recuperación ante desastres.
+- Realiza copias de seguridad y replicaciones automáticas de todos los datos para proporcionar recuperación ante desastres.
 - Cifra los datos en reposo y en movimiento de forma predeterminada.
 - Supervisa el servidor y proporciona características para obtener información de rendimiento de consultas y recomendaciones de rendimiento
 

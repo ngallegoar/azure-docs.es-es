@@ -4,17 +4,17 @@ description: Seguridad de los puntos de conexión de Azure Security Benchmark v
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c04e4233ded34ceaeec9cd9afb240d3d1ac864e0
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 452b1a33520309ae696ab318c034f0186c993fdc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059085"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91402929"
 ---
-# <a name="security-control-endpoint-security"></a>Control de seguridad: seguridad de los puntos de conexión
+# <a name="security-control-v2-endpoint-security"></a>Control de seguridad V2: seguridad de los puntos de conexión
 
 La seguridad de los puntos de conexión cubre los controles de detección y respuesta de puntos de conexión. Esto incluye el uso de la detección y respuesta de puntos de conexión (EDR) y el servicio antimalware para los puntos de conexión en entornos de Azure.
 
@@ -36,7 +36,7 @@ Protección contra amenazas avanzada de Microsoft Defender proporciona la funcio
 
 **Responsabilidad**: Customer
 
-**Partes interesadas en la seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -64,7 +64,7 @@ Microsoft Antimalware para Azure Cloud Services es el antimalware predeterminado
 
 **Responsabilidad**: Customer
 
-**Partes interesadas en la seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -88,7 +88,7 @@ Siga las recomendaciones en Azure Security Center: "Proceso y aplicaciones" para
 
 **Responsabilidad**: Customer
 
-**Partes interesadas en la seguridad del cliente**:
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infraestructura y seguridad de los puntos de conexión](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -98,3 +98,4 @@ Siga las recomendaciones en Azure Security Center: "Proceso y aplicaciones" para
 
 - [Administración de la posición](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
+- [Valoración y recomendaciones de Endpoint Protection en Azure Security Center](../../security-center/security-center-endpoint-protection.md)
