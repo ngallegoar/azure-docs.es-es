@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
 ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77588695"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Seguimiento de los datos durante una búsqueda con Azure Sentinel
@@ -118,7 +118,7 @@ Para obtener instrucciones sobre cómo usar el gráfico de investigación, consu
 Para ver el marcador en el incidente: Vaya a **Sentinel** > **Administración de amenazas** > **Incidentes** y seleccione el incidente con el marcador. Seleccione **Ver detalles completos** y, a continuación, seleccione la pestaña **Marcadores**.
 
 > [!TIP]
-> Como alternativa a la opción **Acciones de incidente (versión preliminar)** de la barra de comandos, puede usar el menú contextual ( **...** ) para uno o varios marcadores y seleccionar las opciones para **Crear incidente**, **Agregar a incidente existente** y **Quitar del incidente**. 
+> Como alternativa a la opción **Acciones de incidente (versión preliminar)** de la barra de comandos, puede usar el menú contextual (**...**) para uno o varios marcadores y seleccionar las opciones para **Crear incidente**, **Agregar a incidente existente** y **Quitar del incidente**. 
 
 ## <a name="view-bookmarked-data-in-logs"></a>Ver datos marcados en registros
 

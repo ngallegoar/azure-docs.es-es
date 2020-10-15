@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: ed14d4cb79cb5794fa666f1bb96e062d69128d0f
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7a9285ebe2e749f5ac7f248a2703518c8ac237bc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337677"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071683"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Conexión del dispositivo IoT DevKit al acelerador de soluciones de supervisión remota
 
@@ -28,7 +28,7 @@ En esta guía paso a paso se muestra cómo ejecutar una aplicación de ejemplo e
 
 Para completar los pasos de este tutorial, deberá realizar las siguientes tareas:
 
-* Prepare su DevKit siguiendo los pasos descritos en [Conexión de IoT DevKit AZ3166 a Azure IoT Hub en la nube](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Prepare su DevKit siguiendo los pasos descritos en [Conexión de IoT DevKit AZ3166 a Azure IoT Hub en la nube](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md).
 
 ## <a name="open-sample-project"></a>Abra el proyecto de ejemplo
 
@@ -128,5 +128,5 @@ Si tiene problemas, consulte las [preguntas más frecuentes de IoT DevKit](https
 
 Ahora que sabe cómo conectar un dispositivo DevKit al acelerador de soluciones de supervisión remota, le sugerimos estos próximos pasos:
 
-* [Introducción a los aceleradores de la solución de Azure IoT](https://docs.microsoft.com/azure/iot-accelerators/)
+* [Introducción a los aceleradores de la solución de Azure IoT](./index.yml)
 * [Personalización de la interfaz de usuario](iot-accelerators-remote-monitoring-customize.md)

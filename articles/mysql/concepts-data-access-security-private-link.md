@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: e49fd0d2b4d8fc801372dbc766c2fdc7beb21b10
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905918"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Private Link para Azure Database for MySQL
@@ -72,21 +72,21 @@ Una vez que el administrador de red crea el punto de conexión privado (PE), el 
 
 * Seleccione una conexión del punto de conexión privado en la lista.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="selección del punto de conexión privado pendiente de aprobación":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Selección del portal del punto de conexión privado":::
 
 * El administrador de servidor de MySQL puede optar por aprobar o rechazar un punto de conexión privado y, además, tiene la opción de agregar una respuesta con un texto breve.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="selección del mensaje del punto de conexión privado":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Selección del portal del punto de conexión privado":::
 
 * Después de la aprobación o el rechazo, la lista reflejará el estado apropiado, junto con el texto de respuesta.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="selección del estado final del punto de conexión privado":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Selección del portal del punto de conexión privado":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Casos de uso de Private Link para Azure Database for MySQL
 
 Los clientes se pueden conectar al punto de conexión privado desde la misma red virtual, desde una red virtual emparejada de la misma región o a través de una conexión entre redes virtuales de distintas regiones. Además, los clientes pueden conectarse de forma local mediante ExpressRoute, emparejamiento privado o tunelización de VPN. A continuación, puede ver un diagrama simplificado que muestra los casos de uso habituales.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Información general sobre la selección del punto de conexión privado":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selección del portal del punto de conexión privado":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Conexión desde una máquina virtual de Azure en una red virtual emparejada (VNet)
 Configure el [Emparejamiento de VNET](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) para establecer la conectividad con Azure Database for MySQL desde una máquina virtual de Azure en una red virtual emparejada.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 3281642134e7a6a2531f43ad4b3f80cff34d03b6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6bea4ee4452675a50ef9144da300c3e15652a81f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890918"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952172"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro
 
@@ -61,15 +61,15 @@ Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hu
     |IoT Hub     | Elija entre **Nuevo** o **Existente**. <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que el recurso de Azure Stack Edge.     |
     |Nombre     |Escriba un nombre para el recurso de IoT Hub.         |
 
-    ![Introducción al proceso](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
+    ![Introducción al proceso 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
 4. Seleccione **Crear**. La creación del recurso de IoT Hub tarda varios minutos. Después de crear el recurso de IoT Hub, el icono **Configurar proceso** se actualiza para mostrar la configuración de proceso. 
 
-    ![Introducción al proceso](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
+    ![Introducción al proceso 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
 5. Para confirmar que se ha configurado el rol de proceso perimetral, seleccione **Ver proceso** en el icono **Configurar proceso**.
     
-    ![Introducción al proceso](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+    ![Introducción al proceso 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
     > [!NOTE]
     > Si el cuadro de diálogo **Configurar proceso** se cierra antes de que IoT Hub esté asociado con el dispositivo de Azure Stack Edge Pro, la instancia de IoT Hub se crea, pero no se muestra en la configuración de proceso. 

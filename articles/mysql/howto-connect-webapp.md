@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905841"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Conexión de un servicio existente de Azure App Service a un servidor de Azure Database for MySQL
@@ -29,18 +29,18 @@ Azure Database for MySQL proporciona seguridad de acceso mediante un firewall pa
    :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure Portal: haga clic en Seguridad de conexión":::
 
 2. Seleccione **ON** en **Permitir el acceso a servicios de Azure** y luego **Guardar**.
-   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal: permitir el acceso a Azure":::
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal: haga clic en Seguridad de conexión":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Solución 2: crear una regla de firewall para permitir explícitamente las direcciones IP de salida
 Puede agregar explícitamente todas las IP de salida de su Azure App Service.
 
 1. En la hoja de propiedades de App Service, consulte su **DIRECCIÓN IP DE SALIDA**.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure Portal: ver direcciones IP de salida":::
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure Portal: haga clic en Seguridad de conexión":::
 
 2. En la hoja de Seguridad de conexión de MySQL, agregue las direcciones IP de salida una por una.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure Portal: agregar direcciones IP explícitas":::
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure Portal: haga clic en Seguridad de conexión":::
 
 3. No olvide **Guardar** las reglas de firewall.
 

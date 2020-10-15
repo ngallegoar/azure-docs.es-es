@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
 ms.openlocfilehash: 839aae2ccf9433dafec0ddee692c476611924aa0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87497399"
 ---
 # <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>Restauración de un servidor de Azure Database for MariaDB mediante la CLI de Azure
@@ -42,4 +42,4 @@ Este script usa los comandos que se describen en la tabla siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para más información sobre la CLI de Azure: [Documentación de la CLI de Azure](/cli/azure).
-- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MariaDB](../sample-scripts-azure-cli.md).
+- Pruebe otros scripts adicionales: [Ejemplos de la CLI de Azure para Azure Database for MariaDB](../sample-scripts-azure-cli.md)

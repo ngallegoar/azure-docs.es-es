@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: eb83cd4fe7e98b1cde6dcee5d3f25fa5e35f1d2c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87799826"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Cifrado de datos para Azure Database for MySQL mediante la CLI de Azure
@@ -112,7 +112,7 @@ az mysql server key list --name  '<server_name>'  -g '<resource_group_name>'
 az keyvault set-policy --name <keyvault> -g <resoure_group> --key-permissions get unwrapKey wrapKey --object-id <principl id of the server returned by the step 1>
 ```
 
-* Vuelva a validar el servidor restaurado o el servidor Réplica con la clave de cifrado
+* Vuelva a validar el servidor restaurado o el servidor Réplica con la clave de cifrado.
 
 ```azurecli-interactive
 az mysql server key create –name  <server name> -g <resource_group> --kid <key url>
@@ -154,7 +154,7 @@ Esta plantilla de Azure Resource Manager crea un servidor de Azure Database for 
 
 Además, puede usar plantillas de Azure Resource Manager para habilitar el cifrado de datos en los servidores existentes de Azure Database for MySQL.
 
-* Pase el id. de recurso de la clave de Azure Key Vault que copió anteriormente en la propiedad `Uri` en el objeto properties.
+* Pase el URI del recurso de la clave de Azure Key Vault que copió anteriormente en la propiedad `Uri` en el objeto properties.
 
 * Use *2020-01-01-preview* como la versión de API.
 

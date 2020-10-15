@@ -4,10 +4,10 @@ description: En este artículo se describe cómo habilitar el cifrado de disco p
 ms.topic: article
 ms.date: 03/22/2019
 ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78251814"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Habilitación del cifrado de disco para nodos de clústeres de Azure Service Fabric en Windows 

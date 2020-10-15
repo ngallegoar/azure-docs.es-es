@@ -7,27 +7,24 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 33d481d546d94bb1279cafbd85ae23c8ac4d00b8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 65aab240dd0be97aafa370883aa953f8eb766cf2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437274"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91650755"
 ---
 # <a name="av2-series"></a>Serie Av2
 
 Las máquinas virtuales de la serie Av2 se pueden implementar en diversos procesadores y tipos de hardware. Las máquinas virtuales de la serie Av2 tienen las configuraciones de memoria y rendimiento de CPU adecuadas para cargas de trabajo de nivel de entrada como desarrollo y pruebas. El tamaño es una limitación para ofrecer un rendimiento coherente del procesador para la instancia en ejecución, independientemente del hardware en que se implementó. Con el fin de determinar el hardware físico en que se implementó este tamaño, cree una consulta para el hardware virtual desde dentro de la máquina virtual. Algunos casos de uso son, por ejemplo, los servidores de desarrollo y pruebas, los servidores web con poco tráfico, las bases de datos de tamaño pequeño a mediano, las pruebas de concepto y los repositorios de código.
 
-ACU: 100
-
-Premium Storage:  No compatible
-
-Almacenamiento en caché de Premium Storage:  No compatible
-
-Migración en vivo: Compatible
-
-Actualizaciones con conservación de memoria: Compatible
-
+[ACU](acu.md): 100<br>
+[Premium Storage](premium-storage-performance.md): No compatible <br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): No compatible <br>
+[Migración en vivo](maintenance-and-updates.md): Compatible <br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible <br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1 <br>
+<br>
 
 | Size | vCore | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps de lectura/Mbps de escritura | Discos de datos máx./rendimiento: E/S | Nº máx. NIC | Ancho de banda de red esperado (Mbps)
 |---|---|---|---|---|---|---|---|

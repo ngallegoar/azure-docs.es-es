@@ -4,14 +4,14 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 1811590dcf9077a503f89a900f661c52aa442c96
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87425039"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91745497"
 ---
-| Resource | Gratuito | Compartido | Básica | Estándar | Premium (v2) | Aislado </th> |
+| Resource | Gratuito | Compartido | Básica | Estándar | Premium (v3) | Aislado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Aplicaciones web, móviles o de API](https://azure.microsoft.com/services/app-service/) por [plan de Azure App Service](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup>|
 | [plan de App Service](../articles/app-service/overview-hosting-plans.md) |10 por región |10 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos|
@@ -52,7 +52,7 @@ ms.locfileid: "87425039"
 <sup>5</sup>El límite de almacenamiento es el tamaño total del contenido en todas las aplicaciones en el mismo plan de App Service. El tamaño total del contenido de todas las aplicaciones en todos los planes de App Service en un solo grupo de recursos y región no puede superar los 500 GB.  
 <sup>6</sup>Estos recursos están limitados por los recursos físicos en las instancias dedicadas (el tamaño de la instancia y el número de instancias).  
 <sup>7</sup>Si se escala una aplicación en el nivel Básico a dos instancias, dispones de 350 conexiones simultáneas para cada una de las dos. En el nivel Estándar u otro superior, no hay ningún límite teórico para los sockets web, pero otros factores pueden limitar el número de estos. Por ejemplo, el número máximo de solicitudes simultáneas permitidas (que define `maxConcurrentRequestsPerCpu`) es: 7500 por máquina virtual pequeña, 15 000 por máquina virtual mediana (7500 x 2 núcleos) y 75 000 por máquina virtual de gran tamaño (18 750 x 4 núcleos).  
-<sup>8</sup> Las conexiones IP máximas se realizan por instancia y dependen del tamaño de la instancia: 1920 por instancia B1/S1/P1V2, 3968 por instancia B2/S2/P2V2, 8064 por instancia B3/S3/P3V2.  
+<sup>8</sup> Las conexiones IP máximas se realizan por instancia y dependen del tamaño de la instancia: 1920 por instancia B1/S1/P1V3, 3968 por instancia B2/S2/P2V3, 8064 por instancia B3/S3/P3V3.  
 <sup>9</sup> El límite de cuota de App Service Certificate por suscripción se puede aumentar a través de una solicitud de soporte técnico hasta un límite máximo de 200.  
 <sup>10</sup>Las SKU de App Service aislado pueden tener equilibrio de carga interno (ILB) con Azure Load Balancer, lo que significa que no hay conectividad pública desde Internet. Como resultado, algunas características de un App Service aislado con ILB deben usarse desde máquinas que tienen acceso directo al punto de conexión de red del ILB.  
 <sup>11</sup> Ejecute scripts o archivos ejecutables personalizados bajo demanda, según una programación o de manera continua como tarea en segundo plano dentro de su instancia de App Service. Siempre disponible se requiere para la ejecución continua de Trabajos web. No hay ningún límite predefinido en el número de trabajos web que se pueden ejecutar en una instancia de App Service. Hay límites prácticos que dependen de lo que el código de aplicación intente hacer.
