@@ -59,7 +59,7 @@
           href: ./security-controls-policy.md
     - name: Redes
       href: concepts-network.md
-    - name: Storage
+    - name: Almacenamiento
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
@@ -171,7 +171,7 @@
             - name: Uso de grupos de nodos del sistema
               href: use-system-pools.md
         - name: Implementación de AKS con Terraform
-          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
         - name: Uso del visor de recursos de Kubernetes (versión preliminar)
           href: kubernetes-portal.md
@@ -358,10 +358,10 @@
     - name: DevOps
       items:
         - name: Uso de Ansible para crear clústeres de AKS
-          href: /azure/ansible/ansible-create-configure-aks
+          href: /azure/developer/ansible/aks-configure-clusters
           maintainContext: true
         - name: Implementación continua de Jenkins
-          href: jenkins-continuous-deployment.md
+          href: /azure/developer/jenkins/deploy-from-github-to-aks
         - name: Azure DevOps Project
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true

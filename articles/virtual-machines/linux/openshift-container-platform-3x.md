@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
 ms.openlocfilehash: 0c60fdfda0c18f5a8feb11c3d9c5a386025670cd
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87368156"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implementación de OpenShift Container Platform 3.11 en Azure

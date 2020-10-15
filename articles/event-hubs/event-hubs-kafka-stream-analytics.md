@@ -4,10 +4,10 @@ description: 'Tutorial: En este artículo se muestra cómo procesar los eventos 
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 1f0c7bf40b721a3f35fcf68c71cb38a4302a56f6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531294"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Procesamiento de eventos de Apache Kafka para Event Hubs mediante Stream Analytics 

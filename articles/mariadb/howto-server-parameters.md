@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: 53ba3c71679ebda1e8e2bf0a59a6ef69d051df4f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 10/1/2020
+ms.openlocfilehash: 9d0b6865c7fb5b59f379568d15bd9b96883202e9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120422"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91626435"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-portal"></a>Configuración de parámetros del servidor en Azure Database for MariaDB mediante Azure Portal.
 
 Azure Database for MariaDB admite la configuración de algunos parámetros del servidor. En este artículo se explica cómo configurar estos parámetros mediante Azure Portal. No es posible ajustar todos los parámetros del servidor.
+
+>[!Note]
+> Los parámetros del servidor se pueden actualizar globalmente a nivel de servidor; utilice la [CLI de Azure](./howto-configure-server-parameters-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md) o [Azure Portal](./howto-server-parameters.md).
 
 ## <a name="configure-server-parameters"></a>Configuración de parámetros del servidor
 

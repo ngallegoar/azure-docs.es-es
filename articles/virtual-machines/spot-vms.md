@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 66d62cde9ea17e73f561dfbce94eb3d3e7175b6d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b8e5c6b6b755134772cc8eaea3dab3af7f5346c9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827808"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963370"
 ---
 # <a name="use-spot-vms-in-azure"></a>Uso de las máquinas virtuales de Spot en Azure
 
@@ -99,17 +99,17 @@ Puede ver los precios históricos y las tasas de expulsión por tamaño en una r
 
 **P:** ¿Cómo se administra la cuota para las máquinas virtuales de Spot?
 
-**R:** Las máquinas virtuales de Spot tienen un grupo de cuotas independiente. La cuota de Spot se compartirá entre las máquinas virtuales y los conjuntos de escalado. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**R:** Las máquinas virtuales de Spot tienen un grupo de cuotas independiente. La cuota de Spot se compartirá entre las máquinas virtuales y los conjuntos de escalado. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **P:** ¿Puedo solicitar una cuota adicional para Spot?
 
-**R:** Sí, podrá enviar la solicitud para aumentar su cuota para las máquinas virtuales de Spot mediante el [proceso de solicitud de cuota estándar](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**R:** Sí, podrá enviar la solicitud para aumentar su cuota para las máquinas virtuales de Spot mediante el [proceso de solicitud de cuota estándar](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **P:** ¿Dónde puedo publicar preguntas?
 
-**R:** Puede publicar y etiquetar la pregunta con `azure-spot` en [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html) (Preguntas y respuestas). 
+**R:** Puede publicar y etiquetar la pregunta con `azure-spot` en [Q&A](/answers/topics/azure-spot.html) (Preguntas y respuestas). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Use la [CLI](./linux/spot-cli.md), el [portal](spot-portal.md), una [plantilla de ARM](./linux/spot-template.md) o [PowerShell](./windows/spot-powershell.md) para implementar máquina virtuales de Spot.

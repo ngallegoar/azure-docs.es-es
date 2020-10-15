@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/19/2020
 ms.author: alkohli
 ms.openlocfilehash: 97491000c63c966c3d8159b9361fcb60e062aa49
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86208864"
 ---
 El paso final consiste en preparar el dispositivo para el envío. En este paso, se desconectan todos los recursos compartidos de dispositivo. Una vez que empieza este proceso, no se puede acceder a los recursos compartidos. También puede optar por limpiar el dispositivo en el que los datos locales se borren de forma permanente. Una vez completado el paso, la pantalla de entrada manuscrita mostrará la etiqueta de envío de devolución.

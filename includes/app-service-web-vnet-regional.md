@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255267"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082212"
 ---
 Cuando se utiliza la versión regional de Integración con red virtual, la aplicación puede acceder a:
 
@@ -36,7 +36,8 @@ De forma predeterminada, su aplicación solo enruta el tráfico de RFC 1918 a s
 1. Seleccione **Aceptar**.
 1. Seleccione **Guardar**.
 
-Si enruta todo el tráfico de salida a la VNet, este estará sujeto a los grupos de seguridad de red y las rutas definidas por los usuarios que se apliquen a la subred de integración. Si enruta todo el tráfico de salida a la VNet, las direcciones de salida seguirán siendo las que aparecen en las propiedades de la aplicación, a menos que proporcione otras rutas para enviar allí el tráfico.
+> [!NOTE]
+> Si enruta todo el tráfico de salida a la VNet, este estará sujeto a los grupos de seguridad de red y las rutas definidas por los usuarios que se apliquen a la subred de integración. Si enruta todo el tráfico de salida a la VNet, las direcciones de salida seguirán siendo las que aparecen en las propiedades de la aplicación, a menos que proporcione otras rutas para enviar allí el tráfico.
 
 Existen algunas limitaciones cuando se la característica Integración con red virtual se utiliza con redes virtuales que están en la misma región:
 
