@@ -3,12 +3,12 @@ title: Reglas de firewall de Azure Event Hubs | Microsoft Docs
 description: Use las reglas de firewall para permitir las conexiones desde direcciones IP específicas a Azure Event Hubs.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: ab7f835187a33b5e4d95c160831337172a5ed74e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 596d506c0c4f6d79696b3019fd903e549149c656
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318541"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056215"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Permitir el acceso a los espacios de nombres de Azure Event Hubs desde intervalos o direcciones IP específicas
 Los espacios de nombres de Azure Event Hubs son accesibles de forma predeterminada desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -119,7 +119,7 @@ Parámetros de plantilla:
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "type": "Microsoft.EventHub/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
         ],

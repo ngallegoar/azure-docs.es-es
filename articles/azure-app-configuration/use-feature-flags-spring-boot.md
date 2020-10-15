@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 83c437cb613e3dad04dee17f0f67040532066c3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0dcf85add4e1c9f1d701c4ce4a122c8d6b31382a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326603"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077837"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutorial: Uso de marcas de características en una aplicación de Spring Boot
 
@@ -185,5 +185,5 @@ public String getOldFeature() {
 
 En este tutorial, ha aprendido a implementar marcas de características en la aplicación de Spring Boot mediante el uso de bibliotecas `spring-cloud-azure-feature-management-web`. Consulte los siguientes recursos para más información sobre la compatibilidad de la administración de características en Spring Boot y App Configuration:
 
-* [Spring Boot feature flag sample code](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot) (Código de ejemplo de marca de características de Spring Boot)
+* [Spring Boot feature flag sample code](./quickstart-feature-flag-spring-boot.md) (Código de ejemplo de marca de características de Spring Boot)
 * [Administración de marcas de características](./manage-feature-flags.md)

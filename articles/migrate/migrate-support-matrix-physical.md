@@ -4,10 +4,10 @@ description: Obtenga información sobre la compatibilidad para la evaluación de
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660346"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de compatibilidad para la evaluación de servidores físicos 

@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: 276ab2cc1d79235c00ce1bb50ff9b648bb1de6ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87095110"
 ---
 # <a name="troubleshooting-student-login-issues"></a>Solución de problemas de inicio de sesión de alumnos
@@ -39,16 +39,16 @@ Si un alumno tiene un cuenta de Microsoft existente (por ejemplo, Xbox), puede c
 
 1. Haga clic en **Administrar cómo inicia sesión en Microsoft**. Se le pedirá que compruebe su identidad. Se le enviará un código de seguridad por correo electrónico.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Administrar el inicio de sesión." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Mensaje de error de inicio de sesión." border="false":::
 
 1. Escriba el código de seguridad.
 
-    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Escribir el código de inicio de sesión." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Mensaje de error de inicio de sesión." border="false":::
 
 1. Haga clic en **Agregar correo electrónico** a su cuenta y escriba la dirección de correo electrónico de la universidad.
 La próxima vez que inicie sesión, puede usar su dirección de correo electrónico de la universidad para acceder a las Azure Dev Tools for Teaching.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Administrar cómo inicia sesión en Microsoft." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Mensaje de error de inicio de sesión." border="false":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [P+F](program-faq.md)

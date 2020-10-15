@@ -9,10 +9,10 @@ ms.date: 05/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: e01f9ac8966223e11ad218af7bf6fbb2462f28f6
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83714906"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway-bot-protection-overview"></a>Información general de protección contra bots del firewall de aplicaciones web de Azure en Azure Application Gateway

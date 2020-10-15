@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4db7727558d0b7f4c26aba3ffa823bebb07862f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6b94c30f00765164385987ed0ea9b201044f248
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713780"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077446"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Línea de base de seguridad de Azure para API Management
 
@@ -100,7 +100,7 @@ Use la inteligencia sobre amenazas integrada de Azure Security Center para deneg
 
 * [Configuración de Azure DDoS Protection Estándar](../virtual-network/manage-ddos-protection.md)
 
-* [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../security-center/threat-protection.md)
+* [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../security-center/azure-defender.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -588,7 +588,7 @@ Configure la supervisión avanzada con API Management mediante la directiva `log
 
 * [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Creación de grupos de administración](../governance/management-groups/create.md)
+* [Creación de grupos de administración](../governance/management-groups/create-management-group-portal.md)
 
 * [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
@@ -774,7 +774,7 @@ Además, use Azure Policy para establecer restricciones sobre el tipo de recurso
 
 * [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Creación de grupos de administración](../governance/management-groups/create.md)
+* [Creación de grupos de administración](../governance/management-groups/create-management-group-portal.md)
 
 * [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
@@ -838,7 +838,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 * [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Denegación de un tipo de recurso específico con Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Denegación de un tipo de recurso específico con Azure Policy](../governance/policy/samples/index.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1114,7 +1114,7 @@ Las identidades administradas se pueden utilizar para obtener certificados de Az
 
 Habilite la eliminación temporal en Key Vault para proteger las claves contra la eliminación accidental o malintencionada.
 
-* [Habilitación de la eliminación temporal en Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Habilitación de la eliminación temporal en Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Supervisión de Azure Security Center**: No aplicable
 

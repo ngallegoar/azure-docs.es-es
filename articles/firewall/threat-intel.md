@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
 ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83655062"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtrado basado en inteligencia sobre amenazas de Azure Firewall
@@ -27,7 +27,7 @@ Puede optar por registrar solo una alerta cuando se desencadena una regla o pued
 
 De forma predeterminada, el filtrado basado en inteligencia sobre amenazas está habilitado en el modo de alerta. No se puede desactivar esta característica o cambiar el modo hasta que la interfaz del portal esté disponible en su región.
 
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Interfaz del portal del filtrado basado en inteligencia sobre amenazas":::
+:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Inteligencia sobre amenazas de Firewall":::
 
 ## <a name="logs"></a>Registros
 

@@ -9,10 +9,10 @@ ms.date: 010/17/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 26e48d1af8e29c7d00a80910dcca62811da14822
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67673506"
 ---
 En Azure Portal, puede ver el estado de la conexión de una instancia de VPN Gateway de la red virtual clásica navegando a la conexión. Los pasos siguientes muestran una manera de navegar a su conexión y realizar las comprobaciones necesarias.

@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67659426"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Información general sobre Resource Health de Azure Application Gateway
 
-[Azure Resource Health](../service-health/resource-health-overview.md) ayuda a diagnosticar problemas en los servicios de Azure que afectan a los recursos y a obtener soporte técnico para resolverlos. Informa sobre el mantenimiento actual y pasado de los recursos. Y proporciona soporte técnico para ayudar a mitigar los problemas.
+[Azure Resource Health](../service-health/resource-health-overview.md) ayuda a diagnosticar los problemas en los servicios de Azure que afectan a los recursos y a obtener soporte técnico para resolverlos. Informa sobre el mantenimiento actual y pasado de los recursos. Y proporciona soporte técnico para ayudar a mitigar los problemas.
 
 En Application Gateway, Resource Health se basa en las señales que emite la puerta de enlace para evaluar si su estado es correcto o no. Si el estado de la puerta de enlace no es correcto, Resource Health analiza información adicional para determinar el origen del problema. También identifica las acciones que Microsoft está llevando a cabo o lo que el usuario puede hacer para solucionar el problema.
 

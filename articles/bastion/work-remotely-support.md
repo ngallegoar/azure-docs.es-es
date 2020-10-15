@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mialdrid
-ms.openlocfilehash: 182195190fed70b46185f98f595de6b6c32bbffe
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 515a6f7175aee23c6f720258b7fdaefe76b3b5d6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619394"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077956"
 ---
 # <a name="working-remotely-using-azure-bastion"></a>Trabajo remoto mediante Azure Bastion
 
@@ -26,10 +26,10 @@ Azure Bastion desempeña un papel fundamental en la compatibilidad con escenario
 
 En concreto, Azure Bastion proporciona conectividad RDP/SSH segura y sin problemas a las máquinas virtuales dentro de la red virtual de Azure, directamente en Azure Portal, sin usar una dirección IP pública. Para obtener más información sobre la arquitectura de Azure Bastion y las características clave, consulte [Qué es Azure Bastion](bastion-overview.md).
 
-Azure Bastion se implementa en cada red virtual, lo que significa que las empresas pueden configurar y administrar una instancia de Azure Bastion para admitir rápidamente el acceso de usuarios remotos a máquinas virtuales dentro de una red virtual de Azure. Para obtener instrucciones sobre cómo crear y administrar Azure Bastion, consulte [Creación de un host bastión](bastion-create-host-portal.md).
+Azure Bastion se implementa en cada red virtual, lo que significa que las empresas pueden configurar y administrar una instancia de Azure Bastion para admitir rápidamente el acceso de usuarios remotos a máquinas virtuales dentro de una red virtual de Azure. Para obtener instrucciones sobre cómo crear y administrar Azure Bastion, consulte [Creación de un host bastión](./tutorial-create-host-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Configure Azure Bastion con [Azure Portal](bastion-create-host-portal.md), [PowerShell](bastion-create-host-powershell.md) o la CLI de Azure.
+* Configure Azure Bastion con [Azure Portal](./tutorial-create-host-portal.md), [PowerShell](bastion-create-host-powershell.md) o la CLI de Azure.
 
 * Para más información, lea las [P+F sobre Bastion](bastion-faq.md).

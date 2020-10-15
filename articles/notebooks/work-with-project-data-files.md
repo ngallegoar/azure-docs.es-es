@@ -4,10 +4,10 @@ description: Aprenda a importar datos en un proyecto de Azure Notebooks Preview 
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: b3669128582d3bdd6a3c4506a040856ab7b07e9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85834121"
 ---
 # <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Trabajo con archivos de datos en proyectos de Azure Notebooks Preview
