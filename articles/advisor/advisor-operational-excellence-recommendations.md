@@ -3,12 +3,12 @@ title: Mejora de la excelencia operativa con Advisor
 description: Use Azure Advisor para optimizar y madurar la excelencia operativa de sus suscripciones de Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258476"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077395"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Obtención de la excelencia operativa con Azure Advisor
 
@@ -38,7 +38,7 @@ Si el grupo usa un componente interno en desuso, elimine y vuelva a crear el gru
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparación de las reglas de alertas de registro no válidas
 
-Azure Advisor detecta las reglas de alertas que tienen consultas no válidas especificadas en la sección de condiciones. Puede crear reglas de alertas de registro en Azure Monitor y usarlas para ejecutar consultas de análisis en intervalos especificados. Los resultados de la consulta determinan si se debe desencadenar una alerta. Las consultas de análisis pueden convertirse en no válidas con el paso del tiempo debido a cambios en los comandos, las tablas o los recursos a los que se hace referencia. Advisor le recomienda que corrija la consulta en la regla de alertas para evitar que se deshabilite automáticamente y garantizar la cobertura de la supervisión de los recursos de Azure. [Más información sobre cómo solucionar problemas de las reglas de alertas](https://aka.ms/aa_logalerts_queryrepair).
+Azure Advisor detecta las reglas de alertas que tienen consultas no válidas especificadas en la sección de condiciones. Puede crear reglas de alertas de registro en Azure Monitor y usarlas para ejecutar consultas de análisis en intervalos especificados. Los resultados de la consulta determinan si se debe desencadenar una alerta. Las consultas de análisis pueden convertirse en no válidas con el paso del tiempo debido a cambios en los comandos, las tablas o los recursos a los que se hace referencia. Advisor le recomienda que corrija la consulta en la regla de alertas para evitar que se deshabilite automáticamente y garantizar la cobertura de la supervisión de los recursos de Azure. [Más información sobre cómo solucionar problemas de las reglas de alertas](../azure-monitor/platform/alerts-troubleshoot-log.md).
 
 ## <a name="use-azure-policy-recommendations"></a>Uso de recomendaciones de Azure Policy
 
@@ -55,7 +55,7 @@ Azure Policy es un servicio de Azure que se usa para crear, asignar y administra
 **Habilite *Heredar una etiqueta del grupo de recursos*.** Esta directiva agrega o reemplaza la etiqueta y el valor del grupo de recursos primario especificados cuando se crea o actualiza cualquier recurso. Los recursos existentes se pueden corregir con una tarea de corrección.
 
 ## <a name="no-validation-environment-enabled"></a>No se habilitó ningún entorno de validación.
-Azure Advisor ha determinado que no tiene un entorno de validación habilitado en la suscripción actual. Al crear los grupos de hosts, ha seleccionado \"No\" para \"el entorno de validación\"en la pestaña Propiedades. Tener al menos un grupo de hosts con un entorno de validación habilitado garantiza la continuidad del negocio mediante las implementaciones del servicio Windows Virtual Desktop con la detección temprana de posibles problemas. [Más información](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
+Azure Advisor ha determinado que no tiene un entorno de validación habilitado en la suscripción actual. Al crear los grupos de hosts, ha seleccionado \"No\" para \"el entorno de validación\"en la pestaña Propiedades. Tener al menos un grupo de hosts con un entorno de validación habilitado garantiza la continuidad del negocio mediante las implementaciones del servicio Windows Virtual Desktop con la detección temprana de posibles problemas. [Más información](../virtual-desktop/create-validation-host-pool.md)
 
 ## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Garantice el entorno de producción (sin validación) para beneficiarse de la funcionalidad estable.
 Azure Advisor ha determinado que muchos de los grupos de hosts tienen habilitado el entorno de validación. Para que los entornos de validación sirvan mejor a su propósito, debe tener al menos uno, pero nunca más de la mitad de los grupos de hosts en el entorno de validación. Al tener un equilibrio correcto entre los grupos de hosts con el entorno de validación habilitado y los que están deshabilitados, podrá usar mejor las ventajas de las implementaciones a varios niveles que ofrece Windows Virtual Desktop con ciertas actualizaciones. Para corregir este problema, abra las propiedades del grupo de hosts y seleccione\"No\" junto a la opción \"Entorno de validación\".

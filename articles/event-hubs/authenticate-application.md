@@ -3,12 +3,12 @@ title: Autenticación de una aplicación para acceder a los recursos de Azure Ev
 description: En este artículo se proporciona información sobre cómo autenticar una aplicación con Azure Active Directory para acceder a recursos de Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 2b4456f63ce6d50ab1187f65deb1ee3280487580
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1c8503aa8db7350275648d9f5eda69e9e352c859
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531530"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91566336"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticación de una aplicación con Azure Active Directory para acceder a recursos de Event Hubs
 Microsoft Azure proporciona una administración integrada del control de acceso para recursos y aplicaciones basados en Azure Active Directory (Azure AD). Una ventaja clave de usar Azure AD con Azure Event Hubs es que ya no es necesario almacenar las credenciales en el código. En su lugar, puede solicitar un token de acceso de OAuth 2.0 desde la Plataforma de identidad de Microsoft. El nombre del recurso para solicitar un token es `https://eventhubs.azure.net/` (para los clientes de Kafka, el recurso para solicitar un token es `https://<namespace>.servicebus.windows.net`). Azure AD autentica la entidad de seguridad (un usuario, grupo o entidad de servicio) ejecutando la aplicación. Si la autenticación se realiza correctamente, Azure AD devuelve un token de acceso a la aplicación y la aplicación puede entonces usar el token de acceso para autorizar una solicitud de los recursos de Azure Event Hubs.
@@ -24,6 +24,8 @@ Azure proporciona los siguientes roles integrados de Azure para autorizar el acc
 - [Propietario de los datos de Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): use este rol para proporcionar acceso completo a los recursos de Event Hubs.
 - [Emisor de datos de Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): use este rol para proporcionar acceso de envío a los recursos de Event Hubs.
 - [Receptor de datos de Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): use este rol para proporcionar acceso de recepción a los recursos de Event Hubs.   
+
+En el caso de los roles integrados del registro de esquema, consulte [Roles del registro de esquema](schema-registry-overview.md#role-based-access-control).
 
 > [!IMPORTANT]
 > Nuestra versión preliminar permite agregar privilegios de acceso a datos de Event Hubs al rol Propietario o Colaborador, pero los privilegios de acceso a datos de los roles Propietario y Colaborador ya no están en vigor. Si está usando el rol Propietario o Colaborador, cambie al rol Propietario de los datos de Azure Event Hubs.

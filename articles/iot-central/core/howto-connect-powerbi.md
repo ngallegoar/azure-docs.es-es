@@ -8,10 +8,10 @@ ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
 ms.openlocfilehash: f996bb2d5126ef038ca872aee1f1893979a5229b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081005"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualización y análisis de los datos de Azure IoT Central en un panel de Power BI
@@ -55,13 +55,13 @@ Al abrir el archivo PBIX, asegúrese de leer y seguir las instrucciones de la po
 
 El archivo PBIX contiene el informe **Devices and Telemetry** (Dispositivos y telemetría), que muestra una vista histórica de los datos de telemetría enviados por los dispositivos. Proporciona un desglose de los distintos tipos de telemetría y también muestra los datos de telemetría más recientes enviados por los dispositivos.
 
-:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Informe Dispositivos y telemetría de Power BI":::
+:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Canalización de las soluciones de Power BI":::
 
 ## <a name="pipeline-resources"></a>Recursos de canalización
 
 Puede acceder a todos los recursos de Azure que componen la canalización en Azure Portal. Todos los recursos se encuentran en el grupo de recursos que creó al configurar la canalización.
 
-:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="Vista del grupo de recursos en Azure Portal":::
+:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="Canalización de las soluciones de Power BI":::
 
 En la lista siguiente se describe el rol de cada recurso en la canalización:
 

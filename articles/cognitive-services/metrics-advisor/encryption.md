@@ -2,19 +2,19 @@
 title: Cifrado del servicio Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Cifrado de datos en reposo del servicio Metrics Advisor.
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 9d6a2f8a69d41d29e635b03425ed738484d6f408
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: 9a7a914acd1358243c1e8a29f59dadf4fac46957
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932216"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046934"
 ---
 # <a name="metrics-advisor-service-encryption-of-data-at-rest"></a>Cifrado de datos en reposo del servicio Metrics Advisor
 

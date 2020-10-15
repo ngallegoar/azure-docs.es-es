@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo agregar un artefacto a una máquin
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b4772755d8077f7a659c4d403961ffaeb9e1d483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483897"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Incorporación de un artefacto a una máquina virtual

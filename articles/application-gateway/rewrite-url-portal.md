@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
 ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083164"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Reescritura de la dirección URL con Azure Application Gateway: Azure Portal (versión preliminar)
@@ -53,13 +53,13 @@ En el ejemplo siguiente, siempre que la dirección URL de la solicitud contenga 
     
     c. Seleccione **Next** (Siguiente).
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Asociar a una regla":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Agregar un conjunto de reescritura":::
 
 5. Crear una regla de reescritura:
 
     a. Seleccione **Agregar regla de reescritura**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Agregar regla de reescritura":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Agregar un conjunto de reescritura":::
     
     b. Escriba un nombre para la regla de reescritura en el cuadro **Nombre de la regla de reescritura**. Escriba un número en el cuadro **Secuencia de reglas**.
 
@@ -81,7 +81,7 @@ En el ejemplo siguiente, siempre que la dirección URL de la solicitud contenga 
 
     g. Seleccione **Aceptar**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Condition":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Agregar un conjunto de reescritura":::
 
  
 
@@ -101,13 +101,13 @@ En el ejemplo siguiente, siempre que la dirección URL de la solicitud contenga 
     
    f. Seleccione **Aceptar**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Acción":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Agregar un conjunto de reescritura":::
 
 8. Seleccione **Crear** para crear el conjunto de reescritura.
 
 9. Compruebe que el nuevo conjunto de reescritura aparece en la lista de conjuntos de reescritura.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Agregar regla de reescritura":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Agregar un conjunto de reescritura":::
 
 ## <a name="verify-url-rewrite-through-access-logs"></a>Comprobación de la reescritura de dirección URL mediante los registros de acceso
 

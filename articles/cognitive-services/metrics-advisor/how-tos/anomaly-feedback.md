@@ -3,19 +3,19 @@ title: Envío de comentarios sobre anomalías al servicio Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo enviar comentarios sobre las anomalías que encuentre la instancia de Metrics Advisor y ajustar los resultados.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 50d422edf1a4b45132d0b86eac9d4947cef5e5bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: 11864cb26b76d414aa2efe2643797a2f66fa30e4
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932023"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047614"
 ---
 # <a name="adjust-anomaly-detection-using-feedback"></a>Ajuste de la detección de anomalías mediante comentarios
 
@@ -37,19 +37,19 @@ Con el modo de anotación de comentarios activado, haga clic en un punto para ab
 
 Plantéese dejar un comentario en el cuadro de texto **Comment** (Comentario) y haga clic en **Save** (Guardar) para guardar los comentarios.
 
-:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="Menú de comentarios":::
+:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="Modo de anotación de comentarios":::
 
 ## <a name="give-feedback-for-multiple-continuous-points"></a>Envío de comentarios sobre varios puntos continuos
 
 Puede enviar comentarios sobre varios puntos continuos a la vez haciendo clic en abajo y arrastrando el mouse sobre los puntos que desea anotar. Verá el mismo menú de comentarios que antes. Los mismos comentarios se aplicarán a todos los puntos elegidos después de hacer clic en **Save** (Guardar).
 
-:::image type="content" source="../media/feedback/continuous-points.png" alt-text="Elección de varios puntos":::
+:::image type="content" source="../media/feedback/continuous-points.png" alt-text="Modo de anotación de comentarios":::
 
 ## <a name="how-to-view-my-feedback"></a>Cómo ver comentarios
 
 Para ver si ha cambiado la detección de anomalías de un punto, mantenga el mouse sobre el punto. La información sobre herramientas mostrará **Affected by feedback: true** (Afectado por comentarios: verdadero) si se cambió la detección. Si se muestra **False** (Falso), significa que se realizó el cálculo de comentarios en el punto, pero no se cambió el resultado de la detección de anomalías.
 
-:::image type="content" source="../media/feedback/affected-point.png" alt-text="Punto afectado por comentarios":::
+:::image type="content" source="../media/feedback/affected-point.png" alt-text="Modo de anotación de comentarios":::
 
 ## <a name="when-should-i-annotate-an-anomaly-as-normal"></a>¿Cuándo debo anotar una anomalía como "normal"?
 

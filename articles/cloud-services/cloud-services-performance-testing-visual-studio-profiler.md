@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 503b1ca8c8f1ff06bbdd54316611d886fb1e9d87
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6b5707405879c462a1d919e04730d368332ba68c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462316"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077162"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Prueba del rendimiento de un servicio en la nube de manera local en el emulador de Azure Compute con el generador de perfiles de Visual Studio
 Se encuentran disponibles diversas herramientas y técnicas para probar el rendimiento de los servicios en la nube.
@@ -166,9 +166,9 @@ Felicidades. Ya ha empezado a usar el generador de perfiles.
 ## <a name="next-steps"></a>Pasos siguientes
 La instrumentación de binarios de Azure en el emulador no es compatible en el generador de perfiles de Visual Studio; sin embargo, si desea probar la asignación de memoria, puede seleccionar esta opción al generar perfiles. También puede seleccionar una generación de perfiles de concurrencia, la cual le ayuda a determinar si los subprocesos están desperdiciando tiempo al competir por bloqueos, o la generación de perfiles de interacción de capa, que le ayuda a hacer un seguimiento de los problemas de rendimiento cuando se interactúa entre las capas de una aplicación, con mayor frecuencia entre la capa de datos y un rol de trabajo.  Puede ver las consultas de la base de datos que genera la aplicación y usar los datos de generación de perfiles para mejorar el uso que hace de la base de datos. Para obtener información acerca de la generación de perfiles de interacción de capa, consulte la entrada de blog [Walkthrough: Uso del generador de perfiles de interacción de capa en Visual Studio Team System 2010][3].
 
-[1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
-[2]: https://msdn.microsoft.com/library/azure/hh411542.aspx
-[3]: https://docs.microsoft.com/archive/blogs/habibh/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010
+[1]: ../azure-monitor/app/profiler.md
+[2]: /previous-versions/azure/hh411542(v=azure.100)
+[3]: /archive/blogs/habibh/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
 [5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
 [6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: fca14ed4e3b338f9b49f949af7498dfd49990d3b
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: b42c693943c41176936ac796f4586463e9af917c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142390"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076698"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Creación e implementación de un servicio en la nube
 Azure Portal le ofrece dos formas de crear e implementar un servicio en la nube: *Creación rápida* y *Creación personalizada*.
@@ -84,13 +84,10 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
-[TFSTutorialForCloudService]: https://go.microsoft.com/fwlink/?LinkID=251796
+[TFSTutorialForCloudService]: ./cloud-services-choose-me.md
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Administración del servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configure los [certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
-
-
-

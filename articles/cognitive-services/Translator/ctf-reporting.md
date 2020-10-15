@@ -12,10 +12,10 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 68b0de40940fa75dd4eb4e1572405f31ce1c22b8
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934385"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Cómo usar los informes de Collaborative Translation Framework (CTF)

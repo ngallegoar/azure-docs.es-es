@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.openlocfilehash: 84c2ad3a24d944db6a55f3f21e8a2a0c4084d033
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87095589"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Creación de alertas para Azure Cosmos DB mediante Azure Monitor
@@ -83,7 +83,7 @@ En esta sección se muestra cómo crear una alerta cuando se recibe un código d
 
    * Proporcione un nombre para la acción y seleccione **Email/SMS message/Push/Voice** (Correo electrónico, SMS, mensaje de inserción o voz) en **Tipo de acción**. En la captura de pantalla siguiente se muestran los detalles del tipo de acción:
 
-     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configuración del tipo de acción, por ejemplo, una notificación por correo electrónico para recibir la alerta":::
+     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configuración de la lógica para recibir alertas correspondientes a solicitudes 429 con tasa limitada":::
 
 1. Rellene la sección **Alert rule details** (Detalles de la regla de alertas):
 

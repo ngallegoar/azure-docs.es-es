@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: f3c86f4b194e6d3935434b35cae958dfcf772986
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 129eff8c954c0c5469d3607e6ae16ce3202630ed
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314919"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929343"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Selección de las columnas de distribución en Azure Database for PostgreSQL: Hiperescala (Citus) (versión preliminar)
 
@@ -71,8 +71,6 @@ El error más común a la hora de modelar la información de serie temporal en H
 
 -   **No elija una marca de tiempo como columna de distribución.** Elija una columna de distribución diferente. En una aplicación de multiinquilino use el id. del inquilino, o en una aplicación en tiempo real use el id. de la entidad.
 -   **En su lugar, use la partición de la tabla PostgreSQL para el tiempo.** Use la creación de particiones de tablas para dividir una tabla grande de datos ordenados en función del tiempo en varias tablas heredadas, cada una con diferentes intervalos de tiempo. La distribución de una tabla con particiones de Postgres en Hiperescala (Citus) crea particiones de base de datos para las tablas heredadas.
-
-Lea el [tutorial de la serie temporal](https://aka.ms/hyperscale-tutorial-timeseries) para ver un ejemplo de cómo crear este tipo de aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Aprenda cómo la [coubicación](concepts-hyperscale-colocation.md) entre datos distribuidos ayuda a que las consultas se ejecuten rápidamente.

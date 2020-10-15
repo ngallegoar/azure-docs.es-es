@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 4f40a821a0a639fa117dc0844146f28d887166e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87102990"
 ---
 Las instantáneas incrementales son copias de seguridad en un momento dado de los discos administrados que, cuando se realizan, solo constan de los cambios desde la última instantánea. Cuando se restaura un disco a partir de una instantánea incremental, el sistema reconstruye el disco completo que representa la copia de seguridad en un momento dado del disco cuando se tomó la instantánea incremental. Esta nueva funcionalidad para las instantáneas de discos administrados puede permitir que sean más rentables, ya que no es necesario almacenar todo el disco con cada instantánea individual a menos que decida hacerlo expresamente. Al igual que con las instantáneas completas, se pueden usar instantáneas incrementales para crear un disco administrado completo o una instantánea completa.

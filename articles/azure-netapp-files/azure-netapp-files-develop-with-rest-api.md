@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 90d3ff807275c74ce4495c5631ab913971ebe3e3
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 4599f4e3ca291c312c99e938b237d1eb9cd9d407
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513016"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929287"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Desarrollo para Azure NetApp Files con la API REST 
 
@@ -34,9 +34,9 @@ La especificación de la API de REST de Azure NetApp Files se publica a través 
 
 ## <a name="access-the-azure-netapp-files-rest-api"></a>Acceso a la API REST de Azure NetApp Files  
 
-1. [Instale la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) si no lo ha hecho ya.
+1. [Instale la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) si no lo ha hecho ya.
 2. Cree una entidad de servicio en su instancia de Azure Active Directory (Azure AD):
-   1. Compruebe que tiene [permisos suficientes](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+   1. Compruebe que tiene [permisos suficientes](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
    2. En la CLI de Azure, escriba el siguiente comando: 
     
@@ -203,4 +203,4 @@ En el ejemplo siguiente se muestra cómo crear una instantánea de un volumen:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Consulte la referencia de la API REST de Azure NetApp Files](https://docs.microsoft.com/rest/api/netapp/)
+[Consulte la referencia de la API REST de Azure NetApp Files](/rest/api/netapp/)

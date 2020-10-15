@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/08/2020
 ms.author: victorh
 ms.openlocfilehash: 9d1e2d257074555e7a2e78930e1f9be6cd4d90fe
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89536010"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutorial: Protección de un centro virtual mediante Azure Firewall Manager
@@ -116,7 +116,7 @@ Repita el procedimiento para conectar la red virtual **Spoke-02** con el nombre 
 2. Seleccione **Windows Server 2016 Datacenter** en la lista **Popular**.
 3. Especifique estos valores para la máquina virtual:
 
-   |Configuración  |Value  |
+   |Configuración  |Valor  |
    |---------|---------|
    |Resource group     |**fw-manager**|
    |Nombre de la máquina virtual     |**Srv-workload-01**|
