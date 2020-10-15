@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 9ae3e9b4bb69bf0c85054b5d6144633923cac947
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 075f6f83e5af43cde3886f637a8ee326309e4218
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282075"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071513"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implementación del módulo y las dependencias de OPC Twin desde cero
 
@@ -25,8 +25,8 @@ El módulo OPC Twin se ejecuta en IoT Edge y proporciona varios servicios de Edg
 
 Hay varias opciones para implementar módulos en la puerta de enlace de [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/), entre ellas
 
-- [Implementación de la hoja de IoT Edge desde Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal)
-- [Implementación mediante la CLI de AZ](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor-cli)
+- [Implementación de la hoja de IoT Edge desde Azure Portal](../iot-edge/how-to-deploy-modules-portal.md)
+- [Implementación mediante la CLI de AZ](../iot-edge/how-to-deploy-cli-at-scale.md)
 
 > [!NOTE]
 > Para obtener más información sobre las instrucciones y los detalles de la implementación, vea el [repositorio](https://github.com/Azure/azure-iiot-components) de GitHub.
@@ -86,7 +86,7 @@ Todos los módulos se implementan mediante un manifiesto de implementación.  A 
               "restartPolicy": "always",
               "settings": {
                 "image": "mcr.microsoft.com/iotedge/opc-publisher:latest",
-                "createOptions": "{\"Hostname\":\"publisher\",\"Cmd\":[\"publisher\",\"--pf=./pn.json\",\"--di=60\",\"--to\",\"--aa\",\"--si=0\",\"--ms=0\"],\"ExposedPorts\":{\"62222/tcp\":{}},\"NetworkingConfig\":{\"EndpointsConfig\":{\"host\":{}}},\"HostConfig\":{\"NetworkMode\":\"host\",\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62222\"}]}}}"
+                "createOptions": "{\"Hostname\":\"publisher\",\"Cmd\":[\"publisher\",\"--pf=./pn.json\",\"--di=60\",\"--tm\",\"--aa\",\"--si=0\",\"--ms=0\"],\"ExposedPorts\":{\"62222/tcp\":{}},\"NetworkingConfig\":{\"EndpointsConfig\":{\"host\":{}}},\"HostConfig\":{\"NetworkMode\":\"host\",\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62222\"}]}}}"
               }
             }
           }
@@ -117,7 +117,7 @@ La manera más fácil de implementar los módulos en un dispositivo de puerta de
 
 1. Implementación de las [dependencias](howto-opc-twin-deploy-dependencies.md) de OPC Twin y obtención del archivo `.env` resultante. Anote la instancia de `hub name` implementada en la variable `PCS_IOTHUBREACT_HUB_NAME` del archivo `.env` resultante.
 
-2. Registre e inicie un puerta de enlace de IoT Edge de [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) o [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) y anote su `device id`.
+2. Registre e inicie un puerta de enlace de IoT Edge de [Linux](../iot-edge/how-to-install-iot-edge-linux.md) o [Windows](../iot-edge/how-to-install-iot-edge-windows.md) y anote su `device id`.
 
 ### <a name="deploy-to-an-edge-device"></a>Implementación en un dispositivo de Edge
 
@@ -143,7 +143,7 @@ La manera más fácil de implementar los módulos en un dispositivo de puerta de
    {"NetworkingConfig": {"EndpointsConfig": {"host": {}}}, "HostConfig": {"NetworkMode": "host" }}
    ```
 
-   Rellene los campos opcionales si es necesario. Para más información sobre las opciones de creación del contenedor, la directiva de reinicio y el estado deseado, consulte [Propiedades deseadas de EdgeAgent](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). Para más información sobre el módulo gemelo, consulte [Definición o actualización de las propiedades deseadas](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
+   Rellene los campos opcionales si es necesario. Para más información sobre las opciones de creación del contenedor, la directiva de reinicio y el estado deseado, consulte [Propiedades deseadas de EdgeAgent](../iot-edge/module-edgeagent-edgehub.md#edgeagent-desired-properties). Para más información sobre el módulo gemelo, consulte [Definición o actualización de las propiedades deseadas](../iot-edge/module-composition.md#define-or-update-desired-properties).
 
 7. Seleccione **guardar** y repita el paso **5**.  
 
@@ -156,7 +156,7 @@ La manera más fácil de implementar los módulos en un dispositivo de puerta de
    Como *Opciones de creación del contenedor*, use el siguiente JSON:
 
    ```json
-   {"Hostname":"publisher","Cmd":["publisher","--pf=./pn.json","--di=60","--to","--aa","--si=0","--ms=0"],"ExposedPorts":{"62222/tcp":{}},"HostConfig":{"PortBindings":{"62222/tcp":[{"HostPort":"62222"}] }}}
+   {"Hostname":"publisher","Cmd":["publisher","--pf=./pn.json","--di=60","--tm","--aa","--si=0","--ms=0"],"ExposedPorts":{"62222/tcp":{}},"HostConfig":{"PortBindings":{"62222/tcp":[{"HostPort":"62222"}] }}}
    ```
 
 9. Seleccione **Guardar** y, después, **Siguiente** para ir a la sección de rutas.
@@ -182,7 +182,7 @@ La manera más fácil de implementar los módulos en un dispositivo de puerta de
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-1. Instale la versión más reciente de la [interfaz de la línea de comandos de Azure (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) desde [aquí](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Instale la versión más reciente de la [interfaz de la línea de comandos de Azure (AZ)](/cli/azure/?view=azure-cli-latest) desde [aquí](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="quickstart"></a>Inicio rápido
 
@@ -195,7 +195,7 @@ La manera más fácil de implementar los módulos en un dispositivo de puerta de
    ```
 
    El parámetro `device id` distingue mayúsculas y minúsculas. El parámetro "content" apunta al archivo del manifiesto de implementación que guardó. 
-    ![az IoT Edge set-modules output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+    ![az IoT Edge set-modules output](/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. Una vez que los módulos se han implementado en el dispositivo, puede verlos todos con el siguiente comando:
 
@@ -203,7 +203,7 @@ La manera más fácil de implementar los módulos en un dispositivo de puerta de
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-   El parámetro del id. de dispositivo distingue mayúsculas y minúsculas. ![az iot hub module-identity list output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
+   El parámetro del id. de dispositivo distingue mayúsculas y minúsculas. ![az iot hub module-identity list output](/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

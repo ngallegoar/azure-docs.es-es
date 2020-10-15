@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 5dcf4ad7acb3becd2ca04407bc8e5b3ac45701f1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3cf126caaaa0c518574418aca194ebd82cc4d6b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501711"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972074"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Mantenimiento de máquinas virtuales en Azure
 
@@ -23,7 +23,7 @@ Las actualizaciones raramente afectan a las máquinas virtuales hospedadas. Cuan
 - Si la actualización no requiere un reinicio, la máquina virtual se pone en pausa mientras se actualiza el host, o bien se migra directamente a un host ya actualizado. 
 - Si el mantenimiento requiere un reinicio, se notifica al usuario el mantenimiento planeado. Asimismo, Azure proporciona un período de tiempo en el que puede iniciar el mantenimiento a la hora que le sea más conveniente. El período de mantenimiento de autoservicio es normalmente de 35 días, a menos que el mantenimiento sea urgente. Azure está invirtiendo en tecnologías para reducir los casos en los que el mantenimiento planificado de la plataforma requiere el reinicio de la máquina virtual. Para obtener instrucciones sobre la administración del mantenimiento planeado, vea Control de las notificaciones de mantenimiento planeado mediante la [CLI](maintenance-notifications-cli.md) de Azure, [PowerShell](maintenance-notifications-powershell.md) o el [portal](maintenance-notifications-portal.md).
 
-En esta página se describe cómo Azure realiza ambos tipos de mantenimiento. Para obtener más información sobre eventos no planeados (interrupciones), vea  [Administración de la disponibilidad de las máquinas virtuales para Windows](./windows/manage-availability.md) o el artículo correspondiente para [Linux](./linux/manage-availability.md).
+En esta página se describe cómo Azure realiza ambos tipos de mantenimiento. Para obtener más información sobre eventos no planeados (interrupciones), vea  [Administración de la disponibilidad de las máquinas virtuales para Windows](./manage-availability.md) o el artículo correspondiente para [Linux](./manage-availability.md).
 
 Dentro de una máquina virtual, puede obtener una notificación sobre el próximo mantenimiento si [usa Scheduled Events para Windows](./windows/scheduled-events.md) o para [Linux](./linux/scheduled-events.md).
 
@@ -41,7 +41,7 @@ Estas operaciones de mantenimiento que no requieren un reinicio se aplican por d
 
 Estos tipos de actualizaciones pueden afectar a algunas aplicaciones. Cuando la máquina virtual se migra en vivo a otro host, es posible que algunas cargas de trabajo sensibles sufran una pequeña degradación del rendimiento en los pocos minutos anteriores a la pausa de la máquina virtual. Para preparar el mantenimiento de la máquina virtual y reducir el impacto durante el mantenimiento de Azure, intente [usar Scheduled Events para Windows](./windows/scheduled-events.md) o [Linux](./linux/scheduled-events.md) para estas aplicaciones. 
 
-Para un mayor control sobre todas las actividades de mantenimiento, incluidas las actualizaciones sin impacto y sin reinicio, puede usar la característica de control de mantenimiento. Debe usar instancias de [Azure Dedicated Host](./linux/dedicated-hosts.md) o una [máquina virtual aislada](../security/fundamentals/isolation-choices.md). El control de mantenimiento ofrece la opción de omitir todas las actualizaciones de la plataforma y aplicarlas a la hora que elija durante un período sucesivo de 35 días. Para obtener más información, consulte [Control de las actualizaciones con el control de mantenimiento y la CLI de Azure](maintenance-control.md).
+Para un mayor control sobre todas las actividades de mantenimiento, incluidas las actualizaciones sin impacto y sin reinicio, puede usar la característica de control de mantenimiento. Debe usar instancias de [Azure Dedicated Host](./dedicated-hosts.md) o una [máquina virtual aislada](../security/fundamentals/isolation-choices.md). El control de mantenimiento ofrece la opción de omitir todas las actualizaciones de la plataforma y aplicarlas a la hora que elija durante un período sucesivo de 35 días. Para obtener más información, consulte [Control de las actualizaciones con el control de mantenimiento y la CLI de Azure](maintenance-control.md).
 
 
 ### <a name="live-migration"></a>Migración en vivo
@@ -87,7 +87,7 @@ En un conjunto de disponibilidad, las máquinas virtuales individuales se repart
 
 Los *conjuntos de escalado* de máquinas virtuales son un recurso informático de Azure que se puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas como un recurso único. El conjunto de escalado se implementa automáticamente entre dominios de actualización, como las máquinas virtuales de un conjunto de disponibilidad. Igual que sucede con los conjuntos de disponibilidad, cuando se usan conjuntos de escalado, solo un dominio de actualización se actualiza en un momento determinado durante el mantenimiento programado.
 
-Para obtener más información sobre la configuración de las máquinas virtuales para la alta disponibilidad, vea  [Administración de la disponibilidad de las máquinas virtuales para Windows](./windows/manage-availability.md) o el artículo correspondiente para [Linux](./linux/manage-availability.md).
+Para obtener más información sobre la configuración de las máquinas virtuales para la alta disponibilidad, vea  [Administración de la disponibilidad de las máquinas virtuales para Windows](./manage-availability.md) o el artículo correspondiente para [Linux](./manage-availability.md).
 
 #### <a name="availability-zones"></a>Zonas de disponibilidad
 
@@ -99,4 +99,4 @@ Cada actualización de infraestructura implementa la zona por zona, dentro de un
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-Puede usar la [CLI de Azure](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) o el [portal](maintenance-notifications-portal.md) para administrar el mantenimiento planeado. 
+Puede usar la [CLI de Azure](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) o el [portal](maintenance-notifications-portal.md) para administrar el mantenimiento planeado.

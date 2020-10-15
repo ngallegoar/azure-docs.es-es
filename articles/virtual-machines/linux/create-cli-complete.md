@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 4348d3d71259b5bdf63b1c52af53bff59c650086
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 17d36acfa2de699ff2b22ac16d327ea738519f4a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829023"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975389"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Creación de una máquina virtual completa de Linux con la CLI de Azure
 Para crear rápidamente una máquina virtual en Azure, puede usar un solo comando de la CLI de Azure que use valores predeterminados para crear los recursos de apoyo necesarios. Los recursos como una red virtual, una dirección IP pública y reglas de grupo de seguridad de red se crean automáticamente. Para tener más control del entorno en uso de producción, puede crear estos recursos antes de tiempo y luego agregarles las máquinas virtuales. Este artículo lo guía a lo largo del proceso de creación de una máquina virtual y de cada uno de los recursos de apoyo.
@@ -434,7 +434,7 @@ Los dominios de error definen un grupo de máquinas virtuales que comparten una 
 
 Los dominios de actualización indican grupos de máquinas virtuales y hardware físico subyacente que se pueden reiniciar al mismo tiempo. Durante el mantenimiento planeado, es posible que el orden de reinicio de los dominios de actualización no sea secuencial, sino que solo se reinicie un dominio de actualización cada vez.
 
-Azure distribuye automáticamente las máquinas virtuales en los dominios de error y actualización al colocarlas en un conjunto de disponibilidad. Para más información, vea [Administración de la disponibilidad de las máquinas virtuales](manage-availability.md).
+Azure distribuye automáticamente las máquinas virtuales en los dominios de error y actualización al colocarlas en un conjunto de disponibilidad. Para más información, vea [Administración de la disponibilidad de las máquinas virtuales](../manage-availability.md).
 
 Cree un conjunto de disponibilidad para las máquinas virtuales con [az vm availability-set create](/cli/azure/vm/availability-set). En el ejemplo siguiente se crea un conjunto de disponibilidad denominado *myAvailabilitySet*:
 

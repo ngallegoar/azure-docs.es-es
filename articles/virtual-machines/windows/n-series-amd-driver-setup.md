@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
 ms.openlocfilehash: 74827e78017ad3540709fa0e671762a985976cda
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86999010"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalación de controladores de GPU de AMD en máquinas virtuales de la serie N con Windows

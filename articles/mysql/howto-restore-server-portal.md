@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: 7c9e7cda862fe1112cce7ed8cff270843f0a8475
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90902784"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante Azure Portal
@@ -41,7 +41,7 @@ Para cambiar el período de retención de copia de seguridad en un servidor, sig
 2. Seleccione un servidor de Azure Database for MySQL. Esta acción abre la página **Información general**.
 3. Seleccione **Plan de tarifa** en el menú, en **Configuración**. Con el control deslizante puede cambiar el **Período de retención de copia de seguridad** entre 7 y 35 días.
 En la captura de pantalla siguiente, se ha aumentado a 34 días.
-:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Aumento del período de retención de copia de seguridad":::
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Plan de tarifa: elija la redundancia de las copias de seguridad":::
 
 4. Haga clic en **Aceptar** para confirmar el cambio.
 
@@ -57,11 +57,11 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
 2. En la barra de herramientas de la página **Información general** del servidor, seleccione **Restaurar**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database for MySQL - Información general - Botón Restaurar":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Plan de tarifa: elija la redundancia de las copias de seguridad":::
 
 3. Rellene el formulario Restaurar con la información necesaria:
 
-   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for MySQL - Información sobre restauración":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Plan de tarifa: elija la redundancia de las copias de seguridad":::
    - **Punto de restauración**: seleccione el momento al que desea restaurar.
    - **Servidor de destino:** : proporcione un nombre para el nuevo servidor.
    - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.
@@ -86,13 +86,13 @@ Si ha configurado el servidor para copias de seguridad con redundancia geográfi
 
 1. Seleccione el botón **Crear un recurso** (+) de la esquina superior izquierda del portal. Seleccione **Bases de datos** > **Azure Database for MySQL**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="Desplazamiento a Azure Database for MySQL.":::
+   :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="Plan de tarifa: elija la redundancia de las copias de seguridad":::
  
 2. Proporcione la suscripción, el grupo de recursos y el nombre del nuevo servidor. 
 
 3. Seleccione **Copia de seguridad** como el **Origen de datos**. Esta acción carga un menú desplegable en el que se proporciona una lista de servidores que tienen habilitadas copias de seguridad con redundancia geográfica.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Seleccione el origen de datos.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Plan de tarifa: elija la redundancia de las copias de seguridad":::
     
    > [!NOTE]
    > Al crear por primera vez un servidor, puede que no esté disponible para la restauración geográfica inmediatamente. Los metadatos pueden tardar unas horas en rellenarse.
@@ -100,21 +100,21 @@ Si ha configurado el servidor para copias de seguridad con redundancia geográfi
 
 4. Seleccione la lista desplegable **Copia de seguridad**.
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Selección de la lista desplegable Copia de seguridad.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Plan de tarifa: elija la redundancia de las copias de seguridad":::
 
 5. Seleccione el servidor de origen desde el que se va a restaurar.
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Selección de la copia de seguridad.":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Plan de tarifa: elija la redundancia de las copias de seguridad":::
 
 6. El servidor usará de forma predeterminada los valores para el número de **Núcleos virtuales**, **Período de retención de copia de seguridad**, la opción **Redundancia de copia de seguridad**, la **versión del motor** y las **credenciales de administrador**. Seleccione **Continuar**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Continuación con la copia de seguridad.":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Plan de tarifa: elija la redundancia de las copias de seguridad":::
 
 7. Rellene el resto del formulario con sus preferencias. Puede seleccionar cualquier valor en **Ubicación**.
 
     Después de seleccionar la ubicación, puede seleccionar **Configurar servidor** para actualizar **Generación de procesos** (si está disponible en la región que ha elegido), el número de **Núcleos virtuales**, **Período de retención de copia de seguridad** y la opción  **Redundancia de copia de seguridad**. No se permite cambiar el **Plan de tarifa** (Básico, Uso general o Memoria optimizada) ni el tamaño de **Almacenamiento** durante la restauración.
 
-   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Cumplimentación del formulario."::: 
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Plan de tarifa: elija la redundancia de las copias de seguridad"::: 
 
 8. Seleccione **Review + create** (Revisar y crear) para revisar las selecciones. 
 

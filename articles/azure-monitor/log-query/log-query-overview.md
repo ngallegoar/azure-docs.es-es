@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 5a47de51a90d926b47f6b465d6c10111407da9c6
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 55463f6af47ef8eda712b1787a89a710c08c1fe6
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033173"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995210"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Introducción a las consultas de registro en Azure Monitor
 Las consultas de registro ayudan a aprovechar al máximo el valor de los datos recopilados en [registros de Azure Monitor](../platform/data-platform-logs.md). Un lenguaje de consulta eficaz permite combinar datos de varias tablas, agregar grandes conjuntos de datos y realizar operaciones complejas con una mínima cantidad de código. Se puede responder casi cualquier pregunta y realizar cualquier análisis, siempre y cuando se hayan recopilado los datos de respaldo y comprenda cómo construir la consulta adecuada.
@@ -38,7 +38,7 @@ Consulte [Introducción a las consultas de registro en Azure Monitor](get-starte
 Consulte [Diferencias en el lenguaje de consulta de los registros de Azure Monitor](data-explorer-difference.md) para conocer las pequeñas diferencias en la versión de KQL que Azure Monitor usa.
 
 ## <a name="what-data-is-available-to-log-queries"></a>¿Qué datos están disponibles para registrar consultas?
-Todos los datos recopilados en los registros de Azure Monitor están disponibles para recuperar y analizar en consultas de registros. Diferentes orígenes de datos escribirán sus datos en tablas diferentes, pero puede incluir varias tablas en una sola consulta para analizar datos entre varios orígenes. Cuando compila una consulta, primero debe determinar las tablas que tienen los datos que está buscando. Consulte [Estructura de los registros de Azure Monitor](logs-structure.md) para obtener una explicación de cómo se estructuran los datos.
+Todos los datos recopilados en los registros de Azure Monitor están disponibles para recuperar y analizar en consultas de registros. Diferentes orígenes de datos escribirán sus datos en tablas diferentes, pero puede incluir varias tablas en una sola consulta para analizar datos entre varios orígenes. Cuando compila una consulta, primero debe determinar las tablas que tienen los datos que está buscando. Consulte [Estructura de los registros de Azure Monitor](../platform/data-platform-logs.md) para obtener una explicación de cómo se estructuran los datos.
 
 ## <a name="what-does-a-log-query-look-like"></a>¿Qué aspecto tiene una consulta de registro?
 Una consulta puede ser tan simple como un nombre de tabla única para recuperar todos los registros de esa tabla:

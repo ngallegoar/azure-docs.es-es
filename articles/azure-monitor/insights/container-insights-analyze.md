@@ -3,12 +3,12 @@ title: Supervisión de Kubernetes con Azure Monitor para contenedores | Microsof
 description: En este artículo se describe cómo puede ver y analizar el rendimiento de un clúster de Kubernetes con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 5d267715ed9748c69c33bbd7bc5af0db7b118502
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988132"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994772"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Supervisión del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores
 
@@ -293,7 +293,7 @@ Los iconos en el campo de estado indican los estados en línea de los pods, tal 
 
 ## <a name="workbooks"></a>Workbooks
 
-Los libros combinan texto, [consultas de registros](../log-query/query-language.md), [métricas ](../platform/data-platform-metrics.md)y parámetros para crear informes interactivos avanzados. Otros miembros del equipo con acceso a los mismos recursos de Azure pueden editar los libros.
+Los libros combinan texto, [consultas de registros](/azure/data-explorer/kusto/query/), [métricas ](../platform/data-platform-metrics.md)y parámetros para crear informes interactivos avanzados. Otros miembros del equipo con acceso a los mismos recursos de Azure pueden editar los libros.
 
 Azure Monitor para contenedores incluye cuatro libros introductorios:
 
@@ -321,8 +321,8 @@ Para acceder a estos libros, seleccione cada uno de ellos en la lista desplegabl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte [Creación de alertas de rendimiento con Azure Monitor para contenedores](container-insights-alerts.md) para aprender a crear alertas si se produce un uso elevado de la CPU y la memoria, con el fin de admitir sus DevOps o sus procesos y procedimientos operativos.
+- Consulte [Creación de alertas de rendimiento con Azure Monitor para contenedores](./container-insights-log-alerts.md) para aprender a crear alertas si se produce un uso elevado de la CPU y la memoria, con el fin de admitir sus DevOps o sus procesos y procedimientos operativos.
 
 - En los [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) encontrará consultas predefinidas y ejemplos que puede evaluar o personalizar para las alertas, visualización o análisis de los clústeres.
 
-- Vea [Supervisión del estado del clúster](container-insights-health.md) para obtener información sobre cómo ver el estado de mantenimiento del clúster de Kubernetes.
+- Vea [Supervisión del estado del clúster](./container-insights-overview.md) para obtener información sobre cómo ver el estado de mantenimiento del clúster de Kubernetes.

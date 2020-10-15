@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a3b6f90d0aa26b478c0f2fcefac55dcd509da437
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243552"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070952"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Control de errores en las directivas de API Management
 
@@ -190,4 +190,4 @@ Para obtener más información sobre cómo trabajar con directivas, consulte:
 -   [Directivas de Azure API Management](api-management-howto-policies.md)
 -   [API de transformación](transform-api.md)
 -   En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
--   [Ejemplos de directivas](policy-samples.md)
+-   [Ejemplos de directivas](./policy-reference.md)

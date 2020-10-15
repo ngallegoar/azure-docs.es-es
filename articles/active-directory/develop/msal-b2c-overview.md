@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119798"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Uso de la biblioteca de autenticación de Microsoft para JavaScript a fin de trabajar con Azure AD B2C
@@ -201,7 +201,7 @@ Cuando un usuario selecciona **Contraseña olvidada**, la aplicación produce un
 
     Después de restablecer la contraseña, se devuelve al usuario a la aplicación para iniciar sesión de nuevo.
 
-    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Pantallas de flujo de restablecimiento de contraseña que muestra Azure AD B2C" border="false":::
+    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Pantalla de inicio de sesión que muestra Azure AD B2C" border="false":::
 
     Para obtener más información sobre los códigos de error y el control de excepciones, vea [Códigos de excepción y de error de MSAL](msal-handling-exceptions.md).
 

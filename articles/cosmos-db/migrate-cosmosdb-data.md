@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
 ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263551"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migre cientos de terabytes de datos a Azure Cosmos DB 
@@ -145,7 +145,7 @@ Una vez completada la migración, puede validar que el número de documentos en 
 ## <a name="contact-the-azure-cosmos-db-team"></a>Ponerse en contacto con el equipo de Azure Cosmos DB
 Aunque puede seguir esta guía para migrar correctamente grandes conjuntos de datos a Azure Cosmos DB, para migraciones a gran escala, se recomienda ponerse en contacto con el equipo de producto de Azure Cosmos DB para validar el modelado de datos y una revisión de arquitectura general. En función del conjunto de datos y la carga de trabajo, el equipo de producto también puede sugerir otras optimizaciones de rendimiento y de costos que podrían ser aplicables a usted. Para ponerse en contacto con el equipo de Azure Cosmos DB para obtener ayuda con las migraciones a gran escala, puede abrir una incidencia de soporte técnico en el tipo de problema "Asesoramiento general" y el subtipo de problema "Grandes migraciones (TB+) como se indica a continuación.
 
-:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Tema sobre la compatibilidad con la migración":::
+:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Configuración de la herramienta de migración":::
 
 
 ## <a name="next-steps"></a>Pasos siguientes
