@@ -2,20 +2,20 @@
 title: Protección del acceso remoto a máquinas virtuales en Azure AD Domain Services | Microsoft Docs
 description: Aprenda a proteger el acceso remoto a máquinas virtuales mediante el Servidor de directivas de redes (NPS) y Azure Multi-Factor Authentication con una implementación de Servicios de Escritorio remoto en un dominio administrado de Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 462e0ff8ef8baadf40ba81ed2ae137d8904fbf7a
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: joflore
+ms.openlocfilehash: 2964ca74a05ccbc61646f8a289fc950b46cdad47
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722524"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967790"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Protección del acceso remoto a máquinas virtuales en Azure AD Domain Services
 

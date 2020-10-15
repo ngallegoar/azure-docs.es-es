@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85118957"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Modelos de diseño de la fuente de cambios de Azure Cosmos DB
@@ -38,7 +38,7 @@ También puede desencadenar una notificación de forma selectiva o enviar una ll
 La fuente de cambios de Azure Cosmos DB se puede usar para el procesamiento de secuencias en tiempo real para IoT o el procesamiento de estadísticas sobre datos operativos en tiempo real.
 Por ejemplo, puede recibir y almacenar datos de eventos de dispositivos, sensores, infraestructura y aplicaciones, y luego procesarlos en tiempo real con [Spark](../hdinsight/spark/apache-spark-overview.md). En la siguiente imagen se muestra cómo puede implementar la arquitectura lambda mediante Azure Cosmos DB a través de la fuente de cambios:
 
-:::image type="content" source="./media/change-feed/lambda.png" alt-text="Canalización Lambda basada en Azure Cosmos DB para ingesta y consulta" border="false":::
+:::image type="content" source="./media/change-feed/lambda.png" alt-text="Uso de la fuente de cambios de Azure Cosmos DB para aumentar la eficacia de los escenarios de informática orientada a eventos y análisis en tiempo real" border="false":::
 
 En muchos casos, las implementaciones de procesamiento de secuencias reciben primero un gran volumen de datos entrantes en una cola de mensajes temporal, como Azure Event Hub o Apache Kafka. La fuente de cambios es una alternativa excelente debido a la capacidad de Azure Cosmos DB para admitir una alta tasa de ingesta de datos con una latencia de lectura y escritura baja garantizada. Las ventajas de la fuente de cambios de Azure Cosmos DB en una cola de mensajes incluyen:
 

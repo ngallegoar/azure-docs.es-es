@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 79910aa60602a80cbe79c4ce9899f6ff73fbfde9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 922565d26274aee12c9397c08c19330b4fce00e7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75422251"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076307"
 ---
 # <a name="add-a-header-containing-a-correlation-id"></a>Incorporación de un encabezado con un identificador de correlación
 
-Este artículo muestra un ejemplo de directiva de Azure API Management que demuestra cómo agregar un encabezado con un identificador de correlación para la solicitud de entrada. Para establecer o modificar un código de la directiva, siga los pasos descritos en [Establecimiento o modificación de directivas](../set-edit-policies.md). Para ver otros ejemplos, consulte los [ejemplos de directiva](../policy-samples.md).
+Este artículo muestra un ejemplo de directiva de Azure API Management que demuestra cómo agregar un encabezado con un identificador de correlación para la solicitud de entrada. Para establecer o modificar un código de la directiva, siga los pasos descritos en [Establecimiento o modificación de directivas](../set-edit-policies.md). Para ver otros ejemplos, consulte los [ejemplos de directiva](../policy-reference.md).
 
 ## <a name="policy"></a>Directiva
 
@@ -35,5 +35,4 @@ Pegue el código en el bloque de **entrada**.
 Obtenga más información sobre las directivas APIM:
 
 + [Directivas de transformación](../api-management-transformation-policies.md)
-+ [Ejemplos de directivas](../policy-samples.md)
-
++ [Ejemplos de directivas](../policy-reference.md)

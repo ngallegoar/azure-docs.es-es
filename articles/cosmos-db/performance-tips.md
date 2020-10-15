@@ -8,17 +8,17 @@ ms.date: 06/26/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: efedfb9701d12548b80eccda9cd2aa29bc644ac2
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802147"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Sugerencias de rendimiento para Azure Cosmos DB y el SDK de .NET v2
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [SDK de .NET v2](performance-tips.md)
+> * [SDK de .NET v2](performance-tips.md)
 > * [SDK de Java v4](performance-tips-java-sdk-v4-sql.md)
 > * [Versión 2 del SDK de Java asincrónico](performance-tips-async-java.md)
 > * [SDK de Java v2 sincrónico](performance-tips-java.md)

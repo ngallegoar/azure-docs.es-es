@@ -7,10 +7,10 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: 76016da2ec542091aa57d5081e275a1f9f6671cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85114272"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de uso comunes de Azure Cosmos DB
@@ -57,11 +57,11 @@ Entre los escenarios de uso de los datos de catálogo se encuentra el almacenami
 
 Piense por ejemplo en un catálogo de productos para un proveedor de piezas para vehículos. Cada pieza puede tener sus propios atributos además de los atributos comunes que comparten todas las piezas. Además, los atributos de una pieza específica pueden cambiar al año siguiente, cuando se lance un nuevo modelo. Azure Cosmos DB admite esquemas flexibles y datos jerárquicos, y por ello es adecuado para almacenar los datos del catálogo de productos.
 
-:::image type="content" source="./media/use-cases/product-catalog.png" alt-text="Arquitectura de referencia del catálogo de minoristas de Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/use-cases/product-catalog.png" alt-text="Arquitectura de referencia de IoT de Azure Cosmos DB" border="false":::
 
 Azure Cosmos DB se suele utilizar en el abastecimiento de eventos para mejorar las arquitecturas orientadas a eventos mediante su funcionalidad de [fuente de cambios](change-feed.md). La fuente de cambios proporciona a los microservicios de nivel inferior la capacidad de leer de forma confiable e incremental las inserciones y actualizaciones (por ejemplo, los eventos desordenados) realizadas en una instancia de Azure Cosmos DB. Esta funcionalidad se puede aprovechar para proporcionar un almacén de eventos persistente como un agente de mensajes para los eventos de cambio de estado y dirigir el orden del flujo de trabajo de procesamiento entre muchos microservicios (lo que se puede implementar como [funciones de Azure sin servidor](https://azure.com/serverless)).
 
-:::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="Arquitectura de referencia para la ordenación de las canalizaciones de Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="Arquitectura de referencia de IoT de Azure Cosmos DB" border="false":::
 
 Además, los datos almacenados en Azure Cosmos DB pueden integrarse con HDInsight para el análisis de macrodatos a través de trabajos de Apache Spark. Para detalles sobre el conector de Spark para Azure Cosmos DB, consulte [Ejecución de un trabajo de Spark con Cosmos DB y HDInsight](spark-connector.md).
 
@@ -76,7 +76,7 @@ Azure Cosmos DB se usa en juegos como [The Walking Dead: No s Land Man](https://
 * Las características sociales, como los mensajes de chat dentro del juego, las pertenencias a gremios de los jugadores, los retos completados, los marcadores de puntuaciones se implementan con más facilidad gracias a un esquema flexible.
 * Azure Cosmos DB, como una plataforma como servicio (PaaS) administrada, requiere tareas de configuración y administración mínimas para facilitar la rápida creación de iteraciones y reducir el tiempo necesario para llevar los productos al mercado.
 
-:::image type="content" source="./media/use-cases/gaming.png" alt-text="Arquitectura de referencia de juegos de Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/use-cases/gaming.png" alt-text="Arquitectura de referencia de IoT de Azure Cosmos DB" border="false":::
 
 ## <a name="web-and-mobile-applications"></a>Aplicaciones web y móviles
 Azure Cosmos DB se usa normalmente en aplicaciones web y móviles y sirve para modelar interacciones sociales, para la integración con servicios de terceros y para la creación de experiencias personalizadas enriquecidas. Los SDK de Cosmos DB pueden utilizarse para generar completas aplicaciones de iOS y Android mediante el conocido [marco Xamarin](mobile-apps-with-xamarin.md).  
@@ -88,14 +88,14 @@ Las aplicaciones que se integran con redes sociales de terceros deben responder 
 
 Muchas de las aplicaciones sociales se ejecutan a escala global y pueden presentar patrones de uso impredecibles. La flexibilidad en el escalado del almacén de datos es esencial, ya que el nivel de la aplicación se escala para satisfacer la demanda de uso.  Es posible escalar horizontalmente mediante la adición de particiones de datos adicionales a una cuenta de Cosmos DB.  Además, también puede crear cuentas adicionales de Cosmos DB en varias regiones. Para ver la disponibilidad del servicio de Cosmos DB por regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/#services).
 
-:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="Arquitectura de referencia de aplicaciones web de Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="Arquitectura de referencia de IoT de Azure Cosmos DB" border="false":::
 
 ### <a name="personalization"></a>Personalización
 En la actualidad, las aplicaciones modernas incluyen experiencias y vistas complejas. Normalmente son dinámicas, encargándose de las preferencias o los estados de ánimo del usuario y las necesidades de personalización de marca. Por lo tanto, las aplicaciones requieren la capacidad de recuperar la configuración personalizada eficazmente para representar elementos de interfaz de usuario y experiencias rápidamente. 
 
 JSON, un formato compatible con Cosmos DB, es eficaz para representar datos de diseño de la interfaz de usuario que no solo es ligero, sino que también se puede interpretar fácilmente mediante JavaScript. Cosmos DB ofrece niveles de coherencia ajustables que permiten lecturas rápidas con escrituras de baja latencia. Por lo tanto, el almacenamiento de datos de diseño de la interfaz de usuario, incluida la configuración personalizada como documentos JSON en Cosmos DB, es un medio eficaz para obtener estos datos a través de la red.
 
-:::image type="content" source="./media/use-cases/personalization.png" alt-text="Arquitectura de referencia de aplicaciones web de Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/use-cases/personalization.png" alt-text="Arquitectura de referencia de IoT de Azure Cosmos DB" border="false":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

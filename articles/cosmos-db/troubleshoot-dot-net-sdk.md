@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 3093996156a31d4a06f0d91dbca1bd00d58eacdb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 581c8fcad62c40555a90b7455a260259f3a09212
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330458"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91802420"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnóstico y solución de problemas al usar el SDK de .NET de Azure Cosmos DB
 
@@ -82,7 +82,7 @@ Si la aplicación está implementada en [Azure Virtual Machines sin una direcci�
 * Asigne una [dirección IP pública a la VM de Azure](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Latencia de red alta
-La latencia de red alta puede identificarse mediante la [cadena de diagnósticos ](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) en el SDK de V2 o el [diagnóstico](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) en el SDK de V3.
+La latencia de red alta puede identificarse mediante la [cadena de diagnósticos ](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet&preserve-view=true) en el SDK de V2 o el [diagnóstico](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) en el SDK de V3.
 
 Si no hay ningún [tiempo de espera ](troubleshoot-dot-net-sdk-request-timeout.md) presente y el diagnóstico muestra solicitudes únicas en las que la latencia alta es evidente en la diferencia entre `ResponseTime` y `RequestStartTime`, como se muestra a continuación (> 300 milisegundos en este ejemplo):
 
