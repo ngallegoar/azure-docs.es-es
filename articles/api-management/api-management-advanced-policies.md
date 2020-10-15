@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 6ac3457a22128f313084ab070a5a61c2d26d4b85
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 01d50f6228d63801f62ae933a8367f842d89ef97
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851688"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071377"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 
-En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
+En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
 
 ## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a> Directivas avanzadas
 
@@ -1041,4 +1041,4 @@ Para obtener más información sobre cómo trabajar con directivas, consulte:
 -   [Directivas de Azure API Management](api-management-howto-policies.md)
 -   [Expresiones de directiva](api-management-policy-expressions.md)
 -   En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
--   [Ejemplos de directivas](policy-samples.md)
+-   [Ejemplos de directivas](./policy-reference.md)
