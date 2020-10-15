@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
 ms.openlocfilehash: 6f41863f45bdc90cb9fe589ba0a5011dea84a67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84485257"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Recomendaciones de rendimiento en Azure Database for MySQL
@@ -29,13 +29,13 @@ La característica [Recomendaciones de rendimiento](concepts-performance-recomme
 
 Abra **Recomendaciones de rendimiento** desde la sección **Rendimiento inteligente** de la barra de menús en la página de Azure Portal para el servidor MySQL.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="Página de aterrizaje de recomendaciones de rendimiento":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="Página de inicio de Recomendaciones de rendimiento":::
 
 Seleccione **Analizar** y elija una base de datos, lo que iniciará el análisis. Según la carga de trabajo, el análisis puede tardar varios minutos. Una vez que se realice el análisis, habrá una notificación en el portal. El análisis realiza un examen en profundidad de la base de datos. Se recomienda realizar el análisis durante los períodos de poca actividad.
 
 La ventana **Recomendaciones** ahora mostrará una lista de las recomendaciones que se encontraron y el identificador de la consulta relacionada que generó cada recomendación. Con el identificador de la consulta, puede usar la vista [mysql.query_store](concepts-query-store.md#mysqlquery_store) para obtener más información sobre la consulta.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nueva página de recomendaciones de rendimiento":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Página de inicio de Recomendaciones de rendimiento":::
 
 Las recomendaciones no se aplican automáticamente. Para aplicar la recomendación, copie el texto de la consulta y ejecútelo desde el cliente que prefiera. No olvide probar y supervisar para evaluar la recomendación.
 
@@ -47,7 +47,7 @@ Las recomendaciones de *Crear índice* sugieren nuevos índices para acelerar la
 
 ### <a name="query-recommendations"></a>Recomendaciones de consulta
 
-Las recomendaciones de consulta sugieren optimizaciones y reescrituras para las consultas de la carga de trabajo. Mediante la identificación de los antipatrones de consulta MySQL y su corrección sintáctica, se puede mejorar el rendimiento de las consultas que tardan mucho tiempo. Este tipo de recomendación requiere que el Almacén de consultas esté habilitado. Almacén de consultas recopila información de consultas y proporciona estadísticas detalladas de tiempo de ejecución y frecuencia de las consultas, que el análisis usa para hacer la recomendación.
+Las recomendaciones de consulta sugieren optimizaciones y reescrituras para las consultas de la carga de trabajo. Mediante la identificación de los antipatrones de consulta MySQL y su corrección sintáctica, se puede mejorar el rendimiento de las consultas que tardan mucho tiempo. Este tipo de recomendación requiere que Almacén de consultas esté habilitado. Almacén de consultas recopila información de consultas y proporciona estadísticas detalladas de tiempo de ejecución y frecuencia de las consultas, que el análisis usa para hacer la recomendación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre la [supervisión y el ajuste](concepts-monitoring.md) en Azure Database for MySQL.

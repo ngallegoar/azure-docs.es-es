@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235712"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070374"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planeamiento de una implementación del aprovisionamiento automático de usuarios
 
@@ -129,7 +129,7 @@ Tenga en cuenta las necesidades de su organización para determinar la estrategi
 
 ### <a name="engage-the-right-stakeholders"></a>Interactuar con las partes interesadas adecuadas
 
-Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de involucrar a las partes interesadas correctas](https://aka.ms/deploymentplans) y que los roles de las partes interesadas en el proyecto se entiendan bien; para ello, documente las partes interesadas y sus aportes y responsabilidades en el proyecto.
+Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de involucrar a las partes interesadas correctas](../fundamentals/active-directory-deployment-plans.md) y que los roles de las partes interesadas en el proyecto se entiendan bien; para ello, documente las partes interesadas y sus aportes y responsabilidades en el proyecto.
 
 ### <a name="plan-communications"></a>Planeamiento de las comunicaciones
 
@@ -264,7 +264,7 @@ El servicio de aprovisionamiento almacena el estado de ambos sistemas después d
 
 Use [Azure Portal](https://portal.azure.com/) para administrar el aprovisionamiento y el desaprovisionamiento automáticos de cuentas de usuario en aplicaciones que lo admitan. Siga los pasos que aparecen en [¿Cómo configuro el aprovisionamiento automático para una aplicación?](../app-provisioning/user-provisioning.md)
 
-El servicio de aprovisionamiento de usuarios de Azure AD también se puede configurar y administrar mediante [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+El servicio de aprovisionamiento de usuarios de Azure AD también se puede configurar y administrar mediante [Microsoft Graph API](/graph/api/resources/synchronization-overview).
 
 ## <a name="manage-automatic-user-provisioning"></a>Administración del aprovisionamiento automático de usuarios
 
@@ -274,7 +274,7 @@ Ahora que realizó la implementación, es necesario administrar la solución.
 
 Después de un [ciclo inicial](../app-provisioning/user-provisioning.md) exitoso, el servicio de aprovisionamiento de Azure AD ejecutará actualizaciones incrementales de manera indefinida, a intervalos específicos para cada aplicación, hasta que se produce alguno de estos eventos:
 
-* El servicio se detiene de manera manual y se desencadena un ciclo inicial nuevo mediante [Azure Portal](https://portal.azure.com/) o con el comando adecuado de [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+* El servicio se detiene de manera manual y se desencadena un ciclo inicial nuevo mediante [Azure Portal](https://portal.azure.com/) o con el comando adecuado de [Microsoft Graph API](/graph/api/resources/synchronization-overview).
 
 * Se desencadena un nuevo ciclo inicial debido a un cambio en las asignaciones de atributos o los filtros de ámbito.
 
@@ -310,7 +310,7 @@ Consulte los vínculos siguientes para solucionar los problemas que pueden surgi
 
 * [Escritura de expresiones para la asignación de atributos](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Introducción a la API de sincronización de Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Introducción a la API de sincronización de Azure AD](/graph/api/resources/synchronization-overview)
 
 * [Omisión de la eliminación de cuentas de usuario que están fuera de ámbito](skip-out-of-scope-deletions.md)
 

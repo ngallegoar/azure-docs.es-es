@@ -8,14 +8,16 @@ ms.topic: conceptual
 description: Use una fuente NuGet personalizada para acceder a paquetes NuGet y utilizarlos en Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
 manager: gwallace
-ms.openlocfilehash: 77c7b733b12d9b352f9a806cadc0f900b9283ef3
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: d60d7142d9b9979be76eebb3d324a448bd76638f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229284"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960225"
 ---
 # <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Uso de una fuente NuGet personalizada con Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Una fuente NuGet proporciona una manera cómoda de incluir orígenes de paquetes en un proyecto. Azure Dev Spaces necesita acceder a esta fuente para que las dependencias se instalen correctamente en el contenedor de Docker.
 

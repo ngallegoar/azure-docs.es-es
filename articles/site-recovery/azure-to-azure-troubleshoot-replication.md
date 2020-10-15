@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86130407"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Solución de problemas de replicación en recuperación ante desastres de VM de Azure
@@ -35,7 +35,7 @@ Debería ver el evento **Frecuencia de cambio de datos superior a los límites a
 
 Si selecciona el evento, debería ver la información exacta del disco:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Página que muestra los detalles del evento de la frecuencia de cambio de datos.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Página de Azure Site Recovery que muestra una frecuencia de cambio de datos que es demasiado alta.":::
 
 ### <a name="azure-site-recovery-limits"></a>Límites de Azure Site Recovery
 
@@ -56,7 +56,7 @@ Disco Premium P20, P30, P40 o P50 | 16 KB, o más |20 MB/s | 1684 GB por disco
 
 Azure Site Recovery tiene límites en la frecuencia de cambio de datos según el tipo de disco. Para ver si este problema es periódico o temporal, busque la frecuencia de cambio en la máquina virtual afectada. Vaya a la máquina virtual de origen. busque las métricas en **Supervisión** y agregue las métricas como se muestra en esta captura de pantalla:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Página que muestra el proceso de tres pasos para buscar la frecuencia de cambio de datos.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Página de Azure Site Recovery que muestra una frecuencia de cambio de datos que es demasiado alta.":::
 
 1. Seleccione **Agregar métrica** y agregue **Bytes de escritura de discos del SO/s** y **Bytes de escritura de discos de datos/s**.
 1. Supervise el aumento como se muestra en la captura de pantalla.

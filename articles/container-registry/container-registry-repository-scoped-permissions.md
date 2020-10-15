@@ -4,10 +4,10 @@ description: Cree un token con permisos orientados a repositorios específicos d
 ms.topic: article
 ms.date: 05/27/2020
 ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84509413"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Creación de un token con permisos orientados al repositorio
@@ -159,7 +159,7 @@ En el ejemplo siguiente se crea un token y se crea una asignación de ámbito co
     1. Escriba un nombre y una descripción para la asignación de ámbito. 
     1. En **Repositorios**, escriba `samples/hello-world` y, en **Permisos**, seleccione `content/read` y `content/write`. Luego, seleccione **+Agregar**.  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Creación de una asignación de ámbito en el portal":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Creación de un token en el portal":::
 
     1. Después de agregar los repositorios y los permisos, seleccione **Agregar** para agregar la asignación de ámbito.
 1. Acepte el valor de **Estado** del token predeterminado de **Habilitado** y seleccione **Crear**.
@@ -176,7 +176,7 @@ Para usar un token creado en el portal, debe generar una contraseña. Puede gene
 1. En la pantalla de contraseña, establezca opcionalmente una fecha de expiración para la contraseña y seleccione **Generar**. Se recomienda establecer una fecha de expiración.
 1. Después de generar una contraseña, cópiela y guárdela en una ubicación segura. No se puede recuperar una contraseña generada después de cerrar la pantalla, pero se puede generar una nueva.
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Creación de una contraseña de token en el portal":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Creación de un token en el portal":::
 
 ## <a name="authenticate-with-token"></a>Autenticación con un token
 

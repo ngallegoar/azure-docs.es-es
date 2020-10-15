@@ -1,20 +1,20 @@
 ---
 title: Creación de un bosque de recursos de Azure AD Domain Services mediante Azure PowerShell | Microsoft Docs
 description: En este artículo, aprenderá a crear y configurar un bosque de recursos de Azure Active Directory Domain Services y un bosque de salida para un entorno de Active Directory Domain Services local mediante Azure PowerShell.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.author: iainfou
-ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: joflore
+ms.openlocfilehash: e914c273adc632449ed31915127fe6d261a8d56c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723170"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960956"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Cree un bosque de recursos de Azure Active Directory Domain Services y una confianza de bosque de salida en un dominio local mediante Azure PowerShell
 

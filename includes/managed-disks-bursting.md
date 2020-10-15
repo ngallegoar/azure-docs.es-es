@@ -9,10 +9,10 @@ ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 634deb655620f99c7b7b2b55819c58308eaa5a92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275171"
 ---
 En Azure, ofrecemos la posibilidad de aumentar las IOPS de almacenamiento en disco y el rendimiento de MB/s, lo que se conoce como expansión, tanto en máquinas virtuales como en discos. La expansión es útil en muchos escenarios, como el control de tráfico de disco inesperado o el procesamiento de trabajos por lotes. Puede aprovechar de forma eficaz la expansión de nivel de VM y disco para lograr una excelente base de referencia y expandir el rendimiento en la VM y el disco. De este modo, puede lograr un excelente rendimiento de base de referencia y expandir el rendimiento tanto en la VM como en el disco. 

@@ -3,12 +3,12 @@ title: 'Tutorial: Implementación del clúster de vSphere en Azure'
 description: Aprenda a implementar un clúster de vSphere en Azure mediante Azure VMware Solution
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 3fab49640364ef1b2e68953d366b20f77556b486
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b673a67fac734c9cb63e96b6a0c3dc9182f4b994
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578330"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952291"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Implementación de una nube privada de Azure VMware Solution en Azure
 
@@ -43,7 +43,7 @@ Puede crear una nube privada de Azure VMware Solution mediante [Azure Portal](#a
 
 ### <a name="azure-cli"></a>Azure CLI
 
-En lugar de usar Azure Portal para crear una nube privada de Azure VMware Solution, puede usar la CLI de Azure con Azure Cloud Shell.  Para una lista de los comandos que puede usar con Azure VMware Solution, consulte [Comandos de Azure VMware](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+En lugar de usar Azure Portal para crear una nube privada de Azure VMware Solution, puede usar la CLI de Azure con Azure Cloud Shell.  Para una lista de los comandos que puede usar con Azure VMware Solution, consulte [Comandos de Azure VMware](/cli/azure/ext/vmware/vmware).
 
 #### <a name="open-azure-cloud-shell"></a>Apertura de Azure Cloud Shell
 
@@ -96,7 +96,7 @@ Una vez que se elimina una nube privada, no hay forma de recuperar las máquinas
 
 ## <a name="azure-vmware-commands"></a>Comandos de Azure VMware
 
-Para una lista de los comandos que puede usar con Azure VMware Solution, consulte [Comandos de Azure VMware](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+Para una lista de los comandos que puede usar con Azure VMware Solution, consulte [Comandos de Azure VMware](/cli/azure/ext/vmware/vmware).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

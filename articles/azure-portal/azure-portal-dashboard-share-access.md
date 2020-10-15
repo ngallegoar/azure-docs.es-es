@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 89c2b90b12a4fc16dd48571c00ff46dc62168d42
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923890"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077888"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Uso compartido de paneles de Azure mediante el control de acceso basado en rol
 
@@ -88,4 +88,4 @@ Puede asignar un rol a un grupo de usuarios de ese panel.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener una lista de roles, vea [Roles integrados de Azure](../role-based-access-control/built-in-roles.md).
-* Para más información sobre cómo administrar recursos, consulte [Administración de recursos de Azure con Azure Portal](resource-group-portal.md).
+* Para más información sobre cómo administrar recursos, consulte [Administración de recursos de Azure con Azure Portal](../azure-resource-manager/management/manage-resources-portal.md).

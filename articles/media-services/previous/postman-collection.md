@@ -1,6 +1,6 @@
 ---
 title: Importar la colección de Postman con las operaciones de streaming a petición de Azure
-description: En este artículo se proporciona una definición de la colección de Postman para llamadas de REST de Azure Media Services.
+description: Aprenda sobre la colección de Postman que contiene las solicitudes HTTP agrupadas que llaman a las API REST de Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f5f7a40cb72e1ae58f7962c4c8b80195a82ebdc5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3927133b9cbd59a5d085e7406d9dceb177a47637
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259275"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91268645"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar la colección de Postman con las operaciones de streaming a petición
 

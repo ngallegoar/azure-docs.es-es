@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: c410ac7f41adb623a7198320a1edced097778569
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 64391d7f5a7b1a295be7e404d27e5cbe8c691eb2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73826249"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079095"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de supervisión remota
 
@@ -40,13 +40,13 @@ Para obtener más información, vea [Upgrade map key to see devices on a dynamic
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>¿Dónde puedo encontrar información acerca de la versión anterior de la solución de supervisión remota?
 
-La versión anterior del acelerador de la solución de supervisión remota se conoce como la solución preconfigurada de supervisión remota de IoT Suite. Puede encontrar la documentación archivada en [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+La versión anterior del acelerador de la solución de supervisión remota se conoce como la solución preconfigurada de supervisión remota de IoT Suite. Puede encontrar la documentación archivada en [https://docs.microsoft.com/previous-versions/azure/iot-suite/](/previous-versions/azure/iot-suite/).
 
 ### <a name="next-steps"></a>Pasos siguientes
 
 También puede explorar algunas de las demás características y funcionalidades de los aceleradores de soluciones de IoT:
 
 * [Exploración de las funcionalidades del acelerador de soluciones de supervisión remota](quickstart-remote-monitoring-deploy.md)
-* [Introducción al acelerador de la solución de mantenimiento predictivo](iot-accelerators-predictive-overview.md)
+* [Introducción al acelerador de la solución de mantenimiento predictivo](./iot-accelerators-predictive-walkthrough.md)
 * [Implementación del acelerador de soluciones de Connected Factory](quickstart-connected-factory-deploy.md)
-* [Seguridad de Internet de las cosas desde el principio](/azure/iot-fundamentals/iot-security-ground-up)
+* [Seguridad de Internet de las cosas desde el principio](../iot-fundamentals/iot-security-ground-up.md)

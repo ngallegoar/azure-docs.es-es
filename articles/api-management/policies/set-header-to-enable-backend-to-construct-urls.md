@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: e525029ae8eab086d11126a4e18958423e207aa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df72ae5e9a1471e1387539d2c89a1eca0b09d866
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70067501"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078619"
 ---
 # <a name="add-a-forwarded-header"></a>Adición de un encabezado de reenviado
 
-Este artículo muestra un ejemplo de directiva de Azure API Management que demuestra cómo agregar un encabezado de reenviado a la solicitud de entrada para permitir que la API de back-end cree direcciones URL correctas. Para establecer o modificar un código de la directiva, siga los pasos descritos en [Establecimiento o modificación de directivas](../set-edit-policies.md). Para ver otros ejemplos, consulte los [ejemplos de directiva](../policy-samples.md).
+Este artículo muestra un ejemplo de directiva de Azure API Management que demuestra cómo agregar un encabezado de reenviado a la solicitud de entrada para permitir que la API de back-end cree direcciones URL correctas. Para establecer o modificar un código de la directiva, siga los pasos descritos en [Establecimiento o modificación de directivas](../set-edit-policies.md). Para ver otros ejemplos, consulte los [ejemplos de directiva](../policy-reference.md).
 
 ## <a name="code"></a>Código
 
@@ -34,4 +34,4 @@ Pegue el código en el bloque de **entrada**.
 Obtenga más información sobre las directivas APIM:
 
 + [Directivas de transformación](../api-management-transformation-policies.md)
-+ [Ejemplos de directivas](../policy-samples.md)
++ [Ejemplos de directivas](../policy-reference.md)
