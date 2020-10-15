@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 627c0c77cc206cd1b3210fcfc7b2a9bbc3c6daea
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 9468b9c2c906ffe26bae400dc9e4746630a66e0e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401102"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970323"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Base de referencia de seguridad de Azure para Linux Virtual Machines
 
@@ -32,7 +32,7 @@ Para obtener más información, consulte [Introducción a las líneas de base de
 
 Por otro lado, si tiene un caso de uso específico para un firewall centralizado, Azure Firewall también puede usarse para cumplir esos requisitos.
 
-* [Redes virtuales y máquinas virtuales en Azure](../windows/network-overview.md)
+* [Redes virtuales y máquinas virtuales en Azure](../network-overview.md)
 
 * [Creación de una red virtual](../../virtual-network/quick-create-portal.md)
 
@@ -64,7 +64,7 @@ También puede implementar el firewall de aplicaciones web (WAF) de Azure delant
 
 * [Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure Portal](../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
-* [Redes virtuales y máquinas virtuales en Azure](../windows/network-overview.md)
+* [Redes virtuales y máquinas virtuales en Azure](../network-overview.md)
 
 * [Información sobre los grupos de seguridad de red](../../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -82,7 +82,7 @@ Puede usar el acceso de red Just-in-Time de Azure Security Center para limitar l
 
 * [Implementación de Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../../security-center/threat-protection.md)
+* [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../../security-center/azure-defender.md)
 
 * [Descripción de la protección de red adaptable de Azure Security Center](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -148,7 +148,7 @@ Puede usar el acceso de red Just-in-Time de Azure Security Center para limitar l
 
 * [Configuración y administración de Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Ejemplos de Azure Policy para redes](/azure/governance/policy/samples/#network)
+* [Ejemplos de Azure Policy para redes](../../governance/policy/samples/built-in-policies.md#network)
 
 * [Creación de un plano técnico de Azure](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -182,7 +182,7 @@ Use Azure Policy para validar (o corregir) las configuraciones de los recursos d
 
 * [Configuración y administración de Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Ejemplos de Azure Policy para redes](/azure/governance/policy/samples/#network)
+* [Ejemplos de Azure Policy para redes](../../governance/policy/samples/built-in-policies.md#network)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -306,7 +306,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 **Guía**: necesitará una herramienta de terceros para la detección de vulnerabilidades antimalware dentro del sistema operativo Linux.
 
-* [Instrucciones para incorporar servidores Linux a Azure Security Center](../../security-center/quick-onboard-linux-computer.md)
+* [Instrucciones para incorporar servidores Linux a Azure Security Center](../../security-center/quickstart-onboard-machines.md)
 
 * [En el siguiente vínculo se proporcionan las directrices de seguridad recomendadas de Microsoft, que pueden servir como lista de criterios para el software de vulnerabilidad seleccionado](./security-recommendations.md)
 
@@ -514,7 +514,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Creación de suscripciones adicionales de Azure](../../cost-management-billing/manage/create-subscription.md)
 
-* [Creación de grupos de administración](../../governance/management-groups/create.md)
+* [Creación de grupos de administración](../../governance/management-groups/create-management-group-portal.md)
 
 * [Creación y uso de etiquetas](../../azure-resource-manager/management/tag-resources.md)
 
@@ -616,7 +616,7 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 **Guía**: necesitará una herramienta de terceros para la detección de vulnerabilidades antimalware dentro del sistema operativo Linux.
 
-* [Instrucciones para incorporar servidores Linux a Azure Security Center](../../security-center/quick-onboard-linux-computer.md)
+* [Instrucciones para incorporar servidores Linux a Azure Security Center](../../security-center/quickstart-onboard-machines.md)
 
 * [Directrices de seguridad recomendadas por Microsoft](./security-recommendations.md)
 
@@ -700,7 +700,7 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 * [Creación de suscripciones adicionales de Azure](../../cost-management-billing/manage/create-subscription.md)
 
-* [Creación de grupos de administración](../../governance/management-groups/create.md)
+* [Creación de grupos de administración](../../governance/management-groups/create-management-group-portal.md)
 
 * [Creación y uso de etiquetas](../../azure-resource-manager/management/tag-resources.md)
 
@@ -784,7 +784,7 @@ Además de usar Change Tracking para la supervisión de las aplicaciones de soft
 
 * [Configuración y administración de Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Denegación de un tipo de recurso específico con Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Denegación de un tipo de recurso específico con Azure Policy](../../governance/policy/samples/index.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -824,13 +824,13 @@ Además de usar Change Tracking para la supervisión de las aplicaciones de soft
 
 **Guía**: las aplicaciones de alto riesgo implementadas en el entorno de Azure se pueden aislar mediante redes virtuales, subredes, suscripciones, grupos de administración y se pueden proteger lo suficiente con una instancia de Azure Firewall, un firewall de aplicaciones web (WAF) o un grupo de seguridad de red (NSG).
 
-* [Redes virtuales y máquinas virtuales en Azure](../windows/network-overview.md)
+* [Redes virtuales y máquinas virtuales en Azure](../network-overview.md)
 
 * [Información general de Azure Firewall](../../firewall/overview.md)
 
 * [Introducción al firewall de aplicaciones web](../../web-application-firewall/overview.md)
 
-* [Introducción a la seguridad de red](../../virtual-network/security-overview.md)
+* [Introducción a la seguridad de red](../../virtual-network/network-security-groups-overview.md)
 
 * [Introducción a Azure Virtual Network](../../virtual-network/virtual-networks-overview.md)
 
@@ -990,7 +990,7 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: Administre las identidades de forma segura y automática
 
-**Instrucciones**: Use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
+**Guía**: Use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
 
 * [Configuración de las identidades administradas](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 

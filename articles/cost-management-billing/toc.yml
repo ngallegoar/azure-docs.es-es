@@ -180,8 +180,10 @@
               href: manage/pay-by-invoice.md
             - name: Creación de suscripciones adicionales
               href: manage/create-subscription.md
-            - name: Creación de suscripciones mediante programación
+            - name: Creación de suscripciones mediante programación con la API más reciente
               href: manage/programmatically-create-subscription.md
+            - name: Creación de suscripciones mediante programación con la API de versión preliminar
+              href: manage/programmatically-create-subscription-preview.md
             - name: Concesión de acceso para crear suscripciones de EA
               href: manage/grant-access-to-create-subscription.md
             - name: Información sobre la exportación de suscripciones
@@ -338,6 +340,12 @@
               href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
     - name: Solución de problemas
       items:
+        - name: Problemas de facturación del Contrato Enterprise con archivos de uso
+          href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
+        - name: Problemas de facturación de MCA con archivos de uso
+          href: manage/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables.md
+        - name: Problemas de facturación de CSP con archivos de uso
+          href: manage/troubleshoot-csp-billing-issues-usage-file-pivot-tables.md
         - name: No se han encontrado suscripciones
           href: manage/no-subscriptions-found.md
         - name: Problemas de pago

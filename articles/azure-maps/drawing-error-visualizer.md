@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86524750"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Uso del visualizador de errores de dibujo de Azure Maps
@@ -82,11 +82,11 @@ Después de iniciar la herramienta Visualizador de errores de dibujo, se mostrar
 
 El archivo _ConversionWarningsAndErrors.json_ se ha colocado en la raíz del directorio descargado. Para cargar el archivo _ConversionWarningsAndErrors.json_ puede arrastrar y colocar el archivo en el cuadro, o bien hacer clic en el cuadro, buscar el archivo en el cuadro de diálogo del explorador de archivos y, a continuación, cargar el archivo.
 
-:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Aplicación Visualizador de errores de dibujo: arrastrar y colocar para cargar datos":::
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Aplicación Visualizador de errores de dibujos: página de inicio":::
 
 Cuando se cargue el archivo _ConversionWarningsAndErrors.json_, verá una lista de errores y advertencias del paquete de dibujos. Cada error o advertencia se especifica por capa, nivel y un mensaje detallado. Para ver información detallada acerca de un error o una advertencia, haga clic en el vínculo **Detalles**. A continuación, aparecerá una sección debajo de la lista. Ahora puede ir a cada error para obtener más información sobre cómo resolverlo.
 
-:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Aplicación Visualizador de errores de dibujo: errores y advertencias":::
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Aplicación Visualizador de errores de dibujos: página de inicio":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,10 +4,10 @@ description: Obtenga información sobre los conceptos de identidad y acceso de A
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88750590"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceptos de identidad en Azure VMware Solution

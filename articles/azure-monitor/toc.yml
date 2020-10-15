@@ -141,7 +141,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Información general
+        - name: Introducción
           href: platform/alerts-overview.md
         - name: Alertas de métricas
           href: platform/alerts-metric-overview.md
@@ -214,6 +214,8 @@
           href: log-query/scope.md
         - name: Experiencia de registros simplificada
           href: log-query/simple-logs.md
+        - name: Consulta con Azure Data Explorer
+          href: platform/azure-data-explorer-monitor-proxy.md
         - name: Consultas de registros
           items:
             - name: Columnas estándar
@@ -303,6 +305,14 @@
               href: platform/service-providers.md
             - name: Clústeres dedicados
               href: log-query/logs-dedicated-clusters.md
+        - name: Exportación de datos
+          items:
+            - name: Exportación de datos del área de trabajo
+              href: platform/logs-data-export.md
+            - name: Exportación con Logic Apps
+              href: platform/logs-export-logic-app.md
+            - name: Consulta de datos exportados con Data Explorer
+              href: platform/azure-data-explorer-query-storage.md
     - name: Explorador de métricas
       items:
         - name: Introducción al Explorador de métricas
@@ -394,7 +404,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Información general
+            - name: Introducción
               href: platform/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension
@@ -1058,7 +1068,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md

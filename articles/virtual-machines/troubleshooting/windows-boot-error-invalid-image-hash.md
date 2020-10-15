@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: f607ebb64b27c45ec696d7fcd431a0ba2342697f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89447667"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969609"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Error de administración de arranque de Windows : estado 0xC0000428, hash de imagen no válido
 
@@ -28,7 +28,7 @@ En este artículo se proporcionan los pasos para resolver los problemas en los q
 
 ## <a name="symptom"></a>Síntoma
 
-Cuando use los [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la máquina virtual, verá que dicha captura de pantalla muestra la administración de arranque de Windows con el mensaje:
+Cuando use los [diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la máquina virtual, verá que dicha captura de pantalla muestra la administración de arranque de Windows con el mensaje:
 
   `File: \windows\system32\boot\winload.exe`
 
@@ -66,7 +66,7 @@ No se puede ampliar la fecha de expiración de una imagen de versión preliminar
 
 ## <a name="solution"></a>Solución
 
-Si se trata de una imagen de versión preliminar, no hay ninguna manera de ampliar la fecha de expiración de la imagen usada, por lo que deberá [implementar una nueva máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) mediante una imagen que no sea de versión preliminar. Los siguientes pasos le ayudarán a identificar si ha usado una imagen de versión preliminar, así como a proporcionar recursos para ayudarle a transferir datos de esta máquina virtual a una nueva. Si la ha identificado correctamente como una imagen de versión preliminar, no se podrá recuperar, ya que habrá expirado.
+Si se trata de una imagen de versión preliminar, no hay ninguna manera de ampliar la fecha de expiración de la imagen usada, por lo que deberá [implementar una nueva máquina virtual](../windows/quick-create-portal.md) mediante una imagen que no sea de versión preliminar. Los siguientes pasos le ayudarán a identificar si ha usado una imagen de versión preliminar, así como a proporcionar recursos para ayudarle a transferir datos de esta máquina virtual a una nueva. Si la ha identificado correctamente como una imagen de versión preliminar, no se podrá recuperar, ya que habrá expirado.
 
 En función de sus preferencias, puede usar Azure PowerShell o la CLI de Azure para consultar la imagen y determinar si se trata de una imagen de versión preliminar. Puede usar estos comandos para confirmar que se trata de una imagen de versión preliminar.
 
@@ -103,7 +103,7 @@ En función de sus preferencias, puede usar Azure PowerShell o la CLI de Azure p
 
 ### <a name="query-using-the-azure-cli"></a>Consulta mediante la CLI de Azure
 
-1. Si aún no lo hace, tendrá que [instalar la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+1. Si aún no lo hace, tendrá que [instalar la CLI de Azure](/cli/azure/install-azure-cli).
 1. Una vez descargado, use el símbolo del sistema o PowerShell para escribir el comando `az login` y, a continuación, inicie sesión con las credenciales de su cuenta.
 1. Una vez que haya iniciado sesión, escriba los comandos siguientes:
 

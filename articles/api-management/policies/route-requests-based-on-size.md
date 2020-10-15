@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 8cee2c13386a076f0321619754468cfc1e9fb31c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e59aece0be39bf671e3d1e62f1a0e4c2a42a1ec8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442431"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076477"
 ---
 # <a name="route-the-request-based-on-the-size-of-its-body"></a>Enrutamiento de la solicitud en función del tamaño de su cuerpo
 
-Este artículo incluye un ejemplo de directiva de Azure API Management que muestra cómo enrutar las solicitudes en función del tamaño del cuerpo. Para establecer o modificar un código de la directiva, siga los pasos descritos en [Establecimiento o modificación de directivas](../set-edit-policies.md). Para ver otros ejemplos, consulte los [ejemplos de directiva](../policy-samples.md).
+Este artículo incluye un ejemplo de directiva de Azure API Management que muestra cómo enrutar las solicitudes en función del tamaño del cuerpo. Para establecer o modificar un código de la directiva, siga los pasos descritos en [Establecimiento o modificación de directivas](../set-edit-policies.md). Para ver otros ejemplos, consulte los [ejemplos de directiva](../policy-reference.md).
 
 ## <a name="policy"></a>Directiva
 
@@ -35,5 +35,4 @@ Pegue el código en el bloque de **entrada**.
 Obtenga más información sobre las directivas APIM:
 
 + [Directivas de transformación](../api-management-transformation-policies.md)
-+ [Ejemplos de directivas](../policy-samples.md)
-
++ [Ejemplos de directivas](../policy-reference.md)

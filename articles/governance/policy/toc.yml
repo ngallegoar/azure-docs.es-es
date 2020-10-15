@@ -240,6 +240,8 @@
           href: /rest/api/resources/policyassignments
         - name: Definiciones de directiva
           href: /rest/api/resources/policydefinitions
+        - name: Exenciones de directiva
+          href: /rest/api/resources/policyexemptions
         - name: Definiciones de iniciativas
           href: /rest/api/resources/policysetdefinitions
         - name: Recursos con seguimiento de directiva

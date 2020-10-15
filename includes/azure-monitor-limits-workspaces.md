@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: c8868cd6f5c50b84f263155518ee553145afcfa9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e6b64b5a1a60ba3bbf93e607536eeb0379669c73
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602217"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91643656"
 ---
 **Volumen de colección de datos y retención** 
 
@@ -70,20 +70,30 @@ Azure Monitor es un servicio de datos a gran escala que atiende a miles de clien
 
 Cuando se envían datos a un área de trabajo a una velocidad superior al 80 % del umbral configurado en el área de trabajo, se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Cuando la velocidad de ingesta del volumen supera el umbral, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si la velocidad de ingesta del sigue superando el umbral o prevé que lo va a alcanzar pronto, puede abrir una solicitud de soporte técnico para solicitar su aumento. 
 
-Para recibir una notificación tanto si se acerca al límite de ingesta de datos del volumen del área de trabajo como si lo ha alcanzado, cree una [regla de alerta de registro](../articles/azure-monitor/platform/alerts-log.md) mediante la siguiente consulta cuya base lógica de alerta sea el número de resultados mayores que cero, un período de evaluación de 5 minutos y una frecuencia de 5 minutos.
+Para recibir una notificación tanto si se acerca al límite de la velocidad del volumen de ingesta de datos del área de trabajo como si lo ha alcanzado, cree una [regla de alerta de registro](../articles/azure-monitor/platform/alerts-log.md), para lo que debe utilizar la siguiente consulta con base lógica de alerta que sea el número de resultados mayores que cero, un período de evaluación de 5 minutos y una frecuencia de 5 minutos.
 
-La velocidad de ingesta del volumen ha alcanzado el 80 % del umbral:
+La velocidad de ingesta del volumen ha superado el umbral
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+| where OperationCategory == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where OperationStatus == "Error"
 ```
 
-La velocidad de ingesta del volumen ha alcanzado el umbral:
+La velocidad de ingesta del volumen ha superado el 80 % del umbral
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed the threshold"
+| where OperationCategory == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where OperationStatus == "Warning"
+```
+
+La velocidad de ingesta del volumen ha superado el 70 % del umbral
+```Kusto
+Operation
+| where OperationCategory == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where OperationStatus == "Info"
 ```
 
 >[!NOTE]

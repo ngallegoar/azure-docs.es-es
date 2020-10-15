@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: dfd0929ea03cd99033482f71579e91aaf6fc131c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 531c423e42338b72b41c54466d5bfe8a89cd3c45
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068035"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969644"
 ---
 # <a name="azure-image-builder-service-networking-options"></a>Opciones de red del servicio Azure Image Builder
 
@@ -33,7 +33,7 @@ Para más información, consulte uno de estos ejemplos:
 
 ### <a name="what-is-azure-private-link"></a>¿Qué es Azure Private Link?
 
-Azure Private Link proporciona conectividad privada desde una red virtual a la plataforma como servicio (PaaS) de Azure, propiedad del cliente o servicios de asociados de Microsoft. Simplifica la arquitectura de red y protege la conexión entre los puntos de conexión de Azure mediante la eliminación de la exposición de los datos a la red pública de Internet. Para obtener más información, consulte la [documentación de Private Link](https://docs.microsoft.com/azure/private-link).
+Azure Private Link proporciona conectividad privada desde una red virtual a la plataforma como servicio (PaaS) de Azure, propiedad del cliente o servicios de asociados de Microsoft. Simplifica la arquitectura de red y protege la conexión entre los puntos de conexión de Azure mediante la eliminación de la exposición de los datos a la red pública de Internet. Para obtener más información, consulte la [documentación de Private Link](../../private-link/index.yml).
 
 ### <a name="required-permissions-for-an-existing-vnet"></a>Permisos necesarios para una red virtual existente
 
@@ -68,7 +68,7 @@ El tamaño de la máquina virtual de proxy implementado es A1_v2 estándar adem�
 | subnetName | Nombre de la subred dentro de la red virtual especificada. Debe especificarse si y solo si se especifica *name*. |
 | resourceGroupName | Nombre del grupo de recursos que contiene la red virtual especificada. Debe especificarse si y solo si se especifica *name*. |
 
-El servicio Private Link requiere una dirección IP de la red virtual y la subred dadas. Actualmente, Azure no admite directivas de red en estas direcciones IP. Por lo tanto, es necesario deshabilitar las directivas de red en la subred. Para obtener más información, consulte la [documentación de Private Link](https://docs.microsoft.com/azure/private-link).
+El servicio Private Link requiere una dirección IP de la red virtual y la subred dadas. Actualmente, Azure no admite directivas de red en estas direcciones IP. Por lo tanto, es necesario deshabilitar las directivas de red en la subred. Para obtener más información, consulte la [documentación de Private Link](../../private-link/index.yml).
 
 ### <a name="checklist-for-using-your-vnet"></a>Lista de comprobación para usar la red virtual
 

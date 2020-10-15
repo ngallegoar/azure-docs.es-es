@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0a42763ff47cccfa506acbbbd95d20d41eb0827f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de060be7ace84ea309b71087a50fd572091bed43
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72965369"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076460"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Adición de un dispositivo IoT Edge al acelerador de soluciones de supervisión remota
 
@@ -45,10 +45,10 @@ Al registrar un dispositivo directamente con el centro de IoT en el acelerador d
 Antes de poder implementar módulos en su dispositivo Edge, debe instalar el entorno de ejecución de IoT Edge en el dispositivo real. En las guías de procedimientos siguientes se muestra cómo instalar el entorno de ejecución en las plataformas de dispositivo más comunes:
 
 - [Instalar el entorno de ejecución de Azure IoT Edge en Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
-- [Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux-arm.md)
-- [Instalación del entorno de ejecución de Azure IoT Edge en Windows para usar con contenedores de Windows](../iot-edge/how-to-install-iot-edge-windows-with-windows.md)
+- [Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux.md)
+- [Instalación del entorno de ejecución de Azure IoT Edge en Windows para usar con contenedores de Windows](../iot-edge/how-to-install-iot-edge-windows.md)
 - [Instalación del entorno de ejecución de Azure IoT Edge en Windows para su uso con contenedores Linux](../iot-edge/how-to-install-iot-edge-windows-with-linux.md)
-- [Instalación de la instancia de IoT Edge en tiempo de ejecución en un dispositivo Windows IoT Core](../iot-edge/how-to-install-iot-core.md)
+- [Instalación de la instancia de IoT Edge en tiempo de ejecución en un dispositivo Windows IoT Core](../iot-edge/how-to-install-iot-edge-windows.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

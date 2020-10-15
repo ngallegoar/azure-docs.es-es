@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: d2885c6cc259cba74ab991ecf5046856984824f1
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: d0b5d3678c3d9c7e55eede13c630510df89d5128
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631260"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045574"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal
 
@@ -46,9 +46,6 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
    Suscripción |Seleccione la suscripción de Azure que quiera usar.
    Resource group | Use un grupo de recursos existente en su suscripción o escriba un nombre para crear un nuevo grupo de recursos. Un grupo de recursos almacena los recursos relacionados con una solución de Azure. En este ejemplo, se usa **docs-aml**. Necesita el rol *colaborador* o *propietario* para usar un grupo de recursos existente.  Para obtener más información sobre el acceso, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
    Region | Seleccione la región de Azure más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
-   Edición del área de trabajo | Seleccione **Basic** o **Enterprise**.  Esta edición del área de trabajo determina las características a las que tendrá acceso y los precios. Más información sobre [Azure Machine Learning](overview-what-is-azure-ml.md). 
-
-    ![Configuración de un área de trabajo](./media/how-to-manage-workspace/select-edition.png)
 
 1. Cuando haya terminado de configurar el área de trabajo, seleccione **Revisar y crear**. También puede usar las secciones [Redes](#networking) y [Opciones avanzadas](#advanced) para configurar otros valores del área de trabajo.
 

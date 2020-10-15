@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 75603593e8c290b6bcb059207858d663ab5c96d9
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 68daec6bb6682d2b488abacb2f79bdfadc4ae628
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460123"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076579"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Solución de problemas de roles de servicios en la nube que no se inician
 Presentamos algunos problemas y soluciones comunes relacionados con los roles de Azure Cloud Services que no se inician.
@@ -122,6 +122,6 @@ Para tratar los errores de ensamblado y de DLL que faltan, siga estos pasos:
 Cuando haya comprobado que se han corregido todos los errores, se puede implementar el servicio sin activar la casilla **Habilitar IntelliTrace para roles de .NET 4** .
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea más [artículos de solución de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para servicios en la nube.
+Vea más [artículos de solución de problemas](../index.yml?product=cloud-services&tag=top-support-issue) para servicios en la nube.
 
-Para más información acerca de cómo solucionar los problemas de los roles de los servicios en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure, consulte la [serie de blogs de Kevin Williamson](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+Para más información acerca de cómo solucionar los problemas de los roles de los servicios en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure, consulte la [serie de blogs de Kevin Williamson](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

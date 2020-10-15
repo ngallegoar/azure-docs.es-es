@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: da75e1d6208db5adf5f0f63d2a5525fc651513b0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 233ba17e1ae1b554eff092151ad9f05fd660beb3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855913"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970017"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager
 
@@ -135,7 +135,7 @@ Este paso es opcional si desea revertir los cambios realizados en el modelo de i
 Después de finalizar la validación, puede confirmar la migración. Los recursos no aparecen en el modelo de implementación clásica y solo están disponibles en el modelo de implementación con Resource Manager. Los recursos migrados solo se pueden administrar en el nuevo portal.
 
 > [!NOTE]
-> Se trata de una operación idempotente. Si se produce un error, vuelva a intentar la operación. Si sigue teniendo errores, cree una incidencia de soporte técnico o cree un foro en [Microsoft Q&A](https://docs.microsoft.com/answers/index.html).
+> Se trata de una operación idempotente. Si se produce un error, vuelva a intentar la operación. Si sigue teniendo errores, cree una incidencia de soporte técnico o cree un foro en [Microsoft Q&A](/answers/index.html).
 >
 >
 

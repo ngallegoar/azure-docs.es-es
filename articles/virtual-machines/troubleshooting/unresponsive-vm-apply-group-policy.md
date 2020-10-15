@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
 ms.openlocfilehash: cbf2fe491e1fe0b553eab04ca7190da0413a3ba6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86526017"
 ---
 # <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>La máquina virtual no responde al aplicar la directiva de usuarios y grupos locales de directiva de grupo
@@ -31,7 +31,7 @@ Al usar [diagnósticos de arranque](./boot-diagnostics.md) para ver una captura 
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Captura de pantalla que muestra Applying Group Policy Local Users and Groups policy (Aplicando la directiva de usuarios y grupos locales de la directiva de grupo) cargándose (Windows Server 2012 R2).":::
 
-:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="Captura de pantalla de Applying Group Policy Local Users and Groups policy (Aplicando la directiva de usuarios y grupos locales de la directiva de grupo) cargándose (Windows Server 2012).":::
+:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="Captura de pantalla que muestra Applying Group Policy Local Users and Groups policy (Aplicando la directiva de usuarios y grupos locales de la directiva de grupo) cargándose (Windows Server 2012 R2).":::
 
 ## <a name="cause"></a>Causa
 
@@ -66,23 +66,7 @@ Esta es la directiva problemática:
 1. En la máquina virtual de reparación, abra el Editor del Registro.
 1. Busque la clave **HKEY_LOCAL_MACHINE** y seleccione **Archivo** > **Cargar subárbol** en el menú.
 
-    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="Captura de pantalla que muestra la clave HKEY_LOCAL_MACHINE resaltada y el menú que contiene Cargar subárbol.":::
-
-    - Puede usar Cargar subárbol para cargar las claves del Registro desde un sistema sin conexión. En este caso, el sistema es el disco roto conectado a la máquina virtual de reparación.
-    - La configuración de todo el sistema se almacena en `HKEY_LOCAL_MACHINE` y se puede abreviar como "HKLM".
-1. En el disco asociado, vaya al archivo `\windows\system32\config\SOFTWARE` y ábralo.
-
-    1. Cuando se le pida un nombre, escriba BROKENSOFTWARE.
-    1. Para comprobar que se cargó BROKENSOFTWARE, expanda **HKEY_LOCAL_MACHINE** y busque la clave BROKENSOFTWARE agregada.
-1. Vaya a BROKENSOFTWARE y compruebe si la clave CleanupProfile existe en el subárbol cargado.
-
-    1. Si la clave existe, se establece la directiva CleanupProfile. Su valor representa la directiva de retención medida en días. Siga con la eliminación de la clave.
-    1. Si la clave no existe, no se establece la directiva CleanupProfile. [Envíe una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) que incluya el archivo memory.dmp ubicado en el directorio de Windows del disco del sistema operativo asociado.
-
-1. Elimine la clave CleanupProfiles con este comando:
-
-    ```
-    reg delete "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows\System" /v CleanupProfiles /f
+    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="Captura de pantalla que muestra Applying Group Policy Local Users and Groups policy (Aplicando la directiva de usuarios y grupos locales de la directiva de grupo) cargándose (Windows Server 2012 R2)." /v CleanupProfiles /f
     ```
 1.  Descargue el subárbol BROKENSOFTWARE con este comando:
 

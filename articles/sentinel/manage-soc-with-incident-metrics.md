@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
 ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761734"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Mejora en la administración de SOC con métricas de incidentes
@@ -82,9 +82,9 @@ Para complementar la tabla **SecurityIncidents**, se ha proporcionado una planti
 
 Para encontrar esta plantilla de libro nueva, elija **Libros** en el menú de navegación de Azure Sentinel y seleccione la pestaña **Plantillas**. Elija **Security operations efficiency** (Eficiencia de operaciones de seguridad) en la galería y haga clic en uno de estos botones: **Ver libro guardado** y **Ver plantilla**.
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Galería de Security incidents workbook"::: (Libro de incidentes de seguridad)
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Tabla de incidentes de seguridad"::: (Libro de incidentes de seguridad)
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Security incidents workbook (Libro de incidentes de seguridad) completado":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Tabla de incidentes de seguridad":::
 
 Puede usar la plantilla para crear sus propios libros personalizados adaptados a sus necesidades específicas.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 28a46ad9e53a90c25c239278ee57ea368af395a5
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 01133ab5582e63c0e87d8a5cf8de12f5445394c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88754980"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969711"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Copia de seguridad y recuperación ante desastres para discos IaaS de Azure
 
@@ -48,7 +48,7 @@ Gracias a esta arquitectura, Azure ha ofrecido de manera constante durabilidad d
 
 Los errores de hardware localizados en el host de proceso o en la plataforma de almacenamiento pueden en ocasiones traducirse en falta de disponibilidad temporal de la máquina virtual que está cubierta por el [contrato de nivel de servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) para disponibilidad de la máquina virtual. Azure ofrece también un Acuerdo de Nivel de Servicio (SLA) líder del sector para instancias únicas de máquina virtual que usan discos SSD premium de Azure.
 
-Para proteger las cargas de trabajo de aplicación de tiempo de inactividad debido a la falta temporal de disponibilidad de un disco o una máquina virtual, los clientes pueden usar los [conjuntos de disponibilidad](windows/manage-availability.md). Dos máquinas virtuales o más de un conjunto de disponibilidad proporcionan redundancia para la aplicación. Azure luego crea estas máquinas virtuales y discos en dominios de error independientes con distintos componentes de alimentación, red y servidor.
+Para proteger las cargas de trabajo de aplicación de tiempo de inactividad debido a la falta temporal de disponibilidad de un disco o una máquina virtual, los clientes pueden usar los [conjuntos de disponibilidad](./manage-availability.md). Dos máquinas virtuales o más de un conjunto de disponibilidad proporcionan redundancia para la aplicación. Azure luego crea estas máquinas virtuales y discos en dominios de error independientes con distintos componentes de alimentación, red y servidor.
 
 Debido a estos dominios de error independientes, los errores de hardware localizados normalmente no afectan a varias máquinas virtuales del conjunto al mismo tiempo. Tener dominios de error independientes proporciona alta disponibilidad de la aplicación. Se recomienda usar conjuntos de disponibilidad cuando se requiere alta disponibilidad. La sección siguiente abarca el aspecto de la recuperación ante desastres.
 
@@ -77,7 +77,7 @@ Considere la posibilidad de usar un servidor de base de datos de producción, co
 - Los datos deben estar protegidos y ser recuperables.
 - El servidor debe estar disponible para su uso.
 
-El plan de recuperación ante desastres puede requerir que se mantenga una réplica de la base de datos en una región distinta como copia de seguridad. Según los requisitos para la recuperación de datos y la disponibilidad del servidor, la solución podría variar de un sitio de réplica activa-pasiva o activa-activa para copias de seguridad periódicas sin conexión de los datos. Las bases de datos relacionales, como SQL Server y Oracle, ofrecen varias opciones de replicación. Con SQL Server, use los [Grupos de disponibilidad AlwaysOn de SQL Server](https://msdn.microsoft.com/library/hh510230.aspx) para alta disponibilidad.
+El plan de recuperación ante desastres puede requerir que se mantenga una réplica de la base de datos en una región distinta como copia de seguridad. Según los requisitos para la recuperación de datos y la disponibilidad del servidor, la solución podría variar de un sitio de réplica activa-pasiva o activa-activa para copias de seguridad periódicas sin conexión de los datos. Las bases de datos relacionales, como SQL Server y Oracle, ofrecen varias opciones de replicación. Con SQL Server, use los [Grupos de disponibilidad AlwaysOn de SQL Server](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) para alta disponibilidad.
 
 Las bases de datos NoSQL, como MongoDB, también admiten [réplicas](https://docs.mongodb.com/manual/replication/) para conseguir redundancia. Se usan las réplicas de caché para conseguir alta disponibilidad.
 
@@ -201,7 +201,7 @@ Otra posibilidad para crear copias de seguridad coherentes es apagar la máquina
 
 1. Cree una instantánea de cada blob de disco duro virtual, que solo tarda unos segundos.
 
-    Para crear una instantánea, puede usar [PowerShell](https://docs.microsoft.com/powershell/module/az.storage), la [API de REST de Azure Storage](https://msdn.microsoft.com/library/azure/ee691971.aspx), la [CLI de Azure](/cli/azure/) o cualquiera de las bibliotecas de cliente de Azure Storage, como [la biblioteca del cliente de Storage para .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
+    Para crear una instantánea, puede usar [PowerShell](/powershell/module/az.storage), la [API de REST de Azure Storage](/rest/api/storageservices/Snapshot-Blob), la [CLI de Azure](/cli/azure/) o cualquiera de las bibliotecas de cliente de Azure Storage, como [la biblioteca del cliente de Storage para .NET](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 1. Inicie la máquina virtual, con lo que finaliza el tiempo de inactividad. Todo el proceso se completa habitualmente en unos minutos.
 
@@ -224,7 +224,7 @@ Para copiar las instantáneas incrementales para recuperación ante desastres co
 
 ### <a name="recovery-from-snapshots"></a>Recuperación de instantáneas
 
-Para recuperar una instantánea, cópiela para crear un blob. Si va a copiar la instantánea de la cuenta principal, puede copiarla en el blob base de la instantánea. Este proceso revierte el disco a la instantánea y se conoce como promocionar la instantánea. Si va a copiar la copia de seguridad de instantánea de una cuenta secundaria, en el caso de una cuenta de almacenamiento con redundancia geográfica con acceso de lectura, debe copiarse a una cuenta principal. Puede copiar una instantánea [mediante PowerShell](https://docs.microsoft.com/powershell/module/az.storage) o con la utilidad AzCopy. Para más información, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+Para recuperar una instantánea, cópiela para crear un blob. Si va a copiar la instantánea de la cuenta principal, puede copiarla en el blob base de la instantánea. Este proceso revierte el disco a la instantánea y se conoce como promocionar la instantánea. Si va a copiar la copia de seguridad de instantánea de una cuenta secundaria, en el caso de una cuenta de almacenamiento con redundancia geográfica con acceso de lectura, debe copiarse a una cuenta principal. Puede copiar una instantánea [mediante PowerShell](/powershell/module/az.storage) o con la utilidad AzCopy. Para más información, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](../storage/common/storage-use-azcopy-v10.md).
 
 En el caso de las máquinas virtuales con varios discos, debe copiar todas las instantáneas que forman parte del mismo punto de restauración coordinada. Después de copiar las instantáneas en blobs de VHD grabable, puede usarlos para volver a crear la máquina virtual con la plantilla de la máquina virtual.
 
@@ -265,4 +265,3 @@ Consulte [Copia de seguridad de discos de máquina virtual no administrados de A
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
-

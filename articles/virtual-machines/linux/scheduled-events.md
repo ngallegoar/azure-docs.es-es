@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: fee57efb3517131049f986c743125f17573fdc34
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 265b99fb985602604eefee27d722b4dc8d7593a8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816735"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970391"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Linux
 
@@ -80,7 +80,7 @@ El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la
 | 2019-01-01 | Disponibilidad general | All | <li> Compatibilidad agregada con conjuntos de escalado de máquinas virtuales EventType "Terminate" |
 | 01-11-2017 | Disponibilidad general | All | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de Azure Spot EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidad general | All | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
-| 2017-03-01 | Versión preliminar | All | <li>Versión inicial |
+| 2017-03-01 | Vista previa | All | <li>Versión inicial |
 
 
 > [!NOTE] 
@@ -135,7 +135,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
 | EventId | Es un identificador único global del evento. <br><br> Ejemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Es el impacto causado por el evento. <br><br> Valores: <br><ul><li> `Freeze`: la máquina virtual está programada para pausarse durante unos segundos. Puede que se suspenda la conectividad de la CPU y la red, pero no afecta a la memoria ni a los archivos abiertos.<li>`Reboot`: la máquina virtual está programada para reiniciarse (se borrará la memoria no persistente). <li>`Redeploy`: la máquina virtual está programada para moverse a otro nodo (los discos efímeros se pierden). <li>`Preempt`: se está eliminando la máquina virtual de Azure Spot (se pierden los discos efímeros). <li> `Terminate`: la máquina virtual está programada para eliminarse. |
 | ResourceType | Es el tipo de recurso al que este evento afecta. <br><br> Valores: <ul><li>`VirtualMachine`|
-| Recursos| Es la lista de recursos a los que este evento afecta. Se garantiza que contenga máquinas de un [dominio de actualización](manage-availability.md) como máximo, pero puede no contener todas las máquinas en dicho dominio. <br><br> Ejemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Recursos| Es la lista de recursos a los que este evento afecta. Se garantiza que contenga máquinas de un [dominio de actualización](../manage-availability.md) como máximo, pero puede no contener todas las máquinas en dicho dominio. <br><br> Ejemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Es el estado de este evento. <br><br> Valores: <ul><li>`Scheduled`: este evento está programado para iniciarse después de la hora especificada en la propiedad `NotBefore`.<li>`Started`: este evento se ha iniciado.</ul> Ni `Completed` ni otro estado similar se han proporcionado antes. El evento ya no vuelve cuando finaliza el evento.
 | NotBefore| Hora a partir de la que puede iniciarse este evento. <br><br> Ejemplo: <br><ul><li> Lunes, 19 de septiembre de 2016, 18:29:47 GMT  |
 | Descripción | Descripción de este evento. <br><br> Ejemplo: <br><ul><li> El servidor host está en mantenimiento. |
