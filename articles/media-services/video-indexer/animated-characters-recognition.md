@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047485"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018889"
 ---
 # <a name="animated-character-detection-preview"></a>Detección de personajes animados (versión preliminar)
 
@@ -55,7 +55,7 @@ Como en las cuentas de evaluación la integración de Custom Vision se administr
 
 ### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Conexión de la cuenta de Custom Vision (solo cuentas de pago)
 
-Si es propietario de una cuenta de pago de Video Indexer, primero debe conectar una cuenta de Custom Vision. Si aún no tiene una cuenta de Custom Vision, cree una. Para obtener más información, consulte [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
+Si es propietario de una cuenta de pago de Video Indexer, primero debe conectar una cuenta de Custom Vision. Si aún no tiene una cuenta de Custom Vision, cree una. Para obtener más información, consulte [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
 > [!NOTE]
 > Las dos cuentas deben estar en la misma región. La integración de Custom Vision no se admite actualmente en la región de Japón.
@@ -160,7 +160,7 @@ Siga estos pasos para conectar su cuenta de Custom Vision a Video Indexer, o bie
 1. Conecte una cuenta de Custom Vision.
 
     Si es propietario de una cuenta de pago de Video Indexer, primero debe conectar una cuenta de Custom Vision. <br/>
-    Si aún no tiene una cuenta de Custom Vision, cree una. Para obtener más información, consulte [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
+    Si aún no tiene una cuenta de Custom Vision, cree una. Para obtener más información, consulte [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
     [Conecte la cuenta de Custom Vision con API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
 1. Cree un modelo de personajes animados.

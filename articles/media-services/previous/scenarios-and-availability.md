@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: eb9d901a32d558f676ba10eaf65b54c51bfbcda8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 99604092ea901458062abd6423d74ad8f1f2c8d7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259190"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014416"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Escenarios y disponibilidad de características de Media Services en centros de datos
 
@@ -89,10 +89,10 @@ Para obtener información acerca de la disponibilidad en los centros de datos, c
 
 ## <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Use Análisis multimedia para obtener conocimientos útiles de los vídeos
 
-Análisis multimedia es una colección de componentes de voz y visión que facilita a las empresas y organizaciones obtener conocimiento útil de sus archivos de vídeo. Para más información, consulte [Información general de análisis de Azure Media Services](media-services-analytics-overview.md).
+Análisis multimedia es una colección de componentes de voz y visión que facilita a las empresas y organizaciones obtener conocimiento útil de sus archivos de vídeo. Para más información, consulte [Información general de análisis de Azure Media Services](./legacy-components.md).
 
 1. Cargue un archivo multimedia de alta calidad en un recurso.
-2. Procesar sus vídeos con uno de los servicios de Media Analytics que se describen en la sección [Información general de Media Analytics](media-services-analytics-overview.md).
+2. Procesar sus vídeos con uno de los servicios de Media Analytics que se describen en la sección [Información general de Media Analytics](./legacy-components.md).
 3. Los procesadores multimedia de Análisis multimedia generan archivos MP4 o JSON. Si un procesador multimedia genera un archivo MP4, puede descargar progresivamente el archivo. Si un procesador multimedia genera un archivo JSON, puede descargar el archivo desde Azure Blob Storage.
 
 Para obtener información acerca de la disponibilidad en los centros de datos, consulte la sección [Disponibilidad](#availability).
@@ -203,7 +203,7 @@ AMS ofrece dos codificadores a petición **Media Encoder Standard** y **Flujo de
 
 ### <a name="analytics-media-processors"></a>Procesadores de multimedia de Analytics
 
-Análisis multimedia es una colección de componentes de voz y visión que facilita a las empresas y organizaciones obtener conocimiento útil de sus archivos de vídeo. Para más información, consulte [Información general de análisis de Azure Media Services](media-services-analytics-overview.md).
+Análisis multimedia es una colección de componentes de voz y visión que facilita a las empresas y organizaciones obtener conocimiento útil de sus archivos de vídeo. Para más información, consulte [Información general de análisis de Azure Media Services](./legacy-components.md).
 
 > [!NOTE]
 > Algunos procesadores de multimedia de análisis se retirarán. Para ver las fechas de retirada, consulte el tema sobre [componentes heredados](legacy-components.md).

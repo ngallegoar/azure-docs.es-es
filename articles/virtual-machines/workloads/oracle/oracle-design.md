@@ -1,25 +1,18 @@
 ---
 title: Diseño e implementación de una base de datos de Oracle en Azure | Microsoft Docs
 description: Diseño e implementación de una base de datos de Oracle en el entorno de Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 70de7363634cee2790a40ecf056134cf002c762d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: 9ccf7ddb44a25ec123f13b5d7b6cdb5354b63778
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274714"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996637"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
 
@@ -49,7 +42,7 @@ En la tabla siguiente se enumeran algunas de las diferencias entre una implement
 | **Redes** |LAN/WAN  |SDN (Redes definidas por software)|
 | **Grupo de seguridad** |Herramientas de restricción de IP y puerto |[Grupo de seguridad de red (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 | **Resistencia** |MTBF (tiempo medio entre errores) |MTTR (tiempo medio para recuperación)|
-| **Mantenimiento planeado** |Aplicación de revisiones/actualizaciones|[Conjuntos de disponibilidad](../../windows/infrastructure-example.md) (aplicación de revisiones o actualizaciones administradas por Azure) |
+| **Mantenimiento planeado** |Aplicación de revisiones/actualizaciones|[Conjuntos de disponibilidad](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (aplicación de revisiones o actualizaciones administradas por Azure) |
 | **Recurso** |Dedicado  |Compartido con otros clientes|
 | **Regiones** |Centros de datos |[Pares de región](../../regions.md#region-pairs)|
 | **Storage** |SAN/discos físicos |[Almacenamiento administrado por Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
@@ -230,7 +223,7 @@ Después de que se instala y configura el entorno de Azure, el siguiente paso es
 - [Configuración de ASM de Oracle](configure-oracle-asm.md)
 - [Configuración de Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configuración de Oracle Golden Gate](configure-oracle-golden-gate.md)
-- [Copia de seguridad y recuperación de Oracle](oracle-backup-recovery.md)
+- [Copia de seguridad y recuperación de Oracle](./oracle-overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

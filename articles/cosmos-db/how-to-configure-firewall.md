@@ -8,10 +8,10 @@ ms.date: 08/24/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 69c39d2478ed7d488c1209c2c7e16c241c59bcef
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88814185"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configuración del firewall de IP en Azure Cosmos DB
@@ -46,13 +46,13 @@ Cuando se habilita una directiva de control de acceso de IP mediante programaci�
 
 Para habilitar las solicitudes para acceder a Azure Portal, seleccione la opción **Permitir el acceso desde Azure Portal**, tal como se muestra en la captura de pantalla siguiente:
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Captura de pantalla que muestra cómo habilitar el acceso a Azure Portal":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Captura de pantalla que muestra cómo abrir la página Firewall en Azure Portal":::
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>Permitir las solicitudes de los centros de datos globales de Azure u otros orígenes dentro de Azure
 
 Si tiene acceso a su cuenta de Azure Cosmos DB desde los servicios que no proporcionan un IP estático (por ejemplo, Azure Stream Analytics y Azure Functions), aún podrá usar el firewall de dirección IP para limitar el acceso. Para habilitar el acceso desde otros orígenes dentro de Azure, seleccione la opción **Aceptar conexiones desde centros de datos de Azure**, tal como se muestra en la captura de pantalla siguiente:
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Captura de pantalla que muestra cómo aceptar conexiones de los centros de datos de Azure":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Captura de pantalla que muestra cómo abrir la página Firewall en Azure Portal":::
 
 Cuando se habilita esta opción, se agrega la dirección IP `0.0.0.0` a la lista de direcciones IP permitidas. La dirección IP `0.0.0.0` restringe las solicitudes a la cuenta de Azure Cosmos DB desde el intervalo de IP del centro de datos de Azure. Esta configuración no permite que ningún otro intervalo IP tenga acceso a la cuenta de Azure Cosmos DB.
 
@@ -67,7 +67,7 @@ El portal detecta automáticamente la dirección IP del cliente. Puede que sea l
 
 Para agregar su dirección IP actual a la lista de direcciones IP, seleccione **Agregar mi IP actual**. Después, seleccione **Guardar**.
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Captura de pantalla que muestra cómo configurar un firewall para la dirección IP actual":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Captura de pantalla que muestra cómo abrir la página Firewall en Azure Portal":::
 
 ### <a name="requests-from-cloud-services"></a>Solicitudes desde servicios en la nube
 
@@ -75,7 +75,7 @@ En Azure, los servicios en la nube son una forma muy común de hospedar la lógi
 
 Puede recuperar las direcciones IP de los servicios en la nube en Azure Portal, tal como se muestra en la siguiente captura de pantalla:
 
-:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses.png" alt-text="Captura de pantalla con la dirección IP pública de un servicio en la nube que se muestra en Azure Portal":::
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses.png" alt-text="Captura de pantalla que muestra cómo abrir la página Firewall en Azure Portal":::
 
 Al escalar horizontalmente su servicio en la nube mediante la adición de instancias de rol, esas nuevas instancias tendrán acceso automáticamente a la cuenta de Azure Cosmos DB que forman parte del mismo servicio en la nube.
 
@@ -85,7 +85,7 @@ También puede usar [máquinas virtuales](https://azure.microsoft.com/services/v
 
 Puede recuperar las direcciones IP para máquinas virtuales en Azure Portal, como se muestra en la captura de pantalla siguiente:
 
-:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses-dns.png" alt-text="Captura de pantalla con una dirección IP pública de una máquina virtual que se muestra en Azure Portal":::
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses-dns.png" alt-text="Captura de pantalla que muestra cómo abrir la página Firewall en Azure Portal":::
 
 Al agregar instancias de máquina virtual al grupo, reciben automáticamente acceso a su cuenta de Azure Cosmos DB.
 

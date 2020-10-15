@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 0b90389f6ae88a073f3961cc2f0957d22e190fe0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d3aafe93c92a1c756358dfb60a2ca976036d8b8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545462"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91273714"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configuración de BlueJeans para el aprovisionamiento automático de usuarios
 
@@ -91,11 +91,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Aprovisionamiento de BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
+    ![Captura de pantalla de la barra lateral de aplicaciones empresariales de BlueJeans con la opción Aprovisionamiento resaltada y seleccionada.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Aprovisionamiento de BlueJeans](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
+    ![Captura de pantalla de la página Aprovisionamiento con las secciones Modo de aprovisionamiento y Credenciales de administrador seleccionadas.](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
 
 5. En la sección **Credenciales de administrador**, escriba el **nombre de usuario** y la **contraseña de administrador** de la cuenta de BlueJeans. Algunos ejemplos de estos valores son:
 
@@ -105,35 +105,35 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 6. Tras rellenar los campos que se muestran en el paso 5, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a BlueJeans. Si la conexión no se establece, asegúrese de que la cuenta de BlueJeans tiene permisos de administrador de BlueJeans y pruebe otra vez.
 
-    ![Aprovisionamiento de BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
+    ![Captura de pantalla de la sección Credenciales de administrador con la opción Probar conexión seleccionada.](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
 7. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
-    ![Aprovisionamiento de BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
+    ![Captura de pantalla del cuadro de texto Notificación por correo electrónico.](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
 8. Haga clic en **Save**(Guardar).
 
 9. En la sección **Mappings** (Asignaciones), seleccione **Synchronize Azure Active Directory Users to BlueJeans** (Sincronizar usuarios de Azure Active Directory con BlueJeans).
 
-    ![Aprovisionamiento de BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
+    ![Captura de pantalla de la sección Asignaciones con la opción Synchronize Azure Active Directory Users to BlueJeans (Sincronizar usuarios de Azure Active Directory con BlueJeans) resaltada.](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
 
 10. Revise los atributos de usuario que se sincronizan entre Azure AD y BlueJeans en la sección **Attribute Mapping** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Matching**(Coincidencia) se usan para buscar coincidencias con las cuentas de usuario de BlueJeans con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Aprovisionamiento de BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
+    ![Captura de pantalla de la sección Asignaciones de atributos, con siete asignaciones mostradas.](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
 
 11. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 12. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para BlueJeans, cambie el **estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-    ![Aprovisionamiento de BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
+    ![Captura de pantalla de la sección Configuración con la opción Estado de aprovisionamiento establecida en Activado.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
 
 13. Defina los usuarios o grupos que desea que se aprovisionen en BlueJeans eligiendo los valores deseados en **Ámbito**, en la sección **Configuración**.
 
-    ![Aprovisionamiento de BlueJeans](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
+    ![Captura de pantalla de la opción de configuración Ámbito con la opción Sincronizar solo los usuarios y grupos asignados resaltada.](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
 
 14. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
-    ![Aprovisionamiento de BlueJeans](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
+    ![Captura de pantalla de la barra lateral de aplicaciones empresariales de BlueJeans con la opción Guardar seleccionada.](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
 
 Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos al informe de la actividad de aprovisionamiento, que describe todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en BlueJeans.
 

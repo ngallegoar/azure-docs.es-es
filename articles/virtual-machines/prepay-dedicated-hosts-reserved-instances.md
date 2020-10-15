@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d7af95b9fe2f6d31faa239985f8e8165fd968372
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825266"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978601"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Ahorro de costos con las reservas de Azure Dedicated Host
 
-Al confirmar una instancia reservada de Azure Dedicated Host, puede ahorrar dinero. El descuento de la reserva se aplica automáticamente el número de hosts dedicados en ejecución que coinciden con el ámbito y los atributos de la reserva. No es necesario asignar una reserva a un host dedicado para obtener los descuentos. La compra de una instancia reservada cubre solo la parte de proceso de su uso e incluye los costos de licencia de software. Consulte [Información general de Azure Dedicated Host para máquinas virtuales](./windows/dedicated-hosts.md).
+Al confirmar una instancia reservada de Azure Dedicated Host, puede ahorrar dinero. El descuento de la reserva se aplica automáticamente el número de hosts dedicados en ejecución que coinciden con el ámbito y los atributos de la reserva. No es necesario asignar una reserva a un host dedicado para obtener los descuentos. La compra de una instancia reservada cubre solo la parte de proceso de su uso e incluye los costos de licencia de software. Consulte [Información general de Azure Dedicated Host para máquinas virtuales](./dedicated-hosts.md).
 
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>Determinación de la SKU de host dedicada adecuada antes de comprar
 
@@ -129,7 +129,7 @@ Para obtener más información acerca de Azure Reservations, consulte los siguie
 
 - [¿Qué es Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-- [Uso de instancias de Azure Dedicated Host](./windows/dedicated-hosts.md)
+- [Uso de instancias de Azure Dedicated Host](./dedicated-hosts.md)
 
 - [Precios de Azure Dedicated Host](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 

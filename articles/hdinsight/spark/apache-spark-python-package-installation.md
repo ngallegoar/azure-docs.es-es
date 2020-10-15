@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: a6ad1c068a41b4b865c148ebb7cdb509821609d4
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 6ef4a4f422bb787b3ead33ed1047d26d5e3c9c1f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823421"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978078"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Administración segura del entorno de Python en Azure HDInsight mediante la acción de scripts
 
@@ -81,7 +81,7 @@ El clúster de HDInsight depende del entorno integrado de Python, tanto Python 2
 
     - O bien use el repositorio de PyPi y cambie `seaborn` y `py35new` según corresponda:
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install seaborn
         ```
 
     Use el comando siguiente si quiere instalar una biblioteca con una versión específica:
@@ -98,7 +98,7 @@ El clúster de HDInsight depende del entorno integrado de Python, tanto Python 2
     - O bien use el repositorio de PyPi y cambie `numpy==1.16.1` y `py35new` según corresponda:
 
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install numpy==1.16.1
         ```
 
     Si no conoce el nombre del entorno virtual, puede utilizar SSH en el nodo de encabezado del clúster y ejecutar `/usr/bin/anaconda/bin/conda info -e` para mostrar todos los entornos virtuales.

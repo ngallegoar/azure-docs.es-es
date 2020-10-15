@@ -3,18 +3,18 @@ title: 'Introducción a Azure Queue Storage mediante .NET: Azure Storage'
 description: Las colas de Azure proporcionan mensajería asincrónica confiable entre componentes de aplicaciones. La mensajería en la nube permite que los componentes de las aplicaciones se escalen de forma independiente.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/08/2020
+ms.date: 10/08/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8dadc999f3bd26671b5a8ee4da26f051a822a26
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001117"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855929"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introducción al Almacenamiento en cola de Azure mediante .NET
 
@@ -33,9 +33,6 @@ Este tutorial muestra cómo escribir código .NET para algunos escenarios comune
 ### <a name="prerequisites"></a>Prerrequisitos
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-- [Biblioteca cliente Azure Storage Common para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-- [Biblioteca cliente Azure Storage Queue para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
-- [Administrador de configuración Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 - Una [cuenta de almacenamiento de Azure](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -95,11 +92,6 @@ Puede usar NuGet para obtener estos paquetes. Siga estos pasos:
 1. Busque "Microsoft.Azure.ConfigurationManager" en línea y seleccione **Instalar** para instalar Azure Configuration Manager.
 
 ---
-
-> [!NOTE]
-> El paquete de las bibliotecas cliente de Storage también se incluye en el [SDK de Azure para .NET](https://azure.microsoft.com/downloads/). Sin embargo, se recomienda que instale también las bibliotecas cliente de Storage desde NuGet para garantizar que siempre dispone de las versiones más recientes.
->
-> Las dependencias de ODataLib en las bibliotecas cliente de Storage para .NET las resuelven los paquetes de ODataLib disponibles en NuGet, no WCF Data Services. A través de NuGet, es posible descargar directamente las bibliotecas ODataLib o bien hacer referencia a ellas con el código del proyecto. Los paquetes de ODataLib específicos utilizados por las bibliotecas cliente de Storage son [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/) y [Spatial](https://nuget.org/packages/System.Spatial/). Aunque las clases de Azure Table Storage usan estas bibliotecas, son dependencias necesarias para programar con las bibliotecas cliente de Storage.
 
 ### <a name="determine-your-target-environment"></a>Determine su entorno de destino
 
@@ -185,7 +177,7 @@ La clase [QueueClient](/dotnet/api/azure.storage.queues.queueclient) le permite 
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-La clase [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy) le permite recuperar las colas almacenadas en Almacenamiento en cola. Esta es una forma de crear el cliente de servicio:
+La clase [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) le permite recuperar las colas almacenadas en Almacenamiento en cola. Esta es una forma de crear el cliente de servicio:
 
 ```csharp
 // Retrieve storage account from connection string
@@ -237,7 +229,7 @@ Para insertar un mensaje en una cola existente, llame al método [SendMessage](/
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy). A continuación, llame al método [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy) . Se puede crear `CloudQueueMessage` a partir de un elemento `string` (en formato UTF-8) o de una matriz `byte`. A continuación, se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje "Hola, mundo":
+Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). A continuación, llame al método [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) . Se puede crear `CloudQueueMessage` a partir de un elemento `string` (en formato UTF-8) o de una matriz `byte`. A continuación, se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje "Hola, mundo":
 
 ```csharp
 // Retrieve storage account from connection string
@@ -270,7 +262,7 @@ Puede inspeccionar el mensaje de la cola sin tener que quitarlo de la misma, med
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy) .
+Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy&preserve-view=true) .
 
 ```csharp
 // Retrieve storage account from connection string
@@ -333,7 +325,7 @@ Quitar un mensaje de una cola en dos pasos. Al llamar a [ReceiveMessages](/dotne
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-El código quita un mensaje de una cola en dos pasos. Si llama a [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy), obtiene el siguiente mensaje en una cola. Un mensaje devuelto por `GetMessage` se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para acabar de quitar el mensaje de la cola, también debe llamar a [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy). Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a `DeleteMessage` justo después de haberse procesado el mensaje.
+El código quita un mensaje de una cola en dos pasos. Si llama a [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true), obtiene el siguiente mensaje en una cola. Un mensaje devuelto por `GetMessage` se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para acabar de quitar el mensaje de la cola, también debe llamar a [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true). Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a `DeleteMessage` justo después de haberse procesado el mensaje.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -406,7 +398,7 @@ El siguiente ejemplo de código utiliza el método [ReceiveMessages](/dotnet/api
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-El siguiente ejemplo de código utiliza el método [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy) para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle `foreach`. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de pasar los 5 minutos desde la llamada a `GetMessages`, todos los mensajes que no se han eliminado volverán a estar visibles.
+El siguiente ejemplo de código utiliza el método [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle `foreach`. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de pasar los 5 minutos desde la llamada a `GetMessages`, todos los mensajes que no se han eliminado volverán a estar visibles.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -438,7 +430,7 @@ Puede obtener una estimación del número de mensajes existentes en una cola. El
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Puede obtener una estimación del número de mensajes existentes en una cola. El método [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy) solicita al servicio de cola la recuperación de los atributos de la cola, incluido el número de mensajes. La propiedad [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy) devuelve el último valor que recuperó el método `FetchAttributes`, sin llamar a Queue service.
+Puede obtener una estimación del número de mensajes existentes en una cola. El método [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) solicita al servicio de cola la recuperación de los atributos de la cola, incluido el número de mensajes. La propiedad [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) devuelve el último valor que recuperó el método `FetchAttributes`, sin llamar a Queue service.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -473,7 +465,7 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Para eliminar una cola y todos los mensajes contenidos en ella, llame al método [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy) en el objeto de cola.
+Para eliminar una cola y todos los mensajes contenidos en ella, llame al método [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy&preserve-view=true) en el objeto de cola.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -499,16 +491,8 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 - Consulte la documentación de referencia del servicio de cola para obtener información detallada acerca de las API disponibles:
   - [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   - [Referencia de API de REST](https://msdn.microsoft.com/library/azure/dd179355)
-- Aprenda a simplificar el código que escriba para trabajar con Azure Storage mediante [SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 - Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
   - [Introducción al Almacenamiento de tablas de Azure mediante .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) para almacenar datos estructurados.
   - [Introducción al Almacenamiento de blobs de Azure mediante .NET](../blobs/storage-dotnet-how-to-use-blobs.md) para almacenar datos estructurados.
   - Para almacenar datos relacionales, consulte [Conexión a SQL Database mediante .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md).
-
-[Download and install the Azure SDK for .NET]: /develop/net/
-[.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Creating an Azure Project in Visual Studio]: https://msdn.microsoft.com/library/azure/ee405487.aspx
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-[OData]: https://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: https://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: https://nuget.org/packages/System.Spatial/5.0.2
+- Aprenda a simplificar el código que escriba para trabajar con Azure Storage mediante [SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).

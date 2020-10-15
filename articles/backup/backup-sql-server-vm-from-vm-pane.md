@@ -4,10 +4,10 @@ description: En este artículo, aprenderá a realizar copias de seguridad de bas
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.openlocfilehash: 4f4ea202ee96e93a621c8dd0025c9ebc8b8d445d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88891664"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Copia de seguridad de SQL Server desde el panel de la máquina virtual

@@ -8,18 +8,18 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 0a5a7ac7d830cb03b1370c31d7e854f3b2a5a2fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e9fd20fd42e9fe1eb0e98766798e5c759c974c97
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507189"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013906"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualización asincrónica con la API de REST
 
 Mediante el uso de cualquier lenguaje de programación que admita llamadas REST, puede realizar operaciones de actualización de datos asincrónicas en los modelos tabulares de Azure Analysis Services. Esto incluye la sincronización de réplicas de solo lectura para la escalabilidad horizontal de consultas. 
 
-Las operaciones de actualización de datos pueden tardar algún tiempo dependiendo de una serie de factores, como el volumen de datos, el nivel de optimización con particiones, etc. Estas operaciones se han invocado tradicionalmente con métodos existentes, como [TOM](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Modelo de objetos tabulares), cmdlets de [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Sin embargo, estos métodos pueden requerir a menudo conexiones HTTP poco confiables y de larga ejecución.
+Las operaciones de actualización de datos pueden tardar algún tiempo dependiendo de una serie de factores, como el volumen de datos, el nivel de optimización con particiones, etc. Estas operaciones se han invocado tradicionalmente con métodos existentes, como [TOM](/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Modelo de objetos tabulares), cmdlets de [PowerShell](/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Sin embargo, estos métodos pueden requerir a menudo conexiones HTTP poco confiables y de larga ejecución.
 
 La API de REST de Azure Analysis Services permite la realización asincrónica de las operaciones de actualización de datos. Mediante el uso de la API de REST, las conexiones HTTP de larga ejecución de las aplicaciones cliente no son necesarias. También hay otras características integradas para la confiabilidad, como reintentos automáticos y confirmaciones por lotes.
 
@@ -100,9 +100,9 @@ No es necesario especificar parámetros. Se aplica el valor predeterminado.
 
 | Nombre             | Tipo  | Descripción  |Valor predeterminado  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | El tipo de procesamiento que desea realizar. Los tipos se alinean con los tipos de [comandos de actualización ](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) de TMSL: full, clearValues, calculate, dataOnly, automatic y defragment. El tipo add no se admite.      |   automatic      |
+| `Type`           | Enum  | El tipo de procesamiento que desea realizar. Los tipos se alinean con los tipos de [comandos de actualización ](/analysis-services/tmsl/refresh-command-tmsl) de TMSL: full, clearValues, calculate, dataOnly, automatic y defragment. El tipo add no se admite.      |   automatic      |
 | `CommitMode`     | Enum  | Determina si los objetos se confirmarán en lotes o solo cuando hayan finalizado. Los modos incluyen: default, transactional y partialBatch.  |  transactional       |
-| `MaxParallelism` | Int   | Este valor determina el número máximo de subprocesos en los que ejecutar los comandos de procesamiento en paralelo. Este valor se alinea con la propiedad MaxParallelism que se puede establecer en el [comando de secuencia](https://docs.microsoft.com/analysis-services/tmsl/sequence-command-tmsl) de TMSL o mediante otros métodos.       | 10        |
+| `MaxParallelism` | Int   | Este valor determina el número máximo de subprocesos en los que ejecutar los comandos de procesamiento en paralelo. Este valor se alinea con la propiedad MaxParallelism que se puede establecer en el [comando de secuencia](/analysis-services/tmsl/sequence-command-tmsl) de TMSL o mediante otros métodos.       | 10        |
 | `RetryCount`     | Int   | Indica el número de veces que se volverá a intentar la operación antes de un error.      |     0    |
 | `Objects`        | Array | Una matriz de objetos que se va a procesar. Cada objeto incluye: "table" al procesar la tabla completa o "table" y "partition" al procesar una partición. Si no se especifica ningún objeto, se actualiza el modelo completo. |   Process the entire model      |
 
@@ -226,6 +226,4 @@ Consulte [Creación de una entidad de servicio: Azure Portal](../active-director
 ## <a name="see-also"></a>Consulte también
 
 [Ejemplos](analysis-services-samples.md)   
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
-
-
+[REST API](/rest/api/analysisservices/servers)

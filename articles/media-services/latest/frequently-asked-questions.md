@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d34b5aaaa12a3d296f92e0d7be34ae76931d8506
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: aa33319f146ac57ab4d253696c94308a43b5db2e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268492"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019620"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Preguntas más frecuentes sobre Media Services v3
 
@@ -28,7 +28,7 @@ En este artículo se ofrecen respuestas a preguntas frecuentes sobre Azure Media
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>¿Qué son las limitaciones de Azure Portal para Media Services v3?
 
-Puede usar [Azure Portal](https://portal.azure.com/) para administrar los eventos en directo de la versión 3, ver los recursos y trabajos de la versión 3, obtener información sobre el acceso a las API y cifrar contenido. <br/>Para las tareas de administración restantes (por ejemplo, administración de transformaciones y trabajos o análisis de contenido de la versión 3), use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
+Puede usar [Azure Portal](https://portal.azure.com/) para administrar los eventos en directo de la versión 3, ver los recursos y trabajos de la versión 3, obtener información sobre el acceso a las API y cifrar contenido. <br/>Para las tareas de administración restantes (por ejemplo, administración de transformaciones y trabajos o análisis de contenido de la versión 3), use la [API REST](/rest/api/media/accountfilters), la [CLI](/cli/azure/ams), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
 
 Si el vídeo se ha cargado previamente en la cuenta de Media Services con la API de Media Services v3 o si el contenido se ha generado a partir de una salida en directo, no verá los botones **Codificar**, **Analizar** o **Cifrar** en Azure Portal. Use las API de Media Services v3 para realizar estas tareas.  
 
@@ -163,7 +163,7 @@ Actualmente, se puede usar [Azure Portal](https://portal.azure.com/) para:
 * Ver (no administrar) los [recursos](assets-concept.md) de la versión 3. 
 * [Obtener información sobre el acceso a las API](./access-api-howto.md). 
 
-Para las restantes tareas de administración (por ejemplo, [Transformaciones y trabajos](transforms-jobs-concept.md) y [Protección de contenido](content-protection-overview.md)), use la [API REST](/rest/api/media/), la [CLI de Azure](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
+Para las restantes tareas de administración (por ejemplo, [Transformaciones y trabajos](transforms-jobs-concept.md) y [Protección de contenido](content-protection-overview.md)), use la [API REST](/rest/api/media/), la [CLI de Azure](/cli/azure/ams), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>¿Existe el concepto de AssetFile en la versión v3?
 

@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 05/26/2020
+ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 4b6214ebfaf4b9ed6dd97f6a6ac2f5c4ae164a59
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964692"
 ---
 # <a name="unsupported-language-deployments"></a>Implementaciones en lenguajes no compatibles
@@ -47,7 +47,7 @@ Después del envío, el modelo dejará de estar disponible en la pestaña **Unre
 
 ## <a name="whats-next"></a>¿Qué sigue?
 
-Los modelos que seleccionó para la implementación se guardarán una vez que se retire la instancia de Hub y se anule la implementación de todos los modelos.  Hasta el 24 de mayo podrá enviar solicitudes de implementación de modelos no compatibles.  Implementaremos dichos modelos el 15 de junio, cuando se podrá acceder a ellos mediante Translator V3.  Además, estarán disponibles mediante Translator V2 hasta el 1 de julio.  
+Los modelos que seleccionó para la implementación se guardarán una vez que se retire la instancia de Hub y se anule la implementación de todos los modelos.  Hasta el 24 de mayo podrá enviar solicitudes de implementación de modelos no compatibles.  Implementaremos dichos modelos el 15 de junio, momento en el que se podrá tener acceso a ellos a través de la API de Translator V3.  Además, estarán disponibles a través de la API V2 hasta el 1 de julio.  
 
 Para obtener información adicional sobre fechas importantes relativas al desuso de la instancia de Hub, consulte [aquí](https://www.microsoft.com/translator/business/hub/).
 Una vez realizada la implementación, se aplicarán cargos de hospedaje normales.  Consulte [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) para obtener detalles.  
@@ -57,4 +57,4 @@ A diferencia de los modelos de Traductor personalizado estándar, los modelos de
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Entrenamiento de un modelo](how-to-train-model.md).
-- Comience a utilizar el modelo de traducción personalizado implementado mediante [Traductor V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comience a utilizar el modelo de traducción personalizado implementado mediante [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
