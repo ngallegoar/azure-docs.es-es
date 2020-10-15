@@ -4,10 +4,10 @@ description: Proporciona una lista de errores de AMQP que pueden aparecer al usa
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 88b10940e0b910f50e6ccf7f8c53134fa7f0ba2f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88064356"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Errores de AMQP en Azure Service Bus

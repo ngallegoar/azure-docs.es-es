@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 2de6c07395a559085db237eb1bc7f885998860d0
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3dcbb2567b9a92ea7d806acedb5d1cc6a31a966e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235084"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069813"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario
 
@@ -29,7 +29,7 @@ En este artículo se describe cómo comprobar el estado de aprovisionamiento de 
 Los conectores de aprovisionamiento se configuran mediante [Azure Portal](https://portal.azure.com), siguiendo la [documentación proporcionada](../saas-apps/tutorial-list.md) para la aplicación admitida. Una vez configurados y en ejecución, es posible notificar trabajos de aprovisionamiento mediante uno de estos dos métodos:
 
 * **Azure Portal**: en este artículo se describe principalmente la recuperación de la información de informes desde [Azure Portal](https://portal.azure.com), que proporciona tanto un informe de resumen de aprovisionamiento como registros de auditoría detallados del aprovisionamiento para una aplicación determinada.
-* **API de auditoría**: Azure Active Directory también proporciona una API de auditoría que permite la recuperación mediante programación de registros detallados de auditoría de aprovisionamiento. Consulte [Referencia de la API de auditoría de Azure Active Directory](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) para ver documentación específica sobre el uso de esta API. Aunque este artículo no trata específicamente del uso de la API, detalla los tipos de eventos de aprovisionamiento que se registran en el registro de auditoría.
+* **API de auditoría**: Azure Active Directory también proporciona una API de auditoría que permite la recuperación mediante programación de registros detallados de auditoría de aprovisionamiento. Consulte [Referencia de la API de auditoría de Azure Active Directory](/graph/api/resources/directoryaudit) para ver documentación específica sobre el uso de esta API. Aunque este artículo no trata específicamente del uso de la API, detalla los tipos de eventos de aprovisionamiento que se registran en el registro de auditoría.
 
 ### <a name="definitions"></a>Definiciones
 

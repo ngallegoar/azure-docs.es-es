@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022282"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la seguridad de pods en Azure Kubernetes Service (AKS)
@@ -97,7 +97,7 @@ El uso del proyecto de identidades de pods permite la autenticación en los serv
 
 Cuando las aplicaciones necesitan una credencial, se comunican con el almacén digital, recuperan el contenido de los secretos más reciente y luego se conectan al servicio solicitado. Azure Key Vault puede ser este almacén digital. El flujo de trabajo simplificado para recuperar una credencial de Azure Key Vault mediante identidades administradas de pods se muestra en el diagrama siguiente:
 
-:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Flujo de trabajo simplificado para recuperar una credencial de Key Vault mediante una identidad administrada de pods":::
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Flujo de trabajo simplificado de la identidad administrada del pod en Azure":::
 
 Con Key Vault, puede almacenar y rotar periódicamente secretos como credenciales, claves de cuenta de almacenamiento o certificados. Puede integrar Azure Key Vault con un clúster de AKS mediante el [proveedor de Azure Key Vault para el controlador de CSI del almacén de secretos](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). El controlador de CSI del almacén de secretos permite que el clúster de AKS pueda recuperar de forma nativa el contenido de los secretos de Key Vault y proporcionárselo de forma segura solo al pod solicitante. Trabaje con el operador de clúster para implementar el controlador de CSI del almacén de secretos en los nodos de trabajo de AKS. Puede usar una identidad administrada de pods para solicitar acceso a Key Vault y recuperar el contenido de los secretos que necesita mediante el controlador de CSI del almacén de secretos.
 

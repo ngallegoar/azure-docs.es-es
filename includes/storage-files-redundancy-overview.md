@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b7c097306ba46d4f0024aecc55994508e2d8a090
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86156657"
 ---
 Para proteger los datos de los recursos compartidos de archivos de Azure contra la pérdida o daños de los datos, todos los recursos compartidos de los archivos de Azure almacenan varias copias de cada archivo a medida que se escriben. En función de los requisitos de la carga de trabajo, puede seleccionar niveles adicionales de redundancia. Actualmente, Azure Files admite las siguientes opciones de redundancia de datos:

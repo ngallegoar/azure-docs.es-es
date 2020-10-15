@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: f0aeef7bc67f5c59bb80d5ff24a97be737447a81
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: cc258a0e790559cb343bfbf2eda0787962e2063e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510188"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071275"
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
-En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
+En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
 
 ## <a name="caching-policies"></a><a name="CachingPolicies"></a> Directivas de almacenamiento en caché
 
@@ -328,4 +328,4 @@ Para obtener más información sobre cómo trabajar con directivas, consulte:
 + [Directivas de Azure API Management](api-management-howto-policies.md)
 + [API de transformación](transform-api.md)
 + En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
-+ [Ejemplos de directivas](policy-samples.md)
++ [Ejemplos de directivas](./policy-reference.md)

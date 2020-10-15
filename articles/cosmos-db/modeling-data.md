@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: a34544eb29f0a1417d10955bba755fb4f9965320
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88136046"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelado de datos en Azure Cosmos DB
@@ -299,7 +299,7 @@ En el ejemplo anterior, hemos eliminado la colección ilimitada en el documento 
 En una base de datos relacional, las relaciones *varios a varios* modelan con frecuencia con tablas de unión, que simplemente unen registros de otras tablas.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Combinar tablas" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Modelo de base de datos relacional" border="false":::
 
 Podría verse tentado a replicar lo mismo con documentos y producir un modelo de datos que tenga un aspecto similar al siguiente.
 

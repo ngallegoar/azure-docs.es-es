@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: cbdc81789fcd996774090f12523e7404c0aa0111
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9ddee5991efd5bde3bd139257ad154f02f5d0371
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205856"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071309"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Escalado automático de una instancia de Azure API Management  
 
@@ -132,4 +132,4 @@ Siga los pasos a continuación para configurar el escalado automático para un s
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Implementación de una instancia del servicio Azure API Management en varias regiones de Azure](api-management-howto-deploy-multi-region.md)
-- [Optimización y ahorro del gasto en la nube](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Optimización y ahorro del gasto en la nube](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

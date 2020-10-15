@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9d3ecae17ae14effe48f5a7a0ee3f73d3054a220
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836129"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961483"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividad del punto de conexión público para las máquinas virtuales que usan Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP
 
@@ -67,12 +67,12 @@ Consulte primero las siguientes notas:
   * [Información general de Azure Firewall](../../../firewall/overview.md): información general sobre Azure Firewall.
   * [Tutorial: implementación y configuración de Azure Firewall](../../../firewall/tutorial-firewall-deploy-portal.md): instrucciones sobre cómo configurar Azure Firewall a través de Azure Portal.
 * [Redes virtuales: reglas definidas por el usuario](../../../virtual-network/virtual-networks-udr-overview.md#user-defined): conceptos y reglas de enrutamiento de Azure.  
-* [Etiquetas de servicio de grupos de seguridad](../../../virtual-network/security-overview.md#service-tags): cómo simplificar los grupos de seguridad de red y la configuración del firewall con etiquetas de servicio.
+* [Etiquetas de servicio de grupos de seguridad](../../../virtual-network/network-security-groups-overview.md#service-tags): cómo simplificar los grupos de seguridad de red y la configuración del firewall con etiquetas de servicio.
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Standard Load Balancer externo de Azure adicional para conexiones salientes a Internet
 
 Una opción para lograr la conectividad saliente a los puntos de conexión públicos, sin permitir la conectividad entrante a la máquina virtual desde el punto de conexión público, consiste en crear un segundo equilibrador de carga con una dirección IP pública, agregar las máquinas virtuales al grupo de back-end del segundo equilibrador de carga y definir solo [reglas de salida](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
-Use los [grupos de seguridad de red](../../../virtual-network/security-overview.md) para controlar los puntos de conexión públicos, que están disponibles para las llamadas salientes desde la máquina virtual.  
+Use los [grupos de seguridad de red](../../../virtual-network/network-security-groups-overview.md) para controlar los puntos de conexión públicos, que están disponibles para las llamadas salientes desde la máquina virtual.  
 Para obtener más información, consulte el segundo escenario del documento [Conexiones salientes](../../../load-balancer/load-balancer-outbound-connections.md#scenarios).  
 La configuración sería similar a la siguiente:  
 
@@ -81,11 +81,11 @@ La configuración sería similar a la siguiente:
 ### <a name="important-considerations"></a>Consideraciones importantes
 
 - Puede usar una instancia pública de Load Balancer adicional para varias máquinas virtuales en la misma subred. Así, logrará la conectividad saliente al punto de conexión público y optimizará los costos.  
-- Use los [grupos de seguridad de red](../../../virtual-network/security-overview.md) para administrar qué puntos de conexión públicos están disponibles desde las máquinas virtuales. Puede asignar el grupo de seguridad de red a la subred o a cada máquina virtual. Siempre que sea posible, use las [etiquetas de servicio](../../../virtual-network/security-overview.md#service-tags) para reducir la complejidad de las reglas de seguridad.  
+- Use los [grupos de seguridad de red](../../../virtual-network/network-security-groups-overview.md) para administrar qué puntos de conexión públicos están disponibles desde las máquinas virtuales. Puede asignar el grupo de seguridad de red a la subred o a cada máquina virtual. Siempre que sea posible, use las [etiquetas de servicio](../../../virtual-network/network-security-groups-overview.md#service-tags) para reducir la complejidad de las reglas de seguridad.  
 - Standard Load Balancer de Azure con una dirección IP pública y las reglas de salida permite el acceso directo a un punto de conexión público. Si uno de sus requisitos de seguridad empresariales requiere que todo el tráfico saliente pase a través de una solución corporativa centralizada para la auditoría y el registro, quizá no pueda cumplirlo con este escenario.  
 
 >[!TIP]
->Siempre que sea posible, use las [etiquetas de servicio](../../../virtual-network/security-overview.md#service-tags) para reducir la complejidad del grupo de seguridad de red. 
+>Siempre que sea posible, use las [etiquetas de servicio](../../../virtual-network/network-security-groups-overview.md#service-tags) para reducir la complejidad del grupo de seguridad de red. 
 
 ### <a name="deployment-steps"></a>Pasos de implementación
 
@@ -117,7 +117,7 @@ La configuración sería similar a la siguiente:
 
    ![Conexión de salida con una segunda instancia de Load Balancer con IP pública](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   Para obtener más información sobre los grupos de seguridad de red de Azure, consulte [Grupos de seguridad](../../../virtual-network/security-overview.md). 
+   Para obtener más información sobre los grupos de seguridad de red de Azure, consulte [Grupos de seguridad](../../../virtual-network/network-security-groups-overview.md). 
 
 ## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Azure Firewall para conexiones salientes a Internet
 
@@ -137,7 +137,7 @@ La arquitectura tendría este aspecto:
 - Si la solución de firewall corporativa no es Azure Firewall y tiene requisitos de seguridad para que todo el tráfico saliente pase a través de una solución corporativa centralizada, quizá esta solución no sea práctica.  
 
 >[!TIP]
->Siempre que sea posible, use las [etiquetas de servicio](../../../virtual-network/security-overview.md#service-tags) para reducir la complejidad de las reglas de Azure Firewall.  
+>Siempre que sea posible, use las [etiquetas de servicio](../../../virtual-network/network-security-groups-overview.md#service-tags) para reducir la complejidad de las reglas de Azure Firewall.  
 
 ### <a name="deployment-steps"></a>Pasos de implementación
 

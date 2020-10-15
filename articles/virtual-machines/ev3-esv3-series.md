@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: lahugh
-ms.openlocfilehash: 2fe09d785d282b0f3954e2285b15458c867a9401
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 698b95dc5b38e1d365a80878a5057dee357d81af
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906187"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91649582"
 ---
 # <a name="ev3-and-esv3-series"></a>Series Ev3 y Esv3
 
@@ -26,15 +26,13 @@ El almacenamiento en disco de datos se factura de forma independiente a las máq
 
 Las máquinas virtuales de la serie Ev3 cuentan con la tecnología Hyper-Threading de Intel®.
 
-ACU: 160 - 190
-
-Premium Storage:  No compatible
-
-Almacenamiento en caché de Premium Storage:  No compatible
-
-Migración en vivo: Compatible
-
-Actualizaciones con conservación de memoria: Compatible
+[ACU](acu.md): 160 - 190<br>
+[Premium Storage](premium-storage-performance.md): No compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): No compatible<br>
+[Migración en vivo](maintenance-and-updates.md): Compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+<br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Ancho de banda de red/NIC máx. |
 |---|---|---|---|---|---|---|
@@ -58,15 +56,13 @@ Las instancias de la serie Esv3 se ejecutan en procesadores Intel® Xeon® Plati
 
 Las máquinas virtuales de la serie Esv3 cuentan con la tecnología Hyper-Threading de Intel®.
 
-ACU: 160-190
-
-Premium Storage:  Compatible
-
-Almacenamiento en caché de Premium Storage:  Compatible
-
-Migración en vivo: Compatible
-
-Actualizaciones con conservación de memoria: Compatible
+[ACU](acu.md): 160-190<br>
+[Premium Storage](premium-storage-performance.md): Compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
+[Migración en vivo](maintenance-and-updates.md): Compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+<br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento de almacenamiento en caché y almacenamiento temporal expandidos: IOPS/MBps<sup>3</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps |  Rendimiento del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>3</sup>| Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|

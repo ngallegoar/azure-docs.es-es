@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 925246eb2adae59ca74e363c4d4a6952f11c3744
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292328"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obtener métricas de utilización de máquina virtual mediante la API de REST

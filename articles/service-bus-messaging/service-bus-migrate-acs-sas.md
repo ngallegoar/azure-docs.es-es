@@ -4,10 +4,10 @@ description: Aprenda a migrar desde Azure Active Directory Access Control Serv
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: e8cd12ac97020417f9958beded1fd198dd485fff
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88064628"
 ---
 # <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus: Migración desde Azure Active Directory Access Control Service a la autorización de firma de acceso compartido
