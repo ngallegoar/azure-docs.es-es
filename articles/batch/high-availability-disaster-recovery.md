@@ -3,12 +3,12 @@ title: Alta disponibilidad y recuperación ante desastres
 description: Aprenda a diseñar la aplicación de Batch para una interrupción regional.
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1e22cb19aba1dcedc4ece7ddc2d1de0ab3233238
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: c77e6fa672d26545af47b262a982a7d0d7303eec
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725744"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058019"
 ---
 # <a name="design-your-application-for-high-availability"></a>Diseño de la aplicación para una alta disponibilidad
 
@@ -39,5 +39,5 @@ Tenga en cuenta lo siguiente a la hora de diseñar una solución con conmutació
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información acerca de cómo crear cuentas de Batch con [Azure Portal](batch-account-create-portal.md), la [CLI de Azure](cli-samples.md), [Powershell](batch-powershell-cmdlets-get-started.md) o [Batch Management API](batch-management-dotnet.md).
+- Obtenga más información acerca de cómo crear cuentas de Batch con [Azure Portal](batch-account-create-portal.md), la [CLI de Azure](./scripts/batch-cli-sample-create-account.md), [Powershell](batch-powershell-cmdlets-get-started.md) o [Batch Management API](batch-management-dotnet.md).
 - Las cuotas predeterminadas están asociadas con las cuentas de Batch; en [este artículo](batch-quota-limit.md) se explican a detalle los valores predeterminados de cuotas y se describe el proceso para aumentarlas.

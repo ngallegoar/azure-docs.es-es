@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 608d9511b14ef8dd3815d6f9b45cda31e6b38b94
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 83cd36683a0487f13ab5707e4b1534cc7f20a88a
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004313"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948534"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Compatibilidad con el movimiento de recursos de Azure entre regiones
 
@@ -696,7 +696,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | No. [Más información](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region).
 > | actiongroups |  No | 
 > | activitylogalerts | No | 
 > | alertrules |  No | 
@@ -1134,11 +1134,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Movimiento de región | 
 > | ------------- | ----------- |
 > | instancepools | No | 
-> | managedinstances | Sí <br/><br/> [Más información](/azure/azure-sql/database/move-resources-across-regions) sobre cómo trasladar instancias administradas entre regiones. | 
+> | managedinstances | Sí <br/><br/> [Más información](../../azure-sql/database/move-resources-across-regions.md) sobre cómo trasladar instancias administradas entre regiones. | 
 > | managedinstances/databases | Sí | 
 > | servers | Sí | 
-> | servers/databases | Sí <br/><br/> [Más información](/azure/azure-sql/database/move-resources-across-regions) sobre cómo trasladar bases de datos entre regiones.<br/><br/> [Más información](../../resource-mover/tutorial-move-region-sql.md) sobre el uso de Azure Resource Mover para trasladar las bases de datos de Azure SQL.  | 
-> | servers/elasticpools | Sí <br/><br/> [Más información](/azure/azure-sql/database/move-resources-across-regions) sobre cómo trasladar grupos elásticos entre regiones.<br/><br/> [Más información](../../resource-mover/tutorial-move-region-sql.md) sobre el uso de Azure Resource Mover para trasladar los grupos elásticos de Azure SQL.  | 
+> | servers/databases | Sí <br/><br/> [Más información](../../azure-sql/database/move-resources-across-regions.md) sobre cómo trasladar bases de datos entre regiones.<br/><br/> [Más información](../../resource-mover/tutorial-move-region-sql.md) sobre el uso de Azure Resource Mover para trasladar las bases de datos de Azure SQL.  | 
+> | servers/elasticpools | Sí <br/><br/> [Más información](../../azure-sql/database/move-resources-across-regions.md) sobre cómo trasladar grupos elásticos entre regiones.<br/><br/> [Más información](../../resource-mover/tutorial-move-region-sql.md) sobre el uso de Azure Resource Mover para trasladar los grupos elásticos de Azure SQL.  | 
 > | virtualclusters | Sí | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

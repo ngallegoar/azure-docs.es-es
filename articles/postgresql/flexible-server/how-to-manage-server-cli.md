@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 0f3c21d5c7f328ddef000ca7f1eaa9d5e18e6ca9
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 6c088188802590139ee895c45fb26959138db07e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761896"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939807"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Administración de un Servidor flexible de Azure Database for PostgreSQL mediante la CLI de Azure
 
@@ -118,12 +118,12 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 ```
 
 > [!IMPORTANT]
-> Asegúrese de que tenga un mínimo de 8 caracteres y un máximo de 128 caracteres de longitud.
-> La contraseña debe contener caracteres de tres de las categorías siguientes: Letras del alfabeto inglés mayúsculas y minúsculas, números y caracteres no alfanuméricos.
+> Asegúrese de que tiene su longitud oscila entre 8 y 128 caracteres.
+> Debe contener caracteres de tres de las categorías siguientes: Letras del alfabeto inglés mayúsculas y minúsculas, números y caracteres no alfanuméricos.
 
 ## <a name="delete-a-server"></a>Eliminación de un servidor
 
-Si solo quiere eliminar el Servidor flexible de PostgreSQL, puede ejecutar el comando [az postgres flexible-server delete](/cli/azure/PostgreSQL/server#az-PostgreSQL-flexible-server-delete).
+Si solo quiere eliminar el Servidor flexible de PostgreSQL, puede ejecutar el comando [az postgres flexible-server delete](/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete).
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver

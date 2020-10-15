@@ -7,10 +7,10 @@ ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083028"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalización de un punto de conexión HTTP en Azure Functions
@@ -112,7 +112,7 @@ Repita los pasos de [Creación de una aplicación de función](./functions-creat
     | Dirección URL de back-end | https://%HELLO_HOST%/api/hello | Especifica el punto de conexión al que la solicitud debe remitir a través del proxy. |
 
     
-    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Creación de un proxy":::
+    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Personalización de una función HTTP":::
 
     En Azure Functions Proxies no se proporciona el prefijo de ruta de acceso base `/api`, que debe incluirse en la plantilla de ruta. La sintaxis `%HELLO_HOST%` hace referencia a la configuración de la aplicación que creó antes. La dirección URL resuelta apuntará a la función original.
 

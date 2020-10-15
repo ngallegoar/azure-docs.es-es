@@ -8,10 +8,10 @@ ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85961105"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Creación de un cuaderno en Azure Cosmos DB para analizar y visualizar los datos
@@ -30,11 +30,11 @@ En esta sección creará la base de datos y el contenedor de Azure Cosmos e impo
 
 1. Vaya a la pestaña **Notebooks** (Cuadernos), seleccione `…` junto a **My Notebooks** (Mis cuadernos) y elija **New Notebook** (Nuevo cuaderno). Seleccione **Python 3** como kernel predeterminado.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Creación de un cuaderno":::
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Creación de un cuaderno&quot;:::
 
 1. Después de crear un nuevo cuaderno, puede cambiar su nombre a algo como **VisualizeRetailData.ipynb**.
 
-1. A continuación, creará una base de datos denominada "RetailDemo" y un contenedor denominado "WebsiteData" para almacenar los datos comerciales. Puede usar /CartID como clave de partición. Copie y pegue el siguiente código en una nueva celda del cuaderno y ejecútelo:
+1. A continuación, creará una base de datos denominada &quot;RetailDemo&quot; y un contenedor denominado &quot;WebsiteData" para almacenar los datos comerciales. Puede usar /CartID como clave de partición. Copie y pegue el siguiente código en una nueva celda del cuaderno y ejecútelo:
 
    ```python
    import azure.cosmos
@@ -49,7 +49,11 @@ En esta sección creará la base de datos y el contenedor de Azure Cosmos e impo
 
    Para ejecutar una celda, seleccione `Shift + Enter` o seleccione la celda y elija la opción **Run Active Cell** (Ejecutar celda activa) en la barra de navegación del explorador de datos.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Ejecución de la celda activa":::
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Creación de un cuaderno&quot;:::
+
+1. Después de crear un nuevo cuaderno, puede cambiar su nombre a algo como **VisualizeRetailData.ipynb**.
+
+1. A continuación, creará una base de datos denominada &quot;RetailDemo&quot; y un contenedor denominado &quot;WebsiteData":::
 
    La base de datos y el contenedor se crean en la cuenta actual de Azure Cosmos. El contenedor se aprovisiona con 400 RU/s. Después de la creación de la base de datos y el contenedor, verá la siguiente salida. 
 
@@ -60,23 +64,11 @@ En esta sección creará la base de datos y el contenedor de Azure Cosmos e impo
 
    También puede actualizar la pestaña **Data** (Datos) y ver los recursos recién creados:
 
-   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Actualización de la pestaña de datos para ver el nuevo contenedor":::
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Creación de un cuaderno&quot;:::
 
-1. A continuación, importará los datos comerciales de ejemplo en el contenedor de Azure Cosmos. Este es el formato de un artículo de los datos comerciales:
+1. Después de crear un nuevo cuaderno, puede cambiar su nombre a algo como **VisualizeRetailData.ipynb**.
 
-   ```json
-    {
-       "CartID":5399,
-       "Action":"Viewed",
-       "Item":"Cosmos T-shirt",
-       "Price":350,
-       "UserName":"Demo.User10",
-       "Country":"Iceland",
-       "EventDate":"2015-06-25T00:00:00",
-       "Year":2015,"Latitude":-66.8673,
-       "Longitude":-29.8214,
-       "Address":"852 Modesto Loop, Port Ola, Iceland",
-       "id":"00ffd39c-7e98-4451-9b91-b2bcf2f9a32d"
+1. A continuación, creará una base de datos denominada &quot;RetailDemo&quot; y un contenedor denominado &quot;WebsiteData"
     }
    ```
 
@@ -135,7 +127,11 @@ En una nueva celda del cuaderno, ejecute el siguiente código para leer los diez
 df_cosmos.head(10)
 ```
 
-:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Ejecución de una consulta para obtener los diez primeros artículos":::
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Creación de un cuaderno&quot;:::
+
+1. Después de crear un nuevo cuaderno, puede cambiar su nombre a algo como **VisualizeRetailData.ipynb**.
+
+1. A continuación, creará una base de datos denominada &quot;RetailDemo&quot; y un contenedor denominado &quot;WebsiteData":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>Ejecución de consultas y análisis de los datos
 
@@ -148,7 +144,11 @@ En esta sección ejecutará algunas consultas en los datos recuperados.
    display(df_revenue.head(5))
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Salida de ingresos totales por ventas":::
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Creación de un cuaderno&quot;:::
+
+1. Después de crear un nuevo cuaderno, puede cambiar su nombre a algo como **VisualizeRetailData.ipynb**.
+
+1. A continuación, creará una base de datos denominada &quot;RetailDemo&quot; y un contenedor denominado &quot;WebsiteData":::
 
 * **Query2:** para obtener una lista de los cinco artículos más comprados, abra una nueva celda del cuaderno y ejecute el siguiente código:
 
@@ -159,7 +159,11 @@ En esta sección ejecutará algunas consultas en los datos recuperados.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Los cinco artículos más comprados":::
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Creación de un cuaderno&quot;:::
+
+1. Después de crear un nuevo cuaderno, puede cambiar su nombre a algo como **VisualizeRetailData.ipynb**.
+
+1. A continuación, creará una base de datos denominada &quot;RetailDemo&quot; y un contenedor denominado &quot;WebsiteData":::
 
 ## <a name="visualize-your-data"></a>Visualización de los datos  
 
@@ -235,7 +239,11 @@ En esta sección ejecutará algunas consultas en los datos recuperados.
 
    La salida muestra el mapa mundial con distintos colores. Los colores más oscuros representan a los países con mayores ingresos y los más claros, a los de menores ingresos.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Visualización del mapa de ingresos de países y regiones":::
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Creación de un cuaderno&quot;:::
+
+1. Después de crear un nuevo cuaderno, puede cambiar su nombre a algo como **VisualizeRetailData.ipynb**.
+
+1. A continuación, creará una base de datos denominada &quot;RetailDemo&quot; y un contenedor denominado &quot;WebsiteData":::
 
 1. Veamos otro caso de visualización de datos. El contenedor WebsiteData tiene un registro de usuarios que han visto un artículo, lo han agregado al carro y lo han adquirido. Vamos a trazar la tasa de conversión de los artículos comprados. Ejecute el siguiente código en una nueva celda para visualizar la tasa de conversión de cada artículo:
 
@@ -286,7 +294,11 @@ En esta sección ejecutará algunas consultas en los datos recuperados.
    show(p)
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualización de la tarifa de conversión de compra":::
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Creación de un cuaderno&quot;:::
+
+1. Después de crear un nuevo cuaderno, puede cambiar su nombre a algo como **VisualizeRetailData.ipynb**.
+
+1. A continuación, creará una base de datos denominada &quot;RetailDemo&quot; y un contenedor denominado &quot;WebsiteData":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

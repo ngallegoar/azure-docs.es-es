@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: e152c0227008dd12088660b2390a8d0a5f54de96
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 6f57f801f2270819d4a67a49590f5ba61b32afcb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290785"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047648"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conocidos en Azure Digital Twins
 
@@ -30,7 +30,7 @@ En el caso de Azure Digital Twins, concretamente, esto afecta a los siguientes g
 
 Esto puede resolverse si se vuelve a ejecutar el comando `az login` en Cloud Shell y se completan los pasos de inicio de sesión posteriores. Después de esto, debería poder ejecutar el comando nuevamente.
 
-Una solución alternativa consiste en [instalar la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en el equipo para poder ejecutar comandos de la CLI de Azure de forma local. La CLI local no experimenta este problema.
+Una solución alternativa consiste en [instalar la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) en el equipo para poder ejecutar comandos de la CLI de Azure de forma local. La CLI local no experimenta este problema.
 
 ### <a name="possible-causes"></a>Causas posibles
 
@@ -60,7 +60,7 @@ En el caso de los usuarios que iniciaron sesión con una [cuenta Microsoft (MSA)
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problema con la autenticación interactiva del explorador
 
-Al escribir código de autenticación en las aplicaciones de Azure Digital Twins con la versión **1.2.0** de la biblioteca **[Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet)** , puede experimentar problemas con el método [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).
+Al escribir código de autenticación en las aplicaciones de Azure Digital Twins con la versión **1.2.0** de la biblioteca **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet)** , puede experimentar problemas con el método [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).
 
 Esta no es la versión más reciente de la biblioteca. La versión más reciente es **1.2.2**.
 

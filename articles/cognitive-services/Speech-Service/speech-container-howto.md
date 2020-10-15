@@ -12,12 +12,12 @@ ms.date: 10/07/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: 0ba479e8c73cb7b0f397f39124ec32d7b9afbf4f
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: c26c69a0f6cbf0f9f658d3b7a32cce99319767b4
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813277"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930448"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
@@ -176,7 +176,7 @@ Todas las etiquetas, a excepción de `latest` tienen el formato siguiente y dist
 La etiqueta siguiente es un ejemplo del formato:
 
 ```
-2.4.0-amd64-en-us-preview
+2.5.0-amd64-en-us-preview
 ```
 
 Para ver todas las configuraciones regionales admitidas del contenedor de **conversión de voz a texto**, consulte las [etiquetas de imágenes de la conversión de voz a texto](../containers/container-image-tags.md#speech-to-text).

@@ -9,10 +9,10 @@ ms.date: 07/01/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: d6f56f3500ab9c6b4482d2ade892dfdb46ccacb5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67503391"
 ---
 Los archivos Premium usan una cuenta de almacenamiento única denominada **FileStorage**. Este tipo de cuenta está diseñado para cargas de trabajo con una IOPS elevada y alto rendimiento con baja latencia coherente. El almacenamiento de archivos Premium se escala con el tamaño de recurso compartido aprovisionado.

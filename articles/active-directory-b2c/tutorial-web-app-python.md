@@ -12,10 +12,10 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.custom: devx-track-python
 ms.openlocfilehash: 6a113b3a3df475853f3690a0e932378bc0e2ab02
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844633"
 ---
 # <a name="tutorial-enable-authentication-in-a-python-web-application-with-azure-ad-b2c"></a>Tutorial: Habilitación de la autenticación en una aplicación web de Python mediante Azure AD B2C
@@ -162,13 +162,13 @@ Esta aplicación de ejemplo admite el registro, el inicio de sesión y el restab
 
     Utilice una dirección de correo electrónico válida y valídela mediante el código de verificación. Establezca una contraseña. Especifique valores para los atributos solicitados.
 
-    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Página de registro que muestra el flujo de usuario de Azure AD B2C":::
+    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Explorador Web que muestra la aplicación web de Python Flask que se ejecuta localmente":::
 
 1. Seleccione **Crear** para crear una cuenta local en el directorio de Azure AD B2C.
 
 Al seleccionar **Crear**, la aplicación muestra el nombre del usuario que ha iniciado sesión.
 
-:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="Explorador Web que muestra la aplicación web de Python Flask con el usuario que ha iniciado sesión":::
+:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="Explorador Web que muestra la aplicación web de Python Flask que se ejecuta localmente":::
 
 Si desea probar el inicio de sesión, seleccione el vínculo **Cerrar sesión**, luego seleccione **Iniciar sesión** e inicie sesión con la dirección de correo electrónico y la contraseña que especificó al registrarse.
 

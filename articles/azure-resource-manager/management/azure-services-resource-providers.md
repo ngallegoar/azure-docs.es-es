@@ -3,12 +3,12 @@ title: Proveedores de recursos por servicios de Azure
 description: Se enumeran todos los espacios de nombres de proveedor de recursos para Azure Resource Manager y se muestra el servicio de Azure para ese espacio de nombres.
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: b740c8ee7c28bfeeaecc42121d0c7ce4a323ab3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f9e31f902d36cf84fc559337f3c69529cf1c014b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330832"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949129"
 ---
 # <a name="resource-providers-for-azure-services"></a>Proveedores de recursos para servicios de Azure
 
@@ -110,7 +110,7 @@ En este artículo se muestra cómo se asignan los espacios de nombres de proveed
 | Microsoft.Kusto | [Azure Data Explorer](/azure/data-explorer/) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Logic | [Logic Apps](../../logic-apps/index.yml) |
-| Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/studio/index.yml) |
+| Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/classic/index.yml) |
 | Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
 | Microsoft.Maintenance | [Mantenimiento de Azure](../../virtual-machines/maintenance-control-cli.md) |
 | Microsoft.ManagedIdentity | [Identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/index.yml) |

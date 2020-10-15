@@ -2,19 +2,17 @@
 title: Parámetros temporales de los libros de Azure Monitor
 description: Aprenda a definir los parámetros temporales para permitir a los usuarios establecer el contexto temporal de los análisis. La mayoría de los informes usan los parámetros temporales.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: c84133d5728f7b6593e0606dda2eef28b8167e43
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 471b775abfebec646ab3950803622271c0bd559b
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972880"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932301"
 ---
 # <a name="workbook-time-parameters"></a>Parámetros temporales de los libros
 
