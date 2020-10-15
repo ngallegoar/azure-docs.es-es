@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
 ms.openlocfilehash: 4c485bf6b9eb34e68e399c24e51286428f47586f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85261909"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Habilitación de cuadernos para las cuentas de Azure Cosmos DB (versión preliminar)
@@ -31,15 +31,15 @@ Los cuadernos de Jupyter integrados en Azure Cosmos DB permiten analizar y visu
 1. Seleccione **Revisar + crear**. Puede omitir las opciones **Red** y **Etiquetas**. 
 1. Revise la configuración de la cuenta y seleccione **Crear**. La operación de creación de la cuenta tarda unos minutos. Espere hasta que la página del portal muestre **Se completó la implementación** . 
 
-   :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Panel de notificaciones de Azure Portal":::
+   :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Selección de la opción Cuadernos en la hoja Creación de una cuenta de Azure Cosmos DB":::
 
 1. Seleccione **Ir al recurso** para ir a la página de la cuenta de Azure Cosmos DB.
 
-   :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Página de la cuenta de Azure Cosmos DB":::
+   :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Selección de la opción Cuadernos en la hoja Creación de una cuenta de Azure Cosmos DB":::
 
 1. Vaya al panel **Explorador de datos**. Ahora debería ver el área de trabajo de Notebooks.
 
-    :::image type="content" source="media/enable-notebooks/new-notebooks-workspace.png" alt-text="Nueva área de trabajo de cuadernos en Azure Cosmos DB":::
+    :::image type="content" source="media/enable-notebooks/new-notebooks-workspace.png" alt-text="Selección de la opción Cuadernos en la hoja Creación de una cuenta de Azure Cosmos DB":::
 
 ## <a name="enable-notebooks-in-an-existing-cosmos-account"></a>Habilitación de cuadernos en una cuenta de Cosmos existente
 
@@ -48,7 +48,7 @@ También puede habilitar cuadernos en las cuentas existentes. Este paso debe rea
 1. Vaya al panel **Explorador de datos** en su cuenta de Cosmos.
 1. Seleccione **Habilitar Notebooks**.
 
-    :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Creación de una nueva área de trabajo de cuadernos en el Explorador de datos":::
+    :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Selección de la opción Cuadernos en la hoja Creación de una cuenta de Azure Cosmos DB":::
 
 1. Se le pedirá que cree un área de trabajo de Notebooks. Seleccione **Complete setup** (Completar configuración).
 1. Ahora su cuenta está habilitada para usar Notebooks.
@@ -59,18 +59,18 @@ Para comprobar que puede usar Notebooks, seleccione uno de los cuadernos de Samp
 
 En este ejemplo, usaremos **GettingStarted.ipynb**. 
 
-:::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Visualización del cuaderno GettingStarted.ipynb":::
+:::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Selección de la opción Cuadernos en la hoja Creación de una cuenta de Azure Cosmos DB":::
 
 Para ejecutar el cuaderno:
 1. Seleccione la primera celda de código que contiene el código de Python. 
 1. Seleccione **Ejecutar** para ejecutar la celda. También puede usar **Mayús+Entrar** para ejecutar la celda.
 1. Actualice el panel de recursos para ver la base de datos y el contenedor que se han creado.
 
-    :::image type="content" source="media/enable-notebooks/run-first-notebook-cell.png" alt-text="Ejecución del cuaderno inicial":::
+    :::image type="content" source="media/enable-notebooks/run-first-notebook-cell.png" alt-text="Selección de la opción Cuadernos en la hoja Creación de una cuenta de Azure Cosmos DB":::
 
 También puede seleccionar **Nuevo Notebook** para crear un notebook o cargar un archivo de Notebook (.ipynb) existente al seleccionar **Cargar archivo** en el menú **Mis Notebooks**. 
 
-:::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Creación o carga de un cuaderno nuevo":::
+:::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Selección de la opción Cuadernos en la hoja Creación de una cuenta de Azure Cosmos DB":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

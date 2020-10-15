@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ff21975c34c28d7476635467e0c1abb8e6575e35
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299531"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977959"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>La máquina virtual no responde durante la aplicación de la directiva de configuración de directivas de auditorías
 
@@ -27,7 +27,7 @@ En este artículo se proporcionan los pasos para resolver aquellos problemas en 
 
 ## <a name="symptom"></a>Síntoma
 
-Si usa [Diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la máquina virtual, verá que en la captura de pantalla se muestra que el sistema operativo no respondía durante el arranque con el mensaje **Aplicando directiva de configuración de directivas de auditoría**.
+Si usa [Diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la máquina virtual, verá que en la captura de pantalla se muestra que el sistema operativo no respondía durante el arranque con el mensaje **Aplicando directiva de configuración de directivas de auditoría**.
 
   ![Sistema operativo arrancando con el mensaje: "Aplicando directiva de configuración de directivas de auditoría"](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 
@@ -54,7 +54,7 @@ Esta es la directiva problemática: *Configuración del equipo\Directivas\Planti
 
 ### <a name="create-and-access-a-repair-vm"></a>Creación de una máquina virtual de reparación y acceso a ella
 
-1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar una VM de reparación.
+1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar una VM de reparación.
 1. Use Conexión a Escritorio remoto para conectarse a la VM de reparación.
 
 ### <a name="disable-the-policy"></a>Deshabilite la directiva.
@@ -153,7 +153,7 @@ Esta es la directiva problemática: *Configuración del equipo\Directivas\Planti
    
 ### <a name="rebuild-the-virtual-machine"></a>Recompilación de la máquina virtual
 
-1. Realice el [paso 5 de los comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para volver a crear la VM.
+1. Realice el [paso 5 de los comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para volver a crear la VM.
 
 1. Pruebe si la máquina virtual se inicia normalmente para ver si el problema se ha solucionado.
 
@@ -175,11 +175,11 @@ Para resolver este problema, primero debe recopilar el archivo de volcado de mem
 
 #### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Conecte el disco del sistema operativo a una nueva VM de recuperación
 
-1. Siga los pasos 1 a 3 de los [comandos de reparación de la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar una nueva máquina virtual de reparación.
+1. Siga los pasos 1 a 3 de los [comandos de reparación de la máquina virtual](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar una nueva máquina virtual de reparación.
 1. Use Conexión a Escritorio remoto para conectarse a la VM de reparación.
 
 #### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Busque el archivo de volcado de memoria y envíe una incidencia de soporte técnico
 
 1. En la VM de reparación, vaya a la carpeta de Windows en el disco del sistema operativo conectado. Si la letra de unidad que se asigna al disco del sistema operativo conectado es *F*, deberá ir a `F:\Windows`.
 1. Busque el archivo `memory.dmp` y, a continuación, [envíe una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) con el archivo de volcado de memoria.
-1. Si tiene problemas para encontrar el archivo `memory.dmp`, use en su lugar [llamadas de interrupción no enmascarable (NMI) en la consola serie](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls). Siga la guía para [generar aquí un archivo de volcado de memoria completo mediante llamadas NMI](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+1. Si tiene problemas para encontrar el archivo `memory.dmp`, use en su lugar [llamadas de interrupción no enmascarable (NMI) en la consola serie](./serial-console-windows.md#use-the-serial-console-for-nmi-calls). Siga la guía para [generar aquí un archivo de volcado de memoria completo mediante llamadas NMI](/windows/client-management/generate-kernel-or-complete-crash-dump).

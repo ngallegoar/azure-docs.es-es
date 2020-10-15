@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 16bdb0d8ed421763895e61a6e1173fc7c5a48d4d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4f381e2f2e9f85422bd5f4fb89ec684f4bc99f91
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297953"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970816"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novedades en Form Recognizer
 
@@ -53,7 +53,7 @@ Hay **nuevos ejemplos** disponibles en GitHub.
 
 ### <a name="new-features"></a>Nuevas características
 
-* **Referencia de v2.0 disponible** Consulte la [Referencia de la API v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) y los SDK actualizados para [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview) y [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
+* **Referencia de v2.0 disponible** Consulte la [Referencia de la API v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) y los SDK actualizados para [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview) y [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
 * Las **mejoras en las tablas y extracciones** incluyen mejoras de precisión y de extracciones de tablas, en concreto, la posibilidad de conocer los encabezados y las estructuras de las tablas en el _entrenamiento personalizado sin etiquetas_. 
 
 * **La compatibilidad con divisas** permite detectar y extraer símbolos de divisas globales.
@@ -78,10 +78,10 @@ Hay **nuevos ejemplos** disponibles en GitHub.
 
 ### <a name="new-features"></a>Nuevas características
 * **Compatibilidad del SDK con la versión preliminar pública de la API de Form Recognizer v 2.0** Este mes hemos ampliado nuestro servicio de soporte técnico para incluir un SDK de versión preliminar para la versión v 2.0 (versión preliminar) de Form Recognizer. Use los vínculos siguientes para empezar a trabajar con el lenguaje que prefiera: 
-   * [SDK de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet)
-   * [SDK de Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)
-   * [SDK de Python](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-python-preview)
-   * [SDK de JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre?view=azure-node-preview)
+   * [SDK de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
+   * [SDK de Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
+   * [SDK de Python](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
+   * [SDK de JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
 
   El nuevo SDK es compatible con todas las características de la API REST v 2.0 de Form Recognizer. Por ejemplo, puede entrenar un modelo con o sin etiquetas y extraer texto, pares clave-valor y tablas de los formularios; extraer datos de las confirmaciones con el servicio de confirmaciones pregeneradas; y extraer texto y tablas con el servicio de diseño de los documentos. Puede compartir sus comentarios sobre los SDK mediante el [formulario de comentarios de SDK](https://aka.ms/FR_SDK_v1_feedback).
  

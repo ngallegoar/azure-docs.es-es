@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0b6d4ebd199e1db9e5b325df5ea08eaede8e581b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 736d80c4bcfe31a499b84bb24c1c377e69e84218
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311893"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976018"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configuración de una aplicación Java para Azure App Service
 
@@ -29,8 +29,6 @@ Puede usar el [complemento de Azure Web App para Maven](/java/api/overview/azure
 
 De lo contrario, el método de implementación dependerá del tipo de archivo:
 
-::: zone pivot="platform-windows"  
-
 ### <a name="java-se"></a>Java SE
 
 Para implementar archivos .jar en Java SE, use el punto de conexión `/api/zipdeploy/` del sitio de Kudu. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#rest).
@@ -39,7 +37,6 @@ Para implementar archivos .jar en Java SE, use el punto de conexión `/api/zipde
 
 Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wardeploy/` para realizar el conjunto de rutinas POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-war-file).
 
-::: zone-end
 ::: zone pivot="platform-linux"
 
 ### <a name="jboss-eap"></a>JBoss EAP

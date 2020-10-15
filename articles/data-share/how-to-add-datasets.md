@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: 540cdc2948cbcd97bf7c8872f3aace2862280434
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513496"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Incorporación de conjuntos de datos a un recurso compartido existente en Azure Data Share

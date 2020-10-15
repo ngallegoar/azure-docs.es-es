@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: a54de6dbfb320ca530e9c885af9ebe5d833274cc
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 7234c02d387e2fbf21a7f6002e44f84deb851133
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322856"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977602"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -89,7 +89,7 @@ Actualmente Azure no admite algunas de las características que admite Hyper-V e
 |---------|--------------|--------------|
 | Arranque             | PCAT                      | UEFI                               |
 | Controladoras de disco | IDE                       | SCSI                               |
-| Tamaños de VM         | Todos los tamaños de VM | [Consulte los tamaños disponibles](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes). |
+| Tamaños de VM         | Todos los tamaños de VM | [Consulte los tamaños disponibles](#generation-2-vm-sizes) |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funcionalidades de la generación 1 frente a la generación 2
 
@@ -222,4 +222,3 @@ También puede crear VM de generación 2 usando conjuntos de escalado de VM. En 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre [las VM de generación 2 en Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
-

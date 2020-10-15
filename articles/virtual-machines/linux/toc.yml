@@ -493,6 +493,8 @@
                   items:
                     - name: Generalizada
                       href: ../vm-generalized-image-version-cli.md
+                    - name: Especializada
+                      href: ../vm-specialized-image-version-cli.md
                 - name: Actualización de recursos de imagen
                   href: ../update-image-resources-cli.md
                 - name: Registro de aplicaciones para uso compartido
@@ -577,6 +579,8 @@
           href: build-image-with-packer.md
         - name: Descarga de disco existente
           href: download-vhd.md
+        - name: Disco administrado desde la versión de la imagen
+          href: ../managed-disk-from-image-version.md
     - name: Seguridad de máquinas virtuales
       items:
         - name: Recomendaciones
@@ -764,7 +768,7 @@
               href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#agents
             - name: Extensión de Diagnósticos de Azure
               items:
-                - name: Información general
+                - name: Introducción
                   href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                 - name: Extensión de Diagnósticos de Linux
                   items:

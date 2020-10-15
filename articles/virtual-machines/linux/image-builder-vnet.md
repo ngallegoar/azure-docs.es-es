@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: f216b6fa3a0e43c1c0313baa4f8414546a74d8f0
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d75d73fcd64917257b850861142e7f4a67da834c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068033"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972329"
 ---
 # <a name="use-azure-image-builder-for-linux-vms-allowing-access-to-an-existing-azure-vnet"></a>Uso de Azure Image Builder para máquinas virtuales Linux que permiten acceder a una red virtual de Azure existente
 
-En este artículo se muestra cómo puede usar Azure Image Builder para crear una imagen de Linux personalizada básica que tenga acceso a los recursos existentes en una red virtual. La máquina virtual de creación que cree se implementará en una red virtual nueva o existente que especifique en la suscripción. Cuando se usa una red virtual de Azure existente, el servicio Azure Image Builder no requiere conectividad de red pública.
+En este artículo se muestra cómo puede usar Azure Image Builder para crear una imagen de Linux personalizada básica que tenga acceso a los recursos existentes en una red virtual. La VM de creación que cree se implementará en una red virtual nueva o existente que especifique en la suscripción. Cuando se usa una red virtual de Azure existente, el servicio Azure Image Builder no requiere conectividad de red pública.
 
 > [!IMPORTANT]
 > Actualmente, el generador de imágenes de Azure se encuentra en versión preliminar pública.
@@ -107,7 +107,7 @@ az network vnet subnet update \
 
 ### <a name="add-network-security-group-rule"></a>Incorporación de una regla de grupo de seguridad de red
 
-Esta regla permite la conectividad desde el equilibrador de carga de Azure Image Builder con la máquina virtual de proxy. El puerto 60001 es para los sistemas operativos Linux y el puerto 60000 es para los sistemas operativos Windows. La máquina virtual de proxy se conecta a la máquina virtual de creación mediante el puerto 22 para los sistemas operativos Linux o el puerto 5986 para los sistemas operativos Windows.
+Esta regla permite la conectividad desde el equilibrador de carga de Azure Image Builder con la VM de proxy. El puerto 60001 es para los sistemas operativos Linux y el puerto 60000 es para los sistemas operativos Windows. La VM de proxy se conecta a la VM de creación mediante el puerto 22 para los sistemas operativos Linux o el puerto 5986 para los sistemas operativos Windows.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -163,7 +163,7 @@ sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
 
 ## <a name="set-permissions-on-the-resource-group"></a>Establecer permisos en el grupo de recursos
 
-Image Builder usará la [identidad de usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) proporcionada para insertar la imagen en la instancia de Azure Shared Image Gallery (SIG). En este ejemplo, se creará una definición de roles de Azure que tiene las acciones granulares necesarias para realizar la distribución de la imagen a la instancia de SIG. La definición de roles se asignará a la identidad del usuario.
+Image Builder usará la [identidad de usuario](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) proporcionada para insertar la imagen en la instancia de Azure Shared Image Gallery (SIG). En este ejemplo, se creará una definición de roles de Azure que tiene las acciones granulares necesarias para realizar la distribución de la imagen a la instancia de SIG. La definición de roles se asignará a la identidad del usuario.
 
 ```bash
 # create user assigned identity for image builder

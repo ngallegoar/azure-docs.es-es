@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 601e51c7a587cd55e9b0b235bbdfb2e559be09e2
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: aeb44a52dc7a83321752bb00e09270fe7bfd0bbe
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263102"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972193"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure
 
@@ -280,7 +280,7 @@ ode                DisplayStatus    Level
 PowerState/running  VM running       Info
 ```
 
-Para recuperar el estado de energía de todas las máquinas virtuales de la suscripción, use [Virtual Machines - List All API](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) con el parámetro **statusOnly** establecido en *true*.
+Para recuperar el estado de energía de todas las máquinas virtuales de la suscripción, use [Virtual Machines - List All API](/rest/api/compute/virtualmachines/listall) con el parámetro **statusOnly** establecido en *true*.
 
 ## <a name="management-tasks"></a>Tareas de administración
 

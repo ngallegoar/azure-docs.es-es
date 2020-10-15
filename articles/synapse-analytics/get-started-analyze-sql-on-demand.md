@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 8d26a03a8b61850dc17bc4efff5f8ca12dfca191
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9c42d1d988bc280d5e62c24f109225d91cb446ce
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300231"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893499"
 ---
 # <a name="analyze-data-with-sql-on-demand"></a>Análisis de datos con SQL a petición
 
@@ -57,4 +57,4 @@ SQL On-Demand ve y puede consultar automáticamente las tablas de las bases de d
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Análisis mediante Spark](get-started-analyze-spark.md)
+> [Análisis de datos en Storage](get-started-analyze-storage.md)

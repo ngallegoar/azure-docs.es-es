@@ -115,3 +115,5 @@
       href: faq.md
     - name: Preparación para la producción y procedimientos recomendados
       href: production-readiness.md
+    - name: Transparencia y principios de IA responsables
+      href: 'https://azure.microsoft.com/resources/transparency-note-live-video-analytics-lva/'

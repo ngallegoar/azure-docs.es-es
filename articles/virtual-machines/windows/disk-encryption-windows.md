@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 951c1fd89f9e943b72c32492ff40dae3bd07bb61
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: cf7e596c8ed057a3244ed2b12de59d02c4ba2cae
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794490"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977942"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Windows
 
@@ -262,7 +262,7 @@ Azure Disk Encryption no funciona para los siguientes escenarios, característic
 - Cifrado de sistemas de archivos compartidos o distribuidos como DFS, GFS, DRDB, and CephFS (sin limitarse solo a estos).
 - Traslado de unas máquinas virtuales cifradas a otra suscripción o región.
 - Creación de una imagen o instantánea de una máquina virtual cifrada y su uso para implementar máquinas virtuales adicionales.
-- Máquinas virtuales de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
+- Máquinas virtuales de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - Máquinas virtuales de la serie M con discos de Acelerador de escritura.
 - Aplicación de ADE a una máquina virtual que tiene discos cifrados con el [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md) (SSE + CMK). La aplicación de SSE + CMK a un disco de datos en una máquina virtual cifrada con ADE tampoco es un escenario admitido.
 - Migración de una máquina virtual cifrada con ADE, o que **alguna vez** haya estado cifrada con ADE, al [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md).

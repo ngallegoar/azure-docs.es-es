@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: 773c5f95cdbec6961b063720106794e6ec00451d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299939"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972040"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introducción a los discos administrados de Azure
 
@@ -35,7 +35,7 @@ Con discos administrados, puede crear hasta 50 000 **discos** de máquina virtu
 
 ### <a name="integration-with-availability-sets"></a>Integración con conjuntos de disponibilidad
 
-Los discos administrados se integran con conjuntos de disponibilidad para garantizar que los discos de [máquinas virtuales de un conjunto de disponibilidad](windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) están suficientemente aislados entre sí para evitar un único punto de error. Los discos se colocan automáticamente en diferentes unidades de escalado de almacenamiento (marcas). Si se produce un error en una marca debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichas marcas. Por ejemplo, suponga que tiene una aplicación que se ejecuta en cinco máquinas virtuales y estas están en un conjunto de disponibilidad. No todos los discos de dichas máquinas virtuales se almacenarán en la misma marca, por lo que, si se produce un error en una, no se detiene la ejecución de las restantes instancias de la aplicación.
+Los discos administrados se integran con conjuntos de disponibilidad para garantizar que los discos de [máquinas virtuales de un conjunto de disponibilidad](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) están suficientemente aislados entre sí para evitar un único punto de error. Los discos se colocan automáticamente en diferentes unidades de escalado de almacenamiento (marcas). Si se produce un error en una marca debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichas marcas. Por ejemplo, suponga que tiene una aplicación que se ejecuta en cinco máquinas virtuales y estas están en un conjunto de disponibilidad. No todos los discos de dichas máquinas virtuales se almacenarán en la misma marca, por lo que, si se produce un error en una, no se detiene la ejecución de las restantes instancias de la aplicación.
 
 ### <a name="integration-with-availability-zones"></a>Integración con Availability Zones
 
@@ -47,7 +47,7 @@ Para protegerse frente a desastres regionales, se puede usar [Azure Backup](../b
 
 ### <a name="granular-access-control"></a>Control de acceso pormenorizado
 
-Puede usar el [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/overview.md) para asignar a uno o varios usuarios permisos concretos a un disco administrado. Los discos administrados exponen varias operaciones, entre las que se incluyen la lectura, la escritura (creación o actualización), la eliminación y la recuperación de un [identificador URI de la firma de acceso compartido (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para el disco. Puede conceder acceso solo a las operaciones necesarias para que una persona pueda realizar su trabajo. Por ejemplo, si no desea que una persona copie un disco administrado a una cuenta de almacenamiento, puede decidir no conceder acceso a la acción de exportación de dicho disco administrado. De igual forma, si no desea que una persona use URI de SAS para copiar un disco administrado, puede elegir no conceder dicho permiso al disco administrado.
+Puede usar el [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/overview.md) para asignar a uno o varios usuarios permisos concretos a un disco administrado. Los discos administrados exponen varias operaciones, entre las que se incluyen la lectura, la escritura (creación o actualización), la eliminación y la recuperación de un [identificador URI de la firma de acceso compartido (SAS)](../storage/common/storage-sas-overview.md) para el disco. Puede conceder acceso solo a las operaciones necesarias para que una persona pueda realizar su trabajo. Por ejemplo, si no desea que una persona copie un disco administrado a una cuenta de almacenamiento, puede decidir no conceder acceso a la acción de exportación de dicho disco administrado. De igual forma, si no desea que una persona use URI de SAS para copiar un disco administrado, puede elegir no conceder dicho permiso al disco administrado.
 
 ### <a name="upload-your-vhd"></a>Carga de un disco duro virtual
 
@@ -96,7 +96,7 @@ El disco tiene una capacidad máxima de 4095 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporal
 
-La mayoría de las máquinas virtuales contiene un disco temporal, que no es un disco administrado. El disco temporal proporciona almacenamiento a corto plazo para aplicaciones y procesos, y está destinado únicamente a almacenar datos como archivos de paginación o de intercambio. Los datos del disco temporal pueden perderse durante un [evento de mantenimiento](windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) o cuando [vuelva a implementar una máquina virtual](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante un reinicio estándar correcto de la máquina virtual, se conservarán los datos de la unidad temporal. Para más información sobre las máquinas virtuales sin discos temporales, consulte [Tamaños de máquina virtual de Azure sin disco temporal local](azure-vms-no-temp-disk.md).
+La mayoría de las máquinas virtuales contiene un disco temporal, que no es un disco administrado. El disco temporal proporciona almacenamiento a corto plazo para aplicaciones y procesos, y está destinado únicamente a almacenar datos como archivos de paginación o de intercambio. Los datos del disco temporal pueden perderse durante un [evento de mantenimiento](./manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#understand-vm-reboots---maintenance-vs-downtime) o cuando [vuelva a implementar una máquina virtual](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante un reinicio estándar correcto de la máquina virtual, se conservarán los datos de la unidad temporal. Para más información sobre las máquinas virtuales sin discos temporales, consulte [Tamaños de máquina virtual de Azure sin disco temporal local](azure-vms-no-temp-disk.md).
 
 En máquinas virtuales Linux de Azure, el disco temporal normalmente es /dev/sdb, mientras que en máquinas virtuales Windows, el disco temporal es D: de forma predeterminada. El cifrado del lado servidor no cifra el disco temporal, a menos que habilite el cifrado en el host.
 
@@ -104,7 +104,7 @@ En máquinas virtuales Linux de Azure, el disco temporal normalmente es /dev/sdb
 
 Una instantánea de disco administrado es una copia completa de solo lectura coherente frente a bloqueos de un disco administrado que, de forma predeterminada, se almacena como disco administrado estándar. Con las instantáneas, puede realizar una copia de seguridad de sus discos administrados en cualquier momento. Estas instantáneas existen independientemente del disco de origen y se pueden usar para crear discos administrados. 
 
-Las instantáneas se facturan en función del tamaño utilizado. Por ejemplo, si crea una instantánea de un disco administrado con capacidad aprovisionada de 64 GiB y el tamaño de datos usado real es de 10 GiB, solo se le cobra por el tamaño de datos usado de 10 GiB. El tamaño usado de las instantáneas se puede ver en el [informe de uso de Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). Por ejemplo, si el tamaño de datos usado de una instantánea es de 10 GiB, el informe de uso **diario** mostrará 10 GiB/(31 días) = 0,3226 como cantidad consumida.
+Las instantáneas se facturan en función del tamaño utilizado. Por ejemplo, si crea una instantánea de un disco administrado con capacidad aprovisionada de 64 GiB y el tamaño de datos usado real es de 10 GiB, solo se le cobra por el tamaño de datos usado de 10 GiB. El tamaño usado de las instantáneas se puede ver en el [informe de uso de Azure](../cost-management-billing/understand/review-individual-bill.md). Por ejemplo, si el tamaño de datos usado de una instantánea es de 10 GiB, el informe de uso **diario** mostrará 10 GiB/(31 días) = 0,3226 como cantidad consumida.
 
 Para más información sobre cómo crear instantáneas para discos administrados, consulte los siguientes recursos:
 

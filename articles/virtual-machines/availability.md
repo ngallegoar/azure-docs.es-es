@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 3826019a19aa744cb03737ed7f0c985f8063a1aa
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b4009f3c132c76f6632d6bb706649befa746001f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815613"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972533"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opciones de disponibilidad para las máquinas virtuales de Azure
 
@@ -51,7 +51,7 @@ Los conjuntos de escalado de máquinas virtuales de Azure permiten crear y admin
 
 **Dominios de error y dominios de actualización**
 
-Los conjuntos de escalado de máquinas virtuales simplifican el diseño para lograr alta disponibilidad al alinear los dominios de error y los dominios de actualización. Solo tendrá que definir el número de dominios de error del conjunto de escalado. El número de dominios de error disponibles para los conjuntos de escalado puede variar en función de la región. Consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](./windows/manage-availability.md).
+Los conjuntos de escalado de máquinas virtuales simplifican el diseño para lograr alta disponibilidad al alinear los dominios de error y los dominios de actualización. Solo tendrá que definir el número de dominios de error del conjunto de escalado. El número de dominios de error disponibles para los conjuntos de escalado puede variar en función de la región. Consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](./manage-availability.md).
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidad
@@ -61,7 +61,7 @@ En un conjunto de disponibilidad, las máquinas virtuales se distribuyen automá
 
 Para las máquinas virtuales que usen [Azure Managed Disks](./faq-for-disks.md), las máquinas virtuales se alinean con los dominios de error de disco administrado cuando se usa un conjunto de disponibilidad administrada. Esta alineación garantiza que todos los discos administrados conectados a una máquina virtual se encuentran en el mismo dominio de error de disco administrado. 
 
-Solo se pueden crear máquinas virtuales con discos administrados en un conjunto de disponibilidad administrada. El número de dominios de error de disco administrado varía según la región: dos o tres dominios de error de disco administrado por región. Para más información sobre estos dominios de error de Managed Disks consulte [máquinas virtuales Linux](./linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) o [máquinas virtuales Windows](./windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
+Solo se pueden crear máquinas virtuales con discos administrados en un conjunto de disponibilidad administrada. El número de dominios de error de disco administrado varía según la región: dos o tres dominios de error de disco administrado por región. Para más información sobre estos dominios de error de Managed Disks consulte [máquinas virtuales Linux](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) o [máquinas virtuales Windows](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 ![Conjunto de disponibilidad administrado](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 

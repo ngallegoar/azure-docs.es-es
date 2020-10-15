@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 0b4890181721d08b741d327adb74bd097be5c9f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c117f9697299b94a54d9184093e65c56822b8bd2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069171"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975678"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Pasos detallados de solución de problemas de SSH para los problemas de conexión a una máquina virtual Linux en Azure
 Hay muchas razones posibles por las que el cliente SSH podría no ser capaz de ponerse en contacto con el servicio SSH en la máquina virtual. Si ha seguido los [pasos más generales de solución de problemas de SSH](troubleshoot-ssh-connection.md), debe solucionar además el problema de conexión. Este artículo le guiará por los pasos de solución de problemas detallados para determinar dónde se producen errores en la conexión SSH y cómo resolverlos.
@@ -39,7 +39,7 @@ Los siguientes pasos ayudan a aislar la causa del error y a averiguar soluciones
 
 2. Seleccione **Configuración** para examinar los puntos de conexión, las direcciones IP, los grupos de seguridad de red y otros valores de configuración.
 
-   La máquina virtual debe tener un punto de conexión definido para el tráfico SSH que puede ver en **Puntos de conexión** o en **[Grupo de seguridad de red](../../virtual-network/security-overview.md)** . Los puntos de conexión en las máquinas virtuales que se crearon con Resource Manager se almacenan en un grupo de seguridad de red. Compruebe que las reglas se hayan aplicado al grupo de seguridad de red y que se haga referencia a ellas en la subred.
+   La máquina virtual debe tener un punto de conexión definido para el tráfico SSH que puede ver en **Puntos de conexión** o en **[Grupo de seguridad de red](../../virtual-network/network-security-groups-overview.md)** . Los puntos de conexión en las máquinas virtuales que se crearon con Resource Manager se almacenan en un grupo de seguridad de red. Compruebe que las reglas se hayan aplicado al grupo de seguridad de red y que se haga referencia a ellas en la subred.
 
 Para comprobar la conectividad de red, compruebe los puntos de conexión configurados y vea si puede conectarse con la máquina virtual a través de otro protocolo, como HTTP u otro servicio.
 
@@ -114,7 +114,7 @@ Para descartar el punto de conexión como causa del problema, quite el actual, c
 
 ## <a name="source-4-network-security-groups"></a>Causa 4: Grupos de seguridad de red
 Los grupos de seguridad de red permiten un control pormenorizado del tráfico entrante y saliente permitido. Puede crear reglas que abarquen subredes y servicios en la nube en una red virtual de Azure. Compruebe las reglas de los grupos de seguridad de red para asegurarse de que se permite el tráfico de SSH tanto a Internet como desde Internet.
-Para obtener más información, consulte [Acerca de los grupos de seguridad de red](../../virtual-network/security-overview.md).
+Para obtener más información, consulte [Acerca de los grupos de seguridad de red](../../virtual-network/network-security-groups-overview.md).
 
 También puede usar la comprobación de IP para validar la configuración del grupo de seguridad de red. Para más información, consulte [Información general sobre la supervisión de red de Azure](../../network-watcher/network-watcher-monitoring-overview.md). 
 

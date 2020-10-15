@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 0cb7d1fa8dc9171c4baba09136d3a3c28d6c901c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c767edca46696bc7d04a1cf101e2bd183f5cf7f9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510657"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970850"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migración a Premium Storage mediante Azure Site Recovery
 
-Los [SSD de Azure Premium](disks-types.md) le ofrecen compatibilidad con los discos de alto rendimiento y latencia baja para máquinas virtuales (VM) que ejecutan cargas de trabajo con muchas operaciones de E/S. Esta guía le ayuda a migrar los discos de las máquinas virtuales desde una cuenta de almacenamiento estándar a una cuenta de Premium Storage mediante [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
+Los [SSD de Azure Premium](../disks-types.md) le ofrecen compatibilidad con los discos de alto rendimiento y latencia baja para máquinas virtuales (VM) que ejecutan cargas de trabajo con muchas operaciones de E/S. Esta guía le ayuda a migrar los discos de las máquinas virtuales desde una cuenta de almacenamiento estándar a una cuenta de Premium Storage mediante [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 Site Recovery es un servicio de Azure que contribuye a su estrategia de continuidad empresarial y recuperación ante desastres mediante la organización de la replicación de servidores físicos locales y máquinas virtuales en la nube (Azure) o en un centro de datos secundario. Cuando se producen interrupciones en la ubicación principal, se realiza la conmutación por error a la ubicación secundaria para mantener disponibles las aplicaciones y cargas de trabajo. La conmutación por recuperación a la ubicación principal se produce cuando vuelve a su funcionamiento normal. 
 
@@ -165,7 +165,7 @@ Para comprobar que el servidor de configuración se ha asociado correctamente a 
 
    ![Panel Habilitar la replicación con Origen seleccionado][13]
 
-Cuando se diseña el entorno de Azure Storage, se recomienda utilizar cuentas de almacenamiento separadas para cada máquina virtual en un conjunto de disponibilidad. Es recomendable seguir el procedimiento recomendado en la capa de almacenamiento para [utilizar varias cuentas de almacenamiento para cada conjunto de disponibilidad](../linux/manage-availability.md). La distribución de discos de máquina virtual a varias cuentas de almacenamiento ayuda a mejorar la disponibilidad de almacenamiento y distribuye la entrada/salida en toda la infraestructura de Azure Storage.
+Cuando se diseña el entorno de Azure Storage, se recomienda utilizar cuentas de almacenamiento separadas para cada máquina virtual en un conjunto de disponibilidad. Es recomendable seguir el procedimiento recomendado en la capa de almacenamiento para [utilizar varias cuentas de almacenamiento para cada conjunto de disponibilidad](../manage-availability.md). La distribución de discos de máquina virtual a varias cuentas de almacenamiento ayuda a mejorar la disponibilidad de almacenamiento y distribuye la entrada/salida en toda la infraestructura de Azure Storage.
 
 Si las máquinas virtuales están en un conjunto de disponibilidad, en lugar de replicar los discos de todas las máquinas virtuales en una cuenta de almacenamiento, se recomienda encarecidamente migrar varias máquinas virtuales repetidas veces. De esa forma, las máquinas virtuales del mismo conjunto de disponibilidad no comparten una única cuenta de almacenamiento. Use el panel **Habilitar la replicación** para configurar una cuenta de almacenamiento de destino para cada máquina virtual, de una en una.
  
@@ -217,7 +217,7 @@ Consulte también los siguientes recursos para más información sobre Azure Sto
 
 * [Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Selección de un tipo de disco para máquinas virtuales de IaaS](disks-types.md)
+* [Selección de un tipo de disco para máquinas virtuales de IaaS](../disks-types.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

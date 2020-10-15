@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 78ea26adb8299cc13d4677c66a0e06cba901d9dc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829091"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977381"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -70,7 +70,7 @@ Los paquetes de extensiones se descargan del repositorio de extensiones de Azure
 > [!IMPORTANT]
 > Si bloqueó el acceso a *168.63.129.16* con el firewall invitado o con un proxy, las extensiones generarán un error con independencia de lo mencionado anteriormente. Se requieren los puertos 80, 443 y 32526.
 
-Los agentes solo se pueden usar para descargar los paquetes de extensiones e informar el estado. Por ejemplo, si la instalación de una extensión requiere descargar un script de GitHub (script personalizado) o necesita acceso a Azure Storage (Azure Backup), se deben abrir puertos adicionales del firewall o del grupo de seguridad de red. Distintas extensiones tienen distintos requisitos, porque son aplicaciones por sí mismas. En el caso de las extensiones que requieren acceso a Azure Storage o Azure Active Directory, puede permitir el acceso mediante las [etiquetas del servicio NSG de Azure](../../virtual-network/security-overview.md#service-tags) para Storage o Azure Active Directory.
+Los agentes solo se pueden usar para descargar los paquetes de extensiones e informar el estado. Por ejemplo, si la instalación de una extensión requiere descargar un script de GitHub (script personalizado) o necesita acceso a Azure Storage (Azure Backup), se deben abrir puertos adicionales del firewall o del grupo de seguridad de red. Distintas extensiones tienen distintos requisitos, porque son aplicaciones por sí mismas. En el caso de las extensiones que requieren acceso a Azure Storage o Azure Active Directory, puede permitir el acceso mediante las [etiquetas del servicio NSG de Azure](../../virtual-network/network-security-groups-overview.md#service-tags) para Storage o Azure Active Directory.
 
 Windows Guest Agent no admite el servidor proxy para redirigir las solicitudes de tráfico del agente, de modo que Windows Guest Agent se basará en el proxy personalizado (si tiene uno) para acceder a recursos en Internet o en el host a través de la dirección IP 168.63.129.16.
 
