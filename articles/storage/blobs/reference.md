@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: ripohane
 ms.openlocfilehash: b8e4cada8ac2570fa32d55e35cbcdb214d5b5188
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018163"
 ---
 # <a name="azure-blob-storage-reference"></a>Referencia de Azure Blob Storage
@@ -68,7 +68,7 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Bibliotecas cliente de Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-blob/) | [Inicio rápido: Administración de blobs con el SDK de Python v12](/azure/storage/blobs/storage-quickstart-blobs-python) |
-| 2.x | [Bibliotecas cliente de Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Package (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [Inicio rápido: Administración de blobs con el SDK de Python v2.1](/azure/storage/blobs/storage-quickstart-blobs-python-legacy) |
+| 2.x | [Bibliotecas cliente de Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [Inicio rápido: Administración de blobs con el SDK de Python v2.1](/azure/storage/blobs/storage-quickstart-blobs-python-legacy) |
 
 ## <a name="javascript-client-libraries"></a>Bibliotecas cliente de JavaScript
 

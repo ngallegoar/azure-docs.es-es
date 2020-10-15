@@ -5,10 +5,10 @@ author: ecfan
 ms.author: estfan
 ms.date: 06/06/2020
 ms.openlocfilehash: 1113201941ce0757b58e361c08c9d79d7dd374cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84449110"
 ---
 Al agregar un desencadenador o una acción que se conecta a un servicio o sistema por primera vez, el diseñador de aplicaciones lógicas le pide que cree una *conexión* y que proporcione la información necesaria, que varía en función de la conexión; por ejemplo:

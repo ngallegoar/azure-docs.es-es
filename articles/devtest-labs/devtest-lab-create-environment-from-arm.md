@@ -4,10 +4,10 @@ description: Obtenga información acerca de cómo crear entornos de varias máqu
 ms.topic: article
 ms.date: 08/12/2020
 ms.openlocfilehash: 97659d4ab95fdbe75460161d0ceed71a1cb5cf82
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88182415"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager

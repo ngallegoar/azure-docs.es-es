@@ -4,10 +4,10 @@ description: Puede usar Live Video Analytics on IoT Edge para la grabación cont
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84260388"
 ---
 # <a name="playback-of-recordings"></a>Reproducción de grabaciones 

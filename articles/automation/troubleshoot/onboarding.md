@@ -5,12 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: ca2f866dc882e003469163a22d32d3d72031443a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6b8384193e821e6c41a0d4d979cda51f6c65b3a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801036"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070493"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Solución de incidencias en la implementación de características
 
@@ -82,7 +82,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Causa
 
-Este error puede producirse si el plan de tarifa no coincide con el modelo de facturación de la suscripción. Para más información, consulte [Supervisión del uso y costos estimados en Azure Monitor](https://aka.ms/PricingTierWarning).
+Este error puede producirse si el plan de tarifa no coincide con el modelo de facturación de la suscripción. Para más información, consulte [Supervisión del uso y costos estimados en Azure Monitor](../../azure-monitor/platform/usage-estimated-costs.md).
 
 #### <a name="resolution"></a>Resolución
 

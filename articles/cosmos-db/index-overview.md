@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
 ms.openlocfilehash: 3d07657fc3345ddd8dfadd163dc3c9f957d77af3
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90068394"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexación en Azure Cosmos DB: introducción
@@ -180,7 +180,7 @@ Las rutas de acceso extraídas al indexar datos facilitan la tarea de buscar el 
 
 Por ejemplo, considere la consulta siguiente: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. El predicado de consulta (filtrado por elementos, donde cualquier ubicación tiene "France" como su país) coincidiría con la ruta de acceso resaltada en rojo a continuación:
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Coincidencia con una ruta de acceso específica dentro de un árbol" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="El elemento anterior representado como árbol" border="false":::
 
 > [!NOTE]
 > Una cláusula `ORDER BY` que ordena por una sola propiedad *siempre* necesita un índice de rango y dará error si la ruta de acceso a la que hace referencia no tiene uno. Del mismo modo, una consulta `ORDER BY` que se ordena por varias propiedades *siempre* necesita un índice compuesto.

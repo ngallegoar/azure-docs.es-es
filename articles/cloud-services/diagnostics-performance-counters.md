@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
-ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39843ad83830a72b5d6b01cc00ecd65269c02e12
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77469534"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078602"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Recopilar información con contadores de rendimiento para Azure Cloud Service
 
@@ -70,7 +70,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 \Processor(*)\C3 Transitions/sec
 ```
 
-Estas rutas de contadores individuales se pueden agregar al marco de diagnóstico que usa su servicio en la nube. Para obtener más información acerca de cómo se crea una ruta del contador de rendimiento, consulte [Specifying a Counter Path](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)) (Especificar una ruta de contador).
+Estas rutas de contadores individuales se pueden agregar al marco de diagnóstico que usa su servicio en la nube. Para obtener más información acerca de cómo se crea una ruta del contador de rendimiento, consulte [Specifying a Counter Path](/windows/win32/perfctrs/specifying-a-counter-path) (Especificar una ruta de contador).
 
 ## <a name="collect-a-performance-counter"></a>Recopilar un contador de rendimiento
 
@@ -290,8 +290,5 @@ Como se indicó anteriormente, los contadores de rendimiento que quiere recopila
 
 - [Application Insights para Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Contadores de rendimiento de sistema en Application Insights](../azure-monitor/app/performance-counters.md)
-- [Specifying a Counter Path](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)) (Especificar una ruta de acceso de contador)
+- [Specifying a Counter Path](/windows/win32/perfctrs/specifying-a-counter-path) (Especificar una ruta de acceso de contador)
 - [Esquema de Azure Diagnostics - Contadores de rendimiento](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
-
-
-

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 00e5f8dc067d91e6ea6fed688d72b357d1d50678
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0d93edbefb61cb8ded09f6402ca1e1661429efe1
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904439"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952155"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Administración del proceso en el dispositivo Azure Stack Edge Pro
 
@@ -107,7 +107,7 @@ Para quitar la configuración de proceso perimetral existente del dispositivo, s
 
 2. Si quita la configuración de proceso, deberá volver a configurar el dispositivo en caso de que nuevamente necesite usar el proceso. Cuando se le pida confirmación, seleccione **Sí**.
 
-    ![Seleccionar Quitar proceso](media/azure-stack-edge-manage-compute/remove-compute-2.png)
+    ![Seleccionar Eliminar proceso 2](media/azure-stack-edge-manage-compute/remove-compute-2.png)
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Sincronización de las claves de acceso de dispositivo IoT y dispositivo IoT Edge
 

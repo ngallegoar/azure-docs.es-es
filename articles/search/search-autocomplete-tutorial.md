@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: dac1a09b7984cdc8deca22ced1e8018a761979e2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 1796566c0a775e5810c387a01e0b54983727fa37
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531622"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951407"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Incorporación de sugerencias y de la función de autocompletar a las aplicaciones cliente
 
@@ -141,7 +141,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 Si usa C# y una aplicación MVC, el archivo **HomeController.cs** del directorio Controllers es el lugar donde puede crear una clase para los resultados sugeridos. En .NET, una función de sugerencias se basa en el [método DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Para más información sobre el SDK de .NET, consulte [Cómo usar Azure Cognitive Search desde una aplicación .NET](./search-howto-dotnet-sdk.md).
 
-El método `InitSearch` crea un cliente del índice HTTP autenticado en el servicio Azure Cognitive Search. Las propiedades de la clase [SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters) determinan en qué campos se busca y cuáles se devuelven en los resultados, el número de coincidencias y si se usa la coincidencia aproximada. 
+El método `InitSearch` crea un cliente del índice HTTP autenticado en el servicio Azure Cognitive Search. Las propiedades de la clase [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) determinan en qué campos se busca y cuáles se devuelven en los resultados, el número de coincidencias y si se usa la coincidencia aproximada. 
 
 En la funcionalidad de autocompletar, la coincidencia aproximada se limita a la distancia de una edición (un carácter omitido o mal colocado). Tenga en cuenta que la coincidencia aproximada en consultas de autocompletar puede producir a veces resultados inesperados en función del tamaño del índice y de cómo se particiona. Para más información, consulte [Conceptos de partición y particionamiento](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 

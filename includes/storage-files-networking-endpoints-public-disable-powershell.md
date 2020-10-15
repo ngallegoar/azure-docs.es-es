@@ -1,5 +1,5 @@
 ---
-title: Archivo de inclusión
+title: archivo de inclusión
 description: archivo de inclusión
 services: storage
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 6/2/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a0a9bc29c3e20a025fb2c46a71c2f134c37bee04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84465113"
 ---
 El siguiente comando de PowerShell denegará todo el tráfico que llega al punto de conexión público de la cuenta de almacenamiento. Tenga en cuenta que este comando tiene el parámetro `-Bypass` establecido en `AzureServices`. De esta forma, los servicios propios de confianza, como Azure File Sync, acceden a la cuenta de almacenamiento mediante el punto de conexión público.

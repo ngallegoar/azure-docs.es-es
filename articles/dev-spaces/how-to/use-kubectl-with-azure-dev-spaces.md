@@ -5,14 +5,16 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Obtenga información sobre cómo usar los comandos de kubectl en un espacio de desarrollo en un clúster de Azure Kubernetes Service con Azure Dev Spaces habilitado.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 7530cde68b2ce8d06fb7b16a9a147f0f0bc8645c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6f79d98cf209d1bc19753f19c9b17b06017c2b7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75438362"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960174"
 ---
 # <a name="use-kubectl-with-an-azure-dev-space"></a>Uso de kubectl con una instancia de Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Puede tener acceso al clúster de Kubernetes dentro de un espacio de Azure Dev Space y utilizar herramientas de Kubernetes existentes, como `kubectl`.
 

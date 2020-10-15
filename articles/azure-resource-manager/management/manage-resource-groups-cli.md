@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: abab1a6a65f3cc45bcd88dc7aed89e18e4e28d5b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 9b5addd9d275e9367988dc10689c27fa035e97dd
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371242"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951781"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Administración de grupos de recursos de Azure Resource Manager mediante la CLI de Azure
 
@@ -133,9 +133,9 @@ az group export --name $resourceGroupName
 
 El script muestra la plantilla en la consola.  Copie el JSON y guárdelo como un archivo.
 
-La característica de exportación de plantillas no admite la exportación de recursos de Azure Data Factory. Para más información sobre cómo exportar recursos de Data Factory, consulte [Copia o clonación de una factoría de datos en Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+La característica de exportación de plantillas no admite la exportación de recursos de Azure Data Factory. Para más información sobre cómo exportar recursos de Data Factory, consulte [Copia o clonación de una factoría de datos en Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-Para exportar los recursos creados mediante el modelo de implementación clásica, debe [migrarlos al modelo de implementación de Resource Manager](https://aka.ms/migrateclassicresourcetoarm).
+Para exportar los recursos creados mediante el modelo de implementación clásica, debe [migrarlos al modelo de implementación de Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 Para más información, consulte [Exportación de uno y varios recursos a la plantilla en Azure Portal](../templates/export-template-portal.md).
 

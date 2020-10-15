@@ -4,10 +4,10 @@ description: Aprenda a crear una imagen personalizada en Azure DevTest Labs a pa
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ad45ed6eb7f97e14ec0ca0bb89efb2967c90fc16
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87277034"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Crear una imagen personalizada a partir de una máquina virtual
@@ -33,13 +33,13 @@ Puede crear una imagen personalizada a partir de una máquina virtual aprovision
     :::image type="content" source="./media/devtest-lab-create-template/create-custom-image.png" alt-text="Creación del elemento de menú de imagen personalizada":::
 1. En el panel **Imagen personalizada**, escriba un nombre y una descripción para la imagen personalizada. Esta información se muestra en la lista de bases cuando se crea una máquina virtual. La imagen personalizada incluirá el disco del SO y todos los discos de datos asociados a la máquina virtual.
 
-    :::image type="content" source="./media/devtest-lab-create-template/create-custom-image-blade.png" alt-text="Creación de una página de imagen personalizada":::
+    :::image type="content" source="./media/devtest-lab-create-template/create-custom-image-blade.png" alt-text="Creación del elemento de menú de imagen personalizada":::
 1. Seleccione si sysprep se ha ejecutado en la máquina virtual. Si no se ha ejecutado sysprep en la máquina virtual, especifique si quiere que sysprep se ejecute en la máquina virtual cuando se cree la imagen personalizada.
 1. Cuando termine de crear la imagen personalizada, seleccione **Aceptar** .
 
     Después de unos minutos, la imagen personalizada se crea y se almacena dentro de la cuenta de almacenamiento del laboratorio. Cuando un usuario de laboratorio quiera crear una nueva máquina virtual, la imagen estará disponible en la lista de imágenes base.
 
-    :::image type="content" source="./media/devtest-lab-create-template/custom-image-available-as-base.png" alt-text="Imagen personalizada disponible en la lista de imágenes base":::
+    :::image type="content" source="./media/devtest-lab-create-template/custom-image-available-as-base.png" alt-text="Creación del elemento de menú de imagen personalizada":::
 
 ## <a name="related-blog-posts"></a>Entradas blogs relacionadas
 

@@ -6,13 +6,13 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 13d78110f50d6ce72b8525914ed0e91dfcadd2cc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: mvc
+ms.openlocfilehash: 1ac418d855696138341115412dc7e2601d4cf3a1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932105"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961415"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Administración de un Servidor flexible de Azure Database for PostgreSQL mediante Azure Portal
 
@@ -52,7 +52,7 @@ La contraseña del rol de administrador se puede cambiar en Azure Portal.
 2. Escriba la contraseña nueva y confírmela. El cuadro de texto le pedirá los requisitos de complejidad de la contraseña.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="Restablecimiento de la contraseña del servidor flexible":::
+> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="Escalado del almacenamiento del servidor flexible":::
 
 3. Seleccione **Guardar** para guardar la contraseña nueva.
 
@@ -63,7 +63,7 @@ Puede eliminar el servidor cuando ya no lo necesite.
 1. Seleccione el servidor en Azure Portal. En la ventana **Información general**, seleccione **Eliminar**.
 2. Escriba el nombre del servidor en el cuadro de entrada para confirmar que lo quiere eliminar.
 
-   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="Eliminación del servidor flexible":::
+   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="Escalado del almacenamiento del servidor flexible":::
 
    > [!IMPORTANT]
    > La eliminación de un servidor es irreversible.

@@ -4,10 +4,10 @@ description: Este artículo le guiará a través de la creación y administraci�
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.openlocfilehash: 9b0c2e50536a847555dfa5cc6b9c823cfc1a4cfa
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89047063"
 ---
 # <a name="programmatically-create-policies"></a>Creación de directivas mediante programación

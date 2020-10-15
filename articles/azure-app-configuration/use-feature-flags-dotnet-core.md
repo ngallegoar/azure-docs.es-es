@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f863ca855ca36603085ed96b5aa17d277ae00516
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f8ad2558c664d1a8b577f01b707200d416d5348a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317317"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078908"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Uso de marcas de características en una aplicación de ASP.NET Core
 
@@ -27,7 +27,7 @@ Las bibliotecas de administración de características de .NET Core proporcionan
 
 Las bibliotecas de administración de características también administran los ciclos de vida de las marcas de características en segundo plano. Por ejemplo, actualizan y almacenan en caché los estados de marca y garantizan que un estado de marca sea inmutable durante una llamada de solicitud. Además, la biblioteca de ASP.NET Core ofrece integraciones listas para usar, como acciones de controlador de MVC, vistas, rutas y middleware.
 
-El inicio rápido [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) (Agregar marcas de características a una aplicación ASP.NET Core) muestra varias maneras de agregar las marcas de características en una aplicación ASP.NET Core. Este tutorial explica estos métodos en profundidad. Consulte la [documentación de administración de características de ASP.NET Core](https://go.microsoft.com/fwlink/?linkid=2091410) para obtener una referencia completa.
+El inicio rápido [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) (Agregar marcas de características a una aplicación ASP.NET Core) muestra varias maneras de agregar las marcas de características en una aplicación ASP.NET Core. Este tutorial explica estos métodos en profundidad. Consulte la [documentación de administración de características de ASP.NET Core](/dotnet/api/microsoft.featuremanagement) para obtener una referencia completa.
 
 En este tutorial, aprenderá a:
 
@@ -301,6 +301,6 @@ app.UseForFeature(featureName, appBuilder => {
 
 En este tutorial, ha aprendido a implementar marcas de características en la aplicación ASP.NET Core mediante el uso de bibliotecas `Microsoft.FeatureManagement`. Consulte los siguientes recursos para más información sobre la compatibilidad de la administración de características en ASP.NET Core y App Configuration:
 
-* [ASP.NET Core feature flag sample code](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core) (Código de ejemplo de marca de características de ASP.NET Core)
-* [Microsoft.FeatureManagement documentation](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement) (Documentación de Microsoft.FeatureManagement)
+* [ASP.NET Core feature flag sample code](./quickstart-feature-flag-aspnet-core.md) (Código de ejemplo de marca de características de ASP.NET Core)
+* [Microsoft.FeatureManagement documentation](/dotnet/api/microsoft.featuremanagement) (Documentación de Microsoft.FeatureManagement)
 * [Administración de marcas de características](./manage-feature-flags.md)

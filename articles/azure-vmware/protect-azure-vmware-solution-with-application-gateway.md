@@ -3,12 +3,12 @@ title: Uso de Azure Application Gateway para proteger aplicaciones web en Azure 
 description: Configure Azure Application Gateway para exponer de forma segura las aplicaciones web que se ejecutan en Azure VMware Solution.
 ms.topic: how-to
 ms.date: 07/31/2020
-ms.openlocfilehash: ad7cd36d77da41d75ea9dcc18a51d0ffc5540d2a
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b63b7348419500504cb45917d741cc17e2b8a622
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91579398"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951458"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Uso de Azure Application Gateway para proteger aplicaciones web en Azure VMware Solution
 
@@ -146,4 +146,4 @@ Puede usar Azure Application Gateway para configurar reglas de enrutamiento basa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Revise la [documentación de Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) para ver más ejemplos de configuración.
+Revise la [documentación de Azure Application Gateway](../application-gateway/index.yml) para ver más ejemplos de configuración.
