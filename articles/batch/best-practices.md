@@ -3,12 +3,12 @@ title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar su solución de Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca6e491586fd653f39da7466ea116109000facd6
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 695f213c0683bd158539b97719f2c2d8c0210edf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146545"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849496"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -109,7 +109,7 @@ Las tareas se pueden enviar de forma individual o en colecciones. Envíe tareas 
 
 ### <a name="set-max-tasks-per-node-appropriately"></a>Establecimiento del número máximo de tareas por nodo correctamente
 
-Batch admite tareas de sobresuscripción en nodos (que ejecutan más tareas que núcleos tiene un nodo). Depende de usted asegurarse de que las tareas se ajustan a los nodos del grupo. Por ejemplo, su experiencia podría verse degradada si intenta programar ocho tareas, cada una de las cuales consume un 25 % de uso de CPU en un nodo (en un grupo con `maxTasksPerNode = 8`).
+Batch admite tareas de sobresuscripción en nodos (que ejecutan más tareas que núcleos tiene un nodo). Depende de usted asegurarse de que las tareas se ajustan a los nodos del grupo. Por ejemplo, su experiencia podría verse degradada si intenta programar ocho tareas, cada una de las cuales consume un 25 % de uso de CPU en un nodo (en un grupo con `taskSlotsPerNode = 8`).
 
 ### <a name="design-for-retries-and-re-execution"></a>Diseño de reintentos y reejecución
 
@@ -217,6 +217,6 @@ Azure Batch crea y administra un conjunto de usuarios y grupos en la máquina vi
 
 ### <a name="file-cleanup"></a>Limpieza de archivos
 
-Batch intenta limpiar activamente el directorio de trabajo en el que se ejecutan las tareas, una vez que expira el tiempo de retención. Es [su responsabilidad limpiar](#manage-task-lifetime) cualquier archivo que se escriba fuera de este directorio para evitar llenar el espacio en disco. 
+Batch intenta limpiar activamente el directorio de trabajo en el que se ejecutan las tareas, una vez que expira el tiempo de retención. Es [su responsabilidad limpiar](#manage-task-lifetime) cualquier archivo que se escriba fuera de este directorio para evitar llenar el espacio en disco.
 
 La limpieza automatizada del directorio de trabajo se bloqueará si ejecuta un servicio en Windows desde el directorio de trabajo startTask, debido a que la carpeta todavía está en uso. Esto dará lugar a un rendimiento degradado. Para solucionarlo, cambie el directorio de ese servicio a un directorio independiente que no esté administrado por Batch.

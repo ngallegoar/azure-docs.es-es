@@ -2,14 +2,14 @@
 title: Ejecución de trabajos de un extremo a otro mediante plantillas
 description: Con solo los comandos de CLI, puede crear un grupo, cargar datos de entrada, crear trabajos y tareas asociadas y descargar los datos de salida resultantes.
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 10/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e9b4930dee1b28bb4ec71690cbfcef88e0365b9e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494934"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91848728"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Uso de plantillas y transferencia de archivos de la CLI de Azure Batch
 
@@ -65,7 +65,7 @@ Las plantillas de Azure Batch son similares a las plantillas de Azure Resource M
 -   **Parámetros**
 
     -   Permiten que se especifiquen valores de propiedad en una sección del cuerpo, donde solo es necesario proporcionar los valores de parámetro cuando se usa la plantilla. Por ejemplo, se podría colocar la definición completa de un grupo en el cuerpo y solo un parámetro definido para `poolId`. Por lo tanto, solo tiene que proporcionarse una cadena del identificador del grupo para crearlo.
-        
+
     -   El cuerpo de la plantilla lo puede crear alguien con conocimientos de Batch y las aplicaciones que Batch ejecuta. Solo se deben proporcionar los valores para los parámetros definidos por el autor cuando se use la plantilla. Un usuario sin conocimientos detallados de las aplicaciones y/o Batch, por tanto, puede usar las plantillas.
 
 -   **Variables**
@@ -121,7 +121,7 @@ El siguiente es un ejemplo de una plantilla que crea un grupo de máquinas virtu
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "maxTasksPerNode": 1,
+            "taskSlotsPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",
@@ -209,7 +209,7 @@ El siguiente es un ejemplo de una plantilla que crea un trabajo para transcodifi
             },
             "taskFactory": {
                 "type": "taskPerFile",
-                "source": { 
+                "source": {
                     "fileGroup": "ffmpeg-input"
                 },
                 "repeatTask": {
@@ -271,7 +271,7 @@ Un grupo de archivos equivale a un contenedor que se crea en la cuenta de Azure 
 La extensión de la CLI de Batch proporciona comandos para la carga de archivos desde el cliente a un grupo de archivos especificado y la descarga de archivos desde el grupo de archivos especificado a un cliente.
 
 ```azurecli
-az batch file upload --local-path c:\source_videos\*.mp4 
+az batch file upload --local-path c:\source_videos\*.mp4
     --file-group ffmpeg-input
 
 az batch file download --file-group ffmpeg-output --local-path

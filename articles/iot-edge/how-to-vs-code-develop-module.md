@@ -9,12 +9,12 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: 2fcb389736df8bedb2602919e986f7d65e8f3024
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ebc12e6d64d015267497497bebc22c8586adf999
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296916"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043738"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -51,13 +51,13 @@ También deberá instalar algunas herramientas específicas del lenguaje adicion
 
 - Node.js: [Node.js](https://nodejs.org). También le interesará instalar [Yeoman](https://www.npmjs.com/package/yo) y el [generador de módulo Node.js de Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
-- Java: [Java SE Development Kit 10](https://aka.ms/azure-jdks) y [Maven](https://maven.apache.org/). Deberá [establecer la `JAVA_HOME`variable de entorno](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para que apunte a la instalación de JDK.
+- Java: [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) y [Maven](https://maven.apache.org/). Deberá [establecer la `JAVA_HOME`variable de entorno](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para que apunte a la instalación de JDK.
 
 Para compilar e implementar la imagen del módulo, necesita Docker para compilar la imagen del módulo y un registro de contenedor para guardarla:
 
 - [Docker Community Edition](https://docs.docker.com/install/) en la máquina de desarrollo
 
-- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) o [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
+- [Azure Container Registry](../container-registry/index.yml) o [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
     > [!TIP]
     > Puede usar un registro de Docker local con fines de prototipo y prueba en lugar de un registro en la nube.

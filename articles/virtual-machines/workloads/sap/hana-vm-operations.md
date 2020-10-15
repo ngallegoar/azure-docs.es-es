@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5438132f32117e0ec48a6f985c3b9d2045a9da2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 602e3f58ac5f8f194ad4704a4e792d4f0aec3a3e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649693"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978788"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -79,7 +79,7 @@ Para las configuraciones de almacenamiento y los tipos de almacenamiento que se 
 Si tiene conectividad de sitio a sitio a Azure por medio de VPN o de ExpressRoute, debe tener como mínimo una red de Azure Virtual Network conectada a través de una puerta de enlace virtual al circuito VPN o ExpressRoute. En las implementaciones sencillas, la puerta de enlace virtual puede implementarse en una subred de la instancia de Azure Virtual Network (VNet) que también hospeda las instancias de SAP HANA. Para instalar SAP HANA, debe crear dos subredes adicionales en la instancia de Azure Virtual Network. Una subred hospeda las máquinas virtuales para ejecutar las instancias de SAP HANA. La otra subred ejecuta Jumpbox o máquinas virtuales de administración para hospedar SAP HANA Studio, otro software de administración o el software de la aplicación.
 
 > [!IMPORTANT]
-> Además de por la funcionalidad y, lo que es más importante, por motivos de rendimiento, no se puede configurar [Aplicaciones virtuales de red de Azure](https://azure.microsoft.com/solutions/network-appliances/) en la ruta de comunicación entre la aplicación de SAP y la capa DBMS de un sistema SAP basado en SAP NetWeaver, Hybris o S/4HANA. La comunicación entre la capa de la aplicación de SAP y la capa de DBMS debe ser directa. La restricción no incluye [reglas ASG ni NSG de Azure](../../../virtual-network/security-overview.md), siempre y cuando dichas reglas ASG y NSG permitan una comunicación directa. Más escenarios donde no se admiten los NVA se dan en las rutas de comunicación entre las máquinas virtuales de Azure que representan los nodos de clúster de Linux Pacemaker y los dispositivos SBD, según se describe en [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications](./high-availability-guide-suse.md). O bien, en las rutas de comunicación establecidas entre las máquinas virtuales de Azure y Windows Server SOFS configuradas como se describe en [Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure](./sap-high-availability-guide-wsfc-file-share.md). Las aplicaciones virtuales de red en las rutas de comunicación pueden duplicar fácilmente la latencia de red entre dos socios de comunicación y restringir el rendimiento en las rutas críticas entre la capa de la aplicación de SAP y la capa de DBMS. En algunos escenarios que se han observado con los clientes, las aplicaciones virtuales de red pueden ocasionar que los clústeres Pacemaker Linux produzcan un error cuando las comunicaciones entre los nodos del clúster de Linux Pacemaker necesiten comunicarse con su dispositivo SBD mediante una NVA.  
+> Además de por la funcionalidad y, lo que es más importante, por motivos de rendimiento, no se puede configurar [Aplicaciones virtuales de red de Azure](https://azure.microsoft.com/solutions/network-appliances/) en la ruta de comunicación entre la aplicación de SAP y la capa DBMS de un sistema SAP basado en SAP NetWeaver, Hybris o S/4HANA. La comunicación entre la capa de la aplicación de SAP y la capa de DBMS debe ser directa. La restricción no incluye [reglas ASG ni NSG de Azure](../../../virtual-network/network-security-groups-overview.md), siempre y cuando dichas reglas ASG y NSG permitan una comunicación directa. Más escenarios donde no se admiten los NVA se dan en las rutas de comunicación entre las máquinas virtuales de Azure que representan los nodos de clúster de Linux Pacemaker y los dispositivos SBD, según se describe en [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications](./high-availability-guide-suse.md). O bien, en las rutas de comunicación establecidas entre las máquinas virtuales de Azure y Windows Server SOFS configuradas como se describe en [Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure](./sap-high-availability-guide-wsfc-file-share.md). Las aplicaciones virtuales de red en las rutas de comunicación pueden duplicar fácilmente la latencia de red entre dos socios de comunicación y restringir el rendimiento en las rutas críticas entre la capa de la aplicación de SAP y la capa de DBMS. En algunos escenarios que se han observado con los clientes, las aplicaciones virtuales de red pueden ocasionar que los clústeres Pacemaker Linux produzcan un error cuando las comunicaciones entre los nodos del clúster de Linux Pacemaker necesiten comunicarse con su dispositivo SBD mediante una NVA.  
 > 
 
 > [!IMPORTANT]
@@ -108,7 +108,7 @@ Para obtener información general sobre los distintos métodos para asignar dire
 
 Para máquinas virtuales que ejecutan SAP HANA, debe trabajar con direcciones IP estáticas asignadas. La razón es que algunos atributos de configuración de HANA hacen referencia a direcciones IP.
 
-Los [grupos de seguridad de red (NSG) de Azure](../../../virtual-network/virtual-network-vnet-plan-design-arm.md) se usan para dirigir el tráfico que se enruta a la instancia de SAP HANA o al Jumpbox. Los NSG y los posibles [grupos de seguridad de aplicaciones](../../../virtual-network/security-overview.md#application-security-groups) se asocian a la subred de SAP HANA y a la subred de administración.
+Los [grupos de seguridad de red (NSG) de Azure](../../../virtual-network/virtual-network-vnet-plan-design-arm.md) se usan para dirigir el tráfico que se enruta a la instancia de SAP HANA o al Jumpbox. Los NSG y los posibles [grupos de seguridad de aplicaciones](../../../virtual-network/network-security-groups-overview.md#application-security-groups) se asocian a la subred de SAP HANA y a la subred de administración.
 
 En la siguiente imagen se muestra un resumen de un esquema de implementación aproximado para SAP HANA según una arquitectura de red virtual tipo hub-and-spoke:
 
@@ -324,4 +324,3 @@ Familiarícese con los artículos que se muestran.
 - [Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
 - [Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)
 
- 

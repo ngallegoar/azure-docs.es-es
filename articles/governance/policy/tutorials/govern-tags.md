@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Administración de gobernanza de etiquetas'
 description: En este tutorial, usará el efecto Modify de Azure Policy para crear y aplicar un modelo de gobernanza de etiquetas en los recursos nuevos y existentes.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: f49eedb00c98d3c362140fdca9b195a086903f10
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9efeb27151cd3a32741f1bdb6d1d90d3304c5874
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545512"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876284"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Administración de la gobernanza de etiquetas con Azure Policy
 
@@ -126,7 +126,12 @@ Se requiere una directiva [Modify](../concepts/effects.md#modify) para cada ento
         {
             "field": "name",
             "like": "prd-*"
+        },
+        {
+            "field": "tags['Env']",
+            "notEquals": "Production"
         }
+
     ]
     },
     "then": {

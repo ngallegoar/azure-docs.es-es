@@ -1,6 +1,6 @@
 ---
 title: Descodificación de mensajes EDIFACT
-description: Valide EDI y genere confirmaciones con el descodificador de mensajes EDIFACT para Azure Logic Apps con Enterprise Integration Pack
+description: Validación de EDI y generación de confirmaciones con el descodificador de mensajes EDIFACT para Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: c32b3ee5c4689e960834d543de1ca377e918751d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b36641677dbf36402c7f578b9b1887c52f441afd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106294"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91322485"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Descodificación de mensajes EDIFACT para Azure Logic Apps con Enterprise Integration Pack
 
@@ -84,13 +84,13 @@ El conector de descodificación EDIFACT lleva a cabo estas tareas:
   * Comprueba el número de control del conjunto de transacciones con otros números de control del conjunto de transacciones de dicho grupo.
 * Divide el intercambio en conjuntos de transacciones o conserva todo el intercambio:
   * Dividir intercambio como conjuntos de transacciones: suspender conjuntos de transacciones en caso de error. Divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
-  La acción de descodificación X12 solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
+  La acción de descodificación de EDIFACT solo envía esos conjuntos de transacciones que no superan la validación a `badMessages` y envía el resto de conjuntos de transacciones a `goodMessages`.
   * Dividir intercambio como conjuntos de transacciones: suspender intercambio en caso de error. Divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
-  Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de X12 establece todos los conjuntos de transacciones del intercambio en `badMessages`.
+  Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de EDIFACT envía todos los conjuntos de transacciones de ese intercambio a `badMessages`.
   * Conservar intercambio: suspender conjuntos de transacciones en caso de error. Conserva el intercambio y procesa todo el intercambio por lotes. 
-  La acción de descodificación X12 solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
+  La acción de descodificación de EDIFACT solo envía esos conjuntos de transacciones que no superan la validación a `badMessages` y envía el resto de conjuntos de transacciones a `goodMessages`.
   * Conservar intercambio: suspender intercambio en caso de error. Conserva el intercambio y procesa todo el intercambio por lotes. 
-  Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de X12 establece todos los conjuntos de transacciones del intercambio en `badMessages`.
+  Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de EDIFACT envía todos los conjuntos de transacciones de ese intercambio a `badMessages`.
 * Genera una confirmación técnica (control) o funcional (si esta opción está configurada).
   * Una confirmación técnica o ACK CONTRL informa de los resultados de una comprobación sintáctica de todo el intercambio recibido.
   * Una confirmación funcional confirma la aceptación o el rechazo de un intercambio recibido o un grupo

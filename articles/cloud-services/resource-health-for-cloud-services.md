@@ -7,17 +7,17 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056068"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072720"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Compatibilidad de la comprobación de Resource Health (RHC) con Azure Cloud Services (clásico)
 En este artículo se habla sobre la compatibilidad de la comprobación de Resource Health (RHC) con [Microsoft Azure Cloud Services (clásico)](https://azure.microsoft.com/services/cloud-services)
 
-[Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) para Cloud Services ayuda a diagnosticar y a obtener soporte técnico para problemas de servicio que afectan a la implementación, los roles y las instancias de rol del servicio en la nube. Notifica el estado actual y pasado de los servicios en la nube en cuanto a implementación, roles e instancias de rol.
+[Azure Resource Health](../service-health/resource-health-overview.md) para Cloud Services ayuda a diagnosticar y a obtener soporte técnico para problemas de servicio que afectan a la implementación, los roles y las instancias de rol del servicio en la nube. Notifica el estado actual y pasado de los servicios en la nube en cuanto a implementación, roles e instancias de rol.
 
 El estado de Azure notifica problemas que afectan a un amplio conjunto de clientes de Azure. Resource Health proporciona un panel personalizado con el mantenimiento de los recursos y muestra todas las veces que los recursos no estuvieron disponibles debido a problemas de servicio de Azure. Estos datos facilitan la tarea de comprobar si se ha infringido un Acuerdo de Nivel de Servicio.
 
@@ -30,7 +30,7 @@ El estado de los recursos se notifica en un nivel de implementación o de rol. L
 Las comprobaciones de estado de los recursos solo funcionan para la implementación del espacio de producción. Todavía no se admite la implementación del espacio de ensayo. 
 
 ## <a name="does-resource-health-check-also-check-the-health-of-the-application"></a>¿Resource Health comprueba también el estado de la aplicación?
-No, la comprobación de estado solo se produce en instancias de rol y no supervisa el estado de la aplicación. Por ejemplo, aunque 1 de 3 instancias de rol sean incorrectas, la aplicación puede estar disponible. RHC no usa [sondeos del equilibrador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) ni sondeos del agente invitado. Por lo tanto, los clientes deben seguir usando sondeos del equilibrador de carga para supervisar el estado de su aplicación. 
+No, la comprobación de estado solo se produce en instancias de rol y no supervisa el estado de la aplicación. Por ejemplo, aunque 1 de 3 instancias de rol sean incorrectas, la aplicación puede estar disponible. RHC no usa [sondeos del equilibrador de carga](../load-balancer/load-balancer-custom-probe-overview.md) ni sondeos del agente invitado. Por lo tanto, los clientes deben seguir usando sondeos del equilibrador de carga para supervisar el estado de su aplicación. 
 
 ## <a name="what-are-the-annotations-for-cloud-services"></a>¿Qué son las anotaciones en Cloud Services?
 Las anotaciones indican el estado de mantenimiento de la implementación o los roles. Hay diferentes anotaciones basadas en el estado de mantenimiento, la razón para el cambio de estado, etc. 

@@ -1,16 +1,14 @@
 ---
 title: Preparación de la implementación de clústeres independientes
 description: Documentación relacionada con la preparación del entorno y la creación de la configuración del clúster, que se debe tener en cuenta antes de implementar un clúster dirigido a administrar una carga de trabajo de producción.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.author: dekapur
-ms.openlocfilehash: 6b07e3fe14478cf45df2f02378da4e83853cf9ea
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9e5ad37d803b2042fd57b0a325570e69d7b73038
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261034"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842961"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planeamiento y preparación de la implementación de un clúster independiente de Service Fabric
 

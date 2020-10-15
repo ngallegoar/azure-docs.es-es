@@ -12,19 +12,19 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: b77c9cfd6e4d1721839acb9db5469b5f0ac73a48
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 014463fb0a5af639ff0da5f8db2805f9796fd928
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561608"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072482"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>La estructura de los paneles de Azure
 Este documento le guía a través de la estructura de un panel de Azure con el panel siguiente como ejemplo:
 
 ![panel de ejemplo](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Como los [paneles de Azure compartidos son recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), este panel se puede representar como JSON.  La siguiente representación JSON representa el panel visualizado anteriormente.
+Como los [paneles de Azure compartidos son recursos](../azure-resource-manager/management/overview.md), este panel se puede representar como JSON.  La siguiente representación JSON representa el panel visualizado anteriormente.
 
 ```json
 
@@ -303,7 +303,7 @@ El nombre es el segmento del identificador de recurso que no incluye la suscripc
 Todos los paneles son del tipo __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>La propiedad location
-A diferencia de otros recursos, los paneles no tienen un componente de tiempo de ejecución.  Para los paneles, la ubicación indica la ubicación geográfica principal que almacena la representación JSON del panel. El valor debe ser uno de los códigos de ubicación que se pueden recuperar mediante la [API de ubicaciones en el recurso de suscripciones](https://docs.microsoft.com/rest/api/resources/subscriptions).
+A diferencia de otros recursos, los paneles no tienen un componente de tiempo de ejecución.  Para los paneles, la ubicación indica la ubicación geográfica principal que almacena la representación JSON del panel. El valor debe ser uno de los códigos de ubicación que se pueden recuperar mediante la [API de ubicaciones en el recurso de suscripciones](/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>La propiedad tags
 Las etiquetas son una característica común de los recursos de Azure que le permiten organizar el recurso por pares de nombre y valor arbitrarios. Para los paneles, hay una etiqueta especial denominada __hidden-title__. Si el panel tiene esta propiedad rellenada, se utiliza como el nombre para mostrar del panel en el portal. No se puede cambiar el nombre de los identificadores de recursos de Azure, pero con las etiquetas sí se puede. Esta etiqueta ofrece un modo de tener un nombre para mostrar que pueda cambiar para el panel.

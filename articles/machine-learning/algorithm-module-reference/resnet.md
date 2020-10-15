@@ -8,19 +8,23 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 5d8806b8c93f5a8cbceaa6efa16dfff978dda42e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: bd0431a8e503605c6137d948cf207c1bd2fa45b4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905203"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91442039"
 ---
 # <a name="resnet"></a>ResNet
 
 En este artículo se describe cómo usar el módulo **ResNet** en el diseñador de Azure Machine Learning para crear un modelo de clasificación de imágenes con el algoritmo ResNet.  
 
-Este algoritmo de clasificación es un método de aprendizaje supervisado y requiere un conjunto de datos etiquetado. Para más información sobre cómo obtener un directorio de imagen con etiquetas, consulte [Conversión a directorio de imagen](convert-to-image-directory.md). Puede entrenar el modelo proporcionando un modelo y un directorio de imagen con etiquetas como entradas para [Entrenamiento del modelo de PyTorch](train-pytorch-model.md). Después, el modelo entrenado puede utilizarse para predecir valores para los nuevos ejemplos de entrada mediante [Puntuación del modelo de imagen](score-image-model.md).
+Este algoritmo de clasificación es un método de aprendizaje supervisado y requiere un conjunto de datos etiquetado. 
+> [!NOTE]
+> Este módulo no admite el conjunto de datos con etiqueta generado a partir del *etiquetado de datos* en el estudio, sino que solo admite el directorio de imágenes con etiqueta generado a partir del módulo [Conversión al directorio de imagen](convert-to-image-directory.md). 
+
+Puede entrenar el modelo proporcionando un modelo y un directorio de imagen con etiquetas como entradas para [Entrenamiento del modelo de PyTorch](train-pytorch-model.md). Después, el modelo entrenado puede utilizarse para predecir valores para los nuevos ejemplos de entrada mediante [Puntuación del modelo de imagen](score-image-model.md).
 
 ### <a name="more-about-resnet"></a>Más información sobre ResNet
 
@@ -32,7 +36,7 @@ Consulte [este documento](https://pytorch.org/docs/stable/torchvision/models.htm
 
 2.  En **Nombre del modelo**, especifique el nombre de una determinada estructura ResNet y puede seleccionar entre ResNet compatibles: "resnet18", "resnet34", "resnet50", "resnet101", "resnet152", "resnet152", "resnext50\_32x4d", "resnext101\_32x8d", "wide_resnet50\_2", "wide_resnet101\_2".
 
-3.  En **Pretrained** (Entrenado previamente), especifique si desea usar un modelo entrenado previamente en ImageNet. Si se selecciona esta opción, puede ajustar el modelo en función del modelo seleccionado previamente entrenado. Si se anula la selección, puede entrenar desde cero.
+3.  En **Pretrained** (Entrenado previamente), especifique si desea usar un modelo entrenado previamente en ImageNet. Si se selecciona esta opción, puede ajustar el modelo en función de un modelo previamente entrenado seleccionado. Si se anula la selección, puede entrenarlo desde cero.
 
 4.  Conecte la salida del módulo **DenseNet**, el módulo de entrenamiento y validación del conjunto de datos de imágenes, a [Entrenamiento del modelo de PyTorch](train-pytorch-model.md). 
 

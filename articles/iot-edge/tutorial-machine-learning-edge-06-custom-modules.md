@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 734c898dae10233463fbf783802ffae4c6a3add8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a2087c83ec48b0b732ce1cb954f78fad9b46fef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997938"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857442"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Creación e implementación de módulos personalizados de IoT Edge
 
@@ -809,14 +809,6 @@ Al iniciar sesión en el dispositivo IoT Edge (la máquina virtual Linux en nues
 En este artículo, hemos creado una solución de IoT Edge en Visual Studio Code con tres módulos: un clasificador, un enrutador y un sistema de escritura y carga de archivos. Configuramos las rutas para permitir que los módulos se comuniquen entre sí en el dispositivo Edge. Modificamos la configuración del dispositivo Edge y actualizamos los archivos Dockerfiles para instalar las dependencias y agregar montajes de enlace a los contenedores de los módulos. 
 
 A continuación, hemos actualizado la configuración de IoT Hub para enrutar los mensajes según el tipo y controlar las cargas de archivos. Con todo preparado, implementamos los módulos en el dispositivo IoT Edge y garantizamos que los módulos se estaban ejecutando correctamente.
-
-Para más información, consulte los siguientes artículos:
-
-* [Obtenga información sobre cómo implementar módulos y establecer rutas en IoT Edge](module-composition.md)
-* [Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
-* [IoT Hub message routing: now with routing on message body](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/) (Enrutamiento de mensajes de IoT Hub: ahora con enrutamiento en el cuerpo del mensaje)
-* [Carga de archivos con IoT Hub](../iot-hub/iot-hub-devguide-file-upload.md)
-* [Carga de archivos de un dispositivo a la nube con IoT Hub](../iot-hub/iot-hub-python-python-file-upload.md)
 
 Continúe con el siguiente artículo para empezar a enviar datos y ver la solución en acción.
 

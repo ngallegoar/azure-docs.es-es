@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/18/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: e084256d9c2043d4382ca180ef3178175b301367
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: b884bc72381c98af77f2f49336f3dd5762c68734
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91745453"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91859755"
 ---
 Los siguientes límites se aplican a los **temas** de Azure Event Grid (temas del sistema, personalizados y de asociados). 
 
@@ -21,7 +21,7 @@ Los siguientes límites se aplican a los **temas** de Azure Event Grid (temas de
 | --- | --- |
 | Temas personalizados por suscripción de Azure | 100 |
 | Suscripciones de eventos por tema | 500 |
-| Velocidad de publicación de un tema personalizado o de asociado (entrada) | 5000 eventos por segundo o 1 MB por segundo (lo que se cumpla primero)<br/>No se aplica a los temas del sistema. |
+| Velocidad de publicación de un tema personalizado o de asociado (entrada) | 5000 eventos por segundo o 1 MB por segundo (lo que se cumpla primero) |
 | Tamaño del evento | 1 MB  |
 | Conexiones de punto de conexión privado por tema  | 64 | 
 | Reglas de firewall de IP por tema | 16 | 

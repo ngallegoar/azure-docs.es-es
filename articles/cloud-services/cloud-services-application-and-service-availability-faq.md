@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d7a2596d4f6a8aa9fb4c95dfb5a3ccab7d7206f3
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 2707c5a6cb110d30b85b765f6c8b144e8cca7abe
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461313"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074726"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de disponibilidad de aplicaciones y servicios en Azure Cloud Services: Preguntas más frecuentes (P+F)
 
@@ -33,7 +33,7 @@ Aproximadamente una vez al mes, Microsoft publica una nueva versión de SO invit
 
 Para obtener información detallada sobre las actualizaciones recientes del SO invitado, consulte [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](cloud-services-guestos-update-matrix.md).
 
-Puede encontrar valiosa información sobre los reinicios e indicaciones a datos técnicos de actualizaciones de SO invitado y de SO host en la entrada de blog de MSDN titulada [Role Instance Restarts Due to OS Upgrades](https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades) (Reinicios de instancias de rol debidos a actualizaciones del SO).
+Puede encontrar valiosa información sobre los reinicios e indicaciones a datos técnicos de actualizaciones de SO invitado y de SO host en la entrada de blog de MSDN titulada [Role Instance Restarts Due to OS Upgrades](/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades) (Reinicios de instancias de rol debidos a actualizaciones del SO).
 
 ## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>¿Por qué tarda más de lo habitual la primera solicitud a mi servicio en la nube después de que el servicio ha estado inactivo durante algún tiempo?
 Cuando el servidor web recibe la primera solicitud, primero se vuelve a compilar el código y, a continuación, se procesa la solicitud. Por eso la primera solicitud tarda más tiempo que las demás. De forma predeterminada, el grupo de aplicaciones se cierra en casos de inactividad del usuario. También se recicla de forma predeterminada cada 1740 minutos (29 horas).

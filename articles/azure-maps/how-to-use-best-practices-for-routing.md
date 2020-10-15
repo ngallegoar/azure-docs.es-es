@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 13c7178b4a0866066dc74e409f8f4bfcd21a23f4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086409"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874601"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Procedimientos recomendados para el servicio Route de Azure Maps
 
 Las API Route Directions y Route Matrix del [servicio Route](https://docs.microsoft.com/rest/api/maps/route) de Azure Maps se pueden usar para calcular las horas de llegada estimadas (ETA) de cada ruta solicitada. Las API de Route tienen en cuenta factores como la información del tráfico en tiempo real y los datos de tráfico históricos, como las velocidades de conducción típicas en el día de la semana y la hora del día solicitados. Las API devuelven las rutas más cortas o más rápidas disponibles para varios destinos a la vez de forma secuencial o en orden optimizado, en función de la hora o la distancia. Los usuarios también pueden solicitar rutas y detalles especializados para transeúntes, ciclistas y vehículos comerciales como camiones. En este artículo, se compartirán los procedimientos recomendados para llamar al [servicio Route](https://docs.microsoft.com/rest/api/maps/route) de Azure Maps y aprenderá a:
 
-> [!div class="checklist"]
-> * Elegir entre las API Route Directions y la API Matrix Routing
-> * Solicitar tiempos de viaje históricos y previstos, en función de datos de tráfico históricos y en tiempo real
-> * Solicitar detalles de la ruta, como el tiempo y la distancia, para toda la ruta y cada segmento de la ruta
-> * Solicitar la ruta para un vehículo comercial, como un camión
-> * Solicitar información de tráfico a lo largo de una ruta, como atascos e información de peajes
-> * Solicitar una ruta que conste de una o varias paradas (puntos de referencia)
-> * Optimizar una ruta de una o varias paradas para obtener el mejor orden para visitar cada parada (punto de referencia)
-> * Optimizar rutas alternativas mediante puntos complementarios; por ejemplo, ofrecer rutas alternativas que pasen por una estación de recarga de vehículos eléctricos
-> * Usar el [servicio Route](https://docs.microsoft.com/rest/api/maps/route) con el SDK web de Azure Maps
+ * Elegir entre las API Route Directions y la API Matrix Routing
+ * Solicitar tiempos de viaje históricos y previstos, en función de datos de tráfico históricos y en tiempo real
+ * Solicitar detalles de la ruta, como el tiempo y la distancia, para toda la ruta y cada segmento de la ruta
+ * Solicitar la ruta para un vehículo comercial, como un camión
+ * Solicitar información de tráfico a lo largo de una ruta, como atascos e información de peajes
+ * Solicitar una ruta que conste de una o varias paradas (puntos de referencia)
+ * Optimizar una ruta de una o varias paradas para obtener el mejor orden para visitar cada parada (punto de referencia)
+ * Optimizar rutas alternativas mediante puntos complementarios; por ejemplo, ofrecer rutas alternativas que pasen por una estación de recarga de vehículos eléctricos
+ * Usar el [servicio Route](https://docs.microsoft.com/rest/api/maps/route) con el SDK web de Azure Maps
 
 ## <a name="prerequisites"></a>Requisitos previos
 
