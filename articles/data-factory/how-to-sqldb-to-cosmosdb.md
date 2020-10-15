@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
 ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82691899"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migración del esquema de base de datos normalizado de Azure SQL Database a un contenedor desnormalizado de Azure CosmosDB

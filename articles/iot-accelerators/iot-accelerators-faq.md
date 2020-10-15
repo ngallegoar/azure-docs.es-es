@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: abab80f8c790a170ec30fa228dd86576079a73a0
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 40c1fb314a2dea653740e7f87b5caa14c759fffb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462554"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078228"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Preguntas más frecuentes acerca de los aceleradores de soluciones de IoT
 
@@ -65,7 +65,7 @@ Si está seguro de que tiene una suscripción a Azure, valide la asignación del
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>¿Dónde puedo encontrar información acerca de la versión anterior de la solución de supervisión remota?
 
-La versión anterior del acelerador de la solución de supervisión remota se conoce como la solución preconfigurada de supervisión remota de IoT Suite. Puede encontrar la documentación archivada en [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+La versión anterior del acelerador de la solución de supervisión remota se conoce como la solución preconfigurada de supervisión remota de IoT Suite. Puede encontrar la documentación archivada en [https://docs.microsoft.com/previous-versions/azure/iot-suite/](/previous-versions/azure/iot-suite/).
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>¿Está disponible el nuevo acelerador de soluciones en la misma región geográfica que la solución existente?
 
@@ -101,13 +101,13 @@ En este momento, no se puede crear un acelerador de soluciones con una cuenta de
 
 ### <a name="how-do-i-delete-an-azure-ad-tenant"></a>¿Cómo puedo eliminar un inquilino de Azure AD?
 
-Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant](https://docs.microsoft.com/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant) (Tutorial para la eliminación de inquilinos de Azure AD).
+Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant](/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant) (Tutorial para la eliminación de inquilinos de Azure AD).
 
 ### <a name="next-steps"></a>Pasos siguientes
 
 También puede explorar algunas de las demás características y funcionalidades de los aceleradores de soluciones de IoT:
 
 * [Exploración de las funcionalidades del acelerador de soluciones de supervisión remota](quickstart-remote-monitoring-deploy.md)
-* [Introducción al acelerador de la solución de mantenimiento predictivo](iot-accelerators-predictive-overview.md)
+* [Introducción al acelerador de la solución de mantenimiento predictivo](./iot-accelerators-predictive-walkthrough.md)
 * [Implementación del acelerador de soluciones de Connected Factory](quickstart-connected-factory-deploy.md)
-* [Seguridad de Internet de las cosas desde el principio](/azure/iot-fundamentals/iot-security-ground-up)
+* [Seguridad de Internet de las cosas desde el principio](../iot-fundamentals/iot-security-ground-up.md)

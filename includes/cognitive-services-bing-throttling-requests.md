@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: 1d8340054ace25a0cdc36eef9c3d5b4238a6f99b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67186599"
 ---
 El servicio y el tipo de suscripción determinan el número de consultas que puede realizar por segundo (QPS). Asegúrese de que la aplicación incluye la lógica necesaria para mantenerse dentro de su cuota. Si se alcanza el límite de consultas por segundo, o se supera, se produce un error en la solicitud y se devolverá el código de estado HTTP 429. La respuesta incluye el encabezado `Retry-After`, que indica cuánto tiempo debe esperar antes de enviar otra solicitud.

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: f9bc06e58fcbd93fba0c92e91b51503239b5a951
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2af63997f9ea74dfce184639d2fedb42d354fb39
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980774"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077582"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Conexión mediante SSH a una máquina virtual Linux con Azure Bastion
 
@@ -25,9 +25,9 @@ Puede usar Azure Bastion para conectar a una máquina virtual Linux mediante SSH
 
 La clave privada SSH debe tener un formato que empieza con `"-----BEGIN RSA PRIVATE KEY-----"` y finaliza con `"-----END RSA PRIVATE KEY-----"`.
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
-Asegúrese de haber configurado un host de Azure Bastion para la red virtual donde reside la máquina virtual. Para más información, consulte [Create an Azure Bastion host](bastion-create-host-portal.md) (Creación de un host de Azure Bastion). Cuando el servicio Bastion se aprovisiona e implementa en la red virtual, puede usarlo para conectarse a cualquier máquina virtual de esta red virtual. 
+Asegúrese de haber configurado un host de Azure Bastion para la red virtual donde reside la máquina virtual. Para más información, consulte [Create an Azure Bastion host](./tutorial-create-host-portal.md) (Creación de un host de Azure Bastion). Cuando el servicio Bastion se aprovisiona e implementa en la red virtual, puede usarlo para conectarse a cualquier máquina virtual de esta red virtual. 
 
 Cuando se conecta mediante Bastion, se presupone que usa RDP para conectarse a una máquina virtual Windows y SSH para conectarse a las máquinas virtuales Linux. Para información sobre cómo conectarse a una máquina virtual Windows, consulte [Conexión a una máquina virtual: Windows](bastion-connect-vm-rdp.md).
 
@@ -50,7 +50,7 @@ Para conectarse a la máquina virtual Linux mediante SSH, debe tener abiertos lo
 1. Abra [Azure Portal](https://portal.azure.com). Vaya a la máquina virtual a la que quiere conectarse y, a continuación, haga clic en **Conectar** y seleccione **Bastion** en la lista desplegable.
 
    ![Captura de pantalla que muestra la página Información general de una máquina virtual en Azure Portal con la opción Conectar seleccionada.](./media/bastion-connect-vm-ssh/connect.png)
-1. Después de hacer clic en Bastion, aparece una barra lateral con tres pestañas: RDP, SSH y Bastion. Si se aprovisionó Bastion para la red virtual, la pestaña Bastion aparece activa de manera predeterminada. Si no aprovisionó Bastion para la red virtual, consulte [Configure Bastion](bastion-create-host-portal.md) (Configuración de Bastion).
+1. Después de hacer clic en Bastion, aparece una barra lateral con tres pestañas: RDP, SSH y Bastion. Si se aprovisionó Bastion para la red virtual, la pestaña Bastion aparece activa de manera predeterminada. Si no aprovisionó Bastion para la red virtual, consulte [Configure Bastion](./tutorial-create-host-portal.md) (Configuración de Bastion).
 
    ![Captura de pantalla que muestra el cuadro de diálogo Conectarse a máquina virtual con la opción BASTION seleccionada.](./media/bastion-connect-vm-ssh/bastion.png)
 1. Escriba el nombre de usuario y la contraseña para establecer una conexión SSH con la máquina virtual.
@@ -61,7 +61,7 @@ Para conectarse a la máquina virtual Linux mediante SSH, debe tener abiertos lo
 1. Abra [Azure Portal](https://portal.azure.com). Vaya a la máquina virtual a la que quiere conectarse y, a continuación, haga clic en **Conectar** y seleccione **Bastion** en la lista desplegable.
 
    ![Captura de pantalla que muestra la página Información general de una máquina virtual en Azure Portal con la opción Conectar seleccionada.](./media/bastion-connect-vm-ssh/connect.png)
-1. Después de hacer clic en Bastion, aparece una barra lateral con tres pestañas: RDP, SSH y Bastion. Si se aprovisionó Bastion para la red virtual, la pestaña Bastion aparece activa de manera predeterminada. Si no aprovisionó Bastion para la red virtual, consulte [Configure Bastion](bastion-create-host-portal.md) (Configuración de Bastion).
+1. Después de hacer clic en Bastion, aparece una barra lateral con tres pestañas: RDP, SSH y Bastion. Si se aprovisionó Bastion para la red virtual, la pestaña Bastion aparece activa de manera predeterminada. Si no aprovisionó Bastion para la red virtual, consulte [Configure Bastion](./tutorial-create-host-portal.md) (Configuración de Bastion).
 
    ![Captura de pantalla que muestra el cuadro de diálogo Conectarse a máquina virtual con la opción BASTION seleccionada.](./media/bastion-connect-vm-ssh/bastion.png)
 1. Escriba el nombre de usuario y seleccione **Clave privada SSH**.
@@ -73,7 +73,7 @@ Para conectarse a la máquina virtual Linux mediante SSH, debe tener abiertos lo
 1. Abra [Azure Portal](https://portal.azure.com). Vaya a la máquina virtual a la que quiere conectarse y, a continuación, haga clic en **Conectar** y seleccione **Bastion** en la lista desplegable.
 
    ![Captura de pantalla que muestra la página Información general de una máquina virtual en Azure Portal con la opción Conectar seleccionada.](./media/bastion-connect-vm-ssh/connect.png)
-1. Después de hacer clic en Bastion, aparece una barra lateral con tres pestañas: RDP, SSH y Bastion. Si se aprovisionó Bastion para la red virtual, la pestaña Bastion aparece activa de manera predeterminada. Si no aprovisionó Bastion para la red virtual, consulte [Configure Bastion](bastion-create-host-portal.md) (Configuración de Bastion).
+1. Después de hacer clic en Bastion, aparece una barra lateral con tres pestañas: RDP, SSH y Bastion. Si se aprovisionó Bastion para la red virtual, la pestaña Bastion aparece activa de manera predeterminada. Si no aprovisionó Bastion para la red virtual, consulte [Configure Bastion](./tutorial-create-host-portal.md) (Configuración de Bastion).
 
    ![Captura de pantalla que muestra el cuadro de diálogo Conectarse a máquina virtual con la opción BASTION seleccionada.](./media/bastion-connect-vm-ssh/bastion.png)
 1. Escriba el nombre de usuario y seleccione **SSH Private Key from Local File** (Clave privada SSH desde archivo local).

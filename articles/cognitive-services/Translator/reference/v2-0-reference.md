@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
 ms.openlocfilehash: 7fa148579e7525933d388b8a93c9a3476f473cb6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83588622"
 ---
 # <a name="translator-v20"></a>Traductor versión 2.0
@@ -52,7 +52,7 @@ Si quiere evitar palabras soeces en la traducción, incluso si se encuentran pre
 |ProfanityAction    |Acción |Ejemplo de origen (japonés)  |Ejemplo de traducción (español)  |
 |:--|:--|:--|:--|
 |NoAction   |Predeterminada. Igual que si no se configura la opción. Las palabras soeces pasarán del origen al destino.        |彼はジャッカスです。     |Es un idiota.   |
-|Marked     |Las palabras soeces aparecerán rodeadas por las etiquetas XML \<profanity> y \</profanity>.       |彼はジャッカスです。 |Es un \<profanity>idiota\</profanity>.  |
+|Marked     |Las palabras soeces aparecerán rodeados por etiquetas XML \<profanity> y \</profanity>.       |彼はジャッカスです。 |Es un \<profanity>idiota\</profanity>.  |
 |Deleted    |Las palabras soeces se quitarán de la salida sin reemplazo.     |彼はジャッカスです。 |Es un.   |
 
     

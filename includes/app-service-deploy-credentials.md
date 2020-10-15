@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/20/2020
 ms.author: cephalin
 ms.openlocfilehash: c3fa57dd162fbbfbf0d46f73bffc78f279ef2968
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83649135"
 ---
 * **Credenciales de nivel de usuario**: un conjunto de credenciales para toda la cuenta de Azure. Se puede utilizar para implementar App Service en cualquier aplicación o suscripción para la que la cuenta de Azure tenga permiso de acceso. Este es también el conjunto predeterminado que aparece en la interfaz gráfica de usuario del portal (como la **información general** y las **propiedades** de la [página de recursos](../articles/azure-resource-manager/management/manage-resources-portal.md#manage-resources) de la aplicación). Cuando a un usuario se le otorga acceso a la aplicación a través del Control de acceso basado en rol (RBAC) o mediante permisos de coadministrador, ese usuario puede usar sus propias credenciales de nivel de usuario hasta que se le revoque el acceso. No comparta estas credenciales con otros usuarios de Azure.

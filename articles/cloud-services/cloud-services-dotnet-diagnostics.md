@@ -11,15 +11,15 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: tagore
-ms.openlocfilehash: 397239f92e3b07669a22481b07a67d9859176b7a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6a015a8d56cf3991d04b212db73d5b752c13a793
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932345"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077548"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitación de diagnósticos de Azure en Azure Cloud Services
-Consulte [Introducción a Diagnósticos de Azure](../azure-diagnostics.md) para obtener información sobre Diagnósticos de Azure.
+Consulte [Introducción a Diagnósticos de Azure](../azure-monitor/platform/diagnostics-extension-overview.md) para obtener información sobre Diagnósticos de Azure.
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Habilitación de Diagnósticos en un rol de trabajo
 En este tutorial se describe cómo implementar un rol de trabajo de Azure que emite datos de telemetría mediante la clase EventSource de .NET. Diagnósticos de Azure se usa para recopilar datos de telemetría y almacenarla en una cuenta de almacenamiento de Azure. Al crear un rol de trabajo, Visual Studio habilita automáticamente Diagnósticos 1.0 como parte de la solución en los SDK de Azure para .NET 2.4, y las versiones anteriores. En las instrucciones siguientes se describe el proceso para crear el rol de trabajo, deshabilitar Diagnósticos 1.0 de la solución e implementar Diagnósticos 1.2 o 1.3 en el rol de trabajo.
@@ -188,20 +188,17 @@ En el **Explorador de servidores** de Visual Studio, navegue hasta la cuenta de 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>Esquema del archivo de configuración
-El archivo de configuración de Diagnósticos define valores que se usan para inicializar la configuración de diagnóstico al iniciar el agente de diagnóstico. Consulte en la [referencia de esquema más reciente](/azure/azure-monitor/platform/diagnostics-extension-schema) los valores válidos y ejemplos.
+El archivo de configuración de Diagnósticos define valores que se usan para inicializar la configuración de diagnóstico al iniciar el agente de diagnóstico. Consulte en la [referencia de esquema más reciente](../azure-monitor/platform/diagnostics-extension-versions.md) los valores válidos y ejemplos.
 
 ## <a name="troubleshooting"></a>Solución de problemas
-Si tiene problemas, consulte [Solución de problemas de Diagnósticos de Azure](../azure-diagnostics-troubleshooting.md) para obtener ayuda relacionada con problemas comunes.
+Si tiene problemas, consulte [Solución de problemas de Diagnósticos de Azure](../azure-monitor/platform/diagnostics-extension-troubleshooting.md) para obtener ayuda relacionada con problemas comunes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Vea una lista de artículos relacionados con el diagnóstico de máquinas virtuales de Azure](../azure-monitor/platform/diagnostics-extension-overview.md) para cambiar los datos que se recopilan, solucionar problemas u obtener más información acerca de los diagnósticos en general.
 
-[EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[EventSource Class]: /dotnet/api/system.diagnostics.tracing.eventsource
 
 [Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
-[Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[Collect Logging Data by Using Azure Diagnostics]: /previous-versions/azure/gg433048(v=azure.100)
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: /powershell/azure/
-
-
-

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 0c8739dff39490f14b613af483f769ac031c1bd9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: e6acea560c3a02420b15aff84475ab58e642116c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792384"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078262"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
 
@@ -125,7 +125,7 @@ También puede iniciar sesión en la máquina virtual a través de SSH e inspecc
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>¿Cómo puedo comprobar si la simulación envía datos a la nube?
 
-Con [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) o con el comando [Azure IoT CLI Extension monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events), puede inspeccionar los datos enviados a IoT Hub desde determinados dispositivos. Para usar estas herramientas, tiene que saber la cadena de conexión para la instancia de IoT Hub de la implementación. Consulte [¿Cómo se puede averiguar la cadena de conexión de IoT Hub utilizada por la solución?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Con [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) o con el comando [Azure IoT CLI Extension monitor-events](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events), puede inspeccionar los datos enviados a IoT Hub desde determinados dispositivos. Para usar estas herramientas, tiene que saber la cadena de conexión para la instancia de IoT Hub de la implementación. Consulte [¿Cómo se puede averiguar la cadena de conexión de IoT Hub utilizada por la solución?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Inspeccione los datos enviados por uno de los dispositivos del editor:
 
@@ -194,6 +194,6 @@ Para enviar datos de telemetría desde dispositivos que no son de OPC UA a la fa
 
 También puede explorar algunas de las demás características y funcionalidades de los aceleradores de soluciones de IoT:
 
-* [Introducción al acelerador de la solución de mantenimiento predictivo](iot-accelerators-predictive-overview.md)
+* [Introducción al acelerador de la solución de mantenimiento predictivo](./iot-accelerators-predictive-walkthrough.md)
 * [Implementación del acelerador de soluciones de Connected Factory](quickstart-connected-factory-deploy.md)
-* [Seguridad de Internet de las cosas desde el principio](/azure/iot-fundamentals/iot-security-ground-up)
+* [Seguridad de Internet de las cosas desde el principio](../iot-fundamentals/iot-security-ground-up.md)

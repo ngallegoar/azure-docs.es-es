@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: ffbfd3214242d8df5fe33faf465bc1da3eb9986d
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84196633"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en Hyper-V
@@ -84,7 +84,7 @@ Para crear un dispositivo virtual, necesita:
 ## <a name="bitlocker-considerations"></a>Consideraciones sobre BitLocker
 
 * Se recomienda habilitar BitLocker en la máquina virtual de Data Box Gateway. De forma predeterminada, BitLocker no está habilitado. Para más información, consulte:
-  * [Configuración de la compatibilidad con el cifrado en el administrador de Hyper-V](h https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+  * [Configuración de la compatibilidad con el cifrado en el administrador de Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
   * [Compatibilidad con BitLocker en una máquina virtual](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="provision-a-virtual-device-in-hypervisor"></a>Aprovisionar un dispositivo virtual en el hipervisor

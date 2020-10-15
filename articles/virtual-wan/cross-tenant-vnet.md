@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 881f955014032d18fec447784a879fbf4f0e24fa
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 875fd40fea315269f7fe72032942c40551a6b144
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91571259"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078976"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Conexión de redes virtuales entre inquilinos a un centro de conectividad de Virtual Wan
 
@@ -54,7 +54,7 @@ Para que la suscripción primaria con el centro de conectividad virtual pueda mo
 1. Ahora agregue la suscripción del inquilino remoto y la del inquilino primario a la sesión actual de PowerShell. Ejecute el siguiente comando: Si ha iniciado sesión en el inquilino primario, solo tiene que ejecutar el comando para el inquilino remoto.
 
    ```azurepowershell-interactive
-   Add-AzAccount “xxxxx-b34a-4df9-9451-4402dcaecc5b”
+   Add-AzAccount "xxxxx-b34a-4df9-9451-4402dcaecc5b"
    ```
 
 1. Inicie sesión en Azure PowerShell con las credenciales primarias y ejecute el siguiente comando para comprobar que la asignación de roles se ha realizado correctamente:
@@ -72,25 +72,25 @@ En los pasos siguientes se cambia entre el contexto de las dos suscripciones al 
 1. Ejecute el siguiente comando para asegurarse de que está en el contexto de la cuenta remota:
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[remote ID]”
+   Select-AzSubscription -SubscriptionId "[remote ID]"
    ```
 
 1. Cree una variable local para almacenar los metadatos de la red virtual que quiere conectar al centro de conectividad.
 
    ```azurepowershell-interactive
-   $remote = Get-AzVirtualNetwork -Name "[v-net name]" -ResourceGroupName "[resource group name]"
+   $remote = Get-AzVirtualNetwork -Name "[vnet name]" -ResourceGroupName "[resource group name]"
    ```
 
 1. Vuelva a cambiar a la cuenta primaria.
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[parent ID]”
+   Select-AzSubscription -SubscriptionId "[parent ID]"
    ```
 
 1. Conecte la red virtual al centro de conectividad.
 
    ```azurepowershell-interactive
-   New-AzVirtualHubVnetConnection -ResourceGroupName "[Parent Resource Group Name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
+   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
    ```
 
 1. Puede ver la nueva conexión en PowerShell o en Azure Portal.

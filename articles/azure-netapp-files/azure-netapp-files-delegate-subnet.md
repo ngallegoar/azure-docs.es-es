@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: bed1375631c017d23ed53b6102c424533237099e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: bb3d1fd49c2623ff6dcbe8a19ae8c8ca3b46425a
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447567"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930635"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegación de una subred en Azure NetApp Files 
 
@@ -33,7 +33,7 @@ Debe delegar una subred en Azure NetApp Files.   Cuando se crea un volumen, debe
    Solo puede tener una única subred delegada en una red virtual. Una cuenta de NetApp puede implementar volúmenes en varias redes virtuales, cada una de las cuales tiene su propia subred delegada.  
 * No se puede designar un grupo de seguridad de red o punto de conexión de servicio en la subred delegada. Si lo hace, se producirá un error en la delegación de subred.
 * Actualmente no se admite el acceso a un volumen desde una red virtual emparejada de forma global.
-* Las [rutas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) (UDR) y los grupos de seguridad de red (NSG) no se admiten en las subredes delegadas de Azure NetApp Files. Pero puede aplicar UDR y NSG a otras subredes, incluso dentro de la misma red virtual que la subred delegada en Azure NetApp Files.  
+* Las [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md#custom-routes) (UDR) y los grupos de seguridad de red (NSG) no se admiten en las subredes delegadas de Azure NetApp Files. Pero puede aplicar UDR y NSG a otras subredes, incluso dentro de la misma red virtual que la subred delegada en Azure NetApp Files.  
    Azure NetApp Files crea una ruta del sistema a la subred delegada. La ruta se muestra en **Rutas eficaces** en la tabla de rutas si la necesita para solucionar algún problema.
 
 ## <a name="steps"></a>Pasos
@@ -54,6 +54,4 @@ También puede crear y delegar una subred al [crear un volumen de Azure NetApp F
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de un volumen de Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [Obtenga información sobre la integración de redes virtuales para los servicios de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
-
-
+* [Obtenga información sobre la integración de redes virtuales para los servicios de Azure](../virtual-network/virtual-network-for-azure-services.md)

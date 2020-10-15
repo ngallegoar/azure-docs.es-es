@@ -4,10 +4,10 @@ description: Use Azure Portal para ver los repositorios de Azure Container Regis
 ms.topic: article
 ms.date: 01/05/2018
 ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74456299"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visualización de los repositorios de registros de contenedor en Azure Portal

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74085278"
 ---
 El diagnóstico de problemas con un servicio en la nube de Microsoft Azure requiere la recopilación de archivos de registro del servicio en máquinas virtuales cuando se producen los problemas. Puede usar la extensión AzureLogCollector a petición para realizar una recopilación única de registros provenientes de una o más máquinas virtuales del servicio en la nube (desde roles web y roles de trabajo) y transferir los archivos recopilados a una cuenta de almacenamiento de Azure, sin iniciar sesión de manera remota en ninguna de las máquinas virtuales.

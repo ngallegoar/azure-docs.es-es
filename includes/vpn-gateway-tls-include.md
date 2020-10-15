@@ -9,10 +9,10 @@ ms.date: 07/27/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0d5c3b55d20be19d4aeb92b82d6e44d417259a7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67186141"
 ---
 1. Abra un símbolo del sistema con privilegios elevados. Para ello, haga clic con el botón derecho en **Símbolo del sistema** y seleccione **Ejecutar como administrador**.

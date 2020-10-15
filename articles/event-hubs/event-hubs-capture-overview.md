@@ -3,12 +3,12 @@ title: 'Captura de eventos de streaming: Azure Event Hubs | Microsoft Docs'
 description: En este artículo se proporciona información general sobre la característica Capture que permite capturar eventos de streaming a través de Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2302f31130b6179b187c17e2f44c5fa7cc50648b
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: 1b79db7a7f8d0fe03b21e005ef696d5fe55ac0a1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667452"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91613414"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Captura de eventos a través de Azure Event Hubs en Azure Blob Storage o Azure Data Lake Storage
 Azure Event Hubs permite capturar automáticamente los datos de streaming de Event Hubs de la cuenta de [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) o de [Azure Data Lake Storage Gen1 o Gen2](https://azure.microsoft.com/services/data-lake-store/) que prefiera, con la flexibilidad adicional de especificar un intervalo de tiempo o de tamaño. La configuración de Capture es rápida, su ejecución no tiene costes administrativos y se escala automáticamente con las [unidades de procesamiento](event-hubs-scalability.md#throughput-units) de Event Hubs. El uso de Event Hubs Capture constituye la forma más sencilla de cargar datos de streaming en Azure y permite centrarse en el procesamiento de datos, en lugar de en su captura.
@@ -18,6 +18,8 @@ Azure Event Hubs permite capturar automáticamente los datos de streaming de Eve
 
 Event Hubs Capture permite procesar las canalizaciones en tiempo real y las basadas en lotes en la misma transmisión, lo que permite crear soluciones que crecen a la par que sus necesidades. Si ya está creando sistemas basados en lotes pensando en un futuro procesamiento en tiempo real o desea agregar una ruta de acceso inactiva eficaz a una solución en tiempo real existente, Event Hubs Capture facilita el trabajo con datos de streaming.
 
+> [!IMPORTANT]
+> La cuenta de almacenamiento de destino (Azure Storage o Azure Data Lake Storage) debe estar en la misma suscripción que el centro de eventos. 
 
 ## <a name="how-event-hubs-capture-works"></a>Cómo funciona Event Hubs Capture
 

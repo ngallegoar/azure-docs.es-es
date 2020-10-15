@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de UK OFFICIAL y UK NHS
-description: Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
+description: Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: dd16e6e62e5df3bae083cc4df05207f1f518d560
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: b798ac98e057b85cce0faa835575dbb0d50f9c8c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540394"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931279"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS.
 
@@ -17,7 +17,7 @@ En el artículo siguiente se detalla cómo se asignan los ejemplos de planos té
 Las asignaciones siguientes son para los controles **UK OFFICIAL** y **UK NHS**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la iniciativa de directiva integrada **\[Versión preliminar\] Auditar los controles UK OFFICIAL y UK NHS e implementar extensiones de VM específicas para cumplir con los requisitos de la auditoría**.
 
 > [!IMPORTANT]
-> Cada control que se muestra a continuación está asociado a una o varias definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas pueden ayudarle a [evaluar el cumplimiento](../../../policy/how-to/get-compliance-data.md) del control; sin embargo, a menudo no hay una coincidencia 1:1 o completa entre un control y una o varias directivas. Como tal, el **cumplimiento** con Azure Policy solo se refiere a las propias directivas; esto no garantiza que sea totalmente compatible con todos los requisitos de un control. Además, el estándar de cumplimiento incluye controles que no se abordan con las definiciones de Azure Policy en este momento. Por lo tanto, el cumplimiento en Azure Policy es solo una vista parcial del estado general de cumplimiento. Las asociaciones entre los controles y las definiciones de Azure Policy para este ejemplo de plano técnico de cumplimiento pueden cambiar con el tiempo. Para ver el historial de cambios, consulte el [historial de confirmación de GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
+> Cada control que se muestra a continuación está asociado a una o varias definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas pueden ayudarle a [evaluar el cumplimiento](../../../policy/how-to/get-compliance-data.md) mediante el control. Sin embargo, con frecuencia no hay una correspondencia completa o exacta entre un control y una o varias directivas. Como tal, el **cumplimiento** con Azure Policy solo se refiere a las propias directivas; esto no garantiza que sea totalmente compatible con todos los requisitos de un control. Además, el estándar de cumplimiento incluye controles que no se abordan con las definiciones de Azure Policy en este momento. Por lo tanto, el cumplimiento en Azure Policy es solo una vista parcial del estado general de cumplimiento. Las asociaciones entre los controles y las definiciones de Azure Policy para este ejemplo de plano técnico de cumplimiento pueden cambiar con el tiempo. Para ver el historial de cambios, consulte el [historial de confirmación de GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
 
 ## <a name="1-data-in-transit-protection"></a>1\. Protección de datos en tránsito
 
@@ -33,8 +33,7 @@ El plano técnico ayuda a garantizar que la transferencia de información con lo
 
 ## <a name="23-data-at-rest-protection"></a>2.3. Protección de los datos en reposo
 
-Este plano técnico ayuda a instaurar la directiva sobre el uso de controles criptográficos mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que instauran controles criptográficos específicos y auditan el uso de configuraciones criptográficas poco seguras.
-Conocer dónde los recursos de Azure pueden tener configuraciones criptográficas subóptimas ayuda a tomar medidas correctivas para garantizar que los recursos se configuran conforme a la directiva de seguridad de la información. En concreto, las directivas asignadas por este plano técnico requieren cifrado para las cuentas de Data Lake Storage y cifrado de datos transparente en las bases de datos SQL; auditan el cifrado que falta en las cuentas de almacenamiento, las bases de datos SQL, los discos de máquina virtual y las variables de cuenta de Automation; auditan las conexiones no seguras a cuentas de almacenamiento y Redis Cache; y auditan el cifrado de contraseñas no seguras de las máquinas virtuales, así como la comunicación sin cifrado de Service Fabric.
+Este plano técnico ayuda a instaurar la directiva sobre el uso de controles criptográficos mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que instauran controles criptográficos específicos y auditan el uso de configuraciones criptográficas poco seguras. Conocer dónde los recursos de Azure pueden tener configuraciones criptográficas subóptimas ayuda a tomar medidas correctivas para garantizar que los recursos se configuran conforme a la directiva de seguridad de la información. En concreto, las directivas asignadas por este plano técnico requieren cifrado para las cuentas de Data Lake Storage y cifrado de datos transparente en las bases de datos SQL; auditan el cifrado que falta en las cuentas de almacenamiento, las bases de datos SQL, los discos de máquina virtual y las variables de cuenta de Automation; auditan las conexiones no seguras a cuentas de almacenamiento y Redis Cache; y auditan el cifrado de contraseñas no seguras de las máquinas virtuales, así como la comunicación sin cifrado de Service Fabric.
 
 - El cifrado de discos debe aplicarse en máquinas virtuales
 - Las variables de cuenta de automatización deben cifrarse
@@ -76,7 +75,8 @@ Este plano técnico ayuda a proteger los recursos del sistema de información me
 
 ## <a name="9-secure-user-management"></a>9 Administración segura de usuarios 
 
-El control de acceso basado en roles (RBAC) de Azure ayuda a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este plano técnico ayuda a restringir y controlar los derechos de acceso mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas externas con permisos de propietario y de lectura/escritura y las cuentas con permisos de propietario y de lectura/escritura que no tienen habilitada la autenticación multifactor.
+El control de acceso basado en roles (RBAC) de Azure ayuda a administrar quién tiene acceso a los recursos de Azure.
+Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este plano técnico ayuda a restringir y controlar los derechos de acceso mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas externas con permisos de propietario y de lectura/escritura y las cuentas con permisos de propietario y de lectura/escritura que no tienen habilitada la autenticación multifactor.
 
 - MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción
 - MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción
@@ -101,7 +101,8 @@ Este plano técnico asigna definiciones de Azure Policy para auditar el uso de l
 - El administrador de Azure Active Directory debe aprovisionarse para servidores SQL Server
 - Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente
 
-Este plano técnico también asigna definiciones de Azure Policy para auditar las cuentas que deberían priorizarse para la revisión, incluidas las cuentas en desuso y externas. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna dos definiciones de Azure Policy para auditar las cuentas en desuso cuya eliminación debería considerarse.
+Este plano técnico también asigna definiciones de Azure Policy para auditar las cuentas que deberían priorizarse para la revisión, incluidas las cuentas en desuso y externas. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure.
+Este plano técnico asigna dos definiciones de Azure Policy para auditar las cuentas en desuso cuya eliminación debería considerarse.
 
 - Las cuentas en desuso deben quitarse de la suscripción
 - Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción
@@ -137,7 +138,8 @@ Este plano técnico también ayuda a controlar el acceso a los recursos de Azure
 
 ## <a name="11-external-interface-protection"></a>11. Protección de la interfaz externa
 
-Además de usar más de 25 directivas para garantizar una administración segura de usuarios adecuada, este plano técnico ayuda a proteger las interfaces de servicio contra el acceso no autorizado mediante la asignación de una definición de [Azure Policy](../../../policy/overview.md) que supervisa las cuentas de almacenamiento sin restricciones. Las cuentas de almacenamiento con acceso sin restricciones pueden permitir el acceso no deseado a la información contenida en el sistema de información. Este plano técnico también asigna una directiva que habilita controles de aplicación adaptables en máquinas virtuales.
+Además de usar más de 25 directivas para garantizar una administración segura de usuarios adecuada, este plano técnico ayuda a proteger las interfaces de servicio contra el acceso no autorizado mediante la asignación de una definición de [Azure Policy](../../../policy/overview.md) que supervisa las cuentas de almacenamiento sin restricciones.
+Las cuentas de almacenamiento con acceso sin restricciones pueden permitir el acceso no deseado a la información contenida en el sistema de información. Este plano técnico también asigna una directiva que habilita controles de aplicación adaptables en máquinas virtuales.
 
 - Auditar el acceso de red sin restricciones a cuentas de almacenamiento
 - Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
@@ -151,7 +153,8 @@ Además de usar más de 25 directivas para garantizar una administración segur
 
 ## <a name="13-audit-information-for-users"></a>13. Información de auditoría para los usuarios
 
-Este plano técnico ayuda a garantizar que los eventos del sistema se registran mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan las configuraciones de registro de los recursos de Azure. Una directiva asignada también audita si las máquinas virtuales no envían registros a un área de trabajo específica de Log Analytics.
+Este plano técnico ayuda a garantizar que los eventos del sistema se registran mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan las configuraciones de registro de los recursos de Azure.
+Una directiva asignada también audita si las máquinas virtuales no envían registros a un área de trabajo específica de Log Analytics.
 
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 - Auditar la configuración de diagnóstico

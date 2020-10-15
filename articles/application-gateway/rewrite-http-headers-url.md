@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
 ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281198"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Reescritura de los encabezados HTTP y direcciones URL con Application Gateway
@@ -211,13 +211,13 @@ En los escenarios en los que desee elegir el grupo de back-end en función del v
 
 * La tercera regla tiene una condición que comprueba la variable *query_string* para *category= accessories* y tiene una acción que vuelve a escribir la ruta de acceso de la dirección URL en /*listing3* y tiene habilitada la opción **Volver a evaluar el mapa de ruta de acceso**
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Escenario de reescritura de URL 1-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Escenario de reescritura de URL 1-1.":::
 
  
 
 **Paso 2 (b):** asocie este conjunto de reescritura con la ruta de acceso predeterminada de la regla basada en la ruta de acceso anterior
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Escenario de reescritura de URL 1-3.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Escenario de reescritura de URL 1-1.":::
 
 Ahora, si el usuario solicita *contoso.com/listing?category=any*, se hará coincidir con la ruta de acceso predeterminada, ya que ninguno de los patrones de ruta de acceso del mapa de ruta de acceso (/listing1,/listing2,/listing3) coincidirá. Como asoció el conjunto de reescritura anterior con esta ruta de acceso, este conjunto de reescritura se evaluará. Dado que la cadena de consulta no coincidirá con la condición en ninguna de las tres reglas de reescritura de este conjunto de reescritura, no se llevará a cabo ninguna acción de reescritura y, por tanto, la solicitud se enrutará sin cambios al back-end asociado a la ruta de acceso predeterminada (que es *GenericList*).
 
@@ -234,11 +234,11 @@ En ese caso, Application Gateway puede capturar los parámetros de la dirección
 
 **Condición**: si la variable de servidor `uri_path` es igual al patrón `/(.+)/(.+)`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Escenario de reescritura de URL 2-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Escenario de reescritura de URL 1-1.":::
 
 **Acción**: establezca la ruta de acceso de la dirección URL en `buy.aspx` y la cadena de consulta en `category={var_uri_path_1}&product={var_uri_path_2}`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Escenario de reescritura de URL 2-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Escenario de reescritura de URL 1-1.":::
 
 Para obtener una guía paso a paso para lograr el escenario descrito anteriormente, consulte [Reescritura de dirección URL con Application Gateway mediante Azure Portal](rewrite-url-portal.md)
 
@@ -248,7 +248,7 @@ En el caso de la reescritura de direcciones URL, Application Gateway reescribe l
 
 En el caso de la redirección de direcciones URL, Application Gateway envía una respuesta de redirección al cliente con la nueva dirección URL. Esto, a su vez, requiere que el cliente reenvíe su solicitud a la nueva dirección URL proporcionada en la redirección. La dirección URL que el usuario ve en el explorador se actualizará a la nueva dirección URL.
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Reescritura frente a redirección.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Escenario de reescritura de URL 1-1.":::
 
 ## <a name="limitations"></a>Limitaciones
 

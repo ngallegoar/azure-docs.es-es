@@ -2,15 +2,13 @@
 title: Esquema de recursos basado en el área de trabajo de Application Insights de Azure Monitor
 description: Obtenga información sobre la nueva estructura de tabla y el esquema parar los nuevos recursos basados en áreas de trabajo de Application Insights de Azure Monitor.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8f0bee64d74cfd5b6abef5c918c023974fda3fcf
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323186"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931060"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Cambios en los recursos basados en áreas de trabajo (versión preliminar)
 
