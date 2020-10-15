@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 08fb794839adf9e8a986f53da00b4855e5535af5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4694b6ac829c42f20c6783810c248ee18d220433
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508872"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965767"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Descripción de un reinicio del sistema de una máquina virtual de Azure
 
@@ -30,7 +30,7 @@ La mejor manera de proteger las aplicaciones que se ejecutan en Azure del reinic
 
 Para proporcionar este nivel de redundancia a la aplicación, se recomienda agrupar dos máquinas virtuales, o más, en un conjunto de disponibilidad. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado haya al menos una máquina virtual disponible que cumpla el 99,95 % del [Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/).
 
-Para más información sobre los conjuntos de disponibilidad, consulte [Administrar la disponibilidad de las máquinas virtuales](../windows/manage-availability.md).
+Para más información sobre los conjuntos de disponibilidad, consulte [Administrar la disponibilidad de las máquinas virtuales](../manage-availability.md).
 
 ## <a name="resource-health-information"></a>Información acerca de Resource Health
 
@@ -72,7 +72,7 @@ Otros escenarios que suelen provocar el reinicio de la máquina virtual incluyen
 
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center y Windows Update
 
-Azure Security Center supervisa diariamente las máquinas virtuales Windows y Linux por si faltan actualizaciones del sistema operativo. Security Center recupera una lista de actualizaciones críticas y de seguridad disponibles desde Windows Update o Windows Server Update Services (WSUS), dependiendo de qué servicio está configurado en una máquina virtual Windows. Security Center también comprueba las últimas actualizaciones de los sistemas Linux. Si falta una actualización del sistema en la máquina virtual, Security Center le recomienda que aplique las actualizaciones del sistema. Este proceso se controla a través de Security Center en Azure Portal. Tras la aplicación de algunas actualizaciones, puede ser necesario reiniciar la máquina virtual. Para más información, consulte [Aplicar actualizaciones del sistema en Azure Security Center](../../security-center/security-center-virtual-machine-protection.md).
+Azure Security Center supervisa diariamente las máquinas virtuales Windows y Linux por si faltan actualizaciones del sistema operativo. Security Center recupera una lista de actualizaciones críticas y de seguridad disponibles desde Windows Update o Windows Server Update Services (WSUS), dependiendo de qué servicio está configurado en una máquina virtual Windows. Security Center también comprueba las últimas actualizaciones de los sistemas Linux. Si falta una actualización del sistema en la máquina virtual, Security Center le recomienda que aplique las actualizaciones del sistema. Este proceso se controla a través de Security Center en Azure Portal. Tras la aplicación de algunas actualizaciones, puede ser necesario reiniciar la máquina virtual. Para más información, consulte [Aplicar actualizaciones del sistema en Azure Security Center](../../security-center/asset-inventory.md).
 
 Al igual que los servidores locales, Azure no inserta las actualizaciones de Windows Update en las máquinas virtuales de Windows, ya que estas máquinas están diseñadas para que las administren los usuarios. No obstante, se recomienda dejar habilitada la configuración automática de Windows Update. La instalación automática de actualizaciones de Windows Update también puede provocar el reinicio tras su aplicación. Para más información, consulte [Windows Update: preguntas frecuentes](https://support.microsoft.com/help/12373/windows-update-faq).
 

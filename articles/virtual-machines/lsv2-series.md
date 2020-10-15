@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 78d707c0b5afd745ae805c9513243f3791d47c60
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: dd755e1bc220d61aa540a0e7da9e3f174bde9d76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654759"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91652931"
 ---
 # <a name="lsv2-series"></a>Serie Lsv2
 
@@ -25,17 +25,14 @@ La serie Lsv2 proporciona un alto rendimiento, baja latencia, almacenamiento NVM
 >
 > Para más información, consulte cómo optimizar el rendimiento en las máquinas virtuales de la serie Lsv2 para [Windows](../virtual-machines/windows/storage-performance.md) o [Linux](../virtual-machines/linux/storage-performance.md).  
 
-ACU: 150-175
-
-Expansión: Compatible
-
-Premium Storage: Compatible
-
-Almacenamiento en caché de Premium Storage: No compatible
-
-Migración en vivo: No compatible
-
-Actualizaciones con conservación de memoria: No compatible
+[ACU](acu.md): 150-175<br>
+[Premium Storage](premium-storage-performance.md): Compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): No compatible<br>
+[Migración en vivo](maintenance-and-updates.md): No compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+Expansión: Compatible<br>
+<br>
 
 | Size | vCPU | Memoria (GiB) | Disco temporal <sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Rendimiento de disco NVMe<sup>3</sup> (IOPS de lectura/Mbps) | Rendimiento de disco de datos sin caché (IOPS/MBps)<sup>4</sup> | Rendimiento máx. de disco de datos de expansión sin caché (IOPS/MBps)<sup>5</sup>| Nº máx. de discos de datos | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|---|

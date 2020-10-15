@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a4d005b3a4712cfff0321e7a16f49c0e882cc9e0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0a4866db463dcf4ff17b2f7b25806806a700e8fa
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282126"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071649"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implementación de OPC Twin en un proyecto existente
 
@@ -33,7 +33,7 @@ El núcleo del módulo es la identidad de supervisor. El supervisor administra e
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Asegúrese de que tiene las extensiones de PowerShell y [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) instaladas. Si aún no lo ha hecho, clone este repositorio de GitHub. Ejecute los siguientes comandos en PowerShell:
+Asegúrese de que tiene las extensiones de PowerShell y [AzureRM PowerShell](/powershell/azure/azurerm/install-azurerm-ps) instaladas. Si aún no lo ha hecho, clone este repositorio de GitHub. Ejecute los siguientes comandos en PowerShell:
 
 ```powershell
 git clone --recursive https://github.com/Azure/azure-iiot-components.git

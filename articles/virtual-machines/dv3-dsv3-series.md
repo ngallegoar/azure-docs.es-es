@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: db85774dd1cf1e7dd5a284182faf354004671618
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: eff3ff3d8fa2ab3025ca8b8d4f974d6944c88433
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891764"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91649650"
 ---
 # <a name="dv3-and-dsv3-series"></a>Series Dv3 y DSv3
 
@@ -28,15 +28,13 @@ El almacenamiento en disco de datos se factura de forma independiente a las máq
 
 Las máquinas virtuales de la serie Dv3 cuentan con la tecnología Hyper-Threading de Intel®.
 
-ACU: 160-190
-
-Premium Storage:  No compatible
-
-Almacenamiento en caché de Premium Storage:  No compatible
-
-Migración en vivo: Compatible
-
-Actualizaciones con conservación de memoria: Compatible
+[ACU](acu.md): 160-190<br>
+[Premium Storage](premium-storage-performance.md): No compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): No compatible<br>
+[Migración en vivo](maintenance-and-updates.md): Compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+<br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps de lectura/Mbps de escritura | Nº máx. de NIC/ancho de banda de red |
 |---|---|---|---|---|---|---|
@@ -54,15 +52,13 @@ Los tamaños de la serie Dsv3 se ejecutan en procesadores Intel® Xeon® Platinu
 
 Las máquinas virtuales de la serie DSv3 cuentan con la tecnología Hyper-Threading de Intel®.
 
-ACU: 160-190
-
-Premium Storage:  Compatible
-
-Almacenamiento en caché de Premium Storage:  Compatible
-
-Migración en vivo: Compatible
-
-Actualizaciones con conservación de memoria: Compatible
+[ACU](acu.md): 160-190<br>
+[Premium Storage](premium-storage-performance.md): Compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
+[Migración en vivo](maintenance-and-updates.md): Compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+<br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo de almacenamiento en caché y almacenamiento temporal expandidos: IOPS/MBps<sup>1</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
@@ -87,7 +83,7 @@ Actualizaciones con conservación de memoria: Compatible
 - [Proceso de alto rendimiento](sizes-hpc.md)
 - [Generaciones anteriores](sizes-previous-gen.md)
 - [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
-- Para obtener más información sobre los tipos de discos, vea [¿Qué tipos de disco están disponibles en Azure?](disks-types.md)
+- Para obtener más información sobre los tipos de discos, vea [¿Qué tipos de disco están disponibles en Azure?](disks-types.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

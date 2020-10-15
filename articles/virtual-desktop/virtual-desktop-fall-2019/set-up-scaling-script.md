@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: fd14af6c95654708f339f4a68cd333d0e3162553
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078187"
 ---
 # <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Escalado de hosts de sesión de Windows Virtual Desktop (clásico) mediante Azure Automation
@@ -361,4 +361,4 @@ Si decidió usar Log Analytics, puede ver todos los datos de registros en un reg
 
 ## <a name="report-issues"></a>Informar de problemas
 
-En la actualidad, los informes de incidencias de la herramienta de escalado se controlan en el Soporte técnico de Microsoft. Cuando cree un informe de problemas, asegúrese de seguir las instrucciones descritas en el artículo sobre [informes de problemas](#reporting-issues). Si tiene comentarios sobre la herramienta o desea solicitar nuevas características, abra una incidencia de GitHub con la etiqueta "4-WVD-Scaling-Tool" en la [página RDS de GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).
+En la actualidad, el servicio de soporte técnico de Microsoft administra los informes de problemas de la herramienta de escalado. Cuando cree un informe de problemas, asegúrese de seguir las instrucciones descritas en [Informes de problemas](#reporting-issues). Si tiene comentarios sobre la herramienta o desea solicitar nuevas características, abra una incidencia de GitHub con la etiqueta "4-WVD-scaling-Tool" en la [página RDS de GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).

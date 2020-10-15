@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: include file
 ms.openlocfilehash: e64e6b6abc921b1db6614ed36ba2e9c04fc86b1f
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87451060"
 ---
 En este artículo se incluyen recomendaciones de seguridad para Azure Virtual Machines. Estas recomendaciones le ayudarán a cumplir las obligaciones de seguridad descritas en nuestro modelo de responsabilidad compartida. También le ayudarán a mejorar la seguridad general de las soluciones de aplicaciones web. Para más información acerca de lo que hace Microsoft para cumplir sus responsabilidades como proveedor de servicios, consulte [Responsabilidades compartidas de la informática en la nube](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: 19767503769fe1a1e64d6ab137b811899adb29c3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91312346"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutorial: configuración de Zscaler Private Access (ZPA) para el aprovisionamiento automático de usuarios
