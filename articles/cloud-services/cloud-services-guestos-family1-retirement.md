@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: c930636f9af45edc66670c3f757333fef8e8756e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6de03969a22c5b699fdfd2be17a6ba65905d23e6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458831"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073400"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de retirada de la familia 1 del SO invitado
 La retirada de la familia 1 del SO se anunció por primera vez el 1 de junio de 2013.
@@ -23,7 +23,7 @@ La retirada de la familia 1 del SO se anunció por primera vez el 1 de junio de 
 
 **3 de noviembre de 2014** El soporte extendido para la familia 1 del SO invitado finaliza y se retira completamente. Todos los servicios todavía en la familia 1 se verá afectados. Podemos detener dichos servicios en cualquier momento. No existen garantías de que los servicios continúen ejecutándose a menos que los actualice manualmente.
 
-Si tiene alguna pregunta adicional, visite la [página de preguntas y respuestas de Microsoft para Cloud Services](https://docs.microsoft.com/answers/topics/azure-cloud-services.html) o [póngase en contacto con Soporte técnico de Azure](https://azure.microsoft.com/support/options/).
+Si tiene alguna pregunta adicional, visite la [página de preguntas y respuestas de Microsoft para Cloud Services](/answers/topics/azure-cloud-services.html) o [póngase en contacto con Soporte técnico de Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="are-you-affected"></a>Cómo saber si se ve afectado
 Si se observa cualquiera de las situaciones siguientes, Cloud Services se ven afectados:
@@ -32,7 +32,7 @@ Si se observa cualquiera de las situaciones siguientes, Cloud Services se ven af
 2. No se especifica ningún valor explícitamente para osFamily en el archivo ServiceConfiguration.cscfg del servicio en la nube. Actualmente, el sistema usa el valor predeterminado de "1" en este caso.
 3. Azure Portal muestra el valor de la familia del sistema operativo invitado como "Windows Server 2008".
 
-Para determinar la familia de SO que ejecuta cada servicio en la nube, puede ejecutar el siguiente script en Azure PowerShell, aunque antes debe [configurar Azure PowerShell](/powershell/azure/). Para más información sobre el script, consulte [Azure Guest OS Family 1 End of Life: June 2014](https://docs.microsoft.com/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014) (Final de la vida de la familia 1 del SO invitado de Azure: junio de 2014).
+Para determinar la familia de SO que ejecuta cada servicio en la nube, puede ejecutar el siguiente script en Azure PowerShell, aunque antes debe [configurar Azure PowerShell](/powershell/azure/). Para más información sobre el script, consulte [Azure Guest OS Family 1 End of Life: June 2014](/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014) (Final de la vida de la familia 1 del SO invitado de Azure: junio de 2014).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: 3c87c234e376cc8380afbb26edf63e1969243475
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0d659f0bc65d3dbe7cbb656d505275a52a9742eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831148"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976630"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Qué hacer si se produce una interrupción del servicio de Azure que afecta a las VM de Azure
 En Microsoft, hacemos todo lo posible para garantizar que nuestros servicios estén siempre disponibles cuando los necesite. En ocasiones, debido a factores externos que escapan de nuestro control, se producen interrupciones de servicio no planeadas.
@@ -25,7 +25,7 @@ En este artículo se expone un escenario real de recuperación ante desastres en
 Para ayudarlo a administrar estos eventos poco frecuentes, le proporcionamos las siguientes orientaciones para máquinas virtuales de Azure destinadas a los casos de interrupción del servicio en toda una región donde se ha implementado la aplicación de máquina virtual de Azure.
 
 ## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>Opción 1: inicio de una conmutación por error mediante Azure Site Recovery
-Puede configurar Azure Site Recovery para las VM de modo que pueda recuperar la aplicación con un solo clic en cuestión de minutos. Puede realizar replicaciones en la región de Azure que elija, no solo en regiones emparejadas. Puede empezar por [replicar las máquinas virtuales](https://aka.ms/a2a-getting-started). Puede [crear un plan de recuperación](../site-recovery/site-recovery-create-recovery-plans.md) para poder automatizar el proceso de conmutación por error al completo para la aplicación. Puede [probar las conmutaciones por error](../site-recovery/site-recovery-test-failover-to-azure.md) antes sin necesidad de que ni la aplicación de producción ni la replicación en curso se vean afectadas. Si se interrumpe una región primaria, no tiene más que [iniciar una conmutación por error](../site-recovery/site-recovery-failover.md) y traer la aplicación a la región de destino.
+Puede configurar Azure Site Recovery para las VM de modo que pueda recuperar la aplicación con un solo clic en cuestión de minutos. Puede realizar replicaciones en la región de Azure que elija, no solo en regiones emparejadas. Puede empezar por [replicar las máquinas virtuales](../site-recovery/azure-to-azure-quickstart.md). Puede [crear un plan de recuperación](../site-recovery/site-recovery-create-recovery-plans.md) para poder automatizar el proceso de conmutación por error al completo para la aplicación. Puede [probar las conmutaciones por error](../site-recovery/site-recovery-test-failover-to-azure.md) antes sin necesidad de que ni la aplicación de producción ni la replicación en curso se vean afectadas. Si se interrumpe una región primaria, no tiene más que [iniciar una conmutación por error](../site-recovery/site-recovery-failover.md) y traer la aplicación a la región de destino.
 
 
 ## <a name="option-2-wait-for-recovery"></a>Opción 2: espera para recuperación
@@ -41,7 +41,7 @@ Esta es la mejor opción si no configuró Azure Site Recovery, el almacenamiento
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Empiece a [proteger las aplicaciones que se ejecuten en máquinas virtuales de Azure](https://aka.ms/a2a-getting-started) con Azure Site Recovery.
+- Empiece a [proteger las aplicaciones que se ejecuten en máquinas virtuales de Azure](../site-recovery/azure-to-azure-quickstart.md) con Azure Site Recovery.
 
 - Para obtener más información sobre cómo implementar una estrategia de alta disponibilidad y recuperación ante desastres, consulte [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](/azure/architecture/framework/resiliency/backup-and-recovery).
 

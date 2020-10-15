@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 5bf6a17c1a4aa1c7f212045af0d1b750ddb2a906
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: b4de2ec68d3cd10dfc4e95c6c2232837a7fca626
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653560"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975763"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
@@ -35,7 +35,7 @@ Las máquinas virtuales de la serie Mv2 cuentan con la tecnología Hyper-Threadi
 | Standard_M416ms_v2<sup>1</sup> | 416 | 11 400 | 8192 | 64 | 250 000 / 1600 (14 080) | 80000 / 2000 | 8 | 32000 |
 | Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250 000 / 1600 (14 080) | 80000 / 2000 | 8 | 32000 |
 
-<sup>1</sup> Las máquinas virtuales de la serie Mv2 solo son de generación 2 y admiten un subconjunto de imágenes admitidas de la generación 2. A continuación puede encontrar la lista completa de imágenes admitidas de la serie Mv2. Si usa Linux, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](./linux/generation-2.md) para obtener instrucciones sobre cómo buscar y seleccionar una imagen. Si usa Windows, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](./windows/generation-2.md) para obtener instrucciones sobre cómo buscar y seleccionar una imagen. 
+<sup>1</sup> Las máquinas virtuales de la serie Mv2 solo son de generación 2 y admiten un subconjunto de imágenes admitidas de la generación 2. A continuación puede encontrar la lista completa de imágenes admitidas de la serie Mv2. Si usa Linux, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](./generation-2.md) para obtener instrucciones sobre cómo buscar y seleccionar una imagen. Si usa Windows, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](./generation-2.md) para obtener instrucciones sobre cómo buscar y seleccionar una imagen. 
 
 - Windows Server 2019 o posterior
 - SUSE Linux Enterprise Server 12 SP4 y las versiones posteriores o SUSE Linux Enterprise Server 15 SP1 y las versiones posteriores.
