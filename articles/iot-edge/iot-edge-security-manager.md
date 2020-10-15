@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: d5cfa16196a8815b711fd5277a80f6eb67d3a388
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d50ff37c3d29ae8e9e25d8759ef3c55787a58047
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76548703"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043007"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Administrador de seguridad de IoT Edge
 
@@ -75,7 +75,7 @@ El demonio de seguridad de IoT Edge aprovecha las ventajas de cualquier tecnolog
 
 #### <a name="cloud-interface"></a>Interfaz de la nube
 
-La interfaz de la nube permite que el demonio de seguridad de IoT Edge tenga acceso a los servicios en la nube como cortesía de la nube para la seguridad de los dispositivos, como la renovación de seguridad.  Por ejemplo, el demonio de seguridad de IoT Edge actualmente usa esta interfaz para tener acceso a Azure IoT Hub [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/) para la administración del ciclo de vida de la identidad.  
+La interfaz de la nube permite que el demonio de seguridad de IoT Edge tenga acceso a los servicios en la nube como cortesía de la nube para la seguridad de los dispositivos, como la renovación de seguridad.  Por ejemplo, el demonio de seguridad de IoT Edge actualmente usa esta interfaz para tener acceso a Azure IoT Hub [Device Provisioning Service](../iot-dps/index.yml) para la administración del ciclo de vida de la identidad.  
 
 #### <a name="management-api"></a>API de administración
 

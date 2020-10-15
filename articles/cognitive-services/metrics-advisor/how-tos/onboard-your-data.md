@@ -3,19 +3,19 @@ title: Incorporación de la fuente de distribución de datos a Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: En este artículo se explica cómo incorporar fuentes de distribución de datos a Metrics Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 83ff710804b43837657ea0da7c8f44c245017c7e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: fe3b87c733f54d8bd52c4d973977e3c8cbfefe19
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932411"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043224"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>Procedimiento: Incorporación de datos de métricas a Metrics Advisor
 
@@ -188,7 +188,7 @@ Para comprobar los detalles del error de la ingesta:
 2. Haga clic en **Status** (Estado) y seleccione **Failed** (Fallida) o **Error**.
 3. Mantenga el mouse sobre una ingesta fallida y vea el mensaje de detalles que aparece.
 
-:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Error en la comprobación de la ingesta":::
+:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Barra de progreso de la ingesta":::
 
 Un estado *Failed* (Fallida) indica que la ingesta de este origen de datos se volverá a intentar más tarde.
 Un estado *Error* indica que Metrics Advisor no volverá a intentarlo en el origen de datos. Para recargar los datos, debe desencadenar manualmente un proceso de reposición o recarga.
