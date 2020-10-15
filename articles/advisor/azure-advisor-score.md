@@ -3,12 +3,12 @@ title: Optimización de cargas de trabajo de Azure mediante la puntuación de Ad
 description: Use la puntuación de Advisor para sacar el máximo partido de Azure
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c4c401a8b532c247806c5fe30728a1f4afd334a4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335626"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074029"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Optimización de cargas de trabajo de Azure mediante la puntuación de Advisor
 
@@ -17,7 +17,7 @@ ms.locfileid: "91335626"
 Azure Advisor proporciona recomendaciones de procedimientos recomendados para las cargas de trabajo. Estas recomendaciones son personalizadas y accionables para ayudarle a:
 * Mejorar la postura de sus cargas de trabajo y optimizar sus implementaciones de Azure
 * Evitar proactivamente los principales problemas siguiendo los procedimientos recomendados
-* Evaluar las cargas de trabajo de Azure según los cinco pilares del [marco de buena arquitectura de Microsoft Azure](https://docs.microsoft.com/azure/architecture/framework/).
+* Evaluar las cargas de trabajo de Azure según los cinco pilares del [marco de buena arquitectura de Microsoft Azure](/azure/architecture/framework/).
 
 Como característica principal de Advisor, la **puntuación de Advisor** está diseñada para ayudarle a lograr estos objetivos de manera eficaz y eficiente. 
 
@@ -56,7 +56,7 @@ El cálculo de la puntuación de Advisor se puede resumir en cuatro pasos:
   * Los recursos con recomendaciones duraderas contarán más en la puntuación.
   * Los recursos que se posponen o descartan en Advisor se quitan completamente del cálculo de la puntuación. 
     
-Advisor aplica este modelo en el nivel de categoría de Advisor (la seguridad usa un modelo de [puntuación segura](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score)), lo que proporciona una puntuación de Advisor para cada categoría y, después, un promedio sencillo produce la puntuación final de Advisor.
+Advisor aplica este modelo en el nivel de categoría de Advisor (la seguridad usa un modelo de [puntuación segura](../security-center/secure-score-security-controls.md#introduction-to-secure-score)), lo que proporciona una puntuación de Advisor para cada categoría y, después, un promedio sencillo produce la puntuación final de Advisor.
 
 
 ## <a name="advisor-score-faq"></a>Preguntas frecuentes de la puntuación de Advisor

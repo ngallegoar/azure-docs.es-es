@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 55c6cbc18e37368dd47c47227041024b13987c47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 41f2ee9806b8f6818f2b2dd7a48920ac9907ca79
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233217"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854654"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Creación de una canalización de CI/CD para el repositorio de GitHub con Azure DevOps Starter
 
@@ -118,9 +118,9 @@ Cuando configuró el proceso de CI/CD en este tutorial, creó automáticamente u
 Para más información acerca de la canalización de CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Definición de la canalización de implementación continua (CD) en varias fases](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definición de la canalización de implementación continua (CD) en varias fases](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
 Para más información sobre la supervisión de aplicaciones, consulte:
   
  > [!div class="nextstepaction"]
- > [¿Qué es Azure Monitor?](https://docs.microsoft.com/azure/azure-monitor/overview)
+ > [¿Qué es Azure Monitor?](../azure-monitor/overview.md)

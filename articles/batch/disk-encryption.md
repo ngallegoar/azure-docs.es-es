@@ -3,15 +3,15 @@ title: Creación de un grupo con el cifrado de disco habilitado
 description: Aprenda a usar la configuración del cifrado de disco para cifrar los nodos con una clave administrada por la plataforma.
 author: pkshultz
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 9b0f7f9963ee0edd3986f7ec808a8a4060d857f8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267058"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849269"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Creación de un grupo con el cifrado de disco habilitado
 
@@ -21,7 +21,7 @@ En este artículo se explica cómo crear un grupo de Batch con el cifrado de dis
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>¿Por qué usar un grupo con la configuración de cifrado de disco?
 
-Con un grupo de Batch, puede obtener acceso y almacenar datos en el sistema operativo y los discos temporales del nodo de proceso. El cifrado del disco del servidor con una clave administrada por la plataforma protegerá estos datos con una baja sobrecarga y comodidad.  
+Con un grupo de Batch, puede obtener acceso y almacenar datos en el sistema operativo y los discos temporales del nodo de proceso. El cifrado del disco del servidor con una clave administrada por la plataforma protegerá estos datos con una baja sobrecarga y comodidad.
 
 Batch aplicará una de estas tecnologías de cifrado de discos en nodos de proceso, en función de la configuración del grupo y la compatibilidad regional.
 
@@ -35,8 +35,8 @@ Batch aplicará una de estas tecnologías de cifrado de discos en nodos de proce
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 No podrá especificar qué método de cifrado se aplicará a los nodos del grupo. En su lugar, debe proporcionar los discos de destino que quiere cifrar en sus nodos y Batch puede elegir el método de cifrado adecuado, asegurándose de que los discos especificados se cifren en el nodo de proceso.
- 
-## <a name="azure-portal"></a>Azure portal 
+
+## <a name="azure-portal"></a>Azure portal
 
 Al crear un grupo de Batch en Azure Portal, seleccione **TemporaryDisk** o **OsAndTemporaryDisk** en **Configuración de cifrado de disco**.
 
@@ -44,7 +44,7 @@ Al crear un grupo de Batch en Azure Portal, seleccione **TemporaryDisk** o **OsA
 
 Una vez creado el grupo, puede ver los destinos de configuración del cifrado de disco en la sección **Propiedades**.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Captura de pantalla que muestra la configuración de cifrado de disco en Azure Portal":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Captura de pantalla de la opción de configuración de cifrado de disco en Azure Portal":::
 
 ## <a name="examples"></a>Ejemplos
 
@@ -87,7 +87,7 @@ Cuerpo de la solicitud:
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
     "targetLowPriorityNodes": 0,
-    "maxTasksPerNode": 3,
+    "taskSlotsPerNode": 3,
     "enableAutoScale": false,
     "enableInterNodeCommunication": false
 }
