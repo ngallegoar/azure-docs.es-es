@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 2362326bccd90af997aa9237ec5f14e39ae62c85
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020004"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Creación de un contenedor de Azure Cosmos
@@ -53,7 +53,7 @@ En este artículo se explican las distintas formas de crear un contenedor de Azu
    * Escriba el rendimiento que se va a aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Captura de pantalla del cuadro de diálogo Agregar contenedor de Azure Cosmos DB API para MongoDB":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Captura de pantalla del panel de Data Explorer con la opción Contenedor nuevo resaltada":::
 
 ### <a name="cassandra-api"></a><a id="portal-cassandra"></a>Cassandra API
 
@@ -69,7 +69,7 @@ En este artículo se explican las distintas formas de crear un contenedor de Azu
    * Escriba el rendimiento que se va a aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Captura de pantalla del cuadro de diálogo Agregar tabla de Cassandra API":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Captura de pantalla del panel de Data Explorer con la opción Contenedor nuevo resaltada":::
 
 > [!NOTE]
 > Con Cassandra API, la clave principal se usa como clave de partición.
@@ -89,7 +89,7 @@ En este artículo se explican las distintas formas de crear un contenedor de Azu
    * Escriba el rendimiento que se va a aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Captura de pantalla del cuadro de diálogo Agregar grafo de la API Gremlin":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Captura de pantalla del panel de Data Explorer con la opción Contenedor nuevo resaltada":::
 
 ### <a name="table-api"></a><a id="portal-table"></a>Table API
 
@@ -103,7 +103,7 @@ En este artículo se explican las distintas formas de crear un contenedor de Azu
    * Escriba el rendimiento que se va a aprovisionar (por ejemplo, 1000 RU).
    * Seleccione **Aceptar**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Captura de pantalla del cuadro de diálogo Agregar tabla de Table API":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Captura de pantalla del panel de Data Explorer con la opción Contenedor nuevo resaltada":::
 
 > [!Note]
 > Con Table API, la clave de partición se especifica cada vez que se agrega una nueva fila.

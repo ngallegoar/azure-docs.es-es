@@ -5,14 +5,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Describe los procesos de depuración remota en Azure Kubernetes Service con Azure Dev Spaces.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: fd984ff6a8ebe336f76643406c0957769dbfd3da
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 0487b80d23974a66bafe93ee1fbdf9b796d0ab53
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213384"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975049"
 ---
 # <a name="how-remote-debugging-your-code-with-azure-dev-spaces-works"></a>Funcionamiento de la depuración remota del código con Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Azure Dev Spaces le ofrece varias formas de iterar y depurar rápidamente las aplicaciones Kubernetes y colaborar con su equipo en un clúster de Azure Kubernetes Service (AKS). Una vez que el proyecto se ejecuta en un espacio de desarrollo, Azure Dev Spaces proporciona una manera de asociar y depurar una aplicación en ejecución en AKS.
 

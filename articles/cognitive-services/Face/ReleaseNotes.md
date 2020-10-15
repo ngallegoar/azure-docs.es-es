@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: yluiu
 ms.openlocfilehash: 767c9dec373a2bda806d75d602b194edde98c6b5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76165871"
 ---
 # <a name="face-release-notes"></a>Notas de la versión de Face
@@ -51,7 +51,7 @@ Este artículo pertenece a la versión 1.0 del servicio Face.
 
 ### <a name="release-changes-in-march-2018"></a>Cambios de la versión de marzo de 2018
 
-* Se ha agregado el contenedor con escala de millón: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) y [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). Puede obtener más detalles en [How to use the large-scale feature](Face-API-How-to-Topics/how-to-use-large-scale.md) (Cómo usar la característica a gran escala).
+* Se agregó el contenedor a escala de millón: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) y [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). Puede obtener más detalles en [How to use the large-scale feature](Face-API-How-to-Topics/how-to-use-large-scale.md) (Cómo usar la característica a gran escala).
 
 * Se aumentó el parámetro `maxNumOfCandidatesReturned` de [Face: identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) de [1, 5] a [1, 100], y el valor predeterminado a 10.
 

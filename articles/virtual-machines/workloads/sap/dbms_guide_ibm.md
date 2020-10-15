@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2be5daf5bcad0f5b4530ba7a76986dae4833aa5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5e401fb35e6524e8a32cbe09bf5b9c7feafbf5da
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331274"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974743"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines de IBM Db2 para carga de trabajo de SAP
 
@@ -55,9 +55,9 @@ Para más información de los tipos de máquina virtual de Azure y los productos
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instrucciones de configuración de IBM Db2 para Linux, UNIX y Windows para instalaciones de SAP en máquinas virtuales de Azure
 ### <a name="storage-configuration"></a>Configuración de almacenamiento
-Para información general sobre los tipos de Azure Storage para la carga de trabajo de SAP, consulte el artículo [Tipos de Azure Storage para una carga de trabajo de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage). Todos los archivos de base de datos deben almacenarse en discos montados de almacenamiento en bloque de Azure (Windows: NFFS, Linux: xfs, ext4 o ext3). **NINGÚN** tipo de unidad de red o recurso compartido remoto, como los siguientes servicios de Azure, es compatible con archivos de bases de datos: 
+Para información general sobre los tipos de Azure Storage para la carga de trabajo de SAP, consulte el artículo [Tipos de Azure Storage para una carga de trabajo de SAP](./planning-guide-storage.md). Todos los archivos de base de datos deben almacenarse en discos montados de almacenamiento en bloque de Azure (Windows: NFFS, Linux: xfs, ext4 o ext3). **NINGÚN** tipo de unidad de red o recurso compartido remoto, como los siguientes servicios de Azure, es compatible con archivos de bases de datos: 
 
-* [Servicio Microsoft Azure Files](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+* [Servicio Microsoft Azure Files](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
 * [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 

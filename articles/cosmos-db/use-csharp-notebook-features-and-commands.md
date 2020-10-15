@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 47ac6b4caf97b264df58732f8d031fc63091171e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019273"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Uso de los comandos y las características de cuadernos integrados en cuadernos en C# de Azure Cosmos DB (versión preliminar)
@@ -117,12 +117,12 @@ En el ejemplo *GetingStarted_Csharp.ipynb*, podemos imprimir la variable con nue
 
 :::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Celda de consulta de CSharp":::
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Explorador de datos nteract":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Celda de consulta de CSharp":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>Uso del visor de diccionario integrado
 Puede usar el visor de diccionario integrado para ver una variable. En una celda, coloque la variable que quiera visualizar en la última línea, que se mostrará automáticamente al ejecutar la celda.
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Visor de diccionario integrado":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Celda de consulta de CSharp":::
 
 ## <a name="upload-json-items-to-a-container"></a>Carga de elementos JSON en un contenedor
 Puede usar el comando mágico ``%%upload`` para cargar datos de un archivo JSON en un contenedor específico de Azure Cosmos. Ejecute el siguiente comando para cargar los elementos:
@@ -160,7 +160,7 @@ Reemplace ``{notebookName}`` por el nombre del cuaderno que quiere ejecutar. El 
 ## <a name="reset-notebooks-workspace"></a>Restablecer el área de trabajo de los cuadernos
 Para restablecer la configuración predeterminada del área de trabajo de los cuadernos, seleccione **Reset Workspace** (Restablecer el área de trabajo) en la barra de comandos. Se quitarán todos los paquetes instalados personalizados y se reiniciará el servidor de Jupyter. Los cuadernos, los archivos y los recursos de Azure Cosmos no se verán afectados.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Restablecer el área de trabajo de los cuadernos":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Celda de consulta de CSharp":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

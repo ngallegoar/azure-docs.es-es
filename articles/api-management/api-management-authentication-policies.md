@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 44ebd2d3084ab8df63f2c941e6e924e6f2a86d65
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243722"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071292"
 ---
 # <a name="api-management-authentication-policies"></a>Directivas de autenticación de Azure API Management
-En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
+En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
 
 ##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> Directivas de autenticación
 
@@ -67,7 +67,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   **Ámbitos de la directiva:** todos los ámbitos
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Autenticación Básica
- Use la directiva `authentication-certificate` para realizar la autenticación con un servicio de back-end mediante un certificado de cliente. El certificado se debe [instalar primero en API Management](https://go.microsoft.com/fwlink/?LinkID=511599) y se identifica mediante su huella digital.
+ Use la directiva `authentication-certificate` para realizar la autenticación con un servicio de back-end mediante un certificado de cliente. El certificado se debe [instalar primero en API Management](./api-management-howto-mutual-certificates.md) y se identifica mediante su huella digital.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -200,4 +200,4 @@ Para obtener más información sobre cómo trabajar con directivas, consulte:
 + [Directivas de Azure API Management](api-management-howto-policies.md)
 + [API de transformación](transform-api.md)
 + En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
-+ [Ejemplos de directivas](policy-samples.md)
++ [Ejemplos de directivas](./policy-reference.md)

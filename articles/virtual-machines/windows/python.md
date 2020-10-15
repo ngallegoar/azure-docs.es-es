@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: 1e2558074275f9b97bd4a2fd9a3d111c5de02948
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 402a61b4b5335c19d75cd1182243783453a0e7fa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853422"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974862"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Creación y administración de máquinas virtuales Windows en Azure con Python
 
@@ -492,7 +492,7 @@ Para decidir un tamaño de máquina virtual, se deben considerar muchos aspectos
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Incorporación de un disco de datos a la máquina virtual
 
-Las máquinas virtuales pueden tener uno o más [discos de datos](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) que se almacenen en discos duros virtuales.
+Las máquinas virtuales pueden tener uno o más [discos de datos](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) que se almacenen en discos duros virtuales.
 
 1. Para agregar un disco de datos a la máquina virtual, agregue esta función después de las variables en el archivo .py: 
 

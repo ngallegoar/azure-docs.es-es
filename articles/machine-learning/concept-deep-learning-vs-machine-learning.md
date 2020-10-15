@@ -1,24 +1,27 @@
 ---
 title: Aprendizaje profundo frente a aprendizaje automático
-titleSuffix: Azure
-description: Obtenga información sobre cómo se relaciona el aprendizaje profundo con el aprendizaje automático y la inteligencia artificial. El aprendizaje profundo se usa en distintos escenarios, como la detección de fraudes, el reconocimiento facial y de voz, el análisis de opiniones y la previsión de series temporales.
+titleSuffix: Azure Machine Learning
+description: Aprenda cómo el aprendizaje profundo se relaciona con el aprendizaje automático y la inteligencia artificial. En Azure Machine Learning, use modelos de aprendizaje profundo para la detección de fraudes, objetos, etc.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 03/05/2020
-ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/22/2020
+ms.custom: contperfq1
+ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905136"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91330135"
 ---
-# <a name="deep-learning-vs-machine-learning"></a>Aprendizaje profundo frente a aprendizaje automático
+# <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizaje profundo frente a aprendizaje automático en Azure Machine Learning
 
-En este artículo podrá comparar el aprendizaje profundo y el aprendizaje automático. En él se compararán los dos conceptos y aprenderá cómo encajan en la categoría más amplia de inteligencia artificial. En este artículo también se describe la forma en que el aprendizaje profundo se puede aplicar a distintos escenarios del mundo real, como la detección de fraudes, el reconocimiento facial y de voz, el análisis de opiniones y la previsión de series temporales.
+En este artículo se explica el aprendizaje profundo frente al aprendizaje automático y cómo encajan en la categoría más amplia de inteligencia artificial. Aprenda sobre las soluciones de aprendizaje profundo que puede crear en Azure Machine Learning, como la detección de fraudes, el reconocimiento facial y de voz, el análisis de opiniones y la previsión de series temporales.
+
+Puede encontrar instrucciones sobre cómo elegir algoritmos para las soluciones en la [hoja de referencia rápida de Machine Learning](algorithm-cheat-sheet.md).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Aprendizaje profundo, Machine Learning e inteligencia artificial
 
@@ -37,7 +40,7 @@ Tenga en cuenta las siguientes definiciones para comprender el aprendizaje profu
 
 - La  **inteligencia artificial (IA)** es una técnica que permite a los equipos imitar la inteligencia humana. Incluye el aprendizaje automático. 
  
-Es importante conocer la relación entre la inteligencia artificial, el aprendizaje automático y el aprendizaje profundo. El aprendizaje automático es una forma de lograr inteligencia artificial. Al usar el aprendizaje automático y las técnicas de aprendizaje profundo, puede compilar sistemas y aplicaciones de equipos que realicen tareas que normalmente se asocian a la inteligencia humana. Estas tareas incluyen el reconocimiento de imágenes, el reconocimiento de voz y la traducción de idiomas.
+Al usar el aprendizaje automático y las técnicas de aprendizaje profundo, puede compilar sistemas y aplicaciones de equipos que realicen tareas que normalmente se asocian a la inteligencia humana. Estas tareas incluyen el reconocimiento de imágenes, el reconocimiento de voz y la traducción de idiomas.
 
 ## <a name="techniques-of-deep-learning-vs-machine-learning"></a>Técnicas del aprendizaje profundo y del aprendizaje automático 
 
@@ -58,7 +61,7 @@ En la tabla siguiente se comparan las dos técnicas con más detalle:
 
 A causa de la estructura de la red neuronal artificial, el aprendizaje profundo es excelente para identificar patrones en datos no estructurados, como imágenes, sonido, vídeo y texto. Por esta razón, el aprendizaje profundo está transformando rápidamente muchos sectores, como la atención sanitaria, la energía, las finanzas y el transporte. Gracias a ello, estos sectores se están replanteando los procesos empresariales tradicionales. 
 
-En los párrafos siguientes se describen algunas de las aplicaciones más comunes del aprendizaje profundo.
+En los párrafos siguientes se describen algunas de las aplicaciones más comunes del aprendizaje profundo. En Azure Machine Learning, puede usar un modelo para compilar a partir de un marco de código abierto o compilar el modelo con las herramientas proporcionadas.
 
 ### <a name="named-entity-recognition"></a>Reconocimiento de entidades con nombre
 
@@ -69,6 +72,8 @@ El reconocimiento de entidades con nombre es un método de aprendizaje profundo 
 El aprendizaje profundo se ha aplicado en muchos casos de uso de detección de objetos. La detección de objetos tiene dos partes: la clasificación de imágenes y la localización de imágenes. La _clasificación_ de imágenes identifica los objetos de la imagen, como automóviles o personas. La _localización_ de imágenes, por su parte, proporciona la ubicación específica de estos objetos. 
 
 La detección de objetos ya se está usando en sectores como los videojuegos, los comercios minoristas, el turismo y los vehículos autónomos.
+
+Aprenda a usar un modelo de clasificación de imágenes de un marco de código abierto en Azure Machine Learning: [Clasificación de imágenes mediante un modelo Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Generación de subtítulos para imágenes
 
@@ -87,6 +92,8 @@ Con la transformación apropiada de los datos, una red neuronal es capaz de comp
 El análisis de texto basado en métodos de aprendizaje profundo implica el análisis de grandes cantidades de datos de texto (por ejemplo, documentos médicos o recibos de gastos), el reconocimiento de patrones y la creación de información organizada y concisa como resultado de dicho análisis.
 
 Las empresas usan el aprendizaje profundo para realizar análisis de texto con el fin de detectar negociaciones en el mercado de valores y el cumplimiento normativo gubernamental. Otro ejemplo común es el fraude en los seguros: el análisis de texto se ha usado a menudo para analizar grandes cantidades de documentos y reconocer las posibilidades de reclamaciones de seguros fraudulentas. 
+
+Aprenda a usar un modelo de TensorFlow en Azure Machine Learning: [Clasificación de dígitos manuscritos mediante un modelo TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 
 ## <a name="artificial-neural-networks"></a>Redes neuronales artificiales
 
@@ -110,14 +117,8 @@ Las redes neuronales circunvolucionadas se han usado en áreas como el reconocim
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En los siguientes artículos se muestra cómo usar la tecnología de aprendizaje profundo en [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
-
-- [Clasificación de dígitos manuscritos mediante un modelo TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+En los artículos siguientes se muestran más opciones para usar modelos de aprendizaje profundo de código abierto en [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
 
 - [Clasificación de dígitos manuscritos mediante un estimador de TensorFlow y Keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 
-- [Clasificación de imágenes mediante un modelo Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
-
 - [Clasificación de dígitos manuscritos mediante un modelo Chainer](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
-
-Además, use la [Hoja de referencia rápida de algoritmos de Machine Learning](algorithm-cheat-sheet.md) para elegir los algoritmos del modelo.
