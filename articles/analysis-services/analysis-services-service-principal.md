@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5d114017d5e5dfecfe20afc69849763a87aadd41
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077378"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015343"
 ---
 # <a name="automation-with-service-principals"></a>Automatización con entidades de servicio
 
@@ -33,8 +33,8 @@ Las entidades de servicio se pueden crear en Azure Portal o con PowerShell. Para
 
 Las credenciales y los certificados de las entidades de servicio se pueden almacenar de forma segura en Azure Automation para las operaciones de runbook. Para obtener más información, consulte:
 
-[Recursos de credenciales en Azure Automation](../automation/automation-credentials.md)   
-[Recursos de certificados en Azure Automation](../automation/automation-certificates.md)
+[Recursos de credenciales en Azure Automation](../automation/shared-resources/credentials.md)   
+[Recursos de certificados en Azure Automation](../automation/shared-resources/certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Incorporación de entidades de servicio al rol de administrador del servidor
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO y ADOMD 
 
-Al conectarse con aplicaciones cliente y aplicaciones web, los paquetes instalables de la versión 15.0.2 y versiones posteriores de las [bibliotecas cliente de AMO y ADOMD](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) de NuGet admiten entidades de servicio en las cadenas de conexión con el uso de la siguiente sintaxis: `app:AppID` y la contraseña o `cert:thumbprint`. 
+Al conectarse con aplicaciones cliente y aplicaciones web, los paquetes instalables de la versión 15.0.2 y versiones posteriores de las [bibliotecas cliente de AMO y ADOMD](/analysis-services/client-libraries?view=azure-analysis-services-current) de NuGet admiten entidades de servicio en las cadenas de conexión con el uso de la siguiente sintaxis: `app:AppID` y la contraseña o `cert:thumbprint`. 
 
 En el ejemplo siguiente, se usan un `appID` y una `password` para realizar una operación de actualización de la base de datos modelo:
 
@@ -109,8 +109,8 @@ db.Model.SaveChanges();
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Inicio de sesión con Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Inicio de sesión con Azure PowerShell](/powershell/azure/authenticate-azureps)   
 [Actualización con Logic Apps](analysis-services-refresh-logic-app.md)  
 [Actualización con Azure Automation](analysis-services-refresh-azure-automation.md)  
 [Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md)  
-[Automatización de las tareas del conjunto de datos y el área de trabajo de Power BI Premium con entidades de servicio](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 
+[Automatización de las tareas del conjunto de datos y el área de trabajo de Power BI Premium con entidades de servicio](/power-bi/admin/service-premium-service-principal)

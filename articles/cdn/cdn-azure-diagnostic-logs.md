@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
 ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88191283"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Registros de diagnóstico: Azure Content Delivery Network
@@ -52,7 +52,7 @@ Siga estos pasos para habilitar el registro para el punto de conexión de Azure 
 
 3. Seleccione **Registros de diagnóstico** en la sección **Supervisión**:
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selección de registros de diagnósticos." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selección del punto de conexión de CDN." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Habilitación del registro con Azure Storage
 
@@ -69,7 +69,7 @@ Para usar una cuenta de almacenamiento y almacenar los registros, siga estos pas
 
 4. Seleccione la suscripción y la cuenta de almacenamiento para los registros.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Registros de diagnóstico: almacenamiento." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Selección del punto de conexión de CDN." border="true":::
 
 3. Seleccione **Guardar**.
 
@@ -86,7 +86,7 @@ Para usar Log Analytics para los registros, siga estos pasos:
 
 3. Seleccione la suscripción y el área de trabajo de Log Analytics para los registros.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Registros de diagnóstico: Log Analytics." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Selección del punto de conexión de CDN." border="true":::
 
 4. Seleccione **Guardar**.
 
@@ -103,7 +103,7 @@ Para usar un centro de eventos para los registros, siga estos pasos:
 
 3. Seleccione la suscripción y el espacio de nombres del centro de eventos para los registros.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Registros de diagnóstico: centro de eventos" border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Selección del punto de conexión de CDN." border="true":::
 
 4. Seleccione **Guardar**.
 

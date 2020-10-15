@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: ed13111584e7e9621ec2ccde16efb3cdf2eef50c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438961"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016185"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 
@@ -132,7 +132,7 @@ Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Utilice [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) para obtener el identificador de recurso de la puerta de enlace. A continuación, conecte el recurso de puerta de enlace a un servidor nuevo o existente especificando **-GatewayResourceID** en [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) o [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+Utilice [Get-AzResource](/powershell/module/az.resources/get-azresource) para obtener el identificador de recurso de la puerta de enlace. A continuación, conecte el recurso de puerta de enlace a un servidor nuevo o existente especificando **-GatewayResourceID** en [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) o [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver).
 
 Para obtener el identificador de recurso de la puerta de enlace:
 

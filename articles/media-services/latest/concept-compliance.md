@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: e4c0ee0b1a049a7e82cbd1fac8e261fff5fdf375
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 884b1b85da5b52101ae5a0053003d47260a1134d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269733"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015828"
 ---
 # <a name="media-services-regulatory-compliance"></a>Cumplimiento normativo de Media Services
 
@@ -33,11 +33,11 @@ Los servicios gubernamentales de Media Services cumplen con DoD CC SRG IL 2, DoD
 
 No está prevista una revisión de Media Services por 3PAO y JAB en 2020.
 
-Puede encontrar más información sobre el cumplimiento de los servicios de Azure en el artículo [Ámbito de auditoría de los servicios de Azure por FedRAMP y DoD SRG](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope).
+Puede encontrar más información sobre el cumplimiento de los servicios de Azure en el artículo [Ámbito de auditoría de los servicios de Azure por FedRAMP y DoD SRG](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
 ## <a name="azure-compliance-documentation"></a>Documentación del cumplimiento de Azure
 
-Si su organización necesita cumplir los estándares legales o normativos de los servicios globales, regionales, financieros y de la administración pública de los Estados Unidos, además de los de los sectores de salud, multimedia y fabricación, comience con la [documentación de cumplimiento de Azure](https://docs.microsoft.com/azure/compliance/).
+Si su organización necesita cumplir los estándares legales o normativos de los servicios globales, regionales, financieros y de la administración pública de los Estados Unidos, además de los de los sectores de salud, multimedia y fabricación, comience con la [documentación de cumplimiento de Azure](../../compliance/index.yml).
 
 También encontrará recursos de cumplimiento adicionales, como informes de auditoría, una lista de comprobación relacionada con la privacidad y el Reglamento general de protección de datos (RGPD), planos técnicos de cumplimiento, directrices de país y región, implementación y asignaciones, así como notas del producto e informes de análisis.
 

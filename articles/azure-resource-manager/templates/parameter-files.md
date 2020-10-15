@@ -4,10 +4,10 @@ description: Creación de un archivo de parámetros para pasar valores durante l
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89276667"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Creación de un archivo de parámetros de Resource Manager

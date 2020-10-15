@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: fed184c349789dc38f12f62567acc0d0500ca94c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438822"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016100"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local
 
@@ -91,11 +91,11 @@ Puede hacer que la puerta de enlace se comunique con Azure Service Bus mediante 
 
 Los artículos siguientes se incluyen en el contenido general de la puerta de enlace de datos local que se aplica a todos los servicios que admite la puerta de enlace:
 
-* [Preguntas más frecuentes sobre la puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)   
-* [Uso de la aplicación Puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-app)   
-* [Administración en el nivel de inquilino](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)
-* [Configuración de los valores de proxy](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)   
-* [Ajuste de la configuración de comunicación](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)   
-* [Configurar los archivos de registro](https://docs.microsoft.com/data-integration/gateway/service-gateway-log-files)   
-* [Solución de problemas](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Supervisión y optimización del rendimiento de la puerta de enlace](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [Preguntas más frecuentes sobre la puerta de enlace de datos local](/data-integration/gateway/service-gateway-onprem-faq)   
+* [Uso de la aplicación Puerta de enlace de datos local](/data-integration/gateway/service-gateway-app)   
+* [Administración en el nivel de inquilino](/data-integration/gateway/service-gateway-tenant-level-admin)
+* [Configuración de los valores de proxy](/data-integration/gateway/service-gateway-proxy)   
+* [Ajuste de la configuración de comunicación](/data-integration/gateway/service-gateway-communication)   
+* [Configurar los archivos de registro](/data-integration/gateway/service-gateway-log-files)   
+* [Solución de problemas](/data-integration/gateway/service-gateway-tshoot)
+* [Supervisión y optimización del rendimiento de la puerta de enlace](/data-integration/gateway/service-gateway-performance)

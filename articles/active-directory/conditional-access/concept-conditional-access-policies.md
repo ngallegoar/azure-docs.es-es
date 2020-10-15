@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ab632010ec2bbbc19ac71cbeccab2ff6b3565f
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 8a79b046170a5a3f3574895490aa649fd02da082
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948392"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016134"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -126,6 +126,8 @@ Una directiva de acceso condicional debe contener, como mínimo, lo siguiente pa
 El artículo [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md) incluye algunas directivas que pensamos que serían útiles para la mayoría de las organizaciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+[Creación de una directiva de acceso condicional](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json#create-a-conditional-access-policy)
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)
 

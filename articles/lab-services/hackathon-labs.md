@@ -4,10 +4,10 @@ description: En este artículo se describe cómo usar Azure Lab Services para cr
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 8727fad6f37d1365983127a1a514e87e3a5003b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445889"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Uso de Azure Lab Services para su próximo hackathon

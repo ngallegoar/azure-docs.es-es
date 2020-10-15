@@ -16,10 +16,10 @@ ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.openlocfilehash: 4b3b2b8c39b5b2552b5ce9f508bacd1ea86b2638
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89269597"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Streaming de Widevine sin conexión para Android
@@ -55,7 +55,7 @@ Antes de implementar DRM para Widevine en dispositivos Android, debe hacer lo si
 
 - Familiarizarse con los conceptos presentados para la protección de contenido en línea con Widevine DRM. Este tema se trata con detalle en los siguientes documentos y ejemplos:
     - [Uso de Azure Media Services para entregar licencias de DRM a claves de AES](media-services-deliver-keys-and-licenses.md)
-    - [CENC with Multi-DRM and Access Control (CENC con DRM múltiple y Control de acceso): Un diseño y una implementación de referencia en Azure y Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+    - [CENC con varios DRM y Access Control: diseño e implementación de referencia en Azure y Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
     - [Using PlayReady and/or Widevine Dynamic Common Encryption with .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-drm/) (Uso de cifrado dinámico común de PlayReady o Widevine con .NET)
     - [Use Azure Media Services to deliver PlayReady and/or Widevine licenses with .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-deliver-playready-widevine-licenses/) (Uso de Azure Media Services para ofrecer licencias de PlayReady o Widevine con .NET)
 - Familiarícese con el SDK de ExoPlayer de Google para Android, un SDK de reproductor de vídeo de código abierto que admite la reproducción de Widevine DRM sin conexión. 
@@ -190,7 +190,7 @@ En el caso de niveles de seguridad de Widevine, en el documento [Widevine DRM Ar
 En el documento [Widevine DRM Architecture Overview](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) (Información general de la arquitectura de Widevine DRM) de Google se definen los tres siguientes niveles de seguridad:
 
 1.  Nivel de seguridad 1: todo el procesamiento de contenido, la criptografía y el control se realizan en un entorno de ejecución de confianza (TEE). En algunos modelos de implementación, el procesamiento de seguridad puede realizarse en chips diferentes.
-2.  Nivel de seguridad 2: realiza la criptografía (pero no el procesamiento de vídeo) dentro de la TEE: los búferes descifrados se devuelven al dominio de aplicación y se procesan a través de software o hardware de vídeo independiente. En el nivel 2, sin embargo, la información criptográfica se sigue procesando solo dentro de TEE.
+2.  Seguridad de nivel 2: realiza la criptografía (pero no el procesamiento de vídeo) dentro de la TEE: los búferes descifrados se devuelven al dominio de aplicación y se procesan a través de software o hardware de vídeo independiente. En el nivel 2, sin embargo, la información criptográfica se sigue procesando solo dentro de TEE.
 3.  Nivel de seguridad 3: no tiene un TEE en el dispositivo. Es posible que tengan que adoptarse las medidas adecuadas para proteger la información criptográfica y el contenido descifrado en el sistema operativo del host. Una implementación de nivel 3 también puede incluir un motor de cifrado de hardware, pero esto solo mejora el rendimiento, no la seguridad.
 
 Al mismo tiempo, en la [documentación de Azure Media Services sobre la plantilla de licencia de Widevine](./media-services-widevine-license-template-overview.md), la propiedad security_level de content_key_specs puede tener los siguientes cinco valores diferentes (requisitos de solidez de cliente para la reproducción):
@@ -205,9 +205,9 @@ Los dos niveles de seguridad se definen mediante Google Widevine. La diferencia 
 
 | **Niveles de seguridad definidos en la arquitectura de Widevine** |**Niveles de seguridad utilizados en la API de Widevine**|
 |---|---| 
-| **Nivel de seguridad 1**: todo el procesamiento de contenido, la criptografía y el control se realizan en un entorno de ejecución de confianza (TEE). En algunos modelos de implementación, el procesamiento de seguridad puede realizarse en chips diferentes.|**security_level=5**: La criptografía, la descodificación y todo el tratamiento de los medios (comprimidos y descomprimidos) deben administrarse dentro de TEE con respaldo de hardware.<br/><br/>**security_level=4**: La criptografía y la descodificación del contenido deben realizarse dentro de un TEE con respaldo de hardware.|
-**Nivel de seguridad 2**: realiza la criptografía (pero no el procesamiento de vídeo) dentro de la TEE: los búferes descifrados se devuelven al dominio de aplicación y se procesan a través de software o hardware de vídeo independiente. En el nivel 2, sin embargo, la información criptográfica se sigue procesando solo dentro de TEE.| **security_level=3**: Las operaciones de criptografía y material clave deben realizarse en un TEE con respaldo de hardware. |
-| **Nivel de seguridad 3**: no tiene un TEE en el dispositivo. Es posible que tengan que adoptarse las medidas adecuadas para proteger la información criptográfica y el contenido descifrado en el sistema operativo del host. Una implementación de nivel 3 también puede incluir un motor de cifrado de hardware, pero esto solo mejora el rendimiento, no la seguridad. | **security_level=2**: Se requiere criptografía de software y un descodificador de ofuscación.<br/><br/>**security_level=1**: Se requiere criptografía white-box basada en software.|
+| **Nivel de seguridad 1**: todo el procesamiento de contenido, la criptografía y el control se realizan en un entorno de ejecución de confianza (TEE). En algunos modelos de implementación, el procesamiento de seguridad puede realizarse en chips diferentes.|**security_level=5**: la criptografía, la descodificación y todo el tratamiento de los medios (comprimidos y descomprimidos) deben administrarse dentro de TEE con respaldo de hardware.<br/><br/>**security_level=4**: la criptografía y la descodificación del contenido deben realizarse dentro de un TEE con respaldo de hardware.|
+**Seguridad de nivel 2**: realiza la criptografía (pero no el procesamiento de vídeo) dentro de la TEE: los búferes descifrados se devuelven al dominio de aplicación y se procesan a través de software o hardware de vídeo independiente. En el nivel 2, sin embargo, la información criptográfica se sigue procesando solo dentro de TEE.| **security_level=3**: las operaciones de criptografía y material clave deben realizarse en un TEE con respaldo de hardware. |
+| **Nivel de seguridad 3**: no tiene un TEE en el dispositivo. Es posible que tengan que adoptarse las medidas adecuadas para proteger la información criptográfica y el contenido descifrado en el sistema operativo del host. Una implementación de nivel 3 también puede incluir un motor de cifrado de hardware, pero esto solo mejora el rendimiento, no la seguridad. | **security_level=2**: se requiere criptografía de software y un descodificador de ofuscación.<br/><br/>**security_level=1**: Se requiere criptografía white-box basada en software.|
 
 ### <a name="question"></a>Pregunta
 

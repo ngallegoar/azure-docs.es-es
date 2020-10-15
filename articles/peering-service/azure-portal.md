@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 6646016a4529f46431ecb622c7546140a93a5d88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62210105ba4ba84cff4b246c5b7cf8cc794fb5e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871485"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91534954"
 ---
 # <a name="register-peering-service-by-using-the-azure-portal"></a>Registro de Peering Service mediante Azure Portal
 
-Azure Peering Service es un servicio de red que mejora la conectividad de los clientes a los servicios en la nube de Microsoft, como Office 365, Dynamics 365, servicios de software como servicio (SaaS), Azure o cualquier otro servicio de Microsoft accesible a través de la red pública de Internet.
+Azure Peering Service es un servicio de red que mejora la conectividad de los clientes a los servicios en la nube de Microsoft, como Microsoft 365, Dynamics 365, servicios de software como servicio (SaaS), Azure o cualquier otro servicio de Microsoft accesible a través de la red pública de Internet.
 
 En este artículo, aprenderá a registrar una conexión de Peering Service mediante Azure Portal.
 
@@ -72,14 +72,14 @@ En un explorador, vaya a Azure Portal e inicie sesión con su cuenta de Azure.
 1. Seleccione **Create new prefix** (Crear nuevo prefijo) en la parte inferior de la sección **Prefixes** (Prefijos), aparecerán cuadros de texto. A continuación, escriba el nombre del recurso del prefijo y los prefijos asociados al proveedor de servicios.
 
 1. Seleccione **Prefix Key** (Clave de prefijo) y agregue la clave de prefijo que le ha proporcionado su proveedor (ISP o IXP). Esta clave permite a Microsoft validar el prefijo y el proveedor que ha asignado el prefijo IP.
-   > ![Pestaña Configuración del registro de Peering Service](./media/peering-service-portal/peering-serviceconfiguration.png)
+   > ![Captura de pantalla que muestra la pestaña Configuration (Configuración) de la página Create a peering service connection (Crear una conexión de Peering Service) en la que puede escribir la clave de prefijo.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Seleccione el botón **Review + create** (Revisar y crear) en la parte inferior izquierda de la página. Aparece la página **Review + create** (Revisar y crear) y Azure valida la configuración.
     
 
 1. Cuando reciba el mensaje **Validation passed** (Validación superada), seleccione **Create** (Crear).
 
-   > ![Pestaña Configuración del registro de Peering Service](./media/peering-service-portal/peering-service-prefix.png)
+   > ![Captura de pantalla que muestra la pestaña Review + create (Revisar y crear) de la página Create a peering service connection (Crear una conexión de Peering Service).](./media/peering-service-portal/peering-service-prefix.png)
 
 
 1. Después de registrar una conexión de Peering Service, se realiza una validación adicional de los prefijos incluidos. Puede revisar el estado de la validación en la sección **Prefixes** (Prefijos) del nombre del recurso. Si se produce un error en la validación, se muestra uno de los siguientes mensajes de error:

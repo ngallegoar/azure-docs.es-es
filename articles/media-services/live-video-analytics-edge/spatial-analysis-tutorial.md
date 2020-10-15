@@ -3,12 +3,12 @@ title: 'Análisis de vídeo en directo con Computer Vision para análisis espaci
 description: En este tutorial se muestra cómo usar Live Video Analytics junto con la característica de IA de análisis espacial de Computer Vision, parte de Azure Cognitive Services, para analizar una fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: cad96847d6fbf682f1d694b0c8c255b3725e96d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 0dc89eaddf5cabc3063744dfe2c9f0236c70438c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824133"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015692"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Análisis de vídeo en directo con Computer Vision para análisis espacial (versión preliminar)
 
@@ -32,7 +32,7 @@ Consulte estos artículos antes de empezar:
 * [Terminología de Live Video Analytics en IoT Edge](terminology.md)
 * [Concepto de grafo multimedia](media-graph-concept.md)
 * [Grabación de vídeo basada en eventos](event-based-video-recording-concept.md)
-* [Tutorial: Desarrollo de un módulo IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [Tutorial: Desarrollo de un módulo IoT Edge](../../iot-edge/tutorial-develop-for-linux.md)
 * [Implementación de Live Video Analytics en Azure Stack Edge](deploy-azure-stack-edge-how-to.md) 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -55,12 +55,12 @@ En este diagrama se muestra el flujo de las señales en este tutorial. Un [módu
 
 El nodo MediaGraphCognitiveServicesVisionExtension desempeña el rol de un proxy. Convierte los fotogramas de vídeo en el tipo de imagen especificado. Luego, utiliza la **memoria compartida** para retransmitir la imagen a otro módulo perimetral que ejecuta operaciones de IA detrás de un punto de conexión gRPC. En este ejemplo, ese módulo perimetral es el módulo de análisis espacial. El nodo de procesador MediaGraphCognitiveServicesVisionExtension realiza dos tareas:
 
-* Recopila los resultados y publica eventos en el nodo de [receptor de IoT Hub](media-graph-concept.md#iot-hub-message-sink). que posteriormente los envía a [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-glossary#iot-edge-hub). 
+* Recopila los resultados y publica eventos en el nodo de [receptor de IoT Hub](media-graph-concept.md#iot-hub-message-sink). que posteriormente los envía a [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). 
 * También captura un clip de vídeo de 30 segundos del origen RTSP mediante un [procesador de puerta de señal](media-graph-concept.md#signal-gate-processor) y lo almacena como un recurso de Media Services.
 
 ## <a name="create-the-computer-vision-resource"></a>Creación del recurso de Computer Vision
 
-Es necesario crear un recurso de Azure de tipo Computer Vision en [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) o mediante la CLI de Azure. El recurso se puede crear una vez que se haya aprobado la solicitud de acceso al contenedor y se haya registrado su identificador de suscripción de Azure. Vaya a https://aka.ms/csgate para enviar el caso de uso y el identificador de suscripción de Azure.  El recurso de Azure se debe crear con la misma suscripción de Azure que se ha proporcionado en el formulario de solicitud de acceso.
+Es necesario crear un recurso de Azure de tipo Computer Vision en [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) o mediante la CLI de Azure. El recurso se puede crear una vez que se haya aprobado la solicitud de acceso al contenedor y se haya registrado su identificador de suscripción de Azure. Vaya a https://aka.ms/csgate para enviar el caso de uso y el identificador de suscripción de Azure.  El recurso de Azure se debe crear con la misma suscripción de Azure que se ha proporcionado en el formulario de solicitud de acceso.
 
 ### <a name="gathering-required-parameters"></a>Recopilación de los parámetros obligatorios
 
@@ -75,7 +75,7 @@ Se usa una clave para iniciar el contenedor de análisis espacial y dicha clave 
 
 ## <a name="set-up-azure-stack-edge"></a>Configuración de Azure Stack Edge
 
-Siga [estos pasos](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep) para configurar Azure Stack Edge y continúe con los pasos que se indican a continuación para implementar Live Video Analytics en los módulos de análisis espacial.
+Siga [estos pasos](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) para configurar Azure Stack Edge y continúe con los pasos que se indican a continuación para implementar Live Video Analytics en los módulos de análisis espacial.
 
 ## <a name="set-up-your-development-environment"></a>Configurado su entorno de desarrollo
 
@@ -136,7 +136,7 @@ Hay algunas cosas a las que debe prestar atención en el archivo de la plantilla
 1. `IpcMode` en createOptions de los módulos lvaEdge y de análisis espacial debe ser igual y estar establecido en host.
 1. Para que el simulador RTSP funcione, asegúrese de que ha configurado los límites del volumen. Para más información, consulte [Configuración de montajes de volúmenes de Docker](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts).
 
-    1. [Conéctese al recurso compartido de SMB](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share) y copie el [archivo de vídeo con la excavadora de ejemplo](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) en el recurso compartido local.
+    1. [Conéctese al recurso compartido de SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) y copie el [archivo de vídeo con la excavadora de ejemplo](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) en el recurso compartido local.
     1. Verá que el módulo rtspsim tiene la siguiente configuración:
         
         ```json

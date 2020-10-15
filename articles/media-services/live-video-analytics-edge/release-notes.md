@@ -3,12 +3,12 @@ title: 'Notas de la versión de Live Video Analytics on IoT Edge: Azure'
 description: En este tema se proporcionan las notas de la versión sobre las mejoras, las versiones, las correcciones de errores y los problemas conocidos de Live Video Analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: e33a62891f9503a4f2ff907585316c3737c876e6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 18da50fe763ef7c5fc3c06ac00052679c488cae7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250477"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015641"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Notas de la versión de Live Video Analytics on IoT Edge
 
@@ -36,7 +36,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ### <a name="module-updates"></a>Actualizaciones del módulo
 
-* Hay un nuevo nodo de extensión de grafos, [MediaGraphCognitiveServicesVisionExtension](spatial-analysis-tutorial.md), disponible para integrarse con el módulo [Spatial Analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview) (versión preliminar) de Cognitive Services.
+* Hay un nuevo nodo de extensión de grafos, [MediaGraphCognitiveServicesVisionExtension](spatial-analysis-tutorial.md), disponible para integrarse con el módulo [Spatial Analysis](/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview) (versión preliminar) de Cognitive Services.
 * Se ha agregado compatibilidad con dispositivos ARM64 de Linux: use [pasos manuales](deploy-iot-edge-device.md) para implementar en esos dispositivos.
 
 ### <a name="documentation-updates"></a>Actualizaciones de la documentación

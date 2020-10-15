@@ -3,16 +3,16 @@ title: Uso de Azure Defender para registros de contenedor
 description: Obtenga información sobre el uso de Azure Defender para registros de contenedor para examinar imágenes en sus registros.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: conceptual
+ms.date: 9/22/2020
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 18fa1b14bb20bbb2805eee2ec663d1316f787950
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932453"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91532608"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Uso de Azure Defender para registros de contenedor para examinar las imágenes en busca de vulnerabilidades
 
@@ -127,7 +127,7 @@ Cuando un resultado coincide con los criterios que ha definido en las reglas de 
 > [!IMPORTANT]
 > Para crear una regla, necesita permisos para editar directivas en Azure Policy.
 >
-> Obtenga más información en [Permisos de RBAC en Azure Policy](../governance/policy/overview.md#rbac-permissions-in-azure-policy).
+> Obtenga más información en [Permisos de Azure RBAC en Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).
 
 Puede utilizar cualquiera de los criterios siguientes: 
 
@@ -150,7 +150,7 @@ Para crear una regla:
 1. Para ver, invalidar o eliminar una regla: 
     1. Seleccione **Deshabilitar regla**.
     1. En la lista de ámbitos, las suscripciones con reglas activas se muestran como **Regla aplicada**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modificación o eliminación de una regla existente":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Creación de una regla de deshabilitación para los resultados de VA en el registro":::
     1. Para ver o eliminar la regla, seleccione el menú de puntos suspensivos ("...").
 
 

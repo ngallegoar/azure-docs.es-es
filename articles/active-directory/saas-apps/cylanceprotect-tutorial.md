@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 5457730494d509a2923ce929f41e397cb6064126
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 236c24ac63aef6b802edf53f9c414a522c2308e4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550092"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015147"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cylanceprotect"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con CylancePROTECT
 
@@ -144,7 +144,7 @@ En esta sección, va a permitir que B.Simon acceda a CylancePROTECT mediante el 
 
 ## <a name="configure-cylanceprotect-sso"></a>Configuración del inicio de sesión único de CylancePROTECT
 
-Para configurar el inicio de sesión único en **CylancePROTECT**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de CylancePROTECT](https://www.cylance.com/en-us/resources/support/support-overview.html). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados. Para más información, use la documentación de Cylance: [https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4](https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4).
+Para configurar el inicio de sesión único en **CylancePROTECT**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de CylancePROTECT](https://www.cylance.com/en-us/resources/support/support-overview.html). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados. Para más información, use la documentación de Cylance: [https://support.cylance.com/s/](https://support.cylance.com/s/).
 
 ### <a name="create-cylanceprotect-test-user"></a>Creación de un usuario de prueba en CylancePROTECT
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77560227"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Tutorial: Uso del servicio de copia de datos para copiar datos en Azure Data Box Heavy (versión preliminar)
@@ -57,7 +57,7 @@ Para copiar datos utilizando el servicio de copia de datos, tendrá que crear un
     
     |Campo                          |Value    |
     |-------------------------------|---------|
-    |**Nombre del trabajo**                       |Un nombre exclusivo de menos de 230 caracteres para el trabajo. En el nombre del trabajo no se permiten los siguientes caracteres: \<, \>, \|, \?, \*, \\, \:, \/ y \\\.         |
+    |**Nombre del trabajo**                       |Un nombre exclusivo de menos de 230 caracteres para el trabajo. En el nombre del trabajo no se permiten los siguientes caracteres: \<, \>, \|, \?, \*, \\, \:, \/, \\ y \.         |
     |**Ubicación de origen**                |Proporcione la ruta de acceso SMB para el origen de datos en el formato: `\\<ServerIPAddress>\<ShareName>` o `\\<ServerName>\<ShareName>`.        |
     |**Nombre de usuario**                       |Nombre de usuario en formato `\\<DomainName><UserName>` para acceder al origen de datos. Si hay un administrador local conectándose, necesitará permisos de seguridad explícitos. Haga clic con el botón derecho en la carpeta, seleccione **Propiedades** y, luego, **Seguridad**. Esto debería agregar al administrador en la pestaña **Seguridad**.       |
     |**Contraseña**                       |Contraseña para acceder al origen de datos.           |
