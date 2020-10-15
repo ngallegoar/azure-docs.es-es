@@ -3,12 +3,12 @@ title: 'Procedimiento para proteger la jerarquía de recursos: Gobernanza en Azu
 description: Obtenga información sobre cómo proteger la jerarquía de recursos con configuraciones de jerarquía que incluyen la configuración del grupo de administración predeterminado.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: cfaf7a732b3233536006009613cecd5aa1649dee
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533986"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951900"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Procedimiento para proteger la jerarquía de recursos
 
@@ -115,5 +115,5 @@ Para volver a desactivar la configuración, use el mismo punto de conexión y es
 
 Para más información sobre los grupos de administración, consulte:
 
-- [Creación de grupos de administración para organizar los recursos de Azure](../create.md)
+- [Creación de grupos de administración para organizar los recursos de Azure](../create-management-group-portal.md)
 - [Cambio, eliminación y administración de los grupos de administración](../manage.md)

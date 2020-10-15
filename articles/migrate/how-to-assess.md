@@ -4,10 +4,10 @@ description: Obtenga información sobre como agregar herramientas de evaluación
 ms.topic: how-to
 ms.date: 04/26/2020
 ms.openlocfilehash: 5151135a57b7c2780485d85299ead5df83ea851e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86122122"
 ---
 # <a name="add-assessment-tools"></a>Incorporación de herramientas de evaluación

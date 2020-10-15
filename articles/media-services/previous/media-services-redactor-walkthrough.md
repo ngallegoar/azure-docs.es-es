@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: df35b48a4da05d068760f0b04394ea53d788000e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5fdec829ceeefce2426a5fd08b4245e66bd0a08c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269701"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016678"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Tutorial de censura de rostros con Azure Media Analytics
 
@@ -28,7 +28,7 @@ ms.locfileid: "89269701"
 
 ## <a name="overview"></a>Información general
 
-**Redactor multimedia de Azure** es un procesador multimedia (MP) de [Análisis multimedia de Azure](media-services-analytics-overview.md) que ofrece censura de rostros escalable en la nube. La censura de rostros le permite modificar un vídeo con el fin de difuminar las caras de personas seleccionadas. Puede usar el servicio de censura de rostros en escenarios de seguridad pública y de noticias en los medios de comunicación. Unos minutos de material de archivo que contenga varias caras puede tardar horas en censurarse manualmente, pero con este servicio, el proceso de censura de caras requiere solamente unos pocos pasos sencillos. Para más información, consulte [este blog](https://azure.microsoft.com/blog/azure-media-redactor/).
+**Redactor multimedia de Azure** es un procesador multimedia (MP) de [Análisis multimedia de Azure](./legacy-components.md) que ofrece censura de rostros escalable en la nube. La censura de rostros le permite modificar un vídeo con el fin de difuminar las caras de personas seleccionadas. Puede usar el servicio de censura de rostros en escenarios de seguridad pública y de noticias en los medios de comunicación. Unos minutos de material de archivo que contenga varias caras puede tardar horas en censurarse manualmente, pero con este servicio, el proceso de censura de caras requiere solamente unos pocos pasos sencillos. Para más información, consulte [este blog](https://azure.microsoft.com/blog/azure-media-redactor/).
 
 Para obtener más información sobre **Azure Media Redactor**, consulte el tema de [información general sobre Censura de rostros](media-services-face-redaction.md).
 
@@ -131,7 +131,7 @@ Si como desarrollador trata de analizar los datos de anotaciones del JSON, busqu
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Vínculos relacionados
-[Información general de análisis de Azure Media Services](media-services-analytics-overview.md)
+[Información general de análisis de Azure Media Services](./legacy-components.md)
 
 [Demostraciones de Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: e694630d8bcd7879d9405152c4141fb6e5bad4e2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297100"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Creación de una imagen a partir de un disco administrado o una instantánea en Shared Image Gallery mediante la CLI de Azure

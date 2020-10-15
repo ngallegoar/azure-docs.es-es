@@ -4,10 +4,10 @@ description: En este artículo se describe cómo crear un proyecto de Azure Migr
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.openlocfilehash: a94e3cc18f46c457d6ed54ef88c62adefb07c5b9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86102538"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Incorporación de una herramienta de evaluación y migración por primera vez

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77670209"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Combinaciones en consultas de registros de Azure Monitor
@@ -39,7 +39,7 @@ SecurityEvent
 
 En este ejemplo, en el primer conjunto de datos se filtran todos los eventos de inicio de sesión. Esto se combina con un segundo conjunto de datos que en el que se filtran todos los eventos de cierre de sesión. Las columnas proyectadas son _Computer_, _Account_, _TargetLogonId_ y _TimeGenerated_. Los conjuntos de datos se correlacionan mediante una columna compartida, _TargetLogonId_. La salida es un único registro por correlación, que contiene las horas de inicio de sesión y de cierre de sesión.
 
-Si ambos conjuntos de datos tienen columnas con los mismos nombres, se da a las columnas del conjunto de datos de la derecha un número de índice, por lo que en este ejemplo los resultados mostrarán _TargetLogonId_ con valores de la tabla del lado izquierdo y  _TargetLogonId1_ con valores de la tabla de la derecha. En este caso, se ha quitado la segunda columna _TargetLogonId1_ con el operador `project-away`.
+Si ambos conjuntos de datos tienen columnas con los mismos nombres, se da a las columnas del conjunto de datos de la derecha un número de índice, por lo que en este ejemplo los resultados mostrarán _TargetLogonId_ con valores de la tabla del lado izquierdo y _ TargetLogonId1_ con valores de la tabla de la derecha. En este caso, se ha quitado la segunda columna _TargetLogonId1_ con el operador `project-away`.
 
 > [!NOTE]
 > Para mejorar el rendimiento, conserve solo las columnas relevantes de los conjuntos de datos combinados, con el operador `project`.

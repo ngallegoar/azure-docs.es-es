@@ -3,12 +3,13 @@ title: Directivas recomendadas para los servicios de Azure
 description: Describe cómo buscar y aplicar las directivas recomendadas para los servicios de Azure, como Azure Virtual Machines.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 919d09a569fd950ab2061ba3452a4a940d25cb5c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.customer: generated
+ms.openlocfilehash: 5c297bcedd29fa8d9a2712850a57b66630cb52d9
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89447669"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951526"
 ---
 # <a name="recommended-policies-for-azure-services"></a>Directivas recomendadas para los servicios de Azure
 

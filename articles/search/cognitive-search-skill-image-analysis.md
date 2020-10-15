@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 63a1f8e30be2983c0df93ff5a7229460f8f39214
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 69b84a3edb606ed99b6aaca7db5ad0e57124f1b9
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936051"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948942"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Aptitud cognitiva de análisis de imágenes
 
-La aptitud de **Análisis de imágenes** extrae un amplio conjunto de características visuales en función del contenido de la imagen. Por ejemplo, puede generar una leyenda a partir de una imagen, generar etiquetas o identificar celebridades y lugares de referencia. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](../cognitive-services/computer-vision/home.md) en Cognitive Services. 
+La aptitud de **Análisis de imágenes** extrae un amplio conjunto de características visuales en función del contenido de la imagen. Por ejemplo, puede generar una leyenda a partir de una imagen, generar etiquetas o identificar celebridades y lugares de referencia. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](../cognitive-services/computer-vision/overview.md) en Cognitive Services. 
 
 > [!NOTE]
 > Los volúmenes pequeños (menos de 20 transacciones) se pueden ejecutar gratis en Búsqueda cognitiva de Azure, pero las cargas de trabajo más grandes requieren la [asociación de un recurso de Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.

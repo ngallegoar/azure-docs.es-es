@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: aee88420fe8b88de9af9a2397316dd065144e610
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3e5f00695ee6f823cf36625f41b25ad9e273481e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685296"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91649626"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Series Dv2 y DSv2 optimizadas para memoria
 
@@ -22,19 +22,17 @@ Las series Dv2 y Dsv2, una evolución de la serie D original, presentan una CPU 
 
 Los tamaños de la serie Dv2 se ejecutan en procesadores Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell).
 
-ACU: 210 - 250
-
-Premium Storage: No compatible
-
-Almacenamiento en caché de Premium Storage: No compatible
-
-Migración en vivo: Compatible
-
-Actualizaciones con conservación de memoria: Compatible
+[ACU](acu.md): 210 - 250<br>
+[Premium Storage](premium-storage-performance.md): No compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): No compatible<br>
+[Migración en vivo](maintenance-and-updates.md): Compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+<br> 
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps de lectura/Mbps de escritura | Discos de datos máx./rendimiento: E/S | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_D11_v2 | 2  | 14  | 100 | 6000/93/46    | 8/8x500   | 2|1\.500  |
+| Standard_D11_v2 | 2  | 14  | 100 | 6000/93/46    | 8/8x500   | 2|1.500  |
 | Standard_D12_v2 | 4  | 28  | 200 | 12000/187/93  | 16/16x500 | 4|3000  |
 | Standard_D13_v2 | 8  | 56  | 400 | 24000/375/187 | 32/32x500 | 8|6000  |
 | Standard_D14_v2 | 16 | 112 | 800 | 48000/750/375 | 64/64x500 | 8|12000 |
@@ -47,19 +45,17 @@ Actualizaciones con conservación de memoria: Compatible
 
 Los tamaños de la serie DSv2 se ejecutan en procesadores Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell).
 
-ACU: 210 - 250 <sup>1</sup>
-
-Premium Storage:  Compatible
-
-Almacenamiento en caché de Premium Storage:  Compatible
-
-Migración en vivo: Compatible
-
-Actualizaciones con conservación de memoria: Compatible
+[ACU](acu.md): 210 - 250 <sup>1</sup><br>
+[Premium Storage](premium-storage-performance.md): Compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
+[Migración en vivo](maintenance-and-updates.md): Compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+<br> 
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |---|
-| Standard_DS11_v2 <sup>3</sup> | 2  | 14  | 28  | 8  | 8000/64 (72)    | 6400/96   | 2|1\.500  |
+| Standard_DS11_v2 <sup>3</sup> | 2  | 14  | 28  | 8  | 8000/64 (72)    | 6400/96   | 2|1.500  |
 | Standard_DS12_v2 <sup>3</sup> | 4  | 28  | 56  | 16 | 16000/128 (144) | 12800/192 | 4|3000  |
 | Standard_DS13_v2 <sup>3</sup> | 8  | 56  | 112 | 32 | 32000/256 (288) | 25600/384 | 8|6000  |
 | Standard_DS14_v2 <sup>3</sup> | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/768 | 8|12000 |

@@ -8,10 +8,10 @@ ms.date: 06/04/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 995e5a1a87ee332c48641f42c4134e3e58f11cfa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87495427"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configuración del acceso desde redes virtuales (VNET)
@@ -47,7 +47,7 @@ En las secciones siguientes se describe cómo configurar un punto de conexión d
 
 1. Después de que la cuenta de Azure Cosmos DB esté habilitada para obtener acceso desde una red virtual, solo permitirá el tráfico desde esta subred seleccionada. La red virtual y subred que agregó deben aparecer como se muestra en la captura de pantalla siguiente:
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Red virtual y subred configuradas correctamente":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Selección de la red virtual y la subred":::
 
 > [!NOTE]
 > Para habilitar los puntos de conexión de servicio de red virtual, necesitará los siguientes permisos de suscripción:
@@ -67,7 +67,7 @@ Estas son las instrucciones para registrar la suscripción con el proveedor de r
 
 1. Proporcione los detalles necesarios para crear una red virtual y, a continuación, seleccione **Crear**. La subred se creará con un punto de conexión de servicio para "Microsoft.AzureCosmosDB" habilitado.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Selección de la red virtual y la subred para una red virtual nueva":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Selección de la red virtual y la subred":::
 
 Si otros servicios de Azure, como Azure Cognitive Search, usan la cuenta de Azure Cosmos DB, o si se accede a ella desde Stream Analytics o Power BI, permita el acceso al seleccionar **Accept connections from within global Azure datacenters** (Aceptar conexiones desde centros de datos globales de Azure).
 
@@ -81,7 +81,7 @@ Para garantizar el acceso a las métricas de Azure Cosmos DB desde el portal, de
 
 1. Para eliminar una regla de subred o red virtual, seleccione **...** junto a la red virtual o subred y luego **Eliminar**.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Eliminación de una red virtual":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Selección de la red virtual y la subred":::
 
 1. Seleccione **Guardar** para aplicar los cambios.
 

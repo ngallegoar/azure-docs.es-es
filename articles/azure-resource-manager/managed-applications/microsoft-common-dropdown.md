@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: cc50e49d4bc59235a147d114d86ecdff95dca797
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87474349"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.DropDown
@@ -26,19 +26,19 @@ Cuando solo se permite la selección de un elemento, el control aparece como:
 
 Cuando se incluyen descripciones, el control aparece como:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Selección única de Microsoft.Common.DropDown con descripciones":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Selección única de Microsoft.Common.DropDown":::
 
 Cuando la selección múltiple está habilitada, el control agrega una opción **Seleccionar todo** y casillas para activar más de un elemento:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Selección múltiple de Microsoft.Common.DropDown":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Selección única de Microsoft.Common.DropDown":::
 
 Se pueden incluir descripciones con la selección múltiple habilitada.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Selección múltiple de Microsoft.Common.DropDown con descripciones":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Selección única de Microsoft.Common.DropDown":::
 
 Cuando el filtrado está habilitado, el control incluye un cuadro de texto para agregar el valor de filtrado.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Selección múltiple de Microsoft.Common.DropDown con descripciones":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Selección única de Microsoft.Common.DropDown":::
 
 ## <a name="schema"></a>Schema
 
