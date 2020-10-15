@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 47fdf445fa11693dd3a998b8c73ac0c3ed8452a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff9093872b2a5e069aef43ae2230b08447eea602
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389367"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069864"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -95,12 +95,12 @@ Para recopilar la notificación de ciudad durante el registro, se debe agregar c
    </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-<ClaimsProvider>
 ```
 
 Para recopilar la notificación de ciudad después del inicio de sesión inicial con una cuenta federada, se debe agregar como notificación de salida al perfil técnico `SelfAsserted-Social`. Para que los usuarios de cuentas locales y federadas puedan editar sus datos de perfil posteriormente, agregue la notificación de salida al perfil técnico `SelfAsserted-ProfileUpdate`. Reemplace estos perfiles técnicos en el archivo de extensión. Especifique la lista completa de notificaciones de salida para controlar el orden en que se presentan las notificaciones en la pantalla. Busque el elemento **ClaimsProviders**. Agregue un nuevo elemento ClaimsProviders tal como se muestra a continuación:
 
 ```xml
+<ClaimsProvider>
   <DisplayName>Self Asserted</DisplayName>
   <TechnicalProfiles>
     <!--Federated account first-time sign-in page-->

@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89320263"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configuración del mensaje "¿Quiere mantener la sesión iniciada?" para las cuentas de Azure AD
@@ -40,20 +40,15 @@ En el siguiente diagrama se muestra el flujo de inicio de sesión del usuario pa
    * Si elige **No**, la opción **¿Quiere mantener la sesión iniciada?** estará oculta cuando el usuario inicie sesión correctamente. El usuario deberá iniciar sesión cada vez que se cierre y vuelva a abrir el explorador.
    * Si elige **Sí**, la opción **¿Quiere mantener la sesión iniciada?** se muestra al usuario.
 
-    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="Captura de pantalla que muestra el ajuste Mostrar la opción para mantener la sesión iniciada":::
+    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="Diagrama que muestra el flujo de inicio de sesión del usuario para un inquilino administrado y otro federado":::
 
 ## <a name="troubleshoot-sign-in-issues"></a>Solución de problemas con el inicio de sesión
 
 Si un usuario no actúa con el mensaje **¿Quiere mantener la sesión iniciada?** , tal como se muestra en el diagrama siguiente, pero abandona el intento de inicio de sesión, verá una entrada de registro de inicio de sesión que indica la interrupción.
 
-:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Se muestra el mensaje ¿Quiere mantener la sesión iniciada?":::
+:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Diagrama que muestra el flujo de inicio de sesión del usuario para un inquilino administrado y otro federado" cuando el usuario estaba iniciando sesión.
 
-Los detalles sobre el error de inicio de sesión son los siguientes y se resaltan en el ejemplo.
-
-* **Código de error de inicio de sesión**: 50140
-* **Motivo del error**: Este error se produjo debido a una interrupción en "Mantener la sesión iniciada" cuando el usuario estaba iniciando sesión.
-
-:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Ejemplo de entrada de registro de inicio de sesión con la interrupción de la opción mantener la sesión iniciada":::
+:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Diagrama que muestra el flujo de inicio de sesión del usuario para un inquilino administrado y otro federado":::
 
 Para evitar que los usuarios vean la interrupción, establezca **Mostrar la opción para mantener la sesión iniciada** en **No** en la configuración de personalización de marca avanzada. Esta acción deshabilita el mensaje de KMSI para todos los usuarios del directorio de Azure AD.
 

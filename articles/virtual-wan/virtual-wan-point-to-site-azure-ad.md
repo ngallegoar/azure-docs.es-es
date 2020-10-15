@@ -2,17 +2,17 @@
 title: 'Configuración de la autenticación de Azure AD para la conexión VPN de usuario: Red WAN virtual'
 description: Aprenda a configurar la autenticación de Azure Active Directory para una VPN de usuario.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/17/2020
+ms.date: 10/14/2020
 ms.author: alzam
-ms.openlocfilehash: 21c2cba1d67ba415849b20dedf9ba157ca191d05
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1102e2dafcf1a78bc9c243f27549b13793ec5408
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832525"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079180"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configuración de la autenticación de Azure Active Directory para una VPN de usuario
 
@@ -22,15 +22,14 @@ Este tipo de conexión requiere que se configure un cliente en el equipo cliente
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Crear una instancia de Virtual WAN
-> * Crear concentrador virtual
-> * Crear una configuración de VPN de usuario
-> * Descargar un perfil de VPN de usuario de WAN virtual
-> * Aplicar la configuración de VPN de usuario a un centro de conectividad virtual
-> * Conectar una red virtual a un concentrador virtual
-> * Descargar y aplicar la configuración de cliente VPN
-> * Ver la instancia de Virtual WAN
+* Crear una instancia de Virtual WAN
+* Crear concentrador virtual
+* Crear una configuración de VPN de usuario
+* Descargar un perfil de VPN de usuario de WAN virtual
+* Aplicar la configuración de VPN de usuario a un centro de conectividad virtual
+* Conectar una red virtual a un concentrador virtual
+* Descargar y aplicar la configuración de cliente VPN
+* Ver la instancia de Virtual WAN
 
 ![Diagrama de Virtual WAN](./media/virtual-wan-about/virtualwanp2s.png)
 
