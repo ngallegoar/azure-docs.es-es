@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d50c273e50a7faf2d8c24982fbd39cecdff0bf7f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89067712"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044384"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unidades de consulta en Azure Digital Twins 
 
-Una **unidad de consulta** de Azure Digital Twins es una unidad de cálculo a petición que se usa para ejecutar las [consultas de Azure Digital Twins](how-to-query-graph.md) mediante la [API de consulta](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query). 
+Una **unidad de consulta** de Azure Digital Twins es una unidad de cálculo a petición que se usa para ejecutar las [consultas de Azure Digital Twins](how-to-query-graph.md) mediante la [API de consulta](/rest/api/digital-twins/dataplane/query). 
 
 Abstrae los recursos del sistema, como CPU, IOPS y memoria, que son necesarios para realizar operaciones de consulta admitidas por Azure Digital Twins, lo que le permite realizar un seguimiento del uso en unidades de consulta en su lugar.
 
@@ -28,7 +28,7 @@ En este artículo se explica cómo comprender las unidades de consulta y realiza
 
 ## <a name="find-the-query-unit-consumption-in-azure-digital-twins"></a>Búsqueda del consumo de unidades de consulta en Azure Digital Twins 
 
-Al ejecutar una consulta con la [API de consulta](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query) de Azure Digital Twins, puede examinar el encabezado de respuesta para realizar el seguimiento del número de unidades de consulta que la consulta consume. Busque "query-charge" en la respuesta que se devuelve desde Azure Digital Twins. 
+Al ejecutar una consulta con la [API de consulta](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins, puede examinar el encabezado de respuesta para realizar el seguimiento del número de unidades de consulta que la consulta consume. Busque "query-charge" en la respuesta que se devuelve desde Azure Digital Twins. 
 
 Los [SDK](how-to-use-apis-sdks.md) de Azure Digital Twins permiten extraer el encabezado de cargo de consulta de la respuesta paginable. En esta sección se muestra cómo consultar los gemelos digitales y cómo recorrer en iteración la respuesta paginable para extraer el encabezado del cargo de la consulta. 
 
@@ -68,6 +68,6 @@ await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
 Para más información sobre cómo hacer consultas en Azure Digital Twins, consulte:
 * [*Conceptos: Lenguaje de consulta*](concepts-query-language.md)
 * [*Procedimiento: Consulta del grafo gemelo*](how-to-query-graph.md)
-* [Documentación de referencia de la API de consulta](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query/querytwins)
+* [Documentación de referencia de la API de consulta](/rest/api/digital-twins/dataplane/query/querytwins)
 
 Puede encontrar límites relacionados con las consultas de Azure Digital Twins en [*Referencia: Límites de servicio de la versión preliminar pública*](reference-service-limits.md).

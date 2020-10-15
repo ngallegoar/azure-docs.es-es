@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 services: storage
 ms.openlocfilehash: 2d2a000879a95f86a6cdda3324add5b692476eee
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88590122"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Habilitación de la eliminación temporal en recursos compartidos de archivos de Azure
@@ -68,13 +68,13 @@ Para restaurar un recurso compartido de archivos eliminado temporalmente:
 
     Se mostrarán los recursos compartidos que se encuentren en estado **Eliminado**.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Si la columna de estado, situada junto a la columna de nombre, se establece en Eliminado, el recurso compartido de archivos se encuentra en un estado de eliminación temporal. Se eliminará de forma permanente después del período de retención especificado.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Captura de pantalla del panel de configuración de la eliminación temporal de la cuenta de almacenamiento. Resalte la sección de recursos compartidos de archivos, habilite la alternancia, establezca un período de retención y guárdelo. De esta forma, habilitará la eliminación temporal para todos los recursos compartidos de archivos de la cuenta de almacenamiento.":::
 
 1. Seleccione el recurso compartido y **recuperar**; de esta forma se restaurará el recurso compartido.
 
     Puede confirmar que el recurso compartido se haya restaurado desde que su estado cambia a **Activo**.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Si la columna de estado, la columna situada junto a la columna de nombre, se establece en Activo, el recurso compartido de archivos se ha restaurado.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Captura de pantalla del panel de configuración de la eliminación temporal de la cuenta de almacenamiento. Resalte la sección de recursos compartidos de archivos, habilite la alternancia, establezca un período de retención y guárdelo. De esta forma, habilitará la eliminación temporal para todos los recursos compartidos de archivos de la cuenta de almacenamiento.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -95,7 +95,7 @@ Si desea detener la eliminación temporal o eliminar permanentemente un recurso 
 1. En **Recursos compartidos de archivos** seleccione **Deshabilitado** en **Soft delete for file shares** (Eliminación temporal para recursos compartidos de archivos).
 1. Seleccione **Guardar** para confirmar la configuración de retención de datos.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Deshabilitar la eliminación temporal le permitirá eliminar de forma inmediata y permanente todos los recursos compartidos de archivos de la cuenta de almacenamiento cuando descanse.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Captura de pantalla del panel de configuración de la eliminación temporal de la cuenta de almacenamiento. Resalte la sección de recursos compartidos de archivos, habilite la alternancia, establezca un período de retención y guárdelo. De esta forma, habilitará la eliminación temporal para todos los recursos compartidos de archivos de la cuenta de almacenamiento.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

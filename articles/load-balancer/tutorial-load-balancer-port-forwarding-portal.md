@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 63d1a08dc588f0303ccb1ae13bd4c28af2a393c7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82207894"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043660"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Configuración del enrutamiento de puerto en Azure Load Balancer mediante Azure Portal
 
@@ -40,6 +40,10 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para realizar todos los pasos de este tutorial, inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
+## <a name="prerequisites"></a>Requisitos previos
+
+* Suscripción a Azure.
+
 ## <a name="create-a-standard-load-balancer"></a>Creación de un equilibrador de carga estándar
 
 En primer lugar, cree un equilibrador de carga estándar público que pueda equilibrar la carga de tráfico a través de las máquinas virtuales. Un equilibrador de carga estándar solo admite una dirección IP pública estándar. Cuando se crea un equilibrador de carga estándar, también se crea una dirección IP pública estándar, que se configura como el front-end de equilibrador de carga y se denomina **LoadBalancerFrontEnd** de manera predeterminada. 
@@ -47,9 +51,9 @@ En primer lugar, cree un equilibrador de carga estándar público que pueda equi
 1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Azure Load Balancer**.
 2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
-    | Subscription               | Seleccione su suscripción.    |    
+    | Suscripción               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLB* en el cuadro de texto.|
     | Nombre                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Oeste de Europa**.                                        |

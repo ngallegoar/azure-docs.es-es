@@ -3,19 +3,19 @@ title: Administración de fuentes de distribución de datos en Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo administrar las fuentes de distribución de datos que ha agregado a Metrics Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: aahi
-ms.openlocfilehash: 22a1be7231b730c83ca97b0f128e43258ed24533
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: de8d5d8e9fc5ce1df05cfd4c67ef146760e2c7e9
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90931984"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043177"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Procedimientos: Administración de las fuentes de distribución de datos
 
@@ -106,7 +106,7 @@ Las opciones son:
 
 Las plantillas de vínculo de acción se usan para predefinir direcciones URL HTTP accionables, que constan de los marcadores de posición `%datafeed`, `%metric`, `%timestamp`, `%detect_config`y `%tagset`. Puede usar la plantilla para redirigir de una anomalía o un incidente a una dirección URL específica para explorarla en profundidad.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Plantilla de vínculo de acción" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Reposición de la fuente de distribución de datos" lightbox="../media/action-link-template.png":::
 
 Una vez que haya rellenado el vínculo de acción, haga clic en **Go to action link** (Ir al vínculo de acción) en la opción de acción de la lista de incidentes y en el menú contextual del árbol de incidentes. Reemplace los marcadores de posición de la plantilla de vínculo de acción con los valores correspondientes de la anomalía o el incidente.
 

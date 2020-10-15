@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: 24a63a167f640646b9e07126a038663f4da3e23b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e1e34bacb905bf48fc5f7cd44e66cf4a4326de91
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449602"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044656"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desarrollo de un módulo de IoT Edge en C# para dispositivos Windows
 
@@ -50,8 +50,8 @@ Antes de comenzar este tutorial, debe haber realizado el anterior para configura
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) de nivel estándar o gratis en Azure.
 * Un [dispositivo de Windows que ejecute Azure IoT Edge](quickstart.md).
-* Un registro de contenedor, como [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configurado con la extensión [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
+* Un registro de contenedor, como [Azure Container Registry](../container-registry/index.yml).
+* [Visual Studio 2019](/visualstudio/install/install-visual-studio) configurado con la extensión [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 * [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) configurado para ejecutar contenedores de Windows.
 
 > [!TIP]
@@ -363,7 +363,7 @@ En caso contrario, para evitar gastos, puede eliminar las configuraciones locale
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha creado un módulo IoT Edge que contiene código para filtrar datos sin procesar generados por el dispositivo IoT Edge. Cuando esté preparado para crear sus propios módulos, puede aprender más sobre cómo [desarrollar sus propios módulos IoT Edge](module-development.md) o cómo [desarrollar módulos con Visual Studio](how-to-visual-studio-develop-module.md). Para obtener ejemplos de módulos de IoT Edge, incluido el módulo de temperatura simulado, consulte [Ejemplos de módulos de IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules).
+En este tutorial, ha creado un módulo IoT Edge que contiene código para filtrar datos sin procesar generados por el dispositivo IoT Edge.
 
 Puede continuar con los siguientes tutoriales para obtener información sobre cómo Azure IoT Edge puede ayudarle a implementar servicios en la nube de Azure para procesar y analizar datos en el perímetro.
 
