@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 29a889fc15b1889711d08d3386920652a8bc8f57
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7f3efa23ad0b5e79e84a2436aaf56b67a805d05f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269053"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017240"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium
 
@@ -35,7 +35,7 @@ Microsoft Azure Media Services presenta el procesador multimedia de **Flujo de t
 
 Los siguientes temas describen los detalles relacionados con el **flujo de trabajo premium de Media Encoder**:
 
-* [Formatos que admite el flujo de trabajo del Codificador multimedia Premium](media-services-premium-workflow-encoder-formats.md) : trata los formatos de archivo y los códecs que admite el **flujo de trabajo del Codificador multimedia Premium**.
+* [Formatos que admite el flujo de trabajo del Codificador multimedia Premium](./media-services-encode-asset.md) : trata los formatos de archivo y los códecs que admite el **flujo de trabajo del Codificador multimedia Premium**.
 * En [Información general y comparación de codificadores multimedia a petición de Azure](media-services-encode-asset.md) se comparan las funcionalidades de codificación de **Media Encoder Premium Workflow** y **Media Encoder Standard**.
 
 En este artículo se muestra cómo codificar con **Media Encoder Premium Workflow** con .NET.
