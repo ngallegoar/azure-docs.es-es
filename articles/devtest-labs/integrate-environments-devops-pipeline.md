@@ -4,10 +4,10 @@ description: Aprenda a integrar entornos de Azure DevTest Labs en las canalizaci
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483030"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integración de entornos en las canalizaciones CI/CD de Azure DevOps

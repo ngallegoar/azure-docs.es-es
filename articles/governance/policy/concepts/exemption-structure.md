@@ -3,16 +3,16 @@ title: Detalles de la estructura de exención de directiva
 description: Aquí se describe la definición de exención de directiva usada por Azure Policy para eximir recursos de la evaluación de iniciativas o definiciones.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90968050"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950183"
 ---
 # <a name="azure-policy-exemption-structure"></a>Estructura de exención de Azure Policy
 
-La característica de exenciones de Azure Policy (versión preliminar) se usa para _eximir_ una jerarquía de recursos o un recurso individual de la evaluación de iniciativas o definiciones. Los recursos que están _exentos_ cuentan para el cumplimiento general, pero no se pueden evaluar ni tienen una renuncia temporal. Para obtener más información, vea [Descripción del ámbito de Azure Policy](./scope.md). Las exenciones de Azure Policy solo funcionan con los [modos de Resource Manager](./definition-structure.md#resource-manager-modes) y no con los **modos del proveedor de recursos**.
+La característica de exenciones de Azure Policy (versión preliminar) se usa para _eximir_ una jerarquía de recursos o un recurso individual de la evaluación de iniciativas o definiciones. Los recursos que están _exentos_ cuentan para el cumplimiento general, pero no se pueden evaluar ni tienen una renuncia temporal. Para obtener más información, vea [Descripción del ámbito de Azure Policy](./scope.md). Las exenciones de Azure Policy solo funcionan con los [modos de Resource Manager](./definition-structure.md#resource-manager-modes) y no con los [modos del proveedor de recursos](./definition-structure.md#resource-provider-modes).
 
 > [!IMPORTANT]
 > Esta característica es gratuita durante la **versión preliminar**. Para obtener información detallada sobre los precios, vea [Precios de Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/). Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

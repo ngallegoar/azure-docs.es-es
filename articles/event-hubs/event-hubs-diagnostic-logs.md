@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo configurar registros de actividad 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88927738"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configuración de registros de diagnóstico de Azure Event Hubs
@@ -227,7 +227,7 @@ Las cadenas JSON del registro de usuario de claves administradas por el cliente 
 | `Key` | Nombre de la clave de Key Vault. |
 | `Version` | Versión de la clave de Key Vault. |
 | `Operation` | El nombre de una operación realizada para atender solicitudes. |
-| `Code` | Código de estado |
+| `Code` | status code |
 | `Message` | Mensaje, que proporciona detalles sobre un error o un mensaje informativo. |
 
 

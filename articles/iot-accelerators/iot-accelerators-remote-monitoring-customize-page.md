@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
-ms.openlocfilehash: e585bc52121943102522f8c44291a4f9453d6214
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e54cd0e3c5b9499a3bc1a499ae4cef62c73160e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318405"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070714"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota
 
@@ -155,7 +155,7 @@ Si lo desea, puede conectar su copia local de ejecución de la interfaz de usuar
 
 1. Implemente una instancia **básica** del acelerador de la solución con la CLI **pcs**. Tome nota del nombre de la implementación y las credenciales proporcionadas para la máquina virtual. Para más información, vea [Implementación mediante la CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Use Azure Portal o la [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para habilitar el acceso SSH a la máquina virtual que hospeda los microservicios en la solución. Por ejemplo:
+1. Use Azure Portal o la [CLI az](/cli/azure/install-azure-cli?view=azure-cli-latest) para habilitar el acceso SSH a la máquina virtual que hospeda los microservicios en la solución. Por ejemplo:
 
     ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -163,7 +163,7 @@ Si lo desea, puede conectar su copia local de ejecución de la interfaz de usuar
 
     Sólo se debe habilitar el acceso SSH durante el desarrollo y pruebas. Si habilita SSH, [debe deshabilitarlo nuevamente tan pronto como sea posible](../security/fundamentals/network-best-practices.md).
 
-1. Use Azure Portal o la [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para encontrar el nombre y la dirección IP pública de la máquina virtual. Por ejemplo:
+1. Use Azure Portal o la [CLI az](/cli/azure/install-azure-cli?view=azure-cli-latest) para encontrar el nombre y la dirección IP pública de la máquina virtual. Por ejemplo:
 
     ```azurecli
     az resource list --resource-group {your solution name} -o table

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: a8f94c34281adbe274ad70425850e2ade4dc94ea
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87833239"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Creación y administración de Private Link en Azure Database for MariaDB mediante la CLI
@@ -185,7 +185,7 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 
 6. (Opcional) Examine las bases de datos del menú izquierdo y cree o consulte información de la base de datos MariaDB
 
-8. Cierre la conexión de Escritorio remoto a myVm.
+8. Cierre la conexión de escritorio remoto a myVm.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 Cuando ya no se necesite, puede utilizar az group delete para quitar el grupo de recursos y todos los recursos que contiene: 

@@ -4,10 +4,10 @@ description: Cree una alerta mediante Azure Portal que notifique cuándo dejan d
 ms.topic: conceptual
 ms.date: 6/23/2020
 ms.openlocfilehash: 127aad1691f7bb6b6c64332eefde734a809ab75f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540683"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configuración de alertas del estado de los recursos mediante Azure Portal

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 462db76b06e5071571ae475d420a627e57dad92e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f2794c2d72dd460f0b3edf5fb7ec4035746c6e4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70067755"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078449"
 ---
 # <a name="filter-response-content"></a>Filtro de contenido de respuestas
 
-Este artículo muestra un ejemplo de directiva de Azure API Management que demuestra cómo filtrar los elementos de datos de la carga de respuesta según el producto asociado a la solicitud. Para establecer o modificar un código de la directiva, siga los pasos descritos en [Establecimiento o modificación de directivas](../set-edit-policies.md). Para ver otros ejemplos, consulte los [ejemplos de directiva](../policy-samples.md).
+Este artículo muestra un ejemplo de directiva de Azure API Management que demuestra cómo filtrar los elementos de datos de la carga de respuesta según el producto asociado a la solicitud. Para establecer o modificar un código de la directiva, siga los pasos descritos en [Establecimiento o modificación de directivas](../set-edit-policies.md). Para ver otros ejemplos, consulte los [ejemplos de directiva](../policy-reference.md).
 
 ## <a name="policy"></a>Directiva
 
@@ -34,5 +34,4 @@ Pegue el código en el bloque de **salida**.
 Obtenga más información sobre las directivas APIM:
 
 + [Directivas de transformación](../api-management-transformation-policies.md)
-+ [Ejemplos de directivas](../policy-samples.md)
-
++ [Ejemplos de directivas](../policy-reference.md)

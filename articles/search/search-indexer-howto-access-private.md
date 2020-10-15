@@ -8,23 +8,23 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 94763cee852893057348f8eea1fa74fa742f62a1
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 9ffd7d2513e87f818001d7ccf96212a4dbef7ac2
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91534733"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950149"
 ---
 # <a name="accessing-secure-resources-via-private-endpoints"></a>Acceso a recursos seguros a través de puntos de conexión privados
 
 Los recursos de Azure (como las cuentas de almacenamiento que se usan como orígenes de datos) se pueden configurar de modo que solo se pueda acceder a ellos desde una lista específica de redes virtuales. También se pueden configurar para que no se permita el acceso desde ninguna "red pública".
-Los clientes pueden solicitar a Azure Cognitive Search que cree una [conexión de punto de conexión privado](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) (de salida) para acceder de forma segura a los datos de estos orígenes de datos a través de indexadores.
+Los clientes pueden solicitar a Azure Cognitive Search que cree una [conexión de punto de conexión privado](../private-link/private-endpoint-overview.md) (de salida) para acceder de forma segura a los datos de estos orígenes de datos a través de indexadores.
 
 ## <a name="shared-private-link-resources-management-apis"></a>API de administración de recursos de vínculo privado compartido
 
 Los puntos de conexión privados que se crean en Azure Cognitive Search a petición de un cliente para acceder a recursos "seguros" se conocen como *recursos de vínculo privado compartido*. El cliente "comparte" el acceso a un recurso (por ejemplo, una cuenta de almacenamiento) que se ha incorporado al [servicio Azure Private Link](https://azure.microsoft.com/services/private-link/).
 
-Azure Cognitive Search ofrece, a través de la API de administración de búsqueda, la capacidad de [crear o actualizar recursos de vínculo privado compartido](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). Usará esta API junto con otras API de administración de *recursos de vínculo privado compartido* para configurar el acceso a un recurso seguro desde un indexador de Azure Cognitive Search.
+Azure Cognitive Search ofrece, a través de la API de administración de búsqueda, la capacidad de [crear o actualizar recursos de vínculo privado compartido](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). Usará esta API junto con otras API de administración de *recursos de vínculo privado compartido* para configurar el acceso a un recurso seguro desde un indexador de Azure Cognitive Search.
 
 Las conexiones de punto de conexión privado a algunos recursos solo se pueden crear a través de la versión preliminar de la API de administración de búsqueda (`2020-08-01-Preview`), que se indica con la etiqueta "versión preliminar" en la tabla siguiente. Los recursos sin etiqueta "versión preliminar" se pueden crear tanto a través de la API de vista previa como de la API con disponibilidad general (`2020-08-01`).
 
@@ -40,7 +40,7 @@ A continuación se muestra la lista de recursos de Azure a los que se pueden cre
 | Azure Key Vault | `vault` |
 | Azure Functions (versión preliminar) | `sites` |
 
-La lista de recursos de Azure para los que se admiten las conexiones de punto de conexión privado salientes también se puede consultar a través de la [lista de API compatibles](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/listsupported).
+La lista de recursos de Azure para los que se admiten las conexiones de punto de conexión privado salientes también se puede consultar a través de la [lista de API compatibles](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
 Para los fines de esta guía, se usa una combinación de [ARMClient](https://github.com/projectkudu/ARMClient) y [Postman](https://www.postman.com/) para mostrar las llamadas a API REST.
 
@@ -51,12 +51,12 @@ En el resto de la guía se mostrará cómo se puede configurar el servicio __con
 
 ## <a name="securing-your-storage-account"></a>Protección de la cuenta de almacenamiento
 
-Puede configurar la cuenta de almacenamiento para [permitir el acceso solo desde subredes específicas](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network). Si en Azure Portal activa esta opción y deja el conjunto vacío, significa que no se permite el tráfico desde ninguna red virtual.
+Puede configurar la cuenta de almacenamiento para [permitir el acceso solo desde subredes específicas](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Si en Azure Portal activa esta opción y deja el conjunto vacío, significa que no se permite el tráfico desde ninguna red virtual.
 
    ![Acceso de redes virtuales](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png "Acceso de redes virtuales")
 
 > [!NOTE]
-> Puede usarse el [enfoque de servicio de Microsoft de confianza](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services) para omitir las restricciones de red virtual o IP en dicha cuenta de almacenamiento y permitir que el servicio de búsqueda acceda a los datos de la cuenta de almacenamiento tal y como se describe en la [guía de procedimientos](search-indexer-howto-access-trusted-service-exception.md). Sin embargo, cuando se usa este enfoque, la comunicación entre Azure Cognitive Search y la cuenta de almacenamiento se produce mediante la dirección IP pública de la cuenta de almacenamiento, a través de la red troncal de Microsoft segura.
+> Puede usarse el [enfoque de servicio de Microsoft de confianza](../storage/common/storage-network-security.md#trusted-microsoft-services) para omitir las restricciones de red virtual o IP en dicha cuenta de almacenamiento y permitir que el servicio de búsqueda acceda a los datos de la cuenta de almacenamiento tal y como se describe en la [guía de procedimientos](search-indexer-howto-access-trusted-service-exception.md). Sin embargo, cuando se usa este enfoque, la comunicación entre Azure Cognitive Search y la cuenta de almacenamiento se produce mediante la dirección IP pública de la cuenta de almacenamiento, a través de la red troncal de Microsoft segura.
 
 ## <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Paso 1: Crear un recurso de vínculo privado compartido a la cuenta de almacenamiento
 
@@ -101,7 +101,7 @@ Este URI se puede sondear periódicamente para obtener el estado de la operació
 ## <a name="step-2a-approve-the-private-endpoint-connection-for-the-storage-account"></a>Paso 2a: Aprobar la conexión del punto de conexión privado para la cuenta de almacenamiento
 
 > [!NOTE]
-> En esta sección se usa Azure Portal para recorrer el flujo de aprobación de un punto de conexión privado al almacenamiento. También se puede usar en su lugar la [API REST](https://docs.microsoft.com/rest/api/storagerp/privateendpointconnections) disponible a través del proveedor de recursos de almacenamiento.
+> En esta sección se usa Azure Portal para recorrer el flujo de aprobación de un punto de conexión privado al almacenamiento. También se puede usar en su lugar la [API REST](/rest/api/storagerp/privateendpointconnections) disponible a través del proveedor de recursos de almacenamiento.
 >
 > Otros proveedores como CosmosDB, Azure SQL Server, etc., también ofrecen API de proveedor de recursos similares para administrar conexiones de punto de conexión privado.
 
@@ -117,7 +117,7 @@ Cuando se aprueba la solicitud de conexión de punto de conexión privado, el tr
 
 ## <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Paso 2b: Consultar el estado del recurso de vínculo privado compartido
 
- Para confirmar que el recurso de vínculo privado compartido se ha actualizado después de la aprobación, obtenga su estado mediante [GET API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/get).
+ Para confirmar que el recurso de vínculo privado compartido se ha actualizado después de la aprobación, obtenga su estado mediante [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get).
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 
@@ -143,24 +143,24 @@ Si el valor `properties.provisioningState` del recurso es `Succeeded` y el valor
 > [!NOTE]
 > Este paso se puede realizar incluso antes de que se apruebe la conexión del punto de conexión privado. Hasta que se apruebe la conexión del punto de conexión privado, cualquier indexador que intente comunicarse con un recurso seguro (como la cuenta de almacenamiento) terminará con un estado de error transitorio. Los nuevos indexadores no se crearán. En cuanto se apruebe la conexión del punto de conexión privado, los indexadores podrán acceder a la cuenta de almacenamiento privada.
 
-1. [Cree un origen de datos](https://docs.microsoft.com/rest/api/searchservice/create-data-source) que apunte a la cuenta de almacenamiento segura y a un contenedor adecuado dentro de la cuenta de almacenamiento. A continuación se muestra esta solicitud realizada a través de Postman.
+1. [Cree un origen de datos](/rest/api/searchservice/create-data-source) que apunte a la cuenta de almacenamiento segura y a un contenedor adecuado dentro de la cuenta de almacenamiento. A continuación se muestra esta solicitud realizada a través de Postman.
 ![Create Data Source](media\search-indexer-howto-secure-access\create-ds.png "Creación del origen de datos") (Creación de un origen de datos)
 
-2. De forma similar [cree un índice](https://docs.microsoft.com/rest/api/searchservice/create-index) y, opcionalmente, [cree un conjunto de aptitudes](https://docs.microsoft.com/rest/api/searchservice/create-skillset) mediante la API REST.
+2. De forma similar [cree un índice](/rest/api/searchservice/create-index) y, opcionalmente, [cree un conjunto de aptitudes](/rest/api/searchservice/create-skillset) mediante la API REST.
 
-3. [Cree un indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) que apunte al origen de datos, el índice y el conjunto de aptitudes creados anteriormente. Además, fuerce el indexador para que se ejecute en el entorno de ejecución privado; para ello, establezca la propiedad de configuración del indexador `executionEnvironment` en `"Private"`.
+3. [Cree un indexador](/rest/api/searchservice/create-indexer) que apunte al origen de datos, el índice y el conjunto de aptitudes creados anteriormente. Además, fuerce el indexador para que se ejecute en el entorno de ejecución privado; para ello, establezca la propiedad de configuración del indexador `executionEnvironment` en `"Private"`.
 ![Crear indexador](media\search-indexer-howto-secure-access\create-idr.png "Creación del indexador")
 
-El indexador debe crearse correctamente y debe progresar, indexando contenido de la cuenta de almacenamiento a través de la conexión del punto de conexión privado. El estado del indexador se puede supervisar a través de la [API de estado del indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+El indexador debe crearse correctamente y debe progresar, indexando contenido de la cuenta de almacenamiento a través de la conexión del punto de conexión privado. El estado del indexador se puede supervisar a través de la [API de estado del indexador](/rest/api/searchservice/get-indexer-status).
 
 > [!NOTE]
-> Si ya tiene indexadores, simplemente puede actualizarlos a través de [PUT API](https://docs.microsoft.com/rest/api/searchservice/create-indexer) para establecer el valor de `executionEnvironment` en `"Private"`.
+> Si ya tiene indexadores, simplemente puede actualizarlos a través de [PUT API](/rest/api/searchservice/create-indexer) para establecer el valor de `executionEnvironment` en `"Private"`.
 
 ## <a name="troubleshooting-issues"></a>Solución de problemas
 
 - Si se produce un error al crear un indexador con un mensaje donde se indica que las credenciales del origen de datos no son válidas, significa que el punto de conexión privado no tiene el estado *Aprobado* o que no es funcional.
-Obtenga el estado del recurso de vínculo privado compartido mediante [GET API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/get). Si se ha *aprobado*, compruebe el valor `properties.provisioningState` del recurso. Si es `Incomplete`, significa que algunas de las dependencias subyacentes del recurso no se pudieron aprovisionar; emitir de nuevo la solicitud `PUT` para "volver a crear" el recurso de vínculo privado compartido debería corregir el problema. Es posible que sea necesaria una nueva aprobación; compruebe el estado del recurso una vez más para comprobarlo.
-- Si el indexador se crea sin establecer su valor de `executionEnvironment`, el proceso podría finalizar correctamente, pero su historial de ejecución mostrará que sus ejecuciones no son correctas. Debe [actualizar el indexador](https://docs.microsoft.com/rest/api/searchservice/update-indexer) para especificar el entorno de ejecución.
+Obtenga el estado del recurso de vínculo privado compartido mediante [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get). Si se ha *aprobado*, compruebe el valor `properties.provisioningState` del recurso. Si es `Incomplete`, significa que algunas de las dependencias subyacentes del recurso no se pudieron aprovisionar; emitir de nuevo la solicitud `PUT` para "volver a crear" el recurso de vínculo privado compartido debería corregir el problema. Es posible que sea necesaria una nueva aprobación; compruebe el estado del recurso una vez más para comprobarlo.
+- Si el indexador se crea sin establecer su valor de `executionEnvironment`, el proceso podría finalizar correctamente, pero su historial de ejecución mostrará que sus ejecuciones no son correctas. Debe [actualizar el indexador](/rest/api/searchservice/update-indexer) para especificar el entorno de ejecución.
 - Si el indexador se crea sin establecer el valor de `executionEnvironment` y se ejecuta correctamente, significa que Azure Cognitive Search ha decidido que su entorno de ejecución es el entorno "privado" específico del servicio de búsqueda. Sin embargo, esto puede cambiar en función de una serie de factores (recursos consumidos por el indexador, la carga en el servicio de búsqueda, etc.) y se puede producir un error más adelante; por tanto, se recomienda establecer el valor de `executionEnvironment` como `"Private"` para asegurarse de que no se producirá ningún error en el futuro.
 - [Cuotas y límites](search-limits-quotas-capacity.md) determinan el número de recursos de vínculo privado compartido que se pueden crear y que pueden depender de la SKU del servicio de búsqueda.
 
@@ -168,5 +168,5 @@ Obtenga el estado del recurso de vínculo privado compartido mediante [GET API](
 
 Más información sobre los puntos de conexión privados:
 
-- [¿Qué son los puntos de conexión privados?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
-- [Configuraciones de DNS necesarias para los puntos de conexión privados](https://docs.microsoft.com/azure/private-link/private-endpoint-dns)
+- [¿Qué son los puntos de conexión privados?](../private-link/private-endpoint-overview.md)
+- [Configuraciones de DNS necesarias para los puntos de conexión privados](../private-link/private-endpoint-dns.md)

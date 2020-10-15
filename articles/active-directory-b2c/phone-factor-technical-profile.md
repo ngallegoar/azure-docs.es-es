@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/31/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 10d5fda526c41704381bb544bdfd0589063c1d15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 322e4b78fbfb38f1822fb7a7cdcdbfcc0738b303
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203867"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950404"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de factor telefónico en una directiva personalizada de Azure Active Directory B2C
 
@@ -99,7 +99,7 @@ El elemento **CryptographicKeys** no se usa.
 
 ### <a name="ui-elements"></a>Elementos de interfaz de usuario
 
-Los elementos de la interfaz de usuario de la página de autenticación de factor telefónico se pueden [localizar](localization-string-ids.md#azure-mfa-error-messages).
+Los elementos de la interfaz de usuario de la página de autenticación de factor telefónico se pueden [localizar](localization-string-ids.md#phone-factor-authentication-page-user-interface-elements).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

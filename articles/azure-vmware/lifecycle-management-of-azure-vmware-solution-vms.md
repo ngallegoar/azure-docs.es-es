@@ -3,12 +3,12 @@ title: Administración del ciclo de vida de las máquinas virtuales de Azure VMw
 description: Aprenda a administrar todos los aspectos del ciclo de vida de las máquinas virtuales de Azure VMware Solution con herramientas nativas de Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 10e721996b2e3186417a702d2d7473b36b11237f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 452fa6bf4610c9d0dcb46587242e8d6df9cebd0d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575490"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950370"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Administración del ciclo de vida de las máquinas virtuales de Azure VMware Solution
 
@@ -58,7 +58,7 @@ El **área de trabajo de Log Analytics** habilita la recopilación de registros 
 
 **Azure Security Center** proporciona Advanced Threat Protection en todas las cargas de trabajo híbridas de la nube y del entorno local. Evaluará la vulnerabilidad de las máquinas virtuales de Azure VMware Solution y generará alertas según sea necesario. Estas alertas de seguridad se pueden reenviar a Azure Monitor para su resolución.
 - Azure Security Center no requiere implementación. Para obtener más información, consulte una lista de [características admitidas para máquinas virtuales](../security-center/security-center-services.md).
-- Para agregar máquinas virtuales de Azure VMware Solution y máquinas virtuales que no son de Azure a Azure Security Center, consulte [Incorporación de equipos Windows a Azure Security Center](../security-center/quick-onboard-windows-computer.md) e [Incorporación de equipos Linux a Azure Security Center](../security-center/quick-onboard-linux-computer.md).
+- Para agregar máquinas virtuales de Azure VMware Solution y máquinas virtuales que no son de Azure a Azure Security Center, consulte [Incorporación de equipos Windows a Azure Security Center](../security-center/quickstart-onboard-machines.md) e [Incorporación de equipos Linux a Azure Security Center](../security-center/quickstart-onboard-machines.md).
 - Tras la incorporación de máquinas virtuales, Azure Security Center analiza el estado de seguridad de los recursos para identificar posibles vulnerabilidades. También proporciona recomendaciones en la pestaña Información general. Para más información, consulte [Recomendaciones de seguridad de Azure Security Center](../security-center/security-center-recommendations.md).
 - Puede definir las directivas de seguridad en Azure Security Center. Para obtener información sobre cómo configurar las directivas de seguridad, consulte [Uso de directivas de seguridad](../security-center/tutorial-security-policy.md).
 

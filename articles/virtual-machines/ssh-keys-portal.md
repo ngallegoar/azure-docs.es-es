@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2020
 ms.author: cynthn
 ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88929452"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Generar y almacenar claves SSH en Azure Portal
@@ -48,7 +48,7 @@ Para obtener información más detallada sobre la creación y el uso de claves S
 
 1. A continuación, aparecerá una ventana emergente, y deberá seleccionar **Descargar clave privada y crear recurso**. Esta opción descargará la clave SSH como archivo .pem.
 
-   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Descarga de la clave pública como un archivo .pem":::
+   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Creación de un nuevo grupo de recursos y generación de un par de claves SSH":::
 
 1. Una vez descargado el archivo. pem, es posible que quiera moverlo a algún lugar del equipo desde el cual le sea fácil apuntar desde el cliente SSH.
 
@@ -74,7 +74,7 @@ También puede cargar una clave SSH pública para almacenarla en Azure. Para obt
 
 1. En la página de **claves SSH**, seleccione **Crear**.
 
-   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Carga de una clave pública SSH para almacenarla en Azure":::
+   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Creación de un nuevo grupo de recursos y generación de un par de claves SSH":::
 
 1. En el **grupo de recursos** seleccione **Crear nuevo** para crear un nuevo grupo de recursos para almacenar las claves. Escriba un nombre para el grupo de recursos y seleccione **Aceptar**.
 
@@ -98,7 +98,7 @@ Las claves SSH creadas en el portal se almacenan como recursos, por lo que puede
 1. En los filtros, seleccione **Tipo**, anule la selección de la opción **Seleccionar todo** para borrar la lista.
 1. Escriba **SSH** en el filtro y seleccione **Clave SSH**.
 
-   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Captura de pantalla sobre cómo filtrar la lista para ver todas las claves SSH.":::
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Creación de un nuevo grupo de recursos y generación de un par de claves SSH":::
 
 ## <a name="get-the-public-key"></a>Obtención de la clave pública
 

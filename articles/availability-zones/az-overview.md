@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 5178bf6955203c6a5625b941dd0102f2f4458abc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773746"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078381"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiones y Availability Zones en Azure
 
@@ -37,7 +37,7 @@ Para conocer mejor las regiones y Availability Zones en Azure, le resultará má
 
 ## <a name="regions"></a>Regions
 
-Una región es un conjunto de centros de datos implementados dentro de un perímetro definido por la latencia y conectados a través de una red regional dedicada de baja latencia. Azure ofrece la flexibilidad de implementar aplicaciones donde sea necesario, incluso en varias regiones para ofrecer una resistencia entre regiones. Para más información, vea [Información general sobre el pilar de resistencia](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview).
+Una región es un conjunto de centros de datos implementados dentro de un perímetro definido por la latencia y conectados a través de una red regional dedicada de baja latencia. Azure ofrece la flexibilidad de implementar aplicaciones donde sea necesario, incluso en varias regiones para ofrecer una resistencia entre regiones. Para más información, vea [Información general sobre el pilar de resistencia](/azure/architecture/framework/resiliency/overview).
 
 ## <a name="availability-zones"></a>Zonas de disponibilidad
 
@@ -170,9 +170,9 @@ No hay ningún costo adicional asociado a las máquinas virtuales implementadas 
 - [Creación de una máquina virtual](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Agregación de un disco administrado mediante PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Creación de un conjunto de escalado de máquinas virtuales con redundancia de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Equilibrio de carga de máquinas virtuales en distintas zonas con un equilibrador de carga estándar con un front-end con redundancia de zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [Equilibrio de carga de máquinas virtuales dentro de una zona con un equilibrador de carga estándar con un front-end de zona](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [Almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md)
+- [Equilibrio de carga de máquinas virtuales en distintas zonas con un equilibrador de carga estándar con un front-end con redundancia de zona](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [Equilibrio de carga de máquinas virtuales dentro de una zona con un equilibrador de carga estándar con un front-end de zona](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [Almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md)
 - [SQL Database](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
 - [Recuperación ante desastres geográfica de Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Recuperación ante desastres geográfica de Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a57473a26d5fe809274f14c8767356914e0d4962
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2d3f04777983d24d5219c55c5309b7d12c214594
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400524"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070697"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Base de referencia de seguridad de Azure para Automation
 
@@ -84,7 +84,7 @@ Puede usar el acceso de red Just-in-Time de Azure Security Center para limitar l
 
 * [Implementación de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../security-center/threat-protection.md)
+* [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../security-center/azure-defender.md)
 
 * [Descripción de la protección de red adaptable de Azure Security Center](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -150,7 +150,7 @@ También puede usar Azure Blueprints para simplificar las implementaciones de Az
 
 * [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Ejemplos de Azure Policy para redes](/azure/governance/policy/samples/#network)
+* [Ejemplos de Azure Policy para redes](../governance/policy/samples/built-in-policies.md#network)
 
 * [Creación de un plano técnico de Azure](../governance/blueprints/create-blueprint-portal.md)
 
@@ -520,7 +520,7 @@ Sin embargo, cuando se usan instancias de Hybrid Runbook Worker respaldadas por 
 
 * [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Creación de grupos de administración](../governance/management-groups/create.md)
+* [Creación de grupos de administración](../governance/management-groups/create-management-group-portal.md)
 
 * [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
@@ -720,7 +720,7 @@ Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machine
 
 * [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Creación de grupos de administración](../governance/management-groups/create.md)
+* [Creación de grupos de administración](../governance/management-groups/create-management-group-portal.md)
 
 * [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
@@ -752,7 +752,7 @@ Además, use Azure Resource Graph para consultar o detectar recursos dentro de l
 
 * [Creación de consultas con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Complementos de ejemplo de Azure Policy para Azure Automation](./policy-samples.md)
+* [Complementos de ejemplo de Azure Policy para Azure Automation](./policy-reference.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -854,7 +854,7 @@ El control de aplicaciones adaptables es una solución de un extremo a otro inte
 
 * [Introducción al firewall de aplicaciones web de Azure](../web-application-firewall/overview.md)
 
-* [Grupos de seguridad de red](../virtual-network/security-overview.md)
+* [Grupos de seguridad de red](../virtual-network/network-security-groups-overview.md)
 
 * [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 
@@ -882,7 +882,7 @@ También puede usar las recomendaciones de Azure Security Center como línea de 
 
 * [Tutorial: Creación y administración de directivas para aplicar el cumplimiento](../governance/policy/tutorials/create-and-manage.md)
 
-* [Complementos de ejemplo de Azure Policy para Azure Automation](./policy-samples.md)
+* [Complementos de ejemplo de Azure Policy para Azure Automation](./policy-reference.md)
 
 * [Exportación de uno y varios recursos a una plantilla en Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -920,7 +920,7 @@ Cuando se usa la característica Hybrid Runbook Worker, use la recomendación de
 
 * [Implementación de una cuenta de Automation con una plantilla de Azure Resource Manager](./quickstart-create-automation-account-template.md#deploy-the-template)
 
-* [Complementos de ejemplo de Azure Policy para Azure Automation](./policy-samples.md)
+* [Complementos de ejemplo de Azure Policy para Azure Automation](./policy-reference.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -984,7 +984,7 @@ Al usar la característica Hybrid Runbook Worker, asegúrese de que limita de fo
 
 * [Uso de alias](../governance/policy/concepts/definition-structure.md#aliases)
 
-* [Complementos de ejemplo de Azure Policy para Azure Automation](./policy-samples.md)
+* [Complementos de ejemplo de Azure Policy para Azure Automation](./policy-reference.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1014,7 +1014,7 @@ Al usar la característica Hybrid Runbook Worker, aproveche Azure Security Cente
 
 * [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Complementos de ejemplo de Azure Policy para Azure Automation](./policy-samples.md)
+* [Complementos de ejemplo de Azure Policy para Azure Automation](./policy-reference.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1052,7 +1052,7 @@ Cuando use la característica Hybrid Runbook Worker, use State Configuration de 
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: Administre las identidades de forma segura y automática
 
-**Instrucciones**: Use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
+**Guía**: Use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
 
 * [Configuración de las identidades administradas](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 

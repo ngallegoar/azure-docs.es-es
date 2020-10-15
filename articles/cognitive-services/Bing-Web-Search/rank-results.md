@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "66390137"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Cómo usar las clasificaciones para mostrar los resultados de Bing Web Search API  
@@ -24,7 +24,7 @@ Cada respuesta de búsqueda de entidad incluye una respuesta [RankingResponse](h
 
 Dentro de cada grupo (línea principal o barra lateral), la matriz [Elementos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) identifica el orden en que debe aparecer el contenido. Cada elemento ofrece la siguientes dos formas de identificar el resultado dentro de una respuesta.  
 
--   `answerType` y `resultIndex`: el campo `answerType` identifica la respuesta (por ejemplo, Página web o Noticias) y `resultIndex` identifica un resultado dentro de una respuesta (por ejemplo, un artículo de noticias). El índice está basado en cero.  
+-   `answerType` y `resultIndex`: el campo `answerType` identifica la respuesta (por ejemplo, Página web o Noticias) y `resultIndex` identifica un resultado dentro de una respuesta (por ejemplo, un artículo de noticias). El índice es de base cero.  
 
 -   `value`: el campo `value` contiene un identificador que coincide con el identificador de una respuesta o de un resultado dentro de una respuesta. La respuesta o los resultados contienen el identificador, pero no ambos.  
 

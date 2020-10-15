@@ -6,17 +6,17 @@ author: yunjchoi
 ms.topic: troubleshooting
 ms.date: 08/18/2020
 ms.author: yunjchoi
-ms.openlocfilehash: f830debafb1a9b6b303ee6af987c7cd4fbf34aea
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: a409ac944c51d893fc344f82ae83d97559e055ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358260"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070663"
 ---
 # <a name="check-for-resource-health-events-impacting-your-aks-cluster-preview"></a>Comprobación de eventos de Resource Health que afectan al clúster de AKS (versión preliminar)
 
 
-Al ejecutar las cargas de trabajo de contenedor en AKS, quiere asegurarse de que puede solucionar y corregir problemas en cuanto surjan para minimizar su impacto en la disponibilidad de las cargas de trabajo. [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) le ofrece visibilidad sobre diversos eventos de mantenimiento que pueden hacer que el clúster de AKS deje de estar disponible.
+Al ejecutar las cargas de trabajo de contenedor en AKS, quiere asegurarse de que puede solucionar y corregir problemas en cuanto surjan para minimizar su impacto en la disponibilidad de las cargas de trabajo. [Azure Resource Health](../service-health/resource-health-overview.md) le ofrece visibilidad sobre diversos eventos de mantenimiento que pueden hacer que el clúster de AKS deje de estar disponible.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -49,7 +49,7 @@ Resource Health recibe señales del clúster administrado con el fin de determin
 
 - **Degradado**: cuando hay un problema de mantenimiento que requiere una acción del usuario, Resource Health informa que el clúster está *Degradado*.
 
-Para obtener información adicional sobre lo que indica cada estado de mantenimiento, visite [Introducción a Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview#health-status).
+Para obtener información adicional sobre lo que indica cada estado de mantenimiento, visite [Introducción a Resource Health](../service-health/resource-health-overview.md#health-status).
 
 ### <a name="view-historical-data"></a>Visualización de datos históricos
 
@@ -57,4 +57,4 @@ También puede ver los últimos 30 días de información histórica de Resource
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ejecute comprobaciones en el clúster para solucionar más problemas del clúster mediante los [diagnósticos de AKS](https://docs.microsoft.com/azure/aks/concepts-diagnostics).
+Ejecute comprobaciones en el clúster para solucionar más problemas del clúster mediante los [diagnósticos de AKS](./concepts-diagnostics.md).
