@@ -4,10 +4,10 @@ description: En este artículo se describen diferentes formas de autenticar los 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: abe16c9598c8c10caa832150aafac997dd7f1624
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87460650"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticación de la entrega de eventos en los controladores de eventos (Azure Event Grid).

@@ -4,10 +4,10 @@ description: Introducción a la compatibilidad con OpenAPI en Azure Functions
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.openlocfilehash: 499d4f685e3802fcc37c8a3050ae367207f192d2
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87385830"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Compatibilidad con metadatos de OpenAPI 2.0 en Azure Functions (versión preliminar)

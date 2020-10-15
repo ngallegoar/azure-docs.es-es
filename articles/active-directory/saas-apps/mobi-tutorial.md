@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 00d9de422e40ce5ccad3790a46463d2916069315
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08f8c1b4a127c7ed5128bbbd119bc49869984649
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554728"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobi"></a>Tutorial: Integración de Azure Active Directory con MOBI
 
@@ -99,7 +99,7 @@ Para configurar el inicio de sesión único de Azure AD con MOBI, realice los pa
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de MOBI](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<subdomain>.thefutureis.mobi`
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con MOBI, realice los pa
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de MOBI](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.thefutureis.mobi/login`
 

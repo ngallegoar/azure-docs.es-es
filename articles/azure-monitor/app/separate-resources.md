@@ -4,10 +4,10 @@ description: Este artículo trata sobre el envío directo de la telemetría a lo
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88258714"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>¿Cuántos recursos de Application Insights se deben implementar?

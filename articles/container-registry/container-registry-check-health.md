@@ -4,10 +4,10 @@ description: Obtenga información sobre la ejecución de comando de diagnóstico
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: f27a99818260553cbd7ba26158db0064c145a21f
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245390"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Comprobación del mantenimiento de un registro de contenedor de Azure

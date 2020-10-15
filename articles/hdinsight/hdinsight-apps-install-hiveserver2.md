@@ -9,10 +9,10 @@ ms.author: kecheung
 author: kcheeeung
 ms.date: 08/12/2020
 ms.openlocfilehash: d0a0df4791492c1c9f0d600630d723024c46c1b8
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88226967"
 ---
 # <a name="scale-hiveserver2-on-azure-hdinsight-clusters-for-high-availability"></a>Escalado de HiveServer2 en clústeres de Azure HDInsight para alta disponibilidad
@@ -37,13 +37,13 @@ En esta sección, instalará un componente HiveServer2 adicional en los hosts de
 
 2. Haga clic en el botón de agregar y haga clic en HiveServer2.
 
-:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-b.png" alt-text="Agregue el panel de HiveServer2 del host.":::
+:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-b.png" alt-text="Menú Hosts de Ambari.":::
 
 3. Confirme y se ejecutará el proceso. Repita 1-3 para todos los hosts deseados.
 
 4. Cuando haya terminado de instalar, reinicie todos los servicios con configuraciones obsoletas e inicie HiveServer2.
 
-:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-c.png" alt-text="Inicie el panel de HiveServer2.":::
+:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-c.png" alt-text="Menú Hosts de Ambari.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
