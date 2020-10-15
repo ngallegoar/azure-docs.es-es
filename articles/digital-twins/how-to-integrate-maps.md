@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 8f739982ac9193c80cae23d91b77091f75c3fd13
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: f6c6c1cfdfef864be17adfed2d115150c4fbede0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564370"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045132"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Uso de Azure Digital Twins para actualizar un plano interior de Azure Maps
 
@@ -64,7 +64,7 @@ Este patrón realiza la lectura directamente desde el gemelo de la sala, en luga
     >[!NOTE]
     >Actualmente hay un **problema conocido** en Cloud Shell que afecta a estos grupos de comandos: `az dt route`, `az dt model` y `az dt twin`.
     >
-    >Para resolverlo, ejecute `az login` en Cloud Shell antes de ejecutar el comando, o bien use la [CLI local](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en lugar de Cloud Shell. Para obtener más información, vea [*Solución de problemas: Problemas conocidos en Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Para resolverlo, ejecute `az login` en Cloud Shell antes de ejecutar el comando, o bien use la [CLI local](/cli/azure/install-azure-cli?view=azure-cli-latest) en lugar de Cloud Shell. Para obtener más información, vea [*Solución de problemas: Problemas conocidos en Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -74,7 +74,7 @@ Este patrón realiza la lectura directamente desde el gemelo de la sala, en luga
 
 Va a crear una función desencadenada por Event Grid en la aplicación de funciones siguiendo el tutorial de un extremo a otro ([*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md)). Esta función desempaquetará esas notificaciones y enviará actualizaciones a un conjunto de estados de características de Azure Maps para actualizar la temperatura de una sala. 
 
-Vea el documento siguiente para obtener información de referencia: [*Desencadenador de Azure Event Grid para Azure Functions*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
+Vea el documento siguiente para obtener información de referencia: [*Desencadenador de Azure Event Grid para Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
 Reemplace el código de la función por el siguiente. Solo filtrará las actualizaciones de los gemelos de los espacios, leerá la temperatura actualizada y enviará esa información a Azure Maps.
 
@@ -152,7 +152,7 @@ Para ver las actualizaciones directas de la temperatura, siga estos pasos:
 
 Ambos ejemplos envían la temperatura en un rango compatible, por lo que debería ver el color de la actualización de la sala 121 en el plano aproximadamente cada 30 segundos.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Plano de una oficina que muestra la sala 121 de color naranja":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Vista de los servicios de Azure en un escenario de un extremo a otro, resaltando la parte Integración de planos interiores":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Almacenamiento de la información de los planos en Azure Digital Twins
 

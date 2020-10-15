@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203816"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates y PredicateValidations
@@ -294,7 +294,7 @@ Con **Predicates** y **PredicateValidationsInput** puede controlar los requisito
 Después de definir las validaciones básicas, puede combinarlas y crear un conjunto de directivas de contraseña que puede usar en la directiva:
 
 - **SimplePassword** valida los predicados DisallowedWhitespace, AllowedAADCharacters y IsLengthBetween8And64.
-- **StrongPassword** valida los predicados DisallowedWhitespace, AllowedAADCharacters y IsLengthBetween8And64. El último grupo `CharacterClasses` ejecuta un conjunto adicional de predicados con `MatchAtLeast` establecido en 3. La contraseña del usuario debe tener entre 8 y 16 caracteres e incluir los siguientes caracteres: minúsculas, mayúsculas, números o símbolos.
+- **StrongPassword** valida los predicados DisallowedWhitespace, AllowedAADCharacters y IsLengthBetween8And64. El último grupo `CharacterClasses` ejecuta un conjunto adicional de predicados con `MatchAtLeast` establecido en 3. La contraseña del usuario debe tener entre 8 y 16 caracteres, y estar formado por los siguientes caracteres: minúsculas, mayúsculas, número o símbolo.
 - **CustomPassword** solo valida DisallowedWhitespace y AllowedAADCharacters. Por lo tanto, el usuario puede proporcionar cualquier contraseña de cualquier longitud, siempre y cuando los caracteres sean válidos.
 
 ```xml

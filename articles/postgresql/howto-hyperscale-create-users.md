@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 84f5a8f638e4a9525b330277ff1eaa26ba035e1a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907417"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91295743"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Crear usuarios en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -28,7 +28,7 @@ El motor de PostgreSQL usa [roles](https://www.postgresql.org/docs/current/sql-c
 * `postgres`
 * `citus`
 
-Dado que Hiperescala es un servicio PaaS administrado, solo Microsoft puede iniciar sesión con el rol de superusuario `postgres`. En el caso de acceso de administrador limitado, Hiperescala proporciona el rol `citus`.
+Dado que Hiperescala (Citus) es un servicio PaaS administrado, solo Microsoft puede iniciar sesión con el rol de superusuario `postgres`. Para el acceso administrativo limitado, Hiperescala (Citus) proporciona el rol `citus`.
 
 Permisos para el rol de `citus`:
 
@@ -46,13 +46,13 @@ En particular, el rol `citus` tiene algunas restricciones:
 
 Como se ha mencionado, la cuenta de administrador `citus` carece de permiso para crear usuarios adicionales. Para agregar un usuario, use la interfaz de Azure Portal.
 
-1. Vaya a la página de **Roles** del grupo Servidor de hiperescala y haga clic en **+ Agregar**:
+1. Vaya a la página **Roles** del grupo de servidores de Hiperescala (Citus) y haga clic en **+ Agregar**:
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="Página de roles":::
 
 2. Introduzca el nombre y la contraseña del rol. Haga clic en **Save**(Guardar).
 
-   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Agregar rol":::
+   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Página de roles":::
 
 El usuario se creará en el nodo coordinador del grupo de servidores y se propagará a todos los nodos de trabajo. Los roles creados a través de Azure Portal tienen el atributo `LOGIN`, lo que significa que son verdaderos usuarios que pueden iniciar sesión en la base de datos.
 
@@ -75,9 +75,9 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Cómo eliminar un rol de usuario o cambiar su contraseña
 
-Para actualizar un usuario, visite la página **Roles** del grupo de servidores de Hiperescala y haga clic en los puntos suspensivos **...**  junto al usuario. Los puntos suspensivos abrirán un menú para eliminar el usuario o restablecer su contraseña.
+Para actualizar un usuario, visite la página **Roles** del grupo de servidores de servidores de Hiperescala (Citus)y haga clic en los puntos suspensivos **...** junto al usuario. Los puntos suspensivos abrirán un menú para eliminar el usuario o restablecer su contraseña.
 
-   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Editar un rol":::
+   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Página de roles":::
 
 El rol `citus` tiene privilegios y no se puede eliminar.
 
