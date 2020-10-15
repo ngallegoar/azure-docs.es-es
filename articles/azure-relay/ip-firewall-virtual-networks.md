@@ -3,12 +3,12 @@ title: Configuración del firewall de IP para el espacio de nombres de Azure Rel
 description: En este artículo se describe el uso de las reglas de firewall para permitir las conexiones desde direcciones IP específicas a espacios de nombres de Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 250158aff2ceb89e2823b711717f1d3a1cad438c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ad8feed5df49dcc4503226a5fae50195bb9d48aa
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976015"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999512"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configuración del firewall de IP para un espacio de nombres de Azure Relay
 De forma predeterminada, se puede acceder en Internet a los espacios de nombres de Relay, siempre que la solicitud tenga una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -76,7 +76,7 @@ La plantilla toma un parámetro: **ipMask**, que es una única dirección IPv4 o
       }
     },
     "variables": {
-      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]",
+      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]"
     },
     "resources": [
       {
@@ -93,7 +93,7 @@ La plantilla toma un parámetro: **ipMask**, que es una única dirección IPv4 o
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.Relay/namespaces/networkruleset",
+        "type": "Microsoft.Relay/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.Relay/namespaces/', parameters('relayNamespaceName'))]"
         ],
@@ -109,6 +109,7 @@ La plantilla toma un parámetro: **ipMask**, que es una única dirección IPv4 o
                 "action":"Allow"
             }
           ],
+          "virtualNetworkRules": [],
           "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8265d328a23e871dc25692f22138a7bb648a8323
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f9fc34a85f8a858adea2161e1734ead589180ea4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653603"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978244"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configuraciones de cargas de trabajo de SAP con Azure Availability Zones
 Una de las características de alta disponibilidad que Azure ofrece es [Azure Availability Zones](../../../availability-zones/az-overview.md). El uso de Availability Zones mejora la disponibilidad general de las cargas de trabajo de SAP en Azure. Esta característica ya está disponible en algunas [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/). En el futuro, estará disponible en más regiones.
@@ -30,7 +30,7 @@ Este gráfico muestra la arquitectura básica de alta disponibilidad de SAP:
 
 ![Configuración de alta disponibilidad estándar](./media/sap-ha-availability-zones/standard-ha-config.png)
 
-El nivel de aplicación de SAP se implementa en un [conjunto de disponibilidad](../../windows/manage-availability.md) de Azure. Para lograr alta disponibilidad de Servicios centrales de SAP, implementa dos máquinas virtuales en un conjunto de disponibilidad independiente. Use clústeres de conmutación por error de Windows Server o Pacemaker (Linux) como marco de alta disponibilidad con conmutación automática por error en el caso de problemas de infraestructura o software. Para más información acerca de estas implementaciones, consulte:
+El nivel de aplicación de SAP se implementa en un [conjunto de disponibilidad](../../manage-availability.md) de Azure. Para lograr alta disponibilidad de Servicios centrales de SAP, implementa dos máquinas virtuales en un conjunto de disponibilidad independiente. Use clústeres de conmutación por error de Windows Server o Pacemaker (Linux) como marco de alta disponibilidad con conmutación automática por error en el caso de problemas de infraestructura o software. Para más información acerca de estas implementaciones, consulte:
 
 - [Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster](./sap-high-availability-guide-wsfc-shared-disk.md)
 - [Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos](./sap-high-availability-guide-wsfc-file-share.md)

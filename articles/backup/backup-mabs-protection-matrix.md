@@ -4,10 +4,10 @@ description: En este artículo se incluye una matriz de compatibilidad en la que
 ms.date: 03/19/2020
 ms.topic: conceptual
 ms.openlocfilehash: 70d8b8cd26a40b0c7ec8b538bcb702d281f829e6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88826844"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matriz de protección de MABS (Azure Backup Server) V3 UR1

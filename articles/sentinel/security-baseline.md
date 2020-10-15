@@ -9,10 +9,10 @@ ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 25571db967608c238bccb1ab44f75a0a163803d5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90020219"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Línea de base de seguridad de Azure para Azure Sentinel

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configuración de Salesforce Sandbox para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Salesforce Sandbox.
+description: Conozca los pasos que debe realizar en Salesforce Sandbox y Azure AD para aprovisionar y cancelar el aprovisionamiento automáticamente de cuentas de usuario de Azure AD para Salesforce Sandbox.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5fa40e954c84d4d2d70974bc799a198c6bf7d3e9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ae8bc3ce5822b8d49db0fdc6e611badd75b0d27b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979760"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91273320"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configuración de Salesforce Sandbox para aprovisionar usuarios automáticamente
 

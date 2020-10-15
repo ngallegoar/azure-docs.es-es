@@ -4,10 +4,10 @@ description: Utilice la operación de copia en una plantilla de Azure Resource M
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: f199872d5bb8a0333bf7bedb9501a6ca1b884691
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90605250"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteración de propiedades en las plantillas de ARM

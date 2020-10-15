@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4279da10de92bc8bf9cd564eaae02db2fef76a64
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7fe0e91f30930b9aaf0fb484b3b1e74d707d8c21
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932500"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91307813"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Creación y administración de reglas de firewall para un servidor flexible de Azure Database for MySQL mediante la CLI de Azure
 
@@ -33,17 +33,17 @@ En este artículo, nos centraremos en la creación de un servidor MySQL con **Ac
 
 Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede abrir Cloud Shell en una pestaña independiente acudiendo a [https://shell.azure.com/bash](https://shell.azure.com/bash). Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, después, seleccione **Entrar** para ejecutarlos.
 
-Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se requiere la versión 2.0 de la CLI de Azure o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se requiere la versión 2.0 de la CLI de Azure o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Deberá iniciar sesión en la cuenta con el comando [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Tenga en cuenta la propiedad **id**, que hace referencia al **identificador de suscripción** de su cuenta de Azure.
+Deberá iniciar sesión en la cuenta con el comando [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad **id**, que hace referencia al **identificador de suscripción** de su cuenta de Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Seleccione la suscripción específica en su cuenta mediante el comando [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Anote el valor **id.** de la salida de **az login** para usarlo como valor para el argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Seleccione la suscripción específica en su cuenta mediante el comando [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set). Anote el valor **id.** de la salida de **az login** para usarlo como valor para el argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -53,7 +53,7 @@ az account set --subscription <subscription id>
 
 Puede usar el comando `az mysql flexible-server --public access` para crear el servidor flexible con la opción *Acceso público (direcciones IP permitidas)* y configurar las reglas de firewall durante la creación del mismo. Puede usar el modificador **--public-access** para especificar las direcciones IP permitidas que podrán conectarse al servidor. Puede especificar una sola dirección IP o el intervalo de direcciones IP que se van a incluir en la lista de direcciones IP permitidas. El intervalo de direcciones IP debe estar separado por guiones y no contener espacios. Existen varias opciones para crear un servidor flexible mediante la CLI, como se muestra en el ejemplo siguiente.
 
-En la documentación de referencia de la CLI de Azure <!--FIXME --> encontrará la lista completa de los parámetros configurables de la CLI. Por ejemplo, en los siguientes comandos tiene la opción de especificar el grupo de recursos.
+Consulte en la [documentación de referencia](/cli/azure/mysql/flexible-server) de la CLI de Azure la lista completa de parámetros configurables de la CLI. Por ejemplo, en los siguientes comandos puede especificar opcionalmente el grupo de recursos.
 
 - Cree un servidor flexible con acceso público y agregue la dirección IP del cliente para tener acceso al servidor.
     ```azurecli-interactive
@@ -95,7 +95,7 @@ Comandos:
 - **show**: muestra los detalles de una regla de firewall de servidor flexible.
 - **delete**: elimina una regla de firewall de servidor flexible.
 
-En la documentación de referencia de la CLI de Azure <!--FIXME --> encontrará la lista completa de los parámetros configurables de la CLI. Por ejemplo, en los siguientes comandos tiene la opción de especificar el grupo de recursos.
+Consulte en la [documentación de referencia](/cli/azure/mysql/flexible-server) de la CLI de Azure la lista completa de parámetros configurables de la CLI. Por ejemplo, en los siguientes comandos puede especificar opcionalmente el grupo de recursos.
 
 ### <a name="create-a-firewall-rule"></a>Creación de una regla de firewall
 Use el comando `az mysql flexible-server firewall-rule create` para crear una regla de firewall en el servidor.

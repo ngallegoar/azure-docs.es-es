@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: e50c0b0fcb883b43650a5d99cea5aa39bae1cd94
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 0bb1e4cb9b24c9b46f623e1604930367b82a47eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426272"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973825"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -48,7 +48,7 @@ Puede configurar la extensión para usar las credenciales de Azure Blob Storage 
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 
-Si necesita descargar un script externamente, por ejemplo desde GitHub o Azure Storage, deben abrirse puertos adicionales de firewall y grupo de seguridad de red. Por ejemplo, si el script se encuentra en Azure Storage, puede permitir el acceso mediante las etiquetas del servicio NSG de Azure para [Storage](../../virtual-network/security-overview.md#service-tags).
+Si necesita descargar un script externamente, por ejemplo desde GitHub o Azure Storage, deben abrirse puertos adicionales de firewall y grupo de seguridad de red. Por ejemplo, si el script se encuentra en Azure Storage, puede permitir el acceso mediante las etiquetas del servicio NSG de Azure para [Storage](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 Si el script se encuentra en un servidor local, puede que aún necesite abrir puertos adicionales de firewall y grupo de seguridad de red.
 

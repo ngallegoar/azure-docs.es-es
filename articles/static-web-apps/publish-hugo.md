@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.openlocfilehash: ff408f114784fa3f0b8fab49521b5ec7ec2be102
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797724"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicación de un sitio de Hugo en Azure Static Web Apps, versión preliminar
@@ -115,7 +115,7 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 
 1. En _SKU_, seleccione **Gratis**.
 
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Detalles rellenados":::
+   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Creación de un recurso de Azure Static Web Apps en el portal":::
 
 1. Haga clic en el botón **Iniciar sesión con GitHub**.
 
@@ -125,7 +125,7 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 
 1. En _Rama_, seleccione **maestra**.
 
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Información de GitHub completada":::
+   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Creación de un recurso de Azure Static Web Apps en el portal":::
 
 ### <a name="build"></a>Build
 
@@ -149,7 +149,7 @@ A continuación, agregue los valores de configuración que el proceso de compila
 
 1. En la ventana _Información general_ de Azure Portal para el recurso de Azure Static Web Apps recién creado, haga clic en el vínculo _Dirección URL_ para abrir la aplicación implementada.
 
-   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Aplicación implementada":::
+   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Creación de un recurso de Azure Static Web Apps en el portal":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

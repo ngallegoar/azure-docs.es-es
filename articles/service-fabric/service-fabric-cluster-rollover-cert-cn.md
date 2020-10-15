@@ -4,10 +4,10 @@ description: Aprenda a sustituir el certificado en un clúster de Service Fabric
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 65ea4f463073c472ac6a31e62dcfdfd11cb28cc5
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88853349"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Sustitución manual del certificado en un clúster de Service Fabric

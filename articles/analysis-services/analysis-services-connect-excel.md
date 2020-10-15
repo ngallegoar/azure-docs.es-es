@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 123e271ae1b83603d599b9ef0381e25b3c963def
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4658a4c05aac7932d8a99c3511f21024f19fbe47
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361564"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013736"
 ---
 # <a name="connect-with-excel"></a>Conexión con Excel
 
@@ -42,7 +42,5 @@ La conexión a un servidor en Excel se admite mediante Obtener datos en Excel 20
 
 ## <a name="see-also"></a>Consulte también
 
-[Bibliotecas de cliente](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
-[Administración del servidor](analysis-services-manage.md)     
-
-
+[Bibliotecas de cliente](/analysis-services/client-libraries?view=azure-analysis-services-current)   
+[Administración del servidor](analysis-services-manage.md)

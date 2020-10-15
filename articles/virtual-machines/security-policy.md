@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 1c2156975eb8d8dcb3580603dfbe1f5d1390b79a
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 06d71713075b401c876edd87f0ec884bcb252589
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852479"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977755"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Protección y uso de directivas en máquinas virtuales en Azure
 
@@ -25,7 +25,7 @@ El panorama moderno de amenazas para los entornos de nube es dinámico, lo que a
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](../security-center/security-center-intro.md) ayuda a evita y a detectar las amenazas para las máquinas virtuales, además de a responder a ellas. Security Center proporciona funcionalidades de administración de directivas y supervisión de la seguridad integradas en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
+[Azure Security Center](../security-center/security-center-introduction.md) ayuda a evita y a detectar las amenazas para las máquinas virtuales, además de a responder a ellas. Security Center proporciona funcionalidades de administración de directivas y supervisión de la seguridad integradas en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
 El acceso Just-In-Time de Security Center se puede aplicar en toda la implementación de la máquina virtual para bloquear el tráfico entrante a las máquinas virtuales de Azure, lo que reduce la exposición a ataques y, al mismo tiempo, proporciona acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. Cuando Just-In-Time está habilitado y un usuario solicita acceso a una máquina virtual, Security Center comprueba qué permisos tiene el usuario para la máquina virtual. Si tiene los permisos correctos, se aprueba la solicitud y Security Center configura automáticamente los grupos de seguridad de red (NSG) para permitir el tráfico entrante a los puertos seleccionados durante un período de tiempo limitado. Una vez transcurrido ese tiempo, Security Center restaura los NSG a su estado anterior. 
 
@@ -69,9 +69,8 @@ Las [directivas de Azure](../governance/policy/overview.md) pueden utilizarse pa
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 
-Mediante el [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/overview.md), puede repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan en la máquina virtual para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en la máquina virtual, puede permitir solo determinadas acciones. Puede configurar el control de acceso para la máquina virtual en [Azure Portal](../role-based-access-control/role-assignments-portal.md), usando la [CLI de Azure](https://docs.microsoft.com/cli/azure/role) o [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+Mediante el [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/overview.md), puede repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan en la máquina virtual para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en la máquina virtual, puede permitir solo determinadas acciones. Puede configurar el control de acceso para la máquina virtual en [Azure Portal](../role-based-access-control/role-assignments-portal.md), usando la [CLI de Azure](/cli/azure/role) o [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Siga los pasos para supervisar la seguridad de la máquina virtual mediante Azure Security Center para [Linux](../security/fundamentals/overview.md) o [Windows](windows/tutorial-azure-security.md).
-

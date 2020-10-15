@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7d19d782e9cb29cfc917293f084b78830db89bc
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: aba28e867f5fdb7bfaa917547f60565c39e382dd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797622"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977772"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Linux
 
@@ -408,7 +408,7 @@ Azure Disk Encryption no funciona en los siguientes escenarios, características
 - Creación de una imagen o instantánea de una máquina virtual cifrada y su uso para implementar máquinas virtuales adicionales.
 - Volcado de memoria de kernel (kdump).
 - Oracle ACFS (ASM Cluster File System).
-- Máquinas virtuales de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
+- Máquinas virtuales de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](../generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Discos de NVMe de las máquinas virtuales de serie Lsv2 (consulte: [Serie Lsv2](../lsv2-series.md)).
 - Una máquina virtual con "puntos de montaje anidados", es decir, varios puntos de montaje en una sola ruta de acceso (como "/1stmountpoint/data/2stmountpoint").
 - Una máquina virtual con una unidad de datos montada en la parte superior de una carpeta de sistema operativo.

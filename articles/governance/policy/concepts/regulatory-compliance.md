@@ -4,10 +4,10 @@ description: Describe cómo usar una definición de iniciativa para agrupar dire
 ms.date: 08/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89645524"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Cumplimiento normativo de Azure Policy
