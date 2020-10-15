@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 20add4859b272b6d121666cde9c56296119d41e4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836537"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Private Link para Azure Database for MariaDB
@@ -73,15 +73,15 @@ Después de crear el punto de conexión privado (PE), el administrador puede adm
 
 * Seleccione una conexión del punto de conexión privado en la lista.
 
-![Selección del punto de conexión privado pendiente de aprobación](media/concepts-data-access-and-security-private-link/select-private-link.png)
+![selección del punto de conexión privado pendiente de aprobación](media/concepts-data-access-and-security-private-link/select-private-link.png)
 
 * El administrador de servidor de MariaDB puede optar por aprobar o rechazar un punto de conexión privado y, además, tiene la opción de agregar una respuesta con un texto breve.
 
-![Selección del mensaje del punto de conexión privado](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
+![selección del mensaje del punto de conexión privado](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
 
 * Después de la aprobación o el rechazo, la lista reflejará el estado apropiado, junto con el texto de respuesta.
 
-![Selección del estado final del punto de conexión privado](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
+![selección del estado final del punto de conexión privado](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mariadb"></a>Casos de uso de Private Link para Azure Database for MariaDB
 

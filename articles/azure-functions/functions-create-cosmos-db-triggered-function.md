@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: c7dc18d8186d7262154cc0718bb6ad77ebbb5d2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829846"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creación de una función desencadenada por Azure Cosmos DB
@@ -50,7 +50,7 @@ Después, cree una función en la nueva Function App.
 
 1. En la página **Nueva función**, escriba `cosmos` en el campo de búsqueda y, después, elija la plantilla **Desencadenador de Azure Cosmos DB**.
 
-   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Página Funciones en Azure Portal":::
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Código de Azure Cosmos DB":::
 
 
 1. Configure el nuevo desencadenador según la configuración especificada en la tabla siguiente:
@@ -64,7 +64,7 @@ Después, cree una función en la nueva Function App.
     | **Nombre de la colección de concesiones** | concesiones | Nombre de la colección para almacenar las concesiones. |
     | **Crear colección de concesiones si no existe** | Sí | Comprueba si existe la colección de concesiones y la crea automáticamente. |
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Creación de la función de desencadenador de Azure Cosmos DB":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Código de Azure Cosmos DB":::
 
 1. Seleccione **Crear función**. 
 
@@ -72,7 +72,7 @@ Después, cree una función en la nueva Function App.
 
 1. Para mostrar el código de función basado en plantilla, seleccione **Código y prueba**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Plantilla de función de Cosmos DB en C#":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Código de Azure Cosmos DB":::
 
     Esta plantilla de función escribe el número de documentos y el identificador del primer documento en los registros.
 
@@ -111,15 +111,7 @@ Una vez que el contenedor especificado en el enlace de función existe, puede pr
 
 1. Expanda el nuevo contenedor **Items** en Data Explorer, elija **Elementos** y, a continuación, seleccione **Nuevo elemento**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Creación de un elemento en el contenedor Items":::
-
-1. Reemplace el contenido del nuevo elemento por el siguiente contenido, y luego elija **Guardar**.
-
-    ```yaml
-    {
-        "id": "task1",
-        "category": "general",
-        "description": "some task"
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Código de Azure Cosmos DB"
     }
     ```
 

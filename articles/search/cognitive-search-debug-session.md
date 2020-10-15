@@ -3,17 +3,17 @@ title: Conceptos de las sesiones de depuración (versión preliminar)
 titleSuffix: Azure Cognitive Search
 description: Las sesiones de depuración, a las que se accede desde Azure Portal, proporcionan un entorno similar a un IDE en el que se pueden identificar y corregir errores, validar cambios y enviar cambios en conjuntos de aptitudes de la canalización de enriquecimiento con IA. Sesiones de depuración está en versión preliminar.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 941d7f54bcb44653280abe264ff1cffbeae33679
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743189"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057627"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sesiones de depuración en Azure Cognitive Search
 

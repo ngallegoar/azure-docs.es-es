@@ -9,10 +9,10 @@ ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5149973fe63f867b49e55c970779c005e12536b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68780155"
 ---
 1. Abra la página de la puerta de enlace de red virtual. Hay varias formas de navegar. Para navegar a la puerta de enlace, vaya a **Nombre de la red virtual -> Información general -> Dispositivos conectados -> Nombre de la puerta de enlace**.

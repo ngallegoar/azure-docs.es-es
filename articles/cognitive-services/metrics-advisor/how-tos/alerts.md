@@ -3,19 +3,19 @@ title: Configuración de alertas de Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: En este artículo se explica cómo configurar las alertas de Metrics Advisor mediante enlaces de correo electrónico, webhooks y enlaces de Azure DevOps.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 870b412a1fa5d362ac7b5be1df6c92d95c2936ca
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.author: mbullwin
+ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977783"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046798"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Procedimiento: Configuración de alertas y obtención de notificaciones mediante enlaces
 
@@ -88,11 +88,11 @@ Para crear un enlace de Azure DevOps, deberá agregar la siguiente información:
 Vaya a la página de detalles de métricas para buscar la sección **Alert settings** (Configuración de alertas), que se encuentra en la esquina inferior izquierda de la página de detalles de métricas. Se muestran todos los valores de configuración de alertas que se aplican a la configuración de detección seleccionada. Cuando se crea una configuración de detección, no hay ningún valor de alerta y, por tanto, no se envía ninguna alerta.  
 Puede usar los iconos de **add** (agregar), **edit** (editar) y **delete** (eliminar) para modificar la configuración de alertas.
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Elemento de menú configuración de alertas":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Ventana de creación de webhooks":::
 
 Haga clic en los botones **add** (agregar) o **edit** (editar) para que aparezca una ventana para agregar o editar la configuración de alertas.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Adición o edición de la configuración de alertas":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Ventana de creación de webhooks":::
 
 **Alert setting name** (Nombre del valor de alerta): El nombre de este valor de alerta. Se mostrará en el título del correo electrónico de alerta.
 
@@ -134,7 +134,7 @@ El selector **Operator** (Operador) es la relación lógica de cada sección, pa
 |y     | Solo se envía una alerta si una serie coincide con cada sección de alerta y todos los puntos de datos son anomalías. Si las métricas tienen diferentes nombres de dimensión, nunca se desencadenará una alerta.         |
 |O BIEN     | Envíe la alerta si al menos una sección contiene anomalías.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operador para varias secciones de configuración de alertas":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Ventana de creación de webhooks":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

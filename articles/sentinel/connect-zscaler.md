@@ -14,18 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: cc784afe5db64ccc4aad13fae7a2fa748e4befa3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef6677b6f1103c26bd719a3585800765a029f7fb
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587998"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056845"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Conectar Zscaler Internet Access a Azure Sentinel
-
-> [!IMPORTANT]
-> El conector de datos de Zscaler en Azure Sentinel se encuentra actualmente en versión preliminar pública.
-> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En este artículo se explica cómo conectar el dispositivo Zscaler Internet Access a Azure Sentinel. El conector de datos de Zscaler permite conectar fácilmente los registros de Zscaler Internet Access (ZIA) con Azure Sentinel para ver paneles, crear alertas personalizadas y mejorar la investigación. El uso de Zscaler en Azure Sentinel le proporcionará más información sobre el uso de Internet de su organización y mejorará sus capacidades de operación de seguridad. 
 
@@ -44,7 +40,7 @@ En este artículo se explica cómo conectar el dispositivo Zscaler Internet Acce
 
 
 1. Para usar el esquema correspondiente en Log Analytics para los eventos CEF, busque `CommonSecurityLog`.
-1. Vaya al [PASO 3: Validación de conectividad](connect-cef-verify.md).
+1. Diríjase al [PASO 3: Validación de conectividad](connect-cef-verify.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

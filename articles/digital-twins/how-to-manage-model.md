@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3deb7c0802dbfcdb65bcff6cb2653e73017651f1
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 5fd297545e7f07844e28a1f56e724a7f61916bee
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536462"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057746"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
@@ -84,7 +84,7 @@ En las secciones siguientes se muestra cómo completar diferentes operaciones de
 Una vez creados los modelos, puede cargarlos en la instancia de Azure Digital Twins.
 
 > [!TIP]
-> Se recomienda validar los modelos sin conexión antes de cargarlos en la instancia de Azure Digital Twins. Puede usar la [biblioteca del analizador del lado cliente de DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) y el [ejemplo de validador de DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) que se describe en [ *Análisis y validación de modelos*](how-to-parse-models.md) para comprobar los modelos antes de cargarlos al servicio.
+> Se recomienda validar los modelos sin conexión antes de cargarlos en la instancia de Azure Digital Twins. Puede usar la [biblioteca del analizador del lado cliente de DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) y el [ejemplo de validador de DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) que se describe en [ *Análisis y validación de modelos*](how-to-parse-models.md) para comprobar los modelos antes de cargarlos al servicio.
 
 Cuando esté listo para cargar un modelo, puede usar el fragmento de código siguiente:
 

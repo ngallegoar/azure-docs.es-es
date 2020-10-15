@@ -1,24 +1,24 @@
 ---
 title: Controles del ejemplo de plano técnico de nivel de impacto 5 del DoD
-description: Asignación de controles del ejemplo de plano técnico de nivel de impacto 5 del DoD. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
+description: Asignación de controles del ejemplo de plano técnico de nivel de impacto 5 del DoD. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
 ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 6cd92cba69367c611a0e3a3c435e41e973a80d73
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: fc187480f5342f076a7f07f058e8e570a0e7f146
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540547"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929496"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de nivel de impacto 5 del DoD
 
-En el artículo siguiente se detalla cómo asigna el ejemplo de plano técnico de nivel de impacto 5 del Departamento de Defensa (DoD IL5) de Azure Blueprints los controles de nivel de impacto 5 del DoD. Para más información sobre los controles, consulte [Guía de requisitos de seguridad (SRG) de informática en la nube del DoD](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). La Agencia de sistemas de información de Defensa (DISA) es una agencia del Departamento de Defensa (DoD) de EE. UU. responsable del desarrollo y mantenimiento de la Guía de requisitos de seguridad (SRG) de informática en la nube del DoD. La SRG define los requisitos de seguridad de línea de base para los proveedores de servicios en la nube (CSP) que hospedan información, sistemas y aplicaciones del DoD y para el uso de los servicios en la nube del DoD.  
+En el artículo siguiente se detalla cómo asigna el ejemplo de plano técnico de nivel de impacto 5 del Departamento de Defensa (DoD IL5) de Azure Blueprints los controles de nivel de impacto 5 del DoD. Para más información sobre los controles, consulte [Guía de requisitos de seguridad (SRG) de informática en la nube del DoD](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf).
+La Agencia de sistemas de información de Defensa (DISA) es una agencia del Departamento de Defensa (DoD) de EE. UU. responsable del desarrollo y mantenimiento de la Guía de requisitos de seguridad (SRG) de informática en la nube del DoD. La SRG define los requisitos de seguridad de línea de base para los proveedores de servicios en la nube (CSP) que hospedan información, sistemas y aplicaciones del DoD y para el uso de los servicios en la nube del DoD.  
 
 Las siguientes asignaciones son para los controles del **nivel de impacto 5 del DoD**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la **\[versión preliminar\]: nivel de impacto 5 del DoD**, que se trata de una iniciativa de directiva integrada.
 
 > [!IMPORTANT]
-> Cada control que se muestra a continuación está asociado a una o varias definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas pueden ayudarle a [evaluar el cumplimiento](../../../policy/how-to/get-compliance-data.md) del control; sin embargo, a menudo no hay una coincidencia 1:1 o completa entre un control y una o varias directivas. Como tal, el **cumplimiento** con Azure Policy solo se refiere a las propias directivas; esto no garantiza que sea totalmente compatible con todos los requisitos de un control. Además, el estándar de cumplimiento incluye controles que no se abordan con las definiciones de Azure Policy en este momento. Por lo tanto, el cumplimiento en Azure Policy es solo una vista parcial del estado general de cumplimiento. Las asociaciones entre los controles y las definiciones de Azure Policy para este ejemplo de plano técnico de cumplimiento pueden cambiar con el tiempo.
-> Para ver el historial de cambios, consulte el [historial de confirmación de GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md).
+> Cada control que se muestra a continuación está asociado a una o varias definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas pueden ayudarle a [evaluar el cumplimiento](../../../policy/how-to/get-compliance-data.md) mediante el control. Sin embargo, con frecuencia no hay una correspondencia completa o exacta entre un control y una o varias directivas. Como tal, el **cumplimiento** con Azure Policy solo se refiere a las propias directivas; esto no garantiza que sea totalmente compatible con todos los requisitos de un control. Además, el estándar de cumplimiento incluye controles que no se abordan con las definiciones de Azure Policy en este momento. Por lo tanto, el cumplimiento en Azure Policy es solo una vista parcial del estado general de cumplimiento. Las asociaciones entre los controles y las definiciones de Azure Policy para este ejemplo de plano técnico de cumplimiento pueden cambiar con el tiempo. Para ver el historial de cambios, consulte el [historial de confirmación de GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md).
 
 ## <a name="ac-2-account-management"></a>Administración de cuentas AC-2
 
@@ -238,7 +238,8 @@ Este plano técnico proporciona definiciones de directivas que auditan registros
 
 ## <a name="ra-5-vulnerability-scanning"></a>Examen de vulnerabilidades RA-5
 
-Este proyecto ayuda a administrar las vulnerabilidades del sistema de información mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que supervisan las vulnerabilidades del sistema operativo, las de SQL o las de las máquinas virtuales en Azure Security Center. Azure Security Center proporciona funcionalidades de informes que permiten tener información en tiempo real sobre el estado de seguridad de los recursos de Azure implementados. Este proyecto asigna también definiciones de directiva que auditan y exigen Advanced Data Security en servidores SQL. Advanced Data Security incluía la evaluación de vulnerabilidades y funcionalidades de protección contra amenazas avanzada para ayudarle a entender las vulnerabilidades en los recursos implementados.
+Este proyecto ayuda a administrar las vulnerabilidades del sistema de información mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que supervisan las vulnerabilidades del sistema operativo, las de SQL o las de las máquinas virtuales en Azure Security Center.
+Azure Security Center proporciona funcionalidades de informes que permiten tener información en tiempo real sobre el estado de seguridad de los recursos de Azure implementados. Este proyecto asigna también definiciones de directiva que auditan y exigen Advanced Data Security en servidores SQL. Advanced Data Security incluía la evaluación de vulnerabilidades y funcionalidades de protección contra amenazas avanzada para ayudarle a entender las vulnerabilidades en los recursos implementados.
 
 - Se debe habilitar Advanced Data Security en Instancia administrada de SQL
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
@@ -255,8 +256,7 @@ El nivel estándar de denegación de servicio distribuido (DDoS) de Azure propor
 
 ## <a name="sc-7-boundary-protection"></a>Protección de límites SC-7
 
-Este proyecto le ayuda a administrar y controlar el límite del sistema mediante la asignación de una definición de [Azure Policy](../../../policy/overview.md) que supervisa las recomendaciones de protección del grupo de seguridad de red en Azure Security Center. Azure Security Center analiza los patrones de tráfico de las máquinas virtuales de Internet y proporciona recomendaciones de reglas de grupo de seguridad de red para reducir la superficie potencial de ataque.
-Además, este proyecto también asigna definiciones de directiva que supervisan las cuentas de almacenamiento, las aplicaciones y los puntos de conexión desprotegidos. Los puntos de conexión y las aplicaciones que no están protegidos por firewall y las cuentas de almacenamiento con acceso sin restricciones pueden permitir el acceso no deseado a la información contenida en el sistema de información.
+Este proyecto le ayuda a administrar y controlar el límite del sistema mediante la asignación de una definición de [Azure Policy](../../../policy/overview.md) que supervisa las recomendaciones de protección del grupo de seguridad de red en Azure Security Center. Azure Security Center analiza los patrones de tráfico de las máquinas virtuales de Internet y proporciona recomendaciones de reglas de grupo de seguridad de red para reducir la superficie potencial de ataque. Además, este proyecto también asigna definiciones de directiva que supervisan las cuentas de almacenamiento, las aplicaciones y los puntos de conexión desprotegidos. Los puntos de conexión y las aplicaciones que no están protegidos por firewall y las cuentas de almacenamiento con acceso sin restricciones pueden permitir el acceso no deseado a la información contenida en el sistema de información.
 
 - Debe restringirse el acceso a través de un punto de conexión accesible desde Internet
 - Se debe restringir el acceso de red a las cuentas de almacenamiento.

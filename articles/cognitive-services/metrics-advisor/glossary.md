@@ -3,19 +3,19 @@ title: Glosario de Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Ideas y conceptos clave para el servicio Metrics Advisor
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 25e5cb6e34624f3272e83e1e7c1cd847b865ae8e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: 34f9d480234ecaef0d581cfecd68e2cdd1cf6fdc
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932164"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046781"
 ---
 # <a name="metrics-advisor-glossary-of-common-vocabulary-and-concepts"></a>Glosario de conceptos y vocabulario comunes de Metrics Advisor
 
