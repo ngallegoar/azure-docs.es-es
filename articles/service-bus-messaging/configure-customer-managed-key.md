@@ -4,10 +4,10 @@ description: En este artículo se proporciona información sobre cómo configura
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: e3da167fcdd3bac53de86dae07242cf8bccb621c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400592"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Service Bus mediante Azure Portal

@@ -11,10 +11,10 @@ ms.topic: include
 ms.reviewer: hux
 ms.custom: include file
 ms.openlocfilehash: 53d2d47143c5a2cefbd50faca9a02af18ffae315
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84754681"
 ---
 Para leer datos de un almacenamiento de archivo, primero debe cambiar el nivel del blob a acceso frecuente o esporádico. Este proceso se conoce como rehidratación y puede tardar horas en completarse. Recomendamos tamaños de blob grandes para un rendimiento óptimo de la rehidratación. La rehidratación de varios blobs pequeños a la vez puede suponer tiempo adicional. Actualmente hay dos prioridades de rehidratación: Alta y Estándar, que pueden establecerse mediante la propiedad opcional *x-ms-rehydrate-priority* en una operación [Establecer el nivel del blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) o [Copiar blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob).

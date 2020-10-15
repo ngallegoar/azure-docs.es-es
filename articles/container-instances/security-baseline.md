@@ -8,10 +8,10 @@ ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: a26581b61a4b99bd11f48a3d431a1bb85148d66b
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393435"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Base de referencia de seguridad de Azure para Container Instances
@@ -988,7 +988,7 @@ Use Azure Policy para establecer restricciones en el tipo de recursos que se pu
 
 * [Creación de un almacén de claves](../key-vault/secrets/quick-create-portal.md)
 
-* [Autenticación en Azure Key Vault](../key-vault/general/authentication.md)
+* [Autenticación en Key Vault](../key-vault/general/authentication.md)
 
 * [Asignación de una directiva de acceso de Azure Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
@@ -1028,7 +1028,7 @@ Use Azure Policy para establecer restricciones en el tipo de recursos que se pu
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Use software antimalware administrado centralmente
 
-**Instrucciones**: no aplicable; esta guía está pensada para recursos de proceso de IaaS.
+**Guía**: no aplicable; esta guía está pensada para recursos de proceso de IaaS.
 
 **Supervisión de Azure Security Center**: No aplicable
 

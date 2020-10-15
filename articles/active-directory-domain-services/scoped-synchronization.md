@@ -2,7 +2,7 @@
 title: Sincronización con ámbito en Azure AD Domain Services | Microsoft Docs
 description: Aprenda a usar Azure Portal para configurar la sincronización con ámbito entre Azure AD y un dominio administrado de Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: iainfou
+ms.author: joflore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fe373b9aa08d6999a9c57dd0008a207071e1dddd
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 514932726d9283af0c3fb404f787a10057ce8842
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068905"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967858"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Configuración de la sincronización con ámbito entre Azure AD y Azure Active Directory Domain Services mediante Azure Portal
 

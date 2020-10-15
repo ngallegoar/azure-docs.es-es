@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3343f0e21cdf8873447bd448c200102940b632e8
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 62a6bb807f01fd19a92c3dc4edf797171dd5ebc9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077099"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91713406"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de PowerShell para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -67,7 +67,7 @@ A continuación, elija cómo desea que sus comandos obtengan autorización para 
 
 ### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>Opción 1: Obtención de autorización mediante Azure Active Directory (AD)
 
-Con este enfoque, el sistema garantiza que su cuenta de usuario tiene los permisos de ACL y las asignaciones de control de acceso basado en rol (RBAC). 
+Con este enfoque, el sistema garantiza que su cuenta de usuario tiene los permisos de ACL y las asignaciones de control de acceso basado en rol de Azure (Azure RBAC) apropiados. 
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount

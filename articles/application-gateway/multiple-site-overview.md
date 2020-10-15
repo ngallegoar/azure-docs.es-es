@@ -8,10 +8,10 @@ ms.date: 07/20/2020
 ms.author: surmb
 ms.topic: conceptual
 ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87474332"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedaje de varios sitios de Application Gateway
@@ -35,7 +35,7 @@ Application Gateway permite el enrutamiento basado en host mediante un cliente d
 
 Con un carácter comodín en el nombre del host, puede hacer coincidir varios nombres de host en un único cliente de escucha. Por ejemplo, `*.contoso.com` puede coincidir con `ecom.contoso.com`, `b2b.contoso.com`, `customer1.b2b.contoso.com` y más. Con una matriz de nombres de host, puede configurar más de un nombre de host para un cliente de escucha, para enrutar las solicitudes a un grupo de back-end. Por ejemplo, un cliente de escucha puede contener `contoso.com, fabrikam.com`, lo que aceptará las solicitudes para ambos nombres de host.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Cliente de escucha comodín":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Instancia de Application Gateway multisitio":::
 
 >[!NOTE]
 > Esta característica está en versión preliminar y solo está disponible para las SKU Standard_v2 y WAF_v2 de Application Gateway. Para obtener más información sobre las versiones preliminares, consulte los [términos de uso aquí](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

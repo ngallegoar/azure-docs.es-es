@@ -8,10 +8,10 @@ ms.date: 08/22/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: f7495c52e36bdc207145f17ec72eb57b7ebf1784
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76279479"
 ---
 Solo se admiten enlaces de Azure Cosmos DB para su uso con la API de SQL. Para todas las demás API de Azure Cosmos DB, debe acceder a la base de datos de la función mediante el cliente estático de la API, lo que incluye la [API de Azure Cosmos DB para MongoDB](../articles/cosmos-db/mongodb-introduction.md), [Cassandra API](../articles/cosmos-db/cassandra-introduction.md), [Gremlin API](../articles/cosmos-db/graph-introduction.md) y [Table API](../articles/cosmos-db/table-introduction.md).

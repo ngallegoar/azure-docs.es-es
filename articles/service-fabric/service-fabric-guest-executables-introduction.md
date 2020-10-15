@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo empaquetar una aplicación existen
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247394"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implementación de un ejecutable existente en Service Fabric

@@ -4,10 +4,10 @@ description: En este artículo se muestra cómo trasladar un clúster dedicado d
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 94be44ee8f9442a3a65e899d7a58524b2570f194
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89380488"
 ---
 # <a name="move-an-azure-event-hubs-dedicated-cluster-to-another-region"></a>Traslado de un clúster dedicado de Azure Event Hubs a otra región
@@ -50,7 +50,7 @@ Implemente la plantilla para crear un clúster dedicado de Event Hubs en la regi
     4. En la sección **CONFIGURACIÓN**, lleve a cabo estos pasos:    
         1. Escriba el nuevo **nombre del clúster**. 
 
-            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Implementación de la plantilla de Resource Manager":::
+            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Descarga de la plantilla de Resource Manager":::
     5. En la parte inferior de la página, seleccione **Revisar y crear**. 
     1. En la página **Revisar y crear**, examine la configuración y, después, seleccione **Crear**.  
 

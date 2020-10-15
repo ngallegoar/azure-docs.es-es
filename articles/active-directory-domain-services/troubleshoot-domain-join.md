@@ -2,20 +2,20 @@
 title: Solución de problemas de unión a un dominio con Azure AD Domain Services | Microsoft Docs
 description: Aprenda a solucionar problemas comunes cuando intente unir una máquina virtual a un dominio o conectar una aplicación a Azure Active Directory Domain Services y no pueda conectar o autenticarse en el dominio administrado.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 4a472f0d1e31faea6b62eec004543b42e6add4fe
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: ee60b684d64ef49fbb669de8c98203e2df5268bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039694"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967518"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Solucionar problemas de unión al dominio con un dominio administrado de Azure Active Directory Domain Services
 

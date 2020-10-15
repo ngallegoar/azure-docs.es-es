@@ -4,10 +4,10 @@ description: Este artículo contiene los procedimientos para realizar copias de 
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378005"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de Hyper-V con Azure Backup Server
