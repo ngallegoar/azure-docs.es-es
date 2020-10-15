@@ -4,10 +4,10 @@ description: Proporcione acceso a las imágenes de su registro de contenedor pri
 ms.topic: article
 ms.date: 10/04/2019
 ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259147"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticación de Azure Container Registry con entidades de servicio

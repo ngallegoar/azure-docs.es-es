@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c07e161042a497a232cbd5e3f11128893a095381
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80576747"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>Configuración de las opciones de creación de contenedores para módulos de IoT Edge

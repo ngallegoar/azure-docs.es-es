@@ -4,10 +4,10 @@ description: Aprenda a habilitar una identidad administrada en Azure Container I
 ms.topic: article
 ms.date: 07/02/2020
 ms.openlocfilehash: 23f2347593137a4846c8fd22e3b90f22db39bda3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259628"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Cómo utilizar una identidad administrada con Azure Container Instances
