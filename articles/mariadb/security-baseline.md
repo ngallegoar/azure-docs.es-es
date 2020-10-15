@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f067d4c777bb9a49ac2cc50595046249479a8f7a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393843"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Línea de base de seguridad de Azure para Azure Database for MariaDB
@@ -256,7 +256,7 @@ Configuración y acceso a los registros de servidor para MariaDB: https://docs.m
 
 Configuración y acceso a los registros de auditoría para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal
 
-Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Cómo incorporar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Supervisión de Azure Security Center**: Sí
 

@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 796ef0b82c15940ce9200e0b50916ca657f10b99
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393900"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Línea base de seguridad de Azure para Cognitive Services
@@ -872,9 +872,9 @@ Además, use Azure Resource Graph para consultar o detectar recursos dentro de l
 
 * [Creación de un almacén de claves](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [Autenticación en Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+* [Autenticación en Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
 
-* [Asignación de una directiva de acceso de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+* [Asignación de una directiva de acceso de Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Supervisión de Azure Security Center**: Sí
 

@@ -8,10 +8,10 @@ ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394098"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Base de referencia de seguridad de Azure para Azure Functions
@@ -767,7 +767,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Eliminación de aplicaciones de software y recursos de Azure no aprobadas
 
-**Guía**: no aplicable; esta recomendación está diseñada para recursos de proceso de IaaS.
+**Instrucciones**: no aplicable; esta recomendación está diseñada para recursos de proceso de IaaS.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -775,7 +775,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="68-use-only-approved-applications"></a>6.8: Uso exclusivo de aplicaciones aprobadas
 
-**Guía**: no aplicable; esta recomendación está diseñada para recursos de proceso de IaaS.
+**Instrucciones**: no aplicable; esta recomendación está diseñada para recursos de proceso de IaaS.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -864,7 +864,7 @@ Creación de un ASE interno:
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: Establezca configuraciones del sistema operativo seguras
 
-**Instrucciones**: no aplicable; esta guía está pensada para recursos de proceso de IaaS.
+**Guía**: no aplicable; esta guía está pensada para recursos de proceso de IaaS.
 
 **Supervisión de Azure Security Center**: No aplicable
 

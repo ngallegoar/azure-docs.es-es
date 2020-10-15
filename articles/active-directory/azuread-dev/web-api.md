@@ -15,10 +15,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9cf5a9c81ca1d7a42a5a8e342dee55f335656c3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80154430"
 ---
 # <a name="web-api"></a>API Web
@@ -66,7 +66,7 @@ Los tipos de identidad de aplicación y de identidad de usuario delegado se trat
 
 Vea los ejemplos de código para escenarios de aplicación web a API web. Agregamos nuevos ejemplos continuamente, así que no olvide consultarlos con frecuencia. [Aplicación web a API web](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
 
-## <a name="app-registration"></a>Registro de aplicación
+## <a name="app-registration"></a>Registro de la aplicación
 
 Para registrar una aplicación con el punto de conexión v1.0 de Azure AD, consulte [Registro de una aplicación](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
