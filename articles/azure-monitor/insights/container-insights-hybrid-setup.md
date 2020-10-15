@@ -3,12 +3,12 @@ title: Configuración de los clústeres híbridos de Kubernetes con Azure Monito
 description: En este artículo se describe cómo puede configurar Azure Monitor para contenedores con el fin de supervisar clústeres de Kubernetes hospedados en Azure Stack u otro entorno.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2d2522118fddcebcb2ca922ed455011e394fac45
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398388"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994438"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configuración de los clústeres híbridos de Kubernetes con Azure Monitor para contenedores
 
@@ -40,7 +40,7 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 - Un [área de trabajo de Log Analytics.](../platform/design-logs-deployment.md)
 
-    Azure Monitor para contenedores admite un área de trabajo de Log Analytics en las regiones enumeradas en los [productos por región](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) de Azure. Para crear el área de trabajo, puede configurarla mediante [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o en el [Azure Portal](../learn/quick-create-workspace.md).
+    Azure Monitor para contenedores admite un área de trabajo de Log Analytics en las regiones enumeradas en los [productos por región](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) de Azure. Para crear el área de trabajo, puede configurarla mediante [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o en el [Azure Portal](../learn/quick-create-workspace.md).
 
     >[!NOTE]
     >No se admite la supervisión de varios clústeres con el mismo nombre de clúster en el mismo área de trabajo de Log Analytics. Los nombres de clúster deben ser únicos.

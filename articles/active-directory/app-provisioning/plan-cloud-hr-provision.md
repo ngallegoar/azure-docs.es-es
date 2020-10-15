@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706360"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070391"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeamiento de la aplicación de RR. HH. en la nube para el aprovisionamiento de usuarios de Azure Active Directory
 
@@ -31,7 +31,7 @@ Azure AD usa esta integración para habilitar los siguientes flujos de trabajo d
 - **Reescribir en la aplicación de RR. HH. en la nube:** reescriba los atributos de nombre de usuario y dirección de correo electrónico de Azure AD en la aplicación de RR. HH. en la nube.
 
 > [!NOTE]
-> En este plan de implementación se muestra cómo implementar los flujos de trabajo de aplicaciones de RR. HH. en la nube con el aprovisionamiento de usuarios de Azure AD. Para obtener información sobre cómo implementar el aprovisionamiento automático de usuarios en aplicaciones de software como servicio (SaaS), vea [Planeamiento de una implementación del aprovisionamiento automático de usuarios](https://aka.ms/deploymentplans/provisioning).
+> En este plan de implementación se muestra cómo implementar los flujos de trabajo de aplicaciones de RR. HH. en la nube con el aprovisionamiento de usuarios de Azure AD. Para obtener información sobre cómo implementar el aprovisionamiento automático de usuarios en aplicaciones de software como servicio (SaaS), vea [Planeamiento de una implementación del aprovisionamiento automático de usuarios](./plan-auto-user-provisioning.md).
 
 ## <a name="enabled-hr-scenarios"></a>Escenarios de RR. HH. habilitados
 
@@ -126,7 +126,7 @@ Tenga en cuenta las necesidades de su organización al determinar la estrategia 
 
 ### <a name="engage-the-right-stakeholders"></a>Interactuar con las partes interesadas adecuadas
 
-Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de que interactúa con las partes interesadas adecuadas](https://aka.ms/deploymentplans). Asegúrese también de que los roles de las partes interesadas del proyecto estén bien entendidos. Documente las partes interesadas, así como sus aportaciones y responsabilidades en el proyecto.
+Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de que interactúa con las partes interesadas adecuadas](../fundamentals/active-directory-deployment-plans.md). Asegúrese también de que los roles de las partes interesadas del proyecto estén bien entendidos. Documente las partes interesadas, así como sus aportaciones y responsabilidades en el proyecto.
 
 Incluya a un representante de la organización de RR. HH. que pueda proporcionar aportaciones sobre los procesos empresariales de RR. HH. y los requisitos de procesamiento de datos laborales e identidad de los trabajadores existentes.
 
@@ -378,7 +378,7 @@ Azure AD puede proporcionar información adicional sobre el uso del aprovisiona
 
 Después de un [ciclo inicial](../app-provisioning/how-provisioning-works.md#initial-cycle) correcto, el servicio de aprovisionamiento de Azure AD sigue ejecutando actualizaciones incrementales de manera indefinida, a intervalos definidos en los tutoriales específicos de cada aplicación, hasta que se produzca alguno de los siguientes eventos:
 
-- El servicio se detiene de forma manual. Se desencadena un nuevo ciclo inicial mediante [Azure Portal](https://portal.azure.com/) o el comando adecuado de [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+- El servicio se detiene de forma manual. Se desencadena un nuevo ciclo inicial mediante [Azure Portal](https://portal.azure.com/) o el comando adecuado de [Microsoft Graph API](/graph/api/resources/synchronization-overview).
 - Se desencadena un nuevo ciclo inicial debido a un cambio en las asignaciones de atributos o los filtros de ámbito.
 - El proceso de aprovisionamiento entra en cuarentena debido a una alta tasa de errores. Permanece en cuarentena durante más de cuatro semanas, momento en el que se deshabilita de forma automática.
 
@@ -416,6 +416,6 @@ Para solucionar los problemas que pueden surgir durante el aprovisionamiento, ve
 ### <a name="next-steps"></a>Pasos siguientes
 
 - [Escritura de expresiones para la asignación de atributos](functions-for-customizing-application-data.md)
-- [Introducción a la API de sincronización de Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Introducción a la API de sincronización de Azure AD](/graph/api/resources/synchronization-overview)
 - [Omisión de la eliminación de cuentas de usuario que están fuera de ámbito](skip-out-of-scope-deletions.md)
 - [Agente de aprovisionamiento de Azure AD Connect: historial de versiones](provisioning-agent-release-version-history.md)

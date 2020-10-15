@@ -3,12 +3,12 @@ title: Configuración de un clúster de Kubernetes habilitado para Azure Arc con
 description: En este artículo se describe cómo configurar la supervisión con Azure Monitor para contenedores en clústeres de Kubernetes habilitados para Azure Arc.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 79a534e4f37fb0154115e43402f031752a603ccb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 77b536141f0e7c6094964011719a0e536e8d33f1
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620297"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994464"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Habilitación de la supervisión en el clúster de Kubernetes habilitado para Azure Arc
 
@@ -36,7 +36,7 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 - Un área de trabajo de Log Analytics.
 
-    Azure Monitor para contenedores admite un área de trabajo de Log Analytics en las regiones enumeradas en los [productos por región](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) de Azure. Para crear el área de trabajo, puede configurarla mediante [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o en el [Azure Portal](../learn/quick-create-workspace.md).
+    Azure Monitor para contenedores admite un área de trabajo de Log Analytics en las regiones enumeradas en los [productos por región](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) de Azure. Para crear el área de trabajo, puede configurarla mediante [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o en el [Azure Portal](../learn/quick-create-workspace.md).
 
 - Para habilitar y acceder a las características de Azure Monitor para contenedores debe ser miembro, como mínimo, del rol *Colaborador* de la suscripción de Azure y miembro del rol [*Colaborador de Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) del área de trabajo de Log Analytics configurada con Azure Monitor para contenedores.
 

@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 40ff7bfe713f401a23dea0b3660be1b7728a1380
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ecfeebb9ce86d717531310c2ad1a33a3d27f4c0a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828564"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995742"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configuración del área de trabajo de Log Analytics para Azure Monitor para VM
 Azure Monitor para VM recopila sus datos de una o varias áreas de trabajo de Log Analytics en Azure Monitor. Antes de incorporar agentes, debe crear y configurar un área de trabajo. En este artículo se describen los requisitos del área de trabajo y cómo configurarla para Azure Monitor para VM.
@@ -41,7 +41,7 @@ Puede crear una nueva área de trabajo de Log Analytics mediante cualquiera de l
 * [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [CLI de Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
 * [PowerShell](../platform/powershell-workspace-configuration.md)
-* [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
+* [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
 ## <a name="supported-regions"></a>Regiones admitidas
 

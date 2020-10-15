@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263354"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Conexión de Qlik Sense a Azure Cosmos DB y visualización de los datos
@@ -62,15 +62,15 @@ Antes de seguir las instrucciones del presente artículo, asegúrese de tener lo
 
 4. Cambie a **DSN de usuario** y elija la conexión de ODBC que creó anteriormente. Proporcione un nombre para la conexión y seleccione **Crear**. 
 
-   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Crear una conexión":::
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Crear una aplicación de Qlik Sense":::
 
 5. Una vez creada la conexión, puede elegir la base de datos, la colección donde se encuentran los datos del videojuego y después obtener la vista previa.
 
-   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Elegir la base de datos y la colección"::: 
+   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Crear una aplicación de Qlik Sense"::: 
 
 6. A continuación, seleccione **Agregar datos** para cargar los datos a Qlik Sense. Después de cargar los datos a Qlik Sense, puede generar información y realizar análisis de los datos. Puede usar esta información o crear su propia aplicación de exploración de las ventas de videojuegos. En la imagen siguiente se muestra: 
 
-   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Visualizar datos":::
+   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Crear una aplicación de Qlik Sense":::
 
 ### <a name="limitations-when-connecting-with-odbc"></a>Limitaciones al conectarse con ODBC 
 

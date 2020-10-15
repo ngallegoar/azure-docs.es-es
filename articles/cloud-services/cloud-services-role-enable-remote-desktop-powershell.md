@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 13d5be5b1e0bcdf84001f21a45364296d67a5da4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7742267f5ce199f3a5bffc52200374d2323f0622
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013904"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072465"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services mediante PowerShell
 
@@ -30,7 +30,7 @@ En este artículo se describe cómo habilitar Escritorio remoto en los roles del
 ## <a name="configure-remote-desktop-from-powershell"></a>Configuración de Escritorio remoto desde PowerShell
 El cmdlet [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) permite habilitar Escritorio remoto en los roles especificados o en todos los roles de la implementación del servicio en la nube. Este cmdlet permite especificar el nombre de usuario y la contraseña del usuario de Escritorio remoto a través del parámetro *Credential* , que acepta un objeto PSCredential.
 
-Si PowerShell se usa de forma interactiva, el objeto PSCredential se puede establecer fácilmente mediante una llamada al cmdlet [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) .
+Si PowerShell se usa de forma interactiva, el objeto PSCredential se puede establecer fácilmente mediante una llamada al cmdlet [Get-Credentials](/powershell/module/microsoft.powershell.security/get-credential) .
 
 ```powershell
 $remoteusercredentials = Get-Credential
@@ -38,7 +38,7 @@ $remoteusercredentials = Get-Credential
 
 Este comando muestra un cuadro de diálogo que permite especificar el nombre de usuario y la contraseña del usuario remoto de forma segura.
 
-Dado que PowerShell sirve de ayuda en los escenarios de automatización, también es posible configurar el objeto **PSCredential** de manera que no requiera la interacción del usuario. En primer lugar es preciso configurar una contraseña segura. Para empezar, es preciso especificar una contraseña de texto sin formato y convertirla en una cadena segura con [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Seguidamente, hay que convertir esta cadena segura en una cadena estándar cifrada, para lo que se usa [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Ya se puede guardar la cadena estándar cifrada en un archivo con [Set-Content](https://technet.microsoft.com/library/ee176959.aspx).
+Dado que PowerShell sirve de ayuda en los escenarios de automatización, también es posible configurar el objeto **PSCredential** de manera que no requiera la interacción del usuario. En primer lugar es preciso configurar una contraseña segura. Para empezar, es preciso especificar una contraseña de texto sin formato y convertirla en una cadena segura con [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring). Seguidamente, hay que convertir esta cadena segura en una cadena estándar cifrada, para lo que se usa [ConvertFrom-SecureString](/powershell/module/microsoft.powershell.security/convertfrom-securestring). Ya se puede guardar la cadena estándar cifrada en un archivo con [Set-Content](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176959(v=technet.10)).
 
 También puede crear un archivo de contraseña segura para que no tenga que escribir la contraseña cada vez. Además, un archivo de contraseña segura es mejor que un archivo de texto sin formato. Use la siguiente instrucción de PowerShell para crear un archivo de contraseña seguro:
 
@@ -47,9 +47,9 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 ```
 
 > [!IMPORTANT]
-> Al establecer la contraseña asegúrese de cumplir los [requisitos de complejidad](https://technet.microsoft.com/library/cc786468.aspx).
+> Al establecer la contraseña asegúrese de cumplir los [requisitos de complejidad](/previous-versions/windows/it-pro/windows-server-2003/cc786468(v=ws.10)).
 
-Para crear el objeto de credencial desde el archivo de contraseña seguro debe leer el contenido del archivo y convertirlo en una cadena segura con [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
+Para crear el objeto de credencial desde el archivo de contraseña seguro debe leer el contenido del archivo y convertirlo en una cadena segura con [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
 
 El cmdlet [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) también acepta un parámetro *Expiration* que especifica un valor **DateTime** en que la cuenta de usuario caducará. Por ejemplo, puede establecer que la cuenta caduque unos días después de la fecha y hora actuales.
 
@@ -101,5 +101,3 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 ## <a name="additional-resources"></a>Recursos adicionales
 
 [Configuración de Cloud Services](cloud-services-how-to-configure-portal.md)
-
-

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a6f5526b01588649d1e094036241d616a8392949
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830451"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996482"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -26,7 +26,7 @@ Si utiliza [Azure Security Center](../../security-center/index.yml), se le alert
 > [!WARNING]
 > - Si ya ha usado Azure Disk Encryption con Azure AD para cifrar una VM, debe seguir usando esta opción para cifrar la VM. Para más información, consulte [Azure Disk Encryption con Azure AD (versión anterior)](disk-encryption-overview-aad.md). 
 > - Algunas de las recomendaciones pueden provocar un aumento del uso de datos, de la red o de recursos de proceso, lo que incrementará los costes de las licencias o suscripciones. Para crear recursos en Azure en las regiones admitidas, debe tener una suscripción válida de Azure activa.
-> - Actualmente, las máquinas virtuales de generación 2 no admiten Azure Disk Encryption. Vea [Compatibilidad para máquinas virtuales de generación 2 en Azure](../windows/generation-2.md) para obtener más información.
+> - Actualmente, las máquinas virtuales de generación 2 no admiten Azure Disk Encryption. Vea [Compatibilidad para máquinas virtuales de generación 2 en Azure](../generation-2.md) para obtener más información.
 
 Para obtener información sobre los aspectos básicos de Azure Disk Encryption para Linux en unos minutos, consulte [Inicio rápido: Creación y cifrado de una VM Linux con la CLI de Azure](disk-encryption-cli-quickstart.md) o [Inicio rápido: Creación y cifrado de una VM Linux con Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
@@ -46,7 +46,7 @@ Una vez completado el proceso de cifrado de disco del sistema operativo en las m
 
 Azure Disk Encryption también está disponible para las VM con almacenamiento Premium.
 
-Azure Disk Encryption no está disponible en [máquinas virtuales de segunda generación](generation-2.md#generation-1-vs-generation-2-capabilities) ni en las [máquinas virtuales de la serie Lsv2](../lsv2-series.md). Para ver más excepciones, consulte [Azure Disk Encryption: escenarios no admitidos](disk-encryption-linux.md#unsupported-scenarios).
+Azure Disk Encryption no está disponible en [VM de segunda generación](../generation-2.md#generation-1-vs-generation-2-capabilities) ni en las [VM de la serie Lsv2](../lsv2-series.md). Para ver más excepciones, consulte [Azure Disk Encryption: escenarios no admitidos](disk-encryption-linux.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -108,8 +108,8 @@ Asegúrese de que el valor /etc/fstab está configurado correctamente para el mo
 Este es un ejemplo de los comandos que se usan para montar los discos de datos y crear las entradas de /etc/fstab necesarias:
 
 ```bash
-UUID0="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun0)"
-UUID1="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun1)"
+UUID0="$(blkid -s UUID -o value /dev/sda1)"
+UUID1="$(blkid -s UUID -o value /dev/sda2)"
 mkdir /data0
 mkdir /data1
 echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab

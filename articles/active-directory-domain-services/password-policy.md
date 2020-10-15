@@ -2,7 +2,7 @@
 title: Creación y uso de directivas de contraseña en Azure AD Domain Services | Microsoft Docs
 description: Aprenda cómo y por qué usar directivas de contraseña específicas para proteger y controlar las contraseñas de cuenta en un dominio administrado de Azure AD DS.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: e3e524df2e98229698a86a721b7312a4d054ff70
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: 240b96a47c84ec3b15a356edc35549a4a197b219
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040051"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967974"
 ---
 # <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Directivas de bloqueo de cuentas y contraseñas en dominios administrados de Active Directory Domain Services
 

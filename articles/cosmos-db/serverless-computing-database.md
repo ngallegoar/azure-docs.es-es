@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
 ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263269"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
@@ -61,7 +61,7 @@ En las implementaciones de IoT, puede invocar una función cuando la luz de comp
 
 La imagen siguiente muestra el código escrito en Azure Portal para este desencadenador.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Creación de un desencadenador de Azure Functions para Cosmos DB en Azure Portal":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Integración de Azure Cosmos DB y Azure Functions":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Caso de uso financiero: desencadenador de temporizador y enlace de entrada
 
@@ -75,9 +75,9 @@ En implementaciones financieras, puede invocar una función cuando el saldo de u
 
 En las imágenes siguientes se muestra el código de Azure Portal para este escenario.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Archivo Index.js para un desencadenador de temporizador en un escenario financiero":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Integración de Azure Cosmos DB y Azure Functions":::
 
-:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Archivo Run.csx para un desencadenador de temporizador en un escenario financiero":::
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Integración de Azure Cosmos DB y Azure Functions":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Caso de uso de juegos: desencadenador de Azure Functions y enlace de salida para Cosmos DB 
 

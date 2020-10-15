@@ -26,10 +26,6 @@
       href: get-started-speech-to-text.md
     - name: Guías paso a paso
       items:
-        - name: Reconocimiento de voz almacenada en Blob Storage
-          href: quickstarts/from-blob.md
-        - name: Elección del modo de reconocimiento de voz
-          href: how-to-choose-recognition-mode.md
         - name: Cambio del idioma de origen de reconocimiento de voz
           href: how-to-specify-source-language.md
         - name: Mejora de la precisión con Habla personalizada
@@ -37,8 +33,6 @@
         - name: Uso de formatos de entrada de audio comprimidos
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
-        - name: Mejora de la precisión con listas de frases
-          href: how-to-phrase-lists.md
         - name: Selección de un dispositivo de entrada de micrófono específico
           href: how-to-select-audio-input-devices.md
         - name: Uso de detección automática de idioma de origen
@@ -47,6 +41,8 @@
           href: batch-transcription.md
     - name: Tutoriales
       items:
+        - name: Reconocimiento de voz almacenada en Blob Storage
+          href: quickstarts/from-blob.md
         - name: Mejora de la precisión con modelos de inquilino
           href: tutorial-tenant-model.md
     - name: Personalización

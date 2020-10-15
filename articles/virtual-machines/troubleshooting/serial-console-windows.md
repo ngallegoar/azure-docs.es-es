@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c5c139cb94358d70d1f23b68f2a369adb953da08
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9cf3f9a1cd933526c5e376d232fa5acbc97fad47
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325987"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969728"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola serie de Azure para Windows
 
@@ -189,7 +189,7 @@ Se muestra solamente información de mantenimiento cuando se conecta a una máqu
 SAC no ocupa toda el área de la consola serie en el explorador | Se trata de un problema conocido con Windows y el emulador de terminal. Estamos realizando un seguimiento de este problema con ambos equipos pero, por ahora, no hay ninguna medida de mitigación.
 No se puede escribir en el símbolo del sistema de SAC si la depuración del kernel está habilitada. | Conéctese mediante RDP a la máquina virtual y ejecute `bcdedit /debug {current} off` desde un símbolo del sistema con privilegios elevados. Si no puede conectarse mediante RDP, en su lugar puede conectar el disco del sistema operativo a otra máquina virtual de Azure y modificarlo mientras está conectado como un disco de datos mediante la ejecución de `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off` para, seguidamente, volver a intercambiar el disco.
 Pegar en PowerShell en SAC da como resultado un tercer carácter si el contenido original tenía un carácter repetido. | Una solución alternativa es ejecutar `Remove-Module PSReadLine` para descargar el módulo PSReadLine desde la sesión actual. Esta acción no eliminará ni desinstalará el módulo.
-Algunas entradas de teclado generan resultados extraños de SAC (por ejemplo, **[A**, **[3~** ). | Las secuencias de escape [VT100](https://aka.ms/vtsequences) no son compatibles con el símbolo del sistema de SAC.
+Algunas entradas de teclado generan resultados extraños de SAC (por ejemplo, **[A**, **[3~** ). | Las secuencias de escape [VT100](/windows/console/console-virtual-terminal-sequences) no son compatibles con el símbolo del sistema de SAC.
 El hecho de pegar cadenas largas no funciona. | La consola serie limita la longitud de las cadenas pegadas en el terminal a 2048 caracteres a fin de impedir que el ancho de banda del puerto serie se sobrecargue.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes

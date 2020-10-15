@@ -1,26 +1,18 @@
 ---
 title: SAP Business One en Azure Virtual Machines | Microsoft Docs
 description: SAP Business One en Azure.
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
-manager: patfilot
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccec58f012dcd4b6371c15e79fa964600e775f54
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.reviewer: cynthn
+ms.openlocfilehash: caabaa6fbf65787f90c0033a06af26996c2388f2
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654657"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994107"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One en Azure Virtual Machines
 En este documento se ofrecen instrucciones para implementar SAP Business One en Azure Virtual Machines. La documentación no es un sustituto de la documentación de instalación de Business One para SAP. La documentación debe cubrir las instrucciones básicas de planeación e implementación de la infraestructura de Azure en la que se ejecutan las aplicaciones de Business One.
@@ -95,7 +87,7 @@ La infraestructura de red que necesita para implementar en Azure depende de si i
 En la configuración simplificada que se describe se presentan varias instancias de seguridad que permiten controlar y limitar el enrutamiento. Comienza con 
 
 - El enrutador o firewall en el lado local del cliente.
-- La siguiente instancia es el [Grupo de seguridad de red de Azure](../../../virtual-network/security-overview.md), que se puede usar para agregar las reglas de enrutamiento y seguridad para la red virtual de Azure en la que se ejecuta la configuración de SAP Business One.
+- La siguiente instancia es el [Grupo de seguridad de red de Azure](../../../virtual-network/network-security-groups-overview.md), que se puede usar para agregar las reglas de enrutamiento y seguridad para la red virtual de Azure en la que se ejecuta la configuración de SAP Business One.
 - Para evitar que los usuarios del cliente de Business One también puedan ver el servidor que ejecuta el servidor de Business One, que ejecuta la base de datos, debe separar la máquina virtual en la que se hospeda el cliente de Business One y el servidor de Business One en dos subredes diferentes dentro de la red virtual.
 - Se volvería a usar el grupo de seguridad de Azure asignado a las dos subredes para limitar el acceso al servidor de Business One.
 
@@ -111,7 +103,7 @@ Para el tipo de base de datos, están disponibles SQL Server y SAP HANA. Con ind
 
 Aunque ya se destaca en los documentos de base de datos genéricos y específicos, debería estar familiarizado con lo siguiente:
 
-- [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../../windows/manage-availability.md) y [Administración de la disponibilidad de máquinas virtuales Linux en Azure](../../linux/manage-availability.md)
+- [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../../manage-availability.md) y [Administración de la disponibilidad de máquinas virtuales Linux en Azure](../../manage-availability.md)
 - [Contrato de nivel de servicio para Máquinas virtuales](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 Estos documentos le ayudarán a decidir la selección de los tipos de almacenamiento y la configuración de alta disponibilidad.
