@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3c7f9ed9558adc9d129d1df767a05aff1fa4c66c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328503"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047393"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Migración de una instancia de Azure Digital Twins a otra región de Azure
 
@@ -49,18 +49,18 @@ Estas son algunas preguntas que puede plantearse:
     - Device Provisioning Service (DPS)
 * ¿Qué otras **aplicaciones personales o empresariales** tengo que conectar a mi instancia?
 
-Esta información puede recopilarla mediante el ejemplo de [Azure Portal](https://portal.azure.com), las [API y los SDK de Azure Digital Twins](how-to-use-apis-sdks.md), los [comandos de la CLI de Azure Digital Twins](how-to-use-cli.md) o el [Explorador de Azure Digital Twins (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Esta información puede recopilarla mediante el ejemplo de [Azure Portal](https://portal.azure.com), las [API y los SDK de Azure Digital Twins](how-to-use-apis-sdks.md), los [comandos de la CLI de Azure Digital Twins](how-to-use-cli.md) o el [Explorador de Azure Digital Twins (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 ## <a name="prepare"></a>Preparación
 
-En esta sección, se preparará para volver a crear la instancia mediante la **descarga de los modelos, gemelos y grafos originales** de la instancia original. En este artículo se realizará mediante el ejemplo de [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+En esta sección, se preparará para volver a crear la instancia mediante la **descarga de los modelos, gemelos y grafos originales** de la instancia original. En este artículo se realizará mediante el ejemplo de [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 >[!NOTE]
 >Es posible que ya tenga archivos que contengan los modelos o el grafo de la instancia. Si es así, no es necesario descargar todo de nuevo, solo las partes que faltan o cosas que pueden haber cambiado desde que se cargaron originalmente estos archivos (por ejemplo, los gemelos que pueden haberse actualizado con nuevos datos).
 
 ### <a name="limitations-of-adt-explorer"></a>Limitaciones de ADT Explorer
 
-El [ejemplo de Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) es un ejemplo de aplicación cliente que admite una representación visual del grafo y proporciona interacción visual con la instancia. En este artículo se muestra cómo usarlo para descargar y volver a cargar los modelos, gemelos y grafos.
+El [ejemplo de Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) es un ejemplo de aplicación cliente que admite una representación visual del grafo y proporciona interacción visual con la instancia. En este artículo se muestra cómo usarlo para descargar y volver a cargar los modelos, gemelos y grafos.
 
 Sin embargo, tenga en cuenta que se trata de un **ejemplo**, no de una herramienta completa. No se ha realizado una prueba de esfuerzo y no se ha creado para administrar grafos de gran tamaño. Por tanto, tenga en cuenta las siguientes limitaciones del ejemplo desde el principio:
 * Actualmente, el ejemplo solo se ha probado en tamaños de grafo de hasta 1000 nodos y 2000 relaciones
@@ -76,7 +76,7 @@ Si el ejemplo no puede controlar el tamaño del grafo, puede exportarlo e import
 
 Para continuar con ADT Explorer, descargue el código de aplicación de ejemplo y prepárelo para ejecutarlo en su máquina. 
 
-Vaya al ejemplo este: [Explorador de Azure Digital Twins (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Presione el botón *Descargar archivo ZIP* para descargar el archivo *.ZIP* de este código de ejemplo en la máquina como _**ADT_Explorer.zip**_. Descomprima el archivo.
+Vaya al ejemplo este: [Explorador de Azure Digital Twins (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Presione el botón *Descargar archivo ZIP* para descargar el archivo *.ZIP* de este código de ejemplo en la máquina como _**ADT_Explorer.zip**_. Descomprima el archivo.
 
 A continuación, configure los permisos para que el Explorador de ADT se ejecute en la máquina. Para ello, siga los pasos descritos en la sección [*Establecimiento de los permisos de Explorador de ADT*](quickstart-adt-explorer.md#set-adt-explorer-permissions) del inicio rápido de Azure Digital Twins.
 
@@ -219,7 +219,7 @@ Después de completar este paso, la nueva instancia de la región de destino deb
 Para comprobar que la nueva instancia se ha configurado correctamente, puede usar las siguientes herramientas:
 * [**Azure Portal**](https://portal.azure.com) (adecuado para comprobar que la nueva instancia existe y que se encuentra en la región de destino correcta; también para comprobar los puntos de conexión y las rutas, y las conexiones a otros servicios de Azure)
 * Los [**comandos de la CLI** de Azure Digital Twins](how-to-use-cli.md) (adecuados para comprobar que la nueva instancia existe y que se encuentra en la región de destino correcta; también se pueden usar para comprobar los datos de la instancia)
-* [**Explorador de ADT**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (adecuado para comprobar los datos de la instancia, como modelos, gemelos y grafos)
+* [**Explorador de ADT**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (adecuado para comprobar los datos de la instancia, como modelos, gemelos y grafos)
 * Las [API y los SDK de Azure Digital Twins](how-to-use-apis-sdks.md) (adecuados para comprobar los datos de la instancia, como los modelos, gemelos y grafos; también para comprobar los puntos de conexión y las rutas).
 
 También puede intentar ejecutar cualquier aplicación personalizada o flujo de un extremo a otro que haya ejecutado con la instancia original, a fin de ayudarle a comprobar que están trabajando con la nueva instancia de forma correcta.

@@ -4,10 +4,10 @@ description: En este artículo se explica cómo supervisar y usar las copias de 
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: 29e09e502e83ea67af290f206ee0e68b847b2069
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90993656"
 ---
 # <a name="monitor-and-operate-backups-using-backup-center"></a>Supervisión y funcionamiento de copias de seguridad con el Centro de copias de seguridad

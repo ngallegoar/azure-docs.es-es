@@ -9,10 +9,10 @@ ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f708052e6c1b474d1447a352d10eb1defe311fc4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91024877"
 ---
 1. En el portal, haga clic en **+Crear un recurso**.
@@ -34,7 +34,7 @@ ms.locfileid: "91024877"
 
     Esta es la misma página pero con el nombre de dominio completo resaltado:
    
-   :::image type="content" source="./media/vpn-gateway-add-lng-rm-portal-include/create-local-gateway-fqdn.png" alt-text="Creación de la puerta de enlace de red local: Nombre de dominio completo":::
+   :::image type="content" source="./media/vpn-gateway-add-lng-rm-portal-include/create-local-gateway-fqdn.png" alt-text="Creación de la puerta de enlace de red local":::
    
    > [!NOTE]
    >

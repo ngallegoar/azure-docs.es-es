@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 22628af5b3e62edfc96699ad051b6a00cf9c1429
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 99a0805239ee2437ad6ec9ceb40cf45496a07850
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078937"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047665"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configuración de un entorno de aprendizaje automático en IoT Edge
 
@@ -26,7 +26,7 @@ Este artículo le ayuda a preparar un entorno para el desarrollo y la implementa
 
 Normalmente, este paso está a cargo de un desarrollador de nube. Algunos de los ejemplos de software también pueden resultar útiles para un científico de datos.
 
-Hemos creado un script de PowerShell que crea una máquina virtual de Azure con muchos de los requisitos previos ya configurados. La máquina virtual que se cree debe ser capaz de hacer frente a la [virtualización anidada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), motivo por el que elegimos el tamaño de máquina [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md).
+Hemos creado un script de PowerShell que crea una máquina virtual de Azure con muchos de los requisitos previos ya configurados. La máquina virtual que se cree debe ser capaz de hacer frente a la [virtualización anidada](../virtual-machines/windows/nested-virtualization.md), motivo por el que elegimos el tamaño de máquina [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md).
 
 La máquina virtual de desarrollo se configurará con:
 
@@ -38,7 +38,7 @@ La máquina virtual de desarrollo se configurará con:
 * [SDK de .NET Core](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.1.0)
+* [Azure PowerShell](/powershell/azure/?view=azps-1.1.0)
 * [Extensiones de VS Code](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Herramientas de Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -82,7 +82,7 @@ La máquina virtual tarda unos 30 minutos en crearse y configurarse.
 
    El script se ejecuta durante varios minutos mientras realiza los pasos siguientes:
 
-    1. Instala el [módulo Az de Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
+    1. Instala el [módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
     1. Le pide que inicie sesión en Azure.
     1. Confirma la información necesaria para crear la máquina virtual. Presione **y** o **ENTRAR** para continuar.
     1. Crea el grupo de recursos, en caso de que no exista.
@@ -215,7 +215,7 @@ En este artículo, creamos una instancia de IoT Hub y configuramos una ruta a un
 
 Para obtener más información acerca de los pasos descritos en esta parte del tutorial de Machine Learning en IoT Edge, consulte:
 
-* [Aspectos básicos de Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/)
+* [Aspectos básicos de Azure IoT](../iot-fundamentals/index.yml)
 * [Configuración del enrutamiento de mensajes con IoT Hub](../iot-hub/tutorial-routing.md)
 * [Creación de una instancia de IoT Hub mediante Azure Portal](../iot-hub/iot-hub-create-through-portal.md)
 

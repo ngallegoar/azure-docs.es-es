@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 471aa6e5297f8b68f08567a66e3f07e9688ca57e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 84e450a55f9482c3a713943adfcc4d7940ab873f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002937"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076715"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Administración de Cloud Services en Azure Portal
 En el área de **Cloud Services** de Azure Portal, puede:
@@ -83,7 +83,7 @@ Tenga en cuenta que las actualizaciones del sistema operativo invitado y las ope
 
 **¿Un intercambio conlleva tiempo de inactividad de mi aplicación? ¿Cómo puedo controlarlo?**
 
-Como se ha descrito en la sección anterior, un intercambio de implementación suele ser rápido, ya que no es más que un cambio de configuración en Azure Load Balancer. En algunos casos, puede tardar diez segundos o más, y dar lugar a errores de conexión transitorios. Para limitar el impacto en los clientes, considere la posibilidad de implementar la [lógica de reintento del cliente](../best-practices-retry-general.md).
+Como se ha descrito en la sección anterior, un intercambio de implementación suele ser rápido, ya que no es más que un cambio de configuración en Azure Load Balancer. En algunos casos, puede tardar diez segundos o más, y dar lugar a errores de conexión transitorios. Para limitar el impacto en los clientes, considere la posibilidad de implementar la [lógica de reintento del cliente](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="delete-deployments-and-a-cloud-service"></a>Eliminación de implementaciones y un servicio en la nube
 Antes de que pueda eliminar un servicio en la nube, debe eliminar cada implementación existente.
@@ -124,6 +124,3 @@ La hoja **Información general** tiene una barra de estado en la parte superior.
 * Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configuración de [certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
-
-
-

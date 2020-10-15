@@ -9,10 +9,10 @@ ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: bc9e18427bb3b8094911d2ac7f285d271ecd1a21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91025304"
 ---
 1. En el menú de [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso**.
@@ -36,7 +36,7 @@ ms.locfileid: "91025304"
 
    Esta es la misma página pero con el nombre de dominio completo resaltado:
 
-   :::image type="content" source="./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-gateway-fqdn.png" alt-text="Creación de una puerta de enlace de red local con un nombre de dominio completo":::
+   :::image type="content" source="./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-gateway-fqdn.png" alt-text="Creación de una puerta de enlace de red local con una dirección IP":::
 
    > [!NOTE]
    >
