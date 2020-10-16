@@ -65,7 +65,7 @@
             - name: Administración del grupo de máquinas virtuales
               href: how-to-manage-vm-pool-within-teams.md
             - name: Eliminación de laboratorios
-              href: how-to-get-started-create-lab-within-teams.md#deleting-classroom-labs
+              href: how-to-delete-lab-within-teams.md
             - name: Programaciones y configuración
               href: how-to-create-schedules-within-teams.md
             - name: Acceso a una máquina virtual (vista de alumno)

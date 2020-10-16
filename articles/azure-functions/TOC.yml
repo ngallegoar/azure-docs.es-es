@@ -381,7 +381,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md
@@ -494,7 +494,16 @@
               href: functions-bindings-signalr-service-output.md
               displayName: SignalR Service
         - name: Almacenamiento de tablas
-          href: functions-bindings-storage-table.md
+          items:
+            - name: Información general
+              href: functions-bindings-storage-table.md
+              displayName: Table storage
+            - name: Entrada
+              href: functions-bindings-storage-table-input.md
+              displayName: Table storage
+            - name: Output
+              href: functions-bindings-storage-table-output.md
+              displayName: Table storage
         - name: Timer
           href: functions-bindings-timer.md
         - name: Twilio

@@ -168,6 +168,7 @@
         - name: Tareas de preparación y finalización de trabajos
           href: batch-job-prep-release.md
         - name: Tareas simultáneas en los nodos
+          displayName: concurrent
           href: batch-parallel-node-tasks.md
         - name: Dependencias de las tareas
           href: batch-task-dependencies.md
