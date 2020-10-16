@@ -1,4 +1,4 @@
-- name: Información general
+- name: Introducción
   items:
     - name: Introducción
       href: get-started.md
@@ -245,6 +245,12 @@
       href: ../../../site-recovery/site-recovery-workload.md#protect-sap
     - name: Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP
       href: sap-proximity-placement-scenarios.md
+- name: Plataforma de inteligencia empresarial SAP BusinessObjects en Azure
+  items:
+    - name: Guía de planificación e implementación de la plataforma de inteligencia empresarial SAP BusinessObjects en Azure
+      href: businessobjects-deployment-guide.md
+    - name: Guía de implementación de la plataforma de inteligencia empresarial SAP BusinessObjects para Linux en Azure
+      href: businessobjects-deployment-guide-linux.md
 - name: "Integración de Azure\_AD con aplicaciones de SAP"
   items:
     - name: Aprovisionamiento de usuarios de SAP SuccessFactors a Active Directory

@@ -230,12 +230,8 @@
               href: application-sign-in-problem-application-error.md
             - name: Problema al iniciar sesión en una aplicación de Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
-            - name: 'Problema con el inicio de sesión único federado: aplicaciones que no son de la galería'
-              href: application-sign-in-problem-federated-sso-non-gallery.md
-            - name: 'Problema con el inicio de sesión único federado: aplicaciones de la galería'
+            - name: Problema con el inicio de sesión único
               href: application-sign-in-problem-federated-sso-gallery.md
-            - name: Problema con una aplicación desarrollada de forma personalizada
-              href: application-sign-in-problem-custom-dev.md
         - name: Solución de problemas de aplicaciones locales
           items:
             - name: Solución de problemas del proxy de aplicación

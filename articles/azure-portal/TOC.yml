@@ -21,7 +21,7 @@
           href: quick-create-template.md
 - name: Conceptos
   items:
-    - name: Uso compartido de paneles con el control de acceso basado en rol
+    - name: Uso compartido de paneles con el control de acceso basado en roles de Azure
       href: azure-portal-dashboard-share-access.md
     - name: Creación mediante programación de paneles de Azure
       href: azure-portal-dashboards-create-programmatically.md

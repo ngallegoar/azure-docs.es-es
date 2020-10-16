@@ -12,12 +12,12 @@ metadata:
   author: mblythe
   ms.author: mblythe
   ms.date: 08/05/2020
-  ms.openlocfilehash: f45fc98073dcc6eeee10c691fe9f93860e0fb654
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 4a491a2924af90afc43ddb4aa097f9967c8f156a
+  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88212094"
+  ms.lasthandoff: 10/15/2020
+  ms.locfileid: "92089288"
 landingContent:
 - title: Acerca de Azure Portal
   linkLists:
@@ -43,13 +43,13 @@ landingContent:
     links:
     - text: Guarde en la lista de direcciones IP seguras las URL de Azure Portal
       url: azure-portal-safelist-urls.md
-    - text: Control de acceso basado en rol para paneles
+    - text: Control de acceso basado en rol de Azure para paneles
       url: azure-portal-dashboard-share-access.md
   - linkListType: learn
     links:
     - text: Administración de recursos en Azure
       url: /learn/paths/manage-resources-in-azure/
-    - text: Protección de los recursos de Azure con el control de acceso basado en rol (RBAC)
+    - text: Protección de los recursos de Azure con el control de acceso basado en roles de Azure (Azure RBAC)
       url: /learn//modules/secure-azure-resources-with-rbac/
 - title: Primeros pasos
   linkLists:
