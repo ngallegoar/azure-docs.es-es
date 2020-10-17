@@ -118,12 +118,12 @@
                   href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
                 - name: Autenticación con un token cuyo ámbito es el repositorio (versión preliminar)
                   href: container-registry-repository-scoped-permissions.md
-            - name: Control de acceso basado en rol
+            - name: Control de acceso basado en roles de Azure
               href: container-registry-roles.md
             - name: Confianza de contenido
               href: container-registry-content-trust.md
             - name: Digitalización de imágenes con Security Center
-              href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+              href: ../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json
         - name: Registros y otros servicios de Azure
           expanded: false
           items:

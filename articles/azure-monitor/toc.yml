@@ -293,7 +293,7 @@
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
                 - name: Plantilla de Resource Manager
-                  href: platform/template-workspace-configuration.md
+                  href: ./samples/resource-manager-workspace.md
             - name: Eliminación y recuperación de áreas de trabajo
               href: platform/delete-workspace.md
             - name: Administración del acceso
