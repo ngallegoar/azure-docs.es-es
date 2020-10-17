@@ -152,13 +152,31 @@
       href: concept-onnx.md
     - name: Canalizaciones de Machine Learning
       href: concept-ml-pipelines.md
-    - name: Preparación y seguridad para empresas
+    - name: Seguridad
       items:
         - name: Introducción sobre la seguridad en la empresa
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Línea de base de seguridad
           href: security-baseline.md
+    - name: Aprendizaje automático responsable
+      items:
+        - name: Introducción al aprendizaje automático responsable
+          displayName: 'responsible,ml'
+          href: concept-responsible-ml.md
+        - name: Interoperabilidad del modelo
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Imparcialidad en el aprendizaje automático
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: Privacidad diferencial
+          displayName: 'differential,privacy'
+          href: concept-differential-privacy.md
+- name: Guías paso a paso
+  items:
+    - name: Seguridad
+      items:
         - name: Administración de identidad y acceso
           items:
             - name: Configuración de la autenticación
@@ -212,22 +230,6 @@
         - name: Auditoría y administración del cumplimiento
           href: how-to-integrate-azure-policy.md
           displayName: policy
-    - name: Aprendizaje automático responsable
-      items:
-        - name: Introducción al aprendizaje automático responsable
-          displayName: 'responsible,ml'
-          href: concept-responsible-ml.md
-        - name: Interoperabilidad del modelo
-          displayName: explainability
-          href: how-to-machine-learning-interpretability.md
-        - name: Imparcialidad en el aprendizaje automático
-          displayName: fairness
-          href: concept-fairness-ml.md
-        - name: Privacidad diferencial
-          displayName: 'differential,privacy'
-          href: concept-differential-privacy.md
-- name: Guías paso a paso
-  items:
     - name: Creación y administración de áreas de trabajo
       items:
         - name: Usar Azure Portal

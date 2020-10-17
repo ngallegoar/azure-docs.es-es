@@ -2,7 +2,7 @@
   href: index.yml
 - name: Cambio a la documentación de Data Lake Storage Gen2
   href: ../storage/blobs/data-lake-storage-introduction.md
-- name: Introducción
+- name: Información general
   items:
     - name: ¿Qué es Data Lake Storage Gen1?
       href: data-lake-store-overview.md
@@ -22,6 +22,13 @@
       href: data-lake-store-get-started-powershell.md
     - name: Uso de la CLI de Azure
       href: data-lake-store-get-started-cli-2.0.md
+- name: Conceptos
+  items:
+    - name: Seguridad
+      items:
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
 - name: Procedimientos
   items:
     - name: Carga y movimiento de datos

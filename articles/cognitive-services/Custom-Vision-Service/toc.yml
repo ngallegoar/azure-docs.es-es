@@ -39,7 +39,7 @@
       href: use-prediction-api.md
     - name: Uso de Smart Labeler
       href: suggested-tags.md
-    - name: Control de acceso basado en roles.
+    - name: Control de acceso basado en roles de Azure
       href: role-based-access-control.md
     - name: Exportación de modelos
       items:

@@ -954,6 +954,8 @@
           href: ./domain-joined/apache-domain-joined-architecture.md
         - name: Arquitectura de red virtual de HDInsight
           href: ./hdinsight-virtual-network-architecture.md
+        - name: Private Link
+          href: ./hdinsight-private-link.md
         - name: Seguridad de la capa de transporte
           href: ./transport-layer-security.md
         - name: Planeación de redes virtuales para HDInsight
