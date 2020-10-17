@@ -686,11 +686,10 @@
           items:
             - name: Recomendaciones de seguridad
               href: security-recommendations.md
-            - name: Control de acceso (directorios y archivos)
+            - name: Modelo de control de acceso
+              href: data-lake-storage-access-control-model.md
+            - name: Listas de control de acceso
               href: data-lake-storage-access-control.md
-            - name: Controles de seguridad de Azure Policy
-              displayName: 'regulatory, compliance, standards, domains'
-              href: ./security-controls-policy.md
         - name: Compatibilidad
           items:
             - name: Acceso multiprotocolo

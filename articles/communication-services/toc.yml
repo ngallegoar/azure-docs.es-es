@@ -80,6 +80,10 @@
       href: concepts/event-handling.md
     - name: Notificaciones
       href: concepts/notifications.md
+    - name: Registro y diagnósticos
+      href: concepts/logging-and-diagnostics.md
+    - name: Métricas
+      href: concepts/metrics.md
 - name: Ejemplos
   items:
     - name: Ejemplo de elementos principales de una llamada grupal

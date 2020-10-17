@@ -28,6 +28,7 @@
     - name: Sitio HTML estático
       href: quickstart-html.md
     - name: Plantilla ARM
+      displayName: Resource Manager
       href: quickstart-arm-template.md
     - name: Contenedor personalizado
       href: quickstart-custom-container.md
@@ -108,7 +109,7 @@
           href: overview-security.md
     - name: Características de red
       items:
-        - name: Información general
+        - name: Introducción
           href: networking-features.md
         - name: Application Gateway con puntos de conexión de servicio
           href: networking/app-gateway-with-service-endpoints.md

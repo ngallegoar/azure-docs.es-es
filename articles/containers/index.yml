@@ -6,12 +6,12 @@ metadata:
   title: Documentación sobre Azure Container Service | Microsoft Docs
   description: Aprenda a usar Azure Container Service para administrar y desarrollar aplicaciones de contenedor basadas en la nube.
   ms.topic: hub-page
-  ms.openlocfilehash: a7b1480061a1482e5a7980fd89d9d28d89561d31
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: d62fbbd19c56e64f254037574c69ce6c949239ef
+  ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88080854"
+  ms.lasthandoff: 10/17/2020
+  ms.locfileid: "92151284"
 highlightedContent:
   items:
   - itemType: whats-new
@@ -44,10 +44,10 @@ conceptualContent:
     - url: /visualstudio/containers/overview-local-process-kubernetes
       itemType: concept
       text: Funcionamiento de Proceso local con Kubernetes
-    - url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+    - url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
       itemType: how-to-guide
       text: Uso de Proceso local con Kubernetes con Visual Studio Code
-    - url: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
+    - url: /visualstudio/containers/bridge-to-kubernetes
       itemType: how-to-guide
       text: Uso de Proceso local con Kubernetes con Visual Studio
   - title: Creación de aplicaciones web y móviles en la nube
@@ -64,10 +64,10 @@ conceptualContent:
     - url: ../app-service/quickstart-custom-container.md
       itemType: get-started
       text: Ejecución de un contenedor de Windows personalizado
-    - url: ../app-service/containers/quickstart-docker.md
+    - url: ../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux
       itemType: quickstart
       text: Ejecución un contenedor Linux personalizado
-    - url: ../app-service/containers/quickstart-multi-container.md
+    - url: ../app-service/quickstart-multi-container.md
       itemType: quickstart
       text: Creación de una aplicación de Linux con varios contenedores
     footerLink:
@@ -144,7 +144,7 @@ conceptualContent:
       itemType: tutorial
       text: Creación de un clúster de Red Hat OpenShift en Azure
     footerLink:
-      url: /azure/openshift/
+      url: ../openshift/index.yml
       text: Ver más
   - title: Desarrollo de aplicaciones sin servidor
     links:
