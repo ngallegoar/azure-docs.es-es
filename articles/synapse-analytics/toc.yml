@@ -348,7 +348,7 @@
                   href: sql/develop-storage-files-spark-tables.md
         - name: Administración de cargas de trabajo
           items:
-            - name: Información general
+            - name: Introducción
               href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Clasificación de la carga de trabajo
               href: ./sql-data-warehouse/sql-data-warehouse-workload-classification.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -482,7 +482,11 @@
               href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: "Conexión a Azure Synapse Link para Cosmos\_DB"
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-            - name: Consulta de un almacén analítico de Azure Cosmos DB con Apache Spark para Azure Synapse Analytics
+            - name: "Uso de Power\_BI y un grupo de SQL sin servidor para analizar Azure Cosmos\_DB"
+              href: ../cosmos-db/synapse-link-power-bi.mdtoc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: "Consulta de datos de Azure Cosmos\_DB con un grupo de SQL sin servidor"
+              href: ./sql/query-cosmos-db-analytical-store.md
+            - name: "Consulta de un almacén analítico de Azure Cosmos\_DB con Apache Spark"
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Copia de datos de Synapse Link a un grupo de SQL mediante Apache Spark
               href: ./synapse-link/how-to-copy-to-sql-pool.md
@@ -596,7 +600,7 @@
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure SQL Database
+            - name: "Azure\_SQL\_Database"
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

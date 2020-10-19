@@ -92,6 +92,8 @@
     - name: Diagnóstico automático y solución de problemas
       href: spring-cloud-howto-self-diagnose-solve.md
     - name: Supervisión
+    - name: Creación de roles y permisos
+      href: spring-cloud-howto-permissions.md
       items:
         - name: Seguimiento distribuido y Application Insights
           href: spring-cloud-tutorial-distributed-tracing.md

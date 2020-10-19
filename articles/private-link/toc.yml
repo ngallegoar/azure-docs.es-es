@@ -1,4 +1,4 @@
-- name: Documentación de Azure Private Link
+- name: Documentación de Private Link
   href: index.yml
 - name: Información general
   items:
@@ -24,6 +24,7 @@
     - name: 'Creación de un servicio Private Link: plantilla de Resource Manager'
       displayName: Resource Manager
       href: create-private-link-service-template.md
+  expanded: true
 - name: Tutoriales
   items:
     - name: Conexión a una cuenta de almacenamiento
@@ -42,7 +43,7 @@
       items:
         - name: Línea de base de seguridad
           href: security-baseline.md
-- name: Procedimientos
+- name: Instrucciones
   items:
     - name: Conexión privada a una aplicación web
       href: create-private-endpoint-webapp-portal.md
