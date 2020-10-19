@@ -11,83 +11,85 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2020
+ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: 8a999e2b5706c04b426f758ba46f49fb9f7e3057
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91438795"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018277"
 ---
-# <a name="azure-security-center-data-security"></a>Seguridad de datos de Azure Security Center
+# <a name="azure-security-center-data-security"></a>Seguridad de datos de Azure Defender
+
 Para ayudar a los clientes a evitar, detectar y responder a las amenazas, Azure Security Center recopila y procesa datos relacionados con la seguridad, entre los que se incluyen la información de configuración, los metadatos y los registros de eventos, entre otros. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.
 
-En este artículo se explica cómo se administran y protegen los datos en Azure Security Center.
+En este artículo se explica cómo se administran y protegen los datos en Defender.
 
 ## <a name="data-sources"></a>Orígenes de datos
-Azure Security Center analiza los datos de los orígenes siguientes para proporcionar visibilidad de su estado de seguridad, identificar vulnerabilidades y recomendar mitigaciones y detectar amenazas activas:
+En Defender se analizan los datos de los orígenes siguientes para proporcionar visibilidad de su estado de seguridad, identificar vulnerabilidades y recomendar mitigaciones y detectar amenazas activas:
 
-- Servicios de Azure: utiliza la información acerca de la configuración de los servicios de Azure que se hayan implementado mediante la comunicación con el proveedor de recursos de cada uno de dichos servicios.
-- Tráfico de red: usa metadatos muestreados del tráfico de red de la infraestructura de Microsoft, como la IP o el puerto de origen o destino, el tamaño de paquete y el protocolo de red.
-- Soluciones de asociados: usa alertas de seguridad de las soluciones de asociados integradas, como firewalls y soluciones antimalware.
-- Máquinas virtuales y servidores: usa la información de configuración y la información sobre eventos de seguridad, como los eventos y registros de auditoría de Windows, registros IIS y mensajes de Syslog de las máquinas virtuales. Además, cuando se crea una alerta, Azure Security Center puede generar una instantánea del disco de máquina virtual afectado y extraer los artefactos de máquina relacionados con la alerta desde el disco de máquina virtual, como un archivo de registro, para fines de análisis forense.
+- **Servicios de Azure**: utiliza la información acerca de la configuración de los servicios de Azure que se hayan implementado mediante la comunicación con el proveedor de recursos de cada uno de dichos servicios.
+- **Tráfico de red**: usa metadatos muestreados del tráfico de red de la infraestructura de Microsoft, como la IP o el puerto de origen o destino, el tamaño de paquete y el protocolo de red.
+- **Soluciones de asociados**: usa alertas de seguridad de las soluciones de asociados integradas, como firewalls y soluciones antimalware.
+- **Los equipos**: usa los detalles de configuración y la información sobre eventos de seguridad, como los eventos y registros de auditoría de Windows, y los mensajes de Syslog de las máquinas virtuales.
 
 
 ## <a name="data-protection"></a>Protección de los datos
-**Segregación de datos**: los datos se mantienen separados de forma lógica en cada componente a lo largo de todo el servicio. Todos los datos se etiquetan por organización. Este etiquetado persiste a lo largo del ciclo de vida de los datos y se aplica en cada nivel del servicio.
 
-**Acceso a datos**: para proporcionar recomendaciones de seguridad e investigar las posibles amenazas de seguridad, el personal de Microsoft puede obtener acceso a la información recopilada o analizada por los servicios de Azure, incluidos eventos de creación de proceso, artefactos e instantáneas de disco de máquina virtual, que de forma involuntaria pueden incluir datos de cliente o datos personales de sus máquinas virtuales. Cumplimos la [Declaración de privacidad y los Términos de Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), en donde se estipula que Microsoft no utilizará los datos de los clientes ni información derivada de ellos con fines comerciales, publicitarios o similares. Solo usamos los datos del cliente necesarios para proporcionar los servicios de Azure. El usuario conserva todos los derechos sobre los datos del cliente.
+### <a name="data-segregation"></a>Segregación de datos
+los datos se mantienen separados de forma lógica en cada componente a lo largo de todo el servicio. Todos los datos se etiquetan por organización. Este etiquetado persiste a lo largo del ciclo de vida de los datos y se aplica en cada nivel del servicio.
 
-**Uso de datos**: Microsoft utiliza los patrones y la información sobre amenazas vistos en varios inquilinos para mejorar las funcionalidades de detección y prevención; esto se realiza según lo dispuesto en los compromisos de privacidad que se describen en nuestra [declaración de privacidad](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
+### <a name="data-access"></a>Acceso a datos
+Para proporcionar recomendaciones de seguridad e investigar las posibles amenazas de seguridad, el personal de Microsoft puede obtener acceso a la información recopilada o analizada por los servicios de Azure, incluidos los eventos de creación de proceso y otros artefactos, que de forma involuntaria pueden incluir datos de cliente o datos personales de sus máquinas. 
 
-## <a name="data-location"></a>Ubicación de los datos
+Cumplimos el [anexo de protección de datos de Microsoft Online Services](https://www.microsoftvolumelicensing.com/Downloader.aspx?DocumentId=17880), en donde se estipula que Microsoft no utilizará los datos de los clientes ni información derivada de ellos con fines comerciales, publicitarios o similares. Solo usamos los datos del cliente necesarios para proporcionar los servicios de Azure. El usuario conserva todos los derechos sobre los datos del cliente.
 
-**Sus áreas de trabajo**: se especifica un área de trabajo para las siguientes geoáreas y datos recopilados de sus máquinas virtuales de Azure, como algunos tipos de datos de alerta, que se guardan en el área de trabajo más próxima.
+### <a name="data-use"></a>Uso de datos
+Microsoft utiliza los patrones y la información sobre amenazas vistos en varios inquilinos para mejorar las funcionalidades de detección y prevención; esto se realiza según lo dispuesto en los compromisos de privacidad que se describen en nuestra [declaración de privacidad](https://privacy.microsoft.com/privacystatement).
 
-| Geoárea de la máquina virtual                              | Geoárea del área de trabajo |
-|-------------------------------------|---------------|
-| Estados Unidos, Brasil, Canadá | Estados Unidos |
-| Canadá                              | Canadá        |
-| Europa (excepto el Reino Unido)   | Europa        |
-| Reino Unido                      | Reino Unido |
-| Asia (excepto India, Japón, Corea, China)   | Asia Pacífico  |
-| Corea                              | Asia Pacífico  |
-| India                               | India         |
-| Japón                               | Japón         |
-| China                               | China         |
-| Australia                           | Australia     |
+## <a name="manage-data-collection-from-machines"></a>Administración de recopilación de datos de máquinas
+Al habilitar Security Center en Azure, la recopilación de datos se activa para todas las suscripciones de Azure. También se puede habilitar la recopilación de datos para las suscripciones en Defender. Cuando se activa la recopilación de datos, Defender aprovisiona al agente de Log Analytics en todas las máquinas virtuales de Azure compatibles existentes y en las que se crean.
 
-
-Las instantáneas del disco de máquina virtual se almacenan en la misma cuenta de almacenamiento que el disco de máquina virtual.
-
-Para máquinas virtuales y servidores que se ejecutan en otros entornos, por ejemplo, de forma local, puede especificar el área de trabajo y la región donde almacenar los datos recopilados.
-
-**Azure Storage Security Center**: la información acerca de las alertas de seguridad, incluidas las alertas de los asociados, se almacena a nivel regional según la ubicación del recurso de Azure, mientras que la información sobre el estado de mantenimiento de seguridad y la recomendación se almacenan centralmente, ya sea en Estados Unidos o en Europa, en función de la ubicación del cliente. Los artefactos de la máquina se almacenan de forma centralizada en la misma región que la máquina virtual.
-
-## <a name="manage-data-collection-from-virtual-machines"></a>Administración de recopilación de datos de máquinas virtuales
-
-Al habilitar Security Center en Azure, la recopilación de datos se activa para todas las suscripciones de Azure. También se puede activar la recopilación de datos para las suscripciones en la sección "Directivas de seguridad" de Azure Security Center. Cuando se activa la recopilación de datos, Azure Security Center aprovisiona al agente de Log Analytics en todas las máquinas virtuales de Azure compatibles existentes y en las que se crean.
-El agente de Log Analytics busca diversos eventos y configuraciones relacionados con la seguridad y los envía a seguimientos de [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Además, el sistema operativo generará eventos del registro de eventos mientras la máquina se ejecute. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP, usuario conectado e identificador de inquilino. El agente de Log Analytics lee las entradas de los registros de eventos y los seguimientos de ETW, y los copia en las áreas de trabajo para el análisis. El agente de Log Analytics también habilita eventos de creación de procesos y la auditoría de línea de comandos.
+El agente de Log Analytics busca diversos eventos y configuraciones relacionados con la seguridad y los envía a seguimientos de [Seguimiento de eventos para Windows](https://docs.microsoft.com/windows/win32/etw/event-tracing-portal) (ETW). Además, el sistema operativo generará eventos del registro de eventos mientras la máquina se ejecute. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP, usuario conectado e identificador de inquilino. El agente de Log Analytics lee las entradas de los registros de eventos y los seguimientos de ETW, y los copia en las áreas de trabajo para el análisis. El agente de Log Analytics también habilita eventos de creación de procesos y la auditoría de línea de comandos.
 
 Si no utiliza Azure Defender, también puede deshabilitar la recopilación de datos de las máquinas virtuales en la directiva de seguridad. La recopilación de datos es necesaria para las suscripciones que están protegidas por Azure Defender. Las instantáneas de disco de máquina virtual y la recolección de artefactos continuará habilitada aunque la recopilación de datos se deshabilite.
 
-## <a name="data-consumption"></a>Consumo de datos
+Puede especificar el área de trabajo y la región donde se almacenan los datos recopilados de sus máquinas. El valor predeterminado es almacenar los datos recopilados de las máquinas en el área de trabajo más cercana, tal como se muestra en la tabla siguiente:
 
-Los clientes pueden utilizar Security Center en relación con datos de secuencias de datos diferentes, tal y como se muestra a continuación:
-
-* **Actividad de Azure**: todas las alertas de seguridad, solicitudes [Just-In-Time](security-center-just-in-time.md) de Security Center aprobadas y todas las alertas generadas por [controles de aplicaciones adaptables](security-center-adaptive-application.md).
-* **Registros de Azure Monitor**: todas las alertas de seguridad.
-
+| Geoárea de la máquina virtual                                      | Geoárea del área de trabajo  |
+|---------------------------------------------|----------------|
+| Estados Unidos, Brasil, Canadá         | Estados Unidos  |
+| Canadá                                      | Canadá         |
+| Europa (excepto el Reino Unido)           | Europa         |
+| Reino Unido                              | Reino Unido |
+| Asia (excepto India, Japón, Corea, China) | Asia Pacífico   |
+| Corea                                       | Asia Pacífico   |
+| India                                       | India          |
+| Japón                                       | Japón          |
+| China                                       | China          |
+| Australia                                   | Australia      |
+|                                             |                |
 
 > [!NOTE]
-> Las recomendaciones de seguridad pueden utilizarse también a través de la API de REST. Lea [Security Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) (Referencia de la API de REST del proveedor de recursos de seguridad) para más información.
+> **Azure Defender para Storage** almacena los artefactos en regiones según la ubicación del recurso de Azure relacionado. Más información en [Introducción a Azure Defender para Storage](defender-for-storage-introduction.md).
 
-## <a name="see-also"></a>Consulte también
-En este documento, se ha explicado cómo se administran y protegen los datos en Azure Security Center. Para más información sobre Azure Security Center, consulte:
 
-* [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md): aprenda a planear y conozca las consideraciones de diseño necesarias para usar Azure Security Center.
-* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
-* [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
-* [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
-* [Blog de seguridad de Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+## <a name="data-consumption"></a>Consumo de datos
+
+Los clientes pueden acceder a los datos relacionados de Defender desde los siguientes flujos de datos:
+
+
+| STREAM                                                                                | Tipos de datos                                                                                                                                                                                                          |
+|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Registro de actividad de Azure](../azure-monitor/platform/activity-log.md)                       | Todas las alertas de seguridad, las solicitudes de acceso [Just-In-Time](security-center-just-in-time.md) aprobadas de Defender y todas las alertas generadas por los [controles de aplicaciones adaptables](security-center-adaptive-application.md).|
+| [Registros de Azure Monitor](../azure-monitor/platform/data-platform.md)                      | Todas las alertas de seguridad.                                                                                                                                                                                                |
+| [Azure Resource Graph](../governance/resource-graph/overview.md)                      | Las alertas de seguridad, las recomendaciones de seguridad, los resultados de la evaluación de vulnerabilidades, la información de puntuación segura, el estado de las comprobaciones de cumplimiento, etc.                                                                       |
+| [API REST de Azure Security Center](https://docs.microsoft.com/rest/api/securitycenter/) | Las alertas de seguridad, las recomendaciones de seguridad y mucho más.                                                                                                                                                                |
+|                                                                                       |                                                                                                                                                                                                                     |
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En este documento, se ha explicado cómo se administran y protegen los datos en Azure Security Center. 
+
+Para más información sobre Azure Defender, consulte [¿Qué es Azure Defender?](security-center-introduction.md)

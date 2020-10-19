@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cc52610eacc3916b7a8978cba17a1db3f3d50686
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 899fddf08a817126ce775733da38ffd10ab3ab23
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447682"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952121"
 ---
 # <a name="azure-security-centers-overview-page"></a>Página de información general de Azure Security Center
 
@@ -38,9 +38,9 @@ La **barra de menús superior** ofrece:
 
 En el centro de la página, hay **cuatro iconos centrales**, y cada uno de ellos está vinculado a un panel dedicado para obtener más información:
 - **Puntuación de seguridad**: Security Center evalúa continuamente los recursos, las suscripciones y la organización en busca de problemas de seguridad. A continuación, agrega todos los resultados a una sola puntuación para que pueda conocer de un vistazo la situación de la seguridad actual: cuanto mayor sea la puntuación, menor será el nivel de riesgo identificado. [Más información](secure-score-security-controls.md).
-- **Cumplimiento**: Security Center proporciona información detallada acerca de su estado de cumplimiento de la norma, gracias a la valoración continua de su entorno de Azure. Security Center analiza los factores de riesgo en su entorno de nube híbrida según los procedimientos recomendados de seguridad. Estas valoraciones se asignan a los controles de cumplimiento desde un conjunto de estándares compatible. [Más información](security-center-compliance-dashboard.md)
+- **Cumplimiento**: Security Center proporciona información detallada acerca de su estado de cumplimiento de la norma, gracias a la valoración continua de su entorno de Azure. Security Center analiza los factores de riesgo en su entorno de nube híbrida según los procedimientos recomendados de seguridad. Estas valoraciones se asignan a los controles de cumplimiento desde un conjunto de estándares compatible. [Más información](security-center-compliance-dashboard.md).
 - **Azure Defender**: se trata de la plataforma de protección de cargas de trabajo en la nube (CWPP) integrada en Security Center para la protección avanzada e inteligente de las cargas de trabajo híbridas y de Azure. El icono muestra la cobertura de los recursos conectados (para las suscripciones seleccionadas actualmente) y las alertas recientes, codificadas con colores según la gravedad. [Más información](azure-defender.md).
-- **Inventario**: el icono muestra el número de máquinas virtuales no supervisadas y un barómetro sencillo de los recursos supervisados por Security Center. [Más información](asset-inventory.md).
+- **Inventario**: el icono muestra el número de máquinas virtuales no supervisadas y un barómetro sencillo de los recursos supervisados por Defender. [Más información](asset-inventory.md).
 
 
 En el panel de **Insights** se ofrecen elementos personalizados para su entorno, incluidos los siguientes:

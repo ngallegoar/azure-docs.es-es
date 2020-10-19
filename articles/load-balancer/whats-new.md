@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: ffea6cdd1c8558a07559829b025cb5338cc59ee3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3a20b69189226486de8cfceb95e2fa79a976cb12
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88586722"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91841040"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Novedades de Azure Load Balancer
 
@@ -29,6 +29,7 @@ También puede encontrar las últimas actualizaciones de Azure Load Balancer y s
 
 | Tipo |Nombre |Descripción  |Fecha de adición  |
 | ------ |---------|---------|---------|
+| Característica | Compatibilidad con movimientos entre grupos de recursos | Compatibilidad de Standard Load Balancer y direcciones IP públicas estándar para los [movimientos de grupos de recursos](https://azure.microsoft.com/updates/standard-resource-group-move/). | Octubre de 2020 |
 | Característica | Compatibilidad con la administración de grupos de back-end basada en IP (versión preliminar) | Azure Load Balancer permite agregar y quitar recursos de un grupo de back-end a través de direcciones IPv4 o IPv6. Esto permite la administración sencilla de contenedores, máquinas virtuales y conjuntos de escalado de máquinas virtuales asociados a Load Balancer. También permitirá reservar direcciones IP como parte de un grupo de back-end antes de que se creen los recursos asociados. Obtenga más información [aquí](backend-pool-management.md).|Julio de 2020 |
 | Característica| Información sobre Azure Load Balancer con Azure Monitor | Integrados como parte de Azure Monitor para redes, ahora los clientes cuentan con mapas topológicos de todas sus configuraciones de Load Balancer y paneles de mantenimiento de sus instancias de Standard Load Balancer preconfiguradas con métricas en Azure Portal. [Introducción y más información](https://azure.microsoft.com/blog/introducing-azure-load-balancer-insights-using-azure-monitor-for-networks/) | Junio de 2020 |
 | Validación | Incorporación de la validación para puertos de alta disponibilidad | Se ha agregado una validación para garantizar que las reglas de puerto de alta disponibilidad y las reglas que no son de este tipo solo se puedan configurar cuando se habilite la IP flotante. Anteriormente, esta configuración se procesaba, pero no funcionaba según lo previsto. No se realizó ningún cambio en la funcionalidad. Puede obtener más información [aquí](load-balancer-ha-ports-overview.md#limitations)| Junio de 2020 |

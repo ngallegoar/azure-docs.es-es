@@ -8,13 +8,17 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2519baa01fa9d8a13dd2e7855f9da3ec7f9093f9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89570146"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92038671"
 ---
+### <a name="is-azure-virtual-wan-in-ga"></a>¿Qué es Azure Virtual WAN en GA?
+
+Sí, Azure Virtual WAN está disponible con carácter general (GA). Sin embargo, Virtual WAN consta de varias características y escenarios. Hay características o escenarios dentro de Virtual WAN en los que Microsoft aplica la etiqueta de versión preliminar. En esos casos, la característica específica o el propio escenario se encuentra en versión preliminar. Si no usa una característica específica en versión preliminar, se aplica la compatibilidad GA normal. Para más información sobre la compatibilidad de la versión preliminar, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>¿El usuario necesita disponer de una topología radial con los dispositivos SD-WAN/VPN para usar Azure Virtual WAN?
 
 Virtual WAN proporciona muchas funcionalidades integradas en un único panel, como la conectividad VPN de sitio a sitio, la conectividad de usuario y P2S, la conectividad de ExpressRoute, la conectividad de Virtual Network, la interconectividad de ExpressRoute de VPN, la conectividad transitiva de red virtual a red virtual, el enrutamiento centralizado, Azure Firewall y la seguridad de Firewall Manager, la supervisión, el cifrado de ExpressRoute y muchas otras funcionalidades. No es necesario disponer de todos estos casos de uso para empezar a usar Virtual WAN. Puede empezar a trabajar con uno solo de estos. La arquitectura de Virtual WAN es una arquitectura de concentrador y radio con escalado y rendimiento integrados, donde las ramas (dispositivos VPN/SD-WAN), los usuarios (clientes de VPN de Azure, OpenVPN o IKEv2), los circuitos ExpressRoute y las instancias de Virtual Network sirven como radios para los centros de conectividad virtuales. Todos los centros de conectividad están conectados en una malla completa en una red WAN virtual estándar, lo que facilita al usuario el uso de la red troncal de Microsoft para la conectividad de cualquier tipo (cualquier radio). En el caso de la topología radial de los dispositivos SD-WAN/VPN, los usuarios pueden configurarla manualmente en el portal de Azure Virtual WAN o usar el CPE del asociado de Virtual WAN (SD-WAN/VPN) para configurar la conectividad con Azure. Los asociados de Virtual WAN proporcionan automatización de la conectividad, que es la capacidad de exportar la información del dispositivo a Azure, descargar la configuración de Azure y establecer la conectividad con el centro de conectividad de Azure Virtual WAN. Para la conectividad de punto a sitio/VPN de usuario, se admiten el [cliente de VPN de Azure](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN o IKEv2. 
@@ -224,7 +228,7 @@ Un centro de conectividad virtual puede propagar una ruta predeterminada aprendi
 Si un centro de conectividad virtual aprende la misma ruta de varios centros de conectividad remotos, el orden en el que decide es el siguiente:
 
 1. Coincidencia de prefijo más larga.
-2. Rutas locales en vez de rutas entre centros de conectividad.
+2. Rutas locales entre centros de conectividad (el centro virtual asigna 65520-65520 para AS entre centros de conectividad)
 3. Rutas estáticas en vez de BGP: en el contexto de la decisión tomada por el enrutador del centro de conectividad virtual. Sin embargo, si la decisión la toma VPN Gateway cuando un sitio anuncia rutas a través de BGP o proporciona prefijos de dirección estáticos, es posible que se prefieran rutas estáticas a rutas BGP.
 4. ExpressRoute (ER) en lugar de VPN: se prefiere ER frente a VPN cuando el contexto es un centro de conectividad local. La conectividad de tránsito entre circuitos ExpressRoute solo está disponible a través de Global Reach. Por lo tanto, en escenarios en los que el circuito ExpressRoute está conectado a un centro de conectividad y hay otro circuito ExpressRoute conectado a un centro de conectividad diferente con una conexión VPN, es posible que se prefiera la VPN para escenarios entre centros de conectividad.
 5. Longitud de la ruta de acceso del sistema autónomo.

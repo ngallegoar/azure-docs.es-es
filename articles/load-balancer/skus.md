@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 3509b99d1b222fc4f0bfa48effe42496c209d9ae
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8eb8be3307cf5e1df987f636be5c01cecaf4ae45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654487"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631450"
 ---
 # <a name="azure-load-balancer-skus"></a>SKU de Azure Load Balancer
 
@@ -54,7 +54,9 @@ Para más información, consulte [Límites del equilibrador de carga](https://do
 
 - Las SKU no son mutables. No se puede cambiar la SKU de un recurso existente.
 - Un recurso de máquina virtual independiente, un recurso de conjunto de disponibilidad o un recurso de conjunto de escalado de máquinas virtuales puede hacer referencia únicamente a una SKU, nunca a ambas.
-- Las [operaciones de traslado de suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md) no se admiten en Standard Load Balancer ni en los recursos de direcciones IP públicas estándar.
+- [Operaciones de movimiento](../azure-resource-manager/management/move-resource-group-and-subscription.md):
+  - Las operaciones de movimiento de grupos de recursos (dentro de la misma suscripción) **se admiten** para Standard Load Balancer y las direcciones IP pública estándar. 
+  - Las [operaciones de movimiento de suscripción](../azure-resource-manager/management/move-support-resources.md) **no** se admiten en Standard Load Balancer ni en los recursos de direcciones IP públicas estándar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
-title: Provisión de detalles de contacto de seguridad en Azure Security Center | Microsoft Docs
-description: En este documento se muestra cómo proporcionar detalles de contacto de seguridad en Azure Security Center.
+title: Configuración de las notificaciones por correo electrónico para las alertas de Azure Defender
+description: Obtenga información sobre cómo ajustar los tipos de los correos electrónicos enviados por Azure Defender para las alertas de seguridad.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,20 +11,23 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: aa35d1325e339af515c8bfc052d1af524b464e09
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ac50b17826f9f3d06d01d3cce9704094fddf1b1d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91446008"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945624"
 ---
-# <a name="set-up-email-notifications-for-security-alerts"></a>Configuración de notificaciones de alertas de seguridad por correo electrónico 
+# <a name="configure-email-notifications-for-security-alerts"></a>Configuración de notificaciones de alertas de seguridad por correo electrónico 
 
-Para garantizar que las personas adecuadas de la organización reciban notificaciones sobre las alertas de seguridad de su entorno, escriba sus direcciones de correo electrónico en la página de configuración **Notificaciones por correo electrónico**.
+Las alertas de seguridad deben llegar a las personas adecuadas de la organización. De forma predeterminada, Defender envía correos electrónicos a los propietarios de la suscripción cada vez que se desencadena una alerta de alta gravedad para su suscripción. En esta página se explica cómo personalizar estas notificaciones.
 
-Al configurar las notificaciones, puede configurar los correos electrónicos para que se envíen a usuarios específicos o a cualquier persona con un rol de Azure específico para una suscripción. 
+Para definir sus propias preferencias para los correos electrónicos de notificación, la página de configuración **Notificaciones por correo electrónico** de Azure Defender le permite elegir:
+
+- ***A quién* se debe notificar**: se pueden enviar mensajes de correo electrónico a usuarios individuales o a cualquier persona con un rol de Azure especificado para una suscripción. 
+- ***Qué* se les debe notificar**: modifique los niveles de gravedad para los que Defender debe enviar notificaciones.
 
 Para evitar un exceso de alertas, Security Center limita el volumen de correos salientes. Para cada suscripción, Security Center envía:
 
@@ -32,9 +35,8 @@ Para evitar un exceso de alertas, Security Center limita el volumen de correos s
 - un máximo de **dos** correos electrónicos al día para alertas de **gravedad media**
 - un máximo de **un** correo electrónico al día para alertas de **gravedad baja**
 
-
 :::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Configuración de los detalles de los contactos que recibirán correos electrónicos sobre las alertas de seguridad" :::
-
+ 
 ## <a name="availability"></a>Disponibilidad
 
 |Aspecto|Detalles|
@@ -42,27 +44,27 @@ Para evitar un exceso de alertas, Security Center limita el volumen de correos s
 |Estado de la versión:|Disponible con carácter general|
 |Precios:|Gratuito|
 |Roles y permisos necesarios:|**Administrador de seguridad**<br>**Propietario de la suscripción** |
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov (parcial)<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
 |||
 
 
-## <a name="set-up-email-notifications-for-alerts"></a>Configuración de notificaciones de correo electrónico para alertas <a name="email"></a>
+## <a name="customize-the-security-alerts-email-notifications"></a>Personalización de notificaciones de alertas de seguridad por correo electrónico<a name="email"></a>
 
 Puede enviar notificaciones por correo electrónico a individuos o a todos los usuarios con roles de Azure específicos.
 
-1. En el área **Precios y configuración** de Security Center, seleccione la suscripción correspondiente y **Notificaciones de correo electrónico**.
+1. En el área **Precios y configuración** de Defender, seleccione la suscripción correspondiente y **Notificaciones de correo electrónico**.
 
-1. Defina los destinatarios de las notificaciones:
+1. Defina los destinatarios de las notificaciones con una o ambas de estas opciones:
 
     - En la lista desplegable, seleccione entre los roles disponibles.
-    - También puede escribir direcciones de correo electrónico separadas por comas. No hay ningún límite en el número de direcciones de correo electrónico que se pueden escribir.
+    - Escriba direcciones de correo electrónico específicas, separadas por comas. No hay ningún límite en el número de direcciones de correo electrónico que se pueden escribir.
 
 1. Seleccione **Guardar** para aplicar la información de contacto de seguridad a su suscripción.
 
 
 ## <a name="see-also"></a>Consulte también
-Para más información sobre las alertas de seguridad, consulte los siguientes recursos:
+Para más información sobre las alertas de seguridad, consulte las siguientes páginas:
 
-* [Alertas de seguridad: una guía de referencia](alerts-reference.md): obtenga información sobre las alertas de seguridad que puede ver en el módulo de protección contra amenazas de Azure Security Center.
-* [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): aprenda a administrar y responder a alertas de seguridad.
-* [Automatización de flujos de trabajo](workflow-automation.md): automatice respuestas a alertas con lógica de notificación personalizada
+- [Alertas de seguridad: una guía de referencia](alerts-reference.md): obtenga información sobre las alertas de seguridad que puede ver en el módulo de protección contra amenazas de Azure Defender.
+- [Administración y respuesta a las alertas de seguridad en Azure Defender](security-center-managing-and-responding-alerts.md): aprenda a administrar y responder a alertas de seguridad.
+- [Automatización de flujos de trabajo](workflow-automation.md): automatice respuestas a alertas con lógica de notificación personalizada
