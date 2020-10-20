@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: aca16e334e594f8adf0c0a3b0354db827fc475fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9db530c1bdff6521c945ae0c2373bb9d32b8a476
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334009"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047784"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Inicio rápido: Creación de un equilibrador de carga público para equilibrar la carga de las VM con Azure PowerShell
 
@@ -1271,8 +1271,8 @@ En esta guía de inicio rápido
 * Configuró la regla de tráfico del equilibrador de carga y el sondeo de estado.
 * Probó el equilibrador de carga.
 
-Para más información sobre Azure Load Balancer, consulte [¿Qué es Azure Load Balancer?](load-balancer-overview.md) y [Preguntas frecuentes de Load Balancer](load-balancer-faqs.md).
-
-* Más información sobre [Load Balancer y zonas de disponibilidad](load-balancer-standard-availability-zones.md).
+Para más información acerca de Azure Load Balancer, continúe con
+> [!div class="nextstepaction"]
+> [¿Qué es Azure Load Balancer?](load-balancer-overview.md)
 
 

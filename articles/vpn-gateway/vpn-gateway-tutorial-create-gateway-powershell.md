@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 34aa805e6af68933326325587c0a442fe5e3652c
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 8e4c0174e9f5e1a15fe85d5744ddcb6ee21c4a86
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420662"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048277"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: Creación y administración de una puerta de enlace de VPN con PowerShell
 
@@ -28,7 +28,7 @@ En el siguiente diagrama se muestran la red virtual y la puerta de enlace de VPN
 
 ![VNet y VPN Gateway](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
-### <a name="working-with-azure-cloud-shell-and-azure-powershell"></a>Trabajo con Azure Cloud Shell y Azure PowerShell
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
@@ -184,9 +184,7 @@ En este tutorial, ha aprendido conceptos básicos sobre la creación y administr
 > * Cambio de tamaño de una puerta de enlace de VPN
 > * Restablecimiento de una instancia de VPN Gateway
 
-Avance a los siguientes tutoriales para aprender sobre las conexiones S2S, de red virtual a red virtual y P2S.
+Continúe con el siguiente tutorial:
 
 > [!div class="nextstepaction"]
-> * [Creación de conexiones S2S](vpn-gateway-tutorial-vpnconnection-powershell.md)
-> * [Creación de conexiones de red virtual a red virtual](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Creación de conexiones P2S](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Creación de una conexión](vpn-gateway-tutorial-vpnconnection-powershell.md)

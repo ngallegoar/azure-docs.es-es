@@ -3,12 +3,12 @@ title: Planificación de la implementación de Azure VMware Solution
 description: En este artículo se describe el flujo de trabajo de implementación de Azure VMware Solution.  El resultado final es un entorno listo para la creación y migración de máquinas virtuales (VM).
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: e279f14406d464171f0879d85cc33f9844d22ec3
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: fe1396c8f256ba8374208febad2afe03a453e5f5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802215"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055093"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planificación de la implementación de Azure VMware Solution
 
@@ -104,7 +104,7 @@ Para acceder a la nube privada de Azure VMware Solution, el circuito ExpressRout
 El circuito ExpressRoute de Azure VMware Solution se conecta a una puerta de enlace de ExpressRoute en la instancia de Azure Virtual Network que va a definir en este paso.  
 
 >[!IMPORTANT]
->Si elige una red virtual existente, debe seleccionar una que no tenga una subred de puerta de enlace ya existente.  
+>Puede usar una puerta de enlace de ExpressRoute existente para conectarse a Azure VMware Solution, siempre que no supere el límite de cuatro circuitos ExpressRoute por red virtual.  Sin embargo, para tener acceso a Azure VMware Solution desde el entorno local mediante ExpressRoute, debe tener Global Reach de ExpressRoute, ya que la puerta de enlace de ExpressRoute no proporciona enrutamiento transitivo entre sus circuitos conectados.  
 
 Si desea conectar el circuito ExpressRoute de Azure VMware Solution a una puerta de enlace de ExpressRoute existente, puede hacerlo después de la implementación.  
 

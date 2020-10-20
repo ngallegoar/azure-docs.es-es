@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 282ce16c926c61008d0ebd70106b161425a15c9e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 33d110f327a381241fd9dbf55996a6e3f9fd3a43
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89079088"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057984"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>Inicio rápido: Creación de una instancia de Azure Firewall con varias direcciones IP públicas: plantilla de Resource Manager
 
-En este inicio rápido, usará una plantilla de Azure Resource Manager para implementar una instancia de Azure Firewall con varias direcciones IP públicas. El firewall implementado tiene reglas de recopilación de reglas NAT que permiten conexiones RDP a dos máquinas virtuales Windows Server 2019.
+En este inicio rápido, se usa una plantilla de Azure Resource Manager para implementar una instancia de Azure Firewall con varias direcciones IP públicas desde un prefijo de direcciones IP públicas. El firewall implementado tiene reglas de recopilación de reglas NAT que permiten conexiones RDP a dos máquinas virtuales Windows Server 2019.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -42,6 +42,7 @@ La plantilla usada en este inicio rápido forma parte de las [plantillas de inic
 En la plantilla se definen varios recursos de Azure:
 
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/publicIPPrefix**](/azure/templates/microsoft.network/publicipprefixes)
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines):

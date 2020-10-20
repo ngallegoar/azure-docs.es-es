@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: Creación de una consulta compartida con plantillas'
 description: En este inicio rápido, se usa una plantilla de Azure Resource Manager para crear una consulta compartida de Resource Graph que cuenta las máquinas virtuales por sistema operativo.
-ms.date: 07/06/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: cc9da201b10b697f125e8ffe7402f23f5eaa8362
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a629dd5325fc20d6f173d9f4e0524885af8fdf49
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88685534"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057015"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Inicio rápido: Creación de una consulta compartida mediante una plantilla de Resource Manager
 
@@ -53,9 +53,9 @@ El recurso definido en la plantilla es el siguiente:
    | Suscripción | Seleccione su suscripción a Azure. |
    | Resource group | Seleccione **Crear**, especifique un nombre y seleccione **Aceptar**. |
    | Location | Seleccione una región. Por ejemplo, **Centro de EE. UU**. |
-   | Nombre de la consulta | Deje el valor predeterminado **Recuento de máquinas virtuales por sistema operativo**. |
-   | Código de consulta | Deje el valor predeterminado `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
-   | Descripción de la consulta | Deje el valor predeterminado **Esta consulta compartida cuenta todos los recursos de máquina virtual y resume el tipo de sistema operativo.** |
+   | Nombre de la consulta | Deje el valor predeterminado: **Número de máquinas virtuales por sistema operativo**. |
+   | Código de consulta | Deje el valor predeterminado: `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
+   | Descripción de la consulta | Deje el valor predeterminado: **esta consulta compartida cuenta todos los recursos de la máquina virtual y realiza el resumen por tipo de sistema operativo.** |
    | Acepto los términos y condiciones indicados anteriormente | (Seleccionar) |
 
 1. Seleccione **Comprar**.
@@ -75,7 +75,7 @@ Para ejecutar la nueva consulta compartida, siga estos pasos:
 
 1. Seleccione la consulta compartida denominada **Recuento de máquinas virtuales por sistema operativo** y, después, seleccione la pestaña **Resultados** en la página **Información general**.
 
-Como alternativa, la consulta compartida se puede abrir desde el explorador de Resource Graph:
+La consulta compartida se puede abrir desde Resource Graph Explorer:
 
 1. En la barra de búsqueda del portal, busque **Explorador de Resource Graph** y selecciónelo.
 
@@ -83,7 +83,7 @@ Como alternativa, la consulta compartida se puede abrir desde el explorador de R
 
 1. Cambie **Tipo** a _Consultas compartidas_. Si no ve **Recuento de máquinas virtuales por sistema operativo** en la lista, use el cuadro de filtro para limitar los resultados. Una vez que esté visible la consulta compartida **Recuento de máquinas virtuales por sistema operativo**, seleccione su nombre.
 
-1. Una vez cargada la consulta, seleccione el botón **Ejecutar consulta**. Los resultados se muestran en la pestaña **Resultados** que aparece a continuación.
+1. Una vez cargada la consulta, seleccione el botón **Ejecutar consulta**. Los resultados se muestran en la pestaña **Resultados**.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

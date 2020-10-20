@@ -1,14 +1,14 @@
 ---
 title: Ejemplos de consultas avanzadas
 description: Use Azure Resource Graph para ejecutar consultas avanzadas, incluido el trabajo con columnas, la enumeración de todas las etiquetas usadas y la coincidencia de los recursos con expresiones regulares.
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 8463880189a76f299ce5552fff2b7bccddfa8dec
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425303"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057151"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Ejemplos de consultas avanzadas de Resource Graph
 
@@ -625,9 +625,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-details-of-guest-configuration-assignment-reports"></a><a name="query-gcreports"></a>Consulta de detalles de los informes de asignaciones de configuración de invitado
 
-Se muestran informes con los detalles del [motivo de la asignación de la configuración de invitado](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration).
-En el ejemplo siguiente, la consulta devuelve solo los resultados en los que el nombre de la asignación de invitado es `installed_application_linux` y la salida contiene la cadena `Python` para enumerar todas las máquinas Linux en las que se ha instalado un paquete que incluye el nombre **Python**.
-Para consultar el cumplimiento de todas las máquinas de una asignación específica, quite la segunda cláusula `where`.
+Se muestran informes con los detalles del [motivo de la asignación de la configuración de invitado](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration). En el ejemplo siguiente, la consulta devuelve solo los resultados en los que el nombre de la asignación de invitado es `installed_application_linux` y la salida contiene la cadena `Python` para enumerar todas las máquinas Linux en las que se ha instalado un paquete que incluye el nombre **Python**. Para consultar el cumplimiento de todas las máquinas de una asignación específica, quite la segunda cláusula `where`.
 
 ```kusto
 GuestConfigurationResources
@@ -666,8 +664,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments"></a><a name="query-gcmachinedetails"></a>Búsqueda de todas las razones por las que una máquina no es compatible con las asignaciones de configuración de invitado
 
-Se muestran todas las [razones de la asignación de una configuración de invitado](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) en una máquina determinada.
-Quite la primera cláusula `where` para incluir también las auditorías en las que la máquina es compatible.
+Se muestran todas las [razones de la asignación de una configuración de invitado](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) en una máquina determinada. Quite la primera cláusula `where` para incluir también las auditorías en las que la máquina es compatible.
 
 ```kusto
 GuestConfigurationResources

@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: faf2257f944127748569466d314ff0a76faae4f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906731"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019382"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutorial: Uso de R para crear un modelo de Machine Learning (versión preliminar)
 
@@ -68,11 +68,11 @@ Use RStudio en una instancia de proceso de Azure ML para llevar a cabo este tut
 
 ## <a name="clone-the-sample-vignettes"></a><a name="azure"></a>Clonación de las viñetas de ejemplo 
 
-Clone el repositorio de GitHub https://github.com/azure/azureml-sdk-for-r para obtener una copia de los archivos de cada viñeta que se ejecutarán en este tutorial.
+Clone el repositorio de GitHub https://github.com/Azure/azureml-sdk-for-r para obtener una copia de los archivos de cada viñeta que se ejecutarán en este tutorial.
 
 1. En RStudio, vaya a la pestaña "Terminal" y use el comando cd para colocarse en el directorio en el que quiere clonar el repositorio.
 
-1. Ejecute "git clone https://github.com/Azure/azureml-sdk-for-r" en el terminal para clonar el repositorio.
+1. Ejecute `git clone https://github.com/Azure/azureml-sdk-for-r` en el terminal para clonar el repositorio.
 
 1. En RStudio, vaya a la carpeta *vignettes* de la carpeta clonada *azureml-sdk-for-r*.  En *vignettes*, seleccione el archivo *train-and-deploy-first-model.rmd* para buscar la viñeta que se usa en este tutorial. Los archivos adicionales que se usan para la viñeta se encuentran en la subcarpeta *train-and-deploy-first-model*. Una vez que haya abierto la viñeta, establezca el directorio de trabajo en la ubicación del archivo mediante **Sesión > Establecer el directorio de trabajo en la ubicación del archivo de origen**. 
 

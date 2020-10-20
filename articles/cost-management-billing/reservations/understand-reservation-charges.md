@@ -6,18 +6,18 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 10/13/2020
 ms.author: banders
-ms.openlocfilehash: 1df60eedfb776164be7e78f2994027b8d111828b
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 054641d8136d121e611182c8d8b104aefcbc6481
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681964"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057882"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-database"></a>Aplicación de un descuento de reserva en Azure SQL Database
 
-Después de comprar capacidad reservada en Azure SQL Database, el descuento de reserva se aplica automáticamente a las instancias que coincidan con los atributos y la cantidad de la reserva. Una reserva cubre los costos de proceso de la instancia de SQL Database. Se le cobra por el software, el almacenamiento y la administración de redes según las tarifas normales. Puede cubrir los costos de licencia de SQL Database con [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+Después de comprar capacidad reservada en Azure SQL Database, el descuento de reserva se aplica automáticamente a las instancias que coincidan con los atributos y la cantidad de la reserva. Se aplica una reserva a los costos de proceso de SQL Database, incluida la réplica principal y las réplicas secundarias facturables. Se le cobra por el software, el almacenamiento y la administración de redes según las tarifas normales. Puede cubrir los costos de licencia de SQL Database con [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Tenga en cuenta que los descuentos de reserva no se aplican a Azure SQL Database sin servidor.
 
@@ -31,17 +31,18 @@ Al cerrar un recurso, el descuento por reserva se aplica automáticamente a otro
 
 ## <a name="discount-applied-to-running-sql-databases"></a>Descuento aplicado a las base de datos SQL en ejecución
 
- El descuento sobre la capacidad reservada de SQL Database se aplica a las bases de datos SQL en ejecución por hora. La reserva que compra se compara con el uso de procesos que emiten las bases de datos SQL en ejecución. Si una base de datos SQL no se ejecuta durante una hora entera, su reserva se aplica automáticamente a otras bases de datos que coincidan con los atributos de reserva. El descuento se puede aplicar a bases de datos SQL en ejecución simultáneamente. Si no tiene bases de datos SQL que se ejecuten durante toda la hora y que coincidan con los atributos de reserva, no obtendrá todas las ventajas del descuento de reserva para esa hora.
+El descuento sobre la capacidad reservada de SQL Database se aplica a las bases de datos SQL en ejecución por hora. La reserva que compra se compara con el uso de procesos que emiten las bases de datos SQL en ejecución. Si una base de datos SQL no se ejecuta durante una hora entera, su reserva se aplica automáticamente a otras bases de datos que coincidan con los atributos de reserva. El descuento se puede aplicar a bases de datos SQL en ejecución simultáneamente. Si no tiene bases de datos SQL que se ejecuten durante toda la hora y que coincidan con los atributos de reserva, no obtendrá todas las ventajas del descuento de reserva para esa hora.
 
 En los ejemplos siguientes se muestra cómo se aplica el descuento en la capacidad reservada de SQL Database en función del número de núcleos adquiridos y su momento de ejecución.
 
-- Escenario 1: compra capacidad reservada de SQL Database para una instancia de 8 núcleos. Ejecuta una instancia de SQL Database con 16 núcleos que coincide con el resto de los atributos de la reserva. Se le cobra el precio de pago por uso de 8 núcleos por el proceso de SQL Database. Obtiene el descuento en la reserva para una hora de uso de proceso para una instancia de SQL Database de 8 núcleos.
+- Escenario 1: compra capacidad reservada de SQL Database para una instancia de 8 núcleos. Ejecuta una instancia de SQL Database con 16 núcleos que coincide con el resto de los atributos de la reserva. Se le cobra el precio de pago por uso de 8 núcleos por el proceso de SQL Database. Obtiene el descuento en la reserva para una hora de uso de proceso para una instancia de SQL Database de 8 núcleos.
 
 En el resto de estos ejemplos, suponemos que la capacidad reservada de SQL Database que compra es para una instancia de 16 núcleos y el resto de atributos de la reserva coinciden con las bases de datos SQL en ejecución.
 
 - Escenario 2: ejecuta dos bases de datos SQL con 8 núcleos cada una durante una hora. Se aplica el descuento en la reserva para 16 núcleos al uso de proceso para ambas bases de datos SQL de 8 núcleos.
 - Escenario 3: ejecuta una instancia de SQL Database de 16 núcleos desde las 13:00 hasta las 13:30. Ejecuta otra instancia de SQL Database de 16 núcleos de las 13:30 a las 14:00. Ambas están cubiertas por el descuento en la reserva.
 - Escenario 4: ejecuta una instancia de SQL Database de 16 núcleos desde las 13:00 hasta las 13:45. Ejecuta otra instancia de SQL Database de 16 núcleos de las 13:30 a las 14:00. Se le cobra el precio de pago por uso por el solapamiento de 15 minutos. El descuento en la reserva se aplica al uso de proceso por el resto del tiempo.
+- Escenario 5: Puede ejecutar la base de datos de Hiperescala de SQL de cuatro núcleos con tres réplicas secundarias, cada una con cuatro núcleos. La reserva se aplica al uso de proceso para el servidor principal y para todas las réplicas secundarias.
 
 Para obtener información sobre la aplicación de Azure Reservations en informes de uso de facturación, consulte el artículo [Información sobre el uso de Azure Reservations](understand-reserved-instance-usage-ea.md).
 

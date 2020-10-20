@@ -7,19 +7,63 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bc25a2ada3052689bc9dc4585c238fe19cb2a341
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: c375defe5fd8356d64879a65d6f09f40ea30271d
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087405"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042480"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configuración de firewalls y redes virtuales de Azure Key Vault
 
-En este artículo se describen las instrucciones paso a paso para configurar los firewalls y las redes virtuales de Azure Key Vault para restringir el acceso al almacén de claves. Los [puntos de conexión de servicio de red virtual para Key Vault](overview-vnet-service-endpoints.md) le permiten restringir el acceso a la red virtual especificada y a un conjunto de rangos de direcciones IPv4 (versión 4 del protocolo de Internet).
+En este artículo se proporcionan instrucciones sobre cómo configurar el firewall de Azure Key Vault. En este documento se describen las distintas configuraciones del firewall de Key Vault en detalle y se proporcionan instrucciones paso a paso sobre cómo configurar Azure Key Vault para que funcione con otras aplicaciones y servicios de Azure.
+
+## <a name="firewall-settings"></a>Configuración del firewall
+
+En esta sección se tratan las distintas formas en que se puede configurar el firewall de Azure Key Vault.
+
+### <a name="key-vault-firewall-disabled-default"></a>Firewall de Key Vault Firewall deshabilitado (opción predeterminada)
+
+De forma predeterminada, cuando se crea un nuevo almacén de claves, el firewall de Azure Key Vault está deshabilitado. Todas las aplicaciones y los servicios de Azure pueden acceder al almacén de claves y enviarle solicitudes. Tenga en cuenta que esta configuración no significa que cualquier usuario podrá realizar operaciones en el almacén de claves. El almacén de claves todavía se restringe a los secretos, las claves y los certificados almacenados en él al requerir permisos de directiva de acceso y autenticación de Azure Active Directory. Para comprender con más detalle la autenticación del almacén de claves, consulte [aquí](https://docs.microsoft.com/azure/key-vault/general/authentication-fundamentals) el documento sobre los aspectos básicos de la autenticación del almacén de claves.
+
+### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Firewall de Key Vault habilitado (solo servicios de confianza)
+
+Al habilitar el firewall de Key Vault, se le ofrecerá la opción de permitir que los servicios de confianza de Microsoft omitan este firewall. La lista de servicios de confianza no cubre todos los servicios de Azure. Por ejemplo, Azure DevOps no se encuentra en la lista de servicios de confianza. **Esto no implica que los servicios que no aparecen en la lista de servicios de confianza no sean de confianza o no sean seguros.** La lista de servicios de confianza abarca los servicios en los que Microsoft controla todo el código que se ejecuta en el servicio. Dado que los usuarios pueden escribir código personalizado en servicios de Azure como Azure DevOps, Microsoft no ofrece la opción de crear una aprobación global para el servicio. Además, que un servicio aparezca en la lista de servicios de confianza no significa que se permita en todos los escenarios.
+
+Para determinar si un servicio que está intentando usar está en la lista de servicios de confianza, consulte [aquí](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services) el siguiente documento.
+
+### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Firewall de Key Vault habilitado (intervalos y direcciones IPv4: direcciones IP estáticas)
+
+Si desea autorizar el acceso de un servicio determinado al almacén de claves a través del firewall de Key Vault, puede agregar su dirección IP a la lista de permitidos del firewall del almacén de claves. Esta configuración es la mejor para los servicios que usan direcciones IP estáticas o intervalos conocidos.
+
+Para permitir una dirección IP o un intervalo de direcciones de un recurso de Azure, como una aplicación web o una aplicación lógica, realice los pasos siguientes.
+
+1. Iniciar sesión en Azure Portal
+1. Seleccione el recurso (instancia específica del servicio).
+1. Haga clic en la hoja "Propiedades" en "Configuración".
+1. Busque el campo "Dirección IP".
+1. Copie este valor o intervalo y escríbalo en la lista de permitidos del firewall del almacén de claves.
+
+Para permitir un servicio completo de Azure a través del firewall de Key Vault, use la lista de direcciones IP de centros de datos documentadas públicamente para Azure que se encuentra [aquí](https://www.microsoft.com/download/details.aspx?id=41653). Busque las direcciones IP asociadas con el servicio que desea en la región que quiera y agregue esas direcciones IP al firewall del almacén de claves mediante los pasos anteriores.
+
+### <a name="key-vault-firewall-enabled-virtual-networks---dynamic-ips"></a>Firewall de Key Vault habilitado (redes virtuales: direcciones IP dinámicas)
+
+Si está intentando permitir un recurso de Azure como una máquina virtual a través de Key Vault, es posible que no pueda usar direcciones IP estáticas y que no desee permitir que todas las direcciones IP de Azure Virtual Machines tengan acceso al almacén de claves.
+
+En este caso, debe crear el recurso en una red virtual y, a continuación, permitir que el tráfico de la red virtual y la subred concretas acceda al almacén de claves. Para ello, siga estos pasos.
+
+1. Iniciar sesión en Azure Portal
+1. Seleccione el almacén de claves que desee configurar.
+1. Seleccione la hoja "Redes".
+1. Seleccione "+Agregar red virtual existente".
+1. Seleccione la red virtual y la subred que desee permitir a través del firewall del almacén de claves.
+
+### <a name="key-vault-firewall-enabled-private-link"></a>Firewall de Key Vault habilitado (Private Link)
+
+Para saber cómo configurar una conexión de vínculo privado en el almacén de claves, consulte este [documento](https://docs.microsoft.com/azure/key-vault/general/private-link-service).
 
 > [!IMPORTANT]
 > Una vez que las reglas del firewall están en vigor, los usuarios solo pueden realizar operaciones del [plano de datos](secure-your-key-vault.md#data-plane-access-control) de Key Vault cuando las solicitudes se originan desde redes virtuales o rangos de direcciones IPv4 permitidos. Esto también se aplica al acceso de Key Vault desde Azure Portal. Aunque los usuarios pueden ir a un almacén de claves desde Azure Portal, es posible que no pueda enumerar las claves, los secretos o los certificados si su equipo cliente no está en la lista de dispositivos permitidos. Esto también afecta al selector de Key Vault de otros servicios de Azure. Los usuarios podrían ver la lista de almacenes de claves, pero no enumerar las claves si las reglas del firewall limitan su equipo cliente.

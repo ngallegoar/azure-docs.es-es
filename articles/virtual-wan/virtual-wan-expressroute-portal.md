@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 1694c8a602315ab5f0ffa5d4e0bc218f03220c30
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7d880be6cbc37b273258075e6efc7a98d3478384
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91821890"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054821"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Cambiar el tamaño de una puerta de enlace
 > * Anunciar una ruta predeterminada
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar con la configuración, compruebe que se cumplen los criterios siguientes:
 
@@ -40,7 +40,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 * Obtenga un intervalo de direcciones IP para la región del concentrador. El centro de conectividad es una red virtual que Virtual WAN crea y usa. El intervalo de direcciones que especifique para el centro de conectividad no se puede superponer a ninguna de las redes virtuales existentes a las que ya esté conectado. Tampoco puede superponerse con los intervalos de direcciones a los que se conecta en el entorno local. Si no está familiarizado con los intervalos de direcciones IP ubicados en la configuración de la red local, póngase de acuerdo con alguien que pueda proporcionarle estos detalles.
 
-* El circuito ExpressRoute debe ser un circuito Premium o Standard para conectarse a la puerta de enlace del centro.
+* El circuito ExpressRoute debe ser un circuito Premium o Standard para conectarse a la puerta de enlace del centro de conectividad.
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -153,6 +153,17 @@ Si desea que el centro de conectividad virtual de Azure anuncie la ruta predeter
 
    ![Propagar la ruta predeterminada](./media/virtual-wan-expressroute-portal/defaultroute2.png "Propagar la ruta predeterminada")
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpieza de recursos
+
+Cuando ya no necesite estos recursos, puede usar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Virtual WAN, consulte la página [Introducción a Virtual WAN](virtual-wan-about.md).
+Más información sobre Virtual WAN en:
+
+> [!div class="nextstepaction"]
+> * [Preguntas más frecuentes sobre Virtual WAN](virtual-wan-faq.md)

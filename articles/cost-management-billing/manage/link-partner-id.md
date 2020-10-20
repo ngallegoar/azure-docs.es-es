@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6f8a7292ff21fbf287a4144abaf8e006513718e5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772726"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017019"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
@@ -134,7 +134,7 @@ Sí. El Id. de partner vinculado se puede cambiar, agregar o quitar.
 
 El vínculo entre el Id. de partner y la cuenta se realiza para cada inquilino de cliente. Vincule el Id. de partner en cada inquilino de cliente.
 
-Sin embargo, si va a administrar los recursos del cliente a través de Azure Lighthouse, debe crear el vínculo en el inquilino del proveedor de servicios y usar una cuenta que tenga acceso a los recursos del cliente. Para más información, consulte el artículo sobre la [vinculación de un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
+Sin embargo, si va a administrar los recursos del cliente a través de Azure Lighthouse, debe crear el vínculo en el inquilino del proveedor de servicios y usar una cuenta que tenga acceso a los recursos del cliente. Para más información, consulte [Vinculación de un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
 
 **¿Pueden otros partners o clientes editar o quitar el vínculo con el Id. de partner?**
 
@@ -164,7 +164,7 @@ Sí, puede vincular su identificador de asociado para Azure Stack.
 
 Si incorpora clientes a la administración de recursos delegados de Azure mediante la [publicación de una oferta de servicios administrados en Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md), el identificador de MPN se asociará automáticamente.
 
-Si [incorpora clientes mediante la implementación de plantillas de Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), deberá asociar el identificador de MPN con al menos una cuenta de usuario que tenga acceso a cada una de las suscripciones incorporadas. Tenga en cuenta que esto lo deberá realizar en el inquilino del proveedor de servicios, no en el de cada cliente. Para simplificar, se recomienda crear una cuenta de entidad de servicio en el inquilino, asociarla con el identificador de MPN y, después, concederle acceso a todos los clientes que incorpore con un [rol integrado de Azure que sea apto para el crédito obtenido por el asociado](/partner-center/azure-roles-perms-pec). Para más información, consulte el artículo sobre la [vinculación de un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
+Si [incorpora clientes mediante la implementación de plantillas de Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), deberá asociar el identificador de MPN con al menos una cuenta de usuario que tenga acceso a cada una de las suscripciones incorporadas. Tenga en cuenta que esto lo deberá realizar en el inquilino del proveedor de servicios, no en el de cada cliente. Para simplificar, se recomienda crear una cuenta de entidad de servicio en el inquilino, asociarla con el identificador de MPN y, después, concederle acceso a todos los clientes que incorpore con un [rol integrado de Azure que sea apto para el crédito obtenido por el asociado](/partner-center/azure-roles-perms-pec). Para más información, consulte [Vinculación de un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
 
 **¿Cómo se explica Vínculo de administración de asociados (PAL) a los clientes?**
 

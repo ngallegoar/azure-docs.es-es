@@ -3,19 +3,19 @@ title: 'Inicio rápido: Portal web de Metrics Advisor'
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo empezar a usar el portal web de Metrics Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
-ms.author: aahi
-ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: 0afd8fab6072e1563d2b2f277e8a53b56a8161c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631396"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048243"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Inicio rápido: Supervisión de su primera métrica con el portal web
 
@@ -41,7 +41,7 @@ En este documento se usa una instancia de SQL Database como ejemplo para crear e
 
 ## <a name="sign-in-to-your-workspace"></a>Inicio de sesión en su área de trabajo
 
-Una vez creado e implementado el recurso, inicie sesión en el [portal de Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2143774). Seleccione el área de trabajo para empezar a supervisar las métricas. 
+Una vez creado el recurso, inicie sesión en el [portal de Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2143774). Seleccione el área de trabajo para empezar a supervisar las métricas. 
  
 Actualmente, puede crear un recurso de Metrics Advisor en cada una de las regiones disponibles. Las áreas de trabajo se pueden cambiar en el portal de Metrics Advisor en cualquier momento.
 
