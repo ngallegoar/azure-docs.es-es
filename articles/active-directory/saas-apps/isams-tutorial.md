@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: e0226392ff96c6dc10cbd729135a15c066378f68
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5486752c8a1e36eba047ffd4d82b10cddfc771a1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552736"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850052"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-isams"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con iSAMS
 
@@ -132,16 +132,16 @@ En esta sección, va a permitir que B.Simon acceda a iSAMS mediante el inicio de
 1. Vaya al panel de control y abra el módulo **Autenticación**.
 1. En el menú de la derecha, seleccione **Proveedores de identidades**.
 
-    ![Configuración](./media/isams-tutorial/click-identity-provider.png)
+    ![Captura de pantalla Configuración de Active Directory con la opción Proveedores de identidades seleccionada.](./media/isams-tutorial/click-identity-provider.png)
 
 1. Seleccione **Agregar proveedor**.
 
-    ![Configuración](./media/isams-tutorial/add-identity-provider.png)
+    ![Captura de pantalla que muestra Proveedores de identidades con la opción Agregar proveedores seleccionada.](./media/isams-tutorial/add-identity-provider.png)
 
 
 1. En la página siguiente, realice estos pasos:
 
-    ![Configuración](./media/isams-tutorial/configure-isams.png)
+    ![Captura de pantalla que muestra el asistente para proveedores de identidades, donde puede realizar los pasos descritos.](./media/isams-tutorial/configure-isams.png)
 
     a. En el cuadro de texto **Nombre**, proporcione un nombre válido, como `Saml2 Azure`. Este es el nombre que aparecerá en la página de inicio de sesión.
 
@@ -159,12 +159,12 @@ En esta sección, va a permitir que B.Simon acceda a iSAMS mediante el inicio de
 
 2.  Vaya a **Control Panel Home** -> **Security & Permissions** -> **User Accounts** -> **User Options & Tasks** -> **Modify User Properties** (Ventana principal del panel de control > Seguridad y permisos > Cuentas de usuario > Opciones y tareas de usuario > Modificar propiedades de usuario).
 
-    ![Usuario de prueba](./media/isams-tutorial/modify-user-properties.png)
+    ![Captura de pantalla que muestra la página User Accounts (Cuentas de usuario) con la opción Modify User Properties (Modificar propiedades de usuario) seleccionada.](./media/isams-tutorial/modify-user-properties.png)
 
 
 3. En la ventana emergente resultante, seleccione la pestaña **Detalles de la cuenta** y cambie la **Autorización** a la del proveedor de identidades que acaba de crear.
 
-    ![Usuario de prueba](./media/isams-tutorial/account-details.png)
+    ![Captura de pantalla que muestra los detalles de la cuenta con un valor en Authorization (Autorización).](./media/isams-tutorial/account-details.png)
 
 4. Haga clic en **Guardar y cerrar**.
 

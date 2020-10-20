@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: ba3c504819eb30da8d21aa47aafc313d16eec51d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5271dbc5e571fdc624c6861c8919e11950320507
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550388"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutorial: Integración de Azure Active Directory con InstaVR Viewer
 
@@ -132,11 +132,11 @@ Para configurar el inicio de sesión único de Azure AD con InstaVR Viewer, real
 
 2. Haga clic en **Icono de usuario** y seleccione **Cuenta**.
 
-    ![Configuración de InstaVR Viewer](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
+    ![Captura de pantalla que muestra el sitio de InstaVR Viewer con un usuario seleccionado.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
 
 3. Desplácese hacia abajo hasta la opción **SAML Auth** (Autenticación de SAML) y realice los pasos siguientes:
 
-    ![Configuración de InstaVR Viewer](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
+    ![Captura de pantalla que muestra la página SAML Auth (Autenticación de SAML), donde puede especificar los valores que se describen en este paso.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
 
     a. En el cuadro de texto **URL de inicio de sesión único**, pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -211,15 +211,15 @@ En esta sección, se crea un usuario llamado Britta Simon en InstaVR Viewer. Ins
 
 2. Seleccione **Paquete** en el panel de navegación izquierdo y seleccione **Crear paquete para Web**.
 
-    ![Configuración de InstaVR Viewer](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
+    ![Captura de pantalla del sitio de InstaVR Viewer con las opciones Select Package (Seleccionar paquete) y Make package for Web (Crear paquete para Web) seleccionadas.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
 
 3. Seleccione **Descargar**.
 
-    ![Configuración de InstaVR Viewer](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
+    ![Captura de pantalla que muestra el icono de descarga seleccionado.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
 
 4. Seleccione **Abrir página hospedada**, tras lo cual se redirigirá a Azure AD para el inicio de sesión.
 
-    ![Configuración de InstaVR Viewer](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
+    ![Captura de pantalla que muestra la opción Open Hosted Page (Abrir página hospedada) seleccionada.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
 
 5. Escriba sus credenciales de Azure AD para iniciar sesión correctamente en Azure AD a través de Inicio de sesión único.
 

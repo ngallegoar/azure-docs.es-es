@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: d598017c8b41dffc486bfef4b9af63c6942cef58
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fde0bcdb70384e791d7337d212d7353b6ea168bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549805"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856417"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-learning"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con LinkedIn Learning
 
@@ -141,19 +141,19 @@ En esta sección, va a permitir que B.Simon use el inicio de sesión único de A
 
 2. En **Account Center** (Centro de cuentas), haga clic en **Global Settings** (Configuración global) en **Settings** (Configuración). Seleccione también **Learning - Default** (Learning - Predeterminado) en la lista desplegable.
 
-    ![Configurar inicio de sesión único](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+    ![Captura de pantalla que muestra Global Settings (Configuración global), donde puede seleccionar Default (Predeterminado).](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
 3. Haga clic en **OR Click Here to load and copy individual fields from the form** (O haga clic aquí para cargar y copiar campos individuales del formulario) y copie el **Id.de entidad** y la **Assertion Consumer Access (ACS) Url** (Url de Acceso de consumidor de aserciones [ACS]) en la sección **Configuración básica de SAML** de Azure Portal.
 
-    ![Configurar inicio de sesión único](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+    ![Captura de pantalla que muestra Inicio de sesión único donde puede escribir los valores descritos.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
 4. Vaya a la sección **LinkedIn Admin Settings** (Configuración de administrador de LinkedIn). Cargue el archivo XML que ha descargado de Azure Portal haciendo clic en la opción **Upload XML file** (Cargar archivo XML).
 
-    ![Configurar inicio de sesión único](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
+    ![Captura de pantalla que muestra la sección Configure the LinkedIn service provider S S O settings (Configurar valores de inicio de sesión único del proveedor de servicios de LinkedIn) donde puede cargar un archivo X M L.](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
 5. Haga clic en **On** (Activar) para habilitar SSO. El estado de SSO cambiará de **Not Connected** (No conectado) a **Connected** (Conectado).
 
-    ![Configurar inicio de sesión único](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
+    ![Captura de pantalla que muestra la opción Single Sign-On (Inicio de sesión único), donde puede habilitar Authenticate users with S S O (Autenticar usuarios con el inicio de sesión único).](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="create-linkedin-learning-test-user"></a>Creación de un usuario de prueba de LinkedIn Learning
 

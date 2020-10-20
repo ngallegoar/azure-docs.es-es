@@ -1,31 +1,29 @@
 ---
 title: Limpieza de un clúster independiente
-description: En este tutorial aprenderá a limpiar los recursos de AWS o de Azure del clúster de Service Fabric independiente.
-author: dkkapur
+description: En este tutorial aprenderá a eliminar los recursos de AWS o de Azure del clúster de Service Fabric independiente.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0d46e9068a311594f779411c3ccee2b408febb3f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75639027"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842893"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Tutorial: limpieza del clúster independiente
 
-Los clústeres de Service Fabric independientes ofrecen la opción de elegir un entorno propio y crear un clúster como parte del enfoque "Cualquier sistema operativo, cualquier nube" que toma Service Fabric. En esta serie de tutoriales se crea un clúster independiente hospedado en AWS o Azure y se instala en él una aplicación.
+Los clústeres de Service Fabric independientes ofrecen la opción de elegir un entorno propio para hospedar Service Fabric. En esta serie de tutoriales se crea un clúster independiente hospedado en AWS o Azure y se implementa en él una aplicación.
 
-Este tutorial es la cuarta parte de una serie. Esta parte del tutorial muestra cómo limpiar los recursos de AWS o de Azure que creó para hospedar el clúster de Service Fabric.
+Este tutorial es la cuarta parte de una serie. En esta parte del tutorial se muestra cómo eliminar los recursos de AWS o de Azure que se crearon para hospedar el clúster de Service Fabric.
 
-En la parte número cuatro de la serie, se aprende a:
+En este artículo aprenderá lo siguiente:
 
 > [!div class="checklist"]
-> * Limpiar un clúster de Service Fabric
-> * Limpiar los recursos de AWS o de Azure.
+> * Eliminación de un clúster de Service Fabric.
+> * Eliminación de los recursos de AWS o de Azure.
 
-## <a name="clean-up-service-fabric-cluster"></a>Limpiar un clúster de Service Fabric
+## <a name="remove-a-service-fabric-cluster"></a>Eliminación de un clúster de Service Fabric.
 
 1. Utilice RDP en la máquina virtual que usó para instalar Service Fabric.
 2. Abra PowerShell.
@@ -36,7 +34,7 @@ En la parte número cuatro de la serie, se aprende a:
   .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
   ```
 
-5. Escriba `Y` cuando se le solicite, si se realizó correctamente, la salida tendrá un aspecto similar al siguiente, con sus propias direcciones IP:
+5. Cuando se le solicite, escriba `Y`. Si se realizó correctamente, la salida tendrá un aspecto similar al siguiente (con sus propias direcciones IP):
 
   ```powershell
   Best Practices Analyzer completed successfully.
@@ -49,23 +47,23 @@ En la parte número cuatro de la serie, se aprende a:
   The cluster is successfully removed.
   ```
 
-## <a name="clean-up-aws-resources"></a>Limpieza de los recursos de AWS
+## <a name="delete-aws-resources"></a>Eliminación de los recursos de AWS
 
 1. Inicie sesión en la cuenta de AWS.
 2. Vaya a la consola de EC2.
 3. Seleccione los tres nodos que creó en la primera parte del tutorial.
-4. Haga clic en **Actions** > **Instance State** > **Terminate** (Acciones > Estado de instancia > Terminar).
+4. Seleccione **Actions** > **Instance State** > **Terminate** (Acciones > Estado de instancia > Terminar).
 
-## <a name="clean-up-azure-resources"></a>Limpieza de los recursos de Azure
+## <a name="delete-azure-resources"></a>Eliminación de recursos de Azure
 
 1. Inicie sesión en Azure Portal.
 2. Vaya a la sección **Máquinas virtuales**.
 3. Active las casillas de los tres nodos que creó en la primera parte del tutorial.
-4. Haga clic en **Eliminar**.
+4. Seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En la cuarta parte de la serie aprendió a limpiar los recursos que se crearon en los pasos anteriores.
+En este tutorial aprendió a eliminar los recursos que se crearon en los pasos anteriores.
 
 > [!div class="checklist"]
 > * Limpiar los recursos

@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
-ms.date: 05/26/2020
-ms.openlocfilehash: 2cfce37ff63a8321f40843ced2a7b786bcfc013e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/06/2020
+ms.openlocfilehash: 97b556e0329644b973def8333ddb5e70e370b0bc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88649634"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827045"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Inicio rápido: Creación de un registro de contenedor con replicación geográfica mediante una plantilla de Resource Manager
 
@@ -48,19 +48,22 @@ Encontrará más ejemplos de plantillas de Azure Container Registry en la [galer
 
     [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
- 2. Seleccione o escriba los siguientes valores.
+ 1. Seleccione o escriba los siguientes valores.
 
     * **Suscripción**: seleccione una suscripción de Azure.
     * **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y, después, seleccione **Aceptar**.
-    * **Ubicación**: seleccione una ubicación para el grupo de recursos. Ejemplo: **Centro de EE. UU.** .
+    * **Región**: seleccione la ubicación del grupo de recursos. Ejemplo: **Centro de EE. UU.** .
     * **Acr Name** (Nombre de Acr): acepte el nombre que se genera para el registro o escriba otro nombre. Debe ser único globalmente.
+    * **Acr Admin User Enabled** (Usuario administrador de ACR habilitado): acepte el valor predeterminado.
     * **Location** (Ubicación): acepte la ubicación que se genera para la réplica principal del registro, o bien especifique una ubicación como **Centro de EE. UU.** . 
+    * **Acr Sku** (SKU de ACR): acepte el valor predeterminado.
     * **Acr Replica Location** (Ubicación de réplica de Acr): escriba una ubicación para la réplica del registro, use el nombre corto de la región. No debe coincidir con la ubicación del registro principal. Ejemplo: **westeurope**.
-    * **Acepto los términos y condiciones indicados anteriormente**: Seleccionar.
 
         :::image type="content" source="media/container-registry-get-started-geo-replication-template/template-properties.png" alt-text="Propiedades de la plantilla":::
 
- 3. Si acepta los términos y condiciones, seleccione **Purchase** (Comprar). Cuando el registro se haya creado correctamente, recibirá una notificación:
+1. Seleccione **Revisar y crear** y revise los términos y condiciones. Si está de acuerdo, seleccione **Crear**.
+
+1. Cuando el registro se haya creado correctamente, recibirá una notificación:
 
      :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Propiedades de la plantilla":::
 
@@ -84,6 +87,8 @@ Use Azure Portal o una herramienta como la CLI de Azure para examinar las propie
 
 Cuando no los necesite, elimine el grupo de recursos, el registro y la réplica del registro. Para ello, vaya a Azure Portal, seleccione el grupo de recursos que contiene el registro y, luego, seleccione **Eliminar grupo de recursos**.
 
+Eliminación de un grupo de recursos
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido ha creado una instancia de Azure Container Registry con una plantilla de Resource Manager y ha configurado una réplica del registro en otra ubicación. Siga los tutoriales de Azure Container Registry para información más detallada de ACR.
@@ -94,4 +99,4 @@ En este inicio rápido ha creado una instancia de Azure Container Registry con u
 Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> Creación e implementación de su primera plantilla de Resource Manager[

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 18814d23c634dc58148c26b67c2f669e22a136ee
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4b84cbe57c40b12ae01952963b324b8bcfdcfd2e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554301"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945488"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nuclino"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Nuclino
 
@@ -155,15 +155,15 @@ En esta sección va a permitir que B.Simon acceda a Nuclino mediante el inicio d
 
 4. Haga clic en el **ICONO**.
 
-    ![Configuración de Nuclino](./media/nuclino-tutorial/configure1.png)
+    ![Captura de pantalla que muestra el icono de menú seleccionado junto a "Azure A D S S O" (Inicio de sesión único de Azure A D).](./media/nuclino-tutorial/configure1.png)
 
 5. Haga clic en **Inicio de sesión único de Azure AD** y seleccione **Configuración del equipo** en la lista desplegable.
 
-    ![Configuración de Nuclino](./media/nuclino-tutorial/configure2.png)
+    ![Captura de pantalla que muestra la lista desplegable "Azure A D S S O" (Inicio de sesión único de Azure A D) con la opción "Team settings" (Configuración del equipo) seleccionada.](./media/nuclino-tutorial/configure2.png)
 
 6. Seleccione **Autenticación** en el panel de navegación izquierdo.
 
-    ![Configuración de Nuclino](./media/nuclino-tutorial/configure3.png)
+    ![Captura de pantalla que muestra la opción "Authentication" (Autenticación) seleccionada.](./media/nuclino-tutorial/configure3.png)
 
 7. En la sección **Autenticación**, realice los pasos siguientes:
 

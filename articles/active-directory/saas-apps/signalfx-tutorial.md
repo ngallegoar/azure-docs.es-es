@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 3eae423763d2d4a05b33e4e1d4b6e9e087a47ba3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 989b41d4fc55241a5fa75a0eed9ea8f4ebaeee67
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521576"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856830"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SignalFx
 
@@ -159,7 +159,7 @@ Revise la siguiente información sobre cómo probar el inicio de sesión único,
         * Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 * Se puede acceder a la aplicación SignalFx desde el Panel de acceso o a mediante una página de inicio de sesión personalizada asignada a la organización. El usuario de prueba debe probar la integración a partir de cualquiera de estas ubicaciones.
-    * El usuario de prueba puede usar las credenciales creadas anteriormente en este proceso para **b.simon@contoso.com** .
+    * El usuario de prueba puede usar las credenciales creadas anteriormente en este proceso para **b.simon\@contoso.com**.
 
 ### <a name="first-time-logins"></a>Inicios de sesión por primera vez
 

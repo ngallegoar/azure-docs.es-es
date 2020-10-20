@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 14cb0d70e1c5ce2be0cf810e8a24d9bc596eeb6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b2d244fa6ea42a85483b3067cf58fc9384a86dee
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544067"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996581"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: integración de Azure Active Directory con OnTrack
 
@@ -118,7 +118,7 @@ Para configurar el inicio de sesión único de Azure AD con OnTrack, realice los
 
 5. La aplicación OnTrack espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Atributos de usuario" con el botón "Editar" seleccionado.](common/edit-attribute.png)
 
 6. Además de lo anterior, la aplicación OnTrack espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
 
@@ -132,7 +132,7 @@ Para configurar el inicio de sesión único de Azure AD con OnTrack, realice los
 
     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![imagen](common/new-save-attribute.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "User claims" (Reclamaciones de usuario) con las acciones "Add new claim" (Agregar nueva reclamación) y "Save" (Guardar) seleccionadas.](common/new-save-attribute.png)
 
     ![imagen](common/new-attribute-details.png)
 

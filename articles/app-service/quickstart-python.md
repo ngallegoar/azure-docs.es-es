@@ -5,19 +5,19 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
 zone_pivot_groups: python-frameworks-01
-ms.openlocfilehash: 0ce995bddb89ce6aa1a550971fbcd92c6515d58e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8a0cce6dd68513380759319c378d15aeb0e029c3
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264562"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813192"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Python en Azure App Service en Linux
 
 En este inicio rápido se implementa una aplicación web de Python en [App Service en Linux](overview.md#app-service-on-linux), un servicio de Azure de hospedaje de sitios web muy escalable y con aplicación automática de revisiones. La [interfaz de la línea de comandos (CLI) de Azure](/cli/azure/install-azure-cli) local se puede usar en un equipo Mac, Linux o Windows para implementar un ejemplo con los marcos Flask o Django. La aplicación web que va a configurar usa un nivel de App Service gratuito, por lo que no incurrirá en ningún gasto en el transcurso de este artículo.
 
 > [!TIP]
-> Si prefiere implementar aplicaciones mediante un entorno de desarrollo integrado, consulte **[Implementación de aplicaciones de Python en App Service desde Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** .
+> Si prefiere usar mejor Visual Studio Code, siga nuestro **[inicio rápido de App Service de Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** .
 
 ## <a name="set-up-your-initial-environment"></a>Configuración del entorno inicial
 
@@ -134,25 +134,9 @@ El ejemplo contiene código específico del marco que Azure App Service reconoce
     
 1. Ejecute el servidor de desarrollo.
 
-    # <a name="bash"></a>[Bash](#tab/bash)
-
-    ```bash
-    python3 manage.py runserver
+    ```terminal
+    python manage.py runserver
     ```
-
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-    ```powershell
-    py -3 manage.py runserver
-    ```
-
-    # <a name="cmd"></a>[Cmd](#tab/cmd)
-
-    ```cmd
-    py -3 manage.py runserver
-    ```
-
-    ---    
 
 1. Abra un explorador web y vaya a la aplicación de ejemplo en `http://localhost:8000/`. La aplicación muestra el mensaje **Hola mundo**.
 

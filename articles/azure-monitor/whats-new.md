@@ -6,16 +6,83 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: d82e9244152f1ecb78b062b4b1dbf02c45c505a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6722b88947fda8f1a09e540d69c4a8bec74143df
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325664"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842672"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novedades en la documentación de Azure Monitor
 
 En este artículo se enumeran los artículos de Azure Monitor que son nuevos o que se han actualizado de forma significativa. Se actualizará la primera semana de cada mes para que incluya las actualizaciones de artículos del mes anterior.
+
+## <a name="september-2020"></a>Septiembre de 2020
+
+### <a name="general"></a>General
+- [Preguntas frecuentes sobre Azure Monitor](faq.md): sección agregada sobre OpenTelemetry.
+
+### <a name="agents"></a>Agentes
+- [Información general del agente de Azure Monitor](platform/azure-monitor-agent-overview.md): se han agregado factores de decisión para cambiar al nuevo agente.
+- [Información general sobre los agentes de Azure Monitor](platform/agents-overview.md): se ha agregado compatibilidad con Windows 10.
+
+### <a name="alerts"></a>Alertas
+- [Creación de una alerta de registro con una plantilla de Azure Resource Manager](platform/alerts-log-create-templates.md): artículo nuevo.
+- [Solución de problemas en las alertas de métricas de Azure Monitor](platform/alerts-troubleshoot-metric.md): se ha agregado una sección sobre la exportación de plantillas de Resource Manager para una regla de alertas de métricas.
+
+### <a name="application-insights"></a>Application Insights
+- [Creación de recursos basados en áreas de trabajo de Application Insights para Azure Monitor](app/create-workspace-resource.md): se ha eliminado la designación de versión preliminar.
+- [Retención y almacenamiento de datos en Azure Application Insights](app/data-retention-privacy.md): se han agregado detalles sobre la nueva compatibilidad con la protección contra pérdida de datos en Mac y Linux.
+- [Contadores de eventos en Application Insights](app/eventcounters.md): se han agregado notas sobre los contadores recopilados de forma predeterminada.
+- [Métricas agregadas previamente y basadas en registros en Application Insights](app/pre-aggregated-metrics-log-metrics.md): se ha eliminado la designación de versión preliminar.
+- [Migración de recursos clásicos de Application Insights para Azure Monitor a recursos basados en el área de trabajo](app/convert-classic-resource.md): artículo nuevo.
+- [Supervisión de aplicaciones Java en cualquier entorno: Application Insights para Azure Monitor](app/java-in-process-agent.md): se ha actualizado para la nueva versión preliminar del agente.
+- [Configuración del análisis de aplicaciones web para ASP.NET con Azure Application Insights](app/asp-net.md): artículo escrito de nuevo.
+- [Canales de telemetría en Azure Application Insights](app/telemetry-channels.md): se han agregado detalles de la nueva compatibilidad con la protección contra la pérdida de datos en Mac y Linux.
+- [Solución de problemas de Snapshot Debugger de Azure Application Insights](app/snapshot-debugger-troubleshoot.md): se ha agregado la sección de SSL a la solución de problemas de Snapshot Debugger.
+- [Uso de Application Change Analysis en Azure Monitor para encontrar problemas de las aplicaciones web](app/change-analysis.md): se han agregado Virtual Machine y el registro de actividad.
+
+
+### <a name="containers"></a>Containers
+- [Configuración del clúster de Kubernetes habilitado para Azure Arc con Azure Monitor para contenedores](insights/container-insights-enable-arc-enabled-clusters.md): se han agregado instrucciones para habilitar la supervisión mediante la entidad de servicio.
+- [Implementación y métricas de HPA con Azure Monitor para contenedores](insights/container-insights-deployment-hpa-metrics.md): nuevo artículo.
+
+### <a name="insights-and-solutions"></a>Conclusiones y soluciones
+- [Azure Monitor para Azure Cache for Redis](insights/redis-cache-insights-overview.md): se ha eliminado la designación de versión preliminar.
+- [Azure Monitor para redes (versión preliminar)](insights/network-insights-overview.md): se han agregado las secciones Conectividad y Tráfico.
+- [Conector de Administración de servicios de TI: Exportación segura en Azure Monitor](platform/it-service-management-connector-secure-webhook-connections.md): artículo nuevo.
+- [Conector de Administración de servicios de TI en Azure Monitor](platform/itsmc-connections.md): nota sobre las integraciones de ITSM de Cherwell y Provance.
+- [Supervisión de Key Vault con Azure Monitor para Key Vault](insights/key-vault-insights-overview.md): se ha eliminado la designación de versión preliminar.
+
+### <a name="logs"></a>Registros
+- [Auditoría de las consultas en las consultas de registro de Azure Monitor](log-query/query-audit.md): artículo nuevo.
+- [Clave administrada por el cliente de Azure Monitor](platform/customer-managed-keys.md): se ha agregado la Caja de seguridad del cliente.
+- [Clústeres dedicados de registros de Azure Monitor](log-query/logs-dedicated-clusters.md): artículo nuevo.
+- [Diseño de la implementación de registros de Azure Monitor](platform/design-logs-deployment.md): se ha actualizado la sección de límite de frecuencia del volumen de escala e ingesta.
+- [Ámbito de consulta de registro en Log Analytics para Azure Monitor](log-query/scope.md): actualizaciones para incluir aplicaciones basadas en el área de trabajo.
+- [Registros de Azure Monitor](platform/data-platform-logs.md): actualizaciones para incluir aplicaciones basadas en el área de trabajo.
+- [Columnas estándar en registros de Azure Monitor](platform/log-standard-columns.md): actualizaciones para incluir aplicaciones basadas en el área de trabajo.
+- [Límites de servicio de Azure Monitor](service-limits.md): se han actualizado los límites de las consultas de usuario.
+- [Uso de cuentas de almacenamiento administradas por el cliente en Log Analytics para Azure Monitor](platform/private-storage.md): artículo escrito nuevamente.
+- [Visualización y análisis de datos en Azure Log Analytics](log-query/logs-structure.md): actualizaciones para incluir aplicaciones basadas en el área de trabajo.
+
+
+### <a name="platform-logs"></a>Registros de plataforma
+- [Esquema de eventos del registro de actividad de Azure: Azure Monitor](platform/activity-log-schema.md): se han agregado niveles de gravedad.
+- [Ejemplos de plantillas de Resource Manager para la configuración de diagnóstico](samples/resource-manager-diagnostic-settings.md): se ha agregado un ejemplo para las cuentas de almacenamiento de Azure.
+
+### <a name="visualizations"></a>Visualizaciones
+- [Visualizaciones de gráficos de libro de Azure Monitor](platform/workbooks-chart-visualizations.md): artículo nuevo.
+- [Representador de barra compuesta de libro de Azure Monitor](platform/workbooks-composite-bar.md): artículo nuevo.
+- [Visualizaciones de grafos de libro de Azure Monitor](platform/workbooks-graph-visualizations.md): artículo nuevo.
+- [Visualizaciones de cuadrículas de libro de Azure Monitor](platform/workbooks-grid-visualizations.md): artículo nuevo.
+- [Visualizaciones de panales de libro de Azure Monitor](platform/workbooks-honey-comb.md): artículo nuevo.
+- [Visualizaciones de texto de libro de Azure Monitor](platform/workbooks-text-visualizations.md): artículo nuevo.
+- [Visualizaciones de iconos de libro de Azure Monitor](platform/workbooks-tile-visualizations.md): artículo nuevo.
+- [Visualizaciones de árbol de libro de Azure Monitor](platform/workbooks-tree-visualizations.md): artículo nuevo.
+
+
+
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -381,7 +448,7 @@ Artículos nuevos y actualizados sobre reestructuración y consolidación del co
 - [Supervisión de aplicaciones de Python con Azure Monitor (versión preliminar)](app/opencensus-python.md): se han agregado métricas estándar.
 - [Compatibilidad del mapa de origen con las aplicaciones de JavaScript: Application Insights para Azure Monitor](app/source-map-support.md): nuevo artículo.
 
-### <a name="containers"></a>Contenedores
+### <a name="containers"></a>Containers
 
 - [Preguntas más frecuentes sobre Azure Monitor](faq.md): actualización de Azure Monitor para contenedores.
 - [Configuración de la supervisión de GPU con Azure Monitor para contenedores](insights/container-insights-gpu-monitoring.md): nuevo artículo.

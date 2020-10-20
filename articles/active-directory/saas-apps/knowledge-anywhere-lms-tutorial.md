@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 507298f323fe14e3b114afebed5f2f258145a76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bc820eb282d08c248b588aa926eb3fd837fe51c3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549949"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858139"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Tutorial: Integración de Knowledge Anywhere LMS con Azure Active Directory
 
@@ -111,19 +111,19 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 4. Seleccione en la pestaña **Sitio**.
 
-    ![Configuración de Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure1.png)
+    ![Captura de pantalla que muestra la pestaña Site (Sitio).](./media/knowledge-anywhere-lms-tutorial/configure1.png)
 
 5. Seleccione en la pestaña **Configuración de SAML**.
 
-    ![Configuración de Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure2.png)
+    ![Captura de pantalla que muestra la página de Knowledge Anywhere con la configuración de SAML seleccionada.](./media/knowledge-anywhere-lms-tutorial/configure2.png)
 
 6. Haga clic en **Agregar nuevo**.
 
-    ![Configuración de Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure3.png)
+    ![Captura de pantalla que muestra el botón Add New (Agregar nuevo) en la configuración del proveedor de servicios.](./media/knowledge-anywhere-lms-tutorial/configure3.png)
 
 7. En la página **Add/Update SAML Settings** (Agregar o actualizar la configuración de SAML), realice los pasos siguientes:
 
-    ![Configuración de Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure4.png)
+    ![Captura de pantalla que muestra la página Add/Update SAML Settings (Agregar o actualizar la configuración de SAML), donde puede realizar los cambios que se describen aquí.](./media/knowledge-anywhere-lms-tutorial/configure4.png)
 
     a. Escriba el nombre de IDP según su organización. Por ejemplo, `Azure`.
 

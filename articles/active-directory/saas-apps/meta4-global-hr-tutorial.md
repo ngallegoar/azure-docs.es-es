@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
-ms.openlocfilehash: a5d10d776de483919a64ccc46ca4cbb2b633f250
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6b8ea30e9d6c9b4557643d461d39b6375e987784
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552584"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta4-global-hr"></a>Tutorial: Integración de Azure Active Directory con Meta4 Global HR
 
@@ -103,13 +103,13 @@ Para configurar el inicio de sesión único de Azure AD con Meta4 Global HR, sig
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice el siguiente paso:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Meta4 Global HR](common/both-replyurl.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML para escribir el valor de Dirección URL de respuesta y seleccionar Guardar.](common/both-replyurl.png)
 
     En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.meta4globalhr.com/saml.sso/SAML2/POST`
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Meta4 Global HR](common/both-signonurl.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/both-signonurl.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.meta4globalhr.com`
 

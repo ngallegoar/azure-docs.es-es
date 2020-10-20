@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff2464705a770e257010347f0f04e9b695bb6e4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b462dff45263ba3f5e533cd6bd7c4ce089933f66
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540140"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855521"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Tutorial: Integración de Azure Active Directory con Lifesize Cloud
 
@@ -137,15 +137,15 @@ Para configurar el inicio de sesión único de Azure AD con Lifesize Cloud, siga
 
 2. En la esquina superior derecha, haga clic en su nombre y, después, en **Configuración avanzada**.
 
-    ![Configurar inicio de sesión único](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![Captura de pantalla que muestra el elemento de menú Advanced Settings (Configuración avanzada).](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
 3. En Configuración avanzada, haga clic en el vínculo **Configuración de SSO**. Se abrirá la página de configuración de SSO de la instancia.
 
-    ![Configurar inicio de sesión único](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![Captura de pantalla que muestra el elemento de menú Advanced Settings (Configuración avanzada), donde puede seleccionar S S O Configuration (Configuración de S S O).](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
 4. Ahora, configure los valores siguientes en la interfaz de configuración de SSO.
 
-    ![Configurar inicio de sesión único](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![Captura de pantalla que muestra la página S S O Configuration (Configuración de S S O) donde puede especificar los valores descritos.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
     a. En el cuadro de texto **Emisor de proveedor de identidades**, pegue el valor de **Identificador Azure AD** que ha copiado de Azure Portal.
 

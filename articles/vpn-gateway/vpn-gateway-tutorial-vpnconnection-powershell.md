@@ -5,15 +5,15 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 9b712c1b2e8ac33ec189542bf6f60929ac59858d
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 61e03f539f000b55ae00d90afa769ca9c1c30dc1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420564"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048294"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Tutorial: Creación y administración de conexiones VPN S2S mediante PowerShell
 
@@ -33,7 +33,7 @@ El siguiente diagrama muestra la topología de este tutorial:
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-## <a name="requirements"></a>Requisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Complete el primer tutorial: [Creación y administración de conexiones VPN de sitio a sitio con el módulo de Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) para crear los siguientes recursos:
 
@@ -242,8 +242,7 @@ En este tutorial, ha aprendido cómo crear y administrar conexiones VPN de sitio
 > * Agregar más conexiones VPN.
 > * Eliminar una conexión VPN.
 
-Avance a los siguientes tutoriales para aprender sobre las conexiones S2S, de red virtual a red virtual y P2S.
+A continuación, puede agregar una conexión P2S:
 
 > [!div class="nextstepaction"]
-> * [Creación de conexiones de red virtual a red virtual](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Creación de conexiones P2S](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

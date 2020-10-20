@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Creación de un plano técnico con la API de REST'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la API REST.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa25a65b20b295045b52a49c8c47fb8849c3cba3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85971205"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056998"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
@@ -329,7 +329,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
 - `{YourMG}`: reemplácelo por el identificador del grupo de administración
 - `{subscriptionId}`: reemplácelo por el identificador de suscripción
 
-1. Proporcione a la entidad de servicio de Azure Blueprint el rol de **propietario** en la suscripción de destino. El valor de AppId es estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), pero el identificador de la entidad de servicio varía según el inquilino. Los detalles se pueden solicitar para su inquilino mediante la API REST siguiente. Utiliza [Graph API de Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tiene una autorización diferente.
+1. Proporcione a la entidad de servicio de Azure Blueprint el rol de **propietario** en la suscripción de destino. El valor de AppId es estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), pero el identificador de la entidad de servicio varía según el inquilino. Los detalles se pueden solicitar para su inquilino mediante la API REST siguiente. Utiliza [Graph API de Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), que tiene una autorización diferente.
 
    - URI DE LA API REST
 

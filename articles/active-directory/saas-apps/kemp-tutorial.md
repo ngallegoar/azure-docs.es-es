@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 68869d464df01d3cc89493c64d66511b4a6f369d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 37b21a5e9e2839fba24b3dcc861fc7c42bdb4547
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300064"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945216"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Kemp LoadMaster
 
@@ -145,7 +145,7 @@ En esta sección va a permitir que B.Simon acceda a Kemp LoadMaster mediante el 
 
 1. Especifique los parámetros del servicio virtual.
 
-    ![Servidor web de Kemp LoadMaster](./media/kemp-tutorial/kemp-1.png)
+    ![Captura de pantalla que muestra la página "Please Specify the Parameters for the Virtual Service" (Especifique los parámetros del servicio virtual) con ejemplos de valores en los cuadros.](./media/kemp-tutorial/kemp-1.png)
 
     a. Virtual Address (Dirección virtual)
     
@@ -161,7 +161,7 @@ En esta sección va a permitir que B.Simon acceda a Kemp LoadMaster mediante el 
 
 1. Especifique los parámetros del servidor real.
     
-    ![Servidor web de Kemp LoadMaster](./media/kemp-tutorial/kemp-2.png)
+    ![Captura de pantalla que muestra la página "Please Specify the Parameters for the Real Server" (Especifique los parámetros del servidor real) con ejemplos de valores en los cuadros.](./media/kemp-tutorial/kemp-2.png)
 
     a. Seleccione Allow Remote Addresses (Permitir direcciones remotas).
     
@@ -203,7 +203,7 @@ En esta sección va a permitir que B.Simon acceda a Kemp LoadMaster mediante el 
 
 1. Haga clic en SSL Properties (Propiedades de SSL), que funciona en el nivel 7.
     
-    ![Servidor web de Kemp LoadMaster](./media/kemp-tutorial/kemp-3.png)
+    ![Captura de pantalla que muestra la sección "S S L Properties" (Propiedades de S S L) con la opción "S S L Acceleration - Enabled" (Aceleración de S S L: Habilitada) seleccionada y un certificado de ejemplo seleccionado.](./media/kemp-tutorial/kemp-3.png)
     
     a. Haga clic en Enabled (Habilitado) en SSL Acceleration (Aceleración de SSL).
     
@@ -222,7 +222,7 @@ Vaya a la consola web de Kemp LoadMaster.
 
 1. En Certificates and Authority (Certificados y autoridad), haga clic en Intermediate Certificates (Certificados intermedios).
 
-    ![Servidor web de Kemp LoadMaster](./media/kemp-tutorial/kemp-6.png)
+    ![Captura de pantalla que muestra la sección "Currently installed Intermediate Certificates" (Certificados intermedios instalados actualmente) con un certificado de ejemplo seleccionado.](./media/kemp-tutorial/kemp-6.png)
 
     a. Haga clic en Choose File (Elegir archivo) en Add a new Intermediate Certificate (Agregar nuevo certificado intermedio).
     
@@ -238,7 +238,7 @@ Vaya a la consola web de Kemp LoadMaster.
  
 Vaya a Manage SSO (Administrar SSO) en Virtual Services (Servicios virtuales).
 
-   ![Servidor web de Kemp LoadMaster](./media/kemp-tutorial/kemp-7.png)
+   ![Captura de pantalla que muestra la página "Manage S S O" (Administrar S S O).](./media/kemp-tutorial/kemp-7.png)
    
    a. En Add new Client Side Configuration (Agregar nueva configuración del lado cliente), haga clic en Add (Agregar) después de darle un nombre.
 
@@ -268,7 +268,7 @@ En la consola web de Kemp LoadMaster:
 
 1. Haga clic en Modify (Modificar) y vaya a ESP Options (Opciones de ESP).
     
-    ![Servidor web de Kemp LoadMaster](./media/kemp-tutorial/kemp-8.png)
+    ![Captura de pantalla que muestra la página "View/Modify Services" (Ver o modificar servicios) con las secciones "ESP Options" (Opciones de ESP) y "Real Servers" (Servidores reales) expandidas.](./media/kemp-tutorial/kemp-8.png)
 
     a. Haga clic en Enable ESP (Habilitar ESP).
     
@@ -286,7 +286,7 @@ Vaya a la dirección URL de la aplicación.
 
 Debería ver la página de inicio de sesión del inquilino en lugar del acceso no autenticado anterior. 
 
-![Servidor web de Kemp LoadMaster](./media/kemp-tutorial/kemp-9.png)
+![Captura de pantalla que muestra la página de inicio de sesión del inquilino.](./media/kemp-tutorial/kemp-9.png)
 
 ## <a name="configuring-kerberos-based-authentication"></a>Configuración de la autenticación basada en Kerberos 
  
@@ -294,7 +294,7 @@ Debería ver la página de inicio de sesión del inquilino en lugar del acceso n
 
 1. Cree una cuenta de usuario (en este ejemplo, AppDelegation).
     
-    ![Servidor web de Kemp LoadMaster](./media/kemp-tutorial/kemp-10.png)
+    ![Captura de pantalla que muestra la ventana "kcd user Properties" (Propiedades de usuario de kcd) con la pestaña "Cuenta" seleccionada.](./media/kemp-tutorial/kemp-10.png)
 
 
     a. Seleccione la pestaña Editor de atributos.
@@ -311,7 +311,7 @@ Debería ver la página de inicio de sesión del inquilino en lugar del acceso n
 
 1. Seleccione la pestaña Delegación.
 
-    ![Servidor web de Kemp LoadMaster](./media/kemp-tutorial/kemp-11.png)
+    ![Captura de pantalla que muestra la ventana "kcd user Properties" (Propiedades de usuario de kcd) con la pestaña "Delegación" seleccionada.](./media/kemp-tutorial/kemp-11.png)
 
     a. Seleccione Confiar en este usuario para la delegación solo a los servicios especificados.
 
@@ -332,7 +332,7 @@ Debería ver la página de inicio de sesión del inquilino en lugar del acceso n
 
 Vaya a la consola web de Kemp LoadMaster > Virtual Services Manage SSO (Servicios virtuales > Administrar SSO).
 
-![Servidor web de Kemp LoadMaster](./media/kemp-tutorial/kemp-12.png)
+![Captura de pantalla que muestra la página "Manage S S O: Manage Domain" (Administrar S S O: Administrar dominio).](./media/kemp-tutorial/kemp-12.png)
 
 a. Vaya a Server Side Single Sign On Configurations (Configuraciones de inicio de sesión único del lado servidor).
 

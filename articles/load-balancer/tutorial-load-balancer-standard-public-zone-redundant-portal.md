@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: f165064ed5b0583ebb469c47426a2b6403307971
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446091"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048362"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Load Balancer Estándar mediante Azure Portal
 
@@ -41,6 +41,10 @@ Si lo prefiere, puede realizar los pasos de este artículo con la [CLI de Azure]
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una suscripción de Azure
+
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
@@ -52,7 +56,7 @@ La versión Estándar de Load Balancer solo admite direcciones IP públicas est�
 1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Azure Load Balancer**.
 2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Suscripción               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLBAZ* en el cuadro de texto.|
@@ -231,8 +235,10 @@ Para ver cómo el equilibrador de carga reparte el tráfico entre las máquinas 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando no los necesite, elimine el grupo de recursos, el equilibrador de carga y todos los recursos relacionados. Para ello, seleccione el grupo de recursos que contiene el equilibrador de carga y haga clic en **Eliminar**.
+Cuando no los necesite, elimine el grupo de recursos, el equilibrador de carga y todos los recursos relacionados. Para ello, seleccione el grupo de recursos que contiene el equilibrador de carga y **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información acerca de [Load Balancer Estándar](load-balancer-standard-overview.md).
+Más información sobre el equilibrio de carga en las máquinas virtuales de una zona de disponibilidad específica.
+> [!div class="nextstepaction"]
+> [Equilibrio de carga en las máquinas virtuales de una zona de disponibilidad](tutorial-load-balancer-standard-public-zonal-portal.md)

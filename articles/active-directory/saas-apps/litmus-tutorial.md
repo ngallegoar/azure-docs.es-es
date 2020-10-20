@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 494a698ac4b6f8262851878cfee4bb91126d9f02
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a050f7a7d86ef8586cab3e90d9c1bac310a7f18b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823021"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854586"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Litmus
 
@@ -129,11 +129,11 @@ En esta sección, va a permitir que B.Simon acceda a Litmus mediante el inicio d
 
 1. Haga clic en **Security** (Seguridad) en el panel de navegación izquierdo.
 
-    ![Configuración de Litmus](./media/litmus-tutorial/security-img.png)
+    ![Captura de pantalla que muestra el elemento Security (Seguridad) seleccionado.](./media/litmus-tutorial/security-img.png)
 
 1. En la sección **Configure SAML Authentication** (Configurar autenticación SAML), realice los pasos siguientes:
 
-    ![Configuración de Litmus](./media/litmus-tutorial/configure1.png)
+    ![Captura de pantalla que muestra la sección Configure SAML Authentication (Configurar autenticación de SAML), donde puede especificar los valores descritos.](./media/litmus-tutorial/configure1.png)
 
     a. Active el conmutador **Enable SAML** (Habilitar SAML).
 
@@ -143,7 +143,7 @@ En esta sección, va a permitir que B.Simon acceda a Litmus mediante el inicio d
 
 1. Lleve a cabo los siguiente pasos:
 
-    ![Configuración de Litmus](./media/litmus-tutorial/configure3.png)
+    ![Captura de pantalla que muestra la sección donde puede escribir los valores descritos.](./media/litmus-tutorial/configure3.png)
 
     a. En el cuadro de texto **SAML 2.0 Endpoint(HTTP)** (Punto de conexión SAML 2.0 [HTTP]), pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -157,15 +157,15 @@ En esta sección, va a permitir que B.Simon acceda a Litmus mediante el inicio d
 
 1. Haga clic en **Accounts** (Cuentas) en el panel de navegación izquierdo.
 
-    ![Configuración de Litmus](./media/litmus-tutorial/accounts-img.png)
+    ![Captura de pantalla que muestra el elemento Accounts (Cuentas) seleccionado.](./media/litmus-tutorial/accounts-img.png)
 
 1. Haga clic en la pestaña **Add New User** (Agregar nuevo usuario).
 
-    ![Configuración de Litmus](./media/litmus-tutorial/add-new-user.png)
+    ![Captura de pantalla que muestra el elemento Add New user (Agregar nuevo usuario) seleccionado.](./media/litmus-tutorial/add-new-user.png)
 
 1. En la sección **Add User** (Agregar usuario), realice los pasos siguientes:
 
-    ![Configuración de Litmus](./media/litmus-tutorial/user-profile.png)
+    ![Captura de pantalla que muestra la sección Add User (Agregar usuario), donde puede especificar los valores descritos.](./media/litmus-tutorial/user-profile.png)
 
     a. En el cuadro de texto **Email** (Dirección de correo electrónico), escriba la dirección de correo electrónico del usuario, en este caso, **B.Simon\@contoso.com**.
 

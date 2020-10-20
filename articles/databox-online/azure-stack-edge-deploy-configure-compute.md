@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: b19bac439035da85d542d62f33e813822edc38d9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d2961bbf65fe1cf3ddf59c648f506cee85e248a5
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904593"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951628"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro
+# <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro
 
 En este tutorial se describe cómo configurar un rol de proceso en un dispositivo de Azure Stack Edge Pro. Una vez configurado el rol de proceso, Azure Stack Edge Pro puede transformar los datos antes de enviarlos a Azure.
 
@@ -55,11 +55,11 @@ Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hu
     |IoT Hub     | Elija entre **Nuevo** o **Existente**. <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que el recurso de Azure Stack Edge.     |
     |Nombre     |Escriba un nombre para el recurso de IoT Hub.         |
 
-    ![Introducción al proceso](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
+    ![Introducción al proceso 2](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
 
 4. Seleccione **Crear**. La creación del recurso de IoT Hub tarda unos minutos. Después de crear el recurso de IoT Hub, el icono **Configurar proceso** se actualiza para mostrar la configuración de proceso. Para confirmar que se ha configurado el rol de proceso perimetral, seleccione **Ver proceso** en el icono **Configurar proceso**.
     
-    ![Introducción al proceso](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
+    ![Introducción al proceso 3](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
     > [!NOTE]
     > Si el cuadro de diálogo **Configurar proceso** se cierra antes de que IoT Hub esté asociado con el dispositivo de Azure Stack Edge Pro, la instancia de IoT Hub se crea, pero no se muestra en la configuración de proceso. 
@@ -138,19 +138,19 @@ Para comprobar que el módulo se está ejecutando, haga lo siguiente:
  
 1. En el Explorador de archivos, conéctese a los recursos compartidos local perimetral y perimetral que creó anteriormente.
 
-    ![Comprobar transformación de datos](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
+    ![Comprobar transformación de datos 2](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
  
 1. Agregue datos al recurso compartido local.
 
-    ![Comprobar transformación de datos](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
+    ![Comprobar transformación de datos 3](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
  
     Los datos se mueven al recurso compartido en la nube.
 
-    ![Comprobar transformación de datos](./media/azure-stack-edge-deploy-configure-compute/verify-data-4.png)  
+    ![Comprobar transformación de datos 4](./media/azure-stack-edge-deploy-configure-compute/verify-data-4.png)  
 
     A continuación, los datos se trasladan del recurso compartido en la nube a la cuenta de almacenamiento. Para ver los datos vaya al Explorador de Storage.
 
-    ![Comprobar transformación de datos](./media/azure-stack-edge-deploy-configure-compute/verify-data-5.png) 
+    ![Comprobar transformación de datos 5](./media/azure-stack-edge-deploy-configure-compute/verify-data-5.png) 
  
 Ha completado el proceso de validación.
 

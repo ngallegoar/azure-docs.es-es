@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: beafff2276d0b6dc525b586fa2d5943675012981
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: efe4753e78c6dd16fa0b6ce3e98dd21ceae52577
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446109"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047818"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales mediante Azure Portal
 
@@ -630,5 +630,6 @@ En esta guía de inicio rápido:
 * Ha conectado dos máquinas virtuales al equilibrador de carga.
 * Ha configurado la regla de tráfico del equilibrador de carga, el sondeo de estado y, a continuación, ha probado el equilibrador de carga. 
 
-Para más información sobre Azure Load Balancer, consulte [¿Qué es Azure Load Balancer?](load-balancer-overview.md) y [Preguntas frecuentes de Load Balancer](load-balancer-faqs.md).
-
+Para más información acerca de Azure Load Balancer, continúe con
+> [!div class="nextstepaction"]
+> [¿Qué es Azure Load Balancer?](load-balancer-overview.md) 

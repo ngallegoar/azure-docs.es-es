@@ -1,14 +1,14 @@
 ---
 title: Introducción al ejemplo de plano técnico de Azure Security Benchmark
 description: Introducción al ejemplo de plano técnico de Azure Security Benchmark. Este ejemplo de plano técnico ayuda a los clientes a evaluar determinados controles concretos.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 4113f350c21087dbda5f69d9c3981e2d169ffc00
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6b147ffd4efbf814b6119f5d7e90dc7af2ea2687
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651908"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057593"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Ejemplo de plano técnico de Azure Security Benchmark
 
@@ -46,7 +46,7 @@ En primer lugar, implemente el ejemplo de plano técnico mediante la creación d
 
 1. Seleccione la pestaña _Artefactos_ en la parte superior de la página **Siguiente: Artefactos** en la parte inferior de la página.
 
-1. Revise la lista de artefactos que componen el ejemplo de plano técnico. Muchos de los artefactos tienen parámetros que se definirán más tarde. Seleccione **Guardar borrador** cuando haya terminado de revisar el ejemplo de plano técnico.
+1. Revise la lista de artefactos incluidos en el ejemplo de plano técnico. Muchos de los artefactos tienen parámetros que se definirán más tarde. Seleccione **Guardar borrador** cuando haya terminado de revisar el ejemplo de plano técnico.
 
 ### <a name="publish-the-sample-copy"></a>Publicación de la copia del ejemplo
 

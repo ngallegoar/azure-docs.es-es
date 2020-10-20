@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
-ms.openlocfilehash: cfa81b52e8479851fc22b12cbc96a9507f0b2dc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e49fc29f03269096bfc7d6bb6e905187bb8788ff
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551396"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944112"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Harness
 
@@ -138,15 +138,15 @@ En esta sección, va a permitir que B. Simon acceda a Harness mediante el inici
 
 4. En la parte superior derecha de la página, haga clic en **Continuous Security (Seguridad continua)**  > **Access Management (Administración de acceso)**  > **Authentication Settings (Configuración de autenticación)** .
 
-    ![Configuración de Harness](./media/harness-tutorial/configure01.png)
+    ![Captura de pantalla que muestra el menú "Continuous Security" (Seguridad continua) con las opciones "Access Management" (Administración de acceso) y "Authentication Settings" (Configuración de autenticación) seleccionadas.](./media/harness-tutorial/configure01.png)
 
 5. En la sección **SSO Providers** (Proveedores de inicio de sesión único), haga clic en **+ Add SSO Providers (+ Agregar proveedores de inicio de sesión único)**  > **SAML**.
 
-    ![Configuración de Harness](./media/harness-tutorial/configure03.png)
+    ![Captura de pantalla que muestra la sección "S S O Providers" (Proveedores de inicio de sesión único) con la opción "+ Add S S O Providers - S A M L" (+ Agregar proveedores de inicio de sesión único: S A M L) seleccionada.](./media/harness-tutorial/configure03.png)
 
 6. En el menú desplegable **SAML Provider** (Proveedor de SAML), lleve a cabo estos pasos:
 
-    ![Configuración de Harness](./media/harness-tutorial/configure02.png)
+    ![Capturar de pantalla que muestra el elemento emergente "S A M L Provider" (Proveedor de S A M L) con los campos "U R L" (Dirección U R L) y "Display Name" (Nombre para mostrar) resaltados y los botones "Choose File" (Elegir archivo) y "Submit" (Enviar) seleccionados.](./media/harness-tutorial/configure02.png)
 
     a. Copie la instancia de **In your SSO Provider, please enable SAML-based login, then enter the following URL** (En su proveedor de SSO, habilite el inicio dirección basado en SAML y, después, escriba la siguiente dirección URL de respuesta) y péguelo en el cuadro de texto Dirección URL de respuesta en **Configuración básica de SAML** en Azure Portal.
 
@@ -166,11 +166,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Harness, deben ap
 
 1. En la parte superior derecha de la página, haga clic en **Continuous Security (Seguridad continua)**  > **Access Management (Administración de acceso)**  > **Users (Usuarios)** .
 
-    ![Configuración de Harness](./media/harness-tutorial/configure04.png)
+    ![Captura de pantalla que muestra el menú "Continuous Security" (Seguridad continua) con las opciones "Access Management" (Administración de acceso) y "Users" (Usuario) seleccionadas.](./media/harness-tutorial/configure04.png)
 
 1. En el lado derecho de la página, haga clic en **+ Add User** (Agregar usuario).
 
-    ![Configuración de Harness](./media/harness-tutorial/configure05.png)
+    ![Captura de pantalla que muestra la página "Users" (Usuarios) con la acción "+ Add Users" (Agregar usuario) seleccionada.](./media/harness-tutorial/configure05.png)
 
 1. En el elemento emergente **Add User** (Agregar usuario), lleve a cabo los pasos siguientes:
 

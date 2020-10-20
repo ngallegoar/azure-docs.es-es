@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Su primera consulta de API REST'
 description: En este inicio rápido, dará los pasos necesarios para llamar al punto de conexión de Resource Graph para la API REST y ejecutará su primera consulta.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8776a107484691ffab72f2e1622ed5837375b7fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8be0556b6aa2fd234c0f3e25d83c0239c8f674bb
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85802612"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057237"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph mediante la API REST
 
@@ -49,7 +49,8 @@ $restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-vers
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
-Reemplace `{subscriptionId}` de la variable **$restUri** anterior para obtener información sobre la suscripción. La variable $response contiene el resultado del cmdlet `Invoke-RestMethod`, que puede analizarse con cmdlets como [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Si el punto de conexión de servicio de la API REST espera un **cuerpo de la solicitud**, proporcione una variable con formato JSON al parámetro `-Body` de `Invoke-RestMethod`.
+Reemplace `{subscriptionId}` en la variable `$restUri` para obtener información de la suscripción.
+La variable `$response`contiene el resultado del cmdlet `Invoke-RestMethod`, que puede analizarse con cmdlets como [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Si el punto de conexión de servicio de la API REST espera un **cuerpo de la solicitud**, proporcione una variable con formato JSON al parámetro `-Body` de `Invoke-RestMethod`.
 
 ## <a name="run-your-first-resource-graph-query"></a>Ejecutar la primera consulta de Resource Graph
 

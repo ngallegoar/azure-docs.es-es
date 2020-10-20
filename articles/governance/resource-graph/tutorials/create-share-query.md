@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Administración de consultas en Azure Portal'
 description: En este tutorial, creará una consulta de Resource Graph y la compartirá con otras personas en Azure Portal.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: tutorial
-ms.openlocfilehash: f602a6ed26f467f2d3395bdf5e3346c83684b108
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 98d4c7d0493686a45bdfef9d85823432cb637a66
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005172"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057933"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Creación y uso compartido de una consulta de Azure Resource Graph en Azure Portal
 
@@ -60,8 +60,7 @@ Puede visualizar y tener acceso a las consultas privadas solo desde la cuenta qu
 
 ## <a name="create-a-shared-query"></a>Creación de una consulta compartida.
 
-A diferencia de una consulta privada, una consulta compartida es un recurso de Resource Manager. Esto significa que la consulta se guarda en un grupo de recursos, se puede administrar y controlar con Azure RBAC e incluso se puede proteger con bloqueos de recursos. Ya que es un recurso, cualquier usuario que tenga los permisos adecuados podrá verla y usarla.
-Para crear una nueva consulta compartida, siga estos pasos:
+A diferencia de una consulta privada, una consulta compartida es un recurso de Resource Manager. Esto significa que la consulta se guarda en un grupo de recursos, se puede administrar y controlar con Azure RBAC e incluso se puede proteger con bloqueos de recursos. Ya que es un recurso, cualquier usuario que tenga los permisos adecuados podrá verla y usarla. Para crear una nueva consulta compartida, siga estos pasos:
 
 1. En el menú del portal, seleccione **Todos los servicios** o use el cuadro de búsqueda de Azure en la parte superior de todas las páginas y seleccione **Resource Graph Explorer**.
 
@@ -89,7 +88,7 @@ Para crear una nueva consulta compartida, siga estos pasos:
 
 1. Seleccione **Guardar** en la parte inferior del panel **Guardar consulta**. El título de la pestaña cambia de **Consulta 1** a **Count VMs by OS**. La primera vez que se usa el grupo de recursos **resource-graph-queries**, la operación de guardar tarda más tiempo del esperado ya que se crea el grupo de recursos.
    
-   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Guardar la nueva consulta como una consulta compartida" border="false":::
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Guardar la nueva consulta con el botón Guardar" border="false":::
 
    > [!NOTE] 
    > Puede desactivar la casilla **Publicar en el grupo de recursos resource-graph-queries** si quiere proporcionar el nombre de un grupo de recursos existente para guardar en él la consulta compartida. Si usa el grupo de recursos con nombre predeterminado para las consultas, las consultas compartidas serán más fáciles de detectar. También hace que el propósito de ese grupo de recursos sea más claro. Sin embargo, puede optar por seleccionar un grupo de recursos existente por motivos de seguridad en función de los permisos existentes.
@@ -98,7 +97,7 @@ Para crear una nueva consulta compartida, siga estos pasos:
 
 1. Seleccione **Abrir una consulta**. Compruebe que el tipo está establecido en **Consulta compartida** y la combinación de **Suscripción** y **Grupo de recursos** coincide con el lugar en el que guardó la consulta. El elemento guardado **Count VMs by OS** aparece ahora en la lista de **Nombre de consulta**. Seleccione el vínculo de título de la consulta guardada para cargarla en una nueva pestaña con el nombre de esa consulta. Ya que es una consulta compartida, se muestra un icono en la pestaña situada junto al título, que indica que es compartida.
 
-   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Mostrar la consulta compartida con el icono" border="false":::
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Guardar la nueva consulta con el botón Guardar" border="false":::
 
    > [!NOTE] 
    > Cuando una consulta guardada está abierta y la pestaña muestra su nombre, el botón **Guardar** la actualiza con los cambios que se hayan realizado. Para crear una nueva consulta guardada, seleccione **Guardar como** y continúe como si estuviera guardando una consulta totalmente nueva.
@@ -107,7 +106,7 @@ Para crear una nueva consulta compartida, siga estos pasos:
 
 Dado que una consulta compartida es un recurso de Resource Manager, hay varias maneras de buscar una:
 
-- En Resource Graph Explorer, seleccione **Abrir una consulta** y establezca el tipo en **Consulta compartida**.
+- Desde Resource Graph Explorer. Seleccione **Abrir una consulta** y establezca el tipo en **Consulta compartida**.
 - En la página del portal de consultas de Resource Graph.
 - En el grupo de recursos en el que se guardó la consulta compartida.
 - A través de una consulta a Resource Graph.

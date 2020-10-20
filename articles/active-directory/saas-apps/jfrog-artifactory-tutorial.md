@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 07ac0ac4d7b86b644ca5d1876b1332fee7358cac
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 826ce780fd9196d67adba5bb148a795d3fe4f0f2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552612"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850362"
 ---
 # <a name="tutorial-integrate-jfrog-artifactory-with-azure-active-directory"></a>Tutorial: Integración de JFrog Artifactory con Azure Active Directory
 
@@ -92,15 +92,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación JFrog Artifactory espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra User Attributes (Atributos de usuario) con el control de edición seleccionado.](common/edit-attribute.png)
 
 1. Además de lo anterior, la aplicación JFrog Artifactory espera que se usen algunos atributos más en la respuesta SAML. En la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) del cuadro de diálogo **Group Claims (Preview)** (Notificaciones de grupo [versión preliminar]), siga estos pasos:
 
     a. Haga clic en el **lápiz** junto a **Groups returned in claim** (Grupos devueltos en la notificación).
 
-    ![imagen](./media/jfrog-artifactory-tutorial/config04.png)
+    ![Captura de pantalla que muestra los atributos y las notificaciones del usuario con el icono de edición seleccionado.](./media/jfrog-artifactory-tutorial/config04.png)
 
-    ![imagen](./media/jfrog-artifactory-tutorial/config05.png)
+    ![Captura de pantalla que muestra la sección Group Claims (Notificaciones de grupo) con la opción All groups (Todos los grupos) seleccionada.](./media/jfrog-artifactory-tutorial/config05.png)
 
     b. Seleccione **Todos los grupos** en la lista de selección.
 

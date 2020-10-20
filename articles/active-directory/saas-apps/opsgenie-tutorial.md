@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 0ebcb746e10ae910c695e52fb053fc5d0b316e70
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8958e16ef4b1b7033fa0757e2a70eb053896b143
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543914"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996573"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con OpsGenie
 
@@ -133,15 +133,15 @@ En esta sección, va a permitir que B.Simon acceda a OpsGenie mediante el inicio
 
 3. Para habilitar SSO, seleccione **Habilitado**.
    
-    ![Configuración de OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
+    ![Captura de pantalla que muestra la casilla "Habilitado" seleccionada.](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
 
 4. En la sección **Proveedor**, haga clic en la pestaña **Azure Active Directory**.
    
-    ![Configuración de OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
+    ![Captura de pantalla que muestra la sección "Proveedor" con la pestaña "Azure Active Directory" seleccionada.](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
 
 5. En la página de diálogo de Azure Active Directory, realice los siguientes pasos:
    
-    ![Configuración de OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
+    ![Captura de pantalla que muestra la sección "Inicio de sesión único" con el botón de alternancia "Habilitar el inicio de sesión único", "Punto de conexión de S A M L 2.0" y "U R L de metadatos".](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
     
     a. Copie el valor de **App ID URI** (URI de id. de aplicación) y péguelo en el cuadro de texto **Identificador (id. de entidad)** de la sección **Configuración básica de SAML** en Azure Portal.
 
@@ -169,7 +169,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado B.Simon en Op
 
 4. En el cuadro de diálogo **Agregar usuario** , realice los pasos siguientes:
    
-    ![Configuración de OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Add User" (Agregar usuario) con los cuadros de texto "Email" (Correo electrónico) y "Full name" (Nombre completo) resaltados y el botón "Save" (Guardar) seleccionado.](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
    
     a. En el cuadro de texto **Email** (Correo electrónico), escriba la dirección de correo electrónico de B.Simon en Azure Active Directory.
    

@@ -1,30 +1,30 @@
 ---
-title: Actualización de la capacidad de proceso (RU/s) de una base de datos y una colección de MongoDB API para Azure Cosmos DB
-description: Actualización de la capacidad de proceso (RU/s) de una base de datos y una colección de MongoDB API para Azure Cosmos DB
+title: Scripts de la CLI de Azure para operaciones de rendimiento (RU/s) para recursos de MongoDB API de Azure Cosmos DB
+description: Scripts de la CLI de Azure para operaciones de rendimiento (RU/s) para recursos de MongoDB API de Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 07/29/2020
-ms.openlocfilehash: 6f3bd23f11abf0e72dc4b7affe54ada42e0cf712
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 10/07/2020
+ms.openlocfilehash: 785f77df117b8072f6b8970287f4051795d07167
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432170"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91838639"
 ---
-# <a name="update-rus-for-a-database-and-collection-for-mongodb-api-for-azure-cosmos-db-using-azure-cli"></a>Actualización de la capacidad de proceso (RU/s) de una base de datos y una colección de MongoDB API para Azure Cosmos DB con la CLI de Azure
+# <a name="throughput-rus-operations-with-azure-cli-for-a-database-or-graph-for-azure-cosmos-db-api-for-mongodb"></a>Operaciones de rendimiento (RU/s) con la CLI de Azure para una base de datos o un grafo de MongoDB API de Azure Cosmos DB
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure, versión 2.9.1 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure, versión 2.12.1 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-Este script crea una base de datos de MongoDB API con una capacidad de proceso compartida y una colección de MongoDB API con una capacidad de proceso dedicada para Azure Cosmos DB y, a continuación, actualiza la capacidad de proceso de la base de datos y la colección.
+Este script crea una base de datos de MongoDB con rendimiento compartido y una colección con rendimiento dedicado y, a continuación, actualiza el rendimiento de ambas. A continuación, el script migra del rendimiento estándar a escalado automático y, a continuación, lee el valor del rendimiento de escalado automático una vez que se ha migrado.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/mongodb/throughput.sh "Update RU/s for an Azure Cosmos DB MongoDB API database and collection.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/mongodb/throughput.sh "Throughput operations for Azure Cosmos DB API for MongoDB.")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
@@ -46,6 +46,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [az cosmosdb mongodb collection create](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-create) | Crea una colección de MongoDB API para Azure Cosmos. |
 | [az cosmosdb mongodb database throughput update](/cli/azure/cosmosdb/mongodb/database/throughput#az-cosmosdb-mongodb-database-throughput-update) | Actualiza la capacidad de proceso (RU/s) de una base de datos de MongoDB API para Azure Cosmos. |
 | [az cosmosdb mongodb collection throughput update](/cli/azure/cosmosdb/mongodb/collection/throughput#az-cosmosdb-mongodb-collection-throughput-update) | Actualiza la capacidad de proceso (RU/s) de una colección de MongoDB API para Azure Cosmos. |
+| [az cosmosdb mongodb database throughput migrate](/cli/azure/cosmosdb/mongodb/database/throughput#az-cosmosdb-mongodb-database-throughput-migrate) | Migra el rendimiento de una base de datos. |
+| [az cosmosdb mongodb collection throughput migrate](/cli/azure/cosmosdb/mongodb/collection/throughput#az-cosmosdb-mongodb-collection-throughput-migrate) | Migra el rendimiento de una colección. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-ms.openlocfilehash: a1d74e79f2b375f481c6557c04deb80dcb929b99
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62732f92d0739018863229da0a05646cfa817006
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554442"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941040"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-organization"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con New Relic (By Organization)
 
@@ -82,15 +82,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. Haga clic en **Cargar el archivo de metadatos**.
 
-    ![imagen](common/upload-metadata.png)
+    ![Captura de pantalla que muestra la sección Configuración básica de SAML con el vínculo Cargar el archivo de metadatos.](common/upload-metadata.png)
 
     b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
 
-    ![imagen](common/browse-upload-metadata.png)
+    ![Captura de pantalla que muestra un cuadro de diálogo en el que puede seleccionar y cargar un archivo.](common/browse-upload-metadata.png)
 
     c. Una vez que se haya cargado correctamente el archivo de metadatos, los valores de **Identificador** y **URL de respuesta** se rellenan automáticamente en la sección Configuración básica de SAML:
 
-    ![imagen](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     > [!Note]
     > Si los valores **Identificador** y **Dirección URL de respuesta** no se rellenan automáticamente, hágalo manualmente según sus necesidades.

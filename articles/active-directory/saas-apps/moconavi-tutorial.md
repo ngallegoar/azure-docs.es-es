@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d2355b26fc6a946e47a3d2c135b7c23729b186c7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1f7ff20dbdd0dac5b56d0f746733b14dfe44803e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554676"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940653"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutorial: Integración de Azure Active Directory con moconavi
 
@@ -191,15 +191,15 @@ En esta sección creará un usuario llamado Britta Simon en moconavi. Trabaje co
 
 3. Haga clic en el botón **Connect setting** (Conectar configuración).
 
-    ![Prueba del inicio de sesión único](./media/moconavi-tutorial/testing1.png)
+    ![Captura de pantalla de moconavi con el botón Connection setting (Configuración de la conexión).](./media/moconavi-tutorial/testing1.png)
 
 4. Escriba `https://mcs-admin.moconavi.biz/gateway` en el cuadro **Connect to URL** (URL de conexión) y haga clic en el botón **Done** (Listo).
 
-    ![Prueba del inicio de sesión único](./media/moconavi-tutorial/testing2.png)
+    ![Captura de pantalla que muestra el cuadro Connect to U R L (U R L de conexión) y el botón Done (Listo).](./media/moconavi-tutorial/testing2.png)
 
 5. En la siguiente captura de pantalla, siga estos pasos:
 
-    ![Prueba del inicio de sesión único](./media/moconavi-tutorial/testing3.png)
+    ![Captura de pantalla que muestra la página de moconavi donde puede especificar los valores descritos.](./media/moconavi-tutorial/testing3.png)
 
     a. Escriba la **clave de autenticación**`azureAD` en el cuadro de texto **Input Authentication Key** (Indique la clave de autenticación).
 
@@ -209,11 +209,11 @@ En esta sección creará un usuario llamado Britta Simon en moconavi. Trabaje co
 
 6. Indique su contraseña de Azure AD en el cuadro de texto **Password** (Contraseña) y haga clic en el botón **Login** (Iniciar sesión).
 
-    ![Prueba del inicio de sesión único](./media/moconavi-tutorial/testing4.png)
+    ![Captura de pantalla que muestra dónde especificar la contraseña de Azure A D.](./media/moconavi-tutorial/testing4.png)
 
 7. La autenticación de Azure AD se habrá realizado correctamente cuando se muestre el menú.
 
-    ![Prueba del inicio de sesión único](./media/moconavi-tutorial/testing5.png)
+    ![Captura de pantalla que muestra el icono de teléfono en moconavi.](./media/moconavi-tutorial/testing5.png)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

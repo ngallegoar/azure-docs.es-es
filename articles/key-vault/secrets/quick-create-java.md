@@ -8,24 +8,16 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 6c29141a2e255588ffa581b84ffeb4ddd7fdb703
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87d7bbaa40226e02726b92cf7f7705c8028149f7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87324716"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019637"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-java"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para Java
+# <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>Inicio rápido: Biblioteca cliente de secretos de Azure Key Vault para Java
 
-Introducción a la biblioteca de cliente de Azure Key Vault para Java. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
-
-Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Use la biblioteca cliente de Key Vault para Java para:
-
-- Aumentar la seguridad y el control sobre claves y contraseñas
-- Crear e importar claves de cifrado en minutos
-- Reducir la latencia con escala en la nube y redundancia global
-- Simplificar y automatizar tareas para certificados TLS/SSL
-- Utilizar módulos HSM con certificación FIPS 140-2 nivel 2
+Introducción a la biblioteca cliente de secretos de Azure Key Vault para Java. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 
 Recursos adicionales:
 
@@ -37,13 +29,29 @@ Recursos adicionales:
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Kit de desarrollo de Java (JDK)](/java/azure/jdk/?view=azure-java-stable), versión 8 o posterior
+- [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior
 - [Apache Maven](https://maven.apache.org)
-- [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/)
+- [CLI de Azure](/cli/azure/install-azure-cli)
 
-En esta guía de inicio rápido se supone que está ejecutando la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) y [Apache Maven](https://maven.apache.org) en una ventana de terminal de Linux.
+En esta guía de inicio rápido se supone que está ejecutando la [CLI de Azure](/cli/azure/install-azure-cli) y [Apache Maven](https://maven.apache.org) en una ventana de terminal de Linux.
 
 ## <a name="setting-up"></a>Instalación
+
+En este inicio rápido se usa la biblioteca de identidades de Azure con la CLI de Azure para autenticar al usuario en los servicios de Azure. Los desarrolladores también pueden usar Visual Studio o Visual Studio Code para autenticar sus llamadas. Para más información, consulte [Autenticación del cliente mediante la biblioteca cliente Azure Identity.](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
+
+### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+
+1. Ejecute el comando `login`.
+
+    ```azurecli-interactive
+    az login
+    ```
+
+    Si la CLI puede abrir el explorador predeterminado, lo hará y cargará una página de inicio de sesión de Azure.
+
+    En caso contrario, abra una página del explorador en [https://aka.ms/devicelogin](https://aka.ms/devicelogin) y escriba el código de autorización que se muestra en el terminal.
+
+2. Inicie sesión con las credenciales de su cuenta en el explorador.
 
 ### <a name="create-new-java-console-app"></a>Creación de una aplicación de consola de Java
 
@@ -109,21 +117,35 @@ Abra el archivo *pom.xml* en el editor de texto. Agregue los siguientes elemento
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-### <a name="create-a-service-principal"></a>Creación de una entidad de servicio
+#### <a name="grant-access-to-your-key-vault"></a>Concesión de acceso al almacén de claves
 
-[!INCLUDE [Create a service principal](../../../includes/key-vault-sp-creation.md)]
+Creación de una directiva de acceso para el almacén de claves que conceda permiso mediante secreto a la cuenta de usuario
 
-#### <a name="give-the-service-principal-access-to-your-key-vault"></a>Acceso de la entidad de servicio al almacén de claves
+```console
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+```
 
-[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
+#### <a name="set-environment-variables"></a>Establecimiento de variables de entorno
 
-#### <a name="set-environmental-variables"></a>Establecimiento de variables de entorno
+Esta aplicación también usa el nombre del almacén de claves como variable de entorno llamada `KEY_VAULT_NAME`.
 
-[!INCLUDE [Set environmental variables](../../../includes/key-vault-set-environmental-variables.md)]
+Windows
+```cmd
+set KEY_VAULT_NAME=<your-key-vault-name>
+````
+Windows PowerShell
+```powershell
+$Env:KEY_VAULT_NAME=<your-key-vault-name>
+```
+
+macOS o Linux
+```cmd
+export KEY_VAULT_NAME=<your-key-vault-name>
+```
 
 ## <a name="object-model"></a>Modelo de objetos
 
-La biblioteca cliente de Azure Key Vault para Java le permite administrar las claves y los recursos relacionados, como certificados y secretos. Los ejemplos de código siguientes le mostrarán cómo crear un cliente y cómo establecer, recuperar y eliminar un secreto.
+La biblioteca cliente de secretos de Azure Key Vault para Java permite administrar los secretos. En la sección [Ejemplos de código](#code-examples) se muestra cómo crear un cliente y cómo establecer, recuperar y eliminar un secreto.
 
 Toda la aplicación de consola se encuentra [ a continuación](#sample-code).
 
@@ -143,7 +165,9 @@ import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticación y creación de un cliente
 
-La autenticación en el almacén de claves y la creación de un cliente de almacén de claves depende de las variables de entorno en el paso [Establecimiento de variables de entorno](#set-environmental-variables) anterior. El nombre del almacén de claves se expande al URI del almacén de claves, con el formato `https://<your-key-vault-name>.vault.azure.net`.
+En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+
+En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se usa la clase ["DefaultAzureCredential()"](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential), que permite usar el mismo código en entornos diferentes con distintas opciones para proporcionar la identidad. Para más información, consulte [Autenticación mediante las credenciales predeterminadas de Azure](https://docs.microsoft.com/java/api/overview/azure/identity-readme). 
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -163,7 +187,7 @@ Ahora que la aplicación se ha autenticado, puede colocar un secreto en el almac
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
-Puede comprobar que el secreto se ha establecido con el comando [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show):
+Puede comprobar que el secreto se ha establecido con el comando [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show):
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
@@ -187,7 +211,7 @@ Por último, vamos a eliminar el secreto del almacén de claves con el método `
 secretClient.beginDeleteSecret(secretName);
 ```
 
-Puede comprobar que el secreto ya no está con el comando [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show):
+Puede comprobar que el secreto ya no está con el comando [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show):
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
@@ -272,4 +296,5 @@ En esta guía de inicio rápido, ha creado un almacén de claves y ha almacenado
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
 - Consulte la [guía del desarrollador de Azure Key Vault](../general/developers-guide.md).
+- Procedimientos para [proteger el acceso a un almacén de claves](../general/secure-your-key-vault.md)
 - Consulte los [procedimientos recomendados de Azure Key Vault](../general/best-practices.md).

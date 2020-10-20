@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 99f29f884997fbdd4761a5aa2d1f3a8bc15aa797
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: d55f461205ceecad098319d7b4b41c175390abfd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891613"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850530"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con JIRA SAML SSO by Microsoft
 
@@ -156,11 +156,11 @@ En esta sección, va a permitir que B.Simon use el inicio de sesión único de A
 
 2. Mantenga el mouse encima del icono de engranaje y haga clic en **Complementos**.
 
-    ![Configurar inicio de sesión único](./media/jiramicrosoft-tutorial/addon1.png)
+    ![Captura de pantalla que muestra la opción Complementos seleccionada en el menú Configuración.](./media/jiramicrosoft-tutorial/addon1.png)
 
 3. Descargue el complemento del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=56506). Cargue manualmente el complemento proporcionado por Microsoft mediante el menú **Cargar complemento**. La descarga del complemento está contemplada en el [Acuerdo de servicio de Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Configurar inicio de sesión único](./media/jiramicrosoft-tutorial/addon12.png)
+    ![Captura de pantalla que muestra la opción Administrar complementos con el vínculo Upload add-on destacado.](./media/jiramicrosoft-tutorial/addon12.png)
 
 4. Para ejecutar el escenario de proxy inverso de JIRA o el escenario del equilibrador de carga, realice los pasos siguientes:
 
@@ -171,19 +171,19 @@ En esta sección, va a permitir que B.Simon use el inicio de sesión único de A
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Configurar inicio de sesión único](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+    ![Captura de pantalla que muestra el archivo server punto x m l en un editor con la nueva línea agregada.](./media/jiramicrosoft-tutorial/reverseproxy1.png)
 
     b. Cambie la **URL base** en **Configuración del sistema** en función del proxy o equilibrador de carga.
 
-    ![Configurar inicio de sesión único](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+    ![Captura de pantalla que muestra la configuración de administración en la que puede cambiar la opción U R L base.](./media/jiramicrosoft-tutorial/reverseproxy2.png)
 
 5. Una vez instalado el complemento, aparece en la sección de complementos **Instalados por el usuario** de **Administrar complemento**. Haga clic en **Configurar** para configurar el nuevo complemento.
 
-    ![Configurar inicio de sesión único](./media/jiramicrosoft-tutorial/addon14.png)
+    ![Captura de pantalla que muestra la sección Inicio de sesión único de SAML de Azure A D para Jira con la opción Configurar seleccionada.](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. Siga estos pasos en la página de configuración:
 
-    ![Configurar inicio de sesión único](./media/jiramicrosoft-tutorial/addon54.png)
+    ![Captura de pantalla que muestra el inicio de sesión único de Microsoft Azure Active Directory para la página de configuración de Jira.](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Asegúrese de que hay un solo certificado asignado a la aplicación, de forma que no se produzca ningún error en la resolución de los metadatos. Si hay varios certificados, después de resolver los metadatos, el administrador recibe un error.
@@ -230,19 +230,19 @@ Para permitir que los usuarios de Azure AD inicien sesión en el servidor local 
 
 2. Mantenga el mouse encima del icono de engranaje y haga clic en **Administración de usuarios**.
 
-    ![Agregar empleado](./media/jiramicrosoft-tutorial/user1.png)
+    ![Captura de pantalla que muestra la opción Administración de usuarios seleccionada en el menú Configuración.](./media/jiramicrosoft-tutorial/user1.png)
 
 3. Se le redirigirá a la página de acceso de administrador para especificar la **contraseña** y haga clic en el botón **Confirmar**.
 
-    ![Agregar empleado](./media/jiramicrosoft-tutorial/user2.png)
+    ![Captura de pantalla que muestra la página Administrator Access (Acceso como administrador) donde puede especificar las credenciales.](./media/jiramicrosoft-tutorial/user2.png)
 
 4. En la sección de la pestaña **Administración de usuarios**, haga clic en **Crear usuario**.
 
-    ![Agregar empleado](./media/jiramicrosoft-tutorial/user3.png) 
+    ![Captura de pantalla que muestra la pestaña Administración de usuarios en la que puede crear un usuario.](./media/jiramicrosoft-tutorial/user3.png) 
 
 5. En la página del cuadro de diálogo **"Create New User"** (Crear nuevo usuario), realice los pasos siguientes:
 
-    ![Agregar empleado](./media/jiramicrosoft-tutorial/user4.png) 
+    ![Captura de pantalla que muestra el cuadro de diálogo Create new user (Crear nuevo usuario) donde puede especificar la información que se indica en este paso.](./media/jiramicrosoft-tutorial/user4.png) 
 
     a. En el cuadro de texto **Dirección de correo electrónico**, escriba la dirección de correo electrónico de un usuario, por ejemplo, B.simon@contoso.com.
 

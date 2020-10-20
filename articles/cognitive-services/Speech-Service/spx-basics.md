@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88854894"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893822"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conozca los aspectos básicos de la CLI de Voz.
 
@@ -69,6 +69,51 @@ En este comando, se especifican los idiomas de origen (el idioma **del** que se 
 
 > [!NOTE]
 > Consulte el [artículo sobre los idiomas y las configuraciones regionales](language-support.md) para obtener una lista de todos los idiomas compatibles con sus códigos de configuración regional correspondientes.
+
+### <a name="configuration-files-in-the-datastore"></a>Archivos de configuración en el almacén de archivos
+
+La CLI de Voz puede leer varios valores de los archivos de configuración, o escribirlos en ellos, que se almacenan en el almacén de datos local de la CLI de Voz, y en las llamadas de la CLI de Voz se usa el símbolo @ para nombrarlos. La CLI de Voz intenta guardar los valores nuevos en una subdirectorio `./spx/data` nuevo que crea en el directorio de trabajo actual.
+Al buscar un valor de configuración, la CLI de Voz busca en el directorio de trabajo actual y, luego, en la ruta de acceso de `./spx/data`.
+Anteriormente se usaba el almacén de datos para guardar los valores `@key` y `@region`, por lo que no era necesario especificarlos con cada llamada a la línea de comandos.
+También puede usar los archivos de configuración para almacenar su propia configuración, o incluso para pasar direcciones URL o cualquier otro contenido dinámico que se haya generado en el runtime.
+
+En esta sección se muestra cómo se usa un archivo de configuración en el almacén de datos local para almacenar y capturar la configuración de comandos mediante `spx config`, así como para almacenar la salida de la CLI de Voz mediante la opción `--output`.
+
+En el ejemplo siguiente se borra el archivo de configuración `@my.defaults`, se agregan pares clave-valor para **clave** y **región** en el archivo, y se usa la configuración en una llamada a `spx recognize`.
+
+```shell
+spx config @my.defaults --clear
+spx config @my.defaults --add key 000072626F6E20697320636F6F6C0000
+spx config @my.defaults --add region westus
+
+spx config @my.defaults
+
+spx recognize --nodefaults @my.defaults --file hello.wav
+```
+
+En los archivos de configuración también se puede escribir contenido dinámico. Por ejemplo, el siguiente comando crea un modelo de voz personalizado y almacena la dirección URL del mismo en un archivo de configuración. El siguiente comando espera hasta que el modelo de la dirección URL esté listo para su uso antes de volver.
+
+```shell
+spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url @my.model.txt
+spx csr model status --model @my.model.txt --wait
+```
+
+En el ejemplo siguiente se escriben dos direcciones URL en el archivo de configuración `@my.datasets.txt`.
+En este escenario, existe la opción de que `--output` incluya la palabra clave **add** para crear un archivo de configuración o anexarlo al existente.
+
+
+```shell
+spx csr dataset create --name "LM" --kind Language --content https://crbn.us/data.txt --output url @my.datasets.txt
+spx csr dataset create --name "AM" --kind Acoustic --content https://crbn.us/audio.zip --output add url @my.datasets.txt
+
+spx config @my.datasets.txt
+```
+
+Para más información sobre los archivos del almacén de datos, incluido el uso de archivos de configuración predeterminados (`@spx.default`, `@default.config` y `@*.default.config` para la configuración predeterminada específica del comando), escriba este comando:
+
+```shell
+spx help advanced setup
+```
 
 ## <a name="batch-operations"></a>Operaciones por lotes
 

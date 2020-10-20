@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: e0ea1d3f5c2676176e2f6e15077d13ec43e673af
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b40a124c9cee05e8d06df3de6539c566bb2ac76a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544316"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945174"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Tutorial: Integración de Azure Active Directory con el sistema de inicio de sesión único GTNexus
 
@@ -101,11 +101,11 @@ Para configurar el inicio de sesión único de Azure AD con GTNexus SSO System, 
 
     a. Haga clic en **Cargar el archivo de metadatos**.
 
-    ![imagen](common/upload-metadata.png)
+    ![Captura de pantalla que muestra la página "Configuración básica de S A M L" con la acción "Cargar el archivo de metadatos" seleccionada.](common/upload-metadata.png)
 
     b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
 
-    ![imagen](common/browse-upload-metadata.png)
+    ![Captura de pantalla que muestra el campo "Seleccionar un archivo" con el logotipo de "carpeta" y el botón "Cargar" seleccionado.](common/browse-upload-metadata.png)
 
     c. Una vez que se haya cargado correctamente el archivo de metadatos, los valores **Identificador** y **Dirección URL de respuesta** se rellenan automáticamente en el cuadro de texto de la sección GTNexus SSO System:
 

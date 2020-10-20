@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78251904"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044962"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en una zona de disponibilidad con Standard Load Balancer mediante Azure Portal
 
@@ -39,6 +39,10 @@ Para más información sobre cómo usar las zonas de disponibilidad con Standard
 
 Si lo prefiere, utilice la [CLI de Azure](load-balancer-standard-public-zonal-cli.md) para completar este tutorial.
 
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una suscripción de Azure
+
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
@@ -50,9 +54,9 @@ Standard Load Balancer solo admite direcciones IP públicas estándar. Cuando se
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Load Balancer**.
 2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
-    | Subscription               | Seleccione su suscripción.    |    
+    | Suscripción               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupZLB* en el cuadro de texto.|
     | Nombre                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Oeste de Europa**.                                        |
@@ -228,5 +232,6 @@ Cuando ya no los necesite, elimine el grupo de recursos, el equilibrador de carg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información acerca de [Load Balancer Estándar](load-balancer-standard-overview.md).
-- [Equilibrio de carga de máquinas virtuales entre zonas de disponibilidad](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+Continúe al siguiente artículo para aprender a equilibrar la carga de las máquinas virtuales entre las zonas de disponibilidad.
+> [!div class="nextstepaction"]
+> [Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

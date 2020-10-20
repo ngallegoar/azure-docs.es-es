@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 78743c5f045f2544cafe88414ed996d08bacd2a0
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 231ce9d946a2fb6650f25d90aaa423d1c95fb106
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631123"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930720"
 ---
 # <a name="tutorial-mock-api-responses"></a>Tutorial: Simulación de respuestas de API
 
@@ -107,7 +107,7 @@ Aunque no es necesario en este ejemplo, se pueden configurar opciones adicionale
 1. Seleccione **Guardar**.
 
     > [!TIP]
-    > Una barra amarilla con el texto **La simulación de respuesta está habilitada** en la API indica que las respuestas devueltas por API Management envían una directiva de simulación y no una respuesta de back-end real.
+    > Una barra amarilla con el texto **La simulación de respuesta está habilitada** en la API indica que las respuestas devueltas por API Management son simuladas por la [directiva de simulación](api-management-advanced-policies.md#mock-response) y no las genera el back-end.
 
 ## <a name="test-the-mocked-api"></a>Probar la API simulada
 

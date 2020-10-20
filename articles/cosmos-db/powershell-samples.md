@@ -4,14 +4,14 @@ description: Obtenga ejemplos de Azure PowerShell para realizar tareas comunes e
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/30/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: 678e9490fe52a329365174e1a2283a475f3312e5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0c2d13ef49676917bc48dd5a2e682471558567f3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505019"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842978"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Ejemplos de Azure PowerShell para Azure Cosmos DB
 
@@ -37,8 +37,7 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell usados
 |[Creación de un contenedor con una clave de partición de gran tamaño](scripts/powershell/sql/create-large-partition-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cree un contenedor con una clave de partición de gran tamaño. |
 |[Creación de un contenedor sin directiva de índice](scripts/powershell/sql/create-index-none.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cree un contenedor de Azure Cosmos con directiva de índice desactivada.|
 |[Enumerar u obtener las bases de datos o contenedores](scripts/powershell/sql/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Enumere u obtenga las bases de datos o contenedores. |
-|[Obtención de rendimiento](scripts/powershell/sql/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenga el rendimiento de una base de datos o un contenedor. |
-|[Actualización del rendimiento](scripts/powershell/sql/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Actualice el rendimiento de una base de datos o un contenedor. |
+|[Operaciones de capacidad de proceso](scripts/powershell/sql/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operaciones relacionadas con la capacidad de proceso de una base de datos o un contenedor, como obtener, actualizar y migrar entre la escalabilidad automática y la capacidad de proceso estándar. |
 |[Bloquear recursos contra la eliminación](scripts/powershell/sql/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite la eliminación de recursos con bloqueos de recursos. |
 |||
 
@@ -49,8 +48,7 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell usados
 |[Crear una cuenta, un espacio de claves y una tabla](scripts/powershell/cassandra/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cree una cuenta, un espacio de claves y una tabla de Azure Cosmos. |
 |[Creación de una cuenta, un espacio de claves y una tabla con escalabilidad automática](scripts/powershell/cassandra/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea una cuenta, un espacio de claves y una tabla con escalabilidad automática de Azure Cosmos. |
 |[Enumerar u obtener espacios de claves o tablas](scripts/powershell/cassandra/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Enumere u obtenga espacios de claves o tablas. |
-|[Obtención de rendimiento](scripts/powershell/cassandra/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenga el rendimiento de un espacio de claves o una tabla. |
-|[Actualización del rendimiento](scripts/powershell/cassandra/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Actualice el rendimiento de un espacio de claves o de una tabla. |
+|[Operaciones de capacidad de proceso](scripts/powershell/cassandra/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operaciones relacionadas con la capacidad de proceso de un espacio de claves o una tabla, como obtener, actualizar y migrar entre la escalabilidad automática y la capacidad de proceso estándar. |
 |[Bloquear recursos contra la eliminación](scripts/powershell/cassandra/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite la eliminación de recursos con bloqueos de recursos. |
 |||
 
@@ -61,8 +59,7 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell usados
 |[Crear una cuenta, base de datos y colección](scripts/powershell/mongodb/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cree una cuenta, una base de datos y una colección de Azure Cosmos. |
 |[Creación de una cuenta, una base de datos y una colección con escalabilidad automática](scripts/powershell/mongodb/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea una cuenta, una base de datos y una colección con escalabilidad automática de Azure Cosmos. |
 |[Enumerar u obtener las bases de datos o colecciones](scripts/powershell/mongodb/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Enumere u obtenga una base de datos o colección. |
-|[Obtención de rendimiento](scripts/powershell/mongodb/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenga el rendimiento de una base de datos o una colección. |
-|[Actualización del rendimiento](scripts/powershell/mongodb/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Actualice el rendimiento de una base de datos o una colección. |
+|[Operaciones de capacidad de proceso](scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operaciones relacionadas con la capacidad de proceso de una base de datos o una colección, como obtener, actualizar y migrar entre la escalabilidad automática y la capacidad de proceso estándar. |
 |[Bloquear recursos contra la eliminación](scripts/powershell/mongodb/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite la eliminación de recursos con bloqueos de recursos. |
 |||
 
@@ -73,8 +70,7 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell usados
 |[Crear una cuenta, base de datos y gráfico](scripts/powershell/gremlin/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cree una cuenta, una base de datos y un gráfico de Azure Cosmos. |
 |[Creación de una cuenta, una base de datos y un grafo con escalabilidad automática](scripts/powershell/gremlin/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea una cuenta, una base de datos y un grafo con escalabilidad automática de Azure Cosmos. |
 |[Enumerar u obtener las bases de datos o gráficos](scripts/powershell/gremlin/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Enumere u obtenga las bases de datos o gráficos. |
-|[Obtención de rendimiento](scripts/powershell/gremlin/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenga el rendimiento de una base de datos o un grafo. |
-|[Actualización del rendimiento](scripts/powershell/gremlin/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Actualice el rendimiento de una base de datos o un grafo. |
+|[Operaciones de capacidad de proceso](scripts/powershell/gremlin/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operaciones relacionadas con la capacidad de proceso de una base de datos o un grafo, como obtener, actualizar y migrar entre la escalabilidad automática y la capacidad de proceso estándar. |
 |[Bloquear recursos contra la eliminación](scripts/powershell/gremlin/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite la eliminación de recursos con bloqueos de recursos. |
 |||
 
@@ -85,7 +81,6 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell usados
 |[Crear una cuenta y tabla](scripts/powershell/table/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cree una cuenta y una tabla de Azure Cosmos. |
 |[Creación de una cuenta y una tabla con escalabilidad automática](scripts/powershell/table/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea una cuenta y una tabla con escalabilidad automática de Azure Cosmos. |
 |[Enumerar u obtener tablas](scripts/powershell/table/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Enumere u obtenga las tablas. |
-|[Obtención de rendimiento](scripts/powershell/table/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenga el rendimiento de una tabla. |
-|[Actualización del rendimiento](scripts/powershell/table/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Actualice el rendimiento de una tabla. |
+|[Operaciones de capacidad de proceso](scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operaciones relacionadas con la capacidad de proceso de una tabla, como obtener, actualizar y migrar entre la escalabilidad automática y la capacidad de proceso estándar. |
 |[Bloquear recursos contra la eliminación](scripts/powershell/table/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite la eliminación de recursos con bloqueos de recursos. |
 |||

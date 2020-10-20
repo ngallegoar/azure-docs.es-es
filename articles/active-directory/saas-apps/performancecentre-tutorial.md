@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d0a19a95a0a0d2353070068b2113e11efe471ccc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8c7fb3841958ac80431f7cb3d97ddb01bd3661a7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553993"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995236"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Tutorial: Integración de Azure Active Directory con PerformanceCentre
 
@@ -128,19 +128,19 @@ Para configurar el inicio de sesión único de Azure AD con PerformanceCentre, r
 
 2. En la pestaña en el lado izquierdo, haga clic en **Configurar**.
    
-    ![Inicio de sesión único de Azure AD][10]
+    ![Captura de pantalla que muestra el menú "PerformanceCenter" con la opción "Configure" (Configurar) seleccionada.][10]
 
 3. En la pestaña en el lado izquierdo, haga clic en **Varios** y, después, en **Inicio de sesión único**.
    
-    ![Inicio de sesión único de Azure AD][11]
+    ![Captura de pantalla que muestra la pestaña "Configure" (Configurar) con la opción "Single Sign-On" (Inicio de sesión único) seleccionada en el menú "Miscellaneous" (Varios).][11]
 
 4. En **Protocolo**, seleccione **SAML**.
    
-    ![Inicio de sesión único de Azure AD][12]
+    ![Captura de pantalla que muestra la sección "Single Sign-On Configuration" (Configuración de inicio de sesión único) con la opción "S A M L" seleccionada en el menú "Protocol" (Protocolo).][12]
 
 5. Abra el archivo de metadatos descargado en el Bloc de notas, copie el contenido, péguelo en el cuadro de texto **Metadatos del proveedor de identidades** y haga clic en **Guardar**.
    
-    ![Inicio de sesión único de Azure AD][13]
+    ![Captura de pantalla que muestra el cuadro de texto "Identity Provider Metadata" (Metadatos del proveedor de identidades).][13]
 
 6. Compruebe que los valores de **Dirección URL de base de entidad** y **Dirección URL de Id. de entidad** son correctos.
     
@@ -207,7 +207,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 2. En el menú de la izquierda, haga clic en **Interrelate** (Interrelacionar) y, a continuación, en **Create Participant** (Crear participante).
    
-    ![Crear usuario][400]
+    ![Captura de pantalla que muestra la página	 "Interrelate -Participants" (Interrelacionar: participantes) del sitio de la empresa "PerformanceCenter" con el botón "Create Participant" (Crear participante) seleccionado.][400]
 
 3. En el cuadro de diálogo **Interrelate - Create Participant** (Interrelacionar- Crear participante), realice los pasos siguientes:
    

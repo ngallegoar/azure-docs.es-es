@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447166"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946022"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Inicio rápido: Configuración de Azure Security Center
 
@@ -33,7 +33,7 @@ Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscrip
 Para habilitar Azure Defender en una suscripción, debe tener asignados los roles Propietario de la suscripción, Colaborador de la suscripción o Administrador de seguridad.
 
 
-## <a name="open-security-center-for-the-first-time"></a>Apertura de Security Center por primera vez
+## <a name="enable-security-center-on-your-azure-subscription"></a>Habilitación de Security Center en una suscripción de Azure
 
 1. Inicie sesión en el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/).
 
@@ -54,6 +54,8 @@ A los pocos minutos de iniciar Security Center la primera vez, puede ver:
 
 Si desea sacar el máximo provecho de Security Center, debe completar los pasos siguientes para habilitar Azure Defender e instalar el agente de Log Analytics.
 
+> [!TIP]
+> Para habilitar Security Center en todas las suscripciones de un grupo de administración, consulte el artículo sobre la [habilitación de Security Center en varias suscripciones de Azure](onboard-management-group.md).
 
 ## <a name="enable-azure-defender"></a>Habilitación de Azure Defender
 
@@ -90,7 +92,7 @@ Para habilitar el aprovisionamiento automático del agente de Log Analytics:
 Con el agente implementado en las máquinas, Security Center puede proporcionar recomendaciones adicionales relacionadas con el estado de actualización del sistema, las configuraciones de seguridad del sistema operativo y la protección de los puntos de conexión, así como generar alertas de seguridad adicionales.
 
 >[!NOTE]
-> Al establecer el aprovisionamiento automático en **Desactivado**, el agente de Log Analytics no se quita de las máquinas virtuales de Azure en las que el agente ya se haya aprovisionado. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.
+> Al establecer el aprovisionamiento automático en **Desactivado**, el agente de Log Analytics no se quita de las máquinas virtuales de Azure en las que ya se haya aprovisionado. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.
 
 
 

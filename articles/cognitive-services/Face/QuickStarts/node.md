@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: f9ba2decf051bc21f91058e67fea8677b24714a6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0f87bc13a75355306f7d2d15b22ff9cdfaa53794
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322927"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858229"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Inicio rápido: Detección de caras en una imagen mediante Face REST API y Node.js
 
@@ -24,7 +24,7 @@ En este inicio rápido, usará la API REST de Azure Face con Node.js para detect
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
 * Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Creación de un recurso de Face"  target="_blank">cree un recurso de Face <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
@@ -46,64 +46,11 @@ Pegue el siguiente código en el archivo *facedetection.js*. Estos campos especi
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-```javascript
-'use strict';
-
-const axios = require('axios').default;
-
-// Add a valid subscription key and endpoint to your environment variables.
-let subscriptionKey = process.env['FACE_SUBSCRIPTION_KEY']
-let endpoint = process.env['FACE_ENDPOINT'] + '/face/v1.0/detect'
-
-// Optionally, replace with your own image URL (for example a .jpg or .png URL).
-let imageUrl = 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/faces.jpg'
-```
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/Face/rest/detect.js" id="environment":::
 
 Después, agregue el código siguiente para llamar a Face API y obtener los datos de los atributos de una imagen de entrada. El campo `returnFaceAttributes` especifica qué atributos de cara recuperar. Es posible que desee cambiar esta cadena según su uso previsto.
 
-
-```javascript
-// Send a POST request
-axios({
-    method: 'post',
-    url: endpoint,
-    params : {
-        returnFaceId: true,
-        returnFaceLandmarks: false,
-        returnFaceAttributes: 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
-    },
-    data: {
-        url: imageUrl,
-    },
-    headers: { 'Ocp-Apim-Subscription-Key': subscriptionKey }
-}).then(function (response) {
-    console.log('Status text: ' + response.status)
-    console.log('Status text: ' + response.statusText)
-    console.log()
-    //console.log(response.data)
-    response.data.forEach((face) => {
-      console.log('Face ID: ' + face.faceId)
-      console.log('Face rectangle: ' + face.faceRectangle.top + ', ' + face.faceRectangle.left + ', ' + face.faceRectangle.width + ', ' + face.faceRectangle.height)
-      console.log('Smile: ' + face.faceAttributes.smile)
-      console.log('Head pose: ' + JSON.stringify(face.faceAttributes.headPose))
-      console.log('Gender: ' + face.faceAttributes.gender)
-      console.log('Age: ' + face.faceAttributes.age)
-      console.log('Facial hair: ' + JSON.stringify(face.faceAttributes.facialHair))
-      console.log('Glasses: ' + face.faceAttributes.glasses)
-      console.log('Smile: ' + face.faceAttributes.smile)
-      console.log('Emotion: ' + JSON.stringify(face.faceAttributes.emotion))
-      console.log('Blur: ' + JSON.stringify(face.faceAttributes.blur))
-      console.log('Exposure: ' + JSON.stringify(face.faceAttributes.exposure))
-      console.log('Noise: ' + JSON.stringify(face.faceAttributes.noise))
-      console.log('Makeup: ' + JSON.stringify(face.faceAttributes.makeup))
-      console.log('Accessories: ' + JSON.stringify(face.faceAttributes.accessories))
-      console.log('Hair: ' + JSON.stringify(face.faceAttributes.hair))
-      console.log()
-    });
-}).catch(function (error) {
-    console.log(error)
-});
-```
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/Face/rest/detect.js" id="main":::
 
 ## <a name="save-and-run-the-script"></a>Guardado y ejecución del script
 
@@ -113,7 +60,35 @@ Una vez realizados los cambios, abra un símbolo del sistema y ejecute el archiv
 node facedetection.js
 ```
 
-Estos son todos los datos de JSON de `response.data`. Por ejemplo:
+Una respuesta correcta mostrará datos de las caras en formato JSON fácilmente legible. Por ejemplo:
+
+```json
+[
+   {
+      "faceId": "f7eda569-4603-44b4-8add-cd73c6dec644",
+      "faceRectangle": {
+         "top": 131,
+         "left": 177,
+         "width": 162,
+         "height": 162
+      }
+   }
+]
+```
+
+## <a name="extract-face-attributes"></a>Extracción de los atributos de la cara
+ 
+Para extraer atributos de la cara, use el modelo de detección 1 y agregue el parámetro de consulta `returnFaceAttributes`. Edite los parámetros de la manera siguiente:
+
+```javascript
+    params : {
+        detectionModel: 'detection_01',
+        returnFaceAttributes: 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+        returnFaceId: true
+    },
+```
+
+La respuesta ahora incluye atributos de la cara. Por ejemplo:
 
 ```json
 [

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 53a224f53f0270166ce75e718e670780730a10c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e772dc39374b178743a6c8b93e6b48e62b1e2ed
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543659"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995960"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Paylocity
 
@@ -106,7 +106,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Editar icono**.
 
-    ![Edición del certificado de firma SAML](./media/paylocity-tutorial/edit-samlassertion.png)
+    ![Captura de pantalla que muestra la sección "Certificado de firma de S A M L" con la acción "Descargar" para "X M L de metadatos de federación" seleccionada.](./media/paylocity-tutorial/edit-samlassertion.png)
 
 1. Seleccione **Opción de firma** como **Firmar respuesta y aserción SAML** y haga clic en **Guardar**.
 

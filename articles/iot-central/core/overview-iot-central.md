@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4ad1bcabc2e30e9e636883219d42f96335e32e78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6d95c07e5bec810ce82e98b2291b348fbcc2d8bc
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987364"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812444"
 ---
 # <a name="what-is-azure-iot-central"></a>¿Qué es Azure IoT Central?
 
@@ -50,14 +50,21 @@ Puede implementar rápidamente una aplicación IoT Central nueva y, luego, perso
 
 Como generador de soluciones, se usan las herramientas web para crear una _plantilla de dispositivo_ para los dispositivos que se conectan a la aplicación. Una plantilla de dispositivo es el plano técnico que define las características y el comportamiento de un tipo de dispositivo, por ejemplo:
 
-- La telemetría que envía.
-- Las propiedades empresariales que un operador puede modificar.
-- Las propiedades del dispositivo que se establecen mediante un dispositivo y que son de solo lectura en la aplicación.
-- Propiedades, que un operador establece, que determinan el comportamiento del dispositivo.
+- La telemetría que envía. Los ejemplos incluyen la temperatura y la humedad. La telemetría es la transmisión de datos.
+- Las propiedades empresariales que un operador puede modificar. Los ejemplos incluyen una dirección de cliente y la fecha en que se prestó servicio por última vez.
+- Las propiedades del dispositivo que se establecen mediante un dispositivo y que son de solo lectura en la aplicación. Por ejemplo, el estado de una válvula, abierta o cerrada.
+- Propiedades, que un operador establece, que determinan el comportamiento del dispositivo. Por ejemplo, la temperatura de destino del dispositivo.
+- Comandos, a los que un operador puede llamar, que se ejecutan en un dispositivo. Por ejemplo, un comando para reiniciar un dispositivo de forma remota.
 
 Esta [plantilla de dispositivo](howto-set-up-template.md) incluye:
 
-- Un _modelo de funcionalidad del dispositivo_ que describe las funcionalidades que debe implementar un dispositivo, como los datos de telemetría que envía y las propiedades que notifica.
+- Un _modelo de funcionalidad del dispositivo_ que describe las funcionalidades que debe implementar un dispositivo. Entre estas funcionalidades, se incluyen:
+
+  - La telemetría que transmite a IoT Central.
+  - Las propiedades de solo lectura que utiliza para notificar el estado a IoT Central.
+  - Las propiedades de escritura que recibe de IoT Central para establecer el estado del dispositivo.
+  - Los comandos a los que se llama desde IoT Central.
+
 - Propiedades de la nube que no están almacenadas en el dispositivo.
 - Personalizaciones, paneles y formularios que forman parte de la aplicación IoT Central.
 
@@ -144,7 +151,6 @@ Cada suscripción de Azure tiene cuotas predeterminadas que pueden afectar al á
 - No se admiten los tipos de esquema de matriz.
 - Solo se admiten el SDK de dispositivos de C y los SDK de dispositivos y servicios de Node.js.
 - IoT Central está disponible actualmente en ubicaciones de Estados Unidos, Europa, Asia Pacífico, Australia, Reino Unido y Japón.
-- No puede usar la plantilla de aplicación **Aplicación personalizada (heredada)** en las ubicaciones de Reino Unido y Japón.
 - Los modelos de funcionalidad del dispositivo deben tener todas las interfaces definidas insertadas en el mismo archivo.
 
 ## <a name="next-steps"></a>Pasos siguientes

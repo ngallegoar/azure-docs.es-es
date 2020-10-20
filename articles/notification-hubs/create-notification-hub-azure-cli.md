@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5361931328ed107c7cc130b633a40b1582828aa1
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: ebed70a99e8e906db802099e052e69ab2575d737
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024147"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875041"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Creación de un centro de notificaciones de Azure con la CLI de Azure
 
@@ -32,17 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> Notification Hubs requiere la versión 2.0.67 o posterior de la CLI de Azure. Ejecute `az --version` para buscar cuál es la versión y las bibliotecas dependientes que están instaladas. Para la instalación o la actualización, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
-
-## <a name="install-the-azure-cli-extension"></a>Instalación de la extensión de la CLI de Azure
-
-Para trabajar con referencias de extensión de la CLI de Azure, primero debe instalar la extensión. Las extensiones de la CLI de Azure le proporcionan acceso a comandos experimentales y en versión preliminar que todavía no se han enviado como parte de la CLI principal. Para más información acerca de las extensiones, incluida la actualización y la desinstalación, consulte [Uso de extensiones con la CLI de Azure](/cli/azure/azure-cli-extensions-overview).
-
-Instale la extensión de la CLI de Azure para Notification Hubs.
-
-```azurecli
-az extension add --name notification-hub
-```
+> Notification Hubs requiere la versión 2.0.67 o posterior de la CLI de Azure. Ejecute [az version](/cli/azure/reference-index?#az_version) para buscar cuál es la versión y las bibliotecas dependientes que están instaladas. Para realizar la actualización a la versión más reciente, ejecute [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 

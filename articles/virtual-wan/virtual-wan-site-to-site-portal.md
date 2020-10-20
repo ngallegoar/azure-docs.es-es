@@ -1,19 +1,19 @@
 ---
-title: 'Azure Virtual WAN: creación de conexiones de sitio a sitio'
+title: 'Tutorial: Creación de conexiones de sitio a sitio mediante Azure Virtual WAN'
 description: En este tutorial, aprenda a usar Azure Virtual WAN para crear una conexión VPN de sitio a sitio a Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 07/09/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 5f39f5a8f758f390536e5d113629b185252c05d9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 8a25ead5983e56f56ba0daea23c2775b3332fb8b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439370"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057916"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 
 ![Diagrama de Virtual WAN](./media/virtual-wan-about/virtualwan.png)
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar con la configuración, compruebe que se cumplen los criterios siguientes:
 
@@ -242,6 +242,17 @@ En la página **Editar VPN Gateway**, puede ver los valores siguientes:
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Captura de pantalla que muestra la página &quot;VPN (sitio a sitio)&quot; con una flecha que apunta a la acción &quot;Ver/configurar&quot;." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpieza de recursos
+
+Cuando ya no necesite estos recursos, puede usar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Virtual WAN, consulte la página [Introducción a Virtual WAN](virtual-wan-about.md).
+Más información sobre Virtual WAN en:
+
+> [!div class="nextstepaction"]
+> * [Preguntas más frecuentes sobre Virtual WAN](virtual-wan-faq.md)

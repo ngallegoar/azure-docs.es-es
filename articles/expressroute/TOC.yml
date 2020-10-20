@@ -1,10 +1,10 @@
 - name: Documentación de ExpressRoute
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: ¿Qué es ExpressRoute?
       href: expressroute-introduction.md
-- name: Guías de inicio rápido
+- name: Guías de inicios rápidos
   items:
     - name: 'Creación de un circuito ExpressRoute: Azure Portal'
       href: expressroute-howto-circuit-portal-resource-manager.md
@@ -19,7 +19,7 @@
   items:
     - name: Creación y modificación de la configuración de emparejamiento
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: expressroute-howto-routing-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-routing-arm.md
@@ -27,13 +27,13 @@
           href: howto-routing-cli.md
     - name: Configuración de una puerta de enlace de red virtual para ExpressRoute
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: expressroute-howto-add-gateway-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-add-gateway-resource-manager.md
     - name: Vinculación de una red virtual a un circuito ExpressRoute
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: expressroute-howto-linkvnet-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-linkvnet-arm.md
@@ -41,7 +41,7 @@
           href: howto-linkvnet-cli.md
     - name: Configuración de filtros de ruta para el emparejamiento de Microsoft
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: how-to-routefilter-portal.md
         - name: Azure PowerShell
           href: how-to-routefilter-powershell.md
@@ -166,7 +166,7 @@
     - name: Prácticas recomendadas
       items:
         - name: Procedimientos recomendados para seguridad de red y servicios en la nube
-          href: ../best-practices-network-security.md
+          href: /azure/cloud-adoption-framework/reference/networking-vdc
         - name: Optimización del enrutamiento
           href: expressroute-optimize-routing.md
         - name: Ruta asimétrica
@@ -192,9 +192,9 @@
     - name: Azure CLI
       href: /cli/azure/network/express-route
     - name: REST
-      href: 'https://msdn.microsoft.com/library/azure/mt586720'
+      href: /rest/api/expressroute/
     - name: REST (clásico)
-      href: 'https://msdn.microsoft.com/library/azure/dn606310'
+      href: /previous-versions/azure/reference/dn606310(v=azure.100)
     - name: Plantilla de Resource Manager
       displayName: 'ARM,resource manager template'
       href: /azure/templates/microsoft.network/expressroutecircuits

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: f62eec29aebdcc98569134e0c3b75457467bc014
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bcad165f5d0ba2cf652cff35091e05b4414193c8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903693"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951798"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro para el flujo de implementación avanzada
 
@@ -58,7 +58,7 @@ Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hu
 
 2. En el icono **Configurar el proceso de Edge**, seleccione **Configurar proceso**.
 
-    ![Introducción al proceso](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
+    ![Introducción al proceso 2](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
 
 3. En la hoja **Configurar el proceso de Edge**, escriba lo siguiente:
 
@@ -68,11 +68,11 @@ Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hu
     |IoT Hub     | Elija entre **Nuevo** o **Existente**. <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que el recurso de Azure Stack Edge.     |
     |Nombre     |Escriba un nombre para el recurso de IoT Hub.         |
 
-    ![Introducción al proceso](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
+    ![Introducción al proceso 3](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
 4. Seleccione **Crear**. La creación del recurso de IoT Hub tarda unos minutos. Después de crear el recurso de IoT Hub, el icono **Configurar el proceso perimetral** se actualiza para mostrar la configuración de proceso. Para confirmar que se ha configurado el rol de proceso perimetral, seleccione **Configuración de vista** en el icono **Configurar proceso**.
     
-    ![Introducción al proceso](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
+    ![Introducción al proceso 4](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
 
     Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, este crea dos dispositivos: uno IoT y el otro IoT Edge. Ambos se pueden ver en el recurso de IoT Hub. Un entorno de ejecución de IoT Edge también se ejecuta en este dispositivo de IoT Edge.
 
@@ -136,17 +136,17 @@ En este tutorial, se realizará una implementación avanzada con dos recursos co
     |Tipo de desencadenador     | Seleccione el desencadenador **Archivo**. Un desencadenador de archivo se activa cada vez que se produce un evento de archivo, por ejemplo, cuando se escribe un archivo en el recurso compartido de entrada. Por otra parte, un desencadenador programado se activa según una programación definida por el usuario. En este ejemplo, necesitamos un desencadenador de archivo.    |
     |Recurso compartido de entrada     | Seleccione un recurso compartido de entrada. En este caso, el recurso compartido local perimetral es el recurso compartido de entrada. El módulo que se usa aquí mueve los archivos desde el recurso compartido local perimetral hasta un recurso compartido perimetral donde se cargan en la nube.        |
 
-    ![Incorporación de un desencadenador](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
+    ![Agregar desencadenador 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
 
 3. Recibirá una notificación cuando el desencadenador se cree. La lista de desencadenadores se actualiza para mostrar el desencadenador recién creado. Seleccione el desencadenador que acaba de crear.
 
-    ![Incorporación de un desencadenador](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
+    ![Agregar desencadenador 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
 
 4. Copie y guarde la ruta de ejemplo. Modificará esta ruta de ejemplo y la usará más adelante en IoT Hub.
 
     `"sampleroute": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
 
-    ![Incorporación de un desencadenador](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
+    ![Agregar desencadenador 4](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
 
 ## <a name="add-a-module"></a>Agregar un módulo
 
@@ -213,7 +213,7 @@ En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge 
  
     4. Si es necesario, configure las opciones avanzadas del entorno de ejecución de Edge y, a continuación, haga clic en **Siguiente**.
 
-        ![Agregar un módulo personalizado](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
+        ![Agregar un módulo personalizado 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
 5. En **Especificar rutas**, defina las rutas entre módulos.  
    
@@ -229,11 +229,11 @@ En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge 
 
 6. En **Revisar la implementación**, revise todos los valores y, después, seleccione **Enviar** a fin de enviar el módulo para la implementación.
 
-   ![La página Establecer módulos](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![La página Establecer módulos 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     Esta acción inicia la implementación del módulo. Una vez completada la implementación, el **Estado en tiempo de ejecución** del módulo es **En ejecución**.
 
-    ![Agregar un módulo personalizado](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
+    ![Agregar un módulo personalizado 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
 
 ## <a name="verify-data-transform-transfer"></a>Comprobar la transformación y la transferencia de los datos
 
@@ -247,15 +247,15 @@ Realice los pasos siguientes para verificar la transformación de los datos y la
  
 1. Agregue datos al recurso compartido local.
 
-   ![Comprobar transformación de datos](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![Comprobar transformación de datos 2](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     Los datos se mueven al recurso compartido en la nube.
 
-    ![Comprobar transformación de datos](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
+    ![Comprobar transformación de datos 3](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
 
     A continuación, los datos se trasladan del recurso compartido en la nube a la cuenta de almacenamiento. Para ver los datos, vaya a la cuenta de almacenamiento y, a continuación, seleccione **Explorador de Storage**. Puede ver los datos cargados en la cuenta de almacenamiento.
 
-    ![Comprobar transformación de datos](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
+    ![Comprobar transformación de datos 4](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
  
 Ha completado el proceso de validación.
 

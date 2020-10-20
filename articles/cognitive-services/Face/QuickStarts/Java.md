@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 8aaf0b25a20f24739bb556583cd020d8f11eaf2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fbe62cf00422710e18a6b112adc08f19ea03177b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88549531"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858360"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y Java
 
@@ -24,7 +24,7 @@ En este tutorial, usará la API REST de Azure Face con Java para detectar caras 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
 * Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Creación de un recurso de Face"  target="_blank">cree un recurso de Face <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
@@ -49,23 +49,7 @@ Abra la clase main del proyecto. Aquí, agregará el código necesario para carg
 
 Agregue las siguientes instrucciones `import` en la parte superior del archivo.
 
-```java
-// This sample uses Apache HttpComponents:
-// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/
-// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/
-
-import java.net.URI;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
-```
+:::code language="java" source="~/cognitive-services-quickstart-code/java/Face/rest/detect.java" id="dependencies":::
 
 ### <a name="add-essential-fields"></a>Adición de los campos esenciales
 
@@ -75,90 +59,45 @@ Reemplace la clase **Main** por el código siguiente. Estos datos especifican c�
 
 El campo `faceAttributes` es simplemente una lista de determinados tipos de atributos. Especificará qué información recuperar sobre las caras detectadas.
 
-```Java
-public class Main {
-    // Replace <Subscription Key> with your valid subscription key.
-    private static final String subscriptionKey = "<Subscription Key>";
-
-    private static final String uriBase =
-        "https://<My Endpoint String>.com/face/v1.0/detect";
-
-    private static final String imageWithFaces =
-        "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
-
-    private static final String faceAttributes =
-        "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
-```
+:::code language="java" source="~/cognitive-services-quickstart-code/java/Face/rest/detect.java" id="environment":::
 
 ### <a name="call-the-face-detection-rest-api"></a>Llamada a la API REST de detección de caras
 
 Agregue el método **main** con el código siguiente. Este método construye una llamada REST a Face API para detectar información de caras en la imagen remota (la cadena `faceAttributes` especifica qué atributos de cara recuperar). A continuación, escribe los datos de salida en una cadena JSON.
 
-```Java
-    public static void main(String[] args) {
-        HttpClient httpclient = HttpClientBuilder.create().build();
-
-        try
-        {
-            URIBuilder builder = new URIBuilder(uriBase);
-
-            // Request parameters. All of them are optional.
-            builder.setParameter("returnFaceId", "true");
-            builder.setParameter("returnFaceLandmarks", "false");
-            builder.setParameter("returnFaceAttributes", faceAttributes);
-
-            // Prepare the URI for the REST API call.
-            URI uri = builder.build();
-            HttpPost request = new HttpPost(uri);
-
-            // Request headers.
-            request.setHeader("Content-Type", "application/json");
-            request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-            // Request body.
-            StringEntity reqEntity = new StringEntity(imageWithFaces);
-            request.setEntity(reqEntity);
-
-            // Execute the REST API call and get the response entity.
-            HttpResponse response = httpclient.execute(request);
-            HttpEntity entity = response.getEntity();
-```
+:::code language="java" source="~/cognitive-services-quickstart-code/java/Face/rest/detect.java" id="main":::
 
 ### <a name="parse-the-json-response"></a>Procese la respuesta JSON.
 
 Agregue el siguiente bloque directamente debajo del código anterior, que convierte los datos JSON devueltos en un formato más fácil de leer antes de imprimirlo en la consola. Por último, cierre el bloque try-catch, el método **main** y la clase **Main**.
 
-```Java
-            if (entity != null)
-            {
-                // Format and display the JSON response.
-                System.out.println("REST Response:\n");
-
-                String jsonString = EntityUtils.toString(entity).trim();
-                if (jsonString.charAt(0) == '[') {
-                    JSONArray jsonArray = new JSONArray(jsonString);
-                    System.out.println(jsonArray.toString(2));
-                }
-                else if (jsonString.charAt(0) == '{') {
-                    JSONObject jsonObject = new JSONObject(jsonString);
-                    System.out.println(jsonObject.toString(2));
-                } else {
-                    System.out.println(jsonString);
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            // Display error message.
-            System.out.println(e.getMessage());
-        }
-    }
-}
-```
+:::code language="java" source="~/cognitive-services-quickstart-code/java/Face/rest/detect.java" id="print":::
 
 ## <a name="run-the-app"></a>Ejecución la aplicación
 
 Compile el código y ejecútelo. Una respuesta correcta mostrará datos de las caras en formato JSON fácilmente legible en la ventana de consola. Por ejemplo:
+
+```json
+[{
+  "faceRectangle": {
+    "top": 131,
+    "left": 177,
+    "width": 162,
+    "height": 162
+  }
+}]
+```
+
+## <a name="extract-face-attributes"></a>Extracción de los atributos de la cara
+ 
+Para extraer atributos de la cara, use el modelo de detección 1 y agregue el parámetro de consulta `returnFaceAttributes`.
+
+```java
+builder.setParameter("detectionModel", "detection_01");
+builder.setParameter("returnFaceAttributes", "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise");
+```
+
+La respuesta ahora incluye atributos de la cara. Por ejemplo:
 
 ```json
 [{

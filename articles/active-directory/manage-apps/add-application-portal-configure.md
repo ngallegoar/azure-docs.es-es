@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: d2a538cac1e8bcf9c67c88b206cacd928bfb73c8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 50c1cd62f52583a005e6e7fe8fb29ee8eafd1af9
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448217"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044469"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Configuración de las propiedades de una aplicación en el inquilino de Azure Active Directory (Azure AD)
 
@@ -41,10 +41,7 @@ Para editar las propiedades de la aplicación:
 
 1. En el portal de Azure AD, seleccione **Aplicaciones empresariales**. Después, busque y seleccione la aplicación que desea configurar.
 2. En la sección **Administrar**, seleccione **Propiedades** para abrir el panel **Propiedades** para editarlo.
-
-    ![Captura de la pantalla Propiedades que muestra las propiedades de la aplicación editables.](media/add-application-portal/edit-properties.png)
-
-3. Dedique un momento a comprender las opciones disponibles para su configuración:
+3. Dedique un momento a comprender las opciones disponibles. Estas dependerán del modo en que la aplicación se integre con Azure AD. Por ejemplo, una aplicación que use el inicio de sesión único basado en SAML tendrá campos como *URL de acceso de usuario*, mientras que una aplicación que use el inicio de sesión único basado en OIDC no. Tenga en cuenta también que las aplicaciones agregadas mediante **Azure Active Directory > Registros de aplicaciones** son, de forma predeterminada, aplicaciones basadas en OIDC. Sin embargo, las aplicaciones agregadas mediante **Azure Active Directory > Aplicaciones empresariales** pueden usar una serie de estándares de inicio de sesión único. Todas las aplicaciones tendrán campos para configurar el momento en que se muestra una aplicación y se puede usar. Estos campos son:
     - La opción **¿Habilitado para que los usuarios inicien sesión?** determina si los usuarios asignados a la aplicación pueden iniciar sesión.
     - La opción **¿Asignación de usuarios?** determina si los usuarios que no están asignados a la aplicación pueden iniciar sesión.
     - La opción **¿Es visible para los usuarios?** determina si los usuarios asignados a una aplicación pueden verla en [Mis aplicaciones](https://myapps.microsoft.com) y en el iniciador de aplicaciones de Microsoft 365. (Vea el menú de gofres en la esquina superior izquierda de un sitio web de Microsoft 365).
