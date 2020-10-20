@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 97578233c6b636b5ffe35fa8ff0b138903425f79
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8d60c604ecde8607c0da8a125108e13683bdf6c8
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631705"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058546"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para .NET (SDK v4)
+# <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Inicio rápido: Biblioteca cliente de secretos de Azure Key Vault para .NET (SDK v4)
 
-Introducción a la biblioteca de secretos de cliente de Azure Key Vault para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
+Introducción a la biblioteca cliente de secretos de Azure Key Vault para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 
 [Documentación de referencia de la API](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet&preserve-view=true) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
@@ -25,15 +25,13 @@ Introducción a la biblioteca de secretos de cliente de Azure Key Vault para .NE
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/dotnet).
 * [SDK de .NET Core 3.1 o una versión posterior](https://dotnet.microsoft.com/download/dotnet-core)
-* [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [CLI de Azure](/cli/azure/install-azure-cli)
 
 En este inicio rápido se usa `dotnet` y la CLI de Azure.
 
 ## <a name="setup"></a>Configurar
 
-### <a name="create-a-new-console-app"></a>Creación de una aplicación de consola
-
-En este inicio rápido se usa la biblioteca de identidades de Azure con la CLI de Azure para autenticar al usuario en los servicios de Azure. Los desarrolladores también pueden usar Visual Studio o Visual Studio Code para autenticar sus llamadas. Para más información, consulte [Autenticación del cliente mediante la biblioteca cliente Azure Identity.](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet#authenticate-the-client&preserve-view=true)
+En este inicio rápido se usa la biblioteca de identidades de Azure con la CLI de Azure para autenticar al usuario en los servicios de Azure. Los desarrolladores también pueden usar Visual Studio o Visual Studio Code para autenticar sus llamadas. Para más información, consulte [Autenticación del cliente mediante la biblioteca cliente Azure Identity](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -74,7 +72,7 @@ En este inicio rápido se usa la biblioteca de identidades de Azure con la CLI d
 
 ### <a name="install-the-packages"></a>Instalación de los paquetes
 
-En el shell de comandos, instale la biblioteca cliente de Azure Key Vault para .NET:
+En el shell de comandos, instale la biblioteca cliente de secretos de Azure Key Vault para .NET:
 
 ```dotnetcli
 dotnet add package Azure.Security.KeyVault.Secrets
@@ -112,15 +110,13 @@ $Env:KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
 macOS o Linux
-```cmd
+```bash
 export KEY_VAULT_NAME=<your-key-vault-name>
-````
+```
 
 ## <a name="object-model"></a>Modelo de objetos
 
-La biblioteca de secretos de cliente de Azure Key Vault para .NET permite administrar los secretos. En la sección [Ejemplos de código](#code-examples) se muestra cómo crear un cliente y cómo establecer, recuperar y eliminar un secreto.
-
-Toda la aplicación de consola está disponible en https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+La biblioteca cliente de secretos de Azure Key Vault para .NET permite administrar los secretos. En la sección [Ejemplos de código](#code-examples) se muestra cómo crear un cliente y cómo establecer, recuperar y eliminar un secreto.
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -134,15 +130,17 @@ Agregue las directivas siguientes al principio de *Program.cs*:
 
 En este inicio rápido se emplea el usuario que ha iniciado sesión para autenticarlo en el almacén de claves, que es el método preferido para el desarrollo local. Para las aplicaciones implementadas en Azure, la identidad administrada debe asignarse a App Service o la máquina virtual. Para más información, consulte [Introducción a la identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se usa la clase ["DefaultAzureCredential()"](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true), que permite usar el mismo código en entornos diferentes con distintas opciones para proporcionar la identidad. Para más información, consulte [Autenticación mediante las credenciales predeterminadas de Azure](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet#defaultazurecredential). 
+En el ejemplo siguiente, el nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://\<your-key-vault-name\>.vault.azure.net". En este ejemplo se usa la clase ["DefaultAzureCredential()"](/dotnet/api/azure.identity.defaultazurecredential), que permite usar el mismo código en entornos diferentes con distintas opciones para proporcionar la identidad. Para más información, consulte [Autenticación mediante las credenciales predeterminadas de Azure](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?#defaultazurecredential). 
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
 ### <a name="save-a-secret"></a>Almacenamiento de un secreto
 
-Ahora que la aplicación de consola se ha autenticado, agregue un secreto al almacén de claves. Para esta tarea, use el método [client.SetSecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). El primer parámetro del método acepta un nombre para el secreto&mdash;"mySecret" en este ejemplo.
+Ahora que la aplicación de consola se ha autenticado, agregue un secreto al almacén de claves. Para esta tarea, use el método [SetSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.setsecretasync). El primer parámetro del método acepta un nombre para el secreto&mdash;"mySecret" en este ejemplo.
 
-[!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=setsecret)]
+```csharp
+await client.SetSecretAsync(secretName, secretValue);
+``````
 
 Puede comprobar que el secreto se ha establecido con el comando [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show&preserve-view=true):
 
@@ -156,17 +154,21 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 ### <a name="retrieve-a-secret"></a>Recuperación de un secreto
 
-Ahora puede recuperar el valor previamente establecido con el método [client.GetSecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+El valor establecido previamente ahora se puede recuperar con el método [GetSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.getsecretasync).
 
-[!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=getsecret)]
+```csharp
+var secret = await client.GetSecretAsync(secretName);
+``````
 
 El secreto se guarda ahora como `secret.Value`.
 
 ### <a name="delete-a-secret"></a>Eliminación de un secreto
 
-Por último, vamos a eliminar el secreto del almacén de claves con el método [client.DeleteSecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+Por último, vamos a eliminar el secreto del almacén de claves con el método [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync).
 
-[!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=deletesecret)]
+```csharp
+await client.StartDeleteSecretAsync(secretName);
+``````
 
 Puede comprobar que el secreto ya no está con el comando [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show&preserve-view=true):
 
@@ -227,7 +229,7 @@ Modifique la aplicación de consola de .NET Core para interactuar con el almacé
     {
         class Program
         {
-            static void Main(string[] args)
+            static async Task Main(string[] args)
             {
                 const string secretName = "mySecret";
                 var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
@@ -239,7 +241,7 @@ Modifique la aplicación de consola de .NET Core para interactuar con el almacé
                 var secretValue = Console.ReadLine();
     
                 Console.Write($"Creating a secret in {keyVaultName} called '{secretName}' with the value '{secretValue}' ...");
-                client.SetSecret(secretName, secretValue);
+                await client.SetSecretAsync(secretName, secretValue);
                 Console.WriteLine(" done.");
     
                 Console.WriteLine("Forgetting your secret.");
@@ -247,19 +249,15 @@ Modifique la aplicación de consola de .NET Core para interactuar con el almacé
                 Console.WriteLine($"Your secret is '{secretValue}'.");
     
                 Console.WriteLine($"Retrieving your secret from {keyVaultName}.");
-                KeyVaultSecret secret = client.GetSecret(secretName);
+                var secret = await client.GetSecretAsync(secretName);
                 Console.WriteLine($"Your secret is '{secret.Value}'.");
     
                 Console.Write($"Deleting your secret from {keyVaultName} ...");
-                DeleteSecretOperation operation = client.StartDeleteSecret(secretName);
+                DeleteSecretOperation operation = await client.StartDeleteSecretAsync(secretName);
                 // You only need to wait for completion if you want to purge or recover the secret.
-                while (!operation.HasCompleted)
-                {
-                    Thread.Sleep(2000);
-                
-                    operation.UpdateStatus();
-                }
-                client.PurgeDeletedSecret(secretName);
+                await operation.WaitForCompletionAsync();
+
+                await client.PurgeDeletedSecret(secretName);
                 Console.WriteLine(" done.");
             }
         }

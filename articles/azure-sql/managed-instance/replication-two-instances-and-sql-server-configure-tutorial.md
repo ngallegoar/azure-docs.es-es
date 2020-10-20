@@ -1,6 +1,6 @@
 ---
 title: Configuración de la replicación transaccional entre Instancia administrada de Azure SQL y SQL Server
-description: En este tutorial se configura la replicación entre una instancia administrada del publicador, una instancia administrada del distribuidor y un suscriptor de SQL Server en una máquina virtual de Azure, junto con los componentes de red necesarios, como el emparejamiento de VPN y la zona DNS privada.
+description: En este tutorial se configura la replicación entre una instancia administrada del publicador, una instancia administrada del distribuidor y un suscriptor de SQL Server en una máquina virtual de Azure, junto con los componentes de redes necesarios, como el emparejamiento de red virtual y la zona DNS privada.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
@@ -10,12 +10,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: 9d6592ccfb3ba5236a660d689d8b5d2cd1600c48
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ff29e93149c618bb7d6df6b4477cc79fcf4b53d2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283197"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058563"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutorial: Configuración de la replicación transaccional entre Instancia administrada de Azure SQL y SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Este tutorial va dirigido a un público experimentado, así que se da por hecho 
 
 
 > [!NOTE]
-> En este artículo se describe el uso de la [replicación transaccional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) en la Instancia administrada de Azure SQL Database. Esto no está relacionado con los [grupos de conmutación por error](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), una característica de Instancia administrada de Azure SQL que permite crear réplicas completas legibles de instancias individuales. Hay consideraciones adicionales al configurar la [replicación transaccional con grupos de conmutación por error](replication-transactional-overview.md#with-failover-groups).
+> En este artículo se describe el uso de la [replicación transaccional](/sql/relational-databases/replication/transactional/transactional-replication) en la Instancia administrada de Azure SQL Database. Esto no está relacionado con los [grupos de conmutación por error](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), una característica de Instancia administrada de Azure SQL que permite crear réplicas completas legibles de instancias individuales. Hay consideraciones adicionales al configurar la [replicación transaccional con grupos de conmutación por error](replication-transactional-overview.md#with-failover-groups).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,10 +48,10 @@ Para completar el tutorial, asegúrese de que cuenta con estos requisitos previo
 - Experiencia con la implementación de dos instancias administradas dentro de la misma red virtual.
 - Un suscriptor de SQL Server, ya sea local o en una máquina virtual de Azure. En este tutorial se usa una máquina virtual de Azure.  
 - [SQL Server Management Studio (SSMS) 18.0 o versiones posteriores](/sql/ssms/download-sql-server-management-studio-ssms).
-- La versión más reciente de [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0).
+- La versión más reciente de [Azure PowerShell](/powershell/azure/install-az-ps).
 - Los puertos 445 y 1433 permiten el tráfico SQL en Azure Firewall y en el Firewall de Windows.
 
-## <a name="1---create-the-resource-group"></a>1 - Creación del grupo de recursos
+## <a name="create-the-resource-group"></a>Crear el grupo de recursos
 
 Use el siguiente fragmento de código de PowerShell para crear un grupo de recursos:
 
@@ -64,7 +64,7 @@ $Location = "East US 2"
 New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 ```
 
-## <a name="2---create-two-managed-instances"></a>2 - Creación de dos instancias administradas
+## <a name="create-two-managed-instances"></a>Creación de dos instancias administradas
 
 Cree dos instancias administradas dentro de este nuevo grupo de recursos mediante [Azure Portal](https://portal.azure.com).
 
@@ -76,9 +76,9 @@ Cree dos instancias administradas dentro de este nuevo grupo de recursos mediant
 Para más información sobre cómo crear una instancia administrada, consulte [Creación de una instancia administrada en el portal](instance-create-quickstart.md).
 
   > [!NOTE]
-  > Por motivos de simplicidad, y dado que es la configuración más común, en este tutorial se sugiere colocar la instancia administrada del distribuidor dentro de la misma red virtual que la del publicador. Sin embargo, es posible crear el distribuidor en una red virtual distinta. Para ello, tendrá que configurar el emparejamiento de VPN entre las redes virtuales del publicador y del distribuidor y, luego, configurar el emparejamiento de VPN entre las redes virtuales del distribuidor y del suscriptor.
+  > Por motivos de simplicidad, y dado que es la configuración más común, en este tutorial se sugiere colocar la instancia administrada del distribuidor dentro de la misma red virtual que la del publicador. Sin embargo, es posible crear el distribuidor en una red virtual distinta. Para ello, tendrá que configurar el emparejamiento de red virtual entre las redes virtuales del publicador y del distribuidor y, luego, configurar el emparejamiento de red virtual entre las redes virtuales del distribuidor y del suscriptor.
 
-## <a name="3---create-a-sql-server-vm"></a>3 - Creación de una máquina virtual con SQL Server
+## <a name="create-a-sql-server-vm"></a>Creación de una máquina virtual con SQL Server
 
 Cree una máquina virtual con SQL Server en [Azure Portal](https://portal.azure.com). La máquina virtual con SQL Server debe tener las siguientes características:
 
@@ -89,9 +89,9 @@ Cree una máquina virtual con SQL Server en [Azure Portal](https://portal.azure
 
 Para más información sobre la implementación de una máquina virtual con SQL Server en Azure, consulte [Inicio rápido: Creación de una máquina virtual con SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
-## <a name="4---configure-vpn-peering"></a>4 - Configuración del emparejamiento de VPN
+## <a name="configure-vnet-peering"></a>Configuración del emparejamiento de red virtual
 
-Configure el emparejamiento de VPN para permitir la comunicación entre la red virtual de las dos instancias administradas y la red virtual de SQL Server. Para ello, use este fragmento de código de PowerShell:
+Configure el emparejamiento de red virtual para habilitar la comunicación entre la red virtual de las dos instancias administradas y la red virtual de SQL Server. Para ello, use este fragmento de código de PowerShell:
 
 ```powershell-interactive
 # Set variables
@@ -110,13 +110,13 @@ $virtualNetwork1 = Get-AzVirtualNetwork `
   -ResourceGroupName $resourceGroup `
   -Name $subvNet  
 
-# Configure VPN peering from publisher to subscriber
+# Configure VNet peering from publisher to subscriber
 Add-AzVirtualNetworkPeering `
   -Name $pubsubName `
   -VirtualNetwork $virtualNetwork1 `
   -RemoteVirtualNetworkId $virtualNetwork2.Id
 
-# Configure VPN peering from subscriber to publisher
+# Configure VNet peering from subscriber to publisher
 Add-AzVirtualNetworkPeering `
   -Name $subpubName `
   -VirtualNetwork $virtualNetwork2 `
@@ -136,11 +136,11 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-Una vez establecido el emparejamiento de VPN, inicie SQL Server Management Studio (SSMS) en la instancia de SQL Server y conéctese a ambas instancias administradas para probar la conectividad. Para más información sobre cómo conectarse a una instancia administrada mediante SSMS, consulte [Uso de SSMS para conectarse a Instancia administrada de SQL](point-to-site-p2s-configure.md#connect-with-ssms).
+Una vez que se establece el emparejamiento de red virtual, pruebe la conectividad iniciando SQL Server Management Studio (SSMS) en SQL Server y conectándose a ambas instancias administradas. Para más información sobre cómo conectarse a una instancia administrada mediante SSMS, consulte [Uso de SSMS para conectarse a Instancia administrada de SQL](point-to-site-p2s-configure.md#connect-with-ssms).
 
 ![Prueba de la conectividad a las instancias administradas](./media/replication-two-instances-and-sql-server-configure-tutorial/test-connectivity-to-mi.png)
 
-## <a name="5---create-a-private-dns-zone"></a>5\. Creación de una zona DNS privada
+## <a name="create-a-private-dns-zone"></a>Crear una zona DNS privada
 
 Una zona DNS privada permite el enrutamiento DNS entre las instancias administradas y SQL Server.
 
@@ -180,7 +180,7 @@ Una zona DNS privada permite el enrutamiento DNS entre las instancias administra
 1. Seleccione **Aceptar** para vincular la red virtual.
 1. Repita estos pasos para agregar un vínculo para la red virtual del suscriptor, con un nombre como `Sub-link`.
 
-## <a name="6---create-an-azure-storage-account"></a>6\. Creación de una cuenta de Azure Storage
+## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
 [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para el directorio de trabajo y, a continuación, cree un [recurso compartido de archivos](../../storage/files/storage-how-to-create-file-share.md) dentro de la cuenta de almacenamiento.
 
@@ -194,7 +194,7 @@ Ejemplo: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5
 
 Para más información, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
 
-## <a name="7---create-a-database"></a>7 - Creación de una base de datos
+## <a name="create-a-database"></a>Crear una base de datos
 
 Cree una base de datos en la instancia administrada del publicador. Para hacerlo, siga estos pasos:
 
@@ -242,7 +242,7 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## <a name="8---configure-distribution"></a>8 - Configuración de la distribución
+## <a name="configure-distribution"></a>Configuración de distribución
 
 Una vez que ha establecido la conectividad y tiene una base de datos de ejemplo, puede configurar la distribución en la instancia administrada `sql-mi-distributor`. Para hacerlo, siga estos pasos:
 
@@ -277,7 +277,7 @@ Una vez que ha establecido la conectividad y tiene una base de datos de ejemplo,
    EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>'
    ```
 
-## <a name="9---create-the-publication"></a>9 - Creación de la publicación
+## <a name="create-the-publication"></a>Creación de la publicación
 
 Una vez configurada la distribución, ahora puede crear la publicación. Para hacerlo, siga estos pasos:
 
@@ -298,7 +298,7 @@ Una vez configurada la distribución, ahora puede crear la publicación. Para ha
 1. En la página **Finalización del asistente**, asigne a la publicación el nombre `ReplTest` y seleccione **Siguiente** para crear la publicación.
 1. Una vez creada la publicación, actualice el nodo **Replication** en el **Explorador de objetos** y expanda **Publicaciones locales** para ver la nueva publicación.
 
-## <a name="10---create-the-subscription"></a>10 - Creación de la suscripción
+## <a name="create-the-subscription"></a>Creación de la suscripción
 
 Una vez creada la publicación, puede crear la suscripción. Para hacerlo, siga estos pasos:
 
@@ -331,7 +331,7 @@ exec sp_addpushsubscription_agent
 GO
 ```
 
-## <a name="11---test-replication"></a>11 - Prueba de la replicación
+## <a name="test-replication"></a>Prueba de la replicación
 
 Una vez que se ha configurado la replicación, puede probarla mediante la inserción de nuevos elementos en el publicador y la observación de los cambios que se propagan al suscriptor.
 
@@ -393,7 +393,7 @@ Posibles soluciones:
 - Confirme que se usó el nombre DNS al crear el suscriptor.
 - Compruebe que las redes virtuales estén vinculadas correctamente en la zona DNS privada.
 - Compruebe que el registro D esté configurado correctamente.
-- Compruebe que el emparejamiento de VPN esté configurado correctamente.
+- Compruebe que el emparejamiento de red virtual está configurado correctamente.
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>No hay publicaciones a las que pueda suscribirse
 

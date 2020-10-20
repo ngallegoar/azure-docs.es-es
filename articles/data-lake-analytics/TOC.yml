@@ -1,6 +1,6 @@
 - name: Documentación de Data Lake Analytics
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: ¿Qué es Data Lake Analytics?
       href: data-lake-analytics-overview.md
@@ -68,7 +68,7 @@
             - name: Aspectos básicos
               href: data-lake-analytics-u-sql-get-started.md
             - name: Referencia de lenguaje
-              href: 'https://docs.microsoft.com/u-sql/'
+              href: /u-sql/
             - name: Catálogo
               href: data-lake-analytics-u-sql-catalog.md
             - name: Operadores definidos por el usuario
@@ -152,26 +152,26 @@
     - name: Node.js
       href: 'https://www.npmjs.com/package/azure-arm-datalake-analytics'
     - name: Python
-      href: 'https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python'
+      href: /python/api/overview/azure/data-lake-analytics
     - name: REST
       href: /rest/api/datalakeanalytics/
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.datalakeanalytics/allversions
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/dla'
+      href: /cli/azure/dla
     - name: Elementos integrados de Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Blog de Azure Data Lake
-      href: 'https://blogs.msdn.microsoft.com/azuredatalake/'
+      href: /archive/blogs/azuredatalake/
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Solicitud de cambios
       href: 'https://feedback.azure.com/forums/327234-data-lake'
     - name: Página de preguntas y respuestas de Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-lake-analytics.html'
+      href: /answers/topics/azure-data-lake-analytics.html
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/data-lake-analytics/'
     - name: Calculadora de precios
