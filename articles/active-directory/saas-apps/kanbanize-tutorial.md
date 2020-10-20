@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 686a186650bfe4066533b0f086c080b5ffb14eb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: af68100d0064187931ede43916d1ab3258baea38
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546841"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850717"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Kanbanize
 
@@ -153,7 +153,7 @@ En esta sección, va a permitir que B.Simon acceda a Kanbanize mediante el inici
 
 5. En la página del panel de administración del lado izquierdo del menú, haga clic en **Integrations** (Integraciones) y, a continuación, habilite **Single Sign-On** (Inicio de sesión único).
 
-    ![Integraciones de Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+    ![Captura de pantalla que muestra el panel de administración con la opción Integrations (Integraciones) seleccionada.](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
 
 6. En la sección de integraciones, haga clic en **CONFIGURE** (CONFIGURAR) para abrir la página **Single Sign-On Integration** (Integración de inicio de sesión único).
 
@@ -161,7 +161,7 @@ En esta sección, va a permitir que B.Simon acceda a Kanbanize mediante el inici
 
 7. En la página **Single Sign-On Integration** (Integración de inicio de sesión único), en **Configurations** (Configuraciones), realice los siguientes pasos:
 
-    ![Integraciones de Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+    ![Captura de pantalla que muestra la página Single Sign-On Integration (Integración del inicio de sesión único), donde se especifican los valores de este paso.](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
     a. En el cuadro de texto **Idp Entity ID** (Identificador de la entidad de IdP), pegue el valor de **Azure AD Identifier** (Identificador de Azure AD) que copió de Azure Portal.
 

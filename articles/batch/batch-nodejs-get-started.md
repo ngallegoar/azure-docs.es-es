@@ -2,17 +2,17 @@
 title: 'Tutorial: Uso de la biblioteca cliente de Azure Batch para Node.js'
 description: Aprenda los conceptos básicos de Azure Batch y cree una solución sencilla mediante Node.js.
 ms.topic: tutorial
-ms.date: 05/22/2017
-ms.openlocfilehash: 4cecd25346d868dfb27deb9f768342ab2e72ade9
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 10/08/2020
+ms.openlocfilehash: 33ca65421802cdbe31497f3a19ba5992961daa12
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780171"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850615"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introducción al SDK de Batch para Node.js
 
-Obtenga información acerca de los conceptos básicos de la creación de un cliente de Batch con Node.js en [Microsoft Azure SDK for Node.js - Batch Service](/javascript/api/overview/azure/batch) (SDK de Microsoft Azure SDK para Node.js: servicio Batch). Vamos a describir paso a paso un escenario de aplicación por lotes y, a continuación, su configuración mediante un cliente de Node.js.  
+Obtenga información acerca de los conceptos básicos de la creación de un cliente de Batch con Node.js en [Microsoft Azure SDK for Node.js - Batch Service](/javascript/api/overview/azure/batch) (SDK de Microsoft Azure SDK para Node.js: servicio Batch). Vamos a describir paso a paso un escenario de aplicación por lotes y, a continuación, su configuración mediante un cliente de Node.js.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 En este artículo se da por hecho que tiene conocimientos prácticos de Node.js y está familiarizado con Linux. También necesitará una cuenta de Azure configurada con derechos de acceso para crear servicios de Batch y Storage.
@@ -174,7 +174,7 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
         {
             if(error.statusCode==404)
             {
-                console.log("Pool not found yet returned 404...");    
+                console.log("Pool not found yet returned 404...");
 
             }
             else
@@ -241,7 +241,7 @@ A continuación se muestra un ejemplo de objeto devuelto por la función pool.ge
   targetDedicated: 4,
   enableAutoScale: false,
   enableInterNodeCommunication: false,
-  maxTasksPerNode: 1,
+  taskSlotsPerNode: 1,
   taskSchedulingPolicy: { nodeFillType: 'Spread' } }
 ```
 
@@ -252,7 +252,7 @@ Un trabajo de Azure Batch es un grupo lógico de tareas similares. En nuestro es
 Estas tareas se ejecutan en paralelo y se implementan a través de varios nodos, organizados por el servicio de Azure Batch.
 
 > [!Tip]
-> Puede usar la propiedad [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) para especificar el número máximo de tareas que pueden ejecutarse simultáneamente en un único nodo.
+> Puede usar la propiedad [taskSlotsPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) para especificar el número máximo de tareas que se pueden ejecutar simultáneamente en un único nodo.
 >
 >
 
@@ -317,7 +317,7 @@ Suponiendo que tenemos cuatro contenedores denominados "con1", "con2", "con3" y 
 ```nodejs
 // storing container names in an array
 var container_list = ["con1","con2","con3","con4"]
-    container_list.forEach(function(val,index){           
+    container_list.forEach(function(val,index){
 
            var container_name = val;
            var taskID = container_name + "_process";
@@ -325,7 +325,7 @@ var container_list = ["con1","con2","con3","con4"]
            var task = batch_client.task.add(poolid,task_config,function(error,result){
                 if(error != null)
                 {
-                    console.log(error.response);     
+                    console.log(error.response);
                 }
                 else
                 {
@@ -339,7 +339,7 @@ var container_list = ["con1","con2","con3","con4"]
     });
 ```
 
-El código agrega varias tareas al grupo. Y cada una de las tareas se ejecuta en un nodo en el grupo de máquinas virtuales que se creó. Si el número de tareas supera el número de máquinas virtuales en un grupo o el valor de la propiedad maxTasksPerNode, las tareas esperan hasta que un nodo queda disponible. Azure Batch controla esta orquestación de un modo automático.
+El código agrega varias tareas al grupo. Y cada una de las tareas se ejecuta en un nodo en el grupo de máquinas virtuales que se creó. Si el número de tareas supera el número de máquinas virtuales de un grupo o el valor de la propiedad taskSlotsPerNode, las tareas esperan hasta que un nodo quede disponible. Azure Batch controla esta orquestación de un modo automático.
 
 El portal tiene vistas detalladas del estado de las tareas y trabajos. También puede utilizar la lista y obtener funciones en el SDK de Azure Batch para Node.js. En la documentación del siguiente [enlace](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) se proporcionan más detalles.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 4564019f540d0dd08c8e0b2827b4a6b7df9c2cf0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b963e0b4797af8269b87f704edca231f000c9372
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543999"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996678"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: integración de Azure Active Directory con Optimizely
 
@@ -110,7 +110,7 @@ Para configurar el inicio de sesión único de Azure AD con Optimizely, realice 
 
 5. La aplicación Optimizely espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Atributos de usuario" con el botón "Editar" seleccionado.](common/edit-attribute.png)
 
 6. Además de lo anterior, la aplicación Optimizely espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
 
@@ -120,7 +120,7 @@ Para configurar el inicio de sesión único de Azure AD con Optimizely, realice 
     
     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![imagen](common/new-save-attribute.png)
+    ![Captura de pantalla que muestra la sección "Notificaciones del usuario" con las acciones "Agregar nueva notificación" y "Guardar" resaltadas.](common/new-save-attribute.png)
 
     ![imagen](common/new-attribute-details.png)
 
@@ -164,7 +164,7 @@ Para configurar el inicio de sesión único de Azure AD con Optimizely, realice 
 
 4. Haga clic en el nombre de la cuenta de la parte superior derecha y, después, en **Configuración de la cuenta**.
 
-    ![Inicio de sesión único de Azure AD](./media/optimizely-tutorial/tutorial_optimizely_09.png)
+    ![Captura de pantalla que muestra el nombre de cuenta seleccionado en la esquina superior derecha, con la opción "Configuración de cuenta" seleccionada en el menú.](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
 5. En la pestaña Cuenta, active la casilla **Habilitar SSO** que se encuentra debajo de Inicio de sesión único en la sección **Información general**.
   
@@ -231,7 +231,7 @@ En esta sección, creará un usuario llamado Britta Simon en Optimizely.
 
 2. Para agregar un nuevo colaborador, haga clic en **New Collaborator** (Nuevo colaborador).
    
-    ![Creación de un usuario de prueba de Azure AD](./media/optimizely-tutorial/create_aaduser_10.png)
+    ![Captura de pantalla que muestra la página principal de Optimizely con la pestaña "Collaborators" (Colaboradores) y el botón "New Collaborator" (Nuevo colaborador) seleccionados.](./media/optimizely-tutorial/create_aaduser_10.png)
 
 3. Escriba la dirección de correo electrónico y asígnele un rol. Haga clic en **Invitar**.
 

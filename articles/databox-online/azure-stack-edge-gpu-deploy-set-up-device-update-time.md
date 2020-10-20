@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1f86b0fc847ade3153c8eaddb0d82bd968913b46
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dd4078d414048d858c46f6757daa0a87a698eaab
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899593"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976086"
 ---
-# <a name="tutorial-configure-device-settings-for-azure-stack-edge-pro-with-gpu"></a>Tutorial: Configuración de los valores del dispositivo para Azure Stack Edge Pro con GPU
+# <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-pro-with-gpu"></a>Tutorial: Configuración de los valores del dispositivo para Azure Stack Edge Pro con GPU
 
 En este tutorial se describe cómo se configuran los valores relacionados con el dispositivo de Azure Stack Edge Pro con una GPU incorporada. Puede configurar el nombre de dispositivo, el servidor de actualización y el servidor horario a través de la interfaz de usuario web local.
 
@@ -67,7 +67,7 @@ Siga estos pasos para configurar los valores relacionadas con el dispositivo:
 
     5. Una vez aplicada la configuración, seleccione **Siguiente: Servidor de actualización**.
 
-        ![Página "Dispositivo" de la interfaz de usuario web local](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
+        ![Página "Dispositivo" de la interfaz de usuario web local 3](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
 
 ## <a name="configure-update"></a>Configuración de la actualización
 
@@ -79,7 +79,7 @@ Siga estos pasos para configurar los valores relacionadas con el dispositivo:
 
         También puede optar por implementar las actualizaciones desde **Windows Server Update Services** (WSUS). Proporcione la ruta de acceso al servidor WSUS.
         
-        ![Página "Servidor de actualización" de la interfaz de usuario web local](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
+        ![Página "Servidor de actualización" de la interfaz de usuario web local 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
         > Si se configura un servidor de Windows Update independiente y se elige la conexión a través de *https* (en lugar de *http*), se necesitan los certificados de cadena de firma requeridos para conectarse al servidor de actualización. Para información sobre cómo crear y cargar certificados, vaya a [Administrar certificados](azure-stack-edge-j-series-manage-certificates.md). 

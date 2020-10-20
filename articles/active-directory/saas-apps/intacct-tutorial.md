@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: jeedes
-ms.openlocfilehash: 79a77d3c55ee4ac545712329f0054123bec8fcae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e01bc36f0f30cec779652a603aaf7bdb496e5190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535870"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850581"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Tutorial: Integración de Sage Intacct con Azure Active Directory
 
@@ -189,7 +189,7 @@ Para configurar los usuarios de Azure AD para que puedan iniciar sesión en Sag
 
 1. En la sección **Información del usuario** , lleve a cabo estos pasos:
 
-    ![Información del usuario](./media/intacct-tutorial/ic790043.png "Información del usuario")
+    ![Captura de pantalla que muestra la sección User Information (Información del usuario), donde puede especificar la información de este paso.](./media/intacct-tutorial/ic790043.png "Información del usuario")
 
     a. Escriba el **Id. de usuario**, **Apellidos**, **Nombre**, **Dirección de correo electrónico**, **Puesto** y **Teléfono** de una cuenta de Azure AD que quiera aprovisionar en la sección **Información del usuario**.
 
@@ -204,7 +204,7 @@ Para configurar los usuarios de Azure AD para que puedan iniciar sesión en Sag
 
 1. Haga clic en la pestaña **Inicio de sesión único** y asegúrese de que el **id. de usuario de SSO federado** de la captura de pantalla anterior y el valor de **atributo de origen** que se asigna con `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` de la sección **Atributos de usuario** de Azure Portal sea el mismo.
 
-    ![Información del usuario](./media/intacct-tutorial/ic790044.png "Información del usuario")
+    ![Captura de pantalla que muestra la sección Información del usuario, donde puede especificar el identificador del usuario de inicio de sesión único federado](./media/intacct-tutorial/ic790044.png "Información del usuario").
 
 > [!NOTE]
 > Para aprovisionar cuentas de usuario de Azure AD, puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Sage Intacct ofrecida por Sage Intacct.

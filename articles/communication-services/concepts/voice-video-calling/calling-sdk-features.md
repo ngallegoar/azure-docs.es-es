@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d8216bb8c30448e7e91ec9a1bcc531b720eca30c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665198"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977874"
 ---
 # <a name="calling-client-library-overview"></a>Información general de la biblioteca cliente de llamadas
 
@@ -34,7 +34,8 @@ En la lista siguiente se presenta el conjunto de características que están dis
 |                   | Realizar una llamada de grupo con más de dos usuarios (hasta 350)                                                       | ✔️   | ✔️            | ✔️ 
 |                   | Promocionar una llamada uno a uno con dos usuarios a una llamada de grupo con más de dos usuarios                                 | ✔️   | ✔️            | ✔️ 
 |                   | Unirse a una llamada de grupo después de que se haya iniciado                                                                              | ✔️   | ✔️            | ✔️ 
-|                   | Invitar a otro participante de VoIP a unirse a una llamada de grupo en curso                                                       | ✔️   | ✔️            | ✔️ 
+|                   | Invitar a otro participante de VoIP a unirse a una llamada de grupo en curso                                                       | ✔️   | ✔️            | ✔️
+|                   | Activar o desactivar el vídeo                                                         | ✔️   | ✔️            | ✔️ 
 |                   | Desactivar/activar audio del micrófono                                                                                                     | ✔️   | ✔️            | ✔️         
 |                   | Cambiar entre las cámaras                                                                                              | ✔️   | ✔️            | ✔️           
 |                   | Retención/reanudación local                                                                                                  | ✔️   | ✔️            | ✔️           

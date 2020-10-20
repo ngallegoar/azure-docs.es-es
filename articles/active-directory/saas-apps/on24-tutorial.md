@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 3977aee84b1281e7918987c63185069892b5909e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 163a0c9a7e728ee9cd08c4a154ea499c059cf2f6
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554285"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944495"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutorial: Integración de Azure Active Directory con ON24 Virtual Environment SAML Connection
 
@@ -147,7 +147,7 @@ Para configurar el inicio de sesión único de Azure AD con ON24 Virtual Environ
 
 5.  Si desea configurar la aplicación en modo iniciado por **SP**, realice el siguientes paso:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de ON24 Virtual Environment SAML Connection](common/both-signonurl.png)
+    ![Captura de pantalla que muestra la sección "Establecer direcciones U R L adicionales" con el cuadro de texto "Dirección U R L de inicio de sesión" resaltado.](common/both-signonurl.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://vshow.on24.com/vshow/<INSTANCENAME>`
 

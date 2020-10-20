@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 7fffe58dfdb63da28edc19c19b56b576f4fbadd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 132da93bcb1e8138b63361cdb448c05b985cdf27
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544050"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940912"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Moxtra
 
@@ -156,11 +156,11 @@ En esta sección, va a permitir que B.Simon acceda a Moxtra mediante el inicio d
 
 2. En la barra de herramientas de la izquierda, haga clic en **Admin Console > SAML Single Sign-on** (Consola de administración > Inicio de sesión único de SAML) y, luego, en **New** (Nuevo).
    
-    ![Configurar inicio de sesión único](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![Captura de pantalla que muestra la página Inicio de sesión único de SAML con la opción para crear un nuevo inicio de sesión único de SAML.](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
 3. En la página **SAML** , realice los siguientes pasos:
    
-    ![Configurar inicio de sesión único](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![Captura de pantalla que muestra la página de SAML donde puede especificar los valores descritos.](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración (por ejemplo, *SAML*). 
   
@@ -191,7 +191,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado B.Simon en Mo
 
 1. En la barra de herramientas de la izquierda, haga clic en **Consola de administración > Administración de usuarios** y, luego, en **Agregar usuario**.
    
-    ![Configurar inicio de sesión único](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![Captura de pantalla que muestra la página de User Management (Administración de usuarios) con Add User (Agregar usuario) seleccionado.](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. En el cuadro de diálogo **Agregar usuario** , realice los pasos siguientes:
   

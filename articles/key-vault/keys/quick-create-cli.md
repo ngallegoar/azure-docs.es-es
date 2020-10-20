@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e59482c3dbc4bd0abb20a5e9094aad5f31c358cb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 19c4a966bb4099e70efea224127bc9b7292ffd0a
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87497416"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940555"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>Inicio rápido: Establecimiento y recuperación de una clave desde Azure Key Vault mediante la CLI de Azure
 
@@ -74,7 +74,7 @@ Escriba los siguientes comandos para crear un **ExampleKey**:
 az keyvault key create --vault-name "Contoso-Vault2" -n ExampleKey --protection software
 ```
 
-Ahora puede hacer referencia a esta clave que agregó a Azure Key Vault utilizando su URI. Use **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** para obtener la versión actual. 
+Ahora puede hacer referencia a esta clave que agregó a Azure Key Vault utilizando su URI. Use **"https://Contoso-Vault2.vault.azure.net/keys/ExampleKey"** para obtener la versión actual. 
 
 Para ver la clave previamente almacenada:
 

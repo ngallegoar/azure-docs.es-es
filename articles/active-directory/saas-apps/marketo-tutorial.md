@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: c1b8874d8813d6200c915778841c26e77b02e434
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 764f01fa5966a6620612405b4df37fc5ff44f33a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554930"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: integración de Azure Active Directory con Marketo
 
@@ -130,15 +130,15 @@ Para configurar el inicio de sesión único de Azure AD con Marketo, siga estos 
    
     b. Haga clic en el botón **Administrador** en el panel de navegación superior.
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![Captura de pantalla que muestra la opción Admin seleccionada en el panel de navegación.](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     c. Vaya al menú Integración y haga clic en el **vínculo de Munchkin**.
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_11.png)
+    ![Captura de pantalla que muestra la opción Munchkin seleccionada en Integration (Integración).](./media/marketo-tutorial/tutorial_marketo_11.png)
    
     d. Copie el identificador de Munchkin mostrado en la pantalla y complete la dirección URL de respuesta en el asistente para configuración de Azure AD.
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_12.png) 
+    ![Captura de pantalla que muestra la página Munchkin donde puede copiar el identificador de la cuenta.](./media/marketo-tutorial/tutorial_marketo_12.png) 
 
 2. Para configurar el inicio de sesión único en la aplicación, siga estos pasos:
    
@@ -146,15 +146,15 @@ Para configurar el inicio de sesión único de Azure AD con Marketo, siga estos 
    
     b. Haga clic en el botón **Administrador** en el panel de navegación superior.
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![Captura de pantalla que muestra la opción Admin seleccionada en el panel de navegación.](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     c. Vaya al menú Integración y haga clic en **Inicio de sesión único**.
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_07.png) 
+    ![Captura de pantalla que muestra Inicio de sesión único seleccionado en Integración.](./media/marketo-tutorial/tutorial_marketo_07.png) 
    
     d. Para habilitar la configuración de SAML, haga clic en el botón **Editar**.
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_08.png) 
+    ![Captura de pantalla que muestra la configuración de inicio de sesión único, donde puede seleccionar EDITAR.](./media/marketo-tutorial/tutorial_marketo_08.png) 
    
     e. Ya está la configuración de inicio de sesión único **habilitada**.
    
@@ -164,7 +164,7 @@ Para configurar el inicio de sesión único de Azure AD con Marketo, siga estos 
    
     h. Seleccione la ubicación del identificador de usuario como **elemento Identificador de nombre**.
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_09.png)
+    ![Captura de pantalla que muestra Edit SAML Settings (Editar configuración de SAML) donde puede especificar los valores descritos.](./media/marketo-tutorial/tutorial_marketo_09.png)
    
     > [!NOTE]
     > Si su identificador de usuario no es el valor UPN, cambie el valor en la pestaña Atributo.
@@ -179,7 +179,7 @@ Para configurar el inicio de sesión único de Azure AD con Marketo, siga estos 
    
     m. En **URL del error**, copie la **dirección URL de la instancia de Marketo** y haga clic en el botón **Guardar** para guardar la configuración.
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_10.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Edit Redirect Pages (Editar páginas de redireccionamiento) donde puede especificar los valores descritos.](./media/marketo-tutorial/tutorial_marketo_10.png)
 
 3. Para habilitar el SSO para los usuarios, complete las siguientes acciones:
    
@@ -187,15 +187,15 @@ Para configurar el inicio de sesión único de Azure AD con Marketo, siga estos 
    
     b. Haga clic en el botón **Administrador** en el panel de navegación superior.
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![Captura de pantalla que muestra la opción Admin seleccionada en el panel de navegación.](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     c. Desplácese hasta el menú **Seguridad** y haga clic en **Login Settings** (Configuración de inicio de sesión).
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_13.png)
+    ![Captura de pantalla que muestra la opción Login Settings (Configuración de inicio de sesión) seleccionada en el menú Seguridad.](./media/marketo-tutorial/tutorial_marketo_13.png)
    
     d. Active la opción **Require SSO** (Requerir SSO) y **guarde** la configuración.
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_14.png)
+    ![Captura de pantalla que muestra Password Strength Settings (Configuración de seguridad de la contraseña), donde puede seleccionar Require S S O (Requerir inicio de sesión único).](./media/marketo-tutorial/tutorial_marketo_14.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -256,21 +256,21 @@ En esta sección, creará un usuario llamado Britta Simon en Marketo. Siga estos
 
 2. Haga clic en el botón **Administrador** en el panel de navegación superior.
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![Captura de pantalla que muestra la opción Admin seleccionada en el panel de navegación.](./media/marketo-tutorial/tutorial_marketo_06.png) 
 
 3. Desplácese hasta el menú **Security** (Seguridad) y haga clic en **Users & Roles** (Usuarios y roles).
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_19.png)  
+    ![Captura de pantalla que muestra la opción Usuarios y roles seleccionada en el menú Seguridad.](./media/marketo-tutorial/tutorial_marketo_19.png)  
 
 4. Haga clic en el vínculo **Invite New User** (Invitar a un usuario nuevo) en la pestaña Users (Usuarios).
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_15.png) 
+    ![Captura de pantalla que muestra Invitar a un nuevo usuario en la pestaña Usuarios.](./media/marketo-tutorial/tutorial_marketo_15.png) 
 
 5. En el asistente Invitar a un usuario nuevo, rellene la siguiente información.
    
     a. Especifique la dirección de **Correo electrónico** del usuario en el cuadro de texto.
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_16.png)
+    ![Captura de pantalla que muestra el primer paso del asistente para invitar a un nuevo usuario donde puede especificar la información del usuario.](./media/marketo-tutorial/tutorial_marketo_16.png)
    
     b. Escriba el **Nombre** en el cuadro de texto.
    
@@ -280,10 +280,10 @@ En esta sección, creará un usuario llamado Britta Simon en Marketo. Siga estos
 
 6. En la pestaña **Permissions** (Permisos) seleccione los **roles de usuario** y haga clic en **Next** (Siguiente).
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_17.png)
+    ![Captura de pantalla que muestra el primer paso del asistente para invitar a un nuevo usuario donde puede especificar los permisos.](./media/marketo-tutorial/tutorial_marketo_17.png)
 7. Haga clic en el botón **Send** (Enviar) para enviar la invitación del usuario.
    
-    ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_18.png)
+    ![Captura de pantalla que muestra el primer paso del asistente para invitar a un nuevo usuario donde puede escribir su mensaje.](./media/marketo-tutorial/tutorial_marketo_18.png)
 
 8. El usuario recibe la notificación de correo electrónico y tiene que hacer clic en el vínculo y cambiar la contraseña para activar la cuenta. 
 

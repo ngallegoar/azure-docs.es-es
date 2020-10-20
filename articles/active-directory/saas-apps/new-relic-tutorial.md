@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 19a471b9339828250baa190b1de57c86eb22b30c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c8d24d0b71ce537b81ee729109b398042c3b60c5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554471"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940965"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con New Relic by Account
 
@@ -134,7 +134,7 @@ En esta sección va a permitir que B.Simon acceda a New Relic by Account mediant
 
 2. En el menú de la parte superior, haga clic en **Configuración de cuenta**.
    
-    ![Account Settings (Configuración de cuenta)](./media/new-relic-tutorial/ic797036.png "Configuración de cuenta")
+    ![Captura de pantalla que muestra la página principal con la configuración de la cuenta seleccionada.](./media/new-relic-tutorial/ic797036.png "Configuración de cuenta")
 
 3. Haga clic en la pestaña **Seguridad y autenticación** y, luego, haga clic en la pestaña **Inicio de sesión único**.
    
@@ -158,11 +158,11 @@ En esta sección va a permitir que B.Simon acceda a New Relic by Account mediant
 
 2. En el menú de la parte superior, haga clic en **Configuración de cuenta**.
    
-    ![Account Settings (Configuración de cuenta)](./media/new-relic-tutorial/ic797040.png "Configuración de cuenta")
+    ![Captura de pantalla que muestra la opción Account settings (Configuración de la cuenta) seleccionada en la página principal](./media/new-relic-tutorial/ic797040.png "Configuración de cuenta").
 
 3. En el panel **Cuenta** que se encuentra en el lado izquierdo, haga clic en **Resumen** y, luego, haga clic en **Agregar usuario**.
    
-    ![Account Settings (Configuración de cuenta)](./media/new-relic-tutorial/ic797041.png "Configuración de cuenta")
+    ![Captura de pantalla que muestra el panel Summary (Resumen), donde puede seleccionar Add User (Agregar usuario).](./media/new-relic-tutorial/ic797041.png "Configuración de cuenta")
 
 4. En el cuadro de diálogo **Usuarios activos** , realice los pasos siguientes:
    

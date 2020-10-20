@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b24d3aa9b5071a69e3e3fb866dc5ba2ac3e57b19
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266532"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950948"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitud de Azure Data Box Disk
 
@@ -72,7 +72,7 @@ Realice los pasos siguientes para realizar el pedido de Data Box Disk.
   
 4. Seleccione **Data Box Disk**. La capacidad máxima de la solución para un solo pedido de cinco discos es 35 TB. Para tamaños de datos mayores puede crear varios pedidos.
 
-     ![Seleccione la opción Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
+     ![Seleccione la opción Data Box Disk 2](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
 5. En **Order** (Pedido), especifique el valor de **Order details** (Detalles del pedido). Escriba o seleccione la siguiente información.
 

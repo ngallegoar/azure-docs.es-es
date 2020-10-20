@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 48fedf7f3a73ce7fde60a1df80d971a5d7f88dd7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 73eb6938f4b43c204ab8bc91217e4828454e222d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540650"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944236"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Citrix NetScaler (autenticación basada en encabezados)
 
@@ -392,7 +392,7 @@ Para enlazar una directiva de reescritura a un servidor virtual mediante la GUI:
 
 1. En el panel **Load Balancing Virtual Server** (Servidor virtual de equilibrio de carga), en **Advanced Settings** (Configuración avanzada), seleccione **Policies** (Directivas). Todas las directivas configuradas para la instancia de NetScaler aparecen en la lista.
  
-    ![Configuración de Citrix NetScaler: panel Load Balancing Virtual Server (Servidor virtual de equilibrio de carga)](./media/header-citrix-netscaler-tutorial/header05.png)
+    ![Captura de pantalla que muestra la pestaña "Configuration" (Configuración) con los campos "Name" (Nombre), "Action" (Acción) y "Expression" (Expresión) resaltados y el botón "Create" (Crear) seleccionado.](./media/header-citrix-netscaler-tutorial/header05.png)
 
     ![Configuración de Citrix NetScaler: panel Load Balancing Virtual Server (Servidor virtual de equilibrio de carga)](./media/header-citrix-netscaler-tutorial/header06.png)
 

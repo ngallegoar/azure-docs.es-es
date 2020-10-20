@@ -1,14 +1,14 @@
 ---
 title: Introducción a Azure Policy
 description: Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar las definiciones de directivas en el entorno de Azure.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 54dce519bfaa8c42afa967fc5c0579f31986aefb
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538963"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873921"
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -72,16 +72,16 @@ Azure Policy dispone de varios permisos, conocidos como operaciones, en dos prov
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Muchos roles integrados conceden permiso a recursos de Azure Policy. El rol **Colaborador de directiva de recursos** incluye la mayoría de las operaciones de Azure Policy. El rol **Propietario** tiene derechos completos. Tanto el rol **Colaborador** como el rol **Lector** tienen acceso a todas las operaciones de _lectura_ de Azure Policy. El rol **Colaborador** puede desencadenar la corrección de recursos, pero no puede _crear_ definiciones o asignaciones.
+Muchos roles integrados conceden permiso a recursos de Azure Policy. El rol **Colaborador de directiva de recursos** incluye la mayoría de las operaciones de Azure Policy. El rol **Propietario** tiene derechos completos. Tanto el rol **Colaborador** como el rol **Lector** tienen acceso a todas las operaciones de _lectura_ de Azure Policy. El rol **Colaborador** puede desencadenar la corrección de recursos, pero no puede _crear_ definiciones o asignaciones. **Administrador de acceso de usuario**  es necesario para conceder la identidad administrada en los permisos necesarios de las asignaciones **deployIfNotExists** o **modify**.
 
 Si ninguno de los roles integrados tiene los permisos necesarios, cree un [rol personalizado](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> La identidad administrada de una asignación de directiva **deployIfNotExists** necesita permisos suficientes para crear o actualizar los recursos incluidos en la plantilla. Para más información, consulte [Configurar definiciones de directiva para la corrección](./how-to/remediate-resources.md#configure-policy-definition).
+> La identidad administrada de una asignación de directiva **deployIfNotExists** or **modify** necesita permisos suficientes para crear o actualizar los recursos de destino. Para más información, consulte [Configurar definiciones de directiva para la corrección](./how-to/remediate-resources.md#configure-policy-definition).
 
 ### <a name="resources-covered-by-azure-policy"></a>Recursos que abarca Azure Policy
 
-Azure Policy evalúa todos los recursos de Azure. En el caso de algunos proveedores de recursos, como [Configuración de invitado](./concepts/guest-configuration.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md) y [Azure Key Vault](../../key-vault/general/overview.md), hay una integración más profunda para administrar valores de configuración y objetos. Para más información, consulte [Modos del proveedor de recursos](./concepts/definition-structure.md).
+Azure Policy evalúa todos los recursos de Azure y los recursos habilitados para Arc. En el caso de algunos proveedores de recursos, como [Configuración de invitado](./concepts/guest-configuration.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md) y [Azure Key Vault](../../key-vault/general/overview.md), hay una integración más profunda para administrar valores de configuración y objetos. Para más información, consulte [Modos del proveedor de recursos](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Recomendaciones para la administración de directivas
 
@@ -94,7 +94,7 @@ A continuación, se ofrecen algunos consejos e indicaciones que se deben tener e
 - Se recomienda crear y asignar las definiciones de iniciativa incluso para una definición de directiva única.
   Por ejemplo, tiene la definición de directiva _policyDefA_ y la crea en la definición de iniciativa _initiativeDefC_. Si crea otra definición de directiva más adelante para _policyDefB_ con objetivos similares a _policyDefA_, puede agregarla a _initiativeDefC_ y realizar un seguimiento conjunto.
 
-- Una vez creada una asignación de iniciativa, las definiciones agregadas a la iniciativa también forman parte de esas asignaciones de iniciativas.
+- Una vez creada una asignación de iniciativa, las definiciones agregadas a la iniciativa también forman parte de las asignaciones de esa iniciativa.
 
 - Cuando se evalúa una asignación de iniciativa, también se evalúan todas las directivas incluidas en la iniciativa.
   Si necesita evaluar una directiva de forma individual, es mejor no incluirla en una iniciativa.
@@ -112,7 +112,6 @@ En Azure Policy, se ofrecen varias directivas integradas que están disponibles 
 - **Ubicaciones permitidas** (denegar): restringe las ubicaciones disponibles para los nuevos recursos. Su efecto se utiliza para exigir los requisitos de cumplimiento de replicación geográfica.
 - **Allowed Virtual Machine SKUs** (SKU de máquina virtual permitidas) (denegar): especifica un conjunto de SKU de máquina virtual que se pueden implementar.
 - **Add a tag to resources** (Agregar una etiqueta a los recursos) (modificar): aplica una etiqueta obligatoria y su valor predeterminado si la solicitud de implementación no la especifica.
-- **Append tag and its default value** (Anexar la etiqueta y su valor predeterminado) (anexar): aplica una etiqueta obligatoria y su valor a un recurso.
 - **Not allowed resource types** (Tipos de recursos no permitidos) (denegar): impide la implementación de una lista de tipos de recursos.
 
 Para implementar estas definiciones de directiva (tanto las definiciones integradas como las personalizadas), será preciso asignarlas. Puede asignar cualquiera de estas directivas a través de Azure Portal, PowerShell o la CLI de Azure.

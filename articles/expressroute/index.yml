@@ -10,12 +10,12 @@ metadata:
   author: duongau
   ms.author: duau
   ms.date: 08/27/2019
-  ms.openlocfilehash: b26699e31b5c633e4d04651f6057826426f6c2f0
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 384079389c66811016b1c813b3c11185ddfd52a6
+  ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89393112"
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92203983"
 landingContent:
 - title: Acerca de ExpressRoute
   linkLists:
@@ -115,8 +115,8 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Azure CLI
-      url: https://docs.microsoft.com/cli/azure/network/express-route
+    - text: CLI de Azure
+      url: /cli/azure/network/express-route
     - text: Azure PowerShell
       url: /powershell/module/az.network#expressroute
     - text: REST
@@ -124,6 +124,6 @@ landingContent:
   - linkListType: architecture
     links:
     - text: Arquitectura de referencia para redes híbridas
-      url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute
+      url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
     - text: Arquitectura de referencia para redes híbridas con conmutación por error de VPN
-      url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover
+      url: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover

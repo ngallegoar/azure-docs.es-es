@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 00ddd61209af6e0d16b7f7579a6e8729cde0cdf0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be48e4bb4f8364e9fafff69e2dc9eb6aa8db223c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552482"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941023"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Tutorial: Integración de Azure Active Directory con Namely
 
@@ -128,19 +128,19 @@ Para configurar el inicio de sesión único de Azure AD con Namely, realice los 
 
 2. En la barra de herramientas de la parte superior, haga clic en **Company**(Empresa).
    
-    ![Configurar inicio de sesión único](./media/namely-tutorial/tutorial_namely_06.png) 
+    ![Captura de pantalla que muestra el valor de Company (Empresa) seleccionado.](./media/namely-tutorial/tutorial_namely_06.png) 
 
 3. Haga clic en la pestaña **Configuración** .
    
-    ![Configurar inicio de sesión único](./media/namely-tutorial/tutorial_namely_07.png) 
+    ![Captura de pantalla que muestra la pestaña Company Settings (Configuración de la empresa) seleccionada.](./media/namely-tutorial/tutorial_namely_07.png) 
 
 4. Haga clic en **SAML**.
    
-    ![Configurar inicio de sesión único](./media/namely-tutorial/tutorial_namely_08.png) 
+    ![Captura de pantalla que muestra la opción SAML seleccionada.](./media/namely-tutorial/tutorial_namely_08.png) 
 
 5. En la página **SAML Settings** (Configuración de SAML), realice los pasos siguientes:
    
-    ![Configurar inicio de sesión único](./media/namely-tutorial/tutorial_namely_09.png)
+    ![Captura de pantalla que muestra la página SAML Settings (Configuración de SAML), donde puede especificar los valores descritos.](./media/namely-tutorial/tutorial_namely_09.png)
  
     a. Haga clic en **Enable SAML**(Habilitar SAML). 
 
@@ -211,15 +211,15 @@ El objetivo de esta sección es crear un usuario llamado Britta Simon en Namely.
 
 2. En la barra de herramientas de la parte superior, haga clic en **People**(Gente).
    
-    ![Configurar inicio de sesión único](./media/namely-tutorial/tutorial_namely_10.png) 
+    ![Captura de pantalla que muestra el valor de People (Personas) seleccionado.](./media/namely-tutorial/tutorial_namely_10.png) 
 
 3. Haga clic en la pestaña **Directory** (Directorio).
    
-    ![Configurar inicio de sesión único](./media/namely-tutorial/tutorial_namely_11.png) 
+    ![Captura de pantalla que muestra la pestaña People Directory (Directorio de personas) seleccionada.](./media/namely-tutorial/tutorial_namely_11.png) 
 
 4. Haga clic en **Agregar nueva persona**.
 
-    ![Configurar inicio de sesión único](./media/namely-tutorial/tutorial_namely_12.png)
+    ![Captura de pantalla que muestra la opción Add New Person (Agregar nueva persona).](./media/namely-tutorial/tutorial_namely_12.png)
 
 5. En el cuadro de diálogo **Agregar nueva persona** , realice los pasos siguientes:
 

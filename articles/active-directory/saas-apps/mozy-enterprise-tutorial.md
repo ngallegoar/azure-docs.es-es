@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: c9c4cef07bf1de64bcb14bc4487e0f56d2a40dfc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bdeec23b6b0a0ef2884fa35bd0a576ef57bb7853
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518649"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938510"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integración de Azure Active Directory con Mozy Enterprise
 
@@ -126,11 +126,11 @@ Para configurar el inicio de sesión único de Azure AD con Mozy Enterprise, rea
 
 2. En la sección **Configuración**, haga clic en **Directiva de autenticación**.
    
-    ![Authentication policy (Directiva de autenticación)](./media/mozy-enterprise-tutorial/ic777314.png "Authentication Policy")
+    ![Captura de pantalla que muestra Authentication Policy (Directiva de autenticación) seleccionada en Configuration (Configuración).](./media/mozy-enterprise-tutorial/ic777314.png "Authentication Policy")
 
 3. En la sección **Authentication Policy** (Directiva de autenticación), realice estos pasos:
    
-    ![Authentication policy (Directiva de autenticación)](./media/mozy-enterprise-tutorial/ic777315.png "Authentication Policy")
+    ![Captura de pantalla que muestra la sección Authentication Policy (Directiva de autenticación), donde puede especificar los valores descritos.](./media/mozy-enterprise-tutorial/ic777315.png "Authentication Policy")
    
     a. Seleccione **Servicio de directorio** como **Proveedor**.
    

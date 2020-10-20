@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bae3f4a0d8c793061bb3833b04717d378e86f85f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 78f9217ea7288bac56b008911f7b39c73bba7771
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519895"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Tutorial: Integración de Azure Active Directory con LaunchDarkly
 
@@ -100,7 +100,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de LaunchDarkly](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL: `app.launchdarkly.com`
 
@@ -113,7 +113,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://app.launchdarkly.com`
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de LaunchDarkly](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
 6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -135,19 +135,19 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
 2. Seleccione **Configuración de cuenta** en el panel de navegación izquierdo.
 
-    ![Configuración de LaunchDarkly](./media/launchdarkly-tutorial/configure1.png)
+    ![Captura de pantalla que muestra el elemento Account Settings (Configuración de la cuenta) seleccionado en Production (Producción).](./media/launchdarkly-tutorial/configure1.png)
 
 3. Haga clic en la pestaña **Seguridad**.
 
-    ![Configuración de LaunchDarkly](./media/launchdarkly-tutorial/configure2.png)
+    ![Captura de pantalla que muestra la pestaña Security (Seguridad) en Account Settings (Configuración de la cuenta).](./media/launchdarkly-tutorial/configure2.png)
 
 4. Haga clic en **HABILITAR SSO** y luego en **EDITAR CONFIGURACIÓN DE SAML**.
 
-    ![Configuración de LaunchDarkly](./media/launchdarkly-tutorial/configure3.png)
+    ![Captura de pantalla que muestra la página de inicio de sesión único, donde puede habilitar el inicio de sesión único y editar la configuración de SAML.](./media/launchdarkly-tutorial/configure3.png)
 
 5. En la sección **Editar configuración de SAML**, realice los siguientes pasos:
 
-    ![Configuración de LaunchDarkly](./media/launchdarkly-tutorial/configure4.png)
+    ![Captura de pantalla que muestra la sección Edit your SAML configuration (Editar configuración de SAML), donde puede realizar los cambios que se describen aquí.](./media/launchdarkly-tutorial/configure4.png)
 
     a. Copie la **dirección URL del servicio del consumidor de SAML** de la instancia y péguela en el cuadro de texto URL de respuesta de la sección **Dominio y direcciones URL de LaunchDarkly** de Azure Portal.
 

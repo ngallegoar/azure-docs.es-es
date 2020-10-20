@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 230613cc103cc851d1173f867b551af028ea898b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3b22bb16c583c0385b31bde89f30763cd4fb478a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546872"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945931"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Tutorial: Integración de Azure Active Directory con Kantega SSO for JIRA
 
@@ -99,7 +99,7 @@ Para configurar el inicio de sesión único en Azure AD con Kantega SSO for JIR
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Kantega SSO for JIRA](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la sección "Configuración básica de S A M L" con el cuadro de texto "Identificador" y "U R L de respuesta" resaltados y el botón "Guardar" seleccionado.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,47 +134,47 @@ Para configurar el inicio de sesión único en Azure AD con Kantega SSO for JIR
 
 1. Mantenga el mouse encima del icono de engranaje y haga clic en **Complementos**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon1.png)
+    ![Captura de pantalla que muestra el icono de engranaje seleccionado y la opción "Complementos" seleccionada en el menú desplegable.](./media/kantegassoforjira-tutorial/addon1.png)
 
 1. En la sección de la pestaña Complementos, haga clic en **Find new add-ons** (Buscar nuevos complementos). Busque **Kantega SSO for JIRA (SAML & Kerberos)** y haga clic en el botón **Instalar** para instalar el nuevo complemento SAML.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon2.png)
+    ![Captura de pantalla que muestra la sección "Find new Add-ons" (Buscar nuevos complementos) con "Kantego S S O for JIRA (S A M L & Kerberos)" en el cuadro de búsqueda y el botón "Instalar" seleccionado.](./media/kantegassoforjira-tutorial/addon2.png)
 
 1. Se inicia la instalación del complemento.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon3.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Instalando" del complemento.](./media/kantegassoforjira-tutorial/addon3.png)
 
 1. Una vez completada la instalación. Haga clic en **Cerrar**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon33.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Installed and ready to go!" (Instalado y listo para usarse) con la acción "Cerrar" seleccionada.](./media/kantegassoforjira-tutorial/addon33.png)
 
 1.  Haga clic en **Administrar**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon34.png)
+    ![Captura de pantalla que muestra la página de aplicación "Kantega S S O" con el botón "Administrar" seleccionado.](./media/kantegassoforjira-tutorial/addon34.png)
     
 1. El nuevo complemento aparece en **INTEGRACIONES**. Haga clic en **Configurar** para configurar el nuevo complemento.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon35.png)
+    ![Captura de pantalla que muestra "INTEGRACIONES" en el menú de navegación de la izquierda resaltado y el botón "Configurar" seleccionado en la sección "Administrar complementos".](./media/kantegassoforjira-tutorial/addon35.png)
 
 1. En la sección **SAML**. Seleccione **Azure Active Directory (Azure AD)** en la lista desplegable **Agregar proveedor de identidades**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon4.png)
+    ![Captura de pantalla que muestra el menú desplegable "Agregar proveedor de identidades" con la opción "Azure Active Directory (Azure A D)" seleccionada.](./media/kantegassoforjira-tutorial/addon4.png)
 
 1. Seleccione el nivel de suscripción **Básica**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon5.png)       
+    ![Captura de pantalla que muestra la sección "Preparación de Azure A D" con la opción "Básica" seleccionada.](./media/kantegassoforjira-tutorial/addon5.png)     
 
 1. En la sección **Agregar propiedades**, siga estos pasos: 
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon6.png)
+    ![Captura de pantalla que muestra la sección "Propiedades de la aplicación" con el cuadro de texto "U R L de I D. de aplicación" y el botón Copiar resaltados, y el botón "Siguiente" seleccionado.](./media/kantegassoforjira-tutorial/addon6.png)
 
-    a. Copie el valor de **URI de id. de aplicación** y úselo en los campos **Identificador, URL de respuesta y URL de inicio de sesión** de la sección **Configuración básica de SAML**  de Azure Portal.
+    a. Copie el valor de **URI de id. de aplicación** y úselo en los campos **Identificador, URL de respuesta y URL de inicio de sesión** de la sección **Configuración básica de SAML ** de Azure Portal.
 
     b. Haga clic en **Next**.
 
 1. En la sección **Importar metadatos**, siga estos pasos: 
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon7.png)
+    ![Captura de pantalla que muestra la sección "Importación de metadatos" con la opción "Archivo de metadatos en mi equipo" seleccionada.](./media/kantegassoforjira-tutorial/addon7.png)
 
     a. Seleccione **Archivo de metadatos en el equipo** y cargue el archivo de metadatos que descargó desde Azure Portal.
 
@@ -182,7 +182,7 @@ Para configurar el inicio de sesión único en Azure AD con Kantega SSO for JIR
 
 1. En la sección**Name and SSO location** (Nombre y ubicación de SSO), siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon8.png)
+    ![Captura de pantalla que muestra la opción "Name and S S O location" (Nombre y ubicación de S S O) y el botón "Siguiente" seleccionado.](./media/kantegassoforjira-tutorial/addon8.png)
 
     a. Agregue el nombre del proveedor de identidades en el cuadro de texto **Nombre del proveedor de identidades** (por ejemplo, Azure AD).
 
@@ -190,11 +190,11 @@ Para configurar el inicio de sesión único en Azure AD con Kantega SSO for JIR
 
 1. Compruebe el certificado de firma y haga clic en **Siguiente**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon9.png)
+    ![Captura de pantalla que muestra la sección "Comprobación de firmas" con el botón "Siguiente" seleccionado.](./media/kantegassoforjira-tutorial/addon9.png)
 
 1. En la sección **Cuentas de usuario de JIRA**, siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon10.png)
+    ![Captura de pantalla que muestra la sección "Cuentas de usuario de JIRA" con la opción "Create users in JIRA's Internal Directory if needed" (Crear usuarios en el directorio interno de JIRA si es necesario) resaltada y el botón "Siguiente" seleccionado.](./media/kantegassoforjira-tutorial/addon10.png)
 
     a. Seleccione **Create users in JIRA's internal Directory if needed** (Crear usuarios en el directorio interno de JIRA si es necesario) y escriba el nombre adecuado del grupo de usuarios (puede ser un número múltiple de grupos separados por coma).
 
@@ -202,7 +202,7 @@ Para configurar el inicio de sesión único en Azure AD con Kantega SSO for JIR
 
 1. Haga clic en **Finalizar**
 
-    ![Configurar inicio de sesión único](./media/kantegassoforjira-tutorial/addon11.png)
+    ![Captura de pantalla que muestra la sección "Resumen" con el botón "Finalizar" seleccionado.](./media/kantegassoforjira-tutorial/addon11.png)
 
 1. En la sección **Known domains for Azure AD** (Dominios conocidos para Azure AD), siga estos pasos:
 
@@ -274,11 +274,11 @@ Para que los usuarios de Azure AD puedan iniciar sesión en JIRA, es preciso ap
 
 1. Mantenga el mouse encima del icono de engranaje y haga clic en **Administración de usuarios**.
 
-    ![Agregar empleado](./media/kantegassoforjira-tutorial/user1.png) 
+    ![Captura de pantalla que muestra el icono de engranaje seleccionado y la opción "Administración de usuarios" seleccionada en el menú desplegable.](./media/kantegassoforjira-tutorial/user1.png) 
 
 1. En la sección de la pestaña **Administración de usuarios**, haga clic en **Crear usuario**.
 
-    ![Agregar empleado](./media/kantegassoforjira-tutorial/user2.png) 
+    ![Captura de pantalla que muestra la sección "Administración de usuarios" con el botón "Crear usuario" seleccionado.](./media/kantegassoforjira-tutorial/user2.png) 
 
 1. En la página del cuadro de diálogo **"Create New User"** (Crear nuevo usuario), realice los pasos siguientes:
 

@@ -13,16 +13,16 @@ ms.author: pafarley
 zone_pivot_groups: programming-languages-set-ten
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: forms processing, automated data processing
-ms.openlocfilehash: eb3fc3ebe5c3d9f659758a14ba620018671d95f5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b024b3fac76e51264e89100e63a3cdc477443157
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318948"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963067"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Form Recognizer
 
-Comience a usar la biblioteca cliente de Form Recognizer en el idioma de su elección. Azure Form Recognizer es un servicio cognitivo que le permite crear software de procesamiento de datos automatizado mediante tecnología de aprendizaje automático. Identifique y extraiga texto, pares clave-valor y datos de tabla de los documentos de formulario; el servicio genera datos estructurados que incluyen las relaciones en el archivo original. Siga estos pasos para instalar el paquete SDK y probar el código de ejemplo para realizar tareas básicas.
+Comience a usar la biblioteca cliente de Form Recognizer en el idioma de su elección. Azure Form Recognizer es un servicio cognitivo que le permite crear software de procesamiento de datos automatizado mediante tecnología de aprendizaje automático. Identifique y extraiga texto, pares clave-valor y datos de tabla de los documentos de formulario; el servicio genera datos estructurados que incluyen las relaciones en el archivo original. Siga estos pasos para instalar el paquete SDK y probar el código de ejemplo para realizar tareas básicas. Actualmente, la biblioteca cliente de Form Recognizer tiene como destino la versión v2.0 del servicio Form Recognizer.
 
 Use la biblioteca cliente de Form Recognizer para:
 

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: ebcec3907e40a8ba58aab841cd788c58ec7a94fe
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f03f98a1a1f36900d65e132a3420ac037214aaff
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017921"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893547"
 ---
 # <a name="analyze-with-apache-spark"></a>Análisis con Apache Spark
 
@@ -22,7 +22,7 @@ ms.locfileid: "90017921"
 
 En este tutorial, aprenderá los pasos básicos para cargar y analizar datos con Apache Spark para Azure Synapse.
 
-1. En el centro de conectividad **Data** (Datos) de **Linked** (Vinculados), haga clic con el botón derecho en **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** (Azure Blob Storage > Conjuntos de datos de ejemplo > nyc_tlc_yellow) y seleccione **SELECT New notebook** (SELECCIONAR nuevo cuaderno).
+1. En el centro de conectividad **Data** (Datos), haga clic en **Add a new resource** (Agregar un recurso) (botón con el signo más encima de **Linked** [Vinculados]) >> **Browse Samples** (Examinar ejemplos). Busque el conjunto de datos **NYC Taxi & Limousine Commission - yellow taxi trip records** y haga clic en él. En la parte inferior de la página, presione **Continue** (Continuar) y **Add dataset** (Agregar conjunto de datos). Ahora, en el centro de conectividad **Data** (Datos) de **Linked** (Vinculados), seleccione con el botón derecho **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** (Azure Blob Storage >> Conjuntos de datos de ejemplo >> nyc_tlc_yellow) y seleccione **New notebook** (Nuevo cuaderno).
 1. Así se creará un cuaderno con el código siguiente:
     ```
     from azureml.opendatasets import NycTlcYellow
@@ -119,6 +119,6 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Análisis de datos en Storage](get-started-analyze-storage.md)
+> [Análisis de datos con SQL a petición](get-started-analyze-sql-on-demand.md)
 
 

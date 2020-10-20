@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
-ms.openlocfilehash: eecd7281c925fa26ade3aa140df310e69f3385c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 123b85905a5c56949a0c1d35bb1e37215ed8097c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554741"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940725"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Tutorial: Integración de Azure Active Directory con Mixpanel
 
@@ -130,15 +130,15 @@ Para configurar el inicio de sesión único de Azure AD con Mixpanel, realice lo
 
 3. Haga clic en la pestaña **Access security** (Seguridad de acceso) y después en **Change settings** (Cambiar la configuración).
    
-    ![Configuración de Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
+    ![Captura de pantalla que muestra la pestaña Access Security (Seguridad de acceso) en la que puede cambiar la configuración.](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
 
 4. En la página de diálogo **Change your certificate** (Cambiar su certificado), haga clic en **Choose file** (Elegir archivo) para cargar el certificado descargado y después haga clic en **Next** (Siguiente).
    
-    ![Configuración de Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
+    ![Captura de pantalla que muestra el cuadro de diálogo Change your certificate (Cambiar su certificado), donde puede elegir un archivo de certificado.](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
 
 5.  En el cuadro de texto Authentication URL (Dirección URL de autenticación) de la página de diálogo **Change your authentication URL** (Cambiar la dirección URL de autenticación), pegue el valor de **Login URL** (Dirección URL de inicio de sesión) que ha copiado desde Azure Portal y haga clic en **NEXT** (Siguiente).
    
-    ![Configuración de Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
+    ![Captura de pantalla que muestra el panel Change your authentication U R L (Cambiar la U R L de autenticación), donde puede copiar la dirección U R L de inicio de sesión.](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
 6. Haga clic en **Done**(Listo).
 
@@ -205,7 +205,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 4. En el cuadro de texto de **miembro del equipo** , escriba la dirección de correo electrónico de Britta en Azure.
    
-    ![Configuración de Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
+    ![Captura de pantalla que muestra la pestaña Team (Equipo) donde puede agregar una dirección a Invite (Invitar).](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
 5. Haga clic en **Invitar**. 
 

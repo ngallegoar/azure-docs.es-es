@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d68e5335fff0341d8808e581061519977e1bb517
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 905ca5fd92a09b209bf099bfac0862132ec679a4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543285"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutorial: Integración de Azure Active Directory con Sectigo Certificate Manager
 
-En este tutorial, aprenderá a integrar Sectigo Certificate Manager con Azure Active Directory (Azure AD).
+En este tutorial, aprenderá a integrar Sectigo Certificate Manager (también llamado SCM) con Azure Active Directory (Azure AD).
 
 La integración de Sectigo Certificate Manager con Azure AD proporciona las siguientes ventajas:
 
@@ -35,7 +35,10 @@ Para más información acerca de la integración de aplicaciones SaaS (software 
 Para configurar la integración de Azure AD con Sectigo Certificate Manager, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción de Azure AD, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* Suscripción a Sectigo Certificate Manager con inicio de sesión único habilitado.
+* Una cuenta de Sectigo Certificate Manager.
+
+> [!NOTE]
+> Sectigo ejecuta varias instancias de Sectigo Certificate Manager. La instancia principal de Sectigo Certificate Manager es **https:\//cert-manager.com** y esta es la dirección URL que se usa en este tutorial.  Si su cuenta se encuentra en otra instancia, debe ajustar las direcciones URL en consecuencia.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -99,47 +102,45 @@ En esta sección, configurará el inicio de sesión único de Azure AD con Secti
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En el panel **Configuración básica de SAML**, para configurar el *modo iniciado por IDP*, siga estos pasos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    1. En el cuadro **Identificador**, escriba una de estas direcciones URL:
-       * https:\//cert-manager.com/shibboleth
-       * https:\//hard.cert-manager.com/shibboleth
+    1. En el cuadro de texto **Identificador (id. de entidad)** , para la instancia principal de Sectigo Certificate Manager, escriba **https:\//cert-manager.com/shibboleth**.
 
-    1. En el cuadro **URL de respuesta**, escriba una de estas direcciones URL:
-        * https:\//cert-manager.com/Shibboleth.sso/SAML2/POST
-        * https:\//hard.cert-manager.com/Shibboleth.sso/SAML2/POST
+    1. En el cuadro de texto **Dirección URL de respuesta**, para la instancia principal de Sectigo Certificate Manager, escriba **https:\//cert-manager.com/Shibboleth.sso/SAML2/POST**.
+        
+    > [!NOTE]
+    > Aunque en general la **dirección URL de inicio de sesión** es obligatoria para el *modo Iniciado por SP*, no es necesario para iniciar sesión en Sectigo Certificate Manager.        
+
+1. Opcionalmente, en la sección **Configuración básica de SAML**, para configurar el *modo iniciado por IDP* y para que la opción **Probar** funcione, siga estos pasos:
 
     1. Seleccione **Establecer direcciones URL adicionales**.
 
-    1. En el cuadro **Estado de la retransmisión**, escriba una de estas direcciones URL:
-       * https:\//cert-manager.com/customer/SSLSupport/idp
-       * https:\//hard.cert-manager.com/customer/SSLSupport/idp
+    1. En el cuadro de texto **Estado de la retransmisión**, escriba su dirección URL específica de cliente de Sectigo Certificate Manager. Para la instancia principal de Sectigo Certificate Manager, escriba **https:\//cert-manager.com/customer/\<customerURI\>/idp**.
 
     ![Información de direcciones URL de inicio de sesión único y dominio de Sectigo Certificate Manager](common/idp-relay.png)
 
-1.  Si quiere configurar la aplicación en *modo iniciado por SP*, realice los siguientes pasos:
+1. En la sección **Atributos y notificaciones de usuario**, realice estos pasos:
 
-    * En el cuadro **Dirección URL de inicio de sesión**, escriba una de estas direcciones URL:
-      * https:\//cert-manager.com/Shibboleth.sso/Login
-      * https:\//hard.cert-manager.com/Shibboleth.sso/Login
+    1. Elimine todas las **notificaciones adicionales**.
+    
+    1. Seleccione **Agregar nueva notificación** y agregue las cuatro notificaciones siguientes:
+    
+        | Nombre | Espacio de nombres | Source | Atributo de origen | Descripción |
+        | --- | --- | --- | --- | --- |
+        | eduPersonPrincipalName | empty | Atributo | user.userprincipalname | Debe coincidir con el campo **IdP Person ID** de Sectigo Certificate Manager para administradores. |
+        | mail | empty | Atributo | user.mail | Requerido |
+        | givenName | empty | Atributo | user.givenname | Opcional |
+        | sn | empty | Atributo | user.surname | Opcional |
 
-      ![Información de direcciones URL de inicio de sesión único y dominio de Sectigo Certificate Manager](common/both-signonurl.png)
+       ![Sectigo Certificate Manager: agregar cuatro nuevas notificaciones](media/sectigo-certificate-manager-tutorial/additional-claims.png)
 
-1. En el panel **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione **Descargar** junto a **Certificado (base 64)** . Seleccione una opción de descarga según sus requisitos. Guarde el certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, al lado de **XML de metadatos de federación**, seleccione **Descargar**. Guarde el archivo XML en el equipo.
 
-    ![Opción de descarga del certificado (Base64)](common/certificatebase64.png)
-
-1. En la sección **Configurar Sectigo Certificate Manager**, copie las direcciones URL siguientes según sus necesidades:
-
-    * URL de inicio de sesión
-    * Identificador de Azure AD
-    * URL de cierre de sesión
-
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+    ![Opción de descarga del XML de metadatos de federación](common/metadataxml.png)
 
 ### <a name="configure-sectigo-certificate-manager-single-sign-on"></a>Configuración del inicio de sesión único en Sectigo Certificate Manager
 
-Para configurar el inicio de sesión único en Sectigo Certificate Manager, envíe el archivo del certificado (Base64) descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Sectigo Certificate Manager](https://sectigo.com/support). El equipo de soporte técnico de Sectigo Certificate Manager usa la información que le envíe para asegurarse de que la conexión de inicio de sesión único de SAML está configurada correctamente en ambos lados.
+Para configurar el inicio de sesión único en Sectigo Certificate Manager, envíe el archivo XML de metadatos de federación descargado al [equipo de soporte técnico de Sectigo Certificate Manager](https://sectigo.com/support). El equipo de soporte técnico de Sectigo Certificate Manager usa la información que le envíe para asegurarse de que la conexión de inicio de sesión único de SAML está configurada correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -167,7 +168,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Por
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, conceda acceso a Britta Simon a Sectigo Certificate Manager para que pueda usar el inicio de sesión único de Azure.
+En esta sección, va a conceder acceso a Britta Simon a Sectigo Certificate Manager para que pueda usar el inicio de sesión único de Azure.
 
 1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **Sectigo Certificate Manager**.
 
@@ -197,9 +198,19 @@ En esta sección, se crea un usuario llamado Britta Simon en Sectigo Certificate
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el portal Aplicaciones.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD.
 
-Después de configurar el inicio de sesión único, cuando se selecciona **Sectigo Certificate Manager** en el portal Aplicaciones, se inicia automáticamente su sesión de Sectigo Certificate Manager. Para más información acerca del portal Aplicaciones, consulte [Acceso y uso de aplicaciones en el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="test-from-sectigo-certificate-manager-sp-initiated-single-sign-on"></a>Prueba desde Sectigo Certificate Manager (inicio de sesión único iniciado por SP)
+
+Vaya a la dirección URL específica de cliente para la instancia principal de Sectigo Certificate Manager, https:\//cert-manager.com/customer/\<customerURI\>/ y seleccione el botón que hay debajo de **Or Sign In With** (O bien, inicie sesión con).  Si se ha configurado correctamente, iniciará sesión automáticamente en Sectigo Certificate Manager.
+
+#### <a name="test-from-azure-single-sign-on-configuration-idp-initiated-single-sign-on"></a>Prueba desde la configuración de inicio de sesión único de Azure (inicio de sesión único iniciado por IDP)
+
+En el panel de integración de la aplicación **Sectigo Certificate Manager**, seleccione **Inicio de sesión único** y seleccione el botón **Probar**.  Si se ha configurado correctamente, iniciará sesión automáticamente en Sectigo Certificate Manager.
+
+#### <a name="test-by-using-the-my-apps-portal-idp-initiated-single-sign-on"></a>Prueba mediante el portal Aplicaciones (inicio de sesión único iniciado por IDP)
+
+Seleccione **Sectigo Certificate Manager** en el portal Aplicaciones.  Si se ha configurado correctamente, iniciará sesión automáticamente en Sectigo Certificate Manager. Para más información acerca del portal Aplicaciones, consulte [Acceso y uso de aplicaciones en el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

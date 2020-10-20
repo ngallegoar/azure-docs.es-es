@@ -1,6 +1,6 @@
 - name: Documentación de Azure Digital Twins
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: Acerca de Azure Digital Twins
       href: overview.md
@@ -55,6 +55,8 @@
               href: how-to-set-up-instance-portal.md
         - name: Escritura de código de autenticación de aplicación
           href: how-to-authenticate-client.md
+        - name: Crear un registro de aplicación
+          href: how-to-create-app-registration.md
         - name: Traslado de una instancia a otra región
           href: how-to-move-regions.md
     - name: Diseño de modelos

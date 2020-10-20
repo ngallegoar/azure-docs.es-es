@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Creación de una definición de directiva personalizada'
 description: En este tutorial, creará una definición de directiva personalizada para Azure Policy para aplicar reglas de negocio personalizadas a los recursos de Azure.
-ms.date: 06/16/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: 72282cbc5ed1877cf3f61b792235e8dc2f72fffe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 24058a2c8428d306c5e53a73393b0d98785831cf
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649825"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876301"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Creación de una definición de directiva personalizada
 
@@ -66,12 +66,15 @@ La [extensión de VS Code](../how-to/extension-for-vscode.md#search-for-and-view
 
 ### <a name="arm-templates"></a>Plantillas de ARM
 
-Hay varias maneras de examinar una [plantilla de Resource Manager](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) que incluye la propiedad que quiere administrar.
+Hay varias maneras de examinar una [plantilla de Resource Manager](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) que incluya la propiedad que quiere administrar.
 
 #### <a name="existing-resource-in-the-portal"></a>Recurso existente en el portal
 
 La manera más sencilla de buscar propiedades es examinar un recurso existente del mismo tipo. Los recursos que ya haya configurado con el valor que quiere aplicar también proporcionan el valor con el que comparar.
 Examine ese recurso concreto en la página **Exportar plantilla** (en **Configuración**) de Azure Portal.
+
+> [!WARNING]
+> La plantilla de Resource Manager exportada por Azure Portal no se puede conectar directamente a la propiedad `deployment` de una plantilla de Resource Manager de una definición de directiva [deployIfNotExists](../concepts/effects.md#deployifnotexists).
 
 :::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Captura de pantalla de la página Exportar plantilla de un recurso existente en Azure Portal." border="false":::
 

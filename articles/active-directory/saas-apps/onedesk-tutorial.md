@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4c3eb3706858bd2bfd2160e58698c0f5136c41f3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3e8ed59783a6a714434b17a1d1abbb22fbe30939
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547919"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944063"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onedesk"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con OneDesk
 
@@ -141,7 +141,7 @@ En esta sección, va a permitir que B.Simon acceda a OneDesk mediante el inicio 
 
 1. Haga clic en la pestaña **Integrations** (Integraciones).
 
-    ![Pestaña Settings](./media/onedesk-tutorial/img-integration.png)
+    ![Captura de pantalla que muestra la pestaña "Integrations" (Integraciones) seleccionada.](./media/onedesk-tutorial/img-integration.png)
 
 1. Haga clic en **Single Sign On** (Inicio de sesión único), seleccione **Upload Metadata File** (Cargar el archivo de metadatos) y haga clic en **Choose File** (Elegir archivo) para cargar el archivo de metadatos que descargó de Azure Portal.
 

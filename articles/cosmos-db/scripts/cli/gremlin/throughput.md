@@ -1,30 +1,30 @@
 ---
-title: Actualización de la capacidad de proceso (RU/s) de una base de datos o un grafo de Gremlin para Azure Cosmos DB
-description: Actualización de la capacidad de proceso (RU/s) de una base de datos o un grafo de Gremlin para Azure Cosmos DB
+title: Scripts de la CLI de Azure para operaciones de rendimiento (RU/s) para recursos de Gremlin API de Azure Cosmos DB
+description: Scripts de la CLI de Azure para operaciones de rendimiento (RU/s) para recursos de Gremlin API de Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 07/29/2020
-ms.openlocfilehash: 4774f5b4e74a963a5a4a07873305c79e2e7019f4
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 10/07/2020
+ms.openlocfilehash: 3e4b912d086065f28c56fd4af309d373b811a8ec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432195"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91838643"
 ---
-# <a name="update-rus-for-a-gremlin-database-and-graph-for-azure-cosmos-db-using-azure-cli"></a>Actualización de la capacidad de proceso (RU/s) de una base de datos o un grafo de Gremlin para Azure Cosmos DB con la CLI de Azure
+# <a name="throughput-rus-operations-with-azure-cli-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Operaciones de rendimiento (RU/s) con la CLI de Azure para una base de datos o un grafo de Gremlin API de Azure Cosmos DB
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure, versión 2.9.1 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure, versión 2.12.1 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-Este script crea una base de datos de Gremlin con una capacidad de proceso compartida y un grafo de Gremlin con una capacidad de proceso dedicada y, a continuación, actualiza la capacidad de proceso de la base de datos y el grafo.
+Este script crea una base de datos de Gremlin con una capacidad de proceso compartida y un grafo de Gremlin con una capacidad de proceso dedicada y, a continuación, actualiza la capacidad de proceso de la base de datos y el grafo. A continuación, el script migra del rendimiento estándar a escalado automático y, a continuación, lee el valor del rendimiento de escalado automático una vez que se ha migrado.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/gremlin/throughput.sh "Update RU/s for a Gremlin database and graph.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/gremlin/throughput.sh "Throughput operations for a Gremlin database and graph.")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
@@ -46,6 +46,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [az cosmosdb gremlin graph create](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-create) | Crea un grafo de Gremlin para Azure Cosmos. |
 | [az cosmosdb gremlin database throughput update](/cli/azure/cosmosdb/gremlin/database/throughput#az-cosmosdb-gremlin-database-throughput-update) | Actualiza la capacidad de proceso (RU/s) de una base de datos de Gremlin para Azure Cosmos. |
 | [az cosmosdb gremlin graph throughput update](/cli/azure/cosmosdb/gremlin/graph/throughput#az-cosmosdb-gremlin-graph-throughput-update) | Actualiza la capacidad de proceso (RU/s) de un grafo de Gremlin para Azure Cosmos. |
+| [az cosmosdb gremlin database throughput migrate](/cli/azure/cosmosdb/gremlin/database/throughput#az_cosmosdb_gremlin_database_throughput_migrate) | Migra el rendimiento de una base de datos de Gremlin de Azure Cosmos. |
+| [az cosmosdb gremlin graph throughput migrate](/cli/azure/cosmosdb/gremlin/graph/throughput#az_cosmosdb_gremlin_graph_throughput_migrate) | Migra el rendimiento de un grafo de Gremlin de Azure Cosmos. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes

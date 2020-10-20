@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/12/2020
-ms.openlocfilehash: 45c9625f0a762a0879473cc64c38d791c804d087
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: ee69148f7dfe7a0ba39b4103a736ea09d3f57c13
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530687"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855793"
 ---
 # <a name="quickstart-create-apache-hbase-cluster-in-azure-hdinsight-using-arm-template"></a>Inicio rápido: Creación de un clúster de Apache HBase en Azure HDInsight mediante una plantilla de Resource Manager
 
@@ -59,13 +59,14 @@ En la plantilla se definen dos recursos de Azure:
     |Nombre de usuario de SSH|Proporcione el nombre de usuario; el valor predeterminado es sshuser.|
     |Contraseña de SSH|Proporcione la contraseña.|
 
-    ![Plantilla de Resource Manager HBase](./media/quickstart-resource-manager-template/resource-manager-template-hbase.png)
+    ![Implementación de HBase de plantilla de Resource Manager](./media/quickstart-resource-manager-template/resource-manager-template-hbase.png)
 
 1. Revise los **TÉRMINOS Y CONDICIONES**. A continuación, seleccione **Acepto los términos y condiciones indicados anteriormente** y, después, seleccione **Comprar**. Recibirá una notificación de que la implementación está en curso. Se tarda aproximadamente 20 minutos en crear un clúster.
 
+
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 
-Una vez que se cree el clúster, recibirá una notificación de **Implementación correcta** con el vínculo **Ir al recurso**. La página Grupo de recursos mostrará el nuevo clúster de HDInsight y el almacenamiento predeterminado asociado con el clúster. Cada clúster depende de una cuenta de [Azure Storage](../hdinsight-hadoop-use-blob-storage.md) o de una [cuenta de Azure Data Lake Storage](../hdinsight-hadoop-use-data-lake-store.md). Se conoce como cuenta de almacenamiento predeterminada. El clúster de HDInsight y su cuenta de almacenamiento predeterminada deben estar en la misma región de Azure. Al eliminar los clústeres no se elimina la cuenta de almacenamiento.
+Una vez que se cree el clúster, recibirá una notificación de **Implementación correcta** con el vínculo **Ir al recurso**. La página Grupo de recursos mostrará el nuevo clúster de HDInsight y el almacenamiento predeterminado asociado con el clúster. Todos los clústeres tienen una cuenta de [Azure Blob Storage](../hdinsight-hadoop-use-blob-storage.md), [Azure Data Lake Storage Gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md) o una dependencia de [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md). Se conoce como cuenta de almacenamiento predeterminada. El clúster de HDInsight y su cuenta de almacenamiento predeterminada deben estar en la misma región de Azure. Al eliminar los clústeres no se elimina la cuenta de almacenamiento.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -73,7 +74,7 @@ Después de completar el inicio rápido, puede ser conveniente eliminar el clús
 
 En Azure Portal, vaya al clúster y seleccione **Eliminar**.
 
-![La captura de pantalla muestra un clúster de HD Insight con el grupo de recursos que se elimina.](./media/quickstart-resource-manager-template/azure-portal-delete-hbase.png)
+[Eliminar HBase de plantilla de Resource Manager](./media/quickstart-resource-manager-template/azure-portal-delete-hbase.png)
 
 También puede seleccionar el nombre del grupo de recursos para abrir la página del grupo de recursos y, a continuación, seleccionar **Eliminar grupo de recursos**. Al eliminar el grupo de recursos, se eliminan tanto el clúster de HDInsight como la cuenta de almacenamiento predeterminada.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fcdc5d0e7254b8e491285baae6c2a1bc6979e437
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 4dbae9d08a4adf250c9317b392d80f8e04c53d56
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766312"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951016"
 ---
 ::: zone target="docs"
 
@@ -116,19 +116,19 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 Una vez que esté conectado a los recursos compartidos de Data Box, el siguiente paso es copiar los datos. Antes de comenzar la copia de datos, revise las consideraciones siguientes:
 
 * Asegúrese de que copia los datos en los recursos compartidos que se corresponden con el formato de datos adecuado. Por ejemplo, copie los datos de blobs en bloques en la carpeta para blobs en bloques. Copie los discos duros virtuales en blobs en páginas. Si el formato de los datos no coincide con el recurso compartido correspondiente, la carga de datos en Azure producirá un error más adelante.
+* Cree siempre una carpeta en el recurso compartido para los archivos que se van a copiar y, después, copie los archivos en ella. La carpeta que se creó en los recursos compartidos de blob en bloques y blob en páginas representa un contenedor en el que los datos se cargan como blobs. Los archivos no se pueden copiar directamente en la carpeta *raíz* de la cuenta de almacenamiento.
 * Al copiar los datos, asegúrese de que su tamaño se ajusta a los límites descritos en los [límites de tamaño de las cuentas de almacenamiento de Azure](data-box-limits.md#azure-storage-account-size-limits).
-* Si los datos que va a cargar el dispositivo Data Box los están cargando a la vez otras aplicaciones fuera del dispositivo Data Box, podría provocar errores en el trabajo de carga y daños en los datos.
+* Si desea conservar los metadatos (listas de control de acceso, marcas de tiempo y atributos de archivos) al transferir los datos a Azure Files, siga las guía que se proporciona en el artículo sobre [conservación de las ACL, los atributos y las marcas de tiempo de los archivos con Azure Data Box](data-box-file-acls-preservation.md)  
+* Si los datos que va a cargar el dispositivo Data Box los carga al mismo tiempo otra aplicación, que esté fuera del dispositivo Data Box, podría provocar errores en el trabajo de carga y daños en los datos.
 * Es recomendable que:
   * No use SMB y NFS al mismo tiempo.
   * Copie los mismos datos en el mismo destino final en Azure.
-
   En estos casos, no se puede determinar el resultado final.
-* Cree siempre una carpeta para los archivos que se van a copiar en el recurso compartido y, después, copie los archivos en ella. La carpeta que se creó en los recursos compartidos de blob en bloques y blob en páginas representa un contenedor en el que los datos se cargan como blobs. No se pueden copiar los archivos directamente en la carpeta *root* de la cuenta de almacenamiento.
 
 > [!IMPORTANT]
 > Asegúrese de conservar una copia de los datos de origen hasta que pueda confirmar que Data Box los ha transferido a Azure Storage.
 
-Después de haberse conectado al recurso compartido SMB, inicie una copia de datos. Puede usar cualquier herramienta de copia de archivos compatible con SMB, como Robocopy, para copiar los datos. Con Robocopy se pueden iniciar varios trabajos de copia. Use el comando siguiente:
+Después de conectarse al recurso compartido SMB, inicie la copia de datos. Para copiar los datos puede usar cualquier herramienta de copia de archivos compatible con SMB, como Robocopy. Con Robocopy se pueden iniciar varios trabajos de copia. Use el comando siguiente:
 
 ```console
 robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>

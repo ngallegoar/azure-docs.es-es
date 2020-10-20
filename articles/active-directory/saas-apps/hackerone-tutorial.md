@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 530ef271091afc3e646d375ea471d8c48f0f8651
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0d72e6c6a606a199bd8b0ada601479267e0d728d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544203"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945182"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutorial: Integración de Azure Active Directory con HackerOne
 
@@ -126,11 +126,11 @@ Para configurar el inicio de sesión único de Azure AD con HackerOne, realice l
 
 2. En el menú de la parte superior, haga clic en **Configuración**.
 
-    ![Configurar inicio de sesión único](./media/hackerone-tutorial/tutorial_hackerone_001.png)
+    ![Captura de pantalla que muestra la opción "Settings" (Configuración) seleccionada en el menú.](./media/hackerone-tutorial/tutorial_hackerone_001.png)
 
 3. Vaya a **Authentication** (Autenticación) y haga clic en el botón **Add SAML settings** (Agregar configuración de SAML).
 
-    ![Configurar inicio de sesión único](./media/hackerone-tutorial/tutorial_hackerone_003.png)
+    ![Captura de pantalla que muestra la página "Authentication Settings" (Configuración de autenticación) con el botón "Add S A M L settings" (Agregar configuración de S A M L) seleccionado.](./media/hackerone-tutorial/tutorial_hackerone_003.png)
 
 4. En el cuadro de diálogo **SAML Settings** (Configuración de SAML), siga estos pasos:
 
@@ -146,7 +146,7 @@ Para configurar el inicio de sesión único de Azure AD con HackerOne, realice l
 
 5. En el diálogo Configuración de autenticación, realice los pasos siguientes:
 
-    ![Configurar inicio de sesión único](./media/hackerone-tutorial/tutorial_hackerone_005.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Authentication Settings" (Configuración de autenticación) con el botón "Run test" (Ejecutar prueba) seleccionado.](./media/hackerone-tutorial/tutorial_hackerone_005.png)
 
     a. Haga clic en **Ejecutar prueba**.
 

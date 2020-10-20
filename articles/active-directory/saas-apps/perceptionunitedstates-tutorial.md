@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ed2f2cd9fc10017619937cfd6b5644934f7631f1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7581dd52cb9affa3295bfbc00c14535ee72de5be
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553970"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995468"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integración de Azure Active Directory con Perception Estados Unidos (no UltiPro)
 
@@ -133,7 +133,7 @@ Para configurar el inicio de sesión único de Azure AD con Perception Estados U
 
 2. En la barra de herramientas principal, haga clic en **Account Settings** (Configuración de la cuenta).
 
-    ![Usuario de Perception Estados Unidos (no UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
+    ![Captura de pantalla que muestra la opción Account settings (Configuración de la cuenta) seleccionada en la barra de herramientas principal.](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
 
 3. En la página **Account Settings** (Configuración de la cuenta), realice los pasos siguientes:
 

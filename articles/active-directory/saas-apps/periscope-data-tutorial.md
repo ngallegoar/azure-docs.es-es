@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bfcb0c90142924285215c427a7071297be730
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7f808cff5bddf6566276df2f707232bde1ecca8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553927"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995085"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integración de Azure Active Directory con Periscope Data
 
@@ -123,7 +123,7 @@ Para configurar el inicio de sesión único de Azure AD con Periscope Data, real
 
 2. Abra el menú de engranaje de la parte inferior izquierda, abra el menú **Billing** > **Security** (Facturación > Seguridad) y realice los siguientes pasos. Solo los administradores tienen acceso a esta configuración.
 
-    ![Configuración de la información de Periscope Data](./media/periscope-data-tutorial/configure01.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Security" (Seguridad) con la configuración seleccionada.](./media/periscope-data-tutorial/configure01.png)
 
     a. Copie el valor de **Dirección URL de metadatos de federación de aplicación** del paso 5 de **Certificado de firma de SAML** y ábrala en un explorador. Se abrirá un documento XML.
 
@@ -143,7 +143,7 @@ Para configurar el inicio de sesión único de Azure AD con Periscope Data, real
 
     i. Por último, escriba **Logout** y haga clic en **Guardar** y **Confirmar** para guardar y confirmar la configuración de inicio de sesión único.
 
-    ![Configuración de la información de Periscope Data](./media/periscope-data-tutorial/configure02.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Update S S O Configuration" (Actualizar configuración de inicio de sesión único) con "logout" (cerrar sesión) escrito en el cuadro de texto y el botón "Confirm" (Confirmar).](./media/periscope-data-tutorial/configure02.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -206,7 +206,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Periscope Data, de
 
 2. Haga clic en el icono **Settings** (Configuración) de la parte inferior izquierda del menú y vaya a **Permissions** (Permisos).
 
-    ![Configuración de la información de Periscope Data](./media/periscope-data-tutorial/configure03.png)
+    ![Captura de pantalla que muestra el menú "Settings" (Configuración) con la opción "Permissions" (Permisos) seleccionada.](./media/periscope-data-tutorial/configure03.png)
 
 3. Haga clic en **ADD USER** (AGREGAR USUARIO) y realice los siguientes pasos:
 

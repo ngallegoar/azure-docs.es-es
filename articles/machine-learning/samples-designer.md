@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: sample
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: 15393a0e618c14fbaff46a51a300284d8afb4b77
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ecdb011310d8aa5bd63e9b9e9679bb525cb4f7b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889742"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074607"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Conjuntos de datos y canalizaciones de ejemplo en el diseñador de Azure Machine Learning
 
@@ -67,8 +67,8 @@ Explore estos ejemplos de regresión integrados.
 
 | Título de ejemplo | Descripción | 
 | --- | --- |
-| [Regresión. Predicción del precio de los automóviles (básica)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md) | Se predicen los precios de los automóviles mediante una regresión lineal. |
-| [Regresión. Predicción del precio de los automóviles (avanzada)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | Se predicen los precios de los automóviles mediante los regresores de árbol de decisión impulsado y bosque de decisión. Compare los modelos para encontrar el mejor algoritmo.
+| [Regresión. Predicción del precio de los automóviles (básica)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-basic.md) | Se predicen los precios de los automóviles mediante una regresión lineal. |
+| [Regresión. Predicción del precio de los automóviles (avanzada)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) | Se predicen los precios de los automóviles mediante los regresores de árbol de decisión impulsado y bosque de decisión. Compare los modelos para encontrar el mejor algoritmo.
 
 ## <a name="classification"></a>clasificación
 
@@ -76,19 +76,17 @@ Explore estos ejemplos de clasificación integrados. Para más información sobr
 
 | Título de ejemplo | Descripción | 
 | --- | --- |
-| [Clasificación binaria con selección de características. Predicción de ingresos](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | Se predicen los ingresos como altos o bajos, mediante un árbol de decisión impulsado de dos clases. Use la correlación de Pearson para seleccionar las características.
-| [Clasificación binaria con un script de Python personalizado. Predicción del riesgo de crédito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | Clasifique las aplicaciones de crédito como de riesgo alto o bajo. Use el módulo para ejecutar script de Python para ponderar los datos.
-| [Clasificación binaria. Predicción de las relaciones de cliente](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | Se predice el abandono de los clientes mediante árboles de decisión impulsados de dos clases. Use SMOTE para muestrear los datos sesgados.
-| [Clasificación de texto. Conjunto de datos de Wikipedia SP 500](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | Clasifique los tipos de empresa de los artículos de Wikipedia con regresión logística multiclase. |
+| [Clasificación binaria con selección de características. Predicción de ingresos](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-feature-selection-income-prediction.md) | Se predicen los ingresos como altos o bajos, mediante un árbol de decisión impulsado de dos clases. Use la correlación de Pearson para seleccionar las características.
+| [Clasificación binaria con un script de Python personalizado. Predicción del riesgo de crédito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-python-credit-prediction.md) | Clasifique las aplicaciones de crédito como de riesgo alto o bajo. Use el módulo para ejecutar script de Python para ponderar los datos.
+| [Clasificación binaria. Predicción de las relaciones de cliente](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-customer-relationship-prediction.md) | Se predice el abandono de los clientes mediante árboles de decisión impulsados de dos clases. Use SMOTE para muestrear los datos sesgados.
+| [Clasificación de texto. Conjunto de datos de Wikipedia SP 500](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/text-classification-wiki.md) | Clasifique los tipos de empresa de los artículos de Wikipedia con regresión logística multiclase. |
 | Clasificación multiclase. Reconocimiento de letras | Cree un conjunto de clasificadores binarios para clasificar las letras escritas. |
 
 ## <a name="computer-vision"></a>Visión del equipo
 
 Explore estos ejemplos de Computer Vision integrados. Para más información sobre los ejemplos sin vínculos de documentación, abra los ejemplos y vea los comentarios del módulo en su lugar.
 
-| Título de ejemplo | Descripción | 
-| --- | --- |
-| Recomendación basada en Wide & Deep. Predicción de clasificación de restaurantes | Compile un motor de recomendación de restaurante a partir de las características y las clasificaciones de los usuarios y el restaurante.|
+| Clasificación de imágenes mediante DenseNet |Uso de los módulos de Computer Vision para crear un modelo de clasificación de imágenes basado en PyTorch DenseNet.| 
 
 ## <a name="recommender"></a>Recomendador
 
@@ -96,7 +94,8 @@ Explore estos ejemplos integrados de recomendación. Para más información sobr
 
 | Título de ejemplo | Descripción | 
 | --- | --- |
-| Clasificación de imágenes mediante DenseNet | Use los módulos de Computer Vision para compilar un modelo de clasificación de imágenes basado en PyTorch DenseNet.| 
+| Recomendación basada en Wide & Deep. Predicción de clasificación de restaurantes | Compile un motor de recomendación de restaurante a partir de las características y las clasificaciones de los usuarios y el restaurante.|
+| Recomendación. Tweets de clasificación de películas | Cree un motor de recomendación de películas a partir de características de los usuarios/las películas y valoraciones.|
 
 ## <a name="utility"></a>Utilidad
 
@@ -105,7 +104,7 @@ Obtenga más información sobre los ejemplos que muestran las características y
 | Título de ejemplo | Descripción | 
 | --- | --- |
 | Clasificación binaria con el modelo de Vowpal Wabbit: predicción de ingresos para adultos | Vowpal Wabbit es un sistema de aprendizaje automático que amplía las fronteras del aprendizaje automático con técnicas como el aprendizaje en línea, el uso de hash, la clase AllReduce, las reducciones, learning2search y el aprendizaje activo e interactivo. En este ejemplo se muestra cómo usar el modelo de Vowpal Wabbit para compilar el modelo de clasificación binaria. 
-| [Uso de Script R personalizado. Predicción de retrasos de vuelos](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) | Use el Script R personalizado para predecir si un vuelo de pasajeros programado se retrasará más de 15 minutos.
+| [Uso de Script R personalizado. Predicción de retrasos de vuelos](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/r-script-flight-delay-prediction.md) | Use el Script R personalizado para predecir si un vuelo de pasajeros programado se retrasará más de 15 minutos.
 | Validación cruzada para clasificación binaria. Predicción de ingresos para adultos | Use la validación cruzada para crear un clasificador binario para los ingresos para los adultos.
 | Importancia de la característica de permutación | Use la importancia de la característica de permutación a fin de calcular las clasificaciones de importancia del conjunto de datos de prueba. 
 | Parámetros de optimización para la clasificación binaria. Predicción de ingresos para adultos | Utilice los hiperparámetros del modelo de optimización para encontrar los óptimos al crear un clasificador binario. |
@@ -119,7 +118,7 @@ Los conjuntos de datos de ejemplo están disponibles en la categoría **Datasets
 | Nombre del&nbsp; conjunto de datos&nbsp;&nbsp;&nbsp;&nbsp;| Descripción del conjunto de datos |
 |-------------|:--------------------|
 | Conjunto de datos de clasificación binaria de ingresos en el censo de adultos | Subconjunto de la base de datos del censo de 1994 en el que se utilizan adultos trabajadores a partir de 16 años con un índice de ingresos ajustado de > 100.<br/>**Uso** Clasificar personas utilizando valores demográficos para predecir si una persona gana más de 50 000 al año.<br/> **Investigación relacionada**: Kohavi, R., Becker, B., (1996). [Repositorio de Machine Learning de UCI](https://archive.ics.uci.edu/ml). Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información|
-|Información sobre los precios de los automóviles (datos sin procesar)|Información acerca de automóviles por marca y modelo, incluido el precio, características como el número de cilindros y el consumo en relación a la distancia recorrida, así como una puntuación de riesgo para aseguradoras.<br/> La puntuación de riesgo está asociada inicialmente a un precio automático. Después, se ajusta a un riesgo real en un proceso que los actuarios conocen como simbología. Un valor de +3 indica que es arriesgado, y un valor de -3 indica que probablemente es seguro.<br/>**Uso**:</b> Predecir la puntuación de riesgo por características utilizando una clasificación de regresión o de múltiples variantes.<br/>**Investigación relacionada**:</b> Schlimmer, J.C. (1987). [Repositorio de Machine Learning de UCI](https://archive.ics.uci.edu/ml). Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información. |
+|Información sobre los precios de los automóviles (datos sin procesar)|Información acerca de automóviles por marca y modelo, incluido el precio, características como el número de cilindros y el consumo en relación a la distancia recorrida, así como una puntuación de riesgo para aseguradoras.<br/> La puntuación de riesgo está asociada inicialmente a un precio automático. Después, se ajusta a un riesgo real en un proceso que los actuarios conocen como simbología. Un valor de +3 indica que es arriesgado, y un valor de -3 indica que probablemente es seguro.<br/>**Uso** Predecir la puntuación de riesgo por características utilizando una clasificación de regresión o de múltiples variantes.<br/>**Investigación relacionada**: Schlimmer, J.C. (1987). [Repositorio de Machine Learning de UCI](https://archive.ics.uci.edu/ml). Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información. |
 | Etiquetas de apetencia CRM compartidas |Etiquetas del concurso sobre la previsión de relaciones con los clientes de KDD Cup 2009 ([orange_small_train_appetency.labels](http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels)).|
 |Etiquetas de rotación de clientes de CRM compartidas|Etiquetas del concurso sobre la previsión de relaciones con los clientes de KDD Cup 2009 ([orange_small_train_churn.labels](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels)).|
 |Conjunto de datos CRM compartido | Estos datos están relacionados con el concurso sobre la previsión de relaciones con los clientes de KDD Cup 2009 ([orange_small_train.data.zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip)). <br/>El conjunto de datos contiene 50.000 clientes de la empresa de telecomunicaciones francesa Orange. Cada cliente tiene 230 características anónimas, 190 de las cuales son numéricas y 40, categóricas. Las características están muy dispersas. |
@@ -130,7 +129,9 @@ Los conjuntos de datos de ejemplo están disponibles en la categoría **Datasets
 |Clasificaciones de películas|El conjunto de datos es una versión extendida del conjunto de datos Tweets sobre películas. El conjunto de datos incluye 170 000 valoraciones de películas extraídas de tweets bien estructurados en Twitter. Cada instancia representa un tweet y es una tupla: id. de usuario, id. de película IMDB, valoración, marca de tiempo, número de favoritos para ese tweet y número de retweets de ese tweet. A. Said, S. Dooms, B. Loni y D. Tikk proporcionaron el conjunto de datos para el Concurso de sistemas de recomendación 2014.|
 |Conjunto de datos del tiempo|Observaciones meteorológicas en tierra por hora de la NOAA ([datos combinados del 201304 al 201310](https://az754797.vo.msecnd.net/data/WeatherDataset.csv)).<br/>Los datos meteorológicos abarcan las observaciones de las estaciones meteorológicas de los aeropuertos, durante el período que comprende desde abril hasta octubre de 2013. Antes de cargarlo en el diseñador, el conjunto de datos se ha procesado como sigue:    <br/> -    Se asignaron los identificadores de las estaciones meteorológicas a los identificadores de aeropuerto correspondientes    <br/> -    Se excluyeron las estaciones meteorológicas no asociadas a los 70 aeropuertos con mayor tráfico    <br/> -    La columna Date se separó en columnas independientes con los valores Year, Month y Day    <br/> - Se seleccionaron las siguientes columnas: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter|
 |Conjunto de datos de SP 500 de Wikipedia|Los datos se han extraído de Wikipedia (https://www.wikipedia.org/) ) y se basan en artículos de cada empresa del índice S&P 500, almacenados como datos XML.    <br/>Antes de cargarlo en el diseñador, el conjunto de datos se ha procesado como sigue:    <br/> - Se extrajo el contenido de texto para cada empresa específica    <br/> -    Se eliminó el formato wiki    <br/> -    Se eliminaron los caracteres no alfanuméricos    <br/> -    Se convirtió todo el texto a minúscula    <br/> -    Se agregaron las categorías de empresas conocidas    <br/>Tenga en cuenta que no se ha encontrado ningún artículo para algunas empresas, por lo que el número de registros es inferior a 500.|
-
+|Datos de características de restaurantes| Un conjunto de metadatos acerca de restaurantes y sus características, como el tipo de comida, el estilo de comedor y la ubicación. <br/>**Uso** Usar este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones.<br/> **Investigación relacionada**: Bache, K. y Lichman, M. (2013). [Repositorio de Machine Learning de UCI](https://archive.ics.uci.edu/ml). Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información.|
+|Valoraciones de restaurantes| Contiene valoraciones que los usuarios realizan sobre restaurantes en una escala de 0 a 2.<br/>**Uso** Usar este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones. <br/>**Investigación relacionada**: Bache, K. y Lichman, M. (2013). [Repositorio de Machine Learning de UCI](https://archive.ics.uci.edu/ml). Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información.|
+|Datos de los clientes de restaurantes| Conjunto de metadatos sobre clientes que incluye información demográfica y preferencias. <br/>**Uso** Usar este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones. <br/> **Investigación relacionada**: Bache, K. y Lichman, M. (2013). [Repositorio de Machine Learning de UCI](https://archive.ics.uci.edu/ml), Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información.|
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

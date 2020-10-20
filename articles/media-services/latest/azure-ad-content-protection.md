@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 71bfff1b2ef75a13a3898d2fd9760dd60b83e3a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6f1a5b532ba3d8d5ce24d6f9856d86719d35c6f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318320"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91839544"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: Protección de contenido de un extremo a otro con Azure AD
 
@@ -129,11 +129,11 @@ Pantalla de inicio de sesión, adquisición de tokens, renovación de tokens y v
 
 Pantalla para analizar tokens JWT (access_token o id_token):
 
-![pantalla para analizar tokens JWT](media/aad-ams-content-protection/parsing-jwt-tokens.png)
+![Captura de pantalla que muestra el análisis de tokens J W T.](media/aad-ams-content-protection/parsing-jwt-tokens.png)
 
 La pantalla para probar el contenido protegido con diferentes combinaciones de DRM/AES, protocolo de streaming y formato de contenedor:
 
-![Pantalla para analizar tokens JWT](media/aad-ams-content-protection/testing-protected-content.png)
+![Captura de pantalla que muestra la prueba de contenido protegido con diferentes combinaciones de D R M o A E S, protocolos de streaming y formato de contenedor](media/aad-ams-content-protection/testing-protected-content.png)
 -->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->

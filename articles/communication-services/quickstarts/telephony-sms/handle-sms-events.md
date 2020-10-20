@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e66d5c4dd4fc1c6c641da975b0ac2254f459642a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756773"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976936"
 ---
 # <a name="quickstart-handle-sms-events"></a>Inicio rápido: Control de eventos SMS
 
@@ -92,13 +92,13 @@ Consulte la lista completa de [eventos admitidos en Azure Communication Services
 
 ### <a name="receiving-sms-events"></a>Recepción de eventos SMS
 
-Cuando complete alguna de las acciones anteriores, observará que los eventos `SMS Received` y `SMS Delivery Report Received` se han enviado al punto de conexión. Estos eventos se mostrarán en el [ejemplo de visor de Azure Event Grid](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) que configuramos al principio. Puede presionar el icono de ojo situado junto al evento para ver toda la carga útil. Los eventos tendrán el siguiente aspecto:
+Cuando complete cualquiera de las acciones anteriores, observará que los eventos `SMS Received` y `SMS Delivery Report Received` se han enviado al punto de conexión. Estos eventos se mostrarán en el [ejemplo de visor de Azure Event Grid](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) que configuramos al principio. Puede presionar el icono de ojo situado junto al evento para ver toda la carga útil. Este será el aspecto de los eventos:
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Captura de pantalla que muestra la selección del botón de suscripción a evento en la página de eventos de un recurso.":::
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Captura de pantalla que muestra la selección del botón de suscripción a evento en la página de eventos de un recurso.":::
 
-Más información sobre los [esquemas de eventos y otros conceptos de eventos](../../concepts/event-handling.md)
+Más información sobre los [esquemas de eventos y otros conceptos de eventos](../../concepts/event-handling.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

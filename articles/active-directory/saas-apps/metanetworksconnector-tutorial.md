@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 71aaaeec174611a86b037b693187cc4f49fe1a0c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 941218f9a35a0a242612ae1d6230c642129c8259
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528934"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: Integración de Azure Active Directory con Meta Networks Connector
 
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con Meta Networks Connec
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Meta Networks Connector](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
@@ -109,7 +109,7 @@ Para configurar el inicio de sesión único de Azure AD con Meta Networks Connec
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Meta Networks Connector](common/both-advanced-urls.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/both-advanced-urls.png)
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
@@ -120,7 +120,7 @@ Para configurar el inicio de sesión único de Azure AD con Meta Networks Connec
 
 6. La aplicación Meta Networks Connector espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra User Attributes (Atributos de usuario) con el icono de edición seleccionado.](common/edit-attribute.png)
     
 7. Además de lo anterior, la aplicación Meta Networks Connector espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
     
@@ -134,9 +134,9 @@ Para configurar el inicio de sesión único de Azure AD con Meta Networks Connec
 
     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![imagen](common/new-save-attribute.png)
+    ![Captura de pantalla que muestra User claims (Reclamaciones de usuario) con la opción Add new claim (Agregar nueva reclamación).](common/new-save-attribute.png)
 
-    ![imagen](common/new-attribute-details.png)
+    ![Captura de pantalla que muestra Manage user claims (Administrar reclamaciones de usuario) para escribir los valores que se describen.](common/new-attribute-details.png)
 
     b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 
@@ -173,19 +173,19 @@ Para configurar el inicio de sesión único de Azure AD con Meta Networks Connec
     
 2. Vaya a **Administrador** y seleccione **Configuración**.
     
-    ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/configure3.png)
+    ![Captura de pantalla con la opción Settings (Configuración) seleccionada en el menú Administration (Administración).](./media/metanetworksconnector-tutorial/configure3.png)
     
 3. Asegúrese de que **Registro del tráfico de Internet** y **Forzar MFA de VPN** se establecen en Desactivado.
     
-    ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/configure1.png)
+    ![Captura de pantalla que muestra la desactivación de esta configuración.](./media/metanetworksconnector-tutorial/configure1.png)
     
 4. Vaya a **Administrador** y seleccione **SAML**.
     
-    ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/configure4.png)
+    ![Captura de pantalla que muestra la opción SAML seleccionada en el menú Administration (Administración).](./media/metanetworksconnector-tutorial/configure4.png)
     
 5. En la página **Detalles**, lleve a cabo los pasos siguientes:
     
-    ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/configure2.png)
+    ![Captura de pantalla que muestra la página DETAILS (DETALLES) donde puede especificar los valores descritos.](./media/metanetworksconnector-tutorial/configure2.png)
     
     a. Copie el valor de **Dirección URL de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión** en la sección **Dominio y direcciones URL de Meta Networks Connector**.
     
@@ -197,7 +197,7 @@ Para configurar el inicio de sesión único de Azure AD con Meta Networks Connec
     
 6. En la pestaña **General**, realice los pasos siguientes:
 
-    ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/configure5.png)
+    ![Captura de pantalla que muestra la página GENERAL donde puede especificar los valores descritos.](./media/metanetworksconnector-tutorial/configure5.png)
 
     a. En **Dirección URL del inicio de sesión único del proveedor de identidades**, pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 

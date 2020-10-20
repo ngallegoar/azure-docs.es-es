@@ -3,18 +3,17 @@ title: Supervisión y diagnóstico de contenedores de Windows
 description: En este tutorial, configurará los registros de Azure Monitor para supervisar y diagnosticar los contenedores de Windows en Azure Service Fabric.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6a3a5211864c4cbadc03bbc77bfef2204f6c2ccf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cf14cce631a505a951ec4d9c0955431b9a98527e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244810"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840683"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutorial: Supervisión de contenedores de Windows en Service Fabric mediante los registros de Azure Monitor
 
-Esta es la tercera parte de un tutorial, que le guía a través de la configuración de los registros de Azure Monitor para supervisar sus contenedores de Windows orquestados en Service Fabric.
+Esta es la tercera parte de un tutorial, que le guía por la configuración de los registros de Azure Monitor para supervisar los contenedores de Windows orquestados en Service Fabric.
 
 En este tutorial, aprenderá a:
 
@@ -186,19 +185,17 @@ Para configurar la solución Containers en su área de trabajo, busque la *soluc
 
 ![Adición de la solución Containers](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-Cuando se le pida el *área de trabajo de Log Analytics*, seleccione el área de trabajo que creó en el grupo de recursos y haga clic en **Crear**. Esto agrega una *solución de Supervisión de contenedores* al área de trabajo y, de forma automática, el agente de Log Analytics implementado por la plantilla comenzará a recopilar registros y estadísticas de Docker. 
+Cuando se le pida el *área de trabajo de Log Analytics*, seleccione el área de trabajo que creó en el grupo de recursos y seleccione **Crear**. Esto agrega una *solución de supervisión de contenedores* al área de trabajo e inicializa el agente de Log Analytics implementado por la plantilla, que comenzará a recopilar registros y estadísticas de Docker.
 
-Vuelva a su *grupo de recursos*, donde ahora debería ver la solución de supervisión recién agregada. Si hace clic en él, la página de aterrizaje debe mostrar el número de imágenes de contenedor que tiene en ejecución.
+Vuelva a su *grupo de recursos*, donde ahora debería ver la solución de supervisión recién agregada. Si lo selecciona, la página de aterrizaje debe mostrar el número de imágenes de contenedor que tiene en ejecución.
 
-*Tenga en cuenta que ejecuté cinco instancias de mi contenedor fabrikam de la [segunda parte](service-fabric-host-app-in-a-container.md) del tutorial*
+*Tenga en cuenta que se ejecutaron cinco instancias del contenedor fabrikam de la [segunda parte](service-fabric-host-app-in-a-container.md) del tutorial*
 
 ![Página de aterrizaje de la solución Containers](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-Al hacer clic en la **solución de Supervisión de contenedores**, obtendrá acceso a un panel más detallado, lo que le permite desplazarse por varios paneles, así como ejecutar consultas en los registros de Azure Monitor.
+Al seleccionar la **solución de supervisión de contenedores**, se obtiene acceso a un panel más detallado que permite el desplazamiento por varios paneles, así como la ejecución de consultas en los registros de Azure Monitor.
 
-*Tenga en cuenta que, a partir de septiembre de 2017, la solución cuenta con algunas actualizaciones (haga caso omiso de cualquier error que pueda obtener sobre eventos de Kubernetes a medida que trabajamos en la integración de varios orquestadores en la misma solución).*
-
-Como el agente elige registros de Docker, se muestran de forma predeterminada *stdout* y *stderr*. Si se desplaza a la derecha, verá el inventario de imágenes de contenedor, el estado, la métrica y consultas de ejemplo que podría ejecutar para obtener datos más útiles.
+Como el agente elige registros de Docker, se muestran de forma predeterminada *stdout* y *stderr*. Con el desplazamiento horizontal se ve el inventario de imágenes de contenedor, el estado, la métrica y consultas de ejemplo que se pueden ejecutar para obtener datos más útiles.
 
 ![Panel de soluciones Containers](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
@@ -208,14 +205,14 @@ Al hacer clic en cualquiera de estos paneles, obtendrá acceso a la consulta de 
 
 ## <a name="configure-log-analytics-agent-to-pick-up-performance-counters"></a>Configuración del agente de Log Analytics para elegir contadores de rendimiento
 
-Otra ventaja de usar el agente de Log Analytics es la posibilidad de cambiar los contadores de rendimiento que desea elegir a través de la experiencia de IU de Log Analytics, en lugar de tener que configurar el agente de Azure Diagnostics y hacer una actualización basada en la plantilla de Resource Manager cada vez. Para ello, haga clic en **Área de trabajo de OMS** en la página de aterrizaje de su solución de Supervisión de contenedores (o Service Fabric).
+Otra ventaja de usar el agente de Log Analytics es la posibilidad de cambiar los contadores de rendimiento que desea elegir a través de la experiencia de IU de Log Analytics, en lugar de tener que configurar el agente de Azure Diagnostics y hacer una actualización basada en la plantilla de Resource Manager cada vez. Para ello, seleccione **Área de trabajo de OMS** en la página de aterrizaje de la solución de supervisión de contenedores (o Service Fabric).
 
 Este le llevará al área de trabajo de Log Analytics, donde puede ver las soluciones, crear paneles personalizados, así como configurar el agente de Log Analytics. 
-* Haga clic en **Configuración avanzada** para abrirla.
-* Haga clic en **Orígenes conectados** > **Servidores de Windows** para comprobar que dispone de *5 equipos con Windows conectados*.
-* Haga clic en **Datos** > **Contadores de rendimiento de Windows** para buscar y agregar nuevos contadores de rendimiento. Aquí verá una lista de recomendaciones de los registros de Azure Monitor para contadores de rendimiento que podría recopilar, así como la opción de búsqueda de otros contadores. Compruebe que se estén recopilando los contadores **Processor(_Total)\% Tiempo de procesador** y **Memoria(*)\MBytes disponibles**.
+* Seleccione **Configuración avanzada** para abrirla.
+* Seleccione **Orígenes conectados** > **Servidores de Windows** para comprobar que dispone de *5 equipos con Windows conectados*.
+* Seleccione **Datos** > **Contadores de rendimiento de Windows** para buscar y agregar nuevos contadores de rendimiento. Aquí verá una lista de recomendaciones de los registros de Azure Monitor para contadores de rendimiento que podría recopilar, así como la opción de búsqueda de otros contadores. Compruebe que se estén recopilando los contadores **Processor(_Total)\% Tiempo de procesador** y **Memoria(*)\MBytes disponibles**.
 
-**Actualice** su solución de Supervisión de contenedores en unos minutos y debería comenzar a ver cómo llegan datos de *rendimiento del equipo*. Esto le ayudará a comprender cómo se usan sus recursos. También puede usar estas métricas para tomar decisiones adecuadas sobre el escalado de su clúster, o bien para confirmar si un clúster equilibra su carga como se espera.
+**Actualice** su solución de Supervisión de contenedores en unos minutos y debería comenzar a ver cómo llegan datos de *rendimiento del equipo*. Esto le ayudará a comprender cómo se usan sus recursos. También puede usar estas métricas para tomar decisiones adecuadas sobre el escalado de su clúster, o bien para confirmar si un clúster equilibra su carga como se espera. 
 
 *Nota: Asegúrese de que sus filtros de tiempo se establecen de forma adecuada para que consuma estas métricas.*
 
@@ -230,9 +227,9 @@ En este tutorial, ha aprendido a:
 > * Usar un área de trabajo de Log Analytics para ver y consultar los registros de los contenedores y los nodos
 > * Configurar el agente de Log Analytics para elegir métricas de nodo y contenedor
 
-Ahora que ha configurado la supervisión de su aplicación en contenedores, pruebe lo siguiente:
+Ahora que ha configurado la supervisión de la aplicación en contenedores, pruebe lo siguiente:
 
-* Configure los registros de Azure Monitor para un clúster Linux, siguiendo pasos similares a los anteriores. Haga referencia a [esta plantilla](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) para realizar cambios en su plantilla de Resource Manager.
+* Configure los registros de Azure Monitor para un clúster Linux, siguiendo pasos similares a los de este tutorial. Haga referencia a [esta plantilla](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) para realizar cambios en su plantilla de Resource Manager.
 * Configure los registros de Azure Monitor para configurar [alertas automáticas](../azure-monitor/platform/alerts-overview.md) que ayuden a la detección y el diagnóstico.
 * Explore la lista de Service Fabric de [contadores de rendimiento recomendados](service-fabric-diagnostics-event-generation-perf.md) para configurar sus clústeres.
 * Familiarícese con las característica de [búsqueda de registros y consulta](../azure-monitor/log-query/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.

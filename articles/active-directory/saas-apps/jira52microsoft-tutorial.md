@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: e0198fdcfea1656e3aec5179358e69fb6fb55723
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 331d9df6059c8af54857d05d2d6373e48e127eac
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547581"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850853"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutorial: Integración de Azure Active Directory con JIRA SAML SSO by Microsoft (versión 5.2)
 
@@ -146,23 +146,23 @@ Para configurar el inicio de sesión único de Azure AD con JIRA SAML SSO by Mic
 
 2. Mantenga el mouse encima del icono de engranaje y haga clic en **Complementos**.
 
-    ![Configurar inicio de sesión único](./media/jira52microsoft-tutorial/addon1.png)
+    ![Captura de pantalla que muestra la opción Complementos seleccionada en el menú Configuración.](./media/jira52microsoft-tutorial/addon1.png)
 
 3. En la sección de la pestaña Complementos, haga clic en **Administrar complementos**.
 
-    ![Configurar inicio de sesión único](./media/jira52microsoft-tutorial/addon7.png)
+    ![Captura de pantalla que muestra la opción Administrar complementos seleccionada en la pestaña Complementos.](./media/jira52microsoft-tutorial/addon7.png)
 
 4. Descargue el complemento del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=56521). Cargue manualmente el complemento proporcionado por Microsoft mediante el menú **Cargar complemento**. La descarga del complemento está contemplada en el [Acuerdo de servicio de Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Configurar inicio de sesión único](./media/jira52microsoft-tutorial/addon12.png)
+    ![Captura de pantalla que muestra la opción Administrar complementos con el vínculo Upload add-on destacado.](./media/jira52microsoft-tutorial/addon12.png)
 
 5. Una vez instalado el complemento, aparece en la sección de complementos **Instalados por el usuario**. Haga clic en **Configurar** para configurar el nuevo complemento.
 
-    ![Configurar inicio de sesión único](./media/jira52microsoft-tutorial/addon13.png)
+    ![Captura de pantalla que muestra la sección Inicio de sesión único de SAML de Azure A D para Jira con la opción Configurar seleccionada.](./media/jira52microsoft-tutorial/addon13.png)
 
 6. Siga estos pasos en la página de configuración:
 
-    ![Configurar inicio de sesión único](./media/jira52microsoft-tutorial/addon52.png)
+    ![Captura de pantalla que muestra la página de configuración del conector de inicio de sesión único de Jira para Microsoft](./media/jira52microsoft-tutorial/addon52.png)
 
     > [!TIP]
     > Asegúrese de que hay un solo certificado asignado a la aplicación, de forma que no se produzca ningún error en la resolución de los metadatos. Si hay varios certificados, después de resolver los metadatos, el administrador recibe un error.
@@ -251,19 +251,19 @@ Para permitir que los usuarios de Azure AD inicien sesión en el servidor local 
 
 2. Mantenga el mouse encima del icono de engranaje y haga clic en **Administración de usuarios**.
 
-    ![Agregar empleado](./media/jira52microsoft-tutorial/user1.png)
+    ![Captura de pantalla que muestra la opción Administración de usuarios seleccionada en el menú Configuración.](./media/jira52microsoft-tutorial/user1.png)
 
 3. Se le redirigirá a la página de acceso de administrador para especificar la **contraseña** y haga clic en el botón **Confirmar**.
 
-    ![Agregar empleado](./media/jira52microsoft-tutorial/user2.png)
+    ![Captura de pantalla que muestra la página Administrator Access (Acceso como administrador) donde puede especificar las credenciales.](./media/jira52microsoft-tutorial/user2.png)
 
 4. En la sección de la pestaña **Administración de usuarios**, haga clic en **Crear usuario**.
 
-    ![Agregar empleado](./media/jira52microsoft-tutorial/user3.png) 
+    ![Captura de pantalla que muestra la pestaña Administración de usuarios en la que puede crear un usuario.](./media/jira52microsoft-tutorial/user3.png) 
 
 5. En la página del cuadro de diálogo **"Create New User"** (Crear nuevo usuario), realice los pasos siguientes:
 
-    ![Agregar empleado](./media/jira52microsoft-tutorial/user4.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Create new user (Crear nuevo usuario) donde puede especificar la información que se indica en este paso.](./media/jira52microsoft-tutorial/user4.png)
 
     a. En el cuadro de texto **Dirección de correo electrónico**, escriba la dirección de correo electrónico de un usuario, por ejemplo, Brittasimon@contoso.com.
 

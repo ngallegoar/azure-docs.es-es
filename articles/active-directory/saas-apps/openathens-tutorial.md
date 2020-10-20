@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: fc60552fadf10dde88c0e6d8c6f46bd25c68cf2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: da8ae35ce85ca9ffb031511e81270afd8529681d
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543948"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994181"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-openathens"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con OpenAthens
 
@@ -134,15 +134,15 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
 1. Seleccione **Connections** (Conexiones) de la lista de la pestaña **Management** (Administración).
 
-    ![Configurar inicio de sesión único](./media/openathens-tutorial/tutorial_openathens_application1.png)
+    ![Captura de pantalla que muestra la página del sitio de la compañía "OpenAthens" con "Connections" (Conexiones) seleccionadas en la pestaña "Management" (Administración).](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
 1. Seleccione **SAML 1.1/2.0** y, a continuación, seleccione el botón **Configure** (Configurar).
 
-    ![Configurar inicio de sesión único](./media/openathens-tutorial/tutorial_openathens_application2.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Select local authentication system type" (Seleccionar tipo de sistema de autenticación local) con "S A M L 1.1/2.0" y el botón "Configure" (Configurar) seleccionados.](./media/openathens-tutorial/tutorial_openathens_application2.png)
 
 1. Para agregar la configuración, seleccione el botón **Browse** (Examinar) para cargar el archivo .xml de metadatos que descargó desde Azure Portal y, a continuación, seleccione **Add** (Agregar).
 
-    ![Configurar inicio de sesión único](./media/openathens-tutorial/tutorial_openathens_application3.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Add S A M L authentication system" (Agregar sistema de autenticación de S A M L) con la acción "Browse" (Examinar) y el botón "Add" (Agregar) seleccionado.](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
 1. Realice los pasos siguientes en la pestaña **Details** (Detalles).
 
@@ -164,7 +164,7 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
     h. Desde la pestaña **Usuario de confianza**, copie la **Dirección URL de metadatos** y ábrala en el explorador para descargar el archivo **XML de metadatos de SP**. Cargue este archivo de metadatos de SP en la sección **Configuración básica de SAML** de Azure AD.
 
-    ![Configurar inicio de sesión único](./media/openathens-tutorial/tutorial_openathens_application5.png)
+    ![Captura de pantalla que muestra la pestaña "Usuario de confianza" seleccionada y la opción "U R L de metadatos" resaltada.](./media/openathens-tutorial/tutorial_openathens_application5.png)
 
 ### <a name="create-openathens-test-user"></a>Creación de un usuario de prueba de OpenAthens
 

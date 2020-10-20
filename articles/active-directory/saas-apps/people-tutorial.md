@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 93b418a2bc4e1b03370b1bb86bd7da95255db0b8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fb8374802e7ec2596dc5f65a2acaf739b12dc164
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552397"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995975"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con People
 
@@ -142,11 +142,11 @@ En esta sección, va a permitir que B. Simon acceda a People mediante el inicio
    
 4. En el menú de la izquierda, haga clic en **Configuración**.
 
-    ![Configurar inicio de sesión único](./media/people-tutorial/tutorial_people_001.png)
+    ![Captura de pantalla que muestra el menú de la izquierda con la opción Configuración seleccionada.](./media/people-tutorial/tutorial_people_001.png)
 
 5. Haga clic en **Compañía**.
 
-    ![Configurar inicio de sesión único](./media/people-tutorial/tutorial_people_002.png)
+    ![Screenshot that shows "Company" (Empresa) seleccionada en el menú "Settings" (Configuración).](./media/people-tutorial/tutorial_people_002.png)
 
 6. En **Upload “Single Sign On” SAML meta-data file** (Cargar archivo de metadatos SAML de "Inicio de sesión único"), haga clic en **Browse** (Examinar) para cargar el archivo de metadatos descargado.
 

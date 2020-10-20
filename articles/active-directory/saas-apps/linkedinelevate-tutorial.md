@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f4569a45b9ed0eee7c375e660df97925335313b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5dcd705719510cce3a113c5b0fdc46d016313b6d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549813"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856422"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-elevate"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con LinkedIn Elevate
 
@@ -144,11 +144,11 @@ En esta sección, va a permitir que B.Simon acceda a LinkedIn Elevate mediante e
 
 1. En **Account Center** (Centro de cuentas), haga clic en **Global Settings** (Configuración global) en **Settings** (Configuración). Además, seleccione **Elevate - Elevate AAD Test** en la lista desplegable.
 
-    ![Configurar inicio de sesión único](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
+    ![Captura de pantalla que muestra Global Settings (Configuración global), donde puede seleccionar Elevate A A D Test (Elevar prueba de A A D).](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
 
 1. Haga clic en **OR Click Here to load and copy individual fields from the form** (O haga clic aquí para cargar y copiar campos individuales del formulario) y haga lo siguiente:
 
-    ![Configurar inicio de sesión único](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
+    ![Captura de pantalla que muestra Inicio de sesión único donde puede escribir los valores descritos.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
 
     a. Copie el valor **Entity Id** (Id. de entidad) y péguelo en el cuadro de texto **Identificador** de la sección **Basic SAML Configuration** (Configuración básica de SAML) de Azure Portal.
 
@@ -156,11 +156,11 @@ En esta sección, va a permitir que B.Simon acceda a LinkedIn Elevate mediante e
 
 1. Vaya a la sección **LinkedIn Admin Settings** (Configuración de administrador de LinkedIn). Cargue el archivo XML que ha descargado de Azure Portal haciendo clic en la opción Upload XML file (Cargar archivo XML).
 
-    ![Configurar inicio de sesión único](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
+    ![Captura de pantalla que muestra la sección Configure the LinkedIn service provider S S O settings (Configurar valores de inicio de sesión único del proveedor de servicios de LinkedIn) donde puede cargar un archivo X M L.](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
 
 1. Haga clic en **On** (Activar) para habilitar SSO. El estado de SSO cambiará de **Not Connected** (No conectado) a **Connected** (Conectado)
 
-    ![Configurar inicio de sesión único](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
+    ![Captura de pantalla que muestra el inicio de sesión único, donde puede seleccionar Automatically Assign Licenses (Asignar licencias automáticamente).](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="create-linkedin-elevate-test-user"></a>Creación de un usuario de prueba de LinkedIn Elevate
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: c5be6ef39a3e980852aa3373dbc54da63aa3983e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f1845a8371c3b64174b83ce640f91e4ce9221b8e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554522"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940827"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure AD con NetSuite
 
@@ -96,7 +96,7 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga es
 
     * Obtendrá el valor **<`Instance ID`>** en la sección de configuración NetSuite, que se explica más adelante en el paso 8 del tutorial, en Configuración de NetSuite. Encontrará el dominio exacto (en este caso, system.na0.netsuite.com).
 
-        ![Configurar inicio de sesión único](./media/NetSuite-tutorial/domain-value.png)
+        ![Captura de pantalla que muestra la página de configuración de SAML en la que puede obtener el dominio.](./media/NetSuite-tutorial/domain-value.png)
 
         > [!NOTE]
         > Los valores de las direcciones URL anteriores no son reales. Actualícelos con la dirección URL de respuesta real. Para obtener el valor, póngase en contacto con el [equipo de soporte técnico de cliente de NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). También puede consultar los formatos que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -164,31 +164,31 @@ En esta sección va a permitir que B.Simon acceda a NetSuite mediante el inicio 
 
 2. En la barra de navegación superior, seleccione **Setup**  (Configurar) y**Company**  > **Enable Features** (Empresa > Habilitar características).
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-setupsaml.png)
+    ![Captura de pantalla que muestra la opción Habilitar características seleccionada en Company (Empresa).](./media/NetSuite-tutorial/ns-setupsaml.png)
 
 3. En la barra de herramientas de la parte central de la página, seleccione **SuiteCloud**.
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-suitecloud.png)
+    ![Captura de pantalla que muestra SuiteCloud seleccionado.](./media/NetSuite-tutorial/ns-suitecloud.png)
 
 4. En **Manage Authentication** (Administrar autenticación), seleccione la casilla **SAML Single Sign-on** (Inicio de sesión único de SAML) para habilitar la opción de inicio de sesión único de SAML en NetSuite.
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-ticksaml.png)
+    ![Captura de pantalla que muestra la sección Manage Authentication (Administrar autenticación), donde puede seleccionar Inicio de sesión único de SAML.](./media/NetSuite-tutorial/ns-ticksaml.png)
 
 5. En la barra de navegación superior, seleccione **Setup** (Configurar).
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-setup.png)
+    ![Captura de pantalla que muestra la opción Configurar seleccionada en la barra de navegación de NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
 6. En la lista **Setup Tasks** (Tareas de configuración), seleccione **Integration** (Integración).
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-integration.png)
+    ![Captura de pantalla muestra la opción Integration (Integración) seleccionada en las tareas de configuración.](./media/NetSuite-tutorial/ns-integration.png)
 
 7. En **Manage Authentication** (Administrar autenticación), seleccione **SAML Single Sign-on** (Inicio de sesión único de SAML).
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-saml.png)
+    ![Captura de pantalla que muestra el inicio de sesión único de SAML seleccionado en el elemento Integration (Integración) de las tareas de configuración.](./media/NetSuite-tutorial/ns-saml.png)
 
 8. En la página **SAML Setup** (Configuración de SAML), **NetSuite Configuration** (Configuración de NetSuite), realice los pasos siguientes:
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-saml-setup.png)
+    ![Captura de pantalla que muestra SAML Setup (Configuración de SAML) donde puede escribir los valores que se describen.](./media/NetSuite-tutorial/ns-saml-setup.png)
   
     a. Seleccione la casilla **Primary Authentication Method** (Método de autenticación principal).
 
@@ -198,9 +198,9 @@ En esta sección va a permitir que B.Simon acceda a NetSuite mediante el inicio 
 
 9. En la barra de navegación superior de NetSuite, seleccione **Setup**  (Configuración) y, a continuación, **Company**  > **Company Information** (Empresa > Información de la empresa).
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-com.png)
+    ![Captura de pantalla que muestra la opción Company Information (Información de la empresa) seleccionada en Company (Empresa).](./media/NetSuite-tutorial/ns-com.png)
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-account-id.png)
+    ![Captura de pantalla que muestra el panel donde puede especificar los valores descritos.](./media/NetSuite-tutorial/ns-account-id.png)
 
     b. En la página **Company Information** (Información de la empresa), copie el valor de **Account ID** (Id. de cuenta).
 
@@ -210,23 +210,23 @@ En esta sección va a permitir que B.Simon acceda a NetSuite mediante el inicio 
 
     a. En la barra de navegación superior, seleccione **Setup** (Configurar).
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-setup.png)
+    ![Captura de pantalla que muestra la opción Configurar seleccionada en la barra de navegación de NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
     b. En el panel izquierdo, seleccione **Users/Roles** (Usuarios/Roles) y **Manage roles** (Administrar roles).
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-manage-roles.png)
+    ![Captura de pantalla que muestra el panel Administrar roles en el que puede seleccionar Nuevo rol.](./media/NetSuite-tutorial/ns-manage-roles.png)
 
     c. Seleccione **New Role** (Nuevo rol).
 
     d. Escriba un nombre en **Name** (Nombre) para el nuevo rol.
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-new-role.png)
+    ![Captura de pantalla que muestra el administrador de instalación, donde puede especificar un nombre para el rol.](./media/NetSuite-tutorial/ns-new-role.png)
 
     e. Seleccione **Guardar**.
 
     f. En la barra de navegación de la izquierda, seleccione **Permissions** (Permisos). Seleccione **Setup** (Configuración).
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-sso.png)
+    ![Captura de pantalla que muestra la pestaña Setup (Configuración) donde puede especificar los valores descritos.](./media/NetSuite-tutorial/ns-sso.png)
 
     g. Seleccione **SAML Single Sign-on** (Inicio de sesión único de SAML) y **Add** (Agregar).
 
@@ -234,19 +234,19 @@ En esta sección va a permitir que B.Simon acceda a NetSuite mediante el inicio 
 
     i. En la barra de navegación superior, seleccione **Setup** (Configuración) y **Setup Manager** (Administrador de instalación).
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-setup.png)
+    ![Captura de pantalla que muestra la opción Configurar seleccionada en la barra de navegación de NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
     j. En el panel izquierdo, seleccione **Users/Roles** (Usuarios/Roles) y **Manage Users** (Administrar usuarios).
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-manage-users.png)
+    ![Captura de pantalla que muestra el panel Administrar usuarios en el que puede seleccionar Suite Demo Team.](./media/NetSuite-tutorial/ns-manage-users.png)
 
     k. Seleccione un usuario de prueba, **Edit** (Editar) y la pestaña **Access** (Acceder).
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-edit-user.png)
+    ![Captura de pantalla que muestra el panel Administrar usuarios en el que puede seleccionar Editar.](./media/NetSuite-tutorial/ns-edit-user.png)
 
     l. En el panel **Roles** (Roles), asigne el rol adecuado que haya creado.
 
-    ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-add-role.png)
+    ![Captura de pantalla que muestra la opción Administrador seleccionada en Empleado.](./media/NetSuite-tutorial/ns-add-role.png)
 
     m. Seleccione **Guardar**.
 

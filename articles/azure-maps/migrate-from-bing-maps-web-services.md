@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Migración de servicios web desde Mapas de Bing | Microsoft Azure Maps'
-description: Migración de servicios web de Mapas de Bing a Microsoft Azure Maps.
+description: Tutorial sobre cómo migrar servicios web desde Mapas de Bing a Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 14e0998b75e0e5bd3ae996f5f5010ecc50180f14
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 462befd505333902bd4560f8f1dafeecceffd27f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741676"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873785"
 ---
-# <a name="migrate-web-service-from-bing-maps"></a>Migración de servicios web desde Mapas de Bing
+# <a name="tutorial---migrate-web-service-from-bing-maps"></a>Tutorial: Migración de servicios web desde Mapas de Bing
 
 Tanto Azure Maps como Mapas de Bing proporcionan acceso a API espaciales mediante servicios web REST. Las interfaces de API de estas plataformas realizan funcionalidades similares, pero emplean convenciones de nomenclatura y objetos de respuesta diferentes.
 

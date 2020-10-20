@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7a7c4f7d9a9ba2ef574519a41aae3dd6e28e4fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a49edf738586dce190fa90f7349f2c9b01e2050d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552805"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850394"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integración de Azure Active Directory con ITRP
 
@@ -94,7 +94,7 @@ Para configurar el inicio de sesión único de Azure AD con ITRP, haga lo sigui
 
 3. En la página **Configurar el inicio de sesión único con SAML**, seleccione el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**:
 
-    ![Icono Editar](common/edit-urls.png)
+    ![Captura de pantalla de la página Configuración del inicio de sesión único con SAML con el icono de edición seleccionado.](common/edit-urls.png)
 
 4. En el cuadro de diálogo **Configuración básica de SAML**, siga los pasos que se indican a continuación.
 
@@ -113,7 +113,7 @@ Para configurar el inicio de sesión único de Azure AD con ITRP, haga lo sigui
 
 5. En la sección **Certificado de firma de SAML**, seleccione el icono **Editar** para abrir el cuadro de diálogo **Certificado de firma de SAML**:
 
-    ![Icono Editar](common/edit-certificate.png)
+    ![Captura de pantalla que muestra la página Certificado de firma de SAML con el icono de edición seleccionado.](common/edit-certificate.png)
 
 6. En el cuadro de diálogo **Certificado de firma de SAML**, copie el valor de **Huella digital** y guárdelo:
 
@@ -143,9 +143,9 @@ Para configurar el inicio de sesión único de Azure AD con ITRP, haga lo sigui
 
 1. Siga estos pasos en la sección de configuración de **Single Sign-On** (Inicio de sesión único).
 
-    ![Sección Inicio de sesión único](./media/itrp-tutorial/ic775572.png "Sección Inicio de sesión único")
+    ![Captura de pantalla que muestra la sección Single Sign-On (Inicio de sesión único) con la opción Enabled (Habilitado) seleccionada.](./media/itrp-tutorial/ic775572.png "Sección Inicio de sesión único")
 
-    ![Sección Inicio de sesión único](./media/itrp-tutorial/ic775573.png "Sección Inicio de sesión único")
+    ![Captura de pantalla que muestra la sección Single Sign-on (Inicio de sesión único), donde puede especificar la información de este paso.](./media/itrp-tutorial/ic775573.png "Sección Inicio de sesión único")
 
     1. Seleccione **Habilitado**.
 
