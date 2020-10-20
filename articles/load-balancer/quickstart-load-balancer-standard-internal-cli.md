@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: dc6abc51fd0e5669126f1d2f1a977194479db5f5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df1db5467dadcd127141708fa33147769f1f50a7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91269886"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047886"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Inicio rápido: Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales con la CLI de Azure
 
@@ -865,6 +865,6 @@ En esta guía de inicio rápido
 * Configuró la regla de tráfico del equilibrador de carga y el sondeo de estado.
 * Probó el equilibrador de carga.
 
-Para más información sobre Azure Load Balancer, consulte [¿Qué es Azure Load Balancer?](load-balancer-overview.md) y [Preguntas frecuentes de Load Balancer](load-balancer-faqs.md).
-
-Más información sobre [Load Balancer y zonas de disponibilidad](load-balancer-standard-availability-zones.md).
+Para más información acerca de Azure Load Balancer, continúe con 
+> [!div class="nextstepaction"]
+> [¿Qué es Azure Load Balancer?](load-balancer-overview.md)

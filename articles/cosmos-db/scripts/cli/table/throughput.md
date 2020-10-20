@@ -1,30 +1,30 @@
 ---
-title: Actualización de la capacidad de proceso (RU/s) de una tabla de Table API para Azure Cosmos DB
-description: Actualización de la capacidad de proceso (RU/s) de una tabla de Table API para Azure Cosmos DB
+title: Scripts de la CLI de Azure para operaciones de rendimiento (RU/s) para recursos de Table API de Azure Cosmos DB
+description: Scripts de la CLI de Azure para operaciones de rendimiento (RU/s) para recursos de Table API de Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 07/29/2020
-ms.openlocfilehash: 3f3a39e546c83620ded539180197f6fda760260f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 10/07/2020
+ms.openlocfilehash: 19fe3ecd3b8127c50ef90ef8195afbf14b04509b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431547"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91839357"
 ---
-# <a name="update-rus-for-a-table-api-table-for-azure-cosmos-db-azure-cli"></a>Actualización de la capacidad de proceso (RU/s) de una tabla de Table API para Azure Cosmos DB con la CLI de Azure
+# <a name="throughput-rus-operations-with-azure-cli-for-a-table-for-azure-cosmos-db-table-api"></a>Operaciones de rendimiento (RU/s) con la CLI de Azure para una tabla para Table API de Azure Cosmos DB
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure, versión 2.9.1 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure, versión 2.12.1 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-Este script crea una tabla de Table API y, a continuación, actualiza la capacidad de proceso de la tabla.
+Este script crea una tabla de Table API y, a continuación, actualiza la capacidad de proceso de la tabla. A continuación, el script migra del rendimiento estándar a escalado automático y, a continuación, lee el valor del rendimiento de escalado automático una vez que se ha migrado.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/table/throughput.sh "Update RU/s for a Table API table.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/table/throughput.sh "Throughput operations for Table API.")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
@@ -43,7 +43,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crea una cuenta de Azure Cosmos DB. |
 | [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) | Crea una tabla de Table API para Azure Cosmos. |
-| [az cosmosdb table throughput update](/cli/azure/cosmosdb/table/throughput#az-cosmosdb-table-throughput-update) | Actualiza la capacidad de proceso (RU/s) de una tabla de Table API para Azure Cosmos. |
+| [az cosmosdb table throughput update](/cli/azure/cosmosdb/table/throughput#az-cosmosdb-table-throughput-update) | Actualiza el rendimiento de una tabla de Table API de Azure Cosmos. |
+| [az cosmosdb table throughput migrate](/cli/azure/cosmosdb/table/throughput#az-cosmosdb-table-throughput-migrate) | Migra el rendimiento de una tabla de Table API de Azure Cosmos. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes

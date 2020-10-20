@@ -1,20 +1,20 @@
 ---
 title: Inicio rápido de la biblioteca cliente de Python para Face
-description: Use la biblioteca cliente de Face para Python a fin de detectar caras, buscar similares (búsqueda de cara por imagen), identificar caras (búsqueda de reconocimiento facial) y migrar los datos de cara.
+description: Use la biblioteca cliente de Face para Python para detectar caras, buscar similares (búsqueda de caras por imagen) e identificar caras (búsqueda de reconocimiento facial).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/07/2020
 ms.author: pafarley
-ms.openlocfilehash: f746a61850567014ce216c47df472d035f1ae123
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 587e702f5c74149542e2fffcf7891b7ea41f4202
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323003"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859170"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para Python. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -25,7 +25,6 @@ Use la biblioteca cliente de Face para Python para:
 * Crear y entrenar un grupo de personas
 * Identificar una cara
 * Comprobar caras
-* Tomar una instantánea para la migración de datos
 
 [Documentación de referencia](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Paquete (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Ejemplos](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
@@ -85,7 +84,6 @@ En estos fragmentos de código se muestra cómo realizar las siguientes tareas c
 * [Creación y entrenamiento de un grupo de personas](#create-and-train-a-person-group)
 * [Identificación de una cara](#identify-a-face)
 * [Comprobación de caras](#verify-faces)
-* [Realización de una instantánea para la migración de datos](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
@@ -207,52 +205,6 @@ El código siguiente compara cada una de las imágenes de origen con la imagen d
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
-## <a name="take-a-snapshot-for-data-migration"></a>Tomar una instantánea para la migración de datos
-
-La característica de instantáneas permite trasladar los datos de la cara guardados, como un objeto **PersonGroup** entrenado, a otra suscripción de Face de Azure Cognitive Services. Podría usar esta característica si, por ejemplo, ha creado un objeto **PersonGroup** mediante una suscripción de evaluación gratuita y ahora quiere migrarlo a una de pago. Consulte el artículo de [Migración de los datos de las caras](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) para información general de la característica de instantáneas.
-
-En este ejemplo migrará el objeto **PersonGroup** que ha creado en [Creación y entrenamiento de un grupo de personas](#create-and-train-a-person-group). Puede completar esa sección primero o usar sus propias construcciones de Face.
-
-### <a name="set-up-target-subscription"></a>Configuración de la suscripción de destino
-
-En primer lugar, debe tener una segunda suscripción de Azure con un recurso de Face; puede crearlo si sigue los pasos descritos en la sección [Instalación](#setting-up). 
-
-A continuación, cree las siguientes variables cerca de la parte superior del script. También necesitará crear nuevas variables de entorno para el identificador de suscripción de la cuenta de Azure, así como la clave, punto de conexión y el identificador de suscripción de la cuenta nueva (de destino). 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
-
-### <a name="authenticate-target-client"></a>Autenticación del cliente de destino
-
-Más adelante en el script, guarde el objeto de cliente actual como cliente de origen y autentique un nuevo objeto de cliente para la suscripción de destino. 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_auth)]
-
-### <a name="use-a-snapshot"></a>Uso de una instantánea
-
-El resto de las operaciones de instantánea tienen lugar dentro de una función asincrónica. 
-
-1. El primer paso es **tomar** la instantánea, que guarda los datos de la cara de la suscripción original en una ubicación temporal en la nube. Este método devuelve un identificador que se utiliza para consultar el estado de la operación.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_take)]
-
-1. Después, consulte el identificador hasta que se haya completado la operación.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait)]
-
-    Este código usa la función `wait_for_operation`, que debe definir por separado:
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_waitforop)]
-
-1. Vuelva a la función asincrónica. Use la operación **apply** para escribir los datos de la cara en la suscripción de destino. Este método también devuelve un identificador.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_apply)]
-
-1. De nuevo, use la función `wait_for_operation` para consultar el identificador hasta que se haya completado la operación.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait2)]
-
-Una vez que haya completado estos pasos, podrá acceder a las construcciones de datos faciales desde la nueva suscripción (de destino).
-
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
 Ejecute la aplicación de reconocimiento facial desde el directorio de la aplicación con el comando `python`.
@@ -271,10 +223,6 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 Si ha creado un objeto **PersonGroup** en este inicio rápido y desea eliminarlo, ejecute el siguiente código en el script:
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletegroup)]
-
-Si migró los datos mediante la característica de instantánea, también deberá eliminar el objeto **PersonGroup** guardado en la suscripción de destino.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletetargetgroup)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

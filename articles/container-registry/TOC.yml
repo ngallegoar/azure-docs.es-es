@@ -120,6 +120,7 @@
                   href: container-registry-repository-scoped-permissions.md
             - name: Control de acceso basado en roles de Azure
               href: container-registry-roles.md
+              displayName: 'permissions, authorization'
             - name: Confianza de contenido
               href: container-registry-content-trust.md
             - name: Digitalización de imágenes con Security Center

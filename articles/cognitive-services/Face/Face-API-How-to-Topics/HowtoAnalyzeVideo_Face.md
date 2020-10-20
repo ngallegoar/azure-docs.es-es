@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9d9fa461291b2fe72e9d69928163bb54e9e1be0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 730946a0c581be4697c0f45c8bdeb1d38f0ca23d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91303818"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856395"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Ejemplo: Análisis de vídeos en tiempo real
 
@@ -70,7 +70,7 @@ while (true)
 }
 ```
 
-Este código inicia cada análisis en una tarea independiente, que se puede ejecutar en segundo plano mientras se siguen capturando fotogramas nuevos. Con este método se evita el bloqueo del subproceso principal mientras se espera a que se devuelva una llamada API, pero se pierden algunas de las garantías que proporciona la versión simple. Varias llamadas API podrían tener lugar en paralelo y es posible que los resultados se devuelvan en el orden equivocado. Como consecuencia, también podría suceder que varios subprocesos especificaran la función ConsumeResult() al mismo tiempo, lo que podría ser peligroso si la función no es segura para subprocesos. Por último, este código simple no realiza un seguimiento de las tareas que se crean, por lo que las excepciones desaparecerán de manera silenciosa. Por lo tanto, el paso final es agregar un subproceso "consumidor" que realice un seguimiento de las tareas de análisis, produzca excepciones, elimine tareas de larga duración y garantice que los resultados se consuman en el orden correcto.
+Este código inicia cada análisis en una tarea independiente, que se puede ejecutar en segundo plano mientras se siguen capturando fotogramas nuevos. Con este método se evita el bloqueo del subproceso principal mientras se espera a que se devuelva una llamada API, pero se pierden algunas de las garantías que proporciona la versión simple. Varias llamadas API podrían tener lugar en paralelo y es posible que los resultados se devuelvan en el orden equivocado. Además, esto podría provocar que varios subprocesos ingresaran en la función ConsumeResult() al mismo tiempo, lo que podría ser peligroso si la función no es segura para subprocesos. Por último, este código simple no realiza un seguimiento de las tareas que se crean, por lo que las excepciones desaparecerán de manera silenciosa. Por lo tanto, el paso final es agregar un subproceso "consumidor" que realice un seguimiento de las tareas de análisis, produzca excepciones, elimine tareas de larga duración y garantice que los resultados se consuman en el orden correcto.
 
 ### <a name="a-producer-consumer-design"></a>Un diseño de productor-consumidor
 
@@ -79,13 +79,13 @@ En el sistema final de "productor-consumidor", se cuenta con un subproceso produ
 ```csharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
-     
+     
 // Producer thread. 
 while (true)
 {
     // Grab a frame. 
     Frame f = GrabFrame();
- 
+ 
     // Decide whether to analyze the frame. 
     if (ShouldAnalyze(f))
     {
@@ -119,10 +119,10 @@ while (true)
 {
     // Get the oldest task. 
     Task<ResultWrapper> analysisTask = taskQueue.Take();
- 
+ 
     // Await until the task is completed. 
     var output = await analysisTask;
-     
+     
     // Consume the exception or result. 
     if (output.Exception != null)
     {
@@ -145,52 +145,7 @@ La biblioteca contiene la clase FrameGrabber, que implementa el sistema producto
 
 Para ilustrar algunas de las posibilidades, hay dos aplicaciones de ejemplo que utilizan la biblioteca. La primera es una aplicación de consola simple; una versión simplificada de ella se reproduce a continuación. Toma fotogramas de la cámara web predeterminada y los envía al servicio Face para la detección de caras.
 
-```csharp
-using System;
-using VideoFrameAnalyzer;
-using Microsoft.ProjectOxford.Face;
-using Microsoft.ProjectOxford.Face.Contract;
-     
-namespace VideoFrameConsoleApplication
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Create grabber, with analysis type Face[]. 
-            FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
-            
-            // Create Face Client. Insert your Face API key here.
-            private readonly IFaceClient faceClient = new FaceClient(
-            new ApiKeyServiceClientCredentials("<subscription key>"),
-            new System.Net.Http.DelegatingHandler[] { });
-
-            // Set up our Face API call.
-            grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));
-
-            // Set up a listener for when we receive a new result from an API call. 
-            grabber.NewResultAvailable += (s, e) =>
-            {
-                if (e.Analysis != null)
-                    Console.WriteLine("New result received for frame acquired at {0}. {1} faces detected", e.Frame.Metadata.Timestamp, e.Analysis.Length);
-            };
-            
-            // Tell grabber to call the Face API every 3 seconds.
-            grabber.TriggerAnalysisOnInterval(TimeSpan.FromMilliseconds(3000));
-
-            // Start running.
-            grabber.StartProcessingCameraAsync().Wait();
-
-            // Wait for keypress to stop
-            Console.WriteLine("Press any key to stop...");
-            Console.ReadKey();
-            
-            // Stop, blocking until done.
-            grabber.StopProcessingAsync().Wait();
-        }
-    }
-}
-```
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/analyze.cs":::
 
 La segunda aplicación de ejemplo es un poco más interesante y le permite elegir a qué API llamar en los fotogramas de vídeo. En el lado izquierdo, la aplicación muestra una vista previa del vídeo en directo; en el lado derecho, muestra el resultado más reciente de la API superpuesto con el fotograma correspondiente.
 
@@ -208,7 +163,7 @@ Para empezar a trabajar con este ejemplo, siga estos pasos:
    - [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) Después de implementar los recursos, haga clic en **Ir al recurso** para recopilar la clave y el punto de conexión de cada recurso. 
 3. Clone el repositorio [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) de GitHub.
 4. Abra el ejemplo en Visual Studio y compile y ejecute las aplicaciones de ejemplo:
-    - Para BasicConsoleSample, la clave de Face está codificada de forma rígida directamente en  [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - Para BasicConsoleSample, la clave de Face está codificada de forma rígida directamente en [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - Para LiveCameraSample, las claves se deben escribir en el panel de configuración de la aplicación. Se conservarán de una sesión a otra como datos de usuario.
         
 
@@ -218,7 +173,7 @@ Cuando esté listo para la integración, **haga referencia a la biblioteca Video
 
 En esta guía, aprendió a ejecutar análisis casi en tiempo real en secuencias de vídeo en directo mediante Face API, Computer Vision API y Emotion API, y a usar el código de ejemplo para empezar a trabajar.
 
-No dude en enviar sus comentarios y sugerencias al [repositorio de GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) o, para enviar comentarios más amplios sobre la API, a nuestro  [sitio de UserVoice](https://cognitive.uservoice.com/).
+No dude en enviar sus comentarios y sugerencias al [repositorio de GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) o, para enviar comentarios más amplios sobre la API, a nuestro [sitio de UserVoice](https://cognitive.uservoice.com/).
 
 ## <a name="related-topics"></a>Temas relacionados
 - [Detección de caras en imágenes](HowtoDetectFacesinImage.md)

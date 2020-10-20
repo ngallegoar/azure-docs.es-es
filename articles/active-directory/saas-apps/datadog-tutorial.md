@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: jeedes
-ms.openlocfilehash: d3bb0ad5305ccba412a403352405711be8f183a2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 75f2574a656f659dfed12b59d52c9f147527c65d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555948"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950089"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datadog"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Datadog
 
@@ -141,6 +141,22 @@ En esta sección creará un usuario llamado B.Simon en Datadog. Trabaje con el [
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Datadog en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Datadog para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### <a name="enable-all-users-from-your-tenant-to-authenticate-with-the-app"></a>Habilitación de todos los usuarios del inquilino para que se autentiquen con la aplicación
+
+En esta sección, habilitará a todos los usuarios del inquilino para que accedan a Datadog si un usuario tiene una cuenta en Datadog.
+
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Datadog**.
+1. En la página de información general de la aplicación, en **Administrar**, seleccione **Propiedades**.
+
+    ![Vínculo "Propiedades"](common/properties.png)
+
+1. En **¿Asignación de usuarios?** , seleccione **No**.
+
+    ![No es necesaria la asignación de usuarios.](common/user-assignment-not-required.png)
+
+1. Seleccione **Guardar**.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

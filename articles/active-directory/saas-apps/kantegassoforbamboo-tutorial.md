@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b8bf8ef1affc42027ef0bec149f8e7c9eb9b2b90
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5b1034454bbdee32b33222321ded2421b83bfd0d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546961"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850785"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Tutorial: Integración de Azure Active Directory con Kantega SSO para Bamboo
 
@@ -99,7 +99,7 @@ Para configurar el inicio de sesión único de Azure AD con Kantega SSO para Bam
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Kantega SSO para Bamboo](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con Kantega SSO para Bam
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Kantega SSO para Bamboo](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,39 +134,39 @@ Para configurar el inicio de sesión único de Azure AD con Kantega SSO para Bam
 
 1. Mantenga el mouse encima del icono de engranaje y haga clic en **Complementos**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon1.png)
+    ![Captura de pantalla que muestra la opción Complementos seleccionada en el menú Configuración.](./media/kantegassoforbamboo-tutorial/addon1.png)
 
 1. En la sección de la pestaña Complementos, haga clic en **Find new add-ons** (Buscar nuevos complementos). Busque **Kantega SSO para Bamboo (SAML & Kerberos)** y haga clic en el botón **Instalar** para instalar el nuevo complemento SAML.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon2.png)
+    ![Captura de pantalla de la administración de Bamboo con la opción Kantega S S O for Bamboo seleccionada.](./media/kantegassoforbamboo-tutorial/addon2.png)
 
 1. Se iniciará la instalación del complemento.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon21.png)
+    ![Captura de pantalla que muestra el progreso de la instalación de Kantega S S O for Bamboo.](./media/kantegassoforbamboo-tutorial/addon21.png)
 
 1. Una vez completada la instalación. Haga clic en **Cerrar**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon33.png)
+    ![Captura de pantalla que muestra el botón Cerrar.](./media/kantegassoforbamboo-tutorial/addon33.png)
 
 1. Haga clic en **Administrar**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon34.png)
+    ![Captura de pantalla que muestra el botón Administrar.](./media/kantegassoforbamboo-tutorial/addon34.png)
 
 1. Haga clic en **Configurar** para configurar el nuevo complemento.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon3.png)
+    ![Captura de pantalla que muestra User-installed add-ons (Complementos instalados por el usuario) con la opción Configurar seleccionada.](./media/kantegassoforbamboo-tutorial/addon3.png)
 
 1. En la sección **SAML**. Seleccione **Azure Active Directory (Azure AD)** en la lista desplegable **Agregar proveedor de identidades**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon4.png)
+    ![Captura de pantalla que muestra el inicio de sesión único de Kantega con Azure A D seleccionado como proveedor de identidades.](./media/kantegassoforbamboo-tutorial/addon4.png)
 
 1. Seleccione el nivel de suscripción **Básica**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon5.png)
+    ![Captura de pantalla que muestra la sección Preparación de Azure A D con la opción Básica seleccionada.](./media/kantegassoforbamboo-tutorial/addon5.png)
 
 1. En la sección **Agregar propiedades**, siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon6.png)
+    ![Captura de pantalla que muestra la sección Propiedades de aplicaciones en la que puede proporcionar la información de este paso.](./media/kantegassoforbamboo-tutorial/addon6.png)
 
     a. Copie el valor de **URI de id. de aplicación** y úselo en los campos **Identificador, URL de respuesta y URL de inicio de sesión** de la sección **Configuración básica de SAML**  de Azure Portal.
 
@@ -174,7 +174,7 @@ Para configurar el inicio de sesión único de Azure AD con Kantega SSO para Bam
 
 1. En la sección **Importar metadatos**, siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon7.png)
+    ![Captura de pantalla que muestra la sección Importar metadatos donde puede buscar un archivo de metadatos.](./media/kantegassoforbamboo-tutorial/addon7.png)
 
     a. Seleccione **Archivo de metadatos en el equipo** y cargue el archivo de metadatos que descargó desde Azure Portal.
 
@@ -182,7 +182,7 @@ Para configurar el inicio de sesión único de Azure AD con Kantega SSO para Bam
 
 1. En la sección**Name and SSO location** (Nombre y ubicación de SSO), siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon8.png)
+    ![Captura de pantalla que muestra la opción "Name and S S O location" (Nombre y ubicación de S S O) en la que Azure A D es el nombre del proveedor de identidades.](./media/kantegassoforbamboo-tutorial/addon8.png)
 
     a. Agregue el nombre del proveedor de identidades en el cuadro de texto **Nombre del proveedor de identidades** (por ejemplo, Azure AD).
 
@@ -190,11 +190,11 @@ Para configurar el inicio de sesión único de Azure AD con Kantega SSO para Bam
 
 1. Compruebe el certificado de firma y haga clic en **Siguiente**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon9.png)
+    ![Captura de pantalla que muestra la sección Comprobación de firmas.](./media/kantegassoforbamboo-tutorial/addon9.png)
 
 1. En la sección **Cuentas de usuario de Bamboo**, siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon10.png)
+    ![Captura de pantalla que muestra las cuentas de usuario de Bamboo en las que tiene la opción de crear usuarios.](./media/kantegassoforbamboo-tutorial/addon10.png)
 
     a. Seleccione **Create users in Bamboo's internal Directory if needed** (Crear usuarios en el directorio interno de Bamboo si es necesario) y escriba el nombre adecuado del grupo de usuarios (puede ser un número múltiple de grupos separados por coma).
 
@@ -202,11 +202,11 @@ Para configurar el inicio de sesión único de Azure AD con Kantega SSO para Bam
 
 1. Haga clic en **Finalizar**
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon11.png)
+    ![Captura de pantalla de la página Resumen.](./media/kantegassoforbamboo-tutorial/addon11.png)
 
 1. En la sección **Known domains for Azure AD** (Dominios conocidos para Azure AD), siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/kantegassoforbamboo-tutorial/addon12.png)
+    ![Captura de pantalla que muestra la sección "Known domains for Azure A D" (Dominios conocidos de Azure A D) en la que puede realizar estos pasos.](./media/kantegassoforbamboo-tutorial/addon12.png)
 
     a. Seleccione **Known domains** (Dominios conocidos) en el panel izquierdo de la página.
 
@@ -275,11 +275,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Bamboo, deben apro
 
 1. Mantenga el mouse encima del icono de engranaje y haga clic en **Administración de usuarios**.
 
-    ![Agregar empleado](./media/kantegassoforbamboo-tutorial/user1.png)
+    ![Captura de pantalla que muestra la opción Administración de usuarios seleccionada en el menú Configuración.](./media/kantegassoforbamboo-tutorial/user1.png)
 
 1. Haga clic en **Usuarios**. En la sección **Agregar usuario**, realice estos pasos:
 
-    ![Agregar empleado](./media/kantegassoforbamboo-tutorial/user2.png)
+    ![Captura de pantalla que muestra el panel Agregar usuario en el que puede realizar estos pasos.](./media/kantegassoforbamboo-tutorial/user2.png)
 
     a. En el cuadro de texto **Nombre de usuario**, escriba el correo electrónico de un usuario, por ejemplo, Brittasimon@contoso.com.
 

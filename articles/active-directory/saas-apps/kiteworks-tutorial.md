@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ae504a7dcd6f598c13b5fabffaca4ec6ec067e4b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7cb6a9691e1b3186e6493b4ae0b62857fb03f38c
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549939"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944058"
 ---
 # <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Tutorial: Integración de Kiteworks con Azure Active Directory
 
@@ -100,11 +100,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la barra de herramientas de la parte superior, haga clic en el icono de **Configuración**.
 
-    ![Configurar inicio de sesión único](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
+    ![Captura de pantalla que muestra el icono "Settings" (Configuración) de la barra de herramientas seleccionado.](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
 1. En la sección **Autenticación y autorización**, haga clic en **SSO Setup** (Instalación de SSO).
 
-    ![Configurar inicio de sesión único](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
+    ![Captura de pantalla que muestra la opción "S S O Setup" (Configuración del inicio de sesión único) seleccionada en la sección "Authentication and Authorization" (Autenticación y autorización).](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
 
 1. En la página Configuración de SSO, realice los pasos siguientes:
 

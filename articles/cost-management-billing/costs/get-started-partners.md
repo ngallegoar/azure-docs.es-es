@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: b1f261d3d777ccf19cea84e77ef83eb45ecc2065
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372262"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827575"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -151,9 +151,11 @@ Para ver los costos de una suscripción, abra **Cost Management + Facturación**
 
 En los ámbitos RBAC de grupo de recursos y suscripción están disponibles el análisis de costos, los presupuestos y las alertas según los costos basados en la tarifa de pago por uso.
 
-Las vistas amortizadas y los costos reales de las instancias reservadas de los ámbitos Azure RBAC muestran cero cargos. Los costos de las instancias reservadas solo se muestran en los ámbitos de facturación en los que se realizaron las compras.
+Las vistas amortizadas y los costos reales de las instancias reservadas de los ámbitos Azure RBAC muestran cero cargos. Los costos de la compra de derechos como instancias reservadas y los precios de Marketplace solo se muestran en los ámbitos de facturación del inquilino del asociado en que se realizaron las compras.
 
 Los precios de minoristas que se usan para calcular los costos que se muestran en la vista son los mismos que se muestran en la calculadora de precios de Azure para todos los clientes. Los costos que se muestran no incluyen los descuentos o créditos que el pueda tener el asociado, como créditos obtenidos de asociados, descuentos por nivel y descuentos de servicio global.
+
+ 
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Análisis de los costos en el análisis de costos
 

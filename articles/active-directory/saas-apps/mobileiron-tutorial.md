@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 45ad613fd250f905dd1cd5e14b5c8aeb42896a51
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: edfd14d979b84061690410f3da9e29ba07899654
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554668"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940987"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Tutorial: integración de Azure Active Directory con MobileIron
 
@@ -99,7 +99,7 @@ Para configurar el inicio de sesión único de Azure AD con MobileIron, siga es
 
 4. En la sección **Configuración de SAML básica**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de MobileIron](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.mobileiron.com/<key>`
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con MobileIron, siga es
 
     c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de MobileIron](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<host>.mobileiron.com/user/login.html`
 
@@ -124,11 +124,11 @@ Para configurar el inicio de sesión único de Azure AD con MobileIron, siga es
 
 2. Vaya a **Admin** > **Identity** (Administración e identidad) y seleccione la opción **AAD** en el campo **Info on Cloud IDP Setup** (Información de configuración del IDP en la nube).
 
-    ![Botón Configurar inicio de sesión único](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
+    ![Captura de pantalla que muestra la pestaña Admin del sitio MobileIron con la opción Identity (Identidad) seleccionada.](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
 3. Copie los valores de **Key** (Clave) y **Host**, y péguelos para completar las direcciones URL en la sección **Configuración de SAML básica** en Azure Portal.
 
-    ![Botón Configurar inicio de sesión único](./media/mobileiron-tutorial/key.png)
+    ![Captura de pantalla que muestra la opción Setting Up SAML (Configuración de SAML) con una clave y un valor de host.](./media/mobileiron-tutorial/key.png)
 
 4. En el campo**Export metadata file from AAD and import to MobileIron Cloud** (Exportar archivo de metadatos de AAD e importar en MobileIron Cloud) haga clic en **Choose File** (Elegir archivo) para cargar los metadatos descargados desde Azure Portal. Haga clic en **Done** (Listo) una vez cargado.
 

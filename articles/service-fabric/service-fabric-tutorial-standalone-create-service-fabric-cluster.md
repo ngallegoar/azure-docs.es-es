@@ -1,17 +1,15 @@
 ---
 title: Instalación de un cliente independiente de Service Fabric
-description: En este tutorial aprenderá a instalar el cliente independiente de Service Fabric en el clúster que creó en el tutorial del artículo anterior.
-author: dkkapur
+description: En este tutorial aprenderá a instalar el cliente independiente de Service Fabric en el clúster.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bbaf7dfc546c739dfb858be7ef8372eccf60111b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ae0b343be986f4d8d5176c1f39eef6b23ca81278
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75613948"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840649"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: instalación y creación del clúster de Service Fabric
 
@@ -19,7 +17,7 @@ Los clústeres de Service Fabric independientes ofrecen la opción de elegir un 
 
 Este tutorial es la segunda parte de una serie. Este tutorial le guía por los pasos para crear un clúster independiente de Service Fabric.
 
-En la segunda parte de la serie, se aprende a:
+En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Descargar e instalar del paquete independiente de Service Fabric
@@ -77,7 +75,7 @@ cd .\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
 ```
 
-El resultado debería ser parecido al que se muestra a continuación. Si el campo inferior "Passed" se devuelve como `True`, se han superado las comprobaciones de integridad y, según la configuración de entrada el clúster se puede implementar.
+La salida debe ser parecida al ejemplo siguiente. Si el campo inferior "Passed" se devuelve como `True`, se han superado las comprobaciones de integridad y, según la configuración de entrada el clúster se puede implementar.
 
 ```powershell
 Trace folder already exists. Traces will be written to existing trace folder: C:\Users\Administrator\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\DeploymentTraces
@@ -118,7 +116,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 >
 >
 
-### <a name="bring-up-service-fabric-explorer"></a>Incorporación de Service Fabric Explorer
+### <a name="open-service-fabric-explorer"></a>Apertura de Service Fabric Explorer
 
 Ahora puede conectarse al clúster con Service Fabric Explorer directamente desde una de las máquinas con http:\//localhost:19080/Explorer/index.html o de forma remota con http:\//<*IPAddressofaMachine*>:19080/Explorer/index.html.
 
@@ -128,7 +126,7 @@ Puede agregar o quitar nodos del clúster de Service Fabric independiente a medi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En la segunda parte de la serie aprendió no solo cómo cargar grandes cantidades de datos aleatorios en una cuenta de almacenamiento en paralelo, si no que también aprendió lo siguiente:
+En este artículo aprendió no solo cómo cargar grandes cantidades de datos aleatorios en una cuenta de almacenamiento en paralelo, si no también lo siguiente:
 
 > [!div class="checklist"]
 > * Configurar la cadena de conexión

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0fe7e0d43050120daa017669a96e90f96b873530
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 39f2f592601f60f060cce8ded2b5303dc6b10e8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543795"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integración de Azure Active Directory con Origami
 
@@ -126,11 +126,11 @@ Para configurar el inicio de sesión único de Azure AD con Origami, siga estos 
 
 2. En el menú de la parte superior, haga clic en **Administrador**.
    
-    ![Configurar inicio de sesión único](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Captura de pantalla que muestra la página principal de Origami con la opción "Admin" (Administrador) seleccionada.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. En la página del cuadro de diálogo Single Sign On Setup (Configuración de inicio de sesión único), siga estos pasos:
    
-    ![Configurar inicio de sesión único](./media/origami-tutorial/tutorial_origami_531.png)
+    ![Captura de pantalla que muestra la página "Single Sign On Setup" (Configuración de inicio de sesión único) con la opción "Enable Single Sign-on" (Habilitar inicio de sesión único) seleccionada y los cuadros de texto resaltados.](./media/origami-tutorial/tutorial_origami_531.png)
 
     a. Seleccione **Enable Single Sign On**(Habilitar el inicio de sesión único).
 
@@ -201,19 +201,19 @@ En esta sección, creará un usuario llamado Britta Simon en Origami.
 
 2. En el menú de la parte superior, haga clic en **Administrador**.
    
-    ![Configurar inicio de sesión único](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Captura de pantalla que muestra la página principal de la cuenta de Origami con la opción "Admin" (Administrador) seleccionada.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. En el cuadro de diálogo **Users and Security** (Usuarios y seguridad), haga clic en **Users** (Usuarios).
    
-    ![Configurar inicio de sesión único](./media/origami-tutorial/tutorial_origami_54.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Users and Security" (Usuarios y seguridad) con la opción "Users" (Usuarios) seleccionada.](./media/origami-tutorial/tutorial_origami_54.png)
 
 4. Haga clic en **Add New User**(Agregar nuevo usuario).
    
-    ![Configurar inicio de sesión único](./media/origami-tutorial/tutorial_origami_55.png)
+    ![Captura de pantalla que muestra el botón "Add New User" (Agregar nuevo usuario) seleccionado.](./media/origami-tutorial/tutorial_origami_55.png)
 
 5. En el cuadro de diálogo Add New User (Agregar nuevo usuario), realice los pasos siguientes:
    
-    ![Configurar inicio de sesión único](./media/origami-tutorial/tutorial_origami_56.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Add New User" (Agregar nuevo usuario) con los cuadros de texto "User Name" (Nombre de usuario), "First Name" (Nombre) y "Last Name" (Apellidos) resaltados.](./media/origami-tutorial/tutorial_origami_56.png)
 
     a. En el cuadro de texto **User Name** (Nombre de usuario), escriba el correo electrónico del usuario; por ejemplo, **brittasimon\@contoso.com**.
 
@@ -227,7 +227,7 @@ En esta sección, creará un usuario llamado Britta Simon en Origami.
 
     f. Haga clic en **Save**(Guardar).
    
-    ![Configurar inicio de sesión único](./media/origami-tutorial/tutorial_origami_57.png)
+    ![Captura de pantalla que muestra el botón "Save" (Guardar) seleccionado.](./media/origami-tutorial/tutorial_origami_57.png)
 
 6. Asigne **User Roles** (Roles de usuario) y **Client Access** (Acceso de cliente) al usuario. 
    

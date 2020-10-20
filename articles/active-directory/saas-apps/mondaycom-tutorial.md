@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 2128559d8074281c1019d99e1316da34c7ec6797
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ed3d5de27a2d9ce5060ff4bfe71c595512658e58
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554612"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940623"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mondaycom"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con monday.com
 
@@ -88,14 +88,14 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     c. Una vez que se haya cargado correctamente el archivo de metadatos, el valor de **Identificador** y **URL de respuesta** se rellena automáticamente en la sección Configuración básica de SAML.
 
-    ![imagen](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     > [!Note]
     > Si los valores **Identificador** y **Dirección URL de respuesta** no se rellenan automáticamente, hágalo de manera manual. El **identificador** y la **dirección URL de repuesta** son iguales y el valor tiene el patrón siguiente: `https://<your-domain>.monday.com/saml/saml_callback`
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![imagen](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOUR_DOMAIN>.monday.com`
 
@@ -104,7 +104,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación monday.com espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
-    ![imagen](common/default-attributes.png)
+    ![Captura de pantalla que muestra User Attributes & Claims (Atributos y reclamaciones del usuario) con valores predeterminados, como emailaddress User.mail y givenname user.givenname.](common/default-attributes.png)
 
 1. Además de lo anterior, las aplicaciones monday.com espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
@@ -166,15 +166,15 @@ En esta sección, va a permitir que B.Simon acceda a monday.com utilizando el in
 
 1. Vaya a **Perfil** que está en la esquina superior derecha de la página y haga clic en **Admininistrador**.
 
-    ![Configuración de monday.com](./media/mondaycom-tutorial/configuration01.png)
+    ![Captura de pantalla que muestra el perfil de administrador seleccionado.](./media/mondaycom-tutorial/configuration01.png)
 
 1. Seleccione **Seguridad** y asegúrese de hacer clic en **Abrir** junto a SAML.
 
-    ![Configuración de monday.com](./media/mondaycom-tutorial/configuration02.png)
+    ![Captura de pantalla que muestra la pestaña Security (Seguridad) con la opción Open (Abrir) junto a SAML.](./media/mondaycom-tutorial/configuration02.png)
 
 1. Rellene los detalles siguientes para el IDP.
 
-    ![Configuración de monday.com](./media/mondaycom-tutorial/configuration03.png)
+    ![Captura de pantalla que muestra el proveedor de SAML, donde puede especificar la información de su I D P.](./media/mondaycom-tutorial/configuration03.png)
 
     > [!NOTE]
     > Consulte [este](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) artículo para más detalles.

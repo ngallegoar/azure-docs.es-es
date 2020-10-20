@@ -1,14 +1,14 @@
 ---
 title: 'Patrón: efectos de una definición de directiva'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo usar los distintos efectos de una definición de directiva.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 9c7e7689aa837a2dba0992112df3cd36ac9affe6
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f1da9bd153707db35c07ed3c176542797a694d7a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85565741"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073043"
 ---
 # <a name="azure-policy-pattern-effects"></a>Patrón de Azure Policy: efectos
 
@@ -24,7 +24,7 @@ Esta definición de directiva comprueba si la etiqueta definida en el parámetro
 
 :::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json" range="40-50":::
 
-El efecto **modify** requiere el bloque **policyRule.then.details** que define **roleDefinitionIds** y **operations**. Estos parámetros informan a Azure Policy qué roles son necesarios para agregar la etiqueta y corregir el recurso y qué operación **modify** se va a realizar. En este ejemplo, el valor de **operation** es _add_ y los parámetros se usan para establecer la etiqueta y su valor.
+El efecto **modify** requiere el bloque **policyRule.then.details** que define **roleDefinitionIds** y **operations**. Estos parámetros informan a Azure Policy de qué roles son necesarios para agregar la etiqueta y corregir el recurso y de qué operación **modify** se va a usar. En este ejemplo, se usan el valor de _operation_ **add** y los parámetros para establecer la etiqueta y su valor.
 
 ## <a name="sample-2-complex-effect"></a>Ejemplo 2: Efecto complejo
 

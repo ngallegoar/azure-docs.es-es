@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: d4a478c402346e33a4f27ff2a363de75285b435b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7a0da85aeba1a9736884a6b8b345efd3f0a8544c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543846"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996555"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Tutorial: Integración de Oracle Cloud Infrastructure Console con Azure Active Directory
 
@@ -101,7 +101,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación Oracle Cloud Infrastructure Console espera las aserciones de SAML en un formato específico, que requiere que agregue asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
-   ![imagen](common/edit-attribute.png)
+   ![Captura de pantalla que muestra el cuadro de diálogo "Atributos de usuario" con el botón "Editar" seleccionado.](common/edit-attribute.png)
 
 1. Además de lo anterior, la aplicación Oracle Cloud Infrastructure Console espera que se devuelvan algunos atributos más en la respuesta de SAML. En la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) del cuadro de diálogo **Group Claims (Preview)** (Notificaciones de grupo [versión preliminar]), siga estos pasos:
 
@@ -111,9 +111,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
  
    1. Haga clic en **Save**(Guardar).
 
-      ![imagen](./media/oracle-cloud-tutorial/config07.png)
+      ![Captura de pantalla que muestra la sección "User Attributes & Claims" (Atributos y notificaciones del usuario) con los iconos para editar "Name identifier value" (Valor de identificador de nombre) y "Groups returned in claim" (Grupos devueltos en la notificación) resaltados.](./media/oracle-cloud-tutorial/config07.png)
     
-      ![imagen](./media/oracle-cloud-tutorial/config11.png)
+      ![Captura de pantalla que muestra el cuadro de diálogo "Manage user claims" (Administrar notificaciones del usuario) con la opción "Persistant" (Persistente) y el botón "Save" (Guardar) seleccionado.](./media/oracle-cloud-tutorial/config11.png)
 
    1. Haga clic en el **lápiz** junto a **Groups returned in claim** (Grupos devueltos en la notificación).
 
@@ -173,15 +173,15 @@ En esta sección, va a permitir a B. Simon utilizar el inicio de sesión único 
 
 1. Haga clic en el lado izquierdo del menú y luego en **Identity** (Identidad) y, después, vaya a **Federation** (Federación).
 
-   ![Configuración](./media/oracle-cloud-tutorial/config01.png)
+   ![Captura de pantalla que muestra "Oracle Cloud Infrastructure Console" con las opciones "Identity" (Identidad) y "Federation" (Federación) seleccionadas en el menú de la parte superior izquierda.](./media/oracle-cloud-tutorial/config01.png)
 
 1. Guarde el **archivo de metadatos del proveedor de servicios** haciendo clic en el enlace **Download this document** (Descargar este documento), cárguelo en la sección **Configuración básica de SAML** de Azure Portal y, después, haga clic en **Add Identity Provider** (Agregar proveedor de identidades).
 
-   ![Configuración](./media/oracle-cloud-tutorial/config02.png)
+   ![Captura de pantalla que muestra la opción "Federation" (Federación) seleccionada en el menú de la izquierda y el botón "Add Identity Provider" (Agregar proveedor de identidades) y la acción "Download this document" (Descargar este documento) seleccionados.](./media/oracle-cloud-tutorial/config02.png)
 
 1. En el elemento emergente **Add Identity Provider** (Agregar proveedor de identidades), realice los pasos siguientes:
 
-   ![Configuración](./media/oracle-cloud-tutorial/config03.png)
+   ![Captura de pantalla que muestra el elemento emergente "Add Identity Provider" (Agregar proveedor de identidades).](./media/oracle-cloud-tutorial/config03.png)
 
    1. En el cuadro de texto **NAME** (NOMBRE), escriba el nombre.
 
@@ -193,7 +193,7 @@ En esta sección, va a permitir a B. Simon utilizar el inicio de sesión único 
 
    1. Haga clic en **Continue** (Continuar) y en la sección **Set Identity Provider** (Establecer proveedor de identidades), realice los siguientes pasos:
 
-      ![Configuración](./media/oracle-cloud-tutorial/config09.png)
+      ![Captura de pantalla que muestra la sección "Edit Identity Provider" (Editar proveedor de identidades) con las opciones "Identity Provider Group" (Grupo de proveedor de identidades), "O C I Group" (Grupo de O C I), "Add Mapping" (Agregar asignación) y el botón "Submit" (Enviar) resaltados.](./media/oracle-cloud-tutorial/config09.png)
 
    1. **IDENTITY PROVIDER GROUP** (Grupo de proveedores de identidades) debe seleccionarse como Grupo personalizado. El ID DE GRUPO debe ser el GUID del grupo de Azure Active Directory. El grupo se debe asignar al grupo correspondiente en el campo **OCI GROUP** (GRUPO OCI).
 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 8afb6f018e9c01ee42a9e43cc726a442fa4c8965
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cd7d1a476f09a2fbfffa687a28616c8faeaae22c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88539345"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858275"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Inicio rápido: Detección de caras en una imagen mediante Face REST API y cURL
 
@@ -34,9 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
  
 Utilizará un comando como el siguiente para llamar a la API Face y obtener los datos de los atributos de las caras de una imagen. En primer lugar, copie el código en un editor de texto; deberá realizar cambios en ciertas partes del comando antes de su ejecución.
 
-```shell
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://<My Endpoint String>.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
-```
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_2":::
 
 ### <a name="subscription-key"></a>Subscription key
 Reemplace `<Subscription Key>` por una clave de suscripción de Face API válida.
@@ -46,14 +44,6 @@ Reemplace `<Subscription Key>` por una clave de suscripción de Face API válida
 La dirección URL `https://<My Endpoint String>.com/face/v1.0/detect` indica el punto de conexión de Azure Face para las consultas. Es posible que deba cambiar la primera parte de esta dirección URL para que coincida con el punto de conexión que corresponde a la clave de suscripción.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
-### <a name="url-query-string"></a>Cadena de consulta de URL
-
-La cadena de consulta de la dirección URL del punto de conexión de Face especifica qué atributos de cara recuperar. Es posible que desee cambiar esta cadena según su uso previsto.
-
-```
-?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
-```
 
 ### <a name="image-source-url"></a>Dirección URL del origen de la imagen
 La dirección URL del origen indica la imagen que se usará como entrada. Puede cambiarla para que apunte a cualquier imagen que desee analizar.
@@ -65,6 +55,28 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 ## <a name="run-the-command"></a>Ejecute el comando
 
 Una vez realizados los cambios, abra un símbolo del sistema y escriba el nuevo comando. Debería ver la información de la cara mostrada como datos JSON en la ventana de la consola. Por ejemplo:
+
+```json
+[
+  {
+    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
+    "faceRectangle": {
+      "top": 131,
+      "left": 177,
+      "width": 162,
+      "height": 162
+    }
+  }
+]  
+```
+
+## <a name="extract-face-attributes"></a>Extracción de los atributos de la cara
+ 
+Para extraer atributos de la cara, use el modelo de detección 1 y agregue el parámetro de consulta `returnFaceAttributes`. El comando debería tener un aspecto similar al siguiente. Como antes, inserte la clave de suscripción y el punto de conexión de Face.
+
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_1":::
+
+La información facial devuelta ahora incluye atributos de cara. Por ejemplo:
 
 ```json
 [

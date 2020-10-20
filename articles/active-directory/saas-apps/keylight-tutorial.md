@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 82af00c091aedb56e0cad954e554094e75df0013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0832fe9ba65ac0df5dbff60b01b7a5eb91a2c3a2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535888"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945250"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Tutorial: Integración de Azure Active Directory con LockPath Keylight
 
@@ -133,15 +133,15 @@ Para configurar el inicio de sesión único de Azure AD con LockPath Keylight, r
 
     b. En el menú de la parte superior, haga clic en el icono de la **persona** y seleccione **Keylight Setup** (Configuración de Keylight).
 
-    ![Configurar inicio de sesión único](./media/keylight-tutorial/401.png)
+    ![Captura de pantalla que muestra el icono "Person" (Persona) seleccionado y la opción "Keylight Setup" (Configuración de Keylight) seleccionada en el menú desplegable.](./media/keylight-tutorial/401.png)
 
     c. En la vista de árbol de la izquierda, haga clic en **SAML**.
 
-    ![Configurar inicio de sesión único](./media/keylight-tutorial/402.png)
+    ![Captura de pantalla que muestra la opción "S A M L" seleccionada en la vista de árbol.](./media/keylight-tutorial/402.png)
 
     d. En el cuadro de diálogo **SAML Settings** (Configuración de SAML), haga clic en **Edit** (Editar).
 
-    ![Configurar inicio de sesión único](./media/keylight-tutorial/404.png)
+    ![Captura de pantalla que muestra la ventana "S A M L Settings" (Configuración de S A M L) con el botón "Edit" (Editar) seleccionado.](./media/keylight-tutorial/404.png)
 
 1. En la página del cuadro de diálogo **Edit SAML Settings** (Editar la configuración de SAML), realice los pasos siguientes:
 

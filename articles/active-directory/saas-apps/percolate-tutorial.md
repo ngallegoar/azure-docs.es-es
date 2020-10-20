@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: deb64aa0c344e818b5fd85ca1a161293fd35d6f6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be9f2163813d1dc52a593c110fa4cef9b561614e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554021"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995418"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integración de Azure Active Directory con Percolate
 
@@ -103,7 +103,7 @@ Para configurar el inicio de sesión único de Azure AD con Percolate, haga lo s
 
 5. Si quiere configurar la aplicación en modo iniciado por SP, seleccione **Establecer direcciones URL adicionales** y, en el cuadro **URL de inicio de sesión**, escriba **https://percolate.com/app/login** :
 
-   ![Información de dominio y direcciones URL de inicio de sesión único de Percolate](common/metadata-upload-additional-signon.png)
+   ![Captura de pantalla que muestra la opción "Establecer direcciones U R L adicionales" seleccionada con el cuadro de texto "Dirección U R L de inicio de sesión" resaltado.](common/metadata-upload-additional-signon.png)
 6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el icono **Copiar** para copiar la **Dirección URL de metadatos de federación de aplicación**. Guarde esta dirección URL.
 
     ![Copia de la dirección URL de metadatos de federación de aplicación](common/copy-metadataurl.png)
@@ -184,7 +184,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 3. En el panel izquierdo, seleccione **Usuarios y grupos**:
 
-    ![Seleccionar Usuarios y grupos](common/users-groups-blade.png)
+    ![Captura de pantalla que muestra la opción "Usuarios y grupos" seleccionada en el panel izquierdo.](common/users-groups-blade.png)
 
 4. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 6282e159a537eb3b9bf5d9a44c7498f3f1db0019
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 032f35fcf5ff661f5a0bfb59be191ffae93272a0
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550731"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944515"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Tutorial: integración de Azure Active Directory con HappyFox
 
@@ -132,19 +132,19 @@ Para configurar el inicio de sesión único de Azure AD con HappyFox, realice lo
 
 2. Vaya a **Manage** (Administrar), haga clic en la pestaña **Integrations** (Integraciones).
 
-    ![Configurar inicio de sesión único](./media/happyfox-tutorial/header.png) 
+    ![Captura de pantalla que muestra la página "Manage" (Administrar) con la pestaña "Integrations" (Integraciones) seleccionada.](./media/happyfox-tutorial/header.png) 
 
 3. En la pestaña de integraciones, haga clic en **Configure** (Configurar) en **SAML Integration** (Integración de SAML) para abrir la configuración del inicio de sesión único.
 
-    ![Configurar inicio de sesión único](./media/happyfox-tutorial/configure.png)
+    ![Captura de pantalla que muestra la configuración "S A M L Integration" (Integración de S A M L) con la acción "Configure" (Configurar) seleccionada.](./media/happyfox-tutorial/configure.png)
 
 4. En la sección de configuración de SAML, pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal en el cuadro de texto **SSO Target URL** (Dirección URL de destino de SSO).
 
-    ![Configurar inicio de sesión único](./media/happyfox-tutorial/targeturl.png)
+    ![Captura de pantalla que muestra la sección "S A M L Configuration" (Configuración de S A M L) con el cuadro de texto "S S O Target U R L" (Dirección U R L de destino de S S O) resaltado.](./media/happyfox-tutorial/targeturl.png)
 
 5. Abra el certificado descargado desde Azure Portal en el bloc de notas y pegue el contenido en la sección**IdP Signature** (Firma del proveedor de identidades).
 
-    ![Configurar inicio de sesión único](./media/happyfox-tutorial/cert.png)
+    ![Captura de pantalla que muestra la sección "I d P Signature" (Firma del proveedor de identidades) resaltada.](./media/happyfox-tutorial/cert.png)
 
 6. Haga clic en el botón **Guardar configuración**.
 

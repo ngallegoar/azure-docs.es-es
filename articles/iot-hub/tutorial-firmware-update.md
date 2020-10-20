@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: fe6c7f10ce64e25f46444cd2db8b67aab4ae2135
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 304ded466aeb734388c13b87331eb4813e850e56
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308328"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842825"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementación de un proceso de actualización de firmware de dispositivos
 
@@ -184,7 +184,7 @@ La siguiente captura de pantalla muestra la salida de la aplicación del disposi
 
 La siguiente captura de pantalla muestra la salida de la aplicación back-end y resalta cómo crea la configuración para actualizar las propiedades deseadas del firmware:
 
-![Aplicación back-end](./media/tutorial-firmware-update/BackEnd1.png)
+![Captura de pantalla que muestra la salida de la aplicación back-end.](./media/tutorial-firmware-update/BackEnd1.png)
 
 La siguiente captura de pantalla muestra la salida de la aplicación back-end y resalta cómo supervisa las métricas de actualización del firmware desde el dispositivo simulado:
 

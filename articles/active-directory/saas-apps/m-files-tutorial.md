@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 77c83e82577cb1d6d07c90a0260a5fa006fd8625
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8cf4df682a5c141e39a3860547a5b6130e2a3002
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554849"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856943"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutorial: integración de Azure Active Directory con M-Files
 
@@ -133,11 +133,11 @@ Para configurar el inicio de sesión único de Azure AD con M-Files, siga estos 
 
 1. Abra la ventana **M-Files Desktop Settings** (Configuración de escritorio de M-Files). A continuación, haga clic en **Agregar**.
    
-    ![Configurar inicio de sesión único](./media/m-files-tutorial/tutorial_m_files_10.png)
+    ![Captura de pantalla que muestra la ventana M-Files Desktop Settings (Configuración de escritorio de M-Files) donde puede seleccionar la opción Add (Agregar).](./media/m-files-tutorial/tutorial_m_files_10.png)
 
 1. En la ventana **Document Vault Connection Properties** (Propiedades de conexión del almacén de documentos), siga estos pasos:
    
-    ![Configurar inicio de sesión único](./media/m-files-tutorial/tutorial_m_files_11.png)  
+    ![Captura de pantalla que muestra la ventana Document Vault Connection Properties (Propiedades de conexión del almacén de documentos), donde puede especificar los valores descritos.](./media/m-files-tutorial/tutorial_m_files_11.png)  
 
     En la sección Server (Servidor), escriba los valores como se indica a continuación:  
 

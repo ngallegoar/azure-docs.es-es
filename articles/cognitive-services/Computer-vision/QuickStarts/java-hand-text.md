@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido:  Extracción de texto impreso y manuscrito con Computer Vision 2.1 y 3.0: REST, Java'
+title: 'Inicio rápido:  Extracción de texto impreso y manuscrito con Computer Vision 2.1 y 3.1: REST, Java'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido extraerá texto impreso y manuscrito de una imagen mediante la API Computer Vision con Java.
 services: cognitive-services
@@ -11,20 +11,19 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: e9f31a16434c8b54e13f4d52a412afbc90fb5c6b
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 6a7cc5338a77ece59c625a9b72adcc45bf135f24
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760893"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969133"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Inicio rápido: Extracción de texto impreso y manuscrito mediante la API REST Computer Vision y Java
 
-En este inicio rápido, extraerá texto impreso y manuscrito de una imagen mediante la API REST de Computer Vision. Los métodos [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) y [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) permiten detectar texto de una imagen y extraer los caracteres reconocidos en una secuencia de caracteres legibles por máquina.
+En este inicio rápido, extraerá texto impreso y manuscrito de una imagen mediante la API REST de Computer Vision. Los métodos [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) y [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) permiten detectar texto de una imagen y extraer los caracteres reconocidos en una secuencia de caracteres legibles por máquina.
 
-El método [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) se ejecuta de forma asincrónica. Este método no devuelve ninguna información en el cuerpo de una respuesta correcta. En su lugar, el método Batch Read devuelve un identificador URI en el valor del campo del encabezado de respuesta `Operation-Location`. A continuación, puede llamar a este identificador URI, que representa a la API [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750), para comprobar el estado y devolver los resultados de la llamada al método Read.
+El método [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) se ejecuta de forma asincrónica. Este método no devuelve ninguna información en el cuerpo de una respuesta correcta. En su lugar, el método Batch Read devuelve un identificador URI en el valor del campo del encabezado de respuesta `Operation-Location`. A continuación, puede llamar a este identificador URI, que representa a la API [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750), para comprobar el estado y devolver los resultados de la llamada al método Read.
 
----
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -76,7 +75,7 @@ public class Main {
     private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
     private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
-    private static String uriBase = endpoint + "/vision/v3.0/read/analyze";
+    private static String uriBase = endpoint + "/vision/v3.1/read/analyze";
 
     private static String imageToAnalyze =
             "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg";
@@ -189,7 +188,7 @@ Se devuelve una respuesta correcta en JSON. La aplicación de ejemplo analiza y 
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,

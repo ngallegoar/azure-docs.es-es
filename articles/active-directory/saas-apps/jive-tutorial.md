@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 432ca72a667caa9c2a78b08396884d957b4c650b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: da0e042664d6ca90c53b83bb38770a97d4e97498
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547110"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850761"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jive"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Jive
 
@@ -140,7 +140,7 @@ En esta sección va a permitir que B.Simon acceda a Jive mediante el inicio de s
 
 1. En el menú de la parte superior, haga clic en **SAML**.
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/jive-tutorial/tutorial_jive_002.png)
+    ![Captura de pantalla que muestra la pestaña SAML con la opción Enabled (Habilitado) seleccionado.](./media/jive-tutorial/tutorial_jive_002.png)
 
     a. Seleccione **Habilitado** en la pestaña **General**.
 
@@ -148,7 +148,7 @@ En esta sección va a permitir que B.Simon acceda a Jive mediante el inicio de s
 
 1. Vaya a la pestaña **METADATOS DE IDP**.
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/jive-tutorial/tutorial_jive_003.png)
+    ![Captura de pantalla que muestra la pestaña SAML con la pestaña I D P METADATA (METADATOS DE IDP) seleccionada.](./media/jive-tutorial/tutorial_jive_003.png)
 
     a. Copie el contenido del archivo XML de metadatos descargado y, después, péguelo en el cuadro de texto **Identity Provider (IDP) Metadata** (Metadatos del proveedor de identidades [IDP]).
 
@@ -156,7 +156,7 @@ En esta sección va a permitir que B.Simon acceda a Jive mediante el inicio de s
 
 1. Seleccione la pestaña **USER ATTRIBUTE MAPPING** (Asignación de atributos de usuario).
 
-    ![Configuración del inicio de sesión único en la aplicación](./media/jive-tutorial/tutorial_jive_004.png)
+    ![Captura de pantalla que muestra la pestaña SAML con la pestaña USER ATTRIBUTE MAPPING (Asignación de atributos de usuario) seleccionada.](./media/jive-tutorial/tutorial_jive_004.png)
 
     a. En el cuadro de texto **Email** (Correo electrónico), copie y pegue el nombre del atributo de valor **mail**.
 

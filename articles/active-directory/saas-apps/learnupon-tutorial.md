@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 9541f2c5f8ee1aac45b6f659547a3ee34c093181
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 47ecf00b608121271e98ca5abbbd5e69ca811fd2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535176"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Integración de Azure Active Directory con LearnUpon
 
@@ -130,15 +130,15 @@ Para configurar el inicio de sesión único de Azure AD con LearnUpon, siga esto
 
 1. Haga clic en la pestaña **settings** (Configuración).
 
-    ![Configurar inicio de sesión único](./media/learnupon-tutorial/tutorial_learnupon_06.png)
+    ![Captura de pantalla que muestra la pestaña de configuración.](./media/learnupon-tutorial/tutorial_learnupon_06.png)
 
 1. Haga clic en **Single Sign On - SAML** (Inicio de sesión único - SAML) y, después, en **General Settings** (Configuración general) para configurar SAML.
    
-    ![Configurar inicio de sesión único](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
+    ![Captura de pantalla que muestra Single Sign On - SAML (Inicio de sesión único - SAML) con la opción General settings (Configuración general) seleccionada.](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
 
 1. En la sección **General Settings** (Configuración general), siga estos pasos:
    
-    ![Configurar inicio de sesión único](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
+    ![Captura de pantalla que muestra la sección General Settings (Configuración general), donde puede especificar los valores descritos.](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
   
     a. Seleccione **Habilitado**.
 
@@ -158,7 +158,7 @@ Para configurar el inicio de sesión único de Azure AD con LearnUpon, siga esto
 
 1. Haga clic en **User Settings**(Configuración del usuario) y siga estos pasos:
 
-     ![Configurar inicio de sesión único](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
+     ![Captura de pantalla que muestra la sección User Settings (Configuración de usuario), donde puede especificar los valores descritos.](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
     a. En el cuadro de texto **First Name Identifier Format** (Formato de identificador de nombre), escriba el valor que nos indica el lugar de la aserción SAML en que reside el nombre de los usuarios (por ejemplo: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`).
   

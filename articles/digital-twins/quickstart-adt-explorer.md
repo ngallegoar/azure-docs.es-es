@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: dbe37e8a5cba18254cff1dc5d0fff4d5b9bc783d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0d6d543e1f7d68f1312b6531b798cf7f9a0cf3b8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372619"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048515"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Inicio rápido: Exploración de un escenario de Azure Digital Twins de ejemplo con ADT Explorer
 
 Con Azure Digital Twins, puede crear modelos en directo de los entornos del mundo real e interactuar con ellos. Para ello, se modelan los elementos individuales como **gemelos digitales** y, a continuación, se conectan a un **grafo** de conocimiento que puede responder a eventos en directo y al que se puede consultar información.
 
-En esta guía de inicio rápido, explorará un grafo de Azure Digital Twins con la ayuda de una aplicación de ejemplo llamada [**Explorador de Azure Digital Twins (ADT)** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Explorador de ADT le permite cargar un escenario, ver representaciones visuales de los gemelos y los grafos y realizar otras actividades de administración mediante una experiencia visual basada en el explorador web.
+En esta guía de inicio rápido, explorará un grafo de Azure Digital Twins con la ayuda de una aplicación de ejemplo llamada [**Explorador de Azure Digital Twins (ADT)** ](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer permite cargar una representación digital de un entorno, ver imágenes de los gemelos y el grafo que se crean para representar el entorno en Azure Digital Twins y realizar otras actividades de administración mediante una experiencia visual en la que se usa un explorador web.
 
 La guía de inicio rápido contiene los siguientes pasos principales:
 
@@ -38,8 +38,8 @@ Necesitará una suscripción de Azure para completar esta guía de inicio rápid
 También necesitará **Node.js** en su equipo. Puede obtener la versión más reciente en este vínculo: [Node.js](https://nodejs.org/).
 
 Por último, también deberá descargar dos ejemplos para usarlos durante el inicio rápido:
-* La aplicación de ejemplo **Explorador de ADT**. Este ejemplo contiene la aplicación principal que se usa en la guía de inicio rápido para cargar y explorar un escenario de Azure Digital Twins. Para obtener la aplicación, vaya aquí: [Explorador de Azure Digital Twins (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Presione el botón *Descargar archivo ZIP* para descargar un archivo *.ZIP* de este código de ejemplo en la máquina como _**Azure_Digital_Twins_ADT_explorer.zip**_. Descomprima la carpeta y extraiga los archivos.
-* El **escenario de Azure Digital Twins de ejemplo**. Incluye un grafo de Azure Digital Twins creado previamente que cargará en Explorador de ADT para trabajar con él. Para obtener el escenario, vaya aquí: [Ejemplos de Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Presione el botón *Descargar archivo ZIP* para descargar un archivo *.ZIP* de este código de ejemplo en la máquina como **Azure_Digital_Twins_samples.zip**. Descomprima la carpeta y extraiga los archivos.
+* La aplicación de ejemplo **Explorador de ADT**. Este ejemplo contiene la aplicación principal que se usa en la guía de inicio rápido para cargar y explorar un escenario de Azure Digital Twins. Para obtener la aplicación, vaya aquí: [Explorador de Azure Digital Twins (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Presione el botón *Descargar archivo ZIP* para descargar el archivo *.ZIP* de este código de ejemplo en la máquina. Se descargará una carpeta .ZIP en la máquina como _**Azure_Digital_Twins__ADT__explorer.zip**_. Descomprima la carpeta y extraiga los archivos.
+* El **escenario de Azure Digital Twins de ejemplo**. Incluye un grafo de Azure Digital Twins creado previamente que cargará en Explorador de ADT para trabajar con él. Para obtener el escenario, vaya aquí: [Ejemplos de Azure Digital Twins](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Presione el botón *Descargar archivo ZIP* para descargar el archivo *.ZIP* de este código de ejemplo en la máquina. Se descargará una carpeta .ZIP en la máquina como _**Azure_Digital_Twins_samples.zip**_. Descomprima la carpeta y extraiga los archivos.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configuración de Azure Digital Twins y Explorador de ADT
 
@@ -205,7 +205,7 @@ Explorador de ADT usará ahora el archivo cargado para crear los gemelos solicit
     :::column-end:::
 :::row-end:::
 
-El grafo ya se ha cargado en Explorador de ADT. Para ver el grafo, presione el botón *Run Query* (Ejecutar consulta) en el cuadro *QUERY EXPLORER* (Explorador de consultas), cerca de la parte superior de la ventana de Explorador de ADT. 
+El grafo ya se ha cargado en Explorador de ADT. Para ver el grafo, presione el botón *Run Query* (Ejecutar consulta) en el cuadro *GRAPH EXPLORER* (Explorador de grafos), cerca de la parte superior de la ventana Azure Digital Twins Explorer. 
 
 :::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Vista de un grafo compuesto por cuatro nodos circulares conectados por flechas. Un círculo con la etiqueta &quot;Floor1&quot; está conectado mediante una flecha con la etiqueta &quot;contains&quot; (contiene) a un círculo con la etiqueta &quot;Room1&quot; y un círculo con la etiqueta &quot;Floor0&quot; está conectado mediante una flecha con la etiqueta &quot;contains&quot; (contiene) a un círculo con la etiqueta &quot;Room0&quot;. &quot;Floor1&quot; y &quot;Floor0&quot; no están conectados." lightbox="media/quickstart-adt-explorer/run-query.png":::
 
@@ -305,7 +305,7 @@ En esta guía de inicio rápido, ha creado una instancia de Azure Digital Twins,
 Después, ha explorado el grafo mediante:
 1. El uso de una consulta para responder a una pregunta sobre el escenario.
 2. La edición de una propiedad en un gemelo digital.
-    * La ejecución de la consulta de nuevo para ver cómo ha cambiado la respuesta como resultado de la actualización.
+3. La ejecución de la consulta de nuevo para ver cómo ha cambiado la respuesta como resultado de la actualización.
 
 La intención de este ejercicio es demostrar cómo puede usar el grafo de Azure Digital Twins para responder a preguntas sobre el entorno, incluso a medida que el entorno cambia. 
 

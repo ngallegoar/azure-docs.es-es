@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 42aa51fdd3b0da5a0d438ba46b39bada159aeba6
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 429d0b9c3a118061d713484a7db3aca376a24d04
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611478"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873190"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Tutorial: Creación de una aplicación Blazor Server que usa la plataforma de identidad de Microsoft para la autenticación
 
@@ -84,7 +84,7 @@ En el explorador, vaya a `https://localhost:5001` e inicie sesión con una cuent
 
 ## <a name="retrieving-data-from-microsoft-graph"></a>Recuperación de datos de Microsoft Graph
 
-[Microsoft Graph](/graph/overview) ofrece una serie de API que proporcionan acceso a los datos de Microsoft 365 de los usuarios. Al usar la plataforma de identidad de Microsoft como proveedor de identidades para la aplicación, tiene acceso más fácil a esta información, ya que Microsoft Graph admite directamente los tokens emitidos por dicha plataforma. En esta sección, agregará código que puede mostrar los correos electrónicos del usuario con la sesión iniciada en la página de "captura de datos" de la aplicación.
+[Microsoft Graph](/graph/overview) ofrece una serie de API que proporcionan acceso a los datos de Microsoft 365 de los usuarios. Al usar la plataforma de identidad de Microsoft como proveedor de identidades para la aplicación, tiene acceso más fácil a esta información, ya que Microsoft Graph admite directamente los tokens emitidos por dicha plataforma. En esta sección, agregará código para mostrar los correos electrónicos del usuario con la sesión iniciada en la página de "captura de datos" de la aplicación.
 
 Antes de empezar, cierre la sesión de la aplicación, ya que realizará cambios en los permisos necesarios y el token actual no funcionará. Si aún no lo ha hecho, vuelva a ejecutar la aplicación y seleccione **Cerrar sesión** antes de actualizar el código siguiente.
 

@@ -11,18 +11,18 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 6992b6abb8ab54d5f08903f1b1393111bbd78c09
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 06aa840c3cf33c9d1b70b800d45b9b455c4d61ed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323012"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858343"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y JavaScript
 
 En este inicio rápido, usará la API REST de Azure Face con JavaScript para detectar rostros humanos en una imagen.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
 * Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Creación de un recurso de Face"  target="_blank">cree un recurso de Face <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
@@ -47,86 +47,13 @@ Cree un nuevo archivo HTML, *detectFaces.html*, y agregue el código siguiente.
 
 Luego agregue el siguiente código dentro del elemento `body` del documento. Este código configura una interfaz de usuario básica con un campo de dirección URL, un botón **Analizar cara**, un panel de respuesta y un panel de información de la imagen.
 
-```html
-<h1>Detect Faces:</h1>
-Enter the URL to an image that includes a face or faces, then click
-the <strong>Analyze face</strong> button.<br><br>
-Image to analyze: <input type="text" name="inputImage" id="inputImage"
-    value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
-<button onclick="processImage()">Analyze face</button><br><br>
-<div id="wrapper" style="width:1020px; display:table;">
-    <div id="jsonOutput" style="width:600px; display:table-cell;">
-        Response:<br><br>
-        <textarea id="responseTextArea" class="UIInput"
-            style="width:580px; height:400px;"></textarea>
-    </div>
-    <div id="imageDiv" style="width:420px; display:table-cell;">
-        Source image:<br><br>
-        <img id="sourceImage" width="400" />
-    </div>
-</div>
-```
+:::code language="html" source="~/cognitive-services-quickstart-code/javascript/web/face/rest/detect.html" id="html_include":::
 
 ## <a name="write-the-javascript-script"></a>Escritura del script de JavaScript
 
 Agregue el código siguiente justo encima del elemento `h1` en el documento. Este código configura el código JavaScript que llama a Face API.
 
-```html
-<script type="text/javascript">
-    function processImage() {
-        // Replace <Subscription Key> with your valid subscription key.
-        var subscriptionKey = "<Subscription Key>";
-    
-        var uriBase =
-            "https://<My Endpoint String>.com/face/v1.0/detect";
-    
-        // Request parameters.
-        var params = {
-            "returnFaceId": "true",
-            "returnFaceLandmarks": "false",
-            "returnFaceAttributes":
-                "age,gender,headPose,smile,facialHair,glasses,emotion," +
-                "hair,makeup,occlusion,accessories,blur,exposure,noise"
-        };
-    
-        // Display the image.
-        var sourceImageUrl = document.getElementById("inputImage").value;
-        document.querySelector("#sourceImage").src = sourceImageUrl;
-    
-        // Perform the REST API call.
-        $.ajax({
-            url: uriBase + "?" + $.param(params),
-    
-            // Request headers.
-            beforeSend: function(xhrObj){
-                xhrObj.setRequestHeader("Content-Type","application/json");
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-            },
-    
-            type: "POST",
-    
-            // Request body.
-            data: '{"url": ' + '"' + sourceImageUrl + '"}',
-        })
-    
-        .done(function(data) {
-            // Show formatted JSON on webpage.
-            $("#responseTextArea").val(JSON.stringify(data, null, 2));
-        })
-    
-        .fail(function(jqXHR, textStatus, errorThrown) {
-            // Display error message.
-            var errorString = (errorThrown === "") ?
-                "Error. " : errorThrown + " (" + jqXHR.status + "): ";
-            errorString += (jqXHR.responseText === "") ?
-                "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
-                    jQuery.parseJSON(jqXHR.responseText).message :
-                        jQuery.parseJSON(jqXHR.responseText).error.message;
-            alert(errorString);
-        });
-    };
-</script>
-```
+:::code language="html" source="~/cognitive-services-quickstart-code/javascript/web/face/rest/detect.html" id="script_include":::
 
 Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscripción y debe cambiar la cadena `uriBase` para que contenga la cadena del punto de conexión correcta. El campo `returnFaceAttributes` especifica qué atributos de cara recuperar; puede ser conveniente cambiar esta cadena según su uso previsto.
 
@@ -139,6 +66,35 @@ Abra *detectFaces.html* en el explorador. Al hacer clic en el botón **Analizar 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
 El siguiente texto es un ejemplo de una respuesta JSON correcta.
+
+```json
+[
+  {
+    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
+    "faceRectangle": {
+      "top": 131,
+      "left": 177,
+      "width": 162,
+      "height": 162
+    }
+  }
+]
+```
+
+## <a name="extract-face-attributes"></a>Extracción de los atributos de la cara
+ 
+Para extraer atributos de la cara, use el modelo de detección 1 y agregue el parámetro de consulta `returnFaceAttributes`.
+
+```javascript
+// Request parameters.
+var params = {
+    "detectionModel": "detection_01",
+    "returnFaceAttributes": "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise",
+    "returnFaceId": "true"
+};
+```
+
+La respuesta ahora incluye atributos de la cara. Por ejemplo:
 
 ```json
 [

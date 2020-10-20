@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: ce5572c4c5aca6f48496250c942d50b90551f36f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6742253ad815ab8058a9c05d82200e77d9d18a43
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546954"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946026"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Tutorial: Integración de Azure Active Directory con Kantega SSO para FishEye/Crucible
 
@@ -99,7 +99,7 @@ Para configurar el inicio de sesión único de Azure AD con Kantega SSO para Fis
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Kantega SSO para FishEye/Crucible](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la sección "Configuración básica de S A M L" con el cuadro de texto "Identificador" y "U R L de respuesta" resaltados y el botón "Guardar" seleccionado.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,43 +134,43 @@ Para configurar el inicio de sesión único de Azure AD con Kantega SSO para Fis
 
 1. Mantenga el mouse encima del icono de engranaje y haga clic en **Complementos**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
+    ![Captura de pantalla que muestra el icono de engranaje y la opción "Complementos" seleccionada.](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
 
 1. En la sección Configuración del sistema, haga clic en **Find new add-ons** (Buscar nuevos complementos). 
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
+    ![Captura de pantalla que muestra la sección "Configuración del sistema" con la opción "Find New Add-ons" (Buscar nuevos complementos) seleccionada.](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
 
 1. Busque **Kantega SSO para Crucible** y haga clic en el botón **Instalar** para instalar el nuevo complemento SAML.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
+    ![Captura de pantalla que muestra la página "Attlasian Marketplace for FishEye" con "Kantega S S O for Crucible" en el cuadro de búsqueda y el botón "Instalar" seleccionado.](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
 
 1. Se inicia la instalación del complemento. 
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Instalando" del complemento.](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
 
 1. Una vez completada la instalación. Haga clic en **Cerrar**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo "Installed and ready to go" (Instalado y listo para usarse) y el botón "Cerrar" seleccionado.](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
 
 1.  Haga clic en **Administrar**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
+    ![Captura de pantalla que muestra la página de aplicación "Kantega S S O for Crucible S A M L & Kerberos" y el botón "Administrar" seleccionado.](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
 
 1. Haga clic en **Configurar** para configurar el nuevo complemento. 
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
+    ![Captura de pantalla que muestra la página "User-installed add-ons" (Complementos instalados por el usuario) con el botón "Configurar" resaltado.](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
 
 1. En la sección **SAML**. Seleccione **Azure Active Directory (Azure AD)** en la lista desplegable **Agregar proveedor de identidades**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon4.png)
+    ![Captura de pantalla que muestra la página "Add-ons - Kantega Single Sign-on" (Complementos: Inicio de sesión único de Kantega) con el menú desplegable "Agregar proveedor de identidades" y la opción "Azure Active Directory (Azure AD)" seleccionada. ](./media/kantegassoforfisheyecrucible-tutorial/addon4.png)
 
 1. Seleccione el nivel de suscripción **Básica**.
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
+    ![Captura de pantalla que muestra la sección "Preparación de Azure A D" con la opción "Básica" seleccionada.](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
 
 1. En la sección **Agregar propiedades**, siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
+    ![Captura de pantalla que muestra la sección "Propiedades de la aplicación" con el cuadro de texto "U R L de I D. de aplicación" y el botón Copiar seleccionado.](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
 
     a. Copie el valor de **URI de id. de aplicación** y úselo en los campos **Identificador, URL de respuesta y URL de inicio de sesión** de la sección **Configuración básica de SAML**  de Azure Portal.
 
@@ -178,7 +178,7 @@ Para configurar el inicio de sesión único de Azure AD con Kantega SSO para Fis
 
 1. En la sección **Importar metadatos**, siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
+    ![Captura de pantalla que muestra la sección "Importación de metadatos" con la opción "Archivo de metadatos en mi equipo" seleccionada.](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
 
     a. Seleccione **Archivo de metadatos en el equipo** y cargue el archivo de metadatos que descargó desde Azure Portal.
 
@@ -186,7 +186,7 @@ Para configurar el inicio de sesión único de Azure AD con Kantega SSO para Fis
 
 1. En la sección**Name and SSO location** (Nombre y ubicación de SSO), siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
+    ![Captura de pantalla que muestra la opción "Name and S S O location" (Nombre y ubicación de S S O) y el botón "Siguiente" seleccionado.](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
 
     a. Agregue el nombre del proveedor de identidades en el cuadro de texto **Nombre del proveedor de identidades** (por ejemplo, Azure AD).
 
@@ -194,11 +194,11 @@ Para configurar el inicio de sesión único de Azure AD con Kantega SSO para Fis
 
 1. Compruebe el certificado de firma y haga clic en **Siguiente**.   
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
+    ![Captura de pantalla que muestra la información de la sección "Comprobación de firmas" con el botón "Siguiente" seleccionado.](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
 
 1. En la sección **Cuentas de usuario de FishEye**, siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
+    ![Captura de pantalla que muestra la sección "Cuentas de usuario de FishEye" con la opción "Create users in FishEye's Internal Directory if needed" (Crear usuarios en el directorio interno de FishEye si es necesario) resaltada y el botón "Siguiente" seleccionado.](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
 
     a. Seleccione **Create users in FishEye's internal Directory if needed** (Crear usuarios en el directorio interno de FishEye si es necesario) y escriba el nombre adecuado del grupo de usuarios (puede ser un número múltiple de grupos separados por coma).
 
@@ -206,11 +206,11 @@ Para configurar el inicio de sesión único de Azure AD con Kantega SSO para Fis
 
 1. Haga clic en **Finalizar**
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
+    ![Captura de pantalla que muestra la sección "Resumen" con el botón "Finalizar" seleccionado.](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
 
 1. En la sección **Known domains for Azure AD** (Dominios conocidos para Azure AD), siga estos pasos:  
 
-    ![Configurar inicio de sesión único](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
+    ![Captura de pantalla que muestra la sección "Known domains for Azure A D" (Dominios conocidos de Azure A D) con el botón "Guardar" seleccionado.](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
 
     a. Seleccione **Known domains** (Dominios conocidos) en el panel izquierdo de la página.
 
@@ -278,11 +278,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en FishEye/Crucible, 
 
 1. Mantenga el mouse encima del icono de engranaje y haga clic en **Usuarios**.
 
-    ![Agregar empleado](./media/kantegassoforfisheyecrucible-tutorial/user1.png)
+    ![Captura de pantalla que muestra el icono de engranaje seleccionado y la opción "Usuarios" seleccionada en el menú desplegable.](./media/kantegassoforfisheyecrucible-tutorial/user1.png)
 
 1. En la sección de la pestaña **Usuarios**, haga clic en **Agregar usuario**.
 
-    ![Agregar empleado](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
+    ![Captura de pantalla que muestra la sección "Usuarios" con el botón "Agregar usuario" seleccionado.](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
 
 1. En la página del cuadro de diálogo **Agregar nuevo usuario**, realice los pasos siguientes:
 
