@@ -9,12 +9,12 @@ ms.date: 10/12/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1ddd471746224c2084fa11a74d8fcee3b5bd3d5b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c63733a66a2bb4e320a24649dfe82eac259e79ae
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92026856"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131112"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Creación de suscripciones de Azure mediante programación con las versiones preliminares de las API
 
@@ -103,7 +103,7 @@ Use la propiedad `principalName` para identificar la cuenta a la que quiere que 
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Use el comando [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) para mostrar todas las cuentas de inscripción a las que tiene acceso.
+Use el comando [az billing enrollment-account list](/cli/azure/billing) para mostrar todas las cuentas de inscripción a las que tiene acceso.
 
 ```azurecli-interactive
 az billing enrollment-account list

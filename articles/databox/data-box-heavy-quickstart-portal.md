@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5a0a040d80911b086561213bd0884ed67545c618
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9eda54ad23e06149910fe69ec16588f49829a5a5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920796"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122830"
 ---
 ::: zone target = "docs"
 
@@ -124,7 +124,7 @@ El tiempo para completar esta operación depende del tamaño de los datos y de l
  
 1. Copie los datos en ambos nodos del dispositivo mediante ambas interfaces de datos de 40 Gbps en paralelo.
 
-    - Si usa un host Windows, utilice una herramienta de copia de archivos compatible con SMB, como [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+    - Si usa un host Windows, utilice una herramienta de copia de archivos compatible con SMB, como [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
     - Para el host NFS, use el comando `cp` o `rsync` para copiar los datos.
 2. Conéctese a los recursos compartidos del dispositivo mediante la ruta de acceso:`\\<IP address of your device>\ShareName`. Para obtener las credenciales de acceso a los recursos compartidos, vaya a la página **Connect & copy** (Conectar y copiar) de la interfaz de usuario web local de Data Box Heavy.
 3. Asegúrese de que los nombres de los recursos compartidos y de las carpetas, así como los datos, sigan las directrices descritas en los [límites de servicio de Azure Storage y Data Box Heavy](data-box-heavy-limits.md).

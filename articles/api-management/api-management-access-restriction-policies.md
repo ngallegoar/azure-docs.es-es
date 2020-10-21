@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: d6e5012d64f7370c4d81c24324522824bc88584d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 711a973f13c8e292578703518df4c4302c31eb57
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255122"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071394"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
-En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
+En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
 
 ## <a name="access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Directivas de restricción de acceso
 
@@ -94,6 +94,9 @@ La directiva `rate-limit` evita los picos de uso de la API según suscripción l
 > [!CAUTION]
 > Debido a la naturaleza distribuida de la arquitectura de limitación, el límite de velocidad nunca es completamente preciso. La diferencia entre la cantidad configurada y la cantidad real de solicitudes permitidas varía según el volumen y la velocidad de la solicitud, la latencia del servidor y otros factores.
 
+> [!NOTE]
+> Para comprender la diferencia entre las cuotas y los límites de frecuencia, consulte [Límites y cuotas de frecuencia](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas).
+
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
 ```xml
@@ -120,7 +123,7 @@ La directiva `rate-limit` evita los picos de uso de la API según suscripción l
 
 ### <a name="elements"></a>Elementos
 
-| Nombre       | Descripción                                                                                                                                                                                                                                                                                              | Obligatorio |
+| Nombre       | Descripción                                                                                                                                                                                                                                                                                              | Requerido |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | rate-limit | Elemento raíz.                                                                                                                                                                                                                                                                                            | Sí      |
 | api        | Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las API del producto. Los límites de tasa de llamadas a la API y al producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.                    | No       |
@@ -154,6 +157,9 @@ Para obtener más información y ver ejemplos de esta directiva, consulte [Limit
 > [!CAUTION]
 > Debido a la naturaleza distribuida de la arquitectura de limitación, el límite de velocidad nunca es completamente preciso. La diferencia entre la cantidad configurada y la cantidad real de solicitudes permitidas varía según el volumen y la velocidad de la solicitud, la latencia del servidor y otros factores.
 
+> [!NOTE]
+> Para comprender la diferencia entre las cuotas y los límites de frecuencia, consulte [Límites y cuotas de frecuencia](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas).
+
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
 ```xml
@@ -185,7 +191,7 @@ En el ejemplo siguiente, la clave del límite de velocidad se establece según l
 
 ### <a name="elements"></a>Elementos
 
-| Nombre              | Descripción   | Obligatorio |
+| Nombre              | Descripción   | Requerido |
 | ----------------- | ------------- | -------- |
 | rate-limit-by-key | Elemento raíz. | Sí      |
 
@@ -232,7 +238,7 @@ En el siguiente ejemplo, la directiva solo permite solicitudes provenientes de l
 
 ### <a name="elements"></a>Elementos
 
-| Nombre                                      | Descripción                                         | Obligatorio                                                       |
+| Nombre                                      | Descripción                                         | Requerido                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
 | ip-filter                                 | Elemento raíz.                                       | Sí                                                            |
 | address                                   | Especifica la dirección IP única por la que filtrar.   | Es necesario al menos un elemento `address` o `address-range`. |
@@ -259,7 +265,10 @@ La directiva `quota` aplica un volumen de llamadas o una cuota de ancho de banda
 > [!IMPORTANT]
 > Esta directiva se puede usar una sola vez por documento de directiva.
 >
-> Las [expresiones de directiva](api-management-policy-expressions.md) no se pueden usar en ninguno de los atributos de esta directiva.
+> [Las expresiones de directiva](api-management-policy-expressions.md) no se pueden usar en ninguno de los atributos para esta directiva.
+
+> [!NOTE]
+> Para comprender la diferencia entre las cuotas y los límites de frecuencia, consulte [Límites y cuotas de frecuencia](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas).
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -287,7 +296,7 @@ La directiva `quota` aplica un volumen de llamadas o una cuota de ancho de banda
 
 ### <a name="elements"></a>Elementos
 
-| Nombre      | Descripción                                                                                                                                                                                                                                                                                  | Obligatorio |
+| Nombre      | Descripción                                                                                                                                                                                                                                                                                  | Requerido |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | Elemento raíz.                                                                                                                                                                                                                                                                                | Sí      |
 | api       | Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las API del producto. Las cuotas de llamada de API y de producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.                    | No       |
@@ -317,6 +326,9 @@ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto
 La directiva `quota-by-key` aplica un volumen de llamadas o una cuota de ancho de banda por clave renovables o permanentes. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se cuentan para esta cuota. Si varias directivas incrementan el mismo valor de clave, se incrementa solo una vez por solicitud. Cuando se alcanza el límite de llamadas, el autor de la llamada recibe un código de estado de respuesta `403 Forbidden`.
 
 Para obtener más información y ver ejemplos de esta directiva, consulte [Limitación avanzada de solicitudes con Azure API Management](./api-management-sample-flexible-throttling.md).
+
+> [!NOTE]
+> Para comprender la diferencia entre las cuotas y los límites de frecuencia, consulte [Límites y cuotas de frecuencia](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas).
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -349,7 +361,7 @@ En el ejemplo siguiente, la clave de la cuota se establece según la dirección 
 
 ### <a name="elements"></a>Elementos
 
-| Nombre  | Descripción   | Obligatorio |
+| Nombre  | Descripción   | Requerido |
 | ----- | ------------- | -------- |
 | quota | Elemento raíz. | Sí      |
 
@@ -503,7 +515,7 @@ En este ejemplo se muestra cómo usar la directiva de [validación de JWT](api-m
 
 ### <a name="elements"></a>Elementos
 
-| Elemento             | Descripción                                                                                                                                                                                                                                                                                                                                           | Obligatorio |
+| Elemento             | Descripción                                                                                                                                                                                                                                                                                                                                           | Requerido |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-jwt        | Elemento raíz.                                                                                                                                                                                                                                                                                                                                         | Sí      |
 | audiences           | Contiene una lista de notificaciones de audiencia aceptables que pueden estar presentes en el token. Si existen varios valores de audiencia, se prueban los valores uno a uno hasta que se agoten todos (en cuyo caso no se superará la validación) o hasta que se obtenga un resultado positivo con alguno. Debe especificarse al menos una audiencia.                                                                     | No       |
@@ -524,11 +536,11 @@ En este ejemplo se muestra cómo usar la directiva de [validación de JWT](api-m
 | nombre del parámetro de consulta            | Nombre del parámetro de consulta que contiene el token.                                                                                                                                                                                                                                                                                                                                                                                                     | Se debe especificar uno de `header-name`, `query-parameter-name` o `token-value`. | N/D                                                                               |
 | token-value                     | Expresión que devuelve una cadena que contiene el token JWT.                                                                                                                                                                                                                                                                                                                                                                                                     | Se debe especificar uno de `header-name`, `query-parameter-name` o `token-value`. | N/D                                                                               |
 | id                              | El atributo `id` del elemento `key` le permite especificar la cadena que se comparará con la notificación `kid` del token (si existe) para averiguar qué clave debe usarse para validar la firma.                                                                                                                                                                                                                                           | No                                                                               | N/D                                                                               |
-| match                           | El atributo `match` del elemento `claim` especifica si todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente. Los valores posibles son:<br /><br /> - `all`: todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente.<br /><br /> - `any`: al menos un valor de notificación debe estar presente en el token para que la validación se efectúe correctamente.                                                       | No                                                                               | all                                                                               |
+| match                           | El atributo `match` del elemento `claim` especifica si todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente. Los valores posibles son:<br /><br /> - `all`: todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente.<br /><br /> - `any`: al menos un valor de notificación debe estar presente en el token para que la validación se efectúe correctamente.                                                       | No                                                                               | todo                                                                               |
 | require-expiration-time         | booleano. Especifica si es necesaria una notificación de expiración en el token.                                                                                                                                                                                                                                                                                                                                                                               | No                                                                               | true                                                                              |
 | require-scheme                  | El nombre del token de esquema; por ejemplo, "Bearer". Cuando se establece este atributo, la directiva se asegurará de que ese esquema especificado esté presente en el valor del encabezado de la autorización.                                                                                                                                                                                                                                                                                    | No                                                                               | N/D                                                                               |
 | require-signed-tokens           | booleano. Especifica si un token debe estar firmado.                                                                                                                                                                                                                                                                                                                                                                                           | No                                                                               | true                                                                              |
-| separador                       | String. Especifica el separador (por ejemplo: ",") que se va a usar para extraer un conjunto de valores de una notificación con varios valores.                                                                                                                                                                                                                                                                                                                                          | No                                                                               | N/D                                                                               |
+| separador                       | Cadena Especifica el separador (por ejemplo: ",") que se va a usar para extraer un conjunto de valores de una notificación con varios valores.                                                                                                                                                                                                                                                                                                                                          | No                                                                               | N/D                                                                               |
 | url                             | Dirección URL de punto de conexión de configuración de OpenID desde donde se pueden obtener los metadatos de configuración de OpenID. La respuesta debe ser acorde a las especificaciones definidas en la dirección URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. En Azure Active Directory, utilice la dirección URL `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` y sustituya tenant-name por el nombre del inquilino de directorio, por ejemplo, `contoso.onmicrosoft.com`. | Sí                                                                              | N/D                                                                               |
 | output-token-variable-name      | String. Nombre de la variable de contexto que recibirá el valor del token como un objeto de tipo [`Jwt`](api-management-policy-expressions.md) tras la validación correcta del token.                                                                                                                                                                                                                                                                                     | No                                                                               | N/D                                                                               |
 
@@ -546,4 +558,4 @@ Para obtener más información sobre cómo trabajar con directivas, consulte:
 -   [Directivas de Azure API Management](api-management-howto-policies.md)
 -   [API de transformación](transform-api.md)
 -   En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
--   [Ejemplos de directivas](policy-samples.md)
+-   [Ejemplos de directivas](./policy-reference.md)

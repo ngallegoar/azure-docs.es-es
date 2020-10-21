@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: a8fefee3903a9ff5ce9bdd05a0fd5bcf07bc5429
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: c8e22373f4550b0c65f6ea5c0b62815e32dcbb58
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91408577"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105131"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Inicio rápido: Creación de un función en Azure mediante Visual Studio Code
 
@@ -65,7 +65,7 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos:
 - [.NET Core 3.1](https://www.microsoft.com/net/download) y [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 ::: zone-end
 ::: zone pivot="programming-language-java"
-- [Kit para desarrolladores de Java](https://aka.ms/azure-jdks), versión 8.
+- [Kit para desarrolladores de Java](/azure/developer/java/fundamentals/java-jdk-long-term-support), versión 8.
 
 - [Apache Maven](https://maven.apache.org), versión 3.0 o posterior.
 ::: zone-end

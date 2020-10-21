@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: banders
-ms.openlocfilehash: ebe750440528e40feaf0b4700c018a612b482e34
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: cf5772e9cf08eaa7f34acd59a9c96da6f20cd03d
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447632"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131418"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Seguimiento del saldo del crédito de Azure para el contrato de cliente de Microsoft
 
@@ -102,7 +102,7 @@ Este artículo se aplica a una cuenta de facturación para un contrato de client
 
 ### <a name="rest-api"></a>[REST API](#tab/rest)
 
-Puede usar las API de [facturación de Azure](https://docs.microsoft.com/rest/api/billing/) y de [consumo](https://docs.microsoft.com/rest/api/consumption/) para obtener mediante programación el saldo del crédito de la cuenta de facturación.
+Puede usar las API de [facturación de Azure](/rest/api/billing/) y de [consumo](/rest/api/consumption/) para obtener mediante programación el saldo del crédito de la cuenta de facturación.
 
 Los ejemplos que se muestran a continuación usan las API de REST. Actualmente, no están admitidos PowerShell ni la CLI de Azure.
 

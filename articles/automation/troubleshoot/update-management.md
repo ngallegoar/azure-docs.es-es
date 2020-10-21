@@ -2,15 +2,15 @@
 title: Resolución de problemas de Update Management de Azure Automation
 description: En este artículo se describe cómo solucionar y resolver problemas con Update Management de Azure Automation.
 services: automation
-ms.date: 06/30/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: b0b1e31a8c10ba372473c36e35c19044ef02898a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3d6a87d9b420ea394baaa21c87dff457e4c908d0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003361"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070340"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solución de problemas de Update Management
 
@@ -57,27 +57,25 @@ Se indica que faltan actualizaciones antiguas en la cuenta de Automation, aunque
 
 ### <a name="cause"></a>Causa
 
-Las actualizaciones reemplazadas no se indican correctamente como rechazadas de modo que se puedan considerar no aplicables.
+Las actualizaciones reemplazadas no se rechazan en Windows Server Update Services (WSUS), de modo que se puedan considerar no aplicables.
 
 ### <a name="resolution"></a>Resolución
 
-Cuando una actualización reemplazada no sea aplicable al 100 %, debe cambiar su estado de aprobación a `Declined`. Para cambiar el estado de aprobación de todas las actualizaciones:
+Cuando una actualización reemplazada sea no aplicable al cien por cien, debe cambiar su estado de aprobación a `Declined` en WSUS. Para cambiar el estado de aprobación de todas las actualizaciones:
 
 1. En la cuenta de Automation, seleccione **Update Management** para ver el estado de las máquinas. Vea [Visualización de la evaluación de la actualización](../update-management/update-mgmt-view-update-assessments.md).
 
-2. Compruebe la actualización reemplazada para asegurarse de que no es aplicable al cien por cien. 
+2. Compruebe la actualización reemplazada para asegurarse de que no es aplicable al cien por cien.
 
-3. Marque la actualización como rechazada a menos que tenga una pregunta sobre ella. 
+3. En el servidor WSUS del que dependen las máquinas, [rechace la actualización](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
 4. Seleccione **Equipos** y, en la columna **Cumplimiento**, fuerce un nuevo examen de cumplimiento. Consulte [Administración de actualizaciones para máquinas virtuales](../update-management/update-mgmt-manage-updates-for-vm.md).
 
 5. Repita los pasos anteriores para otras actualizaciones reemplazadas.
 
-6. Ejecute el asistente para la limpieza para eliminar archivos de las actualizaciones rechazadas. 
+6. En Windows Server Update Services (WSUS), limpie manualmente todas las actualizaciones reemplazadas a fin de actualizar la infraestructura mediante el [Asistente para liberar espacio del servidor](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard) de WSUS.
 
-7. En Windows Server Update Services (WSUS), limpie manualmente todas las actualizaciones reemplazadas a fin de actualizar la infraestructura.
-
-8. Repita este procedimiento con regularidad para corregir el problema de visualización y minimizar la cantidad de espacio en disco que se usa para la administración de actualizaciones.
+7. Repita este procedimiento con regularidad para corregir el problema de visualización y minimizar la cantidad de espacio en disco que se usa para la administración de actualizaciones.
 
 ## <a name="scenario-machines-dont-show-up-in-the-portal-under-update-management"></a><a name="nologs"></a>Escenario: Las máquinas no se muestran en el portal en Update Management
 
@@ -112,9 +110,9 @@ Este problema puede deberse a problemas de configuración local o a que la confi
    | summarize by Computer, Solutions
    ```
 
-4. Si no ve la máquina en los resultados de la consulta, significa que no se ha registrado recientemente. Probablemente haya un problema de configuración local y debe [volver a instalar el agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). 
+4. Si no ve la máquina en los resultados de la consulta, significa que no se ha registrado recientemente. Probablemente haya un problema de configuración local y debe [volver a instalar el agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. Si el equipo aparece en los resultados de la consulta, compruebe los problemas de configuración de ámbito. La [configuración de ámbito](../update-management/update-mgmt-scope-configuration.md) determina qué máquinas se configuran para Update Management. 
+5. Si el equipo aparece en los resultados de la consulta, compruebe los problemas de configuración de ámbito. La [configuración de ámbito](../update-management/update-mgmt-scope-configuration.md) determina qué máquinas se configuran para Update Management.
 
 6. Si la máquina aparece en el área de trabajo, pero no se muestra en Update Management, debe realizar la configuración de ámbito para dirigirse a la máquina. Para obtener información sobre cómo hacerlo, consulte [Habilitación de máquinas en el área de trabajo](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace).
 
@@ -180,7 +178,7 @@ Si la suscripción no está configurada para el proveedor de recursos de Automat
 
 1. En [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), acceda a la lista de servicios de Azure.
 
-2. Seleccione **Todos los servicios** y, después, **Suscripciones** en el grupo de servicios generales. 
+2. Seleccione **Todos los servicios** y, después, **Suscripciones** en el grupo de servicios generales.
 
 3. Busque la suscripción definida en el ámbito de la implementación.
 
@@ -226,7 +224,7 @@ A continuación, se indican las causas posibles para este problema:
 
 #### <a name="incorrect-access-on-selected-scopes"></a>Acceso incorrecto en los ámbitos seleccionados
 
-En Azure Portal solo se muestran las máquinas para las que tiene acceso de escritura en un ámbito determinado. Si no tiene el acceso correcto a un ámbito, consulte [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
+En Azure Portal solo se muestran las máquinas para las que tiene acceso de escritura en un ámbito determinado. Si no tiene el acceso correcto a un ámbito, consulte [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante Azure Portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 #### <a name="arg-query-doesnt-return-expected-machines"></a>La consulta de ARG no devuelve las máquinas esperadas
 
@@ -251,7 +249,7 @@ Siga los pasos que se indican a continuación para averiguar si las consultas fu
     | project id, location, name, tags
     ```
 
-2. Compruebe si las máquinas que está buscando aparecen en los resultados de la consulta. 
+2. Compruebe si las máquinas que está buscando aparecen en los resultados de la consulta.
 
 3. Si las máquinas no aparecen en la lista, es probable que haya un problema con el filtro seleccionado en el grupo dinámico. Ajuste la configuración del grupo según sea necesario.
 
@@ -325,7 +323,7 @@ Si usa una imagen clonada, los distintos nombres de equipo tienen el mismo ident
 
 3. Ejecute `Restart-Service HealthService` para reiniciar el servicio de mantenimiento. Esta operación vuelve a crear la clave y genera un nuevo UUID.
 
-4. Si este enfoque no funciona, en primer lugar, ejecute sysprep en la imagen y, a continuación, instale MMA.
+4. Si este enfoque no funciona, primero ejecute sysprep en la imagen y, a continuación, instale el agente de Log Analytics para Windows.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Escenario: Recibe un error de la suscripción vinculada al crear una implementación de actualización para las máquinas en otro inquilino de Azure
 
@@ -343,7 +341,7 @@ Este error se produce cuando se crea una implementación de actualización que t
 
 ### <a name="resolution"></a>Resolución
 
-Use la solución alternativa siguiente para programar estos elementos. Puede usar el cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) con el parámetro `ForUpdateConfiguration` para crear una programación. Después, use el cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) y pase las máquinas del otro inquilino al parámetro `NonAzureComputer`. El ejemplo siguiente muestra cómo hacerlo:
+Use la solución alternativa siguiente para programar estos elementos. Puede usar el cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) con el parámetro `ForUpdateConfiguration` para crear una programación. Después, use el cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) y pase las máquinas del otro inquilino al parámetro `NonAzureComputer`. El ejemplo siguiente muestra cómo hacerlo:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -386,24 +384,15 @@ Este problema puede ocurrir debido a uno de los siguientes motivos:
 * La máquina ya no existe.
 * La máquina está desactivada y no se posible establecer comunicación con ella.
 * La máquina tiene un problema de conectividad de red y, por lo tanto, no se puede alcanzar la instancia de Hybrid Worker de la máquina.
-* Hubo una actualización de MMA que hizo cambiar el identificador de equipo de origen.
+* Hubo una actualización del agente de Log Analytics que hizo cambiar el identificador del equipo de origen.
 * La ejecución de actualizaciones se ha regulado si se ha alcanzado el límite de 200 trabajos simultáneos en una cuenta de Automation. Cada implementación se considera un trabajo y cada máquina de una implementación de actualizaciones se cuenta como un trabajo. Cualquier otro trabajo de automatización o implementación de actualizaciones actualmente en ejecución en la cuenta de Automation cuenta para el límite de trabajos simultáneos.
 
 ### <a name="resolution"></a>Resolución
 
 Cuando proceda, use [grupos dinámicos](../update-management/update-mgmt-groups.md) para las implementaciones de actualizaciones. Además, puede llevar a cabo los pasos siguientes.
 
-1. Compruebe que la máquina aún exista y sea accesible. 
-2. Si no existe, edite la implementación y quite la máquina.
-3. Consulte la sección sobre el [planeamiento de red](../update-management/update-mgmt-overview.md#ports) para obtener una lista de puertos y direcciones que son necesarios para Update Management y asegúrese de que la máquina cumple estos requisitos.
-4. Compruebe la conectividad con el Hybrid Runbook Worker mediante el solucionador de problemas del agente de Hybrid Runbook Worker. Para más información sobre el solucionador de problemas, consulte el artículo sobre [cómo solucionar problemas con el agente de actualización](update-agent-issues.md).
-5. Ejecute la siguiente consulta en Log Analytics para encontrar las máquinas del entorno cuyo identificador de equipo de origen haya cambiado. Busque los equipos que tienen el mismo valor de `Computer`, pero un distinto valor de `SourceComputerId`.
-
-   ```kusto
-   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
-   ```
-
-6. Después de encontrar las máquinas afectadas, debe editar las implementaciones de actualizaciones que se dirijan a esas máquinas y, luego, quitarlas y volverlas a agregar para que `SourceComputerId` refleje el valor correcto.
+1. Compruebe si la máquina o el servidor cumplen los [requisitos](../update-management/update-mgmt-overview.md#client-requirements).
+2. Compruebe la conectividad con el Hybrid Runbook Worker mediante el solucionador de problemas del agente de Hybrid Runbook Worker. Para más información sobre el solucionador de problemas, consulte el artículo sobre [cómo solucionar problemas con el agente de actualización](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Escenario: Las actualizaciones se instalan sin una implementación
 
@@ -466,7 +455,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 ### <a name="cause"></a>Causa
 
-Un proxy, una puerta de enlace o un firewall pueden estar bloqueando la comunicación de red. 
+Un proxy, una puerta de enlace o un firewall pueden estar bloqueando la comunicación de red.
 
 ### <a name="resolution"></a>Resolución
 
@@ -497,6 +486,8 @@ Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\Pr
 La ventana de mantenimiento predeterminada para las actualizaciones es de 120 minutos. Puede aumentar la ventana de mantenimiento a un máximo de seis 6 horas o 360 minutos.
 
 ### <a name="resolution"></a>Resolución
+
+Para comprender el motivo de esta incidencia durante la ejecución de una actualización después de haberse iniciado correctamente, [compruebe la salida del trabajo](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) desde la máquina afectada en la ejecución. Puede encontrar mensajes de error específicos procedentes de las máquinas que puede investigar e intentar solucionar.  
 
 Edite las implementaciones de actualizaciones programadas con errores y aumente la ventana de mantenimiento.
 

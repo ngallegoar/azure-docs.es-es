@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e6e6c802da212294594f45d0545c6cf07694760b
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bca960100ee0c9d7e2a779dc86030fc59949dca5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707924"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055977"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configuración de la replicación de objetos para blobs en bloques
 
@@ -37,7 +37,7 @@ Una cuenta de almacenamiento puede servir como cuenta de origen para un máximo 
 
 Al configurar la replicación de objetos, se crea una directiva de replicación en la cuenta de destino a través del proveedor de recursos de Azure Storage. Una vez creada la directiva de replicación, Azure Storage le asigna un identificador de directiva. A continuación, debe asociar esa directiva de replicación con la cuenta de origen mediante el identificador de directiva. El identificador de directiva de las cuentas de origen y de destino debe ser el mismo para que tenga lugar la replicación.
 
-Para configurar una directiva de replicación de objetos para una cuenta de almacenamiento, debe tener asignado el rol **Colaborador** de Azure Resource Manager, cuyo ámbito es el nivel de la cuenta de almacenamiento o superior. Para obtener más información, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md) en la documentación del control de acceso basado en rol de Azure.
+Para configurar una directiva de replicación de objetos para una cuenta de almacenamiento, debe tener asignado el rol **Colaborador** de Azure Resource Manager, cuyo ámbito es el nivel de la cuenta de almacenamiento o superior. Para obtener más información, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md) en la documentación del control de acceso basado en rol de Azure (RBAC de Azure).
 
 ### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>Configuración de la replicación de objetos cuando se tiene acceso a ambas cuentas de almacenamiento
 
@@ -238,7 +238,7 @@ az storage account or-policy show \
 
 Si no tiene permisos para la cuenta de almacenamiento de origen, puede configurar la replicación de objetos en la cuenta de destino y proporcionar un archivo JSON que contenga la definición de la directiva a otro usuario para crear la misma directiva en la cuenta de origen. Por ejemplo, si la cuenta de origen está en un inquilino de Azure AD diferente de la cuenta de destino, puede usar este enfoque para configurar la replicación de objetos.
 
-Tenga en cuenta que debe tener asignado el rol **Colaborador** de Azure Resource Manager en el ámbito del nivel de la cuenta de almacenamiento de destino o superior para crear la directiva. Para obtener más información, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md) en la documentación del control de acceso basado en rol de Azure.
+Tenga en cuenta que debe tener asignado el rol **Colaborador** de Azure Resource Manager en el ámbito del nivel de la cuenta de almacenamiento de destino o superior para crear la directiva. Para obtener más información, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md) en la documentación del control de acceso basado en rol de Azure (RBAC de Azure).
 
 En la tabla siguiente se resumen los valores que se deben usar para el identificador de directiva y los identificadores de regla en el archivo JSON en cada escenario.
 
@@ -345,6 +345,49 @@ az storage account or-policy create \
     -resource-group <resource-group> \
     --source-account <source-account-name> \
     --policy @policy.json
+```
+
+---
+
+## <a name="check-the-replication-status-of-a-blob"></a>Comprobación del estado de replicación de un blob
+
+Puede comprobar el estado de replicación de un blob en la cuenta de origen mediante Azure Portal, PowerShell o la CLI de Azure. Las propiedades de replicación de objetos no se rellenan hasta que la replicación se completa o genera un error.
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+Para comprobar el estado de replicación de un blob en la cuenta de origen en Azure Portal, siga estos pasos:
+
+1. Navegue hasta la cuenta de origen en Azure Portal.
+1. Busque el contenedor que incluye el blob de origen.
+1. Seleccione el blob para mostrar sus propiedades. Si el blob se ha replicado correctamente, verá en la sección **Replicación de objetos** que el estado está establecido en *Completado*. También se enumeran el identificador de la directiva de replicación y el identificador de la regla que rige la replicación de objetos de este contenedor.
+
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Captura de pantalla que muestra las reglas de replicación en Azure Portal":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para comprobar el estado de replicación de un blob en la cuenta de origen con PowerShell, obtenga el valor de la propiedad **ReplicationStatus** de la replicación de objetos, como se muestra en el ejemplo siguiente. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
+
+```powershell
+$ctxSrc = (Get-AzStorageAccount -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName).Context
+$blobSrc = Get-AzStorageBlob -Container $srcContainerName1 `
+    -Context $ctxSrc `
+    -Blob <blob-name>
+$blobSrc.BlobProperties.ObjectReplicationSourceProperties[0].Rules[0].ReplicationStatus
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para comprobar el estado de replicación de un blob en la cuenta de origen con la aCLI de Azure, obtenga el valor de la propiedad **status** de la replicación de objetos, como se muestra en el ejemplo siguiente:
+
+```azurecli
+az storage blob show \
+    --account-name <source-account-name> \
+    --container-name <source-container-name> \
+    --name <source-blob-name> \
+    --query 'objectReplicationSourceProperties[].rules[].status' \
+    --output tsv \
+    --auth-mode login
 ```
 
 ---

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: cc44f05491cc17adb9ca51963d09667400fa1ff6
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 33a53fa46d7d07183b77f2608d44f8ea5d0d2804
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371922"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132268"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -71,13 +71,13 @@ El portal del Contrato Enterprise de Azure le ayuda a administrar los costos y e
 
 Cada rol tiene un nivel de acceso y autoridad diferente.
 
-Para más información sobre los roles de usuario, consulte [Roles de usuario de empresa](https://docs.microsoft.com/azure/billing/billing-ea-portal-get-started#enterprise-user-roles).
+Para más información sobre los roles de usuario, consulte [Roles de usuario de empresa](./ea-portal-get-started.md#enterprise-user-roles).
 
 ## <a name="add-an-azure-ea-account"></a>Adición de una cuenta del Contrato Enterprise de Azure
 
 La cuenta del Contrato Enterprise de Azure es una unidad organizativa del portal del Contrato Enterprise de Azure. Se utiliza para administrar las suscripciones y los informes. Para acceder a los servicios de Azure y usarlos, debe crear una cuenta o tener una ya creada.
 
-Para más información sobre las cuentas de Azure, consulte [Agregar una cuenta](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#add-an-account).
+Para más información sobre las cuentas de Azure, consulte [Agregar una cuenta](./ea-portal-get-started.md#add-an-account).
 
 ## <a name="enterprise-devtest-offer"></a>Oferta Desarrollo/pruebas - Enterprise
 

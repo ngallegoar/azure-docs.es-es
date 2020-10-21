@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 94f3fd9f9c66082beace47d675539e9f73c21e83
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824200"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075542"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Inicio rápido: Incorporación de marcas de características a una aplicación de Spring Boot
 
@@ -23,7 +23,7 @@ Las bibliotecas de administración de características de Spring Boot amplían e
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-* Un [SDK de Java Development Kit](https://docs.microsoft.com/java/azure/jdk)admitido con la versión 8.
+* Un [SDK de Java Development Kit](/java/azure/jdk)admitido con la versión 8.
 * [Apache Maven](https://maven.apache.org/download.cgi), versión 3.0 o posterior.
 
 ## <a name="create-an-app-configuration-instance"></a>Creación de una instancia de App Configuration
@@ -304,7 +304,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un almacén de App Configuration y lo ha usado para administrar características en una aplicación web de Spring Boot mediante las [bibliotecas de administración de características](https://go.microsoft.com/fwlink/?linkid=2074664).
+En este inicio rápido, ha creado un almacén de App Configuration y lo ha usado para administrar características en una aplicación web de Spring Boot mediante las [bibliotecas de administración de características](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 * Más información sobre la [administración de características](./concept-feature-management.md).
 * [Administración de marcas de características](./manage-feature-flags.md).

@@ -1,6 +1,6 @@
 - name: Documentación sobre el servicio de voz
   href: index.yml
-- name: Introducción
+- name: Información general
   expanded: true
   items:
     - name: Introducción al servicio de voz
@@ -580,9 +580,8 @@
       href: how-to-migrate-from-translator-speech-api.md
 - name: Recursos
   items:
-    - name: Soporte técnico
-      displayName: 'support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice'
-      href: support.md
+    - name: Opciones de ayuda y soporte técnico
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Documentación de Swagger
       href: swagger-documentation.md
     - name: Nubes soberanas

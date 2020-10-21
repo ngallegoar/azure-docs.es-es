@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8c94109746545a1f7ff33534ca3ec54f55357281
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 00ef6cf6d4149f139876cb0c2d845133ba00157c
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316041"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127513"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>Azure IoT Central: arquitectura de aplicaciones de panel solar
 
@@ -29,7 +29,7 @@ Esta arquitectura consta de los siguientes componentes. Puede que algunas aplica
 
 ## <a name="solar-panels-and-connectivity"></a>Paneles solares y conectividad 
 
-Los paneles solares son una fuente significativa de energía renovable. En función del tipo de panel solar y de la configuración, puede conectarlo mediante puertas de enlace u otros dispositivos intermedios y sistemas de propiedad. Puede que necesite crear un dispositivo de puente de IoT Central para conectar los dispositivos que no pueden hacerlo directamente. El puente de dispositivo de IoT Central es una solución de código abierto y puede encontrar los detalles completos [aquí](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+Los paneles solares son una fuente significativa de energía renovable. En función del tipo de panel solar y de la configuración, puede conectarlo mediante puertas de enlace u otros dispositivos intermedios y sistemas de propiedad. Puede que necesite crear un dispositivo de puente de IoT Central para conectar los dispositivos que no pueden hacerlo directamente. El puente de dispositivo de IoT Central es una solución de código abierto y puede encontrar los detalles completos [aquí](../core/howto-build-iotc-device-bridge.md). 
 
 
 
@@ -43,4 +43,4 @@ La plataforma de IoT Central proporciona dos opciones de extensibilidad: Exporta
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Ahora que ya conoce la arquitectura, [cree una aplicación de panel solar de forma gratuita](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring).
-* Para más información acerca de IoT Central, consulte [Introducción a IoT Central](https://docs.microsoft.com/azure/iot-central/).
+* Para más información acerca de IoT Central, consulte [Introducción a IoT Central](../index.yml).
