@@ -5,19 +5,19 @@ description: Los grupos de conmutación por error automática permiten administr
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2, devx-track-azurecli
+ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076521"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91627234"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,9 +76,9 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
   
 - **Propagación inicial**
 
-  Al agregar bases de datos, grupos elásticos o instancias administradas a un grupo de conmutación por error, hay una fase de propagación inicial antes de que se inicie la replicación de datos. Esta fase de propagación inicial es la operación más larga y costosa. Una vez completada, se sincronizan los datos y, luego, solo se replican los cambios de datos posteriores. El tiempo que tarda en completarse la propagación inicial depende del tamaño de los datos, del número de bases de datos replicadas y de la velocidad del vínculo entre las entidades del grupo de conmutación por error. En circunstancias normales, la velocidad de propagación típica es de 50 a 500 GB por hora para SQL Database, y de 18 a 35 GB por hora en el caso Instancia administrada de SQL. La propagación se realiza en paralelo para todas las bases de datos. Puede usar la velocidad de propagación indicada, junto con el número de bases de datos y el tamaño total de los datos para calcular cuánto tiempo tardará la fase de propagación inicial antes de que se inicie la replicación de los datos.
+  Al agregar bases de datos, grupos elásticos o instancias administradas a un grupo de conmutación por error, hay una fase de propagación inicial antes de que se inicie la replicación de datos. Esta fase de propagación inicial es la operación más larga y costosa. Una vez completada, se sincronizan los datos y, luego, solo se replican los cambios de datos posteriores. El tiempo que tarda en completarse la propagación inicial depende del tamaño de los datos, del número de bases de datos replicadas y de la velocidad del vínculo entre las entidades del grupo de conmutación por error. En circunstancias normales, la velocidad de inicialización típica es de hasta 500 GB por hora para SQL Database, y de hasta 360 GB por hora en el caso de SQL Managed Instance. La propagación se realiza en paralelo para todas las bases de datos.
 
-  En el caso de Instancia administrada de SQL, al estimar el tiempo de la fase de propagación inicial también se debe tener en cuenta la velocidad del vínculo de ExpressRoute entre las dos instancias. Si la velocidad del vínculo entre las dos instancias es más lenta de lo necesario, es probable que el tiempo de propagación resulte muy afectado. Puede usar la velocidad de propagación indicada, el número de bases de datos, el tamaño total de los datos y la velocidad del vínculo para calcular cuánto tardará la fase de propagación inicial antes de que se inicie la replicación de los datos. Por ejemplo, en el caso de una sola base de datos de 100 GB, la fase de propagación inicial tardaría entre 2,8 y 5,5 horas si el vínculo es capaz de insertar 35 GB por hora. Si el vínculo solo puede transferir 10 GB por hora, la propagación de una base de datos de 100 GB tardará aproximadamente 10 horas. Si hay que replicar varias bases de datos, la propagación se ejecutará en paralelo y, cuando se combina con una velocidad de vínculo baja, la fase de propagación inicial puede tardar mucho más tiempo, en especial si la propagación paralela de los datos de todas las bases de datos supera el ancho de banda de vínculo disponible. Si el ancho de banda de red entre dos instancias es limitado y va a agregar varias instancias administradas a un grupo de conmutación por error, considere la posibilidad de hacerlo de manera secuencial, una por una.
+  En el caso de SQL Managed Instance, al estimar el tiempo de la fase de inicialización inicial, tenga en cuenta la velocidad del vínculo de ExpressRoute entre las dos instancias. Si la velocidad del vínculo entre las dos instancias es más lenta de lo necesario, es probable que el tiempo de propagación resulte muy afectado. Puede usar la velocidad de propagación indicada, el número de bases de datos, el tamaño total de los datos y la velocidad del vínculo para calcular cuánto tardará la fase de propagación inicial antes de que se inicie la replicación de los datos. Por ejemplo, en el caso de una sola base de datos de 100 GB, la fase de inicialización inicial tardaría aproximadamente 1,2 horas si el vínculo es capaz de insertar 84 GB por hora y si no hay otras bases de datos que se vayan a inicializar. Si el vínculo solo puede transferir 10 GB por hora, la propagación de una base de datos de 100 GB tardará aproximadamente 10 horas. Si hay que replicar varias bases de datos, la propagación se ejecutará en paralelo y, cuando se combina con una velocidad de vínculo baja, la fase de propagación inicial puede tardar mucho más tiempo, en especial si la propagación paralela de los datos de todas las bases de datos supera el ancho de banda de vínculo disponible. Si el ancho de banda de red entre dos instancias es limitado y va a agregar varias instancias administradas a un grupo de conmutación por error, considere la posibilidad de hacerlo de manera secuencial, una por una. Dada una SKU de puerta de enlace con el tamaño adecuado entre las dos instancias administradas, y si el ancho de banda de la red corporativa lo permite, se pueden lograr velocidades de hasta 360 GB.  
 
 - **Zona DNS**
 
@@ -153,7 +153,7 @@ Para conmutar por error un grupo de conmutación por error, necesita acceso de e
 
 El grupo de conmutación por error automática debe estar configurado en el servidor principal y se conectará al servidor secundario de una región de Azure diferente. Los grupos pueden incluir todas las bases de datos de estos servidores o algunas de ellas. En el siguiente diagrama se ilustra una configuración típica de una aplicación de nube con redundancia geográfica que usa varias bases de datos y un grupo de conmutación por error automática.
 
-![conmutación por error automática](./media/auto-failover-group-overview/auto-failover-group.png)
+![En el siguiente diagrama se muestra una configuración típica de una aplicación de nube con redundancia geográfica que usa varias bases de datos y un grupo de conmutación por error automática.](./media/auto-failover-group-overview/auto-failover-group.png)
 
 > [!NOTE]
 > Consulte [Adición de SQL Database a un grupo de conmutación por error](failover-group-add-single-database-tutorial.md) para obtener un tutorial detallado paso a paso sobre la adición de una base de datos de SQL Database a un grupo de conmutación por error.
@@ -217,7 +217,7 @@ El grupo de conmutación por error automática debe estar configurado en la inst
 
 En el siguiente diagrama se ilustra una configuración típica de una aplicación de nube con redundancia geográfica que usa instancia administrada y un grupo de conmutación por error automática.
 
-![conmutación por error automática](./media/auto-failover-group-overview/auto-failover-group-mi.png)
+![diagrama de conmutación por error automática](./media/auto-failover-group-overview/auto-failover-group-mi.png)
 
 > [!NOTE]
 > Consulte [Adición de una instancia administrada a un grupo de conmutación por error](../managed-instance/failover-group-add-instance-tutorial.md) para obtener un tutorial detallado paso a paso para la adición de una Instancia administrada de SQL para usar un grupo de conmutación por error.
@@ -232,6 +232,10 @@ Para garantizar la conectividad sin interrupciones a la Instancia administrada d
 > La primera Instancia administrada creada en la subred determina la zona DNS de todas las instancias posteriores de la misma subred. Esto significa que dos instancias de la misma subred no pueden pertenecer a zonas DNS diferentes.
 
 Para obtener más información sobre cómo crear la Instancia administrada de SQL secundaria en la misma zona DNS que la instancia principal, consulte [Creación de una instancia administrada secundaria](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
+
+### <a name="using-geo-paired-regions"></a>Uso de regiones emparejadas geográficamente
+
+De cara al rendimiento, implemente ambas instancias administradas en [regiones emparejadas](../../best-practices-availability-paired-regions.md). Las instancias administradas que residen en regiones emparejadas geográficamente tienen un rendimiento mucho mejor que las que residen en regiones no emparejadas. 
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Habilitación del tráfico de replicación entre dos instancias
 
@@ -355,7 +359,11 @@ Al configurar un grupo de conmutación por error entre instancias administradas 
 - Las dos instancias de Instancia administrada de SQL deben estar en diferentes regiones de Azure.
 - Las dos instancias de Instancia administrada de SQL deben ser del mismo nivel de servicio y tener el mismo tamaño de almacenamiento.
 - La instancia secundaria de Instancia administrada de SQL debe estar vacía (sin bases de datos de usuario).
-- Las redes virtuales que se usan en las instancias de Instancia administrada de SQL deben estar conectadas mediante [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Si dos redes virtuales se conectan a través de una red local, asegúrese de que no haya ninguna regla de firewall bloqueando los puertos 5022 y 11000-11999. No se admite el emparejamiento de VNet global.
+- Las redes virtuales que se usan en las instancias de Instancia administrada de SQL deben estar conectadas mediante [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Si dos redes virtuales se conectan a través de una red local, asegúrese de que no haya ninguna regla de firewall bloqueando los puertos 5022 y 11000-11999. El emparejamiento de VNet global se admite con la limitación descrita en la nota siguiente.
+
+   > [!IMPORTANT]
+   > [El 22 de septiembre de 2020, anunciamos el emparejamiento de red virtual global para los clústeres virtuales recién creados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Esto significa que el emparejamiento de red virtual global se admite en las instancias de SQL Managed Instance creadas en subredes vacías después de la fecha del anuncio, así como en todas las instancias administradas posteriores creadas en esas subredes. En el caso de todas las demás instancias de SQL Managed Instance, la compatibilidad con el emparejamiento se limita a las redes de la misma región debido a las [restricciones del emparejamiento de red virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. 
+
 - Las dos redes virtuales de Instancia administrada de SQL no pueden tener direcciones IP superpuestas.
 - Debe configurar sus grupos de seguridad de red (NSG) de forma que los puertos 5022 y el intervalo 11000~12000 estén abiertos a las conexiones entrantes y salientes de la subred de la otra instancia administrada. Esto es para permitir el tráfico de replicación entre las instancias.
 

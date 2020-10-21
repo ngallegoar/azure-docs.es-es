@@ -40,6 +40,8 @@
       href: quickstart-create-workspace.md
     - name: Creación de un área de trabajo de Synapse mediante la CLI de Azure
       href: quickstart-create-workspace-cli.md
+    - name: Creación de un área de trabajo de Synapse mediante Azure PowerShell
+      href: quickstart-create-workspace-powershell.md
     - name: Implementación con una plantilla
       href: quickstart-deployment-template-workspaces.md
     - name: Uso de Synapse Studio
@@ -348,7 +350,7 @@
                   href: sql/develop-storage-files-spark-tables.md
         - name: Administración de cargas de trabajo
           items:
-            - name: Introducción
+            - name: Información general
               href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Clasificación de la carga de trabajo
               href: ./sql-data-warehouse/sql-data-warehouse-workload-classification.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -388,7 +390,7 @@
           items:
             - name: Asistente para puntuación de modelos para grupos de SQL
               href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-            - name: Ejecución de un experimento de regresión mediante Azure AutoML (puntuación en DW)
+            - name: Ejecución de un experimento de regresión mediante Azure AutoML
               href: ./spark/apache-spark-azure-machine-learning-tutorial.md
     - name: 'Integración de herramientas (IA, ETL, BI)'
       items:
@@ -483,9 +485,9 @@
             - name: "Conexión a Azure Synapse Link para Cosmos\_DB"
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: "Uso de Power\_BI y un grupo de SQL sin servidor para analizar Azure Cosmos\_DB"
-              href: ../cosmos-db/synapse-link-power-bi.mdtoc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: "Consulta de datos de Azure Cosmos\_DB con un grupo de SQL sin servidor"
-              href: ./sql/query-cosmos-db-analytical-store.md
+              href: ./sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: "Consulta de un almacén analítico de Azure Cosmos\_DB con Apache Spark"
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Copia de datos de Synapse Link a un grupo de SQL mediante Apache Spark
@@ -925,7 +927,7 @@
       href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/synapse@v43.3.0+incompatible'
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.synapse?view=azure-dotnet-preview
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: API de REST
       href: /rest/api/synapse/

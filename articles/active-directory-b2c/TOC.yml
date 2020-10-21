@@ -1,6 +1,6 @@
 - name: Documentación de Azure AD B2C
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: Acerca de Azure AD B2C
       expanded: true
@@ -101,8 +101,10 @@
   items:
     - name: Integración de la aplicación
       items:
-        - name: Registro de una aplicación
+        - name: Registro de una aplicación web
           href: tutorial-register-applications.md
+        - name: Registro de una aplicación de página única (SPA)
+          href: tutorial-register-spa.md
         - name: Registro de un proveedor de servicios de SAML
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'

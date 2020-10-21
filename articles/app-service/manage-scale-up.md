@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8085cbd3d19bd60c50de38950625de2fcd1e5c27
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 617a2717a1d1265d067cb3e1f26531d135d47941
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962492"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743920"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Escalado de una aplicación en Azure App Service
 
@@ -36,7 +36,7 @@ Para obtener información de los precios y características de planes de App Ser
 ## <a name="scale-up-your-pricing-tier"></a>Escalado vertical del plan de tarifa
 
 > [!NOTE]
-> Para escalar al nivel **PremiumV2**, vea [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md) (Configuración del nivel PremiumV2 para App Service).
+> Para escalar al nivel **PremiumV3**, vea [Configuración del nivel PremiumV3 para Azure App Service](app-service-configure-premium-tier.md).
 >
 
 1. En el explorador, abra [Azure Portal][portal].
@@ -78,7 +78,7 @@ Para ver una tabla de límites de servicio, presupuestos y restricciones, así c
 ## <a name="more-resources"></a>Más recursos
 
 [Escalado del recuento de instancias de forma manual o automática](../azure-monitor/platform/autoscale-get-started.md)  
-[Configuración del nivel PremiumV2 para App Service](app-service-configure-premium-tier.md)
+[Configuración del nivel PremiumV3 para Azure App Service](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/

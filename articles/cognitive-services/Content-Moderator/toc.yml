@@ -98,6 +98,8 @@
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator'
 - name: Recursos
   items:
+    - name: Opciones de ayuda y soporte técnico
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
     - name: Ejemplos
       items:
         - name: Ejemplos de SDK de .NET

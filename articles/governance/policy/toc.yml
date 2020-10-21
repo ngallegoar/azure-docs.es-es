@@ -43,6 +43,12 @@
     - name: Administración de gobernanza de etiquetas
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: Implementación de Azure Policy as Code con GitHub
+      displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
+      href: ./tutorials/policy-as-code-github.md
+    - name: 'Obtenga información sobre: Control y auditoría de recursos mediante Azure Policy'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/8-control-audit-resources-azure-policy
 - name: Ejemplos
   items:
     - name: Índice
@@ -113,7 +119,7 @@
     - name: Cumplimiento normativo
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md
-    - name: Diseño de flujos de trabajo de directiva como código
+    - name: Diseño de flujos de trabajo de Azure Policy as Code
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: Integración de Kubernetes

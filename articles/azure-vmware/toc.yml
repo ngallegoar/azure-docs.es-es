@@ -1,6 +1,6 @@
 - name: Azure VMware Solution
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: Acerca de Azure VMware Solution
       href: introduction.md
@@ -50,7 +50,7 @@
   items:
     - name: Habilitación de Azure VMware Solution
       href: enable-azure-vmware-solution.md
-    - name: Ahorro de costos en una instancia reservada
+    - name: Ahorro de costos con una instancia reservada
       href: reserved-instance.md
     - name: Evaluación de migraciones
       href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
@@ -105,4 +105,4 @@
 - name: Referencia
   items:
     - name: Azure PowerShell
-      href: /powershell/module/az.vmware
+      href: 'https://docs.microsoft.com/powershell/module/az.vmware/'
