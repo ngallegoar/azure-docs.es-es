@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213098"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570352"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre diferentes API en Azure Cosmos DB
 
@@ -85,7 +85,7 @@ Las suscripciones de prueba de Azure Cosmos DB aparecen en Azure Portal junto co
 
 Las condiciones siguientes se aplican a las suscripciones de prueba de Azure Cosmos DB:
 
-* Se puede conceder acceso a la cuenta a cuentas de Microsoft (MSA) personales. Evite el uso de cuentas de Active Directory (AAD) o cuentas que pertenezcan a inquilinos corporativos de AAD, ya que podrían tener limitaciones que pueden bloquear la concesión de acceso.
+* Se puede conceder acceso a la cuenta a cuentas de Microsoft (MSA) personales. Evite el uso de cuentas de Azure Active Directory (Azure AD) o de cuentas que pertenezcan a inquilinos corporativos de Azure AD, ya que pueden tener aplicadas limitaciones que podrían bloquear la concesión de acceso.
 * Un [contenedor aprovisionado con rendimiento](./set-throughput.md#set-throughput-on-a-container) por cada suscripción para las cuentas de SQL, Gremlin API y Table.
 * Hasta tres [colecciones aprovisionadas con rendimiento](./set-throughput.md#set-throughput-on-a-container) por suscripción para las cuentas de MongoDB.
 * Una [base de datos aprovisionada con rendimiento](./set-throughput.md#set-throughput-on-a-database) por suscripción. Las bases de datos aprovisionadas con rendimiento pueden incluir cualquier número de contenedores.
@@ -102,9 +102,9 @@ Las condiciones siguientes se aplican a las suscripciones de prueba de Azure Cos
 
 Azure Cosmos DB está disponible en Azure Portal. En primer lugar, regístrese para obtener una suscripción de Azure. Una vez que se haya registrado, puede agregar una cuenta de Azure Cosmos DB a la suscripción de Azure.
 
-### <a name="what-is-a-master-key"></a>¿Qué es una clave maestra?
+### <a name="what-is-a-primary-key"></a>¿Qué es una clave principal?
 
-Una clave maestra es un token de seguridad para acceder a todos los recursos de una cuenta. Los usuarios con esta clave tienen acceso de lectura y escritura a todos los recursos de la cuenta de base de datos. Tenga cuidado cuando distribuya claves maestras. Las claves maestras principal y secundaria están disponibles en la hoja **Claves** de [Azure Portal][azure-portal]. Para más información sobre las claves, vea [Visualización, copia y regeneración de las claves de acceso](manage-with-cli.md#list-account-keys).
+Una clave principal es un token de seguridad para acceder a todos los recursos de una cuenta. Los usuarios con esta clave tienen acceso de lectura y escritura a todos los recursos de la cuenta de base de datos. Tenga cuidado cuando distribuya claves principales. Las claves principales primaria y secundaria están disponibles en la hoja **Claves** de [Azure Portal][azure-portal]. Para más información sobre las claves, vea [Visualización, copia y regeneración de las claves de acceso](manage-with-cli.md#list-account-keys).
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>¿En qué regiones se puede establecer PreferredLocations?
 

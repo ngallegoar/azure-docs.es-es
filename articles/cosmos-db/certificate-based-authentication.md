@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: ea8d4180a6e820e72f5ca0ce7e7acaf13348ae67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b1fdec12b99edc952d24b0b3cc21bad24ec7554
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262504"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569726"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticación basada en certificados para una identidad de Azure AD para las claves de acceso desde una cuenta de Azure Cosmos DB
 
@@ -40,13 +40,13 @@ En este paso, va a registrar una aplicación web de ejemplo en su cuenta de Azur
    * **Supported account types** (Tipos de cuenta admitidos): elija **Solo las cuentas de este directorio organizativo (directorio predeterminado)** para permitir que los recursos del directorio actual accedan a esta aplicación. 
    * **URL de redireccionamiento**: elija una aplicación del tipo **Web** y proporcione la dirección URL en que se hospeda la aplicación, puede ser cualquier dirección URL. En este ejemplo, puede proporcionar una dirección URL de prueba como `https://sampleApp.com`. No importa si la aplicación no existe.
 
-   :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="Registrar una aplicación web de ejemplo":::
+   :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="Nuevo registro de aplicación en Active Directory":::
 
 1. Seleccione **Registrar** después de rellenar el formulario.
 
 1. Después de registrar la aplicación, anote los valores de **Application (client) ID** [Id. de aplicación (cliente)] y **Object ID** (Id. de objeto), usará estos detalles en los pasos siguientes. 
 
-   :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Obtener los identificadores de aplicación y de objeto":::
+   :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Nuevo registro de aplicación en Active Directory":::
 
 ## <a name="install-the-azuread-module"></a>Instalación del módulo de Azure AD
 
@@ -63,7 +63,7 @@ En este paso instalará el módulo PowerShell de Azure AD. Este módulo se requi
    Set-AzContext $context 
    ```
 
-1. Instale e importar el módulo [AzureAD](/powershell/module/azuread/?view=azureadps-2.0)
+1. Instale e importar el módulo [AzureAD](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true)
 
    ```powershell
    Install-Module AzureAD
@@ -99,7 +99,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 
 El comando anterior da como resultado una salida similar a la de la captura de pantalla siguiente:
 
-:::image type="content" source="./media/certificate-based-authentication/certificate-based-credential-output.png" alt-text="Salida de creación de credenciales basada en certificados":::
+:::image type="content" source="./media/certificate-based-authentication/certificate-based-credential-output.png" alt-text="Nuevo registro de aplicación en Active Directory":::
 
 ## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>Configuración de una cuenta de Azure Cosmos para usar la nueva identidad
 
@@ -109,7 +109,7 @@ El comando anterior da como resultado una salida similar a la de la captura de p
 
 1. Seleccione **Agregar** y **Agregar asignación de roles**. Agregar la aplicación sampleApp que creó en el paso anterior con el rol **Colaborador**, como se muestra en la captura de pantalla siguiente:
 
-   :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Configuración de una cuenta de Azure Cosmos para usar la nueva identidad":::
+   :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Nuevo registro de aplicación en Active Directory":::
 
 1. Seleccione **Guardar** después de rellenar el formulario
 
@@ -148,9 +148,9 @@ En este paso, iniciará sesión en Azure mediante la aplicación y el certificad
       -Type "Keys"
    ```
 
-El comando anterior mostrará las claves maestras principal y secundaria de la cuenta de Azure Cosmos. Puede ver el registro de actividad de la cuenta de Azure Cosmos para validar que la solicitud de claves get se ha realizado correctamente y que la aplicación "sampleApp" inicia el evento.
+El comando anterior muestra las claves principales primaria y secundaria de la cuenta de Azure Cosmos. Puede ver el registro de actividad de la cuenta de Azure Cosmos para validar que la solicitud de claves get se ha realizado correctamente y que la aplicación "sampleApp" inicia el evento.
 
-:::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Validar la llamada a las claves get en Azure AD":::
+:::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Nuevo registro de aplicación en Active Directory":::
 
 ## <a name="access-the-keys-from-a-c-application"></a>Acceso a las claves desde una aplicación en C# 
 
@@ -236,11 +236,9 @@ namespace TodoListDaemonWithCert
 }
 ```
 
-Este script genera las claves maestras principal y secundaria, como se muestra en la captura de pantalla siguiente:
+Este script genera las claves principales primaria y secundaria, como se muestra en la captura de pantalla siguiente:
 
-:::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="Salida de la aplicación de csharp":::
-
-De forma similar a la sección anterior puede ver el registro de actividad de la cuenta de Azure Cosmos para validar que la aplicación "sampleApp" inicia el evento de solicitud de claves get. 
+:::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="Nuevo registro de aplicación en Active Directory" inicia el evento de solicitud de claves get. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

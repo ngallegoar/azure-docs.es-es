@@ -3,12 +3,12 @@ title: 'Tutorial: Lista de comprobación del planeamiento de red'
 description: Obtenga información sobre los requisitos previos de red y los detalles sobre la conectividad de red y los puertos de red para Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 5ee70b8a297e1b8418049ff229b3c1869819145b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576684"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948211"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista de comprobación del planeamiento de red para Azure VMware Solution 
 
@@ -36,6 +36,9 @@ Las redes lógicas de nube privada incluyen NSX-T previamente aprovisionado. Se 
 La nube privada de AVS se conecta a la red virtual de Azure mediante una conexión de Azure ExpressRoute. Esta conexión de alto ancho de banda y baja latencia permite acceder a los servicios que se ejecutan en la suscripción de Azure desde el entorno de nube privada. El enrutamiento se basa en el Protocolo de puerta de enlace de borde (BGP), que se aprovisiona y habilita automáticamente de forma predeterminada para cada implementación de nube privada. 
 
 Las nubes privadas AVS requieren un mínimo de un bloque de direcciones de red CIDR `/22` para las subredes, que se muestran a continuación. Esta red complementa las redes locales. El bloque de direcciones no debe superponerse a los bloques de direcciones usados en otras redes virtuales ubicadas en la suscripción y las redes locales. Dentro de este bloque de direcciones, la administración, el aprovisionamiento y las redes de vMotion se aprovisionan automáticamente.
+
+>[!NOTE]
+>Los rangos permitidos para el bloque de direcciones son los espacios de direcciones privados RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), excepto 172.17.0.0/16.
 
 Un ejemplo de bloque de direcciones de red CIDR `/22` es `10.10.0.0/22`
 

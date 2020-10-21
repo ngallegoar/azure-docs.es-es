@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/19/2020
-ms.openlocfilehash: de9f4517d134b4a42603291110c6b19f69403412
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/13/2020
+ms.openlocfilehash: 392cb9b4c2ded1b98b79ce8dcd780ac59e96b78a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907041"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998501"
 ---
 # <a name="group-data-into-bins-module"></a>Módulo de agrupación de datos en rangos
 
@@ -44,7 +44,8 @@ La *discretización* o agrupación de datos (a veces denominado *cuantificación
 
 En el diagrama siguiente se muestra la distribución de los valores numéricos anteriores y posteriores a discretización con el método de *cuantiles*. Observe que, en comparación con los datos sin procesar de la izquierda, los datos se han cuantificado y transformado en una escala de unidad normal.  
 
-Aquí puede ver un [ejemplo del resultado de la ejecución de esta canalización](https://ml.azure.com/visualinterface/authoring/Normal/87270db9-4651-448e-bd28-8ef7428084dc?wsid=%2Fsubscriptions%2Fe9b2ec51-5c94-4fa8-809a-dc1e695e4896%2Fresourcegroups%2Fmodule-ws-rg%2Fworkspaces%2Fmodule-prerelease-119&flight=cm&tid=72f988bf-86f1-41af-91ab-2d7cd011db47&smtendpoint=https%3A%2F%2Fsmt-test1.azureml-test.net).
+> [!div class="mx-imgBorder"]
+> ![Visualización del resultado](media/module/group-data-into-bins-result-example.png)
 
 Dado que hay muchas maneras de agrupar los datos, todos los que se pueden personalizar, se recomienda experimentar con distintos métodos y valores. 
 
@@ -65,6 +66,9 @@ Dado que hay muchas maneras de agrupar los datos, todos los que se pueden person
     - **Bordes personalizados**: Puede especificar los valores que comienzan cada cubo. El valor del borde siempre es el límite inferior del contenedor. 
     
       Por ejemplo, suponga que quiere agrupar los valores en dos rangos. Uno tendrá valores mayores que 0, y el otro, valores menores o iguales que 0. En este caso, para los extremos del rango, escriba **0** en la **lista separada por comas de los extremos del rango**. La salida del módulo sería 1 y 2, que indica el índice del rango de cada valor de fila. Tenga en cuenta que la lista de valores separados por comas debe estar en orden ascendente; por ejemplo, 1, 3, 5, 7.
+    
+    > [!Note]
+    > El modo *Entropía como MDL* se define en Studio (clásico) y no hay ningún paquete de código abierto correspondiente que pueda aprovecharse aún para admitir en el diseñador.        
 
 4. Si usa los modos de discretización **Cuantiles** y **Mismo ancho**, use la opción **Número de discretizaciones** para especificar el número de rangos, o de *cuantiles*, que desea crear.
 

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: 8c9751a303afc947fd682558236751c69f107dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0333c5cabec597261938765298b622bf2fe79a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568025"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542519"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Traslado de un servidor de Azure Database for MySQL a otra región mediante Azure Portal
 
@@ -38,11 +38,11 @@ Para crear un servidor de réplica de lectura entre regiones en la región de de
 1. Seleccione **Replicación** en el menú, en **CONFIGURACIÓN**.
 1. Seleccione **Agregar réplica**.
 1. Escriba un nombre para el servidor de réplica.
-1. Seleccione la ubicación del servidor de réplica. La ubicación predeterminada es la misma que la del servidor maestro. Verifique haber seleccionado la ubicación de destino en la que desea implementar la réplica.
+1. Seleccione la ubicación del servidor de réplica. La ubicación predeterminada es la misma que la del servidor de origen. Verifique haber seleccionado la ubicación de destino en la que desea implementar la réplica.
 1. Seleccione **Aceptar** para confirmar la creación de la réplica. Durante la creación de la réplica, los datos se copian del servidor de origen a la réplica. El tiempo de creación puede tardar varios minutos o más, en proporción con el tamaño del servidor de origen.
 
 >[!NOTE]
-> Al crear una réplica, no se heredan los puntos de conexión de servicio de red virtual del servidor maestro. Estas reglas se deben configurar de forma independiente para la réplica.
+> Al crear una réplica, no hereda los puntos de conexión de servicio de red virtual del servidor de origen. Estas reglas se deben configurar de forma independiente para la réplica.
 
 ## <a name="move"></a>Move
 
