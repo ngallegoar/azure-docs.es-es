@@ -1,6 +1,6 @@
 - name: Documentación de usuario de Azure Automation
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: ¿Qué es Automation?
       href: automation-intro.md
@@ -193,29 +193,33 @@
         - name: Change Tracking e Inventario
           items:
             - name: Información general
-              href: change-tracking.md
+              href: change-tracking/overview.md
             - name: Regiones admitidas para el área de trabajo de Log Analytics vinculada
               href: how-to/region-mappings.md
             - name: Habilitar
               items:
-                - name: Habilitación de Change Tracking e Inventario desde Azure Portal
-                  href: automation-enable-changes-from-browse.md
-                - name: Habilitación de Change Tracking e Inventario desde una máquina virtual de Azure
-                  href: automation-enable-changes-from-vm.md
-                - name: Habilitación de Change Tracking e Inventario desde una cuenta de Automation
-                  href: automation-enable-changes-from-auto-acct.md
-                - name: Habilitación de Change Tracking e Inventario desde un runbook
-                  href: automation-enable-changes-from-runbook.md
+                - name: Habilitar desde Azure Portal
+                  href: change-tracking/enable-from-portal.md
+                - name: Habilitación desde una máquina virtual de Azure
+                  href: change-tracking/enable-from-vm.md
+                - name: Habilitación desde una cuenta de Automation
+                  href: change-tracking/enable-from-automation-account.md
+                - name: Habilitación desde un runbook
+                  href: change-tracking/enable-from-runbook.md
             - name: Administración de Change Tracking e Inventario
-              href: change-tracking-file-contents.md
+              href: change-tracking/manage-change-tracking.md
             - name: Administración de la recopilación del inventario desde máquinas virtuales
-              href: automation-vm-inventory.md
+              href: change-tracking/manage-inventory-vms.md
             - name: Uso de configuraciones de ámbito
-              href: automation-scope-configurations-change-tracking.md
-            - name: Desvinculación de un área de trabajo de una cuenta de Automation
-              href: automation-unlink-workspace-change-tracking.md
-            - name: Eliminación de máquinas virtuales de Change Tracking e Inventario
-              href: automation-remove-vms-from-change-tracking.md
+              href: change-tracking/manage-scope-configurations.md
+            - name: Configurar alertas
+              href: change-tracking/configure-alerts.md
+            - name: Disable
+              items:
+                - name: Eliminación de Change Tracking e Inventario
+                  href: change-tracking/remove-feature.md
+                - name: Eliminación de máquinas virtuales de Change Tracking e Inventario
+                  href: change-tracking/remove-vms-from-change-tracking.md
             - name: Solución de problemas
               items:
                 - name: Solución de incidencias en las implementaciones de características
@@ -239,49 +243,49 @@
     - name: Administración de actualizaciones
       items:
         - name: Información general
-          href: update-management/update-mgmt-overview.md
+          href: update-management/overview.md
         - name: Regiones admitidas para el área de trabajo de Log Analytics vinculada
           href: how-to/region-mappings.md
         - name: Habilitar
           items:
-            - name: Habilitación de Update Management mediante una plantilla de Azure Resource Manager
-              href: update-management/update-mgmt-enable-template.md
-            - name: Habilitación de Update Management desde Azure Portal
-              href: update-management/update-mgmt-enable-portal.md
-            - name: Habilitación de Update Management desde una maquina virtual de Azure
-              href: update-management/update-mgmt-enable-vm.md
-            - name: Habilitación de Update Management desde una cuenta de Automation
-              href: update-management/update-mgmt-enable-automation-account.md
-            - name: Habilitación de Update Management desde un runbook
-              href: update-management/update-mgmt-enable-runbook.md
+            - name: Habilitar el uso de la plantilla de Azure Resource Manager
+              href: update-management/enable-from-template.md
+            - name: Habilitar desde Azure Portal
+              href: update-management/enable-from-portal.md
+            - name: Habilitación desde una máquina virtual de Azure
+              href: update-management/enable-from-vm.md
+            - name: Habilitación desde una cuenta de Automation
+              href: update-management/enable-from-automation-account.md
+            - name: Habilitación desde un runbook
+              href: update-management/enable-from-runbook.md
         - name: Administración de actualizaciones para máquinas virtuales
           items:
             - name: Primeros pasos
-              href: update-management/update-mgmt-manage-updates-for-vm.md
+              href: update-management/manage-updates-for-vm.md
             - name: Evaluación del cumplimiento
-              href: update-management/update-mgmt-view-update-assessments.md
+              href: update-management/view-update-assessments.md
             - name: Implementación de actualizaciones y examen del estado
-              href: update-management/update-mgmt-deploy-updates.md
+              href: update-management/deploy-updates.md
             - name: Usos de scripts previos y de scripts posteriores
-              href: update-management/update-mgmt-pre-post-scripts.md
+              href: update-management/pre-post-scripts.md
             - name: Configurar alertas
-              href: update-management/update-mgmt-configure-alerts.md
+              href: update-management/configure-alerts.md
         - name: Integración con Configuration Manager
-          href: update-management/update-mgmt-mecmintegration.md
+          href: update-management/mecmintegration.md
         - name: Configuración de un cliente de Windows Update
-          href: update-management/update-mgmt-configure-wuagent.md
+          href: update-management/configure-wuagent.md
         - name: Uso de grupos dinámicos
-          href: update-management/update-mgmt-groups.md
+          href: update-management/configure-groups.md
         - name: Consulta de registros de Update Management
-          href: update-management/update-mgmt-query-logs.md
+          href: update-management/query-logs.md
         - name: Uso de configuraciones de ámbito
-          href: update-management/update-mgmt-scope-configuration.md
+          href: update-management/scope-configuration.md
         - name: Disable
           items:
             - name: Eliminación de Update Management
-              href: update-management/update-mgmt-remove-feature.md
+              href: update-management/remove-feature.md
             - name: Eliminación de una máquina virtual desde Update Management
-              href: update-management/update-mgmt-remove-vms.md
+              href: update-management/remove-vms.md
         - name: Solución de problemas
           items:
             - name: Solución de incidencias en la implementación de características

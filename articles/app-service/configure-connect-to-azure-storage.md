@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c240399f1368862a969561409371e075a010e8f2
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435616"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057763"
 ---
 # <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Acceso a Azure Storage como un recurso compartido de red desde un contenedor de App Service
 
@@ -65,7 +65,6 @@ En esta guía se muestra cómo adjuntar Azure Storage a una instancia de App Ser
 
 - Azure Storage en App Service está en **versión preliminar** para App Service en Linux y Web App for Containers. **No se admite** para **escenarios de producción**.
 - Azure Storage en App Service admite el montaje de **contenedores de Azure Files** (lectura y escritura) y **contenedores de blobs de Azure** (solo lectura)
-- Azure Storage en App Service **no admite** el uso de la configuración del **firewall de Storage** debido a limitaciones de la infraestructura.
 - Azure Storage en App Service le permite especificar **hasta cinco** puntos de montaje por aplicación.
 - No se pude acceder a Azure Storage montado en una aplicación mediante los puntos de conexión de FTP/FTP de App Service. Usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -91,7 +90,7 @@ Este paso debe realizarlo con cualquier otro directorio que quiera vincular a un
 
 Una vez que haya creado la [cuenta de Azure Storage, el recurso compartido y el directorio](#prerequisites), ahora puede configurar la aplicación con Azure Storage.
 
-Para montar una cuenta de almacenamiento en un directorio en la aplicación de App Service, use el comando [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). El tipo de almacenamiento puede ser AzureBlob o AzureFiles. AzureFiles se usa en este ejemplo. La configuración de la ruta de acceso de montaje corresponde a la carpeta que desea montar desde Azure Storage. Al establecerla en '/' se monta la instancia completa de Azure Storage.
+Para montar una cuenta de almacenamiento en un directorio en la aplicación de App Service, use el comando [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). El tipo de almacenamiento puede ser AzureBlob o AzureFiles. AzureFiles se usa en este ejemplo. El valor de la ruta de acceso de montaje corresponde a la carpeta del interior del contenedor que se quiere montar en Azure Storage. Si se establece en "/", se monta todo el contenedor en Azure Storage.
 
 
 > [!CAUTION]

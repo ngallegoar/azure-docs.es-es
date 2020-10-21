@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 20480a252d7aedfd48a59bc05166f645e02e37e9
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204377"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998428"
 ---
 # <a name="json-claims-transformations"></a>Transformaciones de notificaciones de JSON
 
@@ -33,6 +33,8 @@ Use valores de notificaciones o constantes para generar una cadena JSON. La cade
 | InputClaim | Cualquier cadena que siga a la notación de puntos | string | JsonPath del JSON donde se insertará el valor de la notificación. |
 | InputParameter | Cualquier cadena que siga a la notación de puntos | string | JsonPath del JSON donde se insertará el valor de cadena constante. |
 | OutputClaim | outputClaim | string | Cadena JSON generada. |
+
+### <a name="example-1"></a>Ejemplo 1
 
 En el ejemplo siguiente se genera una cadena JSON basada en el valor de notificación de "email" y "OTP", así como cadenas de constantes.
 
@@ -52,8 +54,6 @@ En el ejemplo siguiente se genera una cadena JSON basada en el valor de notifica
   </OutputClaims>
 </ClaimsTransformation>
 ```
-
-### <a name="example"></a>Ejemplo
 
 La siguiente transformación de notificaciones genera una notificación de cadena JSON que será el cuerpo de la solicitud enviada a SendGrid (un proveedor de correo electrónico de terceros). La estructura del objeto JSON se define mediante los identificadores de la notación de puntos de InputParameters y TransformationClaimTypes del objeto InputClaims. Los números de la notación de puntos implican matrices. Los valores provienen de los valores de InputClaims y de las propiedades "value" de InputParameters.
 
@@ -87,6 +87,56 @@ La siguiente transformación de notificaciones genera una notificación de caden
   "from": {
     "email": "service@contoso.com"
   }
+}
+```
+
+### <a name="example-2"></a>Ejemplo 2
+
+En el ejemplo siguiente se genera una cadena JSON basada en los valores de notificación, así como cadenas de constantes.
+
+```xml
+<ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="customerEntity.email" />
+    <InputClaim ClaimTypeReferenceId="objectId" TransformationClaimType="customerEntity.userObjectId" />
+    <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="customerEntity.firstName" />
+    <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="customerEntity.lastName" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="customerEntity.role.name" DataType="string" Value="Administrator"/>
+    <InputParameter Id="customerEntity.role.id" DataType="long" Value="1"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+La siguiente transformación de notificaciones genera una notificación de cadena JSON que será el cuerpo de la solicitud enviada a una API de REST. La estructura del objeto JSON se define mediante los identificadores de la notación de puntos de InputParameters y TransformationClaimTypes del objeto InputClaims. Los valores provienen de los valores de InputClaims y de las propiedades "value" de InputParameters.
+
+- Notificaciones de entrada:
+  - **email**, tipo de notificación de transformación **customerEntity.email**: "john.s@contoso.com"
+  - **objectId**, tipo de notificación de transformación **customerEntity.userObjectId** "01234567-89ab-cdef-0123-456789abcdef"
+  - **objectId**, tipo de notificación de transformación **customerEntity.firstName** "John"
+  - **objectId**, tipo de notificación de transformación **customerEntity.lastName** "Smith"
+- Parámetro de entrada:
+  - **customerEntity.role.name**: "Administrator"
+  - **customerEntity.role.id** 1
+- Notificación de salida:
+  - **requestBody**: Valor JSON
+
+```json
+{
+   "customerEntity":{
+      "email":"john.s@contoso.com",
+      "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+      "firstName":"John",
+      "lastName":"Smith",
+      "role":{
+         "name":"Administrator",
+         "id": 1
+      }
+   }
 }
 ```
 

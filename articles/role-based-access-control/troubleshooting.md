@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/28/2020
+ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 839662e496a61ff9a90a6250b417688b91ccaed1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382583"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91665999"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solución de problemas de Azure RBAC
 
@@ -63,7 +63,7 @@ $ras.Count
 
     Hay dos maneras de resolver este error. La primera consiste en asignar el rol [lectores de directorio](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) a la entidad de servicio para que pueda leer los datos en el directorio.
 
-    La segunda manera de resolver este error es crear la asignación de roles mediante el parámetro `--assignee-object-id` en lugar de `--assignee`. Mediante el uso de `--assignee-object-id`, la CLI de Azure omitirá la búsqueda de Azure AD. Debe obtener el identificador de objeto del usuario, del grupo o de la aplicación a los que quiere asignar el rol. Para más información, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](role-assignments-cli.md#new-service-principal).
+    La segunda manera de resolver este error es crear la asignación de roles mediante el parámetro `--assignee-object-id` en lugar de `--assignee`. Mediante el uso de `--assignee-object-id`, la CLI de Azure omitirá la búsqueda de Azure AD. Debe obtener el identificador de objeto del usuario, del grupo o de la aplicación a los que quiere asignar el rol. Para más información, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -86,7 +86,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Transferencia de una suscripción a un directorio diferente
 
-- Si necesita consultar los pasos para transferir una suscripción a otro directorio de Azure AD, consulte [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../cost-management-billing/manage/billing-subscription-transfer.md).
+- Si necesita conocer los pasos para transferir una suscripción a otro directorio de Azure AD, vea [Transferencia de una suscripción de Azure a otro directorio de Azure AD](transfer-subscription.md).
 - Si transfiere una suscripción a otro directorio de Azure AD, todas las asignaciones de roles se eliminan **permanentemente** del directorio de Azure AD de origen y no se migran al directorio de Azure AD de destino. Debe volver a crear las asignaciones de roles en el directorio de destino. También debe volver a crear manualmente las identidades administradas para los recursos de Azure. Para más información, consulte [Preguntas frecuentes y problemas conocidos con identidades administradas](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Si es un administrador global de Azure AD y no tiene acceso a una suscripción después de transferirla de un directorio a otro, active la **Administración del acceso para los recursos de Azure** para [elevar sus permisos de acceso](elevate-access-global-admin.md) temporalmente y obtener acceso a la suscripción.
 
@@ -99,11 +99,17 @@ $ras.Count
 - Si recibe el error de permiso "El cliente con el identificador de objeto no está autorizado para realizar la acción sobre el ámbito (código: AuthorizationFailed)" al intentar crear un recurso, compruebe que ha iniciado sesión con un usuario que tiene asignado un rol con permiso de escritura en el recurso y en el ámbito seleccionado. Por ejemplo, para administrar las máquinas virtuales de un grupo de recursos, debe tener el rol [Colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) en el grupo de recursos (o el ámbito primario). Para ver una lista de los permisos para cada rol integrado, consulte [Roles integrados de Azure](built-in-roles.md).
 - Si aparece el error de permiso "No tiene permiso para crear una solicitud de soporte técnico" al intentar crear o actualizar una incidencia de soporte técnico, compruebe que ha iniciado sesión con un usuario que tenga asignado un rol con el permiso `Microsoft.Support/supportTickets/write`, como [Colaborador de solicitud de soporte técnico](built-in-roles.md#support-request-contributor).
 
+## <a name="move-resources-with-role-assignments"></a>Traslado de recursos con asignaciones de roles
+
+Si mueve un recurso que tiene un rol de Azure asignado directamente al recurso (o a un recurso secundario), la asignación de roles no se mueve y queda huérfana. Después de moverlo, debe volver a crear asignaciones de roles. Finalmente, la asignación de roles huérfana se quitará automáticamente, pero se recomienda quitar la asignación de roles antes de mover el recurso.
+
+Para obtener información sobre cómo trasladar recursos, vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
 ## <a name="role-assignments-with-identity-not-found"></a>Asignaciones de roles con identidad no encontrada
 
 En la lista de asignaciones de roles para Azure Portal, es posible que observe que la entidad de seguridad (usuario, grupo, entidad de servicio o identidad administrada) aparece como **Identidad no encontrada** con un tipo **Desconocido**.
 
-![Grupo de recursos de aplicación web](./media/troubleshooting/unknown-security-principal.png)
+![Identidad no encontrada en la lista de asignaciones de roles de Azure](./media/troubleshooting/unknown-security-principal.png)
 
 La identidad podría no encontrarse por dos motivos:
 
@@ -144,7 +150,7 @@ Del mismo modo, si enumera esta asignación de roles con la CLI de Azure, podrí
 }
 ```
 
-No es problema dejar estas asignaciones de roles donde se ha eliminado la entidad de seguridad. Si lo desea, puede quitar estas asignaciones de roles siguiendo los pasos similares a otras asignaciones de roles. Para obtener información sobre cómo quitar las asignaciones de roles, vea [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) o la [CLI de Azure](role-assignments-cli.md#remove-a-role-assignment).
+No es problema dejar estas asignaciones de roles donde se ha eliminado la entidad de seguridad. Si lo desea, puede quitar estas asignaciones de roles siguiendo los pasos similares a otras asignaciones de roles. Para obtener información sobre cómo quitar las asignaciones de roles, vea [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) o la [CLI de Azure](role-assignments-cli.md#remove-role-assignment).
 
 En PowerShell, si intenta quitar las asignaciones de roles mediante el identificador de objeto y el nombre de la definición de roles, y más de una asignación de roles coincide con los parámetros, obtendrá el mensaje de error: "The provided information does not map to a role assignment" (La información proporcionada no se asigna a una asignación de roles). La salida siguiente muestra un ejemplo del mensaje de error:
 

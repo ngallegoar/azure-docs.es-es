@@ -1,6 +1,6 @@
 - name: Documentación de Azure Cache for Redis
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: Acerca de Azure Cache for Redis
       href: cache-overview.md
@@ -59,6 +59,8 @@
       href: cache-best-practices.md
     - name: Seguridad
       items:
+        - name: Opciones de aislamiento de red
+          href: cache-network-isolation.md
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

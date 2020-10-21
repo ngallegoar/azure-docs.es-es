@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698944"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91744141"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implementación del servicio StorSimple Device Manager en una instancia de StorSimple Virtual Array
 
@@ -109,7 +109,7 @@ Realice los pasos siguientes para volver a generar una clave de registro de serv
 #### <a name="to-regenerate-the-service-registration-key"></a>Para volver a generar la clave de registro de servicio
 1. En la hoja **Administrador de dispositivos de StorSimple**, vaya a **Administración &gt;** **Claves**.
    
-   ![Hoja de claves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
+   ![Hoja Claves de nuevo](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. En la hoja **Claves**, haga clic en **Regenerar**.
    
    ![Haga clic en Regenerar](./media/storsimple-virtual-array-manage-service/getregkey5.png)
@@ -118,7 +118,7 @@ Realice los pasos siguientes para volver a generar una clave de registro de serv
    ![Confirmación de la clave regenerada](./media/storsimple-virtual-array-manage-service/getregkey3.png)
 4. Aparecerá una nueva clave de registro de servicio.
    
-    ![Confirmación de la clave regenerada](./media/storsimple-virtual-array-manage-service/getregkey4.png)
+    ![Confirmación adicional de la clave regenerada](./media/storsimple-virtual-array-manage-service/getregkey4.png)
    
    Copie esta clave y guárdela para registrar los dispositivos nuevos con este servicio.
 

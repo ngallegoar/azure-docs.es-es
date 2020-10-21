@@ -3,12 +3,12 @@ title: Modelo de datos para eventos de diagnóstico de Azure Backup
 description: Este modelo de datos es en referencia al modo específico del recurso de enviar eventos de diagnóstico a Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: adc1442b674b9a6e947ef65967a2c2f1359e7d8a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017590"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569594"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de datos para eventos de diagnóstico de Azure Backup
 
@@ -217,6 +217,29 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacen
 | VaultUniqueId                  | Texto          | Id. exclusivo del almacén relacionado con la entidad de almacenamiento. |
 | VolumeFriendlyName             | Texto          | Nombre descriptivo del volumen de almacenamiento.                          |
 | SourceSystem                   | Texto          | Sistema de origen de los datos actuales: Azure                    |
+
+## <a name="valid-operation-names-for-each-table"></a>Nombres de operación válidos para cada tabla
+
+Cada registro de las tablas anteriores tiene un **Nombre de operación** asociado. Un nombre de operación describe el tipo de registro (y también indica qué campos de la tabla se rellenan para ese registro). Cada tabla (categoría) admite uno o varios nombres de operación distintos. A continuación se ofrece un resumen de los nombres de operación admitidos en cada una de las tablas anteriores.
+
+| **Nombre de tabla / Categoría**                   | **Nombres de operación admitidos** | **Descripción**              |
+| ------------------------------------------- | ------------------------------|----------------------------- |
+| CoreAzureBackup | BackupItem | Representa un registro que contiene todos los detalles de un elemento de copia de seguridad determinado, como el identificador, el nombre, el tipo, etc. |
+| CoreAzureBackup | BackupItemAssociation | Representa una asignación entre un elemento de copia de seguridad y su contenedor protegido asociado (si es aplicable). |
+| CoreAzureBackup | BackupItemFrontEndSizeConsumption | Representa una asignación entre un elemento de copia de seguridad y su tamaño de front-end. |
+| CoreAzureBackup | ProtectedContainer | Representa un registro que contiene todos los detalles de un contenedor protegido determinado, como el identificador, el nombre, el tipo, etc. |
+| CoreAzureBackup | ProtectedContainerAssociation | Representa una asignación entre un contenedor protegido y el almacén usado para su copia de seguridad. |
+| CoreAzureBackup | Almacén | Representa un registro que contiene todos los detalles de un almacén determinado, por ejemplo, identificador, nombre, etiquetas, ubicación, etc. |
+| CoreAzureBackup | RecoveryPoint | Representa un registro que contiene los puntos de recuperación más antiguo y más reciente de un elemento de copia de seguridad determinado. |
+| AddonAzureBackupJobs | Trabajo |  Representa un registro que contiene todos los detalles de un trabajo determinado, por ejemplo, operación de trabajo, hora de inicio, estado, etc. |
+| AddonAzureBackupAlerts | Alerta | Representa un registro que contiene todos los detalles de una alerta determinada, por ejemplo, hora de creación de la alerta, gravedad, estado, etc.  |
+| AddonAzureBackupStorage | Almacenamiento | Representa un registro que contiene todos los detalles de una entidad de almacenamiento determinada, por ejemplo, nombre de almacenamiento, tipo, etc. |
+| AddonAzureBackupStorage | StorageAssociation | Representa una asignación entre un elemento de copia de seguridad y el almacenamiento en la nube total consumido por el elemento de copia de seguridad. |
+| AddonAzureBackupProtectedInstance | ProtectedInstance | Representa un registro que contiene el recuento de instancias protegidas de cada contenedor o elemento de copia de seguridad. En una copia de seguridad de máquinas virtuales de Azure, el recuento de instancias protegidas está disponible en el nivel de elemento de copia de seguridad; en otras cargas de trabajo, está disponible en el nivel de contenedor protegido. |
+| AddonAzureBackupPolicy | Directiva |  Representa un registro que contiene todos los detalles de una copia de seguridad y una directiva de retención, por ejemplo, identificador, nombre, configuración de retención, etc. |
+| AddonAzureBackupPolicy | PolicyAssociation | Representa una asignación entre un elemento de copia de seguridad y la directiva de copia de seguridad que se le ha aplicado. |   
+
+A menudo hay que realizar combinaciones entre diferentes tablas y diferentes conjuntos de registros que forman parte de la misma tabla (diferenciados por el nombre de operación) para obtener todos los campos necesarios para el análisis. Vea las [consultas de ejemplo](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) para comenzar. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

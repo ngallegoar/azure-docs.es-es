@@ -31,6 +31,9 @@
     - name: Protección de los nuevos recursos con bloqueos de recursos de plano técnico
       displayName: 'read only, do not delete, lock assignment'
       href: ./tutorials/protect-new-resources.md
+    - name: 'Obtenga información sobre: Gobernanza de varias suscripciones mediante Azure Blueprints'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/10-govern-subscriptions-azure-blueprints
 - name: Ejemplos
   items:
     - name: Índice

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 6a3fa40eaae174d3616fd0318f81576b7c59eac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e67130516410f64c32eadbf15857ca3ec4c976fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80067699"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542485"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Procedimientos almacenados de administración de Azure Database for MySQL
 
@@ -21,17 +21,17 @@ Los procedimientos almacenados están disponibles en servidores Azure Database f
 
 Data-in Replication permite sincronizar los datos de un servidor de MySQL que se ejecuta de forma local, en máquinas virtuales o servicios de base de datos hospedados por otros proveedores de nube en el servicio de Azure Database for MySQL.
 
-Los siguientes procedimientos almacenados se utilizan para establecer o quitar Replicación de datos de entrada entre un servidor maestro y de réplica.
+Los siguientes procedimientos almacenados se usan para configurar o quitar la relación de Replicación de datos de entrada entre un origen y una réplica.
 
 |**Nombre del procedimiento almacenado**|**Parámetros de entrada**|**Parámetros de salida**|**Nota sobre el uso**|
 |-----|-----|-----|-----|
 |*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_host<br/>master_log_file<br/>master_log_file<br/>master_ssl_ca|N/D|Para transferir los datos con el modo SSL, transfiera el contexto del certificado de entidad de certificación en el parámetro master_ssl_ca. </br><br>Para transferir datos sin SSL, transfiera una cadena vacía en el parámetro master_ssl_ca.|
 |*mysql.az_replication _start*|N/D|N/D|Inicia la replicación.|
 |*mysql.az_replication _stop*|N/D|N/D|Detiene la replicación.|
-|*mysql.az_replication _remove_master*|N/D|N/D|Quita la relación de replicación entre el servidor maestro y de réplica.|
+|*mysql.az_replication _remove_master*|N/D|N/D|Quita la relación de replicación entre el origen y la réplica.|
 |*mysql.az_replication_skip_counter*|N/D|N/D|Emite un error de replicación.|
 
-Para configurar Replicación de datos de entrada entre un servidor maestro y un servidor de réplica en Azure Database for MySQL, consulte [Configuración de la replicación de datos internos de Azure Database for MySQL](howto-data-in-replication.md).
+Para configurar la relación de Replicación de datos de entrada entre un origen y una réplica en Azure Database for MySQL, vea [Configuración de Replicación de datos de entrada](howto-data-in-replication.md).
 
 ## <a name="other-stored-procedures"></a>Otros procedimientos almacenados
 

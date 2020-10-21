@@ -10,13 +10,13 @@ ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/01/2020
-ms.openlocfilehash: 034fbf991c97ba7b9f51b5508c35df1889280562
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/02/2020
+ms.openlocfilehash: cade5a4329cdfc11c1b256ba01e9764f60a476a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897895"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91667867"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creación y conexión de un clúster de Azure Kubernetes Service
 
@@ -89,7 +89,7 @@ Cuando **adjunta** un clúster de AKS existente, se admiten todas las versiones 
 
 ### <a name="available-and-default-versions"></a>Versiones disponibles y predeterminadas
 
-Para buscar las versiones de AKS disponibles y predeterminadas, use el comando [az aks get-versions](/cli/azure/aks?view=azure-cli-latest#az_aks_get_versions) de la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Por ejemplo, el comando siguiente devuelve las versiones disponibles en la región Oeste de EE. UU.:
+Para buscar las versiones de AKS disponibles y predeterminadas, use el comando [az aks get-versions](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_versions) de la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Por ejemplo, el comando siguiente devuelve las versiones disponibles en la región Oeste de EE. UU.:
 
 ```azurecli-interactive
 az aks get-versions -l westus -o table
@@ -184,9 +184,9 @@ aks_target.wait_for_completion(show_output = True)
 Para más información acerca de las clases, los métodos y los parámetros que se usan en este ejemplo, consulte los siguientes documentos de referencia:
 
 * [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
-* [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [ComputeTarget.create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-)
-* [ComputeTarget.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#wait-for-completion-show-output-false-)
+* [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [ComputeTarget.create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#create-workspace--name--provisioning-configuration-)
+* [ComputeTarget.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#wait-for-completion-show-output-false-)
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -194,7 +194,7 @@ Para más información acerca de las clases, los métodos y los parámetros que 
 az ml computetarget create aks -n myaks
 ```
 
-Para más información, consulte la referencia de [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks).
+Para más información, consulte la referencia de [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -215,12 +215,12 @@ Si ya dispone de un clúster de AKS en su suscripción a Azure y es de la versi�
 > [!WARNING]
 > No cree varios datos adjuntos simultáneos en el mismo clúster de AKS desde su área de trabajo. Por ejemplo, adjuntar un clúster de AKS a un área de trabajo con dos nombres diferentes. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
 >
-> Si desea volver a conectar un clúster de AKS, por ejemplo, para cambiar la configuración de TLS u otra configuración del clúster, primero debe eliminar la conexión existente mediante [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
+> Si desea volver a conectar un clúster de AKS, por ejemplo, para cambiar la configuración de TLS u otra configuración del clúster, primero debe eliminar la conexión existente mediante [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#detach--).
 
 Para más información acerca de cómo crear un clúster de AKS mediante la CLI de Azure o Azure Portal, consulte los artículos siguientes:
 
-* [Creación de un clúster de AKS (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
-* [Creación de un clúster de AKS: Portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
+* [Creación de un clúster de AKS (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest&preserve-view=true#az-aks-create)
+* [Creación de un clúster de AKS: Portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest&preserve-view=true)
 * [Creación de un clúster de AKS (plantilla de ARM en las plantillas de inicio rápido de Azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
 En el ejemplo siguiente se muestra cómo adjuntar un clúster de AKS existente a un área de trabajo:
@@ -247,9 +247,9 @@ aks_target.wait_for_completion(show_output = True)
 
 Para más información acerca de las clases, los métodos y los parámetros que se usan en este ejemplo, consulte los siguientes documentos de referencia:
 
-* [AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
 * [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
-* [AksCompute.attach](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#attach-workspace--name--attach-configuration-)
+* [AksCompute.attach](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#attach-workspace--name--attach-configuration-)
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -271,13 +271,38 @@ Para conectar el clúster existente a un área de trabajo, use el siguiente coma
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-Para más información, consulte la referencia de [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks).
+Para más información, consulte la referencia de [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-attach-aks).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para obtener información sobre cómo adjuntar un clúster de AKS en el portal, consulte [Creación de destinos de proceso en Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#inference-clusters).
 
 ---
+
+## <a name="detach-an-aks-cluster"></a>Desasociación de un clúster de AKS
+
+Para desasociar un clúster del área de trabajo, use uno de los métodos siguientes:
+
+> [!WARNING]
+> El uso de Azure Machine Learning Studio, el SDK o la extensión de la CLI de Azure con aprendizaje automático para desasociar un clúster de AKS **no elimina el clúster de AKS**. Para eliminarlo, consulte [Uso de la CLI de Azure con AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+aks_target.detach()
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para conectar el clúster existente a su área de trabajo, use el siguiente comando. Reemplace `myaks` por el nombre con el que está asociado el clúster AKS al área de trabajo. Reemplace `myresourcegroup` por el grupo de recursos que contiene el área de trabajo. Reemplace `myworkspace` por el nombre del área de trabajo.
+
+```azurecli
+az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+En Azure Machine Learning Studio, seleccione __Proceso__, __Inference clusters__ (Clústeres de inferencia) y el clúster que quiere quitar. Use el vínculo __Desasociar__ para desasociar el clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

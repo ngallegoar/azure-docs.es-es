@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: e0a24b52c12bce6a8e016a926dfa64a1e36a7cc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d98c9a7e58f08d9ad63183805cd6cd0d2ab3b3d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72753314"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570175"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimización del costo de varias regiones de Azure Cosmos DB
 
@@ -25,7 +25,7 @@ La capacidad de proceso con una sola región de escritura cuesta 0,008 USD/hora
 
 ## <a name="costs-for-multiple-write-regions"></a>Costos para varias regiones de escritura
 
-En un sistema de arquitectura multimaestro, las RU disponibles netas para las operaciones de escritura aumentan `N`, siendo `N` el número de regiones de escritura. A diferencia de la arquitectura con una sola región de escritura, ahora se podrá escribir en todas las regiones y estas admitirán la resolución de conflictos. La carga de trabajo de escritura ha aumentado. Desde el punto de vista de la planificación de los costos, para realizar escrituras por valor de `M` RU/s por todo el mundo, es necesario aprovisionar M `RUs` en un nivel de contenedor o base de datos. A continuación, puede agregar tantas regiones como desee y usarlas para la escritura global por valor de `M` RU. 
+En un sistema de escrituras en varias regiones, las RU disponibles netas para las operaciones de escritura aumentan `N` veces, donde `N` es el número de regiones de escritura. A diferencia de la arquitectura con una sola región de escritura, ahora se podrá escribir en todas las regiones y estas admitirán la resolución de conflictos. La carga de trabajo de escritura ha aumentado. Desde el punto de vista de la planificación de los costos, para realizar escrituras por valor de `M` RU/s por todo el mundo, es necesario aprovisionar M `RUs` en un nivel de contenedor o base de datos. A continuación, puede agregar tantas regiones como desee y usarlas para la escritura global por valor de `M` RU. 
 
 ### <a name="example"></a>Ejemplo
 

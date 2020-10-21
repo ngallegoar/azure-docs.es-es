@@ -1,6 +1,6 @@
 - name: Documentación de Azure API Management
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: Acerca de API Management
       href: api-management-key-concepts.md
@@ -80,6 +80,8 @@
       href: self-hosted-gateway-overview.md
     - name: Observabilidad
       href: observability.md
+    - name: CI/CD mediante plantillas de Resource Manager
+      href: devops-api-development-templates.md
 - name: Guías paso a paso
   items:
     - name: Definición de API

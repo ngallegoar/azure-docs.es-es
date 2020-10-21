@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 7dac5976904263de40c7bc240bdb7deac1ec3df6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 428ed96c3223e644b0c78712723231a5fabbdc77
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509207"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91578587"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Introducción a Azure Data Lake Storage Gen1 con Azure Portal
 
@@ -50,7 +50,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
      * Seleccione **Usar claves administradas por Data Lake Storage Gen1** si desea que Azure Data Lake Storage Gen1 administre las claves de cifrado.
      * **Usar claves de su propia instancia de Key Vault**. Puede seleccionar una instancia de Azure Key Vault existente o crear una nueva. Si utiliza las claves de un almacén de claves, debe asignar permisos para que la cuenta de Data Lake Storage Gen1 acceda a ese almacén Azure Key Vault. Para obtener instrucciones, consulte [Asignación de permisos a Azure Key Vault](#assign-permissions-to-azure-key-vault).
 
-        ![Cifrado de Azure Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Cifrado de Azure Data Lake Storage Gen1")
+        ![Captura de pantalla de la hoja Nueva cuenta de Data Lake Storage Gen1 y la hoja Configuración de cifrado.](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Cifrado de Azure Data Lake Storage Gen1")
 
         Haga clic en **Aceptar** en la hoja **Configuración de cifrado**.
 
@@ -64,10 +64,10 @@ Si utiliza las claves de Azure Key Vault para configurar el cifrado de la cuenta
 
 1. Si ha usado claves de Azure Key Vault, la hoja de la cuenta de Data Lake Storage Gen1 muestra una advertencia en la parte superior. Haga clic en la advertencia para abrir **Cifrado**.
 
-    ![Cifrado de Azure Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Cifrado de Azure Data Lake Storage Gen1")
+    ![Captura de pantalla de la hoja de la cuenta de Data Lake Storage Gen1 que muestra la advertencia que indica "Debe configurar los permisos de Key Vault. Haga clic aquí para hacerlo".](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Cifrado de Azure Data Lake Storage Gen1")
 2. La hoja muestra dos opciones para configurar el acceso.
 
-    ![Cifrado de Azure Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Cifrado de Azure Data Lake Storage Gen1")
+    ![Captura de pantalla de la hoja Cifrado.](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Cifrado de Azure Data Lake Storage Gen1")
 
    * En la primera opción, haga clic en **Conceder permisos** para configurar el acceso. La primera opción solo está habilitada si el usuario que creó la cuenta de Data Lake Storage Gen1 es también administrador de Azure Key Vault.
    * La otra opción consiste en ejecutar el cmdlet de PowerShell que se muestra en la hoja. Es preciso ser propietario de Azure Key Vault o tener capacidad para conceder permisos en Azure Key Vault. Después de ejecutar el cmdlet, vuelva a la hoja y haga clic en **Habilitar** para configurar el acceso.
@@ -87,10 +87,10 @@ Puede crear carpetas en la cuenta de Data Lake Storage Gen1 para administrar y a
 1. Abra la cuenta de Data Lake Storage Gen1 que creó. En el panel izquierdo, haga clic en **Todos los recursos** y, en la hoja que se abre, haga clic en el nombre de la cuenta en la que quiere crear carpetas. Si ancló la cuenta al Panel de inicio, haga clic en ese icono de cuenta.
 2. En la hoja de su cuenta de Data Lake Storage Gen1, haga clic en **Explorador de datos**.
 
-    ![Creación de carpetas en una cuenta de Azure Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Creación de carpetas de la cuenta de Data Lake Storage Gen1")
+    ![Captura de pantalla de la hoja de la cuenta de Data Lake Storage Gen1 con la opción Explorador de datos resaltada.](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Creación de carpetas de la cuenta de Data Lake Storage Gen1")
 3. En la hoja de Explorador de datos, haga clic en **Nueva carpeta**, escriba un nombre para la nueva carpeta y haga clic en **Aceptar**.
 
-    ![Creación de carpetas en una cuenta de Azure Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Creación de carpetas de la cuenta de Data Lake Storage Gen1")
+    ![Captura de pantalla de la hoja Explorador de datos con la opción Nueva carpeta y el cuadro de texto Crear nueva carpeta resaltados.](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Creación de carpetas de la cuenta de Data Lake Storage Gen1")
 
     La carpeta recién creada se muestra en la hoja **Explorador de datos** . Puede crear carpetas anidadas hasta cualquier nivel.
 

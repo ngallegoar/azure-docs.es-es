@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/04/2019
+ms.date: 10/12/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9b5bc3f87296ea1af5de28178df6d8f27c965476
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: ddc0dc433a5d8c09c692e6304647fb391694e8c8
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116081"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993160"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recopilación de registros de Azure Active Directory B2C con Application Insights
 
@@ -89,7 +89,7 @@ Si aún no tiene una, cree una instancia de Application Insights en su suscripci
 Hay un breve retraso, normalmente inferior a cinco minutos, antes de que pueda ver nuevos registros en Application Insights.
 
 1. Abra el recurso de Application Insights que ha creado en [Azure Portal](https://portal.azure.com).
-1. En el menú **Información general**, seleccione **Analytics**.
+1. En la página **Información general**, seleccione **Registros**.
 1. Abra una nueva pestaña en Application Insights.
 
 A continuación se muestra una lista de consultas que puede usar para ver los registros:

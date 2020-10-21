@@ -520,9 +520,6 @@
           href: how-to-debug-pipelines.md
         - name: Registro de datos de canalizaciones en Application Insights
           href: how-to-log-pipelines-application-insights.md
-        - name: Uso de paso de ejecución en paralelo
-          displayName: score scoring batch consume pipeline parallelrunstep inference
-          href: how-to-use-parallel-run-step.md
         - name: Depuración y solución de problemas de paso de ejecución en paralelo
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md

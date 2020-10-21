@@ -1,14 +1,14 @@
 ---
 title: Determinación de las causas de incumplimiento
 description: Cuando un recurso no es compatible, hay muchos motivos posibles para ello. Descubra qué es lo que provoca que no sea compatible.
-ms.date: 07/06/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: a666da4ecb97c24e7176e6c7cfbe2ee24f46f1b7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: df1eefec782835838add0beb8939bf4ff1a8a194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648568"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541278"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
@@ -104,11 +104,17 @@ La siguiente matriz asigna cada _motivo_ posible a la [condición](../concepts/d
 |El valor actual no debe coincidir sin distinción de mayúsculas y minúsculas con el valor de destino. |notMatchInsensitively o **no** matchInsensitively |
 |Ninguno de los recursos relacionados coincide con los detalles de vigencia de la definición de directiva. |Un recurso del tipo definido en **then.details.type** y relacionado con el recurso definido en la porción **if** de la regla de directiva no existe. |
 
+## <a name="component-details-for-resource-provider-modes"></a>Detalles de componente de los modos de proveedor de recursos
+
+En las asignaciones con un [modo de proveedor de recursos](../concepts/definition-structure.md#resource-manager-modes), seleccione el recurso _No compatible_ para abrir una vista más profunda. En la pestaña **Compatibilidad de componentes** hay información adicional específica del modo de proveedor de recursos en la directiva asignada que muestra _No compatible_, **Componente** e **Id. de componente**.
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
+
 ## <a name="compliance-details-for-guest-configuration"></a>Detalles de cumplimiento de la configuración de invitado
 
-Para las directivas _auditIfNotExists_ de la categoría _Configuración de invitados_, podría haber varias configuraciones evaluadas dentro de la máquina virtual y tendrá que ver los detalles por configuración. Por ejemplo, si va a realizar una auditoría de una lista de directivas de contraseñas y solo una de ellas tiene el estado _No compatible_, debe saber qué directivas de contraseñas específicas no cumplen los requisitos y por qué.
+En las directivas _auditIfNotExists_ de la categoría _Configuración de invitados_, podría haber varias configuraciones evaluadas dentro de la máquina virtual y es necesario ver los detalles por configuración. Por ejemplo, si va a realizar una auditoría de una lista de directivas de contraseñas y solo una de ellas tiene el estado _No compatible_, debe saber qué directivas de contraseñas específicas no cumplen los requisitos y por qué.
 
-También es posible que no disponga de acceso para iniciar sesión en la VM directamente, pero tiene que informar sobre el motivo por el que la VM _no es compatible_.
+También es posible que no disponga de acceso para iniciar sesión en la máquina virtual directamente, pero tenga que comunicar el motivo por el que la máquina virtual es _No compatible_.
 
 ### <a name="azure-portal"></a>Azure portal
 

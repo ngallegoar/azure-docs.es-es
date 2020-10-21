@@ -2,23 +2,19 @@
 title: Procedimientos recomendados para Azure RBAC
 description: Procedimientos recomendados para usar el control de acceso basado en roles de Azure (Azure RBAC).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 09/30/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 053e86f3493c7a11a3cbbaad0871e45345697878
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cb3e1fe0275c676e2ce54ff9201502fc3595937
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735341"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91595501"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Procedimientos recomendados para Azure RBAC
 
@@ -28,7 +24,9 @@ En este artículo se describen algunos procedimientos recomendados para usar el 
 
 Con Azure RBAC, puede repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones en un ámbito concreto.
 
-Al planear la estrategia de control de acceso, es recomendable conceder a los usuarios el privilegio mínimo para que realicen su trabajo. El siguiente diagrama muestra un patrón sugerido para la asignación de RBAC de Azure.
+Al planear la estrategia de control de acceso, es recomendable conceder a los usuarios el privilegio mínimo para que realicen su trabajo. Evite la asignación de roles más amplios en ámbitos más amplios, aunque inicialmente parezca más práctico hacerlo. Al limitar los roles y los ámbitos, se limitan los recursos en peligro si la entidad de seguridad llegara a verse comprometida.
+
+El siguiente diagrama muestra un patrón sugerido para la asignación de RBAC de Azure.
 
 ![RBAC de Azure y privilegios mínimos](./media/best-practices/rbac-least-privilege.png)
 
