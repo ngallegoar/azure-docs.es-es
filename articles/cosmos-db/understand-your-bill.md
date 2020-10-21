@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: bf041163c6b2759b3d38e48ee98a0d528ec601db
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0161c1599402fff25337549819f94b833142ba06
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606904"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91567866"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
@@ -102,11 +102,11 @@ Si aumenta el rendimiento aprovisionado para un contenedor o un conjunto de cont
 
 * En un mes de 720 horas, si para 300 horas el rendimiento aprovisionado fue de 120 000 RU/s y para las 420 horas restantes el rendimiento aprovisionado fue de 155 000 RU/s, la factura del mes indicaría: 300 x 9,60 USD/hora + 420 x 12,40 USD/hora = 2,880 USD + 5,208 USD/mes = 8,088 USD/mes. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Ejemplo de factura de rendimiento compartido":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Ejemplo de factura de rendimiento dedicado":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Ejemplos de facturación con replicación geográfica y arquitectura multimaestro  
+## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Ejemplos de facturación con replicación geográfica y escrituras en varias regiones  
 
-Puede agregar o quitar regiones de Azure de cualquier parte del mundo en la cuenta de base de datos de Azure Cosmos en cualquier momento. El rendimiento que ha configurado para diferentes contenedores y bases de datos de Azure Cosmos se reserva en cada una de las regiones de Azure asociadas con la cuenta de base de datos de Azure Cosmos. Si la suma del rendimiento aprovisionado (RU/s) configurado en todas las bases de datos y los contenedores dentro de la cuenta de bases de datos de Azure Cosmos (aprovisionada por hora) es T y el número de regiones de Azure asociadas con su cuenta de base de datos es N, el rendimiento aprovisionado total para una hora dada, para su cuenta de base de datos, (a) configurado con una única región de escritura es igual a T x N RU/s y (b) configurado con todas las regiones capaces de procesar las operaciones de escritura es igual a T x (N+1) RU/s, respectivamente. El rendimiento aprovisionado (una sola región de escritura) cuesta 0,008 USD/hora por cada 100 RU/s, y el rendimiento aprovisionado con varias regiones de escritura (configuración de arquitectura multimaestro) cuesta 0,016 USD/hora por cada 100 RU/s (consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/)). Ya sea que se trate de una sola región de escritura o de varias regiones de escritura, Azure Cosmos DB le permite leer datos desde cualquier región.
+Puede agregar o quitar regiones de Azure de cualquier parte del mundo en la cuenta de base de datos de Azure Cosmos en cualquier momento. El rendimiento que ha configurado para diferentes contenedores y bases de datos de Azure Cosmos se reserva en cada una de las regiones de Azure asociadas con la cuenta de base de datos de Azure Cosmos. Si la suma del rendimiento aprovisionado (RU/s) configurado en todas las bases de datos y los contenedores dentro de la cuenta de bases de datos de Azure Cosmos (aprovisionada por hora) es T y el número de regiones de Azure asociadas con su cuenta de base de datos es N, el rendimiento aprovisionado total para una hora dada, para su cuenta de base de datos, (a) configurado con una única región de escritura es igual a T x N RU/s y (b) configurado con todas las regiones capaces de procesar las operaciones de escritura es igual a T x (N+1) RU/s, respectivamente. El rendimiento aprovisionado (una sola región de escritura) cuesta 0,008 USD/hora por 100 RU/s, mientras que el rendimiento aprovisionado con varias regiones grabables (configuración de escrituras en varias regiones) cuesta 0,016 USD/hora por 100 RU/s (vea la [página Precios](https://azure.microsoft.com/pricing/details/cosmos-db/)). Ya sea que se trate de una sola región de escritura o de varias regiones de escritura, Azure Cosmos DB le permite leer datos desde cualquier región.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Ejemplo de facturación: cuenta de Azure Cosmos de varias regiones, escrituras en una sola región
 
@@ -136,9 +136,9 @@ Supongamos que crea un contenedor de Azure Cosmos en Oeste de EE. UU. El contene
 
 *Suponga que hace salir 100 GB de datos todos los meses del contenedor de la región Oeste de EE. UU. para replicar datos en las regiones Este de EE. UU., Norte de Europa y Este de Asia. Se le facturará la salida según las tarifas de transferencia de datos.*
 
-### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Ejemplo de facturación: Cuenta de Azure Cosmos con rendimiento en el nivel de la base de datos, arquitectura multimaestro, incluido el modo de rendimiento dedicado para algunos contenedores
+### <a name="billing-example-azure-cosmos-account-with-multi-region-writes-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Ejemplo de facturación: Cuenta de Azure Cosmos con escrituras en varias regiones, rendimiento de nivel de base de datos, incluido el modo de rendimiento dedicado para algunos contenedores
 
-Consideremos el ejemplo siguiente, donde se tiene una cuenta de Azure Cosmos de varias regiones donde se puede escribir en todas las regiones (configuración de arquitectura multimaestro). Para simplificar, supondremos que el tamaño de almacenamiento permanece constante y no cambia, y lo omitiremos aquí para que el ejemplo sea más sencillo. El rendimiento aprovisionado durante el mes varió como sigue (suponiendo 30 días o 720 horas)\: 
+Piense en el ejemplo siguiente, donde se tiene una cuenta de Azure Cosmos de varias regiones que son grabables (configuración de escrituras en varias regiones). Para simplificar, supondremos que el tamaño de almacenamiento permanece constante y no cambia, y lo omitiremos aquí para que el ejemplo sea más sencillo. El rendimiento aprovisionado durante el mes varió como sigue (suponiendo 30 días o 720 horas)\: 
 
 [0-100 horas]\:  
 
@@ -192,7 +192,7 @@ Consideremos el ejemplo siguiente, donde se tiene una cuenta de Azure Cosmos de 
 
 Los cambios en el rendimiento aprovisionado total durante las 720 horas del mes se muestran visualmente en la ilustración siguiente: 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Ejemplo de la vida real":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Ejemplo de factura de rendimiento dedicado":::
 
 La factura mensual total (suponiendo 30 días o 720 horas en un mes) se calculará como sigue:
 
@@ -215,7 +215,7 @@ La factura mensual total (suponiendo 30 días o 720 horas en un mes) se calcular
 || |**Costo mensual total**  | |**38 688 USD**   |
 
 ## <a name="billing-examples-with-free-tier-accounts"></a>Ejemplos de facturación con cuentas de nivel Gratis
-Con el nivel Gratis de Azure Cosmos DB, obtendrá en la cuenta las primeras 400 RU/s y 5 GB de almacenamiento gratis, que se aplicarán en el nivel de cuenta. Las RU/s y el almacenamiento que superen, respectivamente, las 400 RU/s y los 5 GB, se facturarán según las tarifas de precios habituales de la página de precios. En la factura no verá un cargo o una partida por las 400 RU/s y los 5 GB gratis, solo por las RU/s y el almacenamiento que supere lo que cubre el nivel Gratis. Las 400 RU/s se aplican a cualquier tipo de RU/s: rendimiento aprovisionado, escalabilidad automática y arquitectura multimaestro.  
+Con el nivel Gratis de Azure Cosmos DB, obtendrá en la cuenta las primeras 400 RU/s y 5 GB de almacenamiento gratis, que se aplicarán en el nivel de cuenta. Las RU/s y el almacenamiento que superen, respectivamente, las 400 RU/s y los 5 GB, se facturarán según las tarifas de precios habituales de la página de precios. En la factura no verá un cargo o una partida por las 400 RU/s y los 5 GB gratis, solo por las RU/s y el almacenamiento que supere lo que cubre el nivel Gratis. Las 400 RU/s se aplican a cualquier tipo de RU/s: rendimiento aprovisionado, escalabilidad automática y escrituras en varias regiones.  
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Ejemplo de facturación: contenedor o base de datos con capacidad de proceso aprovisionada
 - Supongamos que creamos una base de datos o un contenedor en una cuenta de nivel Gratis con 400 RU/s y 5 GB de almacenamiento.
@@ -231,16 +231,16 @@ Con el nivel Gratis de Azure Cosmos DB, obtendrá en la cuenta las primeras 400
 - Cualquier almacenamiento que supere los primeros 5 GB se facturará a las tarifas de almacenamiento normales. 
 
 ### <a name="billing-example---multi-region-single-write-region-account"></a>Ejemplo de facturación: cuenta de varias regiones, con una sola región de escritura
-- Supongamos que en una cuenta de nivel Gratis creamos una base de datos o un contenedor con 1200 RU/s y 10 GB de almacenamiento. Replicamos la cuenta en 3 regiones y contamos con una cuenta de maestro único (una sola región de escritura).
+- Supongamos que en una cuenta de nivel Gratis creamos una base de datos o un contenedor con 1200 RU/s y 10 GB de almacenamiento. La cuenta se replica en 3 regiones y se tiene una cuenta de una sola región de escritura.
 - En total, sin el nivel Gratis, se le facturarían 3 * 1200 RU/s = 3600 RU/s y 3 * 10 GB = 30 GB de almacenamiento.
 - Con el descuento por nivel Gratis, después de quitar 400 RU/s y 5 GB de almacenamiento, se le facturará por una cantidad efectiva de 3200 RU/s (32 unidades) de capacidad de proceso aprovisionada con la tarifa de región de escritura única y 25 GB de almacenamiento.
 - El costo mensual de RU/s sería: 32 unidades * 0,008 USD * 24 horas * 31 días = 190,46 USD. El costo mensual del almacenamiento sería: 25 GB * 0,25/GB = 6,25 USD. El costo total sería de 190,46 + 6,25 = 196,71 USD.
 - Nota: Si el precio por unidad de RU/s o de almacenamiento difiere en las regiones, las 400 RU/s y los 5 GB del nivel Gratis reflejarán las tarifas de la región donde se creó la cuenta.
 
-### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Ejemplo de facturación: cuenta de varias regiones, con arquitectura multimaestro (varias regiones de escritura)
+### <a name="billing-example---multi-region-account-with-multiple-write-regions"></a>Ejemplo de facturación: cuenta de varias regiones con escritura en varias regiones
 
-Este ejemplo refleja los [precios de la arquitectura multimaestro](https://azure.microsoft.com/pricing/details/cosmos-db/) para las cuentas creadas después del 1 de diciembre de 2019. 
-- Supongamos que en una cuenta de nivel Gratis creamos una base de datos o un contenedor con 1200 RU/s y 10 GB de almacenamiento. Replicamos la cuenta en 3 regiones y contamos con una cuenta de arquitectura multimaestro (varias regiones de escritura). 
+Este ejemplo refleja los [precios de las escrituras en varias regiones](https://azure.microsoft.com/pricing/details/cosmos-db/) de las cuentas creadas después del 1 de diciembre de 2019. 
+- Supongamos que en una cuenta de nivel Gratis creamos una base de datos o un contenedor con 1200 RU/s y 10 GB de almacenamiento. La cuenta se replica en 3 regiones y se tiene una cuenta de escritura en varias regiones. 
 - En total, sin el nivel Gratis, se le facturarían 3 * 1200 RU/s = 3600 RU/s y 3 * 10 GB = 30 GB de almacenamiento.
 - Con el descuento por nivel Gratis, después de quitar 400 RU/s y 5 GB de almacenamiento, se le facturará por una cantidad efectiva de 3200 RU/s (32 unidades) de capacidad de proceso aprovisionada con la tarifa de varias regiones de escritura y 25 GB de almacenamiento.
 - El costo mensual de RU/s sería: 32 unidades * 0,016 USD * 24 horas * 31 días = 380,93 USD. El costo mensual del almacenamiento sería: 25 GB * 0,25/GB = 6,25 USD. El costo total sería de 380,93 + 6,25 = 387,18 USD.

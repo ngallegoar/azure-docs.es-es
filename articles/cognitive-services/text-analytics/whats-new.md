@@ -8,18 +8,47 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: f017960e304df04148c318b5098f384e6140de9a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930917"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015931"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
 Text Analytics API se actualiza constantemente. Para mantenerse al día con los avances recientes, en este artículo se proporciona información sobre las nuevas versiones y características.
+
+## <a name="october-2020"></a>Octubre de 2020
+
+* Compatibilidad del hindi para Análisis de sentimiento v3.x, a partir de la versión del modelo `2020-04-01`. 
+* Versión de modelo `2020-09-01` para el punto de conexión /languages v3, que agrega mejoras de precisión y detección de idiomas.
+
+## <a name="september-2020"></a>Septiembre de 2020
+
+### <a name="general-api-updates"></a>Actualizaciones de API generales
+
+* Publicación de una nueva dirección URL para la versión preliminar pública de Text Analytics v3.1 para admitir las actualizaciones de los siguientes puntos de conexión de Reconocimiento de entidades con nombre v3: 
+    * El punto de conexión `/pii` ahora incluye la nueva propiedad `redactedText` en el archivo JSON de respuesta, donde las entidades PII detectadas en el texto de entrada se reemplazan por un `*` por cada carácter de esas entidades.
+    * El punto de conexión `/linking` ahora incluye la propiedad `bingID` en el archivo JSON de respuesta para las entidades vinculadas.
+* Los siguientes puntos de conexión de Text Analytics API en versión preliminar se retiraron el 4 de septiembre de 2020:
+    * v2.1-preview
+    * v3.0-preview
+    * v3.0-preview.1
+    
+> [!div class="nextstepaction"]
+> [Más información sobre de Text Analytics API v3.1-preview.2](quickstarts/text-analytics-sdk.md)
+
+### <a name="text-analytics-for-health-container-updates"></a>Text Analytics for health container updates
+
+Las siguientes actualizaciones son específicas de la versión de septiembre de Text Analytics para el contenedor de estado únicamente.
+* Se ha publicado una nueva imagen de contenedor con la etiqueta `1.1.013530001-amd64-preview` con la nueva versión de modelo `2020-09-03` en el repositorio containerpreview. 
+* Esta versión del modelo proporciona mejoras en el reconocimiento de entidades, detección de abreviaturas y mejoras de latencia.
+
+> [!div class="nextstepaction"]
+> [Más información sobre Text Analytics para el estado](how-tos/text-analytics-for-health.md)
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -31,7 +60,7 @@ Text Analytics API se actualiza constantemente. Para mantenerse al día con los 
 * Ahora se devolverá un error HTTP 400 para las solicitudes de API v3 que superen los [límites de datos](concepts/data-limits.md) publicados. 
 * Los puntos de conexión que devuelven un desplazamiento ya admiten el parámetro opcional `stringIndexType`, que ajusta los valores devueltos `offset` y `length` para que coincidan con un [esquema de índice de cadena](concepts/text-offsets.md) compatible.
 
-### <a name="text-analytics-for-health-container-august-updates"></a>Actualizaciones de agosto de Text Analytics para el contenedor de estado
+### <a name="text-analytics-for-health-container-updates"></a>Text Analytics for health container updates
 
 Las siguientes actualizaciones son específicas de la versión de agosto de Text Analytics para el contenedor de estado únicamente.
 
@@ -163,9 +192,9 @@ Los tipos de entidad adicionales ahora están disponibles en el servicio de vers
 
 #### <a name="named-entity-recognition-ner"></a>Reconocimiento de entidades con nombre (NER)
 
-* Un [punto de conexión nuevo](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) para reconocer los tipos de entidad de información personal (solo en inglés).
+* Un [punto de conexión nuevo](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii) para reconocer los tipos de entidad de información personal (solo en inglés).
 
-* Puntos de conexión independientes para el [reconocimiento de entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) y la [vinculación de entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
+* Puntos de conexión independientes para el [reconocimiento de entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral) y la [vinculación de entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking).
 
 * [Versión de modelo](concepts/model-versioning.md) `2019-10-01`, que incluye:
     * Detección expandida y categorización de entidades detectadas en el texto. 
@@ -177,7 +206,7 @@ La vinculación de entidades admite el inglés y el español. La compatibilidad 
 
 #### <a name="sentiment-analysis-v3-public-preview"></a>Versión preliminar pública de la versión 3 de Análisis de sentimiento
 
-* Un [nuevo punto de conexión](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) para analizar la opinión.
+* Un [nuevo punto de conexión](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Sentiment) para analizar la opinión.
 * [Versión de modelo](concepts/model-versioning.md) `2019-10-01`, que incluye:
 
     * Importantes mejoras respecto a la precisión y el detalle de la categorización del texto y la puntuación de la API.

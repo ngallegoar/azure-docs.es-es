@@ -85,13 +85,15 @@
               href: connect-cpp.md
             - name: Go
               href: connect-go.md
+            - name: Acciones de GitHub
+              href: quickstart-mysql-github-actions.md
     - name: Tutoriales
       items:
         - name: Diseño de una base de datos
           items:
             - name: Azure portal
               href: tutorial-design-database-using-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: tutorial-design-database-using-cli.md
             - name: Azure PowerShell
               href: tutorial-design-database-using-powershell.md
@@ -239,7 +241,7 @@
             - name: Azure portal
               href: howto-restore-server-portal.md
               displayName: 'restore server,backup'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-restore-server-cli.md
               displayName: 'restore server, backup'
             - name: Azure PowerShell
@@ -270,7 +272,7 @@
             - name: Azure portal
               href: howto-server-parameters.md
               displayName: server parameters
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
               displayName: 'server parameters, cli'
             - name: Azure PowerShell
@@ -285,7 +287,7 @@
             - name: Azure portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'storage, business continuity , downtime, portal'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
               displayName: 'storage, business continuity , downtime, cli'
             - name: Azure PowerShell
@@ -296,7 +298,7 @@
             - name: Azure portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'debug, slow query log , performance'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-server-logs-in-cli.md
               displayName: 'debug, slow query log , performance'
         - name: Registros de auditoría
@@ -304,7 +306,7 @@
             - name: Azure portal
               href: howto-configure-audit-logs-portal.md
               displayName: 'debug, audit log'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-audit-logs-cli.md
               displayName: 'debug, audit log'
         - name: Supervisión
@@ -393,7 +395,7 @@
             - name: Azure portal
               href: howto-restart-server-portal.md
               displayName: restart
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-restart-server-cli.md
               displayName: restart
             - name: Azure PowerShell

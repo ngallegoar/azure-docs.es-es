@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
-ms.date: 08/11/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d90b56366cb22e80162983c982e861de608e4e9e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8239d037d6bd68638998cbb36c47c7dac4bce30d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893121"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537623"
 ---
 # <a name="train-a-model-using-a-custom-docker-image"></a>Entrenamiento de un modelo con una imagen personalizada de Docker
 
@@ -29,7 +29,7 @@ Aunque Azure Machine Learning proporciona una imagen base de Docker predetermina
 Ejecute este código en cualquiera de estos entornos:
 * Instancia de Proceso de Azure Machine Learning: no se necesitan descargas ni instalación
     * Complete el [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md) para crear un servidor de cuadernos dedicado en el que se habrán cargado previamente el SDK y el repositorio de ejemplos.
-    * En el [repositorio de ejemplos](https://github.com/Azure/azureml-examples) de Azure Machine Learning, navegue a este directorio **notebooks > fastai > train-pets-resnet34.ipynb** para buscar un cuaderno completo. 
+    * En el [repositorio de ejemplos](https://github.com/Azure/azureml-examples) de Azure Machine Learning, busque un cuaderno completado; para ello, vaya a este directorio: **how-to-use-azureml > ml-frameworks > fastai > train-with-custom-docker**. 
 
 * Su propio servidor de Jupyter Notebook
     * Cree un [archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
@@ -63,7 +63,7 @@ fastai_env = Environment("fastai2")
 fastai_env.docker.enabled = True
 ```
 
-Esta imagen base especificada es compatible con la biblioteca fast.ai, que permite capacidades de aprendizaje profundo distribuido. Para más información, consulte [fast.ai DockerHub](https://hub.docker.com/u/fastdotai). 
+Esta imagen base especificada a continuación es compatible con la biblioteca fast.ai, que permite funcionalidades de aprendizaje profundo distribuido. Para más información, consulte [fast.ai DockerHub](https://hub.docker.com/u/fastdotai). 
 
 Al usar la imagen personalizada de Docker, es posible que ya tenga el entorno de Python configurado correctamente. En ese caso, establezca la marca de `user_managed_dependencies` en True para poder aprovechar el entorno de Python integrado de la imagen personalizada. De forma predeterminada, Azure ML creará un entorno de Conda con las dependencias especificadas y realizará la ejecución en ese entorno en lugar de usar las bibliotecas de Python que haya instalado en la imagen base.
 
@@ -98,6 +98,8 @@ fastai_env.docker.base_dockerfile = dockerfile
 fastai_env.docker.base_image = None
 fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
+
+Para más información sobre cómo crear y administrar entornos de aprendizaje automático de Azure, consulte [Creación y uso de entornos de software](how-to-use-environments.md). 
 
 ### <a name="create-or-attach-existing-amlcompute"></a>Creación o asociación de una instancia de AMlCompute existente
 Para entrenar el modelo, necesitará crear un [destino de proceso](concept-azure-machine-learning-architecture.md#compute-targets). En este tutorial, creará una instancia de AmlCompute como recurso de proceso de aprendizaje.
@@ -136,9 +138,10 @@ Este ScriptRunConfig configurará el trabajo para su ejecución en el [destino d
 ```python
 from azureml.core import ScriptRunConfig
 
-fastai_config = ScriptRunConfig(source_directory='fastai-example', script='train.py')
-fastai_config.run_config.environment = fastai_env
-fastai_config.run_config.target = compute_target
+src = ScriptRunConfig(source_directory='fastai-example',
+                      script='train.py',
+                      compute_target=compute_target,
+                      environment=fastai_env)
 ```
 
 ### <a name="submit-your-run"></a>Envío de la ejecución
@@ -147,14 +150,12 @@ Cuando se envía una ejecución de entrenamiento mediante un objeto ScriptRunCon
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'fastai-custom-image').submit(fastai_config)
+run = Experiment(ws,'fastai-custom-image').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
 > Azure Machine Learning ejecuta scripts de entrenamiento mediante la copia de todo el directorio de origen. Si tiene información confidencial que no quiere cargar, use un [archivo .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) o no lo incluya en el directorio de origen. En su lugar, acceda a los datos mediante un [almacén de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
-
-Para obtener más información acerca de cómo personalizar el entorno de Python, consulte [Creación y uso de entornos de software](how-to-use-environments.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha entrenado un modelo mediante una imagen de Docker personalizada. Consulte estos otros artículos para más información sobre Azure Machine Learning.

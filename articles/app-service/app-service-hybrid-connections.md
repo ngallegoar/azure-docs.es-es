@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 8c8b71e4be11a886da3e0889add0a3cdc19a56c3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1cb86f77a6ffcbb0fb45b3a57b57de531822f2b0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962424"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91742611"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybrid Connections de Azure App Service
 
@@ -42,7 +42,7 @@ El uso de la funcionalidad de conexiones híbridas reporta varios beneficios, en
 - Normalmente no requiere vulnerabilidades de seguridad en el firewall, porque todas las conexiones salen a través de puertos web estándar.
 - Dado que la característica está en el nivel de la red, da igual el lenguaje que use la aplicación y la tecnología que emplee el punto de conexión.
 - Se puede utilizar para proporcionar acceso en varias redes desde una única aplicación. 
-- Se admite en GA para las aplicaciones de Windows y se encuentra en versión preliminar para las aplicaciones de Linux.
+- En disponibilidad general se admite para aplicaciones nativas Windows y se encuentra en versión preliminar para aplicaciones Linux. No es compatible con aplicaciones de contenedor de Windows.
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Cosas que no se pueden hacer con las conexiones híbridas ###
 

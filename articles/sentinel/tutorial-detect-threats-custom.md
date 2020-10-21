@@ -1,6 +1,6 @@
 ---
 title: Creación de reglas de análisis personalizadas para detectar amenazas con Azure Sentinel | Microsoft Docs
-description: Use este tutorial para aprender a crear reglas de análisis personalizadas para detectar amenazas de seguridad con Azure Sentinel.
+description: Use este tutorial para aprender a crear reglas de análisis personalizadas para detectar amenazas de seguridad con Azure Sentinel. Podrá aprovechar las ventajas de la agrupación de eventos y la agrupación de alertas y sabrá qué significa el texto AUTO DISABLED (deshabilitada automáticamente).
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 0e5989490603e22745a8bc972b16ed016c894893
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 55853cc6a3dc27df4c63e0a28ab079813040e45d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605901"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91617186"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutorial: Creación de reglas de análisis personalizadas para detectar amenazas
 
@@ -53,13 +53,15 @@ Puede crear reglas de análisis personalizadas que le ayuden a buscar los tipos 
 
       Aquí tiene una consulta de ejemplo que le alertará cuando se cree una cantidad anómala de recursos en Azure Activity.
 
-      `AzureActivity
-     \| where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-     \| where ActivityStatus == "Succeeded"
-     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
+      ```kusto
+      AzureActivity
+      | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
+      | where ActivityStatus == "Succeeded"
+      | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+      ```
 
-      > [!NOTE]
-      > La longitud de la consulta debe estar entre 1 y 10 000 caracteres y no puede contener las palabras "buscar \*" ni "unión \*".
+        > [!NOTE]
+        > La longitud de la consulta debe estar entre 1 y 10 000 caracteres y no puede contener las palabras "buscar \*" ni "unión \*".
 
     1. Use la sección **Map entities** (Asignar entidades) para vincular parámetros de los resultados de las consultas a entidades reconocidas de Azure Sentinel. Estas entidades forman la base del posterior análisis, lo que incluye la agrupación de alertas en incidentes en la pestaña **Incident settings** (Configuración de incidentes).
   
@@ -69,8 +71,12 @@ Puede crear reglas de análisis personalizadas que le ayuden a buscar los tipos 
 
        1. Set **Lookup data from the last** (Datos de la búsqueda a partir del último) para determinar el periodo de los datos que cubre la consulta (por ejemplo, puede consultar los 10 últimos minutos de datos o las 6 últimas horas de datos).
 
-       > [!NOTE]
-       > Estos dos valores son independientes entre sí, hasta cierto punto. Puede ejecutar una consulta a un intervalo corto que abarque un periodo mayor que el intervalo (teniendo en efecto consultas que se solapan), pero no puede ejecutar una consulta a un intervalo que supere el periodo de cobertura, ya que, de lo contrario tendrá lagunas en la cobertura general de la consulta.
+          > [!NOTE]
+          > **Intervalos de consulta y período de retrospectiva**
+          > - Estos dos valores son independientes entre sí, hasta cierto punto. Puede ejecutar una consulta a un intervalo corto que abarque un periodo mayor que el intervalo (teniendo en efecto consultas que se solapan), pero no puede ejecutar una consulta a un intervalo que supere el periodo de cobertura, ya que, de lo contrario tendrá lagunas en la cobertura general de la consulta.
+          >
+          > **Retraso de la ingesta**
+          > - Para tener en cuenta la **latencia** que puede producirse entre la generación de un evento en el origen y su ingesta en Azure Sentinel, y para garantizar una cobertura completa sin duplicación de datos, Azure Sentinel ejecuta reglas de análisis programadas con un **retraso de cinco minutos** desde su hora programada.
 
     1. Use la sección **Alert threshold** (Umbral de alerta) para definir una base de referencia. Por ejemplo, en **Generar alerta cuando el número de resultados de consulta**, seleccione **Es mayor que** y escriba el número 1000 si desea que la regla genere una alerta solo si la consulta genera más de 1000 resultados cada vez que se ejecuta. Este es un campo obligatorio, por lo que si no desea establecer una base de referencia (es decir, si desea que su alerta registre todos los eventos) escriba 0 en el campo numérico.
     
@@ -134,6 +140,43 @@ Puede crear reglas de análisis personalizadas que le ayuden a buscar los tipos 
 
 > [!NOTE]
 > Las alertas generadas en Azure Sentinel están disponibles mediante  [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Para más información, consulte la [documentación sobre alertas de Microsoft Graph Security](https://aka.ms/graphsecurityreferencebetadocs).
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+### <a name="a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>No se pudo ejecutar una regla programada o aparece con el texto AUTO DISABLED agregado al nombre
+
+Es muy poco frecuente que una regla de consulta programada no se ejecute, pero puede ocurrir. Azure Sentinel clasifica los errores como transitorios o permanentes, en función del tipo específico del error y de las circunstancias que condujeron a él.
+
+#### <a name="transient-failure"></a>Error transitorio
+
+El error transitorio se produce debido a una circunstancia que es temporal y pronto volverá a la normalidad, momento en el que la ejecución de la regla se realizará correctamente. Algunos ejemplos de errores que Azure Sentinel clasifica como transitorios son los siguientes:
+
+- Una consulta de regla tarda demasiado tiempo en ejecutarse y se agota el tiempo de espera.
+- Problemas de conectividad entre orígenes de datos y Log Analytics, o entre Log Analytics y Azure Sentinel.
+- Cualquier otro error nuevo y desconocido se considera transitorio.
+
+Cuando se produce un error transitorio, Azure Sentinel sigue intentando volver a ejecutar la regla tras intervalos predeterminados y cada vez mayores, hasta un punto determinado. Después, la regla se volverá a ejecutar solo en la siguiente hora programada. Una regla nunca se deshabilitará automáticamente debido a un error transitorio.
+
+#### <a name="permanent-failure---rule-auto-disabled"></a>Error permanente: deshabilitación automática de la regla
+
+El error permanente se produce debido a un cambio en las condiciones que permiten la ejecución de la regla y que, sin intervención humana, no volverán a su estado anterior. A continuación se muestran algunos ejemplos de errores que se clasifican como permanentes:
+
+- El área de trabajo de destino (en la que opera la consulta de regla) se ha eliminado.
+- La tabla de destino (en la que opera la consulta de regla) se ha eliminado.
+- Se quitó Azure Sentinel del área de trabajo de destino.
+- Una función usada por la consulta de la regla ya no es válida porque se ha modificado o quitado.
+- Se cambiaron los permisos para uno de los orígenes de datos de la consulta de la regla.
+- Uno de los orígenes de datos de la consulta de la regla se ha eliminado o desconectado.
+
+**En el caso de un número predeterminado de errores permanentes consecutivos, del mismo tipo y en la misma regla,** Azure Sentinel deja de intentar ejecutar la regla y también lleva a cabo los siguientes pasos:
+
+- Deshabilita la regla.
+- Agrega las palabras **"AUTO DISABLED"** (deshabilitada automáticamente) al principio del nombre de la regla.
+- Agrega el motivo del error (y la deshabilitación) a la descripción de la regla.
+
+Puede determinar fácilmente si se ha deshabilitado automáticamente alguna regla si ordena la lista de reglas por nombre. Las reglas deshabilitadas automáticamente estarán en la parte superior de la lista o cerca de ella.
+
+Los administradores de SOC deben asegurarse de comprobar la lista de reglas periódicamente para comprobar si hay reglas deshabilitadas automáticamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

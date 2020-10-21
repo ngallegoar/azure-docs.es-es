@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 7e315a7366793d355967f777cbc1dda0f9277087
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c86207af51ebd1a9442afe6fa609598ec917bf15
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955920"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570447"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Aspectos técnicos de la distribución de datos global con Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Cuando una aplicación que usa Cosmos DB escala elásticamente el rendimiento e
 
 Como se observa en la imagen siguiente, los datos de un contenedor se distribuyen a lo largo de dos dimensiones: dentro de una región y entre regiones, en todo el mundo:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Particiones físicas" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Topología del sistema" border="false":::
 
 Una partición física se implementa por medio de un grupo de réplicas, llamado *conjunto de replicas*. Cada máquina hospeda cientos de réplicas que corresponden a diversas particiones físicas incluidas en un conjunto fijo de procesos, tal y como se muestra en la imagen anterior. Las réplicas que corresponden a las particiones físicas se colocan y su carga se equilibra de forma dinámica en las máquinas de un clúster y los centros de datos de una región.  
 
@@ -52,7 +52,7 @@ Una partición física se materializa como un grupo de réplicas autoadministrad
 
 Se compone un grupo de particiones físicas, uno de cada una de las configuradas con las regiones de la base de datos de Cosmos, para administrar el mismo conjunto de claves que se replican en todas las regiones configuradas. Esta primitiva de coordinación superior se llama un *conjunto de particiones*: una superposición dinámica geográficamente distribuida de particiones físicas que administran un conjunto de claves determinado. Mientras que una determinada partición física (un conjunto de réplicas) tiene el ámbito de un clúster, un conjunto de particiones puede abarcar clústeres, centros de datos y regiones geográficas, tal como se muestra en la imagen siguiente:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Conjuntos de particiones" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Topología del sistema" border="false":::
 
 Puede ver un conjunto de particiones como un "superconjunto de réplicas" geográficamente disperso, que consta de varios conjuntos de réplicas que poseen el mismo conjunto de claves. Similar a un conjunto de réplicas, la pertenencia a un conjunto de particiones también es dinámica, varía en función de las operaciones de administración de particiones físicas implícitas necesarias para agregar o eliminar particiones nuevas hacia y desde un conjunto de particiones determinado (por ejemplo, al escalar horizontalmente el rendimiento de un contenedor, agregar o quitar una región a la base de datos de Cosmos o cuando se producen errores). Al hacer que cada una de las particiones (de un conjunto de particiones) administre la pertenencia del conjunto de particiones dentro de su propio conjunto de réplicas, la pertenencia es totalmente descentralizada y de alta disponibilidad. Durante la reconfiguración de un conjunto de particiones, también se establece la topología de la superposición entre las particiones físicas. La topología se selecciona de forma dinámica en función del nivel de coherencia, la distancia geográfica y el ancho de banda de red disponible entre las particiones físicas de origen y las de destino.  
 
@@ -62,7 +62,7 @@ El servicio le permite configurar sus bases de datos de Cosmos con una sola regi
 
 Nuestro diseño para la propagación de actualizaciones, la resolución de conflictos y el seguimiento de causalidades está inspirado en el anterior trabajo sobre [algoritmos epidémicos](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) y el sistema [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf). Mientras que los kernels de las ideas han sobrevivido y proporcionan un cómodo marco de referencia para comunicar el diseño del sistema de Cosmos DB, también han experimentado una transformación significativa al aplicarlos al sistema de Cosmos DB. Esto era necesario, ya que los sistemas anteriores no estaban diseñados ni con la gobernanza de recursos ni con la escala en la que Cosmos DB necesita funcionar ni tampoco para proporcionar las funcionalidades (por ejemplo, coherencia de obsolescencia limitada) y los estrictos y completos contratos de nivel de servicio que Cosmos DB ofrece a sus clientes.  
 
-Recuerde que un conjunto de particiones se distribuye entre varias regiones y sigue el protocolo de replicación (arquitectura multimaestro) de Cosmos DB para replicar los datos entre las particiones físicas que componen un conjunto de particiones determinado. Cada partición física (de un conjunto de particiones) acepta las escrituras y suele ofrecer lecturas a los clientes que son locales en esa región. Las escrituras aceptadas por una partición física de una región se confirman permanentemente y tienen una alta disponibilidad en la partición física antes de ser reconocidas por el cliente. Se trata de escrituras provisionales que se propagan a otras particiones físicas en el conjunto de particiones mediante un canal de antientropía. Los clientes pueden solicitar escrituras provisionales o confirmadas pasando un encabezado de la solicitud. La propagación de antientropía (incluida la frecuencia de propagación) es dinámica, según la topología del conjunto de particiones, la proximidad regional de las particiones físicas y el nivel de coherencia configurado. En un conjunto de particiones, Cosmos DB sigue un esquema de confirmación principal con una partición de árbitro seleccionada dinámicamente. La selección de árbitro es dinámica y forma parte integral de la reconfiguración del conjunto de particiones según la topología de la superposición. Se garantiza que las escrituras confirmadas (incluidas las actualizaciones de varias filas o por lotes) están totalmente ordenadas. 
+Recuerde que un conjunto de particiones se distribuye entre varias regiones y sigue el protocolo de replicación (escrituras en varias regiones) de Cosmos DB para replicar los datos entre las particiones físicas que componen un conjunto de particiones determinado. Cada partición física (de un conjunto de particiones) acepta las escrituras y suele ofrecer lecturas a los clientes que son locales en esa región. Las escrituras aceptadas por una partición física de una región se confirman permanentemente y tienen una alta disponibilidad en la partición física antes de ser reconocidas por el cliente. Se trata de escrituras provisionales que se propagan a otras particiones físicas en el conjunto de particiones mediante un canal de antientropía. Los clientes pueden solicitar escrituras provisionales o confirmadas pasando un encabezado de la solicitud. La propagación de antientropía (incluida la frecuencia de propagación) es dinámica, según la topología del conjunto de particiones, la proximidad regional de las particiones físicas y el nivel de coherencia configurado. En un conjunto de particiones, Cosmos DB sigue un esquema de confirmación principal con una partición de árbitro seleccionada dinámicamente. La selección de árbitro es dinámica y forma parte integral de la reconfiguración del conjunto de particiones según la topología de la superposición. Se garantiza que las escrituras confirmadas (incluidas las actualizaciones de varias filas o por lotes) están totalmente ordenadas. 
 
 Empleamos relojes vectoriales codificados (que contienen relojes lógicos y de id. de región que corresponden a cada nivel de consenso en el conjunto de réplicas y el conjunto de particiones, respectivamente) para que el seguimiento de causalidades y los vectores de versión detecten y resuelvan conflictos relativos a las actualizaciones. La topología y el algoritmo de selección de homólogos se han diseñado para garantizar un almacenamiento fijo y mínimo y una sobrecarga de red mínima de los vectores de versión. El algoritmo garantiza la propiedad de convergencia estricta.  
 

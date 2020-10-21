@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/13/2020
-ms.openlocfilehash: 1524e51fff64b00a798f15425973145feee730fe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 10/02/2020
+ms.openlocfilehash: c4250be15b1c4fdc5df81c0f0ba3623dedf6488f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651640"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91667272"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conocidos y solución de problemas en Azure Machine Learning
 
@@ -210,9 +210,12 @@ Si usa un recurso compartido de archivos para otras cargas de trabajo, como la t
 
     Si no incluye la barra diagonal inicial ("/"), tendrá que prefijar el directorio de trabajo (por ejemplo, `/mnt/batch/.../tmp/dataset`) en el destino de proceso para indicar dónde quiere que se monte el conjunto de datos.
 
+### <a name="mount-dataset"></a>Montaje del conjunto de datos
+* **Error al inicializar el conjunto de datos:  se ha agotado el tiempo de espera a que el punto de montaje estuviera listo**: para mitigar el problema, se ha agregado lógica de reintento en `azureml-sdk >=1.12.0`. Si tiene versiones anteriores de azureml-sdk, actualice a la versión más reciente. Si ya tiene `azureml-sdk>=1.12.0`, vuelva a crear el entorno para que disponga de la revisión más reciente con la corrección.
+
 ### <a name="data-labeling-projects"></a>Proyecto de etiquetado de datos
 
-|Problema  |Resolución  |
+|Incidencia  |Resolución  |
 |---------|---------|
 |Solo se pueden usar los conjuntos de datos creados en almacenes de datos de blobs.     |  Se trata de una limitación conocida de la versión actual.       |
 |Después de la creación, el proyecto muestra el mensaje "Initializing" (Inicializando) durante mucho tiempo.     | Actualice manualmente la página. La inicialización debería continuar aproximadamente en 20 puntos de datos por segundo. La falta de actualización automática es un problema conocido.         |
@@ -291,12 +294,12 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **ModuleErrors (ningún módulo con nombre)** :  Si está ejecutando ModuleErrors mientras envía experimentos en Azure ML, significa que el script de entrenamiento espera que se instale un paquete pero no se agrega. Una vez que proporcione el nombre del paquete, Azure ML instala el paquete en el entorno que se usa para la ejecución de entrenamiento. 
 
-    Si usa [Estimadores](concept-azure-machine-learning-architecture.md#estimators) para enviar experimentos, puede especificar un nombre de paquete mediante el parámetro `pip_packages` o `conda_packages` en el estimador basado en el origen desde el que desea instalar el paquete. También puede especificar un archivo yml con todas sus dependencias mediante `conda_dependencies_file` o enumerar todos sus requisitos de pip en un archivo txt con el parámetro `pip_requirements_file`. Si tiene su propio objeto de entorno de Azure ML para invalidar la imagen predeterminada que usa el estimador, puede especificar ese entorno a través del parámetro `environment` del constructor del estimador.
+    Si usa Estimadores para enviar experimentos, puede especificar un nombre de paquete mediante el parámetro `pip_packages` o `conda_packages` en el estimador basado en el origen desde el que desea instalar el paquete. También puede especificar un archivo yml con todas sus dependencias mediante `conda_dependencies_file` o enumerar todos sus requisitos de pip en un archivo txt con el parámetro `pip_requirements_file`. Si tiene su propio objeto de entorno de Azure ML para invalidar la imagen predeterminada que usa el estimador, puede especificar ese entorno a través del parámetro `environment` del constructor del estimador.
 
     Azure ML también proporciona estimadores específicos de la plataforma para TensorFlow, PyTorch, Chainer y SKLearn. El uso de estos estimadores asegurará que las principales dependencias del marco se instalen en su nombre en el entorno utilizado para el entrenamiento. Tiene la opción de especificar dependencias adicionales como se describe anteriormente. 
  
     Azure ML mantuvo las imágenes acopladas y su contenido se puede ver en [Contenedores AzureML](https://github.com/Azure/AzureML-Containers).
-    Las dependencias específicas del marco se enumeran en la documentación del marco respectivo: [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#&preserve-view=trueremarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#&preserve-view=trueremarks).
+    Las dependencias específicas del marco se enumeran en la documentación del marco respectivo: [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks).
 
     > [!Note]
     > Si cree que un paquete en particular es lo suficientemente común como para agregarlo en imágenes y entornos mantenidos por Azure ML, cree una incidencia de GitHub en [Contenedores de AzureML](https://github.com/Azure/AzureML-Containers). 
@@ -305,7 +308,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **Horovod se apagó**: En la mayoría de los casos, si se muestra "AbortedError: Horovod has been shut down" (AbortedError: Horovod se cerró), esta excepción significa que hubo una excepción subyacente en uno de los procesos, y esto causó el apagado de Horovod. Cada clasificación en el trabajo MPI obtiene su propio archivo de registro dedicado en Azure ML. Estos registros son nombrados `70_driver_logs`. En caso de entrenamiento distribuido, los nombres de registro tienen el sufijo `_rank` para facilitar la diferenciación de los registros. Para encontrar el error exacto que provocó el apagado de Horovod, revise todos los archivos de registro y busque `Traceback` al final de los archivos driver_log. Uno de estos archivos le dará la excepción subyacente real. 
 
-* **Eliminación de ejecuciones o experimentos**:  Los experimentos se pueden archivar con el método [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truearchive--) o desde la vista de la pestaña Experimento en el cliente de Azure Machine Learning Studio a través del botón "Archive experiment" (Archivar experimento). Esta acción oculta el experimento de listas de consultas y vistas, pero no lo elimina.
+* **Eliminación de ejecuciones o experimentos**:  Los experimentos se pueden archivar con el método [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truearchive--) o desde la vista de la pestaña Experimento en el cliente de Azure Machine Learning Studio a través del botón "Archive experiment" (Archivar experimento). Esta acción oculta el experimento de listas de consultas y vistas, pero no lo elimina.
 
     Actualmente no se admite la eliminación permanente de experimentos ni ejecuciones individuales. Para obtener más información sobre cómo eliminar recursos del área de trabajo, consulte [Exportación o eliminación de los datos del área de trabajo de Machine Learning Service](how-to-export-delete-data.md).
 
@@ -320,7 +323,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>Automated Machine Learning
 
-* La **reciente actualización de las dependencias de AutoML a versiones más recientes anulará la compatibilidad**:  A partir de la versión 1.13.0 del SDK, los modelos no se cargan en los SDK anteriores, ya que existe incompatibilidad entre las versiones anteriores que se anclaron en los paquetes anteriores y las versiones más recientes que se anclan ahora. Verá un error similar a alguno de estos:
+* **La actualización reciente de las dependencias de AutoML a versiones más recientes anulará la compatibilidad**:  A partir de la versión 1.13.0 del SDK, los modelos no se cargan en los SDK anteriores, ya que existe incompatibilidad entre las versiones anteriores que se anclaron en los paquetes anteriores y las versiones más recientes que se anclan ahora. Verá un error similar a alguno de estos:
   * Módulo no encontrado: por ejemplo, `No module named 'sklearn.decomposition._truncated_svd`.
   * Errores de importación: por ejemplo, `ImportError: cannot import name 'RollingOriginValidator'`.
   * Errores de atributos: por ejemplo, `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
@@ -376,7 +379,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   4. Vuelva a ejecutar `automl_setup_linux.sh`.
 
 * **Error de configuration.ipynb**:
-  * En el caso de Conda local, asegúrese primero de que automl_setup se ejecute correctamente.
+  * En el caso de Conda local, asegúrese primero de que automl_setup se haya ejecutado correctamente.
   * Asegúrese de que subscription_id es correcto. Busque subscription_id en Azure Portal; para ello, seleccione Todos los servicios y, después, Suscripciones. Los caracteres "<" y ">" no deben incluirse en el valor de subscription_id. Por ejemplo, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` tiene el formato válido.
   * Garantice el acceso de tipo Colaborador o Propietario a la suscripción.
   * Compruebe que la región sea una de las regiones admitidas: `eastus2`, `eastus`, `westcentralus`, `southeastasia`, `westeurope`, `australiaeast`, `westus2` o `southcentralus`.
@@ -391,7 +394,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   4. Si desea cambiar la región, cambie el área de trabajo, el grupo de recursos o la suscripción. `Workspace.create` no creará ni actualizará un área de trabajo si ya existe, aunque la región especificada sea diferente.
   
 * **Error del cuaderno de ejemplo**: si se produce un error en un cuaderno de ejemplo que indica que la propiedad, el método o la biblioteca no existen:
-  * Asegúrese de que se ha seleccionado el kernel correcto en Jupyter Notebook. El kernel se muestra en la parte superior derecha de la página del cuaderno. El valor predeterminado es azure_automl. Tenga en cuenta que el kernel se guarda como parte del cuaderno. Por lo tanto, si cambia a un nuevo entorno de Conda, tendrá que seleccionar el nuevo kernel en el cuaderno.
+  * asegúrese de que se ha seleccionado el kernel correcto en el cuaderno de Jupyter Notebook. El kernel se muestra en la parte superior derecha de la página del cuaderno. El valor predeterminado es azure_automl. Tenga en cuenta que el kernel se guarda como parte del cuaderno. Por lo tanto, si cambia a un nuevo entorno de Conda, tendrá que seleccionar el nuevo kernel en el cuaderno.
       * Para Azure Notebooks, debe ser Python 3.6. 
       * En el caso de entornos de Conda locales, debe ser el nombre del entorno de Conda que especificó en automl_setup.
   * Asegúrese de que el cuaderno es para la versión del SDK que está usando. Puede comprobar la versión del SDK ejecutando `azureml.core.VERSION` en una celda de Jupyter Notebook. Puede descargar la versión anterior de los cuadernos de ejemplo de GitHub; para ello, haga clic en el botón `Branch`, seleccione la pestaña `Tags` y, después, seleccione la versión.
@@ -407,7 +410,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 Realice estas acciones para los siguientes errores:
 
-|Error  | Solución  |
+|Error  | Resolución  |
 |---------|---------|
 |Error de creación de imágenes al implementar el servicio web     |  Agregar "pynacl==1.2.1" como una dependencia pip al archivo de Conda para la configuración de la imagen.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Cambie la SKU de las máquinas virtuales usadas en la implementación por otra que tenga más memoria. |
@@ -446,6 +449,10 @@ kubectl get secret/azuremlfessl -o yaml
 
 >[!Note]
 >Kubernetes almacena los secretos en formato codificado en base-64. Deberá decodificar en base-64 los componentes `cert.pem` y `key.pem` de los secretos antes de proporcionarlos a `attach_config.enable_ssl`. 
+
+### <a name="detaching-azure-kubernetes-service"></a>Desasociación de Azure Kubernetes Service
+
+El uso de Azure Machine Learning Studio, el SDK o la extensión de la CLI de Azure con aprendizaje automático para desasociar un clúster de AKS no elimina el clúster de AKS. Para eliminarlo, consulte [Uso de la CLI de Azure con AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
 
 ### <a name="webservices-in-azure-kubernetes-service-failures"></a>Servicios web en errores de Azure Kubernetes Service
 

@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 29d80d2c6dc4e090e30d7a90460dc970ff4d8ca9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 05994a61b0afd0190e3fc1d4b841d576cec047f5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320688"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015857"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Análisis de archivos de audio y vídeo con Azure Media Services
 
@@ -42,7 +42,7 @@ Media Services admite actualmente los siguientes valores preestablecidos de anal
 
 |**Nombre del valor preestablecido**|**Escenario**|**Detalles**|
 |---|---|---|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análisis de audio|El valor predeterminado aplica un conjunto predefinido de operaciones de análisis basadas en inteligencia artificial, incluida la transcripción de voz. Actualmente, este valor admite el procesamiento de contenido con una sola pista de audio que contiene la voz en un solo idioma. Puede especificar el idioma para la carga de audio en la entrada con el formato BCP-47 de "etiqueta de idioma-región". Los idiomas admitidos son inglés ("en-US" y "en-GB"), español ("es-ES" y "es-MX"), francés ("fr-FR"), italiano ("it-IT"), japonés ("ja-JP"), portugués ("pt-BR"), chino ("zh-CN"), alemán ("de-DE"), árabe ("ar-EG"), ruso ("ru-RU"), hindi ("hi-IN") y coreano ("ko-KR").<br/><br/> Si el idioma no se especifica o se establece en NULL, la detección automática de idioma elige el primer idioma detectado y continúa con el idioma seleccionado lo que dure el archivo. La función de detección automática de idioma admite actualmente inglés, chino, francés, alemán, italiano, japonés, español, ruso y portugués. Una vez detectado el primer idioma seleccionado, no se admite el cambio dinámico entre idiomas. La característica de detección automática de idioma funciona mejor con grabaciones de audio con voz claramente perceptible. Si con la detección automática del idioma no se encuentra el idioma, se usará el inglés para la transcripción.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análisis de audio estándar|El valor predeterminado aplica un conjunto predefinido de operaciones de análisis basadas en inteligencia artificial, incluida la transcripción de voz. Actualmente, este valor admite el procesamiento de contenido con una sola pista de audio que contiene la voz en un solo idioma. Puede especificar el idioma para la carga de audio en la entrada con el formato BCP-47 de "etiqueta de idioma-región". Los idiomas admitidos son inglés ("en-US" y "en-GB"), español ("es-ES" y "es-MX"), francés ("fr-FR"), italiano ("it-IT"), japonés ("ja-JP"), portugués ("pt-BR"), chino ("zh-CN"), alemán ("de-DE"), árabe ("ar-EG"), ruso ("ru-RU"), hindi ("hi-IN") y coreano ("ko-KR").<br/><br/> Si el idioma no se especifica o se establece en NULL, la detección automática de idioma elige el primer idioma detectado y continúa con el idioma seleccionado lo que dure el archivo. La función de detección automática de idioma admite actualmente inglés, chino, francés, alemán, italiano, japonés, español, ruso y portugués. Una vez detectado el primer idioma seleccionado, no se admite el cambio dinámico entre idiomas. La característica de detección automática de idioma funciona mejor con grabaciones de audio con voz claramente perceptible. Si con la detección automática del idioma no se encuentra el idioma, se usará el inglés para la transcripción.|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análisis de audio básico|"Este modo realiza la transcripción de voz a texto y la generación de un archivo de subtítulos VTT. La salida de este modo incluye un archivo JSON de información, que incluye solo las palabras clave, la transcripción y la información de tiempo. La detección automática de idioma y la diarización de los altavoces no se incluyen en este modo". La lista de idiomas admitidos está disponible aquí: https://go.microsoft.com/fwlink/?linkid=2109463|
 |[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Análisis de audio y vídeo|Extrae información (metadatos enriquecidos) de audio y vídeo y genera como salida un archivo en formato JSON. Puede especificar si desea solo extraer información de audio al procesar un archivo de vídeo. Para más información, consulte [Análisis de vídeo](analyze-videos-tutorial-with-api.md).|
 |[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detección de caras presentes en el vídeo|Describe la configuración que se usará al analizar un vídeo con el fin de detectar todas las caras presentes.|
 

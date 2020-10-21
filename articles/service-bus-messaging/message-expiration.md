@@ -2,13 +2,13 @@
 title: Expiración de mensajes de Azure Service Bus
 description: En este artículo se explica la expiración y período de vida de los mensajes de Azure Service Bus. Después de una fecha límite de este tipo, ya no se entrega el mensaje.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 41711428711533a6ecac449f59d415e86474545b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 09/29/2020
+ms.openlocfilehash: 47f8bdb4440adfeb5197f90cdad5358a442ce6a7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064730"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569910"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiración de mensajes (período de vida)
 
@@ -29,7 +29,7 @@ Todos los mensajes enviados a una cola o tema están sujetos a una expiración p
 > [!NOTE]
 > A menos que se especifique lo contrario, el valor de [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) predeterminado para un mensaje asincrónico es [TimeSpan.Max](/dotnet/api/system.timespan.maxvalue).
 >
-> Para las entidades de mensajería (colas y temas), el tiempo de expiración predeterminado es también [TimeSpan.Max](/dotnet/api/system.timespan.maxvalue) para los niveles estándar y prémium de Service Bus.  Para el nivel básico, el tiempo de expiración predeterminado es 14 días.
+> Para las entidades de mensajería (colas y temas), el tiempo de expiración predeterminado es también [TimeSpan.Max](/dotnet/api/system.timespan.maxvalue) para los niveles estándar y prémium de Service Bus. En el nivel **básico**, el tiempo de expiración predeterminado (también máximo) es de **14 días**.
 
 Los mensajes expirados se pueden mover opcionalmente a una [cola de mensajes fallidos](service-bus-dead-letter-queues.md) mediante la propiedad [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) o si se marca la casilla respectiva en el portal. Si la opción se deja deshabilitada, se quitan los mensajes que han expirado. Los mensajes expirados movidos a la cola de mensajes fallidos se pueden distinguir de otros mensajes fallidos mediante la evaluación de la propiedad [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) que almacena el agente en la sección de propiedades del usuario; en este caso, el valor es [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq).
 

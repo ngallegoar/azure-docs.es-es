@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: d53097c7884b9908cd3a2c7f21dc059ed9d00c39
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6a5df4f6a20a9f7061f56dac507a474f7bda6100
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540169"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992876"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Uso de Application Change Analysis (versión preliminar) en Azure Monitor
 
@@ -101,7 +101,7 @@ Application Change Analysis es un detector independiente en las herramientas de 
 
    ![Captura de pantalla del botón "Application Crashes"](./media/change-analysis/application-changes.png)
 
-3. Para habilitar Change Analysis, seleccione **Habilitar ahora**.
+3. El vínculo conduce a la interfaz de usuario de cambio de Application Change Analysis en el ámbito de la aplicación web. Si el seguimiento de cambios en el invitado de la aplicación web no está habilitado, siga el banner para obtener los cambios de configuración de los archivos y aplicaciones.
 
    ![Captura de las opciones de "Application Crashes"](./media/change-analysis/enable-changeanalysis.png)
 
@@ -109,17 +109,39 @@ Application Change Analysis es un detector independiente en las herramientas de 
 
     ![Captura de pantalla de la interfaz de usuario "Habilitar Change Analysis"](./media/change-analysis/change-analysis-on.png)
 
-5. Para obtener acceso a Change Analysis, seleccione **Diagnosticar y solucionar problemas** > **Availability and Performance (disponibilidad y rendimiento)**  > **Application Crashes (bloqueos de aplicación)** . Verá un gráfico con un resumen del tipo de cambios a lo largo del tiempo, junto con detalles sobre estos cambios: De forma predeterminada, se muestran los cambios en las últimas 24 horas para ayudar a solucionar problemas inmediatos.
+5. Los datos modificados también están disponibles en ciertos detectores de **Web App Down** (Aplicación web fuera de servicio) y **Application Crashes** (Bloqueo de aplicaciones). Verá un gráfico con un resumen del tipo de cambios a lo largo del tiempo, junto con detalles sobre estos cambios: De forma predeterminada, se muestran los cambios en las últimas 24 horas para ayudar a solucionar problemas inmediatos.
 
      ![Captura de pantalla de la vista de diferencias de cambios](./media/change-analysis/change-view.png)
 
-### <a name="enable-change-analysis-at-scale"></a>Habilitación de Change Analysis a gran escala
+
+
+### <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnóstico y solución de problemas de una máquina virtual
+
+Vaya a la herramienta Diagnosticar y solucionar problemas para una máquina virtual.  Vaya a **Herramientas para la solución de problemas**, navegue hacia abajo de la página y seleccione **Analizar cambios recientes** para ver los cambios en la máquina virtual.
+
+![Captura de pantalla de Diagnosticar y solucionar problemas de la máquina virtual](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+
+![Analizador de cambios en herramientas para la solución de problemas](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="activity-log-change-history"></a>Historial de cambios en el registro de actividad
+La característica [View change history](../platform/activity-log.md#view-change-history) (Ver el historial de cambios) en el registro de actividad llama al back-end del servicio Application Change Analysis para obtener los cambios asociados a una operación. **Historial de cambios** antes llamaba directamente a [Azure Resource Graph](../../governance/resource-graph/overview.md), pero se cambió el back-end para llamar a Application Change Analysis, de modo que los cambios devueltos incluirán los cambios de nivel de recursos de [Azure Resource Graph](../../governance/resource-graph/overview.md), las propiedades de los recursos de [Azure Resource Manager](../../azure-resource-manager/management/overview.md) y los cambios en el invitado de los servicios de PaaS, como la aplicación web App Services. Para que el servicio Application Change Analysis pueda examinar en busca de cambios en las suscripciones de los usuarios, es necesario registrar un proveedor de recursos. La primera vez que acceda a la pestaña **Historial de cambios**, la herramienta comenzará automáticamente a registrar al proveedor de recursos **Microsoft.ChangeAnalysis**. Tras su registro, los cambios de **Azure Resource Graph** estarán disponibles inmediatamente y cubrirán los últimos 14 días. Los cambios de otros orígenes estarán disponibles después de aproximadamente 4 horas a partir de la incorporación de la suscripción.
+
+![Integración del historial de cambios en el registro de actividad](./media/change-analysis/activity-log-change-history.png)
+
+### <a name="vm-insights-integration"></a>Integración de Información de máquinas virtuales
+Los usuarios que tienen habilitada [Información de máquinas virtuales](../insights/vminsights-overview.md) pueden ver lo que ha cambiado en sus máquinas virtuales que podría haber provocado picos en un gráfico de métricas, como CPU o memoria, y preguntarse qué lo causó. Los datos modificados se integran en la barra de navegación lateral de Información de máquinas virtuales. El usuario puede ver si se han producido cambios en la VM y hacer clic en **Investigate Changes** (Investigar cambios) para ver los detalles de los cambios en la interfaz de usuario independiente de Application Change Analysis.
+
+[![Integración de Información de máquinas virtuales](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
+
+
+
+## <a name="enable-change-analysis-at-scale"></a>Habilitación de Change Analysis a gran escala
 
 Si la suscripción incluye varias aplicaciones web, podría resultar ineficaz habilitar el servicio en el nivel de aplicación web. Ejecute el siguiente script para habilitar todas las aplicaciones web de su suscripción.
 
 Requisitos previos:
 
-- Módulo Az de PowerShell. Siga las instrucciones de [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
+- Módulo Az de PowerShell. Siga las instrucciones de [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps).
 
 Ejecute el siguiente script:
 
@@ -147,13 +169,25 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-### <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnóstico y solución de problemas de una máquina virtual
+## <a name="troubleshoot"></a>Solución de problemas
 
-Vaya a la herramienta Diagnosticar y solucionar problemas para una máquina virtual.  Vaya a **Herramientas para la solución de problemas**, navegue hacia abajo de la página y seleccione **Analizar cambios recientes** para ver los cambios en la máquina virtual.
+### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Problemas al registrar el proveedor de recursos de análisis Microsoft.Change Analysis desde la pestaña Historial de cambios
+Si es la primera vez que ve el historial de cambios después de su integración en Application Change Analysis, verá que registra automáticamente un proveedor de recursos **Microsoft.ChangeAnalysis**. En contadas ocasiones, podría producirse un error por las razones siguientes:
 
-![Captura de pantalla de Diagnosticar y solucionar problemas de la máquina virtual](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+- **No tiene permisos suficientes para registrar el proveedor de recursos Microsoft.ChangeAnalysis**. Este mensaje de error significa que el rol de la suscripción actual no tiene el ámbito **Microsoft.support/register/action** asociado a ella. Esto puede ocurrir si no es el propietario de una suscripción y obtuvo permisos de acceso compartido a través de un compañero de trabajo, es decir, acceso de visualización en un grupo de recursos. Para corregirlo, puede ponerse en contacto con el propietario de la suscripción para registrar el proveedor de recursos **Microsoft.ChangeAnalysis**. Esto puede hacerse en Azure Portal a través de **Suscripciones | Proveedores de recursos** y buscar ```Microsoft.ChangeAnalysis``` y registrarse en la interfaz de usuario, o a través de Azure PowerShell o la CLI de Azure.
 
-![Captura de pantalla de Diagnosticar y solucionar problemas de la máquina virtual](./media/change-analysis/analyze-recent-changes.png)
+    Registre el proveedor de recursos a través de PowerShell: 
+    ```PowerShell
+    # Register resource provider
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+    ```
+
+- **No se pudo registrar el proveedor de recursos Microsoft.ChangeAnalysis**. Este mensaje indica que ha habido un error inmediatamente después de que la interfaz de usuario enviara la solicitud para registrar el proveedor de recursos, y que no está relacionada con un problema de permisos. Lo más probable es que se deba a un problema temporal de conectividad a Internet. Intente actualizar la página y comprobar la conexión a Internet. Si el error continúa, póngase en contacto con changeanalysishelp@microsoft.com.
+
+- **Está tardando más de lo esperado**. Este mensaje significa que el registro está tardando más de 2 minutos. Esto es poco habitual, pero no significa necesariamente que haya algo mal. Puede ir a **Suscripciones | Proveedor de recursos** para comprobar el estado de registro del proveedor de recursos **Microsoft.ChangeAnalysis**. Puede intentar usar la interfaz de usuario para anular el registro, volver a registrarse o actualizar para ver si esto ayuda. Si el problema persiste, póngase en contacto con changeanalysishelp@microsoft.com para obtener soporte.
+    ![La solución de problemas de registro del proveedor de recursos está tardando demasiado tiempo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

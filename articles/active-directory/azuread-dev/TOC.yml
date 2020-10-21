@@ -97,8 +97,6 @@
               href: howto-v1-enable-sso-android.md
             - name: Habilitación de SSO en iOS
               href: howto-v1-enable-sso-ios.md
-            - name: Depuración de SSO basado en SAML
-              href: howto-v1-debug-saml-sso-issues.md
         - name: Configuración de notificaciones
           items:
             - name: Configuración de notificaciones de rol

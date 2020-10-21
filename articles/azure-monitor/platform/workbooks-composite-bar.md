@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 76c52d47c7fd7e271f3e74439ee8502117eb83a7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 80846ecb1ad48d9f8ba49f0025772b4e131c23e2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89663440"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91776364"
 ---
 # <a name="composite-bar-renderer"></a>Representador de barra compuesta
 
@@ -143,7 +143,7 @@ En las visualizaciones de cuadrícula, la ordenación de las filas de la columna
     4. Agregar etiqueta:`["online"] of ["total"] are healthy`.
 10. Seleccione **Aplicar**.
 
-Configuración de la barra compuesta para iconos:
+Configuración de iconos de la barra compuesta:
 
 ![Captura de pantalla de la configuración de iconos de la barra compuesta con la configuración descrita anteriormente.](./media/workbooks-composite-bar/tiles-settings.png)
 
@@ -157,7 +157,7 @@ Para crear un representador de barra compuesta para la visualización de grafos 
 
 1. Seleccione **Agregar** y luego *Agregar consulta*.
 2. Cambie el origen de datos a JSON y escriba los datos del [ejemplo anterior](#adding-composite-bar-renderer).
-3. Cambie la visualización a *Iconos*.
+3. Cambie la visualización a *Grafos*.
 4. Ejecute una consulta.
 5. Seleccione **Configuración del gráfico**.
 6. Seleccione *Contenido en el centro* en Configuración de formato del nodo.

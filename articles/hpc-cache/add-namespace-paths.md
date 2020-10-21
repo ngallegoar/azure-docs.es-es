@@ -1,0 +1,137 @@
+---
+title: Configuración del espacio de nombres agregado de Azure HPC Cache
+description: Creación de rutas de acceso orientadas al cliente para el almacenamiento de back-end con Azure HPC Cache
+author: ekpgh
+ms.service: hpc-cache
+ms.topic: how-to
+ms.date: 09/30/2020
+ms.author: v-erkel
+ms.openlocfilehash: 090e3f93d025fe87ad5b89a98193574595f3d632
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91614524"
+---
+# <a name="set-up-the-aggregated-namespace"></a>Configuración del espacio de nombres agregado
+
+Después de crear destinos de almacenamiento, también debe crear rutas de acceso de espacio de nombres para ellos. Las máquinas cliente usan estas rutas de acceso virtuales para acceder a los archivos mediante la memoria caché en lugar de conectarse directamente al almacenamiento de back-end. Este sistema permite que los administradores de caché cambien los sistemas de almacenamiento de back-end sin tener que volver a escribir las instrucciones del cliente.
+
+Lea [Planeamiento del espacio de nombres agregado](hpc-cache-namespace.md) para más información acerca de esta característica.
+
+La página **Namespace** (Espacio de nombres) de Azure Portal muestra las rutas de acceso que los clientes usan para acceder a los datos a través de la caché. Use esta página para crear, quitar o cambiar las rutas de acceso del espacio de nombres. También puede configurar estas rutas mediante la CLI de Azure.
+
+Todas las rutas de acceso orientadas al cliente existentes se muestran en la página **Namespace** (Espacio de nombres). Si un destino de almacenamiento no tiene ninguna ruta de acceso, no aparece en la tabla.
+
+Puede ordenar las columnas de la tabla haciendo clic en las flechas y así entender mejor el espacio de nombres agregado de la caché.
+
+![Captura de pantalla de la página de espacio de nombres del portal con dos rutas de acceso en una tabla. Encabezados de columna: Namespace path, Storage target, Export path y Export subdirectory (Ruta de acceso del espacio de nombres, Destino de almacenamiento, Ruta de exportación y Subdirectorio de exportación). Los elementos de la primera columna son vínculos en los que se puede hacer clic. Botones superiores: Add namespace path, Refresh, Delete (Agregar ruta de espacio de nombres, Actualizar, Eliminar)](media/namespace-page.png)
+
+## <a name="add-or-edit-client-facing-namespace-paths"></a>Incorporación o edición rutas de acceso de espacio de nombres orientadas al cliente
+
+Debe crear al menos una ruta de acceso de espacio de nombres para que los clientes puedan acceder al destino de almacenamiento. Lea [Montaje de la instancia de Azure HPC Cache](hpc-cache-mount.md) para obtener más información sobre el acceso de los clientes.
+
+### <a name="blob-namespace-paths"></a>Rutas de acceso del espacio de nombres de blobs
+
+Un destino de almacenamiento de Azure Blob Storage solo puede tener una ruta de acceso de espacio de nombres.
+
+Siga las instrucciones que se incluyen a continuación para establecer o cambiar la ruta de acceso con Azure Portal o la CLI de Azure.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+En Azure Portal, cargue la página de configuración **Namespace** (Espacio de nombres). Puede agregar, cambiar o eliminar rutas de acceso de espacio de nombres desde esta página.
+
+* **Agregar una nueva ruta de acceso**: haga clic en el botón **+ Add** (Agregar) en la parte superior y rellene la información en el panel de edición.
+
+  * Seleccione el destino de almacenamiento en la lista desplegable. En esta captura de pantalla, no se puede seleccionar el destino de almacenamiento de blobs porque ya tiene una ruta de acceso de espacio de nombres.
+
+    ![Captura de pantalla de los campos de edición del nuevo espacio de nombres con el selector de destino de almacenamiento expuesto](media/namespace-select-storage-target.png)
+
+  * En un destino de almacenamiento de Azure Blob Storage, las rutas de acceso de exportación y subdirectorio se establecen automáticamente en ``/``.
+
+* **Cambiar una ruta de acceso existente**: haga clic en la ruta de acceso del espacio de nombres. Se abre el panel de edición, donde puede modificar la ruta de acceso.
+
+  ![Captura de pantalla de la página de espacio de nombres después de hacer clic en una ruta de acceso de espacio de nombres de blobs: los campos de edición aparecen en un panel a la derecha.](media/edit-namespace-blob.png)
+
+* **Eliminar un espacio de nombres**: active la casilla situada a la izquierda de la ruta de acceso y haga clic en el botón **Delete** (Eliminar).
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Cuando usa la CLI de Azure, debe agregar una ruta de acceso de espacio de nombres al crear el destino de almacenamiento. Lea [Incorporación de un nuevo destino de almacenamiento de Azure Blob Storage](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) para obtener más información.
+
+Para actualizar la ruta de acceso del espacio de nombres del destino, use el comando [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update). Los argumentos del comando "update" son similares a los del comando "create", salvo que no se pasa el nombre del contenedor ni la cuenta de almacenamiento.
+
+No se puede eliminar una ruta de acceso de espacio de nombres de un destino de almacenamiento de blobs con la CLI de Azure, pero se puede sobrescribir con otro valor.
+
+---
+
+### <a name="nfs-namespace-paths"></a>Rutas de acceso del espacio de nombres NFS
+
+Un destino de almacenamiento NFS puede tener varias rutas de acceso virtuales, siempre y cuando cada ruta represente una exportación o un subdirectorio diferente sen el mismo sistema de almacenamiento.
+
+Al planear el espacio de nombres para un destino de almacenamiento NFS, tenga en cuenta que cada ruta de acceso debe ser única y no puede ser un subdirectorio de otra ruta de acceso de espacio de nombres. Por ejemplo, si tiene una ruta de acceso de espacio de nombres que se llama ``/parent-a``, no puede crear además rutas como ``/parent-a/user1`` ni ``/parent-a/user2``. Estas rutas de acceso de directorio ya son accesibles en el espacio de nombres como subdirectorios de ``/parent-a``.
+
+Todas las rutas de acceso de espacio de nombres para un sistema de almacenamiento NFS se crean en un solo destino de almacenamiento. La mayoría de las configuraciones de caché pueden admitir hasta diez rutas de acceso de espacio de nombres por destino de almacenamiento, pero las configuraciones mayores pueden admitir hasta veinte.
+
+Esta lista muestra el número máximo de rutas de acceso de espacio de nombres por configuración.
+
+* Rendimiento de hasta 2 GB/s:
+
+  * Caché de 3 TB: 10 rutas de acceso de espacio de nombres
+  * Caché de 6 TB: 10 rutas de acceso de espacio de nombres
+  * Caché de 23 TB: 20 rutas de acceso de espacio de nombres
+
+* Rendimiento de hasta 5 GB/s:
+
+  * Caché de 6 TB: 10 rutas de acceso de espacio de nombres
+  * Caché de 12 TB: 10 rutas de acceso de espacio de nombres
+  * Caché de 24 TB: 20 rutas de acceso de espacio de nombres
+
+* Rendimiento de hasta 8 GB/s:
+
+  * Caché de 12 TB: 10 rutas de acceso de espacio de nombres
+  * Caché de 24 TB: 10 rutas de acceso de espacio de nombres
+  * Caché de 48 TB: 20 rutas de acceso de espacio de nombres
+
+Para cada ruta de acceso del espacio de nombres de NFS, proporcione la ruta de acceso orientada al cliente, la exportación del sistema de almacenamiento y, opcionalmente, un subdirectorio de exportación.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+En Azure Portal, cargue la página de configuración **Namespace** (Espacio de nombres). Puede agregar, editar o eliminar rutas de acceso de espacio de nombres desde esta página.
+
+* **Para agregar una nueva ruta de acceso**: haga clic en el botón **+ Add** (Agregar) en la parte superior y rellene la información en el panel de edición.
+* **Para cambiar una ruta de acceso existente**: haga clic en la ruta de acceso del espacio de nombres. Se abre el panel de edición, donde puede modificar la ruta de acceso.
+* **Para eliminar una ruta de acceso de espacio de nombres**: active la casilla situada a la izquierda de la ruta de acceso y haga clic en el botón **Delete** (Eliminar).
+
+Rellene estos valores para cada ruta de acceso del espacio de nombres:
+
+* **Namespace path** (Ruta de acceso del espacio de nombres): la ruta de acceso del archivo orientada al cliente.
+
+* **Storage target** (Destino de almacenamiento): si crea una nueva ruta de acceso de espacio de nombres, seleccione un destino de almacenamiento en el menú desplegable.
+
+* **Export path** (Ruta de acceso de exportación): escriba la ruta de acceso a la exportación de NFS. Asegúrese de escribir el nombre de exportación correctamente, ya que el portal valida la sintaxis de este campo, pero no comprueba la exportación hasta que se envía el cambio.
+
+* **Export subdirectory** (Subdirectorio de exportación): si desea que esta ruta de acceso monte un subdirectorio específico de la exportación, indíquelo aquí. En caso contrario, deje este campo en blanco.
+
+![Captura de pantalla de la página de espacio de nombres del portal con la página de actualización abierta a la derecha](media/update-namespace-nfs.png)
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Cuando usa la CLI de Azure, debe agregar al menos una ruta de acceso de espacio de nombres al crear el destino de almacenamiento. Lea [Incorporación de un nuevo destino de almacenamiento NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) para obtener más información.
+
+Para actualizar la ruta de acceso del espacio de nombres del destino o para agregar rutas adicionales, use el comando [az hpc-cache nfs-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update). Use la opción ``--junction`` para especificar todas las rutas de acceso de espacio de nombres que desee.
+
+Las opciones que se usan en el comando "update" son similares al comando "create", salvo que no se pasa la información del sistema de almacenamiento (dirección IP o nombre de host) y el modelo de uso es opcional. Lea [Incorporación de un nuevo destino de almacenamiento NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) para obtener más detalles sobre la sintaxis de la opción ``--junction``.
+
+---
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Después de crear el espacio de nombres agregado para los destinos de almacenamiento, puede montar los clientes en la memoria caché. Para obtener más información, vea estos artículos:
+
+* [Montaje de la instancia de Azure HPC Cache](hpc-cache-mount.md)
+* [Traslado de datos a Azure Blob Storage](hpc-cache-ingest.md)

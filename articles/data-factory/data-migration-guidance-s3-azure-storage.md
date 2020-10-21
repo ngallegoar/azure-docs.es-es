@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 5de1ef97050f37bb44d87ebae1d95df365952ace
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 963a541835c5e45c5642f2d516da53fd165142b4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984898"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91616931"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Uso de Azure Data Factory para migrar datos de Amazon S3 a Azure Storage 
 
@@ -74,7 +74,7 @@ Migración de datos a través de un vínculo privado:
 
 - En esta arquitectura, la migración de datos se realiza a través de un vínculo de emparejamiento privado entre AWS Direct Connect y Azure Express Route, de modo que los datos nunca atraviesan la red pública de Internet.  Requiere el uso de AWS VPC y la red virtual de Azure. 
 - Debe instalar el entorno de ejecución de integración autohospedado de ADF en una máquina virtual de Windows dentro de la red virtual de Azure para lograr esta arquitectura.  Puede escalar verticalmente las máquinas virtuales del entorno de ejecución de integración autohospedado o escalar horizontalmente a varias máquinas virtuales (hasta 4 nodos) manualmente para aprovechar al máximo el ancho de banda/IOPS de almacenamiento y de la red. 
-- Si es aceptable transferir datos a través de HTTPS, pero desea limitar el acceso de red al origen de S3 a un intervalo de IP específico, puede adoptar una variación de esta arquitectura quitando AWS VPC y reemplazando el vínculo privado por HTTPS.  Deberá mantener Azure virtual y el entorno de ejecución de integración autohospedado en la máquina virtual de Azure para tener una dirección IP estática enrutable públicamente para el uso de listas blancas. 
+- Si es aceptable transferir datos a través de HTTPS, pero desea limitar el acceso de red al origen de S3 a un intervalo de IP específico, puede adoptar una variación de esta arquitectura quitando AWS VPC y reemplazando el vínculo privado por HTTPS.  Se recomienda mantener Azure Virtual y el entorno de ejecución de integración autohospedado en la máquina virtual de Azure para tener una dirección IP estática enrutable públicamente para el filtrado. 
 - Tanto la migración de datos de la instantánea inicial como la migración de datos diferencial se pueden realizar con esta arquitectura. 
 
 ## <a name="implementation-best-practices"></a>Procedimientos recomendados para la implementación 
