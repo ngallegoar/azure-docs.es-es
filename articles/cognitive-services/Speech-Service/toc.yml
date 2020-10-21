@@ -1,6 +1,6 @@
 - name: Documentación sobre el servicio de voz
   href: index.yml
-- name: Información general
+- name: Introducción
   expanded: true
   items:
     - name: Introducción al servicio de voz
@@ -229,6 +229,8 @@
   items:
     - name: Documentación de reconocimiento de intenciones
       href: index-intent-recognition.yml
+    - name: Introducción al reconocimiento de intenciones
+      href: intent-recognition.md
     - name: Inicio rápido sobre el reconocimiento de intención
       href: quickstarts/intent-recognition.md
     - name: Guías paso a paso
