@@ -1,20 +1,20 @@
 ---
 title: Uso de libros de Azure Monitor con Azure AD Domain Services | Microsoft Docs
 description: Aprenda a usar libros de Azure Monitor para revisar las auditorías de seguridad y comprender los problemas de un dominio administrado de Azure Active Directory Domain Services.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 926f4dd94ba5b1f864a002c282004b3a9f438dca
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: joflore
+ms.openlocfilehash: 02c4679016ea80a4ac8bb53b502292945cbe9d7b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722745"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967076"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Revisión de los eventos de auditoría de seguridad en Azure Active Directory Domain Services mediante libros de Azure Monitor
 
@@ -58,7 +58,7 @@ Para acceder a la plantilla de libro del informe general sobre seguridad, comple
 1. Seleccione el dominio administrado como, por ejemplo, *aaddscontoso.com*.
 1. En el menú de la izquierda, elija **Supervisión > Libros**.
 
-    ![Selección de la opción de menú Libros en Azure Portal](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
+    ![Captura de pantalla que resalta dónde seleccionar el informe de información general de seguridad y el informe de actividad de la cuenta.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Seleccione **Informe general sobre seguridad**.
 1. En los menús desplegables de la parte superior del libro, seleccione la suscripción a Azure y, después, un área de trabajo de Azure Monitor.

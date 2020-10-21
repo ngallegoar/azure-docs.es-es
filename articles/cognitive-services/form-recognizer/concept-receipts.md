@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: fd0a782fc0c54cf14db9cac07712dea6d8f2e523
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751978"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761454"
 ---
 # <a name="receipt-concepts"></a>Conceptos de recepción
 
@@ -74,10 +74,7 @@ Receipt API también devuelve la siguiente información:
   > Entrada de idioma 
   >
   > Prebuilt Receipt v2.1-preview.1 tiene un parámetro de solicitud opcional para especificar una configuración regional de recibos en mercados en inglés adicionales. En el caso de los recibos de ventas en inglés de Australia (EN-AU), Canadá (EN-CA), Gran Bretaña (EN-GB) e India (EN-IN), puede especificar la configuración regional para obtener resultados mejorados. Si no se especifica ninguna configuración regional en v2.1-preview.1, el modelo se establecerá de forma predeterminada en EN-US.
-  
- ### <a name="input-requirements"></a>Requisitos de entrada 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-receipt-operation"></a>La operación Analyze Receipt
 
@@ -456,7 +453,10 @@ Receipt API también impulsa la [característica de procesamiento de recibos de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Siga las guías de inicio rápido de [Python para Receipt API](./quickstarts/python-receipts.md) para empezar.
-- Obtenga más información acerca de la [API de REST de Form Recognizer](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api).
-- Obtenga más información sobre [Form Recognizer](overview.md).
+- Lea la [guía de inicio rápido de la biblioteca cliente de Form Recognizer](quickstarts/client-library.md) completa para empezar a escribir una aplicación de procesamiento de recibos con Form Recognizer en el lenguaje de su elección.
+- O bien, siga la [guía de inicio rápido de Python para Receipt API](./quickstarts/python-receipts.md) a fin de reconocer los recibos mediante la API de REST.
 
+## <a name="see-also"></a>Consulte también
+
+* [¿Qué es Form Recognizer?](./overview.md)
+* [Documentos de referencia de la API de REST](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)

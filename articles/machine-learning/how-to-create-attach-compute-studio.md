@@ -11,19 +11,22 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 5345fd81e41bbb354e11e1be23329c3130d4d0c2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898085"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708402"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Creación de destinos de proceso para la implementación y el entrenamiento de modelos en Azure Machine Learning Studio
 
 En este artículo, aprenderá a crear y administrar destinos de proceso en Azure Machine Studio.  También puede crear y administrar destinos de proceso con:
 
-* [SDK de Azure Machine Learning](how-to-create-attach-compute-sdk.md) 
-* La [extensión de la CLI](reference-azure-machine-learning-cli.md#resource-management) para Azure Machine Learning
+* Extensión de la CLI o del SDK de Azure Machine Learning para Azure Machine Learning
+  * [Instancia de proceso](how-to-create-manage-compute-instance.md)
+  * [Clúster de proceso](how-to-create-attach-compute-cluster.md)
+  * [Clúster de Azure Kubernetes Service](how-to-create-attach-kubernetes.md)
+  * [Otros recursos de proceso](how-to-attach-compute-targets.md)
 * La [extensión de VS Code](how-to-manage-resources-vscode.md#compute-clusters) para Azure Machine Learning.
 
 
@@ -56,11 +59,11 @@ Siga los pasos anteriores para ver la lista de destinos de proceso. A continuaci
 
 1. Si no tiene ningún destino de proceso, seleccione **Crear** en el área central de la página.
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Crear el destino de proceso":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Visualización de la lista de destinos de proceso":::
 
 1. Si ve una lista de recursos de proceso, seleccione **+ Nuevo** encima de la lista.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Seleccionar Nuevo":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Visualización de la lista de destinos de proceso":::
 
 
 1. Rellene el formulario para el tipo de proceso:
@@ -74,14 +77,14 @@ Siga los pasos anteriores para ver la lista de destinos de proceso. A continuaci
 
 1. Vea el estado de la operación de creación seleccionando el destino de proceso en la lista:
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Visualización del estado del proceso en una lista":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Visualización de la lista de destinos de proceso":::
 
 
 ### <a name="compute-instance"></a>Instancia de proceso
 
 Utilice los [pasos anteriores](#portal-create) para crear la instancia de proceso.  Después, rellene el formulario de la manera siguiente:
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Crear una nueva instancia de proceso":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Visualización de la lista de destinos de proceso":::
 
 
 |Campo  |Descripción  |
@@ -107,7 +110,7 @@ Cree un clúster de proceso de uno o varios nodos para el entrenamiento, la infe
 |Número máximo de nodos | Número máximo de nodos que quiere aprovisionar. El proceso se escala automáticamente hasta este número máximo de nodos cuando se envía un trabajo. |
 |Configuración avanzada     |  Opcional. Configurar una red virtual. Especifique el **Grupo de recursos**, **Red virtual** y **Subred** para crear la instancia de proceso dentro de una Azure Virtual Network (vnet). Para más información, consulte estos [requisitos de red](how-to-enable-virtual-network.md#compute-instance) para la red virtual.   Adjunte también [identidades administradas](#managed-identity) para conceder acceso a los recursos.     |
 
-#### <a name="set-up-managed-identity"></a><a id="managed-identity"></a> Configuración de la identidad administrada
+#### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> Configuración de la identidad administrada
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 

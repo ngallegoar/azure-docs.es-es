@@ -2,20 +2,20 @@
 title: Planeamiento y conexiones de red para Azure AD Domain Services | Microsoft Docs
 description: Obtenga información sobre algunas consideraciones de diseño y recursos de redes virtuales que se usan para la conectividad al ejecutar Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.author: joflore
+ms.openlocfilehash: 4ced7331daa116e237d9628d12d16a67687db5b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749609"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968096"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Consideraciones de diseño y opciones de configuración de red virtual para Azure Active Directory Domain Services
 
@@ -115,6 +115,8 @@ Las siguientes reglas de grupo de seguridad de red son necesarias para que el do
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Sí      | Administración del dominio. |
 
 Se crea un equilibrador de carga estándar de Azure que exige la presencia de estas reglas. Este grupo de seguridad de red protege Azure AD DS y es necesario para que el dominio administrado funcione correctamente. No elimine este grupo de seguridad de red. El equilibrador de carga no funcionará correctamente sin él.
+
+Si es necesario, puede [crear el grupo de seguridad de red y las reglas necesarias con Azure PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 > [!WARNING]
 > No edite manualmente estos recursos y configuraciones de red. Cuando asocia un grupo de seguridad de red mal configurado o una tabla de rutas definida por el usuario con la subred en la que está implementado el dominio administrado, puede interrumpir la capacidad de Microsoft para atender y administrar el dominio. También se interrumpirá la sincronización entre el inquilino de Azure AD y el dominio administrado.

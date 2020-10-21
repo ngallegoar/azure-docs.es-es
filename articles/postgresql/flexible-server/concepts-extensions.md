@@ -1,17 +1,17 @@
 ---
 title: 'Extensiones en Azure Database for PostgreSQL: Servidor flexible'
 description: 'Obtenga información sobre las extensiones de Postgres disponibles en Azure Database for PostgreSQL: Servidor flexible'
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 1126c218f8e80b7d89183746890a3fae1357d29d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 7e9268f69b0ec8d06cd86fe5aec19a46b20a3a76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932109"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710590"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: Servidor flexible
 
@@ -33,6 +33,8 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > [!div class="mx-tableFixed"]
 > | **Extensión**| **Versión de la extensión** | **Descripción** |
 > |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.0.0           | Se utilizan para analizar una dirección en los elementos que la componen. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.0.0           | Aborda el ejemplo del conjunto de datos estandarizado de EE. UU.|
 > |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1.2             | Funciones de comprobación de la integridad de la relación.|
 > |[bloom](https://www.postgresql.org/docs/12/bloom.html)                    | 1,0             | Método de acceso de bloom: índice basado en archivos de firma.|
 > |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1.3             | Compatibilidad con la indexación de tipos de datos comunes en GIN|
@@ -61,7 +63,11 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | Muestra información de bloqueo de nivel de fila|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | Muestra estadísticas de nivel de tupla|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | Lenguaje de procedimientos de PL/pgSQL|
-> |[postgis](https://www.postgis.net/)                      | 3.0.0           | Geometría, geografía y funciones y tipos espaciales de trama de PostGIS|
+> |[postgis](https://www.postgis.net/)                      | 3.0.0           | Geografía/geometría de PostGIS |
+> |[postgis_raster](https://www.postgis.net/)               | 3.0.0           | Funciones y tipos de trama de PostGIS| 
+> |[postgis_sfcgal](https://www.postgis.net/)               | 3.0.0           | Funciones de PostGIS SFCGAL|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.0.0           | Geocoder de PostGIS tiger y geocoder inverso|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.0.0           | Funciones y tipos espaciales de topología PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1.0             | Contenedor de datos externos para servidores PostgreSQL remotos|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1.2             | Información sobre los certificados SSL.|
 > |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1.0             |  Método TABLESAMPLE que acepta el número de filas como un límite.|
@@ -76,8 +82,10 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > [!div class="mx-tableFixed"]
 > | **Extensión**| **Versión de la extensión** | **Descripción** |
 > |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Se utilizan para analizar una dirección en los elementos que la componen. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Aborda el ejemplo del conjunto de datos estandarizado de EE. UU.|
 > |[amcheck](https://www.postgresql.org/docs/11/amcheck.html)                    | 1.1             | Funciones de comprobación de la integridad de la relación.|
-> |[bloom](https://www.postgresql.org/docs/11/bloom.html)                    | 1,0             | Método de acceso de bloom: índice basado en archivos de firma.|
+> |[bloom](https://www.postgresql.org/docs/11/bloom.html)                    | 1.0             | Método de acceso de bloom: índice basado en archivos de firma.|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | Compatibilidad con la indexación de tipos de datos comunes en GIN|
 > |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | Compatibilidad con la indexación de tipos de datos comunes en GiST|
 > |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | Tipo de datos para cadenas de caracteres que no distinguen mayúsculas de minúsculas|
@@ -105,18 +113,33 @@ Las extensiones siguientes están disponibles en los servidores flexibles de Azu
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Muestra estadísticas de nivel de tupla|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | Lenguaje de procedimientos de PL/pgSQL|
 > |[postgis](https://www.postgis.net/)                      | 2.5.1           | Geometría, geografía y funciones y tipos espaciales de trama de PostGIS|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | Funciones de PostGIS SFCGAL|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | Geocoder de PostGIS tiger y geocoder inverso|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Funciones y tipos espaciales de topología PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | Contenedor de datos externos para servidores PostgreSQL remotos|
 > |[sslinfo](https://www.postgresql.org/docs/11/sslinfo.html)                    | 1.2             | Información sobre los certificados SSL.|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | Funciones que manipulan la totalidad del contenido de las tablas, incluidas tablas de referencias cruzadas|
-> |[tsm_system_rows](https://www.postgresql.org/docs/11/tsm-system-rows.html)                    | 1,0             |  Método TABLESAMPLE que acepta el número de filas como un límite.|
-> |[tsm_system_time](https://www.postgresql.org/docs/11/tsm-system-time.html)                    | 1,0             |  Método TABLESAMPLE que acepta el tiempo en milisegundos como un límite.|
+> |[tsm_system_rows](https://www.postgresql.org/docs/11/tsm-system-rows.html)                    | 1.0             |  Método TABLESAMPLE que acepta el número de filas como un límite.|
+> |[tsm_system_time](https://www.postgresql.org/docs/11/tsm-system-time.html)                    | 1.0             |  Método TABLESAMPLE que acepta el tiempo en milisegundos como un límite.|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | Diccionario de búsqueda de texto que quita los acentos|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | Genera identificadores únicos universales (UUID)|
+
+
+## <a name="dblink-and-postgres_fdw"></a>dblink y postgres_fdw
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) y [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) le permiten conectarse de un servidor PostgreSQL a otro, o a otra base de datos en el mismo servidor. El servidor de envío debe permitir conexiones de salida al servidor de recepción. El servidor de recepción debe permitir conexiones del servidor de envío.
+
+Recomendamos implementar los servidores con la [integración con red virtual](concepts-networking.md) si tiene previsto usar estas dos extensiones. De forma predeterminada, la integración con red virtual permite conexiones entre servidores en la red virtual. También puede elegir usar [grupos de seguridad de red (red virtual)](../../virtual-network/manage-network-security-group.md) para personalizar el acceso.
 
 
 ## <a name="pg_prewarm"></a>pg_prewarm
 
 La extensión pg_prewarm carga los datos relacionales en la memoria caché. El precalentamiento de las memorias caché significa que las consultas tengan mejores tiempos de respuesta en su primera ejecución después de un reinicio. La función de precalentamiento automático no está disponible actualmente en Azure Database for PostgreSQL: Servidor flexible.
+
+## <a name="pg_stat_statements"></a>pg_stat_statements
+La [extensión pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) está cargada previamente en cada servidor flexible de Azure Database for PostgreSQL para proporcionarle un medio de seguimiento de las estadísticas de ejecución de las instrucciones SQL.
+La configuración `pg_stat_statements.track`, que controla las instrucciones que la extensión cuenta, se establece de manera predeterminada en `top`, lo que significa que se realiza el seguimiento de todas las instrucciones que los clientes emiten directamente. Los otros dos niveles de seguimiento son `none` y `all`. Esta configuración se puede configurar como parámetro de servidor.
+
+Hay un equilibrio entre la información de ejecución de consulta que pg_stat_statements proporciona y el impacto en el rendimiento del servidor al registrar cada instrucción SQL. Si no está usando activamente la extensión pg_stat_statements, le recomendamos que establezca `pg_stat_statements.track` en `none`. Tenga en cuenta que algunos servicios de supervisión de terceros pueden basarse en pg_stat_statements para entregar información de rendimiento de consultas, por lo que debe confirmar si este es el caso para usted o no.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

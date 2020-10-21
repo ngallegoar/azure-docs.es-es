@@ -3,13 +3,13 @@ title: Visualización de los registros de controlador de Azure Kubernetes Servic
 description: Aprenda a habilitar y ver los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 01/03/2019
-ms.openlocfilehash: 4d4485848bb81f9b745081bd999b3cd3e8101b41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/14/2020
+ms.openlocfilehash: 79ed9308488725d9be0c839bbd04b6783bbbd85a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299078"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076392"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -30,8 +30,16 @@ Los registros de Azure Monitor se habilitan y administran en Azure Portal. Para 
 1. Seleccione el clúster de AKS, como *myAKSCluster*, y elija **Agregar configuración de diagnóstico**.
 1. Escriba un nombre, como *myAKSClusterLogs* y seleccione la opción **Send to Log Analytics** (Enviar a Log Analytics).
 1. Seleccione un área de trabajo existente o cree uno. Al crear un área de trabajo, proporciónele un nombre, un grupo de recursos y una ubicación.
-1. En la lista de registros disponibles, seleccione los que desea habilitar. En este ejemplo, habilite los registros de *kube-audit*. Los registros típicos incluyen *kube-apiserver*, *kube-controller-manager* y *kube-scheduler*. Puede volver y cambiar los registros recopilados una vez que las áreas de trabajo de Log Analytics está habilitadas.
+1. En la lista de registros disponibles, seleccione los que desea habilitar. En este ejemplo, habilite los registros *kube-audit* y *kube-audit-admin*. Los registros típicos incluyen *kube-apiserver*, *kube-controller-manager* y *kube-scheduler*. Puede volver y cambiar los registros recopilados una vez que las áreas de trabajo de Log Analytics está habilitadas.
 1. Cuando esté listo, seleccione **Guardar** para habilitar la recopilación de los registros seleccionados.
+
+## <a name="log-categories"></a>Categorías de registro
+
+Además de las entradas escritas por Kubernetes, los registros de auditoría del proyecto también tienen entradas de AKS.
+
+Los registros de auditoría se registran en dos categorías, *kube-audit-admin* y *kube-audit*. La categoría *kube-audit* contiene todos los datos de registro de auditoría para cada evento de auditoría, los que incluyen *get*, *list*, *create*, *update*, *delete*, *patch* y *post*.
+
+La categoría *kube-audit-admin* es un subconjunto de la categoría de registro *kube-audit*. *kube-audit-admin* reduce considerablemente el número de registros al excluir los eventos de auditoría *get* y *list* del registro.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Programación de un pod de prueba en el clúster de AKS
 
@@ -67,7 +75,12 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visualización de los datos recopilados
 
-Los registros de diagnóstico pueden tardar unos minutos en habilitarse y aparecer. En Azure Portal, vaya al clúster de AKS y seleccione **Registros** en el lado izquierdo. Si aparece, cierre la ventana *Consultas de ejemplo*.
+Los registros de diagnóstico pueden tardar unos minutos en habilitarse y aparecer.
+
+> [!NOTE]
+> Si necesita todos los datos de registro de auditoría para cumplimiento u otros propósitos, recopílelos y almacénelos en un almacenamiento económico, como el almacenamiento de blobs. Use la categoría de registro *kube-audit-admin* para recopilar y almacenar un conjunto significativo de datos de registro de auditoría con fines de supervisión y alerta.
+
+En Azure Portal, vaya al clúster de AKS y seleccione **Registros** en el lado izquierdo. Si aparece, cierre la ventana *Consultas de ejemplo*.
 
 En el lado izquierdo, elija **Registros**. Para ver los registros de *kube-audit*, escriba la siguiente consulta en el cuadro de texto:
 
@@ -85,6 +98,24 @@ AzureDiagnostics
 | where log_s contains "nginx"
 | project log_s
 ```
+
+Para ver los registros de *kube-audit-admin*, escriba la consulta siguiente en el cuadro de texto:
+
+```
+AzureDiagnostics
+| where Category == "kube-audit-admin"
+| project log_s
+```
+
+En este ejemplo, la consulta muestra todos los trabajos de creación en *kube-audit-admin*. Es posible que se devuelvan muchos resultados y, para reducir el ámbito de la consulta y ver los registros sobre el pod de NGINX creado en el paso anterior, agregue una instrucción *where* adicional para buscar *nginx*, como se muestra en la consulta de ejemplo siguiente.
+
+```
+AzureDiagnostics
+| where Category == "kube-audit-admin"
+| where log_s contains "nginx"
+| project log_s
+```
+
 
 Para más información acerca de cómo consultar y filtrar datos de registro, consulte el artículo de [Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics][analyze-log-analytics].
 

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a8fcadb8bdd4862dd95625228e3c190e5fe19a9a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204461"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961687"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar el servicio Administrador de dispositivos de StorSimple para administrar volúmenes (Update 3 o posterior)
 
@@ -155,11 +155,11 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
    3. Aumentar la **Capacidad aprovisionada**. La **Capacidad aprovisionada** solo puede aumentarse. No se puede reducir un volumen después de crearlo.
    4. En **Hosts conectados**, puede modificar el ACR. Para modificar un ACR, el volumen debe estar sin conexión.
 
-       ![Revisar el impacto de desconectar el volumen](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
+       ![Revisión del impacto de desconectar el volumen 2](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 
 5. Haga clic en **Guardar** para guardar los cambios. Cuando se le pida confirmación, haga clic en **Sí**. El Portal de Azure mostrará un mensaje de actualización del volumen. Presentará en la pantalla un mensaje de confirmación cuando el volumen se haya actualizado correctamente.
 
-    ![Revisar el impacto de desconectar el volumen](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Revisión del impacto de desconectar el volumen 3](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
 
 7. Si se va a expandir un volumen, realice los pasos siguientes en el equipo host Windows:
    
@@ -215,7 +215,7 @@ Es posible que quiera cambiar un volumen anclado localmente por uno en capas si 
 
 1. Vaya al servicio Administrador de dispositivos de StorSimple y, después, haga clic en **Dispositivos**. En la lista tabular de los dispositivos, seleccione el dispositivo que tiene el volumen que quiere modificar. Haga clic en **Configuración > Volúmenes**.
 
-    ![Ir a la hoja Volúmenes](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Navegación a la hoja Volúmenes 2](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
 3. Desde la lista tabular de volúmenes, seleccione el volumen y haga clic con el botón derecho para abrir el menú contextual. Seleccione **Modificar**.
 
@@ -249,7 +249,7 @@ Es posible que necesite desconectar un volumen si tiene previsto modificarlo o e
    
     1. Vaya al servicio Administrador de dispositivos de StorSimple y, después, haga clic en **Dispositivos**. En la lista tabular de los dispositivos, seleccione el dispositivo que tiene el volumen que quiere modificar. Haga clic en **Configuración > Volúmenes**.
 
-        ![Ir a la hoja Volúmenes](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+        ![Navegación a la hoja Volúmenes 3](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
     2. Desde la lista tabular de volúmenes, seleccione el volumen y haga clic con el botón derecho para abrir el menú contextual. Seleccione **Desconectar** para desconectar el volumen que va a modificar.
 
@@ -257,7 +257,7 @@ Es posible que necesite desconectar un volumen si tiene previsto modificarlo o e
 
 3. En la hoja **Desconectar**, revise el impacto de desconectar el volumen y active la casilla correspondiente. Haga clic en **Desconectar**. 
 
-    ![Revisar el impacto de desconectar el volumen](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Revisión el impacto de desconectar el volumen 4](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
       
       Se le notificará cuando el volumen esté sin conexión. El estado del volumen también se actualiza a Sin conexión.
       
@@ -277,7 +277,7 @@ Siga estos pasos para eliminar un volumen.
 
 1. Vaya al servicio Administrador de dispositivos de StorSimple y, después, haga clic en **Dispositivos**. En la lista tabular de los dispositivos, seleccione el dispositivo que tiene el volumen que quiere modificar. Haga clic en **Configuración > Volúmenes**.
 
-    ![Ir a la hoja Volúmenes](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Navegación a la hoja Volúmenes 4](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
 3. Compruebe el estado del volumen que desea eliminar. Si el volumen que quiere eliminar no está desconectado, desconéctelo primero. Siga los pasos de [Desconexión de un volumen](#take-a-volume-offline).
 4. Después de que el volumen esté sin conexión, seleccione el volumen, haga clic con el botón derecho para abrir el menú contextual y después seleccione **Eliminar**.

@@ -1,19 +1,20 @@
 ---
-title: 'Optimización de los costos de almacenamiento de blobs con capacidad reservada: Azure Storage'
+title: Optimización de los costos de almacenamiento de blobs con capacidad reservada
+titleSuffix: Azure Storage
 description: Obtenga información sobre cómo comprar la capacidad reservada de Azure Storage para ahorrar costos en blobs en bloques y recursos de Azure Data Lake Storage Gen2.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: cf96906b0dab9a94febe83468f813c7cae0675b0
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259208"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874822"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimización de los costos de almacenamiento de blobs con capacidad reservada
 
@@ -29,7 +30,7 @@ En las secciones siguientes se describen los términos de una reserva de Azure S
 
 ### <a name="reservation-capacity"></a>Capacidad de reserva
 
-Puede comprar capacidad reservada de Azure Storage en unidades de 100 TB y 1 PB al mes durante un período de uno o tres años.
+Puede comprar capacidad reservada de Azure Storage en unidades de 100 TiB y 1 PiB al mes durante un período de uno o tres años.
 
 ### <a name="reservation-scope"></a>Ámbito de la reserva
 
@@ -62,7 +63,7 @@ Para adquirir capacidad reservada:
 
 Cuando compra una reserva de Azure Storage, debe elegir la opción de región, nivel de acceso y redundancia para la reserva. La reserva solo es válida para los datos almacenados en esa región, el nivel de acceso y el nivel de redundancia. Por ejemplo, supongamos que adquiere una reserva de datos en la región Oeste de EE. UU. para el nivel de acceso frecuente mediante el almacenamiento con redundancia de zona (ZRS). No se puede usar la misma reserva para datos en la región Este de EE. UU., datos en el nivel de archivo o datos en almacenamiento con redundancia geográfica (GRS). Sin embargo, puede adquirir otra reserva para sus necesidades adicionales.  
 
-Las reservas están disponibles hoy para bloques de 100 TB o 1 PB, con descuentos superiores para los bloques de 1 PB. Cuando se adquiere una reserva en Azure Portal, Microsoft puede proporcionarle recomendaciones basadas en el uso anterior para ayudar a determinar qué reserva debe comprar.
+Las reservas están disponibles hoy para bloques de 100 TiB o 1 PiB, con descuentos superiores para los bloques de 1 PiB. Cuando se adquiere una reserva en Azure Portal, Microsoft puede proporcionarle recomendaciones basadas en el uso anterior para ayudar a determinar qué reserva debe comprar.
 
 ## <a name="purchase-azure-storage-reserved-capacity"></a>Compra de capacidad reservada de Azure Storage
 
@@ -86,7 +87,7 @@ Siga estos pasos para adquirir la capacidad reservada:
    | **Nivel de acceso** | El nivel de acceso donde está en vigor la reserva. Entre las opciones se incluyen *Frecuente*, *Esporádico* o *De archivo*. Para más información acerca de los niveles de acceso, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente](storage-blob-storage-tiers.md). |
    | **Redundancia** | La opción de redundancia para la reserva. Entre las opciones se incluyen *LRS*, *ZRS*, *GRS*, *GZRS*, *RA-GRS* y *RA-GZRS*. Para más información sobre las opciones de redundancia, consulte [Redundancia de Azure Storage](../common/storage-redundancy.md). |
    | **Frecuencia de facturación** | Indica la frecuencia con la que se factura la cuenta para la reserva. Entre las opciones se incluyen *Mensual* o *Por adelantado*. |
-   | **Tamaño** | La región donde está en vigor la reserva. |
+   | **Tamaño** | Cantidad de capacidad que se va a reservar. |
    |**Término**  | Un año o tres años.   |
 
 1. Después de seleccionar los parámetros para la reserva, Azure Portal muestra el costo. El portal también muestra el porcentaje de descuento en la facturación de pago por uso.

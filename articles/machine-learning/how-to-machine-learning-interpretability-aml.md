@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: dc07d2826d3c27fad1eee644da36cb7b4f85ea3c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897471"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708261"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Uso del paquete de interpretación para explicar los modelos de Machine Learning y las predicciones en Python (versión preliminar)
 
@@ -42,10 +42,9 @@ Para más información sobre las técnicas de interpretación admitidas y los mo
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Generación del valor de importancia de la característica en el equipo personal 
 En el siguiente ejemplo se muestra cómo usar el paquete de interpretación en el equipo personal sin ponerse en contacto con los servicios de Azure.
 
-1. Instale los paquetes `azureml-interpret` y `azureml-contrib-interpret`.
+1. Instale el paquete `azureml-interpret`.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 
 2. Entrene un modelo de muestra en un cuaderno local de Jupyter.
@@ -239,15 +238,14 @@ En el ejemplo siguiente se muestra cómo usar la clase `ExplanationClient` para 
 * Usa `ExplanationClient` en la ejecución remota para cargar el contexto de interpretación.
 * Descarga el contexto más adelante en un entorno local.
 
-1. Instala los paquetes `azureml-interpret` y `azureml-contrib-interpret`.
+1. Instale el paquete `azureml-interpret`.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 1. Cree un script de entrenamiento en un cuaderno local de Jupyter. Por ejemplo, `train_explain.py`.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     from azureml.core.run import Run
     from interpret.ext.blackbox import TabularExplainer
 
@@ -275,12 +273,12 @@ En el ejemplo siguiente se muestra cómo usar la clase `ExplanationClient` para 
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Configure una instancia de Azure Machine Learning Compute como destino de proceso y envíe la ejecución de entrenamiento. Para obtener instrucciones, consulte [Creación de destinos de proceso con el SDK para Python](how-to-create-attach-compute-sdk.md#amlcompute). También puede encontrar útil los [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation).
+1. Configure una instancia de Azure Machine Learning Compute como destino de proceso y envíe la ejecución de entrenamiento. Consulte el artículo sobre cómo [crear y administrar clústeres de proceso de Azure Machine Learning](how-to-create-attach-compute-cluster.md) para obtener instrucciones. También puede encontrar útil los [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation).
 
 1. Descargue la explicación en el cuaderno de Jupyter Notebook local.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     
     client = ExplanationClient.from_run(run)
     
@@ -332,29 +330,12 @@ Puede cargar el gráfico de importancia de la característica individual para cu
 
 [![Gráficos ICE del panel de visualización](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
 
-> [!NOTE]
-> Antes de que se inicie el kernel de Jupyter, asegúrese de habilitar las extensiones de widget para el panel de visualización.
-
-* Jupyter Notebook
-
-    ```shell
-    jupyter nbextension install --py --sys-prefix azureml.contrib.interpret.visualize
-    jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
-    ```
-
-* JupyterLab
-
-    ```shell
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager
-    jupyter labextension install microsoft-mli-widget
-    ```
-
 Para cargar el panel de visualización, use el código siguiente.
 
 ```python
 from interpret_community.widget import ExplanationDashboard
 
-ExplanationDashboard(global_explanation, model, dataset=x_test)
+ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualización en Azure Machine Learning Studio
@@ -370,7 +351,7 @@ Siga una de estas rutas de acceso para llegar al panel de visualización de Azur
   1. Seleccione un experimento determinado para ver todas las ejecuciones de ese experimento.
   1. Seleccione una ejecución y, después, la pestaña **Explanations** (Explicaciones) para ver el panel de visualización de explicaciones.
 
-   [![Importancia de características locales del panel de visualización](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Importancia de la característica local del panel de visualización en AzureML Studio en experimentos](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * Panel **Models** (Modelos)
   1. Si registró el modelo original siguiendo los pasos descritos en [Implementación de modelos con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), puede seleccionar **Models** (Modelos) en el panel izquierdo para verlo.

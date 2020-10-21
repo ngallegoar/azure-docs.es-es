@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 6f5051dd7dedcc49320557f17148bcdc9bf539ab
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d533b8fed47b1790cc35429613179f440f1fac51
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399759"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961755"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Supervisión de métricas y registro en Azure Front Door
 
 Con Azure Front Door, puede supervisar los recursos de las siguientes maneras:
 
-- **Métricas**. Azure Front Door tiene actualmente siete métricas para ver los contadores de rendimiento.
+- **Métricas**. Azure Front Door tiene actualmente ocho métricas para ver los contadores de rendimiento.
 - **Registros**. Los registros de actividad y diagnóstico permiten que un recurso guarde o consuma datos de rendimiento, acceso u otros con fines de supervisión.
 
 ### <a name="metrics"></a>Métricas
@@ -34,7 +34,7 @@ Las métricas son una característica de determinados recursos de Azure en los q
 | RequestCount | Recuento de solicitudes | Count | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Número de solicitudes de cliente que atiende Front Door.  |
 | RequestSize | Tamaño de la solicitud | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Número de bytes enviados como solicitudes de clientes a Front Door. |
 | ResponseSize | Tamaño de la respuesta | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Número de bytes enviados como respuestas de Front Door a los clientes. |
-| TotalLatency | Latencia total | Milisegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Tiempo calculado desde que Front Door recibe la solicitud de cliente hasta que el cliente reconoce el último byte de respuesta de Front Door. |
+| TotalLatency | Latencia total | Milisegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | El tiempo total desde la solicitud de cliente recibida por Front Door hasta el último byte de respuesta enviado desde ADF al cliente. |
 | BackendRequestCount | Recuento de solicitudes de back-end | Count | HttpStatus</br>HttpStatusGroup</br>Back-end | Número de solicitudes enviadas de Front Door a los servidores back-end. |
 | BackendRequestLatency | Latencia de las solicitudes de back-end | Milisegundos | Back-end | Tiempo calculado desde que Front Door envía la solicitud al servidor back-end hasta que Front Door recibe el último byte de respuesta del servidor back-end. |
 | BackendHealthPercentage | Porcentaje de estado del back-end | Percent | Back-end</br>BackendPool | El porcentaje de sondeos de estado correctos de Front Door a los servidores back-ends. |
@@ -52,16 +52,16 @@ Acceda a registros de actividad en Front Door o a los registros de todos los re
 1. Seleccione la instancia de Front Door.
 2. Seleccione **Registro de actividad**.
 
-    ![Registro de actividades](./media/front-door-diagnostics/activity-log.png)
+    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Registro de actividad":::
 
 3. Elija un ámbito de filtrado y, a continuación, seleccione **Aplicar**.
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registros de diagnóstico
 Los registros de diagnóstico proporcionan información valiosa acerca de las operaciones y los errores que son importantes para la auditoría, así como para solucionar problemas. Los registros de diagnóstico son diferentes de los registros de actividad.
 
-Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros de diagnóstico proporcionan conclusiones detalladas sobre las operaciones que realiza el recurso. Para más información, vea [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
+Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros de diagnóstico proporcionan conclusiones detalladas sobre las operaciones que ha hecho el recurso. Para más información, vea [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-![Registros de diagnóstico](./media/front-door-diagnostics/diagnostic-log.png)
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Registro de actividad":::
 
 Para configurar los registros de diagnóstico para Front Door:
 
@@ -75,7 +75,7 @@ Front Door actualmente proporciona los registros de diagnóstico (agrupados por
 
 | Propiedad  | Descripción |
 | ------------- | ------------- |
-| BackendHostname | Si la solicitud se reenvió a un back-end, este campo representa el nombre de host del back-end. Este campo estará en blanco si la solicitud se redirigió o reenvió a una caché regional (si el almacenamiento en caché está habilitado para la regla de enrutamiento). |
+| BackendHostname | Si la solicitud se reenvió a un back-end, este campo representa el nombre de host del back-end. Este campo estará en blanco si la solicitud se redirige o reenvía a una caché regional (si el almacenamiento en caché está habilitado para la regla de enrutamiento). |
 | CacheStatus | En el caso de los escenarios de almacenamiento en caché, este campo define el número de aciertos y errores de caché en el POP |
 | ClientIp | Dirección IP del cliente que realizó la solicitud. Si hubiera un encabezado X-Forwarded-For en la solicitud, la dirección IP del cliente se seleccionaría del mismo. |
 | ClientPort | Puerto IP del cliente que realizó la solicitud. |
@@ -90,20 +90,49 @@ Front Door actualmente proporciona los registros de diagnóstico (agrupados por
 | RoutingRuleName | El nombre de la regla de enrutamiento que coincidió con la solicitud. |
 | RulesEngineMatchNames | Los nombres de las reglas que coincidieron con la solicitud. |
 | SecurityProtocol | La versión del protocolo TLS/SSL utilizada por la solicitud o null si no hay cifrado. |
-| SentToOriginShield | Campo booleano que representa si se produjo un error de caché en el primer entorno y la solicitud se envió a la caché regional. Omita este campo si la regla de enrutamiento es un redireccionamiento o si no tiene habilitado el almacenamiento en caché. |
+| SentToOriginShield </br> (en desuso)* **Consulte las notas sobre el desuso en la sección siguiente.**| Si es True, significa que la solicitud se respondió desde la memoria caché del escudo de origen en lugar del PoP perimetral. El escudo de origen es una memoria caché primaria que se usa para mejorar la proporción de aciertos de caché. |
+| isReceivedFromClient | Si es true, significa que la solicitud procedía del cliente. Si es false, la solicitud es una línea no ejecutada en el servidor perimetral (POP secundario) y se responde desde el escudo de origen (POP primario). 
 | TimeTaken | Período de tiempo desde el primer byte de la solicitud en Front Door hasta el último byte de la respuesta, en segundos. |
 | TrackingReference | La cadena de referencia exclusiva que identifica una solicitud atendida por Front Door, que también se envía como encabezado X-Azure-Ref al cliente. Se requiere para buscar los detalles en los registros de acceso para una solicitud específica. |
 | UserAgent | Tipo de explorador utilizado por el cliente. |
 
-**Nota:** En el caso de varias configuraciones de enrutamiento y comportamientos de tráfico, algunos de los campos como backendHostname, cacheStatus, sentToOriginShield y POP, pueden responder con valores diferentes. En la tabla siguiente se explican los distintos valores que estos campos tendrán para diversos escenarios:
+### <a name="sent-to-origin-shield-deprecation"></a>Desuso de la propiedad de envío al escudo de origen
+La propiedad **isSentToOriginShield** del registro sin procesar ha quedado en desuso y se ha reemplazado por un nuevo campo, **isReceivedFromClient**. Use el nuevo campo si aún usa el campo en desuso. 
 
-| Escenarios | Recuento de entradas de registro | POP | BackendHostname | SentToOriginShield | CacheStatus |
+Los registros sin procesar incluyen los registros generados tanto desde el servidor perimetral de la red CDN (POP secundario) como desde el escudo de origen. El escudo de origen hace referencia a los nodos primarios que están ubicados de manera estratégica por todo el planeta. Estos nodos se comunican con los servidores de origen y reducen la carga de tráfico en el origen. 
+
+Por cada solicitud que va al escudo de origen, hay dos entradas de registro:
+
+* Una para los nodos perimetrales y
+* otra para el escudo de origen. 
+
+Para diferenciar la salida o las respuestas de los nodos perimetrales de las del escudo de origen, puede usar el campo **isReceivedFromClient** para obtener los datos correctos. 
+
+Si el valor es false, significa que la solicitud se responde desde el escudo de origen a los nodos perimetrales. Este enfoque es eficaz para comparar los registros sin procesar con los datos de facturación. No se paga por la salida del escudo de origen a los nodos perimetrales. Se paga por la salida de los nodos perimetrales a los clientes. 
+
+**Ejemplo de consulta Kusto para excluir los registros generados en el escudo de origen en Log Analytics.**
+
+`AzureDiagnostics 
+| where Category == "FrontdoorAccessLog" and isReceivedFromClient_b == true`
+
+> [!NOTE]
+> En el caso de varias configuraciones de enrutamiento y comportamientos de tráfico, algunos de los campos, como backendHostname, cacheStatus, isReceivedFromClient y POP, pueden responder con valores diferentes. En la tabla siguiente se explican los distintos valores que estos campos tendrán para diversos escenarios:
+
+| Escenarios | Recuento de entradas de registro | POP | BackendHostname | isReceivedFromClient | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Regla de enrutamiento sin almacenamiento en caché habilitado | 1 | Código POP perimetral | El back-end al que se reenvió la solicitud | False | CONFIG_NOCACHE |
-| Regla de enrutamiento con almacenamiento en caché habilitado. Aciertos de caché en el POP perimetral | 1 | Código POP perimetral | Vacío | False | HIT |
-| Regla de enrutamiento con almacenamiento en caché habilitado. Error de caché en el POP perimetral pero acierto en el POP de la caché primaria | 2 | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. Nombre de host de POP de caché primaria</br>2. Vacío | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
-| Regla de enrutamiento con almacenamiento en caché habilitado. Error de caché en el POP perimetral y en el de caché primaria | 2 | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. Nombre de host de POP de caché primaria</br>2. Back-end que ayuda a rellenar la memoria caché | 1. True</br>2. False | 1. MISS</br>2. MISS |
+| Regla de enrutamiento sin almacenamiento en caché habilitado | 1 | Código POP perimetral | El back-end al que se reenvió la solicitud | Verdadero | CONFIG_NOCACHE |
+| Regla de enrutamiento con almacenamiento en caché habilitado. Aciertos de caché en el POP perimetral | 1 | Código POP perimetral | Vacío | Verdadero | HIT |
+| Regla de enrutamiento con almacenamiento en caché habilitado. Error de caché en el POP perimetral pero acierto en el POP de la caché primaria | 2 | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. Nombre de host de POP de caché primaria</br>2. Vacío | 1. True</br>2. False | 1. MISS</br>2. HIT |
+| Regla de enrutamiento con almacenamiento en caché habilitado. Error de caché en el POP perimetral pero acierto PARTIAL en el POP de la caché primaria | 2 | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. Nombre de host de POP de caché primaria</br>2. Back-end que ayuda a rellenar la memoria caché | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
+| Regla de enrutamiento con almacenamiento en caché habilitado. PARTIAL_HIT en el POP perimetral pero acierto en el POP de la caché primaria | 2 | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. True</br>2. False | 1. PARTIAL_HIT</br>2. HIT |
+| Regla de enrutamiento con almacenamiento en caché habilitado. Error de caché en el POP perimetral y en el de caché primaria | 2 | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. Código POP perimetral</br>2. Código POP de caché primaria | 1. True</br>2. False | 1. MISS</br>2. MISS |
 
+> [!NOTE]
+> En el caso de los escenarios de almacenamiento en caché, el valor del estado de la memoria caché será partial_hit cuando se sirvan algunos de los bytes para una solicitud desde la memoria caché del escudo de origen o perimetral de Front Door, mientras que algunos de los bytes se sirven desde el origen de los objetos grandes.
+
+Front Door usa una técnica denominada fragmentación de objetos. Cuando se solicita un archivo grande, Front Door recupera partes más pequeñas del origen. Una vez que el servidor POP de Front Door recibe una solicitud de archivo completa o de intervalo de bytes, el servidor perimetral de Front Door solicita el archivo al origen en fragmentos de 8 MB.
+
+Una vez que llega el fragmento al perímetro de la red Front Door, se almacena en caché y se sirve inmediatamente al usuario. Después, Front Door realiza una captura previa del siguiente fragmento en paralelo. Este captura previa garantiza que el contenido sigue estando un fragmento por delante del usuario, lo que reduce la latencia. Este proceso continúa hasta que se descarga todo el archivo (si se solicita), todos los intervalos de bytes están disponibles (si se solicitan) o el cliente cierra la conexión. Para más información sobre la solicitud de intervalo de bytes, vea RFC 7233. La red Front Door almacena en caché los fragmentos cuando se reciben. No es necesario almacenar el archivo entero en la caché de Front Door. Las solicitudes subsiguientes del archivo o los intervalos de bytes se sirven desde la caché de Front Door. Si no se almacenan en caché todos los fragmentos en la red Front Door, se usa la captura previa para solicitar fragmentos del origen. Esta optimización se basa en la capacidad del servidor de origen de admitir solicitudes de intervalo de bytes. Si el servidor de origen no admite solicitudes de intervalo de bytes, esta optimización no es efectiva.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 488ca52abdd5f8d6cfd1f92a5f91861a17a77d19
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510513"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91757034"
 ---
 # <a name="how-to-manage-settings"></a>Cómo administrar la configuración
 
@@ -51,6 +51,8 @@ Si no tiene una suscripción, siga los pasos a continuación:
 
     ![Cuadro de diálogo Crear área de trabajo nueva](media/how-to/create-new-workspace-dialog.png)
 
+>[!Note]
+>El Traductor personalizado no admite la creación de un área de trabajo para el recurso de Translator Text API, conocido también como clave de suscripción de Azure, que se creó en la [red virtual habilitada](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
 
 ### <a name="modify-existing-key"></a>Modificación de la clave existente
 
@@ -61,7 +63,7 @@ Si no tiene una suscripción, siga los pasos a continuación:
 
 3. En el cuadro de diálogo, escriba la clave de la suscripción a Translator y, a continuación, haga clic en el botón "Guardar".
 
-    ![Cómo incorporar la clave de suscripción](media/how-to/how-to-add-subscription-key-dialog.png)
+    ![Cómo agregar el cuadro de diálogo de la clave de suscripción](media/how-to/how-to-add-subscription-key-dialog.png)
 
 ## <a name="manage-your-workspace"></a>Administración del área de trabajo
 

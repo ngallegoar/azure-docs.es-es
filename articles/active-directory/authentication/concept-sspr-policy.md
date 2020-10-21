@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/27/2020
-ms.author: iainfou
-author: iainfoulds
+ms.date: 10/05/2020
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 695d47c839a9436f4fad9399f7995b3197e1c0eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052722"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965002"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Restricciones de cuenta y directivas de contraseñas en Azure Active Directory
 
@@ -41,11 +41,13 @@ En la siguiente tabla, se describen las directivas de nombre de usuario que se a
 
 ## <a name="azure-ad-password-policies"></a><a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Directivas de contraseña de Azure AD
 
-Una directiva de contraseñas se aplica a todas las cuentas de usuario que se crean y administran directamente en Azure AD. Esta directiva de contraseña no se puede modificar, aunque puede [configurar contraseñas prohibidas personalizadas para la protección de contraseñas de Azure AD](tutorial-configure-custom-password-protection.md).
+Una directiva de contraseñas se aplica a todas las cuentas de usuario que se crean y administran directamente en Azure AD. Algunos de los ajustes de esta directiva de contraseñas no se pueden modificar, aunque puede [configurar contraseñas prohibidas personalizadas para la protección de contraseñas de Azure AD](tutorial-configure-custom-password-protection.md) o parámetros de bloqueo de cuentas.
 
-La directiva de contraseñas no se aplica a las cuentas de usuario que se sincronizan desde un entorno de AD DS local mediante Azure AD Connect a menos que habilite EnforceCloudPasswordPolicyForPasswordSyncedUsers.
+De manera predeterminada, una cuenta se bloquea después de 10 intentos de inicio de sesión no superados con una contraseña incorrecta. El usuario se queda bloqueado durante un minuto. Más intentos de inicio de sesión incorrectos bloquean el usuario durante mayor cantidad de tiempo. El [bloqueo inteligente](howto-password-smart-lockout.md) realiza un seguimiento de los últimos tres códigos hash de contraseña incorrecta para evitar que aumente el contador de bloqueo con la misma contraseña. Si alguien escribe la misma contraseña incorrecta varias veces, este comportamiento no hará que la cuenta se bloquee. Puede definir el umbral de bloqueo inteligente y la duración.
 
-Se definen las siguientes opciones de directiva de contraseñas:
+La directiva de contraseñas de Azure AD no se aplica a las cuentas de usuario que se sincronizan desde un entorno de AD DS local mediante Azure AD Connect, a menos que habilite *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
+
+Se definen las siguientes opciones de directiva de contraseñas de Azure AD. A menos que se indique, no se puede cambiar estos ajustes:
 
 | Propiedad | Requisitos |
 | --- | --- |
@@ -57,11 +59,10 @@ Se definen las siguientes opciones de directiva de contraseñas:
 | Expiración de las contraseñas (permitir que las contraseñas no expiren nunca) |<ul><li>Valor predeterminado: **falso** (indica que las contraseñas tienen una fecha de expiración).</li><li>El valor se puede configurar para cuentas de usuario individuales mediante el cmdlet `Set-MsolUser`.</li></ul> |
 | Historial de cambios de contraseña | La última contraseña *no* puede usarse de nuevo cuando el usuario cambia una contraseña. |
 | Historial de restablecimientos de contraseña | La última contraseña *puede* usarse de nuevo cuando el usuario restablece una contraseña olvidada. |
-| Bloqueo de cuenta | Después de 10 intentos de inicio de sesión incorrectos con una contraseña incorrecta, el usuario se bloquea durante un minuto. Más intentos de inicio de sesión incorrectos bloquean el usuario durante mayor cantidad de tiempo. El [bloqueo inteligente](howto-password-smart-lockout.md) realiza un seguimiento de los últimos tres códigos hash de contraseña incorrecta para evitar que aumente el contador de bloqueo con la misma contraseña. Si alguien escribe la misma contraseña incorrecta varias veces, este comportamiento no hará que la cuenta se bloquee. |
 
 ## <a name="administrator-reset-policy-differences"></a>Diferencias entre directivas de restablecimiento de administrador
 
-Microsoft aplica una directiva segura de restablecimiento de contraseña de *dos puertas* predeterminada para cualquier rol de administrador de Azure. Esta directiva puede ser diferente de la que se ha definido para los usuarios y no se puede cambiar. Siempre debe probar la funcionalidad de restablecimiento de contraseña como usuario sin los roles de administrador de Azure asignados.
+De forma predeterminada, las cuentas de administrador están habilitadas para el autoservicio de restablecimiento de contraseña, y se aplica una robusta directiva de restablecimiento de contraseña de *dos puertas* de forma predeterminada. Esta directiva puede ser diferente de la que se ha definido para los usuarios y no se puede cambiar. Siempre debe probar la funcionalidad de restablecimiento de contraseña como usuario sin los roles de administrador de Azure asignados.
 
 Con una directiva de dos puertas, los administradores no tienen posibilidad de usar preguntas de seguridad.
 
@@ -93,6 +94,8 @@ Una directiva de dos puertas requiere dos elementos de los datos de autenticaci�
 * Una vez transcurridos 30 días en una suscripción de prueba
 * Se ha configurado un dominio personalizado para el inquilino de Azure AD, como *contoso.com*; o
 * Azure AD Connect sincroniza identidades desde el directorio local
+
+Puede deshabilitar el uso de SSPR para las cuentas de administrador mediante el cmdlet de PowerShell [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). El parámetro `-SelfServePasswordResetEnabled $False` deshabilita SSPR para los administradores.
 
 ### <a name="exceptions"></a>Excepciones
 

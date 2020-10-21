@@ -2,13 +2,13 @@
 title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 56c50354a6ecbd6ba1d9a806f986cea1c4f3215f
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.date: 10/01/2020
+ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235985"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91653373"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -174,8 +174,8 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | galleries/images/versions | imagen | Entero de 32 bits | Números y puntos. |
 > | images | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
 > | snapshots | resource group | 1-80 | Caracteres alfanuméricos, de subrayado, puntos y guiones.<br><br>Comience con un carácter alfanumérico. Termine con un carácter alfanumérico o de subrayado. |
-> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar:<br> `\/"'[]:|<>+=;,?*@&`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar:<br> `\/"'[]:|<>+=;,?*@&`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
+> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar espacio ni estos caracteres:<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Las máquinas virtuales no pueden incluir ningún punto ni terminar con un guion.<br><br>Las máquinas virtuales Linux no pueden terminar con un punto ni un guion. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vea la nota siguiente. | No puede usar espacio ni estos caracteres:<br> `\/"'[]:|<>+=;,?*@&`<br><br>No puede comenzar con un carácter de subrayado. No puede terminar con un punto ni un guion. |
 
 > [!NOTE]
 > Las máquinas virtuales de Azure tienen dos nombres distintos: el nombre de recurso y el nombre de host. Cuando se crea una máquina virtual en el portal, se usa el mismo valor para ambos nombres. Las restricciones de la tabla anterior son para el nombre de host. El nombre de recurso real puede tener hasta 64 caracteres.
@@ -392,7 +392,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | actionGroups | resource group | 1-260 | No puede usar:<br>`/` <br><br>No puede terminar con un espacio ni punto.  |
+> | actionGroups | resource group | 1-260 | No puede usar:<br>`/&%\?` <br><br>No puede terminar con un espacio ni punto.  |
 > | components | resource group | 1-260 | No puede usar:<br>`%&\?/` <br><br>No puede terminar con un espacio ni punto.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral

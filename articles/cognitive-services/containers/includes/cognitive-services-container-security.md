@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: fd2a6cdad01302501e30ec60a4d3ccf6efd9c266
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876845"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91545360"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Protección de los contenedores en Azure Cognitive Services
 
@@ -27,7 +27,7 @@ En el diagrama siguiente se muestra el enfoque predeterminado, que **no es segur
 
 ![Seguridad del contenedor](../media/container-security.svg)
 
-Como método alternativo y *seguro*, los consumidores de contenedores de Cognitive Services podrían aumentar un contenedor con un componente frontal y mantener el punto de conexión del contenedor privado. Veamos un escenario en el que usamos [Istio][istio] como puerta de enlace de entrada. Istio admite HTTPS/TLS y la autenticación con certificado de cliente. En este escenario, el front-end de Istio expone el acceso al contenedor, al presentar de antemano el certificado de cliente que se encuentra en la lista de permitidos con Istio.
+Como método alternativo y *seguro*, los consumidores de contenedores de Cognitive Services podrían aumentar un contenedor con un componente frontal y mantener el punto de conexión del contenedor privado. Veamos un escenario en el que usamos [Istio][istio] como puerta de enlace de entrada. Istio admite HTTPS/TLS y la autenticación con certificado de cliente. En este escenario, el front-end de Istio expone el acceso del contenedor, y presenta de antemano el certificado de cliente que está aprobado con Istio.
 
 [Nginx][nginx] es otra opción popular de la misma categoría. Tanto Istio como Nginx actúan como malla de servicio y ofrecen características adicionales, como equilibrio de carga, enrutamiento y control de velocidad.
 

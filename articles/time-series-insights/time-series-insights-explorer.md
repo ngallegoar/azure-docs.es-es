@@ -10,16 +10,19 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1bcf8ec2395dbc94154072c1c4d839bf45125a3e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487307"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91568649"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Explorador de Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Este es un artículo de Gen1.
 
 En este artículo se describen las características y opciones de la [aplicación web del Explorador](https://insights.timeseries.azure.com/) de Azure Time Series Insights Gen1. El Explorador de Azure Time Series Insights demuestra las poderosas funciones de visualización de datos que proporciona el servicio y que son accesibles dentro de su propio entorno.
 
@@ -41,7 +44,7 @@ Azure Time Series Insights es un servicio de análisis, almacenamiento y adminis
 
 Antes de poder usar el Explorador de Azure Time Series Insights, debe hacer lo siguiente:
 
-- Crear un entorno de Azure Time Series Insights. Para más información, lea [Introducción a Azure Time Series Insights](./time-series-insights-get-started.md).
+- Creación de un entorno de Azure Time Series Insights. Para más información, lea [Introducción a Azure Time Series Insights](./time-series-insights-get-started.md).
 - [Proporcionar acceso](time-series-insights-data-access.md) a la cuenta en el entorno.
 - Agregarle como origen de evento un [centro de IoT](time-series-insights-how-to-add-an-event-source-iothub.md) o un [centro de eventos](time-series-insights-how-to-add-an-event-source-eventhub.md).
 
@@ -108,7 +111,7 @@ Minutos después de conectar el origen del evento al entorno de Azure Times Seri
 
 1. Use el **mapa térmico** para detectar rápidamente una serie de datos única o anómala en una consulta determinada. Solo un término de búsqueda se puede visualizar como un mapa térmico.
 
-    [![Gráficos de mapa térmico del Explorador de Time Series Insights](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [Gráfico de mapa térmico del explorador de Time Series Insights](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. Cuando se exploran eventos seleccionándolos o haciendo clic en ellos con el botón derecho, aparece disponible el panel **EVENTOS**. Aquí, puede revisar todos los eventos sin procesar y exportar los eventos como archivos JSON o CSV. Azure Time Series Insights almacena todos los datos sin procesar.
 

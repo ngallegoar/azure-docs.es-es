@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 2fc869448bac8303acee902b5d8819fdd3f26138
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8b36eee38275d18e6977c056192176f6fd54a917
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258513"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91611663"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use Azure Portal para administrar Azure Data Box y Azure Data Box Heavy
 
@@ -202,7 +202,7 @@ Realice los siguientes pasos para descargar el historial de pedidos.
 
 También puede ver la cadena de los registros de custodia que incluyen los registros de auditoría y los archivos de la lista de materiales.
 
-![Registros en las cuentas de almacenamiento](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+![Registros en las cuentas de almacenamiento 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
 
 ## <a name="view-order-status"></a>Visualización del estado del pedido
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: eb7cf1899b24ed225941f0a02040206504e6486b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7429be4430b2b520fb2a66b6b2c0dd138af8e501
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095568"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850598"
 ---
 # <a name="azure-firewall-features"></a>Características de Azure Firewall
 
@@ -62,7 +62,7 @@ Azure Firewall puede escalarse verticalmente todo lo que sea necesario para acog
 
 ## <a name="application-fqdn-filtering-rules"></a>Reglas de filtrado de FQDN de aplicación
 
-Puede limitar el tráfico HTTP/S o el tráfico de Azure SQL (versión preliminar) saliente a una lista especificada de nombres de dominio completos (FQDN) que incluye caracteres comodín. Esta característica no requiere terminación de TLS.
+Puede limitar el tráfico HTTP/S o el tráfico de Azure SQL saliente a una lista especificada de nombres de dominio completos (FQDN) que incluye caracteres comodín. Esta característica no requiere terminación de TLS.
 
 ## <a name="network-traffic-filtering-rules"></a>Reglas de filtrado de tráfico de red
 
@@ -101,7 +101,11 @@ Esto admite los siguientes escenarios:
 
 ## <a name="azure-monitor-logging"></a>Registro de Azure Monitor
 
-Todos los eventos se integran en Azure Monitor, lo que permite archivar registros en una cuenta de almacenamiento, transmitir eventos al centro de eventos o enviarlos a los registros de Azure Monitor. Para más información, consulte el [Tutorial: Supervisión de métricas y registros de Azure Firewall](tutorial-diagnostics.md).
+Todos los eventos se integran en Azure Monitor, lo que permite archivar registros en una cuenta de almacenamiento, transmitir eventos al centro de eventos o enviarlos a los registros de Azure Monitor. Para obtener ejemplos de registro de Azure Monitor, consulte [Registros de Azure Monitor para Azure Firewall](log-analytics-samples.md).
+
+Para más información, consulte el [Tutorial: Supervisión de métricas y registros de Azure Firewall](tutorial-diagnostics.md). 
+
+El libro de Azure Firewall proporciona un lienzo flexible para el análisis de datos de Azure Firewall. Puede utilizarlo para crear informes visuales completos en Azure Portal. Para más información, consulte [Supervisión de registros mediante el libro de Azure Firewall](firewall-workbook.md).
 
 ## <a name="forced-tunneling"></a>Tunelización forzada
 

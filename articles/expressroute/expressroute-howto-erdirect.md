@@ -1,22 +1,22 @@
 ---
 title: 'Azure ExpressRoute: Configuración de ExpressRoute Direct'
-description: Aprenda a usar Azure PowerShell para configurar Azure ExpressRoute Direct para conectarse directamente a la red global de Microsoft en ubicaciones de emparejamiento distribuidas por todo el mundo.
+description: Aprenda a usar Azure PowerShell para configurar Azure ExpressRoute Direct para conectarse directamente a la red global de Microsoft.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: c4ce764f50f85ef9979d5a14235759c16228f6b7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: a450c4057b4639206fd1db4b7f44d27c69441f7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396036"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569842"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Cómo configurar ExpressRoute Direct
 
-ExpressRoute Direct le ofrece la capacidad para conectarse directamente a la red global de Microsoft en ubicaciones de emparejamiento distribuidas estratégicamente por todo el mundo. Para obtener más información, consulte [Acerca de ExpressRoute Direct](expressroute-erdirect-about.md).
+ExpressRoute Direct le ofrece la posibilidad de conectarse directamente a la red global de Microsoft mediante ubicaciones de emparejamiento distribuidas estratégicamente por todo el mundo. Para obtener más información, consulte [Acerca de ExpressRoute Direct](expressroute-erdirect-about.md).
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Crear el recurso
 
@@ -155,9 +155,22 @@ ExpressRoute Direct le ofrece la capacidad para conectarse directamente a la red
    Circuits                   : []
    ```
 
-## <a name="change-admin-state-of-links"></a><a name="state"></a>Cambiar el estado de administración de los vínculos
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Generación de la Carta de autorización (LOA)
 
-  Este proceso debe usarse para llevar a cabo una prueba de nivel 1, para garantizar que cada conexión cruzada está correctamente revisada en cada enrutador principal y secundario.
+Haga referencia al recurso de ExpressRoute Direct creado recientemente, escriba un nombre de cliente para escribir en la LOA y, opcionalmente, defina una ubicación de archivo para almacenar el documento. Si no se hace referencia a una ruta de acceso de archivo, el documento se descargará en el directorio actual.
+
+  ```powershell 
+   New-AzExpressRoutePortLOA -ExpressRoutePort $ERDirect -CustomerName TestCustomerName -Destination "C:\Users\SampleUser\Downloads" 
+   ```
+ **Salida del ejemplo**
+
+   ```powershell
+   Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
+   ```
+
+## <a name="change-admin-state-of-links"></a><a name="state"></a>Cambiar el estado de administración de los vínculos
+   
+Este proceso debe usarse para llevar a cabo una prueba de nivel 1, para garantizar que cada conexión cruzada está correctamente revisada en cada enrutador principal y secundario.
 1. Obtenga los detalles de ExpressRoute Direct.
 
    ```powershell
@@ -227,13 +240,13 @@ ExpressRoute Direct le ofrece la capacidad para conectarse directamente a la red
 
 ## <a name="create-a-circuit"></a><a name="circuit"></a>Crear un circuito
 
-De forma predeterminada, puede crear 10 circuitos en la suscripción donde se encuentra el recurso ExpressRoute Direct. Si desea aumentar este número, puede ponerse en contacto con el soporte técnico. Recuerde que debe realizar usted mismo el seguimiento tanto del ancho de banda aprovisionado como el del utilizado. El ancho de banda aprovisionado es la suma del ancho de banda de todos los circuitos en el recurso ExpressRoute Direct, y el ancho de banda utilizado corresponde al uso físico de las interfaces físicas subyacentes.
+De forma predeterminada, puede crear 10 circuitos en la suscripción donde se encuentra el recurso ExpressRoute Direct. Si quiere aumentar este límite, puede ponerse en contacto con el soporte técnico. Recuerde que debe realizar usted mismo el seguimiento tanto del ancho de banda aprovisionado como el del utilizado. El ancho de banda aprovisionado es la suma del ancho de banda de todos los circuitos en el recurso ExpressRoute Direct, y el ancho de banda utilizado corresponde al uso físico de las interfaces físicas subyacentes.
 
-Asimismo, existen anchos de banda de circuito adicionales que se pueden utilizar en ExpressRoute Direct solo para admitir los escenarios descritos anteriormente. Dichos componentes son: 40 Gbps y 100 Gbps.
+Existen anchos de banda de circuito adicionales que se pueden utilizar en ExpressRoute Direct para admitir solo los escenarios descritos anteriormente. Estos anchos de banda son 40 Gbps y 100 Gbps.
 
-**SkuTier** puede ser Local, Estándar o Premium.
+**SkuTier** puede ser Local, Standard o Premium.
 
-**SkuFamily** deben ser datos limitados solo, ya los ilimitados no son compatibles con ExpressRoute Direct.
+**SkuFamily** solo puede ser MeteredData. Ilimitado no se admite en ExpressRoute Direct.
 
 Cree un circuito en el recurso ExpressRoute Direct.
 

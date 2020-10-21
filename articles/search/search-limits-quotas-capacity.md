@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 570481eab44c64db3ec3f513281badd124a2bbdc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 6c422b9a70f679279d1310444aafb1f9131ff944
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825496"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949857"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Límites de servicio en Azure Cognitive Search
 
@@ -50,7 +50,7 @@ Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantid
 
 <sup>1</sup> Los servicios básicos creados antes de diciembre de 2017 tienen límites inferiores (5 en lugar de 15) en los índices. El nivel básico es la única SKU con un límite inferior de 100 campos por índice.
 
-<sup>2</sup> Existe un límite superior para los elementos, porque tener una cantidad elevada de estos provoca un uso elevado del almacenamiento. Un elemento de una colección compleja se define como un miembro de esa colección. Por ejemplo, supongamos [un documento de hotel con una colección de habitaciones compleja](search-howto-complex-data-types.md#indexing-complex-types), donde cada habitación de dicha colección se considera un elemento. Durante la indexación, el motor de indexación puede procesar de forma segura un máximo de 3000 elementos en el documento en su totalidad. [Este límite](search-api-migration.md#upgrade-to-2019-05-06) se presentó en `api-version=2019-05-06` y se aplica solo a colecciones complejas, no a colecciones de cadenas ni a campos complejos.
+<sup>2</sup> Existe un límite superior para los elementos porque tener un gran número de ellos aumenta significativamente el almacenamiento necesario para el índice. Un elemento de una colección compleja se define como un miembro de esa colección. Por ejemplo, supongamos [un documento de hotel con una colección de habitaciones compleja](search-howto-complex-data-types.md#indexing-complex-types), donde cada habitación de dicha colección se considera un elemento. Durante la indexación, el motor de indexación puede procesar de forma segura un máximo de 3000 elementos en el documento en su totalidad. [Este límite](search-api-migration.md#upgrade-to-2019-05-06) se presentó en `api-version=2019-05-06` y se aplica solo a colecciones complejas, no a colecciones de cadenas ni a campos complejos.
 
 <a name="document-limits"></a>
 
@@ -104,7 +104,7 @@ Los tiempos de ejecución máximos existen para proporcionar equilibrio y estabi
 ### <a name="shared-private-link-resource-limits"></a>Límites de recursos compartidos de Private Link
 
 > [!NOTE]
-> Los indexadores pueden acceder a los recursos de forma segura mediante puntos de conexión privados administrados con la [API de recursos compartidos de Private Link](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources), como se describe en esta [guía de procedimientos](search-indexer-howto-access-private.md).
+> Los indexadores pueden acceder a los recursos de forma segura mediante puntos de conexión privados administrados con la [API de recursos compartidos de Private Link](/rest/api/searchmanagement/sharedprivatelinkresources), como se describe en esta [guía de procedimientos](search-indexer-howto-access-private.md).
 
 | Resource | Gratuito | Básica | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |

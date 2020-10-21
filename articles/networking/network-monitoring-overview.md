@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36e41db6e1a3cff13f31f0abf2e83e872dfd7c49
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67672175"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91742339"
 ---
 # <a name="network-monitoring-solutions"></a>Soluciones de supervisión de redes 
 
@@ -65,7 +65,7 @@ NPM para ExpressRoute ofrece una supervisión completa de ExpressRoute para cone
 * Detección de la topología de red del entorno local a las aplicaciones en la nube
 * Planeamiento de la capacidad, análisis de uso de ancho de banda
 * Supervisión y alertas relacionadas con las rutas de acceso principales y secundarias
-* Supervisión de la conectividad a los servicios de Azure, como Office 365, Dynamics 365, etc., mediante ExpressRoute
+* Supervisión de la conectividad a los servicios de Azure, como Microsoft 365, Dynamics 365, etc., mediante ExpressRoute
 * Detección del deterioro de la conectividad con redes virtuales
 
 ![Mapa geográfico que muestra el tráfico entre regiones](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -84,7 +84,7 @@ Con el Monitor de conectividad de servicio, ahora puede probar la accesibilidad 
 * Probar la accesibilidad de las aplicaciones desde varias ubicaciones de usuario en todo el mundo
 * Determinar la pérdida de paquetes y la latencia de red para la línea de negocio y las aplicaciones SaaS
 * Determinar las zonas activas en la red, que puedan estar causando el rendimiento insuficiente de las aplicaciones
-* Supervisar la disponibilidad para las aplicaciones de Office 365, con pruebas integradas de Microsoft Office 365, Dynamics 365, Skype Empresarial y otros servicios de Microsoft
+* Supervisar la disponibilidad para las aplicaciones de Microsoft 365, con pruebas integradas de Microsoft 365, Dynamics 365, Skype Empresarial y otros servicios de Microsoft
 
 Para más información, consulte los siguientes artículos.
 
@@ -103,7 +103,7 @@ Análisis de tráfico es una solución basada en la nube que proporciona visibil
 
 Análisis de tráfico le proporciona información práctica que le ayuda a auditar la actividad de red de la organización, a proteger las aplicaciones y los datos, a optimizar el rendimiento de la carga de trabajo y a satisfacer los requisitos de cumplimiento.
 
-![Mapa geográfico que muestra el tráfico entre regiones](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+![Mapa geográfico que muestra el tráfico entre regiones 2](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 Vínculos relacionados:
 * [Entrada de blog](https://aka.ms/trafficanalytics), [Documentación](https://aka.ms/trafficanalyticsdocs), [Preguntas frecuentes](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)

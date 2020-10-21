@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183724"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743580"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Cambio del valor predeterminado de la ruta de acceso de un blob
 
@@ -69,7 +69,7 @@ Lleve a cabo estos pasos para crear una función de Azure:
      
 10. En la ventana Función, ejecute el archivo _.csx_.
 
-    ![Creación de una función de C#](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
+    ![Creación de una función de C# 2](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
     Lleve a cabo los siguiente pasos.
 
@@ -191,7 +191,7 @@ Lleve a cabo estos pasos para crear una función de Azure:
 
     2. Haga clic en **+ Agregar**.
         
-        ![Vínculo "View files" (Ver archivos)](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
+        ![Agregar nueva función y Agregar archivo](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
     3. Escriba **project.json** y presione **Entrar**. En el archivo **project.json**, peque el siguiente código:
 
@@ -211,7 +211,7 @@ Lleve a cabo estos pasos para crear una función de Azure:
     
     4. Haga clic en **Save**(Guardar).
 
-        ![Vínculo "View files" (Ver archivos)](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
+        ![Json de proyecto de la nueva función](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
 Acaba de crear una función de Azure. Esta función se desencadena cada vez que el trabajo de transformación de datos genera un blob nuevo.
 

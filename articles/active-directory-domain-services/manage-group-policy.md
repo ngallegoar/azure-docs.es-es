@@ -1,7 +1,7 @@
 ---
 title: Creación y administración de directivas de grupo en Azure AD Domain Services | Microsoft Docs
 description: Obtenga información sobre cómo editar los objetos de directiva de grupo (GPO) integrados y crear sus propias directivas personalizadas en un dominio administrado con Azure Active Directory Domain Services.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: d9738d3abfdf30e133ae241c497823be349d25da
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: deefcb66e05199896e8997d707a06e45f397adec
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040085"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963745"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrar directiva de grupo en un dominio administrado de Azure Active Directory Domain Services
 
@@ -90,7 +90,7 @@ Hay dos objetos de directiva de grupo integrados (GPO) en un dominio administrad
 
 1. Se abre la herramienta Editor de administración de directivas de grupo para que pueda personalizar el GPO, como *Directivas de cuenta*:
 
-    ![Personalización del GPO para configurar las opciones según sea necesario](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![Captura de pantalla del Editor de administración de directivas de grupo.](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
     Cuando haya terminado, seleccione **Archivo > Guardar** para guardar la directiva. Los equipos actualizan la directiva de grupo de forma predeterminada cada 90 minutos y aplican los cambios realizados.
 

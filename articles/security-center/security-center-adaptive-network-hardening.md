@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: 4b47646e2f051a8fbfefbc36aa879bb80e9eca68
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e6bb3389fe035b1ccfbefaca788a40530581ac7a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439018"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91851086"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protección de red adaptable en Azure Security Center
-Obtenga información sobre cómo configurar la protección de red adaptable en Azure Security Center.
+Obtenga información sobre cómo configurar la protección de red adaptable en Security Center.
 
 ## <a name="availability"></a>Disponibilidad
 |Aspecto|Detalles|
@@ -37,20 +37,22 @@ La aplicación de [grupos de seguridad de red (NSG)](https://docs.microsoft.com/
 
 La protección de red adaptable proporciona recomendaciones para proteger mejor las reglas de NSG. Usa un algoritmo de aprendizaje automático que tiene en cuenta el tráfico real, la configuración de confianza conocida, la inteligencia de amenazas y otros indicadores de riesgo, y luego proporciona recomendaciones para permitir el tráfico solo desde tuplas IP y puerto específicas.
 
-Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico desde 140.20.30.10/24 en el puerto 22. La recomendación de la protección de red adaptable, según el análisis, sería restringir el rango y permitir el tráfico desde 140.23.30.10/29, que es un intervalo de IP más restringido, y denegar todo el tráfico restante a ese puerto.
+Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico desde 140.20.30.10/24 en el puerto 22. En función del análisis del tráfico, la protección de red adaptable podría recomendar la limitación del intervalo para permitir el tráfico desde 140.23.30.10/29 y denegar todo el tráfico restante en ese puerto.
 
->[!TIP]
+>[!Note]
 > Las recomendaciones de la protección de red adaptable solo se admiten en los siguientes puertos (para UDP y TCP): 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 2301, 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985, 5986, 6379, 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017 y 37215.
 
 
-![Vista de la protección de red](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+## <a name="view-and-manage-hardening-alerts-and-rules"></a>Visualización y administración de alertas y reglas de protección
 
+1. En el menú de Security Center, abra el panel de **Azure Defender** y seleccione el icono de protección de red adaptable (1) o el elemento del panel de conclusiones relacionado con la protección de red adaptable (2). 
 
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/traffic-hardening.png" alt-text="Acceso a las herramientas de protección de red adaptable" lightbox="./media/security-center-adaptive-network-hardening/traffic-hardening.png":::
 
+    > [!TIP]
+    > En el panel de conclusiones se muestra el porcentaje de las máquinas virtuales que se defienden actualmente con la protección de red adaptable. 
 
-## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visualización de las alertas y reglas de protección de red adaptable
-
-1. En Security Center, seleccione **Redes** -> **Protección de red adaptable**. Las VM de red aparecen en tres pestañas independientes:
+1. La página de detalles de la recomendación **Las recomendaciones de protección de redes adaptables se deben aplicar en las máquinas virtuales orientadas a Internet** se abre con las máquinas virtuales de red agrupadas en tres pestañas:
    * **Recursos con estado incorrecto** : VM que tienen actualmente recomendaciones y alertas que se desencadenaron mediante la ejecución del algoritmo de protección de red adaptable. 
    * **Recursos con estado correcto**: VM sin alertas ni recomendaciones.
    * **Recursos sin analizar** : VM en las que no se puede ejecutar el algoritmo de protección de red adaptable debido a uno de los motivos siguientes:
@@ -58,33 +60,28 @@ Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico de
       * **No hay suficientes datos disponibles**: para generar recomendaciones de protección de tráfico precisas, Security Center requiere al menos 30 días de datos de tráfico.
       * **La VM no está protegida por Azure Defender**: Solo las máquinas virtuales protegidas con [Azure Defender para servidores](defender-for-servers-introduction.md) son válidas para esta característica.
 
-     ![Recursos con estado incorrecto](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Acceso a las herramientas de protección de red adaptable":::
 
-2. En la pestaña **Recursos con estado incorrecto**, seleccione una VM para ver sus alertas y las reglas de protección recomendadas que se deben aplicar.
+1. En la pestaña **Recursos con estado incorrecto**, seleccione una VM para ver sus alertas y las reglas de protección recomendadas que se deben aplicar.
 
-    ![Alertas de protección](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
+    - En la pestaña **Reglas** se enumeran las reglas que recomiendan la protección de red adaptable que agregue.
+    - En la pestaña **Alertas** se enumeran las alertas que se generaron debido al tráfico, que fluye al recurso y que no está dentro del intervalo de IP permitidas en las reglas recomendadas.
 
+1. Si lo desea, edite las reglas:
 
-## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Revisión y aplicación de las reglas recomendadas de protección de red adaptable
-
-1. En la pestaña **Recursos con estado incorrecto**, seleccione una VM. Se muestran las alertas y reglas de protección recomendadas.
-
-     ![Reglas de protección](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
-
-   > [!NOTE]
-   > En la pestaña **Reglas** se enumeran las reglas que recomiendan la protección de red adaptable que agregue. En la pestaña **Alertas** se enumeran las alertas que se generaron debido al tráfico, que fluye al recurso y que no está dentro del intervalo de IP permitidas en las reglas recomendadas.
-
-2. Si desea cambiar algunos de los parámetros de una regla, puede modificar esta última, tal como se explica en [Modificación de una regla](#modify-rule).
-   > [!NOTE]
-   > También puede [eliminar](#delete-rule) o [agregar](#add-rule) una regla.
+    - [Modificación de una regla](#modify-rule)
+    - [Eliminar una regla](#delete-rule) 
+    - [Adición de una regla](#add-rule)
 
 3. Seleccione las reglas que desea aplicar en el NSG y haga clic en **Aplicar**.
 
+    > [!TIP]
+    > Si los intervalos de direcciones IP de origen permitidos se muestran como "Ninguno", significa que la regla recomendada es una regla de *denegación*; de lo contrario, es una regla de *permiso*.
+
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Acceso a las herramientas de protección de red adaptable":::
+
       > [!NOTE]
       > Las reglas aplicadas se agregan a los NSG que protegen la VM. (Una VM podría estar protegida por un NSG asociado a su NIC, la subred en la que reside la VM o ambos).
-
-    ![Aplicar reglas](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
-
 
 ### <a name="modify-a-rule"></a>Modificación de una regla <a name ="modify-rule"> </a>
 

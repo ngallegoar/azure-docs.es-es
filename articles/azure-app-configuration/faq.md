@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: b1483230313b9e1b8e59cafea478b14ba0dfcc70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 99c74547d5f48f57af56af69f47190d80d9cd350
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587351"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074964"
 ---
 # <a name="azure-app-configuration-faq"></a>Preguntas frecuentes de Azure App Configuration
 
@@ -43,9 +43,13 @@ Puede crear valores de App Configuration que hagan referencia a secretos almace
 
 Sí. App Configuration cifra todos los valores de clave que contiene, así como la comunicación de red. Los nombres de clave y las etiquetas se usan como índices para recuperar los datos de configuración y no se cifran.
 
+## <a name="where-does-data-stored-in-app-configuration-reside"></a>¿Dónde residen los datos almacenados en App Configuration? 
+
+Los datos de cliente almacenados en App Configuration residen en la región en la que se creó el almacén de App Configuration del cliente. App Configuration puede replicar datos en [regiones emparejadas](../best-practices-availability-paired-regions.md) para la resistencia de los datos, pero no replicará ni moverá los datos de cliente fuera de su geoárea según lo definido por la [residencia de datos en Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Los clientes y los usuarios finales pueden mover, copiar o acceder a los datos de cliente desde cualquier ubicación global.
+
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>¿En qué se diferencia App Configuration de la configuración de Azure App Service?
 
-Azure App Service permite definir la configuración de la aplicación para cada instancia de App Service. Estas configuraciones se pasan como variables de entorno al código de la aplicación. Si lo desea, puede asociar un valor a una ranura de implementación específica. Para obtener más información, consulte [Configuración de aplicaciones](/azure/app-service/configure-common#configure-app-settings).
+Azure App Service permite definir la configuración de la aplicación para cada instancia de App Service. Estas configuraciones se pasan como variables de entorno al código de la aplicación. Si lo desea, puede asociar un valor a una ranura de implementación específica. Para obtener más información, consulte [Configuración de aplicaciones](../app-service/configure-common.md#configure-app-settings).
 
 En cambio, Azure App Configuration permite definir una configuración que se puede compartir entre varias aplicaciones. Esto incluye las aplicaciones que se ejecutan en App Service, así como otras plataformas. El código de la aplicación accede a esta configuración mediante los proveedores de configuración para .NET y Java, mediante el SDK de Azure o directamente mediante las API REST.
 
@@ -90,7 +94,7 @@ A continuación se indican algunas consideraciones para elegir un nivel.
     En el caso de los almacenes del nivel Estándar, las primeras 200 000 solicitudes diarias se incluyen en el cargo diario. Las solicitudes adicionales se facturan como uso por encima del límite.
 
 - **Contrato de nivel de servicio**: El nivel Estándar tiene un contrato de nivel de servicio del 99,9 % de disponibilidad. El nivel Gratis no tiene un contrato de nivel de servicio.
-- **Características de seguridad**: Ambos niveles incluyen la funcionalidad básica de seguridad, incluido el cifrado con claves administradas por Microsoft, la autenticación mediante HMAC o Azure Active Directory, la compatibilidad con RBAC y la identidad administrada. El nivel Estándar ofrece una funcionalidad de seguridad más avanzada, incluida la compatibilidad con Private Link y el cifrado con claves administradas por el cliente.
+- **Características de seguridad**: Ambos niveles incluyen la funcionalidad básica de seguridad, incluido el cifrado con claves administradas por Microsoft, la autenticación mediante HMAC o Azure Active Directory, la compatibilidad con Azure RBAC y la identidad administrada. El nivel Estándar ofrece una funcionalidad de seguridad más avanzada, incluida la compatibilidad con Private Link y el cifrado con claves administradas por el cliente.
 - **Costo**: Los almacenes del nivel Estándar tienen un cargo de uso diario. También hay un cargo por uso por encima del límite por las solicitudes más allá de la asignación diaria. El uso de un almacén del nivel Gratis no supone ningún costo.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>¿Puedo actualizar un almacén desde el nivel Gratis al nivel Estándar? ¿Puedo degradar un almacén del nivel Estándar al nivel Gratis?

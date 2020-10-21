@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 57b9d46918414cef9e8cbcffb941b98c98f985ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42c79526288fb7e05959ac60cddc6f468656ffd4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240342"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972550"
 ---
 # <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>Comunicarse con edgeAgent mediante métodos directos integrados
 
@@ -69,13 +69,14 @@ En el Azure Portal, invoque el método con el nombre de método `RestartModule` 
 
 ![Invoque un método directo ' RestartModule ' en Azure Portal](./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png)
 
-## <a name="experimental-methods"></a>Métodos experimentales
+## <a name="diagnostic-direct-methods"></a>Métodos directos de diagnóstico
 
-Las nuevas opciones de método directo están disponibles como características experimentales para probar, entre las que se incluyen:
+* [GetModuleLogs](how-to-retrieve-iot-edge-logs.md#retrieve-module-logs): Recupere los registros de módulo insertados en la respuesta del método directo.
+* [UploadModuleLogs](how-to-retrieve-iot-edge-logs.md#upload-module-logs): Recupere los registros de módulo y cárguelos en Azure Blob Storage.
+* [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics): Recupere los registros de módulo mediante un paquete de soporte y cargue un archivo zip en Azure Blob Storage.
+* [GetTaskStatus](how-to-retrieve-iot-edge-logs.md#get-upload-request-status): Compruebe el estado de una solicitud de registros de carga o paquete de soporte.
 
-* [UploadLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md): Recupere los registros de módulo y cárguelos en Azure Blob Storage.
-* [GetTaskStatus](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#gettaskstatus): Compruebe el estado de una solicitud de registros de carga.
-* [GetLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#getlogs): Recupere los registros de módulo insertados en la respuesta del método directo.
+Estos métodos directos de diagnóstico están disponibles a partir de la versión 1.0.10.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

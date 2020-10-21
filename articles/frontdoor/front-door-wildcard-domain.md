@@ -8,18 +8,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 349c00b312ba7c3f18bab04fb059199732b4f1b3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5194e088ce2bd35208a92c5295457e6c34cd2cc1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398756"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570319"
 ---
 # <a name="wildcard-domains"></a>Dominios con caracteres comodín
 
-Aparte de los dominios y los subdominios de vértice, puede asignar un nombre de dominio con comodín a la lista de hosts de front-end o a los dominios personalizados del perfil de Front Door. La presencia de dominios con caracteres comodín en la configuración de Azure Front Door simplifica el comportamiento de enrutamiento del tráfico para varios subdominios de una API, aplicación o sitio web a partir de la misma regla de enrutamiento. No es necesario modificar la configuración para agregar o especificar cada subdominio por separado. Por ejemplo, puede definir el enrutamiento para `customer1.contoso.com`, `customer2.contoso.com` y `customerN.contoso.com` con la misma regla de enrutamiento y agregando el dominio con caracteres comodín `*.contoso.com`.
+Aparte de los dominios y los subdominios de vértice, también puede asignar un dominio con caracteres comodín a los hosts de front-end o a los dominios personalizados del perfil de Azure Front Door. La presencia de dominios con caracteres comodín en la configuración de Azure Front Door simplifica el comportamiento de enrutamiento del tráfico para varios subdominios de una API, aplicación o sitio web a partir de la misma regla de enrutamiento. No es necesario modificar la configuración para agregar o especificar cada subdominio por separado. Por ejemplo, puede definir el enrutamiento para `customer1.contoso.com`, `customer2.contoso.com` y `customerN.contoso.com` con la misma regla de enrutamiento y agregando el dominio con caracteres comodín `*.contoso.com`.
 
 Entre los escenarios clave que se mejoran con la compatibilidad con los dominios con caracteres comodín se incluyen:
 
@@ -47,7 +47,7 @@ Puede agregar dominios con caracteres comodín y sus subdominios con ciertas lim
 - Si se agrega un dominio con caracteres comodín a un perfil de Azure Front-Door:
   - El dominio con caracteres comodín no se puede agregar a un perfil de Azure Front-Door.
   - Los subdominios del primer nivel del dominio con caracteres comodín no se pueden agregar a otro perfil de Azure Front Door o a un perfil de Azure Content Delivery Network.
-- Si se agrega un subdominio de un dominio con caracteres comodín a un perfil de Azure Front Door o de Azure Content Delivery Network, el dominio con caracteres comodín no se podrá agregar a ningún otro perfil de Azure Front Door.
+- Si ya se ha agregado un subdominio de un dominio con caracteres comodín a un perfil de Azure Front Door o de Azure Content Delivery Network, el dominio con caracteres comodín no se podrá usar para otro perfil de Azure Front Door.
 - Si dos perfiles (de Azure Front Door o de Azure Content Delivery Network) tienen varios subdominios de un dominio raíz, no se pueden agregar dominios con caracteres comodín a ninguno de los perfiles.
 
 ## <a name="certificate-binding"></a>Enlace de certificado
@@ -72,7 +72,7 @@ Si no quiere que una directiva de WAF se ejecute para un subdominio, puede crear
 Al configurar una regla de enrutamiento, puede seleccionar un dominio con caracteres comodín como host de front-end. También puede disponer de un comportamiento de enrutamiento diferente para los dominios y subdominios con caracteres comodín. Como se describe en [Coincidencia de rutas con Azure Front Door](front-door-route-matching.md), se elige la coincidencia más específica para el dominio en diferentes reglas de enrutamiento del entorno de ejecución.
 
 > [!IMPORTANT]
-> Debe tener patrones de ruta de acceso coincidentes en las reglas de enrutamiento o los clientes recibirán errores. Por ejemplo, tiene dos reglas de enrutamiento, como la ruta 1 (`*.foo.com/*` asignada al grupo de back-end A) y la ruta 2 (`bar.foo.com/somePath/*` asignada al grupo de back-end B). A continuación, llega una solicitud para `bar.foo.com/anotherPath/*`. Azure Front Door selecciona la ruta 2 en función de una coincidencia de dominio más específica, solo para buscar patrones de ruta de acceso no coincidentes en las rutas.
+> Debe tener patrones de ruta de acceso coincidentes en las reglas de enrutamiento o los clientes recibirán errores. Por ejemplo, tiene dos reglas de enrutamiento, como la ruta 1 (`*.foo.com/*` asignada al grupo de back-end A) y la ruta 2 (`/bar.foo.com/somePath/*` asignada al grupo de back-end B). A continuación, llega una solicitud para `bar.foo.com/anotherPath/*`. Azure Front Door selecciona la ruta 2 en función de una coincidencia de dominio más específica, solo para buscar patrones de ruta de acceso no coincidentes en las rutas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

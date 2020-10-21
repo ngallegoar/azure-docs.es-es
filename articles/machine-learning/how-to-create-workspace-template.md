@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/27/2020
-ms.openlocfilehash: 1feb4432111ce517d49396eb2cb516b0463268d8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/30/2020
+ms.openlocfilehash: 1978cfe6ea117a0d30df938c9e4ba1aeb48314fc
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883027"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057848"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
 
@@ -30,7 +30,14 @@ Para obtener más información, consulte [Implementación de una aplicación con
 
 * Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para usar una plantilla desde una CLI, necesita [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Para usar una plantilla desde una CLI, necesita [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+
+* Algunos escenarios requieren abrir una incidencia de soporte técnico. Dichos escenarios son:
+
+    * __Área de trabajo habilitada para Private Link con una clave administrada por el cliente (CMK)__
+    * __Azure Container Registry para el área de trabajo detrás de la red virtual__
+
+    Para obtener más información, consulte [Administración y configuración de cuotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## <a name="workspace-resource-manager-template"></a>Plantilla de Resource Manager de área de trabajo
 
@@ -272,7 +279,7 @@ Al establecer el valor del parámetro `vnetOption` en `new` o `existing`, podrá
 Si los recursos asociados no están detrás de una red virtual, puede establecer el parámetro **privateEndpointType** en `AutoAproval` o `ManualApproval` para implementar el área de trabajo detrás de un punto de conexión privado. Esto puede hacerse tanto en áreas de trabajo nuevas como existentes. Al actualizar un área de trabajo existente, rellene los parámetros de la plantilla con la información del área de trabajo existente.
 
 > [!IMPORTANT]
-> El uso de Azure Private Link para crear un punto de conexión privado para un área de trabajo de Azure Machine Learning se encuentra actualmente en versión preliminar pública. Esta funcionalidad solo está disponible en las regiones **Este de EE. UU.** , **Centro-sur de EE. UU.** y **Oeste de EE. UU. 2**. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> El uso de un área de trabajo Azure Machine Learning con un vínculo privado no está disponible en las regiones de Azure Government ni en las regiones de Azure China 21Vianet.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
 

@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370885"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874839"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -260,6 +260,10 @@ Si usa valores literales en las condiciones de combinación o tiene varias coinc
 #### <a name="sorting-before-joins"></a>Ordenación antes de las combinaciones
 
 A diferencia de la unión de combinación en herramientas como SSIS, la transformación Combinación no es una operación de unión de combinación obligatoria. Las claves de combinación no requieren que se ordene antes de la transformación. El equipo de Azure Data Factory no recomienda el uso de transformaciones de tipo Ordenar en los flujos de datos de asignación.
+
+### <a name="window-transformation-performance"></a>Rendimiento de la transformación de ventana
+
+La [transformación de ventana](data-flow-window.md) divide los datos por valor en las columnas que se seleccionan como parte de la cláusula ```over()``` en la configuración de la transformación. Hay una serie de funciones de agregado y análisis muy populares que se exponen en la transformación de ventanas. Sin embargo, si el caso de uso es generar una ventana sobre todo el conjunto de filas con el fin de clasificar ```rank()``` o el número de fila ```rowNumber()```, se recomienda que utilice en su lugar la [transformación de clasificación](data-flow-rank.md) y la [transformación de clave suplente](data-flow-surrogate-key.md). Esas transformaciones funcionarán mejor nuevamente con las operaciones de conjunto de datos completos que usan esas funciones.
 
 ### <a name="repartitioning-skewed-data"></a>Creación de nuevas particiones de datos asimétricos
 

@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 71b6f35b107a8cb213e97d9a05bdf93b93967606
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4a66db34adb4eb751abc741964b740b3b6f48c69
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256898"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073740"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Solución de problemas de verificación del editor
 Si no puede completar el proceso o experimenta u observa un comportamiento inesperado con la [verificación del editor](publisher-verification-overview.md), o si recibe errores, debe empezar por hacer lo siguiente: 
@@ -58,7 +58,7 @@ A continuación se muestran algunos problemas comunes que pueden producirse dura
     Es posible que los registros de aplicaciones se hayan creado con otra cuenta de usuario en este inquilino, una cuenta personal o de consumidor, o en otro inquilino. Asegúrese de que ha iniciado sesión con la cuenta correcta en el inquilino donde se crearon los registros de la aplicación.
 
 - **Recibo un error relacionado con la autenticación multifactor. ¿qué debo hacer?** 
-    Asegúrese de que la [autenticación multifactor](../fundamentals/concept-fundamentals-mfa-get-started.md) está habilitada y que se le exige al usuario con el que inicia sesión en este escenario. Por ejemplo, MFA podría ser:
+    Asegúrese de que la [autenticación multifactor](../fundamentals/concept-fundamentals-mfa-get-started.md) está habilitada y que se le **exige** al usuario con el que inicia sesión en este escenario. Por ejemplo, MFA podría ser:
     - Siempre obligatorio para el usuario con el que inicia sesión.
     - [Obligatorio para la administración de Azure](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Obligatorio para el tipo de administrador](../conditional-access/howto-conditional-access-policy-admin-mfa.md) con el que inicia sesión.
@@ -226,7 +226,9 @@ Esta característica no se admite para las cuentas de consumidor de Microsoft. S
 
 ### <a name="interactionrequired"></a>InteractionRequired
 
-Se produce cuando no se ha realizado la autenticación multifactor antes de intentar agregar un publicador verificado a la aplicación. Para obtener más información, vea [Errores comunes](#common-issues).
+Se produce cuando no se ha realizado la autenticación multifactor antes de intentar agregar un publicador verificado a la aplicación. Para obtener más información, vea [Errores comunes](#common-issues). Nota: MFA se debe realizar en la misma sesión al intentar agregar un publicador comprobado. Si se habilita MFA pero no es necesario que se realice en la sesión, se producirá un error en la solicitud.   
+
+El mensaje de error será: "Debido a un cambio de configuración realizado por el administrador, o porque usted se ha trasladado a una nueva ubicación, debe usar la autenticación multifactor para continuar".
 
 ## <a name="next-steps"></a>Pasos siguientes
 

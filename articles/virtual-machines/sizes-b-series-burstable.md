@@ -3,17 +3,17 @@ title: 'Serie B ampliable: Azure Virtual Machines'
 description: Describe la serie B de tamaños de las máquinas virtuales de Azure ampliables.
 services: virtual-machines
 ms.subservice: sizes
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: ayshak
-ms.openlocfilehash: a5a3887efe9b8f19608fac63216ca53576d9ec3f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.author: sttsinar
+ms.openlocfilehash: 506336ad80c1f30b937bc71724ca39cee24bb2fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654742"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968929"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamaños de las máquinas virtuales ampliables serie B
 
@@ -21,13 +21,14 @@ Las máquinas virtuales de la serie B son idóneas para cargas de trabajo que no
 
 La serie B incluye los siguientes tamaños de máquina virtual:
 
-Premium Storage:  Compatible
-
-Almacenamiento en caché de Premium Storage:  No compatible
-
-Migración en vivo: Compatible
-
-Actualizaciones con conservación de memoria: Compatible
+[Unidad de proceso de Azure (ACU)](./acu.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json): varía.*<br>
+[Premium Storage](premium-storage-performance.md): Compatible<br>
+[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): No compatible<br>
+[Migración en vivo](maintenance-and-updates.md): Compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+<br>
+*Las máquinas virtuales de la serie B son ampliables y, por tanto, los números de ACU variarán en función de las cargas de trabajo y del uso principal.
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento base de CPU de la máquina virtual | Rendimiento máximo de CPU de la máquina virtual | Créditos iniciales | Créditos ingresados/hora | Créditos máximos ingresados | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

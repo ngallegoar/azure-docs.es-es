@@ -1,38 +1,36 @@
 ---
 title: CI/CD con Azure Pipelines y plantillas
-description: Se describe cómo configurar la integración continua de Azure Pipelines mediante proyectos de implementación del grupo de recursos de Azure en Visual Studio.
+description: Describe cómo configurar la integración continua en Azure Pipelines mediante plantillas de Azure Resource Manager. Muestra cómo usar un script de PowerShell o copiar archivos en una ubicación de almacenamiento provisional e implementar desde allí.
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.date: 10/01/2020
+ms.openlocfilehash: 6784df30340e4c54b8b1d6e82b45046666824315
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084658"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91653407"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integración de plantillas de ARM con Azure Pipelines
 
-Visual Studio proporciona el proyecto del grupo de recursos de Azure para crear plantillas de Azure Resource Manager (ARM) e implementarlas en su suscripción a Azure. Este proyecto se puede integrar con Azure Pipelines para la integración e implementación continuas (CI/CD).
+Puede integrar plantillas de Azure Resource Manager (plantillas de Resource Manager) con Azure Pipelines para la integración continua e implementación continua (CI/CD). En el tutorial [Integración continua de plantillas de Resource Manager en Azure Pipelines](deployment-tutorial-pipeline.md) se muestra cómo usar la [tarea de implementación de la plantilla de Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) para implementar una plantilla desde el repositorio de GitHub. Este enfoque funciona cuando se desea implementar una plantilla directamente desde un repositorio.
 
-Hay dos maneras de implementar plantillas con Azure Pipelines:
+En este artículo, aprenderá dos formas adicionales de implementar plantillas con Azure Pipelines. En este artículo se muestra cómo:
 
-* **Agregar una tarea que ejecute un script de Azure PowerShell**. Esta opción tiene la ventaja de ofrecer coherencia en todo el ciclo de vida de desarrollo debido a que usa el mismo script que se incluye en el proyecto de Visual Studio (Deploy-AzureResourceGroup.ps1). El script agrega los artefactos del proyecto al "stage" en una cuenta de almacenamiento a la que Resource Manager puede acceder. Los artefactos son elementos del proyecto tales como plantillas vinculadas, scripts y archivos binarios de aplicación. Luego, el script implementa la plantilla.
+* **Agregar una tarea que ejecute un script de Azure PowerShell**. Esta opción tiene la ventaja de ofrecer coherencia en todo el ciclo de vida de desarrollo debido a que puede usar el mismo script que usó al ejecutar pruebas locales. El script implementa la plantilla, pero también puede realizar otras operaciones como obtener valores para usarlos como parámetros.
 
-* **Agregar tareas para copiar e implementar tareas**. Esta opción ofrece una alternativa conveniente al script del proyecto. Configure dos tareas en la canalización. Una tarea agrega los artefactos al "stage" y la otra tarea implementa la plantilla.
+   Visual Studio proporciona el [proyecto de grupo de recursos de Azure](create-visual-studio-deployment-project.md) que incluye un script de PowerShell. El script agrega los artefactos del proyecto al "stage" en una cuenta de almacenamiento a la que Resource Manager puede acceder. Los artefactos son elementos del proyecto tales como plantillas vinculadas, scripts y archivos binarios de aplicación. Si desea seguir usando el script del proyecto, use la tarea Script de PowerShell mostrada en este artículo.
 
-En este artículo se contemplan ambos métodos.
+* **Agregar tareas para copiar e implementar tareas**. Esta opción ofrece una alternativa conveniente al script del proyecto. Configure dos tareas en la canalización. Una tarea organiza los artefactos en una ubicación accesible. La otra tarea implementa la plantilla desde esa ubicación.
 
 ## <a name="prepare-your-project"></a>Preparación del proyecto
 
-En este artículo se presupone que su proyecto de Visual Studio y la organización de Azure DevOps están listos para crear la canalización. Los pasos siguientes muestran cómo asegurarse de que está listo:
+En este artículo se presupone que su plantilla de Resource Manager y la organización de Azure DevOps están listas para crear la canalización. Los pasos siguientes muestran cómo asegurarse de que está listo:
 
-* Tiene una organización de Azure DevOps. Si no tiene ninguna, [cree una gratis](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops). Si su equipo ya tiene una organización de Azure DevOps, compruebe que es administrador del proyecto de Azure DevOps que quiere utilizar.
+* Tiene una organización de Azure DevOps. Si no tiene ninguna, [cree una gratis](/azure/devops/pipelines/get-started/pipelines-sign-up). Si su equipo ya tiene una organización de Azure DevOps, compruebe que es administrador del proyecto de Azure DevOps que quiere utilizar.
 
-* Ha configurado una [conexión al servicio](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) en su suscripción de Azure. Las tareas en la canalización se ejecutan con la identidad de la entidad de servicio. Para conocer los pasos para crear la conexión, consulte [Crear un proyecto de DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
+* Ha configurado una [conexión al servicio](/azure/devops/pipelines/library/connect-to-azure) en su suscripción de Azure. Las tareas en la canalización se ejecutan con la identidad de la entidad de servicio. Para conocer los pasos para crear la conexión, consulte [Crear un proyecto de DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
 
-* Tiene un proyecto de Visual Studio que se creó a partir de la plantilla de inicio **Grupo de recursos de Azure**. Para más información sobre cómo crear ese tipo de proyecto, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](create-visual-studio-deployment-project.md).
-
-* El proyecto de Visual Studio está [conectado a un proyecto de Azure DevOps](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops).
+* Tiene una [plantilla de Resource Manager](quickstart-create-templates-use-visual-studio-code.md) que define la estructura del proyecto.
 
 ## <a name="create-pipeline"></a>Creación de una canalización
 
@@ -56,27 +54,32 @@ Está listo para agregar una tarea de Azure PowerShell o las tareas de copia de
 
 ## <a name="azure-powershell-task"></a>Tarea de Azure PowerShell
 
-En esta sección se muestra cómo configurar la implementación continua mediante el uso de una sola tarea que ejecuta el script de PowerShell en el proyecto. El siguiente archivo YAML crea una [tarea de Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops):
+En esta sección se muestra cómo configurar la implementación continua mediante el uso de una sola tarea que ejecuta el script de PowerShell en el proyecto. Si necesita un script de PowerShell que implemente una plantilla, consulte [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) o [Deploy-AzureResourceGroup.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzureResourceGroup.ps1).
 
-```yaml
+El siguiente archivo YAML crea una [tarea de Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell):
+
+```yml
+trigger:
+- master
+
 pool:
-  name: Hosted Windows 2019 with VS2019
-  demands: azureps
+  vmImage: 'ubuntu-latest'
 
 steps:
-- task: AzurePowerShell@3
+- task: AzurePowerShell@5
   inputs:
-    azureSubscription: 'demo-deploy-sp'
-    ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus'
-    azurePowerShellVersion: LatestVersion
+    azureSubscription: 'script-connection'
+    ScriptType: 'FilePath'
+    ScriptPath: './Deploy-Template.ps1'
+    ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
+    azurePowerShellVersion: 'LatestVersion'
 ```
 
-Al establecer la tarea en `AzurePowerShell@3`, la canalización usa comandos del módulo AzureRM para autenticar la conexión. De forma predeterminada, el script de PowerShell del proyecto usa el módulo AzureRM. Si ha actualizado el script para usar el [módulo Az](/powershell/azure/new-azureps-module-az), defina la tarea como `AzurePowerShell@4`.
+Al establecer la tarea en `AzurePowerShell@5`, la canalización usa el [Módulo Az](/powershell/azure/new-azureps-module-az). Si usa el módulo AzureRM en el script, establezca la tarea en `AzurePowerShell@3`.
 
 ```yaml
 steps:
-- task: AzurePowerShell@4
+- task: AzurePowerShell@3
 ```
 
 En `azureSubscription`, proporcione el nombre de la conexión de servicio que creó.
@@ -92,69 +95,45 @@ Para `scriptPath`, proporcione la ruta de acceso relativa desde el archivo de ca
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
 ```
 
-Si no tiene que agregar artefactos al "stage", simplemente pase el nombre y la ubicación de un grupo de recursos que se usará para la implementación. El script de Visual Studio crea el grupo de recursos si aún no existe.
+En `ScriptArguments`, proporcione los parámetros necesarios para el script. En el ejemplo siguiente se muestran algunos de los parámetros de un script, pero tendrá que personalizar los parámetros de su script.
 
 ```yaml
-ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>'
+ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
 ```
 
-Si tiene que agregar artefactos al "stage" en una cuenta de almacenamiento existente, use:
+Al seleccionar **Guardar**, la canalización de compilación se ejecuta automáticamente. Vuelva al resumen de la canalización de compilación y vea el estado.
 
-```yaml
-ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>' -UploadArtifacts -ArtifactStagingDirectory '$(Build.StagingDirectory)' -StorageAccountName '<your-storage-account>'
-```
-
-Ahora que ya sabe cómo crear la tarea, vamos a seguir los pasos para editar la canalización.
-
-1. Abra la canalización y reemplace el contenido por el de YAML:
-
-   ```yaml
-   pool:
-     name: Hosted Windows 2019 with VS2019
-     demands: azureps
-
-   steps:
-   - task: AzurePowerShell@3
-     inputs:
-       azureSubscription: 'demo-deploy-sp'
-       ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-       ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus' -UploadArtifacts -ArtifactStagingDirectory '$(Build.StagingDirectory)' -StorageAccountName 'stage3a4176e058d34bb88cc'
-       azurePowerShellVersion: LatestVersion
-   ```
-
-1. Seleccione **Guardar**.
-
-   ![Guardar la canalización](./media/add-template-to-azure-pipelines/save-pipeline.png)
-
-1. Proporcione un mensaje para la confirmación y confirme directamente en **maestro**.
-
-1. Al seleccionar **Guardar**, la canalización de compilación se ejecuta automáticamente. Vuelva al resumen de la canalización de compilación y vea el estado.
-
-   ![Vista de resultados](./media/add-template-to-azure-pipelines/view-results.png)
+![Vista de resultados](./media/add-template-to-azure-pipelines/view-results.png)
 
 Puede seleccionar la canalización en ejecución para ver información detallada sobre las tareas. Cuando haya terminado, verá los resultados de cada paso.
 
 ## <a name="copy-and-deploy-tasks"></a>Tareas de copia y de implementación
 
-En esta sección se muestra cómo configurar la implementación continua mediante el uso de dos tareas para agregar artefactos al "stage" e implementar la plantilla.
+En esta sección se muestra cómo configurar la implementación continua mediante el uso de dos tareas. En la primera tarea se organizan los artefactos en una cuenta de almacenamiento y en la segunda tarea se implementa la plantilla.
 
-El siguiente código YAML muestra la [tarea de copia de archivos de Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
+Para copiar archivos en una cuenta de almacenamiento, a la entidad de servicio de la conexión de servicio se le debe asignar el rol Colaborador de datos de Storage Blob o Propietario de datos de Storage Blob. Para más información, consulte [Introducción a AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 
-```yaml
-- task: AzureFileCopy@3
-  displayName: 'Stage files'
+El siguiente código YAML muestra la [tarea de copia de archivos de Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy).
+
+```yml
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: AzureFileCopy@4
   inputs:
-    SourcePath: 'AzureResourceGroup1'
-    azureSubscription: 'demo-deploy-sp'
+    SourcePath: 'templates'
+    azureSubscription: 'copy-connection'
     Destination: 'AzureBlob'
-    storage: 'stage3a4176e058d34bb88cc'
-    ContainerName: 'democontainer'
-    outputStorageUri: 'artifactsLocation'
-    outputStorageContainerSasToken: 'artifactsLocationSasToken'
-    sasTokenTimeOutInMinutes: '240'
+    storage: 'demostorage'
+    ContainerName: 'projecttemplates'
+  name: AzureFileCopy
 ```
 
-Hay varias partes de esta tarea que debe revisar para su entorno. El elemento `SourcePath` indica la ubicación de los artefactos en relación con el archivo de canalización. En este ejemplo, los archivos se encuentran en una carpeta denominada `AzureResourceGroup1`, que era el nombre del proyecto.
+Hay varias partes de esta tarea que debe revisar para su entorno. El elemento `SourcePath` indica la ubicación de los artefactos en relación con el archivo de canalización.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
@@ -173,92 +152,82 @@ storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
+Después de crear la tarea de copia de archivos, estará listo para agregar la tarea a fin de implementar la plantilla preconfigurada.
+
 El siguiente código YAML muestra la [tarea de implementación de la plantilla de Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md):
 
 ```yaml
-- task: AzureResourceGroupDeployment@2
-  displayName: 'Deploy template'
+- task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
-    ConnectedServiceName: 'demo-deploy-sp'
-    subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+    azureResourceManagerConnection: 'copy-connection'
+    subscriptionId: '00000000-0000-0000-0000-000000000000'
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
-    location: 'Central US'
+    location: 'West US'
     templateLocation: 'URL of the file'
-    csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-    csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-    overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+    csmParametersFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.parameters.json$(AzureFileCopy.StorageContainerSasToken)'
     deploymentMode: 'Incremental'
+    deploymentName: 'deploy1'
 ```
 
-Hay varias partes de esta tarea que debe revisar para su entorno.
+Hay varias partes de esta tarea que debe revisar con mayor detalle.
 
-- `deploymentScope`: seleccione el ámbito de implementación entre las opciones: `Management Group`, `Subscription` y `Resource Group`. En este tutorial, use **Grupo de recursos**. Para más información sobre los ámbitos, consulte [Ámbitos de implementación](deploy-rest.md#deployment-scope).
+- `deploymentScope`: seleccione el ámbito de implementación entre las opciones: `Management Group`, `Subscription` y `Resource Group`. Para más información sobre los ámbitos, consulte [Ámbitos de implementación](deploy-rest.md#deployment-scope).
 
-- `ConnectedServiceName`: proporcione el nombre de la conexión de servicio que creó.
+- `azureResourceManagerConnection`: proporcione el nombre de la conexión de servicio que creó.
 
-    ```yaml
-    ConnectedServiceName: '<your-connection-name>'
-    ```
-
-- `subscriptionName`: especifique el identificador de la suscripción de destino. Esta propiedad solo se aplica al ámbito de implementación del grupo de recursos y de la implementación de la suscripción.
+- `subscriptionId`: especifique el identificador de la suscripción de destino. Esta propiedad solo se aplica al ámbito de implementación del grupo de recursos y de la implementación de la suscripción.
 
 - `resourceGroupName` y `location`: especifique el nombre y la ubicación del grupo de recursos en donde quiere realizar la implementación. La tarea crea el grupo de recursos si no existe.
 
-    ```yaml
-    resourceGroupName: '<resource-group-name>'
-    location: '<location>'
-    ```
-
-La tarea de implementación se vincula a una plantilla denominada `WebSite.json` y a un archivo de parámetros denominado WebSite.parameters.json. Utilice los nombres de la plantilla y el archivo de parámetros.
-
-Ahora que ya sabe cómo crear la tarea, vamos a seguir los pasos para editar la canalización.
-
-1. Abra la canalización y reemplace el contenido por el de YAML:
-
-   ```yaml
-   pool:
-     name: Hosted Windows 2019 with VS2019
-
-   steps:
-   - task: AzureFileCopy@3
-     displayName: 'Stage files'
-     inputs:
-       SourcePath: 'AzureResourceGroup1'
-       azureSubscription: 'demo-deploy-sp'
-       Destination: 'AzureBlob'
-       storage: 'stage3a4176e058d34bb88cc'
-       ContainerName: 'democontainer'
-       outputStorageUri: 'artifactsLocation'
-       outputStorageContainerSasToken: 'artifactsLocationSasToken'
-       sasTokenTimeOutInMinutes: '240'
-    - task: AzureResourceGroupDeployment@2
-      displayName: 'Deploy template'
-      inputs:
-        deploymentScope: 'Resource Group'
-        ConnectedServiceName: 'demo-deploy-sp'
-        subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
-        action: 'Create Or Update Resource Group'
-        resourceGroupName: 'demogroup'
-        location: 'Central US'
-        templateLocation: 'URL of the file'
-        csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-        csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-        overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
-        deploymentMode: 'Incremental'
+   ```yml
+   resourceGroupName: '<resource-group-name>'
+   location: '<location>'
    ```
 
-1. Seleccione **Guardar**.
+- `csmFileLink`: proporcione el vínculo para la plantilla preconfigurada. Al establecer el valor, use variables devueltas desde la tarea de copia de archivos. El ejemplo siguiente se vincula a una plantilla denominada mainTemplate.json. La carpeta denominada **Plantillas** se incluye porque allí es donde la tarea de copia de archivos copió el archivo. En la canalización, proporcione la ruta de acceso a la plantilla y el nombre de la plantilla.
 
-1. Proporcione un mensaje para la confirmación y confirme directamente en **maestro**.
+   ```yml
+   csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+   ```
 
-1. Al seleccionar **Guardar**, la canalización de compilación se ejecuta automáticamente. Vuelva al resumen de la canalización de compilación y vea el estado.
+La canalización tiene el siguiente aspecto:
 
-   ![Vista de resultados](./media/add-template-to-azure-pipelines/view-results.png)
+```yml
+trigger:
+- master
 
-Puede seleccionar la canalización en ejecución para ver información detallada sobre las tareas. Cuando haya terminado, verá los resultados de cada paso.
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: AzureFileCopy@4
+  inputs:
+    SourcePath: 'templates'
+    azureSubscription: 'copy-connection'
+    Destination: 'AzureBlob'
+    storage: 'demostorage'
+    ContainerName: 'projecttemplates'
+  name: AzureFileCopy
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'copy-connection'
+    subscriptionId: '00000000-0000-0000-0000-000000000000'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'demogroup'
+    location: 'West US'
+    templateLocation: 'URL of the file'
+    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+    csmParametersFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.parameters.json$(AzureFileCopy.StorageContainerSasToken)'
+    deploymentMode: 'Incremental'
+    deploymentName: 'deploy1'
+```
+
+Al seleccionar **Guardar**, la canalización de compilación se ejecuta automáticamente. Vuelva al resumen de la canalización de compilación y vea el estado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver el proceso paso a paso sobre el uso de Azure Pipelines con plantillas de ARM, consulte [Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines](deployment-tutorial-pipeline.md).
+Para obtener información sobre cómo usar plantillas de Resource Manager con Acciones de GitHub, consulte [Implementación de plantillas de Azure Resource Manager mediante Acciones de GitHub](deploy-github-actions.md).

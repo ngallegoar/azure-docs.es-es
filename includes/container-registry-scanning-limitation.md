@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 08/25/2020
+ms.date: 09/17/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 1ad9630c69e06066e9edc12441d5a42b84b15804
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e3234289fe56286cb5ff0791d983dee6ec2aa4d8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488682"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91545216"
 ---
 > [!NOTE]
-> Actualmente, Azure Security Center no puede realizar el [análisis de vulnerabilidades de imagen](../articles/security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) en un registro que restringe el acceso a los puntos de conexión privados, las subredes seleccionadas o las direcciones IP.
+> Actualmente, Azure Security Center no puede realizar el [análisis de vulnerabilidades de imagen](../articles/security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) en un registro que restringe el acceso a los puntos de conexión privados, las subredes seleccionadas o las direcciones IP. Las instancias de determinados servicios de Azure, como Azure DevOps Services y Azure Container Instances, tampoco pueden tener acceso a un registro de contenedor con restricciones de red.

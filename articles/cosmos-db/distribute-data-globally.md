@@ -1,19 +1,19 @@
 ---
 title: Distribución global de los datos con Azure Cosmos DB
-description: Obtenga más información sobre replicación geográfica, arquitectura multimaestro, conmutación por error y recuperación de datos a escala mundial con bases de datos globales de Azure Cosmos DB, un servicio de base de datos con varios modelos distribuido globalmente.
+description: Aprenda sobre la replicación geográfica, las escrituras en varias regiones, la conmutación por error y la recuperación de datos a escala mundial con bases de datos globales de Azure Cosmos DB, un servicio de base de datos de varios modelos distribuido globalmente.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: fba6943adb18675bc804a3881042fe9d68f5b331
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29917b0911fbab36fbb30a587ee7cac223b993f2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85114748"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570178"
 ---
-# <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Introducción a la distribución de datos global con Azure Cosmos DB
+# <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribución de los datos globalmente con Azure Cosmos DB
 
 Las aplicaciones actuales deben estar siempre en línea y tener una alta capacidad de respuesta. Para lograr baja latencia y alta disponibilidad, las instancias de estas aplicaciones deben implementarse en centros de datos que están cerca de sus usuarios. Estas aplicaciones se implementan normalmente en varios centros de datos y se denominan "distribuidas globalmente". Las aplicaciones distribuidas globalmente necesitan una base de datos distribuida globalmente que puede replicar de forma transparente los datos en cualquier lugar del mundo para permitir que las aplicaciones funcionen en una copia de los datos que están cerca de los usuarios. 
 
@@ -27,7 +27,7 @@ Con Azure Cosmos DB, puede agregar o quitar las regiones asociadas con su cuenta
 
 ## <a name="key-benefits-of-global-distribution"></a>Ventajas clave de distribución global
 
-**Compilación de aplicaciones globales activo/activo.** Con el novedoso protocolo de replicación de arquitectura multimaestro, todas las regiones admiten lecturas y escrituras. La funcionalidad de arquitectura multimaestro también habilita lo siguiente:
+**Compilación de aplicaciones globales activo/activo.** Con el novedoso protocolo de replicación de escrituras en varias regiones, cada región admite lecturas y escrituras. La capacidad de escrituras en varias regiones también permite:
 
 - Escalabilidad de escritura y lectura elásticas ilimitada. 
 - 99,999 % de disponibilidad de lectura y escritura en todo el mundo.
@@ -50,7 +50,7 @@ Con las API de hospedaje múltiple de Azure Cosmos DB, la aplicación sabe cuá
 Lea más sobre la distribución global en estos artículos:
 
 * [Distribución global en segundo plano](global-dist-under-the-hood.md)
-* [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md)
+* [Configuración de varias regiones de escritura en las aplicaciones](how-to-multi-master.md)
 * [Configuración de los clientes para el hospedaje múltiple](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Incorporación o eliminación de regiones de una cuenta de Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Creación de una directiva de resolución de conflictos personalizada para cuentas de API de SQL](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

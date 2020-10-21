@@ -6,13 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 6576ac53f43a8e176b3d166d5218b0ba9934b856
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: contperfq1
+ms.date: 10/2/2020
+ms.openlocfilehash: 5f109ad719ada9728938f6e37d4ec854d3950a24
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907162"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708442"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Salidas de Azure Stream Analytics
 
@@ -25,10 +26,10 @@ Algunos tipos de salida admiten la [creación de particiones](#partitioning), y 
 | Tipo de salida | Creación de particiones | Seguridad | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Sí|Usuario de Azure Active Directory </br> MSI|
-|[Azure SQL Database](sql-database-output.md)|Sí, debe habilitarse.|Autenticación de usuario de SQL </br> MSI (versión preliminar)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|No|Autenticación de usuario de SQL|
+|[Azure SQL Database](sql-database-output.md)|Sí, opcional.|Autenticación de usuario de SQL </br> MSI (versión preliminar)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Sí|Autenticación de usuario de SQL|
 |[Blob Storage y Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Sí|MSI </br> Clave de acceso|
-|[Azure Event Hubs](event-hubs-output.md)|Sí|Clave de acceso|
+|[Azure Event Hubs](event-hubs-output.md)|Sí, es necesario establecer la columna de clave de partición en la configuración de salida.|Clave de acceso|
 |[Power BI](power-bi-output.md)|No|Usuario de Azure Active Directory </br> MSI|
 |[Azure Table Storage](table-storage-output.md)|Sí|Clave de cuenta|
 |[Colas de Azure Service Bus](service-bus-queues-output.md)|Sí|Clave de acceso|
@@ -40,7 +41,7 @@ Algunos tipos de salida admiten la [creación de particiones](#partitioning), y 
 
 Stream Analytics admite particiones para todas las salidas, excepto para Power BI. Para más información sobre las claves de partición y el número de escritores de salida, consulte el artículo sobre el tipo de salida específico que le interesa. Todos los artículos de salidas están vinculados en la sección anterior.  
 
-Se puede controlar el número de escritores de salida mediante una cláusula `INTO <partition count>` (consulte [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) de la consulta, lo cual puede ser útil para lograr la topología de trabajo deseada. Si el adaptador de salida no tiene particiones, la falta de datos de una partición de entrada provocará un retraso hasta la cantidad de tiempo de llegada tardía. En tales casos, la salida se combina en un único sistema de escritura, lo que puede provocar cuellos de botella en la canalización. Para obtener más información sobre la directiva de llegadas tardías, consulte [Puntos a tener en cuenta sobre el orden de eventos de Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
+Además, para un ajuste de las particiones más avanzado, se puede controlar el número de escritores de salida mediante una cláusula `INTO <partition count>` (consulte [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) de la consulta, lo cual puede ser útil para lograr la topología de trabajo deseada. Si el adaptador de salida no tiene particiones, la falta de datos de una partición de entrada provocará un retraso hasta la cantidad de tiempo de llegada tardía. En tales casos, la salida se combina en un único sistema de escritura, lo que puede provocar cuellos de botella en la canalización. Para obtener más información sobre la directiva de llegadas tardías, consulte [Puntos a tener en cuenta sobre el orden de eventos de Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Tamaño de lote de salida
 

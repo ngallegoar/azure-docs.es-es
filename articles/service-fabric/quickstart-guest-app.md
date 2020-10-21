@@ -3,13 +3,13 @@ title: Implementar rápidamente una aplicación existente en un clúster
 description: Use un clúster de Azure Service Fabric para hospedar una aplicación existente de Node.js con Visual Studio.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9b39e14b18a784274f1bac12072f4fa39de2bb87
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430734"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91614111"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedaje de una aplicación de Node.js en Azure Service Fabric
 
@@ -31,7 +31,7 @@ Creación de un proyecto con `CTRL`+`SHIFT`+`N`
 
 En el cuadro de diálogo **Nuevo proyecto**, elija **Nube > Aplicación de Service Fabric**.
 
-Asigne el nombre **MyGuestApp** a la aplicación y presione **Aceptar**.
+Asigne el nombre **MyGuestApp** a la aplicación y presione **Crear**.
 
 >[!IMPORTANT]
 >Node.js puede superar fácilmente el límite de 260 caracteres en las rutas de acceso que tiene Windows. Use una ruta de acceso corta para el propio proyecto como **c:\code\svc1**. Si lo desea, puede seguir **[estas instrucciones](https://stackoverflow.com/a/41687101/1664231)** para habilitar las rutas de acceso de archivo largas en Windows 10.

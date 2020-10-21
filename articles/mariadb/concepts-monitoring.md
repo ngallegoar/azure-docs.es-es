@@ -5,13 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 8/13/2020
-ms.openlocfilehash: 088d2c0a11f7d145f0c8a7ccb2c0aac5bd2d140d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 9868403f69f3dc0b56aae06be1afda2134472805
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224092"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631042"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervisión en Azure Database for MariaDB
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for MariaDB proporciona diversas métricas que proporcionan información sobre el comportamiento del servidor.
@@ -37,7 +38,7 @@ Estas métricas están disponibles para Azure Database for MariaDB:
 |storage_limit|Límite de almacenamiento|Bytes|Almacenamiento máximo de este servidor.|
 |active_connections|Conexiones activas|Count|Número de conexiones activas al servidor.|
 |connections_failed|Conexiones con errores|Count|Número de conexiones con errores al servidor.|
-|seconds_behind_master|Intervalo de replicación en segundos|Count|El número de segundos que el servidor de réplica se retrasa en relación con el servidor maestro. (No se aplica a los servidores de nivel Básico)|
+|seconds_behind_master|Intervalo de replicación en segundos|Count|El número de segundos que el servidor de réplica se retrasa en relación con el servidor de origen. (No se aplica a los servidores de nivel Básico)|
 |network_bytes_egress|Red interna|Bytes|Red externa a través de conexiones activas.|
 |network_bytes_ingress|Red interna|Bytes|Red interna a través de conexiones activas.|
 |backup_storage_used|Almacenamiento de copia de seguridad utilizado|Bytes|Cantidad de almacenamiento de copia de seguridad utilizado. Esta métrica representa la suma del almacenamiento consumido por todas las copias de seguridad de base de datos completas, copias de seguridad diferenciales y copias de seguridad de registros, conservadas según el período de retención de copia de seguridad establecido para el servidor. La frecuencia de las copias de seguridad la administra el servicio, y se explicó en el [artículo sobre los conceptos](concepts-backup.md). En el caso del almacenamiento con redundancia geográfica, el uso del almacenamiento de copia de seguridad es dos veces el del almacenamiento con redundancia local.|
@@ -62,8 +63,10 @@ La característica [Recomendaciones de rendimiento](concepts-performance-recomme
 
 Las **notificaciones de mantenimiento planeado** le permiten recibir alertas de mantenimiento planeado futuro para su instancia de Azure Database for MariaDB. Estas notificaciones se integran con el mantenimiento planeado de [Service Health](../service-health/overview.md) y le permiten ver todo el mantenimiento programado para sus suscripciones en un mismo lugar. También ayuda a escalar la notificación a las audiencias adecuadas de distintos grupos de recursos, ya que puede tener distintos contactos responsables para los distintos recursos. Recibirá la notificación sobre el próximo mantenimiento 72 horas antes del evento.
 
-> [!Note]
-> Intentaremos por todos los medios proporcionar la **notificación de mantenimiento planeado** con una antelación de 72 horas para todos los eventos. Sin embargo, en los casos de revisiones críticas o de seguridad, es posible que las notificaciones se envíen más cerca del evento o se omitan.
+Durante el mantenimiento planeado, puede esperar que el servidor se reinicie y pueden producirse [errores transitorios](concepts-connectivity.md#transient-errors). El sistema mitiga automáticamente la mayoría de estos eventos en menos de 60 segundos. 
+
+> [!IMPORTANT]
+> Actualmente, las notificaciones de mantenimiento planeado están disponibles en versión preliminar para todas las regiones **menos** Centro-oeste de EE. UU.
 
 ### <a name="to-receive-planned-maintenance-notification"></a>Para recibir una notificación de mantenimiento planeado
 
@@ -78,8 +81,8 @@ Las **notificaciones de mantenimiento planeado** le permiten recibir alertas de 
 
 Para conocer los pasos detallados sobre cómo crear **alertas de Service Health**, consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications.md).
 
-> [!IMPORTANT]
-> Actualmente, las notificaciones de mantenimiento planeado están disponibles en versión preliminar para todas las regiones **menos** Centro-oeste de EE. UU.
+> [!Note]
+> Intentaremos por todos los medios proporcionar la **notificación de mantenimiento planeado** con una antelación de 72 horas para todos los eventos. Sin embargo, en los casos de revisiones críticas o de seguridad, es posible que las notificaciones se envíen más cerca del evento o se omitan.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

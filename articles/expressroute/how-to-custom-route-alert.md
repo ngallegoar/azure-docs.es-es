@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: 4a116d06f5feb3fe402e7f64b9bccd5531b210c1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986575"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91766672"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configuración de alertas personalizadas para supervisar rutas anunciadas
 
@@ -52,7 +52,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 ## <a name="create-and-configure-accounts"></a><a name="accounts"></a>Creación y configuración de cuentas
 
-Cuando crea una cuenta de Automation en Azure Portal, automáticamente se crea una cuenta [de ejecución](../automation/manage-runas-account.md#types-of-run-as-accounts). Esta cuenta realiza las siguientes acciones:
+Cuando crea una cuenta de Automation en Azure Portal, automáticamente se crea una cuenta [de ejecución](../automation/automation-security-overview.md#run-as-accounts). Esta cuenta realiza las siguientes acciones:
 
 * Crea una aplicación de Azure Active Directory (Azure AD) con un certificado autofirmado. La propia cuenta de ejecución tiene un certificado que debe renovarse de forma predeterminada todos los años.
 

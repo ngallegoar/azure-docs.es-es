@@ -2,7 +2,7 @@
 title: Corrección de errores de directorios no coincidentes en Azure AD Domain Services | Microsoft Docs
 description: Más información sobre lo que significa un error de directorio no coincidente y cómo resolverlo en Azure AD Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 0e21009341857cc6de3cb7aa411445bc10e6827e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.author: joflore
+ms.openlocfilehash: 0c2a6ee4ee5c92122e896e62485479d50c660c7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223489"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968079"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Resolver errores de directorios que no coinciden en dominios administrados existentes de Azure Active Directory Domain Services
 
@@ -28,11 +28,11 @@ En este artículo se explica por qué se produce el error y cómo resolverlo.
 
 Un error de directorio no coincidente se produce cuando un dominio administrado de Azure AD DS y una red virtual pertenecen a dos inquilinos de Azure AD distintos. Por ejemplo, tiene un dominio administrado denominado *aaddscontoso.com* que se ejecuta en el inquilino de Azure AD de Contoso. pero la red virtual de Azure para el dominio administrado forma parte del inquilino de Azure AD de Fabrikam.
 
-Azure utiliza el control de acceso basado en rol (RBAC) para limitar el acceso a los recursos. Al habilitar Azure AD DS en un inquilino de Azure AD, los hashes de credenciales se sincronizan con el dominio administrado. Esta operación requiere que se sea administrador de inquilinos en el directorio de Azure AD y debe controlarse el acceso a las credenciales.
+El control de acceso basado en rol de Azure (RBAC de Azure) se utiliza para limitar el acceso a los recursos. Al habilitar Azure AD DS en un inquilino de Azure AD, los hashes de credenciales se sincronizan con el dominio administrado. Esta operación requiere que se sea administrador de inquilinos en el directorio de Azure AD y debe controlarse el acceso a las credenciales.
 
 Para implementar recursos en una red virtual de Azure y controlar el tráfico, debe tener privilegios administrativos en la red virtual en la que implementa el dominio administrado.
 
-Para que RBAC funcione de forma coherente y proteja el acceso a todos los recursos que Azure AD DS utiliza, el dominio administrado y la red virtual deben pertenecer al mismo inquilino de Azure AD.
+Para que Azure RBAC funcione de forma coherente y proteja el acceso a todos los recursos que Azure AD DS utiliza, el dominio administrado y la red virtual deben pertenecer al mismo inquilino de Azure AD.
 
 Las siguientes reglas se aplican a las implementaciones:
 

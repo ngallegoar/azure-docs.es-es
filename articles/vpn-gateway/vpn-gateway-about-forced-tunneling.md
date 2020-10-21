@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5999ef8431ce1e128c3775450eedf13644505918
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 94a5459ade634f6a1de029808aa6bad4d16b9a5d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91313542"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874636"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuración de la tunelización forzada mediante el modelo de implementación clásica
 
@@ -57,12 +57,7 @@ Antes de comenzar con la configuración, verifique que dispone de los elementos 
 
 ### <a name="to-sign-in"></a>Para iniciar sesión
 
-1. Abra la consola de PowerShell con privilegios elevados. Para cambiar a la administración de servicios, use este comando:
-
-   ```powershell
-   azure config mode asm
-   ```
-2. Conéctese a su cuenta. Use el siguiente ejemplo para conectarse:
+1. Abra la consola de PowerShell con privilegios elevados. Conéctese a su cuenta mediante el ejemplo siguiente:
 
    ```powershell
    Add-AzureAccount

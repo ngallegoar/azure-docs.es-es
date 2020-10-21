@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89570086"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91376644"
 ---
 Si coloca las máquinas virtuales en una sola región, reducirá la distancia física entre las instancias. Además, si las coloca en una sola zona de disponibilidad, estarán todavía más cercanas físicamente. Aun así, a medida que la superficie de Azure crece, una sola zona de disponibilidad puede abarcar varios centros de datos físicos, lo que es posible que provoque una latencia de red que puede afectar al rendimiento de la aplicación. 
 
@@ -47,6 +47,39 @@ Los grupos con ubicación por proximidad ofrecen colocalización en el mismo cen
 -   En el caso de las cargas de trabajo elásticas, en las que se agregan y quitan instancias de máquina virtual, es posible que tener una restricción de grupo con ubicación por proximidad en la implementación produzca un error al realizar la solicitud, lo que da como resultado un error **AllocationFailure**. 
 - Otra manera de lograr la elasticidad consiste en detener (desasignar) e iniciar las máquinas virtuales según sea necesario. Dado que la capacidad no se conserva una vez que se detiene (desasigna) una máquina virtual, si se vuelve a iniciar, puede producirse un error **AllocationFailure**.
 
+## <a name="planned-maintenance-and-proximity-placement-groups"></a>Grupos de mantenimiento planeado y con ubicación por proximidad
+
+Los eventos de mantenimiento planeado, como la retirada de hardware en un centro de datos Azure, podrían afectar a la alineación de los recursos en los grupos con ubicación por proximidad. Los recursos se pueden migrar a un centro de datos diferente, con lo que se interrumpirán las expectativas de colocación y latencia asociadas al grupo con ubicación por proximidad.
+
+### <a name="check-the-alignment-status"></a>Comprobación del estado de alineación
+
+Para comprobar el estado de alineación de los grupos con ubicación por proximidad, puede hacer lo siguiente.
+
+
+- El estado de colocación del grupo de ubicación por proximidad se puede ver mediante el portal, la CLI y PowerShell.
+
+    -   Al usar PowerShell, se puede obtener el estado de colocación con el cmdlet Get-AzProximityPlacementGroup incluyendo el parámetro opcional "-ColocationStatus".
+
+    -   Cuando se usa la CLI, el estado de colocación puede obtenerse con `az ppg show` incluyendo el parámetro opcional "--include-colocation-status".
+
+- En cada grupo con ubicación por proximidad, una propiedad de **estado de coubicación** proporciona el resumen actual de estado de alineación de los recursos agrupados. 
+
+    - **Alineado**: el recurso está dentro de la misma envoltura de latencia del grupo de ubicación por proximidad.
+
+    - **Desconocido**: se desasigna al menos uno de los recursos de máquina virtual. Una vez que se vuelva a iniciar correctamente, el estado debería ser de nuevo **Alineado**.
+
+    - **No alineado**: al menos un recurso de máquina virtual no está alineado con el grupo con ubicación por proximidad. Los recursos específicos que no están alineados también se seleccionarán por separado en la sección de pertenencia
+
+- En el caso de los conjuntos de disponibilidad, puede ver información sobre la alineación de máquinas virtuales individuales en la página de información general del conjunto de disponibilidad.
+
+- En el caso de los conjuntos de escalado, la información sobre la alineación de instancias individuales puede verse en la pestaña **Instancias** de la página **Información general** del conjunto de escalado. 
+
+
+### <a name="re-align-resources"></a>Nueva alineación de los recursos 
+
+Si el estado de un grupo con ubicación por proximidad es `Not Aligned`, puede detenerlo o desasignarlo y, luego, reiniciar los recursos afectados. Si la máquina virtual está en un conjunto de disponibilidad o en un conjunto de escalado, todas las máquinas virtuales de esos conjuntos se deben detener o desasignar primero antes de reiniciarlas.
+
+Si se produce un error de asignación debido a las restricciones de implementación, es posible que tenga que detener o desasignar primero todos los recursos del grupo con ubicación por proximidad afectado (incluidos los recursos alineados) y, luego, reiniciarlos para restaurar la alineación.
 
 ## <a name="best-practices"></a>Procedimientos recomendados 
 - Para la latencia más baja, use grupos de selección de ubicación de proximidad junto con redes aceleradas. Para obtener más información, consulte [Creación de una máquina virtual Linux con redes aceleradas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [Creación de una máquina virtual Windows con redes aceleradas](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

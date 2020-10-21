@@ -1,33 +1,38 @@
 ---
-title: Instalación y ejecución de contenedores para usar Anomaly Detector API
+title: Instalación y ejecución de contenedores de Docker para la API Anomaly Detector
 titleSuffix: Azure Cognitive Services
-description: Aprenda a instalar y utilizar el contenedor para emplear los algoritmos avanzados de la API de Anomaly Detector.
+description: Use los algoritmos de la API Anomaly Detector para buscar anomalías en los datos, de forma local mediante un contenedor de Docker.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/28/2020
+ms.author: mbullwin
+ms.custom: cog-serv-seo-aug-2020
+keywords: local, Docker, contenedor, streaming, algoritmos
+ms.openlocfilehash: e20ff5022b9b4a5b601160516f255af991a540c6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903553"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018617"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Instalación y ejecución de contenedores de Anomaly Detector 
+# <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Instalación y ejecución de contenedores de Docker para la API Anomaly Detector 
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
-Anomaly Detector tiene la siguiente funcionalidad de la característica de contenedor:
+Los contenedores permiten usar la API Anomaly Detector en su propio entorno. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo, aprenderá a descargar, instalar y ejecutar un contenedor de Anomaly Detector.
 
-| Función | Características |
-|--|--|
-| Anomaly Detector | <li> Detecta las anomalías que se producen en tiempo real. <li> Detecta las anomalías en todo el conjunto de datos como un lote. <li> Detecta puntos de cambio de tendencia en el conjunto de datos como lote.<li> Deduce el intervalo normal esperado de los datos. <li> Permite el ajuste de la sensibilidad de la detección de anomalías para adaptarse mejor a los datos. |
+Anomaly Detector ofrece un único contenedor de Docker para usar la API local. Use el contenedor para:
+* Usar de los algoritmos de Anomaly Detector en los datos.
+* Supervisar los datos de streaming y detectar anomalías cuando se producen en tiempo real.
+* Detección de anomalías en todo el conjunto de datos como un lote 
+* Detectar puntos de cambio de tendencia en el conjunto de datos como lote.
+* Ajustar la sensibilidad del algoritmo de detección de anomalías para adaptarse mejor a los datos.
 
-Para más información sobre las API, consulte:
+Para más información sobre la API, consulte:
 * [Más información sobre el servicio de API Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.

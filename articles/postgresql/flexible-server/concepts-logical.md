@@ -1,24 +1,24 @@
 ---
 title: 'Replicación lógica y descodificación lógica: Azure Database for PostgreSQL con servidor flexible'
 description: Obtenga más información sobre la replicación lógica y la descodificación lógica en Azure Database for PostgreSQL con servidor flexible
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: fd0826ad11a153d72ee47f35930d25f0df498418
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: b6689220873aaeb65337ba480e346e5d2c8020ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932589"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91707870"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Replicación lógica y descodificación lógica en Azure Database for PostgreSQL con servidor flexible
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL: servidor flexible está en versión preliminar
 
-Las funciones de replicación lógica y descodificación lógica de PostgreSQL se admiten en Azure Database for PostgreSQL con servidor flexible.
+Las funciones de replicación lógica y descodificación lógica de PostgreSQL se admiten en Azure Database for PostgreSQL con servidor flexible, en la versión 11 de Postgres.
 
 ## <a name="comparing-logical-replication-and-logical-decoding"></a>Comparación de la replicación lógica y la descodificación lógica
 La replicación lógica y la descodificación lógica tienen varias similitudes. Ambas
@@ -43,7 +43,11 @@ Descodificación lógica
 1. Configure el parámetro `wal_level` del servidor como `logical`.
 2. Reinicie el servidor para aplicar el cambio de `wal_level`.
 3. Confirme que la instancia de PostgreSQL permite el tráfico de red desde el recurso de conexión.
-4. Use el usuario administrador al ejecutar comandos de replicación.
+4. Conceda al usuario administrador permisos de replicación.
+   ```SQL
+   ALTER ROLE <adminname> WITH REPLICATION;
+   ```
+
 
 ## <a name="using-logical-replication-and-logical-decoding"></a>Uso de la replicación lógica y la descodificación lógica
 
@@ -54,7 +58,7 @@ La replicación lógica utiliza los términos "publicador" y "suscriptor".
 
 A continuación se muestra código de ejemplo que puede usar para probar la replicación lógica.
 
-1. Conéctese al publicador. Cree una tabla y agregue algunos datos.
+1. Conéctese a la base de datos del publicador. Cree una tabla y agregue algunos datos.
    ```SQL
    CREATE TABLE basic(id SERIAL, name varchar(40));
    INSERT INTO basic(name) VALUES ('apple');
@@ -66,14 +70,14 @@ A continuación se muestra código de ejemplo que puede usar para probar la repl
    CREATE PUBLICATION pub FOR TABLE basic;
    ```
 
-3. Conéctese al suscriptor. Cree una tabla con el mismo esquema que en el publicador.
+3. Conéctese a la base de datos del suscriptor. Cree una tabla con el mismo esquema que en el publicador.
    ```SQL
    CREATE TABLE basic(id SERIAL, name varchar(40));
    ```
 
 4. Cree una suscripción que se conectará a la publicación que creó anteriormente.
    ```SQL
-   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname>' PUBLICATION pub;
+   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname> password=<password>' PUBLICATION pub;
    ```
 
 5. Ahora puede consultar la tabla en el suscriptor. Verá que ha recibido los datos del publicador.
@@ -170,8 +174,9 @@ SELECT * FROM pg_replication_slots;
 
 [Establezca alertas](howto-alert-on-metrics.md) para las métricas **Máximo de identificadores de transacción usados** y **Almacenamiento usado** del servidor flexible para recibir una notificación cuando los valores aumenten por encima de los umbrales normales. 
 
-## <a name="read-replicas"></a>Réplicas de lectura
-Las réplicas de lectura de Azure Database for PostgreSQL no se admiten actualmente en los servidores flexibles.
+## <a name="limitations"></a>Limitaciones
+* **Réplicas de lectura**: las réplicas de lectura de Azure Database for PostgreSQL no se admiten actualmente en los servidores flexibles.
+* **Ranuras y conmutación por error de alta disponibilidad**: las ranuras de replicación de alta disponibilidad del servidor principal no están disponibles en el servidor en espera de la zona de disponibilidad secundaria. Esto se aplica a usted si el servidor usa la opción de alta disponibilidad con redundancia de zona. En el caso de una conmutación por error al servidor en espera, las ranuras de replicación lógica no estarán disponibles en dicho servidor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre las [opciones de red](concepts-networking.md)

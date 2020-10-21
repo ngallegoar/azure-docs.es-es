@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: b26f0bab073ce248ca23bb8a815fa3e293ddba51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 742d7122c60b383e8ab7aa73f73b11b47843a9d5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73686493"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91613836"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Correlación de alertas inteligentes en la nube en Azure Security Center (incidentes)
 
@@ -36,7 +36,11 @@ Dado que los ataques se producen a menudo a través de distintos inquilinos, Sec
 
 Durante la investigación de un incidente, los analistas a menudo necesitan más contexto para llegar a un veredicto sobre la naturaleza de la amenaza y cómo mitigarla. Por ejemplo, incluso cuando se detecta una anomalía de red, sin saber qué más sucede en la red o con respecto al recurso objetivo, es difícil determinar las medidas que se deben tomar a continuación. En estos casos, pueden ser de utilidad los artefactos, los eventos relacionados y la información que un incidente de seguridad puede incluir. La información adicional disponible de los incidentes de seguridad variará según el tipo de amenaza detectada y la configuración de su entorno. 
 
-![Captura de pantalla del informe de incidentes de seguridad detectados](./media/security-center-alerts-cloud-smart/security-incident.png)
+> [!TIP]
+> Para obtener una lista de alertas de incidentes de seguridad que se pueden producir en el análisis de fusión, consulte la [tabla de referencia de alertas](alerts-reference.md#alerts-fusion).
 
-Para comprender mejor qué son los incidentes de seguridad, consulte [Control de incidentes de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-incident).
+:::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="Captura de pantalla del informe de incidentes de seguridad detectados":::
+
+
+Para comprender mejor qué son los incidentes de seguridad, consulte [Control de incidentes de seguridad en Azure Security Center](security-center-incident.md).
 

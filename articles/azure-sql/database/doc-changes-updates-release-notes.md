@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 027a816e846996aa7c61a1747327128f9a0feed0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236580"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079214"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novedades de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,6 +64,7 @@ En esta tabla se proporciona una comparación rápida del cambio en la terminolo
 
 | Característica | Detalles |
 | ---| --- |
+| <a href="/azure/azure-sql/database/elastic-transactions-overview">Transacciones distribuidas</a> | Transacciones distribuidas entre instancias administradas. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Grupos de instancias</a> | Una manera útil y rentable de migrar pequeñas instancias de SQL a la nube. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Entidades de seguridad (inicios de sesión) del servidor de Azure AD con SSMS</a> | Cree inicios de sesión a nivel de instancia con una instrucción <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>. |
 | [Replicación transaccional](../managed-instance/replication-transactional-overview.md) | Replique los cambios de las tablas en otras bases de datos de SQL Managed Instance, SQL Database o SQL Server. También puede actualizar las tablas al cambiarse algunas filas en otras instancias de SQL Managed Instance o SQL Server. Para más información, vea [Configuración de la replicación en una Instancia administrada de Azure SQL](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
@@ -72,7 +73,7 @@ En esta tabla se proporciona una comparación rápida del cambio en la terminolo
 
 ---
 
-## <a name="sql-managed-instance-new-features-and-known-issues"></a>Nuevas características y problemas conocidos de SQL Managed Instance
+## <a name="new-features"></a>Nuevas características
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>Actualizaciones de la Instancia administrada de SQL del segundo semestre de 2019
 
@@ -93,10 +94,13 @@ Las características siguientes están habilitadas en el modelo de implementaci�
   - El nuevo [rol de colaborador de instancia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) integrado permite el cumplimiento de la separación de los derechos (SoD) con los principios de seguridad y el cumplimiento de los estándares de la empresa.
   - La Instancia administrada de SQL está disponible en las siguientes regiones de Azure Government de disponibilidad general (US Gov Texas y US Gov Arizona), así como en Norte de China 2 y Este de China 2. También está disponible en las siguientes regiones públicas: Centro de Australia, Centro de Australia 2, Sur de Brasil, Sur de Francia, Centro de Emiratos Árabes Unidos, Norte de Emiratos Árabes Unidos, Norte de Sudáfrica, Oeste de Sudáfrica.
 
-### <a name="known-issues"></a>Problemas conocidos
+## <a name="known-issues"></a>Problemas conocidos
 
-|Incidencia  |Fecha de detección  |Estado  |Fecha de resolución  |
+|Incidencia  |Fecha de detección  |Status  |Fecha de resolución  |
 |---------|---------|---------|---------|
+|[Las transacciones distribuidas se pueden ejecutar después de quitar Managed Instance del grupo de confianza de servidor](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Octubre de 2020|Tiene solución alternativa||
+|[No se pueden ejecutar transacciones distribuidas después de la operación de escalado de Managed Instance](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Octubre de 2020|Tiene solución alternativa||
+|La instrucción [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) de Azure SQL y la instrucción `BACKUP`/`RESTORE` de Managed Instance no pueden usar la identidad administrada de Azure AD para autenticarse en Azure Storage.|Septiembre de 2020|Tiene solución alternativa||
 |[La entidad de servicio no puede acceder a Azure AD y AKV](#service-principal-cannot-access-azure-ad-and-akv)|Agosto de 2020|Tiene solución alternativa||
 |[La restauración de la copia de seguridad manual sin CHECKSUM puede devolver un error](#restoring-manual-backup-without-checksum-might-fail)|Mayo de 2020|Resuelto|Junio de 2020|
 |[El agente deja de responder al modificar, deshabilitar o habilitar los trabajos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Mayo de 2020|Resuelto|Junio de 2020|
@@ -125,11 +129,34 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 |Característica Correo electrónico de base de datos con servidores de correo externos (que no son de Azure) mediante una conexión segura||Resuelto|Octubre de 2019|
 |Las bases de datos independientes no se admiten en la Instancia administrada de SQL||Resuelto|Agosto de 2019|
 
+### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>Las transacciones distribuidas se pueden ejecutar después de quitar Managed Instance del grupo de confianza de servidor.
+
+Los [grupos de confianza de servidor](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) se usan para establecer la confianza entre las instancias de Managed Instance, que son un requisito previo para ejecutar [transacciones distribuidas](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Después de quitar Managed Instance del grupo de confianza de servidor o de eliminar el grupo, es posible que aún pueda ejecutar transacciones distribuidas. Existe una solución alternativa que puede aplicar para asegurarse de que las transacciones distribuidas están deshabilitadas y que es la [conmutación por error manual iniciada por el usuario](https://docs.microsoft.com/azure/azure-sql/managed-instance/user-initiated-failover) en Managed Instance.
+
+### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>No se pueden ejecutar transacciones distribuidas después de la operación de escalado de Managed Instance
+
+Las operaciones de escalado de Managed Instance que incluyen el cambio de nivel de servicio o el número de núcleos virtuales restablecerán la configuración del grupo de confianza de servidor en el back-end y deshabilitarán la ejecución [transacciones distribuidas](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Como solución alternativa, elimine y cree un [grupo de confianza de servidor](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) en Azure Portal.
+
+### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>Las instrucciones BULK INSERT y BACKUP/RESTORE no pueden usar la identidad administrada para tener acceso a Azure Storage
+
+La instrucción BULK INSERT no puede usar `DATABASE SCOPED CREDENTIAL` con la identidad administrada para autenticarse en Azure Storage. Como solución alternativa, cambie a la autenticación de SHARED ACCESS SIGNATURE. El siguiente ejemplo no funcionará en Azure SQL (tanto en Database como en Managed Instance):
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
+GO
+CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
+  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/curriculum', CREDENTIAL= msi_cred );
+GO
+BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
+```
+
+**Solución alternativa**: Use la [firma de acceso compartido para autenticarse en Storage](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
+
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>La entidad de servicio no puede acceder a Azure AD y AKV
 
 En algunas circunstancias, puede existir un problema con la entidad de servicio que se utiliza para acceder a los servicios de Azure AD y Azure Key Vault (AKV). En consecuencia, este problema afecta al uso de la autenticación de Azure AD y al cifrado de datos transparente (TDE) con Instancia administrada de SQL. Esto podría experimentarse como un problema de conectividad intermitente o no podría ejecutar instrucciones como CREATE LOGIN/USER FROM EXTERNAL PROVIDER o EXECUTE AS LOGIN/USER. La configuración de TDE con clave administrada por el cliente en una nueva Instancia administrada de SQL de Azure también podría no funcionar en algunas circunstancias.
 
-**Solución alternativa**: Para evitar que se produzca este problema en la Instancia administrada de SQL antes de ejecutar cualquier comando de actualización, o en caso de que ya se haya experimentado este problema después de actualizar los comandos, vaya a Azure Portal y acceda a la hoja del [Administrador de Active Directory](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal) de la Instancia administrada de SQL. Compruebe si puede ver el mensaje de error "Instancia administrada necesita una entidad de seguridad para acceder a Azure Active Directory. Haga clic aquí para crear una." En caso de que aparezca este mensaje de error, haga clic en él y siga las instrucciones paso a paso que se proporcionan hasta que se resuelva el error.
+**Solución alternativa**: Para evitar que se produzca este problema en SQL Managed Instance antes de ejecutar cualquier comando de actualización, o en caso de que ya se haya experimentado este problema después de actualizar los comandos, vaya a Azure Portal y acceda a la [hoja del administrador de Active Directory](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal) de SQL Managed Instance. Compruebe si puede ver el mensaje de error "Instancia administrada necesita una entidad de seguridad para acceder a Azure Active Directory. Haga clic aquí para crear una." En caso de que aparezca este mensaje de error, haga clic en él y siga las instrucciones paso a paso que se proporcionan hasta que se resuelva el error.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>La restauración de la copia de seguridad manual sin CHECKSUM puede devolver un error
 

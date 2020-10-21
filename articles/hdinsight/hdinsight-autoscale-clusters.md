@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 09/14/2020
-ms.openlocfilehash: 08b7fe2b3e959536589cfd425541ad36e3bd1e78
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 385e910befb79daafa532fa816b96d50a46b7d8c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532195"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91620093"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Escalabilidad automática de clústeres de Azure HDInsight
 
@@ -68,11 +68,11 @@ En el caso de la reducción vertical, la Escalabilidad automática emite una sol
 > [!Important]
 > La característica de escalado automático de Azure HDInsight se lanzó con carácter general el 7 de noviembre de 2019 para los clústeres de Spark y Hadoop, e incluía mejoras que no están disponibles en la versión preliminar de la característica. Si creó un clúster de Spark antes del 7 de noviembre de 2019 y quiere usar la característica de escalado automático en el clúster, la ruta recomendada es crear un nuevo clúster y habilitar el escalado automático en el nuevo clúster.
 >
-> La escalabilidad automática de Interactive Query (LLAP) se publicó en disponibilidad general el 27 de agosto de 2020. Los clústeres de HBase todavía están en versión preliminar. El escalado automático solo está disponible en los clústeres de Spark, Hadoop, Interactive Query y HBase.
+> La escalabilidad automática de Interactive Query (LLAP) se publicó en disponibilidad general para HDI 4.0 el 27 de agosto de 2020. Los clústeres de HBase todavía están en versión preliminar. El escalado automático solo está disponible en los clústeres de Spark, Hadoop, Interactive Query y HBase.
 
 En la tabla siguiente se describen las versiones y los tipos de clúster que son compatibles con la característica de escalabilidad automática.
 
-| Versión | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Versión | Spark | Hive | Interactive Query | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3.6 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
 | HDInsight 4.0 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
@@ -251,7 +251,7 @@ Una operación de escalado puede tardar entre 10 y 20 minutos en completarse. Cu
 
 ### <a name="prepare-for-scaling-down"></a>Preparación para la reducción vertical
 
-Durante el proceso de reducción vertical de un clúster, la característica Escalabilidad automática retira los nodos para cumplir con el tamaño de destino. Si las tareas están en ejecución en esos nodos, la Escalabilidad automática espera hasta que se completan las tareas. Como cada nodo de trabajo también tiene un rol en HDFS, los datos temporales se desplazan a los nodos restantes. Asegúrese de que haya espacio suficiente en los nodos restantes para hospedar todos los datos temporales.
+Durante el proceso de reducción vertical de un clúster, la característica Escalabilidad automática retira los nodos para cumplir con el tamaño de destino. Si las tareas están en ejecución en esos nodos, la Escalabilidad automática espera hasta que se completan las tareas para clústeres Spark y Hadoop. Como cada nodo de trabajo también tiene un rol en HDFS, los datos temporales se desplazan a los nodos restantes. Asegúrese de que haya espacio suficiente en los nodos restantes para hospedar todos los datos temporales.
 
 Los trabajos seguirán en ejecución. Los trabajos pendientes esperarán una programación con menos nodos de trabajo disponibles.
 
@@ -265,7 +265,7 @@ La escalabilidad automática para clústeres de Hadoop también supervisa el uso
 
 ### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>Establecimiento del número máximo de consultas simultáneas totales de configuración de Hive para el escenario de uso máximo
 
-Los eventos de escalabilidad automática no cambian la configuración de Hive de *Número máximo total de consultas simultáneas* en Ambari. Esto significa que el servicio interactivo del servidor de Hive 2 solo puede controlar el número dado de consultas simultáneas en cualquier momento, incluso si el número de demonios de LLAP se escala y reduce verticalmente en función de la carga y programación. La recomendación general es establecer esta configuración para el escenario de uso máximo para evitar la intervención manual.
+Los eventos de escalabilidad automática no cambian la configuración de Hive de *Número máximo total de consultas simultáneas* en Ambari. Esto significa que el servicio interactivo del servidor de Hive 2 solo puede controlar el número dado de consultas simultáneas en cualquier momento, incluso si el número de demonios de cola interactiva se escala y reduce verticalmente en función de la carga y programación. La recomendación general es establecer esta configuración para el escenario de uso máximo para evitar la intervención manual.
 
 Sin embargo, es posible que experimente un error de reinicio del servidor de Hive 2 si solo hay un número pequeño de nodos de trabajo y el valor configurado del máximo de consultas simultáneas totales es demasiado alto. Como mínimo, se necesita el número mínimo de nodos de trabajo que pueden dar cabida al número especificado de AM de Tez (igual a la configuración de consultas simultáneas máximas en total). 
 
@@ -275,11 +275,11 @@ Sin embargo, es posible que experimente un error de reinicio del servidor de Hiv
 
 La escalabilidad automática de HDInsight usa un archivo de etiqueta de nodo para determinar si un nodo está listo para ejecutar tareas. El archivo de etiqueta de nodo se almacena en HDFS con tres réplicas. Si el tamaño del clúster experimenta una reducción vertical drástica y hay una gran cantidad de datos temporales, existe una pequeña probabilidad de que se puedan eliminar las tres réplicas. Si esto sucede, el clúster entra en un estado de error.
 
-### <a name="llap-daemons-count"></a>Recuento de demonios de LLAP
+### <a name="interactive-query-daemons-count"></a>Recuento de demonios de Interactive Query
 
-En el caso de los clústeres de LLAP habilitados para la escalabilidad automática, un evento de escalado o reducción vertical también escala o reduce verticalmente el número de demonios de LLAP al número de nodos de trabajo activos. El cambio en el número de demonios no se conserva en la configuración `num_llap_nodes` de Ambari. Si los servicios de Hive se reinician manualmente, el número de demonios de LLAP se restablece según la configuración de Ambari.
+En el caso de los clústeres de Interactive Query habilitados para la escalabilidad automática, el evento de escalar o reducir verticalmente también escala vertical u horizontalmente el número de demonios de Interactive Query al número de nodos de trabajo activos. El cambio en el número de demonios no se conserva en la configuración `num_llap_nodes` de Ambari. Si los servicios de Hive se reinician manualmente, el número de demonios de Interactive Query se restablece según la configuración de Ambari.
 
-Si el servicio LLAP se reinicia manualmente, es necesario cambiar manualmente la configuración `num_llap_node` (el número de nodos necesarios para ejecutar el demonio de LLAP de Hive) en *Advanced hive-interactive-env* para que coincida con el número actual de nodos de trabajo activos.
+Si el servicio Interactive Query se reinicia manualmente, es necesario cambiar manualmente la configuración `num_llap_node` (el número de nodos necesarios para ejecutar el demonio de Interactive Query de Hive) en *Advanced hive-interactive-env* para que coincida con el número actual de nodos de trabajo activos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

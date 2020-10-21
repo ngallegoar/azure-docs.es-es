@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/30/2020
 ms.author: alexeyo
-ms.openlocfilehash: 554dd0967979bc2457c3a9c8371152e09535381f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690143"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91567169"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Límites y cuotas de los servicios de voz
 
@@ -36,6 +36,7 @@ En la tabla siguiente, los parámetros sin la fila "Ajustable" **no** son ajusta
 | **Tamaño máximo de blobs de entrada para Batch Transcription** | N/D | 2,5 GB |
 | **Tamaño máximo del contenedor de blobs para Batch Transcription** | N/D | 5 GB |
 | **Número máximo de blobs por contenedor para Batch Transcription** | N/D | 10000 |
+| **Número máximo de archivos por solicitud de transcripción para la transcripción por lotes (cuando se usan varias direcciones URL de contenido como entrada)** | N/D | 1000  |
 | **Número máximo de trabajos en ejecución simultánea para Batch Transcription** | N/D | 2000  |
 
 <sup>1</sup> Para el plan de tarifa **Gratis (F0)** , consulte también las asignaciones mensuales en la [página de precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

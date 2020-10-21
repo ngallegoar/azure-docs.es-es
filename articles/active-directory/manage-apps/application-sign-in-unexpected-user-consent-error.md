@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76e94e3c1571f865b41acd488ee1e868043427b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321953"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874550"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Error inesperado al otorgar consentimiento a una aplicación
 
@@ -79,10 +79,12 @@ Todos estos errores se producen cuando la aplicación a la que un usuario está 
     -   Agregar la aplicación desde la Galería de aplicaciones de Azure AD
 
 ## <a name="risky-app-error-and-warning"></a>Error y advertencia de aplicación de riesgo
+* **AADSTS900941:** Se requiere consentimiento del administrador. La aplicación se considera de riesgo. (AdminConsentRequiredDueToRiskyApp)
 * Esta aplicación puede ser peligrosa. Si confía en su origen, pídale al administrador que le conceda acceso.
+* **AADSTS900981:** Se recibió una solicitud de consentimiento del administrador para una aplicación de riesgo. (AdminConsentRequestRiskyAppWarning)
 * Esta aplicación puede ser peligrosa. Continúe solo si confía en su origen.
 
-Ambos mensajes se mostrarán cuando Microsoft haya determinado que la solicitud de consentimiento puede ser peligrosa. Entre otros factores, esto puede ocurrir si no se ha agregado un [publicador comprobado](../develop/publisher-verification-overview.md) al registro de la aplicación. El primer mensaje se mostrará a los usuarios finales cuando se deshabilite el [flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md). El segundo mensaje se mostrará a los usuarios finales cuando el flujo de trabajo de consentimiento del administrador esté habilitado y a los administradores. 
+Ambos mensajes se mostrarán cuando Microsoft haya determinado que la solicitud de consentimiento puede ser peligrosa. Entre otros factores, esto puede ocurrir si no se ha agregado un [publicador comprobado](../develop/publisher-verification-overview.md) al registro de la aplicación. El código de error y mensaje primeros se mostrarán a los usuarios finales cuando se deshabilite el [flujo de trabajo de consentimiento del administrador](configure-admin-consent-workflow.md). El código y mensaje segundos se mostrarán a los usuarios finales cuando el flujo de trabajo de consentimiento del administrador esté habilitado y a los administradores. 
 
 Los usuarios finales no podrán conceder el consentimiento a las aplicaciones que se hayan detectado como peligrosas. Los administradores pueden evaluar la aplicación, pero deben hacerlo muy atentamente, y continuar con precaución. Si la aplicación parece sospechosa tras una revisión más profunda, se puede notificar a Microsoft en la pantalla de consentimiento. 
 

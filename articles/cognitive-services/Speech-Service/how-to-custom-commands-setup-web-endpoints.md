@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e64c5ddfafb8bc8e9041e6d6b3e473a9a20565ed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362117"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843131"
 ---
 # <a name="set-up-web-endpoints"></a>Configuración de puntos de conexión web
 
@@ -79,7 +79,7 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
     En **Simple editor** (Editor sencillo), escriba `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
-   > ![En caso de error de la acción para llamar a puntos de conexión web](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![Captura de pantalla que muestra la pantalla Acierto - Acción para ejecutar.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Configuración | Valor sugerido | Descripción |
    | ------- | --------------- | ----------- |
@@ -107,7 +107,7 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
 - Respuesta en caso de éxito\
 Guarde, entrene y realice pruebas
    > [!div class="mx-imgBorder"]
-   > ![En caso de éxito de la acción para llamar a puntos de conexión web](media/custom-commands/setup-web-endpoint-on-success-response.png)
+   > ![Captura de pantalla que muestra la respuesta de Acierto.](media/custom-commands/setup-web-endpoint-on-success-response.png)
 - Respuesta en caso de error\
 Quite uno de los parámetros de consulta, guarde, vuelva a entrenar y realice pruebas
    > [!div class="mx-imgBorder"]

@@ -10,43 +10,49 @@ ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/10/2020
+ms.date: 09/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eb45f4488c0ddc63ab8e7357a122b47777feee
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: db10f53033e305aa2306bce230e7880140f35189
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662354"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91578296"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
-Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
+Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación.  Por ejemplo, si tiene varios bosques o si desea configurar características opcionales. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
 
 Antes de empezar a instalarlo, debe [descargar Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) y completar los pasos de los requisitos previos que se indican en [Azure AD Connect: Hardware y requisitos previos](how-to-connect-install-prerequisites.md). Asegúrese también de que posee las cuentas necesarias que se describen en [Azure AD Connect: cuentas y permisos](reference-connect-accounts-permissions.md).
 
-Si la configuración personalizada no coincide con la topología, por ejemplo, para actualizar DirSync, consulte la documentación relacionada sobre otros escenarios.
-
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Instalación de Azure AD Connect con Configuración personalizada
+
 ### <a name="express-settings"></a>Configuración rápida
-En esta página, haga clic en **Personalizar** para iniciar la instalación con Configuración personalizada.
+En esta página, haga clic en **Personalizar** para iniciar la instalación con Configuración personalizada.  El resto de este documento lo guía a través de las distintas pantallas del Asistente para la instalación personalizada.  Puede usar los vínculos siguientes para desplazarse rápidamente a la información de una pantalla concreta del asistente.
+
+- [Instalación de los componentes necesarios](#install-required-components)
+- [Inicio de sesión de usuario](#user-sign-in)
+- [Conectarse a Azure AD](#connect-to-azure-ad)
+- [Páginas bajo la sección Sincronización](#pages-under-the-sync-section)
 
 ### <a name="install-required-components"></a>Instalación de los componentes necesarios
-Al instalar los servicios de sincronización, puede dejar desactivada la sección de configuración opcional y Azure AD Connect configurará todo automáticamente. Configura una instancia de SQL Server 2012 Express LocalDB, crea los grupos apropiados y asigna permisos. Si desea cambiar los valores predeterminados, puede utilizar la tabla siguiente para conocer las opciones de configuración opcionales disponibles.
+Al instalar los servicios de sincronización, puede dejar desactivada la sección de configuración opcional y Azure AD Connect configurará todo automáticamente. Configura una instancia de SQL Server 2012 Express LocalDB, crea los grupos apropiados y asigna permisos. Si desea cambiar los valores predeterminados, puede utilizarlos si activa las casillas correspondientes.  En la tabla siguiente se proporciona un resumen de estas opciones y vínculos a información adicional. 
 
 ![Componentes necesarios](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
 | Configuración opcional | Descripción |
 | --- | --- |
+|Especificar una ubicación de instalación personalizada| Permite cambiar la ruta de instalación predeterminada para Azure AD Connect.|
 | Usar un SQL Server existente |Permite especificar el nombre de SQL Server y el nombre de la instancia. Elija esta opción si ya dispone de un servidor de base de datos que le gustaría utilizar. Si SQL Server no tiene la exploración habilitada, escriba el nombre de la instancia seguido de una coma y un número de puerto en el cuadro **Nombre de instancia** .  Luego, especifique el nombre de la base de datos de Azure AD Connect.  Los privilegios de SQL Server determinan si se creará una nueva base de datos o el administrador de SQL debe crear la base de datos de antemano.  Si dispone de permisos de asociación de seguridad de SQL, vea [cómo instalar mediante una base de datos existente](how-to-connect-install-existing-database.md).  Si ha tenido permisos delegados (DBO), vea [instalar Azure AD Connect con permisos de administrador delegados de SQL](how-to-connect-install-sql-delegation.md). |
 | Usar una cuenta de servicio existente |De forma predeterminada, Azure AD Connect usa una cuenta de servicio virtual para que la usen los servicios de sincronización. Si usa un servidor SQL Server remoto o un proxy que requiere autenticación, necesita usar una **cuenta de servicio administrada** o una cuenta de servicio en el dominio y conocer la contraseña. En esos casos, especifique la cuenta que se va a usar. Asegúrese de que el usuario que ejecuta la instalación es una SA en SQL, por lo que se puede crear un inicio de sesión para la cuenta de servicio.  Consulte [Azure AD Connect: cuentas y permisos](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Con la versión más reciente, el administrador SQL puede realizar ahora el aprovisionamiento de la base de datos fuera de banda y luego el administrador de Azure AD Connect puede instalarlo con derechos de propietario de la base de datos.  Para más información, consulte [Instalación de Azure AD Connect con permisos de administrador delegado de SQL](how-to-connect-install-sql-delegation.md).|
 | Especificar grupos de sincronización personalizada |De forma predeterminada, Azure AD Connect crea cuatro grupos locales en el servidor cuando se instalan los servicios de sincronización. Estos grupos son: grupo Administradores, grupo Operadores, grupo Examinar y grupo Restablecimiento de contraseña. Puede especificar sus grupos aquí. Los grupos deben ser locales en el servidor y no se pueden encontrar en el dominio. |
+|Importación de la configuración de sincronización (versión preliminar)|Permite importar la configuración de otras versiones de Azure AD Connect.  Para obtener más información, consulte [Importación y exportación de opciones de configuración de Azure AD Connect](how-to-connect-import-export-config.md).|
 
 ### <a name="user-sign-in"></a>Inicio de sesión de usuario
 Después de instalar los componentes necesarios, se le pide que seleccione el método de inicio de sesión único de usuario. En la tabla siguiente se proporciona una breve descripción de las opciones disponibles. Para obtener una descripción completa de los métodos de inicio de sesión, consulte las opciones de [inicio de sesión de usuario](plan-connect-user-signin.md).
 
-![Inicio de sesión del usuario](./media/how-to-connect-install-custom/usersignin4.png)
+![Captura de pantalla que muestra la página "Inicio de sesión de usuario" con la opción "Sincronización de hash de contraseña" seleccionada.](./media/how-to-connect-install-custom/usersignin4.png)
 
 | Inicio de sesión único | Descripción |
 | --- | --- |
@@ -75,7 +81,7 @@ Si aparece un error y tiene problemas de conectividad, consulte [Solución de pr
 ### <a name="connect-your-directories"></a>Conectar sus directorios
 Para conectarse a Active Directory Domain Services, Azure AD Connect necesita el nombre del bosque y las credenciales de una cuenta con permisos suficientes.
 
-![Directorio de conexión](./media/how-to-connect-install-custom/connectdir01.png)
+![Captura de pantalla en la que se muestra la página "Conectar sus directorios".](./media/how-to-connect-install-custom/connectdir01.png)
 
 Después de escribir el nombre del bosque y de hacer clic en **Agregar directorio**, aparece un cuadro de diálogo emergente con las siguientes opciones:
 
@@ -167,7 +173,7 @@ Esta pantalla le permite seleccionar las características opcionales para situac
 >
 >Haga clic [aquí](https://www.microsoft.com/download/details.aspx?id=47594) para descargar la versión más reciente de Azure AD Connect.
 
-![Características opcionales](./media/how-to-connect-install-custom/optional2.png)
+ ![Características opcionales](./media/how-to-connect-install-custom/optional2a.png)
 
 > [!WARNING]
 > Si actualmente tiene activo DirSync o Azure AD Synx, no active ninguna de las características de escritura diferida en Azure AD Connect.
@@ -300,7 +306,7 @@ Si ha seleccionado Cuenta de servicio administrada de grupo y esta característi
 ### <a name="select-the-azure-ad-domain-that-you-wish-to-federate"></a>Selección del dominio de Azure AD que desee federar
 Esta configuración se utiliza para configurar la relación de federación entre AD FS y Azure AD. Configura a AD FS para que emitir tokens de seguridad en Azure AD y configura Azure AD para confiar en los tokens de esta instancia de AD FS específica. Esta página solo permite configurar un único dominio en la instalación inicial. Si vuelve a ejecutar Azure AD Connect después podrá configurar más dominios.
 
-![Dominio de Azure AD](./media/how-to-connect-install-custom/adfs6.png)
+![Captura de pantalla que muestra la página "Dominio de Azure AD".](./media/how-to-connect-install-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>Comprobación del dominio de Azure AD seleccionado para la federación
 Cuando se selecciona el dominio que se va a federar, Azure AD Connect proporciona la información necesaria para comprobar un dominio no comprobado. Para saber cómo usar esta información, consulte el artículo sobre [incorporación y comprobación del dominio](../fundamentals/add-custom-domain.md).
@@ -320,7 +326,7 @@ La configuración de PingFederate con Azure AD Connect es muy sencilla y solo se
 ### <a name="verify-the-domain"></a>Comprobar el dominio
 Después de seleccionar la federación con PingFederate, se le pedirá que compruebe el dominio que quiere federar.  Seleccione el dominio del cuadro desplegable.
 
-![Comprobar dominio](./media/how-to-connect-install-custom/ping1.png)
+![Captura de pantalla que muestra "Dominio Azure AD" con el dominio de ejemplo "contoso.com" seleccionado.](./media/how-to-connect-install-custom/ping1.png)
 
 ### <a name="export-the-pingfederate-settings"></a>Exportar la configuración de PingFederate
 
@@ -394,7 +400,7 @@ La siguiente sección contiene solución de problemas e información que puede u
 ### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>"La base de datos ADSync ya contiene datos y no se puede sobrescribir"
 Cuando realiza una instalación personalizada de Azure AD Connect y selecciona la opción **Usar un SQL Server existente** en la página **Instalar componentes necesarios**, podría encontrar un error que indica **La base de datos ADSync ya contiene datos y no se puede sobrescribir. Quite la base de datos existente y vuelva a intentarlo.**
 
-![Error](./media/how-to-connect-install-custom/error1.png)
+![Captura de pantalla que muestra la página "Instalar componentes necesarios".](./media/how-to-connect-install-custom/error1.png)
 
 Esto es porque ya hay una base de datos existente llamada **ADSync** en la instancia de SQL Server del servidor SQL que ha especificado en los cuadros de texto anteriores.
 
@@ -415,7 +421,7 @@ Una vez completada la instalación, cierre la sesión e inicie de sesión de nue
 
 Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asignar licencias](how-to-connect-post-installation.md).
 
-Conozca más sobre estas características, que se habilitaron con la instalación: [Evitación de eliminaciones involuntarias](how-to-connect-sync-feature-prevent-accidental-deletes.md) y [Azure AD Connect Health](how-to-connect-health-sync.md).
+Para aprender más acerca de estas características que se habilitaron con la instalación, consulte la información sobre: [cómo evitar eliminaciones accidentales](how-to-connect-sync-feature-prevent-accidental-deletes.md) y [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Obtenga información acerca de estos temas habituales: [el programador y cómo desencadenar la sincronización](how-to-connect-sync-feature-scheduler.md).
 

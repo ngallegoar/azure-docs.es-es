@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 699a8a69621642d07d3547c07bb20c0d32ca7686
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c186b73cb00d03b731cd015b3ee06bf8f2233fa4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616989"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541159"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Configuración de servidor SMT para SUSE Linux
 Las instancias grandes de SAP HANA no tienen conectividad directa a Internet. No es un proceso sencillo registrar una de estas unidades con el proveedor de sistema operativo y descargar y aplicar las actualizaciones. Una solución para SUSE Linux podría ser configurar un servidor SMT en una máquina virtual de Azure. Hospede la máquina virtual en una red virtual de Azure que esté conectada a una instancia grande de HANA. Con este tipo de servidor SMT, la unidad de instancia grande de HANA podría registrar y descargar las actualizaciones. 
@@ -44,7 +44,7 @@ La máquina virtual implementada es menor y tiene la dirección IP interna 10.34
 
 Agregue un disco a la máquina virtual. Puede usar este disco para almacenar las actualizaciones ya que el propio disco de arranque podría ser demasiado pequeño. En este caso, el disco se montó en /srv/www/htdocs, como se muestra en la captura de pantalla siguiente. Un disco de 100 GB debería ser suficiente.
 
-![Captura de pantalla de la implementación de máquina virtual para el servidor SMT](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
+![Captura de pantalla que muestra el disco agregado en la ventana de PuTTy.](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
 
 Inicie sesión en las unidades de HANA (instancias grandes), mantenga /etc/hosts y compruebe si puede acceder a la máquina virtual de Azure en la que supuestamente se ejecuta el servidor SMT a través de la red.
 

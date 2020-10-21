@@ -6,13 +6,13 @@ ms.author: yegu
 ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 05/15/2017
-ms.openlocfilehash: 82003ef84571c8e07982826124b33763c0e53194
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 10/09/2020
+ms.openlocfilehash: 34e4781d1437b34607a6d9e4f99ec5bd2ef9b46d
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205553"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999974"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Configuración de la compatibilidad de red virtual con el nivel Premium de Azure Cache for Redis
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Cache for Redis se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con redes virtuales de una instancia de Azure Cache for Redis de nivel Premium.
@@ -28,22 +28,38 @@ La implementación de [Azure Virtual Network](https://azure.microsoft.com/servic
 ## <a name="virtual-network-support"></a>Compatibilidad con redes virtuales
 La compatibilidad con Virtual Network se configura en la hoja **New Azure Cache for Redis** (Nueva instancia de Azure Cache for Redis) durante la creación de la memoria caché. 
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+1. Para crear una instancia de caché prémium, inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Crear un recurso**. Tenga en cuenta que, además de crear memorias caché en Azure Portal, también puede crearlas mediante las plantillas de Resource Manager, PowerShell o la CLI de Azure. Para más información sobre cómo crear una instancia de Azure Cache for Redis, consulte [Creación de una caché](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Una vez que haya seleccionado un plan de tarifa premium, la integración con una red virtual de Redis se puede configurar seleccionando una red virtual que esté en la misma suscripción y ubicación que la memoria caché. Para usar una nueva red virtual, primero es preciso crearla, para lo que es preciso seguir los pasos de [Creación de una red virtual mediante Azure Portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) o [Creación de Virtual Network (clásica) mediante Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) y, luego, volver a la hoja **New Azure Cache for Redis** (Nueva instancia de Azure Cache for Redis) para crear y configurar una memoria caché Premium.
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Crear recurso.":::
+   
+2. En la página **Nuevo**, seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
 
-Para configurar la red virtual de la memoria caché nueva, haga clic en **Virtual Network** en la hoja **New Azure Cache for Redis** (Nueva instancia de Azure Cache for Redis) y seleccione la red virtual deseada en la lista desplegable.
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Crear recurso.":::
 
-![Virtual network][redis-cache-vnet]
+3. En la página **Nueva instancia de Redis Cache**, configure las opciones de la nueva caché prémium.
+   
+   | Parámetro      | Valor sugerido  | Descripción |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Nombre DNS** | Escriba un nombre único global. | El nombre de la memoria caché debe ser una cadena de entre 1 y 63 caracteres, y solo puede contener números, letras o guiones. El nombre debe comenzar y terminar por un número o una letra y no puede contener guiones consecutivos. El *nombre de host* de la instancia de caché será *\<DNS name>.redis.cache.windows.net*. | 
+   | **Suscripción** | Desplácese hacia abajo y seleccione su suscripción. | La suscripción en la que se creará esta nueva instancia de Azure Cache for Redis. | 
+   | **Grupos de recursos** | Desplácese hacia abajo y seleccione un grupo de recursos o **Crear nuevo** y escriba un nombre nuevo para el grupo de recursos. | Nombre del grupo de recursos en el que se van a crear la caché y otros recursos. Al colocar todos los recursos de la aplicación en un grupo de recursos, puede administrarlos o eliminarlos fácilmente. | 
+   | **Ubicación** | Desplácese hacia abajo y seleccione una ubicación. | Seleccione una [región](https://azure.microsoft.com/regions/) cerca de otros servicios que vayan a usar la memoria caché. |
+   | **Tipo de caché** | Desplácese hacia abajo y seleccione una caché prémium para configurar las características prémium. Para más información, consulte [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/). |  El plan de tarifa determina el tamaño, el rendimiento y las características disponibles para la memoria caché. Para más información, consulte la [introducción a Azure Redis Cache](cache-overview.md). |
 
-En la lista desplegable **Subred**, seleccione la subred deseada.  Si lo desea, especifique una **dirección IP estática**. El campo **Dirección IP estática** es opcional y, si no se especifica ninguna, se elige una de la subred seleccionada.
+4. Seleccione la pestaña **Redes** o haga clic en el botón **Redes** de la parte inferior de la página.
+
+5. En la pestaña **Redes**, seleccione **Redes virtuales** como método de conectividad. Para usar una nueva red virtual, primero es preciso crearla, para lo que debe seguir los pasos de [Creación de una red virtual mediante Azure Portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) o [Creación de Virtual Network (clásica) mediante Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) y, luego, volver a la hoja de la **nueva instancia de Azure Cache for Redis** para crear y configurar una memoria caché prémium.
 
 > [!IMPORTANT]
 > Si se implementa una instancia de Azure Cache for Redis en una red virtual de Resource Manager, la caché debe estar en una subred dedicada que no contenga otros recursos, salvo instancias de Azure Cache for Redis. Si se intenta implementar una instancia de Azure Cache for Redis en una red virtual de Resource Manager en una subred que contiene otros recursos, se produce un error en la implementación.
 > 
 > 
 
-![Virtual network][redis-cache-vnet-ip]
+   | Parámetro      | Valor sugerido  | Descripción |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Virtual Network** | Desplácese hacia abajo y seleccione la red virtual. | Seleccione una red virtual que esté en la misma suscripción y la misma ubicación que la memoria caché. | 
+   | **Subred** | Desplácese hacia abajo y seleccione la subred. | Se debe usar la notación CIDR para el intervalo de direcciones de la subred (por ejemplo 192.168.1.0/24). Debe incluirse en el espacio de direcciones de la red virtual. | 
+   | **Dirección IP estática** | (Opcional) Escriba una dirección IP estática. | Si no especifica una dirección IP estática, se elegirá una automáticamente. | 
 
 > [!IMPORTANT]
 > Azure reserva algunas direcciones IP dentro de cada subred y estas direcciones no se pueden usar. La primera y la última dirección IP de las subredes están reservadas para la conformidad con el protocolo, junto con otras tres direcciones usadas para los servicios de Azure. Para más información, consulte [¿Hay alguna restricción en el uso de direcciones IP dentro de estas subredes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
@@ -52,7 +68,19 @@ En la lista desplegable **Subred**, seleccione la subred deseada.  Si lo desea, 
 > 
 > 
 
-Una vez que se crea la memoria caché, para ver la configuración de la red virtual es preciso hacer clic en **Virtual Network** en el **menú Recursos**.
+6. Seleccione el botón **Siguiente: Opciones avanzadas** o haga clic en el botón **Siguiente: Opciones avanzadas** de la parte inferior de la página.
+
+7. En la pestaña **Opciones avanzadas** de la instancia de caché prémium, configure el puerto no TLS, la agrupación en clústeres y la persistencia de datos. 
+
+8. Seleccione el botón **Siguiente: Etiquetas** o haga clic en el botón **Siguiente: Etiquetas** situado en la parte inferior de la página.
+
+9. Opcionalmente, en la pestaña **Etiquetas**, escriba el nombre y el valor si desea clasificar el recurso. 
+
+10. Seleccione  **Revisar y crear**. Pasará a la pestaña Revisar y crear, donde Azure validará la configuración.
+
+11. Tras aparecer el mensaje verde Validación superada, seleccione **Crear**.
+
+La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página  **Información general**  de Azure Cache for Redis. Si en  **Estado**  se muestra  **En ejecución**, significa que la caché está lista para su uso. Una vez que se crea la memoria caché, para ver la configuración de la red virtual es preciso hacer clic en **Virtual Network** en el **menú Recursos**.
 
 ![Virtual network][redis-cache-vnet-info]
 

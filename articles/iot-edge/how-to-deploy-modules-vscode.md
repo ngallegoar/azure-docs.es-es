@@ -4,17 +4,17 @@ description: Use Visual Studio Code con Azure IoT Tools para enviar un módulo d
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/8/2019
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e4ac1a6e56cdbf47fd174d5244fc6ab51c63fb07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ccc87b1b3103e799a5974542de602090df8e1e4b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133895"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048396"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Implementación de módulos de Azure IoT Edge desde Visual Studio Code
 
@@ -25,7 +25,10 @@ En este artículo se muestra cómo crear un manifiesto de implementación de JSO
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure.
-* Un [dispositivo de IoT Edge](how-to-register-device.md#register-with-visual-studio-code) que tenga instalado el entorno de ejecución de Azure IoT Edge.
+* Un dispositivo IoT Edge.
+
+  Si no tiene un dispositivo IoT Edge configurado, puede crear uno en una máquina virtual de Azure. Siga los pasos de alguno de los artículos de inicio rápido para [Crear un dispositivo virtual Linux](quickstart-linux.md) o [Crear un dispositivo virtual Windows](quickstart.md).
+
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Visual Studio Code.
 
@@ -37,12 +40,15 @@ Para implementar módulos con Visual Studio Code, guarde el manifiesto de implem
 
 Este es un manifiesto de implementación básico con un módulo como ejemplo:
 
+>[!NOTE]
+>Este manifiesto de implementación de ejemplo usa la versión de esquema 1.1 para el centro y el agente de IoT Edge. La versión de esquema 1.1 se publicó junto con la versión 1.0.10 de IoT Edge y habilita características como el orden de inicio y la priorización de rutas del módulo.
+
    ```json
    {
      "modulesContent": {
        "$edgeAgent": {
          "properties.desired": {
-           "schemaVersion": "1.0",
+           "schemaVersion": "1.1",
            "runtime": {
              "type": "docker",
              "settings": {
@@ -85,7 +91,7 @@ Este es un manifiesto de implementación básico con un módulo como ejemplo:
        },
        "$edgeHub": {
          "properties.desired": {
-           "schemaVersion": "1.0",
+           "schemaVersion": "1.1",
            "routes": {
                "route": "FROM /messages/* INTO $upstream"
            },

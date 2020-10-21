@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b55d8bcc2f2042dc36c6875750893a345deb552
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468613"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965920"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>¿Qué es un token de actualización principal?
 
-Un token de actualización principal (PRT) es un artefacto de claves de autenticación de Azure AD en dispositivos Windows 10, iOS y Android. Se trata de un token JWT (JSON Web Token) emitido especialmente para agentes de token propios de Microsoft con el fin de habilitar el inicio de sesión único (SSO) en las aplicaciones usadas en esos dispositivos. En este artículo, se proporcionan detalles sobre cómo se emite, se usa y se protege un PRT en dispositivos Windows 10.
+Un token de actualización principal (PRT) es un artefacto de claves de autenticación de Azure AD en dispositivos Windows 10, Windows Server 2016 y versiones posteriores, iOS y Android. Se trata de un token JWT (JSON Web Token) emitido especialmente para agentes de token propios de Microsoft con el fin de habilitar el inicio de sesión único (SSO) en las aplicaciones usadas en esos dispositivos. En este artículo, se proporcionan detalles sobre cómo se emite, se usa y se protege un PRT en dispositivos Windows 10.
 
 Se da por hecho que ya conoce los distintos estados de dispositivo disponibles en Azure AD y cómo funciona el inicio de sesión único en Windows 10. Para más información sobre los dispositivos de Azure AD, consulte el artículo [¿Qué es la administración de dispositivos en Azure Active Directory?](overview.md)
 
@@ -199,6 +199,9 @@ Los siguientes diagramas ilustran los detalles subyacentes en la emisión, la re
 | D | El complemento CloudAP crea la cookie con PRT, inicia la sesión con la clave de sesión enlazada al TPM y la devuelve al host de cliente nativo. Como la cookie está firmada con la clave de sesión, no se pueda alterar. |
 | E | El host de cliente nativo devolverá esta cookie con PRT al explorador, que la incluirá como parte del encabezado de solicitud llamado x-ms-RefreshTokenCredential y solicitará tokens a Azure AD. |
 | F | Azure AD valida la firma de la clave de sesión de la cookie con PRT, valida el nonce, comprueba que el dispositivo sea válido en el inquilino y emite un token de identidad para la página web y una cookie de sesión cifrada para el explorador. |
+
+> [!NOTE]
+> El flujo de SSO del explorador descrito en los pasos anteriores no se aplica a las sesiones en modos privados como InPrivate en Microsoft Edge o Incógnito en Google Chrome (cuando se usa la extensión Cuentas de Microsoft).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

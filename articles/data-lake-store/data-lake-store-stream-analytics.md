@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: 8ef3d7400b64617df8d81c7b84e680496776b5bd
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 4c289ecb1d8471a7b99f1d4c85a0163de4d0c593
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192156"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91576224"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Transmisión de datos de Azure Storage Blob a Azure Data Lake Storage Gen1 mediante Stream Analytics
 En este artículo aprenderá a utilizar Azure Data Lake Storage Gen1 como salida para un trabajo de Azure Stream Analytics. En este artículo se muestra un escenario simple en el que se leen datos desde un blob de Azure Storage (entrada) y se escriben en Data Lake Storage Gen1 (salida).
@@ -42,11 +42,11 @@ Primero debe crear un trabajo de Stream Analytics que incluya un origen de entra
 
 1. Abra la página del trabajo de Stream Analytics y en el panel izquierdo haga clic en la pestaña **Inputs** (Entradas) y luego haga clic en **Agregar**.
 
-    ![Incorporación de una entrada al trabajo](./media/data-lake-store-stream-analytics/create.input.1.png "Agregar una entrada al trabajo")
+    ![Captura de pantalla de la hoja de trabajo de Stream Analytics con la opción de entradas y la opción de entrada Agregar secuencia seleccionada.](./media/data-lake-store-stream-analytics/create.input.1.png "Agregar una entrada al trabajo")
 
 2. En la hoja **Nueva entrada**, proporcione los valores siguientes.
 
-    ![Incorporación de una entrada al trabajo](./media/data-lake-store-stream-analytics/create.input.2.png "Agregar una entrada al trabajo")
+    ![Captura de pantalla de la hoja de nueva entrada de almacenamiento de blobs.](./media/data-lake-store-stream-analytics/create.input.2.png "Agregar una entrada al trabajo")
 
    * En **Alias de entrada**, escriba un nombre único para la entrada del trabajo.
    * En **Source type** (Tipo de origen), seleccione **Flujo de datos**.
@@ -65,18 +65,18 @@ Primero debe crear un trabajo de Stream Analytics que incluya un origen de entra
 
 1. Abra la página del trabajo de Stream Analytics, haga clic en la pestaña **Salidas** y en **Agregar** y seleccione **Data Lake Storage Gen1**.
 
-    ![Incorporación de una salida al trabajo](./media/data-lake-store-stream-analytics/create.output.1.png "Agregar una salida al trabajo")
+    ![Captura de pantalla de la hoja de trabajo de Stream Analytics con la opción Salidas, Agregar opción y Data Lake Storage Gen 1 seleccionada.](./media/data-lake-store-stream-analytics/create.output.1.png "Agregar una salida al trabajo")
 
 2. En la hoja **Nueva salida**, proporcione los siguientes valores.
 
-    ![Incorporación de una salida al trabajo](./media/data-lake-store-stream-analytics/create.output.2.png "Agregar una salida al trabajo")
+    ![Captura de pantalla de la hoja de nueva salida de Data Lake Storage Gen 1 con la opción Autorizar seleccionada.](./media/data-lake-store-stream-analytics/create.output.2.png "Agregar una salida al trabajo")
 
     * En **Alias de salida**, escriba un nombre único para la salida del trabajo. Se trata de un nombre descriptivo utilizado en las consultas para dirigir la salida de la consulta a esta cuenta de Data Lake Storage Gen1.
     * Se le pedirá que autorice el acceso a la cuenta de Data Lake Storage Gen1. Haga clic en **Autorizar**.
 
 3. En la hoja **Nueva salida**, proporcione los siguientes valores.
 
-    ![Incorporación de una salida al trabajo](./media/data-lake-store-stream-analytics/create.output.3.png "Agregar una salida al trabajo")
+    ![Captura de pantalla de la hoja de nueva salida Data Lake Storage Gen 1.](./media/data-lake-store-stream-analytics/create.output.3.png "Agregar una salida al trabajo")
 
    * En **Nombre de cuenta**, seleccione la cuenta de Data Lake Storage Gen1 que ya ha creado como ubicación a la que quiere que se envíe la salida del trabajo.
    * En **Patrón de prefijo de la ruta**, escriba una ruta de archivo usada para escribir los archivos en la cuenta de Data Lake Storage Gen1 especificada.

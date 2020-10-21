@@ -11,21 +11,24 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 09/29/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4852f841fc9ac8ebea586d5e24967a1db20b8044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be48e6e175beae751003895e60322a458cfbc8bd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743718"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91568087"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Detección de recursos de Azure para su administración en Privileged Identity Management
 
-Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), puede mejorar la protección de los recursos de Azure. Esto resulta útil para las organizaciones que ya usan Privileged Identity Management para proteger los roles de Azure AD, así como al grupo de administración y los propietarios de la suscripción que quieren proteger los recursos de producción.
+Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), puede mejorar la protección de los recursos de Azure. Esto es útil para:
 
-La primera vez que se configura Privileged Identity Management para recursos de Azure, es preciso detectar y seleccionar los recursos que se van a proteger con Privileged Identity Management. No hay ningún límite en cuanto al número de recursos que se pueden administrar con Privileged Identity Management. Pero se recomienda empezar por los recursos más críticos (producción).
+- Organizaciones que ya usan Privileged Identity Management para proteger roles de Azure AD.
+- Grupos de administración y propietarios de suscripciones que están intentando proteger los recursos de producción.
+
+La primera vez que se configura Privileged Identity Management para recursos de Azure, es preciso detectar y seleccionar los recursos que se van a proteger con Privileged Identity Management. No hay ningún límite en cuanto al número de recursos que se pueden administrar con Privileged Identity Management. Sin embargo, se recomienda empezar por los recursos de producción más críticos.
 
 ## <a name="discover-resources"></a>Detección de recursos
 
@@ -45,13 +48,16 @@ La primera vez que se configura Privileged Identity Management para recursos de 
 
 1. Seleccione **Detectar recursos** para iniciar la experiencia de detección.
 
-    ![Panel de detección con los recursos que se pueden administrar, como suscripciones y grupos de administración](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![En el panel de detección se enumeran los recursos que se pueden administrar, como las suscripciones y los grupos de administración.](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
 1. En la página **Detección**, utilice **Filtro de estado de recursos** y **Seleccionar tipo de recurso** para filtrar los grupos de administración o las suscripciones en las que tiene permiso de escritura. Empezar con **Todo** es, probablemente, más fácil.
 
-    Solo se pueden buscar y seleccionar recursos de la suscripción o de un grupo de administración para administrarlos mediante Privileged Identity Management. Al administrar un grupo de administración o una suscripción en Privileged Identity Management, también se pueden administrar sus recursos secundarios.
+   Puede buscar y seleccionar recursos de grupo de administración o suscripción para administrarlos en Privileged Identity Management. Al administrar un grupo de administración o una suscripción en Privileged Identity Management, también se pueden administrar sus recursos secundarios.
 
-1. Seleccione la casilla de verificación junto a los recursos no administrados que quiera administrar.
+   > [!Note]
+   > Al agregar un nuevo recurso secundario de Azure a un grupo de administración administrado por PIM, puede hacer que se administre el recurso secundario buscándolo en PIM.
+
+1. Seleccione los recursos no administrados que quiera administrar.
 
 1. Seleccione **Administrar recurso** para empezar a administrar los recursos seleccionados.
 

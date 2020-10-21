@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 03a32b37f5ca29c6a0dd6b810b4e097379c6c32e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9dc195f98310e63cbde06885effe86ea3c239249
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515159"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91576105"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Aprenda a realizar la autenticación entre servicios con Azure Data Lake Storage Gen1 mediante Azure Active Directory
 > [!div class="op_single_selector"]
@@ -65,12 +65,12 @@ Al iniciar sesión mediante programación, necesita el identificador de la aplic
     ![Adición de un grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "Agregar un grupo")
 6. Haga clic en **Seleccionar permisos**, seleccione los permisos y si desea asignarlos como una ACL predeterminada, ACL de acceso o ambos. Haga clic en **OK**.
    
-    ![Asignación de permisos al grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Asignar permisos al grupo")
+    ![Captura de pantalla de la hoja Agregar acceso personalizada con la opción Seleccionar permisos seleccionada y la hoja Seleccionar permisos con la opción Aceptar seleccionada.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Asignar permisos al grupo")
    
     Para obtener más información sobre los permisos de Data Lake Storage Gen1 y las ACL predeterminadas y de acceso, consulte [Control de acceso en Azure Data Lake Storage Gen1](data-lake-store-access-control.md).
 7. En la hoja **Agregar acceso personalizado**, haga clic en **Aceptar**. Los grupos recién agregados, con los permisos asociados, se enumeran en la hoja **Acceso**.
    
-    ![Asignación de permisos al grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Asignar permisos al grupo")
+    ![Captura de pantalla de la hoja Acceso con el grupo recién agregado seleccionado en la sección Acceso personalizado.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Asignar permisos al grupo")
 
 > [!NOTE]
 > Si tiene previsto restringir la aplicación de Azure Active Directory a una carpeta específica, también necesitará conceder a esa misma aplicación de Azure Active Directory el permiso **Ejecutar** en la raíz para habilitar el acceso de creación de archivos a través del SDK de .NET.
@@ -88,11 +88,11 @@ Al iniciar sesión mediante programación, necesita el identificador de la aplic
 
 3. En la parte superior de la hoja Registros de aplicaciones, haga clic en **Puntos de conexión**.
 
-    ![Punto de conexión de token OAuth token](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Punto de conexión de token OAuth")
+    ![Captura de pantalla de Active Directory con la opción Registros de aplicaciones y la opción Puntos de conexión seleccionados.](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Punto de conexión de token OAuth")
 
 4. En la lista de puntos de conexión, copie el correspondiente al token de OAuth 2.0.
 
-    ![Punto de conexión de token OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Punto de conexión de token OAuth")   
+    ![Captura de pantalla de la hoja Puntos de conexión con el icono de copia de punto de conexión de token de OAuth 2.0 seleccionado.](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Punto de conexión de token OAuth")   
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo ha creado creó una aplicación web de Azure AD y ha recopilado la información que necesita en las aplicaciones cliente que cree mediante SDK de .NET, Java, Python, API de REST, etc. Ahora puede leer los artículos siguientes, que hablan de cómo usar la aplicación nativa de Azure AD para autenticarse primero en Data Lake Storage Gen1 y luego realizar otras operaciones en el almacén.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 4b318057254688ba3060c825a7926b1c40de437c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c81c6145aed5f45849f6f08fdd1136862c3b7d8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305042"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850915"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Tutorial: Configuración de Infor CloudSuite para aprovisionar usuarios automáticamente
 
@@ -68,11 +68,11 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
     
     ![Contraseña de Infor CloudSuite](media/infor-cloudsuite-provisioning-tutorial/password.png)
 
-    ![Identificador de Infor CloudSuite](media/infor-cloudsuite-provisioning-tutorial/identifier.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/identifier.png" alt-text="Captura de pantalla de la consola de administración de Infor CloudSuite que muestra una fila de tabla resaltada. Esa fila contiene un identificador de usuario, contraseñas y una marca de tiempo." border="false":::
 
 5. Para generar el token de portador, copie el **Identificador de usuario** y la **Contraseña de SCIM**. Péguelos en Notepad++ separados por un signo de dos puntos. Para codificar el valor de cadena, navegue a **Complementos > Herramientas de MIME > Codificación de Basic64**. 
 
-    ![Identificador de Infor CloudSuite](media/infor-cloudsuite-provisioning-tutorial/token.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Captura de pantalla de la consola de administración de Infor CloudSuite que muestra una fila de tabla resaltada. Esa fila contiene un identificador de usuario, contraseñas y una marca de tiempo." border="false":::
 
 3.  Copie el token de portador. Este valor se escribirá en el campo Token secreto de la pestaña Aprovisionamiento de la aplicación Infor CloudSuite en Azure Portal.
 

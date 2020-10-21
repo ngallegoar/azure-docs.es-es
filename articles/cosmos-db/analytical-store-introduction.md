@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 17dce45e73a5620db2201534126900d8e571ec45
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900265"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91567152"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>¿Qué es el almacén analítico de Azure Cosmos DB (versión preliminar)?
 
@@ -52,7 +52,7 @@ El almacén analítico, que es un almacén de columnas, es más adecuado para es
 
 En la imagen siguiente se muestra el almacén de filas transaccional frente el almacén de columnas analítico en Azure Cosmos DB:
 
-:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Almacén de filas transaccional frente al almacén de columnas analítico en Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Tabla operativa de ejemplo" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Rendimiento desacoplado para cargas de trabajo analíticas
 
@@ -60,7 +60,7 @@ No hay ningún impacto en el rendimiento de las cargas de trabajo transaccionale
 
 ### <a name="auto-sync"></a>Sincronización automática
 
-La sincronización automática hace referencia a la funcionalidad totalmente administrada de Azure Cosmos DB donde las inserciones, actualizaciones y eliminaciones de datos operativos se sincronizan automáticamente del almacén transaccional al almacén analítico casi en tiempo real en un plazo de 5 minutos.
+La sincronización automática hace referencia a la funcionalidad totalmente administrada de Azure Cosmos DB donde las inserciones, las actualizaciones y las eliminaciones de datos operativos se sincronizan automáticamente entre el almacén transaccional y el almacén analítico casi en tiempo real. La latencia de sincronización automática suele ser de menos de 2 minutos. En los casos en los que una base de datos de rendimiento compartida cuente con un gran número de contenedores, la latencia de sincronización automática de contenedores individuales puede ser mayor y tardar hasta 5 minutos. Nos gustaría obtener más información sobre cómo encaja esta latencia en sus escenarios. Para ello, póngase en contacto con el [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 La funcionalidad de sincronización automática, junto con el almacén analítico, proporciona las siguientes ventajas clave:
 
@@ -138,7 +138,7 @@ salary: 1000000
 }
 ```
 
-La propiedad de hoja `streetName` del objeto anidado `address` se representará en el esquema del almacén analítico como columna `address.object.streetName.int32`. El tipo de datos se agrega como sufijo a la columna. De este modo, si se agrega otro documento al almacén transaccional donde el valor de la propiedad de hoja `streetNo` sea "123" (una cadena), el esquema del almacén analítico evoluciona automáticamente sin modificar el tipo de la columna escrita previamente. Se agrega una columna nueva al almacén analítico, `address.object.streetName.string`, donde se almacena este valor "123".
+La propiedad de hoja `streetNo` del objeto anidado `address` se representará en el esquema del almacén analítico como columna `address.object.streetNo.int32`. El tipo de datos se agrega como sufijo a la columna. De este modo, si se agrega otro documento al almacén transaccional donde el valor de la propiedad de hoja `streetNo` sea "123" (una cadena), el esquema del almacén analítico evoluciona automáticamente sin modificar el tipo de la columna escrita previamente. Se agrega una columna nueva al almacén analítico, `address.object.streetNo.string`, donde se almacena este valor "123".
 
 **Asignación de un tipo de datos a un sufijo**
 
@@ -171,7 +171,7 @@ Si tiene una cuenta de Azure Cosmos DB distribuida globalmente, después de habi
 
 ### <a name="security"></a>Seguridad
 
-La autenticación con el almacén analítico es igual que en un almacén transaccional para una base de datos determinada. Puede usar claves maestras o de solo lectura para la autenticación. Puede aprovechar el servicio vinculado en Synapse Studio para evitar pegar las claves de Azure Cosmos DB en los cuadernos de Spark. El acceso a este servicio vinculado está disponible para todos los usuarios que tengan acceso al área de trabajo.
+La autenticación con el almacén analítico es igual que en un almacén transaccional para una base de datos determinada. Puede usar claves principales o de solo lectura para la autenticación. Puede aprovechar el servicio vinculado en Synapse Studio para evitar pegar las claves de Azure Cosmos DB en los cuadernos de Spark. El acceso a este servicio vinculado está disponible para todos los usuarios que tengan acceso al área de trabajo.
 
 ### <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Compatibilidad con varios runtimes de Azure Synapse Analytics
 

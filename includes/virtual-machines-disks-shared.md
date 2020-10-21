@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cafde6ed66e5b636be60533abafcd6f221fe33a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6f819d9b6ba4d74612da304aafea0118f9094bde
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502525"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91451402"
 ---
 Los discos compartidos de Azure son una nueva característica de Azure Managed Disks que permite adjuntar un disco administrado en varias máquinas virtuales (VM) al mismo tiempo. Si adjunta un disco administrado en varias VM, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure.
 
@@ -57,7 +57,7 @@ Los discos compartidos de Azure se admiten en:
 - [SUSE SLE para SAP y SUSE SLE HA 15 SP1 y versiones posteriores](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
 - [Ubuntu 18.04 y versiones posteriores](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
 - [RHEL Developer Preview en cualquier versión 8 de RHEL](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
-- [Oracle Enterprise Linux] (https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
+- [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 Los clústeres de Linux pueden aprovechar administradores de clústeres como [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker se basa en [Corosync](http://corosync.github.io/corosync/), lo que permite las comunicaciones de clúster para las aplicaciones implementadas en entornos de alta disponibilidad. Algunos sistemas de archivos en clúster comunes incluyen [ocfs2](https://oss.oracle.com/projects/ocfs2/) y [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Puede usar modelos de agrupación en clústeres basados en la reserva persistente SCSI (SCSI PR) o un dispositivo de bloque STONITH (SBD) para arbitrar el acceso al disco. Al usar SCSI PR, puede manipular las reservas y los registros mediante utilidades como [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) y [sg_persist](https://linux.die.net/man/8/sg_persist).
 
@@ -131,19 +131,19 @@ En los siguientes ejemplos se muestran algunos escenarios en los que se muestra 
 
 A continuación, se presenta un ejemplo de un WSFC de dos nodos mediante volúmenes compartidos en clúster. Con esta configuración, ambas máquinas virtuales tienen acceso de escritura simultáneo al disco, lo que da lugar a que se divida la limitación `ReadWrite` entre las dos máquinas virtuales y a que no se use la limitación `ReadOnly`.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Ejemplo de disco Ultra de dos nodos en CSV":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Imagen de una tabla que muestra el acceso `ReadOnly` (de solo lectura) o `Read/Write` (de lectura y escritura) para el Reservation Holder (titular de reserva), el Registered (registrado) y Others (otros).":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Clúster de dos nodos sin volúmenes compartidos en clúster
 
 A continuación, se presenta un ejemplo de un WSFC de dos nodos que no usa volúmenes compartidos en clúster. Con esta configuración, solo una máquina virtual tiene acceso de escritura al disco. Esto da como resultado que la limitación `ReadWrite` se use exclusivamente para la máquina virtual principal y que solo la secundaria use la limitación `ReadOnly`.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Ejemplo de disco Ultra no CSV de dos nodos en CSV":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Imagen de una tabla que muestra el acceso `ReadOnly` (de solo lectura) o `Read/Write` (de lectura y escritura) para el Reservation Holder (titular de reserva), el Registered (registrado) y Others (otros).":::
 
 ##### <a name="four-node-linux-cluster"></a>Clúster Linux de cuatro nodos
 
 A continuación, se proporciona un ejemplo de un clúster Linux de cuatro nodos con un solo escritor y tres lectores de escalabilidad horizontal. Con esta configuración, solo una máquina virtual tiene acceso de escritura al disco. Esto da como resultado que la limitación `ReadWrite` se use exclusivamente para la máquina virtual principal y que la limitación `ReadOnly` se divida entre las máquinas virtuales secundarias.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Ejemplo de limitación en disco Ultra de cuatro nodos":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Imagen de una tabla que muestra el acceso `ReadOnly` (de solo lectura) o `Read/Write` (de lectura y escritura) para el Reservation Holder (titular de reserva), el Registered (registrado) y Others (otros).":::
 
 #### <a name="ultra-pricing"></a>Precios de Ultra
 

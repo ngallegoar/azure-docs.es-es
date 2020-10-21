@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 6203c230f7ca27b1d4b48e9f56a7f46cd5a5ce78
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825326"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91839697"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configuración de replicación geográfica para Azure Cache for Redis
 
@@ -73,7 +73,7 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 
     También puede consultar el estado de la vinculación en la hoja de **información general** para ambas cachés, la principal y la secundaria.
 
-    ![Estado de cachés](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    ![Captura de pantalla que destaca cómo ver el estado de vinculación de las memorias caché principales y secundarias.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
     Una vez que se completa el proceso de replicación, el **estado del vínculo** cambia a **Correcto**.
 

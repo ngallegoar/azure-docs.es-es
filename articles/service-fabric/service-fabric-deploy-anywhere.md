@@ -1,17 +1,15 @@
 ---
 title: Información general de clústeres de Service Fabric en Azure e independientes
 description: Puede crear clústeres de Service Fabric en cualquier VM o equipo con Windows Server o Linux. Esto significa que podrá implementar y ejecutar aplicaciones de Service Fabric en cualquier entorno donde haya un conjunto de equipos de Windows Server o Linux que estén conectados entre sí, ya sea de manera local, en Microsoft Azure o con algún proveedor en la nube.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.author: dekapur
 ms.custom: sfrev
-ms.openlocfilehash: a3627effe10039ded5007f9dd060bf1865929040
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8313d75bb6398bbe614c6f56b494079548c99954
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75751147"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842604"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Comparación de clústeres de Service Fabric en Azure e independientes en Windows Server y Linux
 
@@ -28,7 +26,7 @@ En Azure se proporciona integración con otras características y servicios de A
 * **Clúster de Service Fabric como recurso de Azure** Un clúster de Service Fabric es un recurso de Azure, de modo que puede ajustarlo como hace con otros recursos en Azure.
 * **Integración con la infraestructura de Azure** : Service Fabric se coordina con la infraestructura de Azure subyacente para el SO, la red y otras actualizaciones con el fin de mejorar la disponibilidad y la confiabilidad de las aplicaciones.  
 * **Diagnósticos:** en Azure se proporciona la integración con Azure Diagnostics y los registros de Azure Monitor.
-* **Escalado automático:** para los clústeres hospedados en Azure, proporcionamos una funcionalidad integrada de escalado automático gracias a los conjuntos de escalas de la máquina virtual. En los entornos locales y otros entornos en la nube, hay que crear una característica propia de escalado automático o realizar el escalado manualmente mediante las API que ofrece Service Fabric para escalar los clústeres.
+* **Escalabilidad automática:** para los clústeres hospedados en Azure, proporcionamos una funcionalidad integrada de escalabilidad automática a través de conjuntos de escalas de la máquina virtual. En los entornos locales y otros entornos en la nube, hay que crear una característica propia de escalabilidad automática o realizar el escalado manualmente mediante las API que ofrece Service Fabric para escalar los clústeres.
 
 ## <a name="benefits-of-standalone-clusters"></a>Ventajas de los clústeres independientes
 

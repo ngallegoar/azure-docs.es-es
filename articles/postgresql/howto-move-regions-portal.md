@@ -1,18 +1,18 @@
 ---
 title: Traslado de un servidor único de Azure Database for PostgreSQL entre regiones de Azure mediante Azure Portal
 description: Mueva un servidor de Azure Database for PostgreSQL de una región de Azure a otra mediante una réplica de lectura y Azure Portal.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 00cd291824eabfe8e1b43f35bc3618bfd793077d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0eaac8ac65b490e1b8de716d79bd36d2f7a7567c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568044"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91707666"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Traslado de una base de datos de Azure a Azure Database for PostgreSQL: servidor único a otra región mediante Azure Portal
 
@@ -21,7 +21,7 @@ Hay varios escenarios para mover un servidor de Azure Database for PostgreSQL ex
 Puede usar una [réplica de lectura entre regiones](concepts-read-replicas.md#cross-region-replication) de Azure Database for PostgreSQL para completar el traslado a otra región. Para ello, primero cree una réplica de lectura en la región de destino. A continuación, detenga la replicación en el servidor de réplica de lectura para convertirlo en un servidor independiente que acepte el tráfico tanto de lectura como de escritura. 
 
 > [!NOTE]
-> Este artículo se centra en el traslado del servidor a otra región. Si desea mover el servidor a otro grupo de recursos o suscripción, consulte el artículo sobre [traslado](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription). 
+> Este artículo se centra en el traslado del servidor a otra región. Si desea mover el servidor a otro grupo de recursos o suscripción, consulte el artículo de [traslado](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -47,11 +47,11 @@ Para crear un servidor de réplica de lectura entre regiones en la región de de
 1. Seleccione **Replicación** en el menú, en **CONFIGURACIÓN**.
 1. Seleccione **Agregar réplica**.
 1. Escriba un nombre para el servidor de réplica.
-1. Seleccione la ubicación del servidor de réplica. La ubicación predeterminada es la misma que la del servidor maestro. Verifique haber seleccionado la ubicación de destino en la que desea implementar la réplica.
+1. Seleccione la ubicación del servidor de réplica. La ubicación predeterminada es la misma que la del servidor principal. Verifique haber seleccionado la ubicación de destino en la que desea implementar la réplica.
 1. Seleccione **Aceptar** para confirmar la creación de la réplica. Durante la creación de la réplica, los datos se copian del servidor de origen a la réplica. El tiempo de creación puede tardar varios minutos o más, en proporción con el tamaño del servidor de origen.
 
 >[!NOTE]
-> Al crear una réplica, no se heredan las reglas de firewall y el punto de conexión de servicio de red virtual del servidor maestro. Estas reglas se deben configurar de forma independiente para la réplica.
+> Al crear una réplica, no se heredan las reglas de firewall ni los puntos de conexión de servicio de red virtual del servidor principal. Estas reglas se deben configurar de forma independiente para la réplica.
 
 ## <a name="move"></a>Move
 

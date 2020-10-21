@@ -3,18 +3,18 @@ title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: fcbca4a1e3152dfa36d71031c2f69e8a40125380
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f18bd4589ea995696175fa23300432793f0f5974
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971014"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950251"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
 Este documento enumeran algunos de los límites más comunes de Microsoft Azure, que a veces se denominan cuotas.
 
-Consulte [Precios de Azure](https://azure.microsoft.com/pricing/) para más información sobre precios de Azure. Allí, puede calcular los costos mediante el uso de la [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/). También puede ir a la página de detalles de precios de un servicio determinado, por ejemplo, [Máquinas virtuales Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Si quiere obtener sugerencias para ayudar a administrar los costos, vea [Prevención de costos inesperados con la administración de costos y facturación de Azure](../../cost-management-billing/manage/getting-started.md).
+Consulte [Precios de Azure](https://azure.microsoft.com/pricing/) para más información sobre precios de Azure. Allí, puede calcular los costos mediante el uso de la [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/). También puede ir a la página de detalles de precios de un servicio determinado, por ejemplo, [Máquinas virtuales Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Si quiere obtener sugerencias para ayudar a administrar los costos, vea [Prevención de costos inesperados con la administración de costos y facturación de Azure](../../cost-management-billing/cost-management-billing-overview.md).
 
 ## <a name="managing-limits"></a>Administración de límites
 
@@ -212,7 +212,7 @@ En la tabla siguiente se detallan las características y los límites de los [ni
 
 [!INCLUDE [azure-data-lake-analytics-limits](../../../includes/azure-data-lake-analytics-limits.md)]
 
-## <a name="data-lake-store-limits"></a>Límites de Data Lake Store
+## <a name="data-lake-storage-limits"></a>Límites de Data Lake Storage
 
 [!INCLUDE [azure-data-lake-store-limits](../../../includes/azure-data-lake-store-limits.md)]
 
@@ -328,7 +328,7 @@ La tabla siguiente se aplica a v1, v2 y estándar y a SKU de WAF, a menos que se
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
-## <a name="role-based-access-control-limits"></a>Límites de control de acceso basado en rol
+## <a name="azure-role-based-access-control-limits"></a>Límites de control de acceso basado en rol de Azure
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
 

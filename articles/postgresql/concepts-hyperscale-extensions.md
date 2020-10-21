@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: ed023f17e19c6a018f55cb95df6447c6e5474ce8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fda40e58231b849f1e63f53f7bb268375ffe7fec
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314885"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996454"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -41,6 +41,7 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Mantenimiento de objetos grandes. |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Proporciona un tipo de datos para las estructuras de árbol jerárquicas. |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Tipo de datos para representar los segmentos de línea o intervalos de punto flotante. |
+> | [tdigest](https://github.com/tvondra/tdigest) | Tipo de datos para la acumulación en línea de estadísticas basadas en rangos, como cuantiles y medias truncadas |
 > | [topn](https://github.com/citusdata/postgresql-topn/) | Tipo para JSONB de n principales. |
 
 ### <a name="full-text-search-extensions"></a>Extensiones de búsqueda de texto completo

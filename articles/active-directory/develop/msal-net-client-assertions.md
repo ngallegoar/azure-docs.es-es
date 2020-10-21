@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/18/2019
+ms.date: 9/30/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: aeef0c4f139f9721449ba2c503f08fafa2c627d3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bb1ce0a8ba568dc651accdc5f8c84e9c2c980e73
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166321"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91612819"
 ---
 # <a name="confidential-client-assertions"></a>Aserciones de cliente confidenciales
 
@@ -48,16 +48,16 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-Las notificaciones esperadas por Azure AD son las siguientes:
+Las [notificaciones esperadas por Azure AD](active-directory-certificate-credentials.md) son las siguientes:
 
 Tipo de notificación | Value | Descripción
 ---------- | ---------- | ----------
-aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | La notificación "aud" (audiencia) identifica los destinatarios para los que está previsto el JWT (en este caso Azure AD) Vea [RFC 7519, sección 4.1.3]
-exp | Jueves 27 de junio de 2019 15:04:17 GMT+0200 (Hora de verano romance) | La notificación "exp" (fecha de expiración) identifica la hora de expiración en la que o después de la que el token JWT no debe ser aceptado para su procesamiento. Vea [RFC 7519, Sección 4.1.4]
-iss | {ClientID} | La notificación "iss" (emisor) identifica la entidad de seguridad que ha emitido el JWT. El procesamiento de esta notificación es específico de la aplicación. El valor "iss" es una cadena que distingue mayúsculas de minúsculas y que contiene un valor StringOrURI. [RFC 7519, Sección 4.1.1]
-jti | (un GUID) | La notificación "jti" (Id. de JWT) proporciona un identificador único para el JWT. El valor del identificador se DEBE asignar de forma que se garantice que hay una probabilidad insignificante de que el mismo valor se asigne por accidente a otro objeto de datos; si en la aplicación se usan varios emisores, también se DEBEN evitar las colisiones entre los valores generados por otros emisores. La notificación "jti" se puede usar para impedir que se vuelva a reproducir el JWT. El valor "jti" es una cadena que distingue mayúsculas de minúsculas. [RFC 7519, Sección 4.1.7]
-nbf | Jueves 27 de junio de 2019 14:54:17 GMT+0200 (Hora de verano romance) | La notificación "nbf" (no antes de) identifica la hora antes de la cual no debe ser aceptado el token JWT para su procesamiento. [RFC 7519, Sección 4.1.5]
-sub | {ClientID} | La notificación "sub" (asunto) identifica el asunto del JWT. Las notificaciones en un JWT normalmente son instrucciones sobre el asunto. El ámbito del valor de asunto DEBE ser único localmente en el contexto del emisor o ser único globalmente. Vea [RFC 7519, Sección 4.1.2]
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | La notificación "aud" (audiencia) identifica los destinatarios para los que está previsto el JWT (en este caso Azure AD) Vea [RFC 7519, sección 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  En este caso, el destinatario es el servidor de inicio de sesión (login.microsoftonline.com).
+exp | 1601519414 | La notificación "exp" (fecha de expiración) identifica la hora de expiración en la que o después de la que el token JWT no debe ser aceptado para su procesamiento. Vea [RFC 7519, Sección 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Esto permite que la aserción se use hasta entonces, por lo que debe mantenerse a menos de 5-10 minutos después de `nbf` como máximo.  En la actualidad, Azure AD no impone restricciones en el tiempo de `exp`. 
+iss | {ClientID} | La notificación "iss" (emisor) identifica la entidad de seguridad que ha emitido el JWT; en este caso, la aplicación cliente.  Use el identificador de aplicación GUID.
+jti | (un GUID) | La notificación "jti" (Id. de JWT) proporciona un identificador único para el JWT. El valor del identificador se DEBE asignar de forma que se garantice que hay una probabilidad insignificante de que el mismo valor se asigne por accidente a otro objeto de datos; si en la aplicación se usan varios emisores, también se DEBEN evitar las colisiones entre los valores generados por otros emisores. El valor "jti" es una cadena que distingue mayúsculas de minúsculas. [RFC 7519, Sección 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7).
+nbf | 1601519114 | La notificación "nbf" (no antes de) identifica la hora antes de la cual no debe ser aceptado el token JWT para su procesamiento. [RFC 7519, Sección 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  El uso de la hora actual es adecuado. 
+sub | {ClientID} | La notificación "sub" (asunto) identifica el asunto del JWT; en este caso, también su aplicación. Use el mismo valor que `iss`. 
 
 Este es un ejemplo de cómo crear estas notificaciones:
 

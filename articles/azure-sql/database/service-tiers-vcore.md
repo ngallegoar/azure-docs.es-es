@@ -8,14 +8,14 @@ ms.subservice: features
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
-ms.date: 08/14/2020
-ms.openlocfilehash: 19f811c636d5cf3ffb3eef9904c7ba4f7d456b5f
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.reviewer: sashan, moslake
+ms.date: 09/30/2020
+ms.openlocfilehash: 44dafd1b0043c2daa7065069f571f13529303a73
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462214"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91614434"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Información general del modelo de núcleo virtual: Azure SQL Database y Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,7 +91,11 @@ La serie Fsv2 solo se admite en el nivel De uso general. Para las regiones en la
 - La serie M es una opción de hardware optimizado para memoria para las cargas de trabajo que exigen más memoria y mayores límites de proceso que los proporcionados por Gen5.
 - La serie M cuenta con 29 GB por cada núcleo virtual y hasta 128 núcleos virtuales, lo que multiplica por ocho el límite de memoria con respecto a Gen5 hasta alcanzar prácticamente los 4 TB.
 
-La serie M solo se admite en el nivel Crítico para la empresa y no es compatible con la redundancia de zona.  La suscripción debe ser un tipo de oferta de pago, como Pago por uso o Contrato Enterprise (EA). Para ver las regiones en las que la serie M está disponible, consulte la [disponibilidad de la serie M](#m-series-1).
+La serie M solo se admite en el nivel Crítico para la empresa y no es compatible con la redundancia de zona.  Para ver las regiones en las que la serie M está disponible, consulte la [disponibilidad de la serie M](#m-series-1).
+
+#### <a name="azure-offer-types-supported-by-m-series"></a>Tipos de oferta de Azure disponibles en la serie M
+
+Para acceder a la serie M, la suscripción debe ser un tipo de oferta de pago, como Pago por uso o Contrato Enterprise (EA).  Para ver una lista completa de los tipos de oferta de Azure disponibles en la serie M, consulte las [ofertas actuales sin límites de gasto](https://azure.microsoft.com/support/legal/offer-details).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).

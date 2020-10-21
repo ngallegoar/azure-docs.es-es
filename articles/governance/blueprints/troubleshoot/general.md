@@ -1,14 +1,14 @@
 ---
 title: Solución de errores comunes
 description: Obtenga información acerca de cómo solucionar problemas al crear, asignar y eliminar planos técnicos, como infracciones de directivas y funciones de parámetros del plano técnico.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a1689141f95aaac9183391af79edb0cabf5343b6
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651321"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058291"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solución de problemas de errores con instancias de Azure Blueprint
 
@@ -59,7 +59,7 @@ Pasar un parámetro de plano técnico que usa una función, como `[resourceGroup
 
 #### <a name="resolution"></a>Solución
 
-Para pasar una función como parámetro, escape la cadena completa con `[`, de modo que el parámetro de plano técnico sea similar a `[[resourceGroup().tags.myTag]`. El carácter de escape hace que los planos técnicos traten el valor como una cadena al procesar el plano técnico. El plano técnico luego coloca la función en el artefacto para que pueda ser dinámico, según lo previsto. Para obtener más información, consulte [Sintaxis y expresiones de las plantillas de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
+Para pasar una función como parámetro, escape la cadena completa con `[`, de modo que el parámetro de plano técnico sea similar a `[[resourceGroup().tags.myTag]`. El carácter de escape hace que los planos técnicos traten el valor como una cadena al procesar el plano técnico. El servicio de planos técnicos luego coloca la función en el artefacto para que pueda ser dinámico, según lo previsto. Para obtener más información, consulte [Sintaxis y expresiones de las plantillas de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## <a name="delete-errors"></a>Eliminación de errores
 
@@ -75,7 +75,7 @@ Una asignación de plano técnico puede quedar atrapada en un estado no terminal
 
 #### <a name="resolution"></a>Solución
 
-Las asignaciones de plano técnico en un estado no terminal se marcan automáticamente como **Error** después de un tiempo de espera de _6 horas_. Una vez que el tiempo de espera ha ajustado el estado de la asignación de plano técnico, se puede volver a intentar la eliminación.
+Las asignaciones de plano técnico en un estado no terminal se marcan automáticamente como **Error** después de un tiempo de espera de _seis horas_. Una vez que el tiempo de espera ha ajustado el estado de la asignación de plano técnico, se puede volver a intentar la eliminación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

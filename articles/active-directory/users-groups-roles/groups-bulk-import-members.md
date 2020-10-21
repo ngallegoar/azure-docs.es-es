@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89b8097aa288be710e95e835bb66904ef2c6ab56
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: add8a533f2b4fba9a9e881442e43030adb7e2b53
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421678"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91762015"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Adición masiva de miembros de un grupo en Azure Active Directory
 
@@ -75,7 +75,7 @@ Para obtener más información sobre cada elemento de línea de la operación ma
 
 ## <a name="bulk-import-service-limits"></a>Límites del servicio de importación en bloque
 
-La ejecución de cada actividad masiva para importar una lista de miembros de grupo puede durar hasta una hora. Esto permite la importación de una lista de al menos 40 000 miembros.
+La ejecución de cada actividad masiva para importar una lista de miembros de grupo puede durar hasta una hora. Esto permite la importación de una lista de 40 000 miembros como máximo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 94abdf8735fa487f46d423f17f7e1ff7bc853eb7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fb409673e028375812551ec146b43c27e3755d2a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289880"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91595526"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedimientos recomendados al elegir un id. de serie temporal
 
@@ -23,7 +23,7 @@ En este artículo se resume la importancia del identificador de serie temporal e
 
 ## <a name="choose-a-time-series-id"></a>Elección de un identificador de Time Series
 
-Es fundamental seleccionar un identificador de serie temporal adecuado. Elegir un id. de serie temporal es como elegir una clave de partición para una base de datos. Se requiere al crear un entorno de Azure Time Series Insights Gen2. 
+Es fundamental seleccionar un identificador de serie temporal adecuado. Elegir un id. de serie temporal es como elegir una clave de partición para una base de datos. Se requiere al crear un entorno de Azure Time Series Insights Gen2.
 
 > [!IMPORTANT]
 > Los identificadores de serie temporal son los siguientes:
@@ -40,7 +40,7 @@ Los principales procedimientos recomendados que han de seguirse incluyen lo sigu
 * El id. de serie temporal debe ser único en el nivel de nodo hoja de su [Modelo de serie temporal](./concepts-model-overview.md).
 * El límite de caracteres de la cadena de nombre de la propiedad del identificador de serie temporal es 128. En el caso del valor de la propiedad del identificador de serie temporal, el límite de caracteres es 1.024.
 * Si falta un valor de propiedad único para el identificador de serie temporal, se trata como un valor NULL y sigue la misma regla de la restricción de unicidad.
-* Si el identificador de serie temporal está anidado dentro de un objeto JSON complejo, asegúrese de seguir las [reglas de acoplamiento](./concepts-json-flattening-escaping-rules.md) de entrada al proporcionar el nombre de la propiedad. Modificación del ejemplo [B](concepts-json-flattening-escaping-rules.md#example-b). 
+* Si el identificador de serie temporal está anidado dentro de un objeto JSON complejo, asegúrese de seguir las [reglas de acoplamiento](./concepts-json-flattening-escaping-rules.md) de entrada al proporcionar el nombre de la propiedad. Modificación del ejemplo [B](concepts-json-flattening-escaping-rules.md#example-b).
 * Puede seleccionar hasta *tres* propiedades clave como identificador de serie temporal. Su combinación será una clave compuesta que representa el identificador de serie temporal.  
   > [!NOTE]
   > Las tres propiedades clave deben ser cadenas.
@@ -75,7 +75,7 @@ Ejemplo de evento sin procesar:
 ```
 
 En Azure Portal, puede especificar después la clave compuesta de la manera siguiente:
- 
+
 [![Configuración del identificador de serie temporal para el entorno.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
 
   > [!NOTE]

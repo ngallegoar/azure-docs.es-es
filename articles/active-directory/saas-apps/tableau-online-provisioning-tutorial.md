@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: da89bf6cb336087f97341ca57a9b2545c966a053
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533447"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91613948"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configuración de Tableau Online para el aprovisionamiento automático de usuarios
 
@@ -133,7 +133,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
 11. Revise los atributos de usuario que se sincronizan entre Azure AD y Tableau Online en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Tableau Online con el objetivo de realizar operaciones de actualización. Para guardar los cambios, seleccione **Guardar**.
 
-    ![Atributos de usuario coincidentes de Tableau Online](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
+    ![Atributos de usuario coincidentes de Tableau Online](./media/tableau-online-provisioning-tutorial/attribute.png)
 
 12. En la sección **Asignaciones**, seleccione **Sincronizar grupos de Azure Active Directory con Tableau**.
 
@@ -162,6 +162,9 @@ Esta operación inicia la sincronización inicial de todos los usuarios o grupos
 Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos al informe de actividad de aprovisionamiento. En el informe se describen todas las acciones que el servicio de aprovisionamiento de Azure AD realiza en Tableau Online.
 
 Para obtener información acerca de cómo leer los registros de aprovisionamiento de Azure AD, consulte [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
+
+## <a name="change-log"></a>Registro de cambios
+* 09/30/2020 - Compatibilidad agregada para el atributo "authSetting" de Usuarios.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

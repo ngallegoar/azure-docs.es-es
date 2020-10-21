@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: dc23a0a68471b82c990d5d8a3086e2e71e88d0c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc630021cbf93074119d4feedcb3a09fae1453e3
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513921"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949435"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Uso del servicio StorSimple Device Manager para ver y administrar trabajos (Versión Update 3 o posterior)
 
@@ -59,11 +59,11 @@ Realice los pasos siguientes para ver los detalles de cualquier trabajo.
 
 2. En la hoja **Trabajos**, para mostrar los trabajos en los que esté interesado, ejecute una consulta con los filtros adecuados. Puede buscar trabajos completados, en ejecución o cancelados.
 
-    ![Hoja de trabajos](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
+    ![Hoja de trabajos 2](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
 
 2. Seleccione y haga clic en un trabajo.
 
-    ![Hoja de trabajos](./media/storsimple-8000-manage-jobs-u2/jobs3.png)
+    ![Hoja de trabajos 3](./media/storsimple-8000-manage-jobs-u2/jobs3.png)
 
 3. En la hoja Detalles del trabajo, puede ver el estado, los detalles, así como las estadísticas de tiempo y de los datos.
    
@@ -81,7 +81,7 @@ Realice los pasos siguientes para cancelar un trabajo en ejecución.
 
 2. Haga clic con el botón derecho en el trabajo seleccionado para invocar el menú contextual y haga clic en **Cancelar**.
 
-    ![Detalles del trabajo](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
+    ![Detalles del trabajo 2](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
 
 3. Cuando se le pida confirmación, haga clic en **Sí**. Ahora se cancelará este trabajo.
 

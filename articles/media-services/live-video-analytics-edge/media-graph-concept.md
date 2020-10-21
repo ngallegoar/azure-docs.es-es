@@ -3,12 +3,12 @@ title: Concepto de grafo multimedia en Azure
 description: Un grafo multimedia le permite definir dónde se debe capturar el elemento multimedia, cómo se debe procesar y dónde se deben entregar los resultados. En este artículo se ofrece una descripción detallada del concepto de grafo multimedia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 1e280d6fe8303a85bee41adf83ac54e7c96df304
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 7def82160547b759c7ab4c40c681052747261920
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567949"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91567085"
 ---
 # <a name="media-graph"></a>Grafo multimedia
 
@@ -70,7 +70,7 @@ Análisis de vídeos en vivo en IoT Edge admite los siguientes tipos de nodos de
 
 #### <a name="rtsp-source"></a>Origen RTSP 
 
-Un nodo de origen RTSP permite ingerir elementos multimedia desde un servidor [RTSP] (https://tools.ietf.org/html/rfc2326 ). La vigilancia y las cámaras basadas en IP transmiten sus datos en un protocolo denominado RTSP (protocolo de transmisión en tiempo real) que es diferente de otros tipos de dispositivos, como teléfonos y cámaras de vídeo. Este protocolo se usa para establecer y controlar las sesiones multimedia entre un servidor (la cámara) y un cliente. El nodo de origen RTSP en un grafo multimedia actúa como un cliente y puede establecer una sesión con un servidor RTSP. Muchos dispositivos, como la mayoría de las [cámaras IP](https://en.wikipedia.org/wiki/IP_camera) tienen un servidor RTSP integrado. [ONVIF](https://www.onvif.org/) exigirá que se admita RTSP en la definición de los dispositivos compatibles con los [perfiles G, S y T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf). El nodo de origen RTSP requiere que especifique una dirección URL de RTSP, junto con las credenciales para habilitar una conexión autenticada.
+Un nodo de origen RTSP permite ingerir elementos multimedia de un servidor [RTSP](https://tools.ietf.org/html/rfc2326 server). La vigilancia y las cámaras basadas en IP transmiten sus datos en un protocolo denominado RTSP (protocolo de transmisión en tiempo real) que es diferente de otros tipos de dispositivos, como teléfonos y cámaras de vídeo. Este protocolo se usa para establecer y controlar las sesiones multimedia entre un servidor (la cámara) y un cliente. El nodo de origen RTSP en un grafo multimedia actúa como un cliente y puede establecer una sesión con un servidor RTSP. Muchos dispositivos, como la mayoría de las [cámaras IP](https://en.wikipedia.org/wiki/IP_camera) tienen un servidor RTSP integrado. [ONVIF](https://www.onvif.org/) exigirá que se admita RTSP en la definición de los dispositivos compatibles con los [perfiles G, S y T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf). El nodo de origen RTSP requiere que especifique una dirección URL de RTSP, junto con las credenciales para habilitar una conexión autenticada.
 
 #### <a name="iot-hub-message-source"></a>Origen de mensajes de IoT Hub 
 

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 03c8f5acfc10738401f61de099f946c33497d705
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585991"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569823"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python para Azure Cosmos DB para SQL API: Notas de la versión y recursos
 
@@ -40,7 +40,7 @@ ms.locfileid: "88585991"
 | |  |
 |---|---|
 |**Descargar SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentación de la API**|[Documentación de referencia de la API de Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**Documentación de la API**|[Documentación de referencia de la API de Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python&preserve-view=true)|
 |**Instrucciones de instalación del SDK**|[Instrucciones de instalación del SDK de Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Introducción**|[Introducción al SDK de Python](create-sql-api-python.md)|
 |**Plataforma admitida actualmente**|[Python 2.7](https://www.python.org/downloads/) y [Python 3.5.3+](https://www.python.org/downloads/)|
@@ -126,7 +126,7 @@ ms.locfileid: "88585991"
 
 * Se ha actualizado el constructor de `CosmosClient`:
 
-  * Se ha cambiado el nombre del parámetro `auth` a `credential` y ahora tomará un tipo de autenticación directamente. Esto significa que se puede pasar el valor de la clave maestra, un diccionario de tokens de recursos o una lista de permisos. Sin embargo, todavía se admite el formato de diccionario antiguo.
+  * Se ha cambiado el nombre del parámetro `auth` a `credential` y ahora tomará un tipo de autenticación directamente. Esto significa que se puede pasar el valor de la clave principal, un diccionario de tokens de recursos o una lista de permisos. Sin embargo, todavía se admite el formato de diccionario antiguo.
 
   * El parámetro `connection_policy` se ha convertido en un parámetro solo de palabra clave y, aunque todavía se admite, cada uno de los atributos individuales de la directiva ahora se puede pasar como argumentos de palabra clave explícitos:
 

@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: c1dc3b5fe4eecea42baf7073b9c806eea1648cff
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: af1e47c61977d0bc5d03f8cdb87393ed2014e736
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056173"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072312"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reacción a eventos de IoT Hub usando Event Grid para desencadenar acciones
 
@@ -73,6 +73,8 @@ En el ejemplo siguiente, se muestra el esquema de un evento de dispositivo conec
   "metadataVersion": "1"
 }]
 ```
+
+
 
 ### <a name="device-telemetry-schema"></a>Esquema de telemetría del dispositivo
 
@@ -163,6 +165,10 @@ En el ejemplo siguiente, se muestra el esquema de un evento de dispositivo cread
   "metadataVersion": "1"
 }]
 ```
+
+
+> [!WARNING]
+> Los *datos gemelos* asociados con un evento de creación de dispositivo son una configuración predeterminado y *no* deben usarse para propiedades `authenticationType` reales y otras propiedades del dispositivo en un dispositivo recién creado. Para `authenticationType` y otras propiedades de dispositivo en un dispositivo recién creado, use Register Manager API proporcionada en los SDK de Azure IoT.
 
 Para obtener una descripción detallada de cada propiedad, consulte [Esquema de eventos de Azure Event Grid para IoT Hub](../event-grid/event-schema-iot-hub.md).
 

@@ -3,12 +3,12 @@ title: Opciones de autenticación de registro
 description: Opciones de autenticación de una instancia privada de Azure Container Registry, incluido el inicio de sesión con una identidad de Azure Active Directory, mediante entidades de servicio y credenciales de administrador opcionales.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 7c8176d0cdca5d74ed3201071f83ed1181d94b8d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 1747dfa0664778283d0cea06940ea95982c269a2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657074"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048022"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autenticación con un registro de contenedor de Azure
 
@@ -20,7 +20,7 @@ Entre los modos recomendados se incluyen la autenticación en un registro direct
 
 En la tabla siguiente se enumeran los métodos de autenticación disponibles y los escenarios típicos. Consulte el contenido vinculado para obtener información.
 
-| Método                               | Cómo autenticarse                                           | Escenarios                                                            | RBAC                             | Limitaciones                                |
+| Método                               | Cómo autenticarse                                           | Escenarios                                                            | Control de acceso basado en roles (RBAC)                             | Limitaciones                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 | [Identidad de AD individual](#individual-login-with-azure-ad)                | `az acr login` en la CLI de Azure                             | Inserción/extracción interactiva por parte de los desarrolladores y evaluadores                                    | Sí                              | El token de AD se debe renovar cada 3 horas.     |
 | [Entidad de servicio de AD](#service-principal)                  | `docker login`<br/><br/>`az acr login` en la CLI de Azure<br/><br/> Configuración de inicio de sesión del registro en API o herramientas<br/><br/> [Secreto de extracción de Kubernetes](container-registry-auth-kubernetes.md)                                           | Inserción desatendida desde la canalización de CI/CD<br/><br/> Extracción desatendida a Azure o a servicios externos  | Sí                              | La expiración predeterminada de la contraseña de SP es de 1 año.       |                                                           
@@ -31,13 +31,14 @@ En la tabla siguiente se enumeran los métodos de autenticación disponibles y l
 
 ## <a name="individual-login-with-azure-ad"></a>Inicio de sesión individual con Azure AD
 
-Cuando trabaje con el registro directamente (por ejemplo, para realizar la extracción e inserción de imágenes en la estación de trabajo de desarrollo para un registro que ha creado), autentíquese con su identidad individual de Azure. Ejecute el comando [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) en la [CLI de Azure](/cli/azure/install-azure-cli):
+Cuando trabaje con el registro directamente (por ejemplo, para realizar la extracción e inserción de imágenes en la estación de trabajo de desarrollo para un registro que ha creado), autentíquese con su identidad individual de Azure. Inicie sesión en la [CLI de Azure](/cli/azure/install-azure-cli) con [az login](/cli/azure/reference-index#az-login) y, luego, ejecute el comando [az acr login](/cli/azure/acr#az-acr-login):
 
 ```azurecli
+az login
 az acr login --name <acrName>
 ```
 
-Cuando inicie sesión con `az acr login`, la CLI utiliza el token creado cuando ejecuta [az login](/cli/azure/reference-index#az-login) para autenticar sin problemas la sesión con su Registro. Para completar el flujo de autenticación, la CLI y el demonio de Docker deben estar instalados y ejecutarse en el entorno. `az acr login` usa el cliente de Docker para establecer un token de Azure Active Directory en el archivo `docker.config`. Una vez que haya iniciado sesión de este modo, las credenciales se almacenan en caché y los comandos `docker` posteriores de la sesión no requieren un nombre de usuario o una contraseña.
+Cuando inicie sesión con `az acr login`, la CLI utiliza el token creado cuando ejecuta `az login` para autenticar sin problemas la sesión con su registro. Para completar el flujo de autenticación, la CLI y el demonio de Docker deben estar instalados y ejecutarse en el entorno. `az acr login` usa el cliente de Docker para establecer un token de Azure Active Directory en el archivo `docker.config`. Una vez que haya iniciado sesión de este modo, las credenciales se almacenan en caché y los comandos `docker` posteriores de la sesión no requieren un nombre de usuario o una contraseña.
 
 > [!TIP]
 > Use también `az acr login` para autenticar una identidad individual cuando quiera insertar o extraer artefactos que no sean imágenes de Docker en el registro, como [artefactos OCI](container-registry-oci-artifacts.md).  
@@ -105,7 +106,7 @@ docker login myregistry.azurecr.io
 
 Para consultar procedimientos recomendados para administrar credenciales de inicio de sesión, consulte la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
-Para habilitar el usuario administrador para un registro existente, puede usar el parámetro `--admin-enabled` del comando [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) en la CLI de Azure:
+Para habilitar el usuario administrador para un registro existente, puede usar el parámetro `--admin-enabled` del comando [az acr update](/cli/azure/acr#az-acr-update) en la CLI de Azure:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

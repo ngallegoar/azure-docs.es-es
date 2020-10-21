@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 3f59fea9f6d96f6e259a47c75bcfb0fd0be76d34
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 63a9a6dc9f052c01a7440f616f0baeaab083ad73
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826561"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843080"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutorial: Visualizar y supervisar los datos
 
@@ -62,7 +62,7 @@ Este tutorial lo ayudará a visualizar los datos en Azure Sentinel.
 ## <a name="create-new-workbook"></a>Creación de un libro
 
 1. Vaya a **Libros** y, a continuación, seleccione **Agregar libro** para crear un nuevo libro desde el principio.
-  ![Ir a Libros](./media/tutorial-monitor-data/create-workbook.png)
+  ![Captura de pantalla que muestra la pantalla Nuevo libro.](./media/tutorial-monitor-data/create-workbook.png)
 
 1. Para editar el libro, seleccione **Editar** y, a continuación, agregue texto, consultas y parámetros según sea necesario. Para más información sobre cómo personalizar el libro, consulte cómo [Crear informes interactivos con libros de Azure Monitor](../azure-monitor/platform/workbooks-overview.md). 
 
@@ -72,7 +72,7 @@ Este tutorial lo ayudará a visualizar los datos en Azure Sentinel.
 
 1. Si desea permitir que otros usuarios de su organización utilicen el libro, en **Guardar en** seleccione **Informes compartidos**. Si desea que este libro esté disponible solo para usted, seleccione **Mis informes**.
 
-1. Para alternar entre los libros del área de trabajo, puede seleccionar **Abrir** ![Cambiar libros](./media/tutorial-monitor-data/switch.png)en el panel superior de cualquier libro. En la ventana que se abre a la derecha, cambie entre los diferentes libros.
+1. Para alternar entre los libros del área de trabajo, puede seleccionar **Abrir** ![Icono para abrir un libro.](./media/tutorial-monitor-data/switch.png) en el panel superior de cualquier libro. En la ventana que se abre a la derecha, cambie entre los diferentes libros.
 
    ![Cambiar libros](./media/tutorial-monitor-data/switch-workbooks.png)
 

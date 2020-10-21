@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 08/14/2020
-ms.openlocfilehash: c68c9dc961475d6916b1f00e7d4f596bfd8c77dd
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.date: 10/02/2020
+ms.openlocfilehash: 620fe1e693a177123e166220ab94bbd74c4826ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257797"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761539"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Solución de problemas habituales de Azure Data Share 
 
@@ -58,34 +58,15 @@ Necesita permiso de escritura para compartir o recibir datos de un almacén de d
 
 Si esta es la primera vez que va a compartir o recibir datos del almacén de datos de Azure, también necesita el permiso *Microsoft.Authorization/role assignments/write* (asignación de roles o escritura), que normalmente existe en el rol Propietario. Aunque haya creado el recurso del almacén de datos de Azure, ello NO le convierte automáticamente el propietario del recurso. Con el permiso adecuado, el servicio de Azure Data Share concede automáticamente a la identidad administrada del recurso compartido de datos acceso al almacén de datos. Ese proceso podría tardar unos minutos en surtir efecto. Si experimenta un error debido a este retraso, vuelva a intentarlo en unos minutos.
 
-El uso compartido basado en SQL requiere permisos adicionales. Consulte Solución de problemas de uso compartido basado en SQL para más información.
-
-## <a name="troubleshooting-sql-based-sharing"></a>Solución de problemas de uso compartido basado en SQL
-
-"El usuario x no existe en la base de datos SQL"
-
-Si recibe un error similar al agregar un conjunto de datos desde un origen basado en SQL, puede deberse a que no creó un usuario para la identidad administrada de Azure Data Share en SQL Database.  Para resolver este problema, ejecute el siguiente script:
-
-```sql
-    create user "<share_acct_name>" from external provider; 
-    exec sp_addrolemember db_datareader, "<share_acct_name>";
-```      
-Si recibe este error al asignar un conjunto de datos desde un origen basado en SQL, puede deberse a que no creó un usuario para la identidad administrada de Azure Data Share en SQL Server.  Para resolver este problema, ejecute el siguiente script:
-
-```sql
-    create user "<share_acc_name>" from external provider; 
-    exec sp_addrolemember db_datareader, "<share_acc_name>"; 
-    exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
-    exec sp_addrolemember db_ddladmin, "<share_acc_name>";
-```
-Tenga en cuenta que *<share_acc_name>* es el nombre del recurso compartido de datos.      
-
-Asegúrese de que ha seguido todos los requisitos previos que se enumeran en el tutorial [Uso compartido de datos](share-your-data.md) y [Aceptación y recepción de datos con Azure Data Share](subscribe-to-data-share.md).
+El uso compartido basado en SQL requiere permisos adicionales. Vea [Compartir desde orígenes de SQL](how-to-share-from-sql.md) para obtener una lista detallada de los requisitos previos.
 
 ## <a name="snapshot-failed"></a>La instantánea generó un error
-La instantánea podría generar un error debido a diversos motivos. Puede encontrar un mensaje de error detallado si hace clic en la hora de inicio de la instantánea y, a continuación, en el estado de cada conjunto de datos. 
+La instantánea podría generar un error debido a diversos motivos. Puede encontrar un mensaje de error detallado si hace clic en la hora de inicio de la instantánea y, a continuación, en el estado de cada conjunto de datos. Estos son los motivos por los que se produce un error en la instantánea:
 
-Si el mensaje de error está relacionado con el permiso, compruebe que el servicio Azure Data Share tiene el permiso necesario. Consulte [Roles y requisitos](concepts-roles-permissions.md) para más información. Si es la primera vez que toma una instantánea, podría llevar unos minutos conceder al recurso compartido de datos el acceso al almacén de datos de Azure. Espere y vuelva a intentarlo.
+* Data Share no tiene permiso para leer desde el almacén de datos de origen ni para escribir en el almacén de datos de destino. Vea [Roles y requisitos](concepts-roles-permissions.md) para conocer los requisitos de permisos detallados. Si es la primera vez que toma una instantánea, podría llevar unos minutos conceder al recurso compartido de datos el acceso al almacén de datos de Azure. Espere y vuelva a intentarlo.
+* El firewall bloquea la conexión de Data Share al almacén de datos de origen o de destino.
+* Se elimina el conjunto de datos compartido o el almacén de datos de origen o de destino.
+* Para el uso compartido de SQL, los tipos de datos no son compatibles con el proceso de instantánea o el almacén de datos de destino. Vea [Compartir desde orígenes de SQL](how-to-share-from-sql.md#supported-data-types) para obtener más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

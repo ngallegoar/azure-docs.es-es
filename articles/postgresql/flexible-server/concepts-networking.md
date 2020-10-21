@@ -1,17 +1,17 @@
 ---
 title: 'Información general sobre redes: Servidor flexible de Azure Database for PostgreSQL'
 description: Obtenga información sobre las opciones de conectividad y redes en la opción de implementación Servidor flexible para Azure Database for PostgreSQL
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 963c9c06409eca2b2f836388b94f8b80484a671a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 38dd103189446e287f3d62d93344ed89a364d238
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90931847"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708788"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Información general sobre redes: Servidor flexible de Azure Database for PostgreSQL
 
@@ -62,7 +62,7 @@ Estos son algunos conceptos que debe conocer al usar redes virtuales con servido
 
    El servidor flexible de PostgreSQL debe estar en una subred **delegada** para uso exclusivo del servidor flexible de PostgreSQL. Esta delegación significa que solo los servidores flexibles de Azure Database for PostgreSQL pueden usar esa subred. No puede haber otros tipos de recursos de Azure en la subred delegada. Puede delegar una subred si asigna su propiedad de delegación como Microsoft.DBforPostgreSQL/flexibleServers.
 
-Obtenga información sobre cómo crear un servidor flexible con acceso privado (integración con red virtual) en [Azure Portal](how-to-manage-virtual-network-portal.md) o [la CLI de Azure](how-to-manage-virtual-network-cli.md).
+* **Grupos de seguridad de red (NSG)** Las reglas de seguridad de grupos de seguridad de red permiten filtrar el tipo de tráfico de red que puede fluir dentro y fuera de las interfaces de red y las subredes de redes virtuales. Revise la [Introducción a los grupos de seguridad de red](../../virtual-network/network-security-groups-overview.md) para obtener más información.
 
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Escenarios de red virtual no admitidos
@@ -71,6 +71,7 @@ Obtenga información sobre cómo crear un servidor flexible con acceso privado (
 * No se puede aumentar el tamaño de la subred (espacios de direcciones) cuando existen recursos en la subred
 * No se admite el emparejamiento de redes virtuales entre regiones
 
+Obtenga información sobre cómo crear un servidor flexible con acceso privado (integración con red virtual) en [Azure Portal](how-to-manage-virtual-network-portal.md) o [la CLI de Azure](how-to-manage-virtual-network-cli.md).
 
 ## <a name="public-access-allowed-ip-addresses"></a>Acceso público (direcciones IP permitidas)
 Entre las características del método de acceso público se incluyen las siguientes:
@@ -107,12 +108,9 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor 
 ## <a name="hostname"></a>Nombre de host
 Con independencia de la opción de red que elija, se recomienda usar siempre un nombre de dominio completo (FQDN) como nombre de host al conectarse al servidor flexible. No se garantiza que la dirección IP del servidor permanezca estática. El uso del FQDN le ayudará a evitar realizar cambios en la cadena de conexión. 
 
-Un escenario en el que los cambios de IP se producen si se usa alta disponibilidad con redundancia de zona y se produce una conmutación por error entre el principal y el secundario. El uso del FQDN significa que puede reintentar las conexiones sin problemas con la misma cadena de conexión.
-
 Ejemplo
-* `hostname = servername.postgres.database.azure.com` recomendado
-* Evite el uso de `hostname = 10.0.0.4` (dirección privada) o `hostname = 40.2.45.67` (dirección pública)
-
+* Recomendado `hostname = servername.postgres.database.azure.com`
+* Siempre que sea posible, evite usar `hostname = 10.0.0.4` (una dirección privada) o `hostname = 40.2.45.67` (una dirección pública)
 
 
 ## <a name="tls-and-ssl"></a>TLS y SSL

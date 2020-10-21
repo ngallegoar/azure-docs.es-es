@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91617883"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973316"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -353,7 +353,11 @@ La Instancia administrada de SQL no admite instrucciones DBCC no documentadas qu
 
 ### <a name="distributed-transactions"></a>Distributed transactions
 
-Actualmente no se admite MSDTC ni las [transacciones elásticas](../database/elastic-transactions-overview.md) en la Instancia administrada de SQL.
+La compatibilidad parcial con las [transacciones distribuidas](../database/elastic-transactions-overview.md) está actualmente en versión preliminar pública. Los escenarios admitidos son:
+* Transacciones en las que los participantes son solo instancias de Azure SQL Managed Instance que forman parte de un [grupo de confianza de servidor](https://aka.ms/mitrusted-groups).
+* Transacciones iniciadas desde .NET (clase TransactionScope) y Transact-SQL.
+
+Actualmente, Azure SQL Managed Instance no admite otros escenarios que se admiten con regularidad en el Coordinador de transacciones distribuidas local o en Azure Virtual Machines.
 
 ### <a name="extended-events"></a>Eventos extendidos
 

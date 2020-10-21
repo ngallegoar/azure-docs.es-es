@@ -4,12 +4,12 @@ description: Modelo de datos de contexto de telemetría de Application Insights
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 25ff7d92da5ea0a6aba84aad1cfc98e5295e151e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 76f3be510494a1f005b0080ee8f2390a3fbc3622
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322676"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91767847"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexto de telemetría: Modelo de datos de Application Insights
 
@@ -85,7 +85,7 @@ Longitud máxima: 128
 
 ## <a name="authenticated-user-id"></a>Identificador del usuario autenticado
 
-Este es el identificador del usuario autenticado. Este campo, el contrario al del identificador del usuario anónimo, representa al usuario con un nombre sencillo. Puesto que se trata de información de identificación personal, la mayoría de SDK no la recopilan de forma predeterminada.
+Este es el identificador del usuario autenticado. Este campo, el contrario al del identificador del usuario anónimo, representa al usuario con un nombre sencillo. Esto solo recopila de forma predeterminada mediante el parámetro [`AuthenticatedUserIdTelemetryInitializer`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/WEB/Src/Web/Web/AuthenticatedUserIdTelemetryInitializer.cs) del SDK de ASP.NET Framework.  
 
 Longitud máxima: 1024
 
@@ -113,7 +113,7 @@ Longitud máxima: 256
 
 ## <a name="internal-sdk-version"></a>Interno: Versión del SDK
 
-Esta es la versión del SDK. Consulte [este artículo](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) para más información.
+Esta es la versión del SDK. Consulte [este artículo](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) para más información.
 
 Longitud máxima: 64
 

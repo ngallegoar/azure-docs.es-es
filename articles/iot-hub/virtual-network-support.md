@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: fadcefb0b802ec3064ac917ab98320f61f24ae5c
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033530"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91613907"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada
 
@@ -38,7 +38,7 @@ En este artículo se describe cómo lograr estos objetivos mediante el uso de [A
 
 Un punto de conexión privado es una dirección IP privada asignada en una red virtual propiedad del cliente a través de la cual se puede acceder a un recurso de Azure. Con Azure Private Link, puede configurar un punto de conexión privado para su instancia de IoT Hub, para permitir así que los servicios que operan en la red virtual accedan a IoT Hub sin necesidad de enviar el tráfico al punto de conexión público de IoT Hub. Del mismo modo, los dispositivos locales pueden usar la [red privada virtual (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) o el emparejamiento de [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para obtener conectividad con la red virtual y la instancia de IoT Hub (a través de su punto de conexión privado). Como resultado, puede restringir o bloquear por completo la conectividad a los puntos de conexión públicos de su instancia de IoT Hub mediante el uso de [filtros IP de IoT Hub](./iot-hub-ip-filtering.md) y la [configuración del enrutamiento para que no envíe datos al punto de conexión integrado](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). Este enfoque mantiene la conectividad con la instancia de IoT Hub usando el punto de conexión privado para los dispositivos. El objetivo principal de esta configuración es para los dispositivos de una red local. No se recomienda esta configuración para los dispositivos implementados en una red de área extensa.
 
-![Punto de conexión público de IoT Hub](./media/virtual-network-support/virtual-network-ingress.png)
+![Salida de red virtual de IoT Hub](./media/virtual-network-support/virtual-network-ingress.png)
 
 Antes de continuar, asegúrese de que se cumplen los requisitos previos siguientes:
 
@@ -92,7 +92,7 @@ Para que otros servicios puedan encontrar la instancia de IoT Hub como un servic
 
 1. En **Estado**, seleccione **Activado** y, a continuación, haga clic en **Guardar**.
 
-    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Captura de pantalla que muestra cómo activar la identidad administrada para IoT Hub":::
+    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Captura de pantalla que muestra dónde agregar un punto de conexión privado para IoT Hub":::
 
 ### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Asignación de identidad administrada a IoT Hub en el momento de la creación con la plantilla de ARM
 
@@ -236,7 +236,7 @@ La característica de carga de archivos de IoT Hub permite a los dispositivos ca
 
 4. En la página de recursos de IoT Hub, vaya a la pestaña **Carga de archivos**.
 
-5. En la página que se muestra, seleccione el contenedor que quiere usar en Blob Storage, y establezca los valores que desee en **Configuración de notificación de archivos**, **TTL de SAS**, **TTL predeterminado** y **Número máximo de entregas**. Seleccione **Basado en la identidad** como **Tipo de autenticación** para su punto de conexión de almacenamiento. Haga clic en el botón **Crear**.
+5. En la página que se muestra, seleccione el contenedor que quiere usar en Blob Storage, y establezca los valores que desee en **Configuración de notificación de archivos**, **TTL de SAS**, **TTL predeterminado** y **Número máximo de entregas**. Seleccione **Basado en la identidad** como **Tipo de autenticación** para su punto de conexión de almacenamiento. Haga clic en el botón **Crear**. Si recibe un error en este paso, establezca de forma temporal la cuenta de almacenamiento para permitir el acceso desde **Todas las redes** y, a continuación, vuelva a intentarlo. Puede configurar el firewall en la cuenta de almacenamiento una vez completada la configuración de carga de archivos.
 
 Ahora el punto de conexión de almacenamiento para la carga de archivos está configurado para usar la identidad asignada por el sistema del concentrador y tiene permiso para acceder al recurso de almacenamiento a pesar de las restricciones de firewall.
 

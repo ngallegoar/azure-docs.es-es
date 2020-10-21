@@ -1,6 +1,6 @@
 ---
-title: Protocolos de Azure Files disponibles
-description: Obtenga información sobre los protocolos disponibles antes de crear un recurso compartido de archivos de Azure.
+title: 'Protocolos de Azure Files disponibles: NFS y SMB'
+description: Antes de crear un recurso compartido de archivos de Azure, conozca los protocolos disponibles, como Bloque de mensajes del servidor (SMB) y Sistema de archivos de red (NFS).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8082e694c4282759c9c38560c14eb3659fcd55ec
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708145"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91568478"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolos de recurso compartido de archivos de Azure
 
@@ -25,8 +25,8 @@ Azure Files ofrece dos protocolos para conectar y montar los recursos compartido
 |---------|---------|---------|
 |Protocolos de acceso     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |SO admitido     |Versión posterior a la 4.3 del kernel de Linux         |Posterior Windows 2008 R2, versión posterior a la 4.11+         |
-|Niveles disponibles     |Premium Storage         |Almacenamiento Premium y almacenamiento estándar, nivel de almacenamiento de acceso frecuente, nivel de almacenamiento de acceso esporádico         |
-|Replicación     |LRS         |LRS, ZRS, GRS         |
+|[Niveles disponibles](storage-files-planning.md#storage-tiers)     |Premium Storage         |Premium Storage, optimizado para transacciones, acceso frecuente, acceso esporádico         |
+|[Redundancia](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
 |Autenticación     |Solo autenticación basada en host        |Autenticación basada en identidad, autenticación basada en usuario         |
 |Permisos     |Permisos de estilo UNIX         |Permisos de estilo NTFS         |
 |Semántica del sistema de archivos     |Compatible con POSIX         |No compatible con POSIX         |

@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527836"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972023"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar un volumen de StorSimple de un conjunto de copia de seguridad
 
@@ -115,7 +115,7 @@ Puede usar la hoja **Catálogo de copias de seguridad** para restaurar el volume
    
 4. Vuelva a la pestaña **Catálogo de Backup** y seleccione un conjunto de copias de seguridad. Haga clic con el botón derecho y, en el menú contextual, seleccione **Restaurar**.
 
-    ![Lista de conjuntos de copia de seguridad](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
+    ![Lista de conjuntos de copia de seguridad 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
 5. Se le pedirá confirmación. Revise la información de restauración y después seleccione la casilla de confirmación.
    
@@ -123,7 +123,7 @@ Puede usar la hoja **Catálogo de copias de seguridad** para restaurar el volume
 
 7. Haga clic en **Restaurar**. Esto inicia un trabajo de restauración que se puede ver accediendo a la página **Trabajos**.
 
-   ![Página de confirmación](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Página de confirmación 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. Una vez completada la restauración, compruebe que los volúmenes de la copia de seguridad sustituyeron el contenido de los volúmenes.
 

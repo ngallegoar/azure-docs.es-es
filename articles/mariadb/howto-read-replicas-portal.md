@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: fc435194975c0b043e74a47632d6e38f12d04c2a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5faed87995d1c49ab635f39264354a791f729b57
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121204"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91742866"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Procedimientos para crear y administrar réplicas de lectura en Azure Database for MariaDB mediante Azure Portal
 
@@ -19,15 +19,15 @@ En este artículo, obtendrá información sobre cómo crear y administrar répli
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Un [servidor de Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) que se usará como servidor maestro.
+- Un [servidor de Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) que se usará como servidor de origen.
 
 > [!IMPORTANT]
-> La característica de réplica de lectura solo está disponible para servidores de Azure Database for MariaDB en los planes de tarifa De uso general u Optimizado para memoria. Asegúrese de que el servidor maestro está en uno de estos planes de tarifa.
+> La característica de réplica de lectura solo está disponible para servidores de Azure Database for MariaDB en los planes de tarifa De uso general u Optimizado para memoria. Asegúrese de que el servidor de origen esté en uno de estos planes de tarifa.
 
 ## <a name="create-a-read-replica"></a>Creación de una réplica de lectura
 
 > [!IMPORTANT]
-> Cuando se crea una réplica para un servidor maestro que no tiene réplicas existentes, el maestro se reiniciará en primer lugar para prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
+> Cuando se crea una réplica para un origen que no tiene réplicas existentes, el origen se reiniciará en primer lugar para prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
 
 Para crear un servidor de réplica de lectura, puede seguir estos siguientes pasos:
 
@@ -45,14 +45,14 @@ Para crear un servidor de réplica de lectura, puede seguir estos siguientes pas
 
     ![Azure Database for MariaDB: nombre de réplica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Seleccione la ubicación del servidor de réplica. La ubicación predeterminada es la misma que la del servidor maestro.
+6. Seleccione la ubicación del servidor de réplica. La ubicación predeterminada es la misma que la del servidor de origen.
 
     ![Azure Database for MariaDB: ubicación de la réplica](./media/howto-read-replica-portal/replica-location.png)
 
 7. Seleccione **Aceptar** para confirmar la creación de la réplica.
 
 > [!NOTE]
-> Las réplicas de lectura se crean con la misma configuración de servidor que el servidor maestro. Una vez creado, se puede cambiar la configuración del servidor de réplica. Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el maestro para asegurarse de que la réplica trabajar al mismo nivel que el servidor maestro.
+> Las réplicas de lectura se crean con la misma configuración de servidor que el servidor maestro. Una vez creado, se puede cambiar la configuración del servidor de réplica. Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el origen para asegurarse de que la réplica trabaja al mismo nivel que el servidor maestro.
 
 Una vez creado el servidor de réplica, puede verlo en la hoja **Replicación**.
 
@@ -61,11 +61,11 @@ Una vez creado el servidor de réplica, puede verlo en la hoja **Replicación**.
 ## <a name="stop-replication-to-a-replica-server"></a>Detención de la replicación en un servidor de réplica
 
 > [!IMPORTANT]
-> La detención la replicación en un servidor es irreversible. Una vez que detenida, la replicación entre un servidor maestro y una réplica no se puede deshacer. Después, el servidor de réplica se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor no puede volver a convertirse en una réplica.
+> La detención la replicación en un servidor es irreversible. Una vez detenida la replicación entre un origen y la réplica, la operación no se puede revertir. Después, el servidor de réplica se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor no puede volver a convertirse en una réplica.
 
-Para detener la replicación entre un servidor maestro y un servidor de réplicas desde Azure Portal, siga estos pasos:
+Para detener la replicación entre un servidor de origen y un servidor de réplicas desde Azure Portal, siga estos pasos:
 
-1. En Azure Portal, seleccione el servidor maestro de Azure Database for MariaDB. 
+1. En Azure Portal, seleccione el servidor de Azure Database for MariaDB como origen. 
 
 2. Seleccione **Replicación** en el menú, en **CONFIGURACIÓN**.
 
@@ -85,7 +85,7 @@ Para detener la replicación entre un servidor maestro y un servidor de réplica
 
 Para eliminar un servidor de réplica de lectura en Azure Portal, siga estos pasos:
 
-1. En Azure Portal, seleccione el servidor maestro de Azure Database for MariaDB.
+1. En Azure Portal, seleccione el servidor de Azure Database for MariaDB como origen.
 
 2. Seleccione **Replicación** en el menú, en **CONFIGURACIÓN**.
 
@@ -101,22 +101,22 @@ Para eliminar un servidor de réplica de lectura en Azure Portal, siga estos pas
 
    ![Azure Database for MariaDB: confirmación de la eliminación de la réplica](./media/howto-read-replica-portal/delete-replica-confirm.png)
 
-## <a name="delete-a-master-server"></a>Eliminación de un servidor maestro
+## <a name="delete-a-source-server"></a>Eliminación de un servidor de origen
 
 > [!IMPORTANT]
-> Al eliminar un servidor maestro, se detiene la replicación en todos los servidores de réplica y se elimina el propio servidor maestro. Los servidores de réplica se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
+> Al eliminar un servidor de origen, se detiene la replicación en todos los servidores de réplica y se elimina el propio servidor de origen. Los servidores de réplica se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
 
-Para eliminar un servidor maestro en Azure Portal, siga estos pasos:
+Para eliminar un servidor de origen en Azure Portal, siga estos pasos:
 
-1. En Azure Portal, seleccione el servidor maestro de Azure Database for MariaDB.
+1. En Azure Portal, seleccione el servidor de Azure Database for MariaDB como origen.
 
 2. En la página **Información general**, seleccione **Eliminar**.
 
    ![Azure Database for MariaDB: eliminación del servidor maestro](./media/howto-read-replica-portal/delete-master-overview.png)
 
-3. Escriba el nombre del servidor maestro y haga clic en **Eliminar** para confirmar la eliminación.  
+3. Escriba el nombre del servidor de origen y haga clic en **Eliminar** para confirmar la eliminación.  
 
-   ![Azure Database for MariaDB: eliminación del servidor maestro](./media/howto-read-replica-portal/delete-master-confirm.png)
+   ![Azure Database for MariaDB: confirmación de la eliminación del servidor maestro](./media/howto-read-replica-portal/delete-master-confirm.png)
 
 ## <a name="monitor-replication"></a>Supervisión de la replicación
 
@@ -134,7 +134,7 @@ Para eliminar un servidor maestro en Azure Portal, siga estos pasos:
 
 5. Ver el intervalo de replicación para el intervalo de tiempo seleccionado. En la imagen siguiente se muestran los últimos 30 minutos para una carga de trabajo grande.
 
-   ![Seleccionar intervalo de tiempo](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
+   ![Seleccionar un intervalo de tiempo de 30 minutos](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

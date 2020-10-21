@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f5a3488be3fdc0eb3bc8956db66c06df25ff18c0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 09c306b85c910e8ec2021abf15013935c44b0df3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296628"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91707717"
 ---
 # <a name="monitor-media-services-metrics"></a>Supervisión de las métricas de Media Services
 
@@ -48,7 +48,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
     Seleccione el recurso y pulse **Aplicar**. Para más información acerca de los recursos y métricas que se admiten, consulte [Supervisar las métricas de Media Services y los registros de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
-    ![Métricas](media/media-services-metrics/metrics02.png)
+    ![Captura de pantalla que muestra el recurso seleccionado y resalta el botón Aplicar.](media/media-services-metrics/metrics02.png)
 
     > [!NOTE]
     > Para cambiar el recurso cuyas métricas desea supervisar, vuelva a hacer clic en el cuadro **Recurso** y repita este paso.

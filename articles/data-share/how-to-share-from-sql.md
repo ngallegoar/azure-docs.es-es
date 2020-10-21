@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 08/28/2020
-ms.openlocfilehash: e813921727ee08bf9a76c0a2dbfe15f45fe4db79
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 10/02/2020
+ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89490078"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761930"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Uso compartido y recepción de datos de Azure SQL Database y Azure Synapse Analytics
 
@@ -33,13 +33,14 @@ Cuando se reciben los datos en la tabla y si la tabla de destino no existe todav
 * Si el almacén de datos de Azure de origen está en una suscripción de Azure diferente a la que va a usar para crear el recurso de Data Share, registre el [proveedor de recursos Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) en la suscripción en la que se encuentra el almacén de datos de Azure. 
 
 ### <a name="prerequisites-for-sql-source"></a>Requisitos previos para un origen de SQL
+A continuación se muestra la lista de requisitos previos para compartir datos desde el origen de SQL. También puede seguir la [demostración paso a paso](https://youtu.be/hIE-TjJD8Dc) para configurar los requisitos previos.
 
 * Una instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente SQL Data Warehouse) con las tablas y vistas que desea compartir.
 * Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write*. Este permiso existe en el rol de colaborador.
 * Permiso para que el recurso compartido acceda al almacenamiento de datos. Esto se puede hacer mediante los siguientes pasos: 
-    1. Establézcase como administrador de Azure Active Directory para SQL Server.
-    1. Conéctese a Azure SQL Database o Data Warehouse mediante Azure Active Directory.
-    1. Use el editor de consultas (versión preliminar) para ejecutar el siguiente script para agregar la identidad administrada del recurso de Data Share como db_datareader. Debe conectarse mediante Active Directory y no con la autenticación de SQL Server. 
+    1. En Azure Portal, vaya al servidor SQL Server y establézcase como administrador de Azure Active Directory.
+    1. Conéctese a Azure SQL Database/Data Warehouse con el [Editor de consultas](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) o SQL Server Management Studio mediante la autenticación de Azure Active Directory. 
+    1. Ejecute el siguiente script para agregar la identidad administrada del recurso de Data Share como db_datareader. Debe conectarse mediante Active Directory y no con la autenticación de SQL Server. 
     
         ```sql
         create user "<share_acct_name>" from external provider;     
@@ -49,10 +50,11 @@ Cuando se reciben los datos en la tabla y si la tabla de destino no existe todav
 
 * Un usuario de Azure SQL Database con acceso "db_datareader" para explorar y seleccionar las tablas o vistas que desea compartir. 
 
-* Acceso al firewall de SQL Server desde la dirección IP del cliente. Esto se puede hacer mediante los siguientes pasos: 
+* Acceso al firewall de SQL Server. Esto se puede hacer mediante los siguientes pasos: 
     1. En SQL Server en Azure Portal, vaya a *Firewalls y redes virtuales*.
-    1. Haga clic en la alternancia **activado** para permitir el acceso a los servicios de Azure.
-    1. Haga clic en **+Agregar dirección IP de cliente** y haga clic en **Guardar**. La dirección IP del cliente está sujeta a cambios. Es posible que se tenga repetir este proceso la próxima vez que comparta datos de SQL desde Azure Portal. También puede agregar un intervalo de direcciones IP. 
+    1. Haga clic en **Sí** en *Permitir que los servicios y recursos de Azure accedan a este servidor*.
+    1. Haga clic en **+Agregar IP de cliente**. La dirección IP del cliente está sujeta a cambios. Es posible que se tenga repetir este proceso la próxima vez que comparta datos de SQL desde Azure Portal. También puede agregar un intervalo de direcciones IP.
+    1. Haga clic en **Save**(Guardar). 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -72,7 +74,7 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | Subscription | Su suscripción | Seleccione la suscripción de Azure que desea usar para la cuenta del recurso compartido de datos.|
+    | Suscripción | Su suscripción | Seleccione la suscripción de Azure que desea usar para la cuenta del recurso compartido de datos.|
     | Grupo de recursos | *test-resource-group* | Use un grupo de recursos existente o cree uno. |
     | Location | *Este de EE. UU. 2* | Seleccione una región para la cuenta de Azure Data Share.
     | Nombre | *datashareaccount* | Especifique un nombre para la cuenta del recurso compartido de datos. |
@@ -147,13 +149,13 @@ Si elige recibir datos en Azure Storage, a continuación se muestra la lista de 
 * Permisos para agregar la asignación de roles a la cuenta de almacenamiento, que se encuentra en *Microsoft.Authorization/role assignments/write*. Este permiso existe en el rol de propietario.  
 
 ### <a name="prerequisites-for-sql-target"></a>Requisitos previos para un destino de SQL
-Si opta por recibir datos en Azure SQL Database, Azure Synapse Analytics, esta es la lista de requisitos previos.
+Si opta por recibir datos en Azure SQL Database, Azure Synapse Analytics, esta es la lista de requisitos previos. También puede seguir la [demostración paso a paso](https://youtu.be/aeGISgK1xro) para configurar los requisitos previos.
 
 * Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write*. Este permiso existe en el rol de colaborador. 
 * Permisos para que la identidad administrada del recurso compartido de datos acceda a Azure SQL Database o Azure Synapse Analytics. Esto se puede hacer mediante los siguientes pasos: 
-    1. Establézcase como administrador de Azure Active Directory para SQL Server.
-    1. Conéctese a Azure SQL Database o Data Warehouse mediante Azure Active Directory.
-    1. Use el editor de consultas (versión preliminar) para ejecutar el siguiente script para agregar la identidad administrada de Data Share como "db_datareader, db_datawriter, db_ddladmin". Debe conectarse mediante Active Directory y no con la autenticación de SQL Server. 
+    1. En Azure Portal, vaya al servidor SQL Server y establézcase como administrador de Azure Active Directory.
+    1. Conéctese a Azure SQL Database/Data Warehouse con el [Editor de consultas](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) o SQL Server Management Studio mediante la autenticación de Azure Active Directory. 
+    1. Ejecute el siguiente script para agregar la identidad administrada de Data Share como "db_datareader, db_datawriter o db_ddladmin". Debe conectarse mediante Active Directory y no con la autenticación de SQL Server. 
 
         ```sql
         create user "<share_acc_name>" from external provider; 
@@ -163,10 +165,11 @@ Si opta por recibir datos en Azure SQL Database, Azure Synapse Analytics, esta e
         ```      
         Tenga en cuenta que *<share_acc_name>* es el nombre del recurso de Data Share. Si aún no ha creado un recurso de Data Share, puede volver a este requisito previo más adelante.         
 
-* Acceso al firewall de SQL Server desde la dirección IP del cliente. Esto se puede hacer mediante los siguientes pasos: 
+* Acceso al firewall de SQL Server. Esto se puede hacer mediante los siguientes pasos: 
     1. En SQL Server en Azure Portal, vaya a *Firewalls y redes virtuales*.
-    1. Haga clic en la alternancia **activado** para permitir el acceso a los servicios de Azure.
-    1. Haga clic en **+Agregar dirección IP de cliente** y haga clic en **Guardar**. La dirección IP del cliente está sujeta a cambios. Es posible que se tenga repetir este proceso la próxima vez que reciba datos en un destino SQL desde Azure Portal. También puede agregar un intervalo de direcciones IP. 
+    1. Haga clic en **Sí** en *Permitir que los servicios y recursos de Azure accedan a este servidor*.
+    1. Haga clic en **+Agregar IP de cliente**. La dirección IP del cliente está sujeta a cambios. Es posible que se tenga repetir este proceso la próxima vez que comparta datos de SQL desde Azure Portal. También puede agregar un intervalo de direcciones IP.
+    1. Haga clic en **Save**(Guardar). 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -231,6 +234,49 @@ Estos pasos solo se aplican al uso compartido basado en instantáneas.
 
 ### <a name="view-history"></a>Visualización del historial
 Este paso solo se aplica al uso compartido basado en instantáneas. Para ver el historial de las instantáneas, seleccione la pestaña **Historial**. Aquí encontrará un historial de todas las instantáneas que se generaron en los últimos 30 días. 
+
+## <a name="supported-data-types"></a>Tipos de datos admitidos
+Al compartir datos desde el origen de SQL, se usa la siguiente asignación de los tipos de datos de SQL Server a los tipos de datos provisionales de Azure Data Share durante el proceso de instantánea. 
+
+| Tipos de datos de SQL Server | Tipo de datos provisional de Azure Data Share |
+|:--- |:--- |
+| bigint |Int64 |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
+| date |DateTime |
+| Datetime |DateTime |
+| datetime2 |DateTime |
+| Datetimeoffset |DateTimeOffset |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
+| imagen |Byte[] |
+| int |Int32 |
+| money |Decimal |
+| NCHAR |String, Char[] |
+| ntext |String, Char[] |
+| NUMERIC |Decimal |
+| NVARCHAR |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
+| smalldatetime |DateTime |
+| SMALLINT |Int16 |
+| SMALLMONEY |Decimal |
+| sql_variant |Object |
+| text |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
+| TINYINT |Int16 |
+| UNIQUEIDENTIFIER |Guid |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
+| Xml |String |
+
+>[!NOTE]
+> 1. En el caso de los tipos de datos que se asignan al tipo decimal provisional, la instantánea actualmente admite una precisión de hasta 28. Si tiene datos que requieren una precisión mayor que 28, considere la posibilidad de convertir a una cadena. 
+> 1.  Si va a compartir datos de Azure SQL Database en Azure Synapse Analytics, no se admiten todos los tipos de datos. Vea [Tipos de datos de tabla en el grupo de Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) para obtener información. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ha obtenido información sobre cómo compartir y recibir datos de la cuenta de almacenamiento mediante el servicio Azure Data Share. Para más información sobre el uso compartido desde otros orígenes de datos, vaya a los [almacenes de datos compatibles](supported-data-stores.md).

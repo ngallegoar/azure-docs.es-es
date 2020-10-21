@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: memildin
 ms.custom: include file
-ms.openlocfilehash: 0b6864c3304b86e80549297fc073a2e387000d64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55390a3eb2a074729b4a0868416a95e208325b76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80272641"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91401058"
 ---
 ```json
 {
@@ -70,7 +70,7 @@ ms.locfileid: "80272641"
 |**Intención**|Enum|Intención relacionada con la cadena de eliminación detrás de la alerta. Para obtener una lista de los valores admitidos, así como explicaciones sobre las intenciones de la cadena de eliminación admitidas de Azure Security Center, consulte [Intenciones](../articles/security-center/alerts-reference.md#intentions).<br/>Este campo puede tener varios valores (separados por coma).|
 |**IsIncident**|Bool|Este campo determina si la alerta es un incidente (una agrupación compuesta de varias alertas) o una única alerta. El valor predeterminado para el campo es "false" (es decir, una alerta única).|
 |**ProcessingEndTime**|DateTime|Hora en la que el usuario final pudo acceder a la alerta en el producto original que contiene la alerta.|
-|**ProductName**|String|Nombre del producto que publicó esta alerta (Azure Security Center, ATP de Azure, ATP de Microsoft Defender, ATP de O365, MCAS, etc.).|
+|**ProductName**|String|Nombre del producto que publicó esta alerta (Azure Security Center, ATP de Azure, ATP de Microsoft Defender, MCAS, etc.).|
 |**RemediationSteps**|List<String>|Elementos de acción manual que se deben llevar a cabo para corregir la alerta.|
 |**ResourceIdentifiers**|List (identificadores de recursos)|Los identificadores de recursos para esta alerta que se pueden usar para dirigir la alerta al grupo de exposición del producto adecuado (inquilino, área de trabajo, suscripción, etc.). Puede haber varios identificadores de tipo diferente por alerta.|
 |**Gravedad**|Enum|La gravedad de la alerta según lo notifique el proveedor. Valores posibles: Informativo, Bajo, Medio y Alto.|

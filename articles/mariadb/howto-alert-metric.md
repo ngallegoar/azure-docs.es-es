@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 5687255057fdd5e73478626721c789c98b2ea366
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6ed890fca9dddcbc7f04914a6f920d530d18ed0f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120082"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91742849"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Uso de Azure Portal para configurar alertas de métricas en Azure Database for MariaDB
 
@@ -52,7 +52,7 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
    
    Seleccione **Listo** cuando haya terminado.
 
-   ![Selección de la métrica](./media/howto-alert-metric/7-set-threshold-time.png)
+   ![Seleccionar métrica 2](./media/howto-alert-metric/7-set-threshold-time.png)
 
 8. En la sección **Grupos de acciones**, seleccione **Crear nuevo** para crear un grupo en el que recibir las notificaciones sobre la alerta.
 
@@ -70,7 +70,7 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
 11. Especifique el nombre de la regla de alertas, la descripción y la gravedad.
 
-    ![Grupo de acciones](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![Grupo de acciones 2](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. Seleccione **Crear regla de alerta** para crear la alerta.
 

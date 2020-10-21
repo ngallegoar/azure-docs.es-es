@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 09/29/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 400f0b1b55136f133c9ad01fd0ba4b5dbc5e6bcb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392461"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91612751"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Incorporación de asignaciones de roles mediante plantillas de Azure Resource Manager
 
@@ -50,6 +50,18 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 
 ```azurecli
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
+```
+
+### <a name="managed-identities"></a>Identidades administradas
+
+Para obtener el identificador de una identidad administrada, puede usar los comandos [Get-AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) o [az ad sp](/cli/azure/ad/sp).
+
+```azurepowershell
+$objectid = (Get-AzADServicePrincipal -DisplayName <Azure resource name>).id
+```
+
+```azurecli
+objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectId --output tsv)
 ```
 
 ### <a name="application"></a>Application
@@ -365,7 +377,7 @@ En RBAC de Azure, para quitar el acceso a un recurso de Azure, se quita la asign
 
 - [Azure Portal](role-assignments-portal.md#remove-a-role-assignment)
 - [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [CLI de Azure](role-assignments-cli.md#remove-a-role-assignment)
+- [CLI de Azure](role-assignments-cli.md#remove-role-assignment)
 - [REST API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Pasos siguientes

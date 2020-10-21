@@ -6,22 +6,22 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 65f9ee8f67ac4efb6ab26fa0912d11d7be7c571d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520908"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91575017"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Ejecución de acciones basadas en el estado del grupo mediante ámbitos en Azure Logic Apps
 
 Para ejecutar acciones solo después de que otro grupo de acciones se haya realizado correctamente o con errores, ponga esas acciones en un *ámbito*. Esta estructura es útil cuando desea organizar acciones como un grupo lógico, evaluar el estado del grupo y realizar acciones basadas en el estado del ámbito. Una vez que todas las acciones de un ámbito acaben de ejecutarse, el ámbito obtiene también su propio estado. Por ejemplo, puede usar ámbitos cuando desea implementar el [control de errores y excepciones](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
-Para comprobar el estado del ámbito, puede usar los mismos criterios que usa para determinar el estado de ejecución de la aplicación lógica, como "Succeeded", "Failed", "Cancelled", etc. De forma predeterminada, cuando las acciones del ámbito se ejecutan correctamente, el estado del ámbito se marca como "Succeeded". Pero si cualquier acción en el ámbito produce error o se cancela, el estado del ámbito se marca como "Failed". Para conocer los límites en los ámbitos, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
+Para comprobar el estado del ámbito, puede usar los mismos criterios que para determinar el estado de ejecución de una aplicación lógica, por ejemplo, **Correcto**, **Error**, **Cancelado**, etc. De forma predeterminada, cuando las acciones del ámbito se ejecutan correctamente, el estado del ámbito se marca como **Correcto**. Sin embargo, si cualquier acción en el ámbito genera un error o se cancela, el estado del ámbito se marca como **Error**. Para conocer los límites en los ámbitos, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
 
-Por ejemplo, aquí hay una aplicación lógica de alto nivel que utiliza un ámbito para ejecutar acciones específicas y una condición para comprobar el estado del ámbito. Si una acción del ámbito genera un error o finaliza inesperadamente, el ámbito se marca como "Failed" o "Aborted" respectivamente, y la aplicación lógica envía un mensaje de "Scope failed" (Error de ámbito). Si todas las acciones del ámbito se realizan correctamente, la aplicación lógica enviará un mensaje de "Scope succeeded" (El ámbito se realizó correctamente).
+Por ejemplo, aquí hay una aplicación lógica de alto nivel que utiliza un ámbito para ejecutar acciones específicas y una condición para comprobar el estado del ámbito. Si una acción del ámbito genera un error o finaliza inesperadamente, el ámbito se marca como **Error** o **Anulado** respectivamente, y la aplicación lógica envía un mensaje de error de ámbito. Si todas las acciones del ámbito se realizan correctamente, la aplicación lógica enviará un mensaje de "Scope succeeded" (El ámbito se realizó correctamente).
 
-![Configurar desencadenador "Programación: Periodicidad"](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+![En el diagrama se muestra el flujo del ámbito de la aplicación lógica con ejemplos de error de ámbito y ámbito correcto.](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -192,7 +192,7 @@ A continuación, agregue un ámbito para que pueda agrupar acciones específicas
    
       `result('Scope')[0]['status']`
 
-      ![Agregar expresión que comprueba el estado del ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Captura de pantalla que muestra el cuadro "Expresión" con la expresión de resultado resaltada.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. Para ambas filas, seleccione **es igual a** como operador. 
    

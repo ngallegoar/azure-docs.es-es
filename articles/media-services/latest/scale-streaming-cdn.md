@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: e1ea0a43783fb7abdc17655e3a3431d125d426f8
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 6bdf6015ca5633c77280111a55055a7394cee5bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291286"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057661"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Transmisión de contenido con la integración de CDN
 
@@ -54,7 +54,7 @@ En este tema se describe la habilitación de la [integración de CDN](#enable-az
 
 Después de aprovisionar un punto de conexión de streaming con la red CDN habilitada, hay un tiempo de espera definido en Media Services antes de realizar la actualización de DNS para asignar el punto de conexión de streaming al punto de conexión de CDN.
 
-Si más adelante desea volver a habilitar o deshabilitar la red CDN, punto de conexión de streaming debe estar en estado **stopped** (detenido). Una vez iniciado el punto de conexión de streaming es posible que transcurran hasta dos horas hasta que la integración de Azure CDN se habilite y los cambios se activen en todos los POP de la red CDN. Sin embargo, puede iniciar el punto de conexión de streaming y transmitir sin interrupciones desde el mismo. Una vez completada la integración, la transmisión se realiza desde CDN. Durante el período de aprovisionamiento, el punto de conexión de streaming estará en estado **iniciando** y es posible que note una reducción en el rendimiento.
+Si más adelante desea volver a habilitar o deshabilitar la red CDN, punto de conexión de streaming debe estar en estado **stopped** (detenido). Una vez iniciado el punto de conexión de streaming es posible que transcurran hasta cuatro horas para que la integración de Azure CDN se habilite y los cambios se activen en todos los POP de la red CDN. Sin embargo, puede iniciar el punto de conexión de streaming y transmitir sin interrupciones desde el mismo. Una vez completada la integración, la transmisión se realiza desde CDN. Durante el período de aprovisionamiento, el punto de conexión de streaming estará en estado **iniciando** y es posible que note una reducción en el rendimiento.
 
 Cuando se crea el punto de conexión de streaming Estándar, se configura de forma predeterminada con Standard Verizon. Puede configurar los proveedores Premium Verizon o Standard Akamai mediante las API REST.
 

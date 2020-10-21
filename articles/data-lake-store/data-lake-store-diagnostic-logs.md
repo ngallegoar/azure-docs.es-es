@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: e50091750e01435912a2a5163cc786e79dc09f5c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cd1b03c8cecf84e75bac32be0570c2f4f3db9b2e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985071"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91575544"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Acceso a los registros de diagnóstico de Azure Data Lake Storage Gen1
 Sepa cómo habilitar el registro de diagnósticos en su cuenta de Azure Data Lake Storage Gen1 y cómo ver los registros recopilados relativos a su cuenta.
@@ -33,11 +33,11 @@ Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas 
 2. Abra la cuenta de Azure Data Lake Storage Gen1 y, en la hoja de la cuenta de Azure Data Lake Storage Gen1, haga clic en **Configuración de diagnóstico**.
 3. En la hoja **Configuración de diagnóstico**, haga clic en **Activar diagnósticos**.
 
-    ![Activación del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Habilitar registros de diagnóstico")
+    ![Captura de pantalla de la cuenta de Data Lake Storage Gen 1 con la opción Configuración de diagnóstico y la opción Activar diagnósticos seleccionadas.](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Habilitar registros de diagnóstico")
 
 3. En la hoja **Configuración de diagnóstico**, realice los siguientes cambios para configurar el registro de diagnóstico.
    
-    ![Activación del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Habilitar registros de diagnóstico")
+    ![Captura de pantalla de la sección Configuración de diagnóstico con el cuadro de texto Nombre y la opción Guardar seleccionada.](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Habilitar registros de diagnóstico")
    
    * En el **Nombre**, escriba un valor para la configuración del registro de diagnóstico.
    * Puede optar por almacenar o procesar los datos de maneras diferentes.
@@ -73,13 +73,13 @@ Existen dos formas de ver los datos de registro para la cuenta de Azure Data Lak
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>En la cuenta de Azure Storage que contiene los datos de registro
 1. Abra la hoja de la cuenta de Azure Storage asociada con Data Lake Storage Gen1 para el registro y haga clic en Blobs. La hoja **Blob service** muestra dos contenedores.
    
-    ![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualización de los registros de diagnóstico")
+    ![Captura de pantalla de la hoja Data Lake Storage Gen 1 con la opción Blobs seleccionada y la hoja Blob service con los nombres de los dos servicios de blob seleccionados.](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualización de los registros de diagnóstico")
    
    * El contenedor **insights-logs-audit** contiene los registros de auditoría.
    * El contenedor **insights-logs-requests** contiene los registros de solicitudes.
 2. Dentro de estos contenedores, los registros se almacenan con la siguiente estructura.
    
-    ![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Visualización de los registros de diagnóstico")
+    ![Captura de pantalla de la estructura de registro almacenada en el contenedor.](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Visualización de los registros de diagnóstico")
    
     Por ejemplo, la ruta de acceso completa a un registro de auditoría sería `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    

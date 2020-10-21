@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 397dac67ea94db22829080a65dfae857bb3706dd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a35b4e398757cb3d4b17e4fd6a5e342fe3c82918
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036937"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710386"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple como destino de copia de seguridad con Backup Exec
 
@@ -409,15 +409,15 @@ En la tabla siguiente se muestra cómo configurar copias de seguridad para que s
 
 4.  En la lista desplegable **Storage** (Almacenamiento), seleccione el volumen de StorSimple en el que desea que el trabajo de archivo almacene los datos.
 
-    ![Consola de Backup Exec, propiedades de las definiciones de copia de seguridad y opciones de duplicación](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
+    ![Captura de pantalla que muestra la lista donde tiene que seleccionar Storage.](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
 5.  Seleccione **Verify** (Comprobar) y después marque la casilla **Do not verify data for this job** (No comprobar los datos de este trabajo).
 
-    ![Consola de Backup Exec, propiedades de las definiciones de copia de seguridad y opciones de duplicación](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
+    ![Captura de pantalla que muestra dónde se selecciona la opción Do not verify data for this job (No comprobar los datos de este trabajo).](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
 6.  Seleccione **Aceptar**.
 
-    ![Consola de Backup Exec, propiedades de las definiciones de copia de seguridad y opciones de duplicación](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
+    ![Captura de pantalla que muestra las propiedades de definición de copia de seguridad.](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
 7.  En la columna **Backup** (Copia de seguridad), agregue una nueva fase. Para el origen, use **incremental**. Para el destino, elija el volumen de StorSimple en el que se archiva el trabajo de copia de seguridad incremental. Repita los pasos del 1 al 6.
 

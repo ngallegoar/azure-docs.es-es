@@ -1,26 +1,26 @@
 ---
-title: Límites y cuotas de IoT Plug and Play (versión preliminar) | Microsoft Docs
-description: Comprenda los límites, las cuotas y las limitaciones que se aplican al usar IoT Plug and Play (versión preliminar).
+title: Límites y cuotas de IoT Plug and Play | Microsoft Docs
+description: Comprenda los límites, las cuotas y las limitaciones que se aplican al usar IoT Plug and Play.
 author: prashmo
 ms.author: prashmo
 ms.date: 07/21/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5c4377120f61792b580225a22b9f5ff51b5e1b64
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d965d9cb8b87ce0b67f4fe0c07b660fdfd69cc07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337405"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91577992"
 ---
-# <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Límites, cuotas y limitaciones de IoT Plug and Play (versión preliminar)
+# <a name="iot-plug-and-play-limits-quotas-and-throttles"></a>Límites, cuotas y limitaciones de IoT Plug and Play
 
-En este artículo se explican los límites, las cuotas y las limitaciones específicos de IoT Plug and Play que se aplican en la versión preliminar pública. También se aplican [cuotas y limitaciones de IoT Hub](../iot-hub/iot-hub-devguide-quotas-throttling.md) existentes.
+En este artículo se explican los límites, las cuotas y las limitaciones específicos de IoT Plug and Play. También se aplican [cuotas y limitaciones de IoT Hub](../iot-hub/iot-hub-devguide-quotas-throttling.md) existentes.
 
 ## <a name="iot-hub"></a>IoT Hub
 
-En la versión preliminar pública, los límites y las cuotas siguientes se aplican a un centro de IoT:
+Los límites y las cuotas siguientes se aplican a un centro de IoT:
 
 | Límites, restricciones y limitaciones | Value | Notas |
 |-----|-----|-----|

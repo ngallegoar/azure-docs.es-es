@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 73322cdee151969e6e765690284bbffc1c871f4e
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090200"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761556"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Referencia del SDK de JavaScript de Lector inmersivo (v 1.1)
 
@@ -135,7 +135,7 @@ Opciones para representar los botones del lector inmersivo.
 | ------- | ---- | ----------- |
 | Elementos | HTMLDivElement[] | Elementos para representar los botones del Lector inmersivo. |
 
-##### `-elements`
+##### `elements`
 ```Parameters
 Type: HTMLDivElement[]
 Required: false
@@ -210,14 +210,14 @@ Contiene el contenido que se mostrará en el Lector inmersivo.
 | title | String | Texto del título que se muestra en la parte superior del Lector inmersivo (opcional) |
 | fragmentos | [Chunk[]](#chunk) | Matriz de fragmentos |
 
-##### `-title`
+##### `title`
 ```Parameters
 Type: String
 Required: false
 Default value: "Immersive Reader" 
 ```
 
-##### `-chunks`
+##### `chunks`
 ```Parameters
 Type: Chunk[]
 Required: true
@@ -246,21 +246,21 @@ Un único fragmento de datos, que se pasará al contenido del lector inmersivo.
 | lang | String | Idioma del texto, el valor está en formato de etiqueta de idioma IETF BCP 47, por ejemplo, en es-ES. El idioma se detectará automáticamente si no se especifica. Consulte [Idiomas admitidos](#supported-languages). |
 | mimeType | string | Se admiten los formatos de texto sin formato, MathML, HTML y Microsoft Word DOCX. Para obtener más información, consulte [Tipos MIME admitidos](#supported-mime-types). |
 
-##### `-content`
+##### `content`
 ```Parameters
 Type: String
 Required: true
 Default value: null 
 ```
 
-##### `-lang`
+##### `lang`
 ```Parameters
 Type: String
 Required: false
 Default value: Automatically detected 
 ```
 
-##### `-mimeType`
+##### `mimeType`
 ```Parameters
 Type: String
 Required: false
@@ -323,38 +323,38 @@ Contiene propiedades que configuran ciertos comportamientos del Lector inmersivo
 | onPreferencesChanged | Función | Se ejecuta cuando las preferencias del usuario han cambiado. Consulte [Procedimiento: Almacenamiento de las preferencias de usuario](./how-to-store-user-preferences.md) para más información. |
 | customDomain | String | Reservado para uso interno. Dominio personalizado en el que se hospeda la aplicación web del Lector inmersivo (el valor predeterminado es null). |
 
-##### `-uiLang`
+##### `uiLang`
 ```Parameters
 Type: String
 Required: false
 Default value: User's browser language 
 ```
 
-##### `-timeout`
+##### `timeout`
 ```Parameters
 Type: Number
 Required: false
 Default value: 15000
 ```
 
-##### `-uiZIndex`
+##### `uiZIndex`
 ```Parameters
 Type: Number
 Required: false
 Default value: 1000
 ```
 
-##### `-onExit`
+##### `onExit`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-preferences`
+##### `preferences`
 
 > [!CAUTION]
-> **IMPORTANTE** No intente cambiar mediante programación los valores de la cadena `-preferences` enviada a la aplicación del Lector inmersivo o desde ella, ya que puede provocar un comportamiento inesperado y dar lugar a una experiencia de usuario degradada para los clientes.
+> **IMPORTANTE** No intente cambiar mediante programación los valores de la cadena `-preferences` enviada a la aplicación del Lector inmersivo o desde ella, ya que puede provocar un comportamiento inesperado y dar lugar a una experiencia de usuario degradada para los clientes. Recuerde que las aplicaciones host nunca deben asignar un valor personalizado a la cadena `-preferences` ni manipularla. Al utilizar la opción de cadena `-preferences`, use solo el valor exacto que se devolvió en la opción de devolución de llamada `-onPreferencesChanged`.
 
 ```Parameters
 Type: String
@@ -362,14 +362,14 @@ Required: false
 Default value: null
 ```
 
-##### `-onPreferencesChanged`
+##### `onPreferencesChanged`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-customDomain`
+##### `customDomain`
 ```Parameters
 Type: String
 Required: false
@@ -396,7 +396,7 @@ type ReadAloudOptions = {
 | velocidad | Number | La velocidad de reproducción debe ser entre 0,5 y 2,5, ambos inclusive. |
 | autoPlay | Boolean | Se inicia automáticamente la lectura en voz alta cuando se carga el Lector inmersivo. |
 
-##### `-voice`
+##### `voice`
 ```Parameters
 Type: String
 Required: false
@@ -404,7 +404,7 @@ Default value: "Female" or "Male" (determined by language)
 Values available: "Female", "Male"
 ```
 
-##### `-speed`
+##### `speed`
 ```Parameters
 Type: Number
 Required: false
@@ -435,7 +435,7 @@ type TranslationOptions = {
 | autoEnableDocumentTranslation | Boolean | Traducción automática de todo el documento. |
 | autoEnableWordTranslation | Boolean | Habilitación automática de la traducción de palabras. |
 
-##### `-language`
+##### `language`
 ```Parameters
 Type: String
 Required: true
@@ -463,7 +463,7 @@ type DisplayOptions = {
 | increaseSpacing | Boolean | Establece si el espaciado de texto está activado o desactivado. |
 | fontFamily | String | Establece la fuente elegida ("Calibri", "ComicSans" o "Sitka"). |
 
-##### `-textSize`
+##### `textSize`
 ```Parameters
 Type: Number
 Required: false
@@ -471,7 +471,7 @@ Default value: 20, 36 or 42 (Determined by screen size)
 Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
 ```
 
-##### `-fontFamily`
+##### `fontFamily`
 ```Parameters
 Type: String
 Required: false
@@ -514,7 +514,7 @@ enum CookiePolicy { Disable, Enable }
 
 ## <a name="supported-languages"></a>Idiomas compatibles
 
-La característica de traducción del Lector inmersivo admite muchos idiomas. Consulte [este artículo](https://www.onenote.com/learningtools/languagesupport) para obtener más detalles.
+La característica de traducción del Lector inmersivo admite muchos idiomas. Vea [Compatibilidad de idiomas](./language-support.md) para obtener más información.
 
 <br>
 

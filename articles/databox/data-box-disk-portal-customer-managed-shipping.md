@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 7b069d1bf16e8cbf4dfc245fbb3c66863cd0b994
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c4b3479e5728c32e66bc40f950bc948bf61dce42
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055585"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91575170"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Uso del envío autoadministrado para Azure Data Box Disk en Azure Portal
 
@@ -37,13 +37,13 @@ Al realizar un pedido de Data Box Disk, puede elegir la opción de envío autoad
 
 1. En el pedido de Azure Data Box Disk, en **Detalles del contacto**, seleccione **+ Agregar dirección de envío**.
 
-   ![Envío autoadministrado](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
+   ![Captura de pantalla del asistente para pedidos que muestra el paso Detalles de contacto, con la opción Agregar dirección de envío seleccionada.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
 2. Al elegir el tipo de envío, seleccione la opción **Envío autoadministrado**. Esta opción solo está disponible si se encuentra en una región admitida, tal como se describe en los requisitos previos.
 
 3. Cuando proporcione la dirección de envío, tendrá que validarla y completar el pedido.
 
-   ![Envío autoadministrado](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Captura de pantalla del cuadro de diálogo Agregar dirección de envío, con las opciones Enviar con y la opción Agregar dirección de envío seleccionadas.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Cuando el dispositivo esté preparado y haya recibido una notificación por correo electrónico, podrá programar una recogida. En el pedido de Azure Data Box Disk, vaya a **Información general** y seleccione **Programar recogida**.
 
@@ -55,7 +55,7 @@ Al realizar un pedido de Data Box Disk, puede elegir la opción de envío autoad
 
 6. Una vez que haya programado la recogida del dispositivo, podrá ver el código de autorización en **Programar recogida para Azure**.
 
-   ![Visualización del código de autorización](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
+   ![Captura de pantalla del cuadro de diálogo Programar recogida para Azure con el código de autorización del cuadro de texto Recogida seleccionado.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
    Tome nota de este **código de autorización**.
 
@@ -78,7 +78,7 @@ Al realizar un pedido de Data Box Disk, puede elegir la opción de envío autoad
 
 9. Si ha recibido una cita para una entrega, el pedido debe encontrarse en el estado **Listo para recibir el paquete en el centro de datos de Azure** en Azure Portal.
 
-   ![Visualización del código de autorización](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
+   ![Captura de pantalla del cuadro de diálogo Agregar dirección de envío, con las opciones Enviar con y la opción Agregar dirección de envío seleccionadas.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 
 10. Después de verificar el identificador y el código de autorización y de entregar el dispositivo en el centro de datos, el estado del pedido debe ser **Recibido**.
 

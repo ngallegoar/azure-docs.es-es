@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bb5383ee7930cb3d54593f71a709c033d3850889
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f52111fbbbd90f3d2f39f538c4bf1a2672cd504b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521219"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961245"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico para un emisor de tokens de SAML en una directiva personalizada de Azure Active Directory B2C
 
@@ -37,6 +37,7 @@ En el ejemplo siguiente se muestra un perfil técnico de `Saml2AssertionIssuer`:
   <OutputTokenFormat>SAML2</OutputTokenFormat>
   <Metadata>
     <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
+    <Item Key="TokenNotBeforeSkewInSeconds">600</Item>
   </Metadata>
   <CryptographicKeys>
     <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -58,6 +59,7 @@ Los elementos **InputClaims**, **OutputClaims** y **PersistClaims** están vací
 | --------- | -------- | ----------- |
 | IssuerUri | No | Nombre del emisor que aparece en la respuesta de SAML. El valor debe ser el mismo nombre que el configurado en la aplicación de usuario de confianza. |
 | XmlSignatureAlgorithm | No | El método que usa Azure AD B2C para firmar la aserción SAML. Valores posibles: `Sha256`, `Sha384`, `Sha512` o `Sha1`. Asegúrese de configurar el algoritmo de firma en ambos lados con el mismo valor. Use solo el algoritmo que admite el certificado. Para configurar la respuesta SAML, consulte [Metadatos de SAML del usuario de confianza.](relyingparty.md#metadata)|
+|TokenNotBeforeSkewInSeconds| No| Especifica el sesgo, como un entero, para la marca de tiempo que marca el inicio del período de validez. Cuanto mayor sea este número, más remoto será el inicio del período de validez con respecto al momento en que se emiten las reclamaciones para el usuario de confianza. Por ejemplo, si el valor de TokenNotBeforeSkewInSeconds se establece en 60 segundos, si el token se emite a las 13:05:10 UTC, el token es válido a partir de 13:04:10 UTC. El valor predeterminado es 0. El valor máximo es 3600 (una hora). |
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 

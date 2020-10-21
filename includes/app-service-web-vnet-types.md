@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: c31a5aaa9866a4ce97cd3cd59a8e363834f70587
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 481bd4f50eb527bcad2ba79b5ba4b9df4b872bfc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312834"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91739922"
 ---
 * Los sistemas multiinquilino que admiten todos los planes de precios, excepto Aislado.
 * App Service Environment, que se implementa en la VNet y admite aplicaciones de planes de precios aislados.
@@ -23,7 +23,7 @@ Integración con red virtual proporciona a la aplicación el acceso a los recurs
 
 Integración con red virtual tiene las siguientes características:
 
-* Necesita un plan de precios Estándar, Premium, PremiumV2 o Grupo elástico Premium.
+* Necesita un plan de precios Estándar, Prémium, Prémium v2, Prémium v3 o Elástico Prémium.
 * Es compatible con TCP y UDP.
 * Funciona con aplicaciones de Azure App Service y de funciones.
 

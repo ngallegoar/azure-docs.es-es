@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f0a3ac0c81291a1231ef660481d8e31b38c0e212
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527384"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631348"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Acerca de las redes para la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -46,7 +46,7 @@ Normalmente, los clientes protegen sus redes mediante firewalls y grupos de segu
 Si usa un proxy de firewall basado en la dirección URL para controlar la conectividad de salida, admita estas direcciones URL de Site Recovery:
 
 >[!NOTE]
-> La lista blanca basadas en direcciones IP no se debe utilizar para controlar la conectividad saliente.
+> El filtrado basado en direcciones IP no se debe utilizar para controlar la conectividad saliente.
 
 **URL** | **Detalles**
 --- | ---
@@ -82,11 +82,11 @@ En este ejemplo se muestra cómo configurar reglas de NSG para la replicación d
 
 1. Cree una regla de seguridad HTTPS (443) de salida para "Storage.EastUS" en el NSG tal y como se muestra en la captura de pantalla siguiente.
 
-      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![Captura de pantalla que muestra Agregar regla de seguridad de salida para un grupo de seguridad de red para el almacenamiento en Este de EE. UU.](./media/azure-to-azure-about-networking/storage-tag.png)
 
 2. Cree una regla de seguridad HTTPS (443) de salida para "AzureActiveDirectory" en el NSG tal y como se muestra en la captura de pantalla siguiente.
 
-      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![La captura de pantalla muestra Agregar regla de seguridad de salida para un grupo de seguridad de red para Azure AD.](./media/azure-to-azure-about-networking/aad-tag.png)
 
 3. De forma parecida a como ha creado las reglas de seguridad anteriores, cree una regla de seguridad HTTPS (443) de salida para ""EventHub.CentralUS" en el NSG que corresponda a la ubicación de destino. Esto permite el acceso a la supervisión de Site Recovery.
 

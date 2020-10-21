@@ -4,15 +4,15 @@ description: Aprenda a implementar Azure File Sync, desde el principio hasta el 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/19/2018
+ms.date: 10/14/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: deffa5c75cbde4f9d95be549844478d4de87a685
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 012b5c76a025e6dc6ae1fbd5aedddf9ea3d2a4f0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069635"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057831"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -509,28 +509,27 @@ Si quiere configurar Azure File Sync para que funcione con la configuración de 
 Los pasos recomendados para la incorporación en Azure File Sync por primera vez con un tiempo de inactividad nulo conservando al mismo tiempo la fidelidad total en los archivos y la lista de control de acceso (ACL) son los siguientes:
  
 1. Implementar un servicio de sincronización de almacenamiento.
-2. Crear un grupo de sincronización.
-3. Instalar el agente de Azure File Sync en el servidor con el conjunto de datos completo.
-4. Registrar ese servidor y crear un punto de conexión de servidor en el recurso compartido. 
-5. Permitir que la sincronización realice la carga completa al recurso compartido de archivos de Azure (punto de conexión en la nube).  
-6. Una vez finalizada la carga inicial, instalar el agente de Azure File Sync en cada uno de los demás servidores.
-7. Crear nuevos recursos compartidos de archivos en cada uno de los demás servidores.
-8. Crear puntos de conexión de servidor en nuevos recursos compartidos de archivos con la directiva de niveles de nube, si lo desea. (Este paso requiere que haya almacenamiento adicional disponible para la instalación inicial).
-9. Deje que el agente de Azure File Sync realice una restauración rápida del espacio de nombres completo sin la transferencia de datos real. Después de la sincronización del espacio de nombres completo, el motor de sincronización rellenará el espacio en disco local en función de la directiva de niveles de nube para el punto de conexión del servidor. 
-10. Asegúrese de que la sincronización finaliza y pruebe la topología según sea necesario. 
-11. Redirigir a los usuarios y las aplicaciones a este recurso compartido nuevo.
-12. Si lo desea, se pueden eliminar todos los recursos compartidos duplicados en los servidores.
+1. Crear un grupo de sincronización.
+1. Instalar el agente de Azure File Sync en el servidor con el conjunto de datos completo.
+1. Registrar ese servidor y crear un punto de conexión de servidor en el recurso compartido. 
+1. Permitir que la sincronización realice la carga completa al recurso compartido de archivos de Azure (punto de conexión en la nube).  
+1. Una vez finalizada la carga inicial, instalar el agente de Azure File Sync en cada uno de los demás servidores.
+1. Crear nuevos recursos compartidos de archivos en cada uno de los demás servidores.
+1. Crear puntos de conexión de servidor en nuevos recursos compartidos de archivos con la directiva de niveles de nube, si lo desea. (Este paso requiere que haya almacenamiento adicional disponible para la instalación inicial).
+1. Deje que el agente de Azure File Sync realice una restauración rápida del espacio de nombres completo sin la transferencia de datos real. Después de la sincronización del espacio de nombres completo, el motor de sincronización rellenará el espacio en disco local en función de la directiva de niveles de nube para el punto de conexión del servidor. 
+1. Asegúrese de que la sincronización finaliza y pruebe la topología según sea necesario. 
+1. Redirigir a los usuarios y las aplicaciones a este recurso compartido nuevo.
+1. Si lo desea, se pueden eliminar todos los recursos compartidos duplicados en los servidores.
  
 Si no tiene almacenamiento adicional para la incorporación inicial y le gustaría conectarse a los recursos compartidos existentes, puede inicializar previamente los datos de los recursos compartidos de archivos de Azure. Se recomienda este enfoque si y solo si puede aceptar un tiempo de inactividad y garantiza de forma absoluta que no cambia ningún dato en los recursos compartidos del servidor durante el proceso de incorporación inicial. 
  
 1. Asegúrese que los datos no pueden cambiar en ninguno de los servidores durante el proceso de incorporación.
-2. Inicialice previamente los recursos compartidos de archivos de Azure con los datos del servidor mediante cualquier herramienta de transferencia de datos a través de SMB, por ejemplo Robocopy, copia directa de SMB. Puesto que AzCopy no carga datos a través de SMB, no se puede usar para la inicialización previa.
-3. Cree la topología de Azure File Sync con los puntos de conexión de servidor que desee que apunten a los recursos compartidos existentes.
-4. Permita que la sincronización finalice el proceso de conciliación en todos los puntos de conexión. 
-5. Una vez completada la conciliación, puede abrir recursos compartidos para los cambios.
+1. Inicialice previamente los recursos compartidos de archivos de Azure con los datos del servidor mediante cualquier herramienta de transferencia de datos a través de SMB. Por ejemplo, Robocopy. También puede usar AzCopy sobre REST. Asegúrese de usar AzCopy con los modificadores adecuados para conservar las marcas de tiempo y los atributos de las ACL.
+1. Cree la topología de Azure File Sync con los puntos de conexión de servidor que desee que apunten a los recursos compartidos existentes.
+1. Permita que la sincronización finalice el proceso de conciliación en todos los puntos de conexión. 
+1. Una vez completada la conciliación, puede abrir recursos compartidos para los cambios.
  
 Actualmente, el enfoque de inicialización previa tiene algunas limitaciones: 
-- No se conserva la fidelidad total en los archivos. Por ejemplo, los archivos pierden las ACL y las marcas de tiempo.
 - Los datos cambian en el servidor antes de que la topología de sincronización esté totalmente activa y la ejecución puede producir conflictos en los puntos de conexión del servidor.  
 - Después de crearse el punto de conexión en la nube, Azure File Sync ejecuta un proceso para detectar los archivos en la nube antes de llevar a cabo la sincronización inicial. El tiempo necesario para completar este proceso depende de distintos factores, como la velocidad de la red, el ancho de banda disponible y el número de archivos y carpetas. Para una estimación aproximada del lanzamiento de la versión preliminar, el proceso de detección se ejecuta a una velocidad aproximada de diez archivos/s. Por lo tanto, incluso si la inicialización previa se ejecuta rápido, el tiempo total para obtener un sistema totalmente operativo puede ser considerablemente mayor cuando los datos se inicializan previamente en la nube.
 
@@ -551,7 +550,7 @@ Enable-StorageSyncSelfServiceRestore [-DriveLetter] <string> [[-Force]]
 
 Las instantáneas de VSS se obtienen de un volumen completo. De manera predeterminada, pueden existir hasta 64 instantáneas para un volumen determinado, siempre que haya espacio suficiente para almacenar las instantáneas. VSS lo trata automáticamente. La programación de instantáneas predeterminada toma dos instantáneas al día, de lunes a viernes. Esa programación se puede configurar a través de una tarea programada de Windows. El anterior cmdlet de PowerShell hace dos cosas:
 1. Configura la nube por niveles de Azure File Sync en el volumen especificado para que sea compatible con las versiones anteriores y garantiza que se puede restaurar un archivo a partir de una versión anterior, aunque se haya organizado por niveles en la nube en el servidor. 
-2. Habilita la programación predeterminada de VSS, que puede decidir modificar más adelante. 
+1. Habilita la programación predeterminada de VSS, que puede decidir modificar más adelante. 
 
 > [!Note]  
 > Hay dos aspectos importantes que se deben tener en cuenta:

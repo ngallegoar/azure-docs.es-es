@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791153"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570735"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Creación de contenedores y bases de datos de Azure Cosmos con rendimiento de escalabilidad automática
 
@@ -77,7 +77,7 @@ Para más información, consulte esta [documentación](how-to-choose-offer.md) s
 | **Rendimiento aprovisionado (RU/s)** | Aprovisionada manualmente. | Escalado automático e instantáneo en función de los patrones de uso de la carga de trabajo. |
 | **Limitación de velocidad de las solicitudes o las operaciones (429)**  | Puede ocurrir si el consumo supera la capacidad aprovisionada. | No ocurrirá si utiliza RU/s dentro del intervalo de rendimiento de escalabilidad automática que ha establecido.    |
 | **Planificación de capacidad** |  Debe realizar un planeamiento de la capacidad y aprovisionar el rendimiento exacto que necesita. |    El sistema se encarga automáticamente del planeamiento y la administración de la capacidad. |
-| **Precios** | Se paga por las RU/s aprovisionadas manualmente, con la [tarifa de RU/s estándar (manual) por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). | Se paga por hora por el número mayor de RU/s a las que se ha escalado verticalmente el sistema en dicha hora. <br/><br/> En el caso de las cuentas de una sola región de escritura, se paga por las RU/s utilizadas en una hora, con la [tarifa de RU/s por hora de la escalabilidad automática](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>En el caso de las cuentas con varias regiones de escritura, no se aplica ningún cargo adicional por Escalabilidad automática. Se paga por el rendimiento que se usa por hora con la misma [tarifa de RU/s por hora de la arquitectura multimaestro](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| **Precios** | Se paga por las RU/s aprovisionadas manualmente, con la [tarifa de RU/s estándar (manual) por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). | Se paga por hora por el número mayor de RU/s a las que se ha escalado verticalmente el sistema en dicha hora. <br/><br/> En el caso de las cuentas de una sola región de escritura, se paga por las RU/s utilizadas en una hora, con la [tarifa de RU/s por hora de la escalabilidad automática](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>En el caso de las cuentas con varias regiones de escritura, no se aplica ningún cargo adicional por Escalabilidad automática. Se paga por el rendimiento usado por hora con la misma [tarifa de RU/s por hora de escritura en varias regiones](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | **Adecuado para los tipos de carga de trabajo** |  Cargas de trabajo predecibles y estables|   Cargas de trabajo impredecibles y variables  |
 
 ## <a name="next-steps"></a>Pasos siguientes

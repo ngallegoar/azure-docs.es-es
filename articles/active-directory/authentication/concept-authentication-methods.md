@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: d4b44deda1bd17e65c3e2c2a9c46dddccd411996
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c5ae0e0d312aa9a959b114d576f887bfa5072f49
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602051"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965512"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>¿Qué métodos de autenticación y verificación hay disponibles en Azure Active Directory?
 
@@ -100,6 +100,8 @@ Para obtener más información sobre los conceptos del SSPR, consulte [Funcionam
 Para obtener más información sobre los conceptos de MFA, consulte [Funcionamiento: Azure Multi-Factor Authentication][concept-mfa].
 
 Más información sobre la configuración de métodos de autenticación con la [Versión beta de la API REST Microsoft Graph API](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+
+Para revisar qué métodos de autenticación están en uso, consulte [Análisis de métodos de autenticación de Azure Multi-Factor Authentication con PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

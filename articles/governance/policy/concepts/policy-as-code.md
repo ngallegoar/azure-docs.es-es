@@ -1,14 +1,14 @@
 ---
 title: Diseño de flujos de trabajo de directiva como código
 description: Aprenda a diseñar flujos de trabajo para implementar sus definiciones de Azure Policy como código y validar automáticamente los recursos.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7fa8eb36283821527e16c1d97e326aa9dcde9dba
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651881"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91598220"
 ---
 # <a name="design-policy-as-code-workflows"></a>Diseño de flujos de trabajo de directiva como código
 
@@ -38,6 +38,8 @@ Los ejemplos de estos formatos de archivo están disponibles en el [repositorio 
 
 - Definición de directiva: [Agregar una etiqueta a los recursos](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Definición de iniciativa: [Etiquetas de facturación](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
+
+Además, revise [Exportación de recursos de Azure Policy](../how-to/export-resources.md) para obtener las definiciones y las asignaciones existentes en el entorno de administración de código fuente, en [GitHub](https://www.github.com).
 
 ## <a name="workflow-overview"></a>Introducción al flujo de trabajo
 

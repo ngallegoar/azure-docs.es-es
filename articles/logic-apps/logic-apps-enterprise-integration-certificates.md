@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 7d57536eee62c415058dd454f3da6ee5f3d04898
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 03fc17c0d071cef4c8de92c6b50d60d961d18aef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090338"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91565266"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Mejora de la seguridad de los mensajes B2B mediante certificados
 
@@ -51,11 +51,11 @@ Para usar un *certificado público* en las aplicaciones lógicas con funcionalid
    | **Certificate** | <*nombre-archivo-del-certificado*> | Para buscar y seleccionar el archivo de certificado que desea cargar, elija el icono de carpeta junto al cuadro **Certificado**. |
    ||||
 
-   ![Elija "Añadir" y proporcione los detalles del certificado](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
+   ![Captura de pantalla que muestra dónde seleccionar Agregar para proporcionar detalles del certificado.](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
 
    Azure valida el certificado que eligió y después lo carga.
 
-   ![Azure muestra el nuevo certificado](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
+   ![Captura de pantalla que indica dónde Azure muestra el nuevo certificado.](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
 
 ## <a name="upload-a-private-certificate"></a>Carga de un certificado privado
 

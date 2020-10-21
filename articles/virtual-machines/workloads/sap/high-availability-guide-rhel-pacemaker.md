@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 09/29/2020
 ms.author: radeltch
-ms.openlocfilehash: a1e097692eade956446b46782bca5ecf3a17de75
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4c444cb84f215ba4f42c14eb64f1d2f441e4280d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800269"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91598306"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuración de Pacemaker en Red Hat Enterprise Linux en Azure
 
@@ -66,6 +66,7 @@ Lea primero las notas y los documentos de SAP siguientes:
 * Documentación de RHEL específica para Azure:
   * [Directivas de compatibilidad para clústeres de alta disponibilidad RHEL: instancias de Microsoft Azure Virtual Machines como miembros del clúster](https://access.redhat.com/articles/3131341)
   * [Instalación y configuración de un clúster de alta disponibilidad de Red Hat Enterprise Linux 7.4 (y versiones posteriores) en Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Consideraciones para adoptar la disponibilidad y los clústeres de RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
   * [Configuración de SAP S/4HANA ASCS/ERS con el servidor 2 de puesta en cola independiente (ENSA2) en Pacemaker en RHEL 7.6](https://access.redhat.com/articles/3974941)
 
 ## <a name="cluster-installation"></a>Instalación del clúster
@@ -78,7 +79,7 @@ Lea primero las notas y los documentos de SAP siguientes:
 
 Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos, **[1]** : aplicable solo al nodo 1 o **[2]** : aplicable solo al nodo 2.
 
-1. **[A]** Registro
+1. **[A]** Registro. Este paso no es necesario si se usan imágenes habilitadas para alta disponibilidad de RHEL 8.x.  
 
    Registre las máquinas virtuales y asócielas a un grupo que contenga repositorios para RHEL 7.
 
@@ -90,7 +91,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
 
    Tenga en cuenta que si adjunta un grupo a una imagen de RHEL de pago por uso de Azure Marketplace, se le facturará el doble por el uso de RHEL, una vez por la imagen de pago por uso y otra, por el derecho de RHEL en el grupo que adjunta. Para mitigar esto, Azure ahora proporciona imágenes de RHEL de BYOS. Puede encontrar más información disponible [aquí](../redhat/byos.md).
 
-1. **[A]** Habilitación de RHEL para los repositorios SAP
+1. **[A]** Habilitación de RHEL para los repositorios SAP. Este paso no es necesario si se usan imágenes habilitadas para alta disponibilidad de RHEL 8.x.  
 
    Para instalar los paquetes necesarios, habilite los siguientes repositorios.
 
@@ -108,6 +109,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
 
    > [!IMPORTANT]
    > Se recomiendan las siguientes versiones del agente de delimitación de Azure (o posterior) para que los clientes puedan beneficiarse de un tiempo de conmutación por error más rápido, si se produce un error en la detención de un recurso o los nodos del clúster no pueden comunicarse entre sí:  
+   > RHEL 7.7 o superior usan la versión más reciente disponible del paquete fence-agents  
    > RHEL 7.6: fence-agents-4.2.1-11.el7_6.8  
    > RHEL 7.5: fence-agents-4.0.11-86.el7_5.8  
    > RHEL 7.4: fence-agents-4.0.11-66.el7_4.12  
@@ -165,15 +167,23 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
 
 1. **[1]** Creación del clúster de Pacemaker
 
-   Ejecute los comandos siguientes para autenticar los nodos y crear el clúster. Establezca el token en 30000 para permitir el mantenimiento con conservación de memoria. Para más información, consulte [este artículo para Linux][virtual-machines-linux-maintenance].
-
+   Ejecute los comandos siguientes para autenticar los nodos y crear el clúster. Establezca el token en 30000 para permitir el mantenimiento con conservación de memoria. Para más información, consulte [este artículo para Linux][virtual-machines-linux-maintenance].  
+   
+   Si va a compilar un clúster en **RHEL 7.x**, use los comandos siguientes:  
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
+   </code></pre>
 
-   # Run the following command until the status of both nodes is online
+   Si va a compilar un clúster en **RHEL 8.x**, use los comandos siguientes:  
+   <pre><code>sudo pcs host auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
+   sudo pcs cluster setup <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> totem token=30000
+   sudo pcs cluster start --all
+   </code></pre>
+
+   Compruebe el estado de clúster con el comando siguiente:  
+   <pre><code> # Run the following command until the status of both nodes is online
    sudo pcs status
-
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
@@ -188,17 +198,22 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    #
    # No resources
    #
-   #
    # Daemon Status:
    #   corosync: active/disabled
    #   pacemaker: active/disabled
    #   pcsd: active/enabled
    </code></pre>
 
-1. **[A]** Establecimiento de votos esperados
-
-   <pre><code>sudo pcs quorum expected-votes 2
+1. **[A]** Establecimiento de votos esperados. 
+   
+   <pre><code># Check the quorum votes 
+    pcs quorum status
+    # If the quorum votes are not set to 2, execute the next command
+    sudo pcs quorum expected-votes 2
    </code></pre>
+
+   >[!TIP]
+   > Si crea un clúster de varios nodos, que es un clúster con más de dos nodos, no establezca los votos en 2.    
 
 1. **[1]** Permitir acciones de barrera simultáneas
 
@@ -276,12 +291,17 @@ Después de editar los permisos para las máquinas virtuales, puede configurar l
 sudo pcs property set stonith-timeout=900
 </code></pre>
 
-Para configurar al agente de delimitación, use el comando siguiente.
-
 > [!NOTE]
 > La opción "pcmk_host_map" SOLO es necesaria en el comando si los nombres de host RHEL y los nombres de nodo de Azure NO son idénticos. Consulte la sección en negrita en el comando.
 
+Para configurar al agente de delimitación en RHEL **7.X**, use el comando siguiente:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+op monitor interval=3600
+</code></pre>
+
+Para configurar al agente de delimitación en RHEL **8.X**, use el comando siguiente:  
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 </code></pre>

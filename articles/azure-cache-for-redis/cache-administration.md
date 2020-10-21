@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: c9da97607961a7d701851c6892393cdf537b9a32
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 156dfd1d9553e369357eb68225e722222a59d847
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008039"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91838677"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Administración de Azure Cache for Redis
 En este tema, se explica cómo realizar tareas de administración, como [reiniciar](#reboot) y [programar actualizaciones](#schedule-updates), en las instancias de Azure Cache for Redis.
@@ -21,11 +21,11 @@ En este tema, se explica cómo realizar tareas de administración, como [reinici
 ## <a name="reboot"></a>Reboot
 La hoja **Reiniciar** permite reiniciar uno o varios nodos de la memoria caché. Esta funcionalidad de reinicio le permite probar la resistencia de la aplicación en caso de que haya un error de un nodo de la caché.
 
-![Reboot](./media/cache-administration/redis-cache-administration-reboot.png)
+![Captura de pantalla que resalta la opción de menú Arrancar.](./media/cache-administration/redis-cache-administration-reboot.png)
 
 Seleccione los nodos que se van a reiniciar y haga clic en **Reiniciar**.
 
-![Reboot](./media/cache-administration/redis-cache-reboot.png)
+![Captura de pantalla que muestra los nodos que se pueden arrancar.](./media/cache-administration/redis-cache-reboot.png)
 
 Si tiene una caché premium con la agrupación en clústeres habilitada, puede seleccionar qué particiones de la memoria caché se reiniciarán.
 

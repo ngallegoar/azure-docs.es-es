@@ -10,12 +10,12 @@ ms.date: 08/11/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: b8d3472eeedab72644456b4278d3b9f3625c5850
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4a0c2813a45fab497173d0101f87b30288e93884
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078211"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91568900"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory
 
@@ -258,13 +258,13 @@ Si une la instancia de Azure-SSIS IR a una red virtual, verá el icono **VALIDAT
 
 En el icono **DIAGNOSTICAR CONECTIVIDAD** de la página de supervisión de Azure-SSIS IR, puede seleccionar el vínculo **Probar conexión** para mostrar una ventana, donde puede comprobar las conexiones entre la instancia de Azure-SSIS IR y los almacenes de paquetes, configuraciones y datos relevantes, así como los servicios de administración, a través de su dirección de nombre de dominio completo (FQDN)/IP y el puerto designado (consulte [Prueba de conexiones desde la instancia de Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)).
 
-![Supervisión de la instancia de Azure-SSIS IR: icono DIAGNOSTICAR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Captura de pantalla que muestra dónde puede probar las conexiones entre Azure-SSIS IR y los almacenes de paquetes, configuración y datos pertinentes.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>Icono STATIC PUBLIC IP ADDRESSES (Direcciones IP públicas estáticas)
 
 Si trae sus propias direcciones IP públicas estáticas a Azure-SSIS IR, verá el icono **STATIC PUBLIC IP ADDRESSES** (Direcciones IP públicas estáticas) en la página de supervisión de Azure-SSIS IR (consulte la sección [Selección de direcciones IP públicas estáticas](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP)). En este icono, puede seleccionar los vínculos que designan las primeras/segunda direcciones IP públicas estáticas para Azure-SSIS IR para que aparezca una ventana, donde puede copiar el identificador de recurso (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) de un cuadro de texto. En la ventana emergente, también puede seleccionar el vínculo **See your first/second static public IP address settings** (Ver la configuración de la primera/segunda dirección IP pública estática) para administrar su primera y segunda dirección IP pública estática en Azure Portal.
 
-![Supervisión de la instancia de Azure-SSIS IR: icono DIAGNOSTICAR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Captura de pantalla que muestra dónde puede designar su primera y segunda dirección IP pública estática.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>Icono PACKAGE STORES (Almacenes de paquetes)
 

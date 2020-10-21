@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 7870b68ca931123d50e88e846aa066ce53972dbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91823ff0d324cd30566948fecd86cc441342f14e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75349935"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91757051"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Preguntas frecuentes sobre Azure Private Link
 
@@ -24,14 +24,16 @@ ms.locfileid: "75349935"
 - **[Servicio Azure Private Link](private-link-service-overview.md)** : el servicio Azure Private Link es un servicio creado por un proveedor de servicios. Actualmente, se puede asociar un servicio Private Link a la configuración de IP de front-end de una instancia de Standard Load Balancer. 
 
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>¿Cómo se envía el tráfico al usar Private Link?
-El tráfico se envía de forma privada mediante la red troncal de Microsoft. No recorre Internet.  
+El tráfico se envía de forma privada mediante la red troncal de Microsoft. No recorre Internet. Azure Private Link no almacena datos de clientes.
  
 ### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>¿Cuál es la diferencia entre puntos de conexión de servicio y puntos de conexión privados?
-- Al usar puntos de conexión privados, se concede acceso a redes a recursos específicos a través de un servicio determinado que ofrece segmentación granular. Asimismo, el tráfico puede alcanzar el recurso de servicio desde el entorno local sin usar puntos de conexión públicos.
+- Los puntos de conexión privados conceden acceso de red a recursos específicos detrás de un servicio determinado, lo que proporciona una segmentación granular. El tráfico puede llegar al recurso de servicio desde el entorno local sin usar puntos de conexión públicos.
 - Un punto de conexión de servicio sigue siendo una dirección IP enrutable públicamente.  Un punto de conexión privado es una dirección IP privada en el espacio de direcciones de la red virtual en donde se configura el punto de conexión privado.
 
 ### <a name="what-is-the-relationship-between-private-link-service-and-private-endpoint"></a>¿Cuál es la relación entre el servicio Private Link y el punto de conexión privado?
-El punto de conexión privado proporciona acceso a varios tipos de recurso de vínculo privado, incluidos los servicios PaaS de Azure y su propio servicio Private Link. Es una relación de uno a varios. Un servicio Private Link puede recibir conexiones de varios puntos de conexión privados. Por otro lado, un punto de conexión privado solo puede conectarse a un servicio Private Link.    
+Varios tipos de recursos de Private Link admiten el acceso a través de un punto de conexión privado. Los recursos incluyen los servicios PaaS de Azure y su propio servicio Private Link. Es una relación de uno a varios. 
+
+Un servicio Private Link recibe conexiones de varios puntos de conexión privados. Un punto de conexión privado se conecta a un servicio Private Link.    
 
 ## <a name="private-endpoint"></a>Punto de conexión privado 
  
@@ -65,17 +67,17 @@ Sí. Un servicio Private Link puede recibir conexiones de varios puntos de conex
 Puede controlar la exposición mediante la configuración de visibilidad del servicio Private Link. La visibilidad admite tres configuraciones:
 
 - **Ninguno**: solo las suscripciones con acceso RBAC pueden localizar el servicio. 
-- **Restrictivo**: solo las suscripciones que están en la lista blanca y con acceso RBAC pueden localizar el servicio. 
+- **Restrictivo**: solo las suscripciones que están aprobadas y con acceso RBAC pueden localizar el servicio. 
 - **Todo**: todos pueden localizar el servicio. 
  
 ### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>¿Puedo crear un servicio Private Link con un equilibrador de carga básico? 
-No. No se admite ningún servicio Private Link a través de un equilibrador de carga básico.
+No. No se admite ningún servicio Private Link mediante un equilibrador de carga básico.
  
 ### <a name="is-a-dedicated-subnet-required-for-private-link-service"></a>¿Es necesaria una subred dedicada para el servicio Private Link? 
 No. El servicio Private Link no requiere una subred dedicada. Puede elegir cualquier subred de su red virtual donde se implemente su servicio.   
 
-### <a name="i-am-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Soy un proveedor de servicios que usa Azure Private Link. ¿Debo asegurarme de que todos mis clientes tienen espacio de IP único y no se superpone con mi espacio de IP? 
-No. Azure Private Link proporciona esta funcionalidad automáticamente. Por tanto, no se le exige tener un espacio de direcciones que no se superponga con el espacio de direcciones de su cliente. 
+### <a name="im-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Soy un proveedor de servicios que usa Azure Private Link. ¿Debo asegurarme de que todos mis clientes tienen espacio de IP único y no se superpone con mi espacio de IP? 
+No. Azure Private Link proporciona esta funcionalidad automáticamente. No se le exige tener un espacio de direcciones que no se superponga con el espacio de direcciones de su cliente. 
 
 ##  <a name="next-steps"></a>Pasos siguientes
 

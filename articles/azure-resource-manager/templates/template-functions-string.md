@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: cadena'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con cadenas.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 42df0317658971b9e9bf3fb805c9a5ff44efaf45
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a0733ffc790854c60dca46da3f763738b7820215
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962074"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874720"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funciones de cadena para plantillas de ARM
 
@@ -27,6 +27,7 @@ Resource Manager ofrece las siguientes funciones para trabajar con cadenas en la
 * [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
+* [json](#json)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
@@ -894,6 +895,12 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | firstString | Int | 2 |
 | lastString | Int | 0 |
 | notFound | Int | -1 |
+
+## <a name="json"></a>json
+
+`json(arg1)`
+
+Convierte una cadena JSON válida en un tipo de datos JSON. Para más información, consulte [función de json](template-functions-object.md#json).
 
 ## <a name="last"></a>last
 

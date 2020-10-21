@@ -1,25 +1,25 @@
 ---
-title: Procedimiento para configurar el inicio de sesión único basado en contraseña para aplicaciones de Azure AD
-description: Procedimiento para configurar el inicio de sesión único (SSO) basado en contraseña para sus aplicaciones de Azure AD que están en la plataforma de identidad de Microsoft (Azure AD)
+title: Descripción del inicio de sesión único (SSO) basado en contraseña para aplicaciones en Azure Active Directory
+description: Descripción del inicio de sesión único (SSO) basado en contraseña para aplicaciones en Azure Active Directory
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: e04a3aab128bb8f0bdee01361bc0d09aad6ed2fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9b48bc62fc0548c0c4f431e71598fdfa6850de13
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049067"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91598332"
 ---
-# <a name="configure-password-based-single-sign-on"></a>Configuración del inicio de sesión único basado en contraseña
+# <a name="understand-password-based-single-sign-on"></a>Inicio de sesión único basado en contraseña
 
-En la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones, aprendió a usar Azure AD como proveedor de identidades (IdP) para una aplicación. En la guía de inicio rápido, configura el inicio de sesión único basado en SAML. Otra opción es el SSO basado en contraseña. Este artículo explica con más detalle la opción SSO basado en contraseña. 
+En la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones, aprendió a usar Azure AD como proveedor de identidades (IdP) para una aplicación. En la guía de inicio rápido, se configura SSO basado en SAML o en OIDC. Otra opción es el SSO basado en contraseña. Este artículo explica con más detalle la opción SSO basado en contraseña. 
 
 Esta opción está disponible para cualquier sitio web con una página de inicio de sesión HTML. El SSO basado en contraseña también se conoce como almacenamiento de contraseñas. El SSO basado en contraseña permite administrar el acceso y las contraseñas de los usuarios en aplicaciones web que no admiten la federación de identidades. También es útil cuando varios usuarios necesitan compartir una sola cuenta, como las cuentas de aplicaciones de redes sociales de la organización.
 
@@ -39,7 +39,7 @@ El SSO basado en contraseña representa una excelente manera de empezar a integr
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-El uso de Azure AD como proveedor de identidades (IdP) y la configuración del inicio de sesión único (SSO) pueden ser algo sencillo o complejo en función de la aplicación utilizada. Algunas aplicaciones se pueden configurar con pocos pasos. Otras exigen una configuración detallada. Para empezar rápidamente, consulte la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones. Si la aplicación que va a añadir es sencilla, probablemente no necesite leer este artículo. Si la aplicación que va a añadir requiere una configuración personalizada y tiene que usar SSO basado en contraseña, este artículo es para usted.
+El uso de Azure AD como proveedor de identidades (IdP) y la configuración del inicio de sesión único (SSO) pueden ser algo sencillo o complejo en función de la aplicación utilizada. Algunas aplicaciones se pueden configurar con pocos pasos. Otras exigen una configuración detallada. Para adquirir conocimientos rápidamente, consulte la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones. Si la aplicación que va a añadir es sencilla, probablemente no necesite leer este artículo. Si la aplicación que va a añadir requiere una configuración personalizada y tiene que usar SSO basado en contraseña, este artículo es para usted.
 
 > [!IMPORTANT] 
 > Hay escenarios en los que la opción **Inicio de sesión único** no estará al desplazarse por una aplicación en las **aplicaciones empresariales**. 

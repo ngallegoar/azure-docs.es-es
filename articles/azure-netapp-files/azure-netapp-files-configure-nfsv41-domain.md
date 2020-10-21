@@ -11,14 +11,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 10/14/2020
 ms.author: b-juche
-ms.openlocfilehash: e749f27875612136c50938712fded6a371f8c7ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c3c853190d5f63bbe9012727d8b7b7ac91da135f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325630"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072159"
 ---
 # <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Configuración del dominio predeterminado de NFS, versión 4.1, para Azure NetApp Files
 
@@ -26,11 +26,11 @@ NFSv4 introduce el concepto de dominio de autenticación. Actualmente, Azure Net
 
 ## <a name="default-behavior-of-usergroup-mapping"></a>Comportamiento predeterminado de asignación de usuarios o grupos
 
-La asignación de raíz se establece de forma predeterminada en el usuario `nobody` porque el dominio NFSv4 está establecido en `localdomain`. Al montar un volumen de NFSv4.1 de Azure NetApp Files como raíz, verá los permisos de archivo de la siguiente manera:  
+La asignación de raíz se establece de manera predeterminada en el usuario `nobody` porque el dominio NFSv4 está establecido predeterminadamente en `localdomain`. Al montar un volumen de NFSv4.1 de Azure NetApp Files como raíz, verá los permisos de archivo de la siguiente manera:  
 
 ![Comportamiento predeterminado de asignación de usuarios o grupos para NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
-Como se muestra en el ejemplo anterior, el usuario para `file1` debe ser `root`, pero se asigna a `nobody` de forma predeterminada.  En este artículo se muestra cómo usar establecer el usuario `file1` en `root`.  
+Como se muestra en el ejemplo anterior, el usuario para `file1` debe ser `root`, pero se asigna a `nobody` de forma predeterminada.  En este artículo se muestra cómo establecer el usuario `file1` en `root` al cambiar la configuración `idmap Domain` a `defaultv4iddomain.com`.  
 
 ## <a name="steps"></a>Pasos 
 

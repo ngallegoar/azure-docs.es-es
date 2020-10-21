@@ -2,13 +2,13 @@
 title: Solución de problemas de red con el registro
 description: Síntomas, causas y resolución de problemas comunes al acceder a un registro de contenedor de Azure en una red virtual o detrás de un firewall
 ms.topic: article
-ms.date: 08/11/2020
-ms.openlocfilehash: 227eeeadb2aef4b4d3feb7923a198b129a6267d3
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.date: 10/01/2020
+ms.openlocfilehash: f84b11418344bfeaf790377c1d8644fbc7d7d636
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226978"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743376"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solución de problemas de red con el registro
 
@@ -22,6 +22,7 @@ Puede encontrarse con uno o varios de los siguientes:
 * No es posible insertar o extraer imágenes, y se recibe un error de la CLI de Azure `Could not connect to the registry login server`
 * No es posible extraer imágenes del registro en Azure Kubernetes Service u otro servicio de Azure
 * No se puede acceder a un registro detrás de un proxy HTTPS, y se recibe el error `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* No se puede establecer la configuración de red virtual, y se recibe el error `Failed to save firewall and virtual network settings for container registry`
 * No se puede acceder a la configuración del registro ni verla en Azure Portal; tampoco se puede administrar el registro mediante la CLI de Azure
 * No se puede agregar o modificar la configuración de red virtual o las reglas de acceso público
 * ACR Tasks no puede insertar ni extraer imágenes
@@ -32,7 +33,7 @@ Puede encontrarse con uno o varios de los siguientes:
 * Un firewall o proxy de cliente impide el acceso: [solución](#configure-client-firewall-access)
 * Las reglas de acceso de la red pública en el registro impiden el acceso: [solución](#configure-public-access-to-registry)
 * La configuración de la red virtual impide el acceso: [solución](#configure-vnet-access)
-* Intente integrar Azure Security Center con un registro que tenga un punto de conexión privado o un punto de conexión de servicio: [solución](#configure-image-scanning-solution)
+* Intente integrar Azure Security Center u otros servicios de Azure concretos con un registro que tenga un punto de conexión privado, un punto de conexión de servicio o reglas de acceso con direcciones IP públicas: [solución](#configure-service-access)
 
 ## <a name="further-diagnosis"></a>Diagnóstico detallado 
 
@@ -47,7 +48,7 @@ Puede encontrar ejemplos de comandos en [Comprobación del mantenimiento de un r
 
 ### <a name="configure-client-firewall-access"></a>Configurar el acceso del firewall del cliente
 
-Para acceder a un registro desde detrás de un firewall de cliente o de un servidor proxy, configure las reglas de firewall para acceder a los puntos de conexión de REST y de datos del registro. Si están habilitados [puntos de conexión de datos dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints), necesitará reglas para acceder a:
+Para acceder a un registro desde detrás de un firewall de cliente o de un servidor proxy, configure las reglas de firewall para acceder a los puntos de conexión de datos y de REST públicos del registro. Si están habilitados [puntos de conexión de datos dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints), necesitará reglas para acceder a:
 
 * Punto de conexión de REST: `<registryname>.azurecr.io`
 * Puntos de conexión de datos: `<registry-name>.<region>.data.azurecr.io`
@@ -86,7 +87,11 @@ Revise las reglas del grupo de seguridad de red y las etiquetas de servicio que 
 
 Si se ha configurado un punto de conexión de servicio al registro, confirme que se agrega una regla de red al registro que permita el acceso desde la subred de esa red. El punto de conexión de servicio solo admite el acceso desde máquinas virtuales y clústeres de AKS en la red.
 
+Si quiere restringir el acceso al registro mediante una red virtual en otra suscripción de Azure, asegúrese de registrar el proveedor de recursos `Microsoft.ContainerRegistry` en dicha suscripción. [Registre el proveedor de recursos](../azure-resource-manager/management/resource-providers-and-types.md) para Azure Container Registry con Azure Portal, la CLI de Azure u otras herramientas de Azure.
+
 Si Azure Firewall o una solución similar está configurada en la red, compruebe que el tráfico de salida de otros recursos, como un clúster de AKS, está habilitado para llegar a los puntos de conexión del registro.
+
+Si se configura un punto de conexión privado, confirme que DNS resuelve el FQDN público del registro, como *myregistry.azurecr.io*, en la dirección IP privada del registro. Use una utilidad de red como `dig` o `nslookup` para la búsqueda de DNS.
 
 Vínculos relacionados:
 
@@ -96,17 +101,22 @@ Vínculos relacionados:
 * [Kubernetes: Resolución de depuración de DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 * [Etiquetas de servicio de red virtual](../virtual-network/service-tags-overview.md)
 
-### <a name="configure-image-scanning-solution"></a>Configurar la solución de examen de imágenes
+### <a name="configure-service-access"></a>Configuración del acceso al servicio
 
-Si el registro está configurado con un punto de conexión privado o un punto de conexión de servicio, actualmente no se puede integrar con el análisis de imágenes de Azure Security Center. Opcionalmente, puede configurar otras soluciones de examen de imágenes disponibles en Azure Marketplace, entre las que se incluyen:
+Actualmente, Azure Security Center no puede realizar el [análisis de vulnerabilidades de imagen](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) en un registro que restringe el acceso a los puntos de conexión privados, las subredes seleccionadas o las direcciones IP. Además, los recursos de los siguientes servicios no pueden tener acceso a un registro de contenedor con restricciones de red:
 
-* [Aqua Cloud Native Security Platform](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security)
-* [Twistlock Enterprise Edition](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock)
+* Azure DevOps Services 
+* Azure Container Instances
+* Tareas de Azure Container Registry
+
+Si se requiere acceso o integración de estos servicios de Azure con el registro de contenedor, quite la restricción de red. Por ejemplo, quite los puntos de conexión privados del registro, o bien elimine o modifique las reglas de acceso público del registro.
 
 Vínculos relacionados:
 
 * [Análisis de imágenes de Azure Container Registry por Security Center](../security-center/azure-container-registry-integration.md)
 * [Envío de comentarios](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* [Configuración de reglas de red de dirección IP pública](container-registry-access-selected-networks.md)
+* [Conexión privada a un registro de contenedor de Azure mediante Azure Private Link](container-registry-private-link.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Pasos detallados para solucionar problemas de conexión a Escritorio remoto a máquinas virtuales Windows en Azure

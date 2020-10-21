@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
-ms.openlocfilehash: 169b12ff4fbf2471270aa912d5d1f8242371036b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 4f2b5716e253f2810ff953a10c879574c6a6c342
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223744"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91576666"
 ---
 # <a name="how-to-configure-cloud-services"></a>Configuración de Cloud Service
 
@@ -48,7 +48,7 @@ Si tiene como destino una versión de sistema operativo específica, puede estab
 
 Puede agregar alertas a su servicio en la nube. Haga clic en **Configuración** > **Reglas de alerta** > **Agregar alerta**.
 
-![Captura de pantalla del panel Configuración con la opción Reglas de alerta resaltada y señalada en rojo y la opción Agregar alerta señalada en rojo.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
+![Captura de pantalla del panel Configuración con la opción Reglas de alerta seleccionada y señalada en rojo y la opción Agregar alerta señalada en rojo.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 Desde aquí, puede configurar una alerta. Mediante el cuadro desplegable **Métrica**, puede configurar una alerta para los siguientes tipos de datos.
 

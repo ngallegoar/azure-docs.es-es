@@ -3,12 +3,12 @@ title: Permisos en Azure Advisor
 description: Los permisos de Advisor y cómo pueden bloquear la capacidad de configurar suscripciones o posponer o descartar recomendaciones.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 3c7b42372ae6de5c2f519b69aec8a154a2f35a82
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 402a21c47c4cba8f747d5d4601f9c95034c99262
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927392"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91712925"
 ---
 # <a name="permissions-in-azure-advisor"></a>Permisos en Azure Advisor
 
@@ -47,7 +47,7 @@ Si recibe un error al intentar posponer o descartar una recomendación, es posib
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se le ha proporcionado información general de cómo Advisor usa RBAC para controlar los permisos de usuario y cómo resolver problemas comunes. Para más información sobre Advisor, consulte:
+En este artículo se le ha proporcionado información general sobre cómo Advisor usa Azure RBAC para controlar los permisos de usuario y cómo resolver problemas comunes. Para más información sobre Advisor, consulte:
 
 - [¿Qué es Azure Advisor?](./advisor-overview.md)
 - [Introducción a Azure Advisor](./advisor-get-started.md)

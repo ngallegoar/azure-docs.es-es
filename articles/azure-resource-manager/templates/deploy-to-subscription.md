@@ -2,13 +2,13 @@
 title: Implementación de recursos en una suscripción
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 10/05/2020
+ms.openlocfilehash: 0673ea5260c7312395acde8a62b5d457657b9793
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605182"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91729124"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
 
@@ -37,7 +37,7 @@ Para las directivas de Azure, use:
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-Para el control de acceso basado en rol, use:
+Para el control de acceso basado en rol de Azure (Azure RBAC), use:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
@@ -52,7 +52,9 @@ Para crear grupos de recursos, use:
 
 Para administrar su suscripción, use:
 
+* [Configuraciones de Advisor](/azure/templates/microsoft.advisor/configurations)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
+* [Perfil de Change Analysis](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [etiquetas](/azure/templates/microsoft.resources/tags)
 
@@ -62,7 +64,7 @@ Otros tipos admitidos incluyen:
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
 * [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 
-### <a name="schema"></a>Schema
+## <a name="schema"></a>Schema
 
 El esquema que se usa para las implementaciones de nivel de suscripción es diferente del esquema de las implementaciones de grupo de recursos.
 
@@ -77,6 +79,20 @@ El esquema de un archivo de parámetros es el mismo para todos los ámbitos de i
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
+
+## <a name="deployment-scopes"></a>Ámbitos de implementación
+
+Al realizar la implementación en una suscripción, puede dirigirse a una suscripción y a cualquiera de los recursos que contenga. No puede realizar la suscripción en una suscripción diferente de la de destino. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
+
+Los recursos definidos en la sección de recursos de la plantilla se aplican a la suscripción.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+Para establecer como destino un grupo de recursos dentro de la suscripción, agregue una implementación anidada e incluya la propiedad `resourceGroup`. En el ejemplo siguiente, la implementación anidada tiene como destino un grupo de recursos denominado `rg2`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+En este artículo, puede encontrar plantillas que muestran cómo implementar recursos en distintos ámbitos. Para ver una plantilla que crea un grupo de recursos e implementa en él una cuenta de almacenamiento, consulte [Creación de grupos de recursos y recursos](#create-resource-group-and-resources). Para ver una plantilla que crea un grupo de recursos, le aplica un bloqueo y le asigna un rol, consulte [Control de acceso](#access-control).
 
 ## <a name="deployment-commands"></a>Comandos de implementación
 
@@ -112,49 +128,6 @@ En el caso de las implementaciones de nivel de suscripción, debe proporcionar u
 Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json**, se crea un nombre de predeterminado **azuredeploy**.
 
 Para cada nombre de implementación, la ubicación es inmutable. No se puede crear una implementación en una ubicación si ya existe una implementación con el mismo nombre en otra ubicación. Si recibe el código de error `InvalidDeploymentLocation`, use un nombre diferente o utilice la ubicación de la implementación anterior que tenía ese mismo nombre.
-
-## <a name="deployment-scopes"></a>Ámbitos de implementación
-
-Al realizar la implementación en una suscripción, puede dirigirse a una suscripción y a cualquiera de los recursos que contenga. No puede realizar la suscripción en una suscripción diferente de la de destino. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
-
-Los recursos definidos en la sección de recursos de la plantilla se aplican a la suscripción.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        subscription-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Para establecer como destino un grupo de recursos dentro de la suscripción, agregue una implementación anidada e incluya la propiedad `resourceGroup`. En el ejemplo siguiente, la implementación anidada tiene como destino un grupo de recursos denominado `rg2`.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedDeployment",
-            "resourceGroup": "rg2",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resource-group-resources
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-En este artículo, puede encontrar plantillas que muestran cómo implementar recursos en distintos ámbitos. Para ver una plantilla que crea un grupo de recursos e implementa en él una cuenta de almacenamiento, consulte [Creación de grupos de recursos y recursos](#create-resource-group-and-resources). Para ver una plantilla que crea un grupo de recursos, le aplica un bloqueo y le asigna un rol, consulte [Control de acceso](#access-control).
 
 ## <a name="use-template-functions"></a>Usar funciones de plantillas
 

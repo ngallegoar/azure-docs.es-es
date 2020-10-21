@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 12b0dd957cb89fc7114c752312b08f1e490499da
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: c67add18dc653cc033d0cf4990f9c44f07633ac2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89280033"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047410"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configuración de una instancia de Azure Digital Twins y autenticación (portal)
 
@@ -36,7 +36,7 @@ Una vez en el portal, seleccione _Crear un recurso_ en el menú de la página pr
 
 Busque *Azure Digital Twins* en el cuadro de búsqueda y elija el servicio de **Azure Digital Twins (versión preliminar)** en los resultados. Seleccione el botón _Crear_ para crear una nueva instancia del servicio.
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selección de Crear en la página del servicio de Azure Digital Twins":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
 En la siguiente página *Crear recurso*, rellene los valores indicados a continuación:
 * **Suscripción**: la suscripción de Azure que está usando.
@@ -44,7 +44,7 @@ En la siguiente página *Crear recurso*, rellene los valores indicados a continu
 * **Ubicación**: región habilitada para Azure Digital Twins para la implementación. Para obtener más información sobre la compatibilidad regional, visite [*Productos de Azure disponibles por región (Azure Digital Twins)* ](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * **Nombre del recurso**: nombre para la instancia de Azure Digital Twins. El nombre de la nueva instancia debe ser único dentro de la región de la suscripción (lo que significa que si la suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre elegido, se le solicitará que elija otro nombre).
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Paso para rellenar los valores descritos para crear un recurso de Azure Digital Twins":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
 Cuando termine, seleccione _Revisar y crear_. Esta acción le llevará a una página de resumen donde puede revisar los detalles de la instancia que ha introducido y pulsar _Crear_. 
 
@@ -52,7 +52,7 @@ Cuando termine, seleccione _Revisar y crear_. Esta acción le llevará a una pá
 
 Después de pulsar *Crear*, puede ver el estado de la implementación de la instancia en las notificaciones de Azure junto con la barra de iconos del portal. La notificación le indicará cuándo se ha realizado la implementación correctamente y podrá seleccionar el botón _Ir al recurso_ para ver la instancia creada.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Vista de las notificaciones de Azure que muestra una implementación correcta y resalta el botón Ir al recurso":::
+:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
 Como alternativa, si se produce un error con la implementación, la notificación le indicará el motivo. Observe el consejo del mensaje de error y vuelva a intentar crear la instancia.
 
@@ -61,7 +61,7 @@ Como alternativa, si se produce un error con la implementación, la notificació
 
 A partir de la página *Información general* de la instancia, anote su *Nombre*, *Grupo de recursos* y *Nombre de host*. Estos son todos los valores importantes que puede necesitar a medida que sigue trabajando con la instancia de Azure Digital Twins. Si otros usuarios van a programar en la instancia, debe compartirlos con ellos.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Resaltado de los valores importantes en la página de información general de la instancia":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
 Ahora tiene lista una instancia de Azure Digital Twins. A continuación, debe proporcionar los permisos de usuario de Azure adecuados para administrarla.
 
@@ -71,7 +71,7 @@ Ahora tiene lista una instancia de Azure Digital Twins. A continuación, debe pr
 
 En primer lugar, abra la página de la instancia de Azure Digital Twins en Azure Portal. En el menú de la instancia, seleccione *Control de acceso (IAM)* . Seleccione el botón *Agregar* en *Agregar una asignación de roles*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selección de la opción para agregar una asignación de roles en la página Control de acceso (IAM)":::.
+:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::.
 
 En la siguiente página *Add role assignment* (Agregar asignación de roles), rellene los valores (el usuario que los complete debe tener [permisos suficientes](#prerequisites-permission-requirements) en la suscripción de Azure):
 * **Rol**: seleccione *Propietario de Azure Digital Twins (versión preliminar)* en el menú desplegable.
@@ -80,7 +80,7 @@ En la siguiente página *Add role assignment* (Agregar asignación de roles), re
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Relleno de los campos indicados en el diálogo Agregar una asignación de roles":::
+        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -92,7 +92,7 @@ Cuando acabe de introducir los detalles, pulse el botón *Guardar*.
 
 Puede ver la asignación de roles que ha configurado en *Control de acceso (IAM) > Asignaciones de roles*. El usuario debe aparecer en la lista con un rol de *Propietario de Azure Digital Twins (versión preliminar)* . 
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Vista de las asignaciones de roles para una instancia de Azure Digital Twins en Azure Portal":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
 Ahora tiene lista una instancia de Azure Digital Twins y los permisos asignados para administrarla. A continuación, configurará los permisos para que una aplicación cliente obtenga el acceso a ella.
 
@@ -102,7 +102,7 @@ Ahora tiene lista una instancia de Azure Digital Twins y los permisos asignados 
 
 Empiece por ir a [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) en Azure Portal (puede usar este vínculo o buscar en la barra de búsqueda del portal). Seleccione *Registros de aplicaciones* en el menú del servicio y, luego, *+ Nuevo registro*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Vista de la página del servicio de Azure AD en Azure Portal que resalta la opción del menú Registros de aplicaciones y el botón + Nuevo registro":::
+:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
 En la página *Registrar una aplicación* que sigue, rellene los valores solicitados:
 * **Name**: nombre para mostrar de una aplicación de Azure AD para asociar al registro.
@@ -111,7 +111,7 @@ En la página *Registrar una aplicación* que sigue, rellene los valores solicit
 
 Cuando termine, pulse el botón *Registrarse*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/register-an-application.png" alt-text="Vista de la página Registrar una aplicación con los valores descritos rellenados":::
+:::image type="content" source="media/how-to-set-up-instance/portal/register-an-application.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
 Cuando termine la configuración del registro, el portal lo redirigirá a su página de detalles.
 
@@ -121,18 +121,19 @@ A continuación, configure el registro de la aplicación que ha creado con permi
 
 En la página del portal de registro de aplicación, seleccione *Permisos de API* en el menú. En la siguiente página de permisos, pulse el botón *+ Agregar un permiso*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Vista del registro de aplicación en Azure Portal que resalta la opción del menú Permisos de API y el botón + Agregar un permiso":::
+:::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
-En la página *Solicitud de permisos de API* que sigue, cambie a la pestaña *API usadas en mi organización* y busque *Azure Digital Twins*. Seleccione *Azure Digital Twins* en los resultados de la búsqueda para continuar con la asignación de permisos para las API de Azure Digital Twins.
+En la página *Solicitud de permisos de API* que sigue, cambie a la pestaña *API usadas en mi organización* y busque *Azure Digital Twins*. Seleccione _**Azure Digital Twins**_ en los resultados de la búsqueda para continuar con la asignación de permisos para las API de Azure Digital Twins.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Vista del resultado de la búsqueda de la página Solicitud de permisos de API que muestra Azure Digital Twins":::
+:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
 >[!NOTE]
-> Si tiene una instancia de Azure Digital Twins de la versión preliminar pública anterior del servicio (antes de julio de 2020) aún en su suscripción, deberá buscar en cambio *Azure Smart Spaces Service*. Se trata del nombre anterior del mismo conjunto de API y, aparte de este paso, la experiencia será la misma.
+> Si la suscripción todavía tiene una instancia existente de Azure Digital Twins de la versión preliminar pública anterior del servicio (antes de julio de 2020), deberá en cambio buscar y seleccionar _**Azure Smart Spaces Service**_. Se trata de un nombre anterior para el mismo conjunto de API (observe que el *id. de aplicación (cliente)* es el mismo que en la captura de pantalla anterior) y su experiencia no se modificará más allá de este paso.
+> :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1-smart-spaces.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
 A continuación, seleccione los permisos que quiere conceder para estas API. Expanda el permiso **Lectura (1)** y marque la casilla que indica *Read.Write* para conceder permisos de lectura y escritura para el registro de la aplicación.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Vista de la página Solicitud de permisos de API con la selección de permisos Read.Write para las API de Azure Digital Twins":::
+:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
 Cuando termine, pulse *Agregar permisos*.
 
@@ -140,19 +141,19 @@ Cuando termine, pulse *Agregar permisos*.
 
 De nuevo en la página *Permisos de API*, compruebe si ya hay una entrada para Azure Digital Twins que refleja los permisos de lectura y escritura:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Vista del portal de los permisos de API para el registro de la aplicación de Azure AD que muestra Acceso de lectura y escritura para Azure Digital Twins":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
 También puede comprobar la conexión a Azure Digital Twins en el archivo *manifest.json* del registro de la aplicación, que se actualizó automáticamente con la información de Azure Digital Twins cuando agregó los permisos de API.
 
 Para ello, seleccione *Manifiesto* en el menú para ver el código del manifiesto del registro de la aplicación. Desplácese hasta la parte inferior de la ventana de código y busque estos campos en `requiredResourceAccess`. Los valores deben coincidir con los de la siguiente captura de pantalla:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Vista del portal del manifiesto para el registro de aplicación de Azure AD. Anidado en requiredResourceAccess, hay un valor resourceAppId de 0b07f429-9f4b-4714-9392-cc5e8e80c8b0 y un valor resourceAccess > id de 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
 ### <a name="collect-important-values"></a>Recopilación de valores importantes
 
 A continuación, seleccione *Información general* en la barra de menús para ver los detalles del registro de la aplicación:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Vista del portal de los valores importantes para el registro de la aplicación":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Selección de Crear un recurso en la página principal de Azure Portal":::
 
 Tome nota del *Id. de la aplicación (cliente)* y el *Id. de directorio (inquilino)* , como se muestra en **su** página. Estos valores se necesitarán más adelante para [autenticar una aplicación cliente en las API de Azure Digital Twins](how-to-authenticate-client.md). Si usted no es quién va a escribir el código para estas aplicaciones, debe compartir estos valores con la persona que lo hará.
 
@@ -163,7 +164,7 @@ Tome nota del *Id. de la aplicación (cliente)* y el *Id. de directorio (inquili
 ## <a name="next-steps"></a>Pasos siguientes
 
 Pruebe las llamadas individuales de la API de REST en su instancia mediante los comandos de la CLI de Azure Digital Twins: 
-* [Referencia de az dt](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [Referencia de az dt](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
 
 O bien, consulte cómo conectar la aplicación cliente a la instancia mediante la escritura del código de autenticación de la aplicación cliente:

@@ -7,12 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74974911"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91839799"
 ---
 # <a name="how-to-reprovision-devices"></a>Reaprovisionamiento de dispositivos
 
@@ -75,7 +75,7 @@ En los pasos siguientes se configura la directiva de asignación para la inscrip
 
 4. Haga clic en **Save** (Guardar) para permitir el reaprovisionamiento del dispositivo en función de los cambios.
 
-    ![Selección de la directiva de asignación de inscripciones](./media/how-to-reprovision/reprovisioning-policy.png)
+    ![Captura de pantalla que destaca los cambios que ha realizado y el botón Guardar.](./media/how-to-reprovision/reprovisioning-policy.png)
 
 
 

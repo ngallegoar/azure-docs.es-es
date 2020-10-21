@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053061"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91575578"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: Creación de un pedido de exportación para Azure Data Box (versión preliminar)
 
@@ -159,34 +159,34 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 Si selecciona **Usar archivo XML**, puede especificar los contenedores y blobs concretos (página y bloque) que desee exportar. Tendrá que seguir las especificaciones de la [tabla del archivo XML de ejemplo](#sample-xml-file) para dar formato al archivo XML. En los pasos siguientes se muestra cómo utilizar un archivo XML para exportar los datos:
 
 1. En **Tipo de exportación**, seleccione **Usar archivo XML**. Este es el archivo XML que especifica los blobs y archivos de Azure concretos que quiere exportar. Para agregar el archivo XML, seleccione **Haga clic aquí para seleccionar un archivo XML**.
-     ![Archivo XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
+     ![Captura de pantalla de la opción Seleccionar exportación con la opción Haga clic aquí para seleccionar un archivo X M L seleccionada.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
 
 2. Seleccione **+ Contenedor** para crear un contenedor.
-    ![Archivo XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
+    ![Captura de pantalla de la sección Contenedores.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
 
 3. En la pestaña **Nuevo contenedor** que aparece en el lado derecho de Azure Portal, agregue un nombre para el contenedor. El nombre debe estar en minúsculas y puede incluir números y guiones "-". A continuación, seleccione **Nivel de acceso público** en el cuadro de lista desplegable. Se recomienda elegir **Private (non anonymous access)** [Privado (acceso no anónimo)] para evitar que otros usuarios tengan acceso a los datos. Para más información sobre los niveles de acceso a los contenedores, consulte [Permisos de acceso a contenedores](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-   ![Archivo XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
+   ![Captura de pantalla de la pestaña Nuevo contenedor que muestra la opción Privado (sin acceso anónimo) seleccionada.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
 4. Seleccione **Crear**.
 
-   ![Archivo XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
+   ![Captura de pantalla de la pestaña Nuevo contenedor con la opción Crear seleccionada.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
 
    Si el contenedor se crea correctamente, recibirá el mensaje siguiente:
 
-   ![Archivo XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
+   ![Captura de pantalla del mensaje que indica: "El contenedor de almacenamiento se creó correctamente".](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
 
 5. Seleccione el contenedor que haya creado y haga doble clic en él.
 
-   ![Archivo XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
+   ![Captura de pantalla de la sección Contenedores con el contenedor My Private Test seleccionado.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
 
 6. Al hacer doble clic en el contenedor, se abrirá la vista de propiedades del contenedor. Ahora desea asociar (o desplazarse hasta) el archivo XML que contiene la lista de blobs o archivos de Azure que quiere exportar. Seleccione **Cargar**.
 
-   ![Archivo XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
+   ![Captura de pantalla del cuadro de diálogo Cargar blob con la opción Cargar seleccionada.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
 
 7. Ha agregado correctamente el archivo XML al contenedor. Solo se exportarán los blobs y los archivos de Azure especificados en este archivo XML.
 
-   ![Archivo XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
+   ![Captura de pantalla del Asistente para pedidos con la opción Siguiente: Seguridad seleccionada.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
 
 ## <a name="track-the-order"></a>Seguimiento del pedido
 

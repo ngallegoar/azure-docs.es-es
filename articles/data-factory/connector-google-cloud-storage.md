@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 24f9b7655398cbd6a2621edb61d67d4fc4edfb52
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a916da121c8ffee1729ede6dd700ca4f6872fbf7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332039"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043517"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Copia de datos de Google Cloud Storage mediante Azure Data Factory
 
@@ -47,7 +47,11 @@ Se requiere la siguiente configuración en la cuenta de Google Cloud Storage:
 
 ## <a name="required-permissions"></a>Permisos necesarios
 
-Para copiar datos de Google Cloud Storage, asegúrese de que se han concedido los permisos necesarios. Los permisos definidos en la cuenta de servicio pueden contener `storage.buckets.get`, `storage.buckets.list` o `storage.objects.get` para las operaciones de objeto.
+Para copiar datos de Google Cloud Storage, asegúrese de que se han concedido los permisos siguientes para las operaciones de objeto: ` storage.objects.get` y ` storage.objects.list`.
+
+Si usa la interfaz de usuario de Data Factory para crear, se requiere el permiso ` storage.buckets.list` adicional para operaciones como probar la conexión al servicio vinculado y examinar desde la raíz. Si no quiere conceder este permiso, puede elegir las opciones "Test connection to file path" (Probar conexión con la ruta de acceso del archivo) o "Browse from specified path" (Examinar desde la ruta de acceso especificada) en la interfaz de usuario.
+
+Para la lista completa de roles de Google Cloud Storage y los permisos asociados, consulte [Roles de IAM para Cloud Storage](https://cloud.google.com/storage/docs/access-control/iam-roles) en el sitio de Google Cloud.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -144,7 +148,7 @@ Las propiedades siguientes se admiten para Google Cloud Storage en la configurac
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | La propiedad **type** de la sección `storeSettings` se debe establecer en **GoogleCloudStorageReadSettings**. | Sí                                                         |
 | ***Buscar los archivos que se van a copiar:*** |  |  |
-| OPCIÓN 1: Ruta de acceso estática<br> | Realice la copia desde el cubo o la ruta de acceso de archivos o carpeta especificadas en el conjunto de datos. Si quiere copiar todos los archivos de un cubo o carpeta, especifique también `wildcardFileName` como `*`. |  |
+| OPCIÓN 1: ruta de acceso estática<br> | Realice la copia desde el cubo o la ruta de acceso de archivos o carpeta especificadas en el conjunto de datos. Si quiere copiar todos los archivos de un cubo o carpeta, especifique también `wildcardFileName` como `*`. |  |
 | OPCIÓN 2: Prefijo de GCS<br>- prefix | Prefijo del nombre de la clave de GCS en el cubo específico configurado en el conjunto de datos para filtrar archivos de GCS de origen. Se seleccionan las claves de GCS cuyo nombre comienza con `bucket_in_dataset/this_prefix`. Emplea el filtro del servicio de GCS, que proporciona un mejor rendimiento que el filtro de un carácter comodín. | No |
 | OPCIÓN 3: carácter comodín<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín en el cubo específico configurado en un conjunto de datos para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter). Use `^` como escape si el nombre de la carpeta contiene un carácter comodín o este carácter de escape. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
 | OPCIÓN 3: carácter comodín<br>- wildcardFileName | Nombre de archivo con caracteres comodín en el cubo y la ruta de carpeta (o ruta de carpeta con carácter comodín) indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter). Use `^` como escape si el nombre de la carpeta contiene un carácter comodín o este carácter de escape.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |

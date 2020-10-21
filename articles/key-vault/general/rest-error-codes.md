@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: b6e4845ca626dc8805b9bec6ca50076371d35b55
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 30b7e34f2a791cfd8dec1a6d8e81d706fa07939f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419136"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631229"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Códigos de error de la API de REST de Azure Key Vault
  
@@ -128,7 +128,7 @@ Si solo puede obtener el token de acceso de la respuesta, puede descodificarlo (
 HTTP 403 significa que la solicitud se autenticó (conoce la identidad solicitante), pero la identidad n tiene permiso para obtener acceso al recurso solicitado. Hay dos causas:
 
 - No hay ninguna directiva de acceso para la identidad.
-- La dirección IP del recurso solicitante no está en la lista de permitidos en la configuración de firewall del almacén de claves.
+- La dirección IP del recurso solicitante no está aprobada en la configuración de firewall del almacén de claves.
 
 HTTP 403 suele producirse si la aplicación del cliente no usa el id. de cliente que el cliente piensa que es. Normalmente, esto significa que las directivas de acceso no se han configurado correctamente para la identidad de llamada real.
 
@@ -166,5 +166,3 @@ La limitación se soluciona mediante estas técnicas:
 - Si el número de solicitudes no se puede reducir mediante el almacenamiento en memoria caché y el retroceso cronometrado no funciona, considere la posibilidad de dividir las claves en varias instancias de Key Vault. El límite de servicio de una sola suscripción es cinco veces el límite individual de Key Vault. Si se usan más de cinco instancias de Key Vault, se debe considerar la utilización de varias suscripciones. 
 
 Aquí encontrará instrucciones detalladas, incluida la solicitud de aumento de los límites: [Guía de las limitaciones de Key Vault](overview-throttling.md)
-
-

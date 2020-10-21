@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e3805fae5bf6cc5ad8cf759d3ba75220c6ddbd8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74792431"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91565078"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Agregar entidades a la cuenta de integración para Azure Logic Apps
 
@@ -47,7 +47,7 @@ En un acuerdo, especifica los detalles para el tratamiento de mensajes entrantes
 
 1. Elija el icono de **Asociados**.
 
-   ![Elección del icono "Asociados"](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
+   ![Captura de pantalla que muestra el icono Asociados.](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
 
 1. En **Asociados**, elija **Agregar**. En **Agregar asociado**, proporcione los detalles del asociado como se describe en la tabla siguiente.
 
@@ -100,7 +100,7 @@ Elija el icono de **Asociados**.
 
 1. En [Azure Portal](https://portal.azure.com), busque y seleccione la cuenta de integración. Elija el icono de **Asociados**.
 
-   ![Elección del icono "Asociados"](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
+   ![Captura de pantalla que muestra el icono Asociados que se selecciona cuando quiere eliminar un asociado.](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
 
 1. En **Asociados**, seleccione el asociado que desee eliminar. Elija **Eliminar**.
 

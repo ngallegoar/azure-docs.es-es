@@ -1,14 +1,14 @@
 ---
 title: Conexión de máquinas híbridas a Azure a gran escala
 description: En este artículo, obtendrá información sobre cómo conectar máquinas a Azure mediante servidores habilitados para Azure Arc con una entidad de servicio.
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 545d8abd6dd17e1e413852735c096ddc9261b972
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dc92b1cb96b61caa17f141ca9a78fb10fe59a2a9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908327"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91713428"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Conexión de máquinas híbridas a Azure a gran escala
 
@@ -67,7 +67,7 @@ Los valores de las siguientes propiedades se usan con los parámetros que se pas
 > Asegúrese de usar la propiedad **ApplicationId** de la entidad de servicio, no la propiedad **Id**.
 >
 
-El rol **Incorporación de Azure Connected Machine** contiene solo los permisos necesarios para incorporar una máquina. Puede asignar a la entidad de servicio el permiso para permitir que su ámbito incluya un grupo de recursos o una suscripción. Para agregar una asignación de roles, consulte [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure Portal](../../role-based-access-control/role-assignments-portal.md) o [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y la CLI de Azure](../../role-based-access-control/role-assignments-cli.md).
+El rol **Incorporación de Azure Connected Machine** contiene solo los permisos necesarios para incorporar una máquina. Puede asignar a la entidad de servicio el permiso para permitir que su ámbito incluya un grupo de recursos o una suscripción. Para agregar una asignación de roles, vea [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md) o [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Instalación del agente y conexión a Azure
 
@@ -139,6 +139,8 @@ Después de instalar el agente y configurarlo para que se conecte a los servidor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Puede encontrar información sobre la solución de problemas en la guía [Solución de problemas de conexión del agente de Connected Machine](troubleshoot-agent-onboard.md).
+
 - Obtenga información sobre cómo administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de VM, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/insights/vminsights-enable-policy.md) y mucho más.
 
-- Más información sobre el [[agente de Log Analytics]](../../azure-monitor/platform/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si quiere recopilar datos de supervisión del sistema operativo y de las cargas de trabajo y administrarlos con runbooks de Automation o con características como Update Management, o bien mediante otros servicios de Azure, como [Azure Security Center](../../security-center/security-center-intro.md).
+- Más información sobre el [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si quiere recopilar datos de supervisión del sistema operativo y de las cargas de trabajo y administrarlos con runbooks de Automation o con características como Update Management, o bien mediante otros servicios de Azure, como [Azure Security Center](../../security-center/security-center-intro.md).
