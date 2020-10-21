@@ -7,12 +7,12 @@ ms.subservice: enterprise
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 652348d5feb7e382287c91536f1479f9aec126e1
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 777c8549d79f820c1847e711969919df128cebd3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031813"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132421"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Revisión de la facturación de inscripción de empresa mediante las API REST
 
@@ -37,9 +37,9 @@ Los siguientes encabezados son obligatorios:
 |Encabezado de solicitud|Descripción|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necesario. Establézcalo en `application/json`.|  
-|*Authorization:*|Necesario. Establézcalo en una [clave de API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` válida. |  
+|*Authorization:*|Necesario. Establézcalo en una [clave de API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` válida. |  
 
-Este ejemplo muestra una llamada sincrónica que devuelve detalles para el ciclo de facturación actual. Por razones de rendimiento, las llamadas sincrónicas devuelven información del último mes.  También puede llamar a la [API de forma asincrónica](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para devolver datos durante 36 meses.
+Este ejemplo muestra una llamada sincrónica que devuelve detalles para el ciclo de facturación actual. Por razones de rendimiento, las llamadas sincrónicas devuelven información del último mes.  También puede llamar a la [API de forma asincrónica](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para devolver datos durante 36 meses.
 
 
 ## <a name="response"></a>Response  
@@ -90,9 +90,9 @@ Los siguientes encabezados son obligatorios:
 |Encabezado de solicitud|Descripción|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necesario. Establézcalo en `application/json`.|  
-|*Authorization:*|Necesario. Establézcalo en una [clave de API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` válida. |  
+|*Authorization:*|Necesario. Establézcalo en una [clave de API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` válida. |  
 
-Este ejemplo muestra una llamada sincrónica que devuelve detalles para el ciclo de facturación actual. Por razones de rendimiento, las llamadas sincrónicas devuelven información del último mes.  También puede llamar a la [API de forma asincrónica](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para devolver datos durante 36 meses.
+Este ejemplo muestra una llamada sincrónica que devuelve detalles para el ciclo de facturación actual. Por razones de rendimiento, las llamadas sincrónicas devuelven información del último mes.  También puede llamar a la [API de forma asincrónica](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para devolver datos durante 36 meses.
 
 ### <a name="response"></a>Response  
 
@@ -146,9 +146,9 @@ Los siguientes encabezados son obligatorios:
 |Encabezado de solicitud|Descripción|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necesario. Establézcalo en `application/json`.|  
-|*Authorization:*|Necesario. Establézcalo en una [clave de API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` válida. |  
+|*Authorization:*|Necesario. Establézcalo en una [clave de API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` válida. |  
 
-Este ejemplo muestra una llamada sincrónica que devuelve detalles para el ciclo de facturación actual. Por razones de rendimiento, las llamadas sincrónicas devuelven información del último mes.  También puede llamar a la [API de forma asincrónica](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para devolver datos durante 36 meses.
+Este ejemplo muestra una llamada sincrónica que devuelve detalles para el ciclo de facturación actual. Por razones de rendimiento, las llamadas sincrónicas devuelven información del último mes.  También puede llamar a la [API de forma asincrónica](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para devolver datos durante 36 meses.
 
 ### <a name="response"></a>Response  
 
@@ -183,6 +183,6 @@ En el ejemplo siguiente se muestra la salida de la API REST para la inscripción
 Este ejemplo es la versión abreviada; para ver una descripción completa de cada campo de respuesta y el control de errores, consulte [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy) (Obtención de detalles de uso de una cuenta de inscripción).
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Revisión de la [introducción a Enterprise Reporting](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Investigación de la [API REST de facturación de empresa](https://docs.microsoft.com/rest/api/billing/)   
-- [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure/) (Introducción a la API REST de Azure)   
+- Revisión de la [introducción a Enterprise Reporting](./enterprise-api.md)
+- Investigación de la [API REST de facturación de empresa](/rest/api/billing/)   
+- [Get started with Azure REST API](/rest/api/azure/) (Introducción a la API REST de Azure)

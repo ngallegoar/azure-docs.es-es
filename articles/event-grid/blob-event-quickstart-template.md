@@ -3,12 +3,13 @@ title: Envío de eventos de almacenamiento de blobs a un punto de conexión web 
 description: Use Azure Event Grid y una plantilla de Azure Resource Manager para crear una cuenta de almacenamiento de blobs y suscribirse a sus eventos. Envíe los eventos a un webhook.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: fc6216142c6bec99cb12bf4e0bdae920f27f1bf2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: subject-armqs
+ms.openlocfilehash: bfaee324f3e46f64fd4ad0d8b7e1240331b56c27
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91598354"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093657"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Inicio rápido: Enrutamiento de eventos de almacenamiento de blobs a un punto de conexión web mediante una plantilla de Resource Manager
 

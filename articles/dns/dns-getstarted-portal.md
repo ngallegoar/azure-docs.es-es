@@ -6,14 +6,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 93d9ce50a451221c86f5336107dba30695af159f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: be76a7902c2747c7a8dc1bfc21d58ae88f3ff343
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91355370"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282154"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Inicio rápido: Creación de una zona y un registro Azure DNS mediante Azure Portal
 
@@ -31,6 +31,14 @@ You can also perform these steps using [Azure PowerShell](dns-getstarted-powersh
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 Para todos los pasos de portal, inicie sesión en [Azure Portal](https://portal.azure.com).
+
+## <a name="prerequisites"></a>Requisitos previos
+
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
+
+Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
 
 ## <a name="create-a-dns-zone"></a>Creación de una zona DNS
 

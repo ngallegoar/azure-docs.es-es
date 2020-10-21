@@ -9,18 +9,18 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 48cf5aea60f66fa8b24fd09e7304be0077f2fdcf
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527146"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132812"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
 Los presupuestos en Cost Management le ayudan a planear y dirigir la presentación de cuentas de la organización. Con presupuestos, puede tener en cuenta los servicios de Azure que consume o a los que se suscribe durante un período específico. Le ayudan a informar a otros usuarios sobre sus gastos a fin de administrar de manera proactiva los costos y supervisar cómo avanza el gasto a lo largo del tiempo. Cuando se superan los umbrales presupuestarios que ha creado, solo se desencadenan las notificaciones. Ninguno de los recursos se ve afectado y no se detiene el consumo. Puede usar los presupuestos para comparar y realizar un seguimiento de gastos para analizar los costos.
 
-Normalmente, la información sobre los costos y el uso está disponible en un plazo que oscila entre 8 y 24 horas, y los presupuestos se evalúan con arreglo a estos costos cada 12 a 14 horas. Asegúrese de familiarizarse con la información específica de [Actualizaciones de los datos de uso y costo](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention). Normalmente, cuando se alcanza el umbral del presupuesto, las notificaciones por correo electrónico se envían en el plazo de una hora de la evaluación.
+Normalmente, la información sobre los costos y el uso está disponible en un plazo que oscila entre 8 y 24 horas, y los presupuestos se evalúan con arreglo a estos costos cada 12 a 14 horas. Asegúrese de familiarizarse con la información específica de [Actualizaciones de los datos de uso y costo](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Normalmente, cuando se alcanza el umbral del presupuesto, las notificaciones por correo electrónico se envían en el plazo de una hora de la evaluación.
 
 Los presupuestos se restablecen automáticamente al final de un período (mensual, trimestral o anualmente) para el mismo importe presupuestario al seleccionar una fecha de expiración futura. Dado que se restablecen con el mismo importe presupuestario, deberá crear presupuestos independientes cuando los importes presupuestarios en moneda difieran para períodos futuros.
 
@@ -72,7 +72,7 @@ Se admiten los siguientes permisos o ámbitos de Azure por suscripción para los
 - Colaborador y Colaborador de Cost Management: puede crear, modificar o eliminar sus propios presupuestos. Puede modificar el importe presupuestario para los presupuestos creados por otros usuarios.
 - Lector y Lector de Cost Management: puede ver los presupuestos para los que tiene permiso.
 
-Para más información sobre cómo asignar permisos a los datos de Cost Management, consulte [Asignación del acceso a los datos de Cost Management](../../cost-management/assign-access-acm-data.md).
+Para más información sobre cómo asignar permisos a los datos de Cost Management, consulte [Asignación del acceso a los datos de Cost Management](./assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -104,7 +104,7 @@ En función de los campos elegidos en el presupuesto hasta el momento, se muestr
 
 Después de configurar el importe del presupuesto, haga clic en **Siguiente** para configurar las alertas de presupuesto. Los presupuestos requieren al menos un umbral de costos (% del presupuesto) y una dirección de correo electrónico correspondiente. De manera opcional, puede incluir hasta cinco umbrales y cinco direcciones de correo electrónico en un único presupuesto. Normalmente, cuando se alcanza el umbral del presupuesto, las notificaciones por correo electrónico se envían en el plazo de una hora después de la evaluación.
 
-Si desea recibir correos electrónicos, agregue azure-noreply@microsoft.com a la lista de remitentes aprobados, con el fin de que los correos electrónicos no vayan a la carpeta de correo no deseado. Para más información acerca de las notificaciones, consulte [Use cost alerts](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md) (Uso de alertas de costos).
+Si desea recibir correos electrónicos, agregue azure-noreply@microsoft.com a la lista de remitentes aprobados, con el fin de que los correos electrónicos no vayan a la carpeta de correo no deseado. Para más información acerca de las notificaciones, consulte [Use cost alerts](./cost-mgt-alerts-monitor-usage-spending.md) (Uso de alertas de costos).
 
 En el siguiente ejemplo, se genera una alerta por correo electrónico cuando se alcanza el 90 % del presupuesto. Si crea un presupuesto con API Budgets, también puede asignar roles a los usuarios para que reciban alertas. No se admite la asignación de roles a personas en Azure Portal. Para más información sobre la API de presupuestos de Azure, consulte [API Budgets](/rest/api/consumption/budgets). Si desea recibir una alerta por correo electrónico en otro idioma, consulte [Configuraciones regionales admitidas para los correos electrónicos de alertas de presupuesto](manage-automation.md#supported-locales-for-budget-alert-emails).
 
@@ -112,7 +112,7 @@ Los límites de alerta admiten un intervalo de 0,01 a 1000 % del umbral del pre
 
 ![Ejemplo en el que se muestran las condiciones de la alerta](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
-Después de crear un presupuesto, se muestra en el análisis de costos. Ver el presupuesto con respecto a la tendencia del gasto es uno de los primeros pasos para empezar a [analizar los costos y gastos](../../cost-management/quick-acm-cost-analysis.md).
+Después de crear un presupuesto, se muestra en el análisis de costos. Ver el presupuesto con respecto a la tendencia del gasto es uno de los primeros pasos para empezar a [analizar los costos y gastos](./quick-acm-cost-analysis.md).
 
 ![Presupuesto y gasto de ejemplo que se muestra en el análisis de costos](./media/tutorial-acm-create-budgets/cost-analysis.png)
 

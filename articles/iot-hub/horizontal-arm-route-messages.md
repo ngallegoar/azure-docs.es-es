@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 4112e8aae485e229beb16d21e90280750e1465e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7c53d720aef029d79d95cacd558c3bf9d35b4af6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89462673"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148913"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Inicio rápido: Implementación de un centro de Azure IoT Hub y una cuenta de almacenamiento mediante una plantilla de ARM
 
@@ -46,7 +46,7 @@ En esta sección se proporcionan los pasos para implementar la plantilla, crear 
 
     [![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
-1. Descargue y descomprima los [ejemplos de IoT en C#](https://docs.microsoft.com/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
+1. Descargue y descomprima los [ejemplos de IoT en C#](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
 1. Abra una ventana de comandos y vaya a la carpeta en la que descomprimió los ejemplos de IoT en C#. Busque la carpeta con el archivo arm-read-write.csproj. En esta ventana de comandos se crean las variables de entorno. Inicie sesión en Azure Portal (https://portal.azure.com ) para obtener las claves. Seleccione **Grupos de recursos** y, a continuación, el grupo de recursos que se usa para esta guía de inicio rápido.
 
@@ -134,4 +134,4 @@ Para eliminar los recursos agregados durante esta guía de inicio rápido, inici
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creación e implementación de la primera plantilla de ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Creación e implementación de la primera plantilla de ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

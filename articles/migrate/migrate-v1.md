@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 71fbd56c2566f008a096482755abbcdb174a987e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001644"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317202"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabajar con la versión anterior de Azure Migrate
 
@@ -121,7 +121,7 @@ Windows Server 2012 R2 y todos los Service Pack | Azure proporciona compatibilid
 Windows Server 2012 y todos los Service Pack | Azure proporciona compatibilidad completa. | Preparada para Azure
 Windows Server 2008 R2 y todos los Service Pack | Azure proporciona compatibilidad completa.| Preparada para Azure
 Windows Server 2008 (32 bits y 64 bits) | Azure proporciona compatibilidad completa. | Preparada para Azure
-Windows Server 2003 y 2003 R2 | Fuera de soporte técnico y necesita un [contrato de soporte técnico personalizado (CSA)](https://aka.ms/WSosstatement) para la compatibilidad con Azure. | Condicionalmente preparada para Azure, considere la posibilidad de actualizar el sistema operativo antes de migrar a Azure.
+Windows Server 2003 y 2003 R2 | Fuera de soporte técnico y necesita un [contrato de soporte técnico personalizado (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) para la compatibilidad con Azure. | Condicionalmente preparada para Azure, considere la posibilidad de actualizar el sistema operativo antes de migrar a Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Fuera de soporte técnico. La máquina puede arrancar en Azure, pero Azure no proporciona ningún sistema operativo. | Condicionalmente preparada para Azure, se recomienda actualizar el sistema operativo antes de migrar a Azure.
 Cliente de Windows 7, 8 y 10 | Azure solo proporciona compatibilidad con la [suscripción de Visual Studio](../virtual-machines/windows/client-images.md). | Condicionalmente preparada para Azure
 Windows 10 Pro Desktop | Azure proporciona compatibilidad con [derechos de hospedaje multiinquilino.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente preparada para Azure

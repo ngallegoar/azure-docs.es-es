@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: dd21faa07426c80bb3a95dbd1b6d4ee93f783881
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: e9ee1d9ff8145051bbbe6b65004f7f358b5fdade
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686452"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132149"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Aplicación del descuento por reserva de Azure en las máquinas virtuales
 
@@ -57,7 +57,7 @@ Cuando ejecuta instancias de máquina virtual Windows, la reserva se aplica para
 
 ## <a name="discount-can-apply-to-different-sizes"></a>Se puede aplicar el descuento a los distintos tamaños
 
-Si se compra una instancia reservada de máquina virtual y selecciona **Optimized for instance size flexibility** (Optimización en la flexibilidad de tamaño de la instancia), la cobertura del descuento se aplica al tamaño de máquina virtual que seleccione. También se puede aplicar a otros tamaños de máquina virtual que se encuentren en el mismo grupo de flexibilidad de tamaño de instancia de la serie. Si quiere saber más, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Si se compra una instancia reservada de máquina virtual y selecciona **Optimized for instance size flexibility** (Optimización en la flexibilidad de tamaño de la instancia), la cobertura del descuento se aplica al tamaño de máquina virtual que seleccione. También se puede aplicar a otros tamaños de máquina virtual que se encuentren en el mismo grupo de flexibilidad de tamaño de instancia de la serie. Si quiere saber más, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>Las máquinas virtuales de Premium Storage no obtienen descuentos no Premium
 

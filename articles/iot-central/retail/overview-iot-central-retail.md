@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 517344e0bae0a48dbee04da33d28c8777d7c142d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 43bf91c83f66b05c448e52286b34c51a9fd30a2b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440258"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124969"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Creación de soluciones de comercio minorista con Azure IoT Central
 
@@ -185,4 +185,4 @@ Para empezar a crear una solución para el comercio minorista:
 * [Implementación y recorrido de la plantilla de aplicación de administración de inventario inteligente](./tutorial-iot-central-smart-inventory-management.md)
 * [Implementación y recorrido de la plantilla de aplicación del centro de micrologística](./tutorial-micro-fulfillment-center.md)
 * [Implementación y recorrido por la plantilla de aplicación de análisis de vídeo](./tutorial-video-analytics-deploy.md).
-* Para más información sobre IoT Central, consulte [Introducción a IoT Central](../preview/overview-iot-central.md).
+* Para más información sobre IoT Central, consulte [Introducción a IoT Central](../core/overview-iot-central.md).

@@ -3,17 +3,17 @@ title: 'Inicio rápido: Biblioteca de Azure Blob Storage v12: Xamarin'
 description: En este inicio rápido, aprenderá a usar la versión 12 de la biblioteca cliente de Azure Blob Storage con Xamarin para crear un contenedor y un blob en Blob Storage (objeto). A continuación, aprenderá a descargar el blob en un dispositivo móvil y a enumerar todos los blobs de un contenedor.
 author: codemillmatt
 ms.author: masoucou
-ms.date: 05/08/2020
+ms.date: 10/09/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4fa7ebc71f2bbe6abe6956ad36daaf983e011a94
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 434f112e78938c94d887423316fccea270059b6b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001334"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109024"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 con Xamarin
 
@@ -157,7 +157,7 @@ protected async override void OnAppearing()
 El siguiente fragmento de código:
 
 1. Crea una `MemoryStream` de texto.
-1. Carga el texto en un blob, para lo que llama a la función [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) de la clase [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) y utiliza tanto el nombre de archivo como el `MemoryStream` de texto. Esta operación crea el blob si no existe y lo sobrescribe, en caso de que ya exista.
+1. Carga el texto en un blob, para lo que llama a la función [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) de la clase [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) y utiliza tanto el nombre de archivo como el `MemoryStream` de texto. Esta operación crea el blob si no existe y lo sobrescribe, en caso de que ya exista.
 
 Agregue este código al archivo *MainPage.xaml.cs*:
 

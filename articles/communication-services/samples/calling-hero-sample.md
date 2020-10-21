@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d4c3c8e2f8470d187156f0dd98fab2bd74eb33bc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cfb6a7ba10c388cadb19268ee1431fe523a0cfa4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963115"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126333"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Introducción al ejemplo de elementos principales de una llamada
 
@@ -30,7 +30,7 @@ En el **ejemplo de elementos principales de llamada grupal** de Azure Communicat
 En esta guía de inicio rápido de ejemplo, veremos cómo funciona el ejemplo antes de ejecutarlo en la máquina local. A continuación, implementaremos el ejemplo en Azure con sus propios recursos de Azure Communication Services.
 
 > [!IMPORTANT]
-> [Descargue el ejemplo de GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling).
+> [Descargue el ejemplo de GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
 
 ## <a name="overview"></a>Información general
 
@@ -97,7 +97,7 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 ## <a name="next-steps"></a>Pasos siguientes
 
 >[!div class="nextstepaction"] 
->[Descargue el ejemplo de GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling).
+>[Descargue el ejemplo de GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
 
 Para más información, consulte los siguientes artículos.
 

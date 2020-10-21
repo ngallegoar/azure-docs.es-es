@@ -10,12 +10,12 @@ ms.subservice: cloudyn
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: acfbdb203cfa6b1b54145c5d325493b90525bf43
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 52ac239369f2998a3a8eac9c400512ac845a0c49
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690160"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131435"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Activación de suscripciones y cuentas de Azure con Cloudyn
 
@@ -96,7 +96,7 @@ Los mensajes anteriores indican que adquirió un Contrato Enterprise de Azure a 
 Aquí se muestra cómo corregir los problemas:
 
 1. El revendedor debe habilitar el _margen de beneficio_ para su cuenta. Para ver las instrucciones, consulte la [guía de incorporación para clientes indirectos ](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide) (en inglés).
-2. Debe generar la clave de Contrato Enterprise de Azure para su uso con Cloudyn. Para ver las instrucciones, consulte [Registrar un Contrato Enterprise de Azure y ver datos de costo](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
+2. Debe generar la clave de Contrato Enterprise de Azure para su uso con Cloudyn. Para ver las instrucciones, consulte [Registrar un Contrato Enterprise de Azure y ver datos de costo](./quick-register-ea.md).
 
 Para poder generar la clave de API de Contrato Enterprise de Azure para configurar Cloudyn, debe habilitar la API de facturación de Azure siguiendo las instrucciones que aparecen en:
 

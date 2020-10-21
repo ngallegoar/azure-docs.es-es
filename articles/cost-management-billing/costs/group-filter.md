@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 82e542eafe1578a969c4348fe7562ba1da106e2c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ac9828ca61009eb3ee39412169b2b454b9ecbd00
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683409"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131877"
 ---
 # <a name="group-and-filter-options-in-cost-analysis"></a>Opciones de agrupación y filtrado en el análisis de costos
 
@@ -49,10 +49,10 @@ En la tabla siguiente se enumeran algunas de las opciones de agrupación y filtr
 | **Nombre de servicio** o **Categoría de medidor** | Cuando se desglosa el costo por servicio de Azure. | Las compras y el uso de Marketplace se mostrarán como **no aplicable** o **sin asignar**. |
 | **Nivel de servicio** o **Subcategoría de medidor** | Cuando se desglosa el costo por subclasificación de medidor de uso de Azure. | Las compras y el uso de Marketplace se mostrarán como **no aplicable** o **sin asignar**. |
 | **Suscripción** | Cuando se desglosan los costos por suscripción de Azure y por cuenta vinculada de AWS. | Las compras y los recursos de inquilino pueden aparecer como **no aplicable**. |
-| **Tag** | Cuando se desglosan los costos por valores de etiqueta para una clave de etiqueta concreta. | Las etiquetas no están disponibles para: compras, recursos de inquilino no asociados a las suscripciones, recursos de suscripción no implementados en un grupo de recursos, o recursos clásicos. Algunos servicios no incluyen etiquetas en los datos de uso. Obtenga más información sobre la [compatibilidad de etiquetas para cada tipo de recurso](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
+| **Tag** | Cuando se desglosan los costos por valores de etiqueta para una clave de etiqueta concreta. | Las etiquetas no están disponibles para: compras, recursos de inquilino no asociados a las suscripciones, recursos de suscripción no implementados en un grupo de recursos, o recursos clásicos. Algunos servicios no incluyen etiquetas en los datos de uso. Obtenga más información sobre la [compatibilidad de etiquetas para cada tipo de recurso](../../azure-resource-manager/management/tag-support.md). |
 
 Para más información acerca de los términos, consulte [Información acerca de los términos usados en el archivo de uso y de cargos de Azure](../understand/understand-usage.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Inicio del análisis de costos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis).
+- [Inicio del análisis de costos](./quick-acm-cost-analysis.md).

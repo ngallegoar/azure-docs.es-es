@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 72e9fd0d5a178897cf84b2babe4c02f7ef920841
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: c59bd7f9bc8c5049572afdf93343222b30c0007b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531345"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131911"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Uso de alertas de costes para supervisar el uso y el gasto
 
@@ -21,7 +21,7 @@ Este artículo le ayuda a entender y usar las alertas de Cost Management para su
 
 ## <a name="budget-alerts"></a>Alertas de presupuesto
 
-Las alertas de presupuesto le envían una notificación cuando el gasto, en función del uso o coste, alcanza o supera la cantidad definida en la [condición de alerta del presupuesto](tutorial-acm-create-budgets.md). Los presupuestos de Cost Management se crean mediante Azure Portal o la API de [Azure Consumption](https://docs.microsoft.com/rest/api/consumption).
+Las alertas de presupuesto le envían una notificación cuando el gasto, en función del uso o coste, alcanza o supera la cantidad definida en la [condición de alerta del presupuesto](tutorial-acm-create-budgets.md). Los presupuestos de Cost Management se crean mediante Azure Portal o la API de [Azure Consumption](/rest/api/consumption).
 
 En Azure Portal, los presupuestos se definen por el coste. Mediante la API de Azure Consumption, los presupuestos se definen por coste o por uso de consumo. Las alertas de presupuesto admiten presupuestos basado en costes o en uso. Las alertas de presupuesto se generan automáticamente cada vez que se cumplen las condiciones de alerta de presupuesto. Puede ver todas las alertas de costes en Azure Portal. Cada vez que se genera una alerta, esta se muestra en las alertas de costes. También se envía un correo electrónico de alerta a las personas de la lista de destinatarios de la alerta del presupuesto.
 
