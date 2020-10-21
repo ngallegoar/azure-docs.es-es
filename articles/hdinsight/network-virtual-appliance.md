@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 1dcc345260c6a0844344bb33dec94c40d1dd9a54
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 407160a5c315844003db4c5e371a03e6e25d2694
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650858"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91630940"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configuración de una aplicación virtual de red en Azure HDInsight
 
@@ -23,7 +23,7 @@ Azure Firewall está configurado automáticamente para permitir el tráfico para
 
 * Los servicios que admiten puntos de conexión de servicio pueden configurarse con puntos de conexión de servicio, lo que provoca la omisión de NVA, normalmente para consideraciones de costos o rendimiento.
 * Las dependencias de dirección IP son para tráfico que no sea HTTP/HTTPS (tráfico TCP y UDP).
-* Los puntos de conexión HTTP/HTTPS de FQDN se pueden incluir en la lista blanca del dispositivo NVA.
+* Los puntos de conexión HTTP/HTTPS de FQDN se pueden aprobar en el dispositivo NVA.
 * Asigne la tabla de rutas que creó a la subred de HDInsight.
 
 ## <a name="service-endpoint-capable-dependencies"></a>Dependencias compatibles con los puntos de conexión de servicio

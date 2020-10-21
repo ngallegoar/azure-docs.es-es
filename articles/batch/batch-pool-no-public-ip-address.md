@@ -3,14 +3,15 @@ title: Creación de un grupo de Azure Batch sin direcciones IP públicas
 description: Aprenda a crear un grupo sin direcciones IP públicas
 author: pkshultz
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 10/08/2020
 ms.author: peshultz
-ms.openlocfilehash: 30792314f5bffaf4d40fc4bf60a2706acdaad34b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: references_regions
+ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962448"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850938"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Creación de un grupo de Azure Batch sin direcciones IP públicas
 
@@ -18,12 +19,12 @@ Al crear un grupo de Azure Batch, puede aprovisionar el grupo de configuración 
 
 ## <a name="why-use-a-pool-without-public-ip-addresses"></a>¿Por qué usar un grupo sin direcciones IP públicas?
 
-De forma predeterminada, todos los nodos de ejecución de un grupo de configuración de máquina virtual de Azure Batch tienen asignada una dirección IP pública. El servicio Batch usa esta dirección para programar tareas y para la comunicación con los nodos de ejecución, incluido el acceso de salida a Internet. 
+De forma predeterminada, todos los nodos de ejecución de un grupo de configuración de máquina virtual de Azure Batch tienen asignada una dirección IP pública. El servicio Batch usa esta dirección para programar tareas y para la comunicación con los nodos de ejecución, incluido el acceso de salida a Internet.
 
 Para restringir el acceso a estos nodos y reducir la detectabilidad de estos nodos desde Internet, puede aprovisionar el grupo sin direcciones IP públicas.
 
 > [!IMPORTANT]
-> La compatibilidad con grupos sin direcciones IP públicas en Azure Batch se encuentra actualmente en versión preliminar pública para las regiones Centro-oeste de EE. UU., Este de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU. 2, US Gov Virginia y US Gov Arizona.
+> La compatibilidad con grupos sin direcciones IP públicas en Azure Batch se encuentra actualmente en versión preliminar pública para las siguientes regiones: Centro de Francia, Este de Asia, Centro-oeste de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Norte de Europa, Este de EE. UU. 2, Centro de EE. UU., Oeste de Europa, Centro-norte de EE. UU., Oeste de EE. UU., Este de Australia, Este de Japón y Oeste de Japón.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -34,7 +35,7 @@ Para restringir el acceso a estos nodos y reducir la detectabilidad de estos nod
   - La red virtual debe estar en la misma región y suscripción que la cuenta de Batch que se utiliza para crear el grupo.
   - La subred especificada para el grupo debe tener suficientes direcciones IP sin asignar para acoger el número de VM destinadas al grupo; esto es, la suma de las propiedades `targetDedicatedNodes` y `targetLowPriorityNodes` del grupo. Si la subred no tiene suficientes direcciones IP sin asignar, el grupo asigna parcialmente los nodos de proceso y se produce un error de cambio de tamaño.
   - Debe deshabilitar las directivas de red de punto de conexión y el servicio de vínculo privado. Esto se puede hacer mediante la CLI de Azure: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
-  
+
 > [!IMPORTANT]
 > Para cada 100 nodos dedicados o de baja prioridad, Batch asigna un servicio de vínculo privado y un equilibrador de carga. Estos recursos están limitados por las [cuotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. En el caso de los grupos grandes, es posible que deba [solicitar un aumento de la cuota](batch-quota-limit.md#increase-a-quota) de uno o varios de estos recursos. Además, no se deben aplicar bloqueos de recursos a ningún recurso creado por Batch, ya que esto impide la limpieza de recursos como consecuencia de las acciones iniciadas por el usuario, como la eliminación de un grupo o el cambio de tamaño a cero.
 
@@ -46,7 +47,7 @@ Para restringir el acceso a estos nodos y reducir la detectabilidad de estos nod
 
 ## <a name="create-a-pool-without-public-ip-addresses-in-the-azure-portal"></a>Creación de un grupo sin direcciones IP públicas en Azure Portal
 
-1. Vaya a la cuenta de Batch en Azure Portal. 
+1. Vaya a la cuenta de Batch en Azure Portal.
 1. En la ventana **Configuración** que aparece a la izquierda, seleccione **Grupos**.
 1. En la ventana **Grupos**, seleccione **Agregar**.
 1. En la ventana **Agregar grupo**, seleccione la opción que desea utilizar en el menú desplegable **Tipo de imagen**.
@@ -55,7 +56,7 @@ Para restringir el acceso a estos nodos y reducir la detectabilidad de estos nod
 1. Opcionalmente, seleccione una red virtual y una subred que quiera usar. Esta red virtual debe estar en el mismo grupo de recursos que el grupo que está creando.
 1. En **Tipo de aprovisionamiento de dirección IP**, seleccione **NoPublicIPAddresses**.
 
-![Pantalla Agregar grupo con la opción NoPublicIPAddresses seleccionada](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
+![Captura de pantalla de la pantalla Agregar grupo con la opción NoPublicIPAddresses seleccionada.](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
 
 ## <a name="use-the-batch-rest-api-to-create-a-pool-without-public-ip-addresses"></a>Uso de la API REST de Batch para crear un grupo sin direcciones IP públicas
 
@@ -91,7 +92,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
      "resizeTimeout": "PT15M",
      "targetDedicatedNodes": 5,
      "targetLowPriorityNodes": 0,
-     "maxTasksPerNode": 3,
+     "taskSlotsPerNode": 3,
      "taskSchedulingPolicy": {
           "nodeFillType": "spread"
      },

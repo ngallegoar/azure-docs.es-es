@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 916d491c45a2979c59580328a721c11bd79d49c0
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 48808f762536390287bae40e8af3849da20b81c2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372211"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874295"
 ---
 # <a name="video-analytics---object-and-motion-detection-application-architecture"></a>Arquitectura de la aplicación Video analytics - object and motion detection
 
@@ -41,4 +41,4 @@ El grafo multimedia permite definir dónde se debe capturar el contenido multime
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El siguiente paso sugerido es aprender sobre la [Creación de una aplicación de análisis de vídeo en Azure IoT Central](tutorial-video-analytics-create-app.md).
+El siguiente paso recomendado es [Implementación de una aplicación de IoT Central mediante el análisis de vídeo: plantilla de la aplicación de detección de objetos y movimiento](tutorial-video-analytics-deploy.md).

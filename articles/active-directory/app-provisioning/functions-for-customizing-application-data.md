@@ -1,23 +1,23 @@
 ---
-title: Escritura de expresiones para la asignación de atributos en Azure Active Directory
-description: Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory.
+title: Referencia para la escritura de expresiones para la asignación de atributos en Azure Active Directory
+description: Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory. Incluye una lista de referencias de funciones.
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
+ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.openlocfilehash: d454ab3ad382c6237ab9f8c215473801285ba3c9
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 14e3b23b4246f26e1ac59e0b12b043341546d0a0
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235679"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018250"
 ---
-# <a name="how-to-write-expressions-for-attribute-mappings-in-azure-ad"></a>Procedimiento: Escritura de expresiones para la asignación de atributos en Azure AD
+# <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referencia para la escritura de expresiones para la asignación de atributos en Azure AD
 
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
 
@@ -25,9 +25,8 @@ Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos d
 
 La sintaxis de expresiones para asignaciones de atributos recuerda a las funciones de Visual Basic para Aplicaciones (VBA).
 
-* Toda la expresión se tiene que definir en términos de funciones, que constan de un nombre seguido de argumentos entre paréntesis: <br>
-  *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
-* Es posible anidar funciones dentro de otras. Por ejemplo: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
+* Toda la expresión se tiene que definir en términos de funciones, que constan de un nombre seguido de argumentos entre paréntesis:  *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
+* Es posible anidar funciones dentro de otras. Por ejemplo:  *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * Puede transformar tres tipos diferentes de argumentos en funciones:
   
   1. Atributos, que deben ir entre corchetes. Por ejemplo: [NombreAtributo]
@@ -43,11 +42,11 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 ---
 ### <a name="append"></a>Append
 
-**Función:**<br> Append(source, suffix)
+**Función:**  Append(source, suffix)
 
-**Descripción:**<br> adopta un valor de la cadena de origen y anexa el sufijo al final de la misma.
+**Descripción:**  adopta un valor de la cadena de origen y anexa el sufijo al final de la misma.
 
-**Parámetros:**<br> 
+**Parámetros:**
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -56,49 +55,52 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 ---
 ### <a name="bitand"></a>BitAnd
-**Función:**<br> BitAnd(value1, value2)
+**Función:** BitAnd(value1, value2)
 
-**Descripción:**<br> : esta función convierte ambos parámetros en la representación binaria y establece un bit en los siguientes valores:
+**Descripción:** : esta función convierte ambos parámetros en la representación binaria y establece un bit en los siguientes valores:
 
-0: si uno o ambos de los bits correspondientes en value1 y value2 son 0.                                                  
-1: si ambos de los bits correspondientes son 1.                                    
+- 0: si uno o ambos de los bits correspondientes en value1 y value2 son 0.
+- 1: si ambos de los bits correspondientes son 1.
 
 En otras palabras, devuelve 0 en todos los casos excepto cuando los bits correspondientes de los dos parámetros son 1.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **value1** |Obligatorio |num |Valor numérico que se debe agregar con AND a value2|
 | **value2** |Obligatorio |num |Valor numérico que se debe agregar con AND a value1|
 
-**Ejemplo**:<br>
-BitAnd(&HF, &HF7)                                                                                
-11110111 AND 00000111 = 00000111 de modo que BitAnd devuelve 7, el valor binario de 00000111.
+**Ejemplo:** 
+`BitAnd(&HF, &HF7)`
+
+11110111 AND 00000111 = 00000111 de modo que `BitAnd` devuelve 7, el valor binario de 00000111.
 
 ---
 ### <a name="cbool"></a>CBool
-**Función:**<br> CBool(Expression)
+**Función:**  
+`CBool(Expression)`
 
-**Descripción:**<br> La función CBool devuelve un valor booleano basado en la expresión evaluada. Si la expresión se evalúa en un valor distinto de cero, CBool devuelve True. En caso contrario, devuelve False.
+**Descripción:**  
+`CBool` devuelve un valor booleano basado en la expresión evaluada. Si la expresión se evalúa en un valor distinto de cero, `CBool` devuelve *True*. En caso contrario, devuelve *False*.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expression** |Obligatorio | expresión | Cualquier expresión válida |
 
-**Ejemplo**:<br>
-CBool([attribute1] = [attribute2])                                                                    
+**Ejemplo:** 
+`CBool([attribute1] = [attribute2])`                                                                    
 Devuelve True si ambos atributos tienen el mismo valor.
 
 ---
 ### <a name="coalesce"></a>Coalesce
-**Función:**<br> Coalesce(source1, source2, ..., defaultValue)
+**Función:** Coalesce(source1, source2, ..., defaultValue)
 
-**Descripción:**<br> Devuelve el primer valor de origen que no es NULL. Si todos los argumentos son NULL y defaultValue está presente, se devolverá defaultValue. Si todos los argumentos son NULL y defaultValue no está presente, Coalesce devuelve NULL.
+**Descripción:** Devuelve el primer valor de origen que no es NULL. Si todos los argumentos son NULL y defaultValue está presente, se devolverá defaultValue. Si todos los argumentos son NULL y defaultValue no está presente, Coalesce devuelve NULL.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -107,43 +109,45 @@ Devuelve True si ambos atributos tienen el mismo valor.
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
-**Función:**<br> ConvertToBase64(source)
+**Función:** ConvertToBase64(source)
 
-**Descripción:**<br> La función ConvertToBase64 convierte una cadena en una en base64 de Unicode.
+**Descripción:** La función ConvertToBase64 convierte una cadena en una en base64 de Unicode.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |String |Cadena que se va a convertir a base 64.|
 
-**Ejemplo**:<br>
-ConvertToBase64("Hello world!")                                                                                                        
+**Ejemplo:** 
+`ConvertToBase64("Hello world!")`
+
 devuelve "SABlAGwAbABvACAAdwBvAHIAbABkACEA".
 
 ---
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
-**Función:**<br> ConvertToUTF8Hex(source)
+**Función:** ConvertToUTF8Hex(source)
 
-**Descripción:**<br> : la función ConvertToUTF8Hex convierte una cadena en un valor codificado hexadecimal UTF8.
+**Descripción:** : la función ConvertToUTF8Hex convierte una cadena en un valor codificado hexadecimal UTF8.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |String |Cadena que se va a convertir a UTF8 Hex.|
 
-**Ejemplo**:<br>
-ConvertToUTF8Hex("Hello world!")                                                                                                         
+**Ejemplo:** 
+`ConvertToUTF8Hex("Hello world!")`
+
 devuelve 48656C6C6F20776F726C6421.
 
 ---
 ### <a name="count"></a>Count
-**Función:**<br> Count(attribute)
+**Función:** Count(attribute)
 
-**Descripción:**<br> : la función Count devuelve el número de elementos en un atributo multivalor.
+**Descripción:** : la función Count devuelve el número de elementos en un atributo multivalor.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -151,44 +155,47 @@ devuelve 48656C6C6F20776F726C6421.
 
 ---
 ### <a name="cstr"></a>CStr
-**Función:**<br> CStr(value)
+**Función:** CStr(value)
 
-**Descripción:**<br> La función CStr convierte un valor en un tipo de datos de cadena.
+**Descripción:** La función CStr convierte un valor en un tipo de datos de cadena.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **value** |Obligatorio | Numérico, referencia o booleano | puede ser un valor numérico, un atributo de referencia o un valor booleano. |
 
-**Ejemplo**:<br>
-CStr([dn])                                                            
+**Ejemplo:** 
+`CStr([dn])`
+
 Devuelve "cn=Joe,dc=contoso,dc=com".
 
 ---
 ### <a name="datefromnum"></a>DateFromNum
-**Función:**<br> DateFromNum(value)
+**Función:** DateFromNum(value)
 
-**Descripción:**<br> : la función DateFromNum convierte un valor con formato de fecha de AD en un tipo DateTime.
+**Descripción:** : la función DateFromNum convierte un valor con formato de fecha de AD en un tipo DateTime.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **value** |Obligatorio | Date | Fecha de AD que se va a convertir al tipo DateTime. |
 
-**Ejemplo**:<br>
-DateFromNum([lastLogonTimestamp])                                                                                                   
-DateFromNum(129699324000000000)                                                            
-devuelve un valor DateTime que representa 2012-01-01 23:00:00.
+**Ejemplo:** 
+`DateFromNum([lastLogonTimestamp])`
+
+`DateFromNum(129699324000000000)`
+
+Devuelve un valor DateTime que representa el 1 de enero de 2012 a las 23 h.
 
 ---
 ### <a name="formatdatetime"></a>FormatDateTime
-**Función:**<br> FormatDateTime(source, inputFormat, outputFormat)
+**Función:**  FormatDateTime(source, inputFormat, outputFormat)
 
-**Descripción:**<br> adopta una cadena de fecha en un formato y la convierte a un formato distinto.
+**Descripción:**  adopta una cadena de fecha en un formato y la convierte a un formato distinto.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -198,17 +205,17 @@ devuelve un valor DateTime que representa 2012-01-01 23:00:00.
 
 ---
 ### <a name="guid"></a>Guid
-**Función:**<br> Guid()
+**Función:** Guid()
 
-**Descripción:**<br> La función GUID genera un nuevo GUID aleatorio.
+**Descripción:** La función GUID genera un nuevo GUID aleatorio.
 
 ---
 ### <a name="iif"></a>IIF
-**Función:**<br> IIF(condition,valueIfTrue,valueIfFalse)
+**Función:** IIF(condition,valueIfTrue,valueIfFalse)
 
-**Descripción:**<br> : la función IIF devuelve uno de un conjunto de valores posibles según una condición especificada.
+**Descripción:** : la función IIF devuelve uno de un conjunto de valores posibles según una condición especificada.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -216,16 +223,16 @@ devuelve un valor DateTime que representa 2012-01-01 23:00:00.
 | **valueIfTrue** |Obligatorio |Variable o cadena | si la condición se evalúa como true, el valor devuelto. |
 | **valueIfFalse** |Obligatorio |Variable o cadena |si la condición se evalúa como false, el valor devuelto.|
 
-**Ejemplo**:<br>
-IIF([country]="USA",[country],[department])
+**Ejemplo:** 
+`IIF([country]="USA",[country],[department])`
 
 ---
 ### <a name="instr"></a>InStr
-**Función:**<br> InStr(value1,value2,start,compareType)
+**Función:** InStr(value1, value2, start, compareType)
 
-**Descripción:**<br> : la función InStr busca la primera repetición de una subcadena en una cadena.
+**Descripción:** : la función InStr busca la primera repetición de una subcadena en una cadena.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -234,68 +241,72 @@ IIF([country]="USA",[country],[department])
 | **start** |Opcional |Entero |Posición inicial para buscar la subcadena.|
 | **compareType** |Opcional |Enum |Puede ser vbTextCompare o vbBinaryCompare. |
 
-**Ejemplo**:<br>
-InStr("The quick brown fox","quick")                                                                             
-se evalúa en 5.
+**Ejemplo:** 
+`InStr("The quick brown fox","quick")`
 
-InStr("repEated","e",3,vbBinaryCompare)                                                                                  
+Se evalúa en 5
+
+`InStr("repEated","e",3,vbBinaryCompare)`
+
 Se evalúa en 7.
 
 ---
 ### <a name="isnull"></a>IsNull
-**Función:**<br> IsNull(Expression)
+**Función:** IsNull(Expression)
 
-**Descripción:**<br> si la expresión se evalúa como Null, la función IsNull devuelve True. para un atributo, un valor Null se expresa mediante la ausencia del atributo.
+**Descripción:**  si la expresión se evalúa como Null, la función IsNull devuelve True. para un atributo, un valor Null se expresa mediante la ausencia del atributo.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expression** |Obligatorio |expresión |Expresión que se va a evaluar. |
 
-**Ejemplo**:<br>
-IsNull([displayName])                                                                                                
+**Ejemplo:** 
+`IsNull([displayName])`
+
 Devuelve True si el atributo no está presente.
 
 ---
 ### <a name="isnullorempty"></a>IsNullOrEmpty
-**Función:**<br> IsNullOrEmpty(Expression)
+**Función:** IsNullOrEmpty(Expression)
 
-**Descripción:**<br> si la expresión es Null o una cadena vacía, la función IsNullOrEmpty devuelve True. para un atributo, esto se evaluaría como True si el atributo no está presente o está presente, pero es una cadena vacía.
+**Descripción:**  si la expresión es Null o una cadena vacía, la función IsNullOrEmpty devuelve True. para un atributo, esto se evaluaría como True si el atributo no está presente o está presente, pero es una cadena vacía.
 La función contraria a esta es IsPresent.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expression** |Obligatorio |expresión |Expresión que se va a evaluar. |
 
-**Ejemplo**:<br>
-IsNullOrEmpty([displayName])                                               
+**Ejemplo:** 
+`IsNullOrEmpty([displayName])`
+
 Devuelve True si el atributo no está presente o si es una cadena vacía.
 
 ---
 ### <a name="ispresent"></a>IsPresent
-**Función:**<br> IsPresent(Expression)
+**Función:** IsPresent(Expression)
 
-**Descripción:**<br> si la expresión se evalúa como una cadena que no es Null y no está vacía, la función IsPresent devuelve True. la función contraria a esta es IsNullOrEmpty.
+**Descripción:**  si la expresión se evalúa como una cadena que no es Null y no está vacía, la función IsPresent devuelve True. la función contraria a esta es IsNullOrEmpty.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expression** |Obligatorio |expresión |Expresión que se va a evaluar. |
 
-**Ejemplo**:<br>
-Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])
+**Ejemplo:** 
+`Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 ---
 ### <a name="isstring"></a>IsString
-**Función:**<br> IsString(Expression)
+**Función:** IsString(Expression)
 
-**Descripción:**<br> si la expresión se puede evaluar en un tipo de cadena, la función IsString se evalúa en True.
+**Descripción:**  si la expresión se puede evaluar en un tipo de cadena, la función IsString se evalúa en True.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -303,29 +314,29 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 
 ---
 ### <a name="item"></a>Elemento
-**Función:**<br> Item(attribute, index)
+**Función:** Item(attribute, index)
 
-**Descripción:**<br> la función Item devuelve un elemento de un atributo o una cadena de varios valores.
+**Descripción:**  la función Item devuelve un elemento de un atributo o una cadena de varios valores.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **attribute** |Obligatorio |Atributo |Atributo multivalor en el que se va a buscar. |
 | **índice** |Obligatorio |Entero | Índice de un elemento en la cadena multivalor.|
 
-**Ejemplo**:<br>
-Item([proxyAddresses], 1)
+**Ejemplo:** 
+`Item([proxyAddresses], 1)`
 
 ---
 ### <a name="join"></a>Join
-**Función:**<br> Join(separator, source1, source2, …)
+**Función:**  Join(separator, source1, source2, …)
 
-**Descripción:**<br> Join() es similar a Append(), excepto en que puede combinar varios valores de cadena de **source** en una sola cadena, y cada valor estará separado por una cadena de **separator**.
+**Descripción:** Join() es similar a Append(), excepto en que puede combinar varios valores de cadena de **source** en una sola cadena, y cada valor estará separado por una cadena de **separator**.
 
 Si uno de los valores de origen es un atributo multivalor, cada valor de ese atributo se unirá, separado por el valor del separador.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -334,31 +345,32 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 ---
 ### <a name="left"></a>Left
-**Función:**<br> Left(String,NumChars)
+**Función:** Left(String,NumChars)
 
-**Descripción:**<br> la función Left devuelve un número especificado de caracteres desde la izquierda de una cadena. Con numChars = 0, se devuelve una cadena vacía.
+**Descripción:**  la función Left devuelve un número especificado de caracteres desde la izquierda de una cadena. Con numChars = 0, se devuelve una cadena vacía.
 Con numChars < 0, se devuelve una cadena de entrada.
 Si la cadena es null, se devuelve una cadena vacía.
 Si la cadena contiene menos caracteres que el número especificado en numChars, se devuelve una cadena idéntica a la cadena (es decir, que contiene todos los caracteres en el parámetro 1).
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **String** |Obligatorio |Atributo | Cadena de la que se van a devolver caracteres. |
 | **NumChars** |Obligatorio |Entero | Número que identifica el número de caracteres que se va a devolver desde el principio (la izquierda) de la cadena.|
 
-**Ejemplo**:<br>
-Left("John Doe", 3)                                                            
-Devuelve "Joh".
+**Ejemplo:** 
+`Left("John Doe", 3)`
+
+devuelve “Joh”.
 
 ---
 ### <a name="mid"></a>Mid
-**Función:**<br> Mid(source, start, length)
+**Función:**  Mid(source, start, length)
 
-**Descripción:**<br> devuelve una subcadena del valor de origen. Una subcadena es una cadena que contiene sólo algunos de los caracteres de la cadena de origen.
+**Descripción:**  devuelve una subcadena del valor de origen. Una subcadena es una cadena que contiene sólo algunos de los caracteres de la cadena de origen.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -368,11 +380,11 @@ Devuelve "Joh".
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
-**Función:**<br> NormalizeDiacritics(source)
+**Función:** NormalizeDiacritics(source)
 
-**Descripción:**<br> Requiere un argumento de cadena. Devuelve la cadena, pero se reemplazan todos los caracteres diacríticos por sus equivalentes no diacríticos. Normalmente se usa para convertir nombres y apellidos que contienen caracteres diacríticos (acentos) en valores legales que se pueden emplear en diversos identificadores de usuario como, nombres principales de usuario, nombres de cuenta de SAM y direcciones de correo electrónico.
+**Descripción:** Requiere un argumento de cadena. Devuelve la cadena, pero se reemplazan todos los caracteres diacríticos por sus equivalentes no diacríticos. Normalmente se usa para convertir nombres y apellidos que contienen caracteres diacríticos (acentos) en valores legales que se pueden emplear en diversos identificadores de usuario como, nombres principales de usuario, nombres de cuenta de SAM y direcciones de correo electrónico.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -380,11 +392,11 @@ Devuelve "Joh".
 
 ---
 ### <a name="not"></a>Not
-**Función:**<br> Not(source)
+**Función:**  Not(source)
 
-**Descripción:**<br> Invierte el valor booleano de **source**. Si el valor de **source** es "*True*", devuelve "*False*". De lo contrario, devuelve "*True*".
+**Descripción:** Invierte el valor booleano de **source**. Si el valor de **source** es True, devuelve False. De lo contrario, devuelve True.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -392,48 +404,44 @@ Devuelve "Joh".
 
 ---
 ### <a name="numfromdate"></a>NumFromDate
-**Función:**<br> NumFromDate(value)
+**Función:** NumFromDate(value)
 
-**Descripción:**<br> La función NumFromDate convierte un valor DateTime a un formato de Active Directory necesario para establecer atributos como [accountExpires](/windows/win32/adschema/a-accountexpires). Use esta función para convertir valores DateTime recibidos de aplicaciones de recursos humanos en la nube, como WorkDay y SuccessFactors, a su representación de AD equivalente. 
+**Descripción:** La función NumFromDate convierte un valor DateTime a un formato de Active Directory necesario para establecer atributos como [accountExpires](/windows/win32/adschema/a-accountexpires). Use esta función para convertir valores DateTime recibidos de aplicaciones de recursos humanos en la nube, como WorkDay y SuccessFactors, a su representación de AD equivalente. 
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **value** |Obligatorio | String | Cadena de fecha y hora en el formato admitido. Para conocer los formatos admitidos, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
-**Ejemplo**:<br>
-* Ejemplo de WorkDay <br>
-  Suponiendo que desee asignar el atributo *ContractEndDate* desde WorkDay, que tiene el formato *2020-12-31-08:00* al campo *accountExpires* en AD, aquí se muestra cómo puede usar esta función y cambiar el desplazamiento de zona horaria para que coincida con la configuración regional. 
+**Ejemplo**:
+* Ejemplo de Workday. Suponiendo que desee asignar el atributo *ContractEndDate* desde WorkDay, que tiene el formato *2020-12-31-08:00* al campo *accountExpires* en AD, aquí se muestra cómo puede usar esta función y cambiar el desplazamiento de zona horaria para que coincida con la configuración regional. 
   `NumFromDate(Join("", FormatDateTime([ContractEndDate], "yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
 
-* Ejemplo de SuccessFactors <br>
-  Suponiendo que desea asignar el atributo *endDate* de SuccessFactors, que tiene el formato *M/d/yyyy hh:mm:ss tt* para el campo *accountExpires* en AD, aquí se muestra cómo puede usar esta función y cambiar el ajuste de zona horaria para que coincida con la configuración regional.
+* Ejemplo de SuccessFactors Suponiendo que desea asignar el atributo *endDate* de SuccessFactors, que tiene el formato *M/d/yyyy hh:mm:ss tt* para el campo *accountExpires* en AD, aquí se muestra cómo puede usar esta función y cambiar el ajuste de zona horaria para que coincida con la configuración regional.
   `NumFromDate(Join("",FormatDateTime([endDate],"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd"),"T23:59:59-08:00"))`
 
 
 ---
 ### <a name="removeduplicates"></a>RemoveDuplicates
-**Función:**<br> RemoveDuplicates(attribute)
+**Función:** RemoveDuplicates(attribute)
 
-**Descripción:**<br> la función RemoveDuplicates toma una cadena multivalor y garantiza que cada valor es único.
+**Descripción:**  la función RemoveDuplicates toma una cadena multivalor y garantiza que cada valor es único.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **attribute** |Obligatorio |Atributo multivalor |Atributo multivalor en el que se habrán quitado los duplicados.|
 
-**Ejemplo**:<br>
-RemoveDuplicates([proxyAddresses])                                                                                                       
-Devuelve un atributo proxyAddress saneado donde se han quitado todos los valores duplicados.
+**Ejemplo:** 
+`RemoveDuplicates([proxyAddresses])`  devuelve un atributo proxyAddress saneado donde se han quitado todos los valores duplicados.
 
 ---
 ### <a name="replace"></a>Replace
-**Función:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Función:** Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
-**Descripción:**<br>
-Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo de los parámetros proporcionados:
+**Descripción:** Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo de los parámetros proporcionados:
 
 * Cuando se proporcionan **oldValue** y **replacementValue**:
   
@@ -452,7 +460,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
   * Si **source** no tiene un valor, se devuelve **source**.
   * Si **source** tiene un valor, la función aplica **regexPattern** a la cadena de **source** y reemplaza todos los valores coincidentes de **regexGroupName** por el valor asociado con **replacementAttributeName**
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -466,9 +474,9 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
-**Función:**<br> SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
+**Función:** SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
 
-**Descripción:**<br> Requiere dos argumentos como mínimo, que son las reglas de generación de valor único definidas con expresiones. La función evalúa cada regla y, a continuación, comprueba la unicidad del valor generado en el directorio o la aplicación de destino. Se devolverá el primer valor único encontrado. Si todos los valores ya existen en el destino, la entrada se depositará y el motivo se anota en los registros de auditoría. No hay ningún límite superior para el número de argumentos que se pueden proporcionar.
+**Descripción:** Requiere dos argumentos como mínimo, que son las reglas de generación de valor único definidas con expresiones. La función evalúa cada regla y, a continuación, comprueba la unicidad del valor generado en el directorio o la aplicación de destino. Se devolverá el primer valor único encontrado. Si todos los valores ya existen en el destino, la entrada se depositará y el motivo se anota en los registros de auditoría. No hay ningún límite superior para el número de argumentos que se pueden proporcionar.
 
 
  - Esta es una función de nivel superior, no se puede anidar.
@@ -477,7 +485,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
  - Esta función solo se admite actualmente para "WorkDay para el aprovisionamiento de usuarios de Active Directory". No se puede usar con otras aplicaciones de aprovisionamiento. 
 
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -486,11 +494,11 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 ---
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
-**Función:**<br> SingleAppRoleAssignment([appRoleAssignments])
+**Función:** SingleAppRoleAssignment([appRoleAssignments])
 
-**Descripción:**<br> Devuelve una única función appRoleAssignment de la lista de todas las funciones appRoleAssignments asignadas a un usuario para una aplicación determinada. Esta función es necesaria para convertir el objeto appRoleAssignments en una cadena de nombre de rol único. Tenga en cuenta que el procedimiento recomendado consiste en asegurarse de que solo una función appRoleAssignment esté asignada a un usuario a la vez. Si se asignan varios roles, la cadena del rol devuelta podría no ser predecible. 
+**Descripción:** Devuelve una única función appRoleAssignment de la lista de todas las funciones appRoleAssignments asignadas a un usuario para una aplicación determinada. Esta función es necesaria para convertir el objeto appRoleAssignments en una cadena de nombre de rol único. Tenga en cuenta que el procedimiento recomendado consiste en asegurarse de que solo una función appRoleAssignment esté asignada a un usuario a la vez. Si se asignan varios roles, la cadena del rol devuelta podría no ser predecible. 
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -498,11 +506,11 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 ---
 ### <a name="split"></a>Dividir
-**Función:**<br> Split(source, delimiter)
+**Función:** Split(source, delimiter)
 
-**Descripción:**<br> divide una cadena en una matriz de varios valores, usando el carácter delimitador especificado.
+**Descripción:** divide una cadena en una matriz de varios valores, usando el carácter delimitador especificado.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -511,11 +519,11 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
-**Función:**<br> StripSpaces(source)
+**Función:**  StripSpaces(source)
 
-**Descripción:**<br> quita todos los caracteres de espacio (" ") de la cadena de origen.
+**Descripción:**  quita todos los caracteres de espacio (" ") de la cadena de origen.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -523,11 +531,11 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 ---
 ### <a name="switch"></a>Switch
-**Función:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Función:**  Switch(source, defaultValue, key1, value1, key2, value2, …)
 
-**Descripción:**<br> Cuando el valor de **source** coincide con una **key**, devuelve el **value** de dicha **key**. Si el valor de **source** no coincide con ninguna clave, devuelve **defaultValue**.  Los parámetros **key** y **value** siempre deben estar emparejados. La función espera siempre un número par de parámetros. La función no se debe usar para atributos referenciales, como manager. 
+**Descripción:** Cuando el valor de **source** coincide con una **key**, devuelve el **value** de dicha **key**. Si el valor de **source** no coincide con ninguna clave, devuelve **defaultValue**.  Los parámetros **key** y **value** siempre deben estar emparejados. La función espera siempre un número par de parámetros. La función no se debe usar para atributos referenciales, como manager. 
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -538,11 +546,11 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 ---
 ### <a name="tolower"></a>ToLower
-**Función:**<br> ToLower (origen, referencia cultural)
+**Función:** ToLower (origen, referencia cultural)
 
-**Descripción:**<br> Toma un valor de cadena de *origen* y se convierte a minúsculas mediante las reglas de referencia cultural que se hayan especificado. Si no hay ninguna información de *referencia cultural* especificada, se usará la referencia cultural invariable.
+**Descripción:** Toma un valor de cadena de *origen* y se convierte a minúsculas mediante las reglas de referencia cultural que se hayan especificado. Si no hay ninguna información de *referencia cultural* especificada, se usará la referencia cultural invariable.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -551,11 +559,11 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 ---
 ### <a name="toupper"></a>ToUpper
-**Función:**<br> ToUpper (origen, referencia cultural)
+**Función:** ToUpper (origen, referencia cultural)
 
-**Descripción:**<br> Toma un valor de cadena de *origen* y se convierte a mayúsculas mediante las reglas de referencia cultural que se hayan especificado. Si no hay ninguna información de *referencia cultural* especificada, se usará la referencia cultural invariable.
+**Descripción:** Toma un valor de cadena de *origen* y se convierte a mayúsculas mediante las reglas de referencia cultural que se hayan especificado. Si no hay ninguna información de *referencia cultural* especificada, se usará la referencia cultural invariable.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -564,15 +572,15 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 ---
 ### <a name="word"></a>Word
-**Función:**<br> Word(String,WordNumber,Delimiters)
+**Función:** Word(String,WordNumber,Delimiters)
 
-**Descripción:**<br> : la función Word devuelve una palabra incluida en una cadena, según los parámetros que describen los delimitadores que se usarán y el número de palabras que se devolverán. : cada cadena de caracteres en la cadena separada por uno de los caracteres en los delimitadores se identifica como palabras:
+**Descripción:** : la función Word devuelve una palabra incluida en una cadena, según los parámetros que describen los delimitadores que se usarán y el número de palabras que se devolverán. : cada cadena de caracteres en la cadena separada por uno de los caracteres en los delimitadores se identifica como palabras:
 
 Si el número es < 1, se devuelve una cadena vacía.
 Si la cadena es Null, se devuelve una cadena vacía.
 Si la cadena contiene menos palabras o si la cadena no contiene palabras identificadas por los delimitadores, se devuelve una cadena vacía.
 
-**Parámetros:**<br> 
+**Parámetros:** 
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
@@ -580,24 +588,25 @@ Si la cadena contiene menos palabras o si la cadena no contiene palabras identif
 | **WordNumber** |Obligatorio | Entero | Número que identifica qué número de palabras debe devolver.|
 | **delimiters** |Obligatorio |String| Cadena que representa los delimitadores que deben usarse para identificar palabras.|
 
-**Ejemplo**:<br>
-Word("The quick brown fox",3," ")                                                                                       
-devuelve "brown".
+**Ejemplo:** 
+`Word("The quick brown fox",3," ")`
 
-Word("This,string!has&many separators",3,",!&#")                                                                       
+Devuelve "brown".
+
+`Word("This,string!has&many separators",3,",!&#")`
+
 Devuelve "has".
 
 ---
 
 ## <a name="examples"></a>Ejemplos
 ### <a name="strip-known-domain-name"></a>Seccionar un nombre de dominio conocido
-Debe seccionar un nombre de dominio conocido de correo electrónico de un usuario para obtener un nombre de usuario. <br>
-Por ejemplo, si el dominio es "contoso.com", puede usar la expresión siguiente:
+Debe seccionar un nombre de dominio conocido de correo electrónico de un usuario para obtener un nombre de usuario. Por ejemplo, si el dominio es "contoso.com", puede usar la expresión siguiente:
 
-**Expresión:** <br>
+**Expresión:**  
 `Replace([mail], "@contoso.com", , ,"", ,)`
 
-**Ejemplo de entrada y salida:** <br>
+**Ejemplo de entrada y salida:** 
 
 * **ENTRADA** (mail): "john.doe@contoso.com"
 * **SALIDA**: "john.doe"
@@ -605,10 +614,10 @@ Por ejemplo, si el dominio es "contoso.com", puede usar la expresión siguiente:
 ### <a name="append-constant-suffix-to-user-name"></a>Anexar sufijos constantes a nombres de usuario
 Si está utilizando un espacio aislado de Salesforce, deberá anexar un sufijo adicional a los nombres de usuario antes de sincronizarlas.
 
-**Expresión:** <br>
+**Expresión:**  
 `Append([userPrincipalName], ".test")`
 
-**Entrada/salida de ejemplo:** <br>
+**Entrada/salida de ejemplo:** 
 
 * **ENTRADA**: (userPrincipalName): "John.Doe@contoso.com"
 * **ENTRADA**:  "John.Doe@contoso.com.test"
@@ -616,10 +625,10 @@ Si está utilizando un espacio aislado de Salesforce, deberá anexar un sufijo a
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generar el alias de usuario concatenando partes de nombre y apellidos
 Debe generar un alias de usuario con las tres primeras letras del nombre del usuario y las cinco primeras letras del apellido del usuario.
 
-**Expresión:** <br>
+**Expresión:**  
 `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
 
-**Entrada/salida de ejemplo:** <br>
+**Entrada/salida de ejemplo:** 
 
 * **INPUT** (givenName): "John"
 * **INPUT** (surname): "Doe"
@@ -628,10 +637,9 @@ Debe generar un alias de usuario con las tres primeras letras del nombre del usu
 ### <a name="remove-diacritics-from-a-string"></a>Quitar los signos diacríticos de una cadena
 Necesita reemplazar caracteres que contienen acentos por otros equivalentes que no los contienen.
 
-**Expresión:** <br>
-NormalizeDiacritics([givenName])
+**Expresión:** NormalizeDiacritics([givenName])
 
-**Entrada/salida de ejemplo:** <br>
+**Entrada/salida de ejemplo:** 
 
 * **INPUT** (givenName): "Zoë"
 * **OUTPUT**:  "Zoe"
@@ -639,19 +647,17 @@ NormalizeDiacritics([givenName])
 ### <a name="split-a-string-into-a-multi-valued-array"></a>Dividir una cadena en una matriz con varios valores
 Debe tomar una lista de cadenas delimitada con comas y dividir esas cadenas en una matriz que se pueda conectar a un atributo de varios valores, como el atributo PermissionSets de Salesforce. En este ejemplo, una lista de conjuntos de permisos se ha rellenado en extensionAttribute5 en Azure AD.
 
-**Expresión:** <br>
-Split([extensionAttribute5], ",")
+**Expresión:** Split([extensionAttribute5], ",")
 
-**Entrada/salida de ejemplo:** <br>
+**Entrada/salida de ejemplo:** 
 
 * **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
 * **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Fecha de resultado como una cadena en un formato determinado
-Desea enviar las fechas a una aplicación SaaS con un formato determinado. <br>
-Por ejemplo, desea dar formato a las fechas de ServiceNow.
+Desea enviar las fechas a una aplicación SaaS con un formato determinado. Por ejemplo, desea dar formato a las fechas de ServiceNow.
 
-**Expresión:** <br>
+**Expresión:** 
 
 `FormatDateTime([extensionAttribute1], "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
 
@@ -662,10 +668,9 @@ Por ejemplo, desea dar formato a las fechas de ServiceNow.
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Reemplazar un valor basado en un conjunto predefinido de opciones
 
-Debe definir la zona horaria del usuario según el código de estado almacenado en Azure AD. <br>
-Si el código de estado no coincide con ninguna de las opciones predefinidas, use el valor predeterminado de "Australia/Sídney".
+Debe definir la zona horaria del usuario según el código de estado almacenado en Azure AD. Si el código de estado no coincide con ninguna de las opciones predefinidas, use el valor predeterminado de "Australia/Sídney".
 
-**Expresión:** <br>
+**Expresión:**  
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
 **Entrada/salida de ejemplo:**
@@ -676,7 +681,7 @@ Si el código de estado no coincide con ninguna de las opciones predefinidas, us
 ### <a name="replace-characters-using-a-regular-expression"></a>Reemplazar los caracteres con una expresión regular
 Debe buscar los caracteres que coincidan con un valor de expresión regular y quitarlos.
 
-**Expresión:** <br>
+**Expresión:** 
 
 Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 
@@ -699,7 +704,7 @@ En el ejemplo siguiente, el valor de UPN se genera mediante la concatenación de
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generación de un valor único para el atributo userPrincipalName (UPN)
 Según el nombre del usuario, el segundo nombre y el apellido, deberá generar un valor para el atributo UPN y comprobar su unicidad en el directorio de AD de destino antes de asignar el valor al atributo UPN.
 
-**Expresión:** <br>
+**Expresión:** 
 
 ```ad-attr-mapping-expr
     SelectUniqueValue( 
@@ -720,10 +725,10 @@ Según el nombre del usuario, el segundo nombre y el apellido, deberá generar u
 ### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>Proporciona el valor de correo si no es NULL; de lo contrario, proporciona userPrincipalName
 Desea proporcionar el atributo de correo si está presente. Si no es así, desea proporcionar el valor de userPrincipalName en su lugar.
 
-**Expresión:** <br>
+**Expresión:**  
 `Coalesce([mail],[userPrincipalName])`
 
-**Entrada/salida de ejemplo:** <br>
+**Entrada/salida de ejemplo:** 
 
 * **ENTRADA** (mail): NULL
 * **ENTRADA**: (userPrincipalName): "John.Doe@contoso.com"

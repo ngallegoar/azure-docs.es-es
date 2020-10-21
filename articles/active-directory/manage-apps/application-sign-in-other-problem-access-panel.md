@@ -11,16 +11,16 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfb4d265a42fe1e4473af0f9bde4ebb76f0734a0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3b9acc3f91a91527e96f450d825d06f6b909e15d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707975"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91729158"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Solución de problemas al iniciar sesión en una aplicación desde Aplicaciones de Azure AD
 
-Aplicaciones es un portal basado en web que permite que un usuario con una cuenta profesional o educativa de Azure Active Directory (Azure AD) vea e inicie las aplicaciones basadas en la nube a las que el administrador de Azure AD le haya concedido acceso. 
+Aplicaciones es un portal basado en web que permite que un usuario con una cuenta profesional o educativa de Azure Active Directory (Azure AD) vea e inicie las aplicaciones basadas en la nube a las que el administrador de Azure AD le haya concedido acceso. Se accede a Mis aplicaciones mediante un explorador web en [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 Para más información sobre cómo usar Azure AD como proveedor de identidades de una aplicación, consulte [¿Qué es la administración de aplicaciones?](what-is-application-management.md). Para ponerse al día rápidamente, consulte la [serie de inicios rápidos sobre la administración de aplicaciones](view-applications-portal.md).
 

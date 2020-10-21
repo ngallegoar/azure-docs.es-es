@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: 0f25627c852befb03c2c32d741b8fe9b64cd4dc2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948970"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91630709"
 ---
 # <a name="networking"></a>Redes
 
@@ -59,7 +59,7 @@ Para habilitar las redes aceleradas en un clúster existente, es necesario escal
 
 ## <a name="network-security-rules"></a>Reglas de seguridad de red
 
-Las reglas básicas aquí son las mínimas para un bloqueo de seguridad de un clúster de Service Fabric administrado de Azure. Si no se abren los puertos siguientes o no se incluye la dirección IP o URL en la lista blanca, se evita que el clúster funcione correctamente y es posible que no se admita. Con este conjunto de reglas, es estrictamente necesario usar [actualizaciones automáticas de imágenes del sistema operativo](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md); de lo contrario, es necesario abrir puertos adicionales.
+Las reglas básicas aquí son las mínimas para un bloqueo de seguridad de un clúster de Service Fabric administrado de Azure. Si no se abren los puertos siguientes o no se aprueba la dirección IP o URL, se evita que el clúster funcione correctamente y es posible que no se admita. Con este conjunto de reglas, es estrictamente necesario usar [actualizaciones automáticas de imágenes del sistema operativo](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md); de lo contrario, es necesario abrir puertos adicionales.
 
 ### <a name="inbound"></a>Entrante 
 |Priority   |Nombre               |Port        |Protocolo  |Source             |Destination       |Acción   

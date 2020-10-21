@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: dff1d8f48b275fa7e45dab93b5ce45962499b450
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 8b74e23147e4dcc6f786c1c08b8a03bd07dd0b9a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563886"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91744039"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Uso de runbooks de Azure Automation para administrar dispositivos de StorSimple
 
@@ -85,7 +85,7 @@ Para crear un módulo de automatización para la administración de dispositivos
 
 6. Compruebe que se crea un archivo ZIP del módulo de automatización en `C:\scripts\StorSimpleSDKTools`.
 
-    ![Captura de pantalla que muestra la carpeta StorSimpleSDKTools con el archivo zip del módulo de automatización.](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
+    ![Captura de pantalla que muestra la carpeta StorSimpleSDKTools con el archivo ZIP del módulo de automatización.](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
 
 7. El siguiente resultado se presenta cuando se crea el módulo de automatización mediante Windows PowerShell.
 
@@ -184,7 +184,7 @@ Para crear un módulo de automatización para la administración de dispositivos
    5. Deje la opción predeterminada **Crear cuenta de ejecución** seleccionada.
    6. Si quiere, seleccione **Anclar al panel**. Haga clic en **Crear**.
 
-       ![Captura de pantalla que muestra el panel Agregar cuenta de Automation con los valores de Suscripción, Crear cuenta de ejecución de Azure y Crear.](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![Captura de pantalla que muestra el panel Agregar cuenta de Automation con los valores de Suscripción, Crear cuenta de ejecución de Azure y Crear 2](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
       Recibirá una notificación cuando la cuenta de automatización se cree correctamente. Para obtener más información acerca de cómo crear una cuenta de Automation, vaya a [Crear una cuenta de ejecución](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 

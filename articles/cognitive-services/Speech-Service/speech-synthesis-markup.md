@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: d924c019d5ee231f3c9d66a56c4d98857bc89abc
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 0eacddfa56e46363c926aa1e8b35865676209577
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055556"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058495"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -196,6 +196,8 @@ De forma predeterminada, el servicio de texto a voz sintetiza el texto mediante 
 
 Actualmente, los ajustes de estilo de habla son compatibles con estas voces neuronales:
 * `en-US-AriaNeural`
+* `en-US-JennyNeural`
+* `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 
@@ -228,6 +230,10 @@ Utilice esta tabla para determinar qué estilos de habla son compatibles para ca
 |                         | `style="chat"`            | Expresa un tono casual y relajado                         |
 |                         | `style="cheerful"`        | Expresa un tono positivo y feliz                         |
 |                         | `style="empathetic"`      | Expresa un sentimiento de cuidado y comprensión.               |
+| `en-US-JennyNeural`     | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
+|                         | `style="chat"`            | Expresa un tono casual y relajado                         |
+|                         | `style="assistant"`       | Expresa un tono cálido y relajado para asistentes digitales    |
+| `en-US-GuyNeural`       | `style="newscast"`        | Expresa un tono formal y profesional para narrar noticias |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresa un tono formal y profesional para narrar noticias |
 |                         | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
 |                         | `style="assistant"`       | Expresa un tono cálido y relajado para asistentes digitales    |
@@ -432,7 +438,7 @@ Para definir el modo en que se leen varias entidades, puede crear un lexicón pe
 
 El elemento `lexicon` contiene al menos un elemento `lexeme`. Cada elemento `lexeme` contiene al menos un elemento `grapheme` y uno o varios elementos `grapheme`, `alias` y `phoneme`. El elemento `grapheme` contiene texto que describe la <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografía de <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Los elementos `alias` se usan para indicar la pronunciación de un acrónimo o un término abreviado. El elemento `phoneme` proporciona texto que describe cómo se pronuncia `lexeme`.
 
-Es importante destacar que no se puede establecer directamente la pronunciación de una palabra mediante el lexicón personalizado. Si tiene que configurar la pronunciación de un acrónimo o un término abreviado, primero indique un `alias` y, a continuación, asocie el `phoneme` con dicho `alias`. Por ejemplo:
+Es importante destacar que no se puede establecer directamente la pronunciación de una frase mediante el lexicón personalizado. Si tiene que configurar la pronunciación de un acrónimo o un término abreviado, primero indique un `alias` y, a continuación, asocie el `phoneme` con dicho `alias`. Por ejemplo:
 
 ```xml
   <lexeme>
@@ -442,6 +448,14 @@ Es importante destacar que no se puede establecer directamente la pronunciación
   <lexeme>
     <grapheme>ScotlandMV</grapheme> 
     <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
+  </lexeme>
+```
+
+También puede proporcionar directamente el `alias` esperado para el acrónimo o el término abreviado. Por ejemplo:
+```xml
+  <lexeme>
+    <grapheme>Scotland MV</grapheme> 
+    <alias>Scotland Media Wave</alias> 
   </lexeme>
 ```
 
@@ -524,7 +538,7 @@ Dado que los valores de los atributos prosódicos pueden variar en un amplio ran
 | `contour` |El contorno ahora admite voces neuronales y estándar. El contorno representa los cambios en el tono. Estos cambios se representan como una matriz de objetivos en posiciones de tiempo específicas en la salida de voz. Cada destino se define por conjuntos de pares de parámetros. Por ejemplo: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>El primer valor de cada conjunto de parámetros especifica la ubicación del cambio de tono como porcentaje de la duración del texto. El segundo valor especifica la cantidad para subir o bajar el tono, mediante un valor relativo o un valor de enumeración para el tono (consulte `pitch`). | Opcional |
 | `range` | Un valor que representa el rango del tono para el texto. Puede expresar `range` mediante los mismos valores absolutos, valores relativos o valores de enumeración usados para describir `pitch`. | Opcional |
 | `rate` | Indica la velocidad de habla del texto. Puede expresar `rate` como:<ul><li>Un valor relativo, expresado como un número que actúa como multiplicador del valor predeterminado. Por ejemplo, un valor de *1* no da como resultado ningún cambio en la velocidad. Un valor de *0,5* da como resultado la mitad de la velocidad. Un valor de *3* da como resultado el triple de la velocidad.</li><li>Un valor constante:<ul><li>x-slow</li><li>lento</li><li>medio</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Opcional |
-| `duration` | El período de tiempo que debe transcurrir mientras el servicio de síntesis de voz lee el texto, en segundos o milisegundos. Por ejemplo, *2 s* o *1800 ms*. | Opcional |
+| `duration` | El período de tiempo que debe transcurrir mientras el servicio de síntesis de voz lee el texto, en segundos o milisegundos. Por ejemplo, *2 s* o *1800 ms*. La duración solo admite voces estándar.| Opcional |
 | `volume` | Indica el nivel de volumen de la voz. Puede expresar el volumen como:<ul><li>Un valor absoluto, expresado como un número en el rango de 0,0 a 100,0, de *más silencioso* a *más alto*. Por ejemplo, 75. El valor predeterminado es 100.0.</li><li>Un valor relativo, expresado como un número precedido por "+" o "-" que especifica una cantidad para cambiar el volumen. Por ejemplo, +10 o -5,5.</li><li>Un valor constante:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medio</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Opcional |
 
 ### <a name="change-speaking-rate"></a>Cambio de la velocidad de habla

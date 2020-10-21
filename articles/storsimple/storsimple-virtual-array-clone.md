@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: dd82f7dd821991bbcf57cc7d8105575e0baa4d12
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6cc89cb082cd0ed32abd88e3a6683c60a27ba90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070687"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91742186"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clonación a partir de una copia de seguridad de StorSimple Virtual Array
 
@@ -44,7 +44,7 @@ En este artículo se describe paso a paso cómo clonar un conjunto de copias de 
    
    c.    Haga clic en **OK**.
    
-   ![Clonar una copia de seguridad](./media/storsimple-virtual-array-clone/cloneshare3.png)
+   ![Clonar una copia de seguridad 2](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. En la hoja **Clonar**, haga clic en **Configuración de destino** y realice las siguientes acciones:
    
    a.    Proporcione un nombre de recurso compartido. El nombre del recurso compartido debe contener entre 3 y 127 caracteres.
@@ -59,13 +59,13 @@ En este artículo se describe paso a paso cómo clonar un conjunto de copias de 
    
    f.    Haga clic en **OK**.
    
-   ![Clonar una copia de seguridad](./media/storsimple-virtual-array-clone/cloneshare6.png)
+   ![Clonar una copia de seguridad 3](./media/storsimple-virtual-array-clone/cloneshare6.png)
 
 4. Haga clic en **Clon** para iniciar un trabajo de clonación. Una vez completado el trabajo, se inicia la operación de clonación y se le envía una notificación. Para supervisar el progreso de la clonación, vaya a la hoja **Trabajos** y haga clic en el trabajo para ver sus detalles.
 5. Una vez que la clonación se haya creado correctamente, vuelva a la hoja **Recursos compartidos** del dispositivo.
 6. En la lista de recursos compartidos del dispositivo podrá ver el recurso compartido recién clonado. Los recursos compartidos en capas se clonarán “en capas”, mientras que los recursos compartidos anclados localmente se clonarán como “anclados localmente”.
    
-   ![Clonar una copia de seguridad](./media/storsimple-virtual-array-clone/cloneshare10.png)
+   ![Clonar una copia de seguridad 4](./media/storsimple-virtual-array-clone/cloneshare10.png)
 
 ## <a name="clone-volumes-from-a-backup-set"></a>Clonación de volúmenes a partir de un conjunto de copias de seguridad
 
@@ -84,7 +84,7 @@ Para realizar la clonación de una copia de seguridad, en Azure Portal, tendrá 
    
    c.    Haga clic en **OK**.
    
-   ![Clonar una copia de seguridad](./media/storsimple-virtual-array-clone/clonevolume3.png)
+   ![Clonar un volumen 2](./media/storsimple-virtual-array-clone/clonevolume3.png)
 3. En la hoja **Clonar**, haga clic en **Configuración de volumen de destino** y realice las siguientes acciones:
    
    a. El nombre del dispositivo se rellena automáticamente.
@@ -95,16 +95,16 @@ Para realizar la clonación de una copia de seguridad, en Azure Portal, tendrá 
    
    d. En **Hosts conectados**, haga clic en **Seleccionar**.
    
-   ![Clonar una copia de seguridad](./media/storsimple-virtual-array-clone/clonevolume4.png)
+   ![Clonar un volumen 3](./media/storsimple-virtual-array-clone/clonevolume4.png)
 4. En la hoja **Hosts conectados**, seleccione un ACR existente o agregue un ACR nuevo. Para agregar un ACR nuevo, será preciso especificar un nombre de ACR y el IQN del host. Haga clic en **Seleccionar**.
    
-   ![Clonar una copia de seguridad](./media/storsimple-virtual-array-clone/clonevolume5.png)
+   ![Clonar un volumen 4](./media/storsimple-virtual-array-clone/clonevolume5.png)
 5. Haga clic en **Clonar** para iniciar un trabajo de clonación.
    
-   ![Clonar una copia de seguridad](./media/storsimple-virtual-array-clone/clonevolume6.png)  
+   ![Clonar un volumen 5](./media/storsimple-virtual-array-clone/clonevolume6.png)  
 6. Después de cree el trabajo de clonación, se iniciará la clonación. Una vez creado el clon, se muestra en la hoja Volúmenes del dispositivo. Tenga en cuenta que los volúmenes en capas se clonan “en capas”, mientras que los volúmenes anclados localmente se clonan como “anclados localmente”.
    
-   ![Clonar una copia de seguridad](./media/storsimple-virtual-array-clone/clonevolume8.png)
+   ![Clonar un volumen 6](./media/storsimple-virtual-array-clone/clonevolume8.png)
 7. Cuando el volumen se muestre online en la lista de volúmenes, estará disponible para el uso. En el host de iniciador iSCSI, actualice la lista de destinos en la ventana de propiedades del iniciador iSCSI. Un nuevo destino que contiene el nombre del volumen clonado debe aparecer como "inactivo" en la columna de estado.
 8. Seleccione el destino y haga clic en **Conectar**. Cuando el iniciador se conecta al destino, el estado debe cambiar a **Conectado**.
 9. En la ventana **Administración de discos**, aparecerán los volúmenes montados, tal como se muestra en la siguiente ilustración. Haga clic con el botón derecho en el volumen detectado (haga clic en el nombre del disco) y, a continuación, haga clic en **Conectado**.

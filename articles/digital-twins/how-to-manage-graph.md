@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ad0111f9be8c0b981093618be7296d0ec7f90e30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8c698cdf5b26cb1682eec2828922517cf4272275
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326548"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048447"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Administración de un grafo de gemelos digitales con relaciones
 
@@ -74,7 +74,7 @@ También puede crear varias instancias del mismo tipo de relación entre los mis
 
 ## <a name="list-relationships"></a>Enumeración de las relaciones
 
-Para tener acceso a la lista de relaciones de un gemelo determinado en el grafo, puede usar:
+Para acceder a la lista de relaciones de **salida** procedente de un gemelo determinado en el grafo, puede usar:
 
 ```csharp
 await client.GetRelationshipsAsync(id);
@@ -110,11 +110,11 @@ public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string
 
 Puede usar las relaciones recuperadas para navegar a otros gemelos del grafo. Para ello, lea el campo `target` de la relación que se devuelve y úselo como id. de la siguiente llamada a `GetDigitalTwin`. 
 
-### <a name="find-relationships-to-a-digital-twin"></a>Búsqueda de relaciones para un gemelo digital
+### <a name="find-incoming-relationships-to-a-digital-twin"></a>Búsqueda de relaciones de entrada para un gemelo digital
 
-Azure Digital Twins también dispone de una API para buscar todas las relaciones de entrada para un gemelo determinado. Suele ser útil para la navegación inversa o cuando se elimina un gemelo.
+Azure Digital Twins también dispone de una API para buscar todas las relaciones de **entrada** para un gemelo determinado. Suele ser útil para la navegación inversa o cuando se elimina un gemelo.
 
-El ejemplo de código anterior se centró en buscar relaciones de salida. El ejemplo siguiente es similar, pero busca las relaciones de entrada en su lugar. También las elimina cuando se encuentran.
+El ejemplo de código anterior se centró en buscar relaciones de salida desde un gemelo. El ejemplo siguiente está estructurado de manera similar, pero en su lugar busca relaciones de *entrada* para el gemelo.
 
 Tenga en cuenta que las llamadas a `IncomingRelationship` no devuelven todo el cuerpo de la relación.
 
@@ -247,7 +247,7 @@ Tenga en cuenta la siguiente tabla de datos, que describe un conjunto de gemelos
 | room    | Room21 | Floor02 | contains | … |
 | room    | Room22 | Floor02 | contains | … |
 
-En el código siguiente se usa [Microsoft Graph API](https://docs.microsoft.com/graph/overview) para leer una hoja de cálculo y construir un grafo de gemelos de Azure Digital Twins a partir de los resultados.
+En el código siguiente se usa [Microsoft Graph API](/graph/overview) para leer una hoja de cálculo y construir un grafo de gemelos de Azure Digital Twins a partir de los resultados.
 
 ```csharp
 var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b81a0fc81478fb50c356a92371ece2e79ff417ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333569"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850700"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Tutorial: Configuración de Looop para aprovisionar usuarios automáticamente
 
@@ -55,11 +55,11 @@ Antes de configurar Looop para el aprovisionamiento automático de usuarios con 
 
 1. Inicie sesión en la [consola de administración de Looop](https://app.looop.co/#/login) y seleccione **Cuenta**. En **Configuración de la cuenta** seleccione **Autenticación**.
 
-    ![Looop Add SCIM](media/looop-provisioning-tutorial/admin.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/admin.png" alt-text="Captura de pantalla de la consola de administración de Looop. La pestaña Cuenta está resaltada y abierta. En Configuración de la cuenta, se resalta Autenticación." border="false":::
 
 2. Para generar un nuevo token, haga clic en **Reset Token** (Restablecer token) en **SCIM Integration** (Integración de SCIM).
 
-    ![Looop Add SCIM](media/looop-provisioning-tutorial/resettoken.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Captura de pantalla de la consola de administración de Looop. La pestaña Cuenta está resaltada y abierta. En Configuración de la cuenta, se resalta Autenticación." border="false":::
 
 3. Copie los valores de **SCIM Endpoint** (Punto de conexión SCIM) y **Token**. Estos valores se escriben en el campo **URL de inquilino** y **Token secreto** de la pestaña Aprovisionamiento de la aplicación Looop en Azure Portal. 
 

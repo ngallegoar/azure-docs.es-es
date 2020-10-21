@@ -4,14 +4,14 @@ description: Aprenda a auditar las operaciones del plano de control, como agrega
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 691c6ec0559eceb60d57bf04819701edebbffd83
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462452"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743903"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Auditoría de operaciones de plano de control de Azure Cosmos DB
 
@@ -209,6 +209,21 @@ AzureActivity
 | summarize by Caller, HTTPRequest, activityId_g)
 on activityId_g
 | project Caller, activityId_g
+```
+
+Realice una consulta para obtener actualizaciones de índice o TTL. A continuación, puede comparar el resultado de esta consulta con una actualización anterior para ver el cambio en el índice o el TTL.
+
+```Kusto
+AzureDiagnostics
+| where Category =="ControlPlaneRequests"
+| where  OperationName == "SqlContainersUpdate"
+| project resourceDetails_s
+```
+
+**salida:**
+
+```json
+{id:skewed,indexingPolicy:{automatic:true,indexingMode:consistent,includedPaths:[{path:/*,indexes:[]}],excludedPaths:[{path:/_etag/?}],compositeIndexes:[],spatialIndexes:[]},partitionKey:{paths:[/pk],kind:Hash},defaultTtl:1000000,uniqueKeyPolicy:{uniqueKeys:[]},conflictResolutionPolicy:{mode:LastWriterWins,conflictResolutionPath:/_ts,conflictResolutionProcedure:}
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

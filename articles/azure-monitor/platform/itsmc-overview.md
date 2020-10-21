@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 989399bcc86547b914deb442fa9793f6d79d0606
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325328"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91613771"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI
 
@@ -112,6 +112,10 @@ Una vez que haya creado la conexión a ITSM, puede crear elementos de trabajo en
 
 Los grupos de acciones proporcionan una manera modular y reutilizable de desencadenar acciones para las alertas de Azure. Puede usar los grupos de acciones con alertas de métricas, de Activity Log y de Azure Log Analytics en Azure Portal.
 
+> [!NOTE]
+> Una vez creada la conexión de ITSM, es necesario esperar 30 minutos después de que el conector creado para el proceso de sincronización finalice
+> 
+
 Utilice el siguiente procedimiento:
 
 1. En Azure Portal, haga clic en **Monitor**
@@ -137,6 +141,10 @@ Al crear o editar una regla de alerta de Azure, use un grupo de acciones, que ti
 > [!NOTE]
 >
 > Para obtener información sobre los precios de las acciones de ITSM, consulte la [página de precios](https://azure.microsoft.com/pricing/details/monitor/) de los grupos de acciones.
+
+> [!NOTE]
+>
+> El campo de descripción breve de la definición de la regla de alerta está limitado a 40 caracteres cuando se envía mediante la acción de ITSM.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar y analizar los datos de incidentes y solicitudes de cambios

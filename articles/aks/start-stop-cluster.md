@@ -3,24 +3,35 @@ title: Inicio y detención de Azure Kubernetes Service (AKS)
 description: Aprenda a iniciar y detener un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: a743a6c30d5ce8bcaf275bf1a658f8343de4d4fb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bc756994cf0f6e12af1c1ad5a6c8db304b4253e3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90931995"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968793"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Inicio y detención de un clúster de Azure Kubernetes Service (AKS) (versión preliminar)
 
-Es posible que las cargas de trabajo de AKS no tengan que ejecutarse continuamente, por ejemplo, en el caso de un clúster de desarrollo que se use solo durante el horario comercial. Esto se traduce en momentos en que el clúster de Azure Kubernetes Service (AKS) podría estar inactivo, sin ejecutar más que los componentes del sistema. Para reducir la superficie del clúster, [escale todos los grupos de nodos `User` a 0](scale-cluster.md#scale-user-node-pools-to-0), aunque sigue siendo necesario que el [grupo `System`](use-system-pools.md) ejecute los componentes del sistema mientras el clúster está en ejecución. Para optimizar aún más los costos durante estos períodos, puede desactivar por completo (detener) el clúster. Esta acción detiene el plano de control y los nodos del agente, lo que permite ahorrar en todos los costos de proceso, a la vez que se mantienen todos los objetos y el estado del clúster almacenados para cuando se inicie de nuevo. Esto permite continuar justo donde se ha dejado después de un fin de semana o que el clúster se ejecute solo mientras se ejecutan los trabajos por lotes.
+Es posible que las cargas de trabajo de AKS no tengan que ejecutarse continuamente, por ejemplo, en el caso de un clúster de desarrollo que se use solo durante el horario comercial. Esto se traduce en momentos en que el clúster de Azure Kubernetes Service (AKS) podría estar inactivo, sin ejecutar más que los componentes del sistema. Para reducir la superficie del clúster, [escale todos los grupos de nodos `User` a 0](scale-cluster.md#scale-user-node-pools-to-0), aunque sigue siendo necesario que el [grupo `System`](use-system-pools.md) ejecute los componentes del sistema mientras el clúster está en ejecución. Para optimizar aún más los costos durante estos períodos, puede desactivar por completo (detener) el clúster. Esta acción detiene el plano de control y los nodos del agente, lo que permite ahorrar en todos los costos de proceso, a la vez que se mantienen todos los objetos y el estado del clúster almacenados para cuando se inicie de nuevo. Puede continuar justo donde se ha dejado después de un fin de semana o hacer que el clúster se ejecute solo mientras se ejecutan los trabajos por lotes.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
+
+
+### <a name="limitations"></a>Limitaciones
+
+Cuando se usa la característica de inicio o detención del clúster, se aplican las restricciones siguientes:
+
+- Esta característica solo se admite para clústeres respaldados por Virtual Machine Scale Sets.
+- Durante la versión preliminar, esta característica no es compatible con los clústeres privados.
+- El estado de clúster de un clúster de AKS detenido se conserva durante un máximo de 12 meses. Si el clúster se detiene durante más de 12 meses, no se puede recuperar su estado. Para obtener más información, vea [Directivas de soporte técnico para AKS](support-policies.md).
+- Durante la versión preliminar, debe detener el escalador automático (CA) del clúster antes de intentar detenerlo.
+- Solo puede iniciar o eliminar un clúster de AKS detenido. Para realizar cualquier operación, como escalado o actualización, primero inicie el clúster.
 
 ### <a name="install-the-aks-preview-azure-cli"></a>Instalación de la CLI de Azure `aks-preview` 
 
@@ -33,11 +44,6 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ``` 
-
-> [!WARNING]
-> El estado de clúster de un clúster de AKS detenido se conserva durante un máximo de 12 meses. Si el clúster se detiene durante más de 12 meses, no se puede recuperar su estado. Para obtener más información, vea [Directivas de soporte técnico para AKS](support-policies.md).
-> Solo puede iniciar o eliminar un clúster de AKS detenido. Para realizar cualquier operación, como escalado o actualización, primero inicie el clúster.
-
 
 ### <a name="register-the-startstoppreview-preview-feature"></a>Registro de la característica en vista previa (GB) `StartStopPreview`
 
@@ -69,7 +75,7 @@ Puede usar el comando `az aks stop` para detener los nodos y el plano de control
 az aks stop --name myAKSCluster --resource-group myResourceGroup
 ```
 
-Para comprobar que el clúster se ha detenido, use el comando [az aks show][az-aks-show] y confirme que `powerState` aparece como `Stopped`, como en la siguiente salida:
+Para comprobar que el clúster se ha detenido, use el comando [az aks show][az-aks-show] y confirme que `powerState` aparece como `Stopped` en la siguiente salida:
 
 ```json
 {
@@ -100,7 +106,7 @@ En el siguiente ejemplo se inicia un clúster denominado *myAKSCluster*:
 az aks start --name myAKSCluster --resource-group myResourceGroup
 ```
 
-Para comprobar que el clúster se ha iniciado, use el comando [az aks show][az-aks-show] y confirme que `powerState` aparece como `Running`, como en la siguiente salida:
+Para comprobar que el clúster se ha iniciado, use el comando [az aks show][az-aks-show] y confirme que `powerState` aparece como `Running` en la siguiente salida:
 
 ```json
 {
@@ -136,3 +142,4 @@ Si `provisioningState` muestra `Starting`, significa que el clúster aún no se 
 [az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az_aks_show

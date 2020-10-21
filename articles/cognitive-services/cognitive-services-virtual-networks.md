@@ -3,18 +3,18 @@ title: Virtual Networks
 titleSuffix: Azure Cognitive Services
 description: Configure la seguridad de red por niveles para sus recursos de Cognitive Services.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.author: dapine
-ms.openlocfilehash: 808d42c821272882bbf0e01a36e49f7f10b30efa
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 10/07/2020
+ms.author: aahi
+ms.openlocfilehash: d320fcd0b7f9666da39dd1208efd9cdec04ad6b5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505034"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843148"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configuración de redes virtuales de Azure Cognitive Services
 
@@ -40,40 +40,29 @@ Se aplican reglas de red en todos los protocolos de red para Azure Cognitive Ser
 
 ## <a name="supported-regions-and-service-offerings"></a>Ofertas de servicio y regiones admitidas
 
-Se admiten redes virtuales en [regiones en las que Cognitive Services está disponible](https://azure.microsoft.com/global-infrastructure/services/). Si Cognitive Services no aparece en la lista, actualmente no admite redes virtuales.
+Se admiten redes virtuales en [regiones en las que Cognitive Services está disponible](https://azure.microsoft.com/global-infrastructure/services/). Cognitive Services admite etiquetas de servicio para la configuración de reglas de red. Los servicios de la lista siguiente se incluyen en la etiqueta de servicio **CognitiveServicesManagement**.
 
 > [!div class="checklist"]
-> * [Anomaly Detector](./anomaly-detector/index.yml)
-> * [Computer Vision](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Custom Vision](./custom-vision-service/index.yml)
-> * [Face](./face/index.yml)
-> * [Form Recognizer](./form-recognizer/index.yml)
-> * [Language Understanding](./luis/index.yml)
-> * [Personalizer](./personalizer/index.yml)
-> * [Text Analytics](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
-> * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
-> * [Lector inmersivo](./immersive-reader/index.yml)
+> * Anomaly Detector
+> * Computer Vision
+> * Content Moderator
+> * Custom Vision
+> * Caras
+> * Form Recognizer
+> * Language Understanding (LUIS)
+> * Personalizer
+> * Text Analytics
+> * QnA Maker
+> * Translator Text
+> * Lector inmersivo
 
-## <a name="service-tags"></a>Etiquetas de servicio
+> [!NOTE]
+> Si usa LUIS, la etiqueta **CognitiveServicesManagement** solo le permite usar el servicio mediante el SDK o la API REST. Para acceder al portal LUIS y usarlo desde una red virtual, deberá usar las siguientes etiquetas:  
+> * **AzureResourceManager** 
+> * **CognitiveServicesManagement**
+> * **AzureActiveDirectory**
+> * **AzureFrontDoor.Frontend**
 
-Cognitive Services admite etiquetas de servicio para la configuración de reglas de red. Los servicios de la lista siguiente se incluyen en la etiqueta de servicio **CognitiveServicesManagement**.
-
-> [!div class="checklist"]
-> * [Anomaly Detector](./anomaly-detector/index.yml)
-> * [Computer Vision](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Custom Vision](./custom-vision-service/index.yml)
-> * [Face](./face/index.yml)
-> * [Form Recognizer](./form-recognizer/index.yml)
-> * [Language Understanding (LUIS)](./luis/index.yml)
-> * [Personalizer](./personalizer/index.yml)
-> * [Text Analytics](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
-> * [Traductor](./translator/index.yml)
-> * [Servicio Voz](./speech-service/index.yml)
-> * [Lector inmersivo](./immersive-reader/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Modificación de la regla de acceso de red predeterminada
 

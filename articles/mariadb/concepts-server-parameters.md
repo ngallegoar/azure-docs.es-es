@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 7d530180b499495e97cb635186fc6a0d5cbd9044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5064e3cef7def1aca5aa0c97d031d519fd610cf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392733"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91626401"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Parámetros del servidor en Azure Database for MariaDB
 
@@ -28,6 +28,12 @@ Azure Database for MariaDB expone la capacidad de cambio del valor de diversos p
 La lista de parámetros del servidor admitidos crece constantemente. Use la pestaña Parámetros del servidor de Azure Portal para ver la lista completa y configurar valores de los parámetros del servidor.
 
 Consulte las siguientes secciones para obtener más información sobre los límites de los diferentes parámetros del servidor actualizados con más frecuencia. Los límites vienen determinados por el plan de tarifa y los núcleos virtuales del servidor.
+
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+En Azure Database for MariaDB, siempre están habilitados los registros binarios (p. ej., `log_bin` está establecido en ACTIVADO). En caso de que desee usar desencadenadores, obtendrá un error similar a *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)* [No tiene el privilegio SUPER y el registro binario está habilitado (es posible que desee usar la variable menos segura)].
+
+El formato de registro binario siempre es **ROW** y todas las conexiones al servidor **ALWAYS** usan un registro binario basado en filas. Con el registro binario basado en filas, no existen problemas de seguridad y el registro binario no se puede interrumpir, de modo que puede establecer [`log_bin_trust_function_creators`](https://mariadb.com/docs/reference/mdb/system-variables/log_bin_trust_function_creators/) en **TRUE** de forma segura.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -85,36 +91,36 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|262144|128|268435455|
-|De uso general|4|262144|128|536870912|
-|De uso general|8|262144|128|1073741824|
-|De uso general|16|262144|128|2147483648|
-|De uso general|32|262144|128|4294967295|
-|De uso general|64|262144|128|4294967295|
-|Memoria optimizada|2|262144|128|536870912|
-|Memoria optimizada|4|262144|128|1073741824|
-|Memoria optimizada|8|262144|128|2147483648|
-|Memoria optimizada|16|262144|128|4294967295|
-|Memoria optimizada|32|262144|128|4294967295|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|De uso general|2|262 144|128|268435455|
+|De uso general|4|262 144|128|536870912|
+|De uso general|8|262 144|128|1073741824|
+|De uso general|16|262 144|128|2147483648|
+|De uso general|32|262 144|128|4294967295|
+|De uso general|64|262 144|128|4294967295|
+|Memoria optimizada|2|262 144|128|536870912|
+|Memoria optimizada|4|262 144|128|1073741824|
+|Memoria optimizada|8|262 144|128|2147483648|
+|Memoria optimizada|16|262 144|128|4294967295|
+|Memoria optimizada|32|262 144|128|4294967295|
 
 ### <a name="max_connections"></a>max_connections
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
-|Básico|1|50|10|50|
-|Básico|2|100|10|100|
+|Básica|1|50|10|50|
+|Básica|2|100|10|100|
 |De uso general|2|300|10|600|
 |De uso general|4|625|10|1250|
-|De uso general|8|1250|10|2500|
-|De uso general|16|2500|10|5000|
-|De uso general|32|5000|10|10 000|
-|De uso general|64|10 000|10|20 000|
+|De uso general|8|1250|10|2.500|
+|De uso general|16|2.500|10|5000|
+|De uso general|32|5000|10|10000|
+|De uso general|64|10000|10|20000|
 |Memoria optimizada|2|625|10|1250|
-|Memoria optimizada|4|1250|10|2500|
-|Memoria optimizada|8|2500|10|5000|
-|Memoria optimizada|16|5000|10|10 000|
-|Memoria optimizada|32|10 000|10|20 000|
+|Memoria optimizada|4|1250|10|2.500|
+|Memoria optimizada|8|2.500|10|5000|
+|Memoria optimizada|16|5000|10|10000|
+|Memoria optimizada|32|10000|10|20000|
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
 > ERROR 1040 (08004): Demasiadas conexiones
@@ -134,7 +140,7 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|16384|268435455|
 |De uso general|4|16777216|16384|536870912|
 |De uso general|8|16777216|16384|1073741824|
@@ -156,7 +162,7 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo **|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|0|0|16777216|
 |De uso general|4|0|0|33554432|
 |De uso general|8|0|0|67108864|
@@ -176,18 +182,18 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|De uso general|2|524288|32768|4 194 304|
-|De uso general|4|524288|32768|8388608|
-|De uso general|8|524288|32768|16777216|
-|De uso general|16|524288|32768|33554432|
-|De uso general|32|524288|32768|33554432|
-|De uso general|64|524288|32768|33554432|
-|Memoria optimizada|2|524288|32768|8388608|
-|Memoria optimizada|4|524288|32768|16777216|
-|Memoria optimizada|8|524288|32768|33554432|
-|Memoria optimizada|16|524288|32768|33554432|
-|Memoria optimizada|32|524288|32768|33554432|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|De uso general|2|524 288|32 768|4 194 304|
+|De uso general|4|524 288|32 768|8388608|
+|De uso general|8|524 288|32 768|16777216|
+|De uso general|16|524 288|32 768|33554432|
+|De uso general|32|524 288|32 768|33554432|
+|De uso general|64|524 288|32 768|33554432|
+|Memoria optimizada|2|524 288|32 768|8388608|
+|Memoria optimizada|4|524 288|32 768|16777216|
+|Memoria optimizada|8|524 288|32 768|33554432|
+|Memoria optimizada|16|524 288|32 768|33554432|
+|Memoria optimizada|32|524 288|32 768|33554432|
 
 ### <a name="tmp_table_size"></a>tmp_table_size
 
@@ -196,7 +202,7 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|1024|67108864|
 |De uso general|4|16777216|1024|134217728|
 |De uso general|8|16777216|1024|268435456|

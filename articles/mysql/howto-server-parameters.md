@@ -5,29 +5,32 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: a37fbee4361d4a87c43a42cae66c425eba1e0877
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/1/2020
+ms.openlocfilehash: c28f0edafd72794a60ef577fc3177e4436157950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887051"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631484"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Configuración de parámetros del servidor en Azure Database for MySQL mediante Azure Portal
 
 Azure Database para MySQL admite la configuración de algunos parámetros del servidor. En este artículo se explica cómo configurar estos parámetros mediante Azure Portal. No es posible ajustar todos los parámetros del servidor.
 
+>[!Note]
+> Los parámetros del servidor se pueden actualizar globalmente a nivel de servidor; utilice la [CLI de Azure](./howto-configure-server-parameters-using-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md) o [Azure Portal](./howto-server-parameters.md).
+
 ## <a name="configure-server-parameters"></a>Configuración de parámetros del servidor
 
-1. Inicie sesión en Azure Portal y luego localice su servidor de Azure Database for MySQL.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y luego localice su servidor de Azure Database for MySQL.
 2. En la sección **CONFIGURACIÓN**, haga clic en **Parámetros del servidor** para abrir la página Parámetros del servidor de Azure Database for MySQL.
 :::image type="content" source="./media/howto-server-parameters/auzre-portal-server-parameters.png" alt-text="Página Parámetros del servidor de Azure Portal":::
 3. Localice cualquier configuración que deba ajustar. Revise la columna **Descripción** para entender el propósito y los valores permitidos.
-:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Menú desplegable de enumeración":::
+:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Página Parámetros del servidor de Azure Portal":::
 4. Haga clic en **Guardar** para guardar los cambios.
-:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Guardar o descartar cambios":::
+:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Página Parámetros del servidor de Azure Portal":::
 5. Si ha guardado los nuevos valores para los parámetros, siempre puede revertir todos los elementos a los valores predeterminados; para ello, seleccione **Restablecer todos los valores predeterminados**.
-:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Restablecer todos los valores predeterminados":::
+:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Página Parámetros del servidor de Azure Portal":::
 
 ## <a name="setting-parameters-not-listed"></a>Ajustar parámetros que no aparecen en la lista
 
@@ -69,7 +72,7 @@ SELECT name FROM mysql.time_zone_name;
 
 La zona horaria de nivel global se puede establecer desde la página **Parámetros del servidor** en Azure Portal. En el ejemplo siguiente se establece la zona horaria global en el valor "US/Pacific".
 
-:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Establecimiento del parámetro de zona horaria":::
+:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Página Parámetros del servidor de Azure Portal":::
 
 ### <a name="setting-the-session-level-time-zone"></a>Establecimiento de la zona horaria de nivel de sesión
 

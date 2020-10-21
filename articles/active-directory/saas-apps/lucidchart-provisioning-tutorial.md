@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 632330d7c94e145124e202be9050e4e1beeb12b0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 43d6ac8354e992a87091bc66417f7ca88e784199
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265486"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850666"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutorial: Configuración de Lucidchart para aprovisionar usuarios automáticamente
 
@@ -49,11 +49,11 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 1. Inicie sesión en la [consola de administración de Lucidchart](https://www.lucidchart.com). Vaya a **Team > App Integration** (Equipo > Integración de aplicaciones).
 
-      ![SCIM de Lucidchart](./media/lucidchart-provisioning-tutorial/team1.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/team1.png" alt-text="Captura de pantalla de la consola de administración de Lucidchart. El menú Team (Equipo) está resaltado y abierto. En Admin (Administración), está resaltada la opción App Integration (Integración de la aplicación)." border="false":::
 
 2. Vaya a **SCIM**.
 
-      ![SCIM de Lucidchart](./media/lucidchart-provisioning-tutorial/scim.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Captura de pantalla de la consola de administración de Lucidchart. El menú Team (Equipo) está resaltado y abierto. En Admin (Administración), está resaltada la opción App Integration (Integración de la aplicación)." border="false":::
 
 3. Desplácese hacia abajo para ver **Bearer token** (Token de portador) y **Lucidchart Base URL** (Dirección URL base de Lucidchart). Copie y guarde el **token de portador**. Este valor se escribe en el campo **Secret Token** (Token secreto) * de la pestaña "Provisioning" (Aprovisionamiento) de la aplicación Lucidchart en Azure Portal. 
 

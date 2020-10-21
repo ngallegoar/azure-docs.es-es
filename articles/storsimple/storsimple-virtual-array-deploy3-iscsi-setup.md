@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81799e6ec366c7429fdb29b85b4ff65d353a8fba
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704597"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91742424"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar como un servidor iSCSI mediante Azure Portal
 
@@ -125,7 +125,7 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
 11. Navegue hasta la hoja **Dispositivos** del servicio. Si tiene muchos de recursos, haga clic en **Todos los recursos**, haga clic en el nombre del servicio (búsquelo si fuera necesario) y, después, en **Dispositivos**.
 12. En la hoja **Dispositivos**, compruebe que el dispositivo se ha conectado correctamente al servicio, para lo que debe consultar su estado. El estado del dispositivo debe ser **Listo para configurar**.
     
-    ![Registrar dispositivo](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
+    ![Implementar dispositivo](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
 
 ## <a name="step-2-configure-the-device-as-iscsi-server"></a>Paso 2: Configurar el dispositivo como servidor iSCSI
 
@@ -138,7 +138,7 @@ Siga estos pasos en Azure Portal para completar la configuración requerida del 
     ![Configurar dispositivo como servidor iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png) 
 2. Haga clic en el dispositivo y verá un mensaje del banner que indica que el dispositivo está listo para configurar.
    
-    ![Configurar dispositivo como servidor iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis2m.png)  
+    ![Configurar dispositivo como servidor iSCSI 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis2m.png)  
 3. Haga clic en **Configurar** en la barra de comandos del dispositivo. Se abrirá la hoja **Configurar**. En **dicha hoja**, realice estas acciones:
    
    * El nombre del servidor iSCSI se rellena automáticamente.
@@ -146,13 +146,13 @@ Siga estos pasos en Azure Portal para completar la configuración requerida del 
    * Especifique una clave de cifrado de 32 caracteres y regístrela en una aplicación de administración de claves para futuras referencias.
    * Seleccione la cuenta de almacenamiento que se va a usar con el dispositivo. En esta suscripción, puede seleccionar una cuenta de almacenamiento existente o puede hacer clic en **Agregar** para elegir una cuenta de otra suscripción.
      
-     ![Configurar dispositivo como servidor iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis4m.png)
+     ![Configurar dispositivo como servidor iSCSI 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis4m.png)
 4. Haga clic en **Configurar** para completar la configuración del servidor iSCSI.
    
-    ![Configurar dispositivo como servidor iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis5m.png) 
+    ![Configurar dispositivo como servidor iSCSI 4](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis5m.png) 
 5. Se le notificará que la creación del servidor iSCSI está en curso. Una vez que el servidor iSCSI se crea correctamente, se actualiza la hoja **Dispositivos** y el estado del dispositivo correspondiente es **En línea**.
    
-    ![Configurar dispositivo como servidor iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis9m.png)
+    ![Configurar dispositivo como servidor iSCSI 5](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis9m.png)
 
 ## <a name="step-3-add-a-volume"></a>Paso 3: Agregar un volumen
 
@@ -169,17 +169,17 @@ Siga estos pasos en Azure Portal para completar la configuración requerida del 
      
      Por otro lado, un volumen en capas tiene un aprovisionamiento reducido. Cuando se crea un volumen en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas (porque el 10 % no estará disponible).
      
-     ![Agregar un volumen](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis12.png)
+     ![Agregar un volumen 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis12.png)
    * Haga clic en **Hosts conectados**, seleccione un registro de control de acceso (ACR) correspondiente al iniciador iSCSI que desea conectar a este volumen y, a continuación, haga clic en **Seleccionar**. <br><br> 
 3. Para agregar un nuevo host conectado, haga clic en **Agregar nuevo**, escriba un nombre para el host y su nombre calificado iSCSI (IQN) y, a continuación, haga clic en **Agregar**. Si no tiene el IQN, vaya al [Apéndice A: Obtener el IQN de un host de Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
    
-      ![Agregar un volumen](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis15m.png)
+      ![Agregar un volumen 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis15m.png)
 4. Cuando haya terminado de configurar el volumen, haga clic en **Aceptar**. Se creará un volumen con la configuración especificada y verá una notificación. De forma predeterminada, se habilitarán la supervisión y la copia de seguridad para el volumen.
    
-     ![Agregar un volumen](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis18m.png)
+     ![Agregar un volumen 4](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis18m.png)
 5. Para confirmar que el volumen se creó correctamente, vaya a la hoja **Volúmenes**. Debería ver el volumen mostrado.
    
-   ![Agregar un volumen](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis20m.png)
+   ![Agregar un volumen 5](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis20m.png)
 
 ## <a name="step-4-mount-initialize-and-format-a-volume"></a>Paso 4: Montar, inicializar y formatear un volumen
 

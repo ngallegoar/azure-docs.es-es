@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 09/10/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1ec2beeef86478e36fe3809e8dabcd40333c098a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602394"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970646"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -35,10 +35,12 @@ Puede realizar tareas de administración en recursos delegados directamente en e
 
 El [cmdlet Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) de Azure PowerShell muestra los atributos `HomeTenantId` y `ManagedByTenantIds` de cada suscripción, lo que le permite identificar si una suscripción devuelta pertenece a un inquilino administrado o a un inquilino que administra.
 
-Del mismo modo, los comandos de la CLI de Azure como [az account list](/cli/azure/account#az-account-list) muestran los atributos `homeTenantId` y `managedByTenants`.
+Del mismo modo, los comandos de la CLI de Azure como [az account list](/cli/azure/account#az-account-list) muestran los atributos `homeTenantId` y `managedByTenants`. Si no ve estos valores al usar la CLI de Azure, intente borrar la memoria caché ejecutando `az account clear` seguido de `az login --identity`.
 
-> [!TIP]
-> Si no ve estos valores al usar la CLI de Azure, intente borrar la memoria caché ejecutando `az account clear` seguido de `az login --identity`.
+En la API REST de Azure, los comandos [Subscriptions - Get](/rest/api/resources/subscriptions/get) y [Subscriptions - List](/rest/api/resources/subscriptions/list) incluyen `ManagedByTenant`.
+
+> [!NOTE]
+> Además de la información de inquilinos relacionada con Azure Lighthouse, los inquilinos que se muestran en estas API también pueden reflejar los inquilinos de asociados de Azure Databricks o de las aplicaciones administradas de Azure.
 
 También se proporcionan API específicas para realizar tareas de administración de Azure Lighthouse. Para obtener más información, consulte la sección **Referencia**.
 
@@ -48,7 +50,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 [Azure Arc](../../azure-arc/index.yml):
 
-- Administración de servidores híbridos a gran escala con [servidores habilitados para Azure Arc (versión preliminar)](../../azure-arc/servers/overview.md):
+- Administración de servidores híbridos a gran escala - [Servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md):
   - [Administre máquinas con Windows Server o Linux fuera de Azure conectadas](../../azure-arc/servers/onboard-portal.md) a suscripciones o grupos de recursos delegados en Azure.
   - Administre las máquinas conectadas mediante construcciones de Azure, como Azure Policy y etiquetado
   - Asegúrese de que se aplica el mismo conjunto de directivas a los entornos híbridos de los clientes
@@ -120,6 +122,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
   - Protección de la configuración de grupos de seguridad de red con refuerzo de redes adaptable
   - Comprobación de que los servidores ejecutan solo las aplicaciones y los procesos que deben con controles de aplicaciones adaptables
   - Supervisar los cambios en archivos importantes y entradas del registro con la supervisión de la integridad de los archivos (FIM)
+- Tenga en cuenta que toda la suscripción se debe delegar al inquilino de administración; no se admiten escenarios Azure Security Center con grupos de recursos delegados.
 
 [Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
 

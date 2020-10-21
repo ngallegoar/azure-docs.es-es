@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 32e78b3b8ccad791bc7b9bb11123dbe901df597f
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088678"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715506"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Elección de la forma de autorizar el acceso a los datos de cola en Azure Portal
 
@@ -24,11 +24,11 @@ Cuando se accede a los datos de cola desde [Azure Portal](https://portal.azure.c
 
 ## <a name="permissions-needed-to-access-queue-data"></a>Permisos necesarios para acceder a datos de cola
 
-Necesitará permisos específicos según cómo quiera autorizar el acceso a los datos de cola en Azure Portal. En la mayoría de los casos, estos permisos se proporcionan a través del control de acceso basado en roles (RBAC). Para más información acerca de RBAC, consulte [¿Qué es el control de acceso basado en rol (RBAC) de Azure?](../../role-based-access-control/overview.md)
+Necesitará permisos específicos según cómo quiera autorizar el acceso a los datos de cola en Azure Portal. En la mayoría de los casos, estos permisos se proporcionan a través del control de acceso basado en rol de Azure (Azure RBAC). Para más información acerca de Azure RBAC, consulte [¿Qué es el control de acceso basado en rol de Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 ### <a name="use-the-account-access-key"></a>Uso de la clave de acceso de la cuenta
 
-Para acceder a los datos de cola con la clave de acceso a la cuenta, debe tener asignado un rol de Azure que incluya la acción de RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Este rol de Azure puede ser un rol integrado o personalizado. Los roles integrados que admiten **Microsoft.Storage/storageAccounts/listkeys/action** son estos:
+Para acceder a los datos de cola con la clave de acceso a la cuenta, debe tener asignado un rol de Azure que incluya la acción de Azure RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Este rol de Azure puede ser un rol integrado o personalizado. Los roles integrados que admiten **Microsoft.Storage/storageAccounts/listkeys/action** son estos:
 
 - El rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
 - El rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
@@ -95,6 +95,6 @@ Las colas no aparecen en el portal si no tiene acceso a las claves de cuenta. Ha
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Autenticar el acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md)
-- [Conceder acceso a contenedores y colas de Azure con RBAC en Azure Portal](../common/storage-auth-aad-rbac-portal.md)
-- [Conceder acceso a datos de blob y de cola de Azure con RBAC mediante la CLI de Azure](../common/storage-auth-aad-rbac-cli.md)
-- [Conceder acceso a datos de blob y cola de Azure con RBAC mediante PowerShell](../common/storage-auth-aad-rbac-powershell.md)
+- [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-portal.md)
+- [Uso de la CLI de Azure para asignar un rol de Azure para obtener acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-cli.md)
+- [Uso del módulo de Azure PowerShell para asignar un rol de Azure para el acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-powershell.md)

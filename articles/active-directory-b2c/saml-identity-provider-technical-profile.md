@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/04/2020
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30c64e4cf467f4e505327414e15b23ee2c6d1543
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 4f2b4d6da8d4d69a44ca3aabd755c72fd87aaa8e
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611652"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054906"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de proveedor de identidades de SAML en una directiva personalizada en Azure Active Directory B2C
 
@@ -166,7 +166,7 @@ El elemento **CryptographicKeys** contiene los siguientes atributos:
 | Atributo |Obligatorio | Descripción |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Sí | El certificado X509 (conjunto de claves RSA) que se va a usar para firmar los mensajes SAML. Azure AD B2C usa esta clave para firmar las solicitudes y enviarlas al proveedor de identidades. |
-| SamlAssertionDecryption |Sí | El certificado X509 (conjunto de claves RSA) que se va a usar para descifrar los mensajes SAML. El proveedor de identidades debe proporcionar este certificado. Azure AD B2C usa este certificado para descifrar los datos enviados por el proveedor de identidades. |
+| SamlAssertionDecryption |No | El certificado X509 (conjunto de claves RSA). Un proveedor de identidades de SAML usa la parte pública del certificado para cifrar la aserción de la respuesta de SAML. Azure AD B2C usa la parte privada del certificado para descifrar la aserción. |
 | MetadataSigning |No | El certificado X509 (conjunto de claves RSA) que se va a usar para firmar los metadatos SAML. Azure AD B2C usa esta clave para firmar los metadatos.  |
 
 ## <a name="saml-entityid-customization"></a>Personalización de entityID de SAML

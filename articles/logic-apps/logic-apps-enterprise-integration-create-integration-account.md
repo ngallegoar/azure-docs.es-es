@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 4a0d3c344d19d0831dd8525ddf3311e0ce7cd682
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2007e2dd2df959698e62ac753689556c2f17c005
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520824"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570258"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Creación y administración de cuentas de integración para la integración empresarial B2B en Azure Logic Apps
 
@@ -89,7 +89,7 @@ Para que las aplicaciones lógicas accedan a una cuenta de integración que cont
 
 1. Para finalizar la vinculación, seleccione **Guardar**.
 
-   ![Selección de la cuenta de integración](./media/logic-apps-enterprise-integration-create-integration-account/save-link.png)
+   ![Captura de pantalla que muestra dónde seleccionar Guardar para elegir la cuenta de integración.](./media/logic-apps-enterprise-integration-create-integration-account/save-link.png)
 
    Una vez que la cuenta de integración se haya vinculado correctamente, Azure muestra un mensaje de confirmación.
 

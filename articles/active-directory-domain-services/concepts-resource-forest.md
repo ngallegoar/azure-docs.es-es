@@ -2,24 +2,24 @@
 title: Conceptos del bosque de recursos en Azure AD Domain Services | Microsoft Docs
 description: Obtenga información sobre qué es un bosque de recursos en Azure Active Directory Domain Services y cómo beneficia a su organización en un entorno híbrido con opciones de autenticación de usuario limitadas o problemas de seguridad.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: joflore
+ms.openlocfilehash: 1f8c09e7e260d22aa6864327d6a890ef3beaa039
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480414"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962520"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Conceptos y características del bosque de recursos en Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) proporciona una experiencia de inicio de sesión para las aplicaciones de línea de negocio heredadas locales. Los usuarios, grupos y hash de contraseña de los usuarios locales y en la nube se sincronizan en el dominio administrado de Azure AD DS. Estos hash de contraseña sincronizados proporcionan a los usuarios un único conjunto de credenciales que pueden usar para AD DS, Office 365 y Azure Active Directory en el entorno local.
+Azure Active Directory Domain Services (Azure AD DS) proporciona una experiencia de inicio de sesión para las aplicaciones de línea de negocio heredadas locales. Los usuarios, grupos y hash de contraseña de los usuarios locales y en la nube se sincronizan en el dominio administrado de Azure AD DS. Estos hash de contraseña sincronizados proporcionan a los usuarios un único conjunto de credenciales que pueden usar para AD DS, Microsoft 365 y Azure Active Directory en el entorno local.
 
 Si bien este modo es seguro y aporta ventajas de seguridad adicionales, algunas organizaciones no pueden sincronizar los hash de contraseñas de usuario en Azure AD o Azure AD DS. Es posible, por ejemplo, que los usuarios de una organización no conozcan su contraseña porque solo usan la autenticación de tarjeta inteligente. Estas limitaciones impiden que algunas organizaciones usen Azure AD DS para migrar mediante lift-and-shift las aplicaciones clásicas locales a Azure.
 

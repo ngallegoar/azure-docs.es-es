@@ -1,17 +1,17 @@
 ---
 title: 'Almacén de consultas en Azure Database for PostgreSQL: servidor único'
 description: En este artículo se describe la característica Almacén de consultas en Azure Database for PostgreSQL con un único servidor.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 49eea969f987a72872cda58ae6a7c41e50a14c10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b6c8faafac34ada664ddfadebf8d71a16c73fa7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830288"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710539"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Supervisión del rendimiento con el Almacén de consultas
 
@@ -250,7 +250,7 @@ En las tablas siguientes se describen los campos de los dos tipos de registro. E
 ## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
 - Si un servidor de PostgreSQL tiene el parámetro default_transaction_read_only activado, el Almacén de consultas no puede capturar datos.
 - Se puede interrumpir la funcionalidad de Almacén de consultas si encuentra consultas largas de Unicode (>= 6000 bytes).
-- [Las réplicas de lectura](concepts-read-replicas.md) replican los datos del Almacén de consultas del servidor maestro. Esto significa que el Almacén de consultas de una réplica de lectura no proporciona estadísticas sobre las consultas que se ejecutan en la réplica de lectura.
+- [Las réplicas de lectura](concepts-read-replicas.md) replican los datos del Almacén de consultas del servidor principal. Esto significa que el Almacén de consultas de una réplica de lectura no proporciona estadísticas sobre las consultas que se ejecutan en la réplica de lectura.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

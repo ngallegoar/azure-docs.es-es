@@ -6,17 +6,20 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 6/11/2020
+ms.date: 10/1/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43562454e8ddbeb3e674cbdbace508ed9ca1d549
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dfb1d59335f2e35ce3d4661f043b6eed53d2a109
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501177"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91627166"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-cli"></a>Configuración de parámetros del servidor en Azure Database for MySQL mediante la CLI de Azure
 Puede enumerar, mostrar y actualizar los parámetros de configuración de un servidor de Azure Database for MySQL con la CLI de Azure, la utilidad de línea de comandos de Azure. En el nivel del servidor, se expone y se puede modificar un subconjunto de las opciones de configuración del motor. 
+
+>[!Note]
+> Los parámetros del servidor se pueden actualizar globalmente en el servidor; use la [CLI de Azure](./howto-configure-server-parameters-using-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md) o [Azure Portal](./howto-server-parameters.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para seguir esta guía, necesitará:
@@ -52,7 +55,7 @@ az mysql server configuration set --name slow_query_log --resource-group myresou
 ```
 Este código restablece la configuración **slow\_query\_log** en el valor predeterminado **Apagado**. 
 
-## <a name="setting-parameters-not-listed"></a>Valor de parámetros que no aparecen en la lista
+## <a name="setting-parameters-not-listed"></a>Ajustar parámetros que no aparecen en la lista
 Si el parámetro de servidor que desea actualizar no aparece en Azure Portal, también puede establecer el parámetro en el nivel de conexión mediante `init_connect`. De este modo, se establecen los parámetros del servidor para cada cliente con conexión al servidor. 
 
 Actualice el parámetro de configuración del servidor **init\_connect** del servidor **mydemoserver.mysql.database.azure.com** en el grupo de recursos **myresourcegroup** para establecer valores como el juego de caracteres.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a08ddae1d10cc8b26f3aa7ee85e731c2cea15f93
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514680"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962894"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Uso del servicio StorSimple Device Manager para modificar la configuración del dispositivo StorSimple
 
@@ -61,7 +61,7 @@ La descripción del dispositivo suele ayudar a identificar el propietario y la u
 
 El dispositivo debe sincronizar la hora para autenticarse con su proveedor de servicios de almacenamiento en la nube. Use la hoja **Configuración general** del dispositivo para modificar la descripción de hora de dicho dispositivo.
 
-![Descripción del dispositivo en Configuración general](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
+![Descripción del dispositivo en Configuración general 2](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
 
  Seleccione la zona horaria en la lista desplegable. Puede especificar hasta dos servidores de protocolo de tiempo de red (NTP):
 

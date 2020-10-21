@@ -15,12 +15,12 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e7e63225df4e337a93912bf1e1c17eb61a6cc9e0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258612"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91841159"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Diseño de un sistema de protección de contenido con control de acceso mediante Azure Media Services
 
@@ -421,11 +421,11 @@ Las capturas de pantalla siguientes muestran diferentes páginas de inicio de se
 
 **Cuenta de dominio de inquilino de Azure AD personalizado**: Página de inicio de sesión personalizada del dominio de inquilino de Azure AD personalizado.
 
-![Cuenta de dominio de inquilino de Azure AD personalizado](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
+![Captura de pantalla que muestra la página de inicio de sesión personalizada del dominio de inquilino de Azure AD personalizado.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
 **Cuenta de dominio de Microsoft con tarjeta inteligente**: Página de inicio de sesión personalizada por el responsable de TI corporativo de Microsoft con autenticación en dos fases.
 
-![Cuenta de dominio de inquilino de Azure AD personalizado](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
+![Captura de pantalla que muestra la página de inicio de sesión personalizada por el responsable de TI corporativo de Microsoft con autenticación en dos fases.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
 **Cuenta de Microsoft**: Página de inicio de sesión de la cuenta de Microsoft para los consumidores.
 

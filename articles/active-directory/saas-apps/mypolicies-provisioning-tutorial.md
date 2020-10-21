@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: a6db1866c42dbb90d6ea0f288aceed4672424fe0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56aad5ce9045ca205221ba0c56d1ea75f8f3610a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321992"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850513"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutorial: Configuración de myPolicies para el aprovisionamiento automático de usuarios
 
@@ -118,7 +118,7 @@ Por ejemplo: `<demo0-qa>`.mypolicies.com.
 
 9. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con myPolicies**.
 
-    ![Asignaciones de usuarios de myPolicies](media/mypolicies-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/mypolicies-provisioning-tutorial/usermapping.png" alt-text="Captura de pantalla de la sección Asignaciones. En el nombre, está visible la sincronización de los usuarios de Azure Active Directory con customappsso." border="false":::
 
 10. Revise los atributos de usuario que se sincronizan entre Azure AD y myPolicies en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de myPolicies con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 

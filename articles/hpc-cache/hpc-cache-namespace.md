@@ -4,20 +4,20 @@ description: Planeación del espacio de nombres virtual para Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: c16d2f9e9c94603361d9a096f33d559105f2d28d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1c28f549cf93d77f6aef6bcde6a2225345a79cc9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497036"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91612955"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planeamiento del espacio de nombres agregado
 
 Azure HPC Cache permite que los clientes accedan a diversos sistemas de almacenamiento a través de un espacio de nombres virtual que oculta los detalles del sistema de almacenamiento back-end.
 
-Cuando agrega un destino de almacenamiento, establece la ruta de acceso de archivo orientada al cliente. Las máquinas cliente montan esta ruta de acceso de archivo y pueden crear solicitudes de lectura de archivos en la memoria caché en lugar de montar el sistema de almacenamiento directamente.
+Después de agregar un destino de almacenamiento, configure una o varias rutas de acceso de espacio de nombres orientadas al cliente para el destino de almacenamiento. Las máquinas cliente montan esta ruta de acceso de archivo y pueden crear solicitudes de lectura de archivos en la memoria caché en lugar de montar el sistema de almacenamiento directamente.
 
 Dado que la memoria caché de Azure HPC Cache administra este sistema de archivos virtual, puede cambiar el destino de almacenamiento sin cambiar la ruta de acceso orientada al cliente. Por ejemplo, podría reemplazar un sistema de almacenamiento en hardware por almacenamiento en la nube sin necesidad de volver a escribir los procedimientos orientados al cliente.
 
@@ -48,7 +48,7 @@ Para permitir un acceso sencillo a través de la memoria caché, puede crear des
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
 | recopilaciónDeOrigen                        | /source/               |
 
-Un destino de almacenamiento NFS puede tener varias rutas de acceso de espacio de nombres virtual, siempre y cuando cada una haga referencia a una ruta de acceso de exportación única.
+Un destino de almacenamiento NFS puede tener varias rutas de acceso de espacio de nombres virtual, siempre y cuando cada una haga referencia a una ruta de acceso de exportación única. Lea [Rutas de acceso del espacio de nombres de NFS](add-namespace-paths.md#nfs-namespace-paths) para conocer el número máximo recomendado de rutas de acceso de espacio de nombres por destino de almacenamiento de NFS.
 
 Dado que las rutas de acceso de origen NFS son subdirectorios de la misma exportación, deberá definir varias rutas de acceso de espacio de nombres desde el mismo destino de almacenamiento.
 
@@ -59,6 +59,13 @@ Dado que las rutas de acceso de origen NFS son subdirectorios de la misma export
 
 Una aplicación cliente puede montar la memoria caché y acceder fácilmente a las rutas de archivo del espacio de nombres agregado ``/source``, ``/templates/sku798`` y ``/templates/sku980``.
 
+Un enfoque alternativo podría ser crear una ruta de acceso virtual como `/templates` que se vincula al directorio principal, `acme2017` y, a continuación, hacer que los clientes naveguen a los directorios individuales `sku798` y `sku980` después de montar la memoria caché. Sin embargo, no puede crear una ruta de acceso de espacio de nombres que sea un subdirectorio de otra ruta de acceso del espacio de nombres. Por lo tanto, si crea una ruta de acceso al directorio `acme2017` no puede crear rutas de acceso de espacio de nombres para acceder directamente a sus subdirectorios.
+
+La página de configuración del **espacio de nombres de Azure HPC Cache** muestra el sistema de archivos orientado al cliente y permite agregar o editar rutas de acceso. Lea [Configuración del espacio de nombres agregado](add-namespace-paths.md) para obtener más detalles.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de decidir cómo configurar el sistema de archivos virtual, [cree destinos de almacenamiento](hpc-cache-add-storage.md) para asignar el almacenamiento de back-end a las rutas de archivo virtuales orientadas al cliente.
+Una vez que haya decidido cómo configurar el sistema de archivos virtual, siga estos pasos para crearlo:
+
+* [Creación de destinos de almacenamiento](hpc-cache-add-storage.md) para agregar sus sistemas de almacenamiento de back-end a Azure HPC Cache
+* [Agregar rutas de acceso de espacio de nombres](add-namespace-paths.md) para crear el espacio de nombres agregado que los equipos cliente usan para tener acceso a los archivos

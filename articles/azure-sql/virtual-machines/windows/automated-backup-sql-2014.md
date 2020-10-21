@@ -7,18 +7,18 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8e563e53ad0d5ec90fb9b728c8ffe2d239cf0763
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d7938f24e408e72a84003c19e5c294d31f6b65b5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920609"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91565129"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automated Backup para SQL Server 2014 en máquinas virtuales (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,27 +34,24 @@ Automated Backup configura automáticamente [Automated Backup para Microsoft Azu
 ## <a name="prerequisites"></a>Requisitos previos
 Para utilizar Automated Backup, tenga en cuenta los siguientes requisitos previos:
 
+
 **Sistema operativo**:
 
-- Windows Server 2012
-- Windows Server 2012 R2
-- Windows Server 2016
+- Windows Server 2012 y versiones posteriores 
 
 **Edición/versión de SQL Server**:
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
 
-> [!IMPORTANT]
-> Automated Backup funciona con SQL Server 2014. Si usa SQL Server 2016/2017, puede usar Automated Backup v2 para hacer copias de seguridad de las bases de datos. Para obtener más información, vea [Automated Backup v2 para SQL Server 2016 en máquinas virtual de Azure](automated-backup.md).
+> [!NOTE]
+> Para SQL 2016 y versiones posteriores, consulte [Copia de seguridad automatizada para SQL Server 2016](automated-backup.md).
 
 **Configuración de base de datos**:
 
-- Las bases de datos de destino deben utilizar el modelo de recuperación completa. Para obtener más información sobre el impacto del modelo de recuperación completa en las copias de seguridad, vea [Copia de seguridad en el modelo de recuperación completa](https://technet.microsoft.com/library/ms190217.aspx).
-- Las bases de datos de destino deben estar en la instancia predeterminada de SQL Server. La Extensión del agente de IaaS de SQL Server no admite instancias con nombre.
-
-> [!NOTE]
-> Automated Backup se basa en la Extensión Agente de IaaS de SQL Server. Las imágenes actuales de la galería de máquinas virtuales de SQL agregan esta extensión de manera predeterminada. Para más información, consulte la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md).
+- Las bases de datos de _usuario_ de destino deben utilizar el modelo de recuperación completa. Las bases de datos del sistema no tienen que usar el modelo de recuperación completa. Aun así, sí debe usar el modelo de recuperación completa si necesita realizar copias de seguridad de registros para el modelo o para MSDB. Para obtener más información sobre el impacto del modelo de recuperación completa en las copias de seguridad, vea [Copia de seguridad en el modelo de recuperación completa](https://technet.microsoft.com/library/ms190217.aspx). 
+- La máquina virtual de SQL Server se ha registrado con el proveedor de recursos de máquinas virtuales con SQL en [modo de administración completa](sql-vm-resource-provider-register.md#upgrade-to-full). 
+-  La copia de seguridad automatizada se basa en la [extensión de agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md) completa. Como tal, solo se admite en las bases de datos de destino de la instancia predeterminada o en una única instancia con nombre. Si no hay ninguna instancia predeterminada y hay varias instancias con nombre, se producirá un error en la extensión IaaS de SQL y la copia de seguridad automatizada no funcionará. 
 
 ## <a name="settings"></a>Configuración
 
@@ -282,4 +279,4 @@ Puede encontrar directrices adicionales sobre la copia de seguridad y la restaur
 
 Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md).
 
-Para obtener más información sobre cómo ejecutar SQL Server en máquinas virtuales de Azure, vea [Introducción a SQL Server en máquinas virtuales de Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).
+Para más información sobre cómo ejecutar SQL Server en máquinas virtuales de Azure, consulte [Introducción a SQL Server en Azure máquinas virtuales de Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).

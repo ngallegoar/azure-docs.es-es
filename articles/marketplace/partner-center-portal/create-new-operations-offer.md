@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: e5fb00eadaa8d1702b46a03c03b55bbd0ef693f6
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a7a77cc18ddc1ab8664d49aa3c2ac049a683ed3d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646693"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710641"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Creación de una oferta de Dynamics 365 for Operations
 
@@ -39,7 +39,8 @@ Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de par
 Escriba un **Identificador de oferta**. Se trata de un identificador único para cada oferta de su cuenta.
 
 - Se muestra a los clientes en la dirección web de la oferta de Marketplace y en las plantillas de Azure Resource Manager, si procede.
-- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres. Por ejemplo, si escribe **test-offer-1**, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- El identificador de oferta en combinación con el del editor debe tener una longitud de menos de 40 caracteres.
+- Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios. Por ejemplo, si el identificador del editor es testpublisherid y escribe **test-offer-1** aquí, la dirección web de la oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
 - El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
 
 Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners.
@@ -56,11 +57,11 @@ Seleccione la opción que quiere usar para esta oferta.
 
 #### <a name="get-it-now-free"></a>Obténgalo ahora (de forma gratuita)
 
-Presente su oferta a los clientes de forma gratuita proporcionándoles una dirección URL válida (que comienza por *http* o *https*) desde donde pueden acceder a su aplicación.  Por ejemplo: `https://contoso.com/my-app`
+Muestre la oferta a los clientes gratis.
 
 #### <a name="free-trial-listing"></a>Evaluación gratuita (anuncio)
 
-Para presentar la oferta a los clientes con un vínculo a una evaluación gratuita, proporcióneles una dirección URL válida (que empiece por `http` o `https`) desde la que puedan obtenerla. Por ejemplo, `https://contoso.com/trial/my-app`. Las ofertas que incluyen evaluaciones gratuitas se crean, administran y configuran desde su servicio y no tienen suscripciones administradas por Microsoft.
+Muestre la oferta a los clientes con un vínculo a una versión de prueba gratuita. Las ofertas que incluyen evaluaciones gratuitas se crean, administran y configuran desde su servicio y no tienen suscripciones administradas por Microsoft.
 
 > [!NOTE]
 > Los tokens que la aplicación recibirá a través del vínculo de evaluación gratuita solo se pueden usar para obtener información de usuario mediante Azure Active Directory (Azure AD) para automatizar la creación de cuentas en la aplicación. No se admiten las cuentas de Microsoft para la autenticación con este token.
@@ -186,7 +187,7 @@ Proporcione al menos un documento de marketing relacionado (y un máximo de tres
 
 En esta sección, puede proporcionar logotipos e imágenes que se usarán al mostrar la oferta al cliente. Todas las imágenes deben estar en formato .PNG.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.

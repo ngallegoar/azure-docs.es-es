@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
-ms.openlocfilehash: b010a90929a5eb905f21ebe23aa971f05d210941
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/14/2020
+ms.openlocfilehash: f9907b746c1dceb0b0e847c09ea4a549138f0064
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282704"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047733"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copia de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que esté usando:"]
@@ -47,10 +47,9 @@ Concretamente, este conector de Amazon S3 admite la copia de archivos tal cual, 
 
 ## <a name="required-permissions"></a>Permisos necesarios
 
-Para copiar datos de Amazon S3, asegúrese de que se han concedido los siguientes permisos:
+Para copiar datos de Amazon S3, asegúrese de que se han concedido los permisos siguientes para las operaciones de objeto de Amazon S3: `s3:GetObject` y `s3:GetObjectVersion`.
 
-- **Para la ejecución de la actividad de copia**: `s3:GetObject` y `s3:GetObjectVersion` para las operaciones de objeto de Amazon S3.
-- **Para la creación de GUI de Data Factory**: `s3:ListAllMyBuckets` y `s3:ListBucket`/`s3:GetBucketLocation` para las operaciones de cubo de Amazon S3. También se requieren permisos para operaciones como la prueba de conexiones y la exploración de rutas de acceso de archivo. Si no quiere conceder estos permisos, omita la conexión de prueba en la página de creación de servicios vinculados y especifique la ruta de acceso directamente en la configuración del conjunto de datos.
+Si usa la interfaz de usuario de Data Factory para crear, se requieren los permisos `s3:ListAllMyBuckets` y `s3:ListBucket`/`s3:GetBucketLocation` adicionales para operaciones como probar la conexión al servicio vinculado y examinar desde la raíz. Si no quiere conceder estos permisos, puede elegir las opciones "Test connection to file path" (Probar conexión con la ruta de acceso del archivo) o "Browse from specified path" (Examinar desde la ruta de acceso especificada) en la interfaz de usuario.
 
 Para obtener la lista completa de los permisos de Amazon S3, consulte [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) (Especificación de permisos en una directiva) en el sitio de AWS.
 
@@ -156,9 +155,9 @@ Las propiedades siguientes se admiten para Amazon S3 en la configuración `stor
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | La propiedad **type** de la sección `storeSettings` se debe establecer en **AmazonS3ReadSettings**. | Sí                                                         |
 | ***Buscar los archivos que se van a copiar:*** |  |  |
-| OPCIÓN 1: Ruta de acceso estática<br> | Realice la copia desde el cubo o la ruta de acceso de archivos o carpeta especificadas en el conjunto de datos. Si quiere copiar todos los archivos de un cubo o carpeta, especifique también `wildcardFileName` como `*`. |  |
+| OPCIÓN 1: ruta de acceso estática<br> | Realice la copia desde el cubo o la ruta de acceso de archivos o carpeta especificadas en el conjunto de datos. Si quiere copiar todos los archivos de un cubo o carpeta, especifique también `wildcardFileName` como `*`. |  |
 | OPCIÓN 2: Prefijo S3<br>- prefix | Prefijo del nombre de la clave de S3 en el cubo especificado que se configuró en el conjunto de datos para filtrar archivos de S3 de origen. Se seleccionan las claves de S3 cuyo nombre comienza con `bucket_in_dataset/this_prefix`. Emplea el filtro del servicio de S3, que proporciona un mejor rendimiento que el filtro de un carácter comodín. | No |
-| OPCIÓN 3: carácter comodín<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín en el cubo especificado configurado en un conjunto de datos para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter). Use `^` como escape si el nombre de la carpeta contiene un carácter comodín o este carácter de escape. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
+| OPCIÓN 3: carácter comodín<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín en el cubo específico configurado en un conjunto de datos para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter). Use `^` como escape si el nombre de la carpeta contiene un carácter comodín o este carácter de escape. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
 | OPCIÓN 3: carácter comodín<br>- wildcardFileName | Nombre de archivo con caracteres comodín en el cubo y la ruta de carpeta (o ruta de carpeta con carácter comodín) indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter). Use `^` como escape si el nombre de la carpeta contiene un carácter comodín o este carácter de escape.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |
 | OPCIÓN 4: una lista de archivos<br>- fileListPath | Indica que se copie un conjunto de archivos determinado. Apunte a un archivo de texto que incluya una lista de los archivos que quiere copiar, con un archivo por línea, que sea la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos.<br/>Al usar esta opción, no especifique un nombre de archivo en el conjunto de datos. Ver más ejemplos en [Ejemplos de lista de archivos](#file-list-examples). |No |
 | ***Configuración adicional:*** |  | |

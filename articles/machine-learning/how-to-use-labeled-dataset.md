@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 1293534849c98cee51349bbefd3073cc8b94f876
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7f21d3ed3d5e71c2f87777316e7584011490043a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647207"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91757782"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creación y exploración de un conjunto de datos de Azure Machine Learning con etiquetas
 
@@ -52,7 +52,7 @@ Cargue los conjuntos de datos con etiquetas en una trama de datos de Pandas o un
 
 ### <a name="pandas-dataframe"></a>Dataframe de Pandas
 
-Puede cargar conjuntos de datos con etiqueta en una trama de datos de Pandas con el método [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) de la clase `azureml-contrib-dataset`. Instale la clase con el siguiente comando de shell: 
+Puede cargar conjuntos de datos con etiqueta en una trama de datos de Pandas con el método [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) de la clase `azureml-contrib-dataset`. Instale la clase con el siguiente comando de shell: 
 
 ```shell
 pip install azureml-contrib-dataset
@@ -61,13 +61,20 @@ pip install azureml-contrib-dataset
 >[!NOTE]
 >El espacio de nombres azureml.contrib cambia con frecuencia, ya que estamos trabajando para mejorar el servicio. Por lo tanto, todo el contenido de este espacio de nombres debe considerarse como una versión preliminar, no completamente compatible con Microsoft.
 
-Ofrecemos las siguientes opciones de administración de archivos para flujos de archivos al convertirlos en una trama de datos de Pandas.
+Azure Machine Learning ofrece las siguientes opciones de administración de archivos para flujos de archivos al convertirlos en una trama de datos de Pandas.
 * Descargar: descargue sus archivos de datos en una ruta de acceso local.
 * Montar: monte los archivos de datos en un punto de montaje. El montaje solo funciona para el proceso basado en Linux, lo que incluye la máquina virtual de cuadernos de Azure Machine Learning y Proceso de Azure Machine Learning.
 
+En el código siguiente, el conjunto de datos `animal_labels` es la salida de un proyecto de etiquetado guardado anteriormente en el área de trabajo.
+
 ```Python
+import azureml.core
 import azureml.contrib.dataset
+from azureml.core import Dataset, Workspace
 from azureml.contrib.dataset import FileHandlingOption
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 animal_pd = animal_labels.to_pandas_dataframe(file_handling_option=FileHandlingOption.DOWNLOAD, target_path='./download/', overwrite_download=True)
 
 import matplotlib.pyplot as plt
@@ -80,10 +87,20 @@ imgplot = plt.imshow(img)
 
 ### <a name="torchvision-datasets"></a>Conjuntos de datos de Torchvision
 
-Puede cargar conjuntos de datos con etiquetas en el conjunto de datos de Torchvision con el método [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py#&preserve-view=trueto-torchvision--) también desde la clase `azureml-contrib-dataset`. Para usar este método, debe tener [PyTorch](https://pytorch.org/) instalado. 
+Puede cargar conjuntos de datos con etiquetas en el conjunto de datos de Torchvision con el método [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-torchvision--) también desde la clase `azureml-contrib-dataset`. Para usar este método, debe tener [PyTorch](https://pytorch.org/) instalado. 
+
+En el código siguiente, el conjunto de datos `animal_labels` es la salida de un proyecto de etiquetado guardado anteriormente en el área de trabajo.
 
 ```python
+import azureml.core
+import azureml.contrib.dataset
+from azureml.core import Dataset, Workspace
+from azureml.contrib.dataset import FileHandlingOption
+
 from torchvision.transforms import functional as F
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 
 # load animal_labels dataset into torchvision dataset
 pytorch_dataset = animal_labels.to_torchvision()

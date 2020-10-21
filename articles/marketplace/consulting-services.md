@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 9745dce03d87b447dfd606f021891794cb343593
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 25f110f27ec9ac55420f624b5eea4555e482e7f4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419761"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708363"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de servicio de consultoría
 
@@ -22,7 +22,7 @@ Las ofertas de servicios de consultoría son interacciones específicas del clie
 
 ## <a name="compare-consulting-services"></a>Comparar servicios de consultoría
 
-Las tiendas en línea de marketplace comercial, Microsoft AppSource y Azure Marketplace se organizan de acuerdo con los tipos de soluciones y los productos en la nube para ayudar a los clientes a encontrar exactamente lo que necesitan. Cada tienda en línea tiene opciones de publicación especializadas que le ayudan a maximizar la inversión en publicación. Para obtener más información sobre la diferencia entre las dos tiendas en línea, consulte [Comparación de Microsoft AppSource y Azure Marketplace](comparing-appsource-azure-marketplace.md).
+Las tiendas en línea de marketplace comercial, Microsoft AppSource y Azure Marketplace se organizan de acuerdo con los tipos de soluciones y los productos en la nube para ayudar a los clientes a encontrar exactamente lo que necesitan. Cada tienda en línea tiene opciones de publicación especializadas que le ayudan a maximizar la inversión en publicación. Para obtener más información sobre las diferencias entre AppSource y Azure Marketplace, consulte [Tiendas en línea del marketplace comercial](overview.md#commercial-marketplace-online-stores).
 
 Las ofertas de servicios de consultoría basadas en Dynamics 365, Power Apps y Power BI son aptas para publicarse en AppSource. Para más información, descargue el archivo PDF de [instrucciones de publicación de servicios consultoría de Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: dc1e8bfa9b747b9933762af1b6a5b59cf8cd98de
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815783"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708346"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creación de una oferta de módulo de IoT Edge
 
@@ -78,9 +78,9 @@ Al publicar la oferta en Marketplace con el Centro de partners, puede conectarla
 
 Estos son algunos recursos adicionales de administración de clientes potenciales:
 
-- [Introducción a la administración de clientes potenciales](commercial-marketplace-get-customer-leads.md)
-- [Preguntas frecuentes de la administración de clientes potenciales](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Errores comunes de la configuración de clientes potenciales](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
+- [Clientes potenciales a partir de la oferta en el marketplace comercial](commercial-marketplace-get-customer-leads.md)
+- [Preguntas habituales sobre la administración de clientes potenciales](../lead-management-faq.md#common-questions-about-lead-management)
+- [Solución de errores de configuración de clientes potenciales](../lead-management-faq.md#publishing-config-errors)
 - [Introducción a la administración de clientes potenciales](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) en formato PDF (asegúrese de que el bloqueador de elementos emergentes está desactivado).
 
 Seleccione **Guardar borrador** antes de continuar.
@@ -194,7 +194,7 @@ Para obtener más información sobre la creación de listas de ofertas, consulte
 
 Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato PNG. Las imágenes borrosas se rechazarán.
 
-[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
@@ -242,7 +242,7 @@ Este es un ejemplo de cómo aparece la información de la oferta en Azure Market
 
 <br>Este es un ejemplo de cómo aparece la información de la oferta en los resultados de la búsqueda de Azure Marketplace:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustración de cómo aparece esta oferta en los resultados de la búsqueda de Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -252,7 +252,7 @@ Este es un ejemplo de cómo aparece la información de la oferta en Azure Market
 
 <br>Este es un ejemplo de cómo aparece la información de la oferta en Azure Portal:
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Portal.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -263,7 +263,7 @@ Este es un ejemplo de cómo aparece la información de la oferta en Azure Market
 
 <br>Este es un ejemplo de cómo aparece la información de la oferta en los resultados de la búsqueda de Azure Portal:
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustración de cómo aparece esta oferta en los resultados de la búsqueda de Azure Portal.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -362,7 +362,7 @@ Después de completar estos campos seleccione **Guardar borrador**.
 
 A continuación se muestra un ejemplo de los detalles del plan de Azure Marketplace (los precios mostrados son meramente ilustrativos y no pretenden reflejar los costos reales):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustración de los detalles del plan de Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -372,7 +372,7 @@ A continuación se muestra un ejemplo de los detalles del plan de Azure Marketpl
 
 <br>A continuación se muestra un ejemplo de los detalles del plan en Azure Portal (los precios mostrados son meramente ilustrativos y no pretenden reflejar los costos reales):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustración de los detalles del plan en Azure Portal.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -413,7 +413,7 @@ Proporcionará la siguiente información en la pestaña **Detalles del repositor
 
 **Nombre de usuario de administrador de Azure Container Registry**: proporcione el [nombre de usuario de administrador](../../container-registry/container-registry-authentication.md#admin-account) asociado a la instancia de Azure Container Registry que tiene su imagen de contenedor. El nombre de usuario y la contraseña son necesarios para asegurarse de que la empresa tiene acceso al registro. Para obtener el nombre de usuario y la contraseña de administrador, establezca la propiedad **admin-enabled** en **True** mediante la Interfaz de la línea de comandos (CLI) de Azure. Opcionalmente, puede establecer **Usuario administrador** en **Habilitar** en Azure Portal.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Muestra el cuadro de diálogo Actualizar registro de contenedor.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-description"></a>Descripción destacada
 
@@ -421,7 +421,7 @@ Proporcionará la siguiente información en la pestaña **Detalles del repositor
 
 <br>**Contraseña de Azure Container Registry**: proporcione la contraseña del nombre de usuario administrador asociado a la instancia de Azure Container Registry que tiene su imagen de contenedor. El nombre de usuario y la contraseña son necesarios para asegurarse de que la empresa tiene acceso al registro. Puede obtener la contraseña de Azure Portal a través de **Container Registry** > **Claves de acceso**, o bien de la CLI de Azure con el [comando show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Muestra la pantalla de la clave de acceso en Azure Portal.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -429,7 +429,7 @@ Proporcionará la siguiente información en la pestaña **Detalles del repositor
 2. Nombre de usuario
 3. Contraseña
 
-**Nombre del repositorio en Azure Container Registry**. Proporcione el nombre del repositorio de Azure Container Registry que tiene su imagen. Especifique el nombre del repositorio cuando inserte la imagen en el registro. Para encontrar el nombre del repositorio, puede ir a [Container Registry](https://azure.microsoft.com/services/container-registry/) > **página Repositorios**. Para obtener más información, consulte [Visualización de los repositorios de registros de contenedor en Azure Portal](../../container-registry/container-registry-repositories.md). Observe que una vez establecido el nombre, no se puede cambiar. Use un nombre único para cada oferta de su cuenta.
+**Nombre del repositorio en Azure Container Registry**. Proporcione el nombre del repositorio de Azure Container Registry que tiene su imagen. Especifique el nombre del repositorio cuando inserte la imagen en el registro. Para encontrar el nombre del repositorio, puede ir a [Container Registry](https://azure.microsoft.com/services/container-registry/) > **página Repositorios**. Para obtener más información, consulte [Visualización de los repositorios de registros de contenedor en Azure Portal](../../container-registry/container-registry-repositories.md). Una vez establecido el nombre, no se puede cambiar. Use un nombre único para cada oferta de su cuenta.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Etiquetas de imagen para las nuevas versiones de la oferta
 

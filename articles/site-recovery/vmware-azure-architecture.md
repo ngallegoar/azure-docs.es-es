@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 45baee286fede0ab16da62b7c2e84008d58690b1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498959"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91626503"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de VMware a Azure
 
@@ -50,6 +50,8 @@ Si usa un proxy de firewall basado en direcciones URL para controlar la conectiv
 | Replicación               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permite que la máquina virtual se comunique con el servicio Site Recovery. |
 | Azure Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que la máquina virtual escriba los datos de diagnóstico y supervisión de Site Recovery. |
 
+A fin de que se filtre una lista exhaustiva de direcciones URL para la comunicación entre los servicios de Azure y la infraestructura de Azure Site Recovery, consulte la [sección Requisitos de red del artículo sobre requisitos previos](vmware-azure-deploy-configuration-server.md#prerequisites).
+
 ## <a name="replication-process"></a>Proceso de replicación
 
 1. Al habilitar la replicación para una VM, comienza la replicación inicial en el almacenamiento de Azure mediante la directiva de replicación especificada. Tenga en cuenta lo siguiente:
@@ -82,6 +84,54 @@ Si usa un proxy de firewall basado en direcciones URL para controlar la conectiv
 5. De forma predeterminada, la resincronización está programada para ejecutarse automáticamente fuera del horario de oficina. Si no desea esperar para volver a sincronizar fuera del horario de forma predeterminada, puede volver a sincronizar una máquina virtual manualmente. Para ello, vaya a Azure Portal y seleccione la máquina virtual > **Volver a sincronizar**.
 6. Si se produce un error en la resincronización predeterminada fuera del horario de oficina y es necesaria una intervención manual, se genera un error en el equipo específico en Azure Portal. Puede resolver el error y desencadenar la resincronización de forma manual.
 7. Una vez finalizada la resincronización, se reanudará la replicación de los cambios diferenciales.
+
+## <a name="replication-policy"></a>Directiva de replicación 
+
+Al habilitar la replicación de máquinas virtuales de Azure, de forma predeterminada Site Recovery crea una directiva de replicación con la configuración predeterminada que se resume en la tabla.
+
+**Configuración de la directiva** | **Detalles** | **Valor predeterminado**
+--- | --- | ---
+**Retención de punto de recuperación** | Especifica el tiempo que Site Recovery conserva los puntos de recuperación | 24 horas
+**Frecuencia de las instantáneas coherentes con la aplicación** | La frecuencia con la que Site Recovery toma una instantánea coherente con la aplicación. | Cada cuatro horas
+
+### <a name="managing-replication-policies"></a>Administración de las directivas de replicación
+
+Puede administrar y modificar la configuración de las directivas de replicación predeterminada como sigue:
+- Puede modificar la configuración al habilitar la replicación.
+- Puede crear una directiva de replicación en cualquier momento y aplicarla al habilitar la replicación.
+
+### <a name="multi-vm-consistency"></a>Coherencia con múltiples máquinas virtuales
+
+Si desea que varias máquinas se repliquen al mismo tiempo y estas comparten puntos de recuperación coherentes frente a bloqueos y coherentes con la aplicación al conmutar por error, puede reunirlas en un grupo de replicación. La coherencia entre varias máquinas virtuales afecta al rendimiento de la carga de trabajo y solo debe usarse para las que ejecuten cargas de trabajo que necesiten coherencia en todas las máquinas. 
+
+
+
+## <a name="snapshots-and-recovery-points"></a>Instantáneas y puntos de recuperación
+
+Los puntos de recuperación se crean a partir de instantáneas de los discos de máquina virtual tomadas en un momento determinado. Al conmutar por error una máquina virtual se usa un punto de recuperación para restaurarla en la ubicación de destino.
+
+Al conmutar por error, normalmente queremos garantizar que la máquina virtual empieza sin daños ni pérdida de datos y que los datos de la máquina virtual son coherentes para el sistema operativo y para las aplicaciones que se ejecutan en ella. Esto depende del tipo de instantánea realizada.
+
+Site Recovery toma instantáneas como sigue:
+
+1. Site Recovery toma instantáneas coherentes frente a bloqueos de datos de forma predeterminada e instantáneas coherentes con la aplicación si especifica una frecuencia para ello.
+2. Los puntos de recuperación se crean a partir de las instantáneas y se almacenan según la configuración de retención establecida en la directiva de replicación.
+
+### <a name="consistency"></a>Coherencia
+
+La siguiente tabla explica los diferentes tipos de coherencia.
+
+### <a name="crash-consistent"></a>Coherente frente a bloqueos
+
+**Descripción** | **Detalles** | **Recomendación**
+--- | --- | ---
+Una instantánea coherente frente a bloqueos captura los datos que estaban en el disco cuando se tomó la instantánea. No incluye nada de la memoria.<br/><br/> Contiene el equivalente de los datos de disco que estuvieran presentes si se bloqueó la máquina virtual o se extrajo el cable de alimentación del servidor en el momento en que se tomara la instantánea.<br/><br/> Un punto de recuperación coherente frente a bloqueos no garantiza la coherencia de datos para el sistema operativo o las aplicaciones de la máquina virtual. | Site Recovery crea puntos de recuperación coherentes frente a bloqueos cada cinco minutos de forma predeterminada. No se puede modificar esta configuración.<br/><br/>  | Hoy en día, la mayoría de las aplicaciones se pueden recuperar bien a partir de instantáneas coherentes frente a bloqueos.<br/><br/> Los puntos de replicación coherentes frente a bloqueos suelen bastar para la replicación de sistemas operativos y aplicaciones de tipo servidor DHCP y de impresión.
+
+### <a name="app-consistent"></a>Coherente con la aplicación
+
+**Descripción** | **Detalles** | **Recomendación**
+--- | --- | ---
+Se crean puntos de recuperación coherentes con la aplicación a partir de instantáneas coherentes con la aplicación.<br/><br/> Una instantánea coherente con la aplicación contiene toda la información en una instantánea coherente frente a bloqueos, además de todos los datos en memoria y las transacciones en curso. | Las instantáneas coherentes con la aplicación usan el servicio Volume Shadow Copy (VSS):<br/><br/>   1) Azure Site Recovery usa el método de copia de seguridad de solo copia (VSS_BT_COPY) que no cambia la hora de la copia de seguridad ni el número de secuencia del registro de transacciones de Microsoft SQL. </br></br> 2) Cuando se inicia una instantánea, VSS realiza una operación de copia en escritura (COW) en el volumen.<br/><br/>   3) Antes de realizar la operación COW, VSS informa a todas las aplicaciones de la máquina que deben vaciar los datos en memoria en el disco.<br/><br/>   4) A continuación, VSS permite que la aplicación de recuperación ante desastres/copia de seguridad (en este caso, Site Recovery) lea los datos de la instantánea y continúe. | Se toman instantáneas coherentes con la aplicación de acuerdo con la frecuencia que especifique. Esta frecuencia debe ser siempre menor que la establecida para retención de los puntos de recuperación. Por ejemplo, si retiene puntos de recuperación con la configuración predeterminada de 24 horas, debe establecer la frecuencia en menos de 24 horas.<br/><br/>Son más complejas y tardan más tiempo en completarse que las instantáneas coherentes frente a bloqueos.<br/><br/> Afectan el rendimiento de las aplicaciones que se ejecutan en la máquina virtual habilitada para la replicación. 
 
 ## <a name="failover-and-failback-process"></a>Proceso de conmutación por error y conmutación por recuperación
 

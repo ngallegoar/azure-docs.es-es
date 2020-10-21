@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: e49cc400fd8af3d284a223363f3384063d862981
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e5280805090a83245e287c0b15a1735ee41e934e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927188"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91741812"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Solución de problemas de Azure Data Box Gateway
 
@@ -36,7 +36,7 @@ Para diagnosticar y solucionar los errores de cualquier dispositivo, puede ejecu
  
 2. Al terminar las pruebas, se muestran los resultados. Si se produce un error en una prueba, se especifica una dirección URL en la que se muestra la acción recomendada. Puede hacer clic en dicha dirección para ver la acción recomendada. 
  
-    ![Hacer clic en agregar usuario](media/data-box-gateway-troubleshoot/run-diag-2.png)
+    ![Hacer clic en agregar usuario 2](media/data-box-gateway-troubleshoot/run-diag-2.png)
 
 
 ## <a name="collect-support-package"></a>Recopilación de un paquete de soporte
@@ -47,11 +47,11 @@ Siga estos pasos para recopilar un paquete de soporte.
 
 1. En la interfaz de usuario web local, vaya a **Solución de problemas > Soporte**. Haga clic en **Crear un paquete de soporte técnico**. El sistema empieza a recopilar el paquete de soporte. Dicha recopilación puede tardar varios minutos.
 
-    ![Hacer clic en agregar usuario](media/data-box-gateway-troubleshoot/collect-logs-1.png)
+    ![Hacer clic en agregar usuario 3](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
 2. Una vez que se cree el paquete, haga clic en **Descargar el paquete de soporte técnico**. Se descarga un paquete comprimido en la ruta de acceso que eligió. Puede descomprimir el paquete.
 
-    ![Hacer clic en agregar usuario](media/data-box-gateway-troubleshoot/collect-logs-2.png)
+    ![Hacer clic en agregar usuario 4](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>Uso de registros para solucionar problemas
 
@@ -59,7 +59,7 @@ Los errores encontrados durante los procesos de carga y actualización se incluy
 
 1. Para ver los archivos de error, vaya al recurso compartido y haga clic en el recurso compartido para ver el contenido. 
 
-      ![Hacer clic en agregar usuario](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
+      ![Hacer clic en agregar usuario 5](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
 
 2. Haga clic en la _carpeta Microsoft Azure Data Box Gateway_. Esta carpeta tiene dos subcarpetas:
 

@@ -3,13 +3,13 @@ title: Intervalos de direcciones IP autorizadas por el servidor de API en Azure 
 description: Aprenda a proteger el clúster mediante un intervalo de direcciones IP para acceder al servidor de API en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 11/05/2019
-ms.openlocfilehash: 404bd600f825a5da334811744132c6aa9b751566
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/21/2020
+ms.openlocfilehash: 99c6b173d96bbd54f12a0edc501d49e8c65caf01
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006900"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91613737"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -17,18 +17,21 @@ En Kubernetes, el servidor de API recibe solicitudes para realizar acciones en e
 
 En este artículo se muestra cómo usar los intervalos IP autorizados por el servidor de API para limitar qué direcciones IP y CIDR pueden acceder al plano de control.
 
-> [!IMPORTANT]
-> En los clústeres creados después de que los intervalos de direcciones IP autorizados por el servidor de API se hayan pasado de la versión preliminar en octubre de 2019, los intervalos de direcciones IP autorizados del servidor de API solo se admiten en el equilibrador de carga de SKU *Estándar*. Los clústeres existentes con la SKU *Básica* del equilibrador de carga y los intervalos IP autorizados del servidor de API seguirán funcionando tal cual, pero no se podrán migrar a un equilibrador de carga de SKU *Estándar*. Los clústeres existentes también seguirán funcionando si se actualiza la versión de Kubernetes o el plano de control. Los intervalos de direcciones IP autorizados del servidor de API no se admiten para los clústeres privados.
-
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este artículo se muestra cómo utilizar la CLI de Azure para crear un clúster de AKS.
 
 Es preciso que esté instalada y configurada la versión 2.0.76 de la CLI de Azure, o cualquier otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
+### <a name="limitations"></a>Limitaciones
+
+La característica de intervalos IP autorizados por el servidor de la API tiene las siguientes limitaciones:
+- En los clústeres creados después de que los intervalos de direcciones IP autorizados por el servidor de API se hayan pasado de la versión preliminar en octubre de 2019, los intervalos de direcciones IP autorizados del servidor de API solo se admiten en el equilibrador de carga de SKU *Estándar*. Los clústeres existentes con la SKU *Básica* del equilibrador de carga y los intervalos IP autorizados del servidor de API seguirán funcionando tal cual, pero no se podrán migrar a un equilibrador de carga de SKU *Estándar*. Los clústeres existentes también seguirán funcionando si se actualiza la versión de Kubernetes o el plano de control. Los intervalos de direcciones IP autorizados del servidor de API no se admiten para los clústeres privados.
+- Esta característica no es compatible con los clústeres que usan la [característica en versión preliminar de grupos de nodos de IP pública por nodo](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools-preview).
+
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Información general sobre los intervalos de direcciones IP autorizadas por el servidor de API
 
-El servidor de API de Kubernetes es el modo en el que se exponen las API de Kubernetes subyacentes. Este componente proporciona la interacción de las herramientas de administración, como `kubectl` o el panel de Kubernetes. AKS proporciona un patrón de clúster de inquilino único con un servidor de API dedicado. El servidor de API se asigna de forma predeterminada a una dirección IP pública, y el usuario debe regular el acceso mediante el control de acceso basado en rol (RBAC).
+El servidor de API de Kubernetes es el modo en el que se exponen las API de Kubernetes subyacentes. Este componente proporciona la interacción de las herramientas de administración, como `kubectl` o el panel de Kubernetes. AKS proporciona un plano de control de inquilino único con un servidor de API dedicado, etc. El servidor de API se asigna de forma predeterminada a una dirección IP pública, y el usuario debe regular el acceso mediante el control de acceso basado en rol (RBAC).
 
 Para proteger el acceso al panel de control de AKS y al servidor de API (que, de lo contrario, serían accesibles al público), puede habilitar y usar intervalos de direcciones IP autorizadas. De esta manera, solo se permite la comunicación con el servidor de API a los intervalos de direcciones IP definidas. Las solicitudes al servidor de API procedentes de direcciones IP que no formen parte de este intervalo se bloquean. Siga usando RBAC para autorizar a los usuarios y las acciones que soliciten.
 
@@ -126,6 +129,32 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges ""
 ```
+
+## <a name="how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges"></a>¿Cómo se encuentra la dirección IP que se va a incluir en `--api-server-authorized-ip-ranges`?
+
+Debe agregar las máquinas de desarrollo, las herramientas o las direcciones IP de automatización a la lista de clústeres de AKS de intervalos IP aprobados para tener acceso al servidor de API desde allí. 
+
+Otra opción consiste en configurar una JumpBox con las herramientas necesarias en una subred independiente de la red virtual del firewall. Esto supone que el entorno tiene un firewall con la red correspondiente y que ha agregado las direcciones IP del firewall a los intervalos autorizados. Del mismo modo, si se ha forzado la tunelización de la subred AKS a la subred del firewall, el hecho de tener el jumpbox en la subred del clúster también es correcto.
+
+Agregue otra dirección IP a los intervalos autorizados con el siguiente comando.
+
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+```
+
+>> [!NOTE]
+> El ejemplo anterior agrega los intervalos IP autorizados de servidor de API en el clúster. Para deshabilitar los intervalos IP autorizados, use az aks update y especifique un intervalo vacío "". 
+
+Otra opción consiste en usar el comando siguiente en los sistemas de Windows para obtener la dirección IPv4 pública, o bien puede usar los pasos descritos en [Buscar su dirección IP](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address).
+
+```azurepowershell-interactive
+Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
+```
+
+Para encontrar esta dirección, busque "cuál es mi dirección IP" en un explorador de Internet.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

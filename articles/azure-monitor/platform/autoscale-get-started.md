@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo escalar Web Apps, Cloud Services, 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d37b1bad397e6170e2a7992a0a9671d6ca9c25ef
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b8d16b4e112c9aebe86c60dc01d380d591fc7624
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651719"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743529"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -117,9 +117,11 @@ Siempre se puede volver al escalado automático; para ello, haga clic en **Enabl
 
 Al escalar horizontalmente a varias instancias, App Service puede realizar comprobaciones de estado en ellas para enrutar el tráfico únicamente a las que estén en buen estado. Para ello, abra el portal de App Service y, luego, seleccione **Comprobación de estado** en **Supervisión**. Seleccione **Habilitar** y proporcione una ruta de acceso válida a una dirección URL en la aplicación, por ejemplo, `/health` o `/api/health`. Haga clic en **Save**(Guardar).
 
+Para habilitar la característica con plantillas de ARM, establezca la propiedad `healthcheckpath` del recurso `Microsoft.Web/sites` en la ruta de acceso de comprobación de estado del sitio, por ejemplo: `"/api/health/"`. Para deshabilitar la característica, vuelva a establecer la propiedad en la cadena vacía `""`.
+
 ### <a name="health-check-path"></a>Ruta de acceso de comprobación de estado
 
-La ruta de acceso debe responder en dos minutos con un código de estado entre 200 y 299 (incluido). Si no lo hace, o devuelve un código de estado que no está dentro del rango, la instancia se considera "incorrecta". La comprobación de estado se integra con las características de autenticación y autorización de App Service; el sistema alcanza el punto de conexión aunque estén habilitadas estas características de seguridad. Si usa un sistema de autenticación propio, la ruta de comprobación de estado debe permitir el acceso anónimo. Si el sitio tiene habilitado HTTP**S**, HealthCheck alcanzará primero el punto de conexión HTTP y, después, respetará la redirección HTTP 307 al punto de conexión HTTPS.
+La ruta de acceso debe responder en dos minutos con un código de estado entre 200 y 299 (incluido). Si no lo hace, o devuelve un código de estado que no está dentro del rango, la instancia se considera "incorrecta". La comprobación de estado se integra con las características de autenticación y autorización de App Service; el sistema alcanza el punto de conexión aunque estén habilitadas estas características de seguridad. Si usa un sistema de autenticación propio, la ruta de comprobación de estado debe permitir el acceso anónimo. Si el sitio tiene HTTP**S**-Only habilitado, la solicitud de comprobación de estado se enviará a través de HTTP**S**.
 
 La ruta de acceso de comprobación de estado debe comprobar los componentes críticos de la aplicación. Por ejemplo, si la aplicación depende de una base de datos y de un sistema de mensajería, el punto de conexión de comprobación de estado debe conectarse a esos componentes. Si la aplicación no se puede conectar a un componente esencial, la ruta de acceso debe devolver un código de respuesta de nivel 500 para indicar que la aplicación tiene un estado incorrecto.
 

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: a1428a92857f48920c86ed7a3f0719fa42b38b24
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017479"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072040"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: Configuración de la escritura diferida de atributos de Azure AD en Workday
 El objetivo de este tutorial es mostrar los pasos que debe realizar para la escritura diferida de atributos de Azure AD en Workday. La aplicación de aprovisionamiento de escritura diferida de Workday admite la asignación de valores a los siguientes atributos de Workday:
@@ -144,16 +144,31 @@ Una vez completadas las configuraciones de la aplicación de aprovisionamiento d
 
 1. En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
 
+1. En la lista desplegable **Ámbito**, seleccione **Sincronizar todos los usuarios y grupos**. Con esta opción, la aplicación de escritura diferida escribirá de manera diferida atributos asignado de todos los usuarios de Azure AD a Workday, de acuerdo con las reglas de ámbito definidas en **Asignaciones** -> **Ámbito de objeto de origen**. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Selección del ámbito de escritura diferida](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
+
+   > [!NOTE]
+   > La aplicación de aprovisionamiento de escritura diferida de Workday no admite la opción **Sincronizar solo los usuarios y grupos asignados**.
+ 
+
 2. Haga clic en **Save**(Guardar).
 
 3. Esta operación iniciará la sincronización inicial, que puede tardar una cantidad de horas variable, según el número de usuarios que haya en el directorio de origen. Puede consultar en la barra de progreso el seguimiento del progreso del ciclo de sincronización. 
 
-4. En cualquier momento, compruebe la pestaña **Registros de auditoría** en Azure Portal para ver las acciones que ha realizado el servicio de aprovisionamiento. En los registros de auditoría se enumeran todos los eventos de sincronización individuales realizados por el servicio de aprovisionamiento, como, por ejemplo, qué usuarios se importan desde el origen y se exportan a la aplicación de destino.  
+4. En cualquier momento, compruebe la pestaña **Registros de aprovisionamiento** en Azure Portal para ver las acciones que ha realizado el servicio de aprovisionamiento. En los registros de auditoría se enumeran todos los eventos de sincronización individuales realizados por el servicio de aprovisionamiento, como, por ejemplo, qué usuarios se importan desde el origen y se exportan a la aplicación de destino.  
 
 5. Una vez completada la sincronización inicial, se escribe un informe resumido en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
 
      > [!div class="mx-imgBorder"]
      > ![Barra de progreso de aprovisionamiento](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+
+## <a name="known-issues-and-limitations"></a>Problemas y limitaciones conocidos
+
+* La aplicación de escritura diferida usa un valor predefinido para los parámetros **Communication_Usage_Type_ID** y **Phone_Device_Type_ID**. Si el inquilino de Workday usa un valor distinto para estos atributos, la operación de escritura diferida no se realizará correctamente. Una solución alternativa sugerida es actualizar las distintas funciones Type_ID en Workday. 
+* Cuando la aplicación de escritura diferida está configurada para actualizar los números de teléfono secundarios, no reemplaza el número de teléfono secundario existente en Workday. Agrega un número de teléfono secundario más al registro del trabajador. No hay ninguna solución alternativa para este comportamiento. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

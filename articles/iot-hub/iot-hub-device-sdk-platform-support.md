@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4081fe8ba97ba2dd27680cf5f0fa60abd59e44a9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423089"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072278"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Compatibilidad de plataformas de SDK de dispositivo IoT de Azure
 
@@ -60,7 +60,7 @@ El [SDK de dispositivo Azure IoT Hub para Python](https://github.com/Azure/azure
 | SO                  | Compilador                          |
 |---------------------|-----------------------------------|
 | Linux               | Python 2.7.*, 3.5 o versiones posteriores |
-| MacOS High Sierra   | Python 2.7.*, 3.5 o versiones posteriores |
+| macOS High Sierra   | Python 2.7.*, 3.5 o versiones posteriores |
 | Familia de productos de Windows 10   | Python 2.7.*, 3.5 o versiones posteriores |
 
 Solo Python versión 3.5.3 o posterior admite las API asincrónicas; se recomienda usar la versión 3.7 o posterior.
@@ -120,7 +120,7 @@ Microsoft trabaja con varios asociados para ampliar continuamente el universo de
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Conexión a IoT Hub sin un SDK
 
-Si no puede usar alguno de los SDK de dispositivo IoT Hub, puede conectarse directamente a IoT Hub mediante las [API REST de IoT Hub](https://docs.microsoft.com/rest/api/iothub/) desde cualquier aplicación capaz de enviar y recibir solicitudes y respuestas HTTPS.
+Si no puede usar uno de los SDK de dispositivo IoT Hub, puede conectarse directamente a IoT Hub mediante un protocolo de comunicación compatible. Para más información, consulte [Desarrollo sin un SDK de Azure IoT](iot-hub-devguide-no-sdk.md).
 
 ## <a name="support-and-other-resources"></a>Compatibilidad y otros recursos
 

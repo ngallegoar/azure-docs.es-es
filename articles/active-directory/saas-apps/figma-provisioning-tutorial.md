@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: d88b8f2a6cc66e239706677bd1ebfe01bccd49af
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322043"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850921"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutorial: Configuración de Figma para el aprovisionamiento automático de usuarios
 
@@ -53,23 +53,23 @@ Antes de configurar Figma para el aprovisionamiento automático de usuarios con 
 
 1. Inicie sesión en la [consola de administración de Figma](https://www.Figma.com/). Haga clic en el icono de engranaje que se encuentra junto al inquilino.
 
-    ![FigmaFigma-employee-provision](media/Figma-provisioning-tutorial/image0.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/image0.png" alt-text="Captura de pantalla de la consola de administración de Figma. Se ve un inquilino denominado AAD Scim Test (Prueba de SCIM de AAD). Junto al inquilino, se resalta un icono de engranaje." border="false":::
 
 2. Vaya a **General > Actualizar el registro en la configuración**.
 
-    ![FigmaFigma-employee-provision](media/Figma-provisioning-tutorial/figma03.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Captura de pantalla de la consola de administración de Figma. Se ve un inquilino denominado AAD Scim Test (Prueba de SCIM de AAD). Junto al inquilino, se resalta un icono de engranaje." border="false":::
 
 3. Copie el **Id. de inquilino**. Este valor se usa para construir la dirección URL del punto de conexión SCIM que se va a especificar en el campo **URL de inquilino** de la pestaña Aprovisionamiento de la aplicación Figma en Azure Portal.
 
-    ![Figma: Crear token](media/Figma-provisioning-tutorial/figma-tenantid.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Captura de pantalla de la consola de administración de Figma. Se ve un inquilino denominado AAD Scim Test (Prueba de SCIM de AAD). Junto al inquilino, se resalta un icono de engranaje." border="false":::
 
 4. Desplácese hacia abajo y haga clic en **Generar token de API**.
 
-    ![Figma: Crear token](media/Figma-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Captura de pantalla de la consola de administración de Figma. Se ve un inquilino denominado AAD Scim Test (Prueba de SCIM de AAD). Junto al inquilino, se resalta un icono de engranaje." border="false":::
 
 5. Copie el valor **Token de API**. Este valor se escribe en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación Figma en Azure Portal. 
 
-    ![Figma: Crear token](media/Figma-provisioning-tutorial/figma04.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Captura de pantalla de la consola de administración de Figma. Se ve un inquilino denominado AAD Scim Test (Prueba de SCIM de AAD). Junto al inquilino, se resalta un icono de engranaje." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Agregar Figma desde la galería
 

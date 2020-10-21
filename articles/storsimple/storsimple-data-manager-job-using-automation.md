@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 2562e7463ba0a79cf77d21f3bb619f13283c989d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514933"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743614"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Uso de Azure Automation para desencadenar un trabajo
 
@@ -41,7 +41,7 @@ Antes de comenzar, asegúrese de que dispone de:
 
 2. Para agregar una nueva cuenta de automatización, haga clic en **+ Agregar**.
 
-    ![Creación de una cuenta de ejecución de Automation](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
+    ![Creación de una cuenta de ejecución de Automation 2](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
 3. En **Agregar automatización**:
 
@@ -52,7 +52,7 @@ Antes de comenzar, asegúrese de que dispone de:
    5. Deje la opción predeterminada **Crear cuenta de ejecución** seleccionada.
    6. Para obtener un vínculo para acceso rápido al panel, consulte **Anclar al panel**. Haga clic en **Crear**.
 
-      ![Creación de una cuenta de ejecución de Automation](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Creación de una cuenta de ejecución de Automation 3](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
       Recibirá una notificación cuando la cuenta de automatización se cree correctamente.
     

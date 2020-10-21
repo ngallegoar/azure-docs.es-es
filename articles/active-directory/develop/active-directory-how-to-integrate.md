@@ -1,5 +1,6 @@
 ---
-title: Integración con la Plataforma de identidad de Microsoft
+title: Integración con la Plataforma de identidad de Microsoft | Azure
+titleSuffix: Microsoft identity platform
 description: Descubra las ventajas de integrar su aplicación con la Plataforma de identidad de Microsoft y obtenga recursos para características como el inicio de sesión simplificado, la administración de identidades, la autenticación multifactor y el control de acceso.
 services: active-directory
 author: rwike77
@@ -8,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 10/01/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: bdeb27f9e761fefc52c9c97b28d15770e22221f4
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e9724bb2e5377f84904dc77c33375c39f3077dd4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706173"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631416"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Integración con la Plataforma de identidad de Microsoft
 
@@ -47,7 +48,7 @@ Hay varias maneras de integrar la aplicación con la Plataforma de identidad de 
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Obtenga acceso al perfil del usuario, el calendario, el correo electrónico, los contactos, los archivos, etc.
 
-**La Plataforma de identidad de Microsoft es el servidor de autorización para Microsoft 365 y otros servicios empresariales de Microsoft.**  Si admite la Plataforma de identidad de Microsoft para el inicio de sesión en la aplicación o admite la vinculación de las cuentas de usuario actuales con cuentas de usuario de Azure AD mediante OAuth 2.0, puede solicitar acceso de lectura y escritura al perfil, el calendario, el correo electrónico, los contactos, los archivos y otra información del usuario. Puede escribir sin problemas eventos para el calendario de usuario y leer o escribir  archivos en OneDrive. Obtenga más información sobre el [acceso a la API de Microsoft 365](/previous-versions/office/office-365-api/).
+**La Plataforma de identidad de Microsoft es el servidor de autorización para Microsoft 365 y otros servicios empresariales de Microsoft.**  Si admite la Plataforma de identidad de Microsoft para el inicio de sesión en la aplicación o admite la vinculación de las cuentas de usuario actuales con cuentas de usuario de Azure AD mediante OAuth 2.0, puede solicitar acceso de lectura y escritura al perfil, el calendario, el correo electrónico, los contactos, los archivos y otra información del usuario. Puede escribir sin problemas eventos para el calendario de usuario y leer o escribir  archivos en OneDrive. Obtenga más información sobre [las API de Microsoft 365](/graph/overview).
 
 ### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Promueva su aplicación en Azure Marketplace y el Catálogo de soluciones de Microsoft 365
 

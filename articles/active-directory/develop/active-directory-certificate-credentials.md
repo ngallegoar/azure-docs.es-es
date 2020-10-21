@@ -9,26 +9,26 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6330621aac78d5e9df52f2cd3ad9c3968bb0120d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 77e34e4a18012f15b9e907e3b9efc1965b98f824
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853380"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91612127"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft
 
-La Plataforma de identidad de Microsoft permite que una aplicación use sus propias credenciales para la autenticación, por ejemplo, en el flujo de [concesión de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) de OAuth 2.0 y el flujo [con derechos delegados](v2-oauth2-on-behalf-of-flow.md) (OBO).
+La Plataforma de identidad de Microsoft permite que una aplicación use sus propias credenciales para la autenticación en cualquier parte que podría usarse un secreto de cliente, por ejemplo, en el flujo de [concesión de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) de OAuth 2.0 y el flujo [con derechos delegados](v2-oauth2-on-behalf-of-flow.md) (OBO).
 
 Un formato de credencial que una aplicación puede utilizar para la autenticación es una aserción de [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) firmada con un certificado que la aplicación posea.
 
 ## <a name="assertion-format"></a>Formato de aserción
 
-Para calcular la aserción, puede usar una de las muchas bibliotecas de JWT en el lenguaje que prefiera. La información la lleva el token en el [encabezado](#header), las [notificaciones](#claims-payload) y la [firma](#signature).
+Para calcular la aserción, puede usar una de las muchas bibliotecas de JWT en el lenguaje que prefiera. [MSAL admite esto mediante `.WithCertificate()`](msal-net-client-assertions.md). La información la lleva el token en el [encabezado](#header), las [notificaciones](#claims-payload) y la [firma](#signature).
 
 ### <a name="header"></a>Encabezado
 
@@ -40,14 +40,14 @@ Para calcular la aserción, puede usar una de las muchas bibliotecas de JWT en e
 
 ### <a name="claims-payload"></a>Notificaciones (carga útil)
 
-| Parámetro |  Observaciones |
-| --- | --- |
-| `aud` | Audience: debe ser `https://login.microsoftonline.com/<your-tenant-id>/oauth2/token`. |
-| `exp` | Fecha de expiración: fecha en la que expira el token. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que la validez del token expira. Se recomienda usar un tiempo de expiración corto: de 10 minutos a una hora.|
-| `iss` | Emisor: debe ser el valor de client_id (*identificador de la aplicación (cliente)* del servicio de cliente) |
-| `jti` | GUID: identificador de JWT |
-| `nbf` | No antes de: fecha antes de la cual el token no se puede usar. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que se creó la aserción. |
-| `sub` | Asunto: debe ser el valor de client_id (*identificador de la aplicación (cliente)* del servicio de cliente), como en el caso de `iss`. |
+Tipo de notificación | Value | Descripción
+---------- | ---------- | ----------
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | La notificación "aud" (audiencia) identifica los destinatarios para los que está previsto el JWT (en este caso Azure AD) Vea [RFC 7519, sección 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  En este caso, el destinatario es el servidor de inicio de sesión (login.microsoftonline.com).
+exp | 1601519414 | La notificación "exp" (fecha de expiración) identifica la hora de expiración en la que o después de la que el token JWT no debe ser aceptado para su procesamiento. Vea [RFC 7519, Sección 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Esto permite que la aserción se use hasta entonces, por lo que debe mantenerse a menos de 5-10 minutos después de `nbf` como máximo.  En la actualidad, Azure AD no impone restricciones en el tiempo de `exp`. 
+iss | {ClientID} | La notificación "iss" (emisor) identifica la entidad de seguridad que ha emitido el JWT; en este caso, la aplicación cliente.  Use el identificador de aplicación GUID.
+jti | (un GUID) | La notificación "jti" (Id. de JWT) proporciona un identificador único para el JWT. El valor del identificador se DEBE asignar de forma que se garantice que hay una probabilidad insignificante de que el mismo valor se asigne por accidente a otro objeto de datos; si en la aplicación se usan varios emisores, también se DEBEN evitar las colisiones entre los valores generados por otros emisores. El valor "jti" es una cadena que distingue mayúsculas de minúsculas. [RFC 7519, Sección 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7).
+nbf | 1601519114 | La notificación "nbf" (no antes de) identifica la hora antes de la cual no debe ser aceptado el token JWT para su procesamiento. [RFC 7519, Sección 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  El uso de la hora actual es adecuado. 
+sub | {ClientID} | La notificación "sub" (asunto) identifica el asunto del JWT; en este caso, también su aplicación. Use el mismo valor que `iss`. 
 
 ### <a name="signature"></a>Firma
 
@@ -126,7 +126,18 @@ En el registro de aplicación de Azure para la aplicación cliente:
 3. Guarde las modificaciones en el manifiesto de aplicación y cárguelo en la plataforma de identidad de Microsoft.
 
    La propiedad `keyCredentials` es multivalor, por lo que puede cargar varios certificados para una administración de claves más eficaz.
+   
+## <a name="using-a-client-assertion"></a>Uso de una aserción de cliente
+
+Las aserciones de cliente se pueden usar en cualquier lugar en el que se use un secreto de cliente.  Por ejemplo, en el [flujo de código de autorización](v2-oauth2-auth-code-flow.md), puede pasar un objeto `client_secret` para demostrar que la solicitud procede de la aplicación. Puede reemplazarlo por parámetros `client_assertion` y `client_assertion_type`. 
+
+| Parámetro | Value | Descripción|
+|-----------|-------|------------|
+|`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| Se trata de un valor fijo, que indica que está usando una credencial de certificado. |
+|`client_assertion`| JWT |Este es el JWT creado anteriormente. |
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+La biblioteca [MSAL.NET controla este escenario](msal-net-client-assertions.md) en una sola línea de código.
 
 En el ejemplo de código [Aplicación de consola de demonio de .NET Core con la Plataforma de identidad de Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) de GitHub se muestra cómo utiliza una aplicación sus propias credenciales para la autenticación. También se muestra cómo se puede [crear un certificado autofirmado](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) mediante el cmdlet de PowerShell `New-SelfSignedCertificate`. También puede usar los [scripts de creación de aplicaciones](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) del repositorio de ejemplos para crear los certificados, calcular la huella digital, etc.

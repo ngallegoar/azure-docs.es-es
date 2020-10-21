@@ -1,14 +1,14 @@
 ---
 title: Bloqueo de recursos
 description: Obtenga más información sobre las opciones de bloqueo de Azure Blueprints para proteger los recursos cuando asigne un plano técnico.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d400abce5d428c01b43cdda38a5c6f0df2d4db8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 8ac5c918a3c370b9d8e88800e05f83e585550e3c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651942"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91744022"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
@@ -33,7 +33,7 @@ Los recursos creados por los artefactos en una asignación de plano técnico tie
 
 ## <a name="overriding-locking-states"></a>Sustitución de los estados de bloqueo
 
-Es típico que alguien con el[control de acceso basado en roles](../../../role-based-access-control/overview.md) (RBAC) adecuado en la suscripción, como el rol "Propietario", pueda modificar o eliminar cualquier recurso. Este acceso no es el caso cuando Azure Blueprints aplica el bloqueo como parte de una asignación implementada. Si la asignación se estableció con la opción **Solo lectura** o **No eliminar**, ni siquiera el propietario de la suscripción puede realizar la acción bloqueada en el recurso protegido.
+Es típico que alguien con el [control de acceso basado en roles de Azure](../../../role-based-access-control/overview.md) (Azure RBAC) adecuado en la suscripción, como el rol "Propietario", pueda modificar o eliminar cualquier recurso. Este acceso no es el caso cuando Azure Blueprints aplica el bloqueo como parte de una asignación implementada. Si la asignación se estableció con la opción **Solo lectura** o **No eliminar**, ni siquiera el propietario de la suscripción puede realizar la acción bloqueada en el recurso protegido.
 
 Esta medida de seguridad protege la coherencia del plano técnico definido y el entorno en el que se ha diseñado para crear a partir de una eliminación o modificación accidental o mediante programación.
 
@@ -101,7 +101,7 @@ Cuando se quita la asignación, se quitan los bloqueos creados por Azure Bluepri
 
 ## <a name="how-blueprint-locks-work"></a>Cómo funcionan los bloqueos de los planos técnicos
 
-Una acción denegación [denegar asignaciones](../../../role-based-access-control/deny-assignments.md) de RBAC se aplica a los recursos de artefactos durante la asignación de un plano técnico si la asignación ha seleccionado la opción **Solo lectura** o **No eliminar**. La identidad administrada de la asignación del plano técnico agrega la acción de denegación, y solo la misma identidad administrada puede eliminar los recursos del artefacto. Esta medida de seguridad refuerza el mecanismo de bloqueo y evita que se quite el bloqueo del plano técnico fuera de Azure Blueprints.
+Una acción denegación [denegar asignaciones](../../../role-based-access-control/deny-assignments.md) de Azure RBAC se aplica a los recursos de artefactos durante la asignación de un plano técnico si la asignación ha seleccionado la opción **Solo lectura** o **No eliminar**. La identidad administrada de la asignación del plano técnico agrega la acción de denegación, y solo la misma identidad administrada puede eliminar los recursos del artefacto. Esta medida de seguridad refuerza el mecanismo de bloqueo y evita que se quite el bloqueo del plano técnico fuera de Azure Blueprints.
 
 :::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Captura de pantalla de la página Control de acceso (I A M) y la pestaña Asignaciones de denegación para un grupo de recursos." border="false":::
 
@@ -109,8 +109,8 @@ Las [propiedades de asignación de denegación](../../../role-based-access-contr
 
 |Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Solo lectura |**\*** |**\*/read** |SystemDefined (Todos) |asignación de plano técnico y definición del usuario en **excludedPrincipals** |Grupo de recursos: _true_; Recurso: _false_ |
-|No eliminar |**\*/delete** | |SystemDefined (Todos) |asignación de plano técnico y definición del usuario en **excludedPrincipals** |Grupo de recursos: _true_; Recurso: _false_ |
+|Solo lectura |**\*** |**\*/read**<br />**Microsoft.Authorization/locks/delete**<br />**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Todos) |asignación de plano técnico y definición del usuario en **excludedPrincipals** |Grupo de recursos: _true_; Recurso: _false_ |
+|No eliminar |**\*/delete** | **Microsoft.Authorization/locks/delete**<br />**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Todos) |asignación de plano técnico y definición del usuario en **excludedPrincipals** |Grupo de recursos: _true_; Recurso: _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager almacena en caché los detalles de asignación de roles durante un máximo de 30 minutos. Como resultado, la acción de denegación denegar asignaciones puede que no funcione completamente en los recursos de plano técnico. Durante este período de tiempo es posible eliminar un recurso diseñado para estar protegido por bloqueos de plano técnico.
@@ -161,7 +161,7 @@ En algunos escenarios de diseño y seguridad, puede que necesite excluir una ent
 
 ## <a name="exclude-an-action-from-a-deny-assignment"></a>Exclusión de una acción en una asignación de denegación
 
-De forma similar a la [exclusión de una entidad de seguridad](#exclude-a-principal-from-a-deny-assignment) en una [asignación de denegación](../../../role-based-access-control/deny-assignments.md) de la asignación de un plano técnico, puede excluir [operaciones de RBAC](../../../role-based-access-control/resource-provider-operations.md) específicas. En el bloque **properties.locks**, en el mismo lugar donde está **excludedPrincipals**, se puede agregar **excludedActions**:
+De forma similar a la [exclusión de una entidad de seguridad](#exclude-a-principal-from-a-deny-assignment) en una [asignación de denegación](../../../role-based-access-control/deny-assignments.md) de la asignación de un plano técnico, puede excluir [operaciones del proveedor de recursos de Azure](../../../role-based-access-control/resource-provider-operations.md) específicas. En el bloque **properties.locks**, en el mismo lugar donde está **excludedPrincipals**, se puede agregar **excludedActions**:
 
 ```json
 "locks": {
@@ -177,7 +177,7 @@ De forma similar a la [exclusión de una entidad de seguridad](#exclude-a-princi
 },
 ```
 
-Aunque **excludedPrincipals** debe ser explícito, las entradas de **excludedActions** pueden usar `*` como carácter comodín para las operaciones de RBAC.
+Aunque **excludedPrincipals** debe ser explícito, las entradas de **excludedActions** pueden usar `*` como carácter comodín para las operaciones del proveedor de recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

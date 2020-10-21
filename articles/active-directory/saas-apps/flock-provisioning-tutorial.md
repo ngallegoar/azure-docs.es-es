@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: bb6ad9aae5f92f03ea5bfacc028973e4c4a6dbea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 636bb4c3340f13046706bf887119108b86b6a660
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91312631"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850914"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Tutorial: Configuración de Flock para aprovisionar usuarios automáticamente
 
@@ -54,15 +54,15 @@ Antes de configurar Flock para el aprovisionamiento automático de usuarios con 
 
 1. Inicie sesión en [Flock](https://web.flock.com/?). Haga clic en el **icono de configuración** > **Manage your team** (Administrar equipo).
 
-    ![Flock](media/flock-provisioning-tutorial/icon.png)
+    :::image type="content" source="media/flock-provisioning-tutorial/icon.png" alt-text="Captura de pantalla del sitio web de Flock. El icono de configuración está resaltado y se ve su menú contextual. En ese menú, se resalta la opción Manage your team (Administración equipo)." border="false":::
 
 2. Seleccione **Auth and Provisioning** (Autenticación y aprovisionamiento).
 
-    ![Flock](media/Flock-provisioning-tutorial/auth.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Captura de pantalla del sitio web de Flock. El icono de configuración está resaltado y se ve su menú contextual. En ese menú, se resalta la opción Manage your team (Administración equipo)." border="false":::
 
 3. Copie el **token de API**. Estos valores se escriben en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación Flock en Azure Portal.
 
-    ![Flock](media/Flock-provisioning-tutorial/provisioning.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Captura de pantalla del sitio web de Flock. El icono de configuración está resaltado y se ve su menú contextual. En ese menú, se resalta la opción Manage your team (Administración equipo)." border="false":::
 
 
 ## <a name="add-flock--from-the-gallery"></a>Incorporación de Flock desde la galería

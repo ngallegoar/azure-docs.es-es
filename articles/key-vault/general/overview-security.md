@@ -3,19 +3,18 @@ title: Seguridad de Azure Key Vault
 description: Administración de los permisos de acceso para Azure Key Vault, claves y secretos. Trata sobre el modelo de autenticación y autorización de Key Vault y cómo proteger un almacén de claves.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4c0430f96934c16a26ca3ab908da6aa017810ad0
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377580"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91739697"
 ---
 # <a name="azure-key-vault-security"></a>Seguridad de Azure Key Vault
 
@@ -76,21 +75,16 @@ Una vez que las reglas del firewall están en vigor, los usuarios solo pueden le
 
 Para obtener más información sobre las direcciones de red de Azure Key Vault, revise [Puntos de conexión de servicio de red virtual para Azure Key Vault](overview-vnet-service-endpoints.md))
 
-## <a name="monitoring"></a>Supervisión
+## <a name="tls-and-https"></a>TLS y HTTPS
 
-Los registros de Key Vault guardan información acerca de las actividades realizadas en el almacén. Key Vault registra lo siguiente:
+*   El front-end de Key Vault (plano de datos) es un servidor de varios inquilinos. Esto significa que los almacenes de claves de distintos clientes pueden compartir la misma dirección IP pública. Con el fin de lograr el aislamiento, cada solicitud HTTP se autentica y autoriza con independencia de otras solicitudes.
+*   Puede identificar versiones anteriores de TLS para notificar las vulnerabilidades, pero debido a que la dirección IP pública está compartida, no es posible que el equipo de servicio de Key Vault deshabilite las versiones anteriores de TLS para almacenes de claves individuales en el nivel de transporte.
+*   El protocolo HTTPS permite al cliente participar en la negociación de TLS. Los **clientes pueden aplicar la última versión de TLS** y, cada vez que un cliente lo hace, toda la conexión usará la protección de nivel correspondiente. El hecho de que Key Vault siga siendo compatible con versiones anteriores de TLS no afectará a la seguridad de las conexiones con las versiones más recientes de TLS.
+*   A pesar de las vulnerabilidades conocidas del protocolo TLS, no hay ningún ataque conocido que permita a un agente malintencionado extraer cualquier información de su almacén de claves cuando el atacante inicie una conexión con una versión de TLS que tenga vulnerabilidades. El atacante todavía tendría que autenticarse y autorizarse a sí mismo, y siempre y cuando los clientes legítimos se conecten siempre con versiones de TLS recientes, no existe la posibilidad de que las credenciales se hayan filtrado de las vulnerabilidades de versiones de TLS anteriores.
 
-- Todas las solicitudes autenticadas de API REST, incluidas las solicitudes con error.
-  - Las operaciones en el almacén de claves. Estas operaciones incluyen la creación, eliminación y definición de políticas de acceso, y la actualización de los atributos del almacén de claves, como las etiquetas.
-  - Las operaciones en claves y secretos del almacén de claves, incluido lo siguiente:
-    - Crear, modificar o eliminar estas claves o secretos.
-    - Firmar, comprobar, cifrar, descifrar, encapsular y desencapsular claves, obtener secretos y elaborar listados de claves y secretos (y sus versiones).
-- Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o que tienen un token no válido.
+## <a name="logging-and-monitoring"></a>Registro y supervisión
 
-Puede acceder a la información de registro 10 minutos después de la operación del almacén de claves. Es decisión suya administrar los registros en la cuenta de almacenamiento.
-
-- Utilice los métodos de control de acceso de Azure estándar para proteger los registros mediante la restricción de quién puede tener acceso a ellos.
-- Elimine los registros que ya no desee mantener en la cuenta de almacenamiento.
+Los registros de Key Vault guardan información acerca de las actividades realizadas en el almacén. Para obtener información completa, vea [Registro de Key Vault](logging.md).
 
 Para obtener recomendaciones sobre la administración segura de las cuentas de almacenamiento, revise la [guía de seguridad de Azure Storage](../../storage/blobs/security-recommendations.md).
 
@@ -98,4 +92,3 @@ Para obtener recomendaciones sobre la administración segura de las cuentas de a
 
 - [Puntos de conexión de servicio de red virtual para Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: roles integrados](../../role-based-access-control/built-in-roles.md)
-

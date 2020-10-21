@@ -7,20 +7,20 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/24/2020
-ms.openlocfilehash: e47cd89b2f0a5de4e0fc7663f37a2960e2ada971
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 10/08/2020
+ms.openlocfilehash: 1845de8332287f85e96b4e29c40caa66cb8704d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078641"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856677"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes AS2 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
 > [!IMPORTANT]
 > El conector AS2 original está en desuso, por lo que, a menos que necesite funcionalidades de seguimiento, use mejor el conector **AS2 (v2)** . Excepto seguimiento, el conector v2 proporciona las mismas funcionalidades que la versión original, es nativo del entorno de ejecución de Logic Apps y presenta importantes mejoras de rendimiento en cuanto al tamaño de los mensajes, la capacidad de proceso y la latencia. Además, el conector v2 no requiere la creación de una conexión a la cuenta de integración. En su lugar, tal y como se describe en los requisitos previos, asegúrese de vincular la cuenta de integración a la aplicación lógica donde planea usar el conector.
 
-Para trabajar con mensajes AS2 en Azure Logic Apps, puede usar el conector AS2, que proporciona los desencadenadores y acciones necesarios para administrar las comunicaciones AS2. Por ejemplo, para garantizar la seguridad y confiabilidad al transmitir mensajes, puede utilizar estas acciones:
+Para trabajar con mensajes AS2 en Azure Logic Apps, puede usar el conector AS2, que proporciona los desencadenadores y acciones que admiten y administran las comunicaciones AS2 (versión 1.2). Por ejemplo, para garantizar la seguridad y confiabilidad al transmitir mensajes, puede utilizar estas acciones:
 
 * La acción [**Codificar con AS2**](#encode) para proporcionar firmas digitales, cifrado y confirmaciones mediante las notificaciones de disposición del mensaje (MDN), lo que ayuda a admitir la recepción sin rechazo. Por ejemplo, esta acción se aplica a los encabezados AS2/HTTP y realiza estas tareas cuando se configura:
 

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 3b618513965298889fb656750419dedd79729f7f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e006dd690e9c008afada8a490da6c3238bc0791
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536477"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91565418"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configuración de recuperación ante desastres entre regiones para cuentas de integración: Azure Logic Apps
 
@@ -98,15 +98,15 @@ Seleccione comprobar la configuración duplicada en la configuración de recepci
 
 3. Escriba un nombre de conexión, seleccione la *cuenta de integración de la región primaria* en la lista y seleccione **Crear**.   
 
-   ![Nombre de la cuenta de integración de la región primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
+   ![Captura de pantalla que muestra dónde escribir un nombre de conexión y seleccionar la cuenta de integración de la región primaria. ](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
 
 4. La configuración **DateTime para iniciar la sincronización de números de control** es opcional. La **frecuencia** se puede establecer en **Día**, **Hora**, **Minuto** o **Segundo** con un intervalo.   
 
-   ![DateTime y frecuencia](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![Captura de pantalla que muestra la opción Fecha y hora en la que iniciar la sincronización del número de control.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
 5. Seleccione **Nuevo paso** > **Agregar una acción**.
 
-   ![Nuevo paso y Agregar una acción](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![Captura de pantalla que muestra el botón Nuevo paso y la opción Agregar una acción.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
 6. Busque en **X12** y seleccione **X12: Permite agregar o actualizar números de control**.   
 
@@ -114,11 +114,11 @@ Seleccione comprobar la configuración duplicada en la configuración de recepci
 
 7. Para conectar una acción a la cuenta de integración de una región secundaria, seleccione **Cambiar conexión** > **Agregar nueva conexión** para ver una lista de las cuentas de integración disponibles. Escriba un nombre de conexión, seleccione la *cuenta de integración de la región secundaria* en la lista y haga clic en **Crear**. 
 
-   ![Nombre de la cuenta de integración de la región secundaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![Captura de pantalla que muestra dónde agregar el nombre de la cuenta de integración de una región secundaria.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
 8. Cambie a entradas sin procesar haciendo clic en el icono situado en la esquina superior derecha.
 
-   ![Cambiar a entradas sin procesar](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
+   ![Captura de pantalla que muestra el icono que se debe seleccionar para cambiar a sin formato.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
 
 9. Seleccione Cuerpo en el selector de contenido dinámico y guarde la aplicación lógica.
 
@@ -140,7 +140,7 @@ La continuidad empresarial de los documentos EDI EDIFACT se basa en los números
 
 Seleccione comprobar la configuración duplicada en la configuración de recepción de contrato EDIFACT a fin de habilitar la recuperación ante desastres para los mensajes entrantes.
 
-![Seleccionar comprobar la configuración duplicada](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
+![Captura de pantalla que muestra la configuración de comprobación duplicada en la configuración de recepción del contrato EDIFACT.](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
 1. Cree una [aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) en una región secundaria.    
 
@@ -157,27 +157,27 @@ Seleccione comprobar la configuración duplicada en la configuración de recepci
 
 4. La configuración **DateTime para iniciar la sincronización de números de control** es opcional. La **frecuencia** se puede establecer en **Día**, **Hora**, **Minuto** o **Segundo** con un intervalo.    
 
-   ![DateTime y frecuencia](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![Captura de pantalla que muestra la configuración de fecha y hora y frecuencia.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
 6. Seleccione **Nuevo paso** > **Agregar una acción**.    
 
-   ![Nuevo paso y Agregar una acción](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![Captura de pantalla que muestra dónde seleccionar Agregar una acción.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
 7. Busque en **EDIFACT** y seleccione **EDIFACT: Permite agregar o actualizar números de control**.   
 
-   ![Agregar o actualizar los números de control](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Captura de pantalla que muestra dónde agregar o actualizar números de control.](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. Para conectar una acción a la cuenta de integración de una región secundaria, seleccione **Cambiar conexión** > **Agregar nueva conexión** para ver una lista de las cuentas de integración disponibles. Escriba un nombre de conexión, seleccione la *cuenta de integración de la región secundaria* en la lista y haga clic en **Crear**.
 
-   ![Nombre de la cuenta de integración de la región secundaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![Cree el nombre de la cuenta de integración de una región secundaria.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
 9. Cambie a entradas sin procesar haciendo clic en el icono situado en la esquina superior derecha.
 
-   ![Cambiar a entradas sin procesar](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
+   ![Captura de pantalla que resalta el icono que se debe seleccionar si quiere cambiar a entradas sin procesar.](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
 
 10. Seleccione Cuerpo en el selector de contenido dinámico y guarde la aplicación lógica.   
 
-   ![Campos de contenido dinámico](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
+   ![Captura de pantalla que muestra el selector de contenido dinámico en el que puede seleccionar Cuerpo.](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
 
    Según el intervalo de tiempo, el desencadenador sondea la tabla de número de control recibido de la región primaria y extrae los nuevos registros.
    La acción los actualiza en la cuenta de integración de una región secundaria. 
@@ -205,7 +205,7 @@ La continuidad empresarial de los documentos que usan el protocolo AS2 se basa e
    
 3. Escriba un nombre de conexión, seleccione la *cuenta de integración de la región primaria* en la lista y seleccione **Crear**.
 
-   ![Nombre de la cuenta de integración de la región primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
+   ![Captura de pantalla que muestra dónde escribir un nombre de conexión cuando se crea un valor de MIC.](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
 4. La configuración **DateTime para iniciar la sincronización del valor MIC** es opcional. La **frecuencia** se puede establecer en **Día**, **Hora**, **Minuto** o **Segundo** con un intervalo.   
 

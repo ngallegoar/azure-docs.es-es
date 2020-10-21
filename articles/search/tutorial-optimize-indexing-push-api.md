@@ -7,29 +7,29 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 10/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb012fcc701e9dd18dbe1db5304807b4d96c2a86
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 13825422358fdddf6742353fbabaac0303b0c82e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757799"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973451"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Tutorial: Optimización de la indexación mediante la API de inserción
 
 Azure Cognitive Search admite [dos enfoques básicos](search-what-is-data-import.md) para importar datos a un índice de búsqueda: *insertar* los datos en el índice mediante programación, o bien señalar un [indexador de Azure Cognitive Search](search-indexer-overview.md) en un origen de datos admitido para *extraer* los datos.
 
-En este tutorial, se describe cómo indexar los datos de forma eficaz utilizando el [modelo de inserción](search-what-is-data-import.md#pushing-data-to-an-index) mediante la creación de solicitudes por lotes y el uso de una estrategia de reintento de retroceso exponencial. Es posible [descarga y ejecutar la aplicación](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). En este artículo, se explican los aspectos fundamentales de la aplicación y los factores que se deben tener en cuenta a la hora de indexar datos.
+En este tutorial, se describe cómo indexar los datos de forma eficaz utilizando el [modelo de inserción](search-what-is-data-import.md#pushing-data-to-an-index) mediante la creación de solicitudes por lotes y el uso de una estrategia de reintento de retroceso exponencial. Puede [descargar y ejecutar la aplicación de ejemplo](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). En este artículo, se explican los aspectos fundamentales de la aplicación y los factores que se deben tener en cuenta a la hora de indexar datos.
 
 En este tutorial, usará C# y el [SDK de .NET](/dotnet/api/overview/azure/search) para realizar las tareas siguientes:
 
 > [!div class="checklist"]
 > * Creación de un índice
 > * Prueba de varios tamaños de lote para determinar cuál es el más eficaz
-> * Indexación de datos de forma asincrónica
+> * Indexación de lotes de forma asincrónica
 > * Uso de varios subprocesos para aumentar las velocidades de indexación
-> * Uso de una estrategia de reintento de retroceso exponencial para volver a probar los elementos con errores
+> * Uso de una estrategia de reintento de retroceso exponencial para volver a probar los documentos con errores
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -45,7 +45,7 @@ Este tutorial requiere los siguientes servicios y herramientas:
 
 ## <a name="download-files"></a>Descarga de archivos
 
-El código fuente para este tutorial está disponible en la carpeta [optimize-data-indexing](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) del repositorio de GitHub [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+El código fuente para este tutorial está disponible en la carpeta [optimize-data-indexing/v11](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing/v11) del repositorio de GitHub [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="key-considerations"></a>Consideraciones clave
 
@@ -79,12 +79,11 @@ Las llamadas API requieren la dirección URL del servicio y una clave de acceso.
 
 1. Inicie Visual Studio y abra **OptimizeDataIndexing. sln**.
 1. En el Explorador de soluciones, abra **appsettings.json** para proporcionar información de conexión.
-1. Para `searchServiceName`, si la dirección URL completa es "https://my-demo-service.search.windows.net", el nombre del servicio que se va a proporcionar es "my-demo-service".
 
 ```json
 {
-  "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
-  "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
+  "SearchServiceUri": "https://{service-name}.search.windows.net",
+  "SearchServiceAdminApiKey": "",
   "SearchIndexName": "optimize-indexing"
 }
 ```
@@ -112,7 +111,7 @@ Esta sencilla aplicación de consola de C#/.NET realiza las siguientes tareas:
 
 ### <a name="creating-the-index"></a>Creación del índice
 
-Este programa de ejemplo usa el SDK de .NET para definir y crear un índice de Azure Cognitive Search. Aprovecha la clase [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder) para generar una estructura de índice a partir de una clase de modelo de datos de C#.
+Este programa de ejemplo usa el SDK de .NET para definir y crear un índice de Azure Cognitive Search. Aprovecha la clase `FieldBuilder` para generar una estructura de índice a partir de una clase de modelo de datos de C#.
 
 El modelo de datos se define mediante la clase Hotel, que también contiene referencias a la clase Address. FieldBuilder explora en profundidad varias definiciones de clase para generar una estructura de datos compleja para el índice. Se usan etiquetas de metadatos para definir los atributos de cada campo (por ejemplo, si permiten hacer búsquedas o clasificaciones).
 
@@ -120,27 +119,25 @@ Los siguientes fragmentos de código del archivo **Hotel.cs** muestran cómo se 
 
 ```csharp
 . . .
-[IsSearchable, IsSortable]
+[SearchableField(IsSortable = true)]
 public string HotelName { get; set; }
 . . .
 public Address Address { get; set; }
 . . .
 ```
 
-En el archivo **Program.cs**, el índice se define con un nombre y una colección de campos generados por el método `FieldBuilder.BuildForType<Hotel>()` y se crea como sigue:
+En el archivo **Program.cs**, el índice se define con un nombre y una colección de campos generados por el método `FieldBuilder.Build(typeof(Hotel))` y se crea como sigue:
 
 ```csharp
-private static async Task CreateIndex(string indexName, SearchServiceClient searchService)
+private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
 {
     // Create a new search index structure that matches the properties of the Hotel class.
     // The Address class is referenced from the Hotel class. The FieldBuilder
     // will enumerate these to create a complex data structure for the index.
-    var definition = new Index()
-    {
-        Name = indexName,
-        Fields = FieldBuilder.BuildForType<Hotel>()
-    };
-    await searchService.Indexes.CreateAsync(definition);
+    FieldBuilder builder = new FieldBuilder();
+    var definition = new SearchIndex(indexName, builder.Build(typeof(Hotel)));
+
+    await indexClient.CreateIndexAsync(definition);
 }
 ```
 
@@ -148,11 +145,12 @@ private static async Task CreateIndex(string indexName, SearchServiceClient sear
 
 Una clase simple se implementa en el archivo **DataGenerator.cs** para generar datos con fines de prueba. La única finalidad de esta clase es facilitar la generación de un gran número de documentos con un identificador único para la indexación.
 
-Para obtener una lista de los 100 000 hoteles con identificadores únicos, debe ejecutar las dos líneas de código siguientes:
+Para obtener una lista de los 100 000 hoteles con identificadores únicos, debe ejecutar las líneas de código siguientes:
 
 ```csharp
+long numDocuments = 100000;
 DataGenerator dg = new DataGenerator();
-List<Hotel> hotels = dg.GetHotels(100000, "large");
+List<Hotel> hotels = dg.GetHotels(numDocuments, "large");
 ```
 
 Hay dos tamaños de hotel disponibles para las pruebas de este ejemplo: **pequeño** y **grande**.
@@ -164,7 +162,7 @@ El esquema del índice puede tener un efecto significativo en las velocidades de
 Azure Cognitive Search admite las siguientes API para cargar uno o varios documentos en un índice:
 
 + [Agregar, Actualizar o Eliminar documentos (API de REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Clase indexAction](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) o [clase indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet)
++ [Clase IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) o [clase IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
 
 La indexación de documentos en lotes mejora significativamente el rendimiento de la indexación. Estos lotes pueden incluir hasta 1000 documentos o unos 16 MB por lote.
 
@@ -178,7 +176,7 @@ Dado que el tamaño de lote óptimo depende del índice y los datos, el mejor en
 La siguiente función muestra un enfoque sencillo para probar los tamaños de lote.
 
 ```csharp
-public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min = 100, int max = 1000, int step = 100, int numTries = 3)
+public static async Task TestBatchSizesAsync(SearchClient searchClient, int min = 100, int max = 1000, int step = 100, int numTries = 3)
 {
     DataGenerator dg = new DataGenerator();
 
@@ -192,7 +190,7 @@ public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min 
             List<Hotel> hotels = dg.GetHotels(numDocs, "large");
 
             DateTime startTime = DateTime.Now;
-            await UploadDocuments(indexClient, hotels);
+            await UploadDocumentsAsync(searchClient, hotels).ConfigureAwait(false);
             DateTime endTime = DateTime.Now;
             durations.Add(endTime - startTime);
 
@@ -208,22 +206,24 @@ public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min 
         // Pausing 2 seconds to let the search service catch its breath
         Thread.Sleep(2000);
     }
+
+    Console.WriteLine();
 }
 ```
 
 Dado que no todos los documentos tienen el mismo tamaño (aunque en este ejemplo sí lo tengan), calcularemos el tamaño de los datos que se van a enviar al servicio de búsqueda. Para ello, se usa la función siguiente que primero convierte el objeto al formato JSON y luego determina el tamaño en bytes. Esta técnica nos permite determinar qué tamaños de lote son más eficaces en términos de MB/s y de velocidades de indexación.
 
 ```csharp
+// Returns size of object in MB
 public static double EstimateObjectSize(object data)
 {
-    // converting data to json for more accurate sizing
-    var json = JsonConvert.SerializeObject(data);
-
     // converting object to byte[] to determine the size of the data
     BinaryFormatter bf = new BinaryFormatter();
     MemoryStream ms = new MemoryStream();
     byte[] Array;
 
+    // converting data to json for more accurate sizing
+    var json = JsonSerializer.Serialize(data);
     bf.Serialize(ms, json);
     Array = ms.ToArray();
 
@@ -234,10 +234,10 @@ public static double EstimateObjectSize(object data)
 }
 ```
 
-La función requiere un `ISearchIndexClient`, así como el número de intentos que deseamos probar con cada tamaño de lote. Como los tiempos de indexación de cada lote pueden variar, cada lote se prueba tres veces de forma predeterminada para que el valor estadístico de los resultados sea más significativo.
+La función requiere un `SearchClient`, así como el número de intentos que deseamos probar con cada tamaño de lote. Como los tiempos de indexación de cada lote pueden variar, cada lote se prueba tres veces de forma predeterminada para que el valor estadístico de los resultados sea más significativo.
 
 ```csharp
-await TestBatchSizes(indexClient, numTries: 3);
+await TestBatchSizesAsync(searchClient, numTries: 3);
 ```
 
 Al ejecutar la función, su consola debería mostrar resultados similares a los siguientes:
@@ -250,8 +250,8 @@ Identifique el tamaño de lote más eficaz y utilice ese tamaño de lote en el s
 
 Después de identificar el tamaño de lote que vamos a usar, el siguiente paso es empezar a indexar los datos. Para indexar los datos de forma eficaz, este ejemplo:
 
-* Usa varios subprocesos o trabajos.
-* Adopta una estrategia de reintentos de retroceso exponencial.
++ Usa varios subprocesos o trabajos.
++ Adopta una estrategia de reintentos de retroceso exponencial.
 
 ### <a name="use-multiple-threadsworkers"></a>Uso de varios subprocesos o trabajos
 
@@ -268,13 +268,16 @@ A medida que aumenta las solicitudes que alcanzan el servicio de búsqueda, pued
 
 Si se produce un error, las solicitudes deberán reintentarse utilizando una [estrategia de reintento de retroceso exponencial](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
-El SDK de Azure Cognitive Search para .NET reintenta automáticamente las solicitudes 503 y otras con error, pero es preciso que implemente su propia lógica para reintentar las solicitudes 207. También se pueden usar herramientas de código abierto como [Polly](https://github.com/App-vNext/Polly) para implementar una estrategia de reintento. 
+El SDK de Azure Cognitive Search para .NET reintenta automáticamente las solicitudes 503 y otras con error, pero es preciso que implemente su propia lógica para reintentar las solicitudes 207. También se pueden usar herramientas de código abierto como [Polly](https://github.com/App-vNext/Polly) para implementar una estrategia de reintento.
 
 En este ejemplo, implementamos una estrategia propia de reintento de retroceso exponencial. Para implementar esta estrategia, empezamos por definir algunas variables, como `maxRetryAttempts` y `delay` inicial para una solicitud que ha generado error:
 
 ```csharp
 // Create batch of documents for indexing
-IndexBatch<Hotel> batch = IndexBatch.Upload(hotels);
+var batch = IndexDocumentsBatch.Upload(hotels);
+
+// Create an object to hold the result
+IndexDocumentsResult result = null;
 
 // Define parameters for exponential backoff
 int attempts = 0;
@@ -282,9 +285,9 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-Es importante detectar [IndexBatchException](/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet), ya que estas excepciones indican que la operación de indexación no se llegó a completar correctamente (solicitudes 207). Los elementos con errores deben reintentarse mediante el método `FindFailedActionsToRetry` que facilita la creación de un nuevo lote que solo contenga elementos con errores.
+Los resultados de la operación de indexación se almacenan en la variable `IndexDocumentResult result`. Esta variable es importante porque permite comprobar si se produce algún error en algún documento del lote, tal y como se muestra a continuación. Si se produce un error parcial, se crea un nuevo lote basado en el identificador id. de los documentos con errores.
 
-También se detectarán las excepciones distintas de `IndexBatchException`, que indican que la solicitud ha generado un error. Estas excepciones son menos comunes, especialmente con el SDK para .NET, ya que reintenta las solicitudes 503 automáticamente.
+También se detectarán las excepciones de `RequestFailedException`, ya que indican que la solicitud ha generado un error y debe volver a intentarse.
 
 ```csharp
 // Implement exponential backoff
@@ -293,29 +296,46 @@ do
     try
     {
         attempts++;
-        var response = await indexClient.Documents.IndexAsync(batch);
-        break;
+        result = await searchClient.IndexDocumentsAsync(batch).ConfigureAwait(false);
+
+        var failedDocuments = result.Results.Where(r => r.Succeeded != true).ToList();
+
+        // handle partial failure
+        if (failedDocuments.Count > 0)
+        {
+            if (attempts == maxRetryAttempts)
+            {
+                Console.WriteLine("[MAX RETRIES HIT] - Giving up on the batch starting at {0}", id);
+                break;
+            }
+            else
+            {
+                Console.WriteLine("[Batch starting at doc {0} had partial failure]", id);
+                Console.WriteLine("[Retrying {0} failed documents] \n", failedDocuments.Count);
+
+                // creating a batch of failed documents to retry
+                var failedDocumentKeys = failedDocuments.Select(doc => doc.Key).ToList();
+                hotels = hotels.Where(h => failedDocumentKeys.Contains(h.HotelId)).ToList();
+                batch = IndexDocumentsBatch.Upload(hotels);
+
+                Task.Delay(delay).Wait();
+                delay = delay * 2;
+                continue;
+            }
+        }
+
+        return result;
     }
-    catch (IndexBatchException ex)
+    catch (RequestFailedException ex)
     {
-        Console.WriteLine("[Attempt: {0} of {1} Failed] - Error: {2}", attempts, maxRetryAttempts, ex.Message);
+        Console.WriteLine("[Batch starting at doc {0} failed]", id);
+        Console.WriteLine("[Retrying entire batch] \n");
 
         if (attempts == maxRetryAttempts)
+        {
+            Console.WriteLine("[MAX RETRIES HIT] - Giving up on the batch starting at {0}", id);
             break;
-
-        // Find the failed items and create a new batch to retry
-        batch = ex.FindFailedActionsToRetry(batch, x => x.HotelId);
-        Console.WriteLine("Retrying failed documents using exponential backoff...\n");
-
-        Task.Delay(delay).Wait();
-        delay = delay * 2;
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine("[Attempt: {0} of {1} Failed] - Error: {2} \n", attempts, maxRetryAttempts, ex.Message);
-
-        if (attempts == maxRetryAttempts)
-            break;
+        }
 
         Task.Delay(delay).Wait();
         delay = delay * 2;
@@ -325,10 +345,10 @@ do
 
 Desde aquí, encapsulamos el código de retroceso exponencial en una función que permita llamar al código fácilmente.
 
-A continuación, se crea otra función para administrar los subprocesos activos. Para simplificar las cosas, esa función no se incluye aquí, pero se puede ver en [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v10/OptimizeDataIndexing/ExponentialBackoff.cs). Es posible llamar a la función mediante el siguiente comando, donde `hotels` son los datos que queremos cargar, `1000` es el tamaño del lote y `8` es el número de subprocesos simultáneos:
+A continuación, se crea otra función para administrar los subprocesos activos. Para simplificar las cosas, esa función no se incluye aquí, pero se puede ver en [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v11/OptimizeDataIndexing/ExponentialBackoff.cs). Es posible llamar a la función mediante el siguiente comando, donde `hotels` son los datos que queremos cargar, `1000` es el tamaño del lote y `8` es el número de subprocesos simultáneos:
 
 ```csharp
-ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();
+await ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8);
 ```
 
 Al ejecutar la función, debería ver resultados similares a los siguientes:
@@ -337,7 +357,10 @@ Al ejecutar la función, debería ver resultados similares a los siguientes:
 
 Cuando un lote de documentos genera error, se imprime el error indicado y se reintenta el lote:
 
-![Error de la función de datos de índice](media/tutorial-optimize-data-indexing/index-data-error.png "Salida de la función de tamaño de lotes de pruebas")
+```
+[Batch starting at doc 6000 had partial failure]
+[Retrying 560 failed documents]
+```
 
 Una vez la función se ha ejecutado, puede comprobar si todos los documentos se han agregado al índice.
 
@@ -354,7 +377,7 @@ Hay dos opciones principales para comprobar el número de documentos en un índi
 La operación de recuento de documentos obtiene el número de documentos en un índice de búsqueda:
 
 ```csharp
-long indexDocCount = indexClient.Documents.Count();
+long indexDocCount = await searchClient.GetDocumentCountAsync();
 ```
 
 #### <a name="get-index-statistics"></a>Obtención de estadísticas de índice
@@ -362,7 +385,7 @@ long indexDocCount = indexClient.Documents.Count();
 La operación de obtención de estadísticas de índice devuelve un número de documentos para el índice actual, junto con el uso del almacenamiento. Las estadísticas de índice tardan más en actualizarse que el número de documentos.
 
 ```csharp
-IndexGetStatisticsResult indexStats = serviceClient.Indexes.GetStatistics(configuration["SearchIndexName"]);
+var indexStats = await indexClient.GetIndexStatisticsAsync(indexName);
 ```
 
 ### <a name="azure-portal"></a>Azure Portal

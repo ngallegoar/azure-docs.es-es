@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 6ca03e56d49d26fcd34a25ce1e3734db65b19b65
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 464e75e55bc67ce619134be01ba00f2606a271a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646839"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91709077"
 ---
 # <a name="create-a-consulting-service-offer"></a>Creación de una oferta de servicios de consultoría
 
@@ -25,7 +25,7 @@ Antes de crear la oferta, revise los requisitos previos en [Requisitos previos d
 Ventajas de publicar en Marketplace comercial:
 
 - Promocionar la empresa con la marca de Microsoft.
-- Llegar potencialmente a más de 100 millones de usuarios de Office 365 y Dynamics 365 en AppSource y a más de 200 000 organizaciones en Azure Marketplace.
+- Llegar potencialmente a más de 100 millones de usuarios de Microsoft 365 y Dynamics 365 en AppSource y a más de 200 000 organizaciones en Azure Marketplace.
 - Recibir clientes potenciales de alta calidad de estos mercados.
 - Promocionar sus servicios mediante los equipos de campo y televenta de Microsoft.
 
@@ -76,10 +76,10 @@ Al publicar la oferta en Marketplace con el Centro de partners, _debe_ conectarl
 
 Estos son algunos recursos adicionales de administración de clientes potenciales:
 
-- [Introducción a la administración de clientes potenciales](commercial-marketplace-get-customer-leads.md)
-- [Preguntas frecuentes de la administración de clientes potenciales](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Errores comunes de la configuración de clientes potenciales](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
-- [Introducción a la administración de clientes potenciales](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) en formato PDF (asegúrese de que el bloqueador de elementos emergentes está desactivado)
+- [Clientes potenciales a partir de la oferta en el marketplace comercial](commercial-marketplace-get-customer-leads.md)
+- [Preguntas habituales sobre la administración de clientes potenciales](../lead-management-faq.md#common-questions-about-lead-management)
+- [Solución de errores de configuración de clientes potenciales](../lead-management-faq.md#publishing-config-errors)
+- [Introducción a la administración de clientes potenciales](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) en formato PDF (asegúrese de que el bloqueador de elementos emergentes está desactivado).
 
 Seleccione **Guardar borrador** antes de continuar.
 
@@ -146,7 +146,7 @@ A continuación se muestra un ejemplo de cómo aparece la información en Azure 
 
 <br>A continuación se muestra un ejemplo de cómo aparece la información de la oferta en Microsoft AppSource (los precios mostrados son meramente ilustrativos y no pretenden reflejar los costos reales):
 
-:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Ilustración de cómo aparece esta oferta en Microsoft AppSource.":::
+:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -202,7 +202,7 @@ Agregue hasta tres (pero al menos uno) documentos PDF para la oferta.
 
 Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato .PNG. Las imágenes borrosas se rechazarán.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
@@ -247,7 +247,7 @@ Aquí podrá definir elementos como los precios, el mercado y una clave privada.
 
 Una vez que haya completado todas las secciones necesarias de la oferta, puede enviar la oferta para su revisión y publicación.
 
-1. Cuando esté listo para publicar la oferta del servicio de consultoría, haga clic en **Revisar y publicar**.
+1. Cuando esté listo para publicar la oferta del servicio de consultoría, seleccione **Revisar y publicar**.
 2. Revise los detalles de la página de envío final.
 3. Si es necesario, escriba una nota al equipo de certificación si cree que alguno de los detalles de la oferta requiere explicación.
 4. Cuando esté listo, seleccione **Enviar**.

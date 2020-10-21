@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 833e2a6f64301c39ba2b9e7959585c3edeab9445
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f02cbdc7ca8822c5fcc91b106856d7f8f547536b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072582"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91565112"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Intercambiar mensajes de RosettaNet para la integración empresarial B2B en Azure Logic Apps
 
@@ -197,7 +197,7 @@ Para acelerar el desarrollo y recomendar patrones de integración, puede usar pl
 
 1. Proporcione la información para las propiedades de la acción:
 
-   ![Proporcione los detalles de la acción](media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png)
+   ![Captura de pantalla que muestra dónde se proporciona la información de las propiedades de la acción.](media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png)
 
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 6253dd616ca184449f3f144d538c1ed20de54cc2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: d91d896da21d9d96e45c0eab3d5d895364f3e149
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566427"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077361"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -242,6 +242,9 @@ Sí. Si no ha anunciado rutas predeterminadas (0.0.0.0/0) o prefijos de rutas de
 ### <a name="can-i-block-internet-connectivity-to-virtual-networks-connected-to-expressroute-circuits"></a>¿Es posible bloquear la conectividad a Internet a redes virtuales conectadas a circuitos ExpressRoute?
 
 Sí. Puede anunciar rutas predeterminadas (0.0.0.0/0) para bloquear toda la conectividad de Internet a las máquinas virtuales implementadas en una red virtual y enrutar todo el tráfico de salida a través del circuito de ExpressRoute.
+
+> [!NOTE]
+> Si la ruta anunciada 0.0.0.0/0 se retira de las rutas anunciadas (por ejemplo, debido a una interrupción o a un error de configuración), Azure proporcionará una [ruta del sistema](../virtual-network/virtual-networks-udr-overview.md#system-routes) a los recursos en la red virtual conectada para proporcionar conectividad a Internet.  Para asegurar el bloqueo del tráfico de salida a Internet, se recomienda colocar un grupo de seguridad de red en todas las subredes con una regla de denegación de salida para el tráfico de Internet.
 
 Si anuncia rutas predeterminadas, forzaremos el tráfico a los servicios ofrecidos a través del emparejamiento de Microsoft (por ejemplo, Azure Storage y Base de datos SQL) de nuevo a sus instalaciones. Tendrá que configurar los enrutadores para devolver el tráfico a Azure a través de la ruta de acceso de emparejamiento de Microsoft o Internet. Si ha habilitado un punto de conexión de servicio para el servicio, el tráfico del servicio no se fuerza a las instalaciones. El tráfico permanece dentro de la red troncal de Azure. Para más información sobre los puntos de conexión de servicio, vea [Puntos de conexión del servicio](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json).
 

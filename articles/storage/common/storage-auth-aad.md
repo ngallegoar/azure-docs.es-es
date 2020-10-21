@@ -10,16 +10,16 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2fd0269744c7ee49c72806e3cb0e1227035de4f0
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f681a271dcd64468cb471c81496e489f0ce8413f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019179"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91713664"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorización del acceso a blobs y colas con Azure Active Directory
 
-Azure Storage admite el uso de Azure Active Directory (AD) para autorizar solicitudes a Blob Storage y Queue Storage. Con Azure AD, puede usar el control de acceso basado en rol (RBAC) para conceder permisos a una entidad de seguridad, que puede ser un usuario, un grupo o una entidad de servicio de aplicación. Azure AD autentica la entidad de seguridad para devolver un token de OAuth 2.0. A continuación, el token se puede usar para autorizar una solicitud en Blob Storage o Queue Storage.
+Azure Storage admite el uso de Azure Active Directory (AD) para autorizar solicitudes a Blob Storage y Queue Storage. Con Azure AD, puede usar el control de acceso basado en rol de Azure (Azure RBAC) para conceder permisos a una entidad de seguridad, que puede ser un usuario, un grupo o una entidad de servicio de aplicación. Azure AD autentica la entidad de seguridad para devolver un token de OAuth 2.0. A continuación, el token se puede usar para autorizar una solicitud en Blob Storage o Queue Storage.
 
 La autorización de solicitudes en Azure Storage con Azure AD proporciona seguridad superior y facilidad de uso sobre la autorización de clave compartida. Microsoft recomienda usar la autorización de Azure AD con sus aplicaciones de blob y cola cuando sea posible para minimizar posibles vulnerabilidades de seguridad inherentes a la clave compartida.
 
@@ -37,7 +37,7 @@ Cuando una entidad de seguridad (un usuario, un grupo o una aplicación) intenta
 
 El paso de autenticación exige que una aplicación solicite un token de acceso de OAuth 2.0 en tiempo de ejecución. Si una aplicación se está ejecutando desde una entidad de Azure como una máquina virtual de Azure, un conjunto de escalado de máquinas virtuales o una aplicación de Azure Functions, puede usar una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) para el acceso a blobs o colas. Para más información sobre cómo autorizar solicitudes realizadas por una identidad administrada a Azure Blob Service o Queue service, vea [Autorización del acceso a blobs y colas con Azure Active Directory e identidades administradas para los recursos de Azure](storage-auth-aad-msi.md).
 
-El paso de autorización exige que se asignen uno o varios roles de Azure a la entidad de seguridad. Azure Storage proporciona roles de Azure que abarcan conjuntos comunes de permisos para datos de blobs y colas. Los roles que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Para más información sobre la asignación de roles de Azure en Azure Storage, consulte [Administración de los derechos de acceso a los datos de almacenamiento con RBAC](storage-auth-aad-rbac.md).
+El paso de autorización exige que se asignen uno o varios roles de Azure a la entidad de seguridad. Azure Storage proporciona roles de Azure que abarcan conjuntos comunes de permisos para datos de blobs y colas. Los roles que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Para más información sobre la asignación de roles de Azure en Azure Storage, vea [Administración de los derechos de acceso a los datos de almacenamiento con Azure RBAC](storage-auth-aad-rbac.md).
 
 Las aplicaciones nativas y las aplicaciones web que realizan solicitudes a Azure Blob Service o Queue service también se pueden autorizar con Azure AD. Para información sobre cómo solicitar un token de acceso y usarlo para autorizar solicitudes de datos de blobs o colas, vea [Autenticar con Azure Active Directory desde una aplicación para el acceso a los blobs y colas](storage-auth-aad-app.md).
 
@@ -53,9 +53,9 @@ Cuando un rol de Azure se asigna a una entidad de seguridad de Azure AD, Azure 
 
 Para obtener información sobre cómo asignar un rol integrado de Azure a una entidad de seguridad, vea alguno de los siguientes artículos:
 
-- [Conceder acceso a datos de blob y cola de Azure con RBAC en Azure Portal](storage-auth-aad-rbac-portal.md)
-- [Conceder acceso a datos de blob y de cola de Azure con RBAC mediante la CLI de Azure](storage-auth-aad-rbac-cli.md)
-- [Conceder acceso a datos de blob y cola de Azure con RBAC mediante PowerShell](storage-auth-aad-rbac-powershell.md)
+- [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](storage-auth-aad-rbac-portal.md)
+- [Uso de la CLI de Azure para asignar un rol de Azure para obtener acceso a datos de blobs y colas](storage-auth-aad-rbac-cli.md)
+- [Uso del módulo de Azure PowerShell para asignar un rol de Azure para el acceso a datos de blobs y colas](storage-auth-aad-rbac-powershell.md)
 
 Para más información acerca de cómo se definen los roles integrados para Azure Storage, consulte [Descripción de definiciones de roles](../../role-based-access-control/role-definitions.md#management-and-data-operations). Para más información acerca de la creación de roles personalizados de Azure, consulte [Roles personalizados de Azure](../../role-based-access-control/custom-roles.md).
 
@@ -77,7 +77,7 @@ Azure Portal puede usar la cuenta de Azure AD o las claves de acceso de cuenta p
 
 Si intenta acceder a datos de blobs o colas, Azure Portal primero comprueba si tiene asignado un rol de Azure con **Microsoft.Storage/storageAccounts/listkeys/action**. Si tiene un rol asignado con esta acción, Azure Portal usa la clave de cuenta para acceder a los datos de blobs y colas mediante autorización de clave compartida. Si no tiene un rol asignado con esta acción, Azure Portal intenta acceder a los datos mediante la cuenta de Azure AD.
 
-Para acceder a datos de blobs o colas desde Azure Portal con la cuenta de Azure AD, necesita permisos para acceder a datos de blobs y colas y, además, permisos para examinar los recursos de la cuenta de almacenamiento en Azure Portal. Los roles integrados que proporciona Azure Storage conceden acceso a recursos de blobs y colas, pero no conceden permisos a los recursos de la cuenta de almacenamiento. Por este motivo, el acceso al portal también requiere la asignación de un rol de Azure Resource Manager, como el rol [Lector](../../role-based-access-control/built-in-roles.md#reader), con ámbito limitado al nivel de la cuenta de almacenamiento o superior. El rol **Lector** concede los permisos más restringidos, pero otro rol de Azure Resource Manager que conceda acceso a los recursos de administración de la cuenta de almacenamiento también es aceptable. Para obtener más información sobre cómo asignar permisos a los usuarios para el acceso a los datos de Azure Portal con una cuenta de Azure AD, vea [Concesión de acceso a datos de blob y cola de Azure con RBAC en Azure Portal](storage-auth-aad-rbac-portal.md).
+Para acceder a datos de blobs o colas desde Azure Portal con la cuenta de Azure AD, necesita permisos para acceder a datos de blobs y colas y, además, permisos para examinar los recursos de la cuenta de almacenamiento en Azure Portal. Los roles integrados que proporciona Azure Storage conceden acceso a recursos de blobs y colas, pero no conceden permisos a los recursos de la cuenta de almacenamiento. Por este motivo, el acceso al portal también requiere la asignación de un rol de Azure Resource Manager, como el rol [Lector](../../role-based-access-control/built-in-roles.md#reader), con ámbito limitado al nivel de la cuenta de almacenamiento o superior. El rol **Lector** concede los permisos más restringidos, pero otro rol de Azure Resource Manager que conceda acceso a los recursos de administración de la cuenta de almacenamiento también es aceptable. Para obtener más información sobre cómo asignar permisos a los usuarios para el acceso a los datos de Azure Portal con una cuenta de Azure AD, vea [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](storage-auth-aad-rbac-portal.md).
 
 Azure Portal indica qué esquema de autorización se está usando al examinar un contenedor o una cola. Para obtener más información sobre el acceso a datos en el portal, consulte [Selección del método de autorización de acceso a los datos de blob en Azure Portal](../blobs/authorize-blob-access-portal.md) y [Selección del método de autorización de acceso a los datos de cola en Azure Portal](../queues/authorize-queue-access-portal.md).
 

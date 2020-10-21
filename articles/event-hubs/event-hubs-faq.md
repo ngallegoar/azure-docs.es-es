@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona una lista de las preguntas más frecuentes (P+F) acerca de Azure Event Hubs y sus respuestas.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: b852af961327fbecb773c0608dfb823093e17267
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 65b6fd40c66ec055a5b80ccea9d2dd9ba1510d54
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883393"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91729107"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -97,10 +97,10 @@ Si usa la **redundancia de zona** para el espacio de nombres, deberá realizar a
     <name>-s2.cloudapp.net
     <name>-s3.cloudapp.net
     ```
+3. Ejecute nslookup para cada uno con los sufijos s1, s2 y s3 para obtener las direcciones IP de las tres instancias que se ejecutan en tres zonas de disponibilidad. 
 
     > [!NOTE]
     > La dirección IP devuelta por el comando `nslookup` no es una dirección IP estática. Sin embargo, permanece constante hasta que la implementación subyacente se elimine o se mueva a otro clúster.
-3. Ejecute nslookup para cada uno con los sufijos s1, s2 y s3 para obtener las direcciones IP de las tres instancias que se ejecutan en tres zonas de disponibilidad. 
 
 ### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>¿Dónde puedo encontrar la IP de cliente que envía o recibe mensajes en mi espacio de nombres?
 En primer lugar, habilite el [filtrado de IP](event-hubs-ip-filtering.md) en el espacio de nombres. 
@@ -270,6 +270,20 @@ Event Hubs admite dos tipos de [registros de diagnóstico](event-hubs-diagnostic
 El soporte técnico para Event Hubs está disponible a través de la [página de preguntas y respuestas de Microsoft sobre Azure Service Bus](/answers/topics/azure-service-bus.html). Se ofrece de forma gratuita soporte técnico para la administración de suscripciones y la facturación.
 
 Para más información sobre nuestro SLA, consulte la página [Acuerdos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) .
+
+## <a name="azure-stack-hub"></a>Azure Stack Hub
+
+### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>¿Cómo se puede establecer como destino una versión específica del SDK de Azure Storage cuando se usa Azure Blob Storage como un almacén de puntos de comprobación?
+Si ejecuta este código en Azure Stack Hub, experimentará errores en tiempo de ejecución a menos que tenga como destino una versión específica de la API de Storage. Esto se debe a que el SDK de Event Hubs usa la API de Azure Storage más reciente disponible en Azure, que puede que no esté disponible en la plataforma de Azure Stack Hub. Azure Stack Hub puede admitir una versión diferente del SDK de Blob Storage que las que suelen estar disponibles en Azure. Si usa Azure Blob Storage como almacén de puntos de control, compruebe la [versión de la API de Azure Storage admitida para la compilación de Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) y establezca esa versión como destino en el código. 
+
+Por ejemplo, si trabaja en la versión 2005 de Azure Stack Hub, la versión más reciente disponible para el servicio Storage es la 2019-02-02. De forma predeterminada, la biblioteca de cliente del SDK de Event Hubs usa la versión más reciente disponible en Azure (2019-07-07 en el momento de la versión del SDK). En este caso, además de seguir los pasos de esta sección, también tendrá que agregar código para usar como destino la versión 2019-02-02 de la API del servicio de almacenamiento. Para ver un ejemplo de cómo establecer como destino una versión específica de la API de Storage, vea los ejemplos de C#, Java, Python y JavaScript/TypeScript.  
+
+Para obtener un ejemplo de cómo establecer como destino una versión específica de la API de Storage, vea los ejemplos siguientes en GitHub: 
+
+- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
+- [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java)
+- Python: [sincrónico](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [asincrónico](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) y [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

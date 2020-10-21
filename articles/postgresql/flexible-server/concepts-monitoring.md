@@ -1,19 +1,19 @@
 ---
 title: 'Supervisión y métricas: Servidor flexible de Azure Database for PostgreSQL'
 description: En este artículo se describen las características de supervisión y métricas del Servidor flexible de Azure Database for PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 7d1d7f9759fc8e2826da6232981eb3a389576c07
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 1519e0b5cef6055cf8d8b0aded0d8ad323d548a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90931891"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91707853"
 ---
-# <a name="monitor-metrics-azure-database-for-postgresql---flexible-server"></a>Métricas de supervisión: Servidor flexible de Azure Database for PostgreSQL
+# <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Métricas de supervisión en Azure Database for PostgreSQL: Servidor flexible
 
 > [!IMPORTANT]
 > Servidor flexible de Azure Database for PostgreSQL está en versión preliminar
@@ -29,6 +29,7 @@ Las métricas siguientes están disponibles para el servidor flexible de Postgre
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Descripción|
 |---|---|---|---|
+| active_connections | Conexiones activas | Count | El número de conexiones al servidor. | 
 | backup_storage_used | Almacenamiento de copia de seguridad utilizado | Bytes | Cantidad de almacenamiento de copia de seguridad utilizado. Esta métrica representa la suma del almacenamiento consumido por todas las copias de seguridad de base de datos completas, copias de seguridad diferenciales y copias de seguridad de registros, conservadas según el período de retención de copia de seguridad establecido para el servidor. El servicio administra la frecuencia de las copias de seguridad. En el caso del almacenamiento con redundancia geográfica, el uso del almacenamiento de copia de seguridad es dos veces el del almacenamiento con redundancia local. |
 | connections_failed | Conexiones con errores | Count | Conexiones con errores. |
 | connections_succeeded | Conexiones correctas | Count | Conexiones correctas. |

@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: f011f2703286cd7eb4e19588ae1ae1fe9319500f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646685"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710658"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Creación de una oferta de aplicación de Power BI
 
-En este artículo se describe cómo crear y publicar una oferta de aplicación de Power BI para Microsoft[AppSource](https://appsource.microsoft.com/).
+En este artículo se describe cómo crear y publicar una oferta de aplicación de Power BI para [Microsoft AppSource](https://appsource.microsoft.com/).
 
 Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](create-account.md), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
 
@@ -57,8 +57,8 @@ Se incluyen vínculos para realizar operaciones en esta oferta en función de la
 
 - Si la oferta es un borrador: [Eliminación de una oferta borrador](update-existing-offer.md#delete-a-draft-offer)
 - Si la oferta está activa: [Detención de la venta de una oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Si la oferta está en versión preliminar: [Publicar](publishing-status.md#publisher-approval)
-- Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación](update-existing-offer.md#cancel-publishing)
+- Si la oferta está en versión preliminar: [publicar](publishing-status.md#publisher-approval)
+- Si no ha completado la publicación: [Cancelación de la publicación](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuración de la oferta
 
@@ -73,7 +73,7 @@ Al publicar la oferta en Marketplace con el Centro de partners, debe conectarla 
     - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Si su sistema CRM no aparece en la lista anterior, use [Tabla de Azure](commercial-marketplace-lead-management-instructions-azure-table.md) o [Punto de conexión HTTPS](commercial-marketplace-lead-management-instructions-https.md) para almacenar los datos del cliente potencial. A continuación, exporte los datos al sistema CRM.
+    > Si su sistema CRM no aparece en esta lista, use [Tabla de Azure](commercial-marketplace-lead-management-instructions-azure-table.md) o [Punto de conexión HTTPS](commercial-marketplace-lead-management-instructions-https.md) para almacenar los datos del cliente potencial. A continuación, exporte los datos al sistema CRM.
 
 2. Conecte su oferta al destino de clientes potenciales cuando la publique en el Centro de partners.
 3. Compruebe que la conexión al destino de clientes potenciales está configurada correctamente. Después de publicarla en el Centro de partners, se valida la conexión y se le envía un cliente potencial de prueba. Mientras obtiene una vista previa de la oferta antes de publicarla, también puede probar la conexión de los clientes potenciales tratando de adquirir la oferta en el entorno de versión preliminar.
@@ -81,9 +81,9 @@ Al publicar la oferta en Marketplace con el Centro de partners, debe conectarla 
 
 Estos son algunos recursos adicionales de administración de clientes potenciales:
 
-- [Introducción a la administración de clientes potenciales](commercial-marketplace-get-customer-leads.md)
-- [Preguntas frecuentes de la administración de clientes potenciales](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Errores comunes de la configuración de clientes potenciales](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
+- [Clientes potenciales a partir de la oferta en el marketplace comercial](commercial-marketplace-get-customer-leads.md)
+- [Preguntas habituales sobre la administración de clientes potenciales](../lead-management-faq.md#common-questions-about-lead-management)
+- [Solución de errores de configuración de clientes potenciales](../lead-management-faq.md#publishing-config-errors)
 - [Introducción a la administración de clientes potenciales](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) en formato PDF (asegúrese de que el bloqueador de elementos emergentes está desactivado).
 
 Seleccione **Guardar borrador** antes de continuar.
@@ -202,7 +202,7 @@ Proporcione al menos uno y hasta tres documentos de marketing relacionados en fo
 
 Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato PNG. Las imágenes borrosas se rechazarán.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio `https://upload.xboxlive.com` que usa el Centro de partners.
@@ -218,7 +218,7 @@ Estos logotipos se usan en distintos lugares de la publicación:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 

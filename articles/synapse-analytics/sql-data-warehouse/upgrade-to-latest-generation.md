@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1177551b698bb2e295a71f6cd4a132411d1c5bea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f97b7cb836009683a689fc49882e61ce66abac58
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210701"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91627081"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Optimización del rendimiento mediante la actualización del grupo de SQL de Azure Synapse Analytics
 
@@ -114,7 +114,7 @@ Ahora puede actualizar sin problemas al grupo de SQL de nivel Gen2 optimizado pa
 
    > [!NOTE]
    > Si no aparece la tarjeta **Actualizar a Gen2** en la pestaña Tareas, su suscripción es de un tipo que tiene limitaciones en la región actual.
-   > [Envíe una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) para obtener la lista de elementos permitidos en la suscripción.
+   > [Envíe una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) para que se apruebe la suscripción.
 
 3. Asegúrese de que la carga de trabajo ha terminado de ejecutarse y está en modo inactivo antes de actualizar. Experimentará tiempo de inactividad unos minutos antes de que el grupo de SQL vuelva a estar en línea como grupo de SQL de nivel Gen2 optimizado para proceso. **Seleccione Actualizar**:
 

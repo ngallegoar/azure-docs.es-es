@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 27b745353521a44733c46170a5f5952c194c2343
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 65e7a425fdf8ee1b253bcb696792b569b7195d4c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293513"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047376"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)
 
@@ -27,7 +27,7 @@ También se pueden administrar a través de [Azure Portal](https://portal.azure.
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Necesitará una **cuenta de Azure** (puede configurar una de forma gratuita [aquí](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
-* Necesitará una **instancia de Azure Digital Twins** en su suscripción de Azure. Si no dispone de una instancia, puede crear una con los pasos de [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-scripted.md). Tenga a mano los siguientes valores de configuración para usarlos más adelante en este artículo:
+* Necesitará una **instancia de Azure Digital Twins** en su suscripción de Azure. Si no dispone de una instancia, puede crear una con los pasos de [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md). Tenga a mano los siguientes valores de configuración para usarlos más adelante en este artículo:
     - Nombre de instancia
     - Grupo de recursos
     
@@ -44,7 +44,7 @@ Para vincular un punto de conexión a Azure Digital Twins, es necesario que ya e
 
 ### <a name="create-an-event-grid-endpoint"></a>Creación de un punto de conexión de Event Grid
 
-En el siguiente ejemplo se muestra cómo crear un punto de conexión de tipo Event Grid mediante la CLI de Azure. Puede usar [Azure Cloud Shell](https://shell.azure.com) o [instalar la CLI localmente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+En el siguiente ejemplo se muestra cómo crear un punto de conexión de tipo Event Grid mediante la CLI de Azure. Puede usar [Azure Cloud Shell](https://shell.azure.com) o [instalar la CLI localmente](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 Primero, cree un tema de Event Grid. Puede usar el siguiente comando o, para ver los pasos con más detalle, visite [la sección *Creación de un tema personalizado*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) de la guía de inicio rápido de *eventos personalizados* de Event Grid.
 
@@ -58,7 +58,7 @@ az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name>
 > az account list-locations -o table
 > ```
 
-Una vez creado el tema, se puede vincular a Azure Digital Twins con el comando siguiente:
+Una vez creado el tema, se puede vincular a Azure Digital Twins con el [comando siguiente de la CLI de Azure Digital Twins](how-to-use-cli.md):
 
 ```azurecli
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
@@ -90,7 +90,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Para enviar datos de Azure Digital Twins a un punto de conexión, debe definir una **ruta de eventos**. Las **API EventRoutes** de Azure Digital Twins permiten a los desarrolladores conectar el flujo de eventos a lo largo del sistema y a los servicios de bajada. Obtenga más información sobre las rutas de eventos en [*Conceptos: Enrutamiento de eventos de Azure Digital Twins*](concepts-route-events.md).
 
-Los ejemplos de esta sección usan el SDK de C#.
+Los ejemplos de esta sección usan el [SDK de .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core).
 
 **Requisito previo**: Debe crear puntos de conexión como se describió anteriormente en este artículo para poder continuar con la creación de una ruta. Puede continuar con la creación de una ruta de evento una vez finalizada la configuración de los puntos de conexión.
 
@@ -101,7 +101,7 @@ Los ejemplos de esta sección usan el SDK de C#.
 
 ### <a name="create-an-event-route"></a>Crear una ruta de eventos
 
-Las rutas de eventos se definen mediante las API de plano de datos. 
+Las rutas de eventos se definen mediante las [API de plano de datos](how-to-use-apis-sdks.md#overview-data-plane-apis). 
 
 Una definición de ruta puede contener estos elementos:
 * El nombre de ruta que quiere usar.

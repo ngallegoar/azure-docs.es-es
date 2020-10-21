@@ -263,6 +263,8 @@
           items:
             - name: Reglas de firewall de IP en el nivel de servidor
               href: database/firewall-create-server-level-portal-quickstart.md
+        - name: Acciones de GitHub
+          href: database/connect-github-actions-sql-db.md
     - name: Tutoriales
       items:
         - name: Diseño de una base de datos
@@ -1070,7 +1072,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: Configuración manual
                           items:
-                            - name: Requisitos previos
+                            - name: Prerrequisitos
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: Tutorial
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

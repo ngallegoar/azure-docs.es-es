@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 0394a7db6776e00ea031a2f40ab4de01540982a6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cd27babee4b78d22bbd49ab53c1ed2fe5a54a0da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080217"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856694"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migración de clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -21,7 +21,7 @@ En este artículo se proporcionan recomendaciones para el almacenamiento de dato
 
 ## <a name="choose-right-storage-system-for-hdinsight-clusters"></a>Elección del sistema de almacenamiento correcto para los clústeres de HDInsight
 
-Puede volver a crear la estructura del directorio local del sistema de archivos de Apache Hadoop (HDFS) en Azure Storage o en Azure Data Lake Storage. A continuación, podrá eliminar de forma segura los clústeres de HDInsight que se usan para el cálculo sin perder datos del usuario. Ambos servicios se pueden usar como sistema de archivos predeterminado y sistema de archivos adicional para un clúster de HDInsight. El clúster de HDInsight y la cuenta de almacenamiento deben ubicarse en la misma región.
+Puede volver a crear la estructura del directorio local del sistema de archivos de Apache Hadoop (HDFS) en Azure Blob Storage o en Azure Data Lake Storage. A continuación, podrá eliminar de forma segura los clústeres de HDInsight que se usan para el cálculo sin perder datos del usuario. Ambos servicios se pueden usar como sistema de archivos predeterminado y sistema de archivos adicional para un clúster de HDInsight. El clúster de HDInsight y la cuenta de almacenamiento deben ubicarse en la misma región.
 
 ### <a name="azure-storage"></a>Azure Storage
 
@@ -81,18 +81,18 @@ Para más información, consulte los siguientes artículos.
 
 ### <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
 
-Azure Data Lake Storage implementa el modelo de control de acceso de estilo POSIX y HDFS. Proporciona integración de primera clase con AAD para control de acceso específico. No hay límites en el tamaño de los datos que puede almacenar, ni en su capacidad para ejecutar análisis paralelos masivos.
+Azure Data Lake Storage Gen1 implementa el modelo de control de acceso de estilo POSIX y HDFS. Proporciona integración de primera clase con Azure AD para control de acceso específico. No hay límites en el tamaño de los datos que puede almacenar, ni en su capacidad para ejecutar análisis paralelos masivos.
 
 Para más información, consulte los siguientes artículos.
 
-- [Creación de clústeres de HDInsight con Data Lake Storage mediante Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Uso de Data Lake Storage con clústeres de Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md)
+- [Creación de clústeres de HDInsight con Data Lake Storage Gen1 mediante Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Usar Data Lake Storage Gen1 con clústeres de Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen1.md)
 
 ### <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 es la oferta de almacenamiento más reciente. Unifica las capacidades básicas de la primera generación de Azure Data Lake Storage con un punto de conexión de sistema de archivos compatible con Hadoop, que se integra directamente en Azure Blob Storage. Esta mejora combina las ventajas de escala y costo de almacenamiento de objetos con la confiabilidad y el rendimiento que normalmente solo se asocian con sistemas de archivos locales.
+Azure Data Lake Storage Gen2 es la oferta de almacenamiento más reciente. Unifica las capacidades básicas de la primera generación de Azure Data Lake Storage Gen1 con un punto de conexión de sistema de archivos compatible con Hadoop, que se integra directamente en Azure Blob Storage. Esta mejora combina las ventajas de escala y costo de almacenamiento de objetos con la confiabilidad y el rendimiento que normalmente solo se asocian con sistemas de archivos locales.
 
-ADLS Gen 2 está basado en  [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) y permite establecer una conexión con los datos usando tanto el sistema de archivos como el almacenamiento de objetos. Las características de  [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), como la semántica del sistema de archivo, la escala y la seguridad a nivel de archivo, se combinan con funcionalidades de recuperación ante desastres o alta disponibilidad y de almacenamiento por niveles de bajo costo, así como con un ecosistema de herramientas o SDK de  [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md). En Data Lake Storage Gen2, permanecen todas las cualidades del almacenamiento de objetos y se agregan las ventajas de una interfaz de sistema de archivos optimizada para cargas de trabajo de análisis.
+Azure Data Lake Storage Gen2 se basa en  [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) y permite establecer una conexión con los datos usando tanto el sistema de archivos como el almacenamiento de objetos. Las características de  [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), como la semántica del sistema de archivo, la escala y la seguridad a nivel de archivo, se combinan con funcionalidades de recuperación ante desastres o alta disponibilidad y de almacenamiento por niveles de bajo costo, así como con un ecosistema de herramientas o SDK de  [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md). En Data Lake Storage Gen2, permanecen todas las cualidades del almacenamiento de objetos y se agregan las ventajas de una interfaz de sistema de archivos optimizada para cargas de trabajo de análisis.
 
 Una característica fundamental de Data Lake Storage Gen2 es la adición de un  [espacio de nombres jerárquico](../../storage/data-lake-storage/namespace.md) al servicio de Blob Storage que organiza los objetos o archivos en una jerarquía de directorios para el acceso a datos de rendimiento. La estructura jerárquica permite que operaciones como el cambio de nombre o la eliminación de un directorio se convierten en operaciones de metadatos atómicas únicas en el directorio, en lugar de enumerar y procesar todos los objetos que comparten el prefijo del nombre del directorio.
 
@@ -200,16 +200,16 @@ Todos los datos escritos en Azure Storage se cifran automáticamente con [Stora
 - [Almacenamiento con redundancia geográfica (GRS)](../../storage/common/storage-redundancy-grs.md)
 - [Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).](../../storage/common/storage-redundancy.md)
 
-Azure Data Lake Storage proporciona almacenamiento con redundancia local (LRS), pero también debe copiar los datos críticos a otra cuenta de Data Lake Storage en otra región con una frecuencia orientada a las necesidades del plan de recuperación ante desastres. Existen varios métodos para copiar datos, entre los que se incluyen [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html),[Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md) o  [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). También se recomienda aplicar directivas de acceso a la cuenta de Data Lake Storage para evitar la eliminación accidental.
+Azure Storage proporciona almacenamiento con redundancia local (LRS), pero también debe copiar los datos críticos a otra cuenta de Azure Storage en otra región con una frecuencia orientada a las necesidades del plan de recuperación ante desastres. Existen varios métodos para copiar datos, entre los que se incluyen [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html),[Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md) o  [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). También se recomienda aplicar directivas de acceso a la cuenta de Azure Storage para evitar la eliminación accidental.
 
 Para más información, consulte los siguientes artículos.
 
 - [Replicación de Azure Storage](../../storage/common/storage-redundancy.md)
-- [Guía de recuperación ante desastres para datos de Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
+- [Guía de recuperación ante desastres para Azure Data Lake Storage Gen1 (ADLS)](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
 ## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>Adjuntar cuentas de Azure Storage adicionales al clúster
 
-Durante el proceso de creación de HDInsight, se elige una cuenta de Azure Storage o Azure Data Lake Storage como sistema de archivos predeterminado. Además de esta cuenta de almacenamiento predeterminada, puede agregar otras desde la misma suscripción de Azure o desde otras diferentes tanto durante el proceso de creación del clúster como después de que el clúster se haya creado.
+Durante el proceso de creación de HDInsight, se elige una cuenta de Azure Storage, Azure Data Lake Storage Gen1 o Azure Data Lake Storage Gen2 como sistema de archivos predeterminado. Además de esta cuenta de almacenamiento predeterminada, puede agregar otras desde la misma suscripción de Azure o desde otras diferentes tanto durante el proceso de creación del clúster como después de que el clúster se haya creado.
 
 Puede agregarse una cuenta de almacenamiento adicional de una de las maneras siguientes:
 - En la configuración avanzada de Ambari HDFS, vaya al sitio principal personalizado para agregar el nombre y la clave de la cuenta de almacenamiento, y reinicie los servicios

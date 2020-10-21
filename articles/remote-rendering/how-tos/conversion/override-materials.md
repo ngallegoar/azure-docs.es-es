@@ -5,25 +5,25 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
-ms.openlocfilehash: 2e9cb216c100f1732230a90572284bd3f8462584
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 11bd79a1bc88d2605a20744f5a6b6536d754c100
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433138"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91576649"
 ---
 # <a name="override-materials-during-model-conversion"></a>Reemplazo de materiales durante la conversión de modelos
 
 La configuración de materiales del modelo de origen se usa para definir los [materiales de PBR](../../overview/features/pbr-materials.md) que usa el representador.
 A veces, la [conversión predeterminada](../../reference/material-mapping.md) no proporciona los resultados deseados y es necesario realizar cambios.
 Cuando se convierte un modelo para su uso en Azure Remote Rendering, se puede proporcionar un archivo de invalidación de materiales para personalizar cómo se realiza la conversión de cada material.
-En la sección sobre la [configuración de la conversión de modelos](configure-model-conversion.md) se incluyen instrucciones para declarar el nombre de archivo de invalidación de material.
+Si se encuentra un archivo llamado `<modelName>.MaterialOverrides.json` en el contenedor de entrada situado junto al modelo de entrada `<modelName>.<ext>`, se usará como archivo de invalidación de materiales.
 
 ## <a name="the-override-file-used-during-conversion"></a>Archivo de invalidación usado durante la conversión
 
 Como ejemplo sencillo, supongamos que un modelo de cuadros tiene un único material, denominado "Default".
 Además, digamos que el color albedo debe ajustarse para usarse en ARR.
-En este caso, se puede crear un archivo `box_materials_override.json` de la siguiente manera:
+En este caso, se puede crear un archivo `box.MaterialOverrides.json` de la siguiente manera:
 
 ```json
 [
@@ -39,15 +39,7 @@ En este caso, se puede crear un archivo `box_materials_override.json` de la sigu
 ]
 ```
 
-El archivo `box_materials_override.json` se coloca en el contenedor de entrada y se agrega un elemento `box.ConversionSettings.json` junto a `box.fbx`, lo que indica a la conversión dónde encontrar el archivo de invalidación (consulte [Configuración de la conversión de modelos](configure-model-conversion.md)):
-
-```json
-{
-    "material-override" : "box_materials_override.json"
-}
-```
-
-Cuando se convierta el modelo, se aplicará la nueva configuración.
+El archivo `box.MaterialOverrides.json` se coloca en el contenedor de entrada junto a `box.fbx`, que indica al servicio de conversión que aplique la nueva configuración.
 
 ### <a name="color-materials"></a>Materiales de color
 
@@ -84,6 +76,36 @@ El principio es sencillo. Simplemente, agregue una propiedad llamada `ignoreText
 ```
 
 Para obtener la lista completa de mapas de texturas que puede ignorar, vea el siguiente esquema JSON.
+
+### <a name="applying-the-same-overrides-to-multiple-materials"></a>Aplicación de las mismas invalidaciones a varios materiales
+
+De forma predeterminada, una entrada en el archivo de reemplazo de material se aplica cuando su nombre coincide exactamente con el nombre del material.
+Dado que es bastante común que la misma invalidación se aplique a varios materiales, puede proporcionar opcionalmente una expresión regular como nombre de la entrada.
+El campo `nameMatching` tiene un valor predeterminado `exact`, pero se puede establecer en `regex` para indicar que la entrada debe aplicarse a todos los materiales coincidentes.
+La sintaxis usada es la misma que la que se usa para JavaScript. En el ejemplo siguiente se muestra una invalidación que se aplica a los materiales con nombres como "material2", "Material01" y "Material999".
+
+```json
+[
+    {
+        "name": "Material[0-9]+",
+        "nameMatching": "regex",
+        "albedoColor": {
+            "r": 0.0,
+            "g": 0.0,
+            "b": 1.0,
+            "a": 1.0
+        }
+    }
+]
+```
+
+Como máximo, una entrada en un archivo de invalidación de material se aplica a un único material.
+Si hay una coincidencia exacta (es decir, `nameMatching` está ausente o es igual a `exact`) para el nombre del material, se elige dicha entrada.
+De lo contrario, se elige la primera entrada regex del archivo que coincida con el nombre del material.
+
+### <a name="getting-information-about-which-entries-applied"></a>Obtención de información sobre las entradas aplicadas
+
+El [archivo info](get-information.md#information-about-a-converted-model-the-info-file) escrito en el contenedor de salida contiene información sobre el número de invalidaciones proporcionadas y el número de materiales que se han invalidado.
 
 ## <a name="json-schema"></a>Esquema JSON
 
@@ -154,6 +176,7 @@ Aquí se proporciona el esquema JSON completo para los archivos de materiales. A
         "properties":
         {
             "name": { "type" : "string"},
+            "nameMatching" : { "type" : "string", "enum" : ["exact", "regex"] },
             "unlit": { "type" : "boolean" },
             "albedoColor": { "$ref": "#/definitions/colorOrAlpha" },
             "roughness": { "type": "number" },

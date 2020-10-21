@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 10/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d699fc47fa0a0cb57d103ff42ff17bdc0f3a82b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b193247fee843796da0cb2fcfc1a874b1a1b72fb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202676"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91660928"
 ---
 # <a name="azure-data-box-limits"></a>Límites de Azure Data Box
 
@@ -28,6 +28,7 @@ Tenga en cuenta estos límites al implementar y usar Microsoft Azure Data Box. E
 - Data Box puede almacenar un máximo de 500 millones de archivos de importación y exportación en total.
 - Data Box admite un máximo de 512 contenedores o recursos compartidos en la nube. Los directorios de nivel superior dentro del recurso compartido de usuario se convierten en contenedores o en recursos compartidos de archivos de Azure en la nube. 
 - La capacidad de uso de Data Box puede ser inferior a 80 TB debido al consumo de espacio de metadatos de ReFS.
+- Data Box admite un máximo de 5 conexiones de cliente a la vez en un recurso compartido de NFS. 
 
 ## <a name="azure-storage-limits"></a>Límites de almacenamiento de Azure
 
@@ -46,13 +47,13 @@ Las características de los pedidos de importación de Data Box incluyen:
 
 Las características de los pedidos de exportación de Data Box incluyen:
 
-- Data Box es un dispositivo basado en Windows y no admite nombres de archivo que distingan mayúsculas de minúsculas. Por ejemplo, si tiene dos archivos en Azure con nombres que solo difieran en el uso de mayúsculas y minúsculas, no use Data Box para exportarlos, ya que se sobrescribirán en el dispositivo.
-- Si tiene etiquetas duplicadas en archivos de entrada o etiquetas que hacen referencia a los mismos datos, la exportación de Data Box podría omitir o sobrescribir los archivos. El número de archivos y el tamaño de los datos que se muestran en Azure Portal pueden diferir del tamaño real de los datos presentes en el dispositivo. 
+- Data Box es un dispositivo basado en Windows y no admite nombres de archivo que distingan mayúsculas de minúsculas. Por ejemplo, si tiene dos archivos en Azure con nombres que solo difieran en el uso de mayúsculas y minúsculas, No use Data Box para exportarlos, ya que se sobrescribirán en el dispositivo.
+- Si tiene etiquetas duplicadas en archivos de entrada o etiquetas que hacen referencia a los mismos datos, la exportación de Data Box podría omitir o sobrescribir los archivos. El número de archivos y el tamaño de los datos que se muestran en Azure Portal pueden diferir del tamaño real de los datos del dispositivo. 
 - Data Box exporta los datos al sistema basado en Windows mediante SMB y está limitado por las limitaciones de SMB relativas a los archivos y las carpetas. Los archivos y las carpetas con nombres incompatibles no se exportan.
 - Hay una correspondencia 1:1 entre el prefijo y el contenedor.
-- El tamaño máximo del nombre de archivo es de 1024 caracteres y los nombres de archivo que superen esta longitud no se exportarán.
+- El tamaño máximo del nombre de archivo es de 1024 caracteres. Los nombres de archivo que superan esta longitud no se exportan.
 - Se exportan los prefijos duplicados del archivo *xml* (cargados durante la creación del pedido). No se omiten los prefijos duplicados.
-- Los blobs en páginas y los nombres de contenedor distinguen mayúsculas de minúsculas, por lo que si estas no coinciden, no se encontrará el blob o contenedor.
+- Los blobs en páginas y los nombres de contenedor distinguen mayúsculas de minúsculas. Si hay discrepancias en el uso de mayúsculas, no se encontrarán ni el blob ni el contenedor.
  
 
 ## <a name="azure-storage-account-size-limits"></a>Límites de tamaño de cuenta de almacenamiento de Azure

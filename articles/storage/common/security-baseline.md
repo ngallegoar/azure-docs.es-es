@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6358f9d233b3c09dc4ae4f3ecac7c91dea8bba6e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228280"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715156"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Línea de referencia de seguridad de Azure para Azure Storage
 
@@ -380,13 +380,13 @@ También puede habilitar el acceso Just-in-Time/Just-Enough mediante roles de Az
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Uso de Azure Active Directory
 
-**Guía**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización. Azure AD proporciona control de acceso basado en rol (RBAC) para el control específico de acceso de los clientes a los recursos de una cuenta de almacenamiento.  Use credenciales de Azure AD cuando sea posible como procedimiento recomendado de seguridad, en lugar de usar la clave de cuenta, que se puede poner en peligro más fácilmente. Cuando el diseño de la aplicación requiera firmas de acceso compartido para el acceso a Blob Storage, use credenciales de Azure AD para crear firmas de acceso compartido (SAS) de delegación de usuarios cuando sea posible para una seguridad superior.
+**Instrucciones**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización. Azure proporciona control de acceso basado en rol (Azure RBAC) para el control específico de acceso de los clientes a los recursos de una cuenta de almacenamiento.  Use credenciales de Azure AD cuando sea posible como procedimiento recomendado de seguridad, en lugar de usar la clave de cuenta, que se puede poner en peligro más fácilmente. Cuando el diseño de la aplicación requiera firmas de acceso compartido para el acceso a Blob Storage, use credenciales de Azure AD para crear firmas de acceso compartido (SAS) de delegación de usuarios cuando sea posible para una seguridad superior.
 
 - [Procedimiento para crear y configurar una instancia de Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 - [Uso del proveedor de recursos de Azure Storage para acceder a los recursos de administración](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Configuración del acceso a datos de colas y blobs de Azure con RBAC en Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Configuración del acceso a datos de colas y blobs de Azure con Azure RBAC en Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Autorización del acceso a datos en Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
@@ -478,7 +478,7 @@ Cree una configuración de diagnóstico para las cuentas de usuario de Azure Act
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Aislamiento de los sistemas que almacenan o procesan información confidencial
 
-**Guía**: Implemente el aislamiento mediante suscripciones independientes, grupos de administración y cuentas de Storage para dominios de seguridad individuales, como el entorno y la confidencialidad de los datos.  Puede restringir la cuenta de Storage para controlar el nivel de acceso a las cuentas de almacenamiento que exigen sus aplicaciones y entornos empresariales, en función del tipo y el subconjunto de redes usadas. Cuando se configuran las reglas de red, solo las aplicaciones que solicitan datos del conjunto especificado de redes pueden acceder a una cuenta de almacenamiento. Puede controlar el acceso a Azure Storage mediante el RBAC de Azure AD. También puede configurar puntos de conexión privados para mejorar la seguridad cuando el tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet. 
+**Guía**: Implemente el aislamiento mediante suscripciones independientes, grupos de administración y cuentas de Storage para dominios de seguridad individuales, como el entorno y la confidencialidad de los datos.  Puede restringir la cuenta de Storage para controlar el nivel de acceso a las cuentas de almacenamiento que exigen sus aplicaciones y entornos empresariales, en función del tipo y el subconjunto de redes usadas. Cuando se configuran las reglas de red, solo las aplicaciones que solicitan datos del conjunto especificado de redes pueden acceder a una cuenta de almacenamiento. Puede controlar el acceso a Azure Storage mediante Azure RBAC. También puede configurar puntos de conexión privados para mejorar la seguridad cuando el tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet. 
 
 - [Creación de suscripciones adicionales de Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -534,13 +534,13 @@ Además, use directivas de punto de conexión de servicio de red virtual para fi
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: Azure Active Directory (Azure AD) autoriza derechos de acceso para recursos protegidos mediante el control de acceso basado en roles (RBAC). Azure Storage define un conjunto de roles integrados de Azure que abarcan conjuntos comunes de permisos utilizados para acceder a los datos de blob o de cola. 
+**Guía**: Azure Active Directory (Azure AD) autoriza derechos de acceso a recursos protegidos mediante el control de acceso basado en rol de Azure (Azure RBAC). Azure Storage define un conjunto de roles integrados de Azure que abarcan conjuntos comunes de permisos utilizados para acceder a los datos de blob o de cola. 
 
 - [Asignación de roles de Azure a una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Uso del proveedor de recursos de Azure Storage para acceder a los recursos de administración](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Configuración del acceso a datos de colas y blobs de Azure con RBAC en Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Configuración del acceso a datos de colas y blobs de Azure con Azure RBAC en Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Creación y configuración de una instancia de AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 

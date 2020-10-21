@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 04/14/2020
-ms.openlocfilehash: 14b449590f6ffc5e735faa26baadfcc4e526450c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8be230044d868cc3ec03f6dc3fc2d21e102f121
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996407"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856303"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Solución de errores de creación de clústeres con Azure HDInsight
 
@@ -29,9 +29,9 @@ A continuación se indican las principales causas más habituales de los errores
 
 ## <a name="permissions-issues"></a>Incidencias de permisos
 
-Si usa Azure Data Lake Storage Gen2 y recibe el error `AmbariClusterCreationFailedErrorCode`: ":::no-loc text="Internal server error occurred while processing the request. Please retry the request or contact support.":::, abra Azure Portal, vaya a la cuenta de almacenamiento y, en Access Control (IAM), asegúrese de que el rol **colaborador de datos de blobs de almacenamiento** o el rol **propietario de datos de blobs de almacenamiento** tienen asignado el acceso a la **identidad administrada asignada por el usuario** para la suscripción. Consulte [Configuración de permisos para la identidad administrada en la cuenta de Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account) para obtener instrucciones detalladas.
+Si usa Azure Data Lake Storage Gen2 y recibe el error `AmbariClusterCreationFailedErrorCode`: ":::no-loc text="Internal server error occurred while processing the request. Please retry the request or contact support.":::, abra Azure Portal, vaya a la cuenta de almacenamiento y, en Access Control (IAM), asegúrese de que el rol **colaborador de datos de blobs de almacenamiento** o el rol **propietario de datos de blobs de almacenamiento** tienen asignado el acceso a la **identidad administrada asignada por el usuario** para la suscripción. Consulte [Configuración de permisos para la identidad administrada en Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2-portal.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2) para obtener instrucciones detalladas.
 
-Si usa Azure Data Lake Storage Gen1, consulte las instrucciones de instalación y configuración [aquí](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage Gen1 no es compatible con los clústeres de HBase y no se admite en la versión 4.0 de HDInsight.
+Si usa Azure Data Lake Storage Gen1, consulte las instrucciones de instalación y configuración en [Uso de Azure Data Lake Storage Gen1 con clústeres de Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen1.md). Data Lake Storage Gen1 no es compatible con los clústeres de HBase y no se admite en la versión 4.0 de HDInsight.
 
 Si usa Azure Storage, asegúrese de que el nombre de la cuenta de almacenamiento es válido durante la creación del clúster.
 

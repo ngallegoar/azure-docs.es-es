@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330288"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074267"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -104,17 +104,17 @@ Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Toda
 
 ### <a name="resource-provider-modes"></a>Modos del proveedor de recursos
 
-El siguiente nodo de proveedor de recursos es totalmente compatible:
+El siguiente modo del proveedor de recursos es totalmente compatible:
 
 - `Microsoft.Kubernetes.Data` para administrar los clústeres de Kubernetes en o fuera de Azure. Las definiciones que utilizan este modo del proveedor de recursos usan los efectos _auditoría_, _denegar_ y _deshabilitado_. El uso del efecto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) está _en desuso_.
 
 Actualmente se admiten los siguientes modos del proveedor de recursos como **versión preliminar**:
 
 - `Microsoft.ContainerService.Data` para administrar reglas del controlador de admisión en [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Las definiciones que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceRegoPolicy](./effects.md#enforceregopolicy). Este modo está _en desuso_.
-- `Microsoft.KeyVault.Data` para administrar almacenes y certificados en [Azure Key Vault](../../../key-vault/general/overview.md).
+- `Microsoft.KeyVault.Data` para administrar almacenes y certificados en [Azure Key Vault](../../../key-vault/general/overview.md). Para más información sobre estas definiciones de directiva, consulte [Integrar Azure Key Vault con Azure Policy](../../../key-vault/general/azure-policy.md).
 
 > [!NOTE]
-> Los modos de proveedor de recursos solo admiten definiciones de directivas integradas.
+> Los modos del proveedor de recursos solo admiten definiciones de directivas integradas y no admiten [exenciones](./exemption-structure.md).
 
 ## <a name="metadata"></a>Metadatos
 
@@ -226,7 +226,7 @@ En el bloque **Then**, defina el efecto que se produce cuando se cumplen las con
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -306,6 +306,9 @@ Se admiten los siguientes campos:
 - `type`
 - `location`
   - Use **global** para los recursos que son independientes de la ubicación.
+- `id`
+  - Devuelve el id. del recurso que se está evaluando.
+  - Ejemplo: `/subscriptions/06be863d-0996-4d56-be22-384767287aa2/resourceGroups/myRG/providers/Microsoft.KeyVault/vaults/myVault`
 - `identity.type`
   - Devuelve el tipo de [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md) habilitado en el recurso.
 - `tags`
@@ -606,8 +609,20 @@ Las siguientes funciones solo están disponibles en las reglas de directiva:
     "definitionReferenceId": "StorageAccountNetworkACLs"
   }
   ```
-  
-  
+
+
+- `ipRangeContains(range, targetRange)`
+    - **range**: cadena [obligatoria]. Cadena que especifica un intervalo de direcciones IP.
+    - **targetRange**: cadena [obligatoria]. Cadena que especifica un intervalo de direcciones IP.
+
+    Devuelve si el intervalo de direcciones IP especificado contiene el intervalo de direcciones IP de destino. No se permiten rangos vacíos ni mezclas entre familias de direcciones IP, lo que genera un error en la evaluación.
+
+    Formatos compatibles:
+    - Dirección IP única (ejemplos: `10.0.0.0`, `2001:0DB8::3:FFFE`)
+    - Intervalo de CIDR (ejemplos: `10.0.0.0/24`, `2001:0DB8::/110`)
+    - Intervalo definido por direcciones IP de inicio y final (ejemplos: `192.168.0.1-192.168.0.9`, `2001:0DB8::-2001:0DB8::3:FFFF`)
+
+
 #### <a name="policy-function-example"></a>Ejemplo de función de directiva
 
 Este ejemplo de regla de directiva usa la función de recurso `resourceGroup` para obtener la propiedad **nombre**, combinada con la matriz `concat` y la función de objeto para compilar una condición `like` que exige que el nombre del recurso empiece con el nombre del grupo de recursos.

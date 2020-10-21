@@ -1,6 +1,6 @@
 - name: Documentación de la plataforma de identidad de Microsoft
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: ¿Qué es la Plataforma de identidad de Microsoft?
       href: v2-overview.md
@@ -75,6 +75,8 @@
       items:
         - name: Angular
           href: tutorial-v2-angular.md
+        - name: WebAssembly de Blazor
+          href: tutorial-blazor-webassembly.md
         - name: 'JavaScript: flujo de código de autenticación'
           href: tutorial-v2-javascript-auth-code.md
         - name: 'JavaScript: flujo implícito'
@@ -123,6 +125,9 @@
       href: authentication-flows-app-scenarios.md
     - name: Procedimientos recomendados de la plataforma de identidad
       href: identity-platform-integration-checklist.md
+    - name: Inicio de sesión único (SSO) para dispositivos móviles
+      href: mobile-sso-support-overview.md
+      displayName: 'android, ios'
     - name: Escenarios de aplicación
       displayName: App scenarios
       items:
@@ -291,10 +296,8 @@
           items:
             - name: Cuentas y perfiles de inquilinos
               href: accounts-overview.md
-            - name: Agentes de autorización
-              href: authorization-agents.md
-            - name: Autenticación asincrónica
-              href: brokered-auth.md
+            - name: Inicio de sesión único con MSAL Android
+              href: msal-android-single-sign-on.md
             - name: Integración con Azure AD B2C
               href: msal-android-b2c.md
             - name: Migración a MSAL.Android

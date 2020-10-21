@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65d77d2cf50a59f18f0007e809e9913c3a5ae13
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1ea814f3f855758895a5a887b944e5f760edb5e9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304227"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057797"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -274,7 +274,7 @@ Este rol se llamaba anteriormente "Administrador de contraseñas" en [Azure Port
 
 ### <a name="hybrid-identity-administrator"></a>[Administrador de identidades híbridas](#hybrid-identity-administrator-permissions)
 
-Los usuarios de este rol pueden habilitar, configurar y administrar servicios y configuraciones relacionados con la habilitación de la identidad híbrida en Azure AD. Este rol concede la capacidad de configurar Azure AD a uno de los tres métodos de autenticación admitidos, la sincronización de hash de contraseñas (PHS), la autenticación de paso a través (PTA) o la federación (AD FS o proveedor de federación de terceros) e implementar la infraestructura local relacionada para habilitarlos. La infraestructura local incluye agentes de aprovisionamiento y PTA. Este rol concede la capacidad de habilitar el inicio de sesión único de conexión directa (S-SSO) para habilitar la autenticación directa en dispositivos que no son de Windows 10 o equipos que no son de Windows Server 2016. Además, este rol concede la capacidad de ver los registros de inicio de sesión y el acceso a mantenimiento y análisis para la supervisión y la solución de problemas. 
+Los usuarios con este rol pueden crear, administrar e implementar la configuración de aprovisionamiento de AD a Azure AD mediante el aprovisionamiento en la nube, así como para administrar la configuración de la federación. Los usuarios también pueden solucionar problemas y supervisar los registros mediante este rol.  
 
 ### <a name="insights-administrator"></a>[Administrador de Insights](#insights-administrator-permissions)
 Los usuarios con este rol pueden tener acceso al conjunto completo de funcionalidades administrativas de la [aplicación M365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Este rol tiene la capacidad de leer información de directorios, supervisar el mantenimiento del servicio, presentar vales de soporte técnico y acceder a aspectos de configuración de la administración de Insights.
@@ -500,7 +500,7 @@ Los usuarios con este rol pueden crear y administrar todos los aspectos de los u
 | Solo en los usuarios que no son administradores o en cualquiera de los siguientes roles de administrador limitados:<ul><li>Lectores de directorios<li>Administrador de grupos<li>Invitador de usuarios<li>Administrador del departamento de soporte técnico<li>Lector del Centro de mensajes<li>Administrador de contraseñas<li>Lector de informes<li>Administrador de usuarios|<p>Eliminar y restaurar</p><p>Deshabilitar y habilitar</p><p>Invalidar tokens de actualización</p><p>Administrar todas las propiedades de usuario, incluido el nombre principal de usuario</p><p>Restablecimiento de contraseña</p><p>Actualizar las claves de dispositivo (FIDO)</p>|
 
 > [!IMPORTANT]
-> Los usuarios con este rol pueden cambiar las contraseñas de las personas que pueden tener acceso a información confidencial o privada o configuración crítica dentro y fuera de Azure Active Directory. Cambiar la contraseña de un usuario puede significar la capacidad de asumir la identidad y los permisos del usuario. Por ejemplo:
+>  Los usuarios con roles personalizados integrados con el permiso microsoft.directory/users/password/update pueden cambiar las contraseñas de los usuarios que pueden tener acceso a información confidencial o privada o a configuración crítica dentro y fuera de Azure Active Directory. Cambiar la contraseña de un usuario puede significar la capacidad de asumir la identidad y los permisos del usuario. Por ejemplo:
 >
 >- Propietarios de registro de la aplicación y la aplicación de empresa, que pueden administrar las credenciales de las aplicaciones que poseen. Esas aplicaciones pueden tener permisos con privilegios en Azure AD y en otra parte no concederlos a los administradores de usuarios. Mediante esta ruta de acceso, un administrador de usuarios puede ser capaz de asumir la identidad del propietario de la aplicación y después asumir la identidad de una aplicación con privilegios mediante la actualización de las credenciales de la aplicación.
 >- Propietarios de suscripción de Azure, que pueden tener acceso a información confidencial o privada o configuración crítica en Azure.
@@ -1216,9 +1216,6 @@ Habilite, implemente, configure, administre, supervise y solucione problemas de 
 | microsoft.directory/cloudProvisioning/allProperties/allTasks | Lea y configure todas las propiedades del servicio de aprovisionamiento en la nube de Azure AD. |
 | microsoft.directory/federatedAuthentication/allProperties/allTasks | Administre todos los aspectos de Servicios de federación de Active Directory (ADFS) o de un proveedor de federación de terceros en Azure AD. |
 | microsoft.directory/organization/dirSync/update | Actualiza la propiedad organization.dirSync en Azure Active Directory. |
-| microsoft.directory/passwordHashSync/allProperties/allTasks | Administre todos los aspectos de la sincronización de hash de contraseñas (PHS) en Azure AD. |
-| microsoft.directory/passThroughAuthentication/allProperties/allTasks | Administre todos los aspectos de la autenticación de paso a través (PTA) en Azure AD. |
-| microsoft.directory/seamlessSSO/allProperties/allTasks | Administre todos los aspectos del inicio de sesión único (SSO) de conexión directa en Azure AD. |
 | microsoft.directory/servicePrincipals/audience/update | Actualiza la propiedad servicePrincipals.audience en Azure Active Directory. |
 | microsoft.directory/servicePrincipals/authentication/update | Actualiza la propiedad servicePrincipals.authentication en Azure Active Directory. |
 | microsoft.directory/servicePrincipals/basic/update | Actualiza las propiedades básicas de servicePrincipals en Azure Active Directory. |

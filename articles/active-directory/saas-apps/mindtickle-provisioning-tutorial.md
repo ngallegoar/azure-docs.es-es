@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: e5145aee31b4f82b34f9256257cf6c2951ca24da
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 145793d7e451e7db9598118fb3adbd49d1d9c650
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256473"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850683"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>Tutorial: Configuración de MindTickle para el aprovisionamiento automático de usuarios
 
@@ -115,11 +115,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 8. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con MindTickle**.
 
-    ![Asignaciones de usuario de MindTickle](media/mindtickle-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/mindtickle-provisioning-tutorial/usermapping.png" alt-text="Captura de pantalla de la sección Asignaciones. En el nombre, está visible la sincronización de los usuarios de Azure Active Directory con MindTickle." border="false":::
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y MindTickle en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de MindTickle con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Asignaciones de usuario de MindTickle](media/mindtickle-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/mindtickle-provisioning-tutorial/userattribute.png" alt-text="Captura de pantalla de la sección Asignaciones. En el nombre, está visible la sincronización de los usuarios de Azure Active Directory con MindTickle." border="false":::
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

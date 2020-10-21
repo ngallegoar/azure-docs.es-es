@@ -7,18 +7,18 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 51f4c9a5748896eff9e9f3ae9719b2e7e7cdd4e7
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: bdd2dacbba4ef8b7c439a345ea70771354b7fb5a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607484"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708601"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa Proveedor de soluciones en la nube
 
-En este artículo se explica cómo configurar una oferta para que esté disponible en el programa Proveedor de soluciones en la nube (CSP). Además de publicar sus ofertas a través de [tiendas en línea del marketplace comercial](comparing-appsource-azure-marketplace.md), también puede vender a través del programa CSP para llegar a millones de clientes cualificados de Microsoft a los que el programa presta servicios.
+En este artículo se explica cómo configurar una oferta para que esté disponible en el programa Proveedor de soluciones en la nube (CSP). Además de publicar sus ofertas a través de [tiendas en línea del marketplace comercial](overview.md#commercial-marketplace-online-stores), también puede vender a través del programa CSP para llegar a millones de clientes cualificados de Microsoft a los que el programa presta servicios.
 
-Puede configurar ofertas nuevas o existentes para su disponibilidad en el programa CSP en función de la participación, lo que permite que los partners de CSP vendan sus productos y creen conjuntos de soluciones para los clientes.
+Puede configurar ofertas nuevas o existentes para su disponibilidad en el programa CSP en función de la participación, lo que permite que los asociados de CSP vendan sus productos y creen conjuntos de soluciones para los clientes.
 
 Los publicadores son los responsables de ofrecer soporte break-fix a los clientes finales y de proporcionar un mecanismo para que los asociados del programa CSP y los clientes se pongan en contacto con usted para obtener soporte técnico. Un procedimiento recomendado es ofrecer a los asociados del programa CSP documentación de usuario, aprendizaje y notificaciones sobre el mantenimiento o la interrupción del servicio (según corresponda), de modo que los asociados del programa CSP estén equipados para responder a solicitudes de soporte técnico de nivel 1 por parte de los clientes.  
 
@@ -60,7 +60,7 @@ Elija una de las tres opciones:
 
 Al elegir esta opción, autoriza a los asociados del programa CSP que pueden optar por revender su oferta.
 
-Para autorizar a los asociados, haga clic en **Select CSP Partners** (Seleccionar asociados de CSP) y aparecerá un menú donde podrá buscar por el nombre del asociado o el identificador de inquilino de Azure Active Directory (AAD).
+Para autorizar a los asociados, seleccione **Select CSP Partners** (Seleccionar asociados de CSP) y aparecerá un menú donde podrá buscar por el nombre del asociado o el identificador de inquilino de Azure Active Directory (Azure AD).
 
 ![Menú para seleccionar el CSP](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
@@ -81,7 +81,7 @@ Seleccione **Guardar borrador** para registrar los cambios.
 Si esta oferta no está publicada, deberá publicar su oferta para que esté disponible para los asociados seleccionados.
 
 >[!NOTE]
->Si autoriza a un asociado del programa CSP en una región determinada, este puede vender la oferta a cualquier cliente que pertenezca a esa región en particular. Consulte [Mercados y monedas regionales del programa Proveedor de soluciones en la nube](https://docs.microsoft.com/partner-center/regional-authorization-overview) para más información sobre cómo se clasifican en regiones las ofertas del CSP.
+>Si autoriza a un asociado del programa CSP en una región determinada, este puede vender la oferta a cualquier cliente que pertenezca a esa región en particular. Para más información sobre cómo se clasifican en regiones las ofertas del CSP, consulte [Mercados y monedas regionales del programa Proveedor de soluciones en la nube](https://docs.microsoft.com/partner-center/regional-authorization-overview).
 
 Si está actualizando la lista de CSP de una oferta ya publicada, agregue los asociados adicionales y seleccione **Sync CSP audience** (Sincronizar audiencia de CSP).
 
@@ -170,14 +170,11 @@ Para ayudar a que los partners del programa Proveedor de soluciones en la nube r
 
 ### <a name="partner-center-csp-channel"></a>Canal de CSP del Centro de partners
 
-Si ha participado en el canal de CSP del Centro de partners, los publicadores deben escribir una dirección URL que hospede los materiales de marketing pertinentes y la información de contacto del canal en el canal de CSP en el módulo de lista de ofertas:
+Si ha participado en el canal de CSP del Centro de partners, los publicadores deben escribir una dirección URL que hospede los materiales de marketing pertinentes y la información de contacto en el módulo de lista de ofertas.
 
 ![Información sobre documentación y material adjunto de CSP del Centro de partners](media/marketplace-publishers-guide/pc-csp-channel.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Visite la [Guía de publicación de Azure Marketplace y AppSource](marketplace-publishers-guide.md).
-
-Para más información sobre los servicios GTM de Marketplace, consulte [Servicios de comercialización](https://partner.microsoft.com/reach-customers/gtm).
-
-Inicie sesión en el [Centro de Partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear y configurar la oferta.
+- Obtenga más información sobre los [servicios de comercialización](https://partner.microsoft.com/reach-customers/gtm).
+- Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear y configurar la oferta.

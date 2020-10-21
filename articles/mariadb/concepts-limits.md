@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 51aff856aa5bdeb042493d47f100be0ca32dfbbb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 10/2/2020
+ms.openlocfilehash: c3bef7a368c6c0f2a08acdfd8da9236899a51a27
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032686"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91650993"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitaciones de Azure Database for MariaDB
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos.
@@ -25,6 +25,8 @@ Azure Database for MariaDB admite el ajuste de los valores de parámetros del se
 
 Tras la implementación inicial, un servidor de Azure para MariaDB incluye tablas de sistemas para la información de zona horaria, pero no se han rellenado. Las tablas de la zona horaria se pueden rellenar mediante una llamada al procedimiento almacenado `mysql.az_load_timezone` desde una herramienta como la línea de comandos de MySQL o MySQL Workbench. Vea los artículos de [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) o de la [CLI de Azure](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) sobre cómo llamar al procedimiento almacenado y establecer las zonas horarias globales o de nivel de sesión.
 
+Los complementos de contraseñas como "validate_password" y "caching_sha2_password" no son compatibles con el servicio.
+
 ## <a name="storage-engine-support"></a>Compatibilidad del motor de almacenamiento
 
 ### <a name="supported"></a>Compatible
@@ -36,21 +38,25 @@ Tras la implementación inicial, un servidor de Azure para MariaDB incluye tabla
 - [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
 
+## <a name="privileges--data-manipulation-support"></a>Compatibilidad con privilegios y con la manipulación de datos
+
+Muchos parámetros y ajustes del servidor pueden reducir por error el rendimiento del servidor o invalidar las propiedades ACID del servidor de MariaDB. Para mantener la integridad del servicio y el SLA en un nivel de producto, no se exponen varios roles en este servicio. 
+
+El servicio MariaDB no permite el acceso directo al sistema de archivos subyacente. No se admiten algunos comandos de manipulación de datos. 
+
 ## <a name="privilege-support"></a>Compatibilidad de los privilegios
 
 ### <a name="unsupported"></a>No compatible
-- Rol DBA: muchos parámetros y valores de servidor pueden reducir por error el rendimiento del servidor o invalidar las propiedades ACID del sistema de administración de bases de datos (DBMS). Por lo tanto, para mantener la integridad del servicio y el SLA en un nivel de producto, no se expone el rol DBA en este servicio. La cuenta de usuario predeterminada, que se crea a la vez que las instancias de base de datos, permite a los usuarios realizar la mayoría de las instrucciones DDL y DML en la instancia de base de datos administrada.
+
+No se admite lo siguiente:
+- Rol DBA: restringido. De forma alternativa, puede usar el rol de administrador (generado durante la creación del nuevo servidor), que le permite ejecutar la mayoría de las instrucciones DDL y DML. 
 - Privilegio SUPER: del mismo modo, los [privilegios SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) también están restringidos.
 - DEFINER: requiere privilegios SUPER para crear y está restringido. Si importa datos mediante una copia de seguridad, quite los comandos `CREATE DEFINER` manualmente o mediante el comando `--skip-definer` durante una operación mysqldump.
-- Bases de datos del sistema: En Azure Database for MariaDB, la [base de datos del sistema MySQL](https://mariadb.com/kb/en/the-mysql-database-tables/) es de solo lectura, ya que se usa para admitir varias funcionalidades del servicio PaaS. Tenga en cuenta que no puede cambiar nada en la base de datos del sistema `mysql`.
-
-## <a name="data-manipulation-statement-support"></a>Compatibilidad de las instrucciones de manipulación de datos
+- Bases de datos del sistema: La [base de datos del sistema de MySQL](https://mariadb.com/kb/en/the-mysql-database-tables/) es de solo lectura y se usa para admitir varias funcionalidades de PaaS. No puede realizar cambios en la base de datos del sistema de `mysql`.
+- `SELECT ... INTO OUTFILE`: no se admite en el servicio.
 
 ### <a name="supported"></a>Compatible
 - `LOAD DATA INFILE` es compatible, pero el parámetro `[LOCAL]` debe especificarse y dirigirse a una ruta de acceso UNC (Azure Storage montado a través de SMB).
-
-### <a name="unsupported"></a>No compatible
-- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>Limitaciones funcionales
 

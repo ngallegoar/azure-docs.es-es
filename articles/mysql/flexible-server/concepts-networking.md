@@ -1,17 +1,17 @@
 ---
 title: 'Información general sobre redes: Servidor flexible de Azure Database for MySQL'
 description: Obtenga información sobre las opciones de conectividad y redes en la opción de implementación Servidor flexible para Azure Database for MySQL
-author: rachel-msft
-ms.author: raagyema
+author: ambhatna
+ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 550f3367fe2e5283aff788b36203e988361590ad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 9/23/2020
+ms.openlocfilehash: 48265856e5e745e05f6625766f9cd0c9b15c90a5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90931870"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708669"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Conceptos de conectividad y redes para Servidor flexible (versión preliminar) de Azure Database for MySQL
 
@@ -62,6 +62,8 @@ Estos son algunos conceptos que debe conocer al usar redes virtuales con servido
 
    El servidor flexible de MySQL debe estar en una subred **delegada** para uso exclusivo del servidor flexible de MySQL. Esta delegación significa que solo los servidores flexibles de Azure Database for MySQL pueden utilizar esa subred. No puede haber otros tipos de recursos de Azure en la subred delegada. Puede delegar una subred si asigna su propiedad de delegación como Microsoft.DBforMySQL/flexibleServers.
 
+* **Grupos de seguridad de red (NSG)** Las reglas de seguridad de grupos de seguridad de red permiten filtrar el tipo de tráfico de red que puede fluir dentro y fuera de las interfaces de red y las subredes de redes virtuales. Revise la [Introducción a los grupos de seguridad de red](../../virtual-network/network-security-groups-overview.md) para obtener más información.
+
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Escenarios de red virtual no admitidos
 * Punto de conexión público (o dirección IP pública o DNS): un servidor flexible implementado en una red virtual no puede tener un punto de conexión público
@@ -108,11 +110,9 @@ Tenga en cuenta los aspectos siguientes cuando el acceso al servicio del servido
 ## <a name="hostname"></a>Nombre de host
 Con independencia de la opción de red que elija, se recomienda usar siempre un nombre de dominio completo (FQDN) como nombre de host al conectarse al servidor flexible. No se garantiza que la dirección IP del servidor permanezca estática. El uso del FQDN le ayudará a evitar realizar cambios en la cadena de conexión. 
 
-Un escenario en el que los cambios de IP se producen si se usa alta disponibilidad con redundancia de zona y se produce una conmutación por error entre el principal y el secundario. El uso del FQDN significa que puede reintentar las conexiones sin problemas con la misma cadena de conexión.
-
 Ejemplo
 * Recomendado `hostname = servername.mysql.database.azure.com`
-* Evite el uso de `hostname = 10.0.0.4` (dirección privada) o `hostname = 40.2.45.67` (IP pública)
+* Siempre que sea posible, evite usar `hostname = 10.0.0.4` (una dirección privada) o `hostname = 40.2.45.67` (una dirección IP pública)
 
 
 

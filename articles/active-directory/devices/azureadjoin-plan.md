@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268234"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91653220"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
 
@@ -187,6 +187,7 @@ La conexión a Escritorio remoto para dispositivos unidos a Azure AD requiere qu
 A partir de la actualización 2004 de Windows 10, los usuarios también pueden usar el escritorio remoto desde un dispositivo con Windows 10 registrado en Azure AD a un dispositivo unido a Azure AD. 
 
 ## <a name="understand-your-provisioning-options"></a>Explicación de las opciones de aprovisionamiento
+**Nota**: No se pueden implementar los dispositivos unidos a Azure AD mediante la Herramienta de preparación del sistema (Sysprep) o herramientas de creación de imágenes similares
 
 Puede aprovisionar la unión a Azure AD con los siguientes enfoques:
 

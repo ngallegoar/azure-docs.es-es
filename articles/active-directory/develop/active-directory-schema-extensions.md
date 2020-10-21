@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8861e641f5ee6a10576425a7702ba02da297a0bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115618"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631280"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Uso de atributos de extensión de esquema de directorio en notificaciones
 
@@ -35,7 +35,7 @@ El identificador de un atributo de extensión de esquema de directorio tiene el 
 Los atributos de extensión de esquema de directorio se pueden registrar y rellenar de alguna de estas dos maneras:
 
 - Configurando AD Connect para crearlos y sincronizar los datos en ellos desde una instancia de AD local. Vea [Sincronización de Azure AD Connect: Extensiones de directorio](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
-- Usando Microsoft Graph para registrar, establecer los valores y leer los atributos de extensión de esquema de directorio; [Extensiones de esquema de directorio |Conceptos de Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) o PowerShell+ [Administración de atributos de extensión con cmdlets de AzureAD PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
+- Al usar Microsoft Graph para el registro, establezca los valores de las [extensiones de esquema](/graph/extensibility-overview) y lea de las mismas. Los [cmdlets de PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample) también están disponibles.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>Emisión de notificaciones con datos de los atributos de extensión de esquema de directorio creados con AD Connect
 Los atributos de extensión de esquema de directorio creados y sincronizados con AD Connect siempre están asociados al identificador de aplicación que usa AD Connect. Se pueden usar como origen de las notificaciones mediante la configuración como notificaciones en la opción **Aplicaciones empresariales** en la interfaz de usuario del portal para las aplicaciones SAML registradas mediante la galería o la experiencia de configuración de la aplicación que no es de la galería en **Aplicaciones empresariales** y mediante una directiva de asignación de notificaciones para aplicaciones registradas a través de la experiencia de registro de aplicación.  Una vez que un atributo de extensión de directorio creado mediante AD Connect está en el directorio, se mostrará en la interfaz de usuario de configuración de notificaciones de SSO de SAML.
@@ -58,7 +58,7 @@ Por ejemplo, esta es una directiva de asignación de notificaciones para emitir 
                 "Source": "User",
                 "ExtensionID": "extension_xxxxxxx_test",
                 "JWTClaimType": "http://schemas.contoso.com/identity/claims/exampleclaim"
-            }, 
+            },
         ]
     }
 }
@@ -72,5 +72,5 @@ Donde *xxxxxxx* es el identificador de aplicación con el que se registró la ex
 > El parámetro "Id" del esquema de notificaciones que se usa para los atributos de directorio integrados es "ExtensionID" para los atributos de extensión de directorio.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga información sobre cómo [agregar notificaciones personalizadas o adicionales a los tokens SAML 2.0 y JSON Web Token (JWT)](active-directory-optional-claims.md). 
+- Obtenga información sobre cómo [agregar notificaciones personalizadas o adicionales a los tokens SAML 2.0 y JSON Web Token (JWT)](active-directory-optional-claims.md).
 - Obtenga información sobre cómo [personalizar las notificaciones emitidas en tokens para una aplicación específica](active-directory-claims-mapping.md).

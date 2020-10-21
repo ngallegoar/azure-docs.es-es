@@ -12,17 +12,17 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e6686c69eb6dababb577e9c556a8a13ec42485a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 51f9043dcf329e4f3f23ddb930e53cfdfa2f107a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296471"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631654"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalación del agente de Azure AD Connect Health
 
@@ -45,10 +45,13 @@ En la tabla siguiente hay una lista de requisitos para utilizar Azure AD Connect
 | Asegúrese de que PowerShell v4.0 o posterior está instalado | <li>Windows Server 2008 R2 se suministra con PowerShell 2.0, que no es suficiente para el agente. Actualice PowerShell como se explica a continuación en [Instalación del agente en servidores de Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 se suministra con PowerShell 3.0, que no es suficiente para el agente.</li><li>Windows Server 2012 R2 y las versiones posteriores se suministran con una versión lo suficientemente reciente de PowerShell.</li>|
 |Deshabilitar FIPS|FIPS no es compatible con los agentes de Azure AD Connect Health.|
 
+> [!IMPORTANT]
+> No se admite la instalación del agente de Azure AD Connect Health en Windows Server Core.
+
 
 > [!NOTE]
 > Si tiene un entorno bloqueado y extremadamente restringido, requeriría agregar las direcciones URL mencionadas en las listas de puntos de conexión de servicio a continuación además de las que aparecen en la configuración de la seguridad mejorada de IE permitida anterior. 
->
+
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Conectividad saliente a los extremos del servicio de Azure
 

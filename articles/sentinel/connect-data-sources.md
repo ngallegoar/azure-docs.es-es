@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2020
+ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 63acffd16fa4374d4f8541a9d3327b29a3641f71
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1df52f027c23b2e3618ad17494b06c2ccecfaf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895800"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91627149"
 ---
 # <a name="connect-data-sources"></a>Conexión con orígenes de datos
 
@@ -45,17 +45,22 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
 
 - **Integración de servicio a servicio**:<br> Algunos servicios se conectan de forma nativa, como los servicios de AWS y Microsoft, y aprovechan la base de Azure de la integración lista para usar. Con solo unos clics, se pueden conectar las soluciones siguientes:
     - [Amazon Web Services: CloudTrail](connect-aws.md)
-    - [Azure Activity](connect-azure-activity.md) (Actividad de Azure)
     - [Azure Active Directory](connect-azure-active-directory.md): registros de auditoría y registros de inicio de sesión
+    - [Azure Activity](connect-azure-activity.md) (Actividad de Azure)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Microsoft Defender for Identity](connect-azure-atp.md) (anteriormente Azure ATP)
+    - [Azure DDoS Protection](connect-azure-ddos-protection.md)
+    - [Azure Defender para IoT](connect-asc-iot.md) (anteriormente conocido como Azure Security Center para IoT)
     - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Azure Firewall](connect-azure-firewall.md)
     - [Azure Security Center](connect-azure-security-center.md): alertas desde soluciones de Azure Defender
+    - [Azure Web Application Firewall (WAF)](connect-azure-waf.md) (anteriormente conocido como Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Servidor de nombres de dominio](connect-dns.md)
-    - [Office 365](connect-office-365.md)
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md): incluye datos sin procesar de MDATP
     - [Microsoft Defender para Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (anteriormente Protección contra amenazas avanzada de Microsoft)
-    - [Firewall de aplicaciones web de Microsoft](connect-microsoft-waf.md)
+    - [Microsoft Defender for Identity](connect-azure-atp.md) (anteriormente Azure ATP)
+    - [Microsoft Defender para Office 365](connect-office-365-advanced-threat-protection.md) (anteriormente conocido como Protección contra amenazas avanzada de Office 365)
+    - [Office 365](connect-office-365.md) (ahora con Teams)
     - [Firewall de Windows](connect-windows-firewall.md)
     - [Eventos de seguridad de Windows](connect-windows-security-events.md)
 
@@ -67,9 +72,14 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [SSO de Okta](connect-okta-single-sign-on.md)
+    - [Orca Security](connect-orca-security-alerts.md)
     - [Registros de Perimeter 81](connect-perimeter-81-logs.md)
+    - [Proofpoint TAP](connect-proofpoint-tap.md)
+    - [Qualys VM](connect-qualys-vm.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
+    - [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
     - [Zimperium](connect-zimperium-mtd.md)
 
 
@@ -79,7 +89,7 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
 
     El agente de Azure Sentinel, que en realidad es el agente de Log Analytics, convierte los registros con formato CEF a un formato que Log Analytics puede ingerir. Dependiendo del tipo de dispositivo, el agente se instala directamente en el dispositivo o en reenviador de registros Linux dedicado. El agente para Linux recibe eventos del demonio de Syslog a través de UDP; sin embargo,si se espera que una máquina Linux recopile un gran volumen de eventos Syslog, se envían a través de TCP desde el demonio de Syslog al agente y desde allí a Log Analytics.
 
-    - **Firewalls, servidores proxy y puntos de conexión:**
+    - **Firewalls, servidores proxy y puntos de conexión - CEF:**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
@@ -87,15 +97,23 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
         - [F5 ASM](connect-f5.md)
         - [Productos de Forcepoint](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
-        - [Palo Alto Networks](connect-paloalto.md)
+        - [AMS de Illusive Networks](connect-illusive-attack-management-system.md)
         - [One Identity Safeguard](connect-one-identity.md)
-        - [Other CEF appliances](connect-common-event-format.md) (Otros dispositivos CEF)
-        - [Other Syslog appliances](connect-syslog.md) (Otros dispositivos de Syslog)
+        - [Palo Alto Networks](connect-paloalto.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
         - [Zscaler](connect-zscaler.md)
+        - [Otros dispositivos basados en CEF](connect-common-event-format.md)
+    - **Firewalls, servidores proxy y puntos de conexión - Syslog:**
+        - [Infoblox NIOS](connect-infoblox.md)
+        - [Pulse Connect Secure](connect-pulse-connect-secure.md)
+        - [Sophos XG](connect-sophos-xg-firewall.md)
+        - [Symantec ProxySG](connect-symantec-proxy-sg.md)
+        - [Symantec VIP](connect-symantec-vip.md)
+        - [Otros dispositivos basados en Syslog](connect-syslog.md)
     - Soluciones de DLP
     - [Threat intelligence providers](connect-threat-intelligence.md) (Proveedores de información sobre amenazas)
     - [DNS machines](connect-dns.md) (Máquinas DNS): agente instalado directamente en la máquina DNS
+    - [Máquinas virtuales de Azure Stack](connect-azure-stack.md)
     - Servidores Linux
     - Otras nubes
     

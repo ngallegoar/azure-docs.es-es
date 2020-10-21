@@ -1,23 +1,23 @@
 ---
 title: 'Azure ExpressRoute: Configuración de ExpressRoute Direct: CLI'
-description: Aprenda a usar la CLI de Azure para configurar Azure ExpressRoute Direct para conectarse directamente a la red global de Microsoft en ubicaciones de emparejamiento distribuidas por todo el mundo.
+description: Aprenda a usar la CLI de Azure para configurar Azure ExpressRoute Direct para conectarse directamente a la red global de Microsoft.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/20/2019
+ms.date: 09/28/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4eea79d6166ef4beae3b2d61e47e7df0bc82624c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0bdf2c4dda3e272ae04681f886f6e4da31dcebd8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395968"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569825"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configuración de ExpressRoute Direct mediante la CLI de Azure
 
-Puede usar Azure ExpressRoute Direct para conectarse directamente a la red global de Microsoft en ubicaciones de emparejamiento distribuidas estratégicamente por todo el mundo. Para obtener más información, consulte [About ExpressRoute Direct Connect](expressroute-erdirect-about.md) (Acerca de ExpressRoute Direct Connect).
+ExpressRoute Direct le ofrece la posibilidad de conectarse directamente a la red global de Microsoft mediante ubicaciones de emparejamiento distribuidas estratégicamente por todo el mundo. Para obtener más información, consulte [About ExpressRoute Direct Connect](expressroute-erdirect-about.md) (Acerca de ExpressRoute Direct Connect).
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Crear el recurso
 
@@ -209,6 +209,14 @@ Puede usar Azure ExpressRoute Direct para conectarse directamente a la red globa
    }  
    ```
 
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Generación de la Carta de autorización (LOA)
+
+Escriba el nombre del recurso de ExpressRoute Direct creado recientemente, el nombre del grupo de recursos y un nombre de cliente para escribir en la LOA y, opcionalmente, defina una ubicación de archivo para almacenar el documento. Si no se hace referencia a una ruta de acceso de archivo, el documento se descargará en el directorio actual.
+
+```azurecli
+az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
+```
+
 ## <a name="change-adminstate-for-links"></a><a name="state"></a>Cambio de AdminState para vínculos
 
 Utilice este proceso para llevar a cabo una prueba de capa 1. Asegúrese de que cada conexión cruzada se ha revisado correctamente en cada enrutador de los puertos principales y secundarios.
@@ -285,9 +293,10 @@ De forma predeterminada, puede crear 10 circuitos en la suscripción que contien
 
 Puede utilizar anchos de banda de circuito adicionales en ExpressRoute Direct solo para admitir los escenarios aquí descritos. Los anchos de banda son 40 Gbps y 100 Gbps.
 
-**SkuTier** puede ser Local, Estándar o Premium.
+**SkuTier** puede ser Local, Standard o Premium.
 
-**SkuFamily** deben ser datos limitados solo, ya los ilimitados no son compatibles con ExpressRoute Direct.
+**SkuFamily** solo puede ser MeteredData. Ilimitado no se admite en ExpressRoute Direct.
+
 Cree un circuito en el recurso de ExpressRoute Direct:
 
   ```azurecli

@@ -1,17 +1,17 @@
 ---
 title: 'SSL/TLS en Azure Database for PostgreSQL: servidor único'
 description: 'Instrucciones e información sobre cómo configurar la conectividad de TSL para Azure Database for PostgreSQL: un solo servidor.'
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 872daf3a208452e8b7ec27b2326e394b416a1c5f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2785f79d327402a40be0a905877b5113b3f751b7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902045"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710454"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Configuración de la conectividad de TSL en Azure Database for PostgreSQL: un solo servidor
 
@@ -92,6 +92,17 @@ Por ejemplo, si se establece la versión de TLS mínima en TLS 1.0, significa qu
 > Una vez que aplica una versión de TLS mínima, esta no se puede deshabilitar posteriormente.
 
 Para obtener información sobre cómo establecer la configuración de TLS para el servidor único de Azure Database for PostgreSQL, consulte [Configuración de los valores de TLS](howto-tls-configurations.md).
+
+## <a name="cipher-support-by-azure-database-for-postgresql-single-server"></a>Cifrado admitido por el servidor único de Azure Database for PostgreSQL
+
+Como parte de la comunicación SSL/TLS, los conjuntos de cifrado se validan y son los únicos que tienen permitido comunicarse con el servidor de la base de datos. La validación del conjunto de cifrado se controla en el [nivel de puerta de enlace](concepts-connectivity-architecture.md#connectivity-architecture) y no de manera explícita en el propio nodo. Si los conjuntos de cifrado no coinciden con algunos de los conjuntos mencionados a continuación, se rechazarán las conexiones de cliente entrantes.
+
+### <a name="cipher-suite-supported"></a>Conjunto de cifrado compatible
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="next-steps"></a>Pasos siguientes
 

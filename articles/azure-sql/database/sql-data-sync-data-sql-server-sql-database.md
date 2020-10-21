@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: f7d2351fdc39ec4600cbca2e436cdcd527157275
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 268455e582e54dfa8eb73fe81eaad19f453e303b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332971"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057899"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>¿Qué es SQL Data Sync para Azure?
 
@@ -126,7 +126,7 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 > - Los datos entre el concentrador y el miembro pueden perderse aunque la sincronización no notifique ningún problema.
 > - Se puede producir un error en la sincronización porque la tabla de seguimiento tiene una fila no existente del origen debido al cambio de la clave principal.
 
-- Se debe habilitar el aislamiento de instantánea. Para más información, consulte [Aislamiento de instantáneas en SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- El aislamiento de instantánea debe estar habilitado tanto para el centro como para los miembros de sincronización. Para más información, consulte [Aislamiento de instantáneas en SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitaciones generales
 
@@ -136,7 +136,7 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 - Tenga cuidado al usar los siguientes tipos de datos como clave principal, porque la precisión admitida solo llega al segundo: time, datetime, datetime2, datetimeoffset.
 - Los nombres de objetos (bases de datos, tablas y columnas) no pueden contener los caracteres imprimibles punto (.), corchete de apertura ([) o corchete de cierre (]).
 - No se admite la autenticación de Azure Active Directory.
-- No se admiten tablas con el mismo nombre y un esquema diferente (por ejemplo, dbo.customers y sales.customers).
+- Si hay tablas con el mismo nombre pero distinto esquema (por ejemplo, dbo.customers y sales.customers), solo se puede agregar una de las tablas a la sincronización.
 - No se admiten columnas con tipos de datos definidos por el usuario
 - No se admite el traslado de servidores entre diferentes suscripciones. 
 

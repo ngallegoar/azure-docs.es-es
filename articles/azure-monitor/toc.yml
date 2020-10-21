@@ -141,7 +141,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Introducción
+        - name: Información general
           href: platform/alerts-overview.md
         - name: Alertas de métricas
           href: platform/alerts-metric-overview.md
@@ -292,8 +292,8 @@
                   href: learn/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
-                - name: Plantilla de Resource Manager
-                  href: ./samples/resource-manager-workspace.md
+            - name: Supervisión de un área de trabajo
+              href: platform/monitor-workspace.md
             - name: Eliminación y recuperación de áreas de trabajo
               href: platform/delete-workspace.md
             - name: Administración del acceso
@@ -404,7 +404,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Introducción
+            - name: Información general
               href: platform/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension

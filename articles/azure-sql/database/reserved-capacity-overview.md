@@ -11,20 +11,22 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
-ms.date: 08/29/2019
-ms.openlocfilehash: 7a7373f5fcd36298d2feeff6a2a5b67c9e10e40b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/13/2020
+ms.openlocfilehash: c1bedf56896332430c6f4b937aab37764a0c6a43
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321601"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058274"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Ahorro de costos para los recursos con capacidad reservada: Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
 
 Ahorre dinero con Azure SQL Database e Instancia administrada de SQL al comprometerse a una reserva de recursos de proceso en lugar de elegir el pago por uso. Con la capacidad reservada, se compromete a usar Azure SQL Database o Instancia administrada de SQL durante un período de uno a tres años para obtener un descuento considerable en los costos de proceso. Para comprar capacidad reservada, debe especificar la región de Azure, el tipo de implementación, el nivel de servicio y el período.
 
-No es necesario asignar la reserva a una base de datos específica o instancia administrada. Al igualarse las implementaciones existentes en ejecución o las recién implementadas se obtendrá la ventaja automáticamente. Al comprar una reserva, se compromete a usar el servicio por los costos de proceso durante un período de uno a tres años. Tan pronto como se compra una reserva, los costos de proceso que coinciden con los atributos de la reserva dejan de pagarse según las tarifas de pago por uso. La reserva no cubre los cargos por software, redes o almacenamiento asociados al servicio. Al final del plazo de reserva, la ventaja en la facturación expira y la base de datos o instancia administrada se factura según los precios de pago por uso. Las reservas no se renuevan de manera automática. Para información sobre precios, consulte el artículo sobre la [oferta de capacidad reservada](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+No es necesario asignar la reserva a una base de datos específica o instancia administrada. Al igualarse las implementaciones existentes en ejecución o las recién implementadas se obtendrá la ventaja automáticamente. Al comprar una reserva, se compromete a usar el servicio por los costos de proceso durante un período de uno a tres años. Tan pronto como se compra una reserva, los costos de proceso que coinciden con los atributos de la reserva dejan de pagarse según las tarifas de pago por uso. 
+
+Una reserva se aplica a las réplicas de proceso principales y secundarias facturables, pero no abarca los cargos de software, redes ni almacenamiento asociados con el servicio. Al final del plazo de reserva, la ventaja en la facturación expira y la base de datos o instancia administrada se factura según los precios de pago por uso. Las reservas no se renuevan de manera automática. Para información sobre precios, consulte el artículo sobre la [oferta de capacidad reservada](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 Puede comprar la capacidad reservada de timbres en [Azure Portal](https://portal.azure.com). Pague la reserva [por adelantado o mensualmente](../../cost-management-billing/reservations/prepare-buy-reservation.md). Para adquirir capacidad reservada:
 
@@ -32,6 +34,9 @@ Puede comprar la capacidad reservada de timbres en [Azure Portal](https://portal
 - En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción. Capacidad reservada.
 
 Para obtener más información sobre cómo se les cobra a los clientes de empresa y a los de Pago por uso las compras de reservas, consulte [Información sobre el uso de reservas de Azure para la inscripción Enterprise](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) e [Información sobre el uso de reservas de Azure para suscripciones de pago por uso](../../cost-management-billing/reservations/understand-reserved-instance-usage.md).
+
+> [!NOTE]
+> La compra de capacidad reservada no asigna previamente ni reserva recursos de infraestructura específicos (máquinas virtuales o nodos) para su uso.
 
 ## <a name="determine-correct-size-before-purchase"></a>Determinación del tamaño correcto antes de la compra
 

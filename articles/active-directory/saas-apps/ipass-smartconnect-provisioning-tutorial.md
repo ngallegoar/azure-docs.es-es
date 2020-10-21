@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 0af8df35bc2cc323e5165b973c889a0ab10f4cbb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bf779918dbfb9f7b95096f3a5efcc8e64f09c403
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304949"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850520"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Tutorial: Configuración de iPass SmartConnect para aprovisionar usuarios automáticamente
 
@@ -114,11 +114,11 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
 8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to iPass SmartConnect** (Sincronizar los usuarios de Azure Active Directory para iPass SmartConnect).
 
-    ![Asignaciones de usuario de iPass SmartConnect](media/ipass-smartconnect-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/usermapping.png" alt-text="Captura de pantalla de la sección Asignaciones. En el nombre, está visible la sincronización de usuarios de Azure Active Directory con iPass SmartConnect." border="false":::
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD e iPass SmartConnect en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de iPass SmartConnect con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Asignaciones de usuario de iPass SmartConnect](media/ipass-smartconnect-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Captura de pantalla de la sección Asignaciones. En el nombre, está visible la sincronización de usuarios de Azure Active Directory con iPass SmartConnect." border="false":::
 
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

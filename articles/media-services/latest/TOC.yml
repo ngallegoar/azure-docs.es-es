@@ -67,6 +67,8 @@
       items:
         - name: Codificación y transmisión en secuencias de un archivo remoto REST
           href: stream-files-tutorial-with-rest.md
+        - name: Claves administradas por el cliente con Media Services
+          href: tutorial-byok.md
     - name: CLI
       items:
         - name: Codificación y transmisión en secuencias de un archivo remoto CLI
@@ -175,6 +177,8 @@
         - name: Cifrado dinámico y entrega de claves
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
+        - name: Claves administradas por el cliente
+          href: concept-use-customer-managed-keys-byok.md
         - name: Diseño de un sistema con varias licencias de administración de derechos digitales
           displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md

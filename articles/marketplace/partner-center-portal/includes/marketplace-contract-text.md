@@ -9,12 +9,12 @@ ms.date: 01/22/2020
 ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d899db8b5f6f3b7c0ccef4e44c814f1e126c626a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e1119cf5c40cdcb1fd598b85410ea9149a7cc146
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326685"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91401048"
 ---
 Microsoft proporciona una plantilla de contrato estándar para Marketplace comercial.
 
@@ -46,7 +46,7 @@ Hay dos tipos de modificaciones para los anunciantes de Marketplace comercial:
 **Términos de modificación personalizados del Contrato estándar de Marketplace comercial de Microsoft**: Comience por seleccionar **Add custom amendment terms** (Agregar términos de modificación personalizados). Puede proporcionar hasta 10 términos de modificación personalizados por oferta.
 
 - **Términos de modificación personalizados**: Escriba los términos de modificación personalizados en el cuadro Términos de modificación personalizados. Puede escribir un número ilimitado de caracteres en este cuadro. Solo los clientes de los id. de inquilino que se especifiquen para estos términos personalizados recibirán los términos de modificación personalizados en el flujo de compra de la oferta en Azure Portal.  
-- **Tenant IDs** (Identificadores de inquilino) (opcional): Cada modificación personalizada puede tener como destino hasta 20 identificadores de inquilino. Si agrega una modificación personalizada, debe proporcionar al menos un identificador de inquilino. El identificador de inquilino identifica al cliente en Azure. Puede pedir a su cliente este identificador y encontrarlo si navega a portal.azure.com > Azure Active Directory > Propiedades. El valor del identificador de directorio es el identificador de inquilino (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). También puede buscar el identificador de inquilino de la organización de su cliente mediante su dirección URL de nombre de dominio en [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com) (¿Cuál es mi identificador de inquilino de Microsoft Azure y Office 365?).
+- **Tenant IDs** (Identificadores de inquilino) (opcional): Cada modificación personalizada puede tener como destino hasta 20 identificadores de inquilino. Si agrega una modificación personalizada, debe proporcionar al menos un identificador de inquilino. El identificador de inquilino identifica al cliente en Azure. Puede pedir a su cliente este identificador y encontrarlo si navega a portal.azure.com > Azure Active Directory > Propiedades. El valor del identificador de directorio es el identificador de inquilino (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). También puede buscar el identificador de inquilino de la organización de su cliente mediante su dirección URL de nombre de dominio en [¿Cuál es mi identificador de inquilino de Microsoft Azure y Microsoft 365?](https://www.whatismytenantid.com)
 - **Descripción** (opcional): Opcionalmente, proporcione una descripción detallada del identificador de inquilino que le ayude a identificar al cliente al que está destinada la modificación.
 
 **Términos y condiciones**

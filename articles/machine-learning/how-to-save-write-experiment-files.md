@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 548113a5f775595caf3a798d7b35eddfbc80674e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1742c80fd6914a1c9420f37217df02791e80da9d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886097"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710063"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dónde guardar y escribir los archivos para los experimentos de Azure Machine Learning
 
@@ -79,4 +79,4 @@ Si no necesita un almacén de datos, escriba los archivos en la carpeta `./outpu
 
 * Más información sobre el [acceso a los datos desde almacenes de datos](how-to-access-data.md).
 
-* Obtenga más información sobre la creación de destinos de proceso con el [SDK para Python](how-to-create-attach-compute-sdk.md) o con [Studio](how-to-create-attach-compute-studio.md).
+* Obtenga más información sobre la [creación de destinos de proceso para la implementación y el entrenamiento de modelos](how-to-create-attach-compute-studio.md)

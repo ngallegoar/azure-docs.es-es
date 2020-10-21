@@ -3,12 +3,12 @@ title: Protección de Azure Functions
 description: Obtenga información sobre cómo hacer que el código de función que se ejecuta en Azure sea más seguro frente a ataques comunes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 470ee517b929b7327df76963e21c88db21d363da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850719"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761420"
 ---
 # <a name="securing-azure-functions"></a>Protección de Azure Functions
 
@@ -24,7 +24,7 @@ Esta sección le guía en la configuración y ejecución de la aplicación de fu
 
 ### <a name="security-center"></a>Security Center
 
-Security Center se integra con la aplicación de funciones en el portal. Proporciona, de forma gratuita, una evaluación rápida de posibles vulnerabilidades de seguridad relacionadas con la configuración. Las aplicaciones de funciones que se ejecutan en un plan dedicado también pueden usar las características de seguridad en tiempo real de Security Center, a un precio adicional. Para obtener más información, vea [Protección de las aplicaciones web y API de Azure App Service](../security-center/security-center-app-services.md). 
+Security Center se integra con la aplicación de funciones en el portal. Proporciona, de forma gratuita, una evaluación rápida de posibles vulnerabilidades de seguridad relacionadas con la configuración. Las aplicaciones de funciones que se ejecutan en un plan dedicado también pueden usar las características de seguridad en tiempo real de Security Center, a un precio adicional. Para obtener más información, vea [Protección de las aplicaciones web y API de Azure App Service](https://docs.microsoft.com/azure/security-center/defender-for-app-service-introduction). 
 
 ### <a name="log-and-monitor"></a>Registro y supervisión
 
@@ -128,6 +128,8 @@ De forma predeterminada, las cadenas de conexión y los secretos que usa la apli
 Por ejemplo, todas las aplicaciones de funciones requieren una cuenta de almacenamiento asociada, que la usa por el tiempo de ejecución. De forma predeterminada, la conexión a esta cuenta de almacenamiento se almacena en una configuración de aplicación denominada `AzureWebJobsStorage`.
 
 La configuración de la aplicación y las cadenas de conexión se almacenan cifradas en Azure. Solo se descifran antes de insertarlas en la memoria de proceso de la aplicación cuando se inicia la aplicación. Las claves de cifrado rotan con regularidad. Si en su lugar prefiere administrar el almacenamiento seguro de los secretos, la configuración de la aplicación debe ser referencias a Azure Key Vault. 
+
+También puede cifrar la configuración de forma predeterminada en el archivo local.settings.json al desarrollar funciones en el equipo local. Para más información, vea la propiedad `IsEncrypted` en el [archivo de configuración local](functions-run-local.md#local-settings-file).  
 
 #### <a name="key-vault-references"></a>Referencias de Key Vault
 

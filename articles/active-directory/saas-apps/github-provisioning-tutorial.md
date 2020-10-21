@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: b88408480bb0822a061e97336eee5c6b3ccfc8e0
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 847c69a18a73d67b9b994e72686a4073ddd6d27f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358328"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857544"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configuración de GitHub para aprovisionar usuarios automáticamente
 
@@ -28,6 +28,7 @@ En la situación descrita en este tutorial se supone que ya cuenta con los eleme
 * Un inquilino de Azure Active Directory
 * Una organización GitHub creada en [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), que requiere el [plan de facturación de GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
 * Una cuenta de usuario de GitHub con permisos de administrador para la organización
+* [SAML configurado para la organización en la nube de GitHub Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)
 * Asegúrese de que se ha proporcionado acceso de OAuth para su organización, tal como se describe [aquí](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 * El aprovisionamiento de SCIM para una sola organización solo se admite cuando SSO está habilitado en el nivel de organización
 
@@ -51,9 +52,6 @@ Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir q
 ## <a name="configuring-user-provisioning-to-github"></a>Configuración del aprovisionamiento de usuarios en GitHub
 
 Esta sección lo guía a través de los pasos necesarios para conectar la API de aprovisionamiento de cuentas de usuario de GitHub, así como para configurar el servicio de aprovisionamiento con el fin de crear, actualizar y deshabilitar cuentas de usuario asignadas en GitHub en función de la asignación de grupos y usuarios de Azure AD.
-
-> [!TIP]
-> También puede habilitar el inicio de sesión único basado en SAML para GitHub siguiendo las instrucciones de [Azure Portal](https://portal.azure.com). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático, aunque estas dos características se complementan entre sí.
 
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Configuración del aprovisionamiento de cuentas de usuario automático para GitHub en Azure AD
 

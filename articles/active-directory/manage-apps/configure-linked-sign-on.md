@@ -1,26 +1,26 @@
 ---
-title: Configuración del inicio de sesión vinculado en Azure Active Directory
-description: Configure el inicio de sesión vinculado en Azure AD.
+title: Descripción del inicio de sesión vinculado en Azure Active Directory
+description: Comprenda el inicio de sesión vinculado en Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: bad4fe7f0cf090e5d61506e775fccf677df45fa5
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 49191ffc0033559f0668a5330b8c91643dee39d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641983"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073978"
 ---
-# <a name="configure-linked-sign-on"></a>Configuración del inicio de sesión vinculado
+# <a name="understand-linked-sign-on"></a>Descripción del inicio de sesión vinculado
 
-En la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones, aprendió a usar Azure AD como proveedor de identidades (IdP) para una aplicación. En la guía de inicio rápido, configura el inicio de sesión único basado en SAML. Otra opción es **Vinculado**. Este artículo explica con más detalle la opción Vinculado.
+En la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones, aprendió a usar Azure AD como proveedor de identidades (IdP) para una aplicación. En la guía de inicio rápido, se configura SSO basado en SAML o en OIDC. Otra opción es **Vinculado**. Este artículo explica con más detalle la opción Vinculado.
 
 La opción **Vinculado** permite configurar la ubicación de destino cuando un usuario selecciona la aplicación en el portal de Office 365 o [Aplicaciones](https://myapps.microsoft.com/) de la organización.
 
@@ -33,14 +33,14 @@ Estos son algunos de los escenarios comunes en los que la opción de vínculo re
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para empezar rápidamente, consulte la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones. En el inicio rápido, donde configura el inicio de sesión único, también encontrará la opción **Vinculado**. 
+Para adquirir conocimientos rápidamente, consulte la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones. En el inicio rápido, donde configura el inicio de sesión único, también encontrará la opción **Vinculado**. 
 
-La opción **Vinculado** no proporciona la funcionalidad de inicio de sesión a través de Azure AD. La opción solo establece la ubicación a la que se enviarán los usuarios cuando seleccionen la aplicación en [Aplicaciones](https://myapps.microsoft.com/) o el iniciador de aplicaciones de Microsoft 365.
+La opción **Vinculado** no proporciona la funcionalidad de inicio de sesión a través de Azure AD. La opción solo establece la ubicación a la que se enviarán los usuarios cuando seleccionen la aplicación en [Aplicaciones](https://myapps.microsoft.com/) o el iniciador de aplicaciones de Microsoft 365.  Como el inicio de sesión no proporciona la funcionalidad de inicio de sesión a través de Azure AD, el acceso condicional no está disponible para las aplicaciones configuradas con el inicio de sesión único vinculado.
 
 > [!IMPORTANT] 
 > Hay escenarios en los que la opción **Inicio de sesión único** no estará al desplazarse por una aplicación en las **aplicaciones empresariales**. 
 >
-> Por ejemplo, si la aplicación se registró mediante **Registros de aplicaciones**, la característica de inicio de sesión único estará configurada para usar OAuth de OIDC de forma predeterminada. En este caso, la opción de **Inicio de sesión único** no se mostrará en la navegación en **Aplicaciones empresariales**. Cuando use **Registros de aplicaciones** para agregar su aplicación personalizada, configure las opciones en el archivo de manifiesto. Para obtener más información sobre el archivo de manifiesto, consulte [Manifiesto de aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Para obtener más información sobre los estándares de SSO, consulte [Autenticación y autorización mediante la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> Por ejemplo, si la aplicación se registró mediante **Registros de aplicaciones**, la funcionalidad de inicio de sesión único estará configurada para usar OAuth de OIDC de manera predeterminada. En este caso, la opción de **Inicio de sesión único** no se mostrará en la navegación en **Aplicaciones empresariales**. Cuando use **Registros de aplicaciones** para agregar su aplicación personalizada, configure las opciones en el archivo de manifiesto. Para obtener más información sobre el archivo de manifiesto, consulte [Manifiesto de aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Para obtener más información sobre los estándares de SSO, consulte [Autenticación y autorización mediante la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Otros escenarios en los que falta **inicio de sesión único** en la navegación incluyen cuándo se hospeda una aplicación en otro inquilino o si su cuenta no tiene los permisos necesarios (Administrador global, Administrador de aplicaciones en la nube, Administrador de la aplicación o propietario de la entidad de servicio). Los permisos también pueden provocar un escenario en el que puede abrir **Inicio de sesión único** pero no podrá guardar. Para más información acerca de los roles administrativos de Azure AD, consulte (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 

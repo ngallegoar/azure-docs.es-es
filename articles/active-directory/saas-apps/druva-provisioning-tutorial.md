@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: b669ef7856628f7e5d698edf674eee0b84845295
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9163c64370e0718d6b9acf37bb7a9fc28c936948
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323539"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91851193"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Tutorial: Configuración de Druva para aprovisionar usuarios automáticamente
 
@@ -58,15 +58,15 @@ Antes de configurar Druva para el aprovisionamiento automático de usuarios con 
 
 2. Vaya a **Manage** > **Deployments** > **Users** (Administrar > Implantaciones > Usuarios).
 
-    ![Adición de SCIM en Druva](media/druva-provisioning-tutorial/manage.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/manage.png" alt-text="Captura de pantalla de la consola de administración de Druva. Manage (Administrar) está resaltado y el menú Manage (Administrar) está visible. En ese menú, en Deployments (Implementaciones), la opción Users (Usuarios) está resaltada." border="false":::
 
 3.  Navegue a **Settings** (Configuración). Haga clic en **Generate Token** (Generar token).
 
-    ![Adición de SCIM en Druva](media/druva-provisioning-tutorial/settings.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Captura de pantalla de la consola de administración de Druva. Manage (Administrar) está resaltado y el menú Manage (Administrar) está visible. En ese menú, en Deployments (Implementaciones), la opción Users (Usuarios) está resaltada." border="false":::
 
 4.  Copie el valor de **Auth token** (Token de autenticación). Este valor se escribirá en el campo **Token secreto** de la pestaña Aprovisionamiento en la aplicación Druva en Azure Portal.
     
-    ![Adición de SCIM en Druva](media/druva-provisioning-tutorial/auth.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Captura de pantalla de la consola de administración de Druva. Manage (Administrar) está resaltado y el menú Manage (Administrar) está visible. En ese menú, en Deployments (Implementaciones), la opción Users (Usuarios) está resaltada." border="false":::
 
 ## <a name="add-druva-from-the-gallery"></a>Adición de Druva desde la galería
 

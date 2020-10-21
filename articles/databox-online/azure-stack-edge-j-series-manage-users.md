@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 5f7e8c09a09084b28278667cdeaf94f7e38908cd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 66967c1fa8f6ca42459559caf46bffb0e5afe925
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904498"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743597"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar usuarios en Azure Stack Edge Pro
 
@@ -74,7 +74,7 @@ Siga estos pasos en Azure Portal para eliminar un usuario.
 
 2. Seleccione un usuario en la lista de usuarios y, luego, seleccione **Eliminar**. Cuando se le solicite, confirme la eliminación.
 
-    ![Seleccionar el usuario que se va a eliminar](media/azure-stack-edge-j-series-manage-users/delete-user-2.png)
+    ![Seleccionar el usuario que se va a eliminar 2](media/azure-stack-edge-j-series-manage-users/delete-user-2.png)
 
 La lista de usuarios se actualiza para reflejar el usuario eliminado.
 
