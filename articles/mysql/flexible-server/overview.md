@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: da9b7216908b4a4ba80a421427f473c217f76c28
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 951de77f2ef10a06ff03801872cebcef088172b7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993739"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167056"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Servidor flexible (versión preliminar) de Azure Database for MySQL
 
@@ -121,10 +121,18 @@ El servicio ejecuta la versión Community de MySQL. Esto ofrece una compatibilid
 
 Una de las ventajas de ejecutar una carga de trabajo en Azure es su alcance global. El servidor flexible para Azure Database for MySQL está disponible actualmente en las siguientes regiones de Azure:
 
+- Oeste de Europa
 - Norte de Europa
-- Sudeste Asiático
+- Sur de Reino Unido
 - Este de EE. UU. 2
-- Oeste de EE. UU. 2
+- Oeste de EE. UU. 2
+- Centro de EE. UU.
+- Este de EE. UU.
+- Centro de Canadá
+- Sudeste de Asia
+- Centro de Corea del Sur
+- Japón Oriental
+- Este de Australia
 
 Estamos trabajando en la incorporación inmediata de nuevos servidores.
 

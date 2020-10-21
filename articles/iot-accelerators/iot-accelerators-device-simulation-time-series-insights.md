@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db9ba3efe60af830c0e15310b6127c18130f00b9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73889339"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076256"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use Time Series Insights para visualizar los datos de telemetría que se envíen desde el acelerador de soluciones de simulación de dispositivos
 
@@ -113,7 +113,7 @@ Cree un origen del evento para conectarlo a IoT Hub. Asegúrese de utilizar el g
 1. Haga clic en **Crear**.
 
 > [!NOTE]
-> También puede [conceder acceso a usuarios adicionales](../../articles/time-series-insights/time-series-insights-data-access.md#grant-data-access) al explorador de Time Series Insights.
+> También puede [conceder acceso a usuarios adicionales](../time-series-insights/concepts-access-policies.md#grant-data-access) al explorador de Time Series Insights.
 
 ## <a name="start-a-simulation"></a>Comenzar una simulación
 
@@ -137,7 +137,7 @@ El explorador de Time Series Insights es una aplicación web que puede usar para
 
 1. En el panel de términos de la izquierda, seleccione **temperatura** como **Medida** e **iothub-connection-device-id** como el valor **Dividir por**:
 
-    ![Consulta en el explorador de Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
+    ![Captura de pantalla que muestra el panel "términos" de Time Series Insights, con los valores "Medida" y "Dividir por" resaltados.](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
 
 1. Haga clic con el botón derecho en el gráfico y seleccione **Explorar eventos**:
 

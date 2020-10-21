@@ -7,19 +7,19 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: f56c3bd2d302fc7163fa8c05c595891f191c6a11
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: b3219fe3507af1c6020ad3a7d84782847dbb57ae
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568444"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275104"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introducción a Azure Cosmos DB: Table API
 
 [Azure Cosmos DB](introduction.md) proporciona Table API para aplicaciones escritas para Azure Table Storage y que necesitan funcionalidades premium como:
 
 * [Distribución global inmediata](distribute-data-globally.md).
-* [Rendimiento dedicado](partition-data.md) en todo el mundo.
+* [Rendimiento dedicado](partitioning-overview.md) en todo el mundo.
 * Latencias en milisegundos de un solo dígito en el percentil 99.
 * Alta disponibilidad garantizada.
 * Indexación secundaria automática.

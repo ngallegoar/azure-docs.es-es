@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, State Configuration, Update Managem
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24aeb37cf868bed5d4211bc9b459a4736ceea4b2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715976"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205343"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introducción a Azure Automation
 
@@ -35,7 +35,7 @@ La administración de la configuración en Azure Automation permite el acceso a 
 
 ### <a name="change-tracking-and-inventory"></a>Change Tracking e Inventario
 
-Change Tracking e Inventario combina funciones de inventario y seguimiento de cambios que le permiten realizar un seguimiento de los cambios en la infraestructura de servidores y máquinas virtuales. El servicio admite el seguimiento de cambios en el registro, servicios, demonios, software y archivos del entorno para ayudarle a diagnosticar cambios no deseados y generar alertas. La compatibilidad con inventario le permite consultar recursos de los invitados para obtener una visualización de las aplicaciones instaladas y otros elementos de configuración. Para más información sobre esta característica, consulte [Change Tracking e Inventario](change-tracking.md).
+Change Tracking e Inventario combina funciones de inventario y seguimiento de cambios que le permiten realizar un seguimiento de los cambios en la infraestructura de servidores y máquinas virtuales. El servicio admite el seguimiento de cambios en el registro, servicios, demonios, software y archivos del entorno para ayudarle a diagnosticar cambios no deseados y generar alertas. La compatibilidad con inventario le permite consultar recursos de los invitados para obtener una visualización de las aplicaciones instaladas y otros elementos de configuración. Para más información sobre esta característica, consulte [Change Tracking e Inventario](change-tracking/overview.md).
 
 ### <a name="azure-automation-state-configuration"></a>State Configuration de Azure Automation
 

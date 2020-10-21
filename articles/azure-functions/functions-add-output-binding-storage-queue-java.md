@@ -7,12 +7,12 @@ ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: 9f512e3bbf7947361fa9890e9514693610c9f99d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: faa4df8633c34b23703a3fe9fa405bad959ec894
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87321962"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167209"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Conexión de la función de Java a Azure Storage
 
@@ -112,7 +112,7 @@ Ha actualizado la función desencadenada por HTTP para escribir datos en una col
 A continuación, debe habilitar la supervisión de Application Insights para su aplicación de función:
 
 > [!div class="nextstepaction"]
-> [Habilitación de la integración de Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Habilitación de la integración de Application Insights](configure-monitoring.md#add-to-an-existing-function-app)
 
 
 [Azure Storage Explorer]: https://storageexplorer.com/

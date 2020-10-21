@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b73b82b4367d50cc5fbe9881a67e0afa041db86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fecdd65ae0dbf9faeb0e74e6446a9deaf8273106
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201165"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075032"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Estrategias de carga de datos para el grupo de SQL de Synapse
 
@@ -24,14 +24,10 @@ Los grupos de SQL de SMP tradicionales usan un proceso de extracción, transform
 
 El uso de un proceso de extracción, carga y transformación (ELT) aprovecha MPP y elimina los recursos necesarios para la transformación de datos antes de la carga.
 
-Aunque el grupo de SQL admite muchos métodos de carga, entre los que se incluyen las conocidas opciones de SQL Server como [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [SqlBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), la manera más rápida y escalable de cargar datos es mediante tablas externas de PolyBase y la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (versión preliminar).
+Aunque el grupo de SQL admite muchos métodos de carga, entre los que se incluyen las conocidas opciones de SQL Server como [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [SqlBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), la manera más rápida y escalable de cargar datos es mediante tablas externas de PolyBase y la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Con PolyBase y la instrucción COPY, es posible acceder a datos externos almacenados en Azure Blob Storage o Azure Data Lake Store mediante el lenguaje T-SQL. Para obtener la máxima flexibilidad al realizar la carga, se recomienda usar la instrucción COPY.
 
-> [!NOTE]  
-> Actualmente, la instrucción COPY está en versión preliminar pública. Para realizar los comentarios que desee, envíe un mensaje de correo electrónico a la siguiente lista de distribución: sqldwcopypreview@service.microsoft.com.
-
-> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## <a name="what-is-elt"></a>¿Qué es ELT?
 

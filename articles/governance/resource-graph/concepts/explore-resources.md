@@ -1,18 +1,18 @@
 ---
 title: Exploración de los recursos de Azure
 description: Aprenda a usar el lenguaje de consulta de Resource Graph para explorar los recursos y descubrir cómo se conectan.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dcd27380cb67213c3c2c7a5776243b5e9a2e37f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 2b0ef3935d865618a9d4dda2825f7d4383baf772
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056591"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056249"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Exploración de recursos de Azure con el gráfico de recursos
 
-El gráfico de recursos de Azure proporciona la capacidad de explorar y detectar los recursos de Azure rápidamente y a escala. Diseñado para respuestas rápidas, es una excelente manera de aprender sobre el entorno y también sobre las propiedades que componen los recursos de Azure.
+El gráfico de recursos de Azure proporciona la capacidad de explorar y detectar los recursos de Azure rápidamente y a escala. Diseñado para respuestas rápidas, es una excelente manera de aprender sobre el entorno y también sobre las propiedades existentes en los recursos de Azure.
 
 ## <a name="explore-virtual-machines"></a>Exploración de máquinas virtuales
 
@@ -104,7 +104,7 @@ Los resultados de JSON tienen una estructura similar a la del ejemplo siguiente:
 ]
 ```
 
-Las propiedades nos proporcionan información adicional sobre el propio recurso de la máquina virtual, desde SKU, sistema operativo, discos, etiquetas y el grupo de recursos y la suscripción a la que pertenece.
+Las propiedades nos proporcionan información adicional sobre el propio recurso de máquina virtual. Estas propiedades incluyen: sistema operativo, discos, etiquetas, así como el grupo de recursos y la suscripción de los que es miembro.
 
 ### <a name="virtual-machines-by-location"></a>Máquinas virtuales por ubicación
 
@@ -165,7 +165,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Máquinas virtuales conectadas a discos administrados premium
 
-Si quisiéramos obtener los detalles de los discos administrados premium que están conectados a estas máquinas virtuales **Standard_B2s**, podríamos expandir la consulta para que nos proporcione el identificador de recurso de esos discos administrados.
+Para obtener los detalles de los discos administrados prémium que están conectados a estas máquinas virtuales **Standard_B2s**, expandimos la consulta para que nos proporcione el identificador de recurso de esos discos administrados.
 
 ```kusto
 Resources
@@ -310,5 +310,5 @@ Para ver cómo llevar a cabo estos pasos en una sola consulta con el operador `j
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre el [lenguaje de consulta](query-language.md).
-- Consulte el lenguaje en uso en[Consultas básicas](../samples/starter.md).
-- Consulte los usos avanzados en [Consultas avanzadas](../samples/advanced.md).
+- Vea el lenguaje en uso en[Consultas básicas](../samples/starter.md).
+- Vea los usos avanzados en [Consultas avanzadas](../samples/advanced.md).

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 0ccab295d39e463d4b6d1e764862678469fba751
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: acd5914ca9f465c69df4c017162ef92f795b235a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776415"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278385"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Inicio rápido: Creación de una aplicación de Spring Data Azure Cosmos DB v3 para administrar los datos de SQL API de Azure Cosmos DB
 
@@ -52,9 +52,9 @@ En este inicio rápido se crea y administra una cuenta de Azure Cosmos DB para S
 
 *Estructura de una cuenta de Cosmos DB*: independientemente de la API o el lenguaje de programación, una *cuenta* de Cosmos DB contiene de cero o varias *bases de datos*; una *base de datos* contiene de cero a varios *contenedores* y un *contenedor* contiene de cero a varios elementos, como se muestra en el diagrama siguiente:
 
-:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Entidades de cuenta de Azure Cosmos" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entidades de cuenta de Azure Cosmos" border="false":::
 
-Puede leer más información sobre las bases de datos, los contenedores y los elementos [aquí](databases-containers-items.md). Algunas propiedades importantes se definen en el nivel del contenedor, entre ellas la *capacidad de proceso aprovisionada* y la *clave de partición*. 
+Puede leer más información sobre las bases de datos, los contenedores y los elementos [aquí](account-databases-containers-items.md). Algunas propiedades importantes se definen en el nivel del contenedor, entre ellas la *capacidad de proceso aprovisionada* y la *clave de partición*. 
 
 La capacidad de proceso aprovisionada se mide en unidades de solicitud (*RU*) que tienen un precio monetario y son un factor determinante crucial en el costo operativo de la cuenta. La capacidad de proceso aprovisionada se puede seleccionar en una granularidad por contenedor o por base de datos; sin embargo, se suele preferir la especificación de capacidad de proceso a nivel de contenedor. Para más información sobre el aprovisionamiento de capacidad de proceso [aquí](set-throughput.md).
 

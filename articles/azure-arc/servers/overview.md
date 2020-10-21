@@ -4,18 +4,18 @@ description: Aprenda a usar los servidores habilitados para Azure Arc para admi
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
 ms.date: 10/07/2020
 ms.topic: overview
-ms.openlocfilehash: 881445b19baef4e025cf3bd32dc3b55b2d170ec3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b2875cfdeb80aa17b19cee462dc35eaa7a3de665
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91818739"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200974"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>¿Qué son los servidores habilitados para Azure Arc?
 
 Los servidores habilitados para Azure Arc permiten administrar las máquinas Windows y Linux hospedadas fuera de Azure en la red corporativa o en otro proveedor en la nube, de forma similar a cómo se administran las máquinas virtuales nativas de Azure. Cuando una máquina híbrida se conecta a Azure, se convierte en una máquina conectada y se trata como un recurso de Azure. Cada máquina conectada tiene un identificador de recurso, se administra como parte de un grupo de recursos de una suscripción y se beneficia de las construcciones estándar de Azure como Azure Policy y la aplicación de etiquetas. Los proveedores de servicios que administran la infraestructura local de un cliente pueden administrar sus máquinas híbridas, tal como lo hacen actualmente con los recursos nativos de Azure en varios entornos de cliente, mediante [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) con Azure Arc.
 
-Para ofrecer esta experiencia con las máquinas híbridas hospedadas fuera de Azure, el agente de Azure Connected Machine debe estar instalado en cada una de las máquinas que planea conectar con Azure. Este agente no proporciona ninguna otra funcionalidad y no reemplaza al [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si desea supervisar de forma proactiva el sistema operativo y las cargas de trabajo que se ejecutan en la máquina, administrarlos mediante runbooks de Automation o soluciones como Update Management, o usar otros servicios de Azure como [Azure Security Center](../../security-center/security-center-intro.md).
+Para ofrecer esta experiencia con las máquinas híbridas hospedadas fuera de Azure, el agente de Azure Connected Machine debe estar instalado en cada una de las máquinas que planea conectar con Azure. Este agente no proporciona ninguna otra funcionalidad y no reemplaza al [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si desea supervisar de forma proactiva el sistema operativo y las cargas de trabajo que se ejecutan en la máquina, administrarlos mediante runbooks de Automation o soluciones como Update Management, o usar otros servicios de Azure como [Azure Security Center](../../security-center/security-center-introduction.md).
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
@@ -23,7 +23,7 @@ Al conectar una máquina a los servidores habilitados para Azure Arc, se habili
 
 - Asigne [configuraciones de invitado de Azure Policy](../../governance/policy/concepts/guest-configuration.md) de la misma manera que en la asignación de directivas para máquinas virtuales de Azure. En la actualidad, la mayoría de las directivas de configuración de invitado no aplican configuraciones, solo auditan la configuración dentro de la máquina. Para comprender el costo de usar las directivas de configuración de Azure Policy con servidores habilitados para Arc, consulte la [guía de precios](https://azure.microsoft.com/pricing/details/azure-policy/) de Azure Policy.
 
-- Informe de los cambios de configuración en el software instalado, los servicios de Microsoft, el registro y los archivos de Windows y los demonios de Linux en los servidores supervisados mediante [Change Tracking e Inventario](../../automation/change-tracking.md) de Azure Automation.
+- Informe de los cambios de configuración en el software instalado, los servicios de Microsoft, el registro y los archivos de Windows y los demonios de Linux en los servidores supervisados mediante [Change Tracking e Inventario](../../automation/change-tracking/overview.md) de Azure Automation.
 
 - Supervise el rendimiento del sistema operativo invitado de la máquina conectada y descubra los componentes de la aplicación para supervisar sus procesos y dependencias con otros recursos con los que la aplicación se comunica mediante [Azure Monitor para VM](../../azure-monitor/insights/vminsights-overview.md).
 
@@ -31,7 +31,7 @@ Al conectar una máquina a los servidores habilitados para Azure Arc, se habili
 
 - Use [Update Management](../../automation/update-management/update-mgmt-overview.md) en Azure Automation para administrar las actualizaciones del sistema operativo de los servidores Windows y Linux. En primer lugar, implemente el rol [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) y, después, siga los pasos para [habilitar Update Management](../../automation/update-management/update-mgmt-enable-portal.md) en la máquina Windows o Linux que no es de Azure.
 
-- Incluya los servidores que no son de Azure para detectar amenazas y supervisar proactivamente las posibles amenazas de seguridad mediante [Azure Security Center](../../security-center/security-center-intro.md).
+- Incluya los servidores que no son de Azure para detectar amenazas y supervisar proactivamente las posibles amenazas de seguridad mediante [Azure Security Center](../../security-center/security-center-introduction.md).
 
 Los datos de registro recopilados y almacenados en un área de trabajo de Log Analytics desde la máquina híbrida ahora contienen propiedades específicas de la máquina, como un identificador de recurso. Se puede usar para admitir el acceso al registro [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode).
 

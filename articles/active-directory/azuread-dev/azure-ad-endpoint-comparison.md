@@ -13,19 +13,16 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8f6170de65ae5e1ca8ecb5f7cc8a78f4f194ac41
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116400"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055297"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Motivos para actualizar a la Plataforma de identidad de Microsoft (v2.0)
 
 Al desarrollar una nueva aplicación, es importante conocer las diferencias entre los puntos de conexión de la Plataforma de identidad de Microsoft (v2.0) y de Azure Active Directory (v1.0). En este artículo se tratan las principales diferencias entre los puntos de conexión y algunas limitaciones existentes para la Plataforma de identidad de Microsoft.
-
-> [!NOTE]
-> No todas las características y escenarios de Azure AD son compatibles con el punto de conexión de la Plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la plataforma de identidad de Microsoft, conozca las [limitaciones de dicha plataforma](#limitations).
 
 ## <a name="who-can-sign-in"></a>Quién puede iniciar sesión
 
@@ -35,7 +32,7 @@ Al desarrollar una nueva aplicación, es importante conocer las diferencias entr
 * El punto de conexión de la Plataforma de identidad de Microsoft permite iniciar sesión con cuentas profesionales y educativas de Azure AD y con cuentas Microsoft personales (MSA), como hotmail.com, outlook.com y msn.com.
 * Ambos puntos de conexión aceptan inicios de sesión de *[usuarios invitados](../external-identities/what-is-b2b.md)* de un directorio de Azure AD para las aplicaciones configuradas como *[inquilino único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* o para las aplicaciones configuradas como *multiinquilino* para el punto de conexión específico del inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-El punto de conexión de la Plataforma de identidad de Microsoft le permite escribir aplicaciones que aceptan inicios de sesión desde cuentas Microsoft personales y cuentas profesionales y educativas. Esto le permite escribir la aplicación con independencia absoluta de la cuenta. Por ejemplo, si su aplicación llama a [Microsoft Graph](https://graph.microsoft.io), las cuentas profesionales tendrán a su disposición algunos datos y funcionalidades adicionales, como los sitios de SharePoint o datos de directorio. Pero, para muchas acciones, como [leer correo de un usuario](/graph/api/user-list-messages?view=graph-rest-1.0), el mismo código puede acceder al correo electrónico tanto para cuentas personales como profesionales y educativas.
+El punto de conexión de la Plataforma de identidad de Microsoft le permite escribir aplicaciones que aceptan inicios de sesión desde cuentas Microsoft personales y cuentas profesionales y educativas. Esto le permite escribir la aplicación con independencia absoluta de la cuenta. Por ejemplo, si su aplicación llama a [Microsoft Graph](https://graph.microsoft.io), las cuentas profesionales tendrán a su disposición algunos datos y funcionalidades adicionales, como los sitios de SharePoint o datos de directorio. Pero, para muchas acciones, como [leer correo de un usuario](/graph/api/user-list-messages), el mismo código puede acceder al correo electrónico tanto para cuentas personales como profesionales y educativas.
 
 En el caso del punto de conexión de la Plataforma de identidad de Microsoft, puede usar la Biblioteca de autenticación de Microsoft (MSAL) para obtener acceso a entornos educativos, de consumidor y de empresa. El punto de conexión v1.0 de Azure AD acepta inicios de sesión solo desde cuentas profesionales y educativas.
 
@@ -114,7 +111,7 @@ Estos ámbitos le permiten codificar la aplicación en un modo de divulgación m
 El punto de conexión de la Plataforma de identidad de Microsoft emite un conjunto más pequeño de notificaciones en sus tokens de manera predeterminada para mantener el tamaño reducido de las cargas. Si tiene aplicaciones y servicios que tienen una dependencia de una notificación concreta en un token de v1.0 que ya no se proporciona de manera predeterminada en un token de la Plataforma de identidad de Microsoft, considere el uso de la característica [notificaciones opcionales](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para incluir esa notificación.
 
 > [!IMPORTANT]
-> Los puntos de conexión de las versiones v1.0 y v2.0 pueden emitir tokens v1.0 y v2.0. Los tokens id_tokens *siempre* coinciden con el punto de conexión desde el que se los solicita, y los tokens de acceso *siempre* coinciden con el formato que espera la API web a la que el cliente llamará mediante ese token.  Por lo tanto, si la aplicación usa el punto de conexión v2.0 para obtener un token para llamar a Microsoft Graph, el cual espera tokens de acceso de formato v1.0, la aplicación recibirá un token con el formato v1.0.  
+> Los puntos de conexión de las versiones v1.0 y v2.0 pueden emitir tokens v1.0 y v2.0. Los tokens id_tokens *siempre* coinciden con el punto de conexión desde el que se los solicita, y los tokens de acceso *siempre* coinciden con el formato que espera la API web a la que el cliente llamará mediante ese token.  Por lo tanto, si la aplicación usa el punto de conexión v2.0 para obtener un token para llamar a Microsoft Graph, el cual espera tokens de acceso de formato v1.0, la aplicación recibirá un token con el formato v1.0.
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -153,18 +150,22 @@ Actualmente, la compatibilidad con bibliotecas para el punto de conexión de la 
 * Si crea una aplicación de escritorio o para dispositivos móviles, puede usar una de las bibliotecas de autenticación de Microsoft (MSAL). Estas bibliotecas están disponible con carácter general o en una versión preliminar compatible con producción, por lo que su uso en aplicaciones de producción es seguro. Puede obtener más información sobre los términos y condiciones de la versión preliminar y las bibliotecas disponibles en la [referencia de bibliotecas de autenticación](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 * En el caso de otras plataformas no cubiertas por las bibliotecas de Microsoft, pueden integrarse con el punto de conexión de la Plataforma de identidad de Microsoft enviando y recibiendo mensajes de protocolo directamente en el código de la aplicación. Los protocolos OpenID Connect y OAuth [se documentan explícitamente](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para ayudarle a realizar dicha integración.
 * Por último, puede usar las bibliotecas de código abierto de OpenID Connect y OAuth para integrarse con el punto de conexión de la Plataforma de identidad de Microsoft. El punto de conexión de la Plataforma de identidad de Microsoft debe ser compatible con muchas bibliotecas de código abierto de los protocolos sin cambios. La disponibilidad de estos tipos de bibliotecas varía según el lenguaje y la plataforma. Los sitios web [OpenID Connect](https://openid.net/connect/) y [OAuth 2.0](https://oauth.net/2/) mantienen una lista de las implementaciones populares. Para más información, consulte [Plataforma de identidad de Microsoft y bibliotecas de autenticación](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json), así como la lista de bibliotecas cliente de código abierto y los ejemplos que se probaron con el punto de conexión de la Plataforma de identidad de Microsoft.
-* Como referencia, el punto de conexión `.well-known` para el punto de conexión común de la Plataforma de identidad de Microsoft es `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Reemplace `common` con el identificador de inquilino para obtener los datos específicos para el inquilino.  
+* Como referencia, el punto de conexión `.well-known` para el punto de conexión común de la Plataforma de identidad de Microsoft es `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Reemplace `common` con el identificador de inquilino para obtener los datos específicos para el inquilino.
 
 ### <a name="protocol-changes"></a>Cambios en el protocolo
 
-El punto de conexión de la Plataforma de identidad de Microsoft no admite SAML ni WS-Federation; solo admite OpenID Connect y OAuth 2.0.  Los cambios importantes en los protocolos OAuth 2.0 desde el punto de conexión v1.0 son: 
+El punto de conexión de la Plataforma de identidad de Microsoft no admite SAML ni WS-Federation; solo admite OpenID Connect y OAuth 2.0.  Los cambios importantes en los protocolos OAuth 2.0 desde el punto de conexión v1.0 son:
 
-* La notificación `email` se devuelve si se configura una notificación opcional **o** scope=email se ha especificado en la solicitud. 
-* El parámetro `scope` ahora se admite en lugar del parámetro `resource`.  
-* Muchas respuestas se han modificado para que sean más compatibles con la especificación OAuth 2.0; por ejemplo, devolver correctamente `expires_in` como int en lugar de una cadena.  
+* La notificación `email` se devuelve si se configura una notificación opcional **o** scope=email se ha especificado en la solicitud.
+* El parámetro `scope` ahora se admite en lugar del parámetro `resource`.
+* Muchas respuestas se han modificado para que sean más compatibles con la especificación OAuth 2.0; por ejemplo, devolver correctamente `expires_in` como int en lugar de una cadena.
 
 Para comprender mejor el alcance de la funcionalidad de protocolo que se admite en el punto de conexión de la Plataforma de identidad de Microsoft, consulte nuestra [referencia a los protocolos OpenID Connect y OAuth 2.0](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-#### <a name="saml-restrictions"></a>Restricciones de SAML
+#### <a name="saml-usage"></a>Uso de SAML
 
-Si ha usado la biblioteca de autenticación de Active Directory (ADAL) en aplicaciones de Windows, es posible que haya aprovechado la autenticación integrada de Windows, que usa la concesión de aserción de Lenguaje de marcado de aserción de seguridad (SAML). Con esta concesión, los usuarios de los inquilinos de Azure AD federado pueden autenticarse de manera silenciosa con su instancia local de Active Directory sin escribir las credenciales. La concesión de aserción de SAML no se admite en el punto de conexión de la Plataforma de identidad de Microsoft.
+Si ha usado la biblioteca de autenticación de Active Directory (ADAL) en aplicaciones de Windows, es posible que haya aprovechado la autenticación integrada de Windows, que usa la concesión de aserción de Lenguaje de marcado de aserción de seguridad (SAML). Con esta concesión, los usuarios de los inquilinos de Azure AD federado pueden autenticarse de manera silenciosa con su instancia local de Active Directory sin escribir las credenciales. 0Aunque [SAML sigue siendo un protocolo compatible](../develop/active-directory-saml-protocol-reference.md) para su uso con usuarios empresariales, el punto de conexión v2.0 solo se usa con aplicaciones OAuth 2.0.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Más información en la [Documentación de la plataforma de identidad de Microsoft](../develop/index.yml).

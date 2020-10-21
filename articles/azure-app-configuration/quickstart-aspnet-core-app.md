@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp, contperfq1
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 5fd042b91ede91491590a53abf4dec552fbf6487
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 13283a9531804502b8a8d72e615be955b413658c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440423"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075848"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación ASP.NET Core con Azure App Configuration
 
@@ -117,7 +117,7 @@ dotnet new mvc --no-https --output TestAppConfig
 
     ---
 
-    Con el cambio anterior, el [proveedor de configuración de App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664) se ha registrado con la API de configuración de .NET Core.
+    Con el cambio anterior, el [proveedor de configuración de App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) se ha registrado con la API de configuración de .NET Core.
 
 ## <a name="read-from-the-app-configuration-store"></a>Lectura desde el almacén de App Configuration
 

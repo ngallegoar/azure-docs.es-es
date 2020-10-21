@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 720c5190bfc1b4b6a6c3e86052cfc329233c5ed2
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: e10336b9c817c71026c167144a190b2ed6b4ab6d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802487"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070272"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Key Vault para Linux
 
@@ -32,6 +32,11 @@ La extensión de máquina virtual de Key Vault admite estas distribuciones de Li
 
 - PKCS #12
 - PEM
+
+## <a name="prerequisities"></a>Requisitos previos
+  - Instancia de Key Vault con certificado. Consulte [Creación de un almacén de claves](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
+  - VM/VMSS debe tener asignada una [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+  - La directiva de acceso de Key Vault se debe establecer con los secretos `get` y los permisos `list` para la identidad administrada de VM/VMSS y recuperar la parte del certificado de un secreto. Consulte [Autenticación en Key Vault](/azure/key-vault/general/authentication) y [Asignación de una directiva de acceso de Key Vault](/azure/key-vault/general/assign-access-policy-cli).
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
@@ -101,6 +106,10 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
 Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas son ideales al implementar una o varias máquinas virtuales que requieren la actualización de los certificados tras la implementación. La extensión se puede implementar en máquinas virtuales individuales o en conjuntos de escalado de máquinas virtuales. El esquema y la configuración son comunes para ambos tipos de plantilla. 
 
 La configuración de JSON para una extensión de máquina virtual debe estar anidada dentro del fragmento de recursos de máquina virtual de la plantilla, en concreto en el objeto `"resources": []` de la plantilla de máquina virtual y, en el caso de un conjunto de escalado de máquinas virtuales, en el objeto `"virtualMachineProfile":"extensionProfile":{"extensions" :[]`.
+
+ > [!NOTE]
+> La extensión de VM requeriría la asignación de la identidad administrada del sistema o del usuario para autenticarse en Key Vault.  Consulte [Autenticación en Key Vault y asignación de una directiva de acceso de Key Vault](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm).
+> 
 
 ```json
     {
@@ -202,12 +211,10 @@ La CLI de Azure puede usarse para implementar la extensión de máquina virtual 
         --vm-name "<vmName>" `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```
-
 Tenga en cuenta las restricciones y los requisitos siguientes:
 - Restricciones de Key Vault:
   - Debe existir en el momento de la implementación. 
-  - La directiva de acceso de Key Vault debe estar establecida para la identidad de VM/VMSS mediante una identidad administrada. Consulte [Autenticación en Key Vault](/azure/key-vault/general/authentication) y [Asignación de una directiva de acceso de Key Vault](/azure/key-vault/general/assign-access-policy-cli).
-
+  - La directiva de acceso de Key Vault debe estar establecida para la identidad de VM/VMSS mediante una identidad administrada. Consulte [Autenticación en Key Vault](../../key-vault/general/authentication.md) y [Asignación de una directiva de acceso de Key Vault](../../key-vault/general/assign-access-policy-cli.md).
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 

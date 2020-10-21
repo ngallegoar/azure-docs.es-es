@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 441e53123512a9611f9568edccfd40a3e17c981f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9315b898e290dc758c300f9b74006b4b08888e9e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055437"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078959"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Inicio rápido: Creación de una cuenta de Automation mediante una plantilla de ARM
 
@@ -84,7 +84,7 @@ La plantilla JSON especifica un valor predeterminado para el resto de parámetro
 
 Si no está familiarizado con Azure Automation y Azure Monitor, es importante que comprenda los siguientes detalles de configuración. Pueden ayudarle a evitar errores al intentar crear, configurar y usar un área de trabajo de Log Analytics vinculada a la nueva cuenta de Automation.
 
-* Revise los [detalles adicionales](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) para conocer totalmente las opciones de configuración del área de trabajo, como el modo de control de acceso, el plan de tarifa, la retención y el nivel de reserva de capacidad.
+* Revise los [detalles adicionales](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace) para conocer totalmente las opciones de configuración del área de trabajo, como el modo de control de acceso, el plan de tarifa, la retención y el nivel de reserva de capacidad.
 
 * Revise las [asignaciones de área de trabajo](how-to/region-mappings.md) para especificar las regiones admitidas en línea o en un archivo de parámetros. Solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation en la suscripción.
 

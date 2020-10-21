@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: ad0712de85a08ed581ba89d7e01d8ba1244006b2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0678b2c36d341b2bc2bd9be755b9a6213acdd462
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977568"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206091"
 ---
 # <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>¿Qué tecnologías y servicios de Azure puede usar para crear soluciones de IoT?
 
@@ -61,7 +61,7 @@ Puede simplificar aún más la forma de crear el código insertado para los disp
 
 [Azure IoT Edge](../iot-edge/about-iot-edge.md) permite descargar en los dispositivos partes de una carga de trabajo de IoT de los servicios en la nube de Azure. IoT Edge puede reducir la latencia de una solución, reducir la cantidad de datos que los dispositivos intercambian con la nube y habilitar escenarios sin conexión. Los dispositivos IoT Edge se pueden administrar desde IoT Central y algunos aceleradores de soluciones.
 
-[Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere) es una plataforma de aplicaciones segura y de alto nivel con características integradas de comunicación y seguridad para dispositivos conectados a Internet. Incluye una unidad de microcontroladores protegida, un sistema operativo basado en Linux personalizado y un servicio de seguridad basado en la nube que ofrece una seguridad renovable y continua.
+[Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) es una plataforma de aplicaciones segura y de alto nivel con características integradas de comunicación y seguridad para dispositivos conectados a Internet. Incluye una unidad de microcontroladores protegida, un sistema operativo basado en Linux personalizado y un servicio de seguridad basado en la nube que ofrece una seguridad renovable y continua.
 
 ### <a name="cloud-connectivity"></a>Conectividad en la nube
 
@@ -76,7 +76,7 @@ IoT Hub es un componente básico de los aceleradores de soluciones que se puede 
 
 ### <a name="bridging-the-gap-between-the-physical-and-digital-worlds"></a>Eliminación de la separación entre los mundos físico y digital
 
-[Azure Digital Twins](../digital-twins/about-digital-twins.md) es un servicio de IoT que permite modelar un entorno físico. Usa un grafo de inteligencia espacial para modelar las relaciones entre personas, espacios y dispositivos. Al correlacionar los datos de los mundos digital y físico, se pueden crear soluciones dependientes del contexto.
+[Azure Digital Twins](../digital-twins/overview.md) es un servicio de IoT que permite modelar un entorno físico. Usa un grafo de inteligencia espacial para modelar las relaciones entre personas, espacios y dispositivos. Al correlacionar los datos de los mundos digital y físico, se pueden crear soluciones dependientes del contexto.
 
 IoT Central usa gemelos digitales para sincronizar los dispositivos y datos del mundo real con los modelos digitales que permiten a los usuarios supervisar y administrar esos dispositivos conectados.
 
@@ -84,7 +84,7 @@ IoT Central usa gemelos digitales para sincronizar los dispositivos y datos del 
 
 Los dispositivos de IoT suelen generar grandes cantidades de datos de series temporales, como las lecturas de temperatura de los sensores. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) puede conectarse a una instancia de IoT Hub, leer el flujo de datos de telemetría de los dispositivos, almacenar esos datos y permitirle consultarlos y visualizarlos.
 
-[Azure Maps](/azure/azure-maps) es una colección de servicios geoespaciales que emplea datos de mapas recientes para proporcionar un contexto geográfico preciso a las aplicaciones web y móviles. Para compilar las aplicaciones, puede usar una API REST, un control de JavaScript basado en web o un Android SDK.
+[Azure Maps](../azure-maps/index.yml) es una colección de servicios geoespaciales que emplea datos de mapas recientes para proporcionar un contexto geográfico preciso a las aplicaciones web y móviles. Para compilar las aplicaciones, puede usar una API REST, un control de JavaScript basado en web o un Android SDK.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

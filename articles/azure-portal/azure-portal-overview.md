@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 4aa1ccbd9b605850052e190949542eb014fe90a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84763931"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072397"
 ---
 # <a name="azure-portal-overview"></a>Introducción a Azure Portal
 
@@ -54,7 +54,7 @@ Los paneles proporcionan una vista enfocada de los recursos de su suscripción q
 
 ## <a name="getting-around-the-portal"></a>Desplazamiento por el portal
 
-Es útil para entender el diseño básico del portal y cómo interactuar con él. Aquí, presentaremos los componentes de la interfaz de usuario y parte de la terminología que empleamos para proporcionar instrucciones. Para un recorrido más detallado por el portal, consulte la lección del curso [Desplazarse por el portal](https://docs.microsoft.com/learn/modules/tour-azure-portal/3-navigate-the-portal).
+Es útil para entender el diseño básico del portal y cómo interactuar con él. Aquí, presentaremos los componentes de la interfaz de usuario y parte de la terminología que empleamos para proporcionar instrucciones. Para un recorrido más detallado por el portal, consulte la lección del curso [Desplazarse por el portal](/learn/modules/tour-azure-portal/3-navigate-the-portal).
 
 El menú de Azure Portal y el encabezado de página son elementos globales que están siempre presentes. Estas características persistentes son el "shell" para la interfaz de usuario asociada a cada característica o servicio individual y el encabezado proporciona acceso a los controles globales. La página de configuración (a veces denominada "hoja") de un recurso también puede tener un menú para ayudarle a moverse entre características.
 

@@ -1,15 +1,15 @@
 ---
 title: Guía para solicitudes limitadas
 description: Aprenda a agrupar, escalonar, paginar y consultar en paralelo las solicitudes para evitar que Azure Resource Graph las limite.
-ms.date: 08/03/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c8576fe38433026a28a3fb09a03332b5dd756bab
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4a8ba991d13b9be221e67f2ff1e393fb01f8a2d4
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006013"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056181"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Guía de solicitudes limitadas en Azure Resource Graph
 
@@ -219,7 +219,7 @@ Dado que Azure Resource Graph devuelve 1000 entradas como máximo en una respues
 
 - CLI de Azure o Azure PowerShell
 
-  Cuando se usa la CLI de Azure o Azure PowerShell, las consultas a Azure Resource Graph se paginan automáticamente para capturar 5000 entradas como máximo. Los resultados de la consulta devuelven una lista combinada de las entradas de todas las llamadas paginadas. En este caso, según el número de entradas en el resultado de la consulta, una sola consulta paginada puede consumir más de una cuota de consulta. Por ejemplo, en el ejemplo siguiente, una única ejecución de la consulta puede consumir hasta cinco cuotas de consulta:
+  Cuando se usa la CLI de Azure o Azure PowerShell, las consultas a Azure Resource Graph se paginan automáticamente para capturar 5000 entradas como máximo. Los resultados de la consulta devuelven una lista combinada de las entradas de todas las llamadas paginadas. En este caso, según el número de entradas en el resultado de la consulta, una sola consulta paginada puede consumir más de una cuota de consulta. Por ejemplo, en los ejemplos siguientes, una única ejecución de la consulta puede consumir hasta cinco cuotas de consulta:
 
   ```azurecli-interactive
   az graph query -q 'Resources | project id, name, type' --first 5000

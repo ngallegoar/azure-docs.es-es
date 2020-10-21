@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.author: mblythe
 ms.date: 07/24/2020
-ms.openlocfilehash: 6b7a4f6d4ad7f5e94d19b9d531992f54ff13fec0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: de0394f9b3254931537441d9f44606d16392a62d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87440728"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073893"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Inicio rápido: Creación de un panel en Azure Portal con PowerShell
 
@@ -23,7 +23,7 @@ El panel muestra el rendimiento de una máquina virtual y algunos vínculos e in
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-Si decide usar PowerShell de forma local, para este artículo es preciso que instale el módulo Az PowerShell y que se conecte a su cuenta de Azure con el cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount). Para más información sobre cómo instalar el módulo Az PowerShell, consulte [Instalación de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Si decide usar PowerShell de forma local, para este artículo es preciso que instale el módulo Az PowerShell y que se conecte a su cuenta de Azure con el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para más información sobre cómo instalar el módulo Az PowerShell, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Aunque el módulo **Az.Portal** de PowerShell esté en versión, se debe instalar por separado desde el módulo Az PowerShell mediante el cmdlet `Install-Module`. Una vez que este módulo de PowerShell esté disponible con carácter general, formará parte de las futuras versiones del módulo Az PowerShell y estará disponible de forma nativa en Azure Cloud Shell.
@@ -36,7 +36,7 @@ Install-Module -Name Az.Portal
 
 ## <a name="choose-a-specific-azure-subscription"></a>Elección de una suscripción de Azure específica
 
-Si tiene varias suscripciones a Azure, elija la suscripción adecuada en la que se debe facturar el recurso. Seleccione una suscripción específica con el cmdlet [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext).
+Si tiene varias suscripciones a Azure, elija la suscripción adecuada en la que se debe facturar el recurso. Seleccione una suscripción específica con el cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -68,7 +68,7 @@ $vmName = 'SimpleWinVM'
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un [grupo de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) con el cmdlet [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo.
+Cree un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) con el cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo.
 
 En el ejemplo siguiente se crea un grupo de recursos basado en el nombre de la variable `$resourceGroupName` en la región especificada en la variable `$location`.
 
@@ -102,7 +102,7 @@ Ahora se inicia la implementación de la máquina virtual y normalmente tarda un
 
 ## <a name="download-the-dashboard-template"></a>Descarga de la plantilla del panel
 
-Como los paneles de Azure son recursos, se pueden representar como JSON. El código siguiente descarga una representación JSON de un panel de ejemplo. Para más información, consulte [La estructura de los paneles de Azure](/azure/azure-portal/azure-portal-dashboards-structure).
+Como los paneles de Azure son recursos, se pueden representar como JSON. El código siguiente descarga una representación JSON de un panel de ejemplo. Para más información, consulte [La estructura de los paneles de Azure](./azure-portal-dashboards-structure.md).
 
 ```azurepowershell-interactive
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
@@ -180,4 +180,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Para más información sobre los cmdlets del módulo Az.Portal de PowerShell, consulte:
 
 > [!div class="nextstepaction"]
-> [Microsoft Azure PowerShell: cmdlets de los paneles del portal](https://docs.microsoft.com/powershell/module/Az.Portal/)
+> [Microsoft Azure PowerShell: cmdlets de los paneles del portal](/powershell/module/Az.Portal/)

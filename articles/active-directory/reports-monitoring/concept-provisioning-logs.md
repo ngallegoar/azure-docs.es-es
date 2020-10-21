@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812563"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056164"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)
 
@@ -42,7 +42,7 @@ Este tema ofrece una visión general del informe de aprovisionamiento.
 ## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
-* Propietarios de la aplicación
+* Los propietarios de la aplicación pueden ver los registros de las aplicaciones que poseen.
 * Los usuarios con los roles Administrador de seguridad, Lector de seguridad, Lector de informes, Administrador de aplicaciones y Administrador de aplicaciones en la nube.
 * Administradores globales
 
@@ -56,7 +56,7 @@ El inquilino debe tener una licencia de Azure AD Premium asociada para ver el in
 Los registros de aprovisionamiento proporcionan respuestas a las siguientes preguntas:
 
 * ¿Qué grupos se han creado correctamente en ServiceNow?
-* ¿Cómo se han importado los roles de Amazon Web Services?
+* ¿Qué roles se han importado de Amazon Web Services?
 * ¿Qué usuarios no se han creado correctamente en DropBox?
 
 Se puede tener acceso a los registros de aprovisionamiento si se selecciona **Registros de aprovisionamiento** en la sección **Supervisión** de la hoja **Azure Active Directory** en [Azure Portal](https://portal.azure.com). Algunos registros de aprovisionamiento pueden tardar hasta dos horas en aparecer en el portal.
@@ -211,7 +211,7 @@ En la pestaña **Resumen** se proporciona información general sobre lo que suce
 
 ## <a name="what-you-should-know"></a>Qué debería saber
 
-- Azure Portal almacena durante 30 días los datos de aprovisionamiento detectados si tiene una edición Premium, y durante siete días si tiene una edición gratuita. Los registros de aprovisionamiento pueden publicarse en Log Analytics si se quiere realizar una retención superior a 30 días. 
+- Azure Portal almacena durante 30 días los datos de aprovisionamiento detectados si tiene una edición Premium, y durante siete días si tiene una edición gratuita. Los registros de aprovisionamiento pueden publicarse en [Log Analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) si se quiere realizar una retención superior a 30 días. 
 
 - Puede usar el atributo Id. de cambio como identificador único. Esto es útil, por ejemplo, al hablar con el soporte técnico del producto.
 

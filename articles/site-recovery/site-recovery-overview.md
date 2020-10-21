@@ -4,12 +4,12 @@ description: Proporciona información general acerca del servicio Azure Site Rec
 ms.topic: overview
 ms.date: 03/17/2020
 ms.custom: MVC
-ms.openlocfilehash: 2b8268a47a141bb7254571a762bb9603e1a31b04
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 19860e64182cd73fe9f9fa1246f440a03109d465
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86135226"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281878"
 ---
 # <a name="about-site-recovery"></a>Acerca de Site Recovery
 
@@ -50,7 +50,7 @@ Site Recovery puede administrar la replicación de:
 **Compatible** | **Detalles**
 --- | ---
 **Escenarios de replicación** | Replique las máquinas virtuales de Azure de una región de Azure a otra.<br/><br/>  Replique las máquinas virtuales de VMware locales, las máquinas virtuales de Hyper-V, los servidores físicos (Windows y Linux) y las máquinas de virtuales Azure Stack en Azure.<br/><br/> Replique las instancias de Windows de AWS a Azure.<br/><br/> Replique las máquinas virtuales locales de VMware, de Hyper-V administradas por System Center VMM y los servidores físicos en un sitio secundario.
-**Regiones** | Revise las [regiones admitidas](https://azure.microsoft.com/regions/services/) para Site Recovery. |
+**Regiones** | Revise las [regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=site-recovery) para Site Recovery. |
 **Máquinas replicadas** | Revise los requisitos de la replicación de [máquinas virtuales de Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems), [máquinas virtuales y servidores físicos de VMware locales](vmware-physical-azure-support-matrix.md#replicated-machines) y los [máquinas virtuales de Hyper-V locales](hyper-v-azure-support-matrix.md#replicated-vms).
 **Cargas de trabajo** | Puede replicar cualquier carga de trabajo que se ejecute en una máquina que se admita para la replicación. Y que el equipo de Site Recovery haya hecho pruebas específicas de la aplicación para un [número de aplicaciones](site-recovery-workload.md#workload-summary).
 

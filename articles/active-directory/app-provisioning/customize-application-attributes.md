@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/03/2019
+ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: 5040fca85857cd131731d67c543c08fb1114ccee
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235231"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069881"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -129,7 +129,7 @@ Al editar la lista de atributos admitidos, se proporcionan las siguientes propie
 - **¿Varios valores?** : si el atributo admite varios valores.
 - **¿Coincidir mayúsculas y minúsculas?** : si los valores de atributo se evalúan según el uso de mayúsculas o minúsculas.
 - **Expresión de API**: no se usa, salvo que así se indique en la documentación de un conector de aprovisionamiento específico (como Workday).
-- **Atributo de objeto con referencia**: si este es un atributo de tipo referencia, este menú le permite seleccionar la tabla y el atributo de la aplicación de destino que contiene el valor asociado al atributo. Por ejemplo, si tiene un atributo llamado "Department" cuyo valor almacenado hace referencia a un objeto de una tabla "Departments" independiente, seleccionaría "Departments.Name". Las tablas de referencia y los campos de identificador principal admitidos en una determinada aplicación están preconfigurados y actualmente no se pueden editar mediante Azure Portal, pero se pueden modificar con [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+- **Atributo de objeto con referencia**: si este es un atributo de tipo referencia, este menú le permite seleccionar la tabla y el atributo de la aplicación de destino que contiene el valor asociado al atributo. Por ejemplo, si tiene un atributo llamado "Department" cuyo valor almacenado hace referencia a un objeto de una tabla "Departments" independiente, seleccionaría "Departments.Name". Las tablas de referencia y los campos de identificador principal admitidos en una determinada aplicación están preconfigurados y actualmente no se pueden editar mediante Azure Portal, pero se pueden modificar con [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Aprovisionamiento de un atributo de extensión personalizado para una aplicación compatible con SCIM
 El RFC de SCIM define un esquema principal de grupo y usuario, a la vez que permite que las extensiones del esquema cumplan los requisitos de la aplicación. Para agregar un atributo personalizado a una aplicación de SCIM:
@@ -316,11 +316,12 @@ Al seleccionar esta opción se fuerza la resincronización de todos los usuarios
 - El servicio de aprovisionamiento de Azure AD no admite el aprovisionamiento de valores NULL.
 - La clave principal, normalmente "ID", no se debe incluir como atributo de destino en las asignaciones de atributos. 
 - Normalmente, el atributo de rol se debe asignar mediante una expresión, en lugar de una asignación directa. Consulte la sección anterior para más información sobre la asignación de roles. 
+- Aunque puede deshabilitar grupos de las asignaciones, no se admite la deshabilitación de usuarios. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](user-provisioning.md)
-- [Escritura de expresiones para la asignación de atributos](../app-provisioning/functions-for-customizing-application-data.md)
-- [Filtros de ámbito para el aprovisionamiento de usuario](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+- [Escritura de expresiones para la asignación de atributos](functions-for-customizing-application-data.md)
+- [Filtros de ámbito para el aprovisionamiento de usuario](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](use-scim-to-provision-users-and-groups.md)
 - [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](../saas-apps/tutorial-list.md)

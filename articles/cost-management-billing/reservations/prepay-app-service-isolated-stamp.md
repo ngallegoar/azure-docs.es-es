@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: c80ed02e137ea092bae1346260dba71cd417bed9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: feb7be6ad5dbd0dfbd04b05836842d0476780d40
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688936"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151543"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Ahorro de costos en el impuesto sobre el timbre de Azure App Service aislado con capacidad reservada
 
@@ -39,7 +39,7 @@ Compre reservas de timbres de Windows si tiene uno o más trabajos de Windows en
 
 ## <a name="buy-isolated-stamp-reserved-capacity"></a>Compra de la capacidad reservada de timbres en entornos aislados
 
-Puede comprar la capacidad reservada de timbres en entornos aislados en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pague la reserva [por adelantado o mensualmente](monthly-payments-reservations.md). Para comprar la capacidad reservada, debe tener el rol de propietario al menos en una suscripción Enterprise o individual con precios de pago por uso.
+Puede comprar la capacidad reservada de timbres en entornos aislados en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pague la reserva [por adelantado o mensualmente](./prepare-buy-reservation.md). Para comprar la capacidad reservada, debe tener el rol de propietario al menos en una suscripción Enterprise o individual con precios de pago por uso.
 
 - En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador del Contrato Enterprise.
 - En el caso del programa del Proveedor de soluciones en la nube (CSP), los únicos que pueden comprar la capacidad reservada de Azure Synapse Analytics son los agentes de administración o de ventas.

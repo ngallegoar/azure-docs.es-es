@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d300f3e02d2a1a83410d5b7d981298a4743fb223
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d27537f017707e937303dd0c08a589db28aac6ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932354"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071445"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Copia de seguridad y restauración de los grupos de servidores de PostgreSQL: hiperescala habilitados para Azure Arc
 
@@ -52,7 +52,7 @@ Examine la sección de almacenamiento de la salida:
     }
 ...
 ```
-Si ve una sección de copias de seguridad, significa que el grupo de servidores se ha configurado para usar una clase de almacenamiento de copia de seguridad y está listo para que haga copias de seguridad y restauraciones. Si no ve una sección de copias de seguridad, debe eliminar y volver a crear el grupo de servidores para configurar la clase de almacenamiento de copias de seguridad. En este momento, todavía no es posible configurar una clase de almacenamiento de copias de seguridad después de que se haya creado el grupo de servidores.
+Si ve el nombre de una clase de almacenamiento indicado en la sección de copias de seguridad de la salida de ese comando, significa que el grupo de servidores se ha configurado para usar una clase de almacenamiento de copia de seguridad y está listo para que haga copias de seguridad y restauraciones. Si no ve una sección de copias de seguridad, debe eliminar y volver a crear el grupo de servidores para configurar la clase de almacenamiento de copias de seguridad. En este momento, todavía no es posible configurar una clase de almacenamiento de copias de seguridad después de que se haya creado el grupo de servidores.
 
 >[!IMPORTANT]
 >Si el grupo de servidores ya está configurado para usar una clase de almacenamiento de copia de seguridad, omita el paso siguiente y vaya directamente al paso "Copia de seguridad completa manual".
@@ -82,19 +82,22 @@ azdata arc postgres server create -n postgres01 --workers 2 --storage-class-back
 
 ## <a name="take-manual-full-backup"></a>Copia de seguridad completa manual
 
+
 A continuación, haga una copia de seguridad completa manual.
+
+> [!CAUTION]
+> **Solo para los usuarios de Azure Kubernetes Service (AKS):** sabemos que existe un problema con la realización de copias de seguridad de un grupo de servidores hospedado en Azure Kubernetes Service (AKS). Estamos trabajando para corregirlo. Hasta que se implemente la actualización en una versión o actualización futura, antes de realizar una copia de seguridad, debe eliminar los pods de sus grupos de servidores. Para cada uno de los pods del grupo de servidores (ejecute **kubectl get pods -n \<namespace name>** para enumerar los pods), ejecute **kubectl delete pod \<server group pod name> -n \<namespace name>** para su eliminación. No elimine los pods que no forman parte del grupo de servidores. La eliminación de pods no pone en riesgo los datos. Espere hasta que todos los pods vuelvan a estar en línea con ESTADO = EN EJECUCIÓN antes de realizar una copia de seguridad. El estado del Pod se proporciona en la salida del comando kubectl get pods anterior.
+
 
 Para hacer una copia de seguridad completa de todas las carpetas de datos y de registro del grupo de servidores, ejecute el siguiente comando:
 
 ```console
-azdata arc postgres backup create [--name <backup name>] --server-name <server group name> [--no-wait] 
+azdata arc postgres backup create [--name <backup name>] --server-name <server group name> [--no-wait] 
 ```
 Donde:
 - __name__ indica el nombre de una copia de seguridad
 - __server-name__ indica un grupo de servidores
 - __no-wait__ indica que la línea de comandos no esperará a que se complete la copia de seguridad para que pueda seguir usando esta ventana de línea de comandos.
-
->**Nota**: El comando que le permite enumerar las copias de seguridad que están disponibles para la restauración no muestra todavía la fecha ni la hora en que se hizo la copia de seguridad. Por lo tanto, se recomienda asignar un nombre a la copia de seguridad (mediante el parámetro --name) que incluye la información de fecha y hora.
 
 Este comando coordinará una copia de seguridad completa distribuida en todos los nodos que constituyen el grupo de servidores de hiperescala de PostgreSQL habilitado para Azure Arc. En otras palabras, hará una copia de seguridad de todos los datos de los nodos Coordinador y Trabajador.
 
@@ -134,10 +137,12 @@ azdata arc postgres backup list --server-name postgres01
 
 Devuelve un resultado como el siguiente:
 ```console
-ID                                Name                      State
---------------------------------  ------------------------  -------
-d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done
+ID                                Name                      State    Timestamp
+--------------------------------  ------------------------  -------  ------------------------------
+d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done     2020-08-31 14:30:00:00+00:00
 ```
+
+Timestamp indica la hora UTC en que se realizó la copia de seguridad.
 
 ## <a name="restore-a-backup"></a>Restaurar una copia de seguridad
 

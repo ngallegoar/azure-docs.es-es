@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ab60cb83e68a0c325ec1e2ac102870493016b57
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231238"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056147"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Análisis de registros de actividad de Azure AD con registros de Azure Monitor
 
@@ -100,16 +100,13 @@ También puede configurar alertas en la consulta. Por ejemplo, para configurar u
 
 5. Cuando haya configurado la alerta, seleccione **Crear alerta** para habilitarla. 
 
-## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>Instalación y uso de vistas pregeneradas para los registros de actividad de Azure AD
+## <a name="use-pre-built-workbooks-for-azure-ad-activity-logs"></a>Uso de libros pregenerados para los registros de actividad de Azure AD
 
-También puede descargar las vistas pregeneradas de Log Analytics para los registros de actividad de Azure AD. Las vistas proporcionan varios informes relacionados con escenarios comunes que implican eventos de auditoría y de inicio de sesión. También se puede alertar sobre cualquiera de los datos proporcionados en los informes, siguiendo los pasos descritos en la sección anterior.
+Los libros proporcionan varios informes relacionados con escenarios comunes que implican eventos de auditoría, inicio de sesión y aprovisionamiento. También se puede alertar sobre cualquiera de los datos proporcionados en los informes, siguiendo los pasos descritos en la sección anterior.
 
-* **Azure AD Account Provisioning Events** (Eventos de aprovisionamiento de la cuenta de Azure AD): Esta vista muestra informes relacionados con la auditoría de la actividad de aprovisionamiento, como el número de nuevos usuarios aprovisionados y errores de aprovisionamiento, el número de usuarios actualizados y errores de actualización y el número de usuarios desaprovisionados y los errores correspondientes.    
-* **Sign-ins Events** (Eventos de inicio de sesión): Esta vista muestra los informes más importantes relacionados con la supervisión de la actividad de inicio de sesión, como los inicios de sesión por aplicación, usuario y dispositivo, así como una vista resumida que muestra el número de inicios de sesión a lo largo del tiempo.
-* **Users Performing Consent** (Usuarios que dan su consentimiento): Esta vista muestra los informes relacionados con el consentimiento del usuario, como las concesiones de consentimiento por parte del usuario, los inicios de sesión de los usuarios que han concedido el consentimiento, así como los inicios de sesión por aplicación para todas las aplicaciones basadas en el consentimiento. 
-
-Aprenda a [instalar y utilizar las vistas de Log Analytics para los registros de actividad de Azure AD](howto-install-use-log-analytics-views.md). 
-
+* **Análisis del aprovisionamiento**: este [libro](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) muestra informes relacionados con la auditoría de la actividad de aprovisionamiento, como el número de nuevos usuarios aprovisionados y errores de aprovisionamiento, el número de usuarios actualizados y errores de actualización y el número de usuarios desaprovisionados y los errores correspondientes.    
+* **Sign-ins Events** (Eventos de inicio de sesión): este libro muestra los informes más importantes relacionados con la supervisión de la actividad de inicio de sesión, como los inicios de sesión por aplicación, usuario y dispositivo, así como una vista resumida que muestra el número de inicios de sesión a lo largo del tiempo.
+* **Conditional Access Insights**: el [libro](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) Conditional Access insights and reporting (Información detallada e informes del acceso condicional) le permite comprender el impacto de las directivas de acceso condicional en su organización a lo largo del tiempo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

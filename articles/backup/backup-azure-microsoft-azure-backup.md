@@ -3,12 +3,12 @@ title: Uso de Azure Backup Server para realizar copias de seguridad de cargas de
 description: En este artículo, aprenderá a preparar su entorno para proteger las cargas de trabajo y hacer copias de seguridad de ellas mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 6fe03260cc1759929e7ff9886b1b232a37056866
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1be2af43f4d923a27fd96c5c0888a234725775a3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90975514"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056708"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 
@@ -78,7 +78,7 @@ Si envía datos de copia de seguridad a Azure o los mantiene localmente, Azure B
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
-### <a name="set-storage-replication"></a>Configuración de la replicación de almacenamiento
+### <a name="set-storage-replication"></a>Configuración de la replicación del almacenamiento
 
 La opción de replicación de almacenamiento permite elegir entre almacenamiento con redundancia geográfica y almacenamiento con redundancia local. De forma predeterminada, los almacenes de Recovery Services usan almacenamiento con redundancia geográfica. Si este almacén es su almacén principal, deje la opción de almacenamiento establecida en almacenamiento con redundancia geográfica. Elija el almacenamiento con redundancia local si desea una opción más económica que no sea tan duradera. Obtenga más información sobre las opciones de almacenamiento [con redundancia geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage), [con redundancia local ](../storage/common/storage-redundancy.md#locally-redundant-storage) y [con redundancia de zona](../storage/common/storage-redundancy.md#zone-redundant-storage) en el artículo de [información general sobre replicación de Azure Storage](../storage/common/storage-redundancy.md).
 
@@ -200,6 +200,9 @@ Después de completar el proceso de extracción, active la casilla para iniciar 
     ![Proporcionar la ubicación para la instalación de los archivos](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
     La ubicación temporal es un requisito para hacer copias de seguridad en Azure. Asegúrese de que la ubicación temporal sea al menos el 5% de los datos cuya copia de seguridad se planea hacer en la nube. Para la protección de disco, deben configurarse discos independientes una vez completada la instalación. Para más información sobre los grupos de almacenamiento, vea [Preparación del almacenamiento de datos](/system-center/dpm/plan-long-and-short-term-data-storage).
+
+    Los requisitos de capacidad de almacenamiento en disco dependen básicamente del tamaño de los datos protegidos, el tamaño de los puntos de recuperación diarios, el ritmo esperado de crecimiento de los datos del volumen y los objetivos de intervalo de retención. Se recomienda que el almacenamiento en disco sea dos veces el tamaño de los datos protegidos. Esto supone un tamaño de punto de recuperación diario del 10 % del tamaño de los datos protegidos y una duración de retención de 10 días. Para obtener una buena estimación del tamaño, revise [Capacity Planner de DPM](https://www.microsoft.com/download/details.aspx?id=54301). 
+
 5. Proporcione una contraseña segura para las cuentas de usuario locales con permisos restringidos y seleccione **Siguiente**.
 
     ![Proporcionar una contraseña segura](./media/backup-azure-microsoft-azure-backup/security-screen.png)

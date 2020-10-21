@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/17/2020
+ms.date: 10/12/2020
 ms.author: yohaddad
-ms.openlocfilehash: d79fd60f4fe3786cfe3106329904d9d262078411
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: b2f66f9d4a96bda323413ac9016f582f5605e6cd
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024220"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073332"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -41,6 +41,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No está seguro de cómo actualizar el SO invitado? Vea [esto][cloud updates].
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
+
+###### <a name="october-10-2020"></a>**10 de octubre de 2020**
+Se ha publicado el SO invitado de septiembre. 
 
 ###### <a name="september-5-2020"></a>**5 de septiembre de 2020**
 Se ha publicado el SO invitado de agosto. 
@@ -140,8 +143,9 @@ Versión de .NET Framework instalada: 3.5, 4.7.2
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.23_202009-01  |  10 de octubre de 2020  |  Post 6.25  |  
 |  WA-GUEST-OS-6.22_202008-02  |  5 de septiembre de 2020  |  Post 6.24  |  
-|  WA-GUEST-OS-6.21_202007-01  |  17 de agosto de 2020  |  Post 6.23  |  
+|~~WA-GUEST-OS-6.21_202007-01~~|  17 de agosto de 2020  |  10 de octubre de 2020  |  
 |~~WA-GUEST-OS-6.20_202006-02~~|  10 de agosto de 2020  |  5 de septiembre de 2020  |  
 |~~WA-GUEST-OS-6.19_202005-02~~|  2 de junio de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-6.18_202004-01~~|  4 de mayo de 2020  |  10 de agosto de 2020  |  
@@ -175,8 +179,9 @@ Versión de .NET Framework instalada: 3.5, 4.6.2
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.47_202009-01  |  10 de octubre de 2020  |  Post 5.49  | 
 |  WA-GUEST-OS-5.46_202008-02  |  5 de septiembre de 2020  |  Post 5.48  |  
-|  WA-GUEST-OS-5.45_202007-01  |  17 de agosto de 2020  |  Post 5.47  |  
+|~~WA-GUEST-OS-5.45_202007-01~~|  17 de agosto de 2020  |  10 de octubre de 2020  |  
 |~~WA-GUEST-OS-5.44_202006-02~~|  10 de agosto de 2020  |  5 de septiembre de 2020  |  
 |~~WA-GUEST-OS-5.43_202005-02~~|  2 de junio de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-5.42_202004-01~~|  4 de mayo de 2020  |  10 de agosto de 2020  |  
@@ -207,8 +212,9 @@ Versión de .NET Framework instalada: 3.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.82_202009-01  |  10 de octubre de 2020  |  Post 4.84  | 
 |  WA-GUEST-OS-4.81_202008-02  |  5 de septiembre de 2020  |  Post 4.83  | 
-|  WA-GUEST-OS-4.80_202007-01  |  17 de agosto de 2020  |  Post 4.82  | 
+|~~WA-GUEST-OS-4.80_202007-01~~|  17 de agosto de 2020  |  10 de octubre de 2020  | 
 |~~WA-GUEST-OS-4.79_202006-02~~|  10 de agosto de 2020  |  5 de septiembre de 2020  | 
 |~~WA-GUEST-OS-4.78_202005-02~~|  2 de junio de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-4.77_202004-01~~|  4 de mayo de 2020  |  10 de agosto de 2020  |  
@@ -239,8 +245,9 @@ Versión de .NET Framework instalada: 3.5, 4.5
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.89_202009-01  |  10 de octubre de 2020  |  Post 3.91  |  
 |  WA-GUEST-OS-3.88_202008-02  |  5 de septiembre de 2020  |  Post 3.90  |  
-|  WA-GUEST-OS-3.87_202007-01  |  17 de agosto de 2020  |  Post 3.89  |  
+|~~WA-GUEST-OS-3.87_202007-01~~|  17 de agosto de 2020  |  10 de octubre de 2020  |  
 |~~WA-GUEST-OS-3.86_202006-02~~|  10 de agosto de 2020  |  5 de septiembre de 2020  |  
 |~~WA-GUEST-OS-3.85_202005-02~~|  2 de junio de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-3.84_202004-01~~|  4 de mayo de 2020  |  10 de agosto de 2020  |  
@@ -271,8 +278,9 @@ Versión de .NET Framework instalada: 3.5 (incluye 2.0 y 3.0), 4.5
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.102_202009-01  |  10 de octubre de 2020  |  Post 2.104  |  
 |  WA-GUEST-OS-2.101_202008-02  |  5 de septiembre de 2020  |  Post 2.103  |  
-|  WA-GUEST-OS-2.100_202007-01  |  17 de agosto de 2020  |  Post 2.102  |  
+|~~WA-GUEST-OS-2.100_202007-01~~|  17 de agosto de 2020  |  10 de octubre de 2020  |  
 |~~WA-GUEST-OS-2.99_202006-02~~|  10 de agosto de 2020  | 5 de septiembre de 2020  |  
 |~~WA-GUEST-OS-2.98_202005-02~~|  2 de junio de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-2.97_202004-01~~|  4 de mayo de 2020  |  10 de agosto de 2020  |  
@@ -352,26 +360,26 @@ Si actualiza manualmente el SO invitado, vea la [directiva de retirada del SO in
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Directiva de compatibilidad y retirada del SO invitado
 La directiva de compatibilidad y retirada del SO invitado se explica [aquí][retirepolicy].
 
-[cloud updates]: https://docs.microsoft.com/azure/cloud-services/cloud-services-update-azure-service
+[cloud updates]: ./cloud-services-update-azure-service.md
 [Fuente RSS de actualización del SO invitado]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: ./cloud-services-dotnet-install-dotnet.md?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: https://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
-[Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
+[Microsoft Security Advisory 3009008]: /security-updates/SecurityAdvisories/2015/3009008
 [ssl3-fixit]: https://go.microsoft.com/?linkid=9863266
-[MS14-066]: https://technet.microsoft.com/library/security/ms14-066.aspx
-[MS14-046]: https://technet.microsoft.com/library/security/ms14-046.aspx
-[retire policy sdk]: https://msdn.microsoft.com/library/dn479282.aspx
+[MS14-066]: /security-updates/SecurityBulletins/2014/ms14-066
+[MS14-046]: /security-updates/SecurityBulletins/2014/ms14-046
+[retire policy sdk]: /previous-versions/azure/reference/dn479282(v=azure.100)
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
 [azuresupport]: https://azure.microsoft.com/support/options/
 [net install pkg]: https://www.microsoft.com/download/details.aspx?id=42643
 [msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
-[restarts]: https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades
+[restarts]: /archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[fix]: /security-updates/SecurityBulletins/2017/ms17-010
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
-[Más información]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  
+[Más información]: ./applications-dont-support-tls-1-2.md

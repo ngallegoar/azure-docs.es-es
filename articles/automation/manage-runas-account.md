@@ -3,61 +3,24 @@ title: Administración de una cuenta de ejecución de Azure Automation
 description: En este artículo se describe cómo administrar la cuenta de ejecución con PowerShell o desde Azure Portal.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 06/26/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb804b21d6f5312c13bfdbf7b0fc0404961ba1e3
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 0849eb0c421883ecb0510451ff81b604538c9cc3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005741"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069898"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Administración de una cuenta de ejecución de Azure Automation
 
-Las cuentas de ejecución de Azure Automation proporcionan autenticación para administrar los recursos de Azure con los cmdlets de Azure. Cuando crea una cuenta de ejecución, se crea un nuevo usuario de la entidad de servicio en Azure Active Directory (AD) y se asigna el rol Colaborador a este usuario en el nivel de suscripción.
+Las cuentas de ejecución de Azure Automation proporcionan autenticación para administrar recursos en el modelo de implementación clásico de Azure o Azure Resource Manager mediante runbooks de Automation y otras características de Automation. En este artículo se proporcionan instrucciones sobre cómo administrar una cuenta de ejecución o de ejecución clásica.
 
-## <a name="types-of-run-as-accounts"></a>Tipos de cuentas de ejecución
+Para obtener más información acerca de la autenticación de cuentas de Azure Automation e instrucciones relacionadas con los escenarios de automatización de procesos, consulte [Introducción a la autenticación de cuentas de Automation](automation-security-overview.md).
 
-Azure Automation usa dos tipos de cuentas de ejecución:
-
-* Cuenta de ejecución de Azure
-* Cuenta de ejecución de Azure clásico
-
->[!NOTE]
->Las suscripciones del Proveedor de soluciones en la nube (CSP) de Azure solo admiten el modelo de Azure Resource Manager. Los servicios que no son de Azure Resource Manager no están disponibles en el programa. Cuando se usa una suscripción al programa CSP, no se crea la cuenta de ejecución de Azure clásico, sino la cuenta de ejecución de Azure. Para más información acerca de las suscripciones de CSP, consulte [Servicios disponibles en las suscripciones de CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
-
-La entidad de servicio para una cuenta de ejecución no tiene los permisos para leer Azure Active Directory de manera predeterminada. Si quiere agregar permisos para leer o administrar Azure AD, deberá conceder los permisos a la entidad de servicio en **Permisos de API**. Para más información, consulte [Incorporación de permisos para acceder a la API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
-
-### <a name="run-as-account"></a>cuenta de identificación
-
-La cuenta de ejecución administra los recursos del [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md). Realiza las tareas que se indican a continuación.
-
-* Crea una aplicación de Azure AD con un certificado autofirmado, crea una cuenta de entidad servicio para la aplicación en Azure AD y asigna el rol Colaborador para esta cuenta en la suscripción actual. Puede cambiar la configuración de certificado a Propietario o a cualquier otro rol. Para más información, consulte [Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md).
-
-* Crea un recurso de certificado de Automation denominado `AzureRunAsCertificate` en la cuenta de Automation especificada. El recurso de certificado contiene la clave privada del certificado que se usa en la aplicación de Azure AD.
-
-* Crea un recurso de conexión de Automation denominado `AzureRunAsConnection` en la cuenta de Automation especificada. El recurso de conexión contiene el identificador de la aplicación, el identificador del inquilino, el identificador de la suscripción y la huella digital del certificado.
-
-### <a name="azure-classic-run-as-account"></a>Cuenta de ejecución de Azure clásico
-
-La cuenta de ejecución de Azure clásico administra recursos del [modelo de implementación clásico](../azure-resource-manager/management/deployment-models.md). Debe ser coadministrador de la suscripción para crear o renovar este tipo de cuenta.
-
-La cuenta de ejecución de Azure clásico realiza las siguientes tareas.
-
-  * Crea un certificado de administración en la suscripción.
-
-  * Crea un recurso de certificado de Automation denominado `AzureClassicRunAsCertificate` en la cuenta de Automation especificada. El recurso de certificado contiene la clave privada del certificado que usa el certificado de administración.
-
-  * Crea un recurso de conexión de Automation denominado `AzureClassicRunAsConnection` en la cuenta de Automation especificada. El recurso de conexión contiene el nombre de la suscripción, el id. de suscripción y el nombre del recurso de certificado.
-
->[!NOTE]
->Las cuentas de ejecución de Azure clásico ya no se crean de forma predeterminada a la vez que se crea una cuenta de Automation. Esta cuenta se crea individualmente siguiendo los pasos que se describen más adelante en este artículo.
-
-## <a name="obtain-run-as-account-permissions"></a><a name="permissions"></a>Obtención de permisos de las cuentas de ejecución
+## <a name="run-as-account-permissions"></a><a name="permissions"></a>Permisos de las cuentas de ejecución
 
 En esta sección se definen los permisos para las cuentas de ejecución normales y las cuentas de ejecución clásicas.
-
-### <a name="get-permissions-to-configure-run-as-accounts"></a>Obtención de permisos para configurar cuentas de ejecución
 
 Para crear o actualizar una cuenta de ejecución, debe tener los permisos y privilegios específicos. Un administrador de aplicaciones en Azure Active Directory y un propietario en una suscripción pueden completar todas las tareas. En una situación en la que tenga separación de funciones, la siguiente tabla muestra una lista de las tareas, el cmdlet equivalente y los permisos necesarios:
 
@@ -83,7 +46,7 @@ Para comprobar que se ha corregido la situación causante del mensaje de error:
 3. Elija su nombre y, a continuación, seleccione **Perfil**.
 4. Asegúrese de que el valor del atributo **Tipo de usuario**  en el perfil de usuario no esté establecido en **Invitado**.
 
-### <a name="get-permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Obtención de permisos para configurar cuentas de ejecución clásicas
+### <a name="permissions-required-to-create-or-manage-classic-run-as-accounts"></a><a name="permissions-classic"></a>Permisos necesarios para crear o administrar cuentas de ejecución clásicas
 
 Para configurar o renovar las cuentas de ejecución clásicas, debe tener el rol Coadministrador en el nivel de suscripción. Para más información sobre los permisos de suscripción clásicos, consulte [Administradores de la suscripción clásica de Azure](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
@@ -97,17 +60,87 @@ Realice los pasos que se describen a continuación para actualizar su cuenta de 
 
 3. En la página Cuentas de Automation, seleccione su cuenta de Automation en la lista.
 
-4. En el panel izquierdo, seleccione **Cuentas de ejecución** en la sección Configuración de la cuenta.
+4. En el panel izquierdo, seleccione **Cuentas de ejecución** en la sección **Configuración de la cuenta**.
 
-5. En función de la cuenta que necesite, seleccione **Cuenta de ejecución de Azure** o **Cuenta de ejecución de Azure clásica**.
+    :::image type="content" source="media/manage-runas-account/automation-account-properties-pane.png" alt-text="Seleccione la opción Cuenta de ejecución.":::
 
-6. En función de la cuenta que le interese, use el panel **Agregar cuenta de ejecución de Azure** o **Agregar cuenta de ejecución de Azure clásico**. Después de revisar la información general, haga clic en **Crear**.
+5. En función de la cuenta que necesite, utilice el panel **+Cuenta de ejecución de Azure** o **+Cuenta de ejecución de Azure clásica**. Después de revisar la información general, haga clic en **Crear**.
 
-7. Mientras Azure crea la cuenta de ejecución, se puede seguir el progreso en **Notificaciones** en el menú. También se muestra un banner que indica que se está creando la cuenta. El proceso puede tardar unos minutos en completarse.
+    :::image type="content" source="media/manage-runas-account/automation-account-create-runas.png" alt-text="Seleccione la opción Cuenta de ejecución.":::
+
+6. Mientras Azure crea la cuenta de ejecución, se puede seguir el progreso en **Notificaciones** en el menú. También se muestra un banner que indica que se está creando la cuenta. El proceso puede tardar unos minutos en completarse.
+
+## <a name="create-a-run-as-account-using-powershell"></a>Creación de una cuenta de ejecución con PowerShell
+
+En la lista siguiente se proporcionan los requisitos para crear una cuenta de ejecución en PowerShell mediante un script proporcionado. Estos requisitos se aplican a ambos tipos de cuentas de ejecución.
+
+* Windows 10 o Windows Server 2016 con módulos de Azure Resource Manager 3.4.1 y versiones posteriores. El script de PowerShell no admite versiones anteriores de Windows.
+* Azure PowerShell 6.2.4 o posterior. Para más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/install-az-ps).
+* Una cuenta de Automation, a la que se hace referencia como el valor de los parámetros `AutomationAccountName` y `ApplicationDisplayName`.
+* Permisos equivalentes a los que se muestran en [Permisos para configurar cuentas de ejecución](#permissions).
+
+Para obtener los valores de `AutomationAccountName`, `SubscriptionId` y `ResourceGroupName`, que son los parámetros necesarios para el script de PowerShell, complete los pasos siguientes.
+
+1. En Azure Portal, seleccione **Cuentas de Automation**.
+
+1. En la página Cuentas de Automation, seleccione su cuenta de Automation.
+
+1. En la sección Configuración de la cuenta, seleccione **Propiedades**.
+
+1. Anote los valores de **Nombre**, **Id. de suscripción** y **Grupo de recursos** en la página **Propiedades**.
+
+   ![Página de propiedades de la cuenta de Automation](media/manage-runas-account/automation-account-properties.png)
+
+### <a name="powershell-script-to-create-a-run-as-account"></a>Script de PowerShell para crear una cuenta de ejecución
+
+El script de PowerShell incluye compatibilidad con varias configuraciones.
+
+* Creación de una cuenta de ejecución mediante un certificado autofirmado.
+* Creación de una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado autofirmado.
+* Cree una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado emitido por su entidad de certificación (CA) empresarial.
+* Creación de una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado autofirmado en la nube de Azure Government.
+
+1. Descargue y guarde el script en una carpeta local con el siguiente comando.
+
+    ```powershell
+    wget https://raw.githubusercontent.com/azureautomation/runbooks/master/Utility/AzRunAs/Create-RunAsAccount.ps1 -outfile Create-RunAsAccount.ps1
+    ```
+
+2. Inicie PowerShell con permisos de usuario elevados y navegue hasta la carpeta que contiene el script.
+
+3. Ejecute uno de los siguientes comandos para crear una cuenta de ejecución o de ejecución clásica en función de sus requisitos.
+
+    * Cree una cuenta de ejecución mediante un certificado autofirmado.
+
+        ```powershell
+        .\Create-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false
+        ```
+
+    * Creación de una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado autofirmado.
+
+        ```powershell
+        .\Create-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true
+        ```
+
+    * Creación de una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado de empresa.
+
+        ```powershell
+        .\Create-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>
+        ```
+
+        Si creó una cuenta de ejecución clásica con un certificado público de empresa (archivo .cer) , use este certificado. El script la crea y la guarda en la carpeta de archivos temporales del equipo, en el perfil de usuario `%USERPROFILE%\AppData\Local\Temp` que usó para ejecutar la sesión de PowerShell. Consulte [Carga de un certificado de API de administración en Azure Portal](../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
+
+    * Creación de una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado autofirmado en la nube de Azure Government
+
+        ```powershell
+        .\Create-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnvironmentName AzureUSGovernment
+        ```
+
+4. Después de ejecutar el script, se le pedirá que se autentique en Azure. Inicie sesión con una cuenta que sea miembro del rol de administradores de la suscripción. Si va a crear una cuenta de ejecución clásica, su cuenta debe ser un coadministrador de la suscripción.
 
 ## <a name="delete-a-run-as-or-classic-run-as-account"></a>Eliminación de una cuenta de ejecución o de ejecución clásica
 
-En esta sección se describe cómo eliminar una cuenta de ejecución o una cuenta de ejecución clásica. Al realizar esta acción, la cuenta de Automation se conserva. Después de eliminar la cuenta, puede volver a crearla en Azure Portal.
+En esta sección se describe cómo eliminar una cuenta de ejecución o una cuenta de ejecución clásica. Al realizar esta acción, la cuenta de Automation se conserva. Después de eliminar la cuenta de ejecución, puede volver a crearla en Azure Portal o con el script de PowerShell proporcionado.
 
 1. Abra la cuenta de Automation en Azure Portal.
 
@@ -120,10 +153,6 @@ En esta sección se describe cómo eliminar una cuenta de ejecución o una cuent
    ![Eliminación de una cuenta de ejecución](media/manage-runas-account/automation-account-delete-runas.png)
 
 5. Mientras se está eliminando la cuenta, puede seguir el progreso desde el menú, en **Notificaciones**.
-
-6. Después de eliminar la cuenta, puede volver a crearla en la página de propiedades de Cuentas de ejecución. Para ello, seleccione la opción de creación **Cuenta de ejecución de Azure**.
-
-   ![Nueva creación de la cuenta de ejecución de Automation](media/manage-runas-account/automation-account-create-runas.png)
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renovación de un certificado autofirmado
 
@@ -174,8 +203,7 @@ Puede determinar si la entidad de servicio que se usa en la cuenta de ejecución
 2. Seleccione **Cuenta de ejecución de Azure**.
 3. Seleccione **Rol** para localizar la definición de roles que se está usando.
 
-:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Compruebe el rol de cuenta de ejecución" lightbox="media/manage-runas-account/verify-role-expanded.png":::.
-
+:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Seleccione la opción Cuenta de ejecución." lightbox="media/manage-runas-account/verify-role-expanded.png":::.
 
 También puede determinar la definición de roles que usan las cuentas de ejecución para varias suscripciones o cuentas de Automation. Para ello, use el script [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) en la Galería de PowerShell.
 
@@ -186,7 +214,7 @@ Puede permitir que Azure Automation compruebe si Key Vault y la entidad de servi
 * Conceder permisos a Key Vault.
 * Establecer la directiva de acceso.
 
-Puede usar el script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) en el Galería de PowerShell para asignar sus permisos de la cuenta de ejecución a KeyVault. Consulte [Asignación de una directiva de acceso de Key Vault](/azure/key-vault/general/assign-access-policy-powershell) para obtener más detalles sobre cómo establecer permisos en Key Vault.
+Puede usar el script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) en el Galería de PowerShell para asignar sus permisos de la cuenta de ejecución a KeyVault. Consulte [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-powershell.md) para obtener más detalles sobre cómo establecer permisos en Key Vault.
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Solución de problemas de configuración incorrecta de las cuentas de ejecución
 
@@ -199,7 +227,7 @@ Puede que algunos elementos de configuración necesarios para la cuenta de ejecu
 
 En estos casos de errores de configuración, la cuenta de Automation detecta los cambios y muestra el estado *Incompleto* en el panel de propiedades de Cuentas de ejecución de la cuenta.
 
-![Estado de configuración incompleta de la cuenta de ejecución](media/manage-runas-account/automation-account-runas-incomplete-config.png)
+![Estado de configuración incompleta de la cuenta de ejecución](media/manage-runas-account/automation-account-runas-config-incomplete.png)
 
 Al seleccionar la cuenta de ejecución, el panel de propiedades de la cuenta muestra el mensaje de error siguiente:
 

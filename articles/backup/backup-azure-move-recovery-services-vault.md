@@ -4,12 +4,12 @@ description: Instrucciones sobre cómo mover el almacén de Recovery Services en
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 69021131f12b57aedcd531997029858b0722933f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 55c906585e6f6d4a2ae3f2279b2c3ffbaaccb025
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181517"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056436"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Traslado del almacén de Recovery Services entre suscripciones y grupos de recursos de Azure
 
@@ -34,7 +34,7 @@ Centro de Francia, Sur de Francia, Nordeste de Alemania, Centro de Alemania, US 
 - Si una máquina virtual no se traslada con el almacén de Recovery Services entre suscripciones, o a un nuevo grupo de recursos, los puntos de recuperación de la máquina virtual actuales permanecerán intactos en el almacén hasta que expiren.
 - Independientemente de que la máquina virtual se mueva con el almacén o no, siempre podrá restaurar la máquina virtual desde el historial de copia de seguridad conservado en el almacén.
 - Azure Disk Encryption requiere que el almacén de claves y las máquinas virtuales residan en la misma región y suscripción de Azure.
-- Para mover una máquina virtual con discos administrados, consulte este [artículo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
+- Para mover una máquina virtual con discos administrados, consulte este [artículo](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription).
 - Las opciones para mover recursos implementados mediante el modelo clásico varían en función de si traslada los recursos dentro de una misma suscripción o a una nueva suscripción. Para más información, consulte este [artículo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Las directivas de copia de seguridad definidas para el almacén se conservan después de que el almacén se mueva entre suscripciones o a un nuevo grupo de recursos.
 - Solo puede trasladar un almacén que contenga cualquiera de los siguientes tipos de elementos de copia de seguridad. Los elementos de copia de seguridad de tipos que no se enumeran a continuación deberán detenerse y los datos deberán eliminarse de forma permanente antes de mover el almacén.
@@ -142,6 +142,50 @@ Para mover a una nueva suscripción, proporcione el parámetro `--destination-su
 
 1. Establezca/verifique los controles de acceso para los grupos de recursos.  
 2. La característica de supervisión y creación de informes de Backup debe volver a configurarse para el almacén una vez finalizada la operación de movimiento. La configuración anterior se perderá durante la esta operación.
+
+## <a name="move-an-azure-virtual-machine-to-a-different-recovery-service-vault"></a>Mueva una máquina virtual de Azure a otro almacén de Recovery Services. 
+
+Si quiere trasladar una máquina virtual de Azure que tiene habilitado Azure Backup, tiene dos opciones. Estas opciones dependen de sus requisitos empresariales:
+
+- [No es necesario conservar los datos de copia de seguridad anteriores](#dont-need-to-preserve-previous-backed-up-data)
+- [Se deben conservar los datos de copia de seguridad anteriores](#must-preserve-previous-backed-up-data)
+
+### <a name="dont-need-to-preserve-previous-backed-up-data"></a>No es necesario conservar los datos de copia de seguridad anteriores
+
+Para proteger las cargas de trabajo en un nuevo almacén, será necesario eliminar la protección actual y los datos del almacén antiguo, y volver a configurar la copia de seguridad.
+
+>[!WARNING]
+>La operación siguiente es destructiva y no se puede deshacer. Todos los datos de copia de seguridad y los elementos de copia de seguridad asociados con el servidor protegido se eliminarán de forma permanente. Proceda con precaución.
+
+**Detenga y elimine la protección actual en el almacén antiguo:**
+
+1. deshabilite la eliminación temporal en las propiedades del almacén. Siga [estos pasos](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) para deshabilitar la eliminación temporal.
+
+2. Detenga la protección y elimine las copias de seguridad del almacén actual. En el menú del panel del almacén, seleccione **Elementos de copia de seguridad**. Los elementos que aparecen aquí y que deben moverse al nuevo almacén se deben quitar junto con sus datos de copia de seguridad. Vea cómo [eliminar elementos protegidos en la nube](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) y [eliminar elementos protegidos en el entorno local](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+3. Si tiene previsto mover AFS (recursos compartidos de archivos de Azure), servidores SQL o servidores SAP HANA, también tendrá que anular su registro. En el menú del panel del almacén, seleccione **Infraestructura de Backup**. Vea cómo [anular el registro de SQL Server](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [anular el registro de una cuenta de almacenamiento asociada a recursos compartidos de archivos de Azure](manage-afs-backup.md#unregister-a-storage-account) y [anular el registro de una instancia de SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+
+4. Una vez que se hayan quitado del almacén antiguo, continúe con la configuración de las copias de seguridad de la carga de trabajo en el nuevo almacén.
+
+### <a name="must-preserve-previous-backed-up-data"></a>Se deben conservar los datos de copia de seguridad anteriores
+
+Si tiene que conservar los datos protegidos actuales en el almacén antiguo y mantener la protección en un nuevo almacén, hay opciones limitadas para algunas de las cargas de trabajo:
+
+- Para MARS, puede [detener la protección con conservación de datos](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) y registrar el agente en el nuevo almacén.
+
+  - El servicio Azure Backup seguirá conservando todos los puntos de recuperación existentes en el almacén antiguo.
+  - Tendrá que pagar para conservar los puntos de recuperación en el almacén antiguo.
+  - Solo podrá restaurar los datos de copia de seguridad de los puntos de recuperación que no hayan expirado en el almacén antiguo.
+  - Tendrá que crear una réplica inicial de los datos en el nuevo almacén.
+
+- En el caso de una VM de Azure, puede [detener la protección con conservación de datos](backup-azure-manage-vms.md#stop-protecting-a-vm) para la VM en el almacén antiguo, moverla a otro grupo de recursos y, después, protegerla en el nuevo almacén. Vea [Instrucciones y limitaciones](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) para mover una máquina virtual a otro grupo de recursos.
+
+  Una máquina virtual solo se puede proteger en un almacén a la vez. No obstante, la VM del nuevo grupo de recursos se puede proteger en el nuevo almacén, ya que se considera una VM distinta.
+
+  - El servicio Azure Backup conservará los puntos de recuperación de los que se ha realizado una copia de seguridad en el almacén antiguo.
+  - Deberá pagar para mantener los puntos de recuperación en el almacén antiguo (vea [Precios de Azure Backup](azure-backup-pricing.md) para obtener detalles).
+  - Podrá restaurar la VM si es necesario, desde el almacén antiguo.
+  - La primera copia de seguridad en el nuevo almacén de la VM en el nuevo recurso será una réplica inicial.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

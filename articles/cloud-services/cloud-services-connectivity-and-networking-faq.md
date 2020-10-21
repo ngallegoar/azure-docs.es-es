@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8f57cc16cad4c0b081478932f820c983e4bbdc7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77019407"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070034"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividad y redes en Azure Cloud Services: preguntas más frecuentes (P+F)
 
@@ -40,7 +40,7 @@ No, no usando un "ping" normal / protocolo ICMP. No se permite el protocolo ICMP
 
 Para probar la conectividad, se recomienda que realice un ping de puerto. Aunque Ping.exe utiliza ICMP, puede usar otras herramientas, como PSPing, Nmap y telnet, que permiten probar la conectividad con un puerto TCP específico.
 
-Para más información, consulte [Use port pings instead of ICMP to test Azure VM connectivity](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/) (uso de pings de puerto en lugar de ICMP para probar la conectividad de la máquina virtual de Azure).
+Para más información, consulte [Use port pings instead of ICMP to test Azure VM connectivity](/archive/blogs/mast/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity) (uso de pings de puerto en lugar de ICMP para probar la conectividad de la máquina virtual de Azure).
 
 ## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service"></a>¿Cómo se puede evitar la recepción de miles de aciertos de direcciones IP desconocidas que indican un ataque malintencionado al servicio en la nube?
 Azure implementa una seguridad de red multicapa para proteger sus servicios de plataforma contra los ataques de denegación de servicio distribuido (DDoS). El sistema de defensa DDoS de Azure forma parte del proceso de supervisión continuo de Azure, que mejora continuamente a través de pruebas de penetración. Este sistema de defensa DDoS está diseñado para resistir ataques no solo desde el exterior, sino también de otros inquilinos de Azure. Para más información, consulte [Azure Network Security](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf) (Seguridad de red de Azure).
@@ -67,7 +67,7 @@ El algoritmo de distribución usado para asignar el tráfico a los servidores di
 
 El módulo URL Rewrite de IIS podría usarse para redirigir el tráfico que entra en la dirección URL predeterminada del servicio en la nube (por ejemplo, \*.cloudapp.net) a alguna dirección URL o nombre personalizados. Dado que el módulo URL Rewrite está habilitado de forma predeterminada en los roles web y sus reglas se configuran en el archivo web.config de la aplicación, siempre está disponible en la VM con independencia de los reinicios o los restablecimientos de la imagen inicial. Para obtener más información, consulte:
 
-- [Create Rewrite Rules for the URL Rewrite Module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module) (Creación de reglas de reescritura para el módulo URL Rewrite)
+- [Create Rewrite Rules for the URL Rewrite Module](/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module) (Creación de reglas de reescritura para el módulo URL Rewrite)
 - [Remove a default link](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top) (Quitar un vínculo predeterminado)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>¿Cómo puedo bloquear o deshabilitar el tráfico entrante a la dirección URL predeterminada de un servicio en la nube?
@@ -99,7 +99,7 @@ Dado que este enlace de encabezado de host se aplica a través del archivo csdef
 
 ## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>¿Cómo puedo asegurarme de que la dirección IP pública de un servicio en la nube nunca cambie?
 
-Para asegurarse de que la dirección IP pública de un servicio en la nube (también conocida como VIP) nunca cambie de modo que algunos clientes específicos puedan incluirla en la lista de elementos permitidos, se recomienda asociarle una dirección IP reservada. En caso contrario, la dirección IP virtual proporcionada por Azure se desasigna de su suscripción, si elimina la implementación. Para que la operación de intercambio de VIP sea correcta, necesita direcciones IP reservadas individuales tanto para las ranuras de almacenamiento provisional como para producción. Sin ellas, se produce un error en la operación de intercambio. Para reservar una dirección IP y asociarla a un servicio en la nube, consulte estos artículos:
+Para asegurarse de que la dirección IP pública de un servicio en la nube (también conocida como VIP) nunca cambie de modo que algunos clientes específicos puedan aprobarla normalmente, se recomienda asociarle una dirección IP reservada. En caso contrario, la dirección IP virtual proporcionada por Azure se desasigna de su suscripción, si elimina la implementación. Para que la operación de intercambio de VIP sea correcta, necesita direcciones IP reservadas individuales tanto para las ranuras de almacenamiento provisional como para producción. Sin ellas, se produce un error en la operación de intercambio. Para reservar una dirección IP y asociarla a un servicio en la nube, consulte estos artículos:
 
 - [Reserva de la dirección IP de un servicio en la nube existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Asociación de una dirección IP reservada a un servicio en la nube mediante un archivo de configuración de servicio](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)

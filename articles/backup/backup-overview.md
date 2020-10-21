@@ -4,12 +4,12 @@ description: Proporciona información general del servicio Azure Backup, y cómo
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 72dee7bbcaa730f12af3ee323157fa92f6694603
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 537605498fe166b24bd4e24673cfa1542bc449ea
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90968336"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172474"
 ---
 # <a name="what-is-the-azure-backup-service"></a>¿Qué es el servicio Azure Backup?
 
@@ -46,7 +46,7 @@ Azure Backup proporciona las siguientes ventajas principales:
 - **Varias opciones de almacenamiento**: Azure Backup ofrece dos tipos de replicación para mantener la alta disponibilidad de los datos o del almacenamiento.
   - El [almacenamiento con redundancia local (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replica los datos tres veces (crea tres copias de los datos) en una unidad de escalado de almacenamiento de un centro de datos. Todas las copias de los datos se encuentran en la misma región. LRS es una opción de bajo costo para proteger los datos contra errores de hardware local.
   - El [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) es la opción de replicación predeterminada y recomendada. GRS replica los datos en una región secundaria (a cientos de kilómetros de la ubicación principal de los datos de origen). GRS cuesta más que LRS, pero proporciona un mayor nivel de durabilidad de los datos, aunque se produzca una interrupción regional.
-  - El [almacenamiento con redundancia de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica los datos en [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantizando así la residencia de datos y la resistencia en la misma región. El almacenamiento con redundancia de zona no tiene ningún tiempo de inactividad. Por lo tanto, de las cargas de trabajo críticas que requieren [residencia de datos](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), y que no deben tener ningún tiempo de inactividad, se pueden realizar copias de seguridad en el almacenamiento con redundancia de zona.
+  - El [almacenamiento con redundancia de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica los datos en [zonas de disponibilidad](../availability-zones/az-overview.md#availability-zones), garantizando así la residencia de datos y la resistencia en la misma región. El almacenamiento con redundancia de zona no tiene ningún tiempo de inactividad. Por lo tanto, de las cargas de trabajo críticas que requieren [residencia de datos](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), y que no deben tener ningún tiempo de inactividad, se pueden realizar copias de seguridad en el almacenamiento con redundancia de zona.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
