@@ -7,12 +7,12 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: bfa84a993fafe9240ba765de8d87ea4afb69cbd5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ca4c1810912771f56661ca5b682b6991735f526e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015954"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150829"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Aplicación del descuento por reserva a Azure Cosmos DB
 
@@ -121,4 +121,4 @@ Para más información acerca de las reservas de Azure, consulte los siguientes 
 * [Administración de reservas para Azure](manage-reserved-vm-instance.md)  
 * [Información sobre el uso de reservas para suscripciones de pago por uso](understand-reserved-instance-usage.md)  
 * [Información sobre el uso de reservas para la inscripción Enterprise](understand-reserved-instance-usage-ea.md)
-* [Información sobre el uso de reservas para suscripciones de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Información sobre el uso de reservas para suscripciones de CSP](/partner-center/azure-reservations)

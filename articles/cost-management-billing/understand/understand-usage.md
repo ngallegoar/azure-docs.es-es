@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d113ad7d3de3478fbbdcce32363e048b7a8a75ce
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 559fe43bbd9b8951a97733ae1250046f65f10404
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681743"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149355"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprenda los términos en el archivo de uso y cargos de Azure
 
@@ -90,8 +90,8 @@ PublisherType | All | Tipo de publicador (valores: **Azure**, **AWS**, **Marketp
 Cantidad | All | Número de unidades compradas o consumidas.
 ReservationId | EA, MCA | Identificador único de la instancia de la reserva comprada.
 ReservationName | EA, MCA | Nombre de la instancia de la reserva comprada.
-ResourceGroup | All | Nombre del [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) en el que se encuentra el recurso. No todos los cargos provienen de los recursos implementados en grupos de recursos. Los cargos que no tienen un grupo de recursos se muestran como nulos o vacíos, **Otros** o **No aplicable**.
-ResourceId<sup>1</sup> | All | Identificador único del recurso de [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
+ResourceGroup | All | Nombre del [grupo de recursos](../../azure-resource-manager/management/overview.md) en el que se encuentra el recurso. No todos los cargos provienen de los recursos implementados en grupos de recursos. Los cargos que no tienen un grupo de recursos se muestran como nulos o vacíos, **Otros** o **No aplicable**.
+ResourceId<sup>1</sup> | All | Identificador único del recurso de [Azure Resource Manager](/rest/api/resources/resources).
 ResourceLocation | All | Ubicación del centro de datos donde se ejecuta el recurso. Véase Ubicación.
 nombreDelRecurso | EA, pago por uso | Nombre del recurso. No todos los cargos provienen de recursos implementados. Los cargos que no tienen un tipo de recursos se muestran como nulos o vacíos, **Otros** o **No aplicable**.
 ResourceType | MCA | Tipo de instancia del recurso. No todos los cargos provienen de recursos implementados. Los cargos que no tienen un tipo de recursos se muestran como nulos o vacíos, **Otros** o **No aplicable**.

@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 10/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 52bf9e061eb57c7ce6ea698b7468b5ba5e11b4e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d298dfd5f3ad0beb56a511c124bab056ca25fd27
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "78244964"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310047"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Inicio rápido: Creación de una zona DNS privada de Azure con Azure Portal
 
@@ -20,15 +20,7 @@ Este inicio rápido le guiará por los pasos necesarios para crear una zona DNS 
 
 Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para iniciar el hospedaje de su dominio en DNS de Azure, debe crear una zona DNS para ese nombre de dominio. Cada registro DNS del dominio se crea luego en esta zona DNS. Para publicar una zona DNS privada en la red virtual, especifique la lista de redes virtuales que pueden resolver registros en ella.  Se denominan redes virtuales *vinculadas*. Cuando se habilita el registro automático, Azure DNS también actualiza los registros de zona cuando se crea una máquina virtual, se cambia su dirección IP o se elimina.
 
-En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
-
-> [!div class="checklist"]
-> * Crear una zona DNS privada
-> * Creación de una red virtual
-> * Vincular la red virtual
-> * Creación de máquinas virtuales de prueba
-> * Creación de un registro de DNS adicional
-> * Prueba de la zona privada
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -180,7 +172,7 @@ Repita la operación con myVM02.
    PS C:\>
    ```
 
-## <a name="delete-all-resources"></a>Eliminación de todos los recursos
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando ya no lo necesite, elimine el grupo de recursos **MyAzureResourceGroup** para eliminar los recursos que ha creado en este inicio rápido.
 

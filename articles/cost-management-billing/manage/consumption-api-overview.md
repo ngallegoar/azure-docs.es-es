@@ -8,12 +8,12 @@ ms.subservice: cost-management
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 07595eed70850ce5270a261d588a33b68ff964fe
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: b00b5a46a0cdeb95c357da521326fe2bb678490b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371939"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132625"
 ---
 # <a name="azure-consumption-api-overview"></a>Información general sobre las API de consumo de Azure
 
@@ -38,7 +38,7 @@ Use la API de detalles de uso para obtener los datos de cargos y uso para todos 
 La API incluye:
 
 -   **Datos de consumo a nivel de medidor**: consulte datos como el costo de uso, el medidor que emite el cargo y a qué recurso de Azure pertenece el cargo. Todos los registros de detalles de uso se asignan a un cubo diario.
--   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o mediante [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
+-   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md) o mediante [cmdlets de Azure PowerShell](/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
 -   **Filtrado**: recorte el conjunto de resultados de API para conseguir un conjunto más pequeño de registros de detalles de uso con los siguientes filtros:
     - Inicio/fin del uso
     - Grupo de recursos
@@ -46,7 +46,7 @@ La API incluye:
 -   **Agregación de datos**: use OData para aplicar expresiones para agregar detalles de uso por etiquetas o propiedades de filtro
 -   la **información de los detalles de uso** está disponible actualmente para los clientes de Enterprise y Web Direct.
 
-Para más información, vea la especificación técnica para la [API de detalles de uso](https://docs.microsoft.com/rest/api/consumption/usagedetails).
+Para más información, vea la especificación técnica para la [API de detalles de uso](/rest/api/consumption/usagedetails).
 
 ## <a name="marketplace-charges-api"></a>API de cargos de Marketplace
 
@@ -55,14 +55,14 @@ Use la API de cargos de Marketplace para obtener datos de cobros y uso de todos 
 La API incluye:
 
 -   **Datos de consumo a nivel de medidor**: consulte datos como el costo de uso de marketplace, el medidor que emite el cargo y a qué recurso pertenece el cargo. Todos los registros de detalles de uso se asignan a un cubo diario.
--   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o mediante [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
+-   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md) o mediante [cmdlets de Azure PowerShell](/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
 -   **Filtrado**: recorte el conjunto de resultados de API para conseguir un conjunto más pequeño de registros del marketplace con los siguientes filtros:
     - Inicio/fin del uso
     - Grupo de recursos
     - Nombre de recurso
 -   **Uso para diferentes tipos de ofertas**: la información del marketplace está disponible actualmente para los clientes de Enterprise y Web Direct.
 
-Para más información, consulte la especificación técnica de la [API de cargos del marketplace](https://docs.microsoft.com/rest/api/consumption/marketplaces).
+Para más información, consulte la especificación técnica de la [API de cargos del marketplace](/rest/api/consumption/marketplaces).
 
 ## <a name="balances-api"></a>API de saldos
 
@@ -70,11 +70,11 @@ Los clientes de Enterprise pueden usar la API de saldos para obtener un resumen 
 
 La API incluye:
 
--   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o mediante [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
+-   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md) o mediante [cmdlets de Azure PowerShell](/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
 -   **Solo clientes de Enterprise** Esta API solo está disponible para clientes del Contrato Enterprise.
     - Los clientes deben tener permisos de administrador de Enterprise para llamar a esta API.
 
-Para obtener más información, vea la especificación técnica de la [API de saldos](https://docs.microsoft.com/rest/api/consumption/balances).
+Para obtener más información, vea la especificación técnica de la [API de saldos](/rest/api/consumption/balances).
 
 ## <a name="budgets-api"></a>API de presupuestos
 
@@ -82,7 +82,7 @@ Los clientes de Enterprise pueden usar esta API para crear presupuestos de costo
 
 La API incluye:
 
--   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o mediante [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
+-   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md) o mediante [cmdlets de Azure PowerShell](/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
 -   **Solo clientes de Enterprise** Esta API solo está disponible para clientes del Contrato Enterprise.
 -   **Notificaciones configurables**: especifique los usuarios a los que hay que avisar cuando se excede el presupuesto.
 -   **Presupuestos basados en uso o costos**: cree un presupuesto basado en el consumo o el costo, en función de las necesidades de su escenario.
@@ -92,7 +92,7 @@ La API incluye:
     - Medidor
 -   **Períodos de tiempo configurables para presupuestos**: especifique con qué frecuencia es necesario restablecer el presupuesto y durante cuánto tiempo es válido el presupuesto.
 
-Para más información, consulte la especificación técnica de la [API de presupuestos](https://docs.microsoft.com/rest/api/consumption/budgets).
+Para más información, consulte la especificación técnica de la [API de presupuestos](/rest/api/consumption/budgets).
 
 ## <a name="reservation-recommendations-api"></a>API de recomendaciones de reserva
 
@@ -100,13 +100,13 @@ Use esta API para obtener recomendaciones de compra de instancias reservadas de 
 
 La API incluye:
 
--   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o mediante [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
+-   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md) o mediante [cmdlets de Azure PowerShell](/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
 -   **Filtrado**: adapte los resultados de las recomendaciones con los siguientes filtros:
     - Ámbito
     - Período de retrospectiva
 -   **Información de reserva para diferentes tipos de ofertas**: la información de reserva está disponible actualmente para los clientes de Enterprise y Web Direct.
 
-Para más información, vea la especificación técnica de la [API de recomendaciones de reserva](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations).
+Para más información, vea la especificación técnica de la [API de recomendaciones de reserva](/rest/api/consumption/reservationrecommendations).
 
 ## <a name="reservation-details-api"></a>API de detalles de reserva
 
@@ -114,12 +114,12 @@ Use la API de detalles de reserva para consultar la información sobre las reser
 
 La API incluye:
 
--   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o mediante [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
+-   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md) o mediante [cmdlets de Azure PowerShell](/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
 -   **Filtrado**: recorte el conjunto de resultados de API para conseguir un conjunto más pequeño de reservas con los siguientes filtros:
     - Intervalo de fechas
 -   **Información de reserva para diferentes tipos de ofertas**: la información de reserva está disponible actualmente para los clientes de Enterprise y Web Direct.
 
-Para más información, vea la especificación técnica para la [API de detalles de reserva](https://docs.microsoft.com/rest/api/consumption/reservationsdetails).
+Para más información, vea la especificación técnica para la [API de detalles de reserva](/rest/api/consumption/reservationsdetails).
 
 ## <a name="reservation-summaries-api"></a>API de resúmenes de reservas
 
@@ -127,23 +127,23 @@ Use esta API para consultar información agregada sobre las reservas de máquina
 
 La API incluye:
 
--   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o mediante [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
+-   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md) o mediante [cmdlets de Azure PowerShell](/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
 -   **Filtrado**: adapte los resultados al usar el nivel de detalle diario con el filtro siguiente:
     - Fecha de uso
 -   **Información de reserva para diferentes tipos de ofertas**: la información de reserva está disponible actualmente para los clientes de Enterprise y Web Direct.
 -   **Agregaciones diarias o mensuales**: los autores de llamada pueden especificar si desean que sus datos de resúmenes de reservas presenten un nivel de detalle diario o mensual.
 
-Para más información, vea la especificación técnica de la [API de resúmenes de reserva](https://docs.microsoft.com/rest/api/consumption/reservationssummaries).
+Para más información, vea la especificación técnica de la [API de resúmenes de reserva](/rest/api/consumption/reservationssummaries).
 
 ## <a name="price-sheet-api"></a>API de hoja de precios
 Los clientes de Enterprise pueden usar esta API para recuperar sus precios personalizados para todos los medidores. Las empresas pueden utilizar esto en combinación con los detalles de uso y la información de uso de marketplace para realizar cálculos de costos en función de los datos de uso y del catálogo de soluciones.
 
 La API incluye:
 
--   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o mediante [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
+-   **Control de acceso basado en rol de Azure (Azure RBAC)** : configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md) o mediante [cmdlets de Azure PowerShell](/powershell/azure/) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica.
 -   **Solo clientes de Enterprise** Esta API solo está disponible para clientes del Contrato Enterprise. Los clientes de Web Direct deben usar la API RateCard para obtener los precios.
 
-Para más información, consulte la especificación técnica de la [API de hoja de precios](https://docs.microsoft.com/rest/api/consumption/pricesheet).
+Para más información, consulte la especificación técnica de la [API de hoja de precios](/rest/api/consumption/pricesheet).
 
 ## <a name="scenarios"></a>Escenarios
 

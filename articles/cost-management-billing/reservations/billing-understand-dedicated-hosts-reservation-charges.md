@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: f9080d13c4358a03b3f13ffcf346af42e49c47c6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8d273aae3588a006f7b0a55d2798b7a43c040c9b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689463"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148380"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-azure-dedicated-hosts"></a>Aplicación del descuento de la reserva de Azure a instancias de Azure Dedicated Host
 
@@ -36,17 +36,16 @@ Si tiene alguna pregunta o necesita ayuda,  [cree una solicitud de soporte téc
 
 Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
-- [¿Qué son las reservas para Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [¿Qué son las reservas para Azure?](./save-compute-costs-reservations.md)
 
-- [Uso de instancias de Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+- [Uso de instancias de Azure Dedicated Host](../../virtual-machines/dedicated-hosts.md)
 
 - [Precios de hosts dedicados](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
-- [Administración de reservas para Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+- [Administración de reservas para Azure](./manage-reserved-vm-instance.md)
 
-- [Información sobre el uso de reservas para suscripciones de pago por uso](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Información sobre el uso de reservas para suscripciones de pago por uso](./understand-reserved-instance-usage.md)
 
-- [Información sobre el uso de reservas para la inscripción Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
+- [Información sobre el uso de reservas para la inscripción Enterprise](./understand-reserved-instance-usage-ea.md)
 
-- [Información sobre el uso de reservas para suscripciones de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
-
+- [Información sobre el uso de reservas para suscripciones de CSP](/partner-center/azure-reservations)

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4d6208360bd876a2a1ae0a9ff154604a33584db9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 4dff56db9f1450ff7eb2a2b9ca6f4ca648e2ac38
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447928"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150097"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Introducción a la cuenta de facturación para un contrato Microsoft Partner Agreement
 
@@ -29,7 +29,7 @@ El siguiente diagrama muestra la relación entre una cuenta de facturación, los
 
 ![Diagrama que muestra la jerarquía de facturación para un contrato Microsoft Partner Agreement](./media/mpa-overview/mpa-hierarchy.svg)
 
-Los usuarios con el rol **Administrador global**  y **Agentes de administrador** de su organización pueden administrar cuentas de facturación, perfiles de facturación y clientes. Para más información, consulte [Centro de partners: Asignar roles y permisos de usuarios](https://docs.microsoft.com/partner-center/permissions-overview).
+Los usuarios con el rol **Administrador global**  y **Agentes de administrador** de su organización pueden administrar cuentas de facturación, perfiles de facturación y clientes. Para más información, consulte [Centro de partners: Asignar roles y permisos de usuarios](/partner-center/permissions-overview).
 
 ## <a name="billing-profiles"></a>Perfiles de facturación
 
@@ -47,7 +47,7 @@ Puede ver y administrar los clientes que han aceptado un contrato de cliente de 
 
 ### <a name="enable-policy-to-give-visibility-into-cost"></a>Habilitación de la directiva para proporcionar visibilidad sobre el costo
 
-Aplique la directiva para controlar si los usuarios de la organización de los clientes pueden ver y analizar los costos en las tarifas de pago por uso para su consumo de Azure. De forma predeterminada, la directiva está desactivada y los usuarios no pueden ver el costo. Una vez habilitada, los usuarios que tengan el acceso a [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) adecuado en una suscripción pueden ver y analizar el costo de la suscripción.
+Aplique la directiva para controlar si los usuarios de la organización de los clientes pueden ver y analizar los costos en las tarifas de pago por uso para su consumo de Azure. De forma predeterminada, la directiva está desactivada y los usuarios no pueden ver el costo. Una vez habilitada, los usuarios que tengan el acceso a [Azure RBAC](../../role-based-access-control/overview.md) adecuado en una suscripción pueden ver y analizar el costo de la suscripción.
 
 Para activar la directiva:
 
@@ -69,7 +69,7 @@ Para activar la directiva:
 
 ## <a name="resellers"></a>Revendedores
 
-Los proveedores indirectos del [modelo de dos niveles](https://docs.microsoft.com/partner-center) de CSP pueden seleccionar un revendedor mientras crean suscripciones para los clientes en Azure Portal. Después de la creación, pueden ver la lista de suscripciones, filtradas por un revendedor y analizar el costo de un cliente por revendedores en el análisis de costos de Azure.
+Los proveedores indirectos del [modelo de dos niveles](/partner-center) de CSP pueden seleccionar un revendedor mientras crean suscripciones para los clientes en Azure Portal. Después de la creación, pueden ver la lista de suscripciones, filtradas por un revendedor y analizar el costo de un cliente por revendedores en el análisis de costos de Azure.
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Comprobación del acceso a un contrato Microsoft Partner Agreement
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
@@ -83,5 +83,5 @@ Si necesita ayuda, [póngase en contacto con soporte técnico](https://portal.az
 Consulte los siguientes artículos para obtener información sobre la cuenta de facturación:
 
 - [Creación de una suscripción de Azure adicional para el contrato Microsoft Partner Agreement](../manage/create-subscription.md)
-- Integración de los datos de facturación en su propio sistema de generación de informes mediante las [API de facturación de Azure](https://docs.microsoft.com/rest/api/billing/)
-- [Guía de inicio rápido de Azure Cost Management para asociados](https://go.microsoft.com/fwlink/?linkid=2106482)
+- Integración de los datos de facturación en su propio sistema de generación de informes mediante las [API de facturación de Azure](/rest/api/billing/)
+- [Guía de inicio rápido de Azure Cost Management para asociados](../costs/get-started-partners.md)

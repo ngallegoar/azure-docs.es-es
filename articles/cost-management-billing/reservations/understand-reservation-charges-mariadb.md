@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: be2dd4235883601b0b13c5783e4c7c7c106c20e9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0691ec320b62ed212235a63dacedcf3ec38a23ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682032"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151471"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mariadb"></a>Aplicación de un descuento por reserva a Azure Database for MariaDB
 
@@ -30,7 +30,7 @@ El descuento por la capacidad reservada de Azure Database for MariaDB se aplica 
 
 En los ejemplos siguientes se muestra cómo se aplica el descuento por la capacidad reservada de Azure Database for MariaDB en función del número de núcleos adquiridos y el momento de su ejecución.
 
-* **Ejemplo 1**: compra una capacidad reservada de Azure Database for MariaDB para ocho núcleos virtuales. Si va a ejecutar un servidor Azure Database for MariaDB de 16 núcleos virtuales que coincida con el resto de los atributos de la reserva, se le cobrará el precio de pago por uso de 8 núcleos virtuales correspondiente al uso de procesos del servidor MariaDB y obtendrá el descuento por reserva durante una hora del uso de proceso del servidor MariaDB correspondiente a 8 núcleos virtuales.
+**Ejemplo 1**: compra una capacidad reservada de Azure Database for MariaDB para ocho núcleos virtuales. Si va a ejecutar un servidor Azure Database for MariaDB de 16 núcleos virtuales que coincida con el resto de los atributos de la reserva, se le cobrará el precio de pago por uso de 8 núcleos virtuales correspondiente al uso de procesos del servidor MariaDB y obtendrá el descuento por reserva durante una hora del uso de proceso del servidor MariaDB correspondiente a 8 núcleos virtuales.
 
 En el resto de estos ejemplos, supongamos que la capacidad reservada de Azure Database for MariaDB que compra es para una instancia de Azure Database for MariaDB de 16 núcleos virtuales y el resto de atributos de la reserva coinciden con los servidores MariaDB en ejecución.
 
@@ -40,7 +40,7 @@ En el resto de estos ejemplos, supongamos que la capacidad reservada de Azure Da
 
 * **Ejemplo 4**: se ejecuta un servidor Azure Database for MariaDB de 16 núcleos virtuales desde la 1 p.m. a la 1:45 p.m. Se ejecuta otro servidor Azure Database for MariaDB de 16 núcleos virtuales desde la 1:30 p.m. a las 2 p.m. Se le cobra el precio de pago por uso por el solapamiento de 15 minutos. El descuento en la reserva se aplica al uso de proceso por el resto del tiempo.
 
-Para obtener información sobre la aplicación de Azure Reservations en informes de uso de facturación, consulte el artículo [Información sobre el uso de Azure Reservations](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
+Para obtener información sobre la aplicación de Azure Reservations en informes de uso de facturación, consulte el artículo [Información sobre el uso de Azure Reservations](./understand-reserved-instance-usage-ea.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

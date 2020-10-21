@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372364"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132302"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -180,7 +180,7 @@ Los siguientes ámbitos se admiten para los proveedores de soluciones en la nube
 
 Solo los usuarios con los roles de *administrador global* y *agente de administrador* pueden administrar y ver los costos de las cuentas de facturación, los perfiles de facturación y los clientes directamente en el inquilino de Azure del asociado. Para más información sobre los roles del Centro de partners, consulte [Asignar roles y permisos de usuario](/partner-center/permissions-overview).
 
-Azure Cost Management solo admite clientes de asociados de CSP si los clientes tienen un contrato de cliente de Microsoft. En el caso de los clientes compatibles con CSP que todavía no participan de un contrato de cliente de Microsoft, consulte la [documentación del Centro de partners](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+Azure Cost Management solo admite clientes de asociados de CSP si los clientes tienen un contrato de cliente de Microsoft. En el caso de los clientes compatibles con CSP que todavía no participan de un contrato de cliente de Microsoft, consulte la [documentación del Centro de partners](/azure/cloud-solution-provider/overview/partner-center-overview).
 
 Los grupos de administración de los ámbitos de CSP no son compatibles con Cost Management. Si tiene una suscripción de CSP y establece el ámbito en un grupo de administración en el análisis de costos, verá un error similar al siguiente:
 

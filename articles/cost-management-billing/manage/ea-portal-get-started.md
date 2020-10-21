@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 0404e3b268f5797e34b3818df8eebeefbe68a1f3
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 617351d5d1bdf9b6528803552e2d34766e9ab217
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371956"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132659"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introducción a Azure Enterprise Portal
 
@@ -561,7 +561,7 @@ Puede crear tantos departamentos como necesite en su inscripción de Azure EA. 
 
 Después de haber creado los departamentos y las suscripciones, puede ver los datos en el informe de uso. Esta información puede ayudarle a realizar un seguimiento del uso y a administrar los costos y el gasto a nivel de departamento.
 
-También puede tener acceso a los datos de uso a través de la API de informes. Puede encontrar información detallada y ejemplos de código en [API REST de Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+También puede tener acceso a los datos de uso a través de la API de informes. Puede encontrar información detallada y ejemplos de código en [API REST de Azure Enterprise](./ea-portal-rest-apis.md).
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>¿Puedo establecer una cuota de gastos y recibir alertas a medida que me acerque al límite?
 
@@ -573,7 +573,7 @@ Para definir la cuota de gastos, seleccione un departamento y, a continuación, 
 
 Si usa _grupos de recursos_ y _etiquetas_, se realiza un seguimiento de esta información a nivel de servicio, y puede acceder a ella en el archivo de descarga de uso detallado (CSV). Consulte el [informe de uso de descarga](https://ea.azure.com/report/downloadusage) en Azure Enterprise Portal.
 
-También puede tener acceso al uso a través de la API. Puede encontrar información detallada y ejemplos de código en [API REST de Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+También puede tener acceso al uso a través de la API. Puede encontrar información detallada y ejemplos de código en [API REST de Azure Enterprise](./ea-portal-rest-apis.md).
 
 > [!NOTE]
 > Solo puede aplicar etiquetas a recursos que admiten operaciones de Azure Resource Manager. Si creó una máquina virtual, una red virtual o un almacenamiento mediante el modelo de implementación clásica (por ejemplo, a través del portal clásico), no podrá aplicar una etiqueta a ese recurso. Debe volver a implementar estos recursos mediante Resource Manager para admitir el etiquetado. Todos los demás recursos admiten el etiquetado.

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 6fa70eba5875c32d41fa1cfc8daf9b1cdf8f19df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 915f8675ffda0d70347905d11c7d93975b9d4526
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83599114"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132744"
 ---
 # <a name="quotas-in-azure-static-web-apps-preview"></a>Cuotas en la versión preliminar de Azure Static Web Apps
 
@@ -26,7 +26,7 @@ Existen las siguientes cuotas para la versión preliminar de Azure Static Web Ap
 | Ancho de banda incluido          | 100 GB al mes |
 | Ancho de banda de uso por encima del límite           | No disponible      |
 | Aplicaciones por suscripción a Azure | 10               |
-| Tamaño de la aplicación                    | 100 MB           |
+| Tamaño de la aplicación                    | 250 MB           |
 | Entornos de preproducción | 1                |
 | Dominios personalizados              | 1                |
 | Authorization<br><br>Con roles personalizados y reglas de enrutamiento | Máximo de 25 usuarios finales invitados y roles asignados |
