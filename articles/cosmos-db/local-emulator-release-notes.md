@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: da17cd1ea6dac52797162e3ac2d733ad1fd50ea1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f2a40744053ccc804b2513faf1bc2879d4fde902
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988181"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91777180"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador de Azure Cosmos: notas de la versión e información de descarga.
 
@@ -26,12 +26,16 @@ En este artículo se muestran las notas de la versión del emulador de Azure Cos
 
 ## <a name="release-notes"></a>Notas de la versión
 
+### <a name="2116-6-october-2020"></a>2.11.6 (6 de octubre de 2020)
+
+ - Esta versión soluciona un problema relacionado con la simultaneidad que permite crear varios contenedores al mismo tiempo. En tales casos, los datos del emulador se quedan en un estado dañado y las siguientes solicitudes de API al punto de conexión del emulador podrían generar errores del tipo "servicio no disponible", que requieren un reinicio y un restablecimiento de los datos locales del emulador.
+
 ### <a name="2115-23-august-2020"></a>2.11.5 (23 de agosto 2020)
 
 En esta versión se agregan dos nuevas opciones de inicio del emulador de Cosmos: 
 
 * "/EnablePreview": habilita las características en versión preliminar del emulador. Características en versión preliminar que todavía están en desarrollo y a las que se puede acceder a través de la escritura de ejemplos y de CI.
-* "/EnableAadAuthentication": permite que el emulador acepte tokens de Azure Active Directory personalizados como alternativa a las claves maestras de Azure Cosmos. Esta característica aún está en desarrollo; actualmente no se admiten asignaciones de roles específicas y otros valores de configuración relacionados con los permisos.
+* "/EnableAadAuthentication": permite que el emulador acepte tokens de Azure Active Directory personalizados como alternativa a las claves principales de Azure Cosmos. Esta característica aún está en desarrollo; actualmente no se admiten asignaciones de roles específicas y otros valores de configuración relacionados con los permisos.
 
 ### <a name="2112-07-july-2020"></a>2.11.2 (7 de julio de 2020)
 

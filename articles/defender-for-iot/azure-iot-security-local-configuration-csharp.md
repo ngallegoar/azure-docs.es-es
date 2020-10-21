@@ -4,7 +4,7 @@ description: Obtenga más información sobre el archivo de configuración local 
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
-ms.author: mlottner
-ms.openlocfilehash: 19fa5b2949888993954f3075d1e10c9e8f126e2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: 13c16407481d4fa6f7d468a73051cc4945e6314e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932315"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91851240"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Información sobre el archivo de configuración local (agente de C#)
 
 El agente de seguridad de Defender para IoT usa configuraciones de un archivo de configuración local.
 
-El agente de seguridad lee el archivo de configuración una vez cuando se inicia el agente. Las configuraciones que se encuentran en el archivo de configuración local contienen la configuración de autenticación y otras configuraciones relacionadas con el agente.
+El agente de seguridad lee el archivo de configuración una vez, cuando se ejecuta el agente. Las configuraciones que se encuentran en el archivo de configuración local contienen la configuración de la autenticación y otras configuraciones relacionadas con el agente.
 
 El agente de seguridad de C# utiliza varios archivos de configuración:
 
@@ -57,7 +57,7 @@ Para Windows:
 | highPriorityQueueSizePercentage | 0 < número < 1 | La parte de la memoria caché total dedicada a los mensajes de prioridad alta. |
 | logLevel | "Off", "Fatal", "Error", "Warning", "Information" y "Debug"  | Los mensajes de registro iguales y superiores a esta gravedad se registran en la consola de depuración (Syslog en Linux). |
 | fileLogLevel |  "Off", "Fatal", "Error", "Warning", "Information" y "Debug"| Los mensajes de registro iguales y superiores a esta gravedad se registran en el archivo (Syslog en Linux). |
-| diagnosticVerbosityLevel | "None", "Some" y "All", | Nivel de detalle de los eventos de diagnóstico. None: no se envían eventos de diagnóstico, Some: solo se envían los eventos de diagnóstico con importancia alta y All: todos los registros también se envían como eventos de diagnóstico. |
+| diagnosticVerbosityLevel | "None", "Some" y "All", | Nivel de detalle de los eventos de diagnóstico. Ninguno: no se envían eventos de diagnóstico. Algunos: solo se envían los eventos de diagnóstico de gran importancia. Todos: también se envían todos los registros como eventos de diagnóstico. |
 | logFilePath | Ruta a archivo | Si fileLogLevel > Off, los registros se escriben en este archivo. |
 | defaultEventPriority | "High", "Low" y "Off" | Prioridad del evento predeterminada. |
 
@@ -85,7 +85,8 @@ Para Windows:
 | Nombre de la configuración | Valores posibles | Detalles |
 |:-----------|:---------------|:--------|
 | moduleName | string | Nombre de la identidad del módulo de seguridad. Este nombre debe corresponderse con el nombre de identidad del módulo del dispositivo. |
-| deviceId | string | Identificador del dispositivo (como está registrado en Azure IoT Hub). || schedulerInterval | Cadena TimeSpan | Intervalo del programador interno. |
+| deviceId | string | Identificador del dispositivo (como está registrado en Azure IoT Hub). |
+| schedulerInterval | Cadena TimeSpan | Intervalo del programador interno. |
 | gatewayHostname | string | Nombre de host de Azure IoT Hub. Normalmente, <my-hub>.azure-devices.net |
 | filePath | string - path to file | Ruta de acceso al archivo que contiene el secreto de autenticación.|
 | type | "SymmetricKey" y "SelfSignedCertificate" | Secreto de usuario para la autenticación. Elija *SymmetricKey* si el secreto de usuario es una clave simétrica y seleccione *self-signed certificate* si el secreto es un certificado autofirmado. |

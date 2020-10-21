@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6509425f11b09a2fa5229f9dd68a508241391925
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852402"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875927"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Descripción de las opciones de migración para las alertas más recientes
 
@@ -254,10 +254,12 @@ Como parte de la migración, se crearán nuevas alertas de métricas y nuevos gr
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Directiva con efecto de denegación que nos impide migrar las reglas
 
-Como parte de la migración, se crearán nuevas alertas de métricas y nuevos grupos de acciones, y luego se eliminarán las reglas de alerta clásicas. Sin embargo, una directiva puede evitar la creación de recursos. Según la directiva, no se pudieron migrar algunas reglas o ninguna de ellas. Las directivas que bloquean el proceso se enumeran en la [herramienta de migración](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Para resolver este problema:
+Como parte de la migración, se crearán nuevas alertas de métricas y nuevos grupos de acciones, y luego se eliminarán las reglas de alerta clásicas. Sin embargo, una asignación de [Azure Policy](../../governance/policy/index.yml) puede impedir que se creen recursos. Según la asignación de directivas, no se pudieron migrar algunas reglas o ninguna de ellas. Las asignaciones de directiva que bloquean el proceso se enumeran en la [herramienta de migración](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Para resolver este problema:
 
-- Excluya las suscripciones o los grupos de recursos mientras dure el proceso de migración de la asignación de directiva. [Más información sobre la administración del ámbito de exclusión de las directivas](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
-- Quite o cambie el efecto a auditoría o anexión (lo que, por ejemplo, puede solucionar problemas relativos a la ausencia de etiquetas). [Obtenga más información sobre la administración del efecto de las directivas](../../governance/policy/concepts/definition-structure.md#policy-rule).
+- Excluya las suscripciones, los grupos de recursos o los recursos individuales mientras dure el proceso de migración de la asignación de directivas. [Obtenga más información sobre la administración del ámbito de exclusión de las directivas](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion).
+- Establezca el "modo de cumplimiento" en **Deshabilitado** en la asignación de directivas. [Obtenga más información sobre la propiedad enforcementMode de la asignación de directivas](../../governance/policy/concepts/assignment-structure.md#enforcement-mode).
+- Establezca una exención de Azure Policy (versión preliminar) en las suscripciones, los grupos de recursos o los recursos individuales en la asignación de directivas. [Obtenga más información sobre la estructura de exención de Azure Policy](../../governance/policy/concepts/exemption-structure.md).
+- Quite o cambie el efecto a "deshabilitado", "auditoría", "anexión" o "modificación" (lo que, por ejemplo, puede solucionar problemas relativos a la ausencia de etiquetas). [Obtenga más información sobre la administración de los efectos de directivas](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

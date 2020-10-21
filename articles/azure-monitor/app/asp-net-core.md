@@ -4,12 +4,12 @@ description: Supervise la disponibilidad, el rendimiento y el uso de las aplicac
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: eae6117f82f3bb138edb6cea23a2c052e19fb0cf
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 825cd451120f06597922c142dfc6bf8c10f5c700
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803598"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875128"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicaciones de ASP.NET Core
 
@@ -134,7 +134,7 @@ Ejecute la aplicación y realícele solicitudes. Ahora, la telemetría debería 
 
 ### <a name="ilogger-logs"></a>Registros de ILogger
 
-Los registros emitidos a través de `ILogger` de gravedad `Warning` o mayor se capturan automáticamente. Siga [la documentación de ILogger](ilogger.md#control-logging-level) para personalizar los niveles de registro que captura Application Insights.
+La configuración predeterminada recopila los registros `ILogger` de gravedad `Warning` y sus versiones posteriores. Esta configuración se puede [personalizar](#how-do-i-customize-ilogger-logs-collection).
 
 ### <a name="dependencies"></a>Dependencias
 
@@ -397,7 +397,7 @@ Además, si usa [estas](#enable-application-insights-server-side-telemetry-visua
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>¿Cómo puedo realizar un seguimiento de la telemetría que se recopila automáticamente?
 
-Obtenga una instancia de `TelemetryClient` mediante el uso de la inserción del constructor y llame al método `TrackXXX()` necesario que incluye. No se recomienda crear nuevas instancias `TelemetryClient` en una aplicación de ASP.NET Core. Una instancia singleton de `TelemetryClient` ya está registrada en el contenedor `DependencyInjection`, que comparte `TelemetryConfiguration` con el resto de los datos de telemetría. Se recomienda crear una nueva instancia `TelemetryClient` solo si se necesita una configuración independiente del resto de los datos de telemetría.
+Obtenga una instancia de `TelemetryClient` mediante el uso de la inserción del constructor y llame al método `TrackXXX()` necesario que incluye. No se recomienda crear nuevas instancias `TelemetryClient` o `TelemetryConfiguration` en una aplicación de ASP.NET Core. Una instancia singleton de `TelemetryClient` ya está registrada en el contenedor `DependencyInjection`, que comparte `TelemetryConfiguration` con el resto de los datos de telemetría. Se recomienda crear una nueva instancia `TelemetryClient` solo si se necesita una configuración independiente del resto de los datos de telemetría.
 
 En el ejemplo siguiente se muestra cómo realizar el seguimiento de los datos de telemetría adicionales desde un controlador.
 
@@ -423,6 +423,40 @@ public class HomeController : Controller
 ```
 
 Para obtener más información acerca de los datos personalizados que reporta Application Insights, consulte [API de Application Insights para eventos y métricas personalizados](./api-custom-events-metrics.md). Se puede usar un enfoque similar para el envío de métricas personalizadas a Application Insights mediante la [API de GetMetric](./get-metric.md).
+
+### <a name="how-do-i-customize-ilogger-logs-collection"></a>¿Cómo puedo personalizar la colección de registros de ILogger?
+
+De forma predeterminada, solo se capturan automáticamente los registros de gravedad `Warning` y posteriores. Para cambiar este comportamiento,debe invalidar explícitamente la configuración de registro del proveedor `ApplicationInsights` tal como se muestra a continuación.
+La siguiente configuración permite que ApplicationInsights capture todos los registros de gravedad `Information` y posteriores.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    }
+  }
+}
+```
+
+Es importante tener en cuenta que lo siguiente no hará que el proveedor de ApplicationInsights capture los registros de tipo `Information`. Esto se debe a que el SDK agrega un filtro de registro predeterminado, que indica a `ApplicationInsights` que capture solo `Warning` y sus versiones posteriores. Por este motivo, es necesario realizar una invalidación explícita para ApplicationInsights.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information"
+    }
+  }
+}
+```
+
+Obtenga más información sobre la [configuración de ILogger](ilogger.md#control-logging-level).
 
 ### <a name="some-visual-studio-templates-used-the-useapplicationinsights-extension-method-on-iwebhostbuilder-to-enable-application-insights-is-this-usage-still-valid"></a>Algunas plantillas de Visual Studio usan el método de extensión UseApplicationInsights() en IWebHostBuilder para habilitar Application Insights. ¿Es este uso aún válido?
 
@@ -477,7 +511,7 @@ Este SDK requiere `HttpContext` y, por lo tanto, no funciona en ninguna aplicaci
 
 ## <a name="open-source-sdk"></a>SDK de código abierto
 
-* [Lectura y contribución al código](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+* [Lectura y contribución al código](https://github.com/microsoft/ApplicationInsights-dotnet).
 
 Para obtener las actualizaciones y correcciones de errores más recientes, [consulte las notas de la versión](./release-notes.md).
 

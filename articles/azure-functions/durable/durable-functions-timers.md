@@ -4,12 +4,12 @@ description: Aprenda a implementar temporizadores durables en la extensión Dura
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 0226e5141b100aa3fcf89dd1a5cade8f3cd6cf1c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bb91f205a9b83b0b4b410644ef6c0fcbbf60876a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056231"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876454"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores en Durable Functions (Azure Functions)
 
@@ -22,7 +22,7 @@ Puede crear un temporizador durable si llama al método `CreateTimer` (.NET) o a
 Cuando se crea un temporizador que expira a las 16:30, la instancia de Durable Task Framework subyacente pone en cola un mensaje que se vuelve visible solo a las 16:30. Al ejecutarse en el plan Consumo de Azure Functions, el mensaje del temporizador ahora visible garantiza que la aplicación de función se active en una máquina virtual adecuada.
 
 > [!NOTE]
-> * Los temporizadores durables están limitados actualmente a 7 días. Si se necesitan retrasos más largos, se pueden simular mediante las API del temporizador en un bucle `while`.
+> * A partir de la [versión 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) de la extensión duradera, los temporizadores duraderos son ilimitados. En versiones anteriores de la extensión, los temporizadores duraderos están limitados a siete días. Si usa una versión anterior y necesita retrasar el periodo más de siete días, use las API de temporizador en un bucle `while` para simular un retraso.
 > * Use siempre `CurrentUtcDateTime` en lugar de `DateTime.UtcNow` en .NET, o bien `currentUtcDateTime` en lugar de `Date.now` o `Date.UTC` en JavaScript al calcular el tiempo de activación de los temporizadores durables. Para más información, consulte el artículo sobre las [restricciones de código de las funciones de orquestador](durable-functions-code-constraints.md).
 
 ## <a name="usage-for-delay"></a>Uso para retraso

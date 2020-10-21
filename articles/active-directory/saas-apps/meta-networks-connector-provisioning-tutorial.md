@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: bcddaec1660082c2d3fed42e0c10cbdde987693c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c43624b57f5a46473e8640200a7284a9fa737790
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273588"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849272"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Tutorial: Configuración de Meta Networks Connector para el aprovisionamiento automático de usuarios
 
@@ -60,7 +60,7 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 3.  Establezca el **Nombre de la clave de API** y la **Descripción de la clave de API**.
 
-    ![Crear token de Meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/keyname.png)
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/keyname.png" alt-text="Captura de pantalla de la consola de administración del conector de Meta Networks con un nombre de clave A P I resaltado y los valores de descripción de la clave A P I de la clave Azure A D y la clave de A P I" border="false":::
 
 4.  Active los privilegios de **Escritura** para **Grupos** y **Usuarios**.
 
@@ -68,7 +68,7 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 5.  Haga clic en **Agregar**. Copie el valor **SECRET** y guárdelo, porque esta será la única vez que podrá verlo. Este valor se escribirá en el campo Token secreto de la pestaña Aprovisionamiento en la aplicación Meta Networks Connector en Azure Portal.
 
-    ![Crear token de Meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/token.png)
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/token.png" alt-text="Captura de pantalla de la consola de administración del conector de Meta Networks con un nombre de clave A P I resaltado y los valores de descripción de la clave A P I de la clave Azure A D y la clave de A P I" border="false":::
 
 6.  Para agregar un IdP, vaya a **Administración > Configuración > IdP > Crear nuevo**.
 

@@ -3,15 +3,15 @@ title: 'Expansión del grupo de hosts existente con nuevos hosts de sesión: Azu
 description: Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 339fe25a5a75ca8bc5cc0af7c4d96651e90c7eb6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b65560a3b10d04887040c4da1e137912810b3095
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002440"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929598"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión
 
@@ -56,7 +56,7 @@ Para expandir el grupo de hosts mediante la incorporación de máquinas virtuale
 8. Escriba el número de hosts de sesión que quiere agregar en el grupo de hosts en el campo **Número de máquinas virtuales**. Por ejemplo, si va a aumentar cinco hosts al grupo de hosts, escriba **5**.
 
     >[!NOTE]
-    >No puede editar el tamaño ni la imagen de las máquinas virtuales ya que es importante garantizar que todas las máquinas virtuales del grupo de hosts tengan el mismo tamaño.
+    >Aunque es posible editar la imagen y el prefijo de las máquinas virtuales, no se recomienda si tiene máquinas virtuales con imágenes diferentes en el mismo grupo de hosts. Edite la imagen y el prefijo solo si planea quitar las máquinas virtuales con imágenes anteriores del grupo de hosts afectado.
 
 9. Para la **información de red virtual**, seleccione la red virtual y la subred a las que desea que se unan las máquinas virtuales. Puede seleccionar la misma red virtual que utilizan actualmente las máquinas existentes o elegir una diferente que sea más adecuada para la región que seleccionó en el paso 7.
 

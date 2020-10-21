@@ -4,12 +4,12 @@ description: Supervisión del rendimiento de aplicaciones de Azure App Services.
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 36f6ad4c248b3de54de5de0893410e9b13df0c26
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759465"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875619"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -75,7 +75,7 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Se admiten las siguientes versiones de .NET Core: ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0
+Se admiten las siguientes versiones de .NET Core: ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0, ASP.NET Core 3.1
 
 Actualmente, la orientación del marco de trabajo completo de .NET Core, la implementación independiente y las aplicaciones basadas en Linux **no se admiten** con la supervisión basada en agentes o extensiones. (La [instrumentación manual](./asp-net-core.md) a través de código funcionará en todos los escenarios anteriores).
 
@@ -90,7 +90,7 @@ Actualmente, la orientación del marco de trabajo completo de .NET Core, la impl
 
      ![Instrumentación de la aplicación web](./media/azure-web-apps/create-resource-01.png)
 
-2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación. .NET Core ofrece **recopilación recomendada** o **deshabilitada** para .NET Core 2.0, 2.1, 2.2 y 3.0.
+2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación. .NET Core ofrece una **recopilación recomendada** o **deshabilitada** para ASP.NET Core 2.1, 2.2, 3.0 y 3.1.
 
     ![Opciones de elección para cada plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -359,8 +359,8 @@ A continuación, se muestra nuestra guía paso a paso de solución de problemas 
 
     ![Captura de pantalla de la página de resultados de https://yoursitename.scm.azurewebsites/applicationinsights](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    * Confirme que el `Application Insights Extension Status` es `Pre-Installed Site Extension, version 2.8.12.1527, is running.`.
-        * Si no se está ejecutando, siga las [instrucciones para habilitar la supervisión de Application Insights](#enable-application-insights).
+    * Confirme que el `Application Insights Extension Status` es `Pre-Installed Site Extension, version 2.8.12.1527, is running.`. 
+    * Si no se está ejecutando, siga las [instrucciones para habilitar la supervisión de Application Insights](#enable-application-insights).
 
     * Confirme que el origen de estado existe y tiene el siguiente aspecto: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`.
         * Si no está presente un valor similar, significa que la aplicación no se admite o no se está ejecutando actualmente. Para asegurarse de que la aplicación se está ejecutando, intente visitar manualmente los puntos de conexión de la aplicación o la dirección URL de la aplicación, lo que permitirá que la información del entorno en tiempo de ejecución esté disponible.
@@ -406,6 +406,10 @@ Los sitios de PHP y WordPress no se admiten. Actualmente, no hay ningún SDK/age
 ### <a name="connection-string-and-instrumentation-key"></a>Cadena de conexión y clave de instrumentación
 
 Al utilizar la supervisión sin código, solo se requiere la cadena de conexión. Sin embargo, todavía se recomienda establecer la clave de instrumentación para mantener la compatibilidad con versiones anteriores de SDK cuando se realiza la instrumentación manual.
+
+## <a name="release-notes"></a>Notas de la versión
+
+Para obtener las actualizaciones y correcciones de errores más recientes, [consulte las notas de la versión](./web-app-extension-release-notes.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Ejecute el generador de perfiles en la aplicación activa](./profiler.md).

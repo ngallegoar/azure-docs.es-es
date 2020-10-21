@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fedbcf00512e2eb671656ca1c585df83560a8c02
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887384"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91627625"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL (P+F)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Se trata de una limitación actual del componente subyacente que comprueba el no
 
 **¿Cómo puedo escalar mi instancia administrada?**
 
-Puede escalar la instancia administrada desde [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), la [CLI de Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) o las [plantillas de ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Puede escalar la instancia administrada desde [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), la [CLI de Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) o las [plantillas de ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **¿Puedo trasladar mi instancia administrada de una región a otra?**
 
@@ -102,7 +102,7 @@ Sí, puede hacerlo. Para obtener instrucciones, consulte [Traslado de recursos e
 
 **¿Cómo puedo eliminar mi instancia administrada?**
 
-Puede eliminar instancias administradas desde Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), la [CLI de Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) o las [API REST de Resource Manager](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+Puede eliminar instancias administradas desde Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0&preserve-view=true), la [CLI de Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) o las [API REST de Resource Manager](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **¿Cuánto tiempo se tarda en crear o actualizar una instancia, o en restaurar una base de datos?**
 
@@ -135,9 +135,9 @@ Una instancia administrada ofrece los mismos niveles de rendimiento por proceso 
 
 Una opción es [exportar una base de datos a un archivo BACPAC](../database/database-export.md) y, a continuación, [importar dicho archivo](../database/database-import.md). Este enfoque es aconsejable si la base de datos tiene menos de 100 GB.
 
-La [replicación transaccional](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) se puede utilizar si todas las tablas de la base de datos tienen claves *principales* y no hay objetos OLTP en memoria en la base de datos.
+La [replicación transaccional](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) se puede utilizar si todas las tablas de la base de datos tienen claves *principales* y no hay objetos OLTP en memoria en la base de datos.
 
-Las copias de seguridad nativas COPY_ONLY realizadas de una instancia administrada no se pueden restaurar en SQL Server, porque la instancia administrada tiene una versión superior de la base de datos en comparación con SQL Server. Para obtener más información, vea [Copias de seguridad de solo copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15).
+Las copias de seguridad nativas COPY_ONLY realizadas de una instancia administrada no se pueden restaurar en SQL Server, porque la instancia administrada tiene una versión superior de la base de datos en comparación con SQL Server. Para obtener más información, vea [Copias de seguridad de solo copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true).
 
 **¿Cómo puedo migrar mi instancia de SQL Server a SQL Managed Instance?**
 
@@ -184,11 +184,11 @@ Para ver todas las opciones posibles de supervisión y alerta sobre el consumo y
 
 **¿Puedo usar SQL Profiler para el seguimiento del rendimiento?**
 
-Sí, se admite SQL Profiler o SQL Managed Instance. Para obtener más información, consulte [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15).
+Sí, se admite SQL Profiler o SQL Managed Instance. Para obtener más información, consulte [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true).
 
 **¿Database Advisor e Información de rendimiento de consultas son compatibles con las bases de datos de Instancia administrada?**
 
-No se admiten. Puede usar [DMV](../database/monitoring-with-dmvs.md) y [Almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) junto con [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) y [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) para supervisar las bases de datos.
+No se admiten. Puede usar [DMV](../database/monitoring-with-dmvs.md) y [Almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15&preserve-view=true) junto con [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true) y [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15&preserve-view=true) para supervisar las bases de datos.
 
 **¿Puedo crear alertas de métricas en SQL Managed Instance?**
 
@@ -228,7 +228,7 @@ Para hacer un seguimiento de cuándo se han realizado copias de seguridad automa
 
 **¿Se admite la copia de seguridad a petición?**
 
-Sí, puede crear una copia de seguridad completa de solo copia en su instancia de Azure Blob Storage, pero solo se puede restaurar en la Instancia administrada. Para obtener información, vea [Copias de seguridad de solo copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). Sin embargo, no es posible realizar copias de seguridad de solo copia si la base de datos está cifrada mediante TDE administrado por el servicio, ya que no se puede obtener acceso al certificado que se usa para el cifrado. En ese caso, use la característica de restauración a un momento dado para mover la base de datos a otra instancia de SQL Managed Instance o cambie a una clave administrada por el cliente.
+Sí, puede crear una copia de seguridad completa de solo copia en su instancia de Azure Blob Storage, pero solo se puede restaurar en la Instancia administrada. Para obtener información, vea [Copias de seguridad de solo copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true). Sin embargo, no es posible realizar copias de seguridad de solo copia si la base de datos está cifrada mediante TDE administrado por el servicio, ya que no se puede obtener acceso al certificado que se usa para el cifrado. En ese caso, use la característica de restauración a un momento dado para mover la base de datos a otra instancia de SQL Managed Instance o cambie a una clave administrada por el cliente.
 
 **¿La restauración nativa (desde archivos .bak) es compatible con la Instancia administrada?**
 
@@ -334,9 +334,12 @@ No, esta opción no está disponible.  En el caso de los puntos de conexión de 
 
 **¿Cuál es la forma recomendada de conectar las instancias administradas ubicadas en diferentes regiones?**
 
-La mejor manera de hacerlo es mediante el emparejamiento del circuito de ExpressRoute. Esto no se debe mezclar con el emparejamiento de red virtual entre regiones, que no se admite debido a la [restricción](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) interna relacionada con el equilibrador de carga interno.
+La mejor manera de hacerlo es mediante el emparejamiento del circuito de ExpressRoute. El emparejamiento global de redes virtuales es compatible con la limitación descrita en la nota siguiente.  
 
-Si el emparejamiento del circuito de ExpressRoute no es posible, la única opción es crear una conexión VPN de sitio a sitio ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell) y la [CLI de Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
+> [!IMPORTANT]
+> [El 22/09/2020, anunciamos el emparejamiento global de redes virtuales para los clústeres virtuales recién creados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Esto significa que el emparejamiento global de redes virtuales se admite en las instancias de SQL Managed Instance que se crearon en subredes vacías después de la fecha del anuncio, así como en todas las instancias administradas que se crearon posteriormente en esas subredes. En cuanto al resto de las instancias de SQL Managed Instance, la compatibilidad con el emparejamiento está limitada a las redes de la misma región debido a las [restricciones de emparejamiento de redes virtuales globales](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. 
+
+Si el emparejamiento del circuito de Express Route y de la red virtual global no es posible, la única opción es crear una conexión VPN de sitio a sitio ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell) y la [CLI de Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Mitigación de los riesgos de filtración de datos  
 
@@ -390,7 +393,7 @@ Si, el cifrado de datos transparente es compatible con SQL Managed Instance. Par
 
 **¿Puedo aprovechar el modelo "Bring Your Own Key" para TDE?**
 
-Sí, el escenario de Azure Key Vault para BYOK está disponible para Azure SQL Managed Instance. Para obtener más información, consulte [Cifrado de datos transparente con una clave administrada por el cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
+Sí, el escenario de Azure Key Vault para BYOK está disponible para Azure SQL Managed Instance. Para obtener más información, consulte [Cifrado de datos transparente con una clave administrada por el cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key&preserve-view=true).
 
 **¿Puedo migrar una base de datos de SQL Server cifrada?**
 
@@ -509,6 +512,10 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 
 ## <a name="service-updates"></a>Actualizaciones del servicio
+
+**¿Cuál es el cambio de CA raíz para Azure SQL Database y SQL Managed Instance?**
+
+Consulte la [Rotación de certificados en Azure SQL Database y SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/updates/ssl-root-certificate-expiring). 
 
 **¿Qué es un evento de mantenimiento planeado para SQL Managed Instance?**
 

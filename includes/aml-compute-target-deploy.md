@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 06/25/2020
-ms.openlocfilehash: bd3ac8d512c1b9d151c0dc549ffeee6a05c7f94b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 944b96e7726f2b2becd5960a17a89c00d00c878a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542822"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91841971"
 ---
-El destino de proceso que use para hospedar el modelo afectará al costo y la disponibilidad del punto de conexión implementado. Use la tabla siguiente para elegir un destino de proceso adecuado.
+El destino de proceso que use para hospedar el modelo afectará al costo y la disponibilidad del punto de conexión implementado. Use esta tabla para elegir un destino de proceso adecuado.
 
 | Destino de proceso | Se usa para | Compatibilidad con GPU | Compatibilidad con FPGA | Descripción |
 | ----- | ----- | ----- | ----- | ----- |
@@ -26,14 +26,14 @@ El destino de proceso que use para hospedar el modelo afectará al costo y la di
 | [Azure Container Instances](../articles/machine-learning/how-to-deploy-azure-container-instance.md) | Pruebas o desarrollo | &nbsp;  | &nbsp; | Se usa para cargas de trabajo basadas en CPU a pequeña escala que requieren menos de 48 GB de RAM. |
 | [Clústeres de proceso de Azure Machine Learning](../articles/machine-learning/how-to-use-parallel-run-step.md) | Inferencia de lote&nbsp; | [Sí](../articles/machine-learning/how-to-use-parallel-run-step.md) (canalización de aprendizaje automático) | &nbsp;  | Ejecute la puntuación por lotes en un proceso sin servidor. Admite máquinas virtuales de prioridad normal y baja. |
 | [Funciones de Azure](../articles/machine-learning/how-to-deploy-functions.md) | (Versión preliminar) Inferencia en tiempo real | &nbsp; | &nbsp; | &nbsp; |
-| [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | Módulo de IoT&nbsp;(versión preliminar) |  &nbsp; | &nbsp; | Implementación y entrega de modelos de Machine Learning en dispositivos IoT. |
-| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | A través de IoT Edge |  &nbsp; | Sí | Implementación y entrega de modelos de Machine Learning en dispositivos IoT. |
+| [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | Módulo de IoT&nbsp;(versión preliminar) |  &nbsp; | &nbsp; | Implementación y entrega de modelos de aprendizaje automático en dispositivos IoT. |
+| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | A través de IoT Edge |  &nbsp; | Sí | Implementación y entrega de modelos de aprendizaje automático en dispositivos IoT. |
 
 > [!NOTE]
-> Aunque los destinos de proceso, como la instancia local de proceso de Azure Machine Learning y los clústeres de proceso de Azure Machine Learning, admiten GPU para el aprendizaje y la experimentación, el uso de la GPU para la inferencia __cuando se implementa como un servicio web__ solo se admite en Azure Kubernetes Service.
+> Aunque los destinos de proceso, como el proceso local de Azure Machine Learning y los clústeres de proceso de Azure Machine Learning, admiten GPU para el entrenamiento y la experimentación, el uso de la GPU para la inferencia _cuando se implementa como un servicio web_ solo se admite en AKS.
 >
-> El uso de una GPU para la inferencia __cuando se realiza la puntuación con una canalización de aprendizaje automático__ solo se admite en el Proceso de Azure Machine Learning.
+> El uso de una GPU para la inferencia _cuando se realiza la puntuación con una canalización de aprendizaje automático_ solo se admite en el proceso de Azure Machine Learning.
 
 > [!NOTE]
-> * Las instancias de Azure Container Instances (ACI) solo son adecuadas para modelos pequeños con un tamaño inferior a 1 GB. 
-> * Se recomienda el uso de clústeres de Azure Kubernetes Service (AKS) de un solo nodo para desarrollo y pruebas de modelos más grandes.
+> * Las instancias de contenedor solo son adecuadas para modelos pequeños con un tamaño inferior a 1 GB.
+> * Use clústeres de AKS de nodo único para el desarrollo y las pruebas de modelos más grandes.

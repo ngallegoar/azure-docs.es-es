@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: 149a82526263f5e372db81b5a92a9ee90a2c76f3
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2177e74bd627e80ea1afbcacaf85baf4e030834c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089979"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91928986"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Reinicio de máquinas virtuales para los clústeres de HDInsight
 
@@ -31,8 +31,8 @@ Mientras el nodo se reinicia, el clúster puede pasar a un estado incorrecto, y 
 - El disco temporal está lleno en el nodo.
 - La tabla de procesos de la máquina virtual tiene muchas entradas en las que el proceso se ha completado, pero aparece con el estado "Finalizado".
 
-> [!WARNING]
-> Tenga cuidado al reiniciar las máquinas virtuales para los clústeres de **HBase** y **Kafka**, ya que el reinicio podría provocar la pérdida de datos.
+> [!NOTE]
+> El reinicio de las máquinas virtuales no se admite para los clústeres de **HBase** y **Kafka**, ya que podría provocar la pérdida de datos.
 
 ## <a name="use-powershell-to-reboot-vms"></a>Uso de PowerShell para reiniciar máquinas virtuales
 

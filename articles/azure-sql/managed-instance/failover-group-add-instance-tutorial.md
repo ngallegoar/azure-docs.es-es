@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sashan, carlrab
+ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: a6f400db2a068953080e734148e024b575e3e1e9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: df10e2b674a8e97766ee96a802e614e2bd797b7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070860"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91617747"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adición de SQL Managed Instance a un grupo de conmutación por error
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -55,6 +55,8 @@ Para completar el tutorial, asegúrese de que cuenta con los elementos siguiente
 ## <a name="create-a-resource-group-and-primary-managed-instance"></a>Creación de un grupo de recursos y una instancia administrada principal
 
 En este paso, creará el grupo de recursos y la instancia administrada principal del grupo de conmutación por error mediante Azure Portal o PowerShell. 
+
+Implemente ambas instancias administradas en [regiones emparejadas](../../best-practices-availability-paired-regions.md) por motivos de rendimiento. Las instancias administradas que residen en regiones emparejadas geográficamente tienen un rendimiento mucho mejor que las que residen en regiones no emparejadas. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
@@ -740,6 +742,8 @@ Para que dos instancias administradas participen en un grupo de conmutación por
 
 En este artículo se proporcionan los pasos para crear las dos puertas de enlace de VPN y conectarlas, pero puede ir directamente a la creación del grupo de conmutación por error si ha configurado ExpressRoute en su lugar. 
 
+> [!NOTE]
+> La SKU de la puerta de enlace afecta al rendimiento. En este tutorial se implementa una puerta de enlace con la SKU más básica (`HwGw1`). Implemente una SKU superior (ejemplo: `VpnGw3`) para lograr un mayor rendimiento. Para ver todas las opciones disponibles, consulte [SKU de puerta de enlace](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

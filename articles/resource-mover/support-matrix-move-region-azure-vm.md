@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602292"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945920"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Compatibilidad con la migración de máquinas virtuales de Azure entre regiones de Azure
 
@@ -155,7 +155,7 @@ Disco Premium P20, P30, P40 o P50 | 16 KB, o más |20 MB/s | 1684 GB por disco
 NIC | Compatible | Especifique un recurso existente en la región de destino o cree uno nuevo durante el proceso de preparación. 
 Equilibrador de carga interno | Compatible | Especifique un recurso existente en la región de destino o cree uno nuevo durante el proceso de preparación.  
 Equilibrador de carga público | No se admite actualmente. | Especifique un recurso existente en la región de destino o cree uno nuevo durante el proceso de preparación.  
-Dirección IP pública | Compatible | Especifique un recurso existente en la región de destino o cree uno nuevo durante el proceso de preparación.  
+Dirección IP pública | Compatible | Especifique un recurso existente en la región de destino o cree uno nuevo durante el proceso de preparación.<br/><br/> La dirección IP pública es específica de la región y no se conservará en la región de destino después de la migración. Tenga esto en cuenta al modificar la configuración de red (incluidas las reglas de equilibrio de carga) en la ubicación de destino.
 Grupo de seguridad de red | Compatible | Especifique un recurso existente en la región de destino o cree uno nuevo durante el proceso de preparación.  
 Dirección IP (estática) reservada | Compatible | Actualmente no se puede configurar. El valor predeterminado es el valor de origen. <br/><br/> Si la NIC de la máquina virtual de origen tiene una dirección IP estática y la subred de destino tiene la misma dirección IP disponible, se asigna a la máquina virtual de destino.<br/><br/> Si la subred de destino no tiene disponible la misma dirección IP, se produce un error al iniciar la migración de la máquina virtual.
 Dirección IP dinámica | Compatible | Actualmente no se puede configurar. El valor predeterminado es el valor de origen.<br/><br/> Si la NIC de origen tiene una dirección IP dinámica, la NIC de la máquina virtual de destino también es dinámica de forma predeterminada.

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 10/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 026f476b888380b6f262a6a52c064c939e27e931
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 413847b7858549dc6130f219829b220b2857c7e2
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743207"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938897"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Solución de problemas en un dispositivo Azure Stack Edge Pro con GPU 
 
@@ -200,6 +200,7 @@ Estos son los errores relacionados con el almacenamiento de blobs en el disposit
 |Se agota el tiempo de espera de conexión.|Inicie sesión en Azure Stack Edge Pro y compruebe que esté desbloqueado. Cada vez que se reinicia el dispositivo, permanece bloqueado hasta que alguien inicia sesión.|
 
 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información acerca de los [problemas conocidos de esta versión](azure-stack-edge-gpu-2008-release-notes.md).
+- Obtenga información sobre la [Solución de problemas de activación en un dispositivo](azure-stack-edge-gpu-troubleshoot-activation.md).

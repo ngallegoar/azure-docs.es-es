@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
+ms.date: 10/07/2020
 ms.reviewer: ''
-ms.date: 11/26/2019
-ms.openlocfilehash: ba2170923885eac19af4bfe3ce55ea653371c0e8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321363"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91848864"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,16 +40,21 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 |**SLA de tiempo de actividad**|99,99%|99,99%|99,99%|
 |**Retención de copia de seguridad máxima**|7 días|35 días|35 días|
 |**CPU**|Bajo|Bajo, medio, alto|Medio, alto|
-|**Rendimiento de E/S (aproximado)** |1 a 5 IOPS por DTU| 1 a 5 IOPS por DTU | 25 IOPS por DTU|
+|**IOPS (aproximado)** \* |1 a 5 IOPS por DTU| 1 a 5 IOPS por DTU | 25 IOPS por DTU|
 |**Latencia de E/S (aproximada)**|5 ms (lectura), 10 ms (escritura)|5 ms (lectura), 10 ms (escritura)|2 ms (lectura/escritura)|
 |**Índice de almacén de columnas** |N/D|S3 y versiones posteriores|Compatible|
 |**OLTP en memoria**|N/D|N/D|Compatible|
 
+\* Todas las IOPS de lectura y escritura en archivos de datos, incluida la E/S en segundo plano (punto de comprobación y escritura diferida).
+
 > [!IMPORTANT]
-> Los niveles de servicio Básico, Estándar S0, S1 y S2 proporcionan menos de una núcleo virtual (CPU).  En el caso de las cargas de trabajo con un uso intensivo de CPU, se recomienda un nivel de servicio S3 o superior. 
+> Los objetivos del servicio Basic, S0, S1 y S2 proporcionan menos de un núcleo virtual (CPU).  En el caso de las cargas de trabajo con un uso intensivo de CPU, se recomienda tener un objetivo de servicio S3 o superior. 
 >
->En lo que respecta al almacenamiento de datos, los niveles de servicio Básico, Estándar S0 y S1 se colocan en blobs en páginas estándar. Los blobs en páginas estándar usan medios de almacenamiento basados en discos duros (HDD) y son más adecuados para el desarrollo, las pruebas y otras cargas de trabajo de acceso poco frecuente que no dan tanta importancia a la variabilidad del rendimiento.
+> En los objetivos de servicio de tipo Basic, S0 y S1, los archivos de base de datos se almacenan en Azure Standard Storage, que usa medios de almacenamiento basados en unidades de disco duro (HDD). Estos objetivos de servicio son más adecuados para el desarrollo, las pruebas y otras cargas de trabajo de acceso poco frecuente que no dan tanta importancia a la variabilidad del rendimiento.
 >
+
+> [!TIP]
+> Para ver los límites reales de la [gobernanza de recursos](resource-limits-logical-server.md#resource-governance) de una base de datos o un grupo elástico, consulte la vista [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database).
 
 > [!NOTE]
 > Puede obtener una base de datos de Azure SQL Database gratuita en el nivel de servicio Básico junto con una cuenta gratuita de Azure para explorar Azure. Para obtener información, consulte [Cree una base de datos administrada en la nube con su cuenta gratuita de Azure](https://azure.microsoft.com/free/services/sql-database/).

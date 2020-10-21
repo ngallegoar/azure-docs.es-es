@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ad9d135df428c79df745ad24d9e7382e06599168
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022187"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893210"
 ---
 # <a name="late-stage-reprojection"></a>Reproyección de fase tardía
 
@@ -34,7 +34,9 @@ Si es así, la aplicación usará LSR de profundidad, de lo contrario, usará LS
 
 Para que el LSR de profundidad funcione, la aplicación cliente debe proporcionar un búfer de profundidad válido que contenga toda la geometría pertinente que se debe tener en cuenta durante LSR.
 
-LSR de profundidad intenta estabilizar el fotograma de vídeo en función del contenido del búfer de profundidad proporcionado. Como consecuencia, el contenido que no se haya presentado en él, como los objetos transparentes, no se puede ajustar mediante LSR y pueden mostrarse artefactos de inestabilidad y de reproyección.
+LSR de profundidad intenta estabilizar el fotograma de vídeo en función del contenido del búfer de profundidad proporcionado. Como consecuencia, el contenido que no se haya presentado en él, como los objetos transparentes, no se puede ajustar mediante LSR y pueden mostrarse artefactos de inestabilidad y de reproyección. 
+
+Para mitigar la inestabilidad de la reproyección de objetos transparentes, puede forzar la escritura del búfer de profundidad. Vea la marca de material *TransparencyWritesDepth* para los materiales de [Color](color-materials.md) y [PBR](pbr-materials.md). Sin embargo, tenga en cuenta que la calidad visual de la interacción de un objeto transparente u opaco puede verse afectada al habilitar esta marca.
 
 ## <a name="planar-lsr"></a>LSR planar
 

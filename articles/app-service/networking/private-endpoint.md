@@ -4,24 +4,22 @@ description: Conexión privada a una aplicación web mediante un punto de conexi
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/09/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 16ce03ad8d6af1908a9ea4d3b7759bb5eb3c1139
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 2c4b6377d28339b0b4953cd908f4964b64dab4fe
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961557"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873105"
 ---
-# <a name="using-private-endpoints-for-azure-web-app-preview"></a>Uso de puntos de conexión privados para una aplicación web de Azure (versión preliminar)
+# <a name="using-private-endpoints-for-azure-web-app"></a>Uso de puntos de conexión privados para una aplicación web de Azure
 
-> [!Note]
-> Con la actualización de versión preliminar, publicamos la característica de protección de filtración de datos.
->
-> La versión preliminar está disponible en todas las regiones públicas para las funciones Premium V2 de Windows, Linux Web Apps y las funciones de Elastic Premium. 
+> [!IMPORTANT]
+> El punto de conexión privado está disponible para la aplicación web de Windows y Linux en un contenedor (o no), y que esté hospedada en estos planes de App Service: **Aislado**, **PremiumV2**, **PremiumV3**, **Functions Premium** (a veces se conoce como plan Elástico Premium). 
 
 Puede usar el punto de conexión privado para la aplicación web de Azure a fin de permitir que los clientes ubicados en la red privada accedan de forma segura a la aplicación a través de un vínculo privado. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual de Azure. El tráfico de red entre un cliente en la red privada y la aplicación web atraviesa la red virtual y un servicio Private Link en la red troncal de Microsoft, lo que elimina la exposición desde la red pública de Internet.
 
@@ -96,10 +94,10 @@ Por ejemplo, la resolución de nombres será:
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--Esta entrada se administra en el sistema DNS para apuntar a la dirección IP del punto de conexión privado.|
 
-Después de esta configuración de DNS, puede acceder a la aplicación web de forma privada con el nombre predeterminado mywebappname.azurewebsites.net.
+Después de esta configuración de DNS, puede acceder a la aplicación web de forma privada con el nombre predeterminado mywebappname.azurewebsites.net. Debe usar este nombre, ya que el certificado predeterminado se emite para *.azurewebsites.net.
 
 
-Si necesita usar un nombre DNS personalizado, debe agregarlo en la aplicación web. Durante la versión preliminar, el nombre personalizado se debe validar como cualquier otro mediante la resolución DNS pública. Para obtener más información, vea [Validación de un DNS personalizado][dnsvalidation].
+Si necesita usar un nombre DNS personalizado, debe agregarlo en la aplicación web. El nombre personalizado se debe validar como cualquier otro mediante la resolución DNS pública. Para obtener más información, vea [Validación de un DNS personalizado][dnsvalidation].
 
 En el caso de la consola de Kudu o la API de REST de Kudu (implementación con agentes autohospedados de Azure DevOps, por ejemplo), debe crear dos registros en la zona privada de Azure DNS o en el servidor DNS personalizado. 
 
@@ -118,7 +116,11 @@ Para más información sobre los precios, consulte [Precios de Azure Private Lin
 
 Al usar Azure Functions en el plan Elástico Premium con un punto de conexión privado, para ejecutar la función en el portal web de Azure, debe tener acceso directo a la red o se producirá un error HTTP 403. En otras palabras, el explorador debe ser capaz de contactar con el punto de conexión privado para ejecutar la función desde el portal web de Azure. 
 
-Durante la versión preliminar, la ranura de producción solo se expone detrás del punto de conexión privado; el punto de conexión público debe llegar a otras ranuras.
+Puede conectar hasta 100 puntos de conexión privados a una aplicación web en particular.
+
+Las ranuras no pueden utilizar un punto de conexión privado.
+
+La funcionalidad de depuración remota no está disponible cuando se habilita el punto de conexión privado para la aplicación web. Le recomendamos implementar el código en una ranura y depurarlo de forma remota en la misma.
 
 Estamos mejorando la característica Private Link y el punto de conexión privado periódicamente. Consulte [este artículo][pllimitations] para información actualizada sobre las limitaciones.
 

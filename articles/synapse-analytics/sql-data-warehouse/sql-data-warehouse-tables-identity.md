@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 375c97179351e1dbf90ce4488114cb232d6dd450
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8b4e9aa73a959bcaac18df38f975331ecbf6b034
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121330"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876012"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Uso de IDENTITY para crear claves suplentes en el grupo de SQL de Synapse
 
@@ -26,7 +26,8 @@ En este artículo, encontrará recomendaciones y ejemplos de uso de la propiedad
 
 Una clave suplente en una tabla es una columna con un identificador único para cada fila. La clave no se genera desde los datos de la tabla. A los modeladores de datos les gusta crear claves suplentes en las tablas cuando diseñan modelos de almacenamiento de datos. Puede usar la propiedad IDENTITY para lograr este objetivo de manera sencilla y eficaz sin afectar al rendimiento de carga.
 > [!NOTE]
-> No se garantiza que el valor de IDENTITY de Synapse SQL sea único si el usuario inserta explícitamente un valor duplicado con “SET IDENTITY_INSERT ON” o propaga IDENTITY. Para detalles, consulte [CREATE TABLE (Transact-SQL) IDENTITY (propiedad)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+> En Azure Synapse Analytics, el valor IDENTITY aumenta por sí mismo en cada distribución y no se superpone con los valores IDENTITY de otras distribuciones.  No se garantiza que el valor de IDENTITY de Synapse sea único si el usuario inserta explícitamente un valor duplicado con “SET IDENTITY_INSERT ON” o propaga IDENTITY. Para detalles, consulte [CREATE TABLE (Transact-SQL) IDENTITY (propiedad)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Creación de una tabla con una columna IDENTITY
 

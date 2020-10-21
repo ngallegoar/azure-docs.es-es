@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 60012f79c3c04a4ff14c4a7f0609b6940d3402c4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e3106b52ede95fe63a8df691a82acdd4937c8cce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544102"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91672185"
 ---
 **Requisitos del servidor de procesos y configuración**
 
@@ -58,7 +58,7 @@ https:\//login.microsoftonline.com | Se usa para las operaciones de administraci
 time.nist.gov | Se usan para comprobar la sincronización de la hora entre el sistema y la hora global.
 time.windows.com | Se usan para comprobar la sincronización de la hora entre el sistema y la hora global.
 | <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (opcional) </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | El programa de instalación de OVF necesita acceso a estas direcciones URL adicionales. Azure Active Directory las usa para la administración de identidades y control de acceso.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para completar la descarga de MySQL. </br> En algunas regiones, la descarga podría redirigirse a la dirección URL de la red CDN. Asegúrese de que la dirección URL de la red CDN también esté en la lista blanca, si es necesario.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para completar la descarga de MySQL. </br> En algunas regiones, la descarga podría redirigirse a la dirección URL de la red CDN. Asegúrese de que la dirección URL de la red CDN también esté aprobada, si es necesario.
 |
 
 > [!NOTE]
@@ -83,4 +83,3 @@ En la tabla siguiente se resumen los requisitos de capacidad del servidor de con
 12 vCPU<br/><br/> 2 socks * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB - 1 TB | De 100 a 150 máquinas
 16 vCPU<br/><br/> 2 socks * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | 1 - 2 TB | De 150 a 200 máquinas
 |
-

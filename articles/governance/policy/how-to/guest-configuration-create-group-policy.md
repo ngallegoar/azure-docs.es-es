@@ -3,12 +3,12 @@ title: Cómo crear definiciones de directivas de configuración de invitado a pa
 description: Obtenga información sobre cómo convertir una directiva de grupo de la línea base de seguridad de Windows Server 2019 en una definición de directiva.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 58fe4fa3e5056192fa5febe4883a1457d130871b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547775"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893380"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Cómo crear definiciones de directivas de configuración de invitado a partir de la directiva de grupo línea de base para Windows
 
@@ -87,7 +87,7 @@ Después, convierta la línea de base de la instancia de Server 2019 descargada
 
 ## <a name="create-azure-policy-guest-configuration"></a>Creación de configuración de invitado de Azure Policy
 
-El siguiente paso consiste en publicar el archivo en el almacenamiento de blobs. 
+El siguiente paso consiste en publicar el archivo en Azure Blob Storage. 
 
 1. El script siguiente contiene una función que puede usar para automatizar esta tarea. Nota: Los comandos usados en la función `publish` requieren el módulo `Az.Storage`.
 
@@ -145,7 +145,7 @@ El siguiente paso consiste en publicar el archivo en el almacenamiento de blobs.
     $blob = 'Server2019Baseline.zip' 
     ```
 
-1. Use la función Publish con los parámetros asignados para publicar el paquete de configuración de invitado en el almacenamiento de blobs público.
+1. Use la función Publish con los parámetros asignados para publicar el paquete de configuración de invitado en la instancia pública de Blob Storage.
 
 
    ```azurepowershell-interactive

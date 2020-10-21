@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3e9075014863e653a986dc4dbec7b9bc5e9f31bc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ee4d3957403e169d41fb9e3befa0d62e4b0d9075
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421202"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91597861"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Azure Time Series Insights Gen 1 mediante plantillas de Azure Resource Manager
+
+> [!CAUTION]
+> Este es un artículo de Gen1.
 
 En este artículo se describe cómo crear e implementar recursos de Azure Time Series Insights mediante [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell y el proveedor de recursos de Azure Time Series Insights.
 
@@ -49,7 +52,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
 1. Clone o copie la plantilla [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) de GitHub.
 
-   * Creación de un archivo de parámetros
+   - Creación de un archivo de parámetros
 
      Para crear un archivo de parámetros, copie el archivo [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json).
 
@@ -57,7 +60,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
     <div id="required-parameters"></div>
 
-   * Parámetros obligatorios
+   - Parámetros obligatorios
 
      | Parámetro | Descripción |
      | --- | --- |
@@ -69,7 +72,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
     <div id="optional-parameters"></div>
 
-   * Parámetros opcionales
+   - Parámetros opcionales
 
      | Parámetro | Descripción |
      | --- | --- |
@@ -84,7 +87,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
      | accessPolicyReaderObjectIds | Una lista de identificadores de objetos de los usuarios o aplicaciones de Azure AD que deben tener acceso de lectura en el entorno. Se puede obtener el valor de objectId de la entidad de servicio mediante la llamada a los cmdlets **Get-AzADUser** o **Get-AzADServicePrincipal**. Aún no se admite la creación de una directiva de acceso para grupos de Azure AD. |
      | accessPolicyContributorObjectIds | Una lista de identificadores de objeto de los usuarios o aplicaciones de Azure AD que deben tener acceso de colaborador al entorno. Se puede obtener el valor de objectId de la entidad de servicio mediante la llamada a los cmdlets **Get-AzADUser** o **Get-AzADServicePrincipal**. Aún no se admite la creación de una directiva de acceso para grupos de Azure AD. |
 
-   * Como ejemplo, el siguiente archivo de parámetros se usaría para crear un entorno y un origen de eventos que lee los eventos de un centro de eventos existente. También se crean dos directivas de acceso que conceden acceso de colaborador al entorno.
+   - Como ejemplo, el siguiente archivo de parámetros se usaría para crear un entorno y un origen de eventos que lee los eventos de un centro de eventos existente. También se crean dos directivas de acceso que conceden acceso de colaborador al entorno.
 
      ```JSON
      {
@@ -114,12 +117,12 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
                      "AGUID001-0000-0000-0000-000000000000",
                      "AGUID002-0000-0000-0000-000000000000"
                  ]
-             }    
+             }
          }
      }
      ```
 
-    * Para más información, lea el artículo [Parámetros](../azure-resource-manager/templates/parameter-files.md).
+   - Para más información, lea el artículo [Parámetros](../azure-resource-manager/templates/parameter-files.md).
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Implementación de la plantilla de inicio rápido localmente mediante PowerShell
 
@@ -128,19 +131,19 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
 1. En PowerShell, inicie sesión en la cuenta de Azure.
 
-    * En una secuencia de comandos de PowerShell, ejecute el siguiente comando:
+    - En una secuencia de comandos de PowerShell, ejecute el siguiente comando:
 
       ```powershell
       Connect-AzAccount
       ```
 
-    * Se le solicitará que inicie sesión en la cuenta de Azure. Después de iniciar sesión, ejecute el siguiente comando para ver sus suscripciones disponibles:
+    - Se le solicitará que inicie sesión en la cuenta de Azure. Después de iniciar sesión, ejecute el siguiente comando para ver sus suscripciones disponibles:
 
       ```powershell
       Get-AzSubscription
       ```
 
-    * Este comando devuelve una lista de suscripciones de Azure disponibles. Seleccione una suscripción para la sesión actual mediante la ejecución del siguiente comando. Reemplace `<YourSubscriptionId>` por el GUID de la suscripción de Azure que desea usar:
+    - Este comando devuelve una lista de suscripciones de Azure disponibles. Seleccione una suscripción para la sesión actual mediante la ejecución del siguiente comando. Reemplace `<YourSubscriptionId>` por el GUID de la suscripción de Azure que desea usar:
 
       ```powershell
       Set-AzContext -SubscriptionID <YourSubscriptionId>
@@ -148,13 +151,13 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
 1. Si no existe, cree un nuevo grupo de recursos.
 
-   * Si no tiene un grupo de recursos existente, cree uno con el comando **New-AzResourceGroup**. Proporcione el nombre del grupo de recursos y la ubicación que desee utilizar. Por ejemplo:
+   - Si no tiene un grupo de recursos existente, cree uno con el comando **New-AzResourceGroup**. Proporcione el nombre del grupo de recursos y la ubicación que desee utilizar. Por ejemplo:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"
      ```
 
-   * Si es correcto, se muestra un resumen del nuevo grupo de recursos.
+   - Si es correcto, se muestra un resumen del nuevo grupo de recursos.
 
      ```powershell
      ResourceGroupName : MyDemoRG
@@ -166,7 +169,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
 1. Pruebe la implementación.
 
-   * Valide la implementación mediante la ejecución del cmdlet `Test-AzResourceGroupDeployment`. Al probar la implementación, proporcione los parámetros exactamente como lo haría al ejecutar la implementación.
+   - Valide la implementación mediante la ejecución del cmdlet `Test-AzResourceGroupDeployment`. Al probar la implementación, proporcione los parámetros exactamente como lo haría al ejecutar la implementación.
 
      ```powershell
      Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -174,27 +177,27 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
 1. Creación de la implementación
 
-    * Para crear la nueva implementación, ejecute el cmdlet `New-AzResourceGroupDeployment` y proporcione los parámetros necesarios cuando se le solicite. Los parámetros incluyen un nombre para la implementación, el nombre del grupo de recursos y la ruta de acceso o la dirección URL al archivo de plantilla. Si no se especifica el parámetro **Modo**, se usa el valor predeterminado **Incremental**. Para más información, lea [Implementaciones incrementales y completas](../azure-resource-manager/templates/deployment-modes.md).
+    - Para crear la nueva implementación, ejecute el cmdlet `New-AzResourceGroupDeployment` y proporcione los parámetros necesarios cuando se le solicite. Los parámetros incluyen un nombre para la implementación, el nombre del grupo de recursos y la ruta de acceso o la dirección URL al archivo de plantilla. Si no se especifica el parámetro **Modo**, se usa el valor predeterminado **Incremental**. Para más información, lea [Implementaciones incrementales y completas](../azure-resource-manager/templates/deployment-modes.md).
 
-    * El siguiente comando le solicita los cinco parámetros necesarios en la ventana de PowerShell:
+    - El siguiente comando le solicita los cinco parámetros necesarios en la ventana de PowerShell:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
       ```
 
-    * Para especificar un archivo de parámetros en su lugar, use el siguiente comando:
+    - Para especificar un archivo de parámetros en su lugar, use el siguiente comando:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
       ```
 
-    * También puede utilizar parámetros en línea cuando ejecute el cmdlet de implementación. El comando es el siguiente:
+    - También puede utilizar parámetros en línea cuando ejecute el cmdlet de implementación. El comando es el siguiente:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * Para ejecutar una implementación [completa](../azure-resource-manager/templates/deployment-modes.md), establezca el parámetro **Modo** en **Completo**:
+    - Para ejecutar una implementación [completa](../azure-resource-manager/templates/deployment-modes.md), establezca el parámetro **Modo** en **Completo**:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -202,7 +205,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
 1. Comprobar la implementación
 
-    * Si los recursos se implementan correctamente, aparecerá un resumen de la implementación en la ventana de PowerShell:
+    - Si los recursos se implementan correctamente, aparecerá un resumen de la implementación en la ventana de PowerShell:
 
       ```powershell
        DeploymentName          : MyDemoDeployment
@@ -243,7 +246,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
 1. Implementación de la plantilla de inicio rápido mediante Azure Portal
 
-   * La página principal de la plantilla de inicio rápido de GitHub incluye también un botón **Deploy to Azure** (Implementar en Azure). Al hacer clic en él se abre una página de implementación personalizado en Azure Portal. En esta página, puede definir o seleccionar valores para cada uno de los parámetros en las tablas de [parámetros obligatorios](#required-parameters) o [parámetros opcionales](#optional-parameters). Después de rellenar la configuración, al hacer clic en el botón **Purchase** (Comprar) se inicia la implementación de la plantilla.
+   - La página principal de la plantilla de inicio rápido de GitHub incluye también un botón **Deploy to Azure** (Implementar en Azure). Al hacer clic en él se abre una página de implementación personalizado en Azure Portal. En esta página, puede definir o seleccionar valores para cada uno de los parámetros en las tablas de [parámetros obligatorios](#required-parameters) o [parámetros opcionales](#optional-parameters). Después de rellenar la configuración, al hacer clic en el botón **Purchase** (Comprar) se inicia la implementación de la plantilla.
     </br>
     </br>
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">

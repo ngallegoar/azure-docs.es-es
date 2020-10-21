@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 9339ed7d0ab122420b37a67a96ee0d9d324e2f15
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 2742a08d97d537e8a5e0670c40f0ab69b34a4d9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442912"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91619600"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación multiinquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ En este tutorial, aprenderá a:
 > - Consultar la base de datos de análisis.
 > - Usar Power BI para la visualización de datos para resaltar tendencias en los datos de inquilino y hacer recomendaciones para mejoras.
 
-![architectureOverView](./media/saas-multitenantdb-tenant-analytics/architectureOverview.png)
+![En el diagrama se muestra información general sobre la arquitectura usada para este artículo.](./media/saas-multitenantdb-tenant-analytics/architectureOverview.png)
 
 ## <a name="offline-tenant-analytics-pattern"></a>Patrón de análisis de inquilinos sin conexión
 
@@ -53,7 +53,7 @@ A continuación, los datos agregados se dividen en un conjunto de tablas en un [
 
 De forma conjunta, las tablas centrales y de dimensiones permiten realizar un procesamiento analítico eficaz. El esquema de estrella usado en este tutorial se muestra en la siguiente imagen:
  
-![StarSchema](./media/saas-multitenantdb-tenant-analytics/StarSchema.png)
+![En el diagrama de base de datos se muestran cuatro objetos de base de datos conectados a un objeto de base de datos central.](./media/saas-multitenantdb-tenant-analytics/StarSchema.png)
 
 Por último, se consultan las tablas de un esquema de estrella. Los resultados de la consulta se muestran visualmente para resaltar la información sobre el comportamiento de los inquilinos y el uso que estos hacen de la aplicación. Con este esquema de estrella, puede ejecutar consultas que ayudan a encontrar elementos similares a los siguientes:
 
@@ -111,7 +111,7 @@ Expanda el almacén de análisis para ver los siguientes elementos de la base de
 - Las tablas del esquema de estrella son **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** y **dim_Dates**.
 - El procedimiento almacenado **sp_ShredRawExtractedData** se usa para rellenar las tablas del esquema de estrella a partir de las tablas de datos sin procesar.
 
-![tenantAnalytics](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
+![En la captura de pantalla se muestra el Explorador de objetos SSMS para el nodo del almacén de análisis, incluidas las tablas, las vistas y los nodos.](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
 
 ## <a name="data-extraction"></a>Extracción de datos 
 
@@ -139,7 +139,7 @@ Cada trabajo extrae sus datos y los introduce en el almacén de análisis. Ahí,
 4. Presione **F5** para ejecutar el script que crea y ejecuta el trabajo que extrae los datos de las entradas y los clientes de cada base de datos de inquilino. El trabajo guarda los datos en el almacén de análisis.
 5. Consulte la tabla TicketsRawData en la base de datos tenantanalytics, para asegurarse de que la tabla se rellena con la información de las entradas de todos los inquilinos.
 
-![ticketExtracts](./media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
+![En la captura de pantalla se muestra la base de datos de ExtractTickets con el elemento dbo.TicketsRawData seleccionado en el Explorador de objetos.](./media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
 
 Repita los pasos anteriores, excepto esta sustitución de tiempo de **\ExtractTickets.sql** por **\ExtractVenuesEvents.sql** en el paso 2.
 
@@ -159,7 +159,7 @@ En esta sección del tutorial, va a definir y ejecutar un trabajo que combina lo
 4. Deje tiempo suficiente para que el trabajo se ejecute correctamente.
     - Consulte la columna **Lifecycle** de la tabla jobs.jobs_execution para comprobar el estado del trabajo. Asegúrese de que el trabajo se ha completado **correctamente** antes de continuar. Una ejecución satisfactoria muestra datos similares a los del siguiente gráfico:
 
-![shreddingJob](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
+![En la captura de pantalla se muestra el resultado correcto de la ejecución del procedimiento sp_ShredRawExtractedData.](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 
 ## <a name="data-exploration"></a>Exploración de datos
 
@@ -174,11 +174,11 @@ Siga estos pasos para conectarse a Power BI e importar las vistas creadas anteri
 3. En la ventana **Obtener datos**, seleccione Azure SQL Database.
 4. En la ventana de inicio de sesión de la base de datos, escriba el nombre del servidor (catalog-mt-\<User\>.database.windows.net). Seleccione **Importar** en **Modo Conectividad de datos** y después haga clic en Aceptar. 
 
-    ![powerBISignIn](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
+    ![En la captura de pantalla se muestra el cuadro de diálogo de la base de datos de SQL Server, desde donde puede acceder al servidor y la base de datos.](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
 5. Seleccione **Base de datos** en el panel izquierdo y escriba los valores de user name = *developer* y password = *P\@ssword1*. Haga clic en **Conectar**.  
 
-    ![DatabaseSignIn](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
+    ![En la captura de pantalla se muestra el cuadro de diálogo de la base de datos de SQL Server, desde donde puede especificar un nombre de usuario y una contraseña.](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
 6. En el panel **Navegador**, debajo de la base de datos de análisis, seleccione las tablas del esquema de estrella: fact_Tickets, dim_Events, dim_Venues, dim_Customers y dim_Dates. Después seleccione **Cargar**. 
 
@@ -186,13 +186,13 @@ Felicidades. Ha cargado los datos correctamente en Power BI. Ahora puede empezar
 
 Primero debe analizar los datos de ventas de entradas para ver la variación del uso entre los distintos lugares. Seleccione las opciones siguientes en Power BI para trazar un gráfico de barras del número total de entradas vendidas en cada lugar. Debido a la variación aleatoria del generador de entradas, los resultados pueden ser diferentes.
  
-![TotalTicketsByVenues](./media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
+![En la captura de pantalla se muestra una visualización de Power BI y controles para la visualización de datos a la derecha.](./media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
 
 El gráfico anterior confirma que el número de entradas vendidas en cada lugar varía. Los lugares que venden más entradas usan su servicio con mayor frecuencia que aquellos que venden menos. En este caso, puede haber una oportunidad de adaptar la asignación de recursos a las diferentes necesidades de los inquilinos.
 
 Puede analizar aún más los datos para ver cómo varían las ventas de entradas con el paso del tiempo. Seleccione las opciones siguientes en Power BI para trazar un gráfico de barras del número total de entradas vendidas cada día durante un período de sesenta días.
  
-![SaleVersusDate](./media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
+![En la captura de pantalla se muestra una visualización de Power BI titulada Ticket Sale Distribution (Distribución de venta de entradas) comparada con Sale Day (Día de ventas).](./media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
 
 En el gráfico anterior se muestra que las ventas de entradas presentan picos en algunos lugares. Estos picos refuerzan la idea de que algunos lugares pueden estar consumiendo recursos del sistema de manera desproporcionada. Hasta ahora no hay ningún patrón obvio de cuándo se producen los picos.
 

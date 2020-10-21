@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 1274679bdd9892e2dc39f3c5e94d8d8d486928b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f87a2347890f8d17e3901c6d8fc168c1d96c7661
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329217"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849355"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Tutorial: Configuración de BitaBIZ para el aprovisionamiento automático de usuarios
 
@@ -54,11 +54,11 @@ Antes de configurar BitaBIZ para el aprovisionamiento automático de usuarios co
 
 1. Inicie sesión en la [consola de administración de BitaBIZ](https://www.bitabiz.com/login?lang=en). Haga clic en **SETUP ADMIN**.
 
-    ![Consola de administración de BitaBIZ](media/bitabiz-provisioning-tutorial/setup-admin.png)
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/setup-admin.png" alt-text="Captura de pantalla de la consola de administración de BitaBIZ, con el administrador de configuración resaltado." border="false":::
 
 2.  Vaya a **INTEGRACIÓN**.
 
-    ![Consola de administración de BitaBIZ](media/bitabiz-provisioning-tutorial/integration.png)
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Captura de pantalla de la consola de administración de BitaBIZ, con el administrador de configuración resaltado." border="false":::
 
 2.  Vaya a **Aprovisionamiento de Azure AD**.  Seleccione **Habilitado** en el aprovisionamiento automático de usuarios. Copie los valores de **Dirección URL del extremo de aprovisionamiento de SCIM** y **Token de portador**. Estos valores se escriben en el campo URL de inquilino y Token secreto de la pestaña Aprovisionamiento de la aplicación BitaBIZ en Azure Portal.
 

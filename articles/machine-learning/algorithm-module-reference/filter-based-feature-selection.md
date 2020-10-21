@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893790"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945709"
 ---
 # <a name="filter-based-feature-selection"></a>Selección de características basada en filtro
 
@@ -90,8 +90,14 @@ Elija una métrica estadística estándar. El módulo calcula la correlación en
 
     - Si especifica menos columnas de resultados que columnas de características, las características se clasifican por puntuación descendente y solo se devuelven las características principales. 
 
-7.  Envíe la canalización o seleccione el módulo Selección de características basada en filtro y seleccione **Ejecutar seleccionadas**.
+7.  Envíe la canalización.
 
+> [!IMPORTANT]
+> Si va a utilizar la **selección de características basada en filtros** en inferencia, debe usar [Seleccionar transformación de columnas](./select-columns-transform.md) para almacenar el resultado seleccionado de la característica y [Aplicar la transformación](./apply-transformation.md) para aplicar la transformación seleccionada de la característica al conjunto de datos de puntuación.
+>
+> Consulte la siguiente captura de pantalla para compilar la canalización para asegurarse de que las selecciones de columna son las mismas para el proceso de puntuación.
+> [!div class="mx-imgBorder"]
+> ![Canalización de ejemplo](media/module/filter-based-feature-selection-score.png)
 
 ## <a name="results"></a>Results
 

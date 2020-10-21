@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/01/2020
 ms.custom: dpalled
-ms.openlocfilehash: 43d3e80c66d54e3f7518246f7d75c5661995578c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 2cf86ed4fd4305a37d27bf7a88e8493821ef085c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489041"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91629104"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Adición de soporte técnico para el tipo de datos Long en Azure Time Series Insights Gen2
 
@@ -72,11 +72,11 @@ Si quiere consultar los datos de estas dos columnas para la propiedad **property
 
 *Definición de variable anterior:*
 
-[![Definición de variable anterior](media/time-series-insights-long-data-type/var-def-previous.png)](media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
+[![Captura de pantalla que muestra el cuadro de diálogo Agregar una nueva variable para la variable numérica PropertyValue.](media/time-series-insights-long-data-type/var-def-previous.png)](media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
 
 *Nueva definición de variable:*
 
-[![Nueva definición de variable](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
+[![Captura de pantalla que muestra el cuadro de diálogo Agregar una nueva variable para la variable numérica PropertyValue con un valor personalizado.](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
 También puede usar **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** como [expresión de Time Series](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) personalizada.
 
@@ -139,11 +139,11 @@ Si actualmente usa variables de categorías que asignan valores enteros a las ca
 
 *Definición de variable anterior:*
 
-[![Definición de variable anterior](media/time-series-insights-long-data-type/var-def-cat-previous.png)](media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
+[![Captura de pantalla que muestra el cuadro de diálogo Agregar una nueva variable para la variable categórica PropertyValue.](media/time-series-insights-long-data-type/var-def-cat-previous.png)](media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
 
 *Nueva definición de variable:*
 
-[![Nueva definición de variable](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
+[![Captura de pantalla muestra el cuadro de diálogo Agregar una nueva variable para la variable categórica PropertyValue con un valor personalizado.](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
 También puede usar **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** como [expresión de Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personalizada.
 

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 2f4f81f8159e5800da7dfec58c01f474cb1c0d07
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1e395e4e73f6c140d81189f1abbccca8c064f757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437452"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91616659"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Exploración del análisis de SaaS con Azure SQL Database, Azure Synapse Analytics, Data Factory y Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -111,7 +111,7 @@ En el Explorador de objetos:
     1. Las tablas del esquema de estrella son **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** y **dim_Dates**.
     1. Se utiliza el procedimiento almacenado, **sp_transformExtractedData** para transformar los datos y cargarlos en las tablas con esquema de estrella.
 
-![DWtables](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
+![La captura de pantalla muestra el Explorador de objetos con las tablas expandidas para mostrar varios objetos de base de datos.](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
 
 #### <a name="blob-storage"></a>Blob Storage
 
@@ -167,7 +167,7 @@ A los tres servicios vinculados les corresponden tres conjuntos de datos que hac
   
 ### <a name="data-warehouse-pattern-overview"></a>Introducción al patrón de almacenamiento de datos
 
-Azure Synapse (anteriormente, SQL Data Warehouse) se utiliza como almacén de análisis que lleva a cabo la agregación con los datos de inquilino. En este ejemplo, se cargan los datos en el almacenamiento de datos con PolyBase. Los datos sin procesar se cargan en tablas de almacenamiento provisional que tienen una columna de identidad para realizar un seguimiento de las filas que se han transformado en tablas con esquema de estrella. La siguiente imagen muestra el patrón de carga: ![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+Azure Synapse (anteriormente, SQL Data Warehouse) se utiliza como almacén de análisis que lleva a cabo la agregación con los datos de inquilino. En este ejemplo, se cargan los datos en el almacenamiento de datos con PolyBase. Los datos sin procesar se cargan en tablas de almacenamiento provisional que tienen una columna de identidad para realizar un seguimiento de las filas que se han transformado en tablas con esquema de estrella. En la imagen siguiente se muestra el modelo de carga: ![En el diagrama se muestra el modelo de carga de las tablas de base de datos.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 En este ejemplo se usan tablas de dimensiones de tipo 1 que varían lentamente. Cada dimensión tiene una clave suplente que se define mediante una columna de identidad. Como procedimiento recomendado, la tabla de dimensiones de fecha se rellena automáticamente para ahorrar tiempo. Para las demás tablas de dimensiones se utiliza una instrucción CREATE TABLE AS SELECT... (CTAS) para crear una tabla temporal con las filas existentes modificadas y sin modificar, junto con las claves suplentes. Esto se realiza con IDENTITY_INSERT=ON. A continuación, las filas nuevas se insertan en la tabla con IDENTITY_INSERT=OFF. Para facilitar la reversión, se cambia el nombre de la tabla de dimensiones existente y se cambia el nombre de la tabla temporal para convertirla en la nueva tabla de dimensiones. Antes de cada ejecución, se elimina la tabla de dimensiones antigua.
 
@@ -181,14 +181,14 @@ Siga los pasos siguientes para ejecutar la canalización de extracción, carga y
 
 1. En la pestaña **Author** (Autor) de la interfaz de usuario de ADF, seleccione la canalización **SQLDBToDW** del panel izquierdo.
 1. Haga clic en **Trigger** (Desencadenar) y, en el menú desplegable, haga clic en **Trigger now** (Desencadenar ahora). Esta acción ejecuta la canalización inmediatamente. En un escenario de producción, tendría que definir un horario de ejecución de la canalización para actualizar los datos el programa.
-  ![adf_trigger](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
+  ![En la captura de pantalla se muestran los recursos de fábrica para una canalización denominada SQLDBToDW con la opción Trigger (Desencadenar) ampliada y Trigger Now (Desencadenar ahora) seleccionada.](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
 1. En la página **Pipeline Run** (Ejecución de canalización), haga clic en **Finish** (Finalizar).
 
 ### <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
 
 1. En la interfaz de usuario de ADF, cambie a la pestaña **Monitor** (Supervisar) del menú de la izquierda.
 1. Haga clic en **Refresh** (Actualizar) hasta que el estado de la canalización SQLDBToDW sea **Succeeded** (Correcto).
-  ![adf_monitoring](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
+  ![La captura de pantalla muestra la canalización SQLDBToDW con un estado correcto.](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
 1. Conéctese al almacenamiento de datos con SSMS y consulte las tablas con esquema de estrella para verificar que los datos se cargaron en estas tablas.
 
 Una vez completada la canalización, la tabla de hechos contiene datos de la venta de entrada para todos los lugares y las tablas de dimensiones se rellenan con los lugares, eventos y clientes correspondientes.

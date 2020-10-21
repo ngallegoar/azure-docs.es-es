@@ -3,12 +3,12 @@ title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
 description: En este artículo, encontrará respuestas a preguntas habituales sobre cómo proteger los recursos compartidos de archivos de Azure con el servicio Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74d8cc9cdb1d9c01c8238f205ae485b61d665cd7
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: e2b6afb25e189ee2848f25c0ba59d843baf37090
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729073"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940842"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 
@@ -80,18 +80,18 @@ Es posible acceder a todas las instantáneas realizadas por Azure Backup desde e
 
 Cuando un recurso compartido de archivos se traslada a una suscripción diferente, Azure Backup lo considera un nuevo recurso compartido de archivos. A continuación se muestran los pasos recomendados:
  
-Escenario: Supongamos que tiene un recurso compartido de archivos FS1 en la suscripción S1 y está protegido mediante el almacén v1. Ahora quiere trasladar el recurso compartido de archivos a la suscripción S2.
+Escenario: Supongamos que tiene un recurso compartido de archivos *FS1* en la suscripción *S1* y está protegido mediante el almacén *V1*. Ahora debe trasladar el recurso compartido de archivos a la suscripción *S2*.
  
-1.  Traslada la cuenta de almacenamiento deseada y el recurso compartido de archivos (FS1) a una suscripción diferente (S2).
-2.  En el almacén v1, ejecuta la operación de eliminación de datos para FS1 para activar la protección contra paradas.
-3.  Anula el registro de la cuenta de almacenamiento que hospeda FS1 del almacén v1.
-4.  Vuelve a configurar la copia de seguridad de FS1, ahora ubicada en S2, con un almacén (V2) en la suscripción S2. 
+1.  Traslade la cuenta de almacenamiento deseada y el recurso compartido de archivos (FS1) a la otra suscripción (S2).
+2.  En el almacén V1, ejecute la operación de eliminación de datos para FS1 para activar la protección contra paradas.
+3.  Anule el registro de la cuenta de almacenamiento que hospeda FS1 del almacén V1.
+4.  Vuelva a configurar la copia de seguridad de FS1, ahora ubicada en S2, con un almacén (V2) en la suscripción S2. 
  
-Tenga en cuenta que, después de volver a configurar la copia de seguridad con V2, las instantáneas tomadas con V1 dejarán de estar administradas por Azure Backup y, por lo tanto, tendrá que eliminar esas instantáneas manualmente si es necesario.
+Tenga en cuenta que después de volver a configurar la copia de seguridad con V2, las instantáneas tomadas con V1 dejarán de estar administradas por Azure Backup. Por lo tanto, tendrá que eliminar esas instantáneas manualmente según sus requisitos.
 
 ### <a name="can-i-move-my-backed-up-file-share-to-a-different-resource-group"></a>¿Puedo trasladar mi recurso compartido de archivos con copia de seguridad a un grupo de recursos diferente?
  
-Sí, puede trasladar el recurso compartido de archivos con copia de seguridad a otro grupo de recursos. Sin embargo, tendrá que volver a configurar la copia de seguridad para el recurso compartido de archivos, ya que Azure Backup lo trataría como un recurso nuevo. Además, las instantáneas que se crearon antes del traslado de grupo de recursos ya no se administrarán mediante Azure Backup. Por lo tanto, tendrá que eliminar esas instantáneas manualmente si fuera necesario.
+Sí, puede trasladar el recurso compartido de archivos con copia de seguridad a otro grupo de recursos. Sin embargo, tendrá que volver a configurar la copia de seguridad para el recurso compartido de archivos, ya que Azure Backup lo tratará como un recurso nuevo. Además, Azure Backup dejará de administrar las instantáneas que se crearon antes de mover el grupo de recursos. Por lo tanto, tendrá que eliminar esas instantáneas manualmente según sus requisitos.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>¿Cuál es la retención máxima que puedo configurar para las copias de seguridad?
 

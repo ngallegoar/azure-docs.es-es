@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 94ba4b159e0a7e52603e7c200c11828f996cf6d8
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: b45eea7a6c4bccbdc6669752255469174493ab55
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090523"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938347"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidad de Azure Maps: proyectos de código abierto
 
@@ -39,8 +39,10 @@ A continuación se muestra una lista de proyectos de código abierto que amplía
 |-|-|
 | [Módulo de animación de Azure Maps](https://github.com/Azure-Samples/azure-maps-animations) | Una biblioteca enriquecida de animaciones para uso con el SDK web de Azure Maps. |
 | [Módulo de control de geolocalización de Azure Maps](https://github.com/Azure-Samples/azure-maps-geolocation-control) | Módulo del SDK web de Azure Maps que proporciona un control que utiliza la API de geolocalización del explorador para buscar al usuario en el mapa. |
+| [Módulo de origen de datos cuadriculado de Azure Maps](https://github.com/Azure-Samples/azure-maps-gridded-data-source) | Módulo para el SDK web de Azure Maps que proporciona un origen de datos que agrupa los puntos de datos en las celdas de un área de cuadrícula. Esta operación también se conoce por muchos nombres, como teselaciones, discretización de datos o rangos hexadecimales.  |
 | [Módulo de control de pantalla completa de Azure Maps](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | Módulo del SDK web de Azure Maps que proporciona un control para mostrar el mapa en modo de pantalla completa. |
 | [Módulo de control de selección de Azure Maps](https://github.com/Azure-Samples/azure-maps-selection-control) | Módulo del SDK web de Azure Maps que proporciona controles para seleccionar datos en un origen de datos mediante herramientas de dibujo o solicitando un polígono de intervalo de ruta. |
+| [Módulo de mapa de deslizamiento de Azure Maps](https://github.com/Azure-Samples/azure-maps-swipe-map) | Módulo para el SDK web de Azure Maps que permite deslizar el dedo entre dos mapas superpuestos, lo ideal para comparar dos conjuntos de datos superpuestos. |
 | [Módulo de mapa de sincronización de Azure Maps](https://github.com/Azure-Samples/azure-maps-sync-maps) | Módulo del SDK web de Azure Maps que sincroniza las cámaras de dos o más mapas. |
 | [Módulo de interfaz de usuario de los servicios de Azure Maps](https://github.com/Azure-Samples/azure-maps-services-ui) | Un conjunto de controles de interfaz de usuario web que encapsulan los servicios REST de Azure Maps. |
 

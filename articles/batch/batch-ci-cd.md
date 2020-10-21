@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 9612c61945a41b30fb5d4768e1eb0909a07911d3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 2ad148579daa30d62da01aded0a01ace56f3dcbc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229402"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91760570"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implementar soluciones HPC
 
@@ -43,7 +43,7 @@ La estructura del código base utilizada en este ejemplo es parecida a la siguie
 
 * Una carpeta **arm-templates**, que contiene una serie de plantillas de Azure Resource Manager. Las plantillas se explican en este artículo.
 * Una carpeta **client-application**, que es una copia del ejemplo de [procesamiento de archivos .NET de Azure Batch con ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial). No la necesitaremos en este artículo.
-* Una carpeta **hpc-application**, que es la versión de Windows de 64 bits de [ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+* Una carpeta **hpc-application**, que es la versión de Windows de 64 bits de [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip).
 * Una carpeta **pipelines**. Contiene un archivo YAML donde se esquematiza nuestro proceso de compilación. Esto se explica en el artículo.
 
 En esta sección se supone que está familiarizado con el control de versiones y el diseño de plantillas de Resource Manager. Si no lo está, consulte las siguientes páginas para obtener más información.
@@ -291,7 +291,7 @@ En un artículo aparte encontrará también más información sobre cómo [crear
 
 La infraestructura y el software pueden definirse como código y colocarse en el mismo repositorio.
 
-En esta solución, ffmpeg se utiliza como el paquete de aplicación. El paquete de ffmpeg se puede descargar desde [aquí](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+En esta solución, ffmpeg se utiliza como el paquete de aplicación. El paquete de ffmpeg se puede descargar desde [aquí](https://www.videohelp.com/software?d=ffmpeg-3.3.4-win64-static.zip).
 
 ![Ejemplo de estructura de repositorios de Git](media/batch-ci-cd/git-repository.jpg)
 

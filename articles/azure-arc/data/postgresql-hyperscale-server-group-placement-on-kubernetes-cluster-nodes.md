@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5da00916a3f7a6a3685b1de1c56dd032355e28fa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2b69eb076c727a4383b7459ef914ac79dca31c84
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932154"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91628424"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Selección de la ubicación de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -207,29 +207,16 @@ Y observe que el pod del nuevo trabajo (postgres01-3) se ha colocado en el mismo
 
 La arquitectura tiene el siguiente aspecto:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="Clúster de AKS de 4 nodos en Azure Portal":::
-
-¿Por qué el nuevo trabajador o pod no se coloca en el nodo físico que queda del clúster Kubernetes, aks-agentpool-42715708-vmss000003?
-
-El motivo es que el último nodo físico del clúster de Kubernetes hospeda en realidad varios pods que hospedan componentes adicionales necesarios para ejecutar los servicios de datos habilitados para Azure Arc. Kubernetes evaluó que el mejor candidato, en el momento de la programación, para hospedar el trabajo adicional, es el nodo físico aks-agentpool-42715708-vmss000000. 
-
-Si se usan los mismos comandos que antes; vemos lo que hospeda cada nodo físico:
-
-|Otros nombres de pods\* |Uso|Nodo físico de Kubernetes que hospeda los pods
-|----|----|----
-|bootstrapper-jh48b||aks-agentpool-42715708-vmss000003
-|control-gwmbs||aks-agentpool-42715708-vmss000002
-|controldb-0||aks-agentpool-42715708-vmss000001
-|controlwd-zzjp7||aks-agentpool-42715708-vmss000000
-|logsdb-0|Elasticsearch, recibe datos del contenedor `Fluentbit` de cada pod|aks-agentpool-42715708-vmss000003
-|logsui-5fzv5||aks-agentpool-42715708-vmss000003
-|metricsdb-0|InfluxDB, recibe datos del contenedor `Telegraf` de cada pod|aks-agentpool-42715708-vmss000000
-|metricsdc-47d47||aks-agentpool-42715708-vmss000002
-|metricsdc-864kj||aks-agentpool-42715708-vmss000001
-|metricsdc-l8jkf||aks-agentpool-42715708-vmss000003
-|metricsdc-nxm4l||aks-agentpool-42715708-vmss000000
-|metricsui-4fb7l||aks-agentpool-42715708-vmss000003
-|mgmtproxy-4qppp||aks-agentpool-42715708-vmss000002
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="Clúster de AKS de 4 nodos en Azure Portal" del controlador que vigila la disponibilidad del controlador de datos.|aks-agentpool-42715708-vmss000000
+|logsdb-0|Esta instancia de búsqueda elástica que se usa para almacenar todos los registros recopilados en todos los pods de Arc Data Services. Elasticsearch, recibe datos del contenedor `Fluentbit` de cada pod|aks-agentpool-42715708-vmss000003
+|logsui-5fzv5|Esta instancia de Kibana se basa en la base de datos de búsqueda elástica para presentar una GUI de Log Analytics.|aks-agentpool-42715708-vmss000003
+|metricsdb-0|Esta instancia de InfluxDB se usa para almacenar todas las métricas recopiladas en todos los pods de Arc Data Services. InfluxDB, recibe datos del contenedor `Telegraf` de cada pod|aks-agentpool-42715708-vmss000000
+|metricsdc-47d47|Este controlador DaemonSet se implementa en todos los nodos de Kubernetes del clúster para recopilar las métricas de nivel de nodo acerca de los nodos.|aks-agentpool-42715708-vmss000002
+|metricsdc-864kj|Este controlador DaemonSet se implementa en todos los nodos de Kubernetes del clúster para recopilar las métricas de nivel de nodo acerca de los nodos.|aks-agentpool-42715708-vmss000001
+|metricsdc-l8jkf|Este controlador DaemonSet se implementa en todos los nodos de Kubernetes del clúster para recopilar las métricas de nivel de nodo acerca de los nodos.|aks-agentpool-42715708-vmss000003
+|metricsdc-nxm4l|Este controlador DaemonSet se implementa en todos los nodos de Kubernetes del clúster para recopilar las métricas de nivel de nodo acerca de los nodos.|aks-agentpool-42715708-vmss000000
+|metricsui-4fb7l|Esta instancia de Grafana se encuentra por encima de la base de datos InfluxDB para presentar una GUI del panel de supervisión.|aks-agentpool-42715708-vmss000003
+|mgmtproxy-4qppp|Esta capa de proxy de aplicación web se encuentra delante de las instancias de Grafana y Kibana.|aks-agentpool-42715708-vmss000002
 
 > \* El sufijo de los nombres de pod variará en otras implementaciones. Además, aquí solo se enumeran los pods hospedados dentro del espacio de nombres de Kubernetes del controlador de datos de Azure Arc.
 

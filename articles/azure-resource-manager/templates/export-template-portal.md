@@ -3,12 +3,12 @@ title: Exportación de plantilla en Azure Portal
 description: Use Azure Portal para exportar una plantilla de Azure Resource Manager desde los recursos de la suscripción.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6d0c9adb121372047336d2753df047f54f1e0fa2
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423242"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951764"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportación de uno y varios recursos a una plantilla en Azure Portal
 
@@ -49,11 +49,13 @@ Exporte la plantilla antes de la implementación o desde el historial cuando:
 
 Al realizar una exportación de un grupo de recursos o un recurso, la plantilla exportada se genera a partir de los [esquemas publicados](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) para cada tipo de recurso. En ocasiones, el esquema no tiene la versión más reciente de un tipo de recurso. Compruebe la plantilla exportada para asegurarse de que incluye las propiedades necesarias. Si es preciso, edite la plantilla exportada para usar la versión de API que necesite.
 
-La característica de exportación de plantillas no admite la exportación de recursos de Azure Data Factory. Para más información sobre cómo exportar recursos de Data Factory, consulte [Copia o clonación de una factoría de datos en Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+La característica de exportación de plantillas no admite la exportación de recursos de Azure Data Factory. Para más información sobre cómo exportar recursos de Data Factory, consulte [Copia o clonación de una factoría de datos en Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-Para exportar los recursos creados mediante el modelo de implementación clásica, debe [migrarlos al modelo de implementación de Resource Manager](https://aka.ms/migrateclassicresourcetoarm).
+Para exportar los recursos creados mediante el modelo de implementación clásica, debe [migrarlos al modelo de implementación de Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 Si recibe una advertencia al exportar una plantilla que indica que un tipo de recurso no se ha exportado, aún puede detectar las propiedades de ese recurso. Para obtener información sobre las distintas opciones para ver las propiedades de los recursos, consulte [Descubra las propiedades de los recursos](view-resources.md). También puede consultar la [API de REST de Azure](/rest/api/azure/) para el tipo de recurso.
+
+Hay un límite de 200 recursos en el grupo de recursos para el que se crea la plantilla exportada. Si intenta exportar un grupo de recursos con más de 200 recursos, se muestra el mensaje de error `Export template is not supported for resource groups more than 200 resources`.
 
 ## <a name="export-template-from-a-resource-group"></a>Exportación de la plantilla desde un grupo de recursos
 

@@ -2,17 +2,17 @@
 title: Métricas, alertas y registros de diagnóstico
 description: Registre y analice los eventos de registro de diagnóstico de los recursos de la cuenta de Azure Batch como tareas y grupos.
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: abf9ef53d3f2e3ffeffabfe9b7c77dc5c5debec3
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 265149e8d3cd775974ec690ebffbce92a1b82b2e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145086"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91848694"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
- 
+
 En este artículo se explica cómo supervisar una cuenta de Batch con las características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [métricas](../azure-monitor/platform/data-platform-metrics.md) y [registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) de recursos en la cuenta de Batch. Recopile y consuma estos datos de diversas maneras para supervisar la cuenta de Batch y diagnosticar problemas. También puede configurar [alertas de métricas](../azure-monitor/platform/alerts-overview.md) para recibir notificaciones cuando una métrica alcance un valor especificado.
 
 ## <a name="batch-metrics"></a>Métricas de Batch
@@ -57,7 +57,7 @@ Puede configurar *alertas de métricas* casi en tiempo real que se desencadenen 
 
 No se recomienda generar alertas que se desencadenen en un único punto de datos, ya que las métricas están sujetas a entregas desordenadas, pérdidas de datos o duplicaciones. Al crear alertas, puede usar umbrales para tener en cuenta estas incoherencias.
 
-Por ejemplo, podría configurar una alerta de métrica cuando el recuento de núcleos de baja prioridad caiga hasta cierto punto, y así poder ajustar la composición de los grupos. Para obtener mejores resultados, establezca un período de 10 minutos o más en el que se desencadenen alertas si el recuento promedio de núcleos de prioridad baja cae por debajo del valor de umbral en todo el período. Esto deja más tiempo para que se agreguen métricas y así obtener resultados más precisos. 
+Por ejemplo, podría configurar una alerta de métrica cuando el recuento de núcleos de baja prioridad caiga hasta cierto punto, y así poder ajustar la composición de los grupos. Para obtener mejores resultados, establezca un período de 10 minutos o más en el que se desencadenen alertas si el recuento promedio de núcleos de prioridad baja cae por debajo del valor de umbral en todo el período. Esto deja más tiempo para que se agreguen métricas y así obtener resultados más precisos.
 
 Para configurar una alerta de métrica en Azure Portal:
 
@@ -87,11 +87,11 @@ Un escenario común consiste en seleccionar una cuenta de Azure Storage como des
 
 Como alternativa, puede:
 
-- Transmita los eventos de registro de diagnóstico de Batch a un [centro de eventos de Azure](../event-hubs/event-hubs-about.md). Event Hubs puede ingerir millones de eventos por segundo, que posteriormente se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real. 
+- Transmita los eventos de registro de diagnóstico de Batch a un [centro de eventos de Azure](../event-hubs/event-hubs-about.md). Event Hubs puede ingerir millones de eventos por segundo, que posteriormente se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real.
 - Envíe los registros de diagnóstico a los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md), donde puede analizarlos o exportarlos para su análisis en Power BI o Excel.
 
 > [!NOTE]
-> Es posible que el almacenamiento o el procesamiento de datos de registro de diagnóstico con servicios de Azure conlleve costos adicionales. 
+> Es posible que el almacenamiento o el procesamiento de datos de registro de diagnóstico con servicios de Azure conlleve costos adicionales.
 
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>Habilitación de la recopilación de registros de diagnóstico de Batch
 
@@ -155,7 +155,7 @@ Los registros de servicio de Azure Batch, cuando se recopilan, contienen los eve
     },
     "resizeTimeout": "300000",
     "targetDedicatedComputeNodes": 2,
-    "maxTasksPerNode": 1,
+    "taskSlotsPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoscale": false,
     "enableInterNodeCommunication": false,
@@ -170,9 +170,11 @@ Los eventos de registro de servicio emitidos por el servicio Batch incluyen los 
 - [Finalización de eliminación del grupo](batch-pool-delete-complete-event.md)
 - [Inicio de cambio de tamaño del grupo](batch-pool-resize-start-event.md)
 - [Finalización de cambio de tamaño del grupo](batch-pool-resize-complete-event.md)
+- [Escalabilidad automática de grupo](batch-pool-autoscale-event.md)
 - [Inicio de tarea](batch-task-start-event.md)
 - [Finalización de tarea](batch-task-complete-event.md)
 - [Error en la tarea](batch-task-fail-event.md)
+- [Error en programación de tareas](batch-task-schedule-fail-event.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

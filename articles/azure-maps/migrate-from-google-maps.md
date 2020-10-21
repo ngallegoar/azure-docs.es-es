@@ -1,22 +1,22 @@
 ---
-title: Migración de Google Maps a Azure Maps | Microsoft Azure Maps
-description: Procedimiento de migración de Google Maps a Microsoft Azure Maps. Este documento le guiará por los pasos para cambiar a las API y los SDK de Azure Maps.
+title: 'Tutorial: Migración de Google Maps a Azure Maps | Microsoft Azure Maps'
+description: Tutorial sobre la migración de Google Maps a Microsoft Azure Maps. Este documento le guiará por los pasos para cambiar a las API y los SDK de Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 09/23/2020
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: c60890b301ba650c95584e33b5326217086c08c4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee7eda58c211ca570b052d55c813999e62b95fde
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264174"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876318"
 ---
-# <a name="migrate-from-google-maps-to-azure-maps"></a>Migración de Google Maps a Azure Maps
+# <a name="tutorial---migrate-from-google-maps-to-azure-maps"></a>Tutorial: Migración de Google Maps a Azure Maps
 
 En este artículo se proporciona información sobre cómo migrar aplicaciones web, para dispositivos móviles y basadas en servidor de Google Maps a la plataforma Microsoft Azure Maps. En este tutorial se incluyen ejemplos de código comparativos, sugerencias de migración y procedimientos recomendados para migrar a Azure Maps.
 

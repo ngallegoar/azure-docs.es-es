@@ -1,5 +1,5 @@
 ---
-title: Escalado y protección de una aplicación web mediante Azure Front Door y WAF
+title: 'Tutorial: Escalado y protección de una aplicación web mediante Azure Front Door y Azure Web Application Firewall (WAF)'
 description: En este tutorial se le mostrará cómo usar Azure Web Application Firewall con Azure Front Door Service.
 services: frontdoor
 documentationcenter: ''
@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: 2d531289a1d6e8c484b0334e570d943acdb82268
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c5e938f985296e0534ca6e2438cf3acedb0fb65
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276289"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91626486"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Tutorial: Escalado y protección rápidos de una aplicación web mediante Azure Front Door y Azure Web Application Firewall (WAF)
 
-En muchas aplicaciones web se ha producido un rápido aumento del tráfico en las últimas semanas con motivo de la COVID-19. También están experimentando un aumento en el tráfico malintencionado, incluidos los ataques por denegación de servicio. Existe una manera eficaz de realizar el escalado horizontal para las sobrecargas de tráfico y, al mismo tiempo, protegerse de ataques: configurar Azure Front Door con Azure WAF como un nivel de aceleración, almacenamiento en caché y seguridad frente a la aplicación web. En este artículo se proporcionan instrucciones sobre cómo obtener rápidamente esta configuración de Azure Front Door con Azure WAF para cualquier aplicación web que se ejecute dentro o fuera de Azure. 
+En muchas aplicaciones web se ha producido un rápido aumento del tráfico en las últimas semanas con motivo de la COVID-19. También están experimentando un aumento en el tráfico malintencionado, incluidos los ataques por denegación de servicio. Existe una manera eficaz de realizar el escalado horizontal de la aplicación para las sobrecargas de tráfico y, al mismo tiempo, protegerse de ataques: configurar Azure Front Door con Azure WAF como una capa de aceleración, almacenamiento en caché y seguridad frente a la aplicación web. En este artículo se proporcionan instrucciones sobre cómo obtener esta configuración de Azure Front Door con Azure WAF para cualquier aplicación web que se ejecute dentro o fuera de Azure. 
 
 Usaremos la CLI de Azure para configurar WAF en este tutorial. Puede realizar lo mismo mediante Azure Portal, Azure PowerShell, Azure Resource Manager o las API de REST de Azure. 
 
@@ -36,7 +36,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Las instrucciones de este tutorial utilizan la CLI de Azure. [Consulte esta guía](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) para empezar a utilizar la CLI de Azure.
+- Las instrucciones de este tutorial utilizan la CLI de Azure. [Consulte esta guía](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true) para empezar a utilizar la CLI de Azure.
 
   > [!TIP] 
   > Una forma sencilla y rápida de empezar a trabajar en la CLI de Azure es con [Bash en Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
@@ -48,7 +48,7 @@ En este tutorial, aprenderá a:
    ```
 
 > [!NOTE] 
-> Para más información sobre los comandos utilizados en este tutorial, consulte la [referencia de la CLI de Azure para Front Door](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest).
+> Para más información sobre los comandos utilizados en este tutorial, consulte la [referencia de la CLI de Azure para Front Door](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="create-an-azure-front-door-resource"></a>Creación de un recurso de Azure Front Door
 
@@ -121,7 +121,7 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 
 `--resource-group`: grupo de recursos en el que colocó el recurso de Azure Front Door.
 
-`--set`: Aquí es donde se actualiza el atributo `WebApplicationFirewallPolicyLink` del elemento `frontendEndpoint` asociado al recurso de Azure Front Door con la nueva directiva WAF. Debe tener el identificador de la directiva WAF de la respuesta que obtuvo al crear el perfil de WAF anteriormente en este tutorial.
+`--set`: Aquí es donde se actualiza el atributo `WebApplicationFirewallPolicyLink` del elemento `frontendEndpoint` asociado con el recurso de Azure Front Door con la nueva directiva WAF. Debe tener el identificador de la directiva WAF de la respuesta que obtuvo al crear el perfil de WAF anteriormente en este tutorial.
 
  > [!NOTE] 
 > El ejemplo anterior es aplicable cuando no se usa un dominio personalizado. Si no usa dominios personalizados para acceder a las aplicaciones web, puede omitir la sección siguiente. En ese caso, proporcionará a los clientes el elemento `hostName` obtenido al crear el recurso de Azure Front Door. Usarán este elemento `hostName` para ir a su aplicación web.
@@ -132,19 +132,19 @@ El nombre de dominio personalizado de la aplicación web es el que los clientes 
 
 Los pasos específicos para actualizar los registros de DNS dependerán de su proveedor de servicios DNS. Si usa Azure DNS para hospedar su nombre DNS, puede consultar la documentación para conocer los [pasos para actualizar un registro de DNS](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) y apuntar al elemento `hostName` de Azure Front Door. 
 
-Hay una cuestión importante a tener en cuenta si necesita que los clientes accedan a su sitio web mediante el vértice de zona (por ejemplo, contoso.com). En este caso, debe usar Azure DNS y su [tipo de registro de alias](https://docs.microsoft.com/azure/dns/dns-alias) para hospedar su nombre DNS. 
+Hay una cuestión importante que tener en cuenta si necesita que los clientes accedan a su sitio web mediante el vértice de zona (por ejemplo, contoso.com). En este caso, debe usar Azure DNS y su [tipo de registro de alias](https://docs.microsoft.com/azure/dns/dns-alias) para hospedar su nombre DNS. 
 
 Además, también debe actualizar la configuración de Azure Front Door para [agregar el dominio personalizado](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain), de modo que tenga en cuenta esta asignación.
 
-Por último, si usa un dominio personalizado para llegar a la aplicación web y desea habilitar el protocolo HTTPS, debe [configurar los certificados del dominio personalizado en Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
+Por último, si está usando un dominio personalizado para llegar a la aplicación web y quiere habilitar el protocolo HTTPS, debe [configurar los certificados para el dominio personalizado en Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
 
 ## <a name="lock-down-your-web-application"></a>Bloqueo de la aplicación web
 
-Se recomienda asegurarse de que solo los bordes de Azure Front Door pueden comunicarse con la aplicación web. De este modo, se asegurará de que nadie pueda omitir la protección de Azure Front Door y acceder a la aplicación directamente. Para lograr este bloqueo, consulte [¿Cómo puedo hacer que Azure Front Door sea el único que tenga acceso a mi back-end?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+Se recomienda asegurarse de que solo los perímetros de Azure Front Door pueden comunicarse con la aplicación web. De este modo, se asegurará de que nadie pueda omitir la protección de Azure Front Door y acceder a la aplicación directamente. Para lograr este bloqueo, consulte [¿Cómo puedo hacer que Azure Front Door sea el único que tenga acceso a mi back-end?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no necesite los recursos de este tutorial, use el comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) para eliminar el grupo de recursos, Front Door y la directiva WAF.
+Cuando ya no necesite los recursos de este tutorial, use el comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) para eliminar el grupo de recursos, Front Door y la directiva WAF.
 
 ```azurecli-interactive
   az group delete \
@@ -158,6 +158,3 @@ Para obtener información sobre cómo solucionar problemas de Front Door, consul
 
 > [!div class="nextstepaction"]
 > [Solución de problemas comunes de enrutamiento](front-door-troubleshoot-routing.md)
-
-> [!div class="nextstepaction"]
-> [Entidades de certificación permitidas](https://docs.microsoft.com/azure/frontdoor/front-door-troubleshoot-allowed-ca)

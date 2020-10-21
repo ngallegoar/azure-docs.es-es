@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de definición de iniciativa
 description: Describe cómo se usan las definiciones de iniciativa de directiva para agrupar definiciones de directiva para la implementación en los recursos de Azure de la organización.
-ms.date: 08/17/2020
+ms.date: 10/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b4adf15193e2cd1b9e516a04c7c989dc442ee9
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8f9c6146e1dde5b5a7f6595c61638319de60a82d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048506"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876182"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Estructura de definición de iniciativa de Azure Policy
 
@@ -248,19 +248,18 @@ Este es un ejemplo de `policyDefinitions` con dos definiciones de directiva incl
 ]
 ```
 
-## <a name="policy-definitions-groups-preview"></a><a name="policy-definition-groups"></a>Grupos de definiciones de directiva (versión preliminar)
+## <a name="policy-definition-groups"></a>Grupos de definición de directiva
 
-Como parte de la característica [Cumplimiento reglamentario](./regulatory-compliance.md) (versión preliminar) de Azure Policy, es posible agrupar definiciones de directiva en una definición de iniciativa. Esta información se define en la propiedad _array_ `policyDefinitionGroups`. Estas agrupaciones tienen detalles adicionales, como el **control** y el **dominio de cumplimiento**, para los que la definición de directiva proporciona cobertura.
-Se pueden encontrar más detalles de las agrupaciones en un objeto **policyMetadata** que crea Microsoft. Para obtener más información, vea [Objetos de metadatos](#metadata-objects).
+Las definiciones de directiva en una definición de iniciativa se pueden agrupar y clasificar. La característica de [cumplimiento normativo](./regulatory-compliance.md) de Azure Policy (versión preliminar) utiliza esta propiedad para agrupar definiciones en **controles** y **dominios de cumplimiento**. Esta información se define en la propiedad _array_ `policyDefinitionGroups`. Se pueden encontrar más detalles de las agrupaciones en un objeto **policyMetadata** que crea Microsoft. Para obtener más información, vea [Objetos de metadatos](#metadata-objects).
 
 ### <a name="policy-definition-groups-parameters"></a>Parámetros de grupos de definiciones de directiva
 
 Cada elemento _array_ de `policyDefinitionGroups` debe tener las siguientes propiedades:
 
-- `name` (cadena) \[obligatorio\]: nombre corto del **control**. El valor de esta propiedad lo usa `groupNames` en `policyDefinitions`.
-- `category` (cadena): **dominio de cumplimiento** del control.
-- `displayName` (cadena): nombre descriptivo del **control**. Lo usa el portal.
-- `description` (cadena): descripción de lo que hace el **control**.
+- `name` (cadena) \[obligatorio\]: nombre corto del **grupo**. En el cumplimiento normativo, el **control**. El valor de esta propiedad lo usa `groupNames` en `policyDefinitions`.
+- `category` (cadena): La jerarquía a la que pertenece el grupo. En el cumplimiento normativo, el **dominio de cumplimiento** del control.
+- `displayName` (cadena): nombre descriptivo del **grupo** o **control**. Lo usa el portal.
+- `description` (cadena): descripción de lo que cubre el **grupo** o **control**.
 - `additionalMetadataId` (cadena): ubicación del objeto [policyMetadata](#metadata-objects) que contiene detalles adicionales sobre el **control** y el **dominio de cumplimiento**.
 
   > [!NOTE]

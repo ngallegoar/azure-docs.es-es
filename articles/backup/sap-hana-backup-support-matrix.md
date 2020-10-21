@@ -4,12 +4,12 @@ description: En este artículo se proporciona información sobre los escenarios 
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: e3bfc5ab9a91ae3aee73d7ed24161acae60211ce
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a3ad68fcaaa820daca842d567ecd40f011df729f
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022333"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946372"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de compatibilidad de la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -32,7 +32,7 @@ Azure Backup admite la realización de copias de seguridad de bases de datos de 
 | **Tamaño de base de datos de HANA**     | Bases de datos de HANA de tamaño menor o igual que 2 TB (este tamaño no es el de la memoria del sistema de HANA)               |                                                              |
 | **Tipos de copia de seguridad**           | Copias de seguridad completas, diferenciales y de registros                          | Incrementales, instantáneas                                       |
 | **Tipos de restauración**          | Consulte la nota SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) para obtener información sobre los tipos de restauración admitidos |                                                              |
-| **Límites de copia de seguridad**          | Copias de seguridad completas de hasta 2 TB por instancia de SAP HANA         |                                                              |
+| **Límites de copia de seguridad**          | Copias de seguridad completas de hasta 2 TB por instancia de SAP HANA (límite temporal)         |                                                              |
 | **Configuraciones especiales** |                                                              | SAP HANA y Dynamic Tiering <br>  Clonación a través de LaMa        |
 
 ------

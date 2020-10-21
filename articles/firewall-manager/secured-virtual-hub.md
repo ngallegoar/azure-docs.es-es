@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/12/2020
 ms.author: victorh
-ms.openlocfilehash: 56e0d40bcbfb97f57b63dc82da1a6604f83dffad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c840bf9e82b8dcdb1fbf9b380ea847b3d1b08dd9
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563622"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948075"
 ---
 # <a name="what-is-a-secured-virtual-hub"></a>¿Qué es un centro virtual protegido?
 
@@ -20,9 +20,9 @@ Un centro virtual es una red virtual administrada por Microsoft que permite la c
 
 Un centro virtual *protegido* es un [centro de conectividad de Azure Virtual WAN](../virtual-wan/virtual-wan-about.md#resources) con directivas de enrutamiento y seguridad asociadas configuradas por Azure Firewall Manager. Use centros virtuales protegidos para crear fácilmente arquitecturas radiales y transitivas con servicios de seguridad nativos para la protección y la gobernanza del tráfico. 
 
-Puede usar un centro virtual protegido como red virtual central administrada sin conectividad local. Reemplaza la red virtual central que se necesitaba anteriormente para una implementación de Azure Firewall. Dado que el centro virtual protegido proporciona enrutamiento automatizado, no es necesario configurar sus propias UDR (rutas definidas por el usuario) para enrutar el tráfico a través del firewall.
+Puede usar un centro virtual protegido para filtrar el tráfico entre redes virtuales (V2V), redes virtuales y sucursales (B2V) y el tráfico a Internet (B2I/V2I). Un centro virtual protegido proporciona enrutamiento automatizado. Por ello, no es necesario configurar sus propias UDR (rutas definidas por el usuario) para enrutar el tráfico a través del firewall.
 
-También es posible usar los centros virtuales protegidos como parte de una arquitectura de Virtual WAN completa. Esta arquitectura proporciona una conectividad de rama protegida, optimizada y automatizada desde y hacia Azure. Puede elegir los servicios para proteger y controlar el tráfico de red, incluido Azure Firewall y otros proveedores de seguridad como servicio (SECaaS) externos.
+Puede elegir los proveedores de seguridad necesarios para proteger y controlar el tráfico de red, incluido Azure Firewall, proveedores de seguridad como servicio (SECaaS) externos o ambos. Actualmente, un centro protegido no admite el filtrado de sucursal a sucursal (B2B) y el filtrado entre varios centros. Para obtener más información, vea [¿Qué es Azure Firewall Manager?](overview.md#known-issues). 
 
 ## <a name="create-a-secured-virtual-hub"></a>Crear un centro virtual protegido
 

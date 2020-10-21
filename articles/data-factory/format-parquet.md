@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/27/2020
 ms.author: jingwang
-ms.openlocfilehash: 91455e4797324f28f911dd8a928410517a951728
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: c99225b53266fc74ea357151de824cd8d8ed2088
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531753"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946151"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato Parquet en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -79,7 +79,7 @@ En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes
 
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La propiedad type del origen de la actividad de copia debe establecerse en **ParquetSink**. | Sí      |
+| type          | La propiedad type del receptor de la actividad de copia debe establecerse en **ParquetSink**. | Sí      |
 | formatSettings | Un grupo de propiedades. Consulte la tabla **Configuración de escritura de Parquet** a continuación. |    No      |
 | storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | No       |
 
@@ -108,6 +108,7 @@ En la tabla siguiente se enumeran las propiedades que un origen Parquet admite. 
 | Columna para almacenar el nombre de archivo | Se crea una nueva columna con el nombre y la ruta de acceso del archivo de origen. | no | String | rowUrlColumn |
 | Después de finalizar | Se eliminan o mueven los archivos después del procesamiento. La ruta de acceso del archivo comienza en la raíz del contenedor. | no | Borrar: `true` o `false` <br> Mover: `[<from>, <to>]` | purgeFiles <br> moveFiles |
 | Filtrar por última modificación | Elija si desea filtrar los archivos en función de cuándo se modificaron por última vez. | no | Timestamp | modifiedAfter <br> modifiedBefore |
+| No permitir que se encuentren archivos | Si es true, no se devuelve un error si no se encuentra ningún archivo. | no | `true` o `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Ejemplo de origen
 
@@ -126,7 +127,7 @@ source(allowSchemaDrift: true,
 
 ### <a name="sink-properties"></a>Propiedades del receptor
 
-En la tabla siguiente se enumeran las propiedades que un origen Parquet admite. Puede editar estas propiedades en la pestaña **Source options** (Opciones del origen).
+En la tabla siguiente se enumeran las propiedades que un receptor Parquet admite. Puede editar estas propiedades en la pestaña **Configuración**.
 
 | Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -155,7 +156,7 @@ ParquetSource sink(
 
 ## <a name="data-type-support"></a>Compatibilidad con tipos de datos
 
-Actualmente no se admiten los tipos de datos complejos de Parquet (por ejemplo, MAP, LIST, STRUCT).
+Actualmente, los tipos de datos complejos de Parquet (por ejemplo, MAP, LIST, STRUCT) solo se admiten en los flujos de datos, no en la actividad de copia. Para usar tipos complejos en flujos de datos, no importe el esquema de archivo en el conjunto de datos y deje el esquema en blanco en el conjunto de datos. A continuación, en la transformación de origen, importe la proyección.
 
 ## <a name="using-self-hosted-integration-runtime"></a>Uso del entorno de ejecución de integración autohospedado
 

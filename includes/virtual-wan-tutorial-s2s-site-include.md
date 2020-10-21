@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ba69b94514a0c1b59001011a64a4fb28e5e4a827
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 7bb4974620323de45fd621ae2ed73d3655244d8b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90606519"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856739"
 ---
 1. En la página del portal de la WAN virtual, en la sección **Conectividad**, seleccione **Sitios VPN** para abrir la página de sitios VPN.
 2. En la página **Sitios de VPN**, haga clic en **+Crear sitio**.
@@ -26,6 +26,10 @@ ms.locfileid: "90606519"
     * **Proveedor del dispositivos**: el nombre del proveedor del dispositivo VPN (por ejemplo: Citrix, Cisco, Barracuda). Esto puede ayudar al equipo de Azure a comprender mejor su entorno para agregar las posibilidades de optimización adicionales en el futuro, así como para ayudarle a solucionar problemas.
     * **Border Gateway Protocol**: su habilitación implica que todas las conexiones del sitio estarán habilitadas para BGP. En su momento configurará la información de BGP para cada vínculo desde el sitio VPN en la sección Vínculos. La configuración de BGP en una instancia de Virtual WAN es equivalente a la configuración de BGP en una VPN de puerta de enlace de red virtual de Azure. Su dirección del par BGP local no puede ser la misma que la dirección IP pública del dispositivo VPN, ni que el espacio de direcciones de red virtual del sitio VPN. Use otra dirección IP en el dispositivo VPN para la dirección IP del par BGP. Puede ser una dirección asignada a la interfaz de bucle invertido en el dispositivo. Especifique esta dirección en el sitio VPN correspondiente que representa la ubicación. Para conocer los requisitos previos de BGP, consulte [Acerca de BGP con Azure VPN Gateway](../articles/vpn-gateway/vpn-gateway-bgp-overview.md). Siempre tiene la opción de editar una conexión VPN para actualizar sus parámetros BGP (IP de emparejamiento en el vínculo y el número de espacio de direcciones) una vez que esté habilitado el valor de BGP del sitio VPN.
     * **Espacio de direcciones privadas**: es el espacio de direcciones IP que se encuentra en el sitio local. El tráfico destinado a este espacio de direcciones se enruta al sitio local. Esto es necesario cuando no se habilita BGP para el sitio.
+    
+      >[!NOTE]
+      >Si edita el espacio de direcciones después de crear el sitio (por ejemplo, agrega un espacio de direcciones adicional), puede tardar entre 8 y 10 minutos en actualizar las rutas efectivas mientras se recrean los componentes.
+      >
     * **Centros de conectividad**: el centro de conectividad al que desea que se conecte el sitio. Un sitio solo se puede conectar a los centros de conectividad que tienen una instancia de VPN Gateway. Si no puede ver un centro de conectividad, cree primero una puerta de enlace de VPN en ese centro.
 4. Seleccione **Vínculos** para agregar información sobre los vínculos físicos en la rama. Si tiene un dispositivo CPE de asociado de Virtual WAN, consulte con su asociado para ver si esta información se intercambia con Azure como parte de la configuración de carga de información de la rama desde sus sistemas.
 

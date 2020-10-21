@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 19c09bd03a3d1eb3b16f69b9a605a4ccb763030a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437401"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91619549"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación de un solo inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ En este tutorial, aprenderá a:
 > - Consultar la base de datos de análisis.
 > - Usar Power BI para la visualización de datos para resaltar tendencias en los datos de inquilino y hacer recomendaciones para mejoras.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
+![En el diagrama se muestra información general sobre la arquitectura usada para este artículo.](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
 
 ## <a name="offline-tenant-analytics-pattern"></a>Patrón de análisis de inquilinos sin conexión
 
@@ -138,7 +138,7 @@ Cada trabajo extrae sus datos y los introduce en el almacén de análisis. Ahí,
 4. Presione F5 para ejecutar el script que crea y ejecuta el trabajo que extrae los datos de las entradas y los clientes de cada base de datos de inquilino. El trabajo guarda los datos en el almacén de análisis.
 5. Consulte la tabla TicketsRawData en la base de datos tenantanalytics, para asegurarse de que la tabla se rellena con la información de las entradas de todos los inquilinos.
 
-![ticketExtracts](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
+![En la captura de pantalla se muestra la base de datos ExtractTickets con el elemento dbo.TicketsRawData seleccionado en el Explorador de objetos.](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
 
 Repita los pasos anteriores, excepto esta sustitución de tiempo de **\ExtractTickets.sql** por **\ExtractVenuesEvents.sql** en el paso 2.
 
@@ -177,7 +177,7 @@ Siga estos pasos para conectarse a Power BI e importar las vistas creadas anteri
 
 5. Seleccione **Base de datos** en el panel izquierdo y escriba los valores de user name = *developer* y password = *P\@ssword1*. Haga clic en **Conectar**.  
 
-    ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![En la captura de pantalla se muestra el cuadro de diálogo de la base de datos de SQL Server, desde donde puede especificar un nombre de usuario y una contraseña.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. En el panel **Navegador**, debajo de la base de datos de análisis, seleccione las tablas del esquema de estrella: fact_Tickets, dim_Events, dim_Venues, dim_Customers y dim_Dates. Después seleccione **Cargar**. 
 
@@ -185,13 +185,13 @@ Felicidades. Ha cargado los datos correctamente en Power BI. Ahora puede empezar
 
 Primero debe analizar los datos de ventas de entradas para ver la variación del uso entre los distintos lugares. Seleccione las opciones siguientes en Power BI para trazar un gráfico de barras del número total de entradas vendidas en cada lugar. Debido a la variación aleatoria del generador de entradas, los resultados pueden ser diferentes.
  
-![TotalTicketsByVenues](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
+![En la captura de pantalla se muestra una visualización de Power BI y controles para la visualización de datos a la derecha.](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
 
 El gráfico anterior confirma que el número de entradas vendidas en cada lugar varía. Los lugares que venden más entradas usan su servicio con mayor frecuencia que aquellos que venden menos. En este caso, puede haber una oportunidad de adaptar la asignación de recursos a las diferentes necesidades de los inquilinos.
 
 Puede analizar aún más los datos para ver cómo varían las ventas de entradas con el paso del tiempo. Seleccione las opciones siguientes en Power BI para trazar un gráfico de barras del número total de entradas vendidas cada día durante un período de sesenta días.
  
-![SaleVersusDate](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
+![En la captura de pantalla se muestra una visualización de Power BI titulada Ticket Sale Distribution (Distribución de venta de entradas) comparada con Sale Day (Día de ventas).](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
 
 En el gráfico anterior se muestra que las ventas de entradas presentan picos en algunos lugares. Estos picos refuerzan la idea de que algunos lugares pueden estar consumiendo recursos del sistema de manera desproporcionada. Hasta ahora no hay ningún patrón obvio de cuándo se producen los picos.
 
@@ -217,7 +217,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 Seleccione las siguientes opciones de visualización para obtener un gráfico del porcentaje de entradas vendidas en cada lugar para determinar su éxito relativo.
 
-![AvgTicketsByVenues](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
+![La captura de pantalla muestra una visualización de Power BI titulada Average Tickets Sold By Each Venue.](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
 
 En el gráfico anterior se refleja que, aunque la mayoría de los lugares venden más del 80 % de las entradas, algunos se esfuerzan por llegar a más de la mitad del aforo. Practique con los valores Well para seleccionar los porcentajes máximo y mínimo de las entradas vendidas en cada lugar.
 

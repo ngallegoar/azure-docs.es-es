@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 286d8d8c202a4fc59a18501eff16a569e2d09047
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 71eb49c84b8ab92c9ba2ad8e05e8d74054bd4ee7
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318052"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938838"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solución Azure Key Vault Analytics en Azure Monitor
 
@@ -42,10 +42,10 @@ Para instalar y configurar la solución de Azure Key Vault, siga estas instrucci
 1. En Azure Portal, navegue hasta el recurso de Key Vault que se va a supervisar.
 2. Seleccione *Configuración de diagnóstico* para abrir la página siguiente.
 
-   ![imagen del icono de Azure Key Vault](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![Captura de pantalla de la página de configuración de diagnóstico para el recurso ContosoKVSCUS de Key Vault. La opción para activar los diagnósticos está resaltada.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Haga clic en *Activar diagnósticos* para abrir la página siguiente.
 
-   ![imagen del icono de Azure Key Vault](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![Captura de pantalla de la página para configurar las opciones de diagnóstico. Se seleccionan las opciones para enviar a Log Analytics, registro de AuditEvent y AllMetrics.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Asigne un nombre a la configuración de diagnóstico.
 5. Haga clic en la casilla *Send to Log Analytics* (Enviar a Log Analytics).
 6. Seleccione un área de trabajo de Log Analytics existente o cree un área de trabajo.
@@ -75,9 +75,9 @@ En la siguiente tabla se muestran los métodos de recopilación de datos y otros
 | Azure |  |  |&#8226; |  |  | a la llegada |
 
 ## <a name="use-azure-key-vault"></a>Uso de Azure Key Vault
-Después de [instalar la solución](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), vea los datos de Key Vault haciendo clic en el icono de **Key Vault Analytics** desde la página **Información general** de Azure Monitor. Abra esta página desde el menú **Azure Monitor** haciendo clic en **Más** en la sección **Conocimiento**. 
+Después de [instalar la solución](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?source=intercept.nl&tab=Overview), vea los datos de Key Vault haciendo clic en el icono de **Key Vault Analytics** desde la página **Información general** de Azure Monitor. Abra esta página desde el menú **Azure Monitor** haciendo clic en **Más** en la sección **Conocimiento**. 
 
-![imagen del icono de Azure Key Vault](media/azure-key-vault/log-analytics-keyvault-tile.png)
+![Captura de pantalla del icono de Key Vault Analytics en la página de información general de Azure Monitor que muestra un gráfico de volumen de operaciones del almacén de claves a lo largo del tiempo.](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
 Tras hacer clic en el icono de **Key Vault Analytics**, puede ver resúmenes de los registros y desplazarse hasta los detalles de las categorías siguientes:
 
@@ -86,9 +86,9 @@ Tras hacer clic en el icono de **Key Vault Analytics**, puede ver resúmenes de 
 * Promedio de latencia operacional por operación
 * Calidad de servicio para las operaciones con el número de operaciones que requieren más de 1000 ms y una lista de las operaciones que tardan más de 1000 ms
 
-![imagen del panel de Azure Key Vault](media/azure-key-vault/log-analytics-keyvault01.png)
+![Captura de pantalla del panel de Azure Key Vault que muestra mosaicos con datos gráficos para Todas las operaciones, Operaciones con error y Promedio de latencia operativa.](media/azure-key-vault/log-analytics-keyvault01.png)
 
-![imagen del panel de Azure Key Vault](media/azure-key-vault/log-analytics-keyvault02.png)
+![Captura de pantalla del panel de Azure Key Vault que muestra iconos con datos para Promedio de latencia operativa, Calidad de servicio y Búsquedas recomendadas.](media/azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Visualización de detalles de cualquier operación
 1. En la página **Información general**, haga clic en el icono de **Key Vault Analytics**.

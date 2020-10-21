@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 68ddbe73bcf4c0e934a5a8be0246214086a7618c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 98e4a5097f1ebd26c54d1e0de9bda7ca2055c320
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302050"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950744"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explore y administre los recursos con las herramientas de administración e inventario de recursos.
 
@@ -33,7 +33,7 @@ Use esta vista y sus filtros para abordar preguntas como:
 Las posibilidades de administración de recursos de esta herramienta son sustanciales y continúan creciendo. 
 
 > [!TIP]
-> Las recomendaciones de seguridad son las mismas que las de la página **Recomendaciones**, pero aquí están filtradas por el tipo de recurso específico que ha seleccionado. Para más información sobre cómo resolver las recomendaciones, consulte [Implementación de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
+> Las recomendaciones de seguridad de la página del inventario de recursos son las mismas que las de la página **Recomendaciones**, pero aquí se muestran según el recurso afectado. Para más información sobre cómo resolver las recomendaciones, consulte [Implementación de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
 
 
 ## <a name="availability"></a>Disponibilidad

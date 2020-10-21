@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: cda4aa9a811bac0ccf20caec32ee38da9b46b6c7
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 93fde2d20aaa5b7bac4adc6f1d7fb076569e4bb8
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613771"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893567"
 ---
 # <a name="color-materials"></a>Materiales de color
 
@@ -36,6 +36,8 @@ Estas propiedades son comunes para todos los materiales:
 * **useVertexColor:** si la malla contiene colores de :::no-loc text="vertex"::: y esta opción está habilitada, el color de los :::no-loc text="vertex"::: de las mallas se multiplica en *albedoColor* y *albedoMap*. De forma predeterminada, *useVertexColor* está deshabilitado.
 
 * **isDoubleSided:** si el valor de doble cara está establecido en true, los triángulos con este material se representan aunque la cámara apunte a sus caras posteriores. Esta opción está deshabilitada de manera predeterminada. Consulte también [Representación :::no-loc text="Single-sided":::](single-sided-rendering.md).
+
+* **TransparencyWritesDepth:** Si la marca TransparencyWritesDepth se establece en el material y el material es transparente, los objetos que usen este material también contribuirán al búfer de profundidad final. Vea la propiedad de material de color *transparencyMode* en la sección siguiente. La habilitación de esta característica se recomienda si el caso de uso necesita una [reproyección en fase más tardía](late-stage-reprojection.md) más plausible de escenas completamente transparentes. En el caso de escenas transparentes u opacas mixtas, este valor puede presentar artefactos de reproyección o un comportamiento de reproyección improbable. Por esta razón, la configuración predeterminada y recomendada para el caso de uso general es deshabilitar esta marca. Los valores de profundidad escritos se toman de la capa de profundidad por píxel del objeto más cercano a la cámara.
 
 ## <a name="color-material-properties"></a>Propiedades de material de color
 

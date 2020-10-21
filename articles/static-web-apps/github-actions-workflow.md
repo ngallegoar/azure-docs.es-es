@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 92d445991aa8b90a343ad7d015787cff35ddf183
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d4a455458812bef1d79aba583a6317c08b65863
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340938"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948381"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flujos de trabajo de acciones de GitHub para la versión preliminar de Azure Static Web Apps
 
@@ -152,7 +152,7 @@ La implementación siempre llama a `npm install` antes de cualquier comando pers
 
 | Get-Help            | Descripción |
 |---------------------|-------------|
-| `app_build_command` | Define un comando personalizado para que se ejecute durante la implementación de la aplicación de contenido estático.<br><br>Por ejemplo, para configurar la compilación de producción de una aplicación con Angular, escriba `ng build --prod`. Si se deja en blanco, el flujo de trabajo intenta ejecutar los comandos `npm run build` o `npm run build:Azure`.  |
+| `app_build_command` | Define un comando personalizado para que se ejecute durante la implementación de la aplicación de contenido estático.<br><br>Por ejemplo, para configurar una compilación de producción para una aplicación angular, cree un script NPM denominado `build-prod` para ejecutar `ng build --prod` y escriba `npm run build-prod` como comando personalizado. Si se deja en blanco, el flujo de trabajo intenta ejecutar los comandos `npm run build` o `npm run build:Azure`.  |
 | `api_build_command` | Define un comando personalizado para que se ejecute durante la implementación de la aplicación de la API de Azure Functions. |
 
 ## <a name="route-file-location"></a>Ubicación del archivo de rutas

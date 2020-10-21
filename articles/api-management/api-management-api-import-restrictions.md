@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 86ed7f3941965bcac525a2ba71786d20a4753489
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6a53cc2b2ec6d46b4bde54af58b4e5542ff6cf79
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335507"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932641"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restricciones de importación de API y problemas conocidos
 
@@ -42,6 +42,7 @@ Si recibe errores al importar el documento de OpenAPI, asegúrese de haberlo val
 -   Se omiten las definiciones de seguridad.
 -   No se admiten las definiciones de esquemas alineadas para las operaciones de API. Las definiciones de esquema se definen en el ámbito de la API y se puede hacer referencia a ellas en los ámbitos de solicitud o respuesta de operaciones de API.
 -   Un parámetro de dirección URL definido debe formar parte de la plantilla de dirección URL.
+-   El objeto `server` no se admite en el nivel de operación de API.
 -   `Produces` no se admite la palabra clave, que describe los tipos MIME devueltos por una API. 
 
 ### <a name="openapi-version-2"></a><a name="open-api-v2"> </a>OpenAPI versión 2

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235543"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91629019"
 ---
 # <a name="on-demand-provisioning"></a>Aprovisionamiento a petición
 Use el aprovisionamiento a petición para aprovisionar un usuario en una aplicación en cuestión de segundos. Entre otras cosas, puede usar esta capacidad para:
@@ -28,12 +28,15 @@ Use el aprovisionamiento a petición para aprovisionar un usuario en una aplicac
 ## <a name="how-to-use-on-demand-provisioning"></a>Procedimiento para usar el aprovisionamiento a petición
 
 1. Inicie sesión en **Azure Portal**.
-2. Vaya a **Todos los servicios** > **Aplicaciones empresariales**.
-3. Seleccione la aplicación y vaya a la página de configuración del aprovisionamiento.
-4. Configure el aprovisionamiento al proporcionar las credenciales de administrador.
-5. Seleccione **Aprovisionamiento a petición**.
-6. Busque un usuario por nombre, apellidos, nombre para mostrar, nombre principal de usuario o dirección de correo electrónico.
-7. Seleccione **Aprovisionar** en la parte inferior de la página.
+1. Vaya a **Todos los servicios** > **Aplicaciones empresariales**.
+1. Seleccione la aplicación y vaya a la página de configuración del aprovisionamiento.
+1. Configure el aprovisionamiento al proporcionar las credenciales de administrador.
+1. Seleccione **Aprovisionamiento a petición**.
+1. Busque un usuario por nombre, apellidos, nombre para mostrar, nombre principal de usuario o dirección de correo electrónico.
+   > [!NOTE]
+   > En el caso de la aplicación de aprovisionamiento de recursos humanos en la nube (WorkDay/SuccessFactors a AD/Azure AD), el valor de entrada es diferente. En el caso de WorkDay, proporcione el "WID" para el usuario de WorkDay. En el caso de SuccessFactors, proporcione "personIdExternal" para el usuario de SuccessFactors. 
+ 
+1. Seleccione **Aprovisionar** en la parte inferior de la página.
 
 :::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Captura de pantalla que muestra la interfaz de usuario de Azure Portal para aprovisionar a un usuario a petición.":::
 
@@ -121,7 +124,7 @@ Por último, el servicio de aprovisionamiento realiza una acción, como crear, a
 
 Este es un ejemplo de lo que podría ver después del aprovisionamiento a petición correcto de un usuario:
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Captura de pantalla que muestra el aprovisionamiento a petición correcto de un usuario.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Captura de pantalla que muestra la interfaz de usuario de Azure Portal para aprovisionar a un usuario a petición.":::
 
 #### <a name="view-details"></a>Ver detalles
 
@@ -144,7 +147,7 @@ Actualmente, hay algunas limitaciones conocidas para el aprovisionamiento a peti
 > [!NOTE]
 > Las siguientes limitaciones son específicas de la capacidad de aprovisionamiento a petición. Para obtener información sobre si una aplicación admite el aprovisionamiento de grupos, las eliminaciones u otras funciones, consulte el tutorial de esa aplicación.
 
-* Las aplicaciones WorkDay, Amazon Web Services (AWS) y SuccessFactors no admiten el aprovisionamiento a petición. 
+* La aplicación Amazon Web Services (AWS) no admite el aprovisionamiento a petición. 
 * No se admite el aprovisionamiento a petición de grupos y roles.
 * El aprovisionamiento a petición admite la deshabilitación de usuarios que se han desasignado de la aplicación. Sin embargo, no admite la deshabilitación o eliminación de usuarios que se han deshabilitado o eliminado de Azure AD. Estos usuarios no aparecerán al buscar un usuario.
 

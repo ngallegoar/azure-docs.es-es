@@ -4,12 +4,12 @@ description: Información acerca de los escenarios de seguridad para un clúster
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 258a6dd141ccc31516e37dac9f265328f981bbf5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8d6f3e94a735a6a8880d726890f1eb7ac346c755
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261074"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946202"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Escenarios de seguridad de los clústeres de Service Fabric
 
@@ -134,7 +134,7 @@ El concepto de creación de clústeres seguros es el mismo, tanto si son de Linu
 
 ### <a name="client-authentication-certificates-optional"></a>Certificados de autenticación de cliente (opcional)
 
-Se puede especificar cualquier cantidad de certificados adicionales para las operaciones de cliente administrador o usuario. El cliente puede usar este certificado cuando se requiera autenticación mutua. Los certificados de cliente normalmente no los emite una entidad de certificación de terceros. En su lugar, el almacén Personal de la ubicación del usuario actual suele contener los certificados de cliente colocados ahí por una entidad de certificación raíz. El certificado debe tener como **Propósitos planteados** el valor de **Autenticación de cliente**.  
+Se puede especificar cualquier cantidad de certificados adicionales para las operaciones de cliente administrador o usuario. El cliente puede usar estos certificados cuando se requiera autenticación mutua. Los certificados de cliente normalmente no los emite una entidad de certificación de terceros. En su lugar, el almacén Personal de la ubicación del usuario actual suele contener los certificados de cliente colocados ahí por una entidad de certificación raíz. El certificado debe tener como **Propósitos planteados** el valor de **Autenticación de cliente**.  
 
 De forma predeterminada, el certificado de clúster tiene privilegios de cliente administrador. Estos certificados de cliente adicionales no deben instalarse en el clúster, pero se especifican como que se permiten en la configuración del clúster.  Sin embargo, los certificados de cliente deben estar instalados en las máquinas cliente para conectarse al clúster y realizar cualquier operación.
 

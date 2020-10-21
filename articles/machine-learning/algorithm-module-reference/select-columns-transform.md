@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: b3a0b904d65e6597c058ccf05ec837696e9ca20e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: 14f08502f35afdc8a9a2cdc741b539b5f9cca712
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893627"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945605"
 ---
 # <a name="select-columns-transform"></a>Seleccionar transformación de columnas
 
@@ -46,8 +46,14 @@ En este escenario se supone que desea usar la selección de características par
 
    *No conecte el conjunto de datos de entrada.* En su lugar, agregue el módulo de [Aplicar transformación](apply-transformation.md) y conecte la salida de la transformación de selección de características.
 
+   La estructura de canalización debe ser similar a la siguiente:
+
+   > [!div class="mx-imgBorder"]
+   > ![Canalización de ejemplo](media/module/filter-based-feature-selection-score.png)
+
    > [!IMPORTANT]
    > No puede esperar aplicar [Selección de características basada en filtros](filter-based-feature-selection.md) al conjunto de datos de puntuación y obtener los mismos resultados. Dado que la selección de características se basa en valores, puede elegir un conjunto diferente de columnas, lo que provocaría el fracaso de la operación de puntuación.
+    
 7. Envíe la canalización.
 
 Este proceso de guardar y después aplicar una selección de columnas garantiza que el mismo esquema de datos esté disponible para el entrenamiento y la puntuación.

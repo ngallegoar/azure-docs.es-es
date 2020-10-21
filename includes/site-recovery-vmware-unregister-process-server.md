@@ -4,12 +4,12 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: 00b0c1b1a40ad16db177916c57dba6e9d5a187a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bff9457220efbb6a6b318550a5b2dd9af4ae230f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67186843"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361403"
 ---
 Siga los pasos para sus circunstancias específicas.
 
@@ -35,7 +35,7 @@ Use solamente estos pasos si no hay ninguna manera de reactivar la máquina dond
     - S. No: el número de serie del servidor de procesos.
     - IP/Nombre: la dirección IP y el nombre de la máquina que ejecuta el servidor de procesos.
     - Heartbeat: último latido de la máquina del servidor de procesos.
-    ![Unregister-cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
+    ![En la captura de pantalla se muestra una presentación de texto sin formato con información sobre los servidores de procesos y el texto Please choose one of the above servers to un-register (Elija uno de los servidores anteriores para anular el registro). (media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
 
 4. Especifique el número de serie del servidor de procesos cuyo registro quiera anular.
 5. Al anular el registro de un servidor de procesos, se quitan todos sus detalles del sistema y se muestra el mensaje: **Se eliminó a <nombre del servidor> del registro correctamente (dirección IP del servidor)**

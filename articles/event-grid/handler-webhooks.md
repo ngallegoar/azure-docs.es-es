@@ -3,18 +3,19 @@ title: Webhooks como controladores de eventos para eventos de Azure Event Grid
 description: Aquí se describe cómo puede usar los webhooks como controladores de eventos para eventos de Event Grid. Los runbooks y aplicaciones lógicas de Azure Automation se admiten como controladores de eventos a través de webhooks.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 3dc75b15c55c82b6164e77f0ac93a87bced94a64
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105615"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875808"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhooks, runbooks de Automation, aplicaciones lógicas como controladores de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar los eventos. También puede usar cualquier webhook para controlar los eventos. El webhook no necesita estar hospedado en Azure para controlar los eventos. Event Grid solo admite puntos de conexión de webhook HTTPS.
 
 > [!NOTE]
-> Los runbooks y aplicaciones lógicas de Azure Automation se admiten como controladores de eventos a través de webhooks. 
+> - Los runbooks y aplicaciones lógicas de Azure Automation se admiten como controladores de eventos a través de webhooks. 
+> - Aunque puede usar un método **webhook** como un **tipo de punto de conexión** para configurar una función de Azure como un controlador de eventos, use una **función de Azure** como un tipo de punto de conexión. Para obtener más información, consulte [Función de Azure como un controlador de eventos](handler-functions.md).
 
 ## <a name="webhooks"></a>webhooks
 Consulte los artículos siguientes para obtener información general y ejemplos de uso de webhooks como controladores de eventos. 

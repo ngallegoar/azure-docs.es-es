@@ -1,14 +1,16 @@
 ---
 title: 'Diseño de una base de conocimiento: QnA Maker'
-description: Una base de conocimiento de QnA Maker consta de un conjunto de pares de preguntas y respuestas, así como metadatos opcionales asociados a cada par de pregunta y respuesta.
+description: 'Aprenda a diseñar una base de conocimiento: QnA Maker.'
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: e75a9313f02a6b5cc4235cdcccb381585d2192ae
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: b2661b61e0422f796813be0908d866028ee128a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993004"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91776908"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Conceptos de pares de pregunta y respuesta
 

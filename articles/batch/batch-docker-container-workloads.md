@@ -2,26 +2,28 @@
 title: Cargas de trabajo de contenedor
 description: Aprenda a ejecutar y escalar aplicaciones desde imágenes de contenedor en Azure Batch. Cree un grupo de nodos de proceso que admita la ejecución de tareas de contenedor.
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/06/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0efc63258295ec7a7db20ec97e0ac81bd4c382f7
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9d8776ba8e683cd14c766fead1e7238a6c24d000
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018516"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843454"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch
 
 Azure Batch permite ejecutar y escalar un gran número de trabajos de computación por lotes en Azure. Las tareas por lotes se pueden ejecutar directamente en las máquinas virtuales (nodos) de un grupo de Batch, pero también se puede configurar un grupo de Batch para ejecutar tareas en contenedores compatibles con Docker en los nodos. En este artículo se muestra cómo crear un grupo de nodos de ejecución que admita la ejecución de tareas de contenedor y luego ejecutar las tareas de contenedor en el grupo.
 
-Debe estar familiarizado con los conceptos de contenedor y cómo crear un trabajo y un grupo de Batch. Los ejemplos de código usan los SDK de Python, .NET y Batch. También puede usar otras herramientas y SDK de Batch, incluido Azure Portal, para crear grupos de Batch habilitados para contenedor y para ejecutar tareas de contenedor.
+Los ejemplos de código que hay aquí usan los SDK de Python, .NET y Batch. También puede usar otras herramientas y SDK de Batch, incluido Azure Portal, para crear grupos de Batch habilitados para contenedor y para ejecutar tareas de contenedor.
 
 ## <a name="why-use-containers"></a>¿Por qué usar contenedores?
 
 El uso de contenedores proporciona una manera sencilla de ejecutar tareas de Batch sin tener que administrar un entorno ni dependencias para ejecutar las aplicaciones. Los contenedores implementan aplicaciones como unidades ligeras, portátiles y autosuficientes que se pueden ejecutar en varios entornos distintos. Por ejemplo, cree y pruebe localmente un contenedor y, después cargue la imagen de contenedor en un registro en Azure o en otro lugar. El modelo de implementación de contenedor garantiza que el entorno en tiempo de ejecución de la aplicación siempre esté correctamente instalado y configurado donde sea que se hospede la aplicación. Las tareas basadas en contenedor en Batch también pueden aprovechar las características de tareas no en contenedor, incluidos los paquetes de aplicación y la administración de archivos de recursos y archivos de salida.
 
 ## <a name="prerequisites"></a>Prerequisites
+
+Debe estar familiarizado con los conceptos de contenedor y cómo crear un trabajo y un grupo de Batch.
 
 - **Versiones del SDK**: los SDK de Batch admiten las imágenes de contenedor en las siguientes versiones:
   - API de REST de Batch versión 2017-09-01.6.0
@@ -282,6 +284,12 @@ Para ejecutar una tarea de contenedor en un grupo habilitado para contenedores, 
 - Use la propiedad `ContainerSettings` de las clases de tarea para configurar opciones específicas de contenedor. Esta configuración se define por la clase [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Tenga en cuenta que la opción de contenedor `--rm` no requiere una opción `--runtime` adicional, ya que de esto se encarga Batch.
 
 - Si ejecuta tareas en imágenes de contenedor, la [tarea en la nube](/dotnet/api/microsoft.azure.batch.cloudtask) y la [tarea del administrador de trabajos](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) requieren la configuración del contenedor. Sin embargo, la [tarea de inicio](/dotnet/api/microsoft.azure.batch.starttask), la [tarea de preparación de trabajos](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) y la [tarea de liberación de trabajos](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) no requieren configuración del contenedor (es decir, pueden ejecutarse en un contexto de contenedor o directamente en el nodo).
+
+- En Windows, las tareas se deben ejecutar con [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) establecido en `admin`. 
+
+- En el caso de Linux, Batch asignará el permiso de usuario o grupo al contenedor. Si el acceso a cualquier carpeta del contenedor requiere permisos de administrador, es posible que tenga que ejecutar la tarea como ámbito de grupo con el nivel de elevación de administrador. Esto garantizará que Batch ejecute la tarea como raíz en el contexto del contenedor. De lo contrario, es posible que un usuario que no sea administrador no tenga acceso a esas carpetas.
+
+- En el caso de los grupos de contenedores con hardware habilitado para GPU, Batch habilitará automáticamente la GPU para las tareas de contenedor, por lo que no debe incluir el argumento `–gpus`.
 
 ### <a name="container-task-command-line"></a>Línea de comandos de tareas de contenedor
 

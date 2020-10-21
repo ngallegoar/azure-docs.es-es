@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 59c5473e88e0c4a8108f651e9543ec90c08290ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650999"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91759103"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidad geográfica y compatibilidad con monedas para marketplace comercial
 
@@ -181,7 +181,7 @@ Para ajustar el precio antes de publicar una oferta, solo es necesario exportar 
 
 El precio de una oferta siempre se muestra a los clientes en su moneda local. El precio que seleccione en Centro de partners se convertirá a la moneda local de los clientes según el tipo de cambio en el momento en que haya guardado el precio dentro de Centro de partners. El precio que se muestra a los clientes en las tiendas en línea no cambia, a menos que vuelva a publicar la oferta.
 
-Microsoft recibe los pagos de los clientes en su moneda local y le paga a usted en su moneda local. Microsoft convierte la moneda local del cliente a su moneda local según el tipo de cambio del día de la compra.
+Microsoft recibe los pagos de los clientes en su moneda local y le paga en la moneda que haya seleccionado en el Centro de partners. Microsoft convierte la moneda local del cliente según el tipo de cambio del día de la compra.
 
 > [!NOTE]
 > Microsoft convierte los precios de las ofertas mediante el tipo de cambio de Microsoft Treasury.

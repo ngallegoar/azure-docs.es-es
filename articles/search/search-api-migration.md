@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 10/09/2020
+ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949038"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929649"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Actualización a la API de REST más reciente de Azure Cognitive Search
 
@@ -40,13 +40,19 @@ Si alguna de estas situaciones se le presenta, debe cambiar el código en consec
 
 ## <a name="upgrade-to-2020-06-30"></a>Actualización a 2020-06-30
 
-La versión 2020-06-30 es la nueva versión disponible con carácter general de la API REST. No hay cambios importantes, pero sí algunas diferencias de comportamiento. 
+La versión 2020-06-30 es la nueva versión disponible con carácter general de la API REST. Hay un cambio importante y varias diferencias de comportamiento. 
 
 Entre las características que ahora están disponibles con carácter general en esta versión de la API se incluyen:
 
 * [Almacén de conocimiento](knowledge-store-concept-intro.md), almacenamiento persistente de contenido enriquecido creado a través de conjuntos de aptitudes, creado para el análisis y el procesamiento de nivel inferior a través de otras aplicaciones. Con esta capacidad, una canalización de enriquecimiento con IA basada controlada por indexadores puede rellenar un almacén de información además de un índice de búsqueda. Si usó la versión preliminar de esta característica, es equivalente a la versión disponible con carácter general. El único cambio de código necesario es modificar la versión de la API.
 
-Estos cambios de cambio de comportamiento incluyen los siguientes:
+### <a name="breaking-change"></a>Cambio importante
+
+El código existente escrito en versiones anteriores de la API se interrumpirá en api-version=2020-06-30 y versiones posteriores si contiene la siguiente funcionalidad:
+
+* Los literales de Any Edm.Date (una fecha que consta de año-mes-día, como `2020-12-12`) en expresiones de filtro deben seguir el formato Edm.DateTimeOffset: `2020-12-12T00:00:00Z`. Este cambio era necesario para administrar los resultados de consulta erróneos o inesperados debido a las diferencias de zona horaria.
+
+### <a name="behavior-changes"></a>Cambios de comportamiento
 
 * El [algoritmo de clasificación BM25](index-ranking-similarity.md) reemplaza el algoritmo de clasificación anterior por una tecnología más reciente. Los servicios nuevos usarán este algoritmo de manera automática. En el caso de los servicios existentes, debe establecer los parámetros para usar el algoritmo nuevo.
 

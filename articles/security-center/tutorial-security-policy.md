@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 22885d9d29bfbfc008b668889f7813ece1df8918
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894579"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945758"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -46,7 +46,7 @@ Para ver las directivas de seguridad de Security Center:
 
 1. En el panel de **Security Center**, seleccione **Directiva de seguridad**.
 
-    ![El panel Administración de directivas](./media/security-center-policies/security-center-policy-mgt.png)
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Página Administración de directivas&quot;:::
 
    En la pantalla **Administración de directivas**, puede ver el número de grupos de administración, suscripciones y áreas de trabajo, así como la estructura del grupo de administración.
 
@@ -57,7 +57,7 @@ Para ver las directivas de seguridad de Security Center:
    ![página de directiva](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > Si hay una etiqueta "MG Inherited" junto a la directiva predeterminada, significa que la directiva se ha asignado a un grupo de administración y que la ha heredado la suscripción que está viendo.
+    > Si hay una etiqueta &quot;MG Inherited" junto a la directiva predeterminada, significa que la directiva se ha asignado a un grupo de administración y que la ha heredado la suscripción que está viendo.
 
 
 1. Elija entre las opciones disponibles en esta página:
@@ -68,8 +68,19 @@ Para ver las directivas de seguridad de Security Center:
 
     1. Para ver y editar la directiva predeterminada, seleccione **Ver directivas vigentes** y continúe tal como se describe a continuación. 
 
-       ![pantalla de la directiva](./media/security-center-policies/policy-screen.png)
-       
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Página Administración de directivas&quot;:::
+
+   En la pantalla **Administración de directivas**, puede ver el número de grupos de administración, suscripciones y áreas de trabajo, así como la estructura del grupo de administración.
+
+1. Seleccione el grupo de administración o la suscripción cuyas directivas desea ver.
+
+1. Aparecerá la página de directiva de seguridad de la suscripción o el grupo de administración. Esta muestra las directivas disponibles y asignadas.
+
+   ![página de directiva](./media/tutorial-security-policy/security-policy-page.png)
+
+    > [!NOTE]
+    > Si hay una etiqueta &quot;MG Inherited":::
+
        La pantalla de **directiva de seguridad** refleja las acciones que realizaron las directivas asignadas en el grupo de administración o la suscripción que seleccionó.
        
        * En la parte superior, use los vínculos proporcionados para abrir cada **asignación** de directiva que se aplique al grupo de administración o la suscripción. Puede usar esos vínculos para obtener acceso a la asignación y editar o deshabilitar la directiva. Por ejemplo, si ve que una asignación de directiva determinada está denegando la protección de puntos de conexión, puede usar el vínculo para editar o deshabilitar la directiva.
@@ -131,8 +142,7 @@ Para más información sobre las recomendaciones, consulte [Administración de l
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se explicaban las directivas de seguridad. Para obtener más información relacionada, consulte los siguientes artículos:
 
-* Para obtener instrucciones sobre cómo establecer directivas con PowerShell, consulte [Inicio rápido: creación de una asignación de directiva para identificar recursos no compatibles mediante el módulo de Azure PowerShell](../governance/policy/assign-policy-powershell.md).
-
-* Para obtener instrucciones sobre cómo editar una directiva de seguridad en Azure Policy, consulte [Creación y administración de directivas para aplicar el cumplimiento](../governance/policy/tutorials/create-and-manage.md).
-
-* Para obtener instrucciones sobre cómo establecer una directiva entre suscripciones o grupos de administración mediante Azure Policy, consulte [¿Qué es Azure Policy?](../governance/policy/overview.md)
+- [Obtenga información sobre cómo establecer directivas con PowerShell](../governance/policy/assign-policy-powershell.md) -. 
+- [Obtenga información sobre cómo editar una directiva de seguridad en Azure Policy](../governance/policy/tutorials/create-and-manage.md) -. 
+- [Obtenga información sobre cómo establecer una directiva en varias suscripciones o grupos de administración con Azure Policy](../governance/policy/overview.md).
+- [Obtenga información sobre cómo habilitar Security Center en todas las suscripciones de un grupo de administración](onboard-management-group.md).

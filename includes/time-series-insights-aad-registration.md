@@ -8,13 +8,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 02/03/2020
-ms.openlocfilehash: b2e86a92c253bc1926386269e289cdb7ae578746
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 10/02/2020
+ms.openlocfilehash: 7de4dc21391f7dbd817c56ce51606a808cf9e3c4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080782"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91665825"
 ---
 1. En [Azure Portal](https://ms.portal.azure.com/), seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.
 
@@ -22,7 +22,7 @@ ms.locfileid: "87080782"
 
     La aplicación se mostrará aquí después de registrarla.
 
-1. Asigne un nombre a la aplicación y seleccione **Solo las cuentas de este directorio organizativo** para especificar los **tipos de cuenta admitidos** que pueden acceder a la API. Elija un URI válido al que redirigir a los usuarios después de autenticarse y, luego, seleccione **Registrar**.
+1. Asigne un nombre a la aplicación y seleccione **Solo las cuentas de este directorio organizativo** para especificar los **tipos de cuenta admitidos** que pueden acceder a la API. Si va a crear una [aplicación cliente pública](https://docs.microsoft.com/azure/active-directory/develop/msal-client-application-configuration#redirect-uri), agregue un URI de redireccionamiento válido y **regístrese**.
 
    [![Creación de la aplicación en Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 
@@ -32,7 +32,7 @@ ms.locfileid: "87080782"
 
    Copie el **identificador de la aplicación (cliente)** para usar en la aplicación cliente.
 
-1. En la hoja **Autenticación** se especifican valores de configuración de autenticación importantes. 
+1. En la hoja **Autenticación** se especifican valores de configuración de autenticación importantes.
 
     1. Seleccione **+ Agregar una plataforma** para agregar valores de **URI de redirección** y configurar la opción **Tokens de acceso**.
 
@@ -66,7 +66,7 @@ ms.locfileid: "87080782"
    > [!NOTE]
    > En su lugar, también puede importar un certificado. Para mejorar la seguridad, le recomendamos que use un certificado. Para usar un certificado, seleccione **Cargar certificado**.
 
-1. Asocie la aplicación de Azure Active Directory a Azure Time Series Insights. Seleccione **Permisos de API** > **Agregar un permiso** > **API usadas en mi organización**. 
+1. Asocie la aplicación de Azure Active Directory a Azure Time Series Insights. Seleccione **Permisos de API** > **Agregar un permiso** > **API usadas en mi organización**.
 
     [![Asociación de una API a la aplicación de Azure Active Directory](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
 

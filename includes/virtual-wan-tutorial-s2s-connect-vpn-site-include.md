@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 897e36a6c5165549d7809512d0298fa2cfed2fa8
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 2f5f653fdaf9df5d1bb2cf87d06047510ad46d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90606299"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856740"
 ---
 1. Seleccione **Conectar sitios de VPN** para abrir la página **Conectar sitios**.
 
@@ -22,7 +22,7 @@ ms.locfileid: "90606299"
    Rellene los siguientes campos:
 
    * Escriba una clave previamente compartida. Si no especifica una clave, Azure generará una automáticamente.
-   * Seleccione el protocolo y la configuración de IPsec. Consulte [default/custom IPSec details] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
+   * Seleccione el protocolo y la configuración de IPsec. Para obtener más información, vea [default/custom IPsec](../articles/virtual-wan/virtual-wan-ipsec.md).
    * Seleccione la opción adecuada para **Propagar la ruta predeterminada**. La opción **Habilitar** permite que el centro de conectividad propague una ruta predeterminada aprendida a esta conexión. Esta marca habilita la propagación de la ruta predeterminada a una conexión, solamente si el centro de Virtual WAN ya ha aprendido la ruta predeterminada como resultado de la implementación de un firewall en el centro, o en caso de que otro sitio conectado tenga habilitada la tunelización forzada. La ruta predeterminada no se origina en el centro de conectividad de Virtual WAN.
 
 2. Seleccione **Conectar**.

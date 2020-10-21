@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: dee9ca2879d456270cfed667b8a02a6e5c4f100b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7475ebc6dd51bbc1c30ee22623c7cbda1a5237ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328078"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91848983"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Tutorial: Configuración de Dialpad para el aprovisionamiento automático de usuarios
 
@@ -54,13 +54,13 @@ Antes de configurar Dialpad para el aprovisionamiento automático de usuarios co
 
 1. Inicie sesión en la [consola de administración de Dialpad](https://dialpadbeta.com/login) y seleccione **Configuración de administrador**. Asegúrese de que **My Company** (Mi empresa) está seleccionado en la lista desplegable. Vaya a **Autenticación > Claves de API**.
 
-    ![Incorporación de SCIM en Dialpad](media/dialpad-provisioning-tutorial/dialpad01.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad01.png" alt-text="Captura de pantalla de la consola de administración de Dialpad, con el icono de configuración, Mi empresa, la Autenticación y las claves A P I resaltadas; la opción Mi empresa está seleccionada." border="false":::
 
 2. Haga clic en **Add a key** (Agregar una clave) para generar una clave nueva y configure las propiedades de su token secreto.
 
-    ![Incorporación de SCIM en Dialpad](media/dialpad-provisioning-tutorial/dialpad02.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Captura de pantalla de la consola de administración de Dialpad, con el icono de configuración, Mi empresa, la Autenticación y las claves A P I resaltadas; la opción Mi empresa está seleccionada." border="false":::
 
-    ![Incorporación de SCIM en Dialpad](media/dialpad-provisioning-tutorial/dialpad03.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Captura de pantalla de la consola de administración de Dialpad, con el icono de configuración, Mi empresa, la Autenticación y las claves A P I resaltadas; la opción Mi empresa está seleccionada." border="false":::
 
 3. Haga clic en el botón **Click to show value** (Hacer clic para ver el valor) para que aparezca la clave de API creada recientemente y copie el valor mostrado. Este valor se escribe en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación Dialpad en Azure Portal. 
 
@@ -89,19 +89,19 @@ Para configurar Dialpad para el aprovisionamiento automático de usuarios con Az
 
 5. Vaya a la **dirección URL** resaltada a continuación desde un explorador diferente. 
 
-    ![Incorporación de SCIM en Dialpad](media/dialpad-provisioning-tutorial/dialpad05.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Captura de pantalla de la consola de administración de Dialpad, con el icono de configuración, Mi empresa, la Autenticación y las claves A P I resaltadas; la opción Mi empresa está seleccionada." border="false":::
 
 6. En la esquina superior derecha, seleccione **Iniciar sesión > Use Dialpad online** (Usar Dialpad en línea).
 
-    ![Incorporación de SCIM en Dialpad](media/dialpad-provisioning-tutorial/dialpad06.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Captura de pantalla de la consola de administración de Dialpad, con el icono de configuración, Mi empresa, la Autenticación y las claves A P I resaltadas; la opción Mi empresa está seleccionada." border="false":::
 
 7. Como Dialpad es una aplicación de OpenIDConnect, inicie sesión en Dialpad con su cuenta Microsoft profesional.
 
-    ![Incorporación de SCIM en Dialpad](media/dialpad-provisioning-tutorial/loginpage.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Captura de pantalla de la consola de administración de Dialpad, con el icono de configuración, Mi empresa, la Autenticación y las claves A P I resaltadas; la opción Mi empresa está seleccionada." border="false":::
 
 8. Después de autenticarse, acepte la petición de consentimiento de la página de consentimiento. La aplicación se agregará automáticamente a su inquilino y será redirigido a su cuenta de Dialpad.
 
-    ![Incorporación de SCIM en Dialpad](media/dialpad-provisioning-tutorial/redirect.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Captura de pantalla de la consola de administración de Dialpad, con el icono de configuración, Mi empresa, la Autenticación y las claves A P I resaltadas; la opción Mi empresa está seleccionada." border="false":::
 
  ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Configuración del aprovisionamiento automático de usuarios en Dialpad
 

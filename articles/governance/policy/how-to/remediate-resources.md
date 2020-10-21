@@ -1,14 +1,14 @@
 ---
 title: Corrección de recursos no compatibles
 description: En esta guía se explica la corrección de los recursos que no son conformes con las directivas de Azure Policy.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 52d8ef6dd66c52edd574b2ccfa51da16623a1afb
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 76d2e57c1b5df965c81c88506ff2c2f70b2cb1f8
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651357"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876335"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
@@ -17,12 +17,16 @@ Los recursos que no son conformes con un directiva **deployIfNotExists** o **mod
 ## <a name="how-remediation-security-works"></a>Cómo funciona la seguridad de corrección
 
 Cuando Azure Policy ejecuta la plantilla en la definición de directiva **deployIfNotExists**, lo hace mediante una [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy crea una identidad administrada para cada asignación, pero debe proporcionar detalles sobre los roles que se conceden a la identidad administrada. Si faltan roles en la identidad administrada, este error se muestra durante la asignación de la directiva o una iniciativa. Al usar el portal, Azure Policy concede automáticamente a la identidad administrada los roles enumerados cuando se inicia la asignación. La propiedad _location_ de la identidad administrada no afecta a su funcionamiento con Azure Policy.
+Azure Policy crea una identidad administrada para cada asignación, pero debe proporcionar detalles sobre los roles que se conceden a la identidad administrada. Si faltan roles en la identidad administrada, este error se muestra durante la asignación de la directiva o una iniciativa. Al usar el portal, Azure Policy concede automáticamente a la identidad administrada los roles enumerados cuando se inicia la asignación. Al usar el SDK, los roles deben concederse manualmente a la identidad administrada. La propiedad _location_ de la identidad administrada no afecta a su funcionamiento con Azure Policy.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Captura de pantalla de una directiva deployIfNotExists a la que le falta un permiso definido en la identidad administrada." border="false":::
 
 > [!IMPORTANT]
-> Si un recurso modificado por **deployIfNotExists** o por **modify** está fuera del ámbito de la asignación de la directiva o si la plantilla accede a propiedades de recursos situados fuera del ámbito de la asignación de la directiva, debe [concederse manualmente acceso](#manually-configure-the-managed-identity) a la identidad administrada de la asignación o se producirá un error en la implementación de la corrección.
+> En los escenarios siguientes, la identidad administrada de la asignación debe [obtener acceso de forma manual](#manually-configure-the-managed-identity) o se producirá un error en la implementación de la corrección:
+>
+> - Si la asignación se crea mediante el SDK.
+> - Si un recurso que haya modificado el valor **deployIfNotExists** o **modify** está fuera del ámbito de la asignación de directiva.
+> - Si la plantilla obtiene acceso a las propiedades de los recursos fuera del ámbito de la asignación de directiva.
 
 ## <a name="configure-policy-definition"></a>Configurar la definición de directiva
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f9f68d3734cd7de83a2ddd376caefa410c619d61
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 90db861a4ef4fc951844d3ae82a51d20cf9dc8c5
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291116"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875111"
 ---
 # <a name="safe-url-list"></a>Lista de direcciones URL seguras
 
@@ -19,17 +19,19 @@ Deberá desbloquear ciertas direcciones URL para que la implementación de Windo
 
 ## <a name="virtual-machines"></a>Máquinas virtuales
 
-Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben tener acceso a las siguientes direcciones URL:
+Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben tener acceso a las siguientes direcciones URL en la nube comercial de Azure:
 
 |Dirección|Puerto TCP de salida|Propósito|Etiqueta de servicio|
 |---|---|---|---|
 |*.wvd.microsoft.com|443|Tráfico de servicio|WindowsVirtualDesktop|
-|mrsglobalsteus2prod.blob.core.windows.net|443|Actualizaciones de la pila de agentes y SXS|AzureCloud|
-|*.core.windows.net|443|Tráfico de agente|AzureCloud|
-|*.servicebus.windows.net|443|Tráfico de agente|AzureCloud|
 |gcs.prod.monitoring.core.windows.net|443|Tráfico de agente|AzureCloud|
+|production.diagnostics.monitoring.core.windows.net|443|Tráfico de agente|AzureCloud|
+|*xt.blob.core.windows.net|443|Tráfico de agente|AzureCloud|
+|*eh.servicebus.windows.net|443|Tráfico de agente|AzureCloud|
+|*xt.table.core.windows.net|443|Tráfico de agente|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Activación de Windows|Internet|
+|mrsglobalsteus2prod.blob.core.windows.net|443|Actualizaciones de la pila de agentes y SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Soporte técnico de Azure Portal|AzureCloud|
 | 169.254.169.254 | 80 | [Punto de conexión de servicio de metadatos de instancias de Azure](../virtual-machines/windows/instance-metadata-service.md) | N/D |
 | 168.63.129.16 | 80 | [Seguimiento de estado del host de sesión](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
@@ -39,16 +41,33 @@ Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben ten
 >
 >Se recomienda usar etiquetas FQDN o etiquetas de servicio, en lugar de las direcciones URL, para evitar problemas de servicio. Las direcciones URL y etiquetas de la lista solo corresponden a sitios y recursos de Windows Virtual Desktop. No incluyen direcciones URL para otros servicios como Azure Active Directory.
 
-En la tabla siguiente se enumeran las direcciones URL opcionales a las que pueden tener acceso las máquinas virtuales de Azure:
+Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben tener acceso a las siguientes direcciones URL en la nube de Azure Government:
 
 |Dirección|Puerto TCP de salida|Propósito|Etiqueta de servicio|
 |---|---|---|---|
-|*.microsoftonline.com|443|Autenticación en Microsoft Online Services|None|
+|*.wvd.microsoft.us|443|Tráfico de servicio|WindowsVirtualDesktop|
+|gcs.monitoring.core.usgovcloudapi.net|443|Tráfico de agente|AzureCloud|
+|monitoring.core.usgovcloudapi.net|443|Tráfico de agente|AzureCloud|
+|fairfax.warmpath.usgovcloudapi.net|443|Tráfico de agente|AzureCloud|
+|*xt.blob.core.usgovcloudapi.net|443|Tráfico de agente|AzureCloud|
+|*.servicebus.usgovcloudapi.net|443|Tráfico de agente|AzureCloud|
+|*xt.table.core.usgovcloudapi.net|443|Tráfico de agente|AzureCloud|
+|Kms.core.usgovcloudapi.net|1688|Activación de Windows|Internet|
+|mrsglobalstugviffx.core.usgovcloudapi.net|443|Actualizaciones de la pila de agentes y SXS|AzureCloud|
+|wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Soporte técnico de Azure Portal|AzureCloud|
+| 169.254.169.254 | 80 | [Punto de conexión de servicio de metadatos de instancias de Azure](../virtual-machines/windows/instance-metadata-service.md) | N/D |
+| 168.63.129.16 | 80 | [Seguimiento de estado del host de sesión](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
+
+En la tabla siguiente se enumeran las direcciones URL opcionales a las que pueden tener acceso las máquinas virtuales de Azure:
+
+|Dirección|Puerto TCP de salida|Propósito|Azure Gov|
+|---|---|---|---|
+|*.microsoftonline.com|443|Autenticación en Microsoft Online Services|login.microsoftonline.us|
 |*.events.data.microsoft.com|443|Servicio de telemetría|None|
 |www.msftconnecttest.com|443|Detecta si el sistema operativo está conectado a Internet.|None|
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|None|
-|login.windows.net|443|Inicio de sesión en Microsoft Online Services, Microsoft 365|None|
-|*.sfx.ms|443|Actualizaciones del software cliente de OneDrive|None|
+|login.windows.net|443|Inicio de sesión en Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
+|*.sfx.ms|443|Actualizaciones del software cliente de OneDrive|oneclient.sfx.ms|
 |*.digicert.com|443|Comprobación de revocación de certificados|None|
 
 >[!NOTE]
@@ -66,15 +85,15 @@ En la tabla siguiente se enumeran las direcciones URL opcionales a las que puede
 
 Todos los clientes de Escritorio remoto que use deben tener acceso a las siguientes direcciones URL:
 
-|Dirección|Puerto TCP de salida|Propósito|Cliente(s)|
-|---|---|---|---|
-|*.wvd.microsoft.com|443|Tráfico de servicio|All|
-|*.servicebus.windows.net|443|Solución de problemas de los datos|All|
-|go.microsoft.com|443|Microsoft FWLinks|All|
-|aka.ms|443|Acortador de direcciones URL de Microsoft|All|
-|docs.microsoft.com|443|Documentación|All|
-|privacy.microsoft.com|443|Declaración de privacidad|All|
-|query.prod.cms.rt.microsoft.com|443|Actualizaciones de clientes|Escritorio de Windows|
+|Dirección|Puerto TCP de salida|Propósito|Cliente(s)|Azure Gov|
+|---|---|---|---|---|
+|*.wvd.microsoft.com|443|Tráfico de servicio|All|*.wvd.microsoft.us|
+|*.servicebus.windows.net|443|Solución de problemas de los datos|All|*.servicebus.usgovcloudapi.net|
+|go.microsoft.com|443|Microsoft FWLinks|All|None|
+|aka.ms|443|Acortador de direcciones URL de Microsoft|All|None|
+|docs.microsoft.com|443|Documentación|All|None|
+|privacy.microsoft.com|443|Declaración de privacidad|All|None|
+|query.prod.cms.rt.microsoft.com|443|Actualizaciones de clientes|Escritorio de Windows|Ninguno|
 
 >[!IMPORTANT]
 >Para conseguir una experiencia de cliente confiable, es esencial abrir estas direcciones URL. No se admite el bloqueo del acceso a estas direcciones URL y afectará a la funcionalidad del servicio.

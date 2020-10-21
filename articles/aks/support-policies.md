@@ -4,12 +4,12 @@ description: Aprenda sobre las directivas de soporte técnico de Azure Kubernete
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 188416d9ef6f8e7568b10e8ccbb405be0bff315d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 86b1c0bba30b41a2ee17cfbdf05286c4d2b3fb8a
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888989"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91892717"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -130,8 +130,7 @@ Solo puede personalizar NSG en subredes personalizadas. No puede personalizar NS
 
 ## <a name="stopped-or-de-allocated-clusters"></a>Clústeres detenidos o con asignación anuladas
 
-Según lo anterior, la anulación manual de la asignación de todos los nodos de clúster a través de las API de IaaS, la CLI o el portal representan el clúster fuera del soporte técnico.
-La única manera admitida de detener y anular la asignación de todos los nodos es detener el clúster de AKS, que conservará el estado del clúster durante 12 meses.
+Según se indicó anteriormente, la anulación manual de la asignación de todos los nodos de clúster a través de las API de IaaS, la CLI o el portal representan el clúster fuera del soporte técnico. La única manera admitida de detener y anular la asignación de todos los nodos es [detener el clúster de AKS](start-stop-cluster.md#stop-an-aks-cluster), que conservará el estado del clúster durante 12 meses.
 
 Los clústeres que se detienen durante más de 12 meses ya no conservarán el estado. 
 
