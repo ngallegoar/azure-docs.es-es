@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: a69a58da85cf1ee03046626bb076c5cd44196279
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f2f2272363cbc26895b061fe7b6263ed2a29fbab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828717"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993253"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implementación de Azure Monitor a escala mediante Azure Policy
 Aunque algunas características de Azure Monitor se configuran una vez o un número limitado de veces, otras se deben repetir para cada recurso que desee supervisar. En este artículo se describen los métodos para usar Azure Policy para implementar Azure Monitor a escala con el fin de asegurarse de que la supervisión se configura de forma coherente y precisa para todos los recursos de Azure.
@@ -33,7 +33,7 @@ Azure Policy consta de los objetos de la tabla siguiente. Consulte [Objetos de A
 | Asignación | Una definición de directiva o una iniciativa no tienen efecto hasta que se asignan a un ámbito. Por ejemplo, asigne una directiva a un grupo de recursos para aplicarla a todos los recursos creados en ese recurso o aplíquela a una suscripción para aplicarla a todos los recursos de esa suscripción.  Para más información, consulte [Estructura de las asignaciones de Azure Policy](../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Definiciones de directivas integradas para Azure Monitor
-Azure Policy incluye varias definiciones creadas previamente relacionadas con Azure Monitor. Puede asignar estas definiciones de directiva a la suscripción existente o utilizarlas como base para crear sus propias definiciones personalizadas. Para obtener una lista completa de la directivas integradas de la categoría **Supervisión**, consulte [Definiciones de directivas integradas de Azure Policy para Azure Monitor](samples/policy-samples.md).
+Azure Policy incluye varias definiciones creadas previamente relacionadas con Azure Monitor. Puede asignar estas definiciones de directiva a la suscripción existente o utilizarlas como base para crear sus propias definiciones personalizadas. Para obtener una lista completa de la directivas integradas de la categoría **Supervisión**, consulte [Definiciones de directivas integradas de Azure Policy para Azure Monitor](./samples/policy-reference.md).
 
 Para ver las definiciones de directivas integradas relacionadas con la supervisión, realice lo siguiente:
 
@@ -41,7 +41,7 @@ Para ver las definiciones de directivas integradas relacionadas con la supervisi
 2. Seleccione **Definiciones**.
 3. En **Tipo**, seleccione *Integrada* y, en **Categoría**, seleccione *Supervisión*.
 
-  ![Definiciones de directiva integradas](media/deploy-scale/builtin-policies.png)
+  ![Captura de pantalla de la página Definiciones de Azure Policy en Azure Portal, que muestra una lista de definiciones de directivas para la categoría Supervisión y el Tipo Integrado.](media/deploy-scale/builtin-policies.png)
 
 
 ## <a name="diagnostic-settings"></a>Configuración de diagnóstico
@@ -54,7 +54,7 @@ Hay dos definiciones de directivas integradas para cada tipo de recurso, una par
 
 Por ejemplo, la siguiente imagen muestra las definiciones de directiva de configuración de diagnóstico integradas para Data Lake Analytics.
 
-  ![Definiciones de directiva integradas](media/deploy-scale/builtin-diagnostic-settings.png)
+  ![Captura de pantalla parcial de la página Definiciones de Azure Policy, que muestra dos definiciones de directivas de configuración de diagnóstico integradas para Data Lake Analytics.](media/deploy-scale/builtin-diagnostic-settings.png)
 
 ### <a name="custom-policy-definitions"></a>Definiciones de directivas personalizadas
 En el caso de los tipos de recursos que no tienen una directiva integrada, debe crear una definición de directiva personalizada. Puede hacerlo manualmente en Azure Portal mediante la copia de una directiva integrada existente y, a continuación, su modificación para el tipo de recurso. No obstante, es más eficaz crear la directiva mediante programación con un script de la Galería de PowerShell.
@@ -109,7 +109,7 @@ Consulte [Creación y asignación de una definición de iniciativa](../governanc
 ### <a name="assignment"></a>Asignación 
 Asigne la iniciativa a un grupo de administración, una suscripción o un grupo de recursos de Azure en función del ámbito de los recursos que se van a supervisar. Un [grupo de administración](../governance/management-groups/overview.md) es especialmente útil para dar un ámbito a la directiva, especialmente si la organización tiene varias suscripciones.
 
-![Asignación de iniciativa](media/deploy-scale/initiative-assignment.png)
+![Captura de pantalla de la configuración de la pestaña Aspectos básicos de la sección Asignar iniciativa de la Configuración de diagnóstico en área de trabajo de Log Analytics en Azure Portal.](media/deploy-scale/initiative-assignment.png)
 
 Mediante el uso de parámetros de iniciativa, puede especificar el área de trabajo o cualquier otro detalle para todas las definiciones de directivas de la iniciativa. 
 
@@ -146,7 +146,7 @@ Para más información sobre este proceso, consulte [Habilitación de Azure Moni
 ### <a name="virtual-machine-scale-sets"></a>Conjuntos de escalado de máquinas virtuales
 Para usar Azure Policy para habilitar la supervisión de conjuntos de escalado de máquinas virtuales, asigne la iniciativa **Habilitar Azure Monitor para conjuntos de escalado de máquinas virtuales** a un grupo de administración, suscripción o grupo de recursos de Azure en función del ámbito de los recursos que se supervisarán. Un [grupo de administración](../governance/management-groups/overview.md) es especialmente útil para dar un ámbito a la directiva, especialmente si la organización tiene varias suscripciones.
 
-![Asignación de iniciativa](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
+![Captura de pantalla de la página Asignar iniciativa en Azure Portal. La definición de la iniciativa está establecida en Habilitar Azure Monitor para conjunto de escalado de máquinas virtuales.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
 Seleccione el área de trabajo a la que se enviarán los datos. Esta área de trabajo debe tener instalada la solución *VMInsights*, como se describe en []().
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8901f54c4802766eb3f12830d98d29fb47337ae5
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 866640d90c66dd82e8be61d221bc903907575454
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705221"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91640441"
 ---
 Mientras se encuentra en versión preliminar, NFS tiene las siguientes limitaciones:
 
@@ -22,7 +22,7 @@ Mientras se encuentra en versión preliminar, NFS tiene las siguientes limitacio
 - Debe crear una cuenta de almacenamiento para crear un recurso compartido de NFS.
 - Solo se admiten las API de REST del plano de administración. Las API de REST del plano de datos no están disponibles, lo que significa que las herramientas como el Explorador de Storage no funcionarán con los recursos compartidos de NFS ni podrán examinar los datos de recursos compartidos de NFS en Azure Portal.
 - Solo están disponibles para el nivel prémium.
-- Actualmente solo están disponibles para el almacenamiento con redundancia local.
+- Actualmente solo están disponibles con el almacenamiento con redundancia local (LRS).
 
 ### <a name="azure-storage-features-not-yet-supported"></a>Características de Azure Storage que aún no son compatibles
 

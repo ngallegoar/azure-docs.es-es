@@ -1,14 +1,14 @@
 ---
 title: Solución de errores comunes
 description: Aprenda a solucionar problemas relacionados con la creación de definiciones de directivas, los diversos SDK y el complemento de Kubernetes.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d4ede1703df922196c89a4c1ca4f37cbc95a6297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 98b5f1658a7d3fc7c4a7db7145b92bb6065befc5
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545546"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999900"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Solución de problemas mediante Azure Policy
 
@@ -52,7 +52,7 @@ Cualquier nueva asignación de directiva o iniciativa tarda unos 30 minutos en a
 
 En primer lugar, espere la cantidad de tiempo adecuada para que se complete una evaluación y que los resultados de cumplimiento estén disponibles en Azure Portal o el SDK. Para iniciar un nuevo examen de evaluación con Azure PowerShell o la API REST, consulte [Examen de evaluación a petición](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 
-### <a name="scenario-evaluation-not-as-expected"></a>Escenario: La evaluación no es la esperada
+### <a name="scenario-compliance-not-as-expected"></a>Escenario: El cumplimiento no es el esperado
 
 #### <a name="issue"></a>Incidencia
 
@@ -64,10 +64,21 @@ El recurso no está en el ámbito correcto de la asignación de directiva o la d
 
 #### <a name="resolution"></a>Resolución
 
-- En el caso de un recurso no compatible que se esperaba que fuera compatible, empiece por [determinar las razones de la no compatibilidad](../how-to/determine-non-compliance.md). La comparación de la definición con el valor de propiedad evaluado indica por qué un recurso no era compatible.
-- Para un recurso compatible que se esperaba que fuera no compatible, lea la definición de directiva de cada condición y evalúe las propiedades de los recursos. Compruebe que los operadores lógicos agrupan las condiciones correctas y que las condiciones no están invertidas.
+Siga estos pasos para solucionar los problemas de la definición de la directiva:
 
-Si la compatibilidad de una asignación de directiva muestra `0/0` recursos, se determinó que ningún recurso era aplicable en el ámbito de la asignación. Compruebe la definición de la directiva y el ámbito de la asignación.
+1. En primer lugar, espere la cantidad de tiempo adecuada para que se complete una evaluación y que los resultados de cumplimiento estén disponibles en Azure Portal o el SDK. Para iniciar un nuevo examen de evaluación con Azure PowerShell o la API REST, consulte [Examen de evaluación a petición](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Compruebe que los parámetros de asignación y el ámbito de asignación estén configurados correctamente.
+1. Compruebe el [modo de definición de directiva](../concepts/definition-structure.md#mode):
+   - Modo "all" para todos los tipos de recursos.
+   - Modo "indexed" si la definición de la directiva comprueba las etiquetas o la ubicación.
+1. Compruebe que el ámbito del recurso no sea [excluido](../concepts/assignment-structure.md#excluded-scopes) ni [exento](../concepts/exemption-structure.md).
+1. Si la compatibilidad de una asignación de directiva muestra `0/0` recursos, se determinó que ningún recurso era aplicable en el ámbito de la asignación. Compruebe la definición de la directiva y el ámbito de la asignación.
+1. En el caso de un recurso no compatible que se esperaba que fuera compatible, consulte la [determinación de las causas de incumplimiento](../how-to/determine-non-compliance.md). La comparación de la definición con el valor de propiedad evaluado indica por qué un recurso no era compatible.
+   - Si el **valor de destino** es incorrecto, revise la definición de la directiva.
+   - Si el **valor actual** es incorrecto, valide la carga de recursos a través de `resources.azure.com`.
+1. Consulte [Solución de problemas: La aplicación no es la esperada](#scenario-enforcement-not-as-expected) para conocer los otros problemas y soluciones comunes.
+
+Si todavía tiene un problema con la definición de la directiva integrada duplicada y personalizada, o la definición personalizada, cree una incidencia de soporte técnico en **Creación de una directiva** para dirigir el problema correctamente.
 
 ### <a name="scenario-enforcement-not-as-expected"></a>Escenario: La aplicación no es la esperada
 
@@ -81,7 +92,18 @@ La asignación de directivas se ha configurado para un valor de [enforcementMode
 
 #### <a name="resolution"></a>Resolución
 
-Actualice el valor de **enforcementMode** a _Habilitado_. Este cambio permite a Azure Policy actuar en los recursos de esta asignación de directivas y enviar entradas al registro de actividad. Si **enforcementMode** ya está habilitado, consulte [La evaluación no es la esperada](#scenario-evaluation-not-as-expected) para ver las acciones a realizar.
+Siga estos pasos para solucionar los problemas de aplicación de la asignación de la directiva:
+
+1. En primer lugar, espere la cantidad de tiempo adecuada para que se complete una evaluación y que los resultados de cumplimiento estén disponibles en Azure Portal o el SDK. Para iniciar un nuevo examen de evaluación con Azure PowerShell o la API REST, consulte [Examen de evaluación a petición](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Compruebe que los parámetros de asignación y el ámbito de asignación estén configurados correctamente y que **enforcementMode** esté _Habilitado_. 
+1. Compruebe el [modo de definición de directiva](../concepts/definition-structure.md#mode):
+   - Modo "all" para todos los tipos de recursos.
+   - Modo "indexed" si la definición de la directiva comprueba las etiquetas o la ubicación.
+1. Compruebe que el ámbito del recurso no sea [excluido](../concepts/assignment-structure.md#excluded-scopes) ni [exento](../concepts/exemption-structure.md).
+1. Compruebe que la carga de recursos coincide con la lógica de la directiva. Esto puede realizarse mediante la [captura de un seguimiento HAR](../../../azure-portal/capture-browser-trace.md) o la revisión de las propiedades de la plantilla de Resource Manager.
+1. Consulte [Solución de problemas: El cumplimiento no es el esperado](#scenario-compliance-not-as-expected) para conocer los otros problemas y soluciones comunes.
+
+Si todavía tiene un problema con la definición de la directiva integrada duplicada y personalizada, o la definición personalizada, cree una incidencia de soporte técnico en **Creación de una directiva** para dirigir el problema correctamente.
 
 ### <a name="scenario-denied-by-azure-policy"></a>Escenario: Denegado por Azure Policy
 
@@ -148,9 +170,27 @@ El gráfico de Helm llamado `azure-policy-addon` ya se ha instalado completa o p
 
 Siga las instrucciones para [quitar el complemento Azure Policy para Kubernetes](../concepts/policy-for-kubernetes.md#remove-the-add-on) y, a continuación, vuelva a ejecutar el comando `helm install azure-policy-addon`.
 
+### <a name="scenario-azure-virtual-machine-user-assigned-identities-are-replaced-by-system-assigned-managed-identities"></a>Escenario: Las identidades asignadas por el usuario de una máquina virtual de Azure se sustituyen por identidades administradas asignadas por el sistema
+
+#### <a name="issue"></a>Incidencia
+
+Después de asignar las iniciativas de directiva de configuración de invitado a la configuración de auditoría dentro de las máquinas, las identidades administradas asignadas por el usuario que se asignaron a la máquina ya no se asignan. Solo se asigna una identidad administrada asignada por el sistema.
+
+#### <a name="cause"></a>Causa
+
+Las definiciones de directiva usadas anteriormente en las definiciones de DeployIfNotExists de la configuración de invitado garantizaban que una identidad asignada por el sistema estuviese asignada a la máquina, pero que también quitaba las asignaciones de identidad asignadas por el usuario.
+
+#### <a name="resolution"></a>Resolución
+
+Las definiciones que anteriormente provocaban este problema aparecen como \[En desuso\] y se reemplazaron por definiciones de directivas que administran los requisitos previos sin quitar la identidad administrada asignada por el usuario. Se requiere un paso manual. Elimine las asignaciones de directiva existentes marcadas como \[En desuso\] y reemplácelas por la iniciativa de directiva de requisitos previos y las definiciones de directiva actualizadas que tengan el mismo nombre que el original.
+
+Para obtener una descripción detallada, consulte la siguiente entrada de blog:
+
+[Cambio importante publicado para las directivas de auditoría de configuración de invitado](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener más soporte técnico:
+Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
 
 - Obtenga respuestas de expertos a través de [Preguntas y respuestas de Microsoft](/answers/topics/azure-policy.html).
 - Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport): la cuenta de Microsoft Azure oficial para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.

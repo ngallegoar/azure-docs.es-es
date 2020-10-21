@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: ea1fec022227aba1be09e988b5802f0c1ecd4e8e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90a4e86360916ba4b3dace0861fd1c6f7cd9b459
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85118940"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91567118"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimización del costo con capacidad reservada en Azure Cosmos DB
 
@@ -46,7 +46,7 @@ Puede filtrar las recomendaciones por los siguientes atributos:
 
 - **Período** (1 o 3 años)
 - **Frecuencia de facturación** (mensual o por adelantado)
-- **Tipo de rendimiento** (RU frente a RU de arquitectura multimaestro)
+- **Tipo de rendimiento** (RU frente a RU de escritura en varias regiones)
 
 Además, puede limitar el ámbito de las recomendaciones a un único grupo de recursos, una sola suscripción o toda la inscripción de Azure. 
 
@@ -66,7 +66,7 @@ Esta recomendación de comprar una reserva de 30 000 RU/s indica que, entre las
 
 4. Rellene los campos obligatorios tal como se describe en la tabla siguiente:
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Cumplimentación del formulario de capacidad reservada":::
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Recomendaciones de capacidad reservada":::
 
    |Campo  |Descripción  |
    |---------|---------|
@@ -74,7 +74,7 @@ Esta recomendación de comprar una reserva de 30 000 RU/s indica que, entre las
    |Suscripción  |   Suscripción usada para pagar la capacidad reservada de Azure Cosmos DB. El método de pago en la suscripción seleccionada se usa al cargar los costos. La suscripción debe ser uno de los tipos siguientes: <br/><br/>  Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P): Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. <br/><br/> Suscripción individual con tarifas de pago por uso (números de la oferta: MS-AZR-0003P o MS-AZR-0023P): en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.    |
    | Grupo de recursos | Grupo de recursos al que se aplica el descuento de capacidad reservada. |
    |Término  |   Un año o tres años.   |
-   |Tipo de rendimiento   |  El rendimiento se aprovisiona como unidades de solicitud. Puede comprar una reserva para el rendimiento aprovisionado con ambas configuraciones: escrituras de una sola región y escrituras de varias regiones. El tipo de rendimiento tiene dos valores para elegir: 100 RU/s por hora y 100 RU/s de arquitectura multimaestro por hora.|
+   |Tipo de rendimiento   |  El rendimiento se aprovisiona como unidades de solicitud. Puede comprar una reserva para el rendimiento aprovisionado con ambas configuraciones: escrituras de una sola región y escrituras de varias regiones. El tipo de rendimiento tiene dos valores para elegir: 100 RU/s por hora y 100 RU/s de escrituras en varias regiones por hora.|
    | Unidades de capacidad reservada| La cantidad de rendimiento que quiere reservar. Puede calcular este valor si determina el rendimiento necesario para todos los recursos de Cosmos DB (por ejemplo, las bases de datos o contenedores) por región. A continuación, multiplique esa cifra por el número de regiones que asociará a la base de datos de Cosmos. Por ejemplo: Si tiene cinco regiones con un millón de RU/s en todas las regiones, seleccione cinco millones de RU/s para la compra de capacidad de reserva. |
 
 
@@ -82,7 +82,7 @@ Esta recomendación de comprar una reserva de 30 000 RU/s indica que, entre las
 
 6. En el panel **Comprar reservas**, revise el descuento y el precio de la reserva. Este precio de reserva se aplica a los recursos de Azure Cosmos DB con rendimiento aprovisionado en todas las regiones.  
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Resumen de capacidad reservada":::
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Recomendaciones de capacidad reservada":::
 
 7. Seleccione **Review + buy** (Revisar y comprar) y, luego, **Comprar ahora**. Cuando se realiza correctamente la compra, se muestra la siguiente página:
 

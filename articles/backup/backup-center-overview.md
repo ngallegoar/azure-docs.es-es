@@ -2,13 +2,13 @@
 title: Información general del Centro de copias de seguridad
 description: En este artículo se proporciona información general sobre el Centro de copias de seguridad para Azure.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: e7577f302b9a137f5f3c257dc35d0fdf339f69a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/30/2020
+ms.openlocfilehash: 2857433e00a678603e30c8e5fc276020c4658f2e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90993712"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91614296"
 ---
 # <a name="overview-of-backup-center"></a>Información general del Centro de copias de seguridad
 
@@ -39,11 +39,15 @@ En el mosaico **Trabajos**, se obtiene una vista resumida de todos los trabajos 
 
 En el mosaico **Instancias de Backup**, se obtiene una vista resumida de todas las instancias de copia de seguridad en todo el conjunto de copias de seguridad. Por ejemplo, puede ver el número de instancias de copia de seguridad que se encuentran en estado de eliminación temporal en comparación con el número de instancias que todavía están configuradas para protección. La selección de cualquiera de los números en este mosaico le permite ver más información sobre las instancias de copia de seguridad para un tipo de origen de datos y estado de protección en particular.
 
-Siga los pasos que se indican a continuación para conocer las distintas funcionalidades que proporciona el Centro de copias de seguridad y cómo puede usar estas funcionalidades para administrar de forma eficaz su conjunto de copias de seguridad.
+Vea el siguiente vídeo para comprender las funcionalidades del Centro de copias de seguridad:
+
+> [!VIDEO https://www.youtube.com/embed/pFRMBSXZcUk?t=497]
+
+Realice los [pasos siguientes](#next-steps) para conocer las distintas funcionalidades que proporciona el Centro de copias de seguridad y cómo puede usarlas para administrar de forma eficaz su conjunto de copias de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Supervisión y funcionamiento de las copias de seguridad](backup-center-monitor-operate.md)
-* [Control del conjunto de copias de seguridad](backup-center-govern-environment.md)
+* [Gobernanza del conjunto de copias de seguridad](backup-center-govern-environment.md)
 * [Obtención de conclusiones sobre las copias de seguridad](backup-center-obtain-insights.md)
 * [Acciones con el Centro de copias de seguridad](backup-center-actions.md)

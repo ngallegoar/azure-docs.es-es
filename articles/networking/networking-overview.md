@@ -8,14 +8,14 @@ ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 03/12/2020
+ms.date: 09/29/2020
 ms.author: kumud
-ms.openlocfilehash: 39601da6cc8e10ba8f4a24eeddb97cfe677c031f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 791a248c8fb10bc4db483451971d452a359c8a07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651736"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569259"
 ---
 # <a name="azure-networking-services-overview"></a>Información general sobre los servicios de red de Azure
 
@@ -39,8 +39,9 @@ En esta sección se describen los servicios que proporcionan conectividad entre 
 |[Azure Bastion](#bastion)|Configure una conexión RDP/SSH segura e ininterrumpida a las máquinas virtuales directamente en Azure Portal a través de TLS. Cuando se conecta a través de Azure Bastion, las máquinas virtuales no necesitan una dirección IP pública.|<p>[Creación de un host de Azure Bastion](../bastion/bastion-create-host-portal.md)</p><p>[Conexión mediante SSH a una máquina virtual Linux](../bastion/bastion-connect-vm-ssh.md)</p><p>[Conexión mediante RDP a una máquina virtual Windows](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[NAT Gateway de Virtual Network](#nat)|Crear una puerta de enlace NAT Gateway para proporcionar conectividad saliente en una máquina virtual.|<p>[Creación de una puerta de enlace NAT Gateway](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
 |[Azure Peering Service](#azurepeeringservice)|Colaborar con proveedores de servicios para lograr un enrutamiento a la nube de Microsoft óptimo y confiable a través de la red pública.|<p>[Registro de Azure Peering Service](../peering-service/azure-portal.md)</p>|
+| [Instancias de Azure Edge Zone](#edge-zones)| Implemente máquinas virtuales, contenedores y otros servicios en Edge Zone para satisfacer los requisitos de baja latencia y alto rendimiento.| <p>[Edge Zones with Carrier](edge-zones-overview.md#carrier)<p> <p>[Private Edge Zones](edge-zones-overview.md#private-edge-zones)</p>|
+| [Azure Orbital](#orbital)| Comuníquese con la nave espacial o con constelaciones de satélites, aplique vínculos superiores e inferiores a los datos, procese los datos en la nube, encadene servicios con servicios de Azure en escenarios únicos y genere productos para los clientes.  | <p>[Comunicación global](azure-orbital-overview.md#global-communication)</p>  <p>[Estaciones terrestres de asociados](azure-orbital-overview.md#digital-transformation)</p>|
 ||||
-
 
 ### <a name="virtual-network"></a><a name="vnet"></a>Virtual Network
 
@@ -53,22 +54,22 @@ Azure Virtual Network (VNet) es el bloque de creación fundamental de una red pr
 Para más información, consulte [¿Qué es Azure Virtual Network?](../virtual-network/virtual-networks-overview.md).
 
 ### <a name="expressroute"></a><a name="expressroute"></a>ExpressRoute
-ExpressRoute permite ampliar las redes en el entorno local en la nube de Microsoft Azure a través de una conexión privada que facilita un proveedor de conectividad. Esta conexión es privada. El tráfico no pasa por Internet. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Office 365 y Dynamics 365.  Para más información, consulte [¿Qué es ExpressRoute?](../expressroute/expressroute-introduction.md)
+ExpressRoute permite ampliar las redes en el entorno local en la nube de Microsoft Azure a través de una conexión privada que facilita un proveedor de conectividad. Esta conexión es privada. El tráfico no pasa por Internet. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Microsoft 365 y Dynamics 365.  Para más información, consulte [¿Qué es ExpressRoute?](../expressroute/expressroute-introduction.md)
 
-![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
+:::image type="content" source="./media/networking-overview/expressroute-connection-overview.png" alt-text="Información técnica de ExpressRoute" border="false":::
 
 ### <a name="vpn-gateway"></a><a name="vpngateway"></a>VPN Gateway
-VPN Gateway ayuda a crear conexiones cifradas entre entornos locales a la red virtual desde ubicaciones locales, o bien a crear conexiones cifradas entre las redes virtuales. Hay distintas configuraciones disponibles para las conexiones VPN Gateway, por ejemplo, de sitio a sitio, de punto a sitio o de red virtual a red virtual.
+VPN Gateway ayuda a crear conexiones cifradas entre entornos locales a la red virtual desde ubicaciones locales, o bien a crear conexiones cifradas entre las redes virtuales. Hay distintas configuraciones disponibles para las conexiones de VPN Gateway, por ejemplo, de sitio a sitio, de punto a sitio o de red virtual a red virtual.
 En el siguiente diagrama se ilustran varias conexiones VPN de sitio a sitio a la misma red virtual.
 
-![Conexiones de Azure VPN Gateway de sitio a sitio](./media/networking-overview/vpngateway-multisite-connection-diagram.png)
+:::image type="content" source="./media/networking-overview/vpngateway-multisite-connection-diagram.png" alt-text="Información técnica de ExpressRoute":::
 
 Para más información acerca de los distintos tipos de conexiones VPN, consulte [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### <a name="virtual-wan"></a><a name="virtualwan"></a>Virtual WAN
 Azure Virtual WAN es un servicio de redes que ofrece conectividad entre ramas automatizada y optimizada a y mediante Azure. Las regiones de Azure sirven como centros que se pueden elegir para conectar las distintas ramas. Puede aprovechar la red troncal de Azure para conectar también ramas y disfrutar de la conectividad de rama a red virtual. Azure Virtual WAN reúne muchos servicios de conectividad en la nube de Azure como la VPN de sitio a sitio, ExpressRoute y la VPN de usuario de punto a sitio en una única interfaz operativa. La conectividad con las redes virtuales de Azure se establece mediante el uso de conexiones de red virtual. Para más información, consulte [¿Qué es Azure Virtual WAN?](../virtual-wan/virtual-wan-about.md).
 
-![Diagrama de Virtual WAN](./media/networking-overview/virtualwan1.png)
+:::image type="content" source="./media/networking-overview/virtualwan1.png" alt-text="Información técnica de ExpressRoute":::
 
 ### <a name="azure-dns"></a><a name="dns"></a>Azure DNS
 Azure DNS es un servicio de hospedaje para dominios DNS que ofrece resolución de nombres mediante la infraestructura de Microsoft Azure. Al hospedar dominios en Azure, puede administrar los registros de DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure. Para más información, consulte [¿Qué es Azure DNS?](../dns/dns-overview.md)
@@ -76,15 +77,25 @@ Azure DNS es un servicio de hospedaje para dominios DNS que ofrece resolución d
 ### <a name="azure-bastion"></a><a name="bastion"></a>Azure Bastion
 Azure Bastion es un nuevo servicio PaaS totalmente administrado por la plataforma que se aprovisiona en redes virtuales. Proporciona una conectividad RDP/SSH segura e ininterrumpida a las máquinas virtuales directamente en Azure Portal a través de TLS. Cuando se conecta a través de Azure Bastion, las máquinas virtuales no necesitan una dirección IP pública. Para más información, consulte [¿Qué es Azure Bastion?](../bastion/bastion-overview.md).
 
-![Arquitectura de Azure Bastion](./media/networking-overview/architecture.png)
+:::image type="content" source="./media/networking-overview/architecture.png" alt-text="Información técnica de ExpressRoute":::
 
 ### <a name="virtual-network-nat-gateway"></a><a name="nat"></a>NAT Gateway de Virtual Network
-La NAT (traducción de direcciones de red) de Virtual Network simplifica la conectividad a Internet de solo salida para redes virtuales. Cuando se configura en una subred, todas las conexiones salientes usan las direcciones IP públicas estáticas que se hayan especificado. La conectividad saliente es posible sin que el equilibrador de carga ni las direcciones IP públicas estén conectados directamente a máquinas virtuales. Para más información, vea [¿Qué es NAT de Virtual Network?](../virtual-network/nat-overview.md) 
+La NAT (traducción de direcciones de red) de Virtual Network simplifica la conectividad a Internet de solo salida para redes virtuales. Cuando se configura en una subred, todas las conexiones salientes usan las direcciones IP públicas estáticas que se hayan especificado. La conectividad saliente es posible sin que el equilibrador de carga ni las direcciones IP públicas estén conectados directamente a máquinas virtuales. Para obtener más información, vea [¿Qué es la puerta de enlace NAT de Virtual Network?](../virtual-network/nat-overview.md)
 
-![Puerta de enlace NAT de Virtual Network](./media/networking-overview/flow-map.png)
+:::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Información técnica de ExpressRoute":::
 
 ### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a> Azure Peering Service
-Azure Peering Service mejora la conectividad de los clientes a los servicios en la nube de Microsoft, como Office 365, Dynamics 365, software como servicio (SaaS), Azure o cualquier otro servicio de Microsoft accesible a través de la red pública de Internet. Para más información, vea [¿Qué es Azure Peering Service?](../peering-service/about.md)
+Azure Peering Service mejora la conectividad de los clientes a Servicios en la nube de Microsoft, como Microsoft 365, Dynamics 365, servicios de software como servicio (SaaS), Azure o cualquier otro servicio de Microsoft accesible a través de la red pública de Internet. Para más información, vea [¿Qué es Azure Peering Service?](../peering-service/about.md)
+
+### <a name="azure-edge-zones"></a><a name="edge-zones"></a>Azure Edge Zones
+
+Azure Edge Zone es una familia de ofertas de Microsoft Azure que permite el procesamiento de datos cerca del usuario. Puede implementar máquinas virtuales, contenedores y otros servicios de Azure seleccionados en Azure Edge Zone para satisfacer los requisitos de baja latencia y alto rendimiento de las aplicaciones. Para obtener más información, vea [¿Qué es Azure Edge Zone?](edge-zones-overview.md)
+
+### <a name="azure-orbital"></a><a name="orbital"></a>Azure Orbital
+
+Azure Orbital es una estación terrestre basada en la nube totalmente administrada como servicio que le permite comunicarse con su nave espacial o constelaciones de satélites, descargar los datos y crear un vínculo superior, procesar los datos en la nube, encadenar servicios con servicios de Azure en escenarios únicos y generar productos para sus clientes. Este sistema se basa en la infraestructura global de Azure y en la red de fibra global de latencia baja. Para obtener más información, vea [¿Qué es Azure Orbital?](azure-orbital-overview.md)
+
+:::image type="content" source="./media/azure-orbital-overview/orbital-communications-use-flow.png" alt-text="Información técnica de ExpressRoute":::
 
 ## <a name="application-protection-services"></a><a name="protect"></a>Servicios de protección de aplicaciones
 
@@ -99,10 +110,11 @@ En esta sección se describen los servicios de red en Azure que ayudan a protege
 |[Puntos de conexión de servicio de red virtual](#serviceendpoints)|Le permite limitar el acceso de la red a algunos recursos de servicios de Azure para una subred de la red virtual.|[Restringir el acceso de red a los recursos de PaaS](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
 [Private Link](#privatelink)|Permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un punto de conexión privado de la red virtual.|<p>[Creación de un punto de conexión privado](../private-link/create-private-endpoint-portal.md)</p><p>[Creación de un servicio Private Link](../private-link/create-private-link-service-portal.md)</p>|
 |||
+
 ### <a name="ddos-protection"></a><a name="ddosprotection"></a>DDoS Protection 
 [Azure DDoS Protection](../virtual-network/manage-ddos-protection.md) ofrece técnicas defensivas contra las amenazas de DDoS más sofisticadas. El servicio proporciona funcionalidades mejoradas de mitigación de DDoS a su aplicación y los recursos implementados en las redes virtuales. Además, los clientes que usan Azure DDoS Protection tienen acceso a la compatibilidad con la respuesta rápida de DDoS para atraer a expertos de DDoS durante un ataque activo.
 
-![Protección contra DDOS](./media/networking-overview/ddos-protection.png)
+:::image type="content" source="./media/networking-overview/ddos-protection.png" alt-text="Información técnica de ExpressRoute":::
 
 ### <a name="web-application-firewall"></a><a name="waf"></a>Firewall de aplicaciones web
 
@@ -110,15 +122,14 @@ En esta sección se describen los servicios de red en Azure que ayudan a protege
 
 Los clientes pueden optar por implementar [WAF de Azure con Application Gateway](../application-gateway/waf-overview.md), que proporciona protección regional para las entidades en el espacio de direcciones público y privado. Los clientes pueden optar por implementar [WAF de Azure con Front Door](../frontdoor/waf-overview.md), que proporciona protección en el perímetro de la red para los puntos de conexión públicos.
 
-![Firewall de aplicaciones web](./media/networking-overview/waf-overview.png)
-
+:::image type="content" source="./media/networking-overview/waf-overview.png" alt-text="Información técnica de ExpressRoute":::
 
 ### <a name="azure-firewall"></a><a name="firewall"></a>Azure Firewall
 Azure Firewall es un servicio de seguridad de red administrado y basado en la nube que protege los recursos de Azure Virtual Network. Con Azure Firewall, puede crear, aplicar y registrar directivas de conectividad de red y de aplicaciones de forma centralizada en suscripciones y redes virtuales. Azure Firewall usa una dirección IP pública estática para los recursos de red virtual, que permite que los firewall externos identifiquen el tráfico procedente de la red virtual. 
 
 Para más información acerca de Azure Firewall, consulte la [documentación de Azure Firewall](../firewall/overview.md).
 
-![Información general de firewalls](./media/networking-overview/firewall-threat.png)
+:::image type="content" source="./media/networking-overview/firewall-threat.png" alt-text="Información técnica de ExpressRoute":::
 
 ### <a name="network-security-groups"></a><a name="nsg"></a>Grupos de seguridad de red
 Puede filtrar el tráfico de red hacia y desde los recursos de Azure en una red virtual de Azure con un grupo de seguridad de red. Para más información, consulte [Introducción a la seguridad](../virtual-network/security-overview.md).
@@ -126,14 +137,13 @@ Puede filtrar el tráfico de red hacia y desde los recursos de Azure en una red 
 ### <a name="service-endpoints"></a><a name="serviceendpoints"></a>Puntos de conexión de servicio
 Los puntos de conexión del servicio Virtual Network (red virtual) extienden el espacio de direcciones privadas de la red virtual y la identidad de la red virtual a los servicios de Azure a través de una conexión directa. Los puntos de conexión permiten proteger los recursos de servicio de Azure críticos únicamente para las redes virtuales. El tráfico desde la red virtual al servicio de Azure siempre permanece en la red troncal de Microsoft Azure. Para obtener más información, consulte [puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-![Puntos de conexión de servicio de red virtual](./media/networking-overview/vnet-service-endpoints-overview.png)
+:::image type="content" source="./media/networking-overview/vnet-service-endpoints-overview.png" alt-text="Información técnica de ExpressRoute":::
 
 ### <a name="azure-private-link"></a><a name="privatelink"></a>Azure Private Link
 [Azure Private Link](../private-link/private-link-overview.md) permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un punto de conexión privado de la red virtual.
 El tráfico entre la red virtual y el servicio viaja por la red troncal de Microsoft. Ya no es necesario exponer el servicio a la red pública de Internet. Puede crear su propio servicio de vínculo privado en la red virtual y enviarlo a los clientes.
 
-![Introducción al punto de conexión privado](./media/networking-overview/private-endpoint.png)
-
+:::image type="content" source="./media/networking-overview/private-endpoint.png" alt-text="Información técnica de ExpressRoute":::
 
 ## <a name="application-delivery-services"></a><a name="deliver"></a>Servicios de entrega de aplicaciones
 
@@ -149,13 +159,12 @@ En esta sección se describen los servicios de red de Azure que ayudan a entrega
 |
 
 ### <a name="content-delivery-network"></a><a name="cdn"></a>Content Delivery Network
-Azure Content Delivery Network (CDN) ofrece a los desarrolladores una solución global para la entrega rápida de contenido con alto ancho de banda a los usuarios mediante el almacenamiento en caché del contenido en nodos físicos estratégicamente situados en todo el mundo. Para más información acerca de Azure CDN, consulte [Azure Content Delivery Network](../cdn/cdn-overview.md)
+Azure Content Delivery Network (CDN) ofrece a los desarrolladores una solución global para la entrega rápida de contenido con alto ancho de banda a los usuarios mediante el almacenamiento en caché del contenido en nodos físicos estratégicamente situados en todo el mundo. Para obtener más información sobre Azure CDN, vea [Azure Content Delivery Network](../cdn/cdn-overview.md).
 
-![Azure CDN](./media/networking-overview/cdn-overview.png)
+:::image type="content" source="./media/networking-overview/cdn-overview.png" alt-text="Información técnica de ExpressRoute":::
 
 ### <a name="azure-front-door-service"></a><a name="frontdoor"></a>Azure Front Door Service
 Azure Front Door Service permite definir, administrar y supervisar el enrutamiento global para el tráfico web mediante la optimización para obtener el mejor rendimiento y la conmutación por error global instantánea para alta disponibilidad. Con Front Door, las aplicaciones empresariales y de consumidor globales (de varias regiones) se pueden transformar en aplicaciones modernas personalizadas, sólidas y de alto rendimiento, API y contenido que lleguen a un público global mediante Azure. Para más información, consulte [Azure Front Door](../frontdoor/front-door-overview.md).
-
 
 ### <a name="traffic-manager"></a><a name="trafficmanager"></a>Traffic Manager
 
@@ -163,7 +172,7 @@ Azure Traffic Manager es un equilibrador de carga de tráfico basado en DNS que 
 
 En el diagrama siguiente se muestra el enrutamiento basado en la prioridad del punto de conexión con Traffic Manager:
 
-![Método de enrutamiento de tráfico de "prioridad" de Azure Traffic Manager](./media/networking-overview/priority.png)
+:::image type="content" source="./media/networking-overview/priority.png" alt-text="Información técnica de ExpressRoute":::
 
 Para más información sobre Traffic Manager, consulte [¿Qué es Azure Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
@@ -172,15 +181,14 @@ Azure Load Balancer proporciona equilibrio de carga de nivel 4 con latencia baja
 
 La siguiente imagen muestra una aplicación de niveles múltiples con conexión a Internet que utiliza los equilibradores de carga externos e internos:
 
-![Ejemplo de Azure Load Balancer](./media/networking-overview/load-balancer.png)
-
+:::image type="content" source="./media/networking-overview/load-balancer.png" alt-text="Información técnica de ExpressRoute":::
 
 ### <a name="application-gateway"></a><a name="applicationgateway"></a>Application Gateway
 Azure Application Gateway es un equilibrador de carga de tráfico web que permite administrar el tráfico a las aplicaciones web. Se trata de un controlador de entrega de aplicaciones (ADC) como servicio que ofrece diversas funcionalidades de equilibrio de carga de capa 7 para las aplicaciones. Para más información, consulte [¿Qué es Azure Application Gateway?](../application-gateway/overview.md).
 
 En el diagrama siguiente se muestra el enrutamiento basado en la ruta de acceso de la dirección URL con Application Gateway.
 
-![Ejemplo de Application Gateway](./media/networking-overview/figure1-720.png)
+:::image type="content" source="./media/networking-overview/figure1-720.png" alt-text="Información técnica de ExpressRoute":::
 
 ## <a name="network-monitoring-services"></a><a name="monitor"></a>Servicios de supervisión de red
 En esta sección se describen los servicios de red de Azure que ayudan a supervisar los recursos de red: Network Watcher, Supervisión de ExpressRoute, Azure Monitor y TAP de red virtual.
@@ -204,7 +212,7 @@ Azure Virtual Network TAP (punto de acceso del terminal) permite transmitir cont
 
 En la siguiente imagen se muestra cómo funciona Virtual Network TAP. 
 
-![Cómo funciona Virtual Network TAP](./media/networking-overview/virtual-network-tap-architecture.png)
+:::image type="content" source="./media/networking-overview/virtual-network-tap-architecture.png" alt-text="Información técnica de ExpressRoute":::
 
 Para más información, consulte [TAP de red virtual](../virtual-network/virtual-network-tap-overview.md).
 
@@ -213,6 +221,3 @@ Para más información, consulte [TAP de red virtual](../virtual-network/virtual
 - Cree su primera red virtual y conecte algunas máquinas virtuales a ella, siguiendo los pasos descritos en el artículo [Creación de su primera red virtual](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Conecte su equipo a una red virtual siguiendo los pasos descritos en el artículo [Configuración de una conexión de punto a sitio](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Equilibre la carga de tráfico de Internet en los servidores públicos siguiendo los pasos descritos en el artículo [Creación de un equilibrador de carga con conexión a Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
- 
- 
-   

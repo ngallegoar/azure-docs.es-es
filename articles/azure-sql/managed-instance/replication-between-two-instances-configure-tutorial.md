@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: b0f2a6fcd888afd7eb99a810fad6e876fe6ff4ac
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91617067"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058223"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configuración de la replicación entre dos instancias administradas
 
@@ -48,7 +48,7 @@ Este tutorial va dirigido a un público experimentado, así que se da por hecho 
 
 Para configurar Instancia administrada de SQL de forma que funcione como un publicador o distribuidor, deben darse las siguientes condiciones:
 
-- La instancia administrada del publicador se encuentra en la misma red virtual que el distribuidor y el suscriptor o se ha configurado un [emparejamiento de red virtual](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) entre las redes virtuales de las tres entidades. 
+- La instancia administrada del publicador se encuentra en la misma red virtual que el distribuidor y el suscriptor o se han configurado unas [puertas de enlace de VPN](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) entre las redes virtuales de las tres entidades. 
 - La conectividad usa la autenticación de SQL entre los participantes de la replicación.
 - Un recurso compartido de cuenta de Azure Storage para el directorio de trabajo de replicación.
 - El puerto 445 (salida TCP) está abierto en las reglas de seguridad del grupo de seguridad de red de la instancia administrada para tener acceso al recurso compartido de archivos de Azure.  Si aparece el error `failed to connect to azure storage \<storage account name> with os error 53`, deberá agregar una regla de salida al grupo de seguridad de red de la subred de Instancia administrada de SQL adecuada.

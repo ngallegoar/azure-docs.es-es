@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 8749b64b664571abab6f354018dcbd2bd797531e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/23/2020
+ms.openlocfilehash: 6b091406b15db036007ba6a11049ee63ffe99cf0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531226"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91616914"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -30,10 +30,6 @@ En Azure Data Factory, la integración y la entrega continuas (CI/CD) implican e
 
 -    Implementación automatizada mediante la integración de Data Factory con [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops).
 -    Carga manual de una plantilla de Resource Manager mediante la integración de la experiencia de usuario de Data Factory con Azure Resource Manager.
-
-Para ver una introducción de nueve minutos sobre esta característica y una demostración, vea este vídeo:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -212,13 +208,17 @@ Si la fábrica de desarrollo tiene un repositorio de Git asociado, puede invalid
 * Se usa CI/CD automatizada y se quieren cambiar algunas propiedades durante la implementación de Resource Manager, pero las propiedades no están parametrizadas de forma predeterminada.
 * La fábrica es tan grande que la plantilla de Resource Manager predeterminada no es válida porque contiene más parámetros que el número máximo permitido (256).
 
-Para reemplazar la plantilla de parametrización predeterminada, cree un archivo denominado **arm-template-parameters-definition.json** en la carpeta raíz de la rama de Git. Debe usar ese nombre de archivo exacto.
+Para invalidar la plantilla de parametrización predeterminada, vaya al centro de administración y seleccione **Plantilla de parametrización** en la sección de control de código fuente. Seleccione **Editar plantilla** para abrir el editor de código de la plantilla de parametrización. 
 
-   ![Archivo de parámetros personalizados](media/continuous-integration-deployment/custom-parameters.png)
+![Administración de parámetros personalizados](media/author-management-hub/management-hub-custom-parameters.png)
+
+Al crear una plantilla de parametrización personalizada se crea un archivo denominado **arm-template-parameters-definition.json** en la carpeta raíz de la rama de Git. Debe usar ese nombre de archivo exacto.
+
+![Archivo de parámetros personalizados](media/continuous-integration-deployment/custom-parameters.png)
 
 Al realizar la publicación desde la rama de colaboración, Data Factory leerá este archivo y usará su configuración para generar las propiedades que se parametrizarán. Si no se encuentra ningún archivo, se usa la plantilla predeterminada.
 
-Al exportar una plantilla de Resource Manager, Data Factory lee el archivo de la rama en la que está trabajando actualmente, no solo de la rama de colaboración. Puede crear o editar el archivo desde una rama privada, donde pueda probar los cambios si selecciona **Export ARM Template** (Exportar plantilla de ARM) en la interfaz de usuario. Después, puede combinar el archivo en la rama de colaboración.
+Al exportar una plantilla de Resource Manager, Data Factory lee este archivo desde la rama en la que se está trabajando en ese momento, no la rama de colaboración. Puede crear o editar el archivo desde una rama privada, donde pueda probar los cambios si selecciona **Export ARM Template** (Exportar plantilla de ARM) en la interfaz de usuario. Después, puede combinar el archivo en la rama de colaboración.
 
 > [!NOTE]
 > Una plantilla de parametrización personalizada no cambia el límite de 256 parámetros de plantilla de Resource Manager. Le permite elegir y reducir el número de propiedades parametrizadas.
@@ -461,7 +461,13 @@ A continuación se muestra la plantilla de parametrización predeterminada actua
                 }
             }
         }
+    },
+    "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints": {
+        "properties": {
+            "*": "="
+        }
     }
+}
 ```
 
 ### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>Ejemplo: Parametrización de un identificador de clúster interactivo de Azure Databricks existente
@@ -553,7 +559,7 @@ En el ejemplo siguiente se muestra cómo agregar un único valor a la plantilla 
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-            "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -636,6 +642,8 @@ Si usa la integración de Git con la factoría de datos y tiene una canalizació
 -   **Script anterior y posterior a la implementación**. Antes del paso de implementación de Resource Manager en CI/CD, debe completar ciertas tareas, como detener y reiniciar los desencadenadores y realizar la limpieza. Se recomienda usar scripts de PowerShell antes y después de la tarea de implementación. Para más información, vea [Actualización de desencadenadores activos](#updating-active-triggers). El equipo de Data Factory ha [proporcionado el script](#script) que se va a usar y que se encuentra en la parte inferior de esta página.
 
 -   **Entornos de ejecución de integración y uso compartido**. Los entornos de ejecución de integración no cambian a menudo y son similares en todas las fases de CI/CD. Por tanto, Data Factory espera que el usuario tenga el mismo nombre y tipo de entorno de ejecución de integración en todas las etapas de CI/CD. Si quiere compartir entornos de ejecución de integración en todas las fases, considere la posibilidad de usar una factoría ternaria solo para contener los entornos de ejecución de integración compartidos. Puede usar esta factoría compartida en todos los entornos como un tipo de entorno de ejecución de integración vinculado.
+
+-   **Implementación de un punto de conexión privado administrado**. Si ya existe un punto de conexión privado en una fábrica y se intenta implementar una plantilla de Resource Manager que contiene un punto de conexión privado con el mismo nombre pero con propiedades modificadas, se produce un error en la implementación. Es decir, se puede implementar correctamente un punto de conexión privado siempre que tenga las mismas propiedades que el que ya existe en la fábrica. Si alguna propiedad difiere entre entornos, se puede invalidar si se parametriza esa propiedad y se proporciona el valor respectivo durante la implementación.
 
 -   **Key Vault**. Cuando se usan servicios vinculados cuya información de conexión se almacena en Azure Key Vault, se recomienda mantener almacenes de claves independientes para entornos diferentes. También puede configurar niveles de permisos independientes para cada almacén de claves. Por ejemplo, es posible que no quiera que los miembros del equipo tengan permisos para ver los secretos de producción. Si sigue este enfoque, se recomienda mantener los mismos nombres de secreto en todas las fases. Si mantiene los mismos nombres de secreto, no es necesario parametrizar cada cadena de conexión en los entornos de CI/CD, porque lo único que cambia es el nombre del almacén de claves, que es un parámetro independiente.
 

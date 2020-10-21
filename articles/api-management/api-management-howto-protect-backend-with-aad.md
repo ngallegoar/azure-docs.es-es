@@ -1,27 +1,24 @@
 ---
-title: Protección de una API mediante OAuth 2.0 con AAD y API Management
+title: Protección del back-end de API en API Management mediante OAuth 2.0 y Azure AD
 titleSuffix: Azure API Management
-description: Obtenga información sobre cómo proteger un back-end de API web con Azure Active Directory y API Management.
+description: Aprenda a proteger el acceso a un back-end de API web en Azure API Management con la autorización de usuario de OAuth 2.0 y Azure Active Directory
 services: api-management
-documentationcenter: ''
 author: miaojiang
-manager: dcscontentpm
-editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
-ms.date: 06/24/2020
+ms.date: 09/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: contperfq1
+ms.openlocfilehash: 9892c311651df39b882c3aa38596a905d22a42ec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243416"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91618784"
 ---
-# <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management
+# <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Protección de un back-end de API web en Azure API Management mediante la autorización de OAuth 2.0 con Azure AD 
 
-En esta guía se muestra cómo configurar la instancia de Azure API Management para proteger una API mediante el protocolo OAuth 2.0 con Azure Active Directory (Azure AD). 
+En esta guía se muestra cómo configurar la instancia de [Azure API Management](api-management-key-concepts.md) para proteger una API mediante el [protocolo OAuth 2.0 con Azure Active Directory (Azure AD)](../active-directory/develop/active-directory-v2-protocols.md). 
 
 > [!NOTE]
 > Esta característica está disponible en los niveles **Desarrollador**, **Básico**, **Estándar** y **Premium** de API Management.
@@ -46,7 +43,7 @@ A continuación se muestra una introducción rápida de los pasos:
 
 ## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>Registro de una aplicación en Azure AD que represente la API
 
-Para proteger una API con Azure AD, primero registre una aplicación en Azure AD que la represente. 
+Para proteger una API con Azure AD, primero registre una aplicación en Azure AD que la represente. En los pasos siguientes se usa Azure Portal para registrar la aplicación. Para obtener detalles sobre el registro de aplicaciones, vea [Inicio rápido: Configuración de una aplicación para exponer las API web](../active-directory/develop/quickstart-configure-app-expose-web-apis.md).
 
 1. Vaya a [Azure Portal](https://portal.azure.com) para registrar la aplicación. Busque y seleccione **Registros de aplicaciones**.
 
@@ -79,7 +76,7 @@ Para registrar otra aplicación en Azure AD que represente la consola del desarr
 
 1. Vaya a [Azure Portal](https://portal.azure.com) para registrar la aplicación.
 
-1.  Busque y seleccione **Registros de aplicaciones**.
+1. Busque y seleccione **Registros de aplicaciones**.
 
 1. Seleccione **Nuevo registro**.
 

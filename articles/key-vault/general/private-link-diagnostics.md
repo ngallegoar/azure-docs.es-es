@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 52ac5b89a0c7173b9b2585f84b5f34361b4b136c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91744226"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998403"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnóstico de problemas de configuración de vínculos privados en Azure Key Vault
 
@@ -34,7 +34,7 @@ Si no está familiarizado con esta característica, consulte [Integración de Ke
 ### <a name="problems-not-covered-by-this-article"></a>Problemas NO descritos en este artículo
 
 - Existen un problema de conectividad intermitente. En un cliente determinado, verá que algunas solicitudes funcionan y otras no. *Normalmente, los problemas intermitentes no los causa un problema en la configuración de vínculos privados; estos son un signo de carga de red o de cliente.*
-- Está usando un producto de Azure que admite BYOK (Bring Your Own Key) o CMK (claves administradas por el cliente) y ese producto no puede acceder a su almacén de claves. *Consulte la documentación del otro producto. Asegúrese de que indica explícitamente la compatibilidad de los almacenes de claves con el firewall habilitado. Póngase en contacto con el servicio de soporte técnico de ese producto específico, si es necesario.*
+- Está usando un producto de Azure que admite BYOK (Bring Your Own Key) o CMK (claves administradas por el cliente), o accede a los secretos almacenados en el almacén de claves. Cuando habilita el firewall en la configuración del almacén de claves, ese producto no puede acceder a su almacén de claves. *Consulte la documentación específica del producto. Asegúrese de que indica explícitamente la compatibilidad de los almacenes de claves con el firewall habilitado. Póngase en contacto con el servicio de soporte técnico de ese producto específico, si es necesario.*
 
 ### <a name="how-to-read-this-article"></a>Cómo leer este artículo
 
@@ -46,9 +46,11 @@ Comencemos.
 
 ### <a name="confirm-that-your-client-runs-at-the-virtual-network"></a>Confirme que el cliente se ejecuta en la red virtual
 
-Esta guía está pensada para ayudarle a corregir las conexiones al almacén de claves que se originan a partir del código de la aplicación. Algunos ejemplos son las aplicaciones y los scripts que se ejecutan en Azure Virtual Machines, los clústeres de Azure Service Fabric, Azure App Service, Azure Kubernetes Service (AKS) y otros similares.
+Esta guía está pensada para ayudarle a corregir las conexiones al almacén de claves que se originan a partir del código de la aplicación. Algunos ejemplos son las aplicaciones y los scripts que se ejecutan en Azure Virtual Machines, los clústeres de Azure Service Fabric, Azure App Service, Azure Kubernetes Service (AKS) y otros similares. Esta guía también se aplica a los accesos a través de la interfaz de usuario basada en web de Azure Portal, donde el explorador accede directamente al almacén de claves.
 
-Al usar vínculos privados, la aplicación o el script deben ejecutarse en el equipo, clúster o entorno conectado a Virtual Network en el que se implementó el [recurso del punto de conexión privado](../../private-link/private-endpoint-overview.md). Si la aplicación se ejecuta en una red arbitraria conectada a Internet, esta guía NO es aplicable y es probable que no se puedan usar vínculos privados.
+Al usar vínculos privados, la aplicación, el script o el portal deben ejecutarse en la máquina, clúster o entorno conectado a Virtual Network en el que se implementó el [recurso del punto de conexión privado](../../private-link/private-endpoint-overview.md).
+
+Si la aplicación, el script o el portal se ejecuta en una red arbitraria conectada a Internet, esta guía NO es aplicable y es probable que no se puedan usar vínculos privados. Esta limitación también se aplica a los comandos que se ejecutan en Azure Cloud Shell, ya que se ejecutan en una máquina remota de Azure que se proporciona a petición en lugar del explorador del usuario.
 
 ### <a name="if-you-use-a-managed-solution-refer-to-specific-documentation"></a>Si usa una solución administrada, consulte la documentación específica
 
@@ -74,7 +76,7 @@ Es buena idea eliminar las conexiones ineficaces con el fin de mantener todo org
 >[!IMPORTANT]
 > Si cambiar la configuración del firewall puede quitar el acceso de los clientes legítimos que todavía no usan vínculos privados. Asegúrese de que conoce las implicaciones de cada cambio en la configuración del firewall.
 
-Algo importante a tener en cuenta, es que solo los vínculos privados *proporcionan* acceso al almacén de claves. No *quite* ningún acceso existente. Para bloquear de forma eficaz el acceso desde la red pública de Internet, debe habilitar el firewall del almacén de claves explícitamente:
+Una noción importante es que la característica de vínculos privados solo *da* acceso a su almacén de claves en una instancia de Virtual Network que esté cerca, a fin de evitar la filtración de datos. No *quite* ningún acceso existente. Para bloquear de forma eficaz el acceso desde la red pública de Internet, debe habilitar el firewall del almacén de claves explícitamente:
 
 1. Abra Azure Portal y el recurso del almacén de claves.
 2. En el menú de la izquierda, seleccione la opción **Redes**.
@@ -229,11 +231,11 @@ La suscripción de Azure debe tener una [zona DNS privada](../../dns/private-dns
 
 Puede comprobar la presencia de este recurso yendo a la página de suscripción en el portal y seleccionando "Recursos" en el menú de la izquierda. El nombre del recurso debe ser `privatelink.vaultcore.azure.net`, y el tipo del mismo debe ser **zona DNS privada**.
 
-Normalmente, este recurso se crea automáticamente cuando se crea un punto de conexión privado mediante un método típico. Sin embargo, hay casos en los que este recurso no se crea automáticamente, por lo que tendría que hacerlo manualmente. Este recurso también podría haberse eliminado por accidente.
+Normalmente, este recurso se crea automáticamente cuando se crea un punto de conexión privado mediante un procedimiento común. Sin embargo, hay casos en los que este recurso no se crea automáticamente, por lo que tendría que hacerlo manualmente. Este recurso también podría haberse eliminado por accidente.
 
 Si no tiene este recurso, cree un nuevo recurso de zona DNS privada en la suscripción. Recuerde que el nombre debe ser exactamente `privatelink.vaultcore.azure.net`, sin espacios ni puntos adicionales. Si especifica un nombre incorrecto, la resolución de nombres que se explica en este artículo no funcionará. Para obtener más información sobre cómo crear este recurso, consulte [Creación de una zona DNS privada de Azure mediante Azure Portal](../../dns/private-dns-getstarted-portal.md). Si sigue los pasos de esa página, puede omitir la creación de Virtual Network, ya que en este momento debe tener uno disponible. También puede omitir los procedimientos de validación con Virtual Machines.
 
-### <a name="confirm-that-the-private-dns-zone-must-be-linked-to-the-virtual-network"></a>Confirme que la zona DNS privada está vinculada a la instancia de Virtual Network.
+### <a name="confirm-that-the-private-dns-zone-is-linked-to-the-virtual-network"></a>Confirme que la zona DNS privada esté vinculada a Virtual Network.
 
 Recuerde que no es suficiente tener una zona DNS privada sin más. También debe estar vinculada a la instancia de Virtual Network que contiene el punto de conexión privado. Si la zona DNS privada no está vinculada a la instancia de Virtual Network correcta, cualquier resolución DNS de esa instancia de Virtual Network omitirá la zona DNS privada.
 
@@ -250,7 +252,7 @@ Mediante el portal, abra la zona DNS privada con el nombre `privatelink.vaultcor
 
 Para que funcione la resolución de nombres del almacén de claves, debe haber un registro `A` que tenga un nombre de almacén simple, sin sufijo ni puntos. Por ejemplo, si el nombre de host es `fabrikam.vault.azure.net`, debe haber un registro `A` con el nombre `fabrikam`, sin ningún sufijo ni punto.
 
-Asimismo, el valor del registro `A` (la dirección IP) debe ser [la dirección IP privada del almacén de claves](#find-the-key-vault-private-ip-address-in-the-virtual-network). Si encuentra el registro `A` pero contiene una dirección IP incorrecta, debe quitar la dirección IP equivocada y agregar una nueva. Así pues, se recomienda quitar todo el registro `A` y agregar uno nuevo.
+Asimismo, el valor del registro `A` (la dirección IP) debe ser [la dirección IP privada del almacén de claves](#find-the-key-vault-private-ip-address-in-the-virtual-network). Si encuentra el registro `A`, pero contiene la dirección IP incorrecta, debe quitar la dirección IP equivocada y agregar una nueva. Así pues, se recomienda quitar todo el registro `A` y agregar uno nuevo.
 
 >[!NOTE]
 > Cada vez que se quita o se modifica un registro `A`, es posible que la máquina siga resolviendo la dirección IP anterior porque el valor de TTL (período de vida) no ha expirado todavía. Por ello, se recomienda especificar siempre un valor de TTL inferior a 60 segundos (un minuto) y no mayor que 600 segundos (10 minutos). Si especifica un valor demasiado grande, los clientes pueden tardar demasiado tiempo en recuperarse de interrupciones.
@@ -259,9 +261,9 @@ Asimismo, el valor del registro `A` (la dirección IP) debe ser [la dirección I
 
 Si existen varias instancias de Virtual Network y cada una tiene su propio recurso de punto de conexión privado que hace referencia al mismo almacén de claves, el nombre de host del almacén de claves debe resolverse en una dirección IP privada diferente, en función de la red. Esto significa que también se necesitan varias zonas DNS privadas, cada una vinculada a una instancia de Virtual Network diferente y que use una dirección IP diferente en el registro `A`.
 
-En ejemplos más avanzados, hay varias instancias de Virtual Network con el emparejamiento habilitado. En este caso, solo una instancia de Virtual Network necesita tener el recurso de punto de conexión privado, aunque es posible que sea necesario vincular ambos al recurso de la zona DNS privada. Este ejemplo no se incluye directamente en este documento.
+En escenarios más avanzados, las instancias de Virtual Network pueden tener el emparejamiento habilitado. En este caso, solo una instancia de Virtual Network necesita tener el recurso de punto de conexión privado, aunque es posible que sea necesario vincular ambos al recurso de la zona DNS privada. Este ejemplo no se incluye directamente en este documento.
 
-### <a name="fact-you-have-control-over-dns-resolution"></a>Hecho: tiene control sobre la resolución de DNS
+### <a name="understand-that-you-have-control-over-dns-resolution"></a>Garantía de que tiene control sobre la resolución de DNS
 
 Tal como se explica en la [sección anterior](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine), un almacén de claves con vínculos privados tiene el alias `{vaultname}.privatelink.vaultcore.azure.net` en su registro *público*. El servidor DNS que usa la instancia de Virtual Network usa el registro público, pero comprueba todos los alias de un registro *privado* y, si encuentra alguno, detendrá los siguientes alias definidos en el registro público.
 
@@ -324,7 +326,7 @@ En el campo `addr` del encabezado de `x-ms-keyvault-network-info` se muestra la 
 ### <a name="query-the-key-vault-ip-address-directly"></a>Consultar la dirección IP del almacén de claves directamente
 
 >[!IMPORTANT]
-> Acceder al almacén de claves sin validar los certificados HTTPS es peligroso y solo se puede realizar con fines de aprendizaje. El código de producción NUNCA debe obtener acceso al almacén de claves sin esta validación del lado cliente. Incluso si solo está diagnosticando problemas, es posible que sufra un intento de alteración que no se mostrará si tiene siempre deshabilitada la validación de certificados HTTPS en las solicitudes que se realizan al almacén de claves.
+> Acceder al almacén de claves sin validar los certificados HTTPS es peligroso y solo se puede realizar con fines de aprendizaje. El código de producción NUNCA debe obtener acceso al almacén de claves sin esta validación del lado cliente. Incluso si solo está diagnosticando problemas, es posible que sufra intentos de alteración que no se mostrarán si con frecuencia tiene deshabilitada la validación de certificados HTTPS en las solicitudes que se realizan al almacén de claves.
 
 Si ha instalado una versión reciente de PowerShell, puede usar `-SkipCertificateCheck` para omitir las comprobaciones de certificados HTTPS y, a continuación, puede establecer como destino la [dirección IP del almacén de claves](#find-the-key-vault-private-ip-address-in-the-virtual-network) directamente:
 
@@ -354,7 +356,7 @@ Muchos sistemas operativos permiten establecer una dirección IP fija explícita
 
 ### <a name="promiscuous-proxies-fiddler-etc"></a>Proxies promiscuos (Fiddler, etc.)
 
-Salvo que se indique explícitamente, las opciones de diagnóstico de este artículo solo funcionan si no hay ningún proxy promiscuo presente en el entorno. Aunque estos proxies suelen instalarse exclusivamente en el equipo que se está diagnosticando (Fiddler es el ejemplo más común), los administradores avanzados pueden sobrescribir las Entidades de certificación raíz (CA) e instalar un proxy promiscuo en los dispositivos de puerta de enlace que atienden a varios equipos de la red. Estos proxies pueden afectar considerablemente a la seguridad y la confiabilidad. Microsoft no admite las configuraciones que usan estos productos.
+Salvo cuando se indique explícitamente, las opciones de diagnóstico de este artículo solo funcionan si no hay ningún proxy promiscuo presente en el entorno. Aunque estos proxies suelen instalarse exclusivamente en el equipo que se está diagnosticando (Fiddler es el ejemplo más común), los administradores avanzados pueden sobrescribir las Entidades de certificación raíz (CA) e instalar un proxy promiscuo en los dispositivos de puerta de enlace que atienden a varios equipos de la red. Estos proxies pueden afectar considerablemente a la seguridad y la confiabilidad. Microsoft no admite las configuraciones que usan estos productos.
 
 ### <a name="other-things-that-may-affect-connectivity"></a>Otras cosas que pueden afectar a la conectividad
 

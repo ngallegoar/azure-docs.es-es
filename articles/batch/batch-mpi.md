@@ -2,14 +2,14 @@
 title: Uso de tareas de instancias múltiples para ejecutar aplicaciones de MPI
 description: Obtenga información sobre cómo ejecutar aplicaciones de Interfaz de paso de mensajes (MPI) con el tipo de tarea de instancias múltiples en Azure Batch.
 ms.topic: how-to
-ms.date: 03/13/2019
+ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: fd39af127d975f085bbd55fe2a21f925b5aae8e6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6207fc5295de28d4caf956b74e14f97f1113120c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926378"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850632"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Batch
 
@@ -39,7 +39,7 @@ Al enviar una tarea con configuración de instancias múltiples a un trabajo, el
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Requisitos de las tareas de instancias múltiples
-Las tareas de múltiples instancias requieren un grupo con la **comunicación ente nodos habilitada** y la **ejecución simultánea de tareas deshabilitada**. Para deshabilitar la ejecución de tareas simultáneas, establezca la propiedad [CloudPool.MaxTasksPerComputeNode](/dotnet/api/microsoft.azure.batch.cloudpool) en 1.
+Las tareas de múltiples instancias requieren un grupo con la **comunicación ente nodos habilitada** y la **ejecución simultánea de tareas deshabilitada**. Para deshabilitar la ejecución de tareas simultánea, establezca la propiedad [CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) en 1.
 
 > [!NOTE]
 > Batch [limita](batch-quota-limit.md#pool-size-limits) el tamaño de un grupo que tiene habilitada la comunicación entre nodos.
@@ -58,11 +58,11 @@ CloudPool myCloudPool =
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
 myCloudPool.InterComputeNodeCommunicationEnabled = true;
-myCloudPool.MaxTasksPerComputeNode = 1;
+myCloudPool.TaskSlotsPerNode = 1;
 ```
 
 > [!NOTE]
-> Si intenta ejecutar una tarea de instancias múltiples en un grupo con la comunicación entre nodos deshabilitada o con un valor de *maxTasksPerNode* superior a 1, la tarea nunca será programada, sino que permanecerá indefinidamente en estado "activo". 
+> Si intenta ejecutar una tarea de varias instancias en un grupo con la comunicación entre nodos deshabilitada o con un valor *taskSlotsPerNode* superior a 1, la tarea nunca se programa, sino que permanece indefinidamente en estado "activo".
 
 
 ### <a name="use-a-starttask-to-install-mpi"></a>Uso de StartTask para instalar MPI
@@ -99,7 +99,7 @@ Consulte los tamaños compatibles con RDMA en los siguientes artículos:
   * [Tamaños de las máquinas virtuales en Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> Para sacar el máximo provecho a RDMA en los [nodos de proceso de Linux](batch-linux-nodes.md), debe utilizar **Intel MPI** en esos nodos. 
+> Para sacar el máximo provecho a RDMA en los [nodos de proceso de Linux](batch-linux-nodes.md), debe utilizar **Intel MPI** en esos nodos.
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Creación de una tarea de instancias múltiples con .NET de Batch

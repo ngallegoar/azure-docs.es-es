@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 47ac9fa91f391442691661a3ba03dd1f0d918601
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669067"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842876"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Vista previa: Aplicación de revisiones automáticas a invitados de las máquinas virtuales Windows en Azure
 
@@ -251,8 +251,10 @@ Los resultados de la instalación de revisiones para la máquina virtual se pued
 ## <a name="on-demand-patch-assessment"></a>Evaluación de la revisión a petición
 Si la aplicación de revisiones automáticas a invitados de máquina virtual ya está habilitada para la máquina virtual, se realiza periódicamente una evaluación de las revisiones de la máquina virtual durante las horas valle de la máquina virtual. Este proceso es automático y los resultados de la evaluación más reciente se pueden revisar en la vista de instancia de la máquina virtual, tal y como se describió anteriormente en este documento. También puede desencadenar una evaluación de revisiones a petición para su máquina virtual en cualquier momento. La evaluación de revisiones puede tardar unos minutos en completarse y el estado de la evaluación más reciente se actualiza en la vista de instancia de la máquina virtual.
 
+Para habilitar la funcionalidad en versión preliminar, hay que participar en la característica *InGuestPatchVMPreview* por suscripción. La versión preliminar de la característica para la evaluación de revisiones a petición se puede habilitar siguiendo el [proceso de habilitación de la versión preliminar](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) descrito anteriormente para la aplicación automática de revisiones de invitado de la máquina virtual.
+
 > [!NOTE]
->La evaluación de revisiones a petición no desencadena automáticamente la revisión instalada. Las revisiones evaluadas y aplicables para la máquina virtual solo se instalarán durante las horas valle de la máquina virtual, siguiendo el proceso de aplicación de revisiones de primero la disponibilidad que se ha descrito anteriormente en este documento.
+>La evaluación de revisiones a petición no desencadena automáticamente la instalación de revisiones. Las revisiones evaluadas y aplicables para la máquina virtual solo se instalarán durante las horas valle de la máquina virtual, siguiendo el proceso de aplicación de revisiones de primero la disponibilidad que se ha descrito anteriormente en este documento.
 
 ### <a name="rest-api"></a>API DE REST
 ```

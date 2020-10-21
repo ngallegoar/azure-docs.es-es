@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 1a1ce22cd700368d630d70912ea266d16fd772bf
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: bab81809f42c9afa3d2c701398fa5ff8ffc2800d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925216"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91744175"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Opciones de cableado para Azure Data Box
 
@@ -105,7 +105,7 @@ Realice los pasos siguientes para cablear el dispositivo.
    - **Dirección IP** establecida en 192.168.100.5
    - **Subred** establecida en 255.255.255.0
 
-     ![Configuración de dos puertos con un conmutador](media/data-box-cable-options/cabling-with-switch-static-ip.png)
+     ![Configuración de dos puertos con un conmutador 2](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
 3. Acceda a la interfaz de usuario web local del dispositivo en: 192.168.100.10. Inicie sesión y desbloquee el dispositivo Data Box con la contraseña de desbloqueo de Azure Portal.
 4. Asigne direcciones IP estáticas a los puertos de datos que ha configurado.
@@ -125,7 +125,7 @@ Realice los pasos siguientes para cablear el dispositivo.
 
 1. Utilice un cable RJ45 o SFP+ con un conmutador (en el que el servidor DHCP está accesible) al servidor.
 
-    ![Configuración de dos puertos con un conmutador](media/data-box-cable-options/cabling-dhcp-data-only.png)
+    ![Configuración de dos puertos con un conmutador 3](media/data-box-cable-options/cabling-dhcp-data-only.png)
 2. Use un servidor DHCP o un servidor DNS para identificar la dirección IP.
 3. Desde un servidor en la misma red, acceda a la interfaz de usuario web local del dispositivo con la dirección IP asignada por el servidor DHCP. Inicie sesión y desbloquee el dispositivo Data Box con la contraseña de desbloqueo de Azure Portal.
 

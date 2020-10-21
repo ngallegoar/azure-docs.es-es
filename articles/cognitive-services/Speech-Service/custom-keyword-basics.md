@@ -1,5 +1,5 @@
 ---
-title: Creación de palabras clave personalizadas - Servicio de voz
+title: 'Inicio rápido: Creación de palabras clave en el servicio Speech'
 titleSuffix: Azure Cognitive Services
 description: El dispositivo siempre espera una palabra clave (o frase). Cuando el usuario dice la palabra clave, el dispositivo envía todo el audio subsiguiente a la nube, hasta que el usuario deja de hablar. La personalización de la palabra clave es una forma eficaz de diferenciar el dispositivo y de reforzar la marca.
 services: cognitive-services
@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/20/2019
+ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d80f244f7b5e17d730451093070b971e9aa041b9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919019"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91667700"
 ---
-# <a name="custom-keyword-basics"></a>Conceptos básicos de palabras claves personalizadas
+# <a name="get-started-with-custom-keyword"></a>Introducción a Palabra clave personalizada
 
-En este artículo, aprenderá los conceptos básicos de cómo trabajar con palabras clave personalizadas mediante Speech Studio y el SDK de Voz. Una palabra clave es una palabra o frase corta que permite activar por voz el producto. Se crean modelos de palabras clave en Speech Studio y, a continuación, se exporta un archivo de modelo que se usará con el SDK de Voz en sus aplicaciones.
+En este inicio rápido, aprenderá los conceptos básicos de trabajar con palabras clave personalizadas mediante Speech Studio y el SDK de voz. Una palabra clave es una palabra o frase corta que permite activar por voz el producto. Se crean modelos de palabras clave en Speech Studio y, a continuación, se exporta un archivo de modelo que se usará con el SDK de Voz en sus aplicaciones.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Los pasos descritos en este artículo requieren una suscripción a Voz y el SDK de Voz. Si no dispone ya de una suscripción, [pruebe el servicio de voz de forma gratuita](get-started.md). Para obtener el SDK, consulte la [guía de instalación](quickstarts/setup-platform.md) para su plataforma.
+Los pasos descritos en este artículo requieren una suscripción a Voz y el SDK de Voz. Si no dispone ya de una suscripción, [pruebe el servicio de voz de forma gratuita](overview.md#try-the-speech-service-for-free). Para obtener el SDK, consulte la [guía de instalación](quickstarts/setup-platform.md) para su plataforma.
 
 ## <a name="create-a-keyword-in-speech-studio"></a>Creación de una palabra clave en Speech Studio
 

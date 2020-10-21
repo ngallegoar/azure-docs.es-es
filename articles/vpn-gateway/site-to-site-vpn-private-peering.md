@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: effbe8e771922ea07ad908dd4871f8dcdb7c1d19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 016741606bad5536985a38b0e0664b39006e1df5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932204"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91776568"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering-preview"></a>Configuración de una conexión VPN de sitio a sitio a través del emparejamiento privado de ExpressRoute (versión preliminar)
 
@@ -72,16 +72,18 @@ En ambos ejemplos, Azure enviará tráfico a 10.0.1.0/24 a través de la conexi�
 
 ## <a name="portal-steps"></a><a name="portal"></a>Pasos del portal
 
-1. Configure una conexión de sitio a sitio. Para conocer los pasos, consulte el artículo [Configuración de sitio a sitio](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Asegúrese de elegir una SKU de puerta de enlace con redundancia de zona como puerta de enlace. Las SKU con redundancia de zona tienen "AZ" al final. Por ejemplo, VpnGw1AZ.
+1. Configure una conexión de sitio a sitio. Para conocer los pasos, consulte el artículo [Configuración de sitio a sitio](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Asegúrese de elegir una SKU de puerta de enlace con redundancia de zona como puerta de enlace. 
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Direcciones IP privadas de puerta de enlace":::
+   Las SKU con redundancia de zona tienen "AZ" al final. Por ejemplo, **VpnGw1AZ**. Las puertas de enlace con redundancia de zona solo están disponibles en las regiones donde está disponible el servicio de zona de disponibilidad. Para información sobre las regiones en las que se admiten zonas de disponibilidad, consulte [Regiones que admiten zonas de disponibilidad](../availability-zones/az-region.md).
+
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Ilustración 1":::
 1. Habilite las direcciones IP privadas de la puerta de enlace. Seleccione **Configuración** y, luego, establezca **Gateway Private IPs** (Direcciones IP privadas de puerta de enlace) en **Habilitado**. Haga clic en **Guardar** para guardar los cambios.
 1. En la página **Información general**, seleccione **Ver más** para ver la dirección IP privada. Anote esta información, ya que la usará más adelante en los pasos de configuración.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Página de información general" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Ilustración 1" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
 1. Para habilitar **Usar la dirección IP privada de Azure** en la conexión, seleccione **Configuración**. Establezca **Usar la dirección IP privada de Azure** en **Habilitado** y, luego. seleccione **Guardar**.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Gateway Private IPs (Direcciones IP privadas de puerta de enlace): Habilitado":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Ilustración 1":::
 1. En el firewall, haga ping a la dirección IP privada que anotó en el paso 3. La dirección IP privada debe ser accesible a través del emparejamiento privado de ExpressRoute.
 1. Use esta dirección IP privada como dirección IP remota en el firewall local para establecer el túnel de sitio a sitio a través del emparejamiento privado de ExpressRoute.
 

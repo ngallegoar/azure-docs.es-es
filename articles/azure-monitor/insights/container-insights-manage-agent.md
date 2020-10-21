@@ -3,12 +3,12 @@ title: Administración de Azure Monitor para el agente de contenedores | Microso
 description: En este artículo se describe cómo administrar las tareas de mantenimiento más comunes con el agente de Log Analytics en contenedores que usa Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 1a397dbc5ebc4952b09c504b70df6ad99c00b216
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b656b0cc89e40dd732def4ebf56dceae69a033b0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041269"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91618444"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Administración de Azure Monitor para el agente de contenedores
 
@@ -75,23 +75,25 @@ Siga los pasos que se describen a continuación para actualizar el agente en un 
 >
 
 ```console
-$ helm upgrade --name myrelease-1 \
---set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
+curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
+export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
+bash upgrade-monitoring.sh --resource-id $ azureAroV4ClusterResourceId
 ```
+
+Vea **Uso de una entidad de servicio** en [Habilitación de la supervisión en el clúster de Kubernetes habilitado para Azure Arc](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) para obtener detalles sobre el uso de una entidad de servicio con este comando.
 
 ### <a name="upgrade-agent-on-azure-arc-enabled-kubernetes"></a>Agente de actualización en Kubernetes habilitado para Azure Arc
 
-Ejecute el siguiente comando para actualizar el agente en un clúster de Kubernetes habilitado para Azure Arc sin un punto de conexión proxy.
+Ejecute el siguiente comando para actualizar el agente en un clúster de Kubernetes habilitado para Azure Arc.
 
 ```console
-$ helm upgrade --install azmon-containers-release-1  –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
+curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
+export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
+bash upgrade-monitoring.sh --resource-id $azureArcClusterResourceId
 ```
 
-Ejecute el siguiente comando para actualizar el agente cuando se especifique un punto de conexión proxy. Para obtener más información acerca del punto de conexión proxy, consulte [Configuración del punto de conexión proxy](container-insights-enable-arc-enabled-clusters.md#configure-proxy-endpoint).
+Vea **Uso de una entidad de servicio** en [Habilitación de la supervisión en el clúster de Kubernetes habilitado para Azure Arc](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) para obtener detalles sobre el uso de una entidad de servicio con este comando.
 
-```console
-$ helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
-```
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Cómo deshabilitar la recopilación de variables de entorno en un contenedor
 

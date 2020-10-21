@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 508d054bc4eed88867bb6e3282edbafaae9a5247
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 97bd71dd5a70a867f45915a5a5f95f6513f2a824
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298052"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541737"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interacción con clústeres de Apache Kafka en Azure HDInsight mediante un proxy de REST
 
@@ -63,11 +63,11 @@ En los pasos siguientes se usa Azure Portal. Para ver un ejemplo con la CLI de A
 
 1. Durante el flujo de trabajo de creación del clúster de Kafka, en la pestaña **Seguridad y redes**, active la opción **Habilitar proxy REST de Kafka**.
 
-     ![Habilitación del proxy de REST de Kafka y selección del grupo de seguridad](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
+     ![En la captura de pantalla se muestra la página Crear clúster H D Insight con la opción Seguridad y redes seleccionada.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
 1. Haga clic en **Seleccionar grupo de seguridad**. En la lista de grupos de seguridad, seleccione el que quiere que tenga acceso al proxy de REST. Puede usar el cuadro de búsqueda para buscar el grupo de seguridad adecuado. Haga clic en el botón **Seleccionar** de la parte inferior.
 
-     ![Habilitación del proxy de REST de Kafka y selección del grupo de seguridad](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
+     ![Captura de pantalla que muestra la página Crear clúster de H D Insight con la opción para seleccionar un grupo de seguridad.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
 1. Complete los pasos restantes para crear el clúster como se describe en [Creación de un clúster de Apache Kafka en Azure HDInsight mediante Azure Portal](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started).
 

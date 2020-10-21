@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 917a8d6edf04d8a160c3a6a5ac59949623dfee5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418684"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569880"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformación de datos mediante flujos de datos de asignación
 
@@ -80,10 +80,10 @@ En este paso, creará una canalización que contiene una actividad de Data Flow.
     ![Actividad de Data Flow](media/tutorial-data-flow/dataflow1.png)
 1. En el panel **Actividades** expanda el acordeón **Movimiento y transformación**. Arrastre y coloque la actividad **Data Flow** del panel al lienzo de la canalización.
 
-    ![Actividad de Data Flow](media/tutorial-data-flow/activity1.png)
+    ![Captura de pantalla que muestra el lienzo de canalización donde puede colocar la actividad de Data Flow.](media/tutorial-data-flow/activity1.png)
 1. En el menú emergente **Adding Data Flow** (Agregando Data Flow), seleccione **Create New Data Flow** (Crear nuevo Data Flow) y, a continuación, asigne el nombre **TransformMovies** al flujo de datos. Haga clic en Finalizar cuando haya terminado.
 
-    ![Actividad de Data Flow](media/tutorial-data-flow/activity2.png)
+    ![Captura de pantalla que muestra la ubicación donde se asigna nombre al flujo de datos al crear uno nuevo.](media/tutorial-data-flow/activity2.png)
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Generación de la lógica de transformación en el lienzo de flujo de datos
 
@@ -91,19 +91,19 @@ Una vez creado el flujo de datos, se le enviará automáticamente al lienzo fluj
 
 1. Para agregar un lienzo de flujo de datos, haga clic en el cuadro **Agregar origen** y agregue un origen.
 
-    ![Lienzo de Data Flow](media/tutorial-data-flow/dataflow2.png)
+    ![Captura de pantalla que muestra el cuadro Agregar origen.](media/tutorial-data-flow/dataflow2.png)
 1. Asigne un nombre al origen **MoviesDB**. Haga clic en **Nuevo** para crear un conjunto de datos de origen nuevo.
 
-    ![Lienzo de Data Flow](media/tutorial-data-flow/dataflow3.png)
+    ![Captura de pantalla que muestra la ubicación donde se selecciona Nuevo después de asignar un nombre al origen.](media/tutorial-data-flow/dataflow3.png)
 1. Elija **Azure Data Lake Storage Gen2**. Haga clic en Continue.
 
-    ![Dataset](media/tutorial-data-flow/dataset1.png)
+    ![Captura de pantalla que muestra el icono de Azure Data Lake Storage Gen2.](media/tutorial-data-flow/dataset1.png)
 1. Elija **DelimitedText**. Haga clic en Continue.
 
-    ![Dataset](media/tutorial-data-flow/dataset2.png)
+    ![Captura de pantalla que muestra el icono de DelimitedText.](media/tutorial-data-flow/dataset2.png)
 1. Asigne un nombre al conjunto de datos **MoviesDB**. En la lista desplegable de servicios vinculados, elija **Nuevo**.
 
-    ![Dataset](media/tutorial-data-flow/dataset3.png)
+    ![Captura de pantalla que muestra la lista desplegable Servicio vinculado.](media/tutorial-data-flow/dataset3.png)
 1. En la pantalla de creación de un servicio vinculado, asigne el nombre **ADLSGen2** al servicio vinculado ADLS gen2 y especifique el método de autenticación. A continuación, escriba las credenciales de conexión. En este tutorial, vamos a usar la clave de cuenta para conectarse a la cuenta de almacenamiento. Puede hacer clic en **Prueba de conexión** para comprobar que las credenciales se escribieron correctamente. Cuando haya terminado, haga clic en Crear.
 
     ![Servicios vinculados](media/tutorial-data-flow/ls1.png)
@@ -112,13 +112,13 @@ Una vez creado el flujo de datos, se le enviará automáticamente al lienzo fluj
     ![Conjuntos de datos](media/tutorial-data-flow/dataset4.png)
 1. Si se ha iniciado el clúster de depuración, vaya a la pestaña **Vista previa de los datos** de la transformación de origen y haga clic en **Actualizar** para obtener una instantánea de los datos. Puede usar la vista previa de los datos para comprobar que la transformación está configurada correctamente.
 
-    ![Lienzo de Data Flow](media/tutorial-data-flow/dataflow4.png)
+    ![Captura de pantalla que muestra la ubicación donde se puede obtener una vista previa de los datos para comprobar que la transformación está configurada correctamente.](media/tutorial-data-flow/dataflow4.png)
 1. Junto al nodo de origen en el lienzo de flujo de datos, haga clic en el icono de signo más para agregar una nueva transformación. La primera transformación que va a agregar es un **filtro**.
 
     ![Lienzo de Data Flow](media/tutorial-data-flow/dataflow5.png)
 1. Denomine **FilterYears** a la transformación de filtro. Haga clic en el cuadro de expresión junto a **Filtro en** para abrir el generador de expresiones. Aquí especificará la condición de filtrado.
 
-    ![Filter](media/tutorial-data-flow/filter1.png)
+    ![Captura de pantalla que muestra el cuadro de expresión Filtro en.](media/tutorial-data-flow/filter1.png)
 1. El generador de expresiones de flujo de datos le permite compilar de forma interactiva expresiones para utilizarlas en varias transformaciones. Las expresiones pueden incluir funciones integradas, columnas del esquema de entrada y parámetros definidos por el usuario. Para más información sobre cómo compilar expresiones, vea [Generador de expresiones de Mapping Data Flow](concepts-data-flow-expression-builder.md).
 
     En este tutorial, desea filtrar las películas del género de comedia que se estrenaron entre los años 1910 y 2000. Dado que el año es actualmente una cadena, debe convertirlo en un entero mediante la función ```toInteger()```. Use los operadores mayor o igual que (> =) y menor o igual que (< =) para comparar con los valores de año literal 1910 y 200-. Una estas expresiones junto con el operador and (&&). La expresión aparece como:
@@ -137,35 +137,35 @@ Una vez creado el flujo de datos, se le enviará automáticamente al lienzo fluj
 
 1. Capture una **Vista previa de datos** para comprobar que el filtro funciona correctamente.
 
-    ![Filter](media/tutorial-data-flow/filter3.png)
+    ![Captura de pantalla que muestra la vista previa de datos que ha capturado.](media/tutorial-data-flow/filter3.png)
 1. La transformación siguiente que se va a agregar es una transformación de **agregado** en **Schema Modifier** (Modificador de esquema).
 
-    ![Agregado](media/tutorial-data-flow/agg1.png)
+    ![Captura de pantalla que muestra el modificador de esquema de agregado.](media/tutorial-data-flow/agg1.png)
 1. Denomine **AggregateComedyRatings** a la transformación de agregado. En la pestaña **Agrupar por**, seleccione **year** (año) en la lista desplegable para agrupar las agregaciones por el año en que apareció la película.
 
-    ![Agregado](media/tutorial-data-flow/agg2.png)
+    ![Captura de pantalla que muestra la opción año en la pestaña Agrupar por de Configuración de agregación.](media/tutorial-data-flow/agg2.png)
 1. Vaya a la pestaña **Agregados**. En el cuadro de texto de la izquierda, asigne a la columna agregada el nombre **AverageComedyRating**. Haga clic en el cuadro de la expresión derecha para especificar la expresión de agregado a través del generador de expresiones.
 
-    ![Agregado](media/tutorial-data-flow/agg3.png)
+    ![Captura de pantalla que muestra la opción año en la pestaña Agregados de Configuración de agregación.](media/tutorial-data-flow/agg3.png)
 1. Para obtener el promedio de la columna **Rating** (Clasificación), use la función de agregado ```avg()```. Como **Rating** (Clasificación) es una cadena y ```avg()``` toma una entrada numérica, debemos convertir el valor en un número a través de la función ```toInteger()```. Se trata de una expresión similar a la siguiente:
 
     ```avg(toInteger(Rating))```
 
     Haga clic en **Guardar y finalizar** cuando haya terminado.
 
-    ![Agregado](media/tutorial-data-flow/agg4.png)
+    ![Captura de pantalla que muestra la expresión guardada.](media/tutorial-data-flow/agg4.png)
 1. Vaya a la pestaña **Vista previa de datos** para ver la salida de la transformación. Observe que solo hay dos columnas, **year** y **AverageComedyRating**.
 
     ![Agregado](media/tutorial-data-flow/agg3.png)
 1. A continuación, desea agregar una transformación de **receptor** en **Destino**.
 
-    ![Receptor](media/tutorial-data-flow/sink1.png)
+    ![Captura de pantalla que muestra la ubicación donde se va a agregar una transformación de receptor en Destino.](media/tutorial-data-flow/sink1.png)
 1. Asigne un nombre al receptor **Sink** (Receptor). Haga clic en **Nuevo** para crear un conjunto de datos de receptor.
 
-    ![Receptor](media/tutorial-data-flow/sink2.png)
+    ![Captura de pantalla que muestra la ubicación donde se puede asignar nombre al receptor y crear un nuevo conjunto de datos de receptor.](media/tutorial-data-flow/sink2.png)
 1. Elija **Azure Data Lake Storage Gen2**. Haga clic en Continue.
 
-    ![Dataset](media/tutorial-data-flow/dataset1.png)
+    ![Captura de pantalla que muestra el icono de Azure Data Lake Storage Gen2 que se puede elegir.](media/tutorial-data-flow/dataset1.png)
 1. Elija **DelimitedText**. Haga clic en Continue.
 
     ![Dataset](media/tutorial-data-flow/dataset2.png)
@@ -181,13 +181,13 @@ Puede depurar una canalización antes de publicarla. En este paso, va a desencad
 
 1. Vaya al lienzo de la canalización. Haga clic en **Depurar** para desencadenar una ejecución de depuración.
 
-    ![Canalización](media/tutorial-data-flow/pipeline1.png)
+    ![Captura de pantalla que muestra el lienzo de canalización con Depurar resaltado.](media/tutorial-data-flow/pipeline1.png)
 1. La depuración de canalización de actividades de Data Flow usa el clúster de depuración activo, pero sigue tardando al menos un minuto en inicializarse. Puede realizar un seguimiento del progreso a través de la pestaña **Salida**. Una vez que la ejecución se realice correctamente, haga clic en el icono de anteojos para abrir el panel de supervisión.
 
     ![Canalización](media/tutorial-data-flow/pipeline2.png)
 1. En el panel supervisión, puede ver el número de filas y el tiempo invertido en cada paso de transformación.
 
-    ![Supervisión](media/tutorial-data-flow/pipeline3.png)
+    ![Captura de pantalla que muestra el panel de supervisión donde se puede ver el número de filas y el tiempo invertido en cada paso de transformación.](media/tutorial-data-flow/pipeline3.png)
 1. Haga clic en una transformación para obtener información detallada sobre las columnas y las particiones de los datos.
 
     ![Supervisión](media/tutorial-data-flow/pipeline4.png)

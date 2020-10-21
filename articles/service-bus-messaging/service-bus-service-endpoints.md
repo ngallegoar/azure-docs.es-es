@@ -4,12 +4,12 @@ description: En este artículo se proporciona información sobre cómo agregar u
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f902c77c3c7e614247abd4f8af50b8ed37b7e574
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552992"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843386"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir el acceso al espacio de nombres de Azure Service Bus desde redes virtuales específicas
 
@@ -55,6 +55,10 @@ Enlazar un espacio de nombres de Service Bus a una red virtual es un proceso de 
 
 La regla de red virtual es una asociación del espacio de nombres de Service Bus con una subred de red virtual. Mientras exista la regla, se les concederá acceso a todas las cargas de trabajo enlazadas a la subred al espacio de nombres de Service Bus. Service Bus no establece nunca por sí mismo conexiones de salida, no necesita obtener acceso y, por tanto, nunca se le concede acceso a la subred habilitando esta regla.
 
+> [!NOTE]
+> Recuerde que un punto de conexión de servicio de red proporciona a las aplicaciones que se ejecutan en la red virtual acceso al espacio de nombres de Service Bus. La red virtual controla la disponibilidad del punto de conexión, pero no las operaciones que se pueden realizar en entidades de Service Bus (colas, temas o suscripciones). Use Azure Active Directory (Azure AD) para autorizar las operaciones que las aplicaciones pueden realizar en el espacio de nombres y sus entidades. Para obtener más información, vea [Autenticación y autorización de una aplicación con Azure Active Directory para acceder a entidades de Azure Service Bus](authenticate-application.md).
+
+
 ## <a name="use-azure-portal"></a>Usar Azure Portal
 En esta sección se muestra cómo usar Azure Portal para agregar un punto de conexión de servicio de red virtual. Para limitar el acceso, debe integrar el punto de conexión de servicio de red virtual para este espacio de nombres de Event Hubs.
 
@@ -62,7 +66,7 @@ En esta sección se muestra cómo usar Azure Portal para agregar un punto de con
 2. En el menú de la izquierda, seleccione la opción **Redes** en **Configuración**.  
 
     > [!NOTE]
-    > Puede ver la pestaña **Redes** solo para los espacios de nombres **prémium**.  
+    > Puede ver la pestaña **Redes** solo para los espacios de nombres **premium**.  
     
     De forma predeterminada, está seleccionada la opción **Redes seleccionadas**. Si no agrega al menos una regla de firewall de IP o una red virtual en esta página, se podrá acceder al espacio de nombres desde la red pública de Internet (mediante la clave de acceso).
 

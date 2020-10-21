@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bf70d4381a7d128f7a2716540b1318b39cd729b8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e1e300f2e18d7103cde374c5eba6877602ac3721
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602139"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961228"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Inicio de sesión web con OpenID Connect en Azure Active Directory B2C
 
@@ -274,13 +274,17 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | {tenant} | Sí | Nombre de su inquilino de Azure AD B2C. |
 | {policy} | Sí | El flujo de usuario que quiere usar para cerrar la sesión del usuario en la aplicación. |
-| id_token_hint| No | Token de id. emitido previamente para pasarse al punto de conexión de cierre de sesión como una sugerencia sobre la sesión autenticada actual del usuario final con el cliente. La pista `id_token_hint` garantiza que el `post_logout_redirect_uri` es una dirección URL de respuesta registrada en la configuración de la aplicación de Azure AD B2C. |
+| id_token_hint| No | Token de id. emitido previamente para pasarse al punto de conexión de cierre de sesión como una sugerencia sobre la sesión autenticada actual del usuario final con el cliente. La pista `id_token_hint` garantiza que el `post_logout_redirect_uri` es una dirección URL de respuesta registrada en la configuración de la aplicación de Azure AD B2C. Para más información, consulte [Protección de la redirección de cierre de sesión](#secure-your-logout-redirect). |
 | client_id | No* | Identificador de aplicación que [Azure Portal](https://portal.azure.com/) asignó a la aplicación.<br><br>\**Esto es necesario cuando se usa la configuración de SSO de aislamiento `Application` y _Requerir token de identificador en solicitudes de cierre de sesión_ se establece en `No`.* |
 | post_logout_redirect_uri | No | La dirección URL a la que se debe redirigir al usuario después de un cierre de sesión correcto. Si no se incluye, Azure AD B2C mostrará un mensaje genérico al usuario. A menos que proporcione un valor `id_token_hint`, no debe registrar esta dirección URL como una dirección URL de respuesta en la configuración de la aplicación de Azure AD B2C. |
 | state | No | Si un parámetro `state` está incluido en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debe comprobar que los valores `state` de la solicitud y de la respuesta sean idénticos. |
 
 ### <a name="secure-your-logout-redirect"></a>Protección de la redirección de cierre de sesión
 
-Después del cierre de sesión, se redirige al usuario al URI especificado en el parámetro `post_logout_redirect_uri`, independientemente de las direcciones URL de respuesta que se hayan especificado para la aplicación. Sin embargo, si se pasa una pista `id_token_hint` válida, Azure AD B2C comprueba que el valor de `post_logout_redirect_uri` coincida con uno de los URI de redirección configurados de la aplicación antes de realizar la redirección. Si no se configuró ninguna dirección URL de respuesta coincidente para la aplicación, se muestra un mensaje de error y no se redirige al usuario.
+Después del cierre de sesión, se redirige al usuario al URI especificado en el parámetro `post_logout_redirect_uri`, independientemente de las direcciones URL de respuesta que se hayan especificado para la aplicación. Sin embargo, si se pasa un valor de `id_token_hint` válido y la opción **Requerir token de identificador en solicitudes de cierre de sesión** está activada, Azure AD B2C comprueba que el valor de `post_logout_redirect_uri` coincida con uno de los URI de redirección configurados de la aplicación antes de realizar la redirección. Si no se configuró ninguna dirección URL de respuesta coincidente para la aplicación, se muestra un mensaje de error y no se redirige al usuario.
 
+Para establecer el token de identificador necesario en las solicitudes de cierre de sesión, consulte [Configuración del comportamiento de la sesión en Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect) y [Configuración del comportamiento de la sesión mediante directivas personalizadas en Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect).
 
+## <a name="next-steps"></a>Pasos siguientes
+
+- Más información sobre la [sesión de Azure AD B2C](session-overview.md).

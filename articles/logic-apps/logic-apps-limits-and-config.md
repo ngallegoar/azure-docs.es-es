@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/03/2020
-ms.openlocfilehash: d5db970d4ed3c3988c96a2c0c33775bcbfb00d92
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 10/02/2020
+ms.openlocfilehash: 0705336056ff7c60afddd866b5c65694098a32db
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986007"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91744073"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -221,12 +221,12 @@ Cada suscripción de Azure tiene estos límites de cuenta de integración:
 
 * 1000 cuentas de integración en total, incluidas las cuentas de integración de todos los [entornos de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) en las SKU de [desarrollador y Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
-* Cada ISE, ya sea de [desarrollador o Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), tiene un límite de 5 cuentas de integración totales:
+* Cada ISE, ya sea de [Desarrollador o Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), tiene un límite de 20 cuentas de integración totales:
 
   | SKU de ISE | Límites de cuenta de integración |
   |---------|----------------------------|
-  | **Premium** | 5 en total: solo cuentas [Estándar](../logic-apps/logic-apps-pricing.md#integration-accounts), incluida una gratuita. No se permiten cuentas Gratis ni Básicas. |
-  | **Developer** | 5 en total: combinación de cuentas [Gratis](../logic-apps/logic-apps-pricing.md#integration-accounts) (solo 1 cuenta) y [Estándar](../logic-apps/logic-apps-pricing.md#integration-accounts), o solo cuentas Estándar. No se permiten cuentas Básicas. Use la [SKU de Desarrollador](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) para experimentar, desarrollar y probar, no para pruebas de rendimiento ni en producción. |
+  | **Premium** | 20 en total: solo cuentas [Estándar](../logic-apps/logic-apps-pricing.md#integration-accounts), incluida una gratuita. No se permiten cuentas Gratis ni Básicas. |
+  | **Developer** | 20 en total: combinación de cuentas [Gratis](../logic-apps/logic-apps-pricing.md#integration-accounts) (solo 1 cuenta) y [Estándar](../logic-apps/logic-apps-pricing.md#integration-accounts), o todo cuentas Estándar. No se permiten cuentas Básicas. Use la [SKU de Desarrollador](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) para experimentar, desarrollar y probar, no para pruebas de rendimiento ni en producción. |
   |||
 
 Los costos adicionales se aplican a las cuentas de integración que se agregan más allá de las cuentas de integración que se incluyen con un ISE. Para saber cómo funcionan los precios y la facturación para los ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -283,7 +283,7 @@ Estos son los límites de tamaño de mensaje que se aplican a los protocolos B2B
 
 | Nombre | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
 |------|--------------------|---------------------------------------|-------|
-| AS2 | v2: 100 MB<br>v1: 50 MB | v2: 200 MB <br>v1: 50 MB | Se aplica a la decodificación y la codificación |
+| AS2 | v2: 100 MB<br>v1: 25 MB | v2: 200 MB <br>v1: 25 MB | Se aplica a la decodificación y la codificación |
 | X12 | 50 MB | 50 MB | Se aplica a la decodificación y la codificación |
 | EDIFACT | 50 MB | 50 MB | Se aplica a la decodificación y la codificación |
 ||||
@@ -349,6 +349,7 @@ En esta sección se enumeran las direcciones IP entrantes solo para el servicio 
 | Este de EE. UU. 2 | 40.84.25.234, 40.79.44.7, 40.84.59.136, 40.70.27.253 |
 | Centro de Francia | 52.143.162.83, 20.188.33.169, 52.143.156.55, 52.143.158.203 |
 | Sur de Francia | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
+| Norte de Alemania | 51.116.211.29, 51.116.208.132, 51.116.208.37, 51.116.208.64 |
 | Japón Oriental | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164 |
 | Japón Occidental | 40.74.140.173, 40.74.81.13, 40.74.85.215, 40.74.68.85 |
 | Centro de Corea del Sur | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
@@ -411,6 +412,7 @@ En esta sección se enumeran las direcciones IP salientes para el servicio Azure
 | Este de EE. UU. 2 | 40.84.30.147, 104.208.155.200, 104.208.158.174, 104.208.140.40, 40.70.131.151, 40.70.29.214, 40.70.26.154, 40.70.27.236 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100, 104.209.247.23, 52.225.129.144, 40.65.220.25, 40.70.151.96 - 40.70.151.127 |
 | Centro de Francia | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28, 40.89.190.104 | 40.79.130.208 - 40.79.130.223, 40.89.135.2, 40.89.186.239, 40.79.148.96 - 40.79.148.127 |
 | Sur de Francia | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 40.79.178.240 - 40.79.178.255, 52.136.133.184, 52.136.142.154, 40.79.180.224 - 40.79.180.255 |
+| Norte de Alemania | 51.116.211.168, 51.116.208.165, 51.116.208.175, 51.116.208.192, 51.116.208.200, 51.116.208.222, 51.116.208.217, 51.116.208.51 | 51.116.211.212, 51.116.60.192 - 51.116.60.223, 51.116.59.16 - 51.116.60.31 |
 | Japón Oriental | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.115.186.96, 13.73.21.230, 40.79.189.64 - 40.79.189.95 |
 | Japón Occidental | 40.74.140.4, 104.214.137.243, 138.91.26.45, 40.74.64.207, 40.74.76.213, 40.74.77.205, 40.74.74.21, 40.74.68.85 | 40.74.100.224 - 40.74.100.239, 40.74.130.77, 104.215.61.248, 104.215.27.24, 40.80.180.64 - 40.80.180.95 |
 | Centro de Corea del Sur | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.231.18.208 - 52.231.18.223, 52.141.36.214, 52.141.1.104, 20.44.29.64 - 20.44.29.95 |

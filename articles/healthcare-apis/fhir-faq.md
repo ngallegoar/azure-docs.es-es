@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 36945d998bf00d7b229b5ae3cce1958953ade601
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 9c32ebef16750954f3df1a1d1b379bf42853f2b3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978619"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056862"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Preguntas más frecuentes sobre Azure API for FHIR
 
@@ -44,6 +44,10 @@ Al ejecutar FHIR Server for Azure, tiene acceso directo a los servicios subyacen
 
 Desde el punto de vista del desarrollo, cada característica se implementa primero en Microsoft FHIR Server for Azure de código abierto. Una vez que se haya validado en el código abierto, se lanzará en la solución Azure API for FHIR de PaaS. El tiempo entre el lanzamiento en el código abierto y PaaS depende de la complejidad de la característica y de otras prioridades del mapa de ruta. 
 
+### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>¿Dónde puedo ver lo que se está publicando en Azure API for FHIR?
+
+Para saber algo de lo que se publica en Azure API for FHIR, vea la [versión](https://github.com/microsoft/fhir-server/releases)del servidor FHIR de código abierto. Se ha trabajado para etiquetar los elementos de Azure API for FHIR si se van a publicar en el servicio administrado y suelen estar disponibles dos semanas después de aparecer en la página de versión en código abierto. También se han incluido instrucciones sobre cómo probar la compilación [aquí](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) si se quiere probar en el entorno propio. Se está evaluando cómo compartir mejor las actualizaciones adicionales del servicio administrado.
+
 ### <a name="what-is-smart-on-fhir"></a>¿Qué es SMART on FHIR?
 
 SMART (Substitutable Medical Applications and Reusable Technology) on FHIR es un conjunto de especificaciones de código abierto para integrar aplicaciones de asociados con servidores de FHIR y otros sistemas de TI sanitarios, como los registros sanitarios electrónicos y los intercambios de información sanitaria. Al crear una aplicación SMART on FHIR, puede garantizar que una gran cantidad de sistemas diferentes pueden acceder a la aplicación y aprovecharla.
@@ -65,6 +69,23 @@ El límite actual del recuento es 100.
 
 Para la exportación de grupos, solo se exportan las referencias incluidas del grupo, no todas las características del [recurso de grupo](https://www.hl7.org/fhir/group.html).
 
+### <a name="can-i-post-a-bundle-to-the-azure-api-for-fhir"></a>¿Puedo publicar un conjunto en Azure API for FHIR?
+
+Actualmente se admite la publicación de [conjuntos por lotes](https://www.hl7.org/fhir/valueset-bundle-type.html), pero no la de conjuntos de transacciones, en Azure API for FHIR. Puede usar el servidor FHIR de código abierto respaldado por SQL para publicar conjuntos de transacciones.
+
+### <a name="how-can-i-get-all-resources-for-a-single-patient-in-the-azure-api-for-fhir"></a>¿Cómo puedo obtener todos los recursos de un solo paciente en Azure API for FHIR?
+
+En Azure API for FHIR se admite la [búsqueda de compartimientos](https://www.hl7.org/fhir/compartmentdefinition.html). Esto permite obtener todos los recursos relacionados con un paciente determinado. Tenga en cuenta que de momento un compartimiento incluye todos los recursos relacionados con el paciente, pero no al propio paciente, por lo que también hay que buscar para obtener el paciente si se necesita ese recurso en los resultados.
+
+A continuación se muestran algunos ejemplos de eso:
+
+* GET Patient/<id>/*
+* GET Patient/<id>/Observation
+* GET Patient/<id>/Observation?code=8302-2
+
+### <a name="where-can-i-see-some-examples-of-using-the-azure-api-for-fhir-within-a-workflow"></a>¿Dónde puedo ver algunos ejemplos de uso de Azure API for FHIR dentro de un flujo de trabajo?
+
+Hay una colección de arquitecturas de referencia disponible en la página de [GitHub de arquitectura sanitaria](https://github.com/microsoft/health-architectures).
 
 ## <a name="azure-iot-connector-for-fhir-preview"></a>Conector de Azure IoT para FHIR (versión preliminar)
 

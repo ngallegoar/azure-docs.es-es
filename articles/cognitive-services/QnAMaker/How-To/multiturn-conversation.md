@@ -1,14 +1,16 @@
 ---
 title: 'Conversaciones de varios turnos: QnA Maker'
 description: Use solicitudes y contexto para administrar los múltiples turnos del bot, lo que se conoce como multiturno, de una pregunta a otra. Multiturno es la capacidad de mantener una conversación fluida en la que el contexto de la pregunta anterior influye en la siguiente pregunta y en su respuesta.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 93bc6201cb627dc27071caf7beded5778b06ccb6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229353"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91777803"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Uso de avisos de seguimiento para crear múltiples turnos de una conversación
 
@@ -52,7 +54,7 @@ Cuando se selecciona esta opción, QnA Maker extrae la jerarquía presente en la
 
 Solo se puede inferir la estructura multiturno a partir de direcciones URL y de archivos PDF o DOCX. Para obtener un ejemplo de estructura, vea una imagen de un [archivo PDF de manual de usuario de Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
-![![Ejemplo de estructura en un manual de usuario]\(../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+:::image type="content" source="../media/conversational-context/import-file-with-conversational-structure.png" alt-text="Captura de pantalla que muestra un ejemplo de la estructura en un manual de usuario." lightbox="../media/conversational-context/import-file-with-conversational-structure.png":::
 
 ### <a name="building-your-own-multi-turn-document"></a>Creación del propio documento multiturno
 
@@ -92,7 +94,7 @@ Seleccione **View options** (Opciones de vista) y, después, seleccione **Show c
 
 El contexto multiturno se muestra en la primera columna.
 
-![![Columna "Contexto (VERSIÓN PRELIMINAR)"]\(../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Captura de pantalla que muestra un ejemplo de la estructura en un manual de usuario." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 En la imagen anterior, **1** indica texto en negrita en la columna, lo cual indica la pregunta actual. La pregunta principal es el elemento superior de la fila. Todas las preguntas por debajo de ella son pares de preguntas y respuestas vinculadas. Estos elementos son seleccionables, por lo que puede pasar inmediatamente a los demás elementos de contexto.
 
@@ -167,7 +169,7 @@ Cuando se agrega un nuevo par de pregunta y respuesta a la base de conocimiento,
 
     La pregunta primaria muestra una nueva pregunta como una de sus opciones.
 
-    ![![La columna Contexto de ambas preguntas, indica una relación de aviso de seguimiento]\(../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Captura de pantalla que muestra un ejemplo de la estructura en un manual de usuario." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Una vez que haya agregado el aviso de seguimiento, seleccione **Save and train** (Guardar y entrenar) en la barra de navegación superior.
 

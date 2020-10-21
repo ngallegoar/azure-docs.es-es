@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de VMware en Azure Migrate
 description: Obtenga información sobre la compatibilidad de la evaluación de máquinas virtuales de VMware con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 6716bea08347783d8c5728a4e346ffab8ea60a07
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660272"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91667799"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de compatibilidad para la evaluación de VMware 
 
@@ -45,7 +45,7 @@ Si quiere migrar máquinas virtuales de VMware a Azure, revise la [matriz de com
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos del dispositivo de Azure Migrate
 
-Azure Migrate usa el [dispositivo de Azure Migrate](migrate-appliance.md) para la detección y la evaluación. Puede implementar el dispositivo como una máquina virtual de VMWare mediante una plantilla OVA, importada en vCenter Server, o bien mediante un [script de PowerShell](deploy-appliance-script.md).
+Azure Migrate usa el [dispositivo de Azure Migrate](migrate-appliance.md) para la detección y la evaluación. Puede implementar el dispositivo como una máquina virtual de VMware mediante una plantilla OVA, importada en vCenter Server, o bien mediante un [script de PowerShell](deploy-appliance-script.md).
 
 - Obtenga más información sobre los [requisitos del dispositivo](migrate-appliance.md#appliance---vmware) para VMware.
 - En Azure Government, debe implementar el dispositivo [mediante el script](deploy-appliance-script-government.md).
@@ -85,16 +85,15 @@ El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a 
 --- | --- 
 **Antes de la implementación** | Debe tener un proyecto de Azure Migrate activo con la herramienta Server Assessment agregada.<br/><br/>  La visualización de dependencias se implementa después de configurar un dispositivo de Azure Migrate para detectar las máquinas de VMware locales.<br/><br/> [Aprenda](create-manage-projects.md) a crear un proyecto por primera vez.<br/> [Aprenda](how-to-assess.md) a agregar una herramienta de evaluación a un proyecto existente.<br/> [Aprenda](how-to-set-up-appliance-vmware.md) a configurar un dispositivo de Azure Migrate para la evaluación de máquinas virtuales de VMware.
 **Máquinas compatibles** | Actualmente solo se admite en máquinas virtuales VMware.
-**Máquinas virtuales Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits).
+**Máquinas virtuales Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits).<br/>Microsoft Windows Server 2008 (32 bits). Asegúrese de que PowerShell está instalado.
 **Credenciales de vCenter Server** | La visualización de dependencias necesita una cuenta de vCenter Server con acceso de solo lectura, así como privilegios habilitados para Máquinas virtuales > Operaciones de invitado.
 **Permisos de máquina virtual Windows** |  Para el análisis de dependencias, el dispositivo de Azure Migrate necesita una cuenta de administrador local o de dominio para acceder a las máquinas virtuales Windows.
-**Máquinas virtuales Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7
-**Cuenta de Linux** | Para el análisis de dependencias, el dispositivo de Azure Migrate necesita una cuenta de usuario con privilegio de usuario raíz en las máquinas Linux.<br/><br/> Como alternativa, la cuenta de usuario necesita estos permisos en los archivos/bin/netstat y /bin/ls: CAP_DAC_READ_SEARCH y CAP_SYS_PTRACE. Establezca estas funciones con los siguientes comandos: <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat
+**Máquinas virtuales Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7<br/> SUSE Linux Enterprise Server 11 y posterior
+**Cuenta de Linux** | Para el análisis de dependencias, en máquinas Linux el dispositivo de Azure Migrate necesita una cuenta de usuario raíz.<br/><br/> Como alternativa, la cuenta de usuario necesita estos permisos en los archivos/bin/netstat y /bin/ls: CAP_DAC_READ_SEARCH y CAP_SYS_PTRACE. Establezca estas funciones con los siguientes comandos: <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat
 **Agentes necesarios** | No se requiere ningún agente en las máquinas que desea analizar.
 **Herramientas de VMware** | Se debe instalar y ejecutar una versión de las herramientas de VMware posterior a 10.2 en cada máquina virtual que se quiera analizar.
-
-**PowerShell** |Las máquinas virtuales Windows deben tener instalada la versión 2.0 de PowerShell o una versión superior.
-**Acceso a puerto**|En los hosts ESXi que ejecuten las máquinas virtuales que quiera analizar, Azure Migrate debería ser capaz de conectarse al puerto TCP 443.
+**PowerShell** | Las máquinas virtuales deben tener instalada la versión 2.0 de PowerShell o una versión superior.
+**Acceso a puertos** | En los hosts ESXi que ejecuten las máquinas virtuales que desea analizar, Azure Migrate debería ser capaz de conectarse al puerto TCP 443.
 
 
 ## <a name="dependency-analysis-requirements-agent-based"></a>Requisitos para el análisis de dependencia (con agentes)

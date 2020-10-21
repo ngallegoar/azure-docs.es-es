@@ -3,16 +3,16 @@ title: Creación de una especificación de plantilla con plantillas vinculadas
 description: Aprenda a crear una especificación de plantilla con plantillas vinculadas.
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: f1808be73981c3ab4d53fd2a651822b93b5fb790
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: adcce8194f380b90eb9a29f4da25763e112b9f12
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228008"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91728546"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: Creación de una especificación de plantilla con plantillas vinculadas (versión preliminar)
 
-Aprenda a crear una [especificación de plantilla](template-specs.md) con [plantillas vinculadas](linked-templates.md#linked-template). Las especificaciones de plantilla se usan para compartir plantillas de ARM con otros usuarios de la organización. En este artículo se muestra cómo crear una especificación de plantilla para empaquetar una plantilla principal y sus plantillas vinculadas con la nueva propiedad `relativePath` del [recurso de implementación](/azure/templates/microsoft.resources/deployments).
+Aprenda a crear una [especificación de plantilla](template-specs.md) con [plantillas vinculadas](linked-templates.md#linked-template). Las especificaciones de plantilla se usan para compartir plantillas de ARM con otros usuarios de la organización. En este artículo se muestra cómo crear una especificación de plantilla para empaquetar una plantilla principal y sus plantillas vinculadas con la propiedad `relativePath` del [recurso de implementación](/azure/templates/microsoft.resources/deployments).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -176,7 +176,7 @@ New-AzTemplateSpec `
   -Version "1.0.0.0" `
   -ResourceGroupName templateSpecRG `
   -Location westus2 `
-  -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\linkedTS\azuredeploy.json"
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -223,7 +223,7 @@ New-AzResourceGroup `
   -Name webRG `
   -Location westus2
 
-$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Version.Id
+$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Versions.Id
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `

@@ -3,15 +3,15 @@ title: 'Creación de un grupo de hosts de Windows Virtual Desktop con PowerShell
 description: Cómo crear un grupo de hosts en Windows Virtual Desktop con cmdlets de PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1275eab36e21ea6befdda13e14759a30ef5398a3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121160"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91667170"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Creación de un grupo de hosts de Windows Virtual Desktop con PowerShell
 
@@ -99,6 +99,9 @@ Para realizar correctamente una unión a un dominio, realice los siguientes paso
 
     >[!NOTE]
     > Si va a unir sus máquinas virtuales a un entorno de Azure Active Directory Domain Services (Azure AD DS), asegúrese de que su usuario de unión a un dominio también es miembro del [grupo de administradores del controlador de dominio de AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+
+>[!IMPORTANT]
+>Se recomienda no habilitar ninguna directiva ni configuración que deshabilite Windows Installer. Si deshabilita Windows Installer, el servicio no puede instalar actualizaciones del agente en los hosts de sesión y estos no funcionan correctamente.
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registro de las máquinas virtuales en el grupo de hosts de Windows Virtual Desktop
 

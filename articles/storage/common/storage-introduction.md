@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b603776ce19bca8d6fefa7c3c85366ebe3b7b01f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: cd45a393081d52985d99fac7ea5dccc5bd2a2712
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653807"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079231"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introducción a los servicios principales de Azure Storage
 
@@ -111,7 +111,7 @@ Azure Storage ofrece varios tipos de cuentas de almacenamiento. Cada tipo admite
 
 Cada solicitud para Azure Storage se debe autorizar. Azure Storage admite los siguientes métodos de autorización:
 
-- **Integración de Azure Active Directory (Azure AD) para datos de blob y cola.** Azure Storage admite la autenticación y autorización con Azure AD para los servicios Blob y Queue a través del control de acceso basado en rol (RBAC). Se recomiendan la autorización de solicitudes con Azure AD para mayor seguridad y facilidad de uso. Para más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory](storage-auth-aad.md).
+- **Integración de Azure Active Directory (Azure AD) para datos de blob y cola.** Azure Storage admite la autenticación y autorización con Azure AD para los servicios Blob y Queue mediante control de acceso basado en rol de Azure (RBAC de Azure). Se recomiendan la autorización de solicitudes con Azure AD para mayor seguridad y facilidad de uso. Para más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory](storage-auth-aad.md).
 - **Autorización de Azure AD a través de SMB para Azure Files**. Azure Files admite la autorización basada en identidad a través de SMB (bloque de mensajes del servidor) a través de Azure Active Directory Domain Services (Azure AD DS) o Active Directory Domain Services locales (versión preliminar). Las máquinas virtuales Windows unidas al dominio pueden acceder a los recursos compartidos de archivos de Azure con las credenciales de Azure AD. Para más información, consulte [Introducción a la compatibilidad de la autenticación basada en la identidad de Azure Files con el acceso SMB](../files/storage-files-active-directory-overview.md) y [Planeamiento de una implementación de Azure Files](../files/storage-files-planning.md#identity).
 - **Autorización con clave compartida.** Los servicios de Azure Storage Blob, Files, Queue y Table admiten autorización con la clave compartida. Los clientes con autorización de clave compartida pasan un encabezado con cada solicitud que está firmado con la clave de acceso de la cuenta de almacenamiento. Para más información, consulte el artículo sobre la [Autorización con clave compartida](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
 - **Autorización mediante las firmas de acceso compartido (SAS).** Una firma de acceso compartido (SAS) es una cadena que contiene un token de seguridad que se puede asociar a un URI para un recurso de almacenamiento. El token de seguridad encapsula las restricciones, como pueden ser los permisos y el intervalo de acceso. Para más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).
@@ -173,8 +173,7 @@ Puede acceder a los recursos de una cuenta de almacenamiento mediante cualquier 
 - [Cmdlets de la CLI de Azure para Storage](https://docs.microsoft.com/cli/azure/storage)
 - [Utilidad de línea de comandos AzCopy](https://aka.ms/downloadazcopy)
 - El [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
-- [Herramientas de cliente de Azure Storage](../storage-explorers.md)
-- [Herramientas de desarrollo de Azure](https://azure.microsoft.com/tools/)
+- [Plantillas de Azure Resource Manager para Azure Storage](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

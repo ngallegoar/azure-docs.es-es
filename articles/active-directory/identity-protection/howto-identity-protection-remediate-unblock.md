@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06335798addadcd8591625e25ed2eafe8469ae48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463967"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91776109"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Corregir riesgos y desbloquear usuarios
 
@@ -88,6 +88,10 @@ Para desbloquear una cuenta en función del riesgo de inicio de sesión, los adm
 1. **Iniciar sesión desde una ubicación o dispositivo conocidos**: una razón común para el bloqueo de inicios de sesión sospechosos es que se intente iniciar sesión desde ubicaciones o dispositivos desconocidos. Los usuarios pueden determinar rápidamente si esta es la razón del bloqueo. Para ello, deben intentar iniciar sesión desde una ubicación o dispositivo conocidos.
 1. **Exclude the user from policy** (Excluir al usuario de la directiva): si piensa que la configuración actual de la directiva de inicio de sesión provoca problemas a usuarios concretos, puede excluir los usuarios de ella. Para más información, consulte la sección Exclusiones en el artículo [Procedimientos: Configuración y habilitación de directivas de riesgo](howto-identity-protection-configure-risk-policies.md#exclusions).
 1. **Deshabilitar directiva** : si piensa que la configuración de la directiva provoca problemas a todos los usuarios, puede deshabilitar la directiva. Para más información, consulte el artículo [Procedimientos: Configuración y habilitación de directivas de riesgo](howto-identity-protection-configure-risk-policies.md).
+
+## <a name="powershell-preview"></a>Versión preliminar de PowerShell
+
+Con el módulo de versión preliminar del SDK de PowerShell de Microsoft Graph, las organizaciones pueden administrar el riesgo que conlleva el uso de PowerShell. Los módulos de versión preliminar y el código de ejemplo se pueden encontrar en el [repositorio de GitHub de Azure AD](https://github.com/AzureAD/IdentityProtectionTools).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5a22bd9508feac1348bcd8042fa6ac791864c261
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 87d26e18ff97416ff8cb0eda08f7beb81005c627
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425643"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015709"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -34,17 +34,16 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 ## <a name="known-issues"></a>Problemas conocidos
 
 > [!NOTE]
-> Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) y trabajos de la versión 3, obtener información sobre el acceso a las API y cifrar contenido. Para las tareas de administración restantes (por ejemplo, la administración de transformaciones y trabajos), use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
+> Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) y trabajos de la versión 3, obtener información sobre el acceso a las API y cifrar contenido. Para las tareas de administración restantes (por ejemplo, la administración de transformaciones y trabajos), use la [API REST](/rest/api/media/accountfilters), la [CLI](/cli/azure/ams), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
 >
 > Para más detalles, consulte [las limitaciones de Azure Portal para Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
-
 
 ## <a name="august-2020"></a>Agosto de 2020
 
 ### <a name="dynamic-encryption"></a>Cifrado dinámico
 La compatibilidad con el cifrado Protected Interoperable File Format (PIFF 1.1) de PlayReady heredado ya está disponible en el empaquetador dinámico. Proporciona compatibilidad con los televisores inteligentes heredados de Samsung y LG que implementaron los borradores iniciales del estándar Common Encryption (CENC) publicado por Microsoft.  El formato PIFF 1.1 también se conoce como el formato de cifrado admitido anteriormente por la biblioteca cliente de Silverlight. En la actualidad, el único caso de uso para este formato de cifrado es la segmentación del mercado de los televisores inteligentes heredados, donde todavía existen una cantidad considerable de televisores inteligentes en algunas regiones que solo admiten Smooth Streaming con el cifrado PIFF 1.1. 
 
-Para usar la compatibilidad con el nuevo cifrado PIFF 1.1, cambie el valor de cifrado a "piff" en la ruta de acceso de la dirección URL del localizador de streaming. Para obtener más información, vea [Introducción a Content Protection](content-protection-overview.md).
+Para usar la compatibilidad con el nuevo cifrado PIFF 1.1, cambie el valor de cifrado a "piff" en la ruta de acceso de la dirección URL del localizador de streaming. Para obtener más información, consulte [Introducción a Content Protection](content-protection-overview.md).
 Por ejemplo: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
 
 > [!NOTE]
@@ -60,7 +59,7 @@ Las transcripciones en vivo ahora admiten 19 idiomas y 8 regiones.
 
 Publicamos un tutorial denominado [Protección de contenido de un extremo a otro con Azure AD](./azure-ad-content-protection.md).
 
-### <a name="high-availablity"></a>Alta disponibilidad
+### <a name="high-availability"></a>Alta disponibilidad
 
 Publicamos una [introducción](./media-services-high-availability-encoding.md) y un [ejemplo](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming) de alta disponibilidad con Media Services y Vídeo bajo demanda (VoD).
 
@@ -155,7 +154,7 @@ Media Services V3 anuncia la versión preliminar de la codificación lineal de e
 
 #### <a name="deprecation-of-media-processors"></a>Desuso de los procesadores de multimedia
 
-Estamos anunciando el desuso de *Azure Media Indexer* y *Azure Media Indexer 2 Preview*. Para ver las fechas de retirada, consulte el tema sobre [componentes heredados](../previous/legacy-components.md). [Video Indexer de Azure Media Services ](../video-indexer/index.yml) reemplaza a estos procesadores multimedia heredados.
+Estamos anunciando el desuso de *Azure Media Indexer* y *Azure Media Indexer 2 Preview*. Para ver las fechas de retirada, consulte el artículo sobre [componentes heredados](../previous/legacy-components.md). [Video Indexer de Azure Media Services ](../video-indexer/index.yml) reemplaza a estos procesadores multimedia heredados.
 
 Para más información, consulte [Migración de Azure Media Indexer y Azure Media Indexer 2 a Video Indexer de Azure Media Services](../previous/migrate-indexer-v1-v2.md).
 
@@ -173,9 +172,9 @@ Si desea obtener más información, vea [Nubes y regiones donde existe Azure Med
 
 #### <a name="deprecation-of-media-processors"></a>Desuso de los procesadores de multimedia
 
-Anunciamos el desuso de los procesadores de multimedia *Windows Azure Media Encoder* (WAME) y *Azure Media Encoder* (AME), que se van a retirar. Para ver las fechas de retirada, consulte el tema [componentes heredados](../previous/legacy-components.md).
+Anunciamos el desuso de los procesadores de multimedia *Windows Azure Media Encoder* (WAME) y *Azure Media Encoder* (AME), que se van a retirar. Para ver las fechas de retirada, consulte este artículo sobre [componentes heredados](../previous/legacy-components.md).
 
-Para más información, consulte [Migración de WAME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) y [Migración de AME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+Para más información, consulte [Migración de WAME a Media Encoder Standard](../previous/migrate-windows-azure-media-encoder.md) y [Migración de AME a Media Encoder Standard](../previous/migrate-azure-media-encoder.md).
  
 ## <a name="july-2019"></a>Julio de 2019
 
@@ -224,7 +223,7 @@ Si desea obtener más información, vea [Nubes y regiones donde existe Azure Med
 Se han agregado actualizaciones que incluyen mejoras de rendimiento de Media Services.
 
 * Se actualizó el tamaño de archivo máximo admitido para el procesamiento. Consulte [Cuotas y límites](limits-quotas-constraints.md).
-* [Mejoras de velocidades de codificación](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+* [Mejoras de velocidades de codificación](concept-media-reserved-units.md).
 
 ## <a name="april-2019"></a>Abril de 2019
 
@@ -264,21 +263,21 @@ Las actualizaciones de la versión de disponibilidad general de la API de V3 inc
 
 ## <a name="november-2018"></a>Noviembre de 2018
 
-El módulo de la CLI 2.0 está ahora disponible para [Azure Media Services v3 con disponibilidad general](/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+El módulo de la CLI 2.0 está ahora disponible para [Azure Media Services v3 con disponibilidad general](/cli/azure/ams?view=azure-cli-latest&preserve-view=true) – v 2.0.50.
 
 ### <a name="new-commands"></a>Nuevos comandos
 
-- [az ams account](/cli/azure/ams/account?view=azure-cli-latest)
-- [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [az ams asset](/cli/azure/ams/asset?view=azure-cli-latest)
-- [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [az ams content-key-policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [az ams job](/cli/azure/ams/job?view=azure-cli-latest)
-- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest)
-- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest)
-- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [az ams streaming-locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest): permite administrar unidades reservadas de multimedia. Para más información, consulte [Escalado de unidades reservadas de multimedia](media-reserved-units-cli-how-to.md).
+- [az ams account](/cli/azure/ams/account?view=azure-cli-latest&preserve-view=true)
+- [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest&preserve-view=true)
+- [az ams asset](/cli/azure/ams/asset?view=azure-cli-latest&preserve-view=true)
+- [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest&preserve-view=true)
+- [az ams content-key-policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest&preserve-view=true)
+- [az ams job](/cli/azure/ams/job?view=azure-cli-latest&preserve-view=true)
+- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest&preserve-view=true)
+- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest&preserve-view=true)
+- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest&preserve-view=true)
+- [az ams streaming-locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest&preserve-view=true)
+- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest&preserve-view=true): permite administrar unidades reservadas de multimedia. Para más información, consulte [Escalado de unidades reservadas de multimedia](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Nuevas características y cambios importantes
 

@@ -5,17 +5,17 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: 1c2dd3f93abf6418b99bf28d11f2df254b024971
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3708885759a6a353742fe89b4454b39496aeeab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708669"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91619991"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configuración de un punto de conexión público en Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ Debido a la confidencialidad de los datos de una instancia administrada, la conf
 1. En la configuración de **seguridad**, seleccione la pestaña **Red virtual**.
 1. En la página de configuración de la red virtual, seleccione **Habilitar** y después el icono **Guardar** para actualizar la configuración.
 
-![mi-vnet-config.png](./media/public-endpoint-configure/mi-vnet-config.png)
+![Captura de pantalla que muestra una página Red virtual de SQL Managed Instance con el punto de conexión público habilitado.](./media/public-endpoint-configure/mi-vnet-config.png)
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Habilitar un punto de conexión público para una instancia administrada usando PowerShell
 
@@ -84,11 +84,11 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Si todavía tiene abierta la página de configuración de la instancia administrada, vaya a la pestaña **Introducción**. En caso contrario, vuelva a su recurso **Instancia administrada de SQL**. Seleccione el vínculo **Red virtual/subred**, que le llevará a la página de configuración de la red virtual.
 
-    ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
+    ![Captura de pantalla que muestra la página Configuración de red virtual, donde puede encontrar el valor de red virtual o subred.](./media/public-endpoint-configure/mi-overview.png)
 
 1. Seleccione la pestaña **Subredes** en el panel de configuración izquierdo de la red virtual y anote el **GRUPO DE SEGURIDAD** de su instancia administrada.
 
-    ![mi-vnet-subnet.png](./media/public-endpoint-configure/mi-vnet-subnet.png)
+    ![Captura de pantalla que muestra la pestaña Subred, donde puede obtener el grupo de seguridad de la instancia administrada.](./media/public-endpoint-configure/mi-vnet-subnet.png)
 
 1. Vuelva al grupo de recursos que contiene la instancia administrada. Debería ver el nombre del **grupo de seguridad de red** anotado anteriormente. Seleccione el nombre que va a introducir en la página de configuración del grupo de seguridad de red.
 
@@ -104,7 +104,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Acción**     |Allow         |Permite el tráfico entrante en la instancia administrada mediante el punto de conexión público. |
     |**Prioridad**     |1300         |Asegúrese de que esta regla tiene más prioridad que la regla **deny_all_inbound**. |
 
-    ![mi-nsg-rules.png](./media/public-endpoint-configure/mi-nsg-rules.png)
+    ![Captura de pantalla que muestra las reglas de seguridad de entrada con la nueva regla public_endpoint_inbound encima de la regla deny_all_inbound.](./media/public-endpoint-configure/mi-nsg-rules.png)
 
     > [!NOTE]
     > El puerto 3342 se usa para las conexiones del punto de conexión público a la instancia administrada y no se puede cambiar en este momento.
@@ -114,7 +114,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 1. Vaya a la página de configuración de la instancia administrada que se ha habilitado para el punto de conexión público. Seleccione la pestaña **Cadenas de conexión** en **Configuración**.
 1. El nombre de host del punto de conexión público debe tener el formato <mi_name>.**public**.<dns_zone>.database.windows.net y el puerto usado para la conexión debe ser 3342.
 
-    ![mi-public-endpoint-conn-string.png](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
+    ![Captura de pantalla que muestra las cadenas de conexión de los puntos de conexión públicos y privados.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

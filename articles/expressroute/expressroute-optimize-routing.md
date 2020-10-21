@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: duau
-ms.openlocfilehash: aef21ecbda26e47dc6ef8a915cbd4403c13430e4
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 731101b1a8236e20a9af07f1bbf5a7b70d53c0ac
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395237"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91653390"
 ---
 # <a name="optimize-expressroute-routing"></a>Optimización de enrutamiento de ExpressRoute
 Cuando hay varios circuitos ExpressRoute, tiene más de una ruta de acceso para conectarse a Microsoft. Como resultado, se puede producir un enrutamiento no óptimo: es decir, el tráfico puede utilizar una ruta más larga para conectarse con Microsoft y este a su vez, con su red. Cuanto más larga sea la ruta de acceso a la red, mayor será la latencia. La latencia tiene un efecto directo en la experiencia del usuario y en el rendimiento de las aplicaciones. En este artículo se describe este problema y se explica cómo optimizar el enrutamiento mediante las tecnologías de enrutamiento estándar.
@@ -27,7 +27,7 @@ Es importante asegurarse de que cuando se utiliza el emparejamiento público o d
 
 Considere el escenario de ejemplo siguiente:
 
-![Problema de ExpressRoute caso 1: enrutamiento no óptimo de cliente a Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+![Diagrama que muestra el caso 1 de ExpressRoute: enrutamiento no óptimo de cliente a Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
 En el ejemplo anterior, para preferir las rutas de ExpressRoute, configure la preferencia local como se indica a continuación. 
 

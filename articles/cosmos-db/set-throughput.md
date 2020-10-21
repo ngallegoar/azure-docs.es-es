@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 00ed8f6ff9839c227f3d8a929a071834c5559226
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 81a31448a588849a410b37868cf579fbb0a9ceb6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605739"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91777789"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introducción al rendimiento aprovisionado en Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Se recomienda configurar el rendimiento en la granularidad del contenedor cuando
 
 En la imagen siguiente se muestra cómo una partición física hospeda una o varias particiones lógicas de un contenedor:
 
-:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partición física" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partición física que hospeda una o varias particiones lógicas de un contenedor" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Establecimiento del rendimiento en una base de datos
 
@@ -75,7 +75,7 @@ Si la cuenta de Azure Cosmos DB ya contiene una base de datos de rendimiento co
 
 Si las cargas de trabajo implican eliminar y volver a crear todas las colecciones de una base de datos, se recomienda quitar la base de datos vacía y volver a crear una nueva base de datos antes de la creación de la colección. En la siguiente imagen se muestra cómo una partición física puede hospedar una o varias particiones lógicas que pertenecen a distintos contenedores dentro de una base de datos:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partición física" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partición física que hospeda una o varias particiones lógicas de un contenedor" border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Establecimiento del rendimiento en un contenedor y una base de datos
 
@@ -84,7 +84,7 @@ Puede combinar los dos modelos. Se permite el aprovisionamiento del rendimiento 
 * Puede crear una base de datos de Azure Cosmos llamada *Z* con rendimiento aprovisionado estándar (manual) de *"K"*  RU. 
 * Después, cree cinco contenedores llamados *A*, *B*, *C*, *D* y *E* en la base de datos. Al crear el contenedor B, asegúrese de habilitar la opción **Provision dedicated throughput for this container** (Aprovisionar el rendimiento dedicado para este contenedor) y configurar de forma explícita las Unidades de solicitud *"P"* del rendimiento aprovisionado en este contenedor. Tenga en cuenta que únicamente puede configurar el rendimiento compartido y dedicado al crear la base de datos y el contenedor. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Configuración del rendimiento en el nivel de contenedor":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partición física que hospeda una o varias particiones lógicas de un contenedor":::
 
 * El rendimiento de las Unidades de solicitud *"K"* se comparte entre los cuatro contenedores *A*, *C*, *D* y *E*. La cantidad exacta de rendimiento disponible en *A*, *C*, *D* o *E* varía. No hay ningún acuerdo de nivel de servicio para el rendimiento de cada contenedor individual.
 * Se garantiza que el contenedor llamado *B* obtendrá el rendimiento de las Unidades de solicitud de *"P"* todo el tiempo. Estará respaldado por los Acuerdos de Nivel de Servicio.
@@ -105,11 +105,11 @@ Para estimar el [rendimiento aprovisionado mínimo](concepts-limits.md#storage-a
 
 El valor mínimo real de RU/s puede variar en función de la configuración de la cuenta. Puede usar [métricas de Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para ver el historial de rendimiento aprovisionado (RU/s) y el almacenamiento en un recurso.
 
-Puede recuperar el rendimiento mínimo de un contenedor o una base de datos mediante programación con los SDK o ver el valor en Azure Portal. Al usar el SDK de .NET, el método [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) permite escalar el valor de rendimiento aprovisionado. Al usar el SDK de Java, el método [RequestOptions.setOfferThroughput](sql-api-java-sdk-samples.md) permite escalar el valor de rendimiento aprovisionado. 
+Puede recuperar el rendimiento mínimo de un contenedor o una base de datos mediante programación con los SDK o ver el valor en Azure Portal. Al usar el SDK de .NET, el método [container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) permite escalar el valor de rendimiento aprovisionado. Al usar el SDK de Java, el método [CosmosContainer.replaceProvisionedThroughput](sql-api-java-sdk-samples.md) permite escalar el valor de rendimiento aprovisionado.
 
-Al usar el SDK de .NET, el método [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) permite recuperar el rendimiento mínimo de un contenedor o una base de datos. 
+Al usar el SDK de .NET, el método [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) permite recuperar el rendimiento mínimo de un contenedor o una base de datos. 
 
-Puede escalar el rendimiento aprovisionado de un contenedor o una base de datos en cualquier momento. Cuando se realiza una operación de escala para aumentar el rendimiento, puede tardar más tiempo debido a las tareas del sistema destinadas a aprovisionar los recursos necesarios. Puede comprobar el estado de la operación de escalado en Azure Portal o mediante programación con el SDK. Al usar el SDK de .NET, puede obtener el estado de la operación de escalado mediante el método `DocumentClient.ReadOfferAsync`.
+Puede escalar el rendimiento aprovisionado de un contenedor o una base de datos en cualquier momento. Cuando se realiza una operación de escala para aumentar el rendimiento, puede tardar más tiempo debido a las tareas del sistema destinadas a aprovisionar los recursos necesarios. Puede comprobar el estado de la operación de escalado en Azure Portal o mediante programación con el SDK. Al usar el SDK de .NET, puede obtener el estado de la operación de escalado mediante el método `Container.ReadThroughputAsync`.
 
 ## <a name="comparison-of-models"></a>Comparación de modelos
 En esta tabla se muestra una comparación entre el aprovisionamiento del rendimiento estándar (manual) en una base de datos frente a un contenedor. 

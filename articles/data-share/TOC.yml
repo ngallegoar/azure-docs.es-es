@@ -1,6 +1,6 @@
 - name: Documentación de Azure Data Share
   href: index.yml
-- name: Introducción
+- name: Información general
   expanded: true
   items:
     - name: ¿Qué es Azure Data Share?
@@ -44,10 +44,6 @@
         - name: Uso compartido desde Azure Data Explorer
           href: /azure/data-explorer/data-share
           maintainContext: true
-    - name: Supervisión
-      href: how-to-monitor.md
-    - name: Solución de problemas
-      href: data-share-troubleshoot.md
     - name: Adición de conjuntos de datos
       href: how-to-add-datasets.md
     - name: Configuración de asignaciones de conjuntos de datos
@@ -58,10 +54,14 @@
       href: how-to-delete-invitation.md
     - name: Revocación de una suscripción a un recurso compartido
       href: how-to-revoke-share-subscription.md
+    - name: Supervisión
+      href: how-to-monitor.md
     - name: Seguridad
       href: security.md
     - name: Recuperación ante desastres
       href: disaster-recovery.md
+    - name: Solución de problemas
+      href: data-share-troubleshoot.md
 - name: Referencia
   items:
     - name: .NET

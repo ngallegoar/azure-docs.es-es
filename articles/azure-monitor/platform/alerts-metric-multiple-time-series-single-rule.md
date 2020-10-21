@@ -4,14 +4,14 @@ description: Alerta a escala mediante una sola regla de alerta para varias serie
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
-ms.openlocfilehash: f7ca91ca49d9357285e1307c5051ef5685ad24c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186814"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91704487"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Supervisión de varias series temporales en una sola regla de alerta de métrica
 
@@ -174,6 +174,11 @@ Los precios de las reglas de alertas de métricas están disponibles en la [pág
 Al crear una regla de alertas de métrica, la estimación de precios proporcionada se basa en las características seleccionadas y el número de series temporales supervisadas, que se determina a partir de la configuración de reglas y los valores de métricas actuales. Sin embargo, el cargo mensual se basa en las evaluaciones reales de la serie temporal y, por tanto, puede diferir de la estimación original si alguna serie temporal no tiene datos para evaluar, o si la regla de alerta utiliza características que pueden hacer que se escale dinámicamente.
 
 Por ejemplo, una regla de alerta puede mostrar una estimación de precios elevada si aprovecha la característica de varias dimensiones y hay un gran número de combinaciones de valores de dimensión seleccionados, lo que da lugar a la supervisión de muchas series temporales. Sin embargo, el cargo real de esa regla de alerta puede ser menor si no todas las series temporales resultantes de las combinaciones de valores de dimensión tienen realmente datos para evaluar.
+
+## <a name="number-of-time-series-monitored-by-a-single-alert-rule"></a>Número de series temporales supervisadas por una sola regla de alerta
+
+Para evitar unos costos excesivos, cada regla de alerta puede supervisar hasta 5000 series temporales de forma predeterminada. Para levantar este límite de la suscripción, abra una incidencia de soporte técnico.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

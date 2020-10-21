@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 54d33b849f809dbe1ebefbbc3d2f63db6877e86e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 116dd65bf04c01f513e196a2f1b37d54aacbf1fe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90993664"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91841363"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conexión a los datos con Azure Machine Learning Studio
 
@@ -24,14 +24,14 @@ En este artículo, aprenderá a acceder a los datos con [Azure Machine Learning 
 
 En la tabla siguiente se definen y resumen las ventajas de los almacenes de datos y los conjuntos de datos. 
 
-||Descripción| Ventajas|   
+|Object|Descripción| Ventajas|   
 |---|---|---|
-|Almacenes de datos| Conéctese de forma segura al servicio de almacenamiento en Azure y almacene la información de conexión, como el identificador de suscripción y la autorización de token de su instancia de [Key Vault](https://azure.microsoft.com/services/key-vault/) asociada el área de trabajo. | Dado que la información se almacena de forma segura: <br><br> <li> No&nbsp;ponga&nbsp;en peligro las credenciales de autenticación&nbsp;o los orígenes de datos. <li> Ya no es necesario codificarlos de forma rígida en los scripts.
+|Almacenes de datos| Conéctese de forma segura al servicio de almacenamiento en Azure y almacene la información de conexión, como el identificador de suscripción y la autorización de token de su instancia de [Key Vault](https://azure.microsoft.com/services/key-vault/) asociada el área de trabajo. | Dado que la información se almacena de forma segura: <br><br> <li> No&nbsp;ponga&nbsp;en peligro las &nbsp;credenciales&nbsp; de &nbsp;autenticación&nbsp;o los orígenes de datos nativos. <li> Ya no es necesario codificarlos de forma rígida en los scripts.
 |Conjuntos de datos| Mediante la creación de un conjunto de datos, puede crear una referencia a la ubicación del origen de datos, junto con una copia de sus metadatos. Con los conjuntos de datos puede: <br><br><li> Acceder a los datos durante el entrenamiento del modelo.<li> Compartir datos y colaborar con otros usuarios.<li> Aprovechar las bibliotecas de código abierto, como Pandas, para la exploración de datos. | Dado que los conjuntos de datos se evalúan de forma diferida y los datos permanecen en su ubicación existente, usted: <br><br><li>Mantener una sola copia de los datos en el almacenamiento.<li> No generar ningún costo de almacenamiento adicional. <li> No se arriesgará de forma no intencionada cambiando sus orígenes de datos originales.<li>Mejorará las velocidades de rendimiento del flujo de trabajo de ML. 
 
 Para comprender dónde encajan los almacenes de datos y los conjuntos de datos en el flujo de trabajo global de acceso a datos de Azure Machine Learning, consulte el artículo [Acceso seguro a los datos](concept-data.md#data-workflow).
 
-Para obtener una experiencia de Code First, consulte los artículos siguientes para usar el [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) para:
+Para obtener una experiencia de Code First, consulte los artículos siguientes para usar el [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) para:
 * [Conectarse a servicios de Azure Storage con almacenes de datos](how-to-access-data.md). 
 * [Crear conjuntos de datos de Azure Machine Learning](how-to-create-register-datasets.md). 
 
@@ -87,6 +87,7 @@ Para crear un conjunto de datos en el estudio:
 1. Seleccione **Tabular** o **Archivo** para el tipo de conjunto de datos.
 1. Seleccione **Siguiente** para abrir el formulario **Datastore and file selection** (Almacén de datos y selección de archivos). En este formulario, seleccione dónde desea mantener el conjunto de datos después de su creación, así como los archivos de datos que se usarán para el conjunto de datos.
     1. Habilite la omisión de la validación si los datos están en una red virtual. Obtenga más información acerca del [aislamiento de red virtual y la privacidad](how-to-enable-virtual-network.md#machine-learning-studio).
+    1. Para los conjuntos de datos tabulares, puede especificar un rasgo de "serie temporal" para permitir operaciones relacionadas con el tiempo en el conjunto datos. Aprenda a [agregar el rasgo de serie temporal al conjunto de datos](how-to-monitor-datasets.md#studio-dataset).
 1. Seleccione **Siguiente** para rellenar los formularios **Settings and preview** (Configuración y versión preliminar) y **Esquema**; se rellenan de forma inteligente en función del tipo de archivo y se puede configurar el conjunto de archivos antes de la creación en estos formularios. 
 1. Seleccione **Siguiente** para revisar el formulario **Confirmar detalles**. Compruebe sus selecciones y cree un perfil de datos opcional para el conjunto de datos. Más información acerca de la [generación de perfiles de datos](#profile).
 1. Seleccione **Crear** para completar la creación del conjunto de datos.
@@ -112,22 +113,22 @@ En concreto, el perfil de datos del conjunto de datos de Azure Machine Learning 
 >[!NOTE]
 > Aparecen entradas en blanco para las características con tipos irrelevantes.
 
-Estadísticas|Descripción
-------|------
-Característica| Nombre de la columna que se está resumiendo.
-Perfil| Visualización en línea según el tipo inferido. Por ejemplo, las cadenas, los tipos booleanos y las fechas tendrán recuentos de valores, mientras que los tipos decimales (valores numéricos) tendrán histogramas aproximados. Esto le permite obtener una descripción rápida de la distribución de los datos.
-Distribución de tipo| Recuento de valor en línea de los tipos dentro de una columna. Los valores Null son su propio tipo, por lo que esta visualizaicón es útil para detectar los valores impares o que faltan.
-Tipo|Tipo inferido de la columna. Los valores posibles incluyen: cadenas, valores booleanos, fechas y decimales.
-Min| Valor mínimo de la columna. Aparecen entradas en blanco para características cuyo tipo no tiene una ordenación inherente (por ejemplo, valores booleanos).
-Max| Valor máximo de la columna. 
-Count| Número total de entradas que faltan y que no faltan en la columna.
-No falta el recuento| Número de entradas de la columna que no faltan. Las cadenas vacías y los errores se tratan como valores, por lo que no contribuirán a la lista "No falta el recuento".
-Cuantiles| Valores aproximados en cada cuantil para proporcionar una idea de la distribución de los datos.
-Media| Media aritmética o promedio de la columna.
-Desviación estándar| Medida de la cantidad de dispersión o variación de los datos de esta columna.
-Variance| Medida de la diferencia de los datos de esta columna con respecto a su valor medio. 
-Asimetría| Medida de la diferencia entre los datos de esta columna y la distribución normal.
-Curtosis| La medida de la cantidad de datos en cola de esta columna se compara con una distribución normal.
+|Estadísticas|Descripción
+|------|------
+|Característica| Nombre de la columna que se está resumiendo.
+|Perfil| Visualización en línea según el tipo inferido. Por ejemplo, las cadenas, los tipos booleanos y las fechas tendrán recuentos de valores, mientras que los tipos decimales (valores numéricos) tendrán histogramas aproximados. Esto le permite obtener una descripción rápida de la distribución de los datos.
+|Distribución de tipo| Recuento de valor en línea de los tipos dentro de una columna. Los valores Null son su propio tipo, por lo que esta visualizaicón es útil para detectar los valores impares o que faltan.
+|Tipo|Tipo inferido de la columna. Los valores posibles incluyen: cadenas, valores booleanos, fechas y decimales.
+|Min| Valor mínimo de la columna. Aparecen entradas en blanco para características cuyo tipo no tiene una ordenación inherente (por ejemplo, valores booleanos).
+|Max| Valor máximo de la columna. 
+|Count| Número total de entradas que faltan y que no faltan en la columna.
+|No falta el recuento| Número de entradas de la columna que no faltan. Las cadenas vacías y los errores se tratan como valores, por lo que no contribuirán a la lista "No falta el recuento".
+|Cuantiles| Valores aproximados en cada cuantil para proporcionar una idea de la distribución de los datos.
+|Media| Media aritmética o promedio de la columna.
+|Desviación estándar| Medida de la cantidad de dispersión o variación de los datos de esta columna.
+|Variance| Medida de la diferencia de los datos de esta columna con respecto a su valor medio. 
+|Asimetría| Medida de la diferencia entre los datos de esta columna y la distribución normal.
+|Curtosis| La medida de la cantidad de datos en cola de esta columna se compara con una distribución normal.
 
 ## <a name="storage-access-and-permissions"></a>Permisos y acceso a Storage
 
@@ -170,6 +171,6 @@ Use sus conjuntos de datos en los experimentos de aprendizaje automático para e
 
 * [Ejemplo de entrenamiento paso a paso con TabularDatasets y ML automatizado](tutorial-first-experiment-automated-ml.md).
 
-* [Entrenamiento de un modelo](how-to-train-ml-models.md).
+* [Entrenamiento de un modelo](how-to-set-up-training-targets.md).
 
 * Para ver más ejemplos de entrenamiento de conjuntos de datos, consulte los [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).

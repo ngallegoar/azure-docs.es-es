@@ -7,13 +7,13 @@ manager: diviso
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: f15686cf07bae4aee41095c970cd8a474724c2ed
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 10/01/2020
+ms.openlocfilehash: 105faf796583eb0f272eea7a316648993fdafd0d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230983"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91653781"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualización de datos de Azure Time Series Insights en Power BI
 
@@ -110,13 +110,13 @@ Ahora que ha importado los datos en Power BI, es el momento de crear un informe
 
 1. En el lado izquierdo de la ventana, asegúrese de que ha seleccionado la vista **Informe**.
 
-    [![Seleccionar la vista Informe](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
+    [![Captura de pantalla que muestra el icono de la vista Informe.](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
 1. En la columna **Visualizaciones**, seleccione el objeto visual que prefiera. Por ejemplo, seleccione **Gráfico de líneas**. Se agregará un gráfico de líneas en blanco al lienzo.
 
 1. En la lista **Campos**, seleccione **_Marca de tiempo** y arrástrelo hasta el campo **Eje** para mostrar los elementos en el eje X. Asegúrese de cambiar a **_Marca de tiempo** como el valor de **Eje** (el valor predeterminado es **Jerarquía de fechas**).
 
-    [![Seleccionar la vista Informe](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
+    [![Captura de pantalla que muestra el menú Marca de tiempo con _Marca de tiempo seleccionado.](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
 1. En la lista **Campos**, seleccione **TimeSeriesId** y arrástrelo hasta el campo **Valores** para mostrar los elementos en el eje Y.
 

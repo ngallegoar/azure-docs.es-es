@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: ddcf6758c8c648678c69070fa5b65ae6c4947018
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252698"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91652638"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
@@ -73,11 +73,21 @@ Todos los desencadenadores y enlaces tienen una propiedad `direction` en el arch
 
 Cuando se usan [atributos en una biblioteca de clases](functions-dotnet-class-library.md) para configurar los desencadenadores y los enlaces, la dirección se proporciona en un constructor de atributos o se deduce del tipo de parámetro.
 
+## <a name="add-bindings-to-a-function"></a>Incorporación de enlaces a una función
+
+Puede conectar la función a otros servicios mediante enlaces de entrada o salida. Para incorporar un enlace, agregue sus definiciones específicas a la función. Para obtener información sobre cómo hacerlo, vea [Incorporación de enlaces a una función existente de Azure Functions](add-bindings-existing-function.md).  
+
 ## <a name="supported-bindings"></a>Enlaces admitidos
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 Para información sobre qué enlaces están en versión preliminar o aprobados para su uso en producción, consulte los [lenguajes admitidos](supported-languages.md).
+
+## <a name="bindings-code-examples"></a>Ejemplos de código de enlaces
+
+Use la tabla siguiente para buscar ejemplos de tipos de enlaces específicos que muestren cómo trabajar con enlaces en las funciones. En primer lugar, elija la pestaña de lenguaje que corresponde al proyecto. 
+
+[!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
 ## <a name="resources"></a>Recursos
 - [Patrones y expresiones de enlace](./functions-bindings-expressions-patterns.md)

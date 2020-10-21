@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 1be04c0617dc4ed235cc3f3bc29aa58f4c2cb1d2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7361355a81de019af90e908f11c4d283b7f16cc9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902141"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542128"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos del servidor único de Azure Database for PostgreSQL con clave administrada por el cliente
 
@@ -79,7 +79,7 @@ Cuando vaya a usar el cifrado de datos mediante una clave administrada por el cl
 * Asegúrese de que Key Vault y el servidor único de Azure Database for PostgreSQL residen en la misma región para garantizar un acceso más rápido para las operaciones de encapsulado y desencapsulado de DEK.
 * Bloquee la KeyVault de Azure solo para **punto de conexión privado y las redes seleccionadas** y permita solamente *servicios de Microsoft* de confianza para proteger los recursos.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="servicio de confianza con AKV":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagrama que muestra información general de Bring Your Own Key":::
 
 A continuación se ofrecen recomendaciones para configurar una clave administrada por el cliente:
 
@@ -121,9 +121,9 @@ Para supervisar el estado de la base de datos y para habilitar las alertas cuand
 
 Después de cifrar un servidor único de Azure Database for PostgreSQL con la clave administrada de un cliente almacenada en Key Vault, también se cifra cualquier copia recién creada del servidor. Puede realizar esta nueva copia mediante una operación local o de restauración geográfica, o por medio de réplicas de lectura. Sin embargo, la copia se puede cambiar para reflejar la nueva clave administrada por el cliente para el cifrado. Cuando se cambia la clave administrada por el cliente, las copias de seguridad antiguas del servidor comienzan a usar la clave más reciente.
 
-Para evitar incidencias al configurar el cifrado de datos administrado por el cliente durante la restauración o la creación de réplicas de lectura, es importante seguir estos pasos en el servidor maestro o en el servidor de réplica o restaurado:
+Para evitar incidencias al configurar el cifrado de datos administrado por el cliente durante la restauración o la creación de réplicas de lectura, es importante seguir estos pasos en los servidores principal y de réplica o restaurado:
 
-* Inicie el proceso de restauración o creación de réplica de lectura desde el servidor único de Azure Database for PostgreSQL.
+* Inicie el proceso de creación de la réplica de lectura o de restauración desde la instancia principal de Azure Database for PostgreSQL: servidor único.
 * Mantenga el servidor recién creado (de réplica o restaurado) en un estado inaccesible, ya que su identidad única todavía no tiene permisos para Key Vault.
 * En el servidor de réplica o restaurado, vuelva a validar la clave administrada por el cliente en la configuración de cifrado de datos. De esta forma se garantiza que el servidor recién creado recibe los permisos para encapsular y desencapsular la clave almacenada en Key Vault.
 

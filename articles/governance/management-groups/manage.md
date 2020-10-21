@@ -1,14 +1,14 @@
 ---
 title: 'Trabajo con grupos de administración: Gobernanza en Azure'
 description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82eeb2520815ddac69d27ddccd58c842c3e33deb
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 4ce265084662fb7a83f902e046d6e079abff9a48
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531044"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058104"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -119,7 +119,7 @@ Puede ver cualquier grupo de administración sobre el que tenga un rol de Azure 
 
 1. Seleccione **Todos los servicios** > **Grupos de administración**.
 
-1. Se cargará la página de la jerarquía de grupos de administración. En esta página puede explorar todos los grupos de administración y las suscripciones a los que tiene acceso. Si selecciona el nombre del grupo, descenderá un nivel en la jerarquía. La navegación funciona de la misma forma que un explorador de archivos.
+1. Se cargará la página de la jerarquía de grupos de administración. En esta página puede explorar todos los grupos de administración y las suscripciones a los que tiene acceso. Si selecciona el nombre del grupo, desciende a un nivel inferior de la jerarquía. La navegación funciona de la misma forma que un explorador de archivos.
 
 1. Para ver los detalles del grupo de administración, seleccione el vínculo **(detalles)** situado junto al título de este. Si este vínculo no está disponible, no tiene permisos para ver ese grupo de administración.
 
@@ -211,7 +211,7 @@ Si va a realizar la acción de movimiento, necesitará lo siguiente:
 
 **Excepción**: Si el grupo de administración primario existente o de destino es el grupo de administración raíz, no se aplican los requisitos de permisos. Puesto que el grupo de administración raíz es la zona de aterrizaje predeterminada de todos los nuevos grupos de administración y suscripciones, no necesita permisos sobre él para mover un elemento.
 
-Si el rol de propietario de la suscripción se hereda del grupo de administración actual, los destinos de movimiento están limitados. Solo puede mover la suscripción a otro grupo de administración en el que tenga el rol de propietario. No puede moverla a un grupo de administración en el que sea colaborador porque perdería la propiedad de la suscripción. Si se le asigna directamente el rol de propietario de la suscripción (no se hereda del grupo de administración), puede moverlo a cualquier grupo de administración donde sea colaborador.
+Si el rol de propietario de la suscripción se hereda del grupo de administración actual, los destinos de movimiento están limitados. Solo puede mover la suscripción a otro grupo de administración en el que tenga el rol de propietario. No puede moverla a un grupo de administración en el que solo sea colaborador porque perdería la propiedad de la suscripción. Si se le asigna directamente el rol de propietario de la suscripción, puede moverla a cualquier grupo de administración donde sea colaborador.
 
 Para ver qué permisos tiene en Azure Portal, seleccione el grupo de administración y, luego, **IAM**. Para más información sobre los roles de Azure, consulte [¿Qué es el control de acceso basado en roles de Azure (RBAC)?](../../role-based-access-control/overview.md).
 
@@ -349,7 +349,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 Para más información sobre los grupos de administración, consulte:
 
-- [Creación de grupos de administración para organizar los recursos de Azure](./create.md)
+- [Creación de grupos de administración para organizar los recursos de Azure](./create-management-group-portal.md)
 - [Cambio, eliminación y administración de los grupos de administración](./manage.md)
 - [Revisión de grupos de administración en el módulo de recursos de Azure PowerShell](/powershell/module/az.resources#resources)
 - [Revisión de grupos de administración en la API REST](/rest/api/resources/managementgroups)

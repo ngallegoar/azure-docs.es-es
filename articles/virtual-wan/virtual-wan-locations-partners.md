@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: d1655b42b57edaeeaaaada802a248f56e0ba1470
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: c689c83e50a42885900f62d1a65d0aa75f36f2ec
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801467"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014040"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Ubicaciones de concentradores virtuales y asociados de Azure Virtual WAN
 
@@ -40,7 +40,7 @@ Algunos asociados de conectividad pueden extender la automatización para inclui
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-En nuestro plan de desarrollo para un futuro próximo están programados los siguientes asociados: 128 Technologies, Arista, Cisco Systems (Viptela), F5 Networks, Oracle SD-WAN y SharpLink.
+Los siguientes asociados están en nuestra hoja de ruta en función de una hoja de términos firmada por las empresas, que indica el ámbito del trabajo para automatizar la conectividad de IPsec entre el dispositivo asociado y las puertas de enlace de VPN de Azure Virtual WAN: 128 Technologies, Arista, F5 Networks, Oracle SD-WAN (Talari) y SharpLink.
 
 ## <a name="partners-with-integrated-virtual-hub-offerings"></a>Asociados con ofertas del Centro virtual integrado
 Además de tener conectividad IPSec automatizada de sucursales, algunos asociados ofrecen **Dispositivos virtuales de red (NVA)** que se pueden integrar directamente en el centro de Azure Virtual WAN.  Esto permite a los clientes finalizar sus conexiones de rama en un dispositivo de terceros compatible con el Centro virtual.  

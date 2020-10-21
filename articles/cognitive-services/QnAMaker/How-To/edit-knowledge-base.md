@@ -1,14 +1,16 @@
 ---
 title: 'Edición de una base de conocimiento: QnA Maker'
 description: QnA Maker le permite administrar el contenido de la base de conocimiento, proporcionando una experiencia de edición sencilla.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 52aaaf630806ed6c71101860a1286f88a23ec3fa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054021"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91776551"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Edición de pares de QnA en la base de conocimiento
 
@@ -72,7 +74,7 @@ La edición de texto enriquecido del texto de respuesta le permite aplicar estil
 
 
     > [!div class="mx-imgBorder"]
-    > ![Use el editor de texto enriquecido para agregar una imagen de acceso público y su texto alternativo.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+    > ![Captura de pantalla que muestra el editor en contexto con la dirección URL de la imagen de acceso público y el texto alternativo de la imagen especificados.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
 
 1. Para agregar un vínculo a una dirección URL, seleccione el texto de la respuesta y luego el icono de vínculo en la barra de herramientas o seleccione el icono de vínculo en la barra de herramientas y escriba el nuevo texto y la dirección URL.
 

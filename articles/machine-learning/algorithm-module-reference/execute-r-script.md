@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: d5ef8d6a9b0c0039b500ce9d0238609e8a8edc93
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908006"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542295"
 ---
 # <a name="execute-r-script-module"></a>Módulo Execute R Script
 
 En este artículo se describe cómo usar el módulo Execute R Script (Ejecutar script R) para ejecutar código R en la canalización del diseñador de Azure Machine Learning.
 
-Con R, puede realizar tareas que no son compatibles actualmente con los módulos existentes, como: 
+Con R, puede realizar tareas que no son compatibles con los módulos existentes, como: 
 - Crear transformaciones de datos personalizadas
 - Usar sus propias métricas para evaluar las predicciones
 - Generar modelos mediante algoritmos que no se implementan como módulos independientes en el diseñador
@@ -137,7 +137,7 @@ Puede consultar el siguiente código de ejemplo para [acceder a los conjuntos de
 
 ## <a name="how-to-configure-execute-r-script"></a>Procedimiento para configurar Ejecutar script R
 
-El módulo Execute R Script (Ejecutar script R) contiene código de ejemplo que puede usar como punto de partida. Para configurar el módulo Execute R Script (Ejecutar script R), proporcione un conjunto de entradas y código para ejecutarlo.
+El módulo Execute R Script (Ejecutar script R) contiene código de ejemplo como punto de partida.
 
 ![Diagrama de entradas para un módulo de R](media/module/execute-r-script.png)
 
@@ -194,9 +194,12 @@ Los conjuntos de datos almacenados en el diseñador se convierten automáticamen
     > [!NOTE]
     > Puede que el código R existente necesite pequeños cambios para ejecutarse en una canalización de diseñador. Por ejemplo, los datos de entrada que se proporcionan en formato CSV deben convertirse explícitamente en un conjunto de datos para que pueda usarlos en su código. Los tipos de datos y columnas que se usan en el lenguaje R también difieren en algunos aspectos de los tipos de columnas y datos que se usan en el diseñador.
 
-    Si el script tiene más de 16 KB, use el puerto **Conjunto de scripts** para evitar errores parecidos a *CommandLine supera el límite de 16597 caracteres*. 
+    Si el script tiene más de 16 KB, use el puerto **Agrupación de scripts** para evitar errores parecidos a *CommandLine supera el límite de 16 597 caracteres*. 
     
-    Agrupe el script y otros recursos personalizados en un archivo zip, y cargue el archivo zip como un **conjunto de datos de archivo** en el estudio. Luego puede arrastrar el módulo del conjunto de datos de la lista *My datasets* (Mis conjuntos de datos) en el panel de módulos de la izquierda a la página de creación del diseñador. Conecte el módulo de conjunto de datos al puerto **Conjunto de scripts** del módulo **Ejecutar script R**.
+    1. Agrupe el script y otros recursos personalizados en un archivo zip.
+    1. Cargue el archivo zip como un **Conjunto de datos de archivo** en Studio. 
+    1. Arrastre el módulo del conjunto de datos de la lista *My datasets* (Mis conjuntos de datos) del panel de módulos de la izquierda a la página de creación del diseñador. 
+    1. Conecte el módulo de conjunto de datos al puerto **Conjunto de scripts** del módulo **Ejecutar script R**.
     
     A continuación, se muestra el código de ejemplo para consumir el script en el conjunto de scripts:
 
@@ -219,7 +222,7 @@ Los conjuntos de datos almacenados en el diseñador se convierten automáticamen
 
 ## <a name="results"></a>Results
 
-Los módulos Execute R Script (Ejecutar script R) pueden devolver varias salidas, pero se tienen que proporcionar como tramas de datos de R. Las tramas de datos se convierten automáticamente en conjuntos de datos en el diseñador para su compatibilidad con otros módulos.
+Los módulos Execute R Script (Ejecutar script R) pueden devolver varias salidas, pero se tienen que proporcionar como tramas de datos de R. El diseñador convierte automáticamente los marcos de datos en conjuntos de datos para su compatibilidad con otros módulos.
 
 Los mensajes estándar y los errores de R se devuelven al registro del módulo.
 
@@ -236,7 +239,7 @@ El módulo Execute R Script (Ejecutar script R) admite archivos de script de�
 
 1. Para cargar un archivo ZIP que contenga código R en el área de trabajo, vaya a la página de recurso **Datasets** (Conjuntos de datos). Seleccione **Create dataset** (Crear conjunto de datos) y, después, seleccione **From local file** (Desde archivo local) y la opción de tipo de conjunto de datos **File** (Archivo).  
 
-1. Compruebe que el archivo comprimido está disponible en la lista **My Datasets** (Mis conjuntos de datos) en la categoría **Datasets** (Conjuntos de datos) del árbol de módulos de la izquierda.
+1. Compruebe que el archivo zip aparece en la lista **My Datasets** (Mis conjuntos de datos) de la categoría **Datasets** (Conjuntos de datos) del árbol de módulos de la izquierda.
 
 1.  Conecte el conjunto de datos al puerto de entrada del **conjunto de scripts**.
 

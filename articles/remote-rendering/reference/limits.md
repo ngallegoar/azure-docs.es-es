@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: e6b12c2bac4a9732f868f6a6ac3491ef993f54c3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 61085a5d28fcd74bbf6a393ddc0731e36094a63f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976560"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91617505"
 ---
 # <a name="limitations"></a>Limitaciones
 
@@ -28,10 +28,12 @@ Algunas características tienen limitaciones de tamaño, recuento u otras.
 
 ## <a name="geometry"></a>Geometría
 
-* Número total de materiales permitidos en un recurso: 65 535. Consulte [Desduplicación de materiales](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) para obtener más información.
-* Dimensión máxima de una sola textura: 16 384 x 16 384. El proceso de conversión reducirá la escala de las texturas de origen más grandes.
+* **Animación:** las animaciones se limitan a animar transformaciones individuales de objetos de juego. No se admiten las animaciones esqueléticas con animaciones de piel y vértices. Las pistas de animación del archivo de recursos de origen no se conservan. En su lugar, el código cliente debe controlar las animaciones de transformación de objetos.
+* **Sombreadores personalizados:** no se admite la creación de sombreadores personalizados. Solo se pueden usar [materiales de color](../overview/features/color-materials.md) o [materiales PBR](../overview/features/pbr-materials.md) integrados.
+* **Número máximo de materiales distintos** en un recurso: 65 535. Para más información sobre la reducción automática del número de materiales, consulte el capítulo sobre la [desduplicación de materiales](../how-tos/conversion/configure-model-conversion.md#material-de-duplication).
+* **Dimensión máxima de una sola textura**: 16 384 x 16 384. El proceso de conversión reducirá el tamaño de las texturas de origen más grandes.
 
-## <a name="overall-number-of-polygons"></a>Número total de polígonos
+### <a name="overall-number-of-polygons"></a>Número total de polígonos
 
 El número de polígonos permitidos para todos los modelos cargados depende del tamaño de la máquina virtual que se pasa a [la API REST de administración de sesión](../how-tos/session-rest-api.md#create-a-session):
 
@@ -40,7 +42,7 @@ El número de polígonos permitidos para todos los modelos cargados depende del 
 |estándar| 20 millones |
 |prémium| ilimitado |
 
-Vea el capítulo [Tamaño del servidor](../reference/vm-sizes.md) para obtener información más detallada sobre esta limitación.
+Para más información sobre esta limitación, consulte el capítulo sobre el [tamaño del servidor](../reference/vm-sizes.md).
 
 ## <a name="platform-limitations"></a>Limitaciones de la plataforma
 

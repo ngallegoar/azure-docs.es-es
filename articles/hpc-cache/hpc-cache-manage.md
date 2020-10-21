@@ -4,14 +4,14 @@ description: Administración y actualización de Azure HPC Cache mediante Azure 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 66b084cca3d1cd54362a538423988755a3d31ced
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19950ca215abbac3a56bdb901448c9d92ad369be
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497237"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91613068"
 ---
 # <a name="manage-your-cache"></a>Administración de la caché
 
@@ -28,6 +28,7 @@ Los botones que se encuentran en la parte superior de la página pueden ayudarlo
 * **Iniciar** y [**Detener**](#stop-the-cache): reanuda o suspende la operación de caché
 * [**Vaciar**](#flush-cached-data): escribe los datos modificados en destinos de almacenamiento
 * [**Actualizar**](#upgrade-cache-software): actualiza el software de caché
+* [**Recopilar diagnósticos**](#collect-diagnostics): carga la información de depuración
 * **Refrescar**: vuelve a cargar la página de información general
 * [**Eliminar**](#delete-the-cache): destruye permanentemente la memoria caché
 
@@ -196,6 +197,16 @@ $
 ```
 
 ---
+
+## <a name="collect-diagnostics"></a>Recopilación de diagnósticos
+
+El botón **Recopilar diagnósticos** inicia manualmente el proceso de recopilación de información del sistema y la carga en el servicio Soporte técnico de Microsoft para la solución de problemas. La caché recopila y carga automáticamente la misma información de diagnóstico si se produce un problema grave de caché.
+
+Use este control si el servicio Soporte técnico de Microsoft lo solicita.
+
+Después de hacer clic en el botón, haga clic en **Sí** para confirmar la carga.
+
+![Captura de pantalla del mensaje de confirmación emergente "Iniciar recopilación de diagnóstico". El botón predeterminado "Sí" está resaltado.](media/diagnostics-confirm.png)
 
 ## <a name="delete-the-cache"></a>Eliminación de la caché
 

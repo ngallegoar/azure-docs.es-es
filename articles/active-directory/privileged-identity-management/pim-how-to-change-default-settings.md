@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedd6d019005a4c55bbabf6070c6d864da90f40a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4ab3ae459d5719e965be668c529eacf0ab86d19b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055493"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541142"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configuración de roles de Azure AD en Privileged Identity Management
 
@@ -196,7 +196,7 @@ Si desea delegar la aprobación necesaria para activar un rol, siga estos pasos.
 
 1. Establezca el modificador **Requerir aprobación** en **Habilitado**. El panel se expande con opciones para seleccionar aprobadores.
 
-    ![Roles de Azure AD - Configuración - Requerir aprobación](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Captura de pantalla que muestra el conmutador "Requerir aprobación" con la opción "Habilitado" seleccionada.](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Si no especifica ningún aprobador, el administrador de roles con privilegios se convierte en el aprobador predeterminado y, a continuación, se le solicita que apruebe todas las solicitudes de activación para este rol.
 

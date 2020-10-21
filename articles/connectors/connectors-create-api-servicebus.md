@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 tags: connectors
-ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526534"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996340"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
 
@@ -79,7 +79,7 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
    Algunos desencadenadores, como **Cuando llegan uno o más mensajes a una cola (autocompletar)** , pueden devolver uno o más mensajes. Cuando se activan estos desencadenadores, devuelven entre uno y el número de mensajes especificados por la propiedad **Recuento máximo de mensajes** del desencadenador.
 
     > [!NOTE]
-    > El desencadenador de autocompletar completa automáticamente un mensaje, pero el completado solo se produce en la siguiente ejecución del desencadenador. Este comportamiento puede afectar al diseño de la aplicación lógica. Por ejemplo, evite cambiar la simultaneidad en el desencadenador de Autocompletar, ya que este cambio podría dar lugar a mensajes duplicados si la aplicación lógica entra en un estado limitado. El cambio del control de simultaneidad crea estas condiciones: los desencadenadores limitados se omiten con el código `WorkflowRunInProgress`, no se produce la operación de finalización y la siguiente ejecución del desencadenador se produce después del intervalo de sondeo. Debe establecer la duración del bloqueo de Service Bus en un valor que sea mayor que el intervalo de sondeo. Pero a pesar de esta configuración, el mensaje todavía podría no completarse si la aplicación lógica permanece en un estado limitado en el siguiente intervalo de sondeo.
+    > El desencadenador de autocompletar completa automáticamente un mensaje, pero el completado solo se produce en la siguiente llamada a Service Bus. Este comportamiento puede afectar al diseño de la aplicación lógica. Por ejemplo, evite cambiar la simultaneidad en el desencadenador de Autocompletar, ya que este cambio podría dar lugar a mensajes duplicados si la aplicación lógica entra en un estado limitado. El cambio del control de simultaneidad crea estas condiciones: los desencadenadores limitados se omiten con el código `WorkflowRunInProgress`, no se produce la operación de finalización y la siguiente ejecución del desencadenador se produce después del intervalo de sondeo. Debe establecer la duración del bloqueo de Service Bus en un valor que sea mayor que el intervalo de sondeo. Pero a pesar de esta configuración, el mensaje todavía podría no completarse si la aplicación lógica permanece en un estado limitado en el siguiente intervalo de sondeo.
 
 1. Si el desencadenador se conecta a su espacio de nombres de Service Bus por primera vez, siga estos pasos cuando el Diseñador de aplicación lógica le pida información de conexión.
 
@@ -162,6 +162,10 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 Cuando necesite enviar mensajes relacionados en un orden específico, puede usar el patrón [*convoy secuencial*](/azure/architecture/patterns/sequential-convoy) mediante el [conector de Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Los mensajes correlacionados tienen una propiedad que define la relación entre esos mensajes, como el identificador de la [sesión](../service-bus-messaging/message-sessions.md) en Service Bus.
 
 Al crear una aplicación lógica, puede seleccionar la plantilla **Entrega por orden correlacionada mediante sesiones de Service Bus**, que implementa el patrón de convoy secuencial. Para más información, vea [Enviar mensajes relacionados en orden](../logic-apps/send-related-messages-sequential-convoy.md).
+
+## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Retrasos en el efecto de las actualizaciones de la aplicación lógica
+
+Si el intervalo de sondeo de un desencadenador de Service Bus es pequeño —por ejemplo, 10 segundos— es posible que las actualizaciones de la aplicación lógica no surtan efecto hasta transcurridos 10 minutos. Para solucionar este problema, puede aumentar temporalmente el intervalo de sondeo a un valor mayor, como 30 segundos o 1 minuto, antes de actualizar la aplicación lógica. Después de realizar la actualización, puede restablecer el intervalo de sondeo al valor original. 
 
 <a name="connector-reference"></a>
 

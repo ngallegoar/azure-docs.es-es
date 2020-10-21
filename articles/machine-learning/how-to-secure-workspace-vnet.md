@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
-ms.date: 07/07/2020
+ms.author: peterlu
+author: peterclu
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 4dc1f86ce7dbb060c747c4433f0c2b871ce5582d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, contperfq4, tracking-python, contperfq1
+ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907643"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91776056"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Protección de un área de trabajo de Azure Machine Learning con redes virtuales
 
@@ -57,17 +57,16 @@ Azure Private Link le permite conectarse a su área de trabajo mediante un punto
 
 Para obtener más información sobre la configuración de un área de trabajo de Private Link, consulte [Configuración de Private Link](how-to-configure-private-link.md).
 
+## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Protección de cuentas de almacenamiento de Azure con puntos de conexión de servicio
 
-## <a name="secure-azure-storage-accounts"></a>Protección de cuentas de Azure Storage
-
-En esta sección, aprenderá a proteger una cuenta de Azure Storage mediante puntos de conexión de servicio. Sin embargo, también puede usar puntos de conexión privados para proteger Azure Storage. Para obtener más información, consulte [Uso de puntos de conexión privados para Azure Storage](../storage/common/storage-private-endpoints.md).
+Azure Machine Learning admite cuentas de almacenamiento configuradas para usar puntos de conexión de servicio o puntos de conexión privados. En esta sección, aprenderá a proteger una cuenta de Azure Storage mediante puntos de conexión de servicio. En el caso de los puntos de conexión privados, consulte la sección siguiente.
 
 > [!IMPORTANT]
 > Se puede colocar tanto la _cuenta de almacenamiento predeterminada_ para Azure Machine Learning o las _cuentas de almacenamiento no predeterminadas_ en una red virtual.
 >
 > La cuenta de almacenamiento predeterminada se aprovisiona automáticamente al crear un área de trabajo.
 >
-> En las cuentas de almacenamiento no predeterminadas, el parámetro `storage_account` de la [función `Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite especificar una cuenta de almacenamiento personalizada mediante el identificador de recursos de Azure.
+> En las cuentas de almacenamiento no predeterminadas, el parámetro `storage_account` de la [función `Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) permite especificar una cuenta de almacenamiento personalizada mediante el identificador de recursos de Azure.
 
 Para usar una cuenta de Azure Storage para el área de trabajo en una red virtual, siga estos pasos:
 
@@ -95,11 +94,23 @@ Para usar una cuenta de Azure Storage para el área de trabajo en una red virtua
 
    [![Panel "Firewalls y redes virtuales" de Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
+## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Protección de cuentas de almacenamiento de Azure con puntos de conexión privados
+
+Azure Machine Learning admite cuentas de almacenamiento configuradas para usar puntos de conexión de servicio o puntos de conexión privados. Si la cuenta de almacenamiento usa puntos de conexión privados, debe configurar dos para la cuenta de almacenamiento predeterminada:
+1. Uno con un recurso secundario de destino de **blob**.
+1. Otro con un recurso secundario de destino de **archivo** (recurso compartido de archivos).
+
+![Captura de pantalla que muestra la página de configuración de los puntos de conexión privados con opciones de blob y archivo](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+
+Para configurar un punto de conexión privado para una cuenta de almacenamiento que **no** sea el almacenamiento predeterminado, seleccione el tipo de **recurso secundario de destino** correspondiente a la cuenta de almacenamiento que quiere agregar.
+
+Para más información, consulte [Uso de puntos de conexión privados para Azure Storage](../storage/common/storage-private-endpoints.md).
+
 ## <a name="secure-datastores-and-datasets"></a>Protección de almacenes de datos y conjuntos de datos
 
-En esta sección, aprenderá a usar los almacenes de datos y los conjuntos de datos para la experiencia de SDK en una red virtual. Para obtener más información sobre la experiencia de Studio, consulte [Uso de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md).
+En esta sección, aprenderá a usar el almacén de datos y los conjuntos de datos de la experiencia del SDK con una red virtual. Para obtener más información sobre la experiencia de Studio, consulte [Uso de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md).
 
-Para obtener acceso a los datos mediante SDK, debe usar el método de autenticación requerido por el servicio individual en el que se almacenan los datos. Por ejemplo, si registra un almacén de datos para tener acceso a Azure Data Lake Store Gen2, debe usar una entidad de servicio como se documenta en [Conexión con los servicios de Azure Storage](how-to-access-data.md#azure-data-lake-storage-generation-2).
+Para acceder a los datos mediante el SDK, debe usar el método de autenticación requerido por el servicio en el que se almacenan los datos. Por ejemplo, si registra un almacén de datos para tener acceso a Azure Data Lake Store Gen2, debe usar una entidad de servicio como se documenta en [Conexión con los servicios de Azure Storage](how-to-access-data.md#azure-data-lake-storage-generation-2).
 
 ### <a name="disable-data-validation"></a>Deshabilitación de la validación de datos
 
@@ -176,9 +187,11 @@ Para usar Azure Container Registry en una red virtual, debe cumplir los siguient
 
 * La instancia de Azure Container Registry debe estar en la misma red virtual y subred que la cuenta de almacenamiento y los destinos de proceso utilizados para entrenamiento o inferencia.
 
-* El área de trabajo de Azure Machine Learning debe contener un [clúster de proceso de Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute).
+* El área de trabajo de Azure Machine Learning debe contener un [clúster de proceso de Azure Machine Learning](how-to-create-attach-compute-cluster.md).
 
     Cuando la instancia de ACR está detrás de una red virtual, Azure Machine Learning no puede usarla para compilar imágenes de Docker directamente. En su lugar, se usa el clúster de proceso para compilar las imágenes.
+
+* Antes de usar ACR con Azure Machine Learning en una red virtual, debe abrir una incidencia de soporte técnico para habilitar esta funcionalidad. Para obtener más información, consulte [Administración y configuración de cuotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 Una vez cumplidos estos requisitos, siga los pasos que se indican a continuación para habilitar Azure Container Registry.
 
@@ -215,7 +228,7 @@ Una vez cumplidos estos requisitos, siga los pasos que se indican a continuació
     > [!IMPORTANT]
     > La cuenta de almacenamiento, el clúster de proceso y Azure Container Registry deben estar en la misma subred de la red virtual.
     
-    Para más información, vea la referencia del método [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-).
+    Para más información, vea la referencia del método [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true).
 
 1. Aplique la siguiente plantilla de Azure Resource Manager. Esta plantilla permite que el área de trabajo se comunique con ACR.
 

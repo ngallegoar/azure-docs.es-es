@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2932bfc2f9606326ae38711237e5e10912d41aca
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c6c39fd6ceb9e5623d2b857ce8196ef29e73d78a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053776"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542315"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Uso de grupos en la nube para administrar asignaciones de roles en Azure Active Directory (versión preliminar)
 
@@ -58,13 +58,12 @@ Los siguientes escenarios no se admiten en este momento:
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-- No se puede crear o modificar un grupo dinámico cuando el rol se asigna a través de un grupo.
 - La característica **Habilitar el lanzamiento preconfigurado para el inicio de sesión de usuarios administrados** no admite la asignación a través de un grupo.
 - *Solo clientes con licencia de Azure AD P2*: No asigne un grupo como activo a un rol a través de Azure AD y Privileged Identity Management (PIM). En concreto, no asigne un rol a un grupo que admita la asignación de roles al crearlo; *y* asigne el rol al grupo mediante PIM más adelante. Esto generará problemas en los que los usuarios no puedan ver sus asignaciones de roles activas en PIM, así como la incapacidad de quitar esa asignación de PIM. Las asignaciones válidas no se ven afectadas en este escenario. Si intenta realizar esta asignación, es posible que vea un comportamiento inesperado como el siguiente:
   - Es posible que la hora de finalización de la asignación de roles no se muestre correctamente.
   - En el portal de PIM, en **Mis roles** se puede mostrar solo una asignación de roles, independientemente del número de métodos por los que se concede la asignación (mediante uno o varios grupos y directamente).
 - *Solo clientes con licencia de Azure AD P2*: incluso después de eliminar el grupo, aún se muestra un miembro apto del rol en la interfaz de usuario de PIM. Funcionalmente, no hay ningún problema. Se trata simplemente de un problema de caché de Azure Portal.  
-- El centro de administración de Exchange todavía no reconoce la pertenencia al rol mediante el grupo, pero funcionará el cmdlet de PowerShell.
+- Use el nuevo [Centro de administración de Exchange](https://admin.exchange.microsoft.com/) para la asignación de roles mediante la pertenencia a grupos. El antiguo Centro de administración de Exchange no es compatible aún con esta característica. Los cmdlets de PowerShell de Exchange funcionarán según lo previsto.
 - El portal de Azure Information Protection (el portal clásico) todavía no reconoce la pertenencia al rol mediante el grupo. Puede [migrar a la plataforma de etiquetado de confidencialidad unificada](/azure/information-protection/configure-policy-migrate-labels) y, a continuación, usar el Centro de seguridad y cumplimiento de Office 365 a fin de utilizar las asignaciones de grupo para administrar roles.
 
 Estamos solucionando estos problemas.

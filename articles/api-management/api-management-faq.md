@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: c49e92cda89cfc1d72a0550c2a53430f3e6f2844
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 351503db52e4c62414cd5dcbae1f750032a37eb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050333"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542298"
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
@@ -53,7 +53,7 @@ Tiene varias opciones para proteger la conexión entre la puerta de enlace de AP
 
 * Use la autenticación básica HTTP. Para más información, consulte [Importación y publicación de la primera API](import-and-publish.md).
 * Use la autenticación mutua de TLS como se describe en [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management](api-management-howto-mutual-certificates.md).
-* Utilice la lista blanca IP en su servicio back-end. En todos los niveles de API Management, a excepción del nivel de consumo, la dirección IP de la puerta de enlace permanece constante, con algunas salvedades que se describen en [el artículo sobre la documentación de IP](api-management-howto-ip-addresses.md).
+* Use filtrado de IP en el servicio back-end. En todos los niveles de API Management, a excepción del nivel de consumo, la dirección IP de la puerta de enlace permanece constante, con algunas salvedades que se describen en [el artículo sobre la documentación de IP](api-management-howto-ip-addresses.md).
 * Conecte la instancia de API Management a Azure Virtual Network.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>¿Cómo se puede copiar mi instancia de servicio de API Management en una nueva instancia?

@@ -3,12 +3,12 @@ title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986493"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91614009"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -35,7 +35,7 @@ Obtenga información sobre los [elementos de lo que puede hacer una copia de seg
 
 ## <a name="where-is-data-backed-up"></a>¿Dónde están los datos de copia de seguridad?
 
-Azure Backup almacena datos de copia de seguridad en almacenes: almacenes de Recovery Services y de Backup. Un almacén es una entidad de almacenamiento en línea de Azure que se usa para contener datos, como copias de seguridad, puntos de recuperación y directivas de copia de seguridad.
+Azure Backup almacena los datos de copia de seguridad en almacenes: almacenes de Recovery Services y de Backup. Un almacén es una entidad de almacenamiento en línea de Azure que se usa para contener datos, como copias de seguridad, puntos de recuperación y directivas de copia de seguridad.
 
 Los almacenes tienen las siguientes características:
 

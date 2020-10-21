@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configuración de Cofense para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
-description: Aprenda a aprovisionar y cancelar el aprovisionamiento de forma automática de las cuentas de usuario de Azure AD para Cofense.
+title: 'Tutorial: Configuración de Cofense Recipient Sync para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
+description: Aprenda a aprovisionar y cancelar el aprovisionamiento de forma automática de las cuentas de usuario de Azure AD en Cofense Recipient Sync.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: d1ef09e34e44a8a4f39fb5e9c140f138d3da8d86
-ms.sourcegitcommit: 4ce82b6df65ebd81157b6168d3aa4e7323355022
+ms.openlocfilehash: d5de8b8089f97696af8d05fd88989cbd1858193e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90761441"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91611409"
 ---
-# <a name="tutorial-configure-cofense-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cofense para el aprovisionamiento automático de usuarios
+# <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cofense Recipient Sync para el aprovisionamiento automático de usuarios
 
-En este tutorial, se describen los pasos que debe realizar en Cofense y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y cancela el aprovisionamiento de usuarios de manera automática en [Cofense](https://cofense.com/) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
+En este tutorial, se describen los pasos que debe realizar en Cofense Recipient Sync y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando está configurado, Azure AD aprovisiona y cancela el aprovisionamiento de usuarios de manera automática en [Cofense Recipient Sync ](https://cofense.com/) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
 > [!div class="checklist"]
-> * Crear usuarios en Cofense
-> * Quitar usuarios de Cofense cuando ya no necesiten acceso
-> * Mantener los atributos de usuario sincronizados entre Azure AD y Cofense
+> * Creación de usuarios en Cofense Recipient Sync
+> * Eliminación de usuarios de Cofense Recipient Sync cuando ya no necesiten acceso
+> * Mantenimiento de los atributos de usuario sincronizados entre Azure AD y Cofense Recipient Sync
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -44,44 +44,44 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
 1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 2. Determine quién estará en el [ámbito de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determine qué datos quiere [asignar entre Azure AD y Cofense](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+3. Determine qué datos [asignar entre Azure AD y Cofense Recipient Sync ](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-cofense-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Cofense para admitir el aprovisionamiento con Azure AD
+## <a name="step-2-configure-cofense-recipient-sync-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Cofense Recipient Sync para admitir el aprovisionamiento con Azure AD
 
-1. Inicie sesión en Cofense PhishMe. Vaya a Destinatarios > Sincronización de destinatarios. 
-2. Acepte los términos y condiciones y, a continuación, haga clic en Introducción.
+1. Inicie sesión en Cofense PhishMe. Vaya a **Recipients > Recipient Sync** (Destinatarios > Sincronización de destinatarios). 
+2. Acepte los términos y condiciones y, luego, haga clic en **Get Started** (Introducción).
 
     ![TNC de sincronización de destinatarios](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
-3. Copie los valores de los campos URL y Token.
+3. Copie los valores de los campos **URL** y **Token**.
 
     ![Sincronización de destinatarios](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
 
 
-## <a name="step-3-add-cofense-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Cofense desde la galería de aplicaciones de Azure AD
+## <a name="step-3-add-cofense-recipient-sync-from-the-azure-ad-application-gallery"></a>Paso 3. Incorporación de Cofense Recipient Sync desde la galería de aplicaciones de Azure AD
 
-Para empezar a administrar el aprovisionamiento de Cofense, agregue Coda desde la galería de aplicaciones de Azure AD. Si ha configurado previamente Cofense para SSO, puede usar la misma aplicación. Sin embargo, se recomienda que cree una aplicación independiente al probar la integración inicialmente. Puede encontrar más información sobre cómo agregar una aplicación desde la galería [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Agregue Cofense Recipient Sync desde la galería de aplicaciones de Azure AD para empezar a administrar el aprovisionamiento en Cofense Recipient Sync. Si ha configurado previamente Cofense Recipient Sync para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda que cree una aplicación independiente al probar la integración inicialmente. Puede encontrar más información sobre cómo agregar una aplicación desde la galería [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Paso 4. Determinar quién estará en el ámbito de aprovisionamiento 
 
 El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario o grupo. Si elige el ámbito del que se aprovisionará en la aplicación en función de la asignación, puede usar los pasos [siguientes](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si elige el ámbito del que se aprovisionará en función únicamente de los atributos del usuario o grupo, puede usar un filtro de ámbito, tal como se describe [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* Al asignar usuarios y grupos a Cofense, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para agregar roles adicionales. 
+* Al asignar usuarios y grupos a Cofense Recipient Sync, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para agregar roles adicionales. 
 
 * Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-cofense"></a>Paso 5. Configuración del aprovisionamiento automático de usuarios en Cofense 
+## <a name="step-5-configure-automatic-user-provisioning-to-cofense-recipient-sync"></a>Paso 5. Configuración del aprovisionamiento automático de usuarios en Cofense Recipient Sync 
 
-Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD a fin de crear, actualizar y deshabilitar usuarios en Cofense en función de las asignaciones de usuarios de Azure AD.
+Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD a fin de crear, actualizar y deshabilitar usuarios de Cofense Recipient Sync en función del usuario de Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-cofense-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Cofense en Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-cofense-recipient-sync-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Cofense Recipient Sync en Azure AD:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Cofense**.
+2. En la lista de aplicaciones, seleccione **Cofense Recipient Sync**.
 
     ![Vínculo a Cofense en la lista de aplicaciones](common/all-applications.png)
 
@@ -93,7 +93,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Pestaña de aprovisionamiento automático](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba los valores de **URL base de SCIM 2.0 y token de autenticación SCIM** que obtuvo anteriormente en el paso 2. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Cofense. Si la conexión no se establece, asegúrese de que la cuenta de Cofense tiene permisos de administrador y vuelva a intentarlo.
+5. En la sección **Credenciales de administrador**, escriba los valores de **URL base de SCIM 2.0 y token de autenticación SCIM** que obtuvo anteriormente en el paso 2. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Cofense Recipient Sync. Si la conexión no se establece, asegúrese de que la cuenta de Cofense Recipient Sync tenga permisos de administrador y vuelva a intentarlo.
 
     ![Token de URL de inquilino](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -103,9 +103,9 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Coda** (Sincronizar usuarios de Azure Active Directory con Cofense).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Coda** (Sincronizar usuarios de Azure Active Directory con Cofense Recipient Sync).
 
-9. Examine los atributos de usuario que se sincronizan entre Azure AD y Cofense en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en Cofense a fin de realizar operaciones de actualización.  Seleccione el botón **Guardar** para confirmar los cambios.
+9. Examine los atributos de usuario que se sincronizan entre Azure AD y Cofense Recipient Sync en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para hacer coincidir las cuentas de usuario de Cofense Recipient Sync a fin de realizar operaciones de actualización.  Seleccione el botón **Guardar** para confirmar los cambios.
 
    |Atributo|Tipo|
    |---|---|
@@ -148,11 +148,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar el servicio de aprovisionamiento de Azure AD para Cofense, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+11. Para habilitar el servicio de aprovisionamiento de Azure AD para Cofense Recipient Sync, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Cofense.
+12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Cofense Recipient Sync.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

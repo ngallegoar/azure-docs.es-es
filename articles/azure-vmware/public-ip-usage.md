@@ -3,12 +3,12 @@ title: Uso de la funcionalidad de dirección IP pública en Virtual WAN
 description: En este artículo se explica cómo usar la funcionalidad de IP pública en Azure Virtual WAN.
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: ec8af45a98e82a7c1c657776c4fee2c3ef068dca
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 61ed6487bc000a35fd25cabde2b562b6eb08da46
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91744707"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048311"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-virtual-wan"></a>Uso de la funcionalidad de dirección IP pública en Azure Virtual WAN
 
@@ -29,9 +29,9 @@ En este artículo se detalla cómo se puede usar la funcionalidad de IP pública
 
 ## <a name="prerequisites"></a>Requisitos previos
 
--   Entorno de Azure VMware Solution
-
--   Un servidor web que se ejecute en el entorno de Azure VMware Solution.
+- Entorno de Azure VMware Solution
+- Un servidor web que se ejecute en el entorno de Azure VMware Solution.
+- Un nuevo intervalo de direcciones IP no superpuestas para la implementación del concentrador de Virtual WAN, normalmente un valor `/24`.
 
 ## <a name="reference-architecture"></a>Arquitectura de referencia
 
@@ -62,15 +62,15 @@ En este escenario, debe publicar el servidor web de IIS en Internet. Use la cara
 
    :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Diagrama de la arquitectura de la IP pública" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
-2.  Acepte los valores predeterminados o cámbielos; a continuación, seleccione **Crear**.
+1. Acepte los valores predeterminados o cámbielos; a continuación, seleccione **Crear**.
 
-   -  Grupo de recursos de la red de área extensa virtual
+   - Grupo de recursos de la red de área extensa virtual
 
-   -  Nombre de la red de área extensa virtual
+   - Nombre de la red de área extensa virtual
 
-   -  Bloque de direcciones del centro virtual
+   - Bloque de direcciones de concentrador virtual (con el nuevo intervalo de direcciones IP no superpuestas)
 
-   -  Número de IP públicas (1-100)
+   - Número de IP públicas (1-100)
 
 Se tarda aproximadamente una hora en completar la implementación de todos los componentes. Esta implementación solo tiene que producirse una vez para admitir todas las IP públicas futuras en este entorno de Azure VMware Solution.  
 

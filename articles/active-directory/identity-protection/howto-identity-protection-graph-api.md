@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86d88f841f76b367e83f0ae6b81e604e1b7f3e4b
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: e16f33cb8aa7c6ceeb1398dd23ccba31b5f936b1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950126"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91776143"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introducción a Azure Active Directory Identity Protection y Microsoft Graph
 
@@ -104,6 +104,8 @@ Envíe este encabezado como una solicitud a la siguiente dirección URL de la AP
 La respuesta, si se ha realizado correctamente, es una colección de detecciones de riesgo de identidad y datos asociados en formato JSON de OData, que se pueden analizar y tratar como convenga.
 
 ### <a name="sample"></a>Muestra
+
+En este ejemplo se muestra el uso de un secreto compartido para autenticarse. En un entorno de producción, el almacenamiento de secretos en el código no suele estar bien visto. Las organizaciones pueden hacer uso de identidades administradas para recursos de Azure para proteger estas credenciales. Para obtener más información sobre las identidades administradas, vea el artículo [¿Qué son las identidades administradas de recursos de Azure?](../managed-identities-azure-resources/overview.md)
 
 Este es el código de ejemplo para autenticar y llamar a la API mediante PowerShell.  
 Solo tiene que agregar el identificador de cliente, la clave secreta y el dominio del inquilino.

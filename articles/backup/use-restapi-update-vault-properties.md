@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a actualizar la configuración del al
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 8890cb541e38f8bc8b680fbcfeb821f29723e8c0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007118"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91567832"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Actualización de la configuración del almacén de Azure Recovery Services mediante la API REST
 
@@ -30,13 +30,13 @@ De forma predeterminada, el estado de eliminación temporal se habilitará para 
 Para recuperar el estado actual de la eliminación temporal de un almacén, use la siguiente operación *GET*.
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 El URI de GET tiene los parámetros `{subscriptionId}`, `{vaultName}` y `{vaultresourceGroupName}`. En este ejemplo, `{vaultName}` es "testVault" y `{vaultresourceGroupName}` es "testVaultRG". Como todos los parámetros necesarios se proporcionan en el URI, no hay necesidad de tener un cuerpo de solicitud independiente.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="responses"></a>Respuestas
@@ -65,16 +65,16 @@ Una vez que se emite la solicitud GET, se devuelve una respuesta 200 (correcta).
 
 ### <a name="update-soft-delete-state-using-rest-api"></a>Actualización del estado de eliminación temporal mediante la API REST
 
-Para actualizar el estado de eliminación temporal del almacén de Recovery Services con la API REST, use la siguiente operación *PATCH*.
+Para actualizar el estado de eliminación temporal del almacén de Recovery Services con la API REST, use la siguiente operación *PUT*.
 
 ```http
-PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
-El URI de PATCH tiene los parámetros `{subscriptionId}`, `{vaultName}` y `{vaultresourceGroupName}`. En este ejemplo, `{vaultName}` es "testVault" y `{vaultresourceGroupName}` es "testVaultRG". Si reemplazamos el URI con los valores anteriores, el URI tendrá el siguiente aspecto.
+El URI de PUT tiene los parámetros `{subscriptionId}`, `{vaultName}` y `{vaultresourceGroupName}`. En este ejemplo, `{vaultName}` es "testVault" y `{vaultresourceGroupName}` es "testVaultRG". Si reemplazamos el URI con los valores anteriores, el URI tendrá el siguiente aspecto.
 
 ```http
-PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="create-the-request-body"></a>Creación del cuerpo de la solicitud

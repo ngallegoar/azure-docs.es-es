@@ -2,13 +2,13 @@
 title: Eliminaciones del historial de implementación
 description: Describe cómo Azure Resource Manager elimina automáticamente las implementaciones del historial de implementaciones. Las implementaciones se eliminan cuando el historial está próximo a superar el límite de 800.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 1d4f49fe6b90e672b65aa97971426186384da02f
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 10/01/2020
+ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605216"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91652489"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Eliminaciones automáticas del historial de implementaciones
 
@@ -16,14 +16,14 @@ Cada vez que se implementa una plantilla, la información sobre la implementaci�
 
 Azure Resource Manager elimina automáticamente las implementaciones del historial a medida que se acerca al límite. La eliminación automática es un cambio respecto al comportamiento anterior. Anteriormente, tenía que eliminar manualmente las implementaciones del historial de implementaciones para evitar un error. Este cambio se implementó el 6 de agosto de 2020.
 
-**Las eliminaciones automáticas son compatibles con las implementaciones de grupo de recursos. Actualmente, no se eliminan las implementaciones del historial de implementaciones para [suscripción](deploy-to-subscription.md), [grupo de administración](deploy-to-management-group.md) e [inquilino](deploy-to-tenant.md).**
+**Las eliminaciones automáticas son compatibles con las implementaciones de grupo de recursos. Actualmente, las implementaciones del historial de implementaciones de [suscripciones](deploy-to-subscription.md), [grupos de administración](deploy-to-management-group.md) e [inquilinos](deploy-to-tenant.md) no se eliminan automáticamente.**
 
 > [!NOTE]
 > La eliminación de una implementación del historial no afecta a ninguno de los recursos implementados.
 
 ## <a name="when-deployments-are-deleted"></a>Cuando las implementaciones se eliminan
 
-Las implementaciones se eliminan del historial cuando se alcanzan 775 implementaciones o más. Azure Resource Manager elimina las implementaciones hasta que el historial baja hasta 750. Las implementaciones más antiguas siempre se eliminan primero.
+Las implementaciones se eliminan del historial cuando se alcanzan 775 o más. Azure Resource Manager elimina las implementaciones hasta que el historial baja hasta 750. Las implementaciones más antiguas siempre se eliminan primero.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Eliminaciones del historial de implementaciones":::
 

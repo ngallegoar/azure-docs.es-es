@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/26/2020
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: edb5836ace6f7a1a0cff703b9921f6e6999de578
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9aa8857ab10423f460874870a3663929e8e5a5c5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88944492"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91566962"
 ---
 Los discos compartidos solo se pueden habilitar para un subconjunto de tipos de disco. Actualmente, solo los discos Ultra Disks y SSD Premium pueden habilitar discos compartidos. Cada disco administrado que tiene discos compartidos habilitados está sujeto a las siguientes limitaciones, organizadas según el tipo de disco:
 
@@ -30,7 +30,6 @@ Los discos Ultra Disks compartidos están disponibles en todas las regiones que 
 
 ### <a name="premium-ssds"></a>SSD Premium
 
-- Actualmente solo se admite en [un subconjunto de regiones](#regional-availability).
 - Actualmente, se limita a la compatibilidad con Azure Resource Manager o SDK. 
 - Solo se puede habilitar en discos de datos, no en discos de sistema operativo.
 - El almacenamiento en caché del host de **solo lectura** no está disponible para los discos SSD premium con `maxShares>1`.
@@ -42,24 +41,4 @@ Los discos Ultra Disks compartidos están disponibles en todas las regiones que 
 
 #### <a name="regional-availability"></a>Disponibilidad regional
 
-Los SSD Premium compartidos solo se admiten en las siguientes regiones:
-
-- Este de EE. UU.
-- Este de EE. UU. 2
-- Oeste de EE. UU.
-- Oeste de EE. UU. 2
-- Centro-Oeste de EE. UU.
-- Centro-sur de EE. UU.
-- Centro-Norte de EE. UU
-- Centro de EE. UU.
-- Oeste de Europa
-- Norte de Europa
-- Centro de Corea del Sur
-- Centro de Canadá
-- Este de Canadá
-- Japón Oriental
-- Japón Occidental
-- US Gov - Virginia
-- US Gov: Arizona
-
-Si está interesado en probar unidades SSD Premium compartidas, [regístrese para obtener acceso](https://aka.ms/AzureSharedDiskGASignUp).
+Las unidades SSD premium compartidas están disponibles en todas las regiones en las que estén disponibles los discos administrados.

@@ -1,5 +1,5 @@
 ---
-title: Uso de puntos de conexión de Machine Learning en Azure Stream Analytics
+title: Uso de puntos de conexión de Azure Machine Learning Studio (clásico) en Azure Stream Analytics
 description: En este artículo se describe cómo utilizar las funciones definidas por el usuario de lenguaje máquina en Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
@@ -7,31 +7,31 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: f54245013b6a57c02120c0e97ecf5f39094148b0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4bcff14f655385aa467878f21927ac091095c91f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317742"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015522"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Integración de Azure Machine Learning Studio (clásico) en Stream Analytics (versión preliminar)
 Stream Analytics admite funciones definidas por el usuario que llaman a puntos de conexión de Azure Machine Learning Studio (clásico). La compatibilidad con la API de REST para esta característica se detalla en la [biblioteca API de REST de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artículo proporciona información adicional necesaria para una implementación correcta de esta capacidad en Stream Analytics. También se ha publicado un tutorial, que está disponible [aquí](stream-analytics-machine-learning-integration-tutorial.md).
 
 ## <a name="overview-azure-machine-learning-studio-classic-terminology"></a>Introducción: terminología de Azure Machine Learning Studio (clásico)
-Microsoft Azure Machine Learning Studio (clásico) proporciona una herramienta colaborativa de arrastrar y colocar que le permite crear, probar e implementar soluciones de análisis predictivo en sus datos. Esta herramienta de denomina *Azure Machine Learning Studio (clásico)* . El estudio se usará para interactuar con los recursos de Machine Learning, así como para compilar, probar e iterar fácilmente en su diseño. A continuación, se proporcionan estos recursos y sus definiciones.
+Microsoft Azure Machine Learning Studio (clásico) proporciona una herramienta colaborativa de arrastrar y colocar que le permite crear, probar e implementar soluciones de análisis predictivo en sus datos. Esta herramienta de denomina *Azure Machine Learning Studio (clásico)* . Studio (clásico) se usa para interactuar con los recursos de Machine Learning, así como para compilar, probar e iterar fácilmente su diseño. A continuación, se proporcionan estos recursos y sus definiciones.
 
-* **Área de trabajo**: el *área de trabajo* es un contenedor con todos los demás recursos de Machine Learning en un solo lugar para la administración y el control.
+* **Área de trabajo**: El *área de trabajo* es un contenedor con todos los demás recursos de Machine Learning en un solo lugar para la administración y el control.
 * **Experimento**: los científicos de datos crean *experimentos* para utilizar conjuntos de datos y entrenar un modelo de Aprendizaje automático.
-* **Punto de conexión**: los *puntos de conexión* son el objeto de Azure Machine Learning Studio (clásico) que se usa para tomar características como entradas, aplicar un modelo de aprendizaje automático especificado y devolver la salida puntuada.
+* **Punto de conexión**: Los *puntos de conexión* son el objeto de Studio (clásico) que se usa para tomar características como entradas, aplicar un modelo de Machine Learning especificado y devolver la salida puntuada.
 * **Servicio web de puntuación**: un *servicio web de puntuación* es una colección de puntos de conexión, como se mencionó anteriormente.
 
 Cada punto de conexión tiene varias API para la ejecución de lotes y la ejecución sincrónica. Stream Analytics usa la ejecución sincrónica. El servicio específico se denomina [servicio de solicitud y respuesta](../machine-learning/classic/consume-web-services.md) en Azure Machine Learning Studio (clásico).
 
-## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Recursos de Machine Learning necesarios para trabajos de Stream Analytics
+## <a name="studio-classic-resources-needed-for-stream-analytics-jobs"></a>Recursos de Studio (clásico) necesarios para trabajos de Stream Analytics
 Para el procesamiento de trabajos de Stream Analytics, para la correcta ejecución se necesitan un punto de conexión de solicitud/respuesta, una [apikey](https://docs.microsoft.com/azure/machine-learning/studio/consume-web-services)y una definición de Swagger. Stream Analytics tiene un punto de conexión adicional que construye la dirección URL de Swagger, busca en la interfaz y devuelve una definición de función definida por el usuario predeterminada al usuario.
 
-## <a name="configure-a-stream-analytics-and-machine-learning-udf-via-rest-api"></a>Configuración de un Análisis de transmisiones y funciones definidas por el usuario de Machine Learning mediante la API de REST
-Mediante las API de REST, puede configurar el trabajo para llamar a funciones de Aprendizaje automático de Azure. Los pasos son los siguientes:
+## <a name="configure-a-stream-analytics-and-studio-classic-udf-via-rest-api"></a>Configuración de una función definida por el usuario de Stream Analytics y Studio (clásico) mediante la API de REST
+Mediante las API de REST, puede configurar un trabajo para que llame a funciones de Studio (clásico). Los pasos son los siguientes:
 
 1. Creación de un trabajo de Stream Analytics
 2. Definición de una entrada
@@ -68,7 +68,7 @@ Ejemplo del cuerpo de solicitud:
 ```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Llamada al punto de conexión RetrieveDefaultDefinition para la función definida por el usuario predeterminada
-Una vez creado el esqueleto de la función definida por el usuario, es necesaria la definición completa de la función definida por el usuario. El punto de conexión RetrieveDefaultDefinition ayuda a obtener la definición predeterminada de una función escalar enlazada a un punto de conexión de Azure Machine Learning Studio (clásico). La siguiente carga requiere obtener la definición de la función definida por el usuario predeterminada para una función escalar enlazada a un punto de conexión de Azure Machine Learning. No especifica el punto de conexión real, porque ya se ha proporcionado durante la solicitud PUT. Stream Analytics llamará al punto de conexión proporcionado en la solicitud si se proporciona explícitamente. De lo contrario, usará al que se hace referencia desde el principio. Aquí, la función definida por el usuario toma un parámetro de una sola cadena (una frase) y devuelve una única salida de tipo "string" que indica la etiqueta "sentiment" para esa frase.
+Una vez creado el esqueleto de la función definida por el usuario, es necesaria la definición completa de la función definida por el usuario. El punto de conexión RetrieveDefaultDefinition ayuda a obtener la definición predeterminada de una función escalar enlazada a un punto de conexión de Azure Machine Learning Studio (clásico). La siguiente carga requiere obtener la definición de la función definida por el usuario predeterminada para una función escalar enlazada a un punto de conexión de Studio (clásico). No especifica el punto de conexión real, porque ya se ha proporcionado durante la solicitud PUT. Stream Analytics llamará al punto de conexión proporcionado en la solicitud si se proporciona explícitamente. De lo contrario, usará al que se hace referencia desde el principio. Aquí, la función definida por el usuario toma un parámetro de una sola cadena (una frase) y devuelve una única salida de tipo "string" que indica la etiqueta "sentiment" para esa frase.
 
 ```
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>

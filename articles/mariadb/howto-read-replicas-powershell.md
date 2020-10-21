@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a13ecbb5bed65de9ab8a52258d1f22b9f3520c9f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6e90e9c2ebbc6ba05e5778f618a5c3de02adf3ac
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498963"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542366"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Creación y administración de réplicas de lectura en Azure Database for MariaDB mediante PowerShell
 
@@ -38,12 +38,12 @@ Si decide usar PowerShell de forma local, conéctese a su cuenta de Azure con el
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> La característica de réplica de lectura solo está disponible para servidores de Azure Database for MariaDB en los planes de tarifa De uso general u Optimizado para memoria. Asegúrese de que el servidor maestro está en uno de estos planes de tarifa.
+> La característica de réplica de lectura solo está disponible para servidores de Azure Database for MariaDB en los planes de tarifa De uso general u Optimizado para memoria. Asegúrese de que el servidor de origen esté en uno de estos planes de tarifa.
 
 ### <a name="create-a-read-replica"></a>Creación de una réplica de lectura
 
 > [!IMPORTANT]
-> Cuando se crea una réplica para un servidor maestro que no tiene réplicas existentes, el maestro se reiniciará en primer lugar para prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
+> Cuando se crea una réplica para un origen que no tiene réplicas existentes, el origen se reiniciará en primer lugar para prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
 
 Un servidor de réplica de lectura se puede crear mediante el comando siguiente:
 
@@ -68,14 +68,14 @@ Get-AzMariaDbServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 
 Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md).
 
-De forma predeterminada, las réplicas de lectura se crean con la misma configuración de servidor que el maestro, a menos que se especifique el parámetro **Sku**.
+De forma predeterminada, las réplicas de lectura se crean con la misma configuración de servidor que el origen, a menos que se especifique el parámetro **Sku**.
 
 > [!NOTE]
-> Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el maestro para asegurarse de que la réplica trabajar al mismo nivel que el servidor maestro.
+> Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el origen para asegurarse de que la réplica trabaja al mismo nivel que el servidor maestro.
 
-### <a name="list-replicas-for-a-master-server"></a>Lista de réplicas de un servidor maestro
+### <a name="list-replicas-for-a-source-server"></a>Enumeración de las réplicas de un servidor de origen
 
-Para ver todas las réplicas de un determinado servidor maestro, ejecute el siguiente comando:
+Para ver todas las réplicas de un determinado servidor de origen, ejecute el siguiente comando:
 
 ```azurepowershell-interactive
 Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -86,7 +86,7 @@ El comando `Get-AzMariaDReplica` requiere los siguientes parámetros:
 | Configuración | Valor de ejemplo | Descripción  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Grupo de recursos donde se creará el servidor de réplica.  |
-| nombreDeServidor | mydemoserver | Nombre o identificador del servidor maestro. |
+| nombreDeServidor | mydemoserver | El nombre o el identificador del servidor de origen. |
 
 ### <a name="delete-a-replica-server"></a>Eliminación de un servidor de réplica
 
@@ -96,12 +96,12 @@ La eliminación de un servidor de réplica de lectura se puede realizar mediante
 Remove-AzMariaDbServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-### <a name="delete-a-master-server"></a>Eliminación de un servidor maestro
+### <a name="delete-a-source-server"></a>Eliminación de un servidor de origen
 
 > [!IMPORTANT]
-> Al eliminar un servidor maestro, se detiene la replicación en todos los servidores de réplica y se elimina el propio servidor maestro. Los servidores de réplica se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
+> Al eliminar un servidor de origen, se detiene la replicación en todos los servidores de réplica y se elimina el propio servidor de origen. Los servidores de réplica se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
 
-Para eliminar un servidor maestro, puede ejecutar el cmdlet `Remove-AzMariaDbServer`.
+Para eliminar un servidor de origen, puede ejecutar el cmdlet `Remove-AzMariaDbServer`.
 
 ```azurepowershell-interactive
 Remove-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup

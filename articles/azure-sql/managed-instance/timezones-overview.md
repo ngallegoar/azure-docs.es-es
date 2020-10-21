@@ -10,13 +10,13 @@ ms.topic: reference
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 05/25/2020
-ms.openlocfilehash: fc1532fab23ec520722ea71d814496e786b91651
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.date: 10/12/2020
+ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91617934"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978380"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Zonas horarias de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -95,7 +95,7 @@ No es obligatorio usar la misma zona horaria entre una instancia principal y sec
 
 ## <a name="limitations"></a>Limitaciones
 
-- La zona horaria de una instancia administrada existente no se puede cambiar.
+- La zona horaria de una instancia administrada existente no se puede cambiar. Como solución alternativa, cree una nueva instancia administrada con la zona horaria adecuada y, luego, haga una copia de seguridad y una restauración de forma manual, o lo que recomendamos, haga una [restauración a un momento dado entre instancias](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
 - Los procesos externos que se inician desde los trabajos del Agente SQL Server no observan la zona horaria de la instancia.
 
 ## <a name="list-of-supported-time-zones"></a>Lista de zonas horarias admitidas

@@ -4,17 +4,16 @@ description: Use IoT Hub en Azure Portal para enviar un módulo de IoT Edge des
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/30/2019
+ms.date: 10/13/2020
 ms.topic: conceptual
-ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 754c106db42f3f0695ad023e736993bee82e9757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef3f09648e0d9101d07c6d8941ee7f79ae97b2b8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133918"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048039"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementación de módulos de Azure IoT Edge desde Azure Portal
 
@@ -25,13 +24,20 @@ Este artículo muestra cómo le puede ayudar Azure Portal en la creación de un 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure.
-* Un [dispositivo de IoT Edge](how-to-register-device.md#register-in-the-azure-portal) que tenga instalado el entorno de ejecución de Azure IoT Edge.
+* Un dispositivo IoT Edge.
+
+  Si no tiene un dispositivo IoT Edge configurado, puede crear uno en una máquina virtual de Azure. Siga los pasos de alguno de los artículos de inicio rápido para [Crear un dispositivo virtual Linux](quickstart-linux.md) o [Crear un dispositivo virtual Windows](quickstart.md).
 
 ## <a name="configure-a-deployment-manifest"></a>Configuración de un manifiesto de implementación
 
 Un manifiesto de implementación es un documento JSON que describe qué módulos se van a implementar, cómo fluyen los datos entre los módulos y las propiedades deseadas de los módulos gemelos. Para más información sobre los manifiestos de implementación y cómo crearlos, consulte [Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge](module-composition.md).
 
 Azure Portal tiene un asistente que le guía en la creación del manifiesto de implementación, en lugar de crear el documento JSON de forma manual. Consta de tres pasos: **Adición de módulos**, **Especificación de rutas** y **Revisión de la implementación**.
+
+>[!NOTE]
+>En los pasos de este artículo se refleja la última versión de esquema del agente y el centro de conectividad de IoT Edge. La versión de esquema 1.1 se ha publicado junto con la versión 1.0.10 de IoT Edge y habilita las características de orden de inicio y priorización de rutas del módulo.
+>
+>Si va a implementar en un dispositivo con la versión 1.0.9 o anterior, edite **Configuración del entorno de ejecución** en el paso **Módulos** del asistente para usar la versión de esquema 1.0.
 
 ### <a name="select-device-and-add-modules"></a>Selección de dispositivo y adición de módulos
 
@@ -41,21 +47,30 @@ Azure Portal tiene un asistente que le guía en la creación del manifiesto de i
 1. En la barra superior, seleccione **Establecer módulos**.
 1. En la sección **Configuración de Container Registry** de la página, proporcione las credenciales para acceder a cualquier registro del contenedor privado que contiene las imágenes del módulo.
 1. En la sección **Módulos de IoT Edge** de la página, haga clic en **Agregar**.
-1. Fíjese en los tipos de módulos en el menú desplegable:
+1. Elija uno de los tres tipos de módulos en el menú desplegable:
 
    * **Módulo de IoT Edge**: proporcione el nombre del módulo y el identificador URI de la imagen de contenedor. Por ejemplo, el identificador URI de la imagen para el módulo SimulatedTemperatureSensor de ejemplo es `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. Si la imagen del módulo está almacenada en un registro de contenedor privado, agregue las credenciales en esta página para tener acceso a la imagen.
    * **Módulo de Marketplace**: módulos hospedados en Azure Marketplace. Algunos módulos de Marketplace requieren una configuración adicional, por lo que debe revisar los detalles del módulo en la lista de [módulos de IoT Edge de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
    * **Módulo de Azure Stream Analytics**: solo módulos generados a partir de una carga de trabajo de Azure Stream Analytics.
 
-1. Después de agregar un módulo, seleccione el nombre del módulo en la lista para abrir la configuración del módulo. Rellene los campos opcionales si es necesario. Para más información sobre las opciones de creación del contenedor, la directiva de reinicio y el estado deseado, consulte [Propiedades deseadas de EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Para más información sobre el módulo gemelo, consulte [Definición o actualización de las propiedades deseadas](module-composition.md#define-or-update-desired-properties).
-1. Si es necesario, repita los pasos del 5 al 8 para agregar módulos adicionales a la implementación.
+1. Después de agregar un módulo, seleccione el nombre del módulo en la lista para abrir la configuración del módulo. Rellene los campos opcionales si es necesario.
+
+   Para obtener más información sobre la configuración de módulos disponible, vea [Configuración y administración de módulos](module-composition.md#module-configuration-and-management).
+
+   Para más información sobre el módulo gemelo, consulte [Definición o actualización de las propiedades deseadas](module-composition.md#define-or-update-desired-properties).
+
+1. Repita los pasos del 6 al 8 para agregar módulos adicionales a la implementación.
 1. Seleccione **Siguiente: Rutas** para continuar con la sección de rutas.
 
 ### <a name="specify-routes"></a>Especificación de rutas
 
-En la pestaña **Rutas**, se define cómo se pasan los mensajes entre los módulos e IoT Hub. Los mensajes se construyen mediante pares de nombre-valor. De forma predeterminada, se proporciona una ruta llamada **route** y se define como **FROM /messages/\* INTO $upstream**, lo que significa que cualquier mensaje de salida de cualquier módulo se envía a IoT Hub.  
+En la pestaña **Rutas**, se define cómo se pasan los mensajes entre los módulos de IoT Hub. Los mensajes se construyen mediante pares de nombre-valor. De forma predeterminada, la primera implementación de un nuevo dispositivo incluye una ruta denominada **route** y definida como **FROM /messages/\* INTO $upstream**, lo que significa que cualquier salida de mensajes de cualquier módulo se envía al centro de IoT.  
 
-Agregue o actualice las rutas con la información de [Declaración de rutas](module-composition.md#declare-routes) y, después, seleccione **Siguiente: Revisar y crear** para continuar al próximo paso del asistente.
+Los parámetros **Prioridad** y **Período de vida** son parámetros opcionales que se pueden incluir en una definición de ruta. El parámetro Prioridad permite elegir las rutas cuyos mensajes se van a procesar primero o en último lugar. La prioridad se determina mediante un número de 0 a 9, donde 0 es la prioridad máxima. El parámetro Período de vida permite declarar durante cuánto tiempo se deben conservar los mensajes de esa ruta hasta que se procesan o se quitan de la cola.
+
+Para obtener más información sobre cómo crear rutas, vea [Declaración de rutas](module-composition.md#declare-routes).
+
+Una vez establecidas las rutas, seleccione **Siguiente: Revisar y crear** para continuar al próximo paso del asistente.
 
 ### <a name="review-deployment"></a>Revisión de la implementación
 

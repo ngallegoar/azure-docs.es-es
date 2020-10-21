@@ -3,20 +3,18 @@ title: 'Revisión de expresiones del usuario: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Revise expresiones capturadas por el aprendizaje activo para seleccionar la intención y marcar las entidades para las expresiones del mundo real; aceptar cambios, entrenar y publicar.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/07/2020
-ms.author: diberry
-ms.openlocfilehash: 58674bf38ec1efb970fa8e79f7d970ecefb36712
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 9777e4f9b2205d2f6cdf6158b035e2a18403d69f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055620"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541465"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Cómo mejorar la aplicación LUIS revisando las expresiones de punto de conexión
 
@@ -34,7 +32,7 @@ Use el portal de LUIS para construir la consulta de punto de conexión correcta.
 1. En el recurso de predicción asignado, seleccione la opción de **cambiar parámetros de consulta**.
 
     > [!div class="mx-imgBorder"]
-    > ![Use el portal de LUIS para guardar los registros, que es necesario para el aprendizaje activo.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+    > ![Captura de pantalla que muestra el vínculo Cambiar parámetros de consulta.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
 1. Active la opción **Guardar registros** y, a continuación, guárdelos con **Listo**.
 

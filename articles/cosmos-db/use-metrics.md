@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24f321e3c3c0fe8e85633edb505879874e8c772f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6de0a6632c53055dd3d3f428481dcc465b67ef6e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019239"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91568019"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Supervisión y depuración con métricas de Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Las siguientes métricas están disponibles desde el panel **Métricas**:
 
 * **Métricas de coherencia**: esta métrica muestra cuán de eventual es la coherencia para el modelo de coherencia que elija. Para las cuentas de varias regiones, esta métrica muestra también la latencia de replicación entre las regiones que haya seleccionado.
 
-* **Métricas del sistema**; esta métrica muestra cuántas solicitudes de metadatos procesa la partición principal. También ayuda a identificar las solicitudes limitadas.
+* **Métricas de sistema**: esta métrica muestra cuántas solicitudes de metadatos procesa la partición principal. También ayuda a identificar las solicitudes limitadas.
 
 En las siguientes secciones se explican escenarios comunes donde puede usar las métricas de Azure Cosmos DB. 
 
@@ -51,13 +51,13 @@ Para empezar, vaya a [Azure Portal](https://portal.azure.com) y navegue hasta la
 
 El código de estado de error más común es 429 (limitación de tasa/limitación). Este error significa que las solicitudes a Azure Cosmos DB superan el rendimiento aprovisionado. La solución más común para este problema consiste en [escalar verticalmente las RU](./set-throughput.md) para la colección dada.
 
-:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Número de solicitudes por minuto":::
+:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Métricas de rendimiento de Cosmos DB en Azure Portal":::
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Determinación de la distribución de rendimiento en las particiones
 
 Tener una buena cardinalidad de las claves de partición es esencial para cualquier aplicación escalable. Para determinar la distribución de rendimiento de cualquier contenedor particionado dividido en particiones, vaya a la **hoja Métricas** en [Azure Portal](https://portal.azure.com). En la pestaña **Rendimiento**, se muestra el desglose de almacenamiento en el gráfico **Máximo de RU/segundo consumidas por cada partición física**. En el siguiente gráfico se ilustra un ejemplo de una distribución deficiente de los datos como lo evidencia la partición sesgada en el extremo izquierdo.
 
-:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Una sola partición ve un uso intensivo":::
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Métricas de rendimiento de Cosmos DB en Azure Portal":::
 
 Una distribución de rendimiento desigual puede provocar particiones *activas*, lo que pueden dar lugar a solicitudes limitadas y la necesidad de volver a crear particiones. Para más información sobre la creación de particiones en Azure Cosmos DB, consulte [Partición y escalado en Azure Cosmos DB](./partition-data.md).
 
@@ -65,11 +65,11 @@ Una distribución de rendimiento desigual puede provocar particiones *activas*, 
 
 Tener una buena cardinalidad de la partición es esencial para cualquier aplicación escalable. Para determinar la distribución de almacenamiento de cualquier contenedor particionado dividido en particiones, vaya a la hoja Métricas en [Azure Portal](https://portal.azure.com). En la pestaña Almacenamiento, el desglose del almacenamiento se muestra en el gráfico Almacenamiento de datos e índice consumido por las principales claves de partición. En el siguiente gráfico se ilustra una distribución deficiente del almacenamiento de datos como lo evidencia la partición sesgada en el extremo izquierdo.
 
-:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Ejemplo de distribución de datos deficiente":::
+:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Métricas de rendimiento de Cosmos DB en Azure Portal":::
 
 Puede determinar la causa raíz por la que la partición está sesgando la distribución haciendo clic en la partición en el gráfico.
 
-:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Clave de partición que sesga la distribución":::
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Métricas de rendimiento de Cosmos DB en Azure Portal":::
 
 Después de identificar qué clave de partición está causando el sesgo en la distribución, puede que tenga que volver a crear particiones en el contenedor con una clave de partición más distribuida. Para más información sobre la creación de particiones en Azure Cosmos DB, consulte [Partición y escalado en Azure Cosmos DB](./partition-data.md).
 

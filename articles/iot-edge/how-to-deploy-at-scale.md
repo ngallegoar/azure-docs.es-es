@@ -5,20 +5,20 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/21/2020
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 9d03b6f4a512c22564480405ec0f0e0c0e62a958
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855391"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048430"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación de módulos de IoT Edge a escala mediante Azure Portal
 
-Cree una **implementación automática de IoT Edge** en Azure Portal para administrar las implementaciones en curso de muchos dispositivos a la vez. Las implementaciones automáticas de IoT Edge forman parte de la característica de [Administración de dispositivos automática](/azure/iot-hub/iot-hub-automatic-device-management) de IoT Hub. Las implementaciones son procesos dinámicos que permiten implementar varios módulos en múltiples dispositivos, realizar un seguimiento del estado y del mantenimiento de los módulos, y realizar cambios cuando sea necesario.
+Cree una **implementación automática de IoT Edge** en Azure Portal para administrar las implementaciones en curso de muchos dispositivos a la vez. Las implementaciones automáticas de IoT Edge forman parte de la característica de [Administración de dispositivos automática](../iot-hub/iot-hub-automatic-device-management.md) de IoT Hub. Las implementaciones son procesos dinámicos que permiten implementar varios módulos en múltiples dispositivos, realizar un seguimiento del estado y del mantenimiento de los módulos, y realizar cambios cuando sea necesario.
 
 Para más información, consulte el artículo [Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala](module-deployment-monitoring.md).
 
@@ -53,6 +53,11 @@ Los pasos para crear una implementación y una implementación superpuesta son m
 
 Hay cinco pasos para crear una implementación. En las siguientes secciones se abordan cada uno de ellos.
 
+>[!NOTE]
+>En los pasos de este artículo se refleja la última versión de esquema del agente y el concentrador de IoT Edge. La versión de esquema 1.1 se publicó junto con la versión 1.0.10 de IoT Edge, y permite las características de orden de inicio y priorización de rutas del módulo.
+>
+>Si va a realizar la implementación en un dispositivo que ejecuta la versión 1.0.9 o anterior, edite **Configuración del entorno de ejecución** en el paso **Módulos** del asistente para usar la versión de esquema 1.0.
+
 ### <a name="step-1-name-and-label"></a>Paso 1: Nombre y etiqueta
 
 1. Asigne a su implementación un nombre exclusivo de hasta 128 letras en minúscula. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`.
@@ -65,55 +70,19 @@ Puede agregar hasta 50 módulos a una implementación. Si crea una implementaci�
 
 En las implementaciones, puede administrar la configuración de los módulos de agente y centro de IoT Edge. Seleccione **Configuración del entorno de ejecución** para configurar los dos módulos del entorno de ejecución. En la implementación superpuesta, los módulos del entorno de ejecución no se incluyen, por lo que no se pueden configurar.
 
-Puede agregar tres tipos de módulos:
-
-* Módulo IoT Edge
-* Módulo de Marketplace
-* Módulo de Azure Stream Analytics
-
-#### <a name="add-an-iot-edge-module"></a>Adición de un módulo de IoT Edge
-
 Para agregar código personalizado como un módulo, o para agregar manualmente un módulo de servicio de Azure, siga estos pasos:
 
-1. En la sección **Credenciales de Container Registry** de la página, proporcione los nombres y las credenciales de cualquier registro de contenedor privado que contenga las imágenes de módulo de esta implementación. El agente de IoT Edge notificará el error 500 si no puede encontrar las credenciales del registro del contenedor para una imagen de Docker.
+1. En la sección **Configuración de Container Registry** de la página, proporcione las credenciales para acceder a cualquier registro del contenedor privado que contiene las imágenes del módulo.
 1. En la sección **Módulos de IoT Edge** de la página, haga clic en **Agregar**.
-1. Seleccione **Módulo de IoT Edge** en el menú desplegable.
-1. Asigne al módulo un **nombre de módulo de IoT Edge**.
-1. En el campo **URI de imagen**, introduzca la imagen de contenedor para el módulo.
-1. Use el menú desplegable para seleccionar una **directiva de reinicio**. Elija entre las siguientes opciones:
-   * **Siempre**: el módulo siempre se reinicia si se cierra por cualquier razón.
-   * **Nunca**: el módulo nunca se reinicia si se cierra por cualquier razón.
-   * **En caso de error**: el módulo se reinicia si se bloquea, pero no si se cierra sin problemas.
-   * **En estado incorrecto**: el módulo se reinicia si se bloquea o devuelve un estado incorrecto. Depende de cada módulo la implementación de la función de estado de mantenimiento.
-1. Use el menú desplegable para seleccionar el **estado deseado** para el módulo. Elija entre las siguientes opciones:
-   * **En ejecución**: esta es la opción predeterminada. El módulo volverá a ejecutarse inmediatamente después de la implementación.
-   * **Detenido**: tras la implementación, el módulo permanecerá inactivo hasta que el usuario u otro módulo lo llamen después del inicio.
-1. Especifique cualquier **opción de creación de contenedor** que deba pasarse al contenedor. Para más información, consulte [docker create](https://docs.docker.com/engine/reference/commandline/create/).
-1. Seleccione **Configuración de módulos gemelos** si quiere agregar etiquetas u otras propiedades al módulo gemelo.
-1. Escriba las **Variables de entorno** para este módulo. Las variables de entorno proporcionan información de configuración a un módulo.
-1. Seleccione **Agregar** para agregar el módulo a la implementación.
+1. Elija uno de los tres tipos de módulos en el menú desplegable:
 
-#### <a name="add-a-module-from-the-marketplace"></a>Adición de un módulo desde Marketplace
+   * **Módulo de IoT Edge**: proporcione el nombre del módulo y el identificador URI de la imagen de contenedor. Por ejemplo, el identificador URI de la imagen para el módulo SimulatedTemperatureSensor de ejemplo es `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. Si la imagen del módulo está almacenada en un registro de contenedor privado, agregue las credenciales en esta página para tener acceso a la imagen.
+   * **Módulo de Marketplace**: módulos hospedados en Azure Marketplace. Algunos módulos de Marketplace requieren una configuración adicional, por lo que debe revisar los detalles del módulo en la lista de [módulos de IoT Edge de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
+   * **Módulo de Azure Stream Analytics**: solo módulos generados a partir de una carga de trabajo de Azure Stream Analytics.
 
-Para agregar un módulo desde Azure Marketplace, siga estos pasos:
+1. Si es necesario, repita los pasos 2 y 3 para agregar módulos adicionales a la implementación.
 
-1. En la sección **Módulos de IoT Edge** de la página, haga clic en **Agregar**.
-1. En el menú desplegable, seleccione **Módulo de Marketplace**.
-1. Elija un módulo en la página **Marketplace de módulos IoT Edge**. El módulo que seleccione se configura automáticamente para su suscripción, grupo de recursos y dispositivo. Posteriormente, aparece en la lista de módulos de IoT Edge. Es posible que este módulo necesite configuración adicional. Para más información, consulte [Implementación de módulos desde Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
-
-#### <a name="add-a-stream-analytics-module"></a>Adición de un módulo de Stream Analytics
-
-Para agregar un módulo desde Azure Stream Analytics, siga estos pasos:
-
-1. En la sección **Módulos de IoT Edge** de la página, haga clic en **Agregar**.
-1. Seleccione **Módulo de Azure Stream Analytics** en el menú desplegable.
-1. En el panel derecho, elija su valor de **Suscripción**.
-1. Elija su **trabajo de IoT Edge**.
-1. Seleccione **Guardar** para agregar el módulo a la implementación.
-
-#### <a name="configure-module-settings"></a>Configuración del módulo
-
-Después de agregar un módulo a una implementación, puede seleccionar su nombre para abrir la página **Actualizar módulo IoT Edge**. En esta página, puede editar la configuración del módulo, las variables de entorno, las opciones de creación y el módulo gemelo. Si agregó un módulo desde Marketplace, puede que ya tenga rellenados algunos de estos parámetros.
+Después de agregar un módulo a una implementación, puede seleccionar su nombre para abrir la página **Actualizar módulo IoT Edge**. En esta página, puede editar la configuración del módulo, las variables de entorno, las opciones de creación, el orden de inicio y el módulo gemelo. Si agregó un módulo desde Marketplace, puede que ya tenga rellenados algunos de estos parámetros. Para más información sobre la configuración de módulos disponible, consulte [Configuración y administración del módulo](module-composition.md#module-configuration-and-management).
 
 Si va a crear una implementación superpuesta, puede que esté configurando un módulo que existe en otras implementaciones que se dirigen a los mismos dispositivos. Para actualizar el módulo gemelo sin sobrescribir otras versiones, abra la pestaña **Configuración de módulos gemelos**. Cree un valor de **Propiedad del módulo gemelo** con un nombre único para la subsección de las propiedades deseadas del módulo gemelo, por ejemplo `properties.desired.settings`. Si define propiedades solo en el campo `properties.desired`, se sobrescribirán las propiedades deseadas del módulo definidas en las implementaciones de prioridad más baja.
 
@@ -125,9 +94,13 @@ Cuando tenga configurados todos los módulos de una implementación, seleccione 
 
 ### <a name="step-3-routes"></a>Paso 3: Rutas
 
-Las rutas definen cómo los módulos se comunican entre sí dentro de una implementación. De forma predeterminada, el asistente proporciona una ruta llamada **upstream** y definida como **FROM /messages/\* INTO $upstream**, lo que significa que los mensajes generados por cualquiera de los módulos se enviarán a su instancia de IoT Hub.  
+En la pestaña **Rutas**, se define cómo se pasan los mensajes entre los módulos de IoT Hub. Los mensajes se construyen mediante pares de nombre-valor.
 
-Agregue o actualice las rutas con información de [Declaración de rutas](module-composition.md#declare-routes) y, luego, seleccione **Siguiente** para continuar con la sección de revisión.
+Por ejemplo, una ruta con un nombre **route** y un valor **FROM /messages/\* INTO $upstream** tomaría los mensajes enviados por cualquier módulo y los enviaría a su centro de IoT.  
+
+Los parámetros **Priority** y **Time to live** son parámetros opcionales que puede incluir en una definición de ruta. El parámetro Priority permite elegir en qué rutas los mensajes se procesarán primero o en qué rutas se deben procesar en último lugar. La prioridad se determina estableciendo un número de 0 a 9, donde 0 es la prioridad máxima. El parámetro Time to Live permite declarar durante cuánto tiempo se deben mantener los mensajes de esa ruta hasta que se procesen o se quiten de la cola.
+
+Para más información sobre cómo crear rutas, consulte [Declaración de rutas](module-composition.md#declare-routes).
 
 Seleccione **Siguiente: Métricas**.
 

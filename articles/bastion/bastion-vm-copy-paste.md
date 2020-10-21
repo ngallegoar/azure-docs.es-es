@@ -2,21 +2,21 @@
 title: 'Copiado y pegado entre máquinas virtuales: Azure Bastion'
 description: Aprenda con este artículo a copiar y pegar entre máquinas virtuales de Azure al usar Bastion.
 services: bastion
-author: charwen
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.author: charwen
-ms.openlocfilehash: ad1476847874f7cea53c6e9c0c3d9f142c949dac
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.author: cherylmc
+ms.openlocfilehash: 50f7906992aa19daa205a30f71ce21456bafe558
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987726"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079163"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiado y pegado entre máquinas virtuales: Azure Bastion
 
-Este artículo le ayuda a copiar y pegar texto entre máquinas virtuales cuando se usa Azure Bastion. Antes de trabajar con una máquina virtual, asegúrese de que ha seguido los pasos indicados en [Creación de un host de Bastion](bastion-create-host-portal.md). Después, conéctese a la máquina virtual con la que quiere trabajar mediante [RDP](bastion-connect-vm-rdp.md) o [SSH](bastion-connect-vm-ssh.md).
+Este artículo le ayuda a copiar y pegar texto entre máquinas virtuales cuando se usa Azure Bastion. Antes de trabajar con una máquina virtual, asegúrese de que ha seguido los pasos indicados en [Creación de un host de Bastion](./tutorial-create-host-portal.md). Después, conéctese a la máquina virtual con la que quiere trabajar mediante [RDP](bastion-connect-vm-rdp.md) o [SSH](bastion-connect-vm-ssh.md).
 
 En exploradores que admiten el acceso avanzado de la API de Portapapeles, puede copiar y pegar texto entre el dispositivo local y la sesión remota de la misma manera que copia y pega entre aplicaciones en el dispositivo local. En otros exploradores, puede utilizar la paleta de herramientas de acceso al Portapapeles de Bastion.
 
@@ -35,13 +35,13 @@ Después de conectarse a la máquina virtual mediante [Azure Portal](https://por
 1. Copie el texto/contenido del dispositivo local al Portapapeles local.
 1. Durante la sesión remota, inicie la paleta de herramientas de acceso al Portapapeles de Bastion seleccionando las dos flechas. Las flechas se encuentran en la parte central izquierda de la sesión.
 
-   ![paleta de herramientas](./media/bastion-vm-manage/left.png)
+   ![Captura de pantalla que muestra las flechas de inicio de la paleta de herramientas resaltadas en el lado izquierdo de la ventana.](./media/bastion-vm-manage/left.png)
 
    ![Captura de pantalla que muestra un Portapapeles con el texto copiado en Bastion.](./media/bastion-vm-manage/clipboard.png)
 1. Normalmente, el texto copiado se muestra automáticamente en la paleta de copiado y pegado de Bastion. Si el texto no se encuentra allí, péguelo en el área de texto de la paleta.
 1. Cuando el texto esté en el área de texto, podrá pegarlo en la sesión remota.
 
-   ![pegar](./media/bastion-vm-manage/local.png)
+   ![Captura de pantalla que muestra el botón de copiado y pegado resaltado y una cadena de texto de ejemplo copiada en la sesión remota.](./media/bastion-vm-manage/local.png)
 
 ## <a name="copy-from-a-remote-session"></a><a name="from"></a>Copiado desde una sesión remota
 

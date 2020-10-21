@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498804"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999735"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -104,9 +104,9 @@ ms.locfileid: "86498804"
 > 
 > ###    <a name="q-what-will-happen-on-october-31-do-i-need-to-offboard-beforehand"></a>P: ¿Qué ocurrirá el 31 de octubre? ¿Tengo que realizar la retirada con antelación?
 > 
-> - No podrá recibir datos de la solución **Office365**. La solución ya no estará disponible en Marketplace
+> - No podrá recibir datos de la solución **Office365**. La solución se quitará del área de trabajo y dejará de estar disponible en el marketplace.
 > - Para los clientes de Azure Sentinel, la solución **Office365** del área de trabajo de Log Analytics se incluirá en la solución **SecurityInsights** de Azure Sentinel.
-> - Si no retira la solución manualmente, los datos se desconectarán de forma automática el 31 de octubre.
+> - Si no retira la solución manualmente antes del 31 de octubre, los datos se desconectarán automáticamente, y se quitará la tabla **OfficeActivity**. Aún así, podrá restaurar la tabla cuando habilite el conector de Office 365 en Azure Sentinel, como se explica a continuación.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: ¿Mis datos se transferirán a la nueva solución?
 > Sí. Cuando quite la solución **Office 365** del área de trabajo, los datos dejarán de estar disponibles temporalmente porque el esquema se ha quitado. Al habilitar el nuevo conector de **Office 365** en Sentinel, el esquema se restaura en el área de trabajo y los datos ya recopilados estarán disponibles. 

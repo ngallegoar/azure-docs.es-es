@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49626d418f90f8b4bc7288a6d2f7d195cd906f7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85202303"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961364"
 ---
 # <a name="display-controls"></a>Controles de visualización
 
@@ -55,9 +55,9 @@ El elemento **DisplayControl** contiene los elementos siguientes:
 
 | Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** se usa para rellenar previamente el valor de las notificaciones que se van a recopilar del usuario. |
-| DisplayClaims | 0:1 | Las **DisplayClaims** se usan para representar las notificaciones que se van a recopilar del usuario. |
-| OutputClaims | 0:1 | **OutputClaims** se usa para representar notificaciones que se van a guardar temporalmente para este **DisplayControl**. |
+| InputClaims | 0:1 | **InputClaims** se usa para rellenar previamente el valor de las notificaciones que se van a recopilar del usuario. Para obtener más información, vea el elemento [InputClaims](technicalprofiles.md#inputclaims). |
+| DisplayClaims | 0:1 | Las **DisplayClaims** se usan para representar las notificaciones que se van a recopilar del usuario. Para obtener más información, vea el elemento [DisplayClaim](technicalprofiles.md#displayclaim).|
+| OutputClaims | 0:1 | **OutputClaims** se usa para representar notificaciones que se van a guardar temporalmente para este **DisplayControl**. Para obtener más información, vea el elemento [OutputClaims](technicalprofiles.md#outputclaims).|
 | Acciones | 0:1 | **Actions** se usa para enumerar los perfiles técnicos de validación que se van a invocar para las acciones del usuario que se producen en front-end. |
 
 ### <a name="input-claims"></a>Notificaciones de entrada
@@ -98,7 +98,90 @@ Las **acciones** de un control de visualización son procedimientos que se produ
 
 Una acción define una lista de **perfiles técnicos de validación**. Se usan para validar algunas o todas las notificaciones de visualización del control de visualización. El perfil técnico de validación valida la entrada del usuario y puede devolver un error al usuario. Puede usar **ContinueOnError**, **ContinueOnSuccess** y **condiciones previas** en la acción de control de visualización de forma similar a como se usan en los [perfiles técnicos de validación](validation-technical-profile.md) de un perfil técnico de aserción automática.
 
-En el ejemplo siguiente se envía un código por correo electrónico o SMS en función de la selección del usuario de la notificación **mfaType**.
+#### <a name="actions"></a>Acciones
+
+El elemento **Actions** contiene el elemento siguiente:
+
+| Elemento | Repeticiones | Descripción |
+| ------- | ----------- | ----------- |
+| Acción | 1:n | Lista de acciones que se van a ejecutar. |
+
+#### <a name="action"></a>Acción
+
+El elemento **Action** contiene el atributo siguiente:
+
+| Atributo | Obligatorio | Descripción |
+| --------- | -------- | ----------- |
+| Identificador | Sí | Tipo de operación. Valores posibles: `SendCode` o `VerifyCode`. El valor `SendCode` envía un código al usuario. Esta acción puede contener dos perfiles técnicos de validación: uno para generar un código y otro para enviarlo. El valor `VerifyCode` comprueba el código escrito por el usuario en el cuadro de texto de entrada. |
+
+El elemento **Action** contiene el elemento siguiente:
+
+| Elemento | Repeticiones | Descripción |
+| ------- | ----------- | ----------- |
+| ValidationClaimsExchange | 1:1 | Identificadores de perfiles técnicos que se usan para validar algunas o todas las notificaciones para mostrar del perfil técnico de referencia. Todas las notificaciones de entrada del perfil técnico al que se hace referencia tienen que aparecer en las notificaciones para mostrar del perfil técnico de referencia. |
+
+#### <a name="validationclaimsexchange"></a>ValidationClaimsExchange
+
+El elemento **ValidationClaimsExchange** contiene el elemento siguiente:
+
+| Elemento | Repeticiones | Descripción |
+| ------- | ----------- | ----------- |
+| ValidationTechnicalProfile | 1:n | Perfil técnico que se va a usar para validar algunas o todas las notificaciones para mostrar del perfil técnico de referencia. |
+
+El elemento **ValidationTechnicalProfile** contiene los atributos siguientes:
+
+| Atributo | Obligatorio | Descripción |
+| --------- | -------- | ----------- |
+| ReferenceId | Sí | Un identificador de un perfil técnico que ya se ha definido en la directiva o en la directiva principal. |
+|ContinueOnError|No| Indica si la validación de los perfiles técnicos de validación posteriores debe continuar en caso de que este perfil técnico de validación genere un error. Valores posibles: `true` o `false` (de forma predeterminada, se detiene el procesamiento de más perfiles de validación y se devuelve un error). |
+|ContinueOnSuccess | No | Indica si la validación de los perfiles de validación posteriores debe continuar en caso de que este perfil técnico de validación sea correcto. Valores posibles: `true` o `false`. El valor predeterminado es `true`, lo que significa que el procesamiento de los perfiles de validación adicionales continuará. |
+
+El elemento **ValidationTechnicalProfile** contiene el elemento siguiente:
+
+| Elemento | Repeticiones | Descripción |
+| ------- | ----------- | ----------- |
+| Preconditions | 0:1 | Lista de las condiciones previas que deben cumplirse para que se ejecute el perfil técnico de validación. |
+
+El elemento **Precondition** contiene los atributos siguientes:
+
+| Atributo | Obligatorio | Descripción |
+| --------- | -------- | ----------- |
+| `Type` | Sí | El tipo de comprobación o consulta que hay que llevar a cabo para la condición previa. Valores posibles: `ClaimsExist` o `ClaimEquals`. `ClaimsExist` especifica que las acciones deben realizarse si las notificaciones especificadas existen en el conjunto de notificaciones actual del usuario. `ClaimEquals` especifica que las acciones deben realizarse si la notificación especificada existe y su valor es igual al valor especificado. |
+| `ExecuteActionsIf` | Sí | Indica si las acciones en la condición previa deben realizarse si la prueba es verdadera o falsa. |
+
+El elemento **Precondition** contiene los elementos siguientes:
+
+| Elemento | Repeticiones | Descripción |
+| ------- | ----------- | ----------- |
+| Valor | 1:n | Los datos que se usan en la comprobación. Si el tipo de esta comprobación es `ClaimsExist`, este campo especifica un ClaimTypeReferenceId para la consulta. Si el tipo de comprobación es `ClaimEquals`, este campo especifica un ClaimTypeReferenceId para la consulta. Especifique el valor que se va a comprobar en otro elemento de valor.|
+| Acción | 1:1 | La acción que debe realizarse si se cumple la comprobación de condición previa dentro de un paso de orquestación. El valor de **Action** se establece en `SkipThisValidationTechnicalProfile`, que especifica que el perfil técnico de validación asociado no debe ejecutarse. |
+
+En el ejemplo siguiente se envía y se comprueba la dirección de correo electrónico mediante un [perfil técnico de autoservicio de restablecimiento de contraseña de Azure AD](aad-sspr-technical-profile.md).
+
+```xml
+<DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
+  <InputClaims></InputClaims>
+  <DisplayClaims>
+    <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+  </DisplayClaims>
+  <OutputClaims></OutputClaims>
+  <Actions>
+    <Action Id="SendCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-SendCode" />
+      </ValidationClaimsExchange>
+    </Action>
+    <Action Id="VerifyCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-VerifyCode" />
+      </ValidationClaimsExchange>
+    </Action>
+  </Actions>
+</DisplayControl>
+```
+
+En el ejemplo siguiente se envía un código por correo electrónico o SMS, en función de la selección del usuario de la notificación **mfaType** con condiciones previas.
 
 ```xml
 <Action Id="SendCode">
@@ -141,3 +224,10 @@ Por ejemplo:
     <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
 ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener ejemplos de uso del control de visualización, vea: 
+
+- [Verificación de correo electrónico personalizado con Mailjet](custom-email-mailjet.md)
+- [Verificación de correo electrónico personalizado con SendGrid](custom-email-sendgrid.md)

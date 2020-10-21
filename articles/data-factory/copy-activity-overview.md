@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8a84c9979bdfac1165d44d03572567ab1ea7ab1f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440599"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995344"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -186,10 +186,11 @@ Para información sobre cómo la actividad de copia asigna los datos de origen a
 Además de copiar datos desde el almacén de datos de origen al receptor, también puede configurar la adición de columnas de datos adicionales para copiar junto con el receptor. Por ejemplo:
 
 - Cuando copie desde un origen basado en archivos, almacene la ruta de acceso relativa del archivo como columna adicional para tener registrado de qué archivo proceden los datos.
+- Duplique la columna de origen especificada como otra columna. 
 - Agregue una columna con la expresión de ADF para asociar variables del sistema ADF, como el nombre de la canalización o el identificador de la canalización, o bien almacene otros valores dinámicos de la salida de la actividad ascendente.
 - Agregue una columna con un valor estático para satisfacer sus necesidades de consumo descendente.
 
-Puede encontrar la siguiente configuración en la pestaña origen de la actividad de copia: 
+Puede encontrar la siguiente configuración en la pestaña de origen de la actividad de copia. También puede asignar esas columnas adicionales en la actividad de copia [asignación de esquemas](copy-activity-schema-and-type-mapping.md#schema-mapping) como de costumbre con los nombres de columna definidos. 
 
 ![Adición de columnas adicionales en la actividad de copia](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
 
@@ -200,7 +201,7 @@ Para configurarlo mediante programación, agregue la propiedad `additionalColumn
 
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
-| additionalColumns | Agregue columnas de datos adicionales para copiarlas en el receptor.<br><br>Cada objeto de la matriz `additionalColumns` representa una columna adicional. `name` define el nombre de la columna y `value` indica el valor de los datos de esa columna.<br><br>Los valores permitidos de los datos son:<br>-  **`$$FILEPATH`** : una variable reservada indica almacenar la ruta de acceso relativa de los archivos de origen en la ruta de acceso de la carpeta especificada en el conjunto de datos. Se aplica en un origen basado en archivos.<br>- **Expresión**<br>- **Valor estático** | No |
+| additionalColumns | Agregue columnas de datos adicionales para copiarlas en el receptor.<br><br>Cada objeto de la matriz `additionalColumns` representa una columna adicional. `name` define el nombre de la columna y `value` indica el valor de los datos de esa columna.<br><br>Los valores permitidos de los datos son:<br>-  **`$$FILEPATH`** : una variable reservada indica almacenar la ruta de acceso relativa de los archivos de origen en la ruta de acceso de la carpeta especificada en el conjunto de datos. Se aplica en un origen basado en archivos.<br>-  **`$$COLUMN:<source_column_name>`** : un patrón de variable reservada indica que se duplique la columna de origen especificada como otra columna.<br>- **Expresión**<br>- **Valor estático** | No |
 
 **Ejemplo**:
 
@@ -218,6 +219,10 @@ Para configurarlo mediante programación, agregue la propiedad `additionalColumn
                     {
                         "name": "filePath",
                         "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "newColName",
+                        "value": "$$COLUMN:SourceColumnA"
                     },
                     {
                         "name": "pipelineName",

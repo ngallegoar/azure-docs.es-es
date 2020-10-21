@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fea05ada52ba4281acb3451769446d7f0bad790d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e548e99cc60d67b477fd087b993764bf7f223592
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448701"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541193"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visualización y asignación de roles de administrador en Azure Active Directory
 
@@ -55,7 +55,7 @@ Si es un administrador global o un administrador de roles con privilegios, puede
 
 Cuando esté viendo los miembros de un rol, haga clic en **Descripción** para ver una lista completa de los permisos otorgados por la asignación de roles. En la página se incluyen vínculos a documentación relevante que le guiarán a través de la administración de los roles de directorio.
 
-![lista de permisos para un rol de administrador](./media/directory-manage-roles-portal/role-description.png)
+![Captura de pantalla que muestra la página "Administrador global - Descripción".](./media/directory-manage-roles-portal/role-description.png)
 
 ## <a name="download-role-assignments"></a>Descarga de asignaciones de rol
 
@@ -71,7 +71,7 @@ Para descargar todas las asignaciones de un rol específico, en la página **Rol
 
 1. Seleccione un rol para ver sus asignaciones.
 
-    ![lista de permisos para un rol de administrador](./media/directory-manage-roles-portal/member-list.png)
+    ![Captura de pantalla que muestra la página "Administrador de usuarios - Asignaciones" con la acción "Administrar en PIM" seleccionada.](./media/directory-manage-roles-portal/member-list.png)
 
 1. Seleccione **Agregar asignaciones** y elija los roles que quiere asignar. Puede hacer clic en **Administrar en PIM** para obtener funcionalidades de administración adicionales. Si lo que ve no concuerda con la siguiente imagen, lea la nota de [Visualización de asignaciones de roles con privilegios](#view-assignments-for-privileged-roles) para comprobar si se encuentra en PIM.
 

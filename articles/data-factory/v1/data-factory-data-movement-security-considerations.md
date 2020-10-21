@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 19b37472d7decb46825da4760511f1761493c246
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9ae4970383802adad755fff4a6ce382db6ce32fe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441942"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91619923"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: consideraciones de seguridad para el movimiento de datos
 
@@ -142,7 +142,7 @@ Las siguientes imágenes muestran el uso de Data Management Gateway para mover d
 
 ![Conexión VPN de IPSec con la puerta de enlace](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Configuraciones de firewall y lista de direcciones IP que admite la puerta de enlace
+### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>Configuraciones de firewall y filtrado de direcciones IP de puerta de enlace
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para redes locales o privadas  
 En una empresa, se ejecuta un **firewall corporativo** en el enrutador central de la organización y el **firewall de Windows** se ejecuta como demonio en la máquina local con la puerta de enlace instalada. 
@@ -158,7 +158,7 @@ En la tabla siguiente se proporcionan el **puerto de salida** y los requisitos d
 | `*.azuredatalakestore.net` | 443 | (OPCIONAL) Necesario cuando el destino es Azure Data Lake Store. | 
 
 > [!NOTE] 
-> Puede que tenga que administrar puertos dominios de listas de admitidos a nivel del firewall corporativo, en función de cada origen de datos. En esta tabla, Azure SQL Database, Azure Synapse Analytics y Azure Data Lake Store solo se usan a modo de ejemplo.   
+> Puede que tenga que administrar puertos o dominios de filtrado en el nivel del firewall corporativo según los requisitos de los respectivos orígenes de datos. En esta tabla, Azure SQL Database, Azure Synapse Analytics y Azure Data Lake Store solo se usan a modo de ejemplo.   
 
 En la tabla siguiente se proporcionan los requisitos del **puerto de entrada** para el **firewall de Windows**.
 
@@ -168,10 +168,10 @@ En la tabla siguiente se proporcionan los requisitos del **puerto de entrada** p
 
 ![Requisitos de puerto de la puerta de enlace](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
-#### <a name="ip-configurations-whitelisting-in-data-store"></a>Configuraciones IP/lista de admitidos en el almacén de datos
-Algunos almacenes de datos en la nube también requieren listas de direcciones IP admitidas para que la máquina acceda a ellas. Asegúrese de que la dirección IP de la máquina con la puerta de enlace aparece en la lista o está configurada en el firewall correctamente.
+#### <a name="ip-configurationsfiltering-in-data-store"></a>Configuraciones o filtrado de IP en el almacén de datos
+Algunos almacenes de datos en la nube también exigen la aprobación de las direcciones IP de la máquina que accede a ellos. Asegúrese de que la dirección IP de la máquina de puerta de enlace esté aprobada o configurada adecuadamente en el firewall.
 
-Los siguientes almacenes de datos en la nube necesitan una lista de direcciones IP admitidas por la máquina con la puerta de enlace. De forma predeterminada, algunos de estos almacenes de datos no necesitan listas de direcciones IP admitidas. 
+Los siguientes almacenes de datos en la nube exigen la aprobación de las direcciones IP de la máquina de puerta de enlace. De forma predeterminada, algunos de estos almacenes de datos pueden no necesitar la aprobación de las direcciones IP. 
 
 - [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
 - [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -185,12 +185,10 @@ Los siguientes almacenes de datos en la nube necesitan una lista de direcciones 
 **Respuesta:** Aún no se admite esta característica. Estamos trabajando en ello.
 
 **Pregunta:** ¿Cuáles son los requisitos de puerto para que funcione la puerta de enlace?
-**Respuesta:** La puerta de enlace hace conexiones basadas en HTTP para abrir Internet. Los **puertos de salida 80 y 443** deben estar abiertos para que la puerta de enlace establezca la conexión. Abra el **puerto de entrada 8050** solo en la máquina (no en el nivel del firewall corporativo) para la aplicación de administración de credenciales. Si se utiliza Azure SQL Database o Azure Synapse Analytics como origen y destino, tendrá que abrir también el puerto **1433**. Para más información, consulte la sección [Configuraciones del firewall y lista de direcciones IP admitidas](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
+**Respuesta:** La puerta de enlace hace conexiones basadas en HTTP para abrir Internet. Los **puertos de salida 80 y 443** deben estar abiertos para que la puerta de enlace establezca la conexión. Abra el **puerto de entrada 8050** solo en la máquina (no en el nivel del firewall corporativo) para la aplicación de administración de credenciales. Si se utiliza Azure SQL Database o Azure Synapse Analytics como origen y destino, tendrá que abrir también el puerto **1433**. Para obtener más información, vea la sección [Configuraciones de firewall y filtrado de direcciones IP de puerta de enlace](#firewall-configurations-and-filtering-ip-address-of gateway). 
 
 **Pregunta:** ¿Cuáles son los certificados necesarios para la puerta de enlace?
 **Respuesta:** La puerta de enlace actual requiere un certificado que usa la aplicación de administración de credenciales para establecer las credenciales del almacén de datos de forma segura. Este certificado está autofirmado y se creó y configuró durante la instalación de la puerta de enlace. En su lugar, puede usar su propio certificado TLS/SSL. Para más información, consulte la sección sobre la [aplicación de administración de credenciales con un solo clic](#click-once-credentials-manager-app). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para información sobre el rendimiento de la actividad de copia, consulte la [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md).
-
- 

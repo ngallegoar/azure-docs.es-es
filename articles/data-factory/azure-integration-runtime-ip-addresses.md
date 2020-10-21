@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 0c64a38295754e4754326dec126bfbc36e1bef61
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55d8b5ebdfb226247f8a500f36e6df3ae02ea58a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523339"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91619056"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Direcciones IP de Azure Integration Runtime
 
@@ -27,7 +27,7 @@ Las direcciones IP que usa Azure Integration Runtime dependen de la región en l
 > [!IMPORTANT]  
 > Los flujos de datos y Azure Integration Runtime, que habilitan instancias de Virtual Network administradas, no admiten el uso de intervalos IP fijos.
 >
-> Puede usar estos intervalos IP para la ejecución de movimientos de datos, canalizaciones y actividades externas. Estos intervalos IP se pueden incluir en listas blancas de los almacenes de datos/grupos de seguridad de red (NSG)/firewalls para el acceso de entrada desde Azure Integration Runtime. 
+> Puede usar estos intervalos IP para la ejecución de movimientos de datos, canalizaciones y actividades externas. Estos intervalos IP se pueden usar para el filtrado de almacenes de datos, grupos de seguridad de red (NSG) o firewalls para el acceso de entrada desde Azure Integration Runtime. 
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Direcciones IP de Azure Integration Runtime: Regiones específicas
 

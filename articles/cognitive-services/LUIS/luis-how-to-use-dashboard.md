@@ -3,20 +3,18 @@ title: 'Panel: Language Understanding (LUIS)'
 titleSuffix: Azure Cognitive Services
 description: Corrija intenciones y entidades con el panel de la aplicación que se entrena. El panel muestra información general de la aplicación, con los aspectos destacados de las intenciones que se deben corregir.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/08/2019
-ms.author: diberry
-ms.openlocfilehash: 0ff59819c3bfda6e19d14cbe2deaea43e1694375
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 4867a065a85fab1e4abc7f19401239e5b76e1da4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345247"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541414"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Cómo usar el Panel para mejorar la aplicación
 
@@ -130,11 +128,11 @@ El gráfico siguiente muestra una aplicación bien equilibrada con casi ninguna 
 
 El gráfico siguiente muestra una aplicación mal equilibrada con muchas incidencias que corregir.
 
-![El gráfico siguiente muestra una aplicación bien equilibrada con casi ninguna incidencia que corregir.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+![Captura de pantalla que muestra las predicciones por intención con varios resultados poco claros o predichos incorrectamente.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
 Mantenga el ratón sobre la barra de cada intención para obtener información sobre ella.
 
-![El gráfico siguiente muestra una aplicación bien equilibrada con casi ninguna incidencia que corregir.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+![Captura de pantalla que muestra las predicciones por intención con detalles de resultados poco claros o predichos incorrectamente.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
 Use la característica **Ordenar por** para organizar las intenciones por tipo de incidencia para que pueda centrarse en las intenciones más problemáticas con esa incidencia.
 

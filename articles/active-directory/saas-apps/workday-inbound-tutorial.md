@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 87085d4a4911801933993720ae0ab23aeb19956d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974365"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541295"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -129,7 +129,7 @@ En este paso, creará un grupo de seguridad del sistema de integración sin o co
 1. Escriba create security group (crear grupo de seguridad) en el cuadro de búsqueda y luego haga clic en **Create Security Group**(Crear grupo de seguridad).
 
    > [!div class="mx-imgBorder"]
-   > ![Crear grupos de seguridad](./media/workday-inbound-tutorial/wd_isu_03.png "Crear grupos de seguridad")
+   > ![Captura de pantalla que muestra "crear grupo de seguridad" escrito en el cuadro de búsqueda y "Crear grupo de seguridad - Tarea" mostrado en los resultados de búsqueda.](./media/workday-inbound-tutorial/wd_isu_03.png)
 2. Complete la tarea **Create Security Group** (Crear grupo de seguridad). 
 
    * Hay dos tipos de grupos de seguridad en Workday:
@@ -154,7 +154,7 @@ En ese paso, concederá al grupo de seguridad los permisos de directiva "segurid
 
 1. Escriba **Domain Security Configuration** (Configuración de seguridad de dominio) en el cuadro de búsqueda y, a continuación, haga clic en el vínculo **Domain Security Configuration Report** (Informe de configuración de seguridad de dominio).  
    >[!div class="mx-imgBorder"]
-   >![Directivas de seguridad de dominio](./media/workday-inbound-tutorial/wd_isu_06.png "Directivas de seguridad de dominio")  
+   >![Captura de pantalla que muestra "configuración de seguridad de dominio" en el cuadro de búsqueda con "Configuración de seguridad de dominio - Informe" mostrado en los resultados.](./media/workday-inbound-tutorial/wd_isu_06.png "Directivas de seguridad de dominio")  
 2. En el cuadro de texto **Dominio**, busque los siguientes dominios y agréguelos al filtro de uno en uno.  
    * *External Account Provisioning* (Aprovisionamiento de cuentas externas)
    * *Worker Data: Workers* (Datos de empleado: empleados)
@@ -166,10 +166,10 @@ En ese paso, concederá al grupo de seguridad los permisos de directiva "segurid
    * *Cuentas de Workday*
    
      >[!div class="mx-imgBorder"]
-     >![Directivas de seguridad de dominio](./media/workday-inbound-tutorial/wd_isu_07.png "Directivas de seguridad de dominio")  
+     >![Captura de pantalla que muestra el informe de configuración de seguridad de dominio con "Cuenta externa" en el cuadro de texto "Dominio".](./media/workday-inbound-tutorial/wd_isu_07.png "Directivas de seguridad de dominio")  
 
      >[!div class="mx-imgBorder"]
-     >![Directivas de seguridad de dominio](./media/workday-inbound-tutorial/wd_isu_08.png "Directivas de seguridad de dominio") 
+     >![Captura de pantalla que muestra el informe de configuración de seguridad de dominio con una lista de dominios seleccionada.](./media/workday-inbound-tutorial/wd_isu_08.png "Directivas de seguridad de dominio") 
 
      Haga clic en **OK**.
 
@@ -179,7 +179,7 @@ En ese paso, concederá al grupo de seguridad los permisos de directiva "segurid
 
 4. En la página **Edit Domain Security Policy Permissions** (Editar permisos de directiva de seguridad de dominio), desplácese hacia abajo hasta la sección **Integration Permissions** (Permisos de integración). Haga clic en el signo "+" para agregar el grupo de sistema de integración a la lista de grupos de seguridad con los permisos de integración **Get** (Obtención) y **Put** (Colocación).
    >[!div class="mx-imgBorder"]
-   >![Editar permisos](./media/workday-inbound-tutorial/wd_isu_10.png "Editar permisos")  
+   >![Captura de pantalla que muestra la sección "Permisos de integración" resaltada.](./media/workday-inbound-tutorial/wd_isu_10.png "Editar permisos")  
 
 5. Haga clic en el signo "+" para agregar el grupo de sistema de integración a la lista de grupos de seguridad con los permisos de integración **Get** (Obtención) y **Put** (Colocación).
 
@@ -210,12 +210,12 @@ En ese paso, concederá permisos de directiva "seguridad de proceso de negocio" 
 1. Escriba **Business Process Policy** (Directiva de proceso de negocio) en el cuadro de búsqueda y, a continuación, haga clic en la tarea **Edit Business Process Security Policy** (Editar directiva de seguridad del proceso de negocio) del vínculo.  
 
    >[!div class="mx-imgBorder"]
-   >![Directivas de seguridad de procesos empresariales](./media/workday-inbound-tutorial/wd_isu_12.png "Directivas de seguridad de procesos empresariales")  
+   >![Captura de pantalla que muestra "Directiva de proceso de negocio" en el cuadro de búsqueda y "Editar directiva de seguridad del proceso de negocio - Tarea" seleccionado.](./media/workday-inbound-tutorial/wd_isu_12.png "Directivas de seguridad de procesos empresariales")  
 
 2. En el cuadro de texto **Business Process Type** (Tipo de proceso de negocio), busque *Contact* (Contacto) y seleccione el proceso de negocio **Work Contact Change** (Cambio de contacto de trabajo) y haga clic en **OK** (Aceptar).
 
    >[!div class="mx-imgBorder"]
-   >![Directivas de seguridad de procesos empresariales](./media/workday-inbound-tutorial/wd_isu_13.png "Directivas de seguridad de procesos empresariales")  
+   >![Captura de pantalla que muestra la página "Editar directiva de seguridad del proceso de negocio" y "Cambio de contacto de trabajo" seleccionado en el menú "Tipo de proceso de negocio".](./media/workday-inbound-tutorial/wd_isu_13.png "Directivas de seguridad de procesos empresariales")  
 
 3. En la página **Edit Business Process Security Policy** (Editar directiva de seguridad del proceso de negocio), desplácese a la sección **Change Work Contact Information (Web Service)** [Cambiar la información de contacto de trabajo (servicio web)].
     
@@ -415,7 +415,7 @@ En este paso, se establecerá la conectividad con WorkDay y Active Directory en
    * Haga clic en el botón **Probar conexión**. Si la prueba de conexión se lleva a cabo correctamente, haga clic en el botón **Guardar** situado en la parte superior. Si se produce un error, compruebe que las credenciales de Workday y las credenciales de AD configuradas en la instalación del agente sean válidas.
 
      >[!div class="mx-imgBorder"]
-     >![Azure Portal](./media/workday-inbound-tutorial/wd_1.png)
+     >![Captura de pantalla que muestra la página "Aprovisionamiento" con las credenciales especificadas.](./media/workday-inbound-tutorial/wd_1.png)
 
    * Una vez que las credenciales se guardan correctamente, en la sección **Asignaciones** se mostrará la asignación predeterminada **Synchronize Workday Workers to On Premises Active Directory** (Sincronizar trabajadores de Workday con Active Directory local).
 
@@ -480,7 +480,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
 1. Para guardar las asignaciones, haga clic en **Guardar** en la parte superior de la sección Asignación de atributos.
    >[!div class="mx-imgBorder"]
-   >![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
+   >![Captura de pantalla que muestra la página "Asignación de atributos" con la acción "Guardar" seleccionada.](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>A continuación se muestran algunos ejemplos de asignaciones de atributos entre Workday y Active Directory, con algunas expresiones comunes.
 
@@ -942,11 +942,11 @@ Al hacer clic en cualquiera de los registros de auditoría, se abre la página *
 
   Busque un registro POST HTTP correspondiente a la marca de tiempo de la operación de exportación con el *Id. de evento = 2*. Este registro contendrá los valores de atributo enviados por el servicio de aprovisionamiento al agente de aprovisionamiento.
 
-  [![Adición de SCIM](media/workday-inbound-tutorial/wd_event_viewer_05.png)](media/workday-inbound-tutorial/wd_event_viewer_05.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_05.png" alt-text="Captura de pantalla que muestra el registro &quot;HTTP POST&quot; en el registro del agente de aprovisionamiento." lightbox="media/workday-inbound-tutorial/wd_event_viewer_05.png":::
 
   Inmediatamente después del evento anterior, debe haber otro evento que captura la respuesta de la operación de creación de la cuenta de AD. Este evento devuelve el nuevo valor objectGuid creado en AD y se establece como el atributo TargetAnchor en el servicio de aprovisionamiento.
 
-  [![Adición de SCIM](media/workday-inbound-tutorial/wd_event_viewer_06.png)](media/workday-inbound-tutorial/wd_event_viewer_06.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_06.png" alt-text="Captura de pantalla que muestra el registro &quot;HTTP POST&quot; en el registro del agente de aprovisionamiento." lightbox="media/workday-inbound-tutorial/wd_event_viewer_06.png":::
 
 ### <a name="understanding-logs-for-manager-update-operations"></a>Información sobre registros para las operaciones de actualización del administrador
 
@@ -1040,14 +1040,14 @@ Para realizar este cambio, debe usar [Workday Studio](https://community.workday.
 
 5. Seleccione **External** (Externo) y seleccione el archivo WSDL Human_Resources que descargó en el paso 2.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio1.png)
+    ![Captura de pantalla que muestra el archivo "Human_Resources" abierto en Workday Studio.](./media/workday-inbound-tutorial/wdstudio1.png)
 
 6. Establezca el campo **Location** (Ubicación) en `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, pero reemplace "IMPL-CC" por el tipo de instancia real y "TENANT" por el nombre real del inquilino.
 
 7. Establezca **Operation** (Operación) en **Get_Workers**.
 
 8.    Haga clic en el vínculo pequeño de **configuración** bajo los paneles de solicitud/respuesta para establecer las credenciales de Workday. Marque **Authentication** (Autenticación) y escriba el nombre de usuario y la contraseña de la cuenta del sistema de integración de Workday. Asegúrese de que el formato del nombre de usuario sea name\@tenant y deje seleccionada la opción **WS-Security UsernameToken**.
-   ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
+   ![Captura de pantalla que muestra la pestaña "Seguridad" con el "Nombre de usuario" y la "Contraseña" especificados y "Token de nombre de usuario de WS-Security" seleccionado.](./media/workday-inbound-tutorial/wdstudio2.png)
 
 9. Seleccione **Aceptar**.
 
@@ -1086,7 +1086,7 @@ Para realizar este cambio, debe usar [Workday Studio](https://community.workday.
 
 13. En la barra de comandos de Workday Studio, seleccione **File > Open File...** (Archivo > Abrir archivo...) y abra el archivo XML que ha guardado. Esta acción abrirá el archivo en el editor XML de Workday Studio.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio3.png)
+    ![Captura de pantalla de un archivo XML abierto en el editor XML de Workday Studio.](./media/workday-inbound-tutorial/wdstudio3.png)
 
 14. En el árbol de archivos, desplácese a través de **/env: Envelope > env: Body > wd:Get_Workers_Response > wd:Response_Data > wd: Worker** para encontrar los datos del usuario.
 
@@ -1112,7 +1112,7 @@ Para realizar este cambio, debe usar [Workday Studio](https://community.workday.
 
 5. Seleccione **Edit attribute list for Workday** (Editar lista de atributos para Workday).
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio_aad1.png)
+    ![Captura de pantalla que muestra la página "Aprovisionamiento de usuarios de Workday en Azure AD - Aprovisionamiento" con la acción "Editar lista de atributos para Workday" resaltada.](./media/workday-inbound-tutorial/wdstudio_aad1.png)
 
 6. Desplácese a la parte inferior de la lista de atributos, al lugar donde están los campos de entrada.
 

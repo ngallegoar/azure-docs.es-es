@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090389"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542383"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Recepción y confirmación de mensajes B2B AS2 con Azure Logic Apps y Enterprise Integration Pack
 
@@ -111,7 +111,7 @@ Para notificar a la entidad que el mensaje se ha recibido, puede volver a enviar
 
    Ahora aparece la forma de la condición, incluidas las rutas de acceso de si la condición se cumple o no.
 
-   ![Forma de la condición con rutas de acceso de decisión](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
+   ![Captura de pantalla que muestra la forma de la condición con rutas de acceso vacías.](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
 
 1. Ahora especifique la condición que se va a evaluar. En el cuadro **Elegir un valor**, escriba esta expresión:
 
@@ -119,7 +119,7 @@ Para notificar a la entidad que el mensaje se ha recibido, puede volver a enviar
 
    En el cuadro central, asegúrese de que la operación de comparación esté establecida en `is equal to`. En el cuadro de la derecha, escriba el valor `Expected`. Para que esta expresión se resuelva como este token, cambie entre la vista del diseñador y la vista de código.
 
-   ![Forma de la condición con rutas de acceso de decisión](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
+   ![Captura de pantalla que muestra la forma de la condición con una condición agregada.](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
 1. Ahora, especifique las respuestas para devolver si la acción **Descodificación AS2** se realiza correctamente o no.
 

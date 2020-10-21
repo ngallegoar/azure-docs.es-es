@@ -1,19 +1,19 @@
 ---
 title: Configuración de puntos de conexión de red de Azure Files | Microsoft Docs
-description: Una introducción a las opciones de red para Azure Files.
+description: Aprenda a configurar puntos de conexión de red de Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a38528e32061f57e3239ef4be26cdd437f4f8746
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b494e7f7f99394c7337d663ea9a9c7e1f74dacf3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078599"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91612836"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configuración de puntos de conexión de red de Azure Files
 
@@ -32,7 +32,7 @@ Se recomienda leer [Consideraciones de redes para Azure Files](storage-files-net
 - En este artículo se supone que ya ha creado una suscripción a Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - En este artículo se supone que ya ha creado un recurso compartido de archivos de Azure en una cuenta de almacenamiento a la que le gustaría conectarse desde el entorno local. Para aprender a crear un recurso compartido de archivos de Azure, consulte [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md).
 - Si planea usar Azure PowerShell, [instale la versión más reciente](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Si planea usar la CLI de Azure, [instale la versión más reciente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Si planea usar la CLI de Azure, [instale la versión más reciente](/cli/azure/install-azure-cli).
 
 ## <a name="endpoint-configurations"></a>Configuraciones de punto de conexión
 

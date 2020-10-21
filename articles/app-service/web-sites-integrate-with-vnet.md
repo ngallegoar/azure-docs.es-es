@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8f356cb935f1cf63408b6fbc604f139439022a4f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f2e17e99208d076d05132638b5161a284b73986f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646617"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018634"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 
@@ -54,6 +54,10 @@ Las aplicaciones en App Service se hospedan en roles de trabajo. Los planes de p
 
 Cuando se habilita la versión regional de Integración con red virtual, la aplicación sigue realizando llamadas salientes a Internet utilizando los mismos canales, como hace habitualmente. Las direcciones salientes que se muestran en el portal de propiedades de la aplicación siguen siendo las direcciones usadas por la aplicación. Lo que es distinto para la aplicación es que las llamadas a servicios protegidos de punto de conexión de servicio o direcciones de RFC 1918 tienen lugar en la VNet. Si WEBSITE_VNET_ROUTE_ALL está establecido en 1, todo el tráfico de salida puede enviarse a la VNet.
 
+> [!NOTE]
+> `WEBSITE_VNET_ROUTE_ALL` no se admite actualmente en contenedores de Windows.
+> 
+
 La característica solo admite una interfaz virtual por trabajo. Una interfaz virtual por trabajo significa una característica Integración con red virtual regional por plan de App Service. Todas las aplicaciones en el mismo plan de App Service pueden usar la misma Integración con red virtual. Si necesita que una aplicación se conecte a una VNet adicional, debe crear otro plan de App Service. La interfaz virtual utilizada no es un recurso al que los clientes tengan acceso directo.
 
 Dada la forma en que esta tecnología funciona, el tráfico que se usa con Integración con red virtual no se muestra en los registros de flujos de NSG o Azure Network Watcher.
@@ -72,7 +76,8 @@ La versión de Integración con red virtual que necesita una puerta de enlace pe
 La versión de Integración con red virtual que necesita una puerta de enlace no puede utilizarse en las siguientes circunstancias:
 
 * Con una VNet conectada a Azure ExpressRoute.
-* Desde una aplicación para Linux
+* Desde una aplicación Linux.
+* Desde un [contenedor de Windows](quickstart-custom-container.md).
 * Para acceder a recursos protegidos por puntos de conexión de servicio.
 * Con una puerta de enlace coexistente que admita tanto VPN de ExpressRoute como VPN de punto a sitio o de sitio a sitio.
 
@@ -139,11 +144,15 @@ La característica Integración con red virtual regional no tiene ningún cargo 
 
 Hay tres cargos relacionados con el uso de la característica Integración con red virtual con requisito de puerta de enlace:
 
-* **Cargos de plan de tarifa del plan de App Service**: Las aplicaciones deben estar en un plan de App Service Estándar, Premium o PremiumV2. Para obtener más información sobre estos costes, consulte [Precios de App Service][ASPricing].
+* **Cargos de plan de tarifa del plan de App Service**: Las aplicaciones deben estar en un plan de App Service Estándar, Premium, PremiumV2 o PremiumV3. Para obtener más información sobre estos costes, consulte [Precios de App Service][ASPricing].
 * **Costos de la transferencia de datos**: Se aplica un cargo de salida de datos, aunque la red virtual esté en el mismo centro de datos. Estos cargos se describen en la página de [detalles de precios de Transferencia de datos][DataPricing].
 * **Costos de VPN Gateway**: Existe un costo para la puerta de enlace de red virtual necesario para la VPN de punto a sitio. Para obtener más información, vea [Precios de VPN Gateway][VNETPricing].
 
 ## <a name="troubleshooting"></a>Solución de problemas
+
+> [!NOTE]
+> La integración con red virtual no se admite en escenarios de Docker Compose en App Service.
+>
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
@@ -173,7 +182,7 @@ Commands:
     list : List the virtual network integrations used in an appservice plan.
 ```
 
-PowerShell también ofrece compatibilidad para la integración con una red virtual regional, pero es necesario crear un recurso genérico con una matriz de propiedades de la subred resourceID.
+PowerShell también ofrece compatibilidad con la integración con red virtual regional, pero es necesario crear un recurso genérico con una matriz de propiedades del resourceID de subred.
 
 ```azurepowershell
 # Parameters
