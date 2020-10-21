@@ -4,12 +4,12 @@ description: Aprenda a agregar un enlace de salida para conectar las funciones d
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: b18401037bf14c99ed198eb3754438ece5718c9b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0711516143839dbcdbafec56ab1d9643b4b8cdc7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84235368"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167129"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conexión de las funciones a Azure Storage mediante Visual Studio
 
@@ -106,7 +106,7 @@ Ha actualizado la función desencadenada por HTTP para escribir datos en una col
 A continuación, debe habilitar la supervisión de Application Insights para su aplicación de función:
 
 > [!div class="nextstepaction"]
-> [Habilitación de la integración de Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Habilitación de la integración de Application Insights](configure-monitoring.md#add-to-an-existing-function-app)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
 [Artículo de inicio rápido anterior]: functions-create-your-first-function-visual-studio.md

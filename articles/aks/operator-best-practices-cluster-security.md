@@ -5,12 +5,12 @@ description: Obtenga información sobre los procedimientos recomendados del oper
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: c2734aa8e4ebf0bdb693a49c3ba785dd134e8c83
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 9cb51cb0f5b902553bda0b881c8392d74905c4bc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003060"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073638"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS)
 
@@ -177,7 +177,7 @@ Para más información sobre los filtros disponibles, consulte [Perfiles de segu
 
 Kubernetes presenta nuevas características a un ritmo más rápido que otras plataformas de infraestructura más tradicionales. Las actualizaciones de Kubernetes incluyen nuevas características y correcciones de seguridad o errores. Las características nuevas pasan normalmente de un estado *alfa* a un estado *beta*, hasta que acaban siendo *estables*, están disponibles en general y se recomienda su uso en producción. Este ciclo de lanzamiento debería permitirle actualizar Kubernetes sin encontrar regularmente cambios importantes ni tener que ajustar las implementaciones ni las plantillas.
 
-AKS es compatible con cuatro versiones secundarias de Kubernetes. Esto significa que cuando se introduce una nueva versión secundaria de parche, se retirarán la versión secundaria y la versión de revisión compatibles más antiguas. Las actualizaciones secundarias en Kubernetes se realizan periódicamente. Asegúrese de que dispone de un proceso de gobernanza para comprobar y actualizar según sea necesario, de modo que no se quede sin soporte. Para más información, consulte [Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)][aks-supported-versions].
+AKS es compatible con tres versiones secundarias de Kubernetes. Esto significa que cuando se introduce una nueva versión secundaria de parche, se retirarán la versión secundaria y la versión de revisión compatibles más antiguas. Las actualizaciones secundarias en Kubernetes se realizan periódicamente. Asegúrese de que dispone de un proceso de gobernanza para comprobar y actualizar según sea necesario, de modo que no se quede sin soporte. Para más información, consulte [Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)][aks-supported-versions].
 
 Para comprobar las versiones que están disponibles para el clúster, use el comando [az aks get-upgrades][az-aks-get-upgrades] tal como se muestra en el ejemplo siguiente:
 
@@ -186,6 +186,8 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
 A continuación, puede actualizar el clúster de AKS con el comando [az aks upgrade][az-aks-upgrade]. El proceso de actualización acordona y drena de forma segura un nodo de cada vez, programa pods en los nodos restantes y, después, implementa un nuevo nodo que ejecute las versiones más recientes del sistema operativo y de Kubernetes.
+
+Se recomienda encarecidamente probar nuevas versiones secundarias en un entorno de prueba de desarrollo para que pueda comprobar que la carga de trabajo continúa funcionando correctamente con la nueva versión de Kubernetes. Kubernetes puede dejar en desuso algunas API de las que pueden depender sus cargas de trabajo, como en la versión 1.16. Al incorporar nuevas versiones en producción, considere la posibilidad de usar [varios grupos de nodos en versiones independientes](use-multiple-node-pools.md) y actualizar grupos individuales de uno en uno para implementar progresivamente la actualización en un clúster. Si se ejecutan varios clústeres, actualice un clúster cada vez para supervisar progresivamente el impacto o los cambios.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version KUBERNETES_VERSION
@@ -235,4 +237,4 @@ En este artículo se indica cómo proteger el clúster de AKS. Para implementar 
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
-[security-center-aks]: ../security-center/azure-kubernetes-service-integration.md
+[security-center-aks]: ../security-center/defender-for-kubernetes-introduction.md

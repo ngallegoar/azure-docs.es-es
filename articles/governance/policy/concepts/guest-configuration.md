@@ -1,14 +1,14 @@
 ---
 title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre cómo Azure Policy usa Guest Configuration para auditar la configuración dentro de las máquinas virtuales.
-ms.date: 08/07/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756697"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075491"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -18,8 +18,7 @@ Azure Policy puede auditar la configuración dentro de un equipo, tanto para las
 - Configuración de la aplicación o presencia
 - Configuración del entorno
 
-En este momento, la mayoría de directivas de configuración de invitado de Azure Policy solo realiza la auditoría de la configuración dentro de la máquina.
-No se aplica a configuraciones. La excepción es una directiva integrada [a la que se hace referencia a continuación](#applying-configurations-using-guest-configuration).
+En este momento, la mayoría de definiciones de directivas de configuración de invitado de Azure Policy solo realiza la auditoría de la configuración dentro de la máquina. No se aplica a configuraciones. La excepción es una directiva integrada [a la que se hace referencia a continuación](#applying-configurations-using-guest-configuration).
 
 ## <a name="enable-guest-configuration"></a>Habilitar configuración de invitado
 
@@ -59,8 +58,7 @@ El cliente de Guest Configuration busca contenido nuevo cada 5 minutos. Una vez 
 
 ## <a name="supported-client-types"></a>Tipos de cliente admitidos
 
-Las directivas de configuración de invitado son inclusivas de nuevas versiones. Las versiones anteriores de los sistemas operativos disponibles en Azure Marketplace se excluyen si el agente de configuración de invitado no es compatible.
-En la tabla siguiente se muestra una lista de sistemas operativos compatibles en imágenes de Azure:
+Las definiciones de directivas de configuración de invitado son inclusivas de nuevas versiones. Las versiones anteriores de los sistemas operativos disponibles en Azure Marketplace se excluyen si el agente de configuración de invitado no es compatible. En la tabla siguiente se muestra una lista de sistemas operativos compatibles en imágenes de Azure:
 
 |Publicador|Nombre|Versiones|
 |-|-|-|
@@ -72,7 +70,7 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles en
 |Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
 |Suse|SLES|12 SP3-SP5|
 
-Las directivas de configuración de invitado admiten imágenes de máquina virtual personalizadas, siempre y cuando se trate de uno de los sistemas operativos de la tabla anterior.
+Las definiciones de directivas de configuración de invitado admiten imágenes de máquina virtual personalizadas, siempre y cuando se trate de uno de los sistemas operativos de la tabla anterior.
 
 ## <a name="network-requirements"></a>Requisitos de red
 
@@ -86,7 +84,7 @@ Las máquinas virtuales que usan redes virtuales para la comunicación requerir�
 
 ### <a name="communicate-over-private-link-in-azure"></a>Comunicación a través de un vínculo privado en Azure
 
-Las máquinas virtuales pueden usar un [vínculo privado](../../../private-link/private-link-overview.md) para la comunicación con el servicio de configuración de invitado. Aplique la etiqueta con el nombre `EnablePrivateNeworkGC` y el valor `TRUE` para habilitar esta característica. La etiqueta se puede aplicar antes o después de que se apliquen las directivas de configuración de invitado a la máquina.
+Las máquinas virtuales pueden usar un [vínculo privado](../../../private-link/private-link-overview.md) para la comunicación con el servicio de configuración de invitado. Aplique la etiqueta con el nombre `EnablePrivateNeworkGC` y el valor `TRUE` para habilitar esta característica. La etiqueta se puede aplicar antes o después de que se apliquen las definiciones de directivas de configuración de invitado a la máquina.
 
 El tráfico se enruta mediante la [dirección IP pública virtual](../../../virtual-network/what-is-ip-address-168-63-129-16.md) de Azure para establecer un canal seguro y autenticado con recursos de la plataforma Azure.
 
@@ -111,14 +109,12 @@ Si la maquina tiene actualmente una identidad del sistema asignada por el usuari
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definición de Guest Configuration
 
-Las directivas de Guest Configuration usan el efecto **AuditIfNotExists**. Cuando se asigna la definición, un servicio back-end administra automáticamente el ciclo de vida de todos los requisitos del proveedor de recursos de Azure `Microsoft.GuestConfiguration`.
+Las definiciones de directivas de invitado deusan el efecto **AuditIfNotExists**. Cuando se asigna la definición, un servicio back-end administra automáticamente el ciclo de vida de todos los requisitos del proveedor de recursos de Azure `Microsoft.GuestConfiguration`.
 
-Las directivas **AuditIfNotExists** no devolverán resultados de cumplimiento hasta que se cumplan todos los requisitos de la máquina. Los requisitos se describen en la sección [Requisitos de implementación de Azure Virtual Machines](#deploy-requirements-for-azure-virtual-machines).
+Las definiciones de directivas **AuditIfNotExists** no devolverán resultados de cumplimiento hasta que se cumplan todos los requisitos en la máquina. Los requisitos se describen en la sección [Requisitos de implementación de Azure Virtual Machines](#deploy-requirements-for-azure-virtual-machines).
 
 > [!IMPORTANT]
-> En una versión anterior de Guest Configuration, una iniciativa debía combinar las definiciones **DeployIfNoteExists** y **AuditIfNotExists**. Las definiciones **DeployIfNotExists** ya no son necesarias. Las definiciones e iniciativas se etiquetan como `[Deprecated]`, pero las asignaciones existentes seguirán funcionando.
->
-> Se requiere un paso manual. Si previamente ha asignado las iniciativas de directiva en la categoría `Guest Configuration`, elimine la asignación de directiva y asigne la nueva definición. Las directivas de Guest Configuration tienen un patrón de nombre de la siguiente manera: `Audit <Windows/Linux> machines that <non-compliant condition>`
+> En una versión anterior de Guest Configuration, una iniciativa debía combinar las definiciones **DeployIfNoteExists** y **AuditIfNotExists**. Las definiciones **DeployIfNotExists** ya no son necesarias. Las definiciones e iniciativas se etiquetan como `[Deprecated]`, pero las asignaciones existentes seguirán funcionando. Para obtener más información, consulte la entrada de blog: [Cambio importante publicado para las directivas de auditoría de configuración de invitado](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 Azure Policy usa la propiedad **complianceStatus** de los proveedores de recursos de Guest Configuration para notificar el cumplimiento en el nodo **Compliance**. Para más información, vea [Obtención de datos de cumplimiento](../how-to/get-compliance-data.md).
 
@@ -140,15 +136,15 @@ La definición _Configurar la zona horaria de las máquinas Windows_ realiza cam
 Al asignar definiciones que empiezan por _Configurar_, también debe asignar la definición _Implementar los requisitos previos para habilitar la directiva de configuración de invitado en máquinas virtuales Windows._ . Puede combinar estas definiciones en una iniciativa si así lo decide.
 
 > [!NOTE]
-> La directiva de zona horaria integrada es la única definición que admite la configuración dentro de las máquinas. Las directivas personalizadas que configuran los valores dentro de las máquinas no se admiten.
+> La directiva de zona horaria integrada es la única definición que admite la configuración dentro de las máquinas. Las definiciones de directivas personalizadas que configuran los valores dentro de las máquinas no se admiten.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Asignación de directivas a máquinas fuera de Azure
 
-Las directivas de auditoría disponibles para la configuración de invitado incluyen el tipo de recurso **Microsoft.HybridCompute/machines**. Todas las máquinas incorporadas a [Azure Arc para servidores](../../../azure-arc/servers/overview.md) que se encuentran en el ámbito de asignación de directivas se incluyen automáticamente.
+Las definiciones de directivas de auditoría disponibles para la configuración de invitado incluyen el tipo de recurso **Microsoft.HybridCompute/machines**. Todas las máquinas incorporadas a [Azure Arc para servidores](../../../azure-arc/servers/overview.md) que se encuentran en el ámbito de asignación de directivas se incluyen automáticamente.
 
 ### <a name="multiple-assignments"></a>Asignaciones múltiples
 
-Actualmente, las directivas de configuración de invitado solo admiten la asignación de la misma asignación de invitado una vez por cada máquina, incluso si la asignación de directiva usa parámetros diferentes.
+Actualmente, las definiciones de directivas de configuración de invitado solo admiten la asignación de la misma asignación de invitado una vez por cada máquina, incluso si la asignación de directiva usa parámetros diferentes.
 
 ## <a name="client-log-files"></a>Archivos de registro de cliente
 

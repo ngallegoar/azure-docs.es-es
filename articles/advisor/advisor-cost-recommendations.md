@@ -2,17 +2,17 @@
 title: Reducción de los costos de servicio con Azure Advisor
 description: Utilice Azure Advisor para optimizar el costo de las implementaciones de Azure.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: d234e89d0d042999805fae73d3df24c03d1027c9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 09/27/2020
+ms.openlocfilehash: 454ed02c06511b55f9f592bbe6fe5ab08605d752
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654045"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075916"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reducción de los costos de servicio con Azure Advisor
 
-Azure Advisor ayuda a optimizar y reducir el gasto global de Azure mediante la identificación de recursos inactivos e infrautilizados. Puede obtener recomendaciones sobre el costo en la pestaña **Cost** (Costo) del panel de Advisor.
+Azure Advisor ayuda a optimizar y reducir el gasto global de Azure mediante la identificación de recursos inactivos e infrautilizados.  Puede obtener recomendaciones sobre el costo en la pestaña **Cost** (Costo) del panel de Advisor.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimización del gasto en máquinas virtuales mediante la adecuación del tamaño o el apagado en instancias infrautilizadas 
 
@@ -20,7 +20,7 @@ Mientras que determinados escenarios de aplicaciones pueden dar lugar a un uso e
 
 Las acciones recomendadas son apagar o cambiar de tamaño, en función de cada recurso que se vaya a evaluar.
 
-El modelo de evaluación avanzada de Advisor considera el apagado de las máquinas virtuales cuando se cumplen estas dos condiciones: 
+El modelo de evaluación avanzada de Advisor considera el apagado de las máquinas virtuales cuando se cumplen todas estas condiciones: 
 - El percentil 95 del valor máximo del uso de CPU es inferior al 3 %. 
 - El uso de la red es inferior al 2 % en un período de siete días.
 - La presión de la memoria es menor que los valores del umbral.
@@ -59,8 +59,8 @@ Advisor analiza los patrones de uso de los últimos 30 días para los siguiente
 ### <a name="azure-cosmos-db-reserved-capacity"></a>Capacidad reservada de Azure Cosmos DB
 Advisor analiza los patrones de uso de Azure Cosmos DB de los últimos 30 días y recomienda las compras de capacidad reservada para optimizar los costos. Con la capacidad reservada, puede comprar por adelantado un uso por horas de Azure Cosmos DB y ahorrar en los costos de pago por uso. La capacidad reservada es una ventaja de facturación que se aplicará automáticamente a las implementaciones nuevas y existentes. Para calcular las estimaciones de ahorro de las suscripciones individuales, Advisor utiliza los precios de una reserva de tres años y extrapola los patrones de uso observados en los últimos 30 días. Hay disponibles recomendaciones de compras de capacidad reservada para ámbitos compartidos que pueden aumentar el ahorro.
 
-### <a name="sql-paas-reserved-capacity"></a>Capacidad reservada de PaaS de SQL
-Advisor analiza los grupos de bases de datos elásticas de PaaS de SQL y el uso de patrones de SQL Managed Instance en los últimos 30 días. A continuación, recomienda las compras de capacidad reservada que optimizan los costos. Con la capacidad reservada, puede comprar por adelantado un uso por horas de SQL Database y ahorrar en los costos de proceso de SQL. La licencia de SQL se cobra por separado y no se descuenta de la reserva. La capacidad reservada es una ventaja de facturación que se aplicará automáticamente a las implementaciones nuevas y existentes. Para calcular las estimaciones de ahorro de las suscripciones individuales, Advisor utiliza los precios de una reserva de tres años y extrapola los patrones de uso observados en los últimos 30 días. Hay disponibles recomendaciones de compras de capacidad reservada para ámbitos compartidos que pueden aumentar el ahorro.
+### <a name="sql-database-and-sql-managed-instance-reserved-capacity"></a>Capacidad reservada de SQL Database y SQL Managed Instance
+Advisor analiza los patrones de uso de SQL Database y SQL Managed Instance de los últimos 30 días. A continuación, recomienda las compras de capacidad reservada que optimizan los costos. Con la capacidad reservada, puede comprar por adelantado un uso por horas de SQL Database y ahorrar en los costos de proceso de SQL. La licencia de SQL se cobra por separado y no se descuenta de la reserva. La capacidad reservada es una ventaja de facturación que se aplicará automáticamente a las implementaciones nuevas y existentes. Para calcular las estimaciones de ahorro de las suscripciones individuales, Advisor utiliza los precios de una reserva de tres años y extrapola los patrones de uso observados en los últimos 30 días. Hay disponibles recomendaciones de compras de capacidad reservada para ámbitos compartidos que pueden aumentar el ahorro. Para obtener más información, consulte [Capacidad reservada de SQL Database y SQL Managed Instance](../azure-sql/database/reserved-capacity-overview.md).
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>Capacidad reservada del impuesto sobre el timbre de App Service
 Advisor analiza el patrón de uso del impuesto sobre el timbre para el entorno aislado de Azure App Service durante los últimos 30 días y recomienda las compras de capacidad reservada que optimizan los costos. Con la capacidad reservada, puede comprar por adelantado un uso por horas del impuesto sobre el timbre para el entorno aislado y ahorrar en los costos de pago por uso. Tenga en cuenta que la capacidad reservada solo se aplica al impuesto sobre el timbre y no a las instancias de App Service. La capacidad reservada es una ventaja de facturación que se aplicará automáticamente a las implementaciones nuevas y existentes. Para calcular las estimaciones de ahorro de las suscripciones individuales, Advisor utiliza los precios de reserva de tres años y los patrones de uso de los últimos 30 días.
@@ -111,6 +111,7 @@ Advisor identifica los recursos en los que reducir la directiva de caché de la 
 
 Para aprender más sobre las recomendaciones de Advisor, consulte:
 * [Introducción a Advisor](advisor-overview.md)
+* [Puntuación de Advisor](azure-advisor-score.md)
 * [Introducción a Advisor](advisor-get-started.md)
 * [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
 * [Recomendaciones sobre alta disponibilidad de Advisor](advisor-high-availability-recommendations.md)

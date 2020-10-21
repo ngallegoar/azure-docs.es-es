@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 6d95c07e5bec810ce82e98b2291b348fbcc2d8bc
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 3952736af9cf7c3b720769cee6a58e3fc52a6111
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812444"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127410"
 ---
 # <a name="what-is-azure-iot-central"></a>¿Qué es Azure IoT Central?
 
@@ -114,7 +114,7 @@ Los [trabajos](howto-run-a-job.md) permiten aplicar actualizaciones individuales
 
 ## <a name="integrate-with-other-services"></a>Integración con otros servicios
 
-Como plataforma de aplicaciones, IoT Central permite transformar los datos de IoT en información empresarial que produce resultados útiles. Las [reglas](./tutorial-create-telemetry-rules.md), la [exportación de datos](./howto-export-data.md) y la [API REST pública](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) son ejemplos de integración de IoT Central con aplicaciones de línea de negocio:
+Como plataforma de aplicaciones, IoT Central permite transformar los datos de IoT en información empresarial que produce resultados útiles. Las [reglas](./tutorial-create-telemetry-rules.md), la [exportación de datos](./howto-export-data.md) y la [API REST pública](/learn/modules/manage-iot-central-apps-with-rest-api/) son ejemplos de integración de IoT Central con aplicaciones de línea de negocio:
 
 ![Transformación de datos de IoT mediante IoT Central](media/overview-iot-central/transform.png)
 

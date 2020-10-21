@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 553652832f3f4ce84a0a141455551e4977215184
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 32db8396a687428c668a9b8a4213b50986614083
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684429"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150122"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Autoservicio de cambios y reembolsos de reservas de Azure
 
@@ -21,7 +21,7 @@ Las reservas de Azure proporcionan flexibilidad para ayudar a satisfacer sus nec
 El autoservicio de intercambio y la funcionalidad de cancelación no están disponible para los clientes de Contrato Enterprise de US Government. Otros tipos de suscripción de US Government, como Pago por uso y Proveedor de soluciones en la nube, sí se admiten.
 
 > [!NOTE]
-> - **Para cambiar o recibir el reembolso de una reserva existente, debe tener acceso de propietario en el pedido de reserva**. Puede [agregar o cambiar los usuarios que pueden administrar una reserva](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+> - **Para cambiar o recibir el reembolso de una reserva existente, debe tener acceso de propietario en el pedido de reserva**. Puede [agregar o cambiar los usuarios que pueden administrar una reserva](./manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 > - Actualmente, Microsoft no cobra ningún cargo por finalización prematura en las devoluciones de las reservas. En el futuro es posible que se cobre cuando se realicen devoluciones. En la actualidad, no hay una fecha establecida para habilitar este cargo.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Cambio o devolución de una reserva existente

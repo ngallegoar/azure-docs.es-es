@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 10/05/2019
+ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 0db53bcd6516bd52e2796deaa49fe0dd582e0588
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fd795c9e251a7c4c0c8cbea5ce6c48cec3535484
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "76939391"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311750"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>Inicio rápido: Creación de una zona DNS privada de Azure mediante Azure PowerShell
 
@@ -22,21 +22,15 @@ Este artículo le guiará por los pasos necesarios para crear una zona y un regi
 
 Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para iniciar el hospedaje de su dominio en DNS de Azure, debe crear una zona DNS para ese nombre de dominio. Cada registro DNS del dominio se crea luego en esta zona DNS. Para publicar una zona DNS privada en la red virtual, especifique la lista de redes virtuales que pueden resolver registros en ella.  Se denominan redes virtuales *vinculadas*. Cuando se habilita el registro automático, Azure DNS también actualiza los registros de zona cuando se crea una máquina virtual, se cambia su dirección IP o se elimina.
 
-En este artículo aprenderá a:
-
-> [!div class="checklist"]
-> * Crear una zona DNS privada
-> * Creación de máquinas virtuales de prueba
-> * Creación de un registro de DNS adicional
-> * Prueba de la zona privada
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 Si lo prefiere, puede completar este inicio rápido mediante la [CLI de Azure](private-dns-getstarted-cli.md).
 
-## <a name="create-the-resource-group"></a>Creación del grupo de recursos
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## <a name="create-the-resource-group"></a>Crear el grupo de recursos
 
 En primer lugar, cree un grupo de recursos que contenga la zona DNS: 
 
@@ -155,7 +149,7 @@ Repita la operación con myVM02.
    ping myVM01.private.contoso.com
    ```
 
-   La salida es similar a esta:
+   Debería ver una salida similar a esta:
 
    ```
    PS C:\> ping myvm01.private.contoso.com
@@ -179,7 +173,7 @@ Repita la operación con myVM02.
    ping db.private.contoso.com
    ```
 
-   La salida es similar a esta:
+   Debería ver una salida similar a esta:
 
    ```
    PS C:\> ping db.private.contoso.com
@@ -197,7 +191,7 @@ Repita la operación con myVM02.
    PS C:\>
    ```
 
-## <a name="delete-all-resources"></a>Eliminación de todos los recursos
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando no lo necesite, elimine el grupo de recursos **MyAzureResourceGroup** para eliminar los recursos que ha creado en este artículo.
 

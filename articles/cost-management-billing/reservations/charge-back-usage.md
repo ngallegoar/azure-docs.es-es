@@ -7,18 +7,18 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 4387a1aa5b22c9808f36364b71f89a71736958b8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: aba6ea467788c51d179ef9377243efb6035b6f98
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689480"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148350"
 ---
 # <a name="charge-back-azure-reservation-costs"></a>Contracargo de costos de Reserva de Azure
 
 Los lectores de facturación de Contrato Enterprise y Contrato de cliente de Microsoft pueden ver los datos de los costos amortizados para las reservas. Pueden utilizar los datos de costo para realizar un contracargo del valor monetario de una suscripción, un grupo de recursos, un recurso o una etiqueta a sus asociados. En los datos amortizados, el precio efectivo es el costo de la reserva por hora prorrateada. El costo es el costo total de uso de la reserva por parte del recurso en ese día.
 
-Los usuarios con una suscripción individual pueden obtener los datos de costos amortizados en su archivo de uso. Cuando un recurso obtiene un descuento por reserva, la sección *AdditionalInfo* del archivo de uso contiene los detalles de la reserva. Para más información, consulte [Descarga de uso en Azure Portal](https://docs.microsoft.com/azure/cost-management-billing/understand/download-azure-daily-usage#download-usage-from-the-azure-portal-csv).
+Los usuarios con una suscripción individual pueden obtener los datos de costos amortizados en su archivo de uso. Cuando un recurso obtiene un descuento por reserva, la sección *AdditionalInfo* del archivo de uso contiene los detalles de la reserva. Para más información, consulte [Descarga de uso en Azure Portal](../understand/download-azure-daily-usage.md#download-usage-from-the-azure-portal-csv).
 
 ## <a name="get-reservation-charge-back-data-for-chargeback"></a>Obtención de datos de la reserva para realizar el contracargo
 

@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 51b2f4964c01efbfc82008134d47f09648a772ff
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d6b32df7264066daa0bc7298a04453dad4fc9937
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681981"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147254"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Aplicación de un descuento por reserva a un servidor individual Azure Database for PostgreSQL
 
@@ -30,7 +30,7 @@ El descuento de la capacidad reservada de un servidor individual Azure Database 
 
 En los ejemplos siguientes se muestra cómo se aplica el descuento por la capacidad reservada de Azure Database for PostgreSQL en función del número de núcleos adquiridos y el momento de su ejecución.
 
-* **Ejemplo 1**: compra una capacidad reservada de Azure Database for PostgreSQL para ocho núcleos virtuales. Si va a ejecutar un servidor Azure Database for PostgreSQL de 16 núcleos virtuales que coincida con el resto de los atributos de la reserva, se le cobrará el precio de pago por uso de 8 núcleos virtuales correspondiente al uso de procesos del servidor PostgreSQL y obtendrá el descuento por reserva durante una hora del uso de proceso del servidor PostgreSQL correspondiente a 8 núcleos virtuales.</br>
+**Ejemplo 1**: compra una capacidad reservada de Azure Database for PostgreSQL para ocho núcleos virtuales. Si va a ejecutar un servidor Azure Database for PostgreSQL de 16 núcleos virtuales que coincida con el resto de los atributos de la reserva, se le cobrará el precio de pago por uso de 8 núcleos virtuales correspondiente al uso de procesos del servidor PostgreSQL y obtendrá el descuento por reserva durante una hora del uso de proceso del servidor PostgreSQL correspondiente a 8 núcleos virtuales.</br>
 
 En el resto de estos ejemplos, supongamos que la capacidad reservada de Azure Database for PostgreSQL que compra es para una instancia de Azure Database for PostgreSQL de 16 núcleos virtuales y el resto de atributos de la reserva coinciden con los servidores individuales PostgreSQL en ejecución.
 
@@ -40,7 +40,7 @@ En el resto de estos ejemplos, supongamos que la capacidad reservada de Azure Da
 
 * **Ejemplo 4**: se ejecuta un servidor individual Azure Database for PostgreSQL de 16 núcleos virtuales desde la 1 p.m. a la 1:45 p.m. Se ejecuta un servidor individual Azure Database for PostgreSQL de 16 núcleos virtuales desde la 1:30 p.m. a las 2 p.m. Se le cobra el precio de pago por uso por el solapamiento de 15 minutos. El descuento en la reserva se aplica al uso de proceso por el resto del tiempo.
 
-Para obtener información sobre la aplicación de Azure Reservations en informes de uso de facturación, consulte el artículo [Información sobre el uso de Azure Reservations](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
+Para obtener información sobre la aplicación de Azure Reservations en informes de uso de facturación, consulte el artículo [Información sobre el uso de Azure Reservations](./understand-reserved-instance-usage-ea.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

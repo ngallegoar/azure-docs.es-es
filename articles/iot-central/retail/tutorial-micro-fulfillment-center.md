@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: d6b5d337090ebd664e855be47128e76d3c61e151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bb50b513a9b09db4a8d59d32816b702bff250f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840445"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125976"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implementación y recorrido por una plantilla de aplicación del centro de micrologística
 
@@ -47,7 +47,7 @@ Para crear una nueva aplicación del centro de micrologística que usa las carac
 
 1. Si tiene una suscripción de Azure, escriba el directorio, la suscripción de Azure y la región. Si no la tiene, puede habilitar la evaluación gratuita de 7 días y completar la información de contacto necesaria.  
 
-    Para más información sobre los directorios y las suscripciones, consulte el inicio rápido [Creación de una aplicación](../preview/quick-deploy-iot-central.md).
+    Para más información sobre los directorios y las suscripciones, consulte el inicio rápido [Creación de una aplicación](../core/quick-deploy-iot-central.md).
 
 1. Seleccione **Crear**.
 
@@ -96,4 +96,4 @@ Más información acerca de
 > [!div class="nextstepaction"]
 > [arquitectura de la solución de centro de micrologística](./architecture-micro-fulfillment-center.md)
 * Más información sobre las [plantillas para minoristas de Azure IoT Central](./overview-iot-central-retail.md).
-* Más información acerca de [Azure IoT Central](../preview/overview-iot-central.md)
+* Más información acerca de [Azure IoT Central](../core/overview-iot-central.md)

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 5ec06960e695abfa4bf004633b1f171214a5d29a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bbd274f6b039ef4492068d939c755ab279c2830a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91286657"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069998"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: Configuración de la escritura diferida de atributos de Azure AD en SAP SuccessFactors
 El objetivo de este tutorial es mostrar los pasos para la escritura diferida de atributos de Azure AD en Employee Central de SAP SuccessFactors. 
@@ -324,13 +324,23 @@ Una vez completadas las configuraciones de la aplicación de aprovisionamiento d
 
 1. En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
 
-2. Haga clic en **Save**(Guardar).
+1. Seleccione **Ámbito**. Puede seleccionar una de las siguientes opciones: 
+   * **Sincronizar todos los usuarios y grupos**: seleccione esta opción si tiene previsto reescribir atributos asignados de todos los usuarios de Azure AD a SuccessFactors, de acuerdo con las reglas de ámbito definidas en **Asignaciones** -> **Ámbito de objeto de origen**. 
+   * **Sincronizar solo los usuarios y grupos asignados**: seleccione esta opción si tiene previsto reescribir los atributos asignados solo de los usuarios que ha asignado a esta aplicación en la opción de menú **Aplicación** -> **Administrar** -> **Usuarios y grupos**. Estos usuarios también están sujetos a las reglas de ámbito definidas en **Asignaciones** -> **Ámbito de objeto de origen**.
 
-3. Esta operación dará comienzo a la sincronización inicial, que puede tardar una cantidad de horas variable, según el número de usuarios que haya en el inquilino de SuccessFactors. Puede consultar en la barra de progreso el seguimiento del progreso del ciclo de sincronización. 
+   > [!div class="mx-imgBorder"]
+   > ![Selección del ámbito de escritura diferida](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
 
-4. En cualquier momento, compruebe la pestaña **Registros de auditoría** en Azure Portal para ver las acciones que ha realizado el servicio de aprovisionamiento. Los registros de auditoría muestran todos los eventos de sincronización individuales realizados por el servicio de aprovisionamiento, por ejemplo, los usuarios que se leen de Employee Central y que luego se agregan o actualizan en Active Directory. 
+   > [!NOTE]
+   > La aplicación de aprovisionamiento de escritura diferida de SuccessFactors no admite la "asignación de grupo". Solo admite la "asignación de usuario". 
 
-5. Una vez completada la sincronización inicial, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
+1. Haga clic en **Save**(Guardar).
+
+1. Esta operación dará comienzo a la sincronización inicial, que puede tardar una cantidad de horas variable, según el número de usuarios que haya en el inquilino de Azure AD y el ámbito definido para la operación. Puede consultar en la barra de progreso el seguimiento del progreso del ciclo de sincronización. 
+
+1. En cualquier momento, compruebe la pestaña **Registros de aprovisionamiento** en Azure Portal para ver las acciones que ha realizado el servicio de aprovisionamiento. En los registros de aprovisionamiento se enumeran todos los eventos de sincronización individuales que realiza el servicio de aprovisionamiento. 
+
+1. Una vez completada la sincronización inicial, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
 
    > [!div class="mx-imgBorder"]
    > ![Barra de progreso de aprovisionamiento](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

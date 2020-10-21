@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 025b9b7e503f38a111bd158f17b7fbeec5b23579
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 51baa26cf78846bd0a719b8b86056e2ea8176155
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684990"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131095"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Creación y administración de reglas de asignación de costos de Azure (versión preliminar)
 
@@ -58,16 +58,16 @@ Al distribuir los costos por costo de proceso, costo del almacenamiento o costo 
 
 Al distribuir los costos de forma proporcional al costo total, el porcentaje proporcional se asigna por la suma o costo total de los destinos seleccionados en el mes de facturación actual.
 
-:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Ejemplo que muestra el porcentaje de asignación" lightbox="./media/allocate-costs/cost-distribution.png" :::
+:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Ejemplo que muestra la creación de un nombre de regla" lightbox="./media/allocate-costs/cost-distribution.png" :::
 
 Una vez que se establecen, los porcentajes rellenados previamente se quedan fijos. Se usan para todas las asignaciones en curso. Los porcentajes solo cambian cuando la regla se actualiza manualmente.
 
 1. Seleccione una de las siguientes opciones en la lista **Prerrellenar porcentaje**.
     - **Distribuir uniformemente**: cada uno de los destinos recibe una proporción igual del costo total.
     - **Costo total**: crea una relación proporcional a los destinos en función de su costo total. La relación se usa para distribuir los costos de los orígenes seleccionados.
-    - **Costo de proceso**: crea una relación proporcional a los destinos en función de su costo de proceso de Azure (los tipos de recursos del espacio de nombres [Microsoft.Compute](https://docs.microsoft.com/azure/templates/microsoft.compute/allversions)). La relación se usa para distribuir los costos de los orígenes seleccionados.
-    - **Costo de almacenamiento**: crea una relación proporcional a los destinos en función de su costo de proceso de Azure (los tipos de recursos del espacio de nombres [Microsoft.Storage](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions)). La relación se usa para distribuir los costos de los orígenes seleccionados.
-    - **Costo de red**: crea una relación proporcional a los destinos en función de su costo de red de Azure (los tipos de recursos del espacio de nombres [Microsoft.Network](https://docs.microsoft.com/azure/templates/microsoft.network/allversions)). La relación se usa para distribuir los costos de los orígenes seleccionados.
+    - **Costo de proceso**: crea una relación proporcional a los destinos en función de su costo de proceso de Azure (los tipos de recursos del espacio de nombres [Microsoft.Compute](/azure/templates/microsoft.compute/allversions)). La relación se usa para distribuir los costos de los orígenes seleccionados.
+    - **Costo de almacenamiento**: crea una relación proporcional a los destinos en función de su costo de proceso de Azure (los tipos de recursos del espacio de nombres [Microsoft.Storage](/azure/templates/microsoft.storage/allversions)). La relación se usa para distribuir los costos de los orígenes seleccionados.
+    - **Costo de red**: crea una relación proporcional a los destinos en función de su costo de red de Azure (los tipos de recursos del espacio de nombres [Microsoft.Network](/azure/templates/microsoft.network/allversions)). La relación se usa para distribuir los costos de los orígenes seleccionados.
     - **Personalizado**: permite especificar manualmente un porcentaje de un número entero. El total especificado debe sumar un 100 %.
 1. Cuando la regla se haya configurado, seleccione **Crear**.
 
@@ -84,7 +84,7 @@ Cuando la regla de asignación de costos está activa, los costos de los orígen
 
 Vea el impacto de la regla de asignación en el análisis de costos. En Azure Portal, vaya a [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Seleccione en la lista una suscripción que sea el destino de una regla de asignación de costos activa. Luego seleccione **Análisis de costos** en el menú. En Análisis de costos, seleccione **Agrupar por** y luego seleccione **Asignación de costos**. La vista resultante muestra un rápido desglose de costos generado por la suscripción. También se muestran los costos asignados a la suscripción, como en la siguiente imagen.
 
-:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Ejemplo que muestra el desglose de costos" lightbox="./media/allocate-costs/cost-breakdown.png" :::
+:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Ejemplo que muestra la creación de un nombre de regla" lightbox="./media/allocate-costs/cost-breakdown.png" :::
 
 ### <a name="view-cost-allocation-for-a-resource-group"></a>Visualización de la asignación de costos de un grupo de recursos
 
@@ -94,7 +94,7 @@ Use un proceso similar para ver el impacto de una regla de asignación de costos
 
 En Azure Portal, vaya a **Administración de costos + facturación** > **Administración de costos** > **Análisis de costos**. En Análisis de costos, seleccione **Agregar filtro**. Seleccione **Etiqueta**, elija la clave de la etiqueta y los valores de la etiqueta a los que se haya asignado algún costo.
 
-:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Ejemplo que muestra los costos de los elementos con etiqueta" lightbox="./media/allocate-costs/tagged-costs.png" :::
+:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Ejemplo que muestra la creación de un nombre de regla" lightbox="./media/allocate-costs/tagged-costs.png" :::
 
 ## <a name="edit-an-existing-cost-allocation-rule"></a>Edición de una regla de asignación existente
 
@@ -112,10 +112,10 @@ Actualmente, la asignación de costos se admite en Cost Management por análisis
 Los elementos siguientes no son compatibles actualmente con la versión preliminar pública de asignación de costos:
 
 - [Exportaciones](tutorial-export-acm-data.md) programadas
-- Datos que expone [Usage Details](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API
+- Datos que expone [Usage Details](/rest/api/consumption/usagedetails/list) API
 - Área de suscripciones de facturación
 - [Aplicación Azure Cost Management para Power BI](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
-- [Conector de Power BI Desktop](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-azure-cost-management)
+- [Conector de Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
 ### <a name="are-costs-factored-into-budgets-and-forecast-views"></a>¿Se incluyen los costos en las vistas de presupuestos y previsiones?
 <a name="budgets-forecast"></a>
@@ -144,5 +144,5 @@ No se recomiendan aquellas reglas que tengan orígenes o destinos superpuestos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Cree o actualice reglas de asignación mediante la [API REST de asignación de costos](https://go.microsoft.com/fwlink/?linkid=2135004)
+- Cree o actualice reglas de asignación mediante la [API REST de asignación de costos](/rest/api/cost-management/costallocationrules)
 - Obtenga más información sobre la [optimización de la inversión en la nube con Azure Cost Management](cost-mgt-best-practices.md)

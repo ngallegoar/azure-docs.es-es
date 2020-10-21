@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371412"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132370"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferencia de suscripciones de Azure entre suscriptores y CSP
 
@@ -26,7 +26,7 @@ Los partners de facturación directa de CSP certificados como [Proveedor de serv
 Cuando se aprueba la solicitud, el CSP puede entregar una factura combinada a sus clientes. Para obtener más información sobre los CSP que transfieren suscripciones, consulte [Obtención de la propiedad de la facturación de las suscripciones a Azure para la cuenta de MPA](mpa-request-ownership.md).
 
 >[!IMPORTANT]
-> Después de transferir una suscripción de Contrato Enterprise a un asociado de CSP, cualquier aumento de cuota que se hubiera aplicado previamente a la suscripción de Contrato Enterprise se restablecerá al valor predeterminado. Si se requiere una cuota adicional después de la transferencia de la suscripción, solicite al proveedor de CSP que envíe una solicitud de [aumento de cuota](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests). 
+> Después de transferir una suscripción de Contrato Enterprise a un asociado de CSP, cualquier aumento de cuota que se hubiera aplicado previamente a la suscripción de Contrato Enterprise se restablecerá al valor predeterminado. Si se requiere una cuota adicional después de la transferencia de la suscripción, solicite al proveedor de CSP que envíe una solicitud de [aumento de cuota](../../azure-portal/supportability/regional-quota-requests.md). 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>Otras transferencias de suscripciones a un partner de CSP
 
@@ -42,7 +42,7 @@ Para transferir cualquier otra suscripción de Azure a un partner de CSP, el sus
 1. Antes de comenzar, [valide](/rest/api/resources/resources/validatemoveresources) que todos los recursos de Azure puedan moverse de la suscripción de origen a la suscripción de destino.  
     Algunos recursos de Azure no se pueden mover entre suscripciones. Para ver la lista completa de recursos de Azure que se pueden mover, consulte [Compatibilidad con la operación de traslado para recursos](../../azure-resource-manager/management/move-support-resources.md).
     > [!IMPORTANT]
-    >  - CSP de Azure solo admite los recursos de Azure Resource Manager. Si alguno de los recursos de Azure en la suscripción de origen se creó mediante el modelo de implementación clásica de Azure, debe migrarlo a [Azure Resource Manager](https://docs.microsoft.com/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm) antes de la migración. Debe ser partner para ver la página web.
+    >  - CSP de Azure solo admite los recursos de Azure Resource Manager. Si alguno de los recursos de Azure en la suscripción de origen se creó mediante el modelo de implementación clásica de Azure, debe migrarlo a [Azure Resource Manager](/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm) antes de la migración. Debe ser partner para ver la página web.
 
 1. Compruebe que todos los servicios de suscripción de origen usen el modelo de Azure Resource Manager. A continuación, transfiera los recursos de la suscripción de origen a la suscripción de destino siguiendo el [traslado de recursos de Azure](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
     > [!IMPORTANT]

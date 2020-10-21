@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: e3bc26b8f4d66c95f6f777af06d71172a4b882b9
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: dd2305e13322540e9e30223f200baed9919d1840
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767647"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075406"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación de Java Spring con Azure App Configuration
 
@@ -25,7 +25,7 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-- Un [kit de desarrollo de Java (JDK)](https://docs.microsoft.com/java/azure/jdk) admitido, versión 8.
+- Un [kit de desarrollo de Java (JDK)](/java/azure/jdk) admitido, versión 8.
 - [Apache Maven](https://maven.apache.org/download.cgi), versión 3.0 o posterior.
 
 ## <a name="create-an-app-configuration-store"></a>Creación de un almacén de App Configuration
@@ -188,7 +188,7 @@ Para crear un proyecto de Spring Boot, use [Spring Initializr](https://start.spr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un almacén de App Configuration y lo ha usado con una aplicación de Java Spring. Para más información, consulte [Spring en Azure](https://docs.microsoft.com/java/azure/spring-framework/). Para aprender a habilitar la aplicación de Java Spring y actualizar dinámicamente la configuración, continúe con el siguiente tutorial.
+En este inicio rápido, ha creado un almacén de App Configuration y lo ha usado con una aplicación de Java Spring. Para más información, consulte [Spring en Azure](/java/azure/spring-framework/). Para aprender a habilitar la aplicación de Java Spring y actualizar dinámicamente la configuración, continúe con el siguiente tutorial.
 
 > [!div class="nextstepaction"]
 > [Habilitación de la configuración dinámica](./enable-dynamic-configuration-java-spring-app.md)

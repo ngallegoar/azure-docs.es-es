@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 237565a7b72c3317e2c443f86965634ed7c9942c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f4dd6d67d60603ed6cad7056cff4bb07dcb1c2e5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336962"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149382"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Acerca de la transferencia de la propiedad de facturación para una suscripción de Azure
 
@@ -63,7 +63,7 @@ La transferencia de suscripciones en Azure Portal está disponible para los tipo
 
 ## <a name="resources-transferred-with-subscriptions"></a>Recursos transferidos con suscripciones
 
-Todos los recursos, como las VM, los discos y los sitios web, se transfieren a la nueva cuenta. Sin embargo, si transfiere una suscripción a una cuenta de otro inquilino de Azure AD, los [roles de administrador](../manage/add-change-subscription-administrator.md) y las [asignaciones de roles de Azure](../../role-based-access-control/role-assignments-portal.md) de la suscripción no se transfieren. Tampoco se transferirán los [registros de aplicaciones](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) ni otros servicios específicos del inquilino junto con la suscripción.
+Todos los recursos, como las VM, los discos y los sitios web, se transfieren a la nueva cuenta. Sin embargo, si transfiere una suscripción a una cuenta de otro inquilino de Azure AD, los [roles de administrador](../manage/add-change-subscription-administrator.md) y las [asignaciones de roles de Azure](../../role-based-access-control/role-assignments-portal.md) de la suscripción no se transfieren. Tampoco se transferirán los [registros de aplicaciones](../../active-directory/develop/quickstart-register-app.md) ni otros servicios específicos del inquilino junto con la suscripción.
 
 ## <a name="transfer-account-ownership-to-another-countryregion"></a>Transferencia de la propiedad de cuenta a otro país o región
 
@@ -99,7 +99,7 @@ Puede ver los usuarios que tienen asignaciones de roles de Azure para acceder a 
 Aunque las [asignaciones de roles de Azure](../../role-based-access-control/role-assignments-portal.md) se eliminen durante la transferencia, es posible que los usuarios de la cuenta del propietario original sigan teniendo acceso a la suscripción mediante otros mecanismos de seguridad, como:
 
 * Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](../../cloud-services/cloud-services-certs-create.md).
-* Claves de acceso para servicios como Almacenamiento. Para más información, consulte [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-create-storage-account.md).
+* Claves de acceso para servicios como Almacenamiento. Para más información, consulte [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-account-create.md).
 * Credenciales de acceso remoto para servicios como Azure Virtual Machines.
 
 Si el destinatario debe restringir el acceso a sus recursos, debe considerar la actualización de todos los secretos asociados al servicio. La mayoría de los recursos se pueden actualizar. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Todos los recursos** en el menú Concentrador. Después, seleccione el tamaño del recurso. A continuación, en la página de recursos, seleccione **Configuración**. Aquí puede ver y actualizar los secretos existentes.

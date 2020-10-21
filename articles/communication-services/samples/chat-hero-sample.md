@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 51b985cd67e1b540e2f24f2f37b19f9bff4223db
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962996"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124592"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introducción al ejemplo de elementos principales de un chat grupal
 
@@ -30,7 +30,7 @@ En el ejemplo de salón de chat de grupo **de Azure Communication Services** se 
 En esta guía de inicio rápido de ejemplo, veremos cómo funciona el ejemplo antes de ejecutarlo en la máquina local. A continuación, implementaremos el ejemplo en Azure con sus propios recursos de Azure Communication Services.
 
 > [!IMPORTANT]
-> [Descargue el ejemplo de GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat).
+> [Descargue el ejemplo de GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero).
 
 ## <a name="overview"></a>Información general
 
@@ -103,7 +103,7 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 ## <a name="next-steps"></a>Pasos siguientes
 
 >[!div class="nextstepaction"] 
->[Descargue el ejemplo de GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat).
+>[Descargue el ejemplo de GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero).
 
 Para más información, consulte los siguientes artículos.
 

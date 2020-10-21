@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f559587e1abca7642edfc6278018d760b55e774
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86206225"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123569"
 ---
 # <a name="what-is-azure-data-box"></a>¿Qué es Azure Data Box?
 
@@ -144,7 +144,7 @@ Data Box puede transferir datos en función de la región en la que se implement
 
 - **Disponibilidad del servicio**: cuando se use Data Box para pedidos de importación o exportación, puede obtener información sobre la disponibilidad por región en [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). La característica de exportación de Data Box se encuentra actualmente en versión preliminar. 
 
-    En el caso de los pedidos de exportación, Data Box también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). 
+    En el caso de los pedidos de exportación, Data Box también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](../azure-government/documentation-government-welcome.md). 
 
 - **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure donde está disponible el servicio.
 
@@ -154,7 +154,3 @@ Data Box puede transferir datos en función de la región en la que se implement
 - Revise [los requisitos del sistema Data Box](data-box-system-requirements.md).
 - Información acerca de los [límites de Data Box](data-box-limits.md).
 - Implemente rápidamente [Azure Data Box](data-box-quickstart-portal.md) en Azure Portal.
-
-
-
-

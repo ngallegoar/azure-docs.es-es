@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ebed70a99e8e906db802099e052e69ab2575d737
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e7e140e26da79475bea032c8190ee64740370d04
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875041"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312871"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Creación de un centro de notificaciones de Azure con la CLI de Azure
 
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Azure Notification Hubs, como todos los demás recursos de Azure, se tiene que implementar en un grupo de recursos.  Los grupos de recursos le permiten organizar y administrar los recursos relacionados de Azure.  Consulte [¿Qué es Azure Resource Manager?](/azure/azure-resource-manager/management/overview) para más información sobre los grupos de recursos.
+Azure Notification Hubs, como todos los demás recursos de Azure, se tiene que implementar en un grupo de recursos.  Los grupos de recursos le permiten organizar y administrar los recursos relacionados de Azure.  Consulte [¿Qué es Azure Resource Manager?](../azure-resource-manager/management/overview.md) para más información sobre los grupos de recursos.
 
 Para esta guía de inicio rápido, cree un grupo de recursos llamado **spnhubrg** en la ubicación **eastus** con el comando [az group create](/cli/azure/group#az-group-create) siguiente.
 

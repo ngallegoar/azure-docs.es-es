@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a8bfa91ac9b70c0ff4f461bd9e10899d1170b24d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ab7def6209483ee891dc0d26bf8163cdc39a23
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272532"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165266"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -140,7 +140,7 @@ Para las soluciones de almacenamiento compartido y de replicación de datos de a
 
 ## <a name="connectivity"></a>Conectividad
 
-Las instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines usan un [nombre de red distribuida (DNN)](hadr-distributed-network-name-dnn-configure.md) o un [nombre de red virtual (VNN) con Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) para enrutar el tráfico a la instancia de SQL Server, independientemente del nodo que posea actualmente los recursos en clúster. Hay consideraciones adicionales cuando se usan ciertas características y el nombre de red distribuida con una FCI de SQL Server. Consulte [Interoperabilidad de DNN con FCI de SQL Server](failover-cluster-instance-dnn-interoperability.md) para más información. 
+Las instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines usan un [nombre de red distribuida (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [nombre de red virtual (VNN) con Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) para enrutar el tráfico a la instancia de SQL Server, independientemente del nodo que posea actualmente los recursos en clúster. Hay consideraciones adicionales cuando se usan ciertas características y el nombre de red distribuida con una FCI de SQL Server. Consulte [Interoperabilidad de DNN con FCI de SQL Server](failover-cluster-instance-dnn-interoperability.md) para más información. 
 
 Para más información sobre las opciones de conectividad de clústeres, consulte [Enrutamiento de conexiones de HADR a SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md#connectivity). 
 
