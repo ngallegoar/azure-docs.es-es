@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 09/04/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 95b41723d3cb398caad3a0cf388b7810deda78dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, deploy, studio
+ms.openlocfilehash: e2f3e0b596847000af62aa6e23da5b137ee9de33
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932121"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999003"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Uso de Studio para implementar modelos entrenados en el diseñador
 
@@ -26,6 +26,7 @@ La implementación en Studio consta de los siguientes pasos:
 
 1. Registro del modelo entrenado.
 1. Descarga del script de entrada y el archivo de dependencias de Conda para el modelo.
+1. (Opcional) Configure el script de entrada.
 1. Implementación del modelo en el destino de proceso.
 
 También puede implementar modelos directamente en el diseñador para omitir los pasos de registro de modelos y descarga de archivos. Esto puede ser útil para una rápida implementación. Para más información, consulte [Implementación de un modelo con el diseñador](tutorial-designer-automobile-price-deploy.md).
@@ -36,7 +37,14 @@ Los modelos entrenados en el diseñador también se pueden implementar a través
 
 * [Un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md)
 
-* Una canalización de entrenamiento completada que contenga un [módulo Entrenar modelo](./algorithm-module-reference/train-model.md)
+* Una canalización de entrenamiento completada que contenga uno de los módulos siguientes:
+    - [Módulo Entrenar modelo](./algorithm-module-reference/train-model.md)
+    - [Módulo Train Anomaly Detection Model](./algorithm-module-reference/train-anomaly-detection-model.md)
+    - [Módulo Entrenamiento del modelo de agrupación en clústeres](./algorithm-module-reference/train-clustering-model.md)
+    - [Módulo Entrenamiento del modelo de PyTorch](./algorithm-module-reference/train-pytorch-model.md)
+    - [Módulo Entrenamiento del recomendador de SVD](./algorithm-module-reference/train-svd-recommender.md)
+    - [Módulo Entrenamiento del modelo de Vowpal Wabbit](./algorithm-module-reference/train-vowpal-wabbit-model.md)
+    - [Módulo Entrenamiento del modelo Wide & Deep](./algorithm-module-reference/train-wide-and-deep-recommender.md)
 
 ## <a name="register-the-model"></a>Registro del modelo
 
@@ -136,9 +144,67 @@ score_result = service.run(json.dumps(sample_data))
 print(f'Inference result = {score_result}')
 ```
 
+### <a name="consume-computer-vision-related-real-time-endpoints"></a>Consumo de puntos de conexión en tiempo real relacionados con Computer Vision
+
+Al consumir puntos de conexión en tiempo real relacionados con Computer Vision, es necesario convertir las imágenes en bytes, ya que el servicio web solo acepta cadenas como entrada. El siguiente es el código de ejemplo:
+
+```python
+import base64
+import json
+from copy import deepcopy
+from pathlib import Path
+from azureml.studio.core.io.image_directory import (IMG_EXTS, image_from_file, image_to_bytes)
+from azureml.studio.core.io.transformation_directory import ImageTransformationDirectory
+
+# image path
+image_path = Path('YOUR_IMAGE_FILE_PATH')
+
+# provide the same parameter setting as in the training pipeline. Just an example here.
+image_transform = [
+    # format: (op, args). {} means using default parameter values of torchvision.transforms.
+    # See https://pytorch.org/docs/stable/torchvision/transforms.html
+    ('Resize', 256),
+    ('CenterCrop', 224),
+    # ('Pad', 0),
+    # ('ColorJitter', {}),
+    # ('Grayscale', {}),
+    # ('RandomResizedCrop', 256),
+    # ('RandomCrop', 224),
+    # ('RandomHorizontalFlip', {}),
+    # ('RandomVerticalFlip', {}),
+    # ('RandomRotation', 0),
+    # ('RandomAffine', 0),
+    # ('RandomGrayscale', {}),
+    # ('RandomPerspective', {}),
+]
+transform = ImageTransformationDirectory.create(transforms=image_transform).torch_transform
+
+# download _samples.json file under Outputs+logs tab in the right pane of Train Pytorch Model module
+sample_file_path = '_samples.json'
+with open(sample_file_path, 'r') as f:
+    sample_data = json.load(f)
+
+# use first sample item as the default value
+default_data = sample_data[0]
+data_list = []
+for p in image_path.iterdir():
+    if p.suffix.lower() in IMG_EXTS:
+        data = deepcopy(default_data)
+        # convert image to bytes
+        data['image'] = base64.b64encode(image_to_bytes(transform(image_from_file(p)))).decode()
+        data_list.append(data)
+
+# use data.json as input of consuming the endpoint
+data_file_path = 'data.json'
+with open(data_file_path, 'w') as f:
+    json.dump(data_list, f)
+```
+
 ## <a name="configure-the-entry-script"></a>Configuración del script de entrada
 
-Algunos módulos, como [Puntuación del recomendador SVD](./algorithm-module-reference/score-svd-recommender.md), [Puntuación del recomendador Wide and Deep](./algorithm-module-reference/score-wide-and-deep-recommender.md) y [Puntuación del modelo de Vowpal Wabbit](./algorithm-module-reference/score-vowpal-wabbit-model.md) tienen parámetros para diferentes modos de puntuación. En esta sección, aprenderá a actualizar estos parámetros también en el archivo de script de entrada.
+Algunos módulos, como [Puntuación del recomendador SVD](./algorithm-module-reference/score-svd-recommender.md), [Puntuación del recomendador Wide and Deep](./algorithm-module-reference/score-wide-and-deep-recommender.md) y [Puntuación del modelo de Vowpal Wabbit](./algorithm-module-reference/score-vowpal-wabbit-model.md) tienen parámetros para diferentes modos de puntuación. 
+
+En esta sección, aprenderá a actualizar estos parámetros también en el archivo de script de entrada.
 
 En el ejemplo siguiente se actualiza el comportamiento predeterminado de un modelo de **Recomendador Wide & Deep**. De manera predeterminada, el archivo `score.py` indica al servicio web que prediga las clasificaciones entre los usuarios y los elementos. 
 

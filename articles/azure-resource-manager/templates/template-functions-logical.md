@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: lógicas'
 description: Describe las funciones que se pueden usar en una plantilla de Azure Resource Manager para determinar valores lógicos.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/12/2020
+ms.openlocfilehash: ede41bd6c03eb7a01ae63526810d0310f31e4014
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677396"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978516"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funciones lógicas para plantillas de ARM
 
@@ -16,9 +16,11 @@ Resource Manager ofrece varias funciones para realizar comparaciones en las plan
 
 * [and](#and)
 * [bool](#bool)
+* [false](#false)
 * [if](#if)
 * [not](#not)
 * [or](#or)
+* [true](#true)
 
 ## <a name="and"></a>y
 
@@ -66,7 +68,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 El resultado del ejemplo anterior es:
 
-| Nombre | Tipo | Value |
+| Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -85,7 +87,12 @@ Convierte el parámetro en un booleano.
 | arg1 |Sí |cadena o entero |El valor para convertir en booleano. |
 
 ### <a name="return-value"></a>Valor devuelto
+
 Valor booleano del valor convertido.
+
+### <a name="remarks"></a>Observaciones
+
+También puede usar [true()](#true) y [false()](#false) para obtener valores booleanos.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -119,12 +126,50 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Value |
+| Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | False |
 | trueInt | Bool | True |
 | falseInt | Bool | False |
+
+## <a name="false"></a>false
+
+`false()`
+
+Devuelve false.
+
+### <a name="parameters"></a>Parámetros
+
+La función false no acepta ningún parámetro.
+
+### <a name="return-value"></a>Valor devuelto
+
+Valor booleano que siempre es false.
+
+### <a name="example"></a>Ejemplo
+
+El ejemplo siguiente devuelve un valor como de salida false.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "falseOutput": {
+            "value": "[false()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+El resultado del ejemplo anterior es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| falseOutput | Bool | False |
 
 ## <a name="if"></a>if
 
@@ -177,7 +222,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 El resultado del ejemplo anterior es:
 
-| Nombre | Tipo | Value |
+| Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | yesOutput | String | sí |
 | noOutput | String | no |
@@ -275,7 +320,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 El resultado del ejemplo anterior es:
 
-| Nombre | Tipo | Value |
+| Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -300,7 +345,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 El resultado del ejemplo anterior es:
 
-| Nombre | Tipo | Value |
+| Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -350,11 +395,49 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 El resultado del ejemplo anterior es:
 
-| Nombre | Tipo | Value |
+| Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
+
+## <a name="true"></a>true
+
+`true()`
+
+Devuelve true.
+
+### <a name="parameters"></a>Parámetros
+
+La función true no acepta ningún parámetro.
+
+### <a name="return-value"></a>Valor devuelto
+
+Valor booleano que siempre es true.
+
+### <a name="example"></a>Ejemplo
+
+El ejemplo siguiente devuelve un valor como de salida true.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "trueOutput": {
+            "value": "[true()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+El resultado del ejemplo anterior es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| trueOutput | Bool | True |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

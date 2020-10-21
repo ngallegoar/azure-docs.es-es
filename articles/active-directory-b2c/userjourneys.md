@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 296f396f3c2aacdfe32ea2ee800190d0a91d353f
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: fda57ae152efbb04a793c6acf63465fe8d406a1a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602173"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998652"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -64,7 +64,7 @@ El elemento **OrchestrationStep** contiene los siguientes atributos:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | `Order` | Sí | El orden de los pasos de orquestación. |
-| `Type` | Sí | El tipo de paso de orquestación. Valores posibles: <ul><li>**ClaimsProviderSelection**: indica que el paso de orquestación presenta diversos proveedores de notificaciones al usuario para que seleccione uno.</li><li>**CombinedSignInAndSignUp**: indica que el paso de orquestación presenta una página combinada de inicio de sesión en el proveedor social y de registro en la cuenta local.</li><li>**ClaimsExchange**: indica que el paso de orquestación intercambia notificaciones con un proveedor de notificaciones.</li><li>**GetClaims**: especifica que el paso de orquestación debe procesar los datos de notificaciones enviados a Azure AD B2C del usuario de confianza mediante su configuración `InputClaims`.</li><li>**InvokeSubJourney**: indica que el paso de orquestación intercambia notificaciones con un subrecorrido (en versión preliminar pública).</li><li>**SendClaims**: indica que el paso de orquestación envía las notificaciones al usuario de confianza con un token emitido por un emisor de notificaciones.</li></ul> |
+| `Type` | Sí | El tipo de paso de orquestación. Valores posibles: <ul><li>**ClaimsProviderSelection**: indica que el paso de orquestación presenta diversos proveedores de notificaciones al usuario para que seleccione uno.</li><li>**CombinedSignInAndSignUp**: indica que el paso de orquestación presenta una página combinada de inicio de sesión en el proveedor social y de registro en la cuenta local.</li><li>**ClaimsExchange**: indica que el paso de orquestación intercambia notificaciones con un proveedor de notificaciones.</li><li>**GetClaims**: especifica que el paso de orquestación debe procesar los datos de notificaciones enviados a Azure AD B2C del usuario de confianza mediante su configuración `InputClaims`.</li><li>**InvokeSubJourney**: indica que el paso de orquestación intercambia notificaciones con un [subrecorrido](subjourneys.md) (en versión preliminar pública).</li><li>**SendClaims**: indica que el paso de orquestación envía las notificaciones al usuario de confianza con un token emitido por un emisor de notificaciones.</li></ul> |
 | ContentDefinitionReferenceId | No | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este paso de orquestación. Normalmente, el identificador de referencia de la definición de contenido se define en el perfil técnico autoafirmado. Pero hay algunos casos en los que Azure AD B2C necesita mostrar contenido sin un perfil técnico. Hay dos ejemplos: si el tipo de paso de orquestación es uno de los siguientes: `ClaimsProviderSelection` o `CombinedSignInAndSignUp`, Azure AD B2C debe mostrar la selección del proveedor de identidades sin tener ningún perfil técnico. |
 | CpimIssuerTechnicalProfileReferenceId | No | El tipo de paso de orquestación es `SendClaims`. Esta propiedad define el identificador de perfil técnico del proveedor de notificaciones que emite el token del usuario de confianza.  Si no aparece, no se crea ningún token para el usuario de confianza. |
 
@@ -247,4 +247,4 @@ El elemento **Candidate** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| SubJourneyReferenceId | Sí | El identificador del subrecorrido que se va a ejecutar. |
+| SubJourneyReferenceId | Sí | El identificador del [subrecorrido](subjourneys.md) que se va a ejecutar. |

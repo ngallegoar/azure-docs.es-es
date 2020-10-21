@@ -1,26 +1,18 @@
 ---
 title: Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP | Microsoft Docs
 description: Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
-manager: patfilot
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 12/04/2018
+ms.date: 09/20/2020
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15c0368b2d0bd85f6fee65ffa2c9d6776d07f162
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.reviewer: cynthn
+ms.openlocfilehash: 1f71d95d61e401e12c76ca5589368eed6cc29ce6
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650622"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993288"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -46,9 +38,8 @@ ms.locfileid: "88650622"
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Esta guía forma parte de la documentación sobre la implementación del software de SAP en Microsoft Azure. Antes de leer esta guía, vea la [Guía de planeamiento e implementación][planning-guide]. En este documento se describen los aspectos de implementación genéricos de los sistemas DBMS relacionados con SAP en Microsoft Azure Virtual Machines (VM) mediante las funcionalidades de infraestructura como servicio (IaaS) de Azure.
+Esta guía forma parte de la documentación sobre la implementación del software de SAP en Microsoft Azure. Antes de leer esta guía, lea la [Guía de planeamiento e implementación][planning-guide] y los artículos a los que hace referencia la guía de planeamiento. En este documento se describen los aspectos de implementación genéricos de los sistemas DBMS relacionados con SAP en Microsoft Azure Virtual Machines (VM) mediante las funcionalidades de infraestructura como servicio (IaaS) de Azure.
 
 El documento complementa la documentación de instalación de SAP y las Notas de SAP, que representan los principales recursos para las instalaciones e implementaciones de software de SAP en las plataformas proporcionadas.
 
@@ -109,49 +100,62 @@ En general, el proceso de instalación y configuración de DBMS, Windows y Linux
 
 
 ## <a name="storage-structure-of-a-vm-for-rdbms-deployments"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Estructura de almacenamiento de una máquina virtual para las implementaciones de RDBMS
-Para seguir este capítulo, lea y comprenda la información presentada en [este capítulo][deployment-guide-3] de la [Guía de implementación][deployment-guide]. Antes de leer este capítulo, es necesario que comprenda y conozca las diferentes series de máquinas virtuales y las diferencias entre el almacenamiento estándar y premium. 
+Para seguir este capítulo, lea y comprenda la información presentada en:
 
-Para más información sobre Azure Storage para las máquinas virtuales de Azure, consulte [Introducción a los discos administrados para máquinas virtuales de Azure](../../managed-disks-overview.md).
+- [Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver](./planning-guide.md)
+- [Tipos de Azure Storage para una carga de trabajo de SAP](./planning-guide-storage.md)
+- [¿Qué software de SAP es compatible con las implementaciones de Azure?](./sap-supported-product-on-azure.md)
+- [Carga de trabajo de SAP en escenarios admitidos en máquinas virtuales de Azure](./sap-planning-supported-configurations.md) 
 
-En una configuración básica, normalmente se recomienda una estructura de implementación en la que el sistema operativo, el DBMS y los archivos binarios finales de SAP sean independientes de los archivos de base de datos. Se recomienda que los sistemas SAP que se ejecutan en máquinas virtuales de Azure tengan instalado el disco duro virtual base (o disco) con el sistema operativo, los archivos ejecutables del sistema de administración de bases de datos y los archivos ejecutables de SAP. 
+Antes de leer este capítulo, es necesario que comprenda y conozca las diferentes series de máquinas virtuales y las diferencias entre el almacenamiento estándar y premium. 
 
-Los archivos de datos y de registro de DBMS se almacenan en almacenamiento estándar o premium. Se almacenan en discos distintos y se asocian como discos lógicos a la máquina virtual de la imagen del sistema operativo de Azure original. En el caso de implementaciones de Linux, se documentan distintas recomendaciones, especialmente para SAP HANA.
+En el almacenamiento en bloque de Azure, se recomienda encarecidamente el uso de discos administrados de Azure. Para obtener más información sobre los discos administrados de Azure, lea el artículo [Introducción a los discos administrados para VM de Azure](../../managed-disks-overview.md).
+
+En una configuración básica, normalmente se recomienda una estructura de implementación en la que el sistema operativo, el DBMS y los archivos binarios finales de SAP sean independientes de los archivos de base de datos. Al cambiar las recomendaciones anteriores, se recomienda tener discos de Azure independientes para:
+
+- El sistema operativo (VHD base o VHD del SO)
+- Ejecutables del sistema de administración de bases de datos
+- Ejecutables de SAP, como /usr/sap
+
+Una configuración que separa estos componentes en tres discos de Azure distintos puede dar lugar a una mayor resistencia, ya que las escrituras excesivas de registro o de volcado de los ejecutables de DBMS o SAP no interfieren con las cuotas del disco del sistema operativo. 
+
+Los datos de DBMS y los archivos de registro de transacciones y de fase de puesta al día se almacenan en el almacenamiento en bloque admitido de Azure o Azure NetApp Files. Se almacenan en discos distintos y se asocian como discos lógicos a la máquina virtual de la imagen del sistema operativo de Azure original. En el caso de implementaciones de Linux, se documentan distintas recomendaciones, especialmente para SAP HANA. Lea el artículo [Tipos de Azure Storage para una carga de trabajo de SAP](./planning-guide-storage.md) para conocer las funcionalidades y la compatibilidad de los distintos tipos de almacenamiento para su escenario. 
 
 Al planear el diseño del disco, encuentre el mejor equilibrio entre estos elementos:
 
 * El número de archivos de datos
 * El número de discos que contienen los archivos.
-* Las cuotas de IOPS de un solo disco.
-* El rendimiento por disco.
+* Las cuotas de IOPS de un solo disco o recurso compartido NFS.
+* El rendimiento de datos por disco o recurso compartido NFS.
 * El número de discos de datos adicionales posibles por tamaño de máquina virtual.
-* El rendimiento de almacenamiento global que puede proporcionar una máquina virtual
+* El rendimiento general de almacenamiento o de red que puede proporcionar una VM.
 * La latencia que pueden proporcionar los diferentes tipos de Azure Storage.
 * SLA de máquina virtual.
 
-Azure impone una cuota de IOPS por disco de datos. Estas cuotas son diferentes para los discos hospedados en almacenamiento estándar y almacenamiento premium. La latencia de E/S también es diferente entre los dos tipos de almacenamiento. El almacenamiento premium ofrece una mejor latencia de E/S. 
+Azure impone una cuota de IOPS por disco de datos o recurso compartido NFS. Estas cuotas son diferentes para los discos hospedados en las distintas soluciones o recursos compartidos de almacenamiento en bloque de Azure. La latencia de E/S también es diferente entre estos distintos tipos de almacenamiento. 
 
-Cada uno de los distintos tipos de máquina virtual tiene un número limitado de discos de datos que se pueden asociar. Otra restricción es que solo determinados tipos de máquinas virtuales pueden usar almacenamiento premium. Normalmente, la decisión de usar un determinado tipo de máquina virtual se basa en los requisitos de CPU y memoria. También puede considerar los requisitos de IOPS, latencia y rendimiento de disco que normalmente se escalan con el número de discos o el tipo de discos de almacenamiento premium. El número de IOPS y el rendimiento que se debe conseguir por cada disco podrían determinar el tamaño del disco, especialmente con el almacenamiento premium.
-
-> [!NOTE]
-> Para las implementaciones de DBMS, se recomienda el uso de almacenamiento premium para los archivos de datos, registro de transacciones o fase de puesta al día. No importa si se quieren implementar sistemas de producción o que no sean de producción.
+Cada uno de los distintos tipos de máquina virtual tiene un número limitado de discos de datos que se pueden asociar. Otra restricción es que solo determinados tipos de máquinas virtuales pueden usar, por ejemplo, almacenamiento premium. Normalmente, la decisión de usar un determinado tipo de máquina virtual se basa en los requisitos de CPU y memoria. También puede considerar los requisitos de IOPS, latencia y rendimiento de disco que normalmente se escalan con el número de discos o el tipo de discos de almacenamiento premium. El número de IOPS y el rendimiento que se debe conseguir por cada disco podrían determinar el tamaño del disco, especialmente con el almacenamiento premium.
 
 > [!NOTE]
-> Para beneficiarse del [contrato de nivel de servicio de máquina virtual única](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), todos los discos que están asociados deben tener el tipo de almacenamiento premium, que incluye el disco duro virtual base.
+> En el caso de las implementaciones de DBMS, se recomienda el almacenamiento premium de Azure, Ultra Disk o recurso compartido NFS basados en Azure NetApp Files (exclusivamente para SAP HANA) para cualquier dato, registro de transacciones o archivos de fase de puesta al día. No importa si se quieren implementar sistemas de producción o que no sean de producción.
 
 > [!NOTE]
-> No se permite hospedar archivos de bases de datos principales (archivos de datos y de registro) de bases de datos SAP en hardware de almacenamiento ubicado en centros de datos de terceros colocados y subyacentes a centros de datos de Azure. Para cargas de trabajo SAP, solo se admite el almacenamiento representado como un servicio nativo de Azure para los archivos de datos y de registro de transacciones de bases de datos SAP.
+> Para beneficiarse del [contrato de nivel de servicio de VM única](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), todos los discos que están conectados deben tener el tipo de almacenamiento premium de Azure o Azure Ultra Disk, que incluye el disco duro virtual base (almacenamiento premium de Azure).
 
-La colocación de los archivos de base de datos y los archivos de registro y fase de puesta al día, y el tipo de almacenamiento de Azure que se use, se debe definir en función de los requisitos de IOPS, latencia y rendimiento. Con el fin de disponer de IOPS suficiente, es posible que tenga que usar varios discos o un disco de almacenamiento premium de mayor tamaño. Si usa varios discos, cree una sección de software en todos los discos que contenga los archivos de datos o los archivos de registro y fase de puesta al día. En esos casos, los contratos de nivel de servicio de IOPS y rendimiento de los discos de almacenamiento premium subyacentes o la cantidad máxima de IOPS que se puede alcanzar de los discos de almacenamiento estándar son acumulativos para el espacio seccionado resultante.
+> [!NOTE]
+> No se permite hospedar archivos de bases de datos principales (archivos de datos y de registro) de bases de datos SAP en hardware de almacenamiento ubicado en centros de datos de terceros colocados y subyacentes a centros de datos de Azure. El almacenamiento proporcionado a través de los dispositivos de software hospedados en VM de Azure tampoco se admite en este caso de uso. Para cargas de trabajo DBMS de SAP, solo se admite el almacenamiento representado como un servicio nativo de Azure para los archivos de datos y de registro de transacciones de bases de datos SAP en general. Los distintos DBMS podrían admitir distintos tipos de almacenamiento de Azure. Para obtener más detalles, consulte el artículo [Tipos de Azure Storage para una carga de trabajo de SAP](./planning-guide-storage.md).
 
-Como ya se ha indicado, si el requisito de IOPS es superior a lo que puede proporcionar un solo disco duro virtual, equilibre el número de operaciones de IOPS necesarias para los archivos de base de datos entre varios discos duros virtuales. La forma más sencilla de distribuir la carga de IOPS entre los discos consiste en crear una sección de software por los diferentes discos. Después, coloque una serie de archivos de datos del DBMS de SAP en los LUN extraídos de la sección de software. El número de discos de la sección está controlado por las demandas de IOPS, rendimiento y volumen.
+La colocación de los archivos de base de datos y los archivos de registro y fase de puesta al día, y el tipo de almacenamiento de Azure que se use, se debe definir en función de los requisitos de IOPS, latencia y rendimiento. En concreto, para que el almacenamiento premium de Azure logre IOPS suficientes, es posible que tenga que usar varios discos o un disco de almacenamiento premium de mayor tamaño. Si usa varios discos, cree una sección de software en todos los discos que contenga los archivos de datos o los archivos de registro y fase de puesta al día. En esos casos, los contratos de nivel de servicio de IOPS y rendimiento de los discos de almacenamiento premium subyacentes o la cantidad máxima de IOPS que se puede alcanzar de los discos de almacenamiento estándar son acumulativos para el espacio seccionado resultante.
+
+Si el requisito de IOPS es superior a lo que puede proporcionar un solo disco duro virtual, equilibre el número de operaciones de IOPS necesarias para los archivos de base de datos entre varios discos duros virtuales. La forma más sencilla de distribuir la carga de IOPS entre los discos consiste en crear una sección de software por los diferentes discos. Después, coloque una serie de archivos de datos del DBMS de SAP en los LUN extraídos de la sección de software. El número de discos de la sección está controlado por las demandas de IOPS, rendimiento y volumen.
 
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Seccionamiento del almacenamiento de Windows][Logo_Windows] Windows
 >
 > Se recomienda usar espacios de almacenamiento de Windows para crear conjuntos seccionados entre varios discos duros virtuales de Azure. Use al menos Windows Server 2012 R2 o Windows Server 2016.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Seccionamiento del almacenamiento de Linux][Logo_Linux] Linux
 >
 > Para crear un software RAID en Linux, solo se admiten MDADM y LVM (Logical Volume Manager). Para más información, consulte:
 >
@@ -162,6 +166,9 @@ Como ya se ha indicado, si el requisito de IOPS es superior a lo que puede propo
 
 ---
 
+En el caso de Azure Ultra Disks, no es necesario el seccionamiento, ya que puede definir el rendimiento de IOPS y del disco independientemente del tamaño del disco.
+
+
 > [!NOTE]
 > Dado que Azure Storage mantiene tres imágenes de los discos duros virtuales, no tiene sentido configurar una redundancia al seccionar. Solo tiene que configurar el seccionamiento para que las operaciones de E/S se distribuyan entre los diferentes discos duros virtuales.
 >
@@ -171,7 +178,7 @@ Las cuentas de Azure Storage son una construcción administrativa y también est
 
 Con el almacenamiento estándar, recuerde que hay un límite en el número de IOPS por cuenta de almacenamiento. Consulte la fila que contiene **Tasa de solicitud total** del artículo [Objetivos de escalabilidad y rendimiento de Azure Storage](../../../storage/common/scalability-targets-standard-account.md). Además, hay un límite inicial en el número de cuentas de almacenamiento por suscripción de Azure. Con infraestructuras de SAP más grandes, equilibre los discos duros virtuales entre diferentes cuentas de almacenamiento para evitar alcanzar los límites de estas cuentas de almacenamiento. Este es un trabajo tedioso cuando se trata de varios cientos de máquinas virtuales con más de mil discos duros virtuales.
 
-Puesto que no se recomienda usar almacenamiento estándar en implementaciones de DBMS en combinación con una carga de trabajo de SAP, las referencias y recomendaciones para el almacenamiento estándar se limitan a este breve [artículo](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance).
+No se recomienda el uso de almacenamiento estándar para las implementaciones de DBMS junto con una carga de trabajo de SAP. Por lo tanto, las referencias y recomendaciones para el almacenamiento estándar se limitan a este breve [artículo](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance).
 
 Para evitar el trabajo administrativo de planear e implementar discos duros virtuales entre varias cuentas de Azure Storage, Microsoft presentó [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) en 2017. Los discos administrados están disponibles para almacenamiento estándar y almacenamiento premium. Las principales ventajas de los discos administrados en comparación con los discos no administrados son las siguientes:
 
@@ -180,7 +187,7 @@ Para evitar el trabajo administrativo de planear e implementar discos duros virt
 
 
 > [!IMPORTANT]
-> Dadas las ventajas de Azure Managed Disks, se recomienda usar Azure Managed Disks para las implementaciones de DBMS y las de SAP en general.
+> Dadas las ventajas de discos administrados de Azure, se recomienda encarecidamente usar discos administrados de Azure para las implementaciones de DBMS y las de SAP en general.
 >
 
 Para convertir discos no administrados a discos administrados, consulte:
@@ -190,7 +197,7 @@ Para convertir discos no administrados a discos administrados, consulte:
 
 
 ### <a name="caching-for-vms-and-data-disks"></a><a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Almacenamiento en caché de máquinas virtuales y discos de datos
-Al montar discos en máquinas virtuales, se puede elegir almacenar en caché el tráfico de E/S entre la máquina virtual y esos discos ubicados en Azure Storage. El almacenamiento estándar y el almacenamiento premium emplean dos tecnologías diferentes para este tipo de almacenamiento en caché.
+Al montar discos en máquinas virtuales, se puede elegir almacenar en caché el tráfico de E/S entre la máquina virtual y esos discos ubicados en Azure Storage.
 
 En las recomendaciones siguientes se da por hecho estas características de E/S para DBMS estándar:
 
@@ -208,7 +215,7 @@ Para el almacenamiento estándar, estos son los tipos posibles de caché:
 
 Para obtener un rendimiento coherente y determinista, establezca el almacenamiento en caché del almacenamiento estándar para todos los discos que contengan archivos de datos, archivos de registro y fase de puesta al día, y espacio de tablas relacionados con DBMS en **NINGUNO**. Se puede conservar el valor de almacenamiento en caché predeterminado del disco duro virtual base.
 
-Para el almacenamiento premium, existen las opciones de almacenamiento en caché siguientes:
+Para el almacenamiento premium de Azure, existen las opciones de almacenamiento en caché siguientes:
 
 * None
 * Lectura
@@ -220,6 +227,8 @@ Para el almacenamiento premium, se recomienda usar el **almacenamiento en caché
 
 Para las implementaciones de la serie M, se recomienda usar el Acelerador de escritura de Azure para la implementación de DBMS. Para más información, incluidas las restricciones y la implementación del Acelerador de escritura de Azure, consulte [Habilitar el acelerador de escritura](../../how-to-enable-write-accelerator.md).
 
+Para Ultra Disk y Azure NetApp Files, no se ofrecen opciones de almacenamiento en caché.
+
 
 ### <a name="azure-nonpersistent-disks"></a>Discos de Azure no persistentes
 Las máquinas virtuales de Azure ofrecen discos no persistentes después de implementar una máquina virtual. En el caso de un reinicio de la máquina virtual, se borrará todo el contenido de esas unidades. Es evidente que los archivos de datos y los archivos de registro y fase de puesta al día de las bases de datos no se deben colocar bajo ninguna circunstancia en esas unidades de disco no persistentes. Es posible que haya excepciones para algunas de las bases de datos, donde estas unidades de disco no persistentes podrían ser adecuadas para espacios de tablas tempdb y temp. Evite usar esas unidades con máquinas virtuales de la serie A, ya que esas unidades no persistentes tienen un límite de rendimiento con esa familia de máquinas virtuales. 
@@ -227,11 +236,11 @@ Las máquinas virtuales de Azure ofrecen discos no persistentes después de impl
 Para más información, consulte [Understand the temporary drive on Windows VMs in Azure](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines) (Comprender la unidad temporal en máquinas virtuales Windows en Azure).
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Disco no persistente de Windows][Logo_Windows] Windows
 >
 > La unidad D:\ de una máquina virtual de Azure es una unidad no persistente respaldada por algunos discos locales del nodo de ejecución de Azure. Como es persistente, todos los cambios realizados en el contenido de la unidad D se pierden cuando se reinicia la máquina virtual. Los cambios incluyen archivos que se almacenaron, directorios que se crearon y aplicaciones que se instalaron.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Disco no persistente de Linux][Logo_Linux] Linux
 >
 > Las máquinas virtuales Linux de Azure montan automáticamente una unidad en /mnt/resource, que es una unidad no persistente respaldada por discos locales del nodo de ejecución de Azure. Como no es persistente, los cambios realizados en el contenido en /mnt/resource se pierden cuando se reinicia la máquina virtual. Los cambios incluyen archivos que se almacenaron, directorios que se crearon y aplicaciones que se instalaron.
 >
@@ -247,7 +256,7 @@ Microsoft Azure Storage almacena el disco duro virtual base (con SO) y blobs o l
 Hay otros métodos de redundancia. Para más información, consulte [Replicación de Azure Storage](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
 > [!NOTE]
->El almacenamiento premium es el tipo de almacenamiento recomendado para máquinas virtuales de DBMS y los discos que almacenan los archivos de base de datos, registro y fase de puesta al día. El único método de redundancia disponible para el almacenamiento premium es LRS. Como resultado, debe configurar métodos de base de datos para habilitar la replicación de datos de base de datos en otra zona de disponibilidad o región de Azure. Los métodos de base de datos incluyen SQL Server Always On, Oracle Data Guard y replicación del sistema HANA.
+> El almacenamiento premium de Azure, Ultra Disk y Azure NetApp Files (exclusivamente para SAP HANA) es el tipo de almacenamiento recomendado para VM de DBMS y discos en los que se almacenan los archivos de base de datos y de registro o fase de puesta al día. El único método de redundancia disponible para estos tipos de almacenamiento es LRS. Como resultado, debe configurar métodos de base de datos para habilitar la replicación de datos de base de datos en otra zona de disponibilidad o región de Azure. Los métodos de base de datos incluyen SQL Server Always On, Oracle Data Guard y replicación del sistema HANA.
 
 
 > [!NOTE]
@@ -256,7 +265,7 @@ Hay otros métodos de redundancia. Para más información, consulte [Replicació
 
 
 ## <a name="vm-node-resiliency"></a>Resistencia de nodos de máquina virtual
-Azure ofrece varios contratos de nivel de servicio distintos para las máquinas virtuales. Para más información, consulte la versión más reciente de [Contrato de nivel de servicio para Máquinas virtuales](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Dado que la capa de DBMS es normalmente fundamental para la disponibilidad en un sistema SAP, debe comprender los conjuntos disponibilidad, las zonas de disponibilidad y los eventos de mantenimiento. Para más información sobre estos conceptos, consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../../windows/manage-availability.md) y [Administración de la disponibilidad de las máquinas virtuales Linux en Azure](../../linux/manage-availability.md).
+Azure ofrece varios contratos de nivel de servicio distintos para las máquinas virtuales. Para más información, consulte la versión más reciente de [Contrato de nivel de servicio para Máquinas virtuales](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Dado que la capa de DBMS es fundamental para la disponibilidad en un sistema SAP, debe comprender los conjuntos disponibilidad, las zonas de disponibilidad y los eventos de mantenimiento. Para más información sobre estos conceptos, consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../../manage-availability.md) y [Administración de la disponibilidad de las máquinas virtuales Linux en Azure](../../manage-availability.md).
 
 La recomendación mínima para escenarios DBMS de producción con una carga de trabajo SAP es:
 
@@ -276,9 +285,9 @@ En las implementaciones de SAP a gran escala, use el proyecto de [Azure Virtual 
 Estos procedimientos recomendados son el resultado de cientos de implementaciones de clientes:
 
 - Las redes virtuales en las que se implementa la aplicación de SAP no tienen acceso a Internet.
-- Las máquinas virtuales de base de datos se ejecutan en la misma red virtual que la capa de aplicación.
+- Las VM de base de datos se ejecutan en la misma red virtual que el nivel de aplicación, separadas en una subred diferente de la capa de aplicación de SAP.
 - Las máquinas virtuales dentro de la red virtual tienen una asignación estática de la dirección IP privada. Para más información, consulte [Tipos de direcciones IP y métodos de asignación en Azure](../../../virtual-network/public-ip-addresses.md).
-- Las restricciones de enrutamiento a y desde las máquinas virtuales de DBMS *no* se establecen con firewalls instalados en las máquinas virtuales de DBMS locales. En su lugar, el enrutamiento del tráfico se define mediante [grupos de seguridad de red (NSG)](../../../virtual-network/security-overview.md).
+- Las restricciones de enrutamiento a y desde las máquinas virtuales de DBMS *no* se establecen con firewalls instalados en las máquinas virtuales de DBMS locales. En su lugar, el enrutamiento del tráfico se define mediante [grupos de seguridad de red (NSG)](../../../virtual-network/network-security-groups-overview.md).
 - Para separar y aislar el tráfico a la máquina virtual de DBMS, asigne diferentes NIC a la máquina virtual. Cada NIC recibe una dirección IP diferente y cada NIC se asigna a una subred de red virtual diferente. Cada subred tiene diferentes reglas de NSG. El aislamiento o la separación del tráfico de red es una medida para el enrutamiento. No se usa para establecer cuotas para el rendimiento de la red.
 
 > [!NOTE]
@@ -286,8 +295,8 @@ Estos procedimientos recomendados son el resultado de cientos de implementacione
 >
 
 
-> [!IMPORTANT]
-> No se admite la configuración de [aplicaciones virtuales de red](https://azure.microsoft.com/solutions/network-appliances/) en la ruta de comunicación entre la aplicación de SAP y la capa de DBMS de un sistema SAP basado en SAP NetWeaver, Hybris o S/4HANA. Esta restricción es por motivos de rendimiento y funcionalidad. La comunicación entre la capa de la aplicación de SAP y la capa de DBMS debe ser directa. La restricción no incluye las [ reglas del grupo de seguridad de aplicaciones (ASG) y las reglas NSG](../../../virtual-network/security-overview.md) si estas permiten una ruta de acceso de comunicación directa. 
+> [!WARNING]
+> No se admite la configuración de [aplicaciones virtuales de red](https://azure.microsoft.com/solutions/network-appliances/) en la ruta de comunicación entre la aplicación de SAP y la capa de DBMS de un sistema SAP basado en SAP NetWeaver, Hybris o S/4HANA. Esta restricción es por motivos de rendimiento y funcionalidad. La comunicación entre la capa de la aplicación de SAP y la capa de DBMS debe ser directa. La restricción no incluye las [ reglas del grupo de seguridad de aplicaciones (ASG) y las reglas NSG](../../../virtual-network/network-security-groups-overview.md) si estas permiten una ruta de acceso de comunicación directa. 
 >
 > Otros escenarios donde no se admiten aplicaciones virtuales de red se encuentran en:
 >
@@ -304,7 +313,7 @@ Estos procedimientos recomendados son el resultado de cientos de implementacione
 >
 > Tenga en cuenta que el tráfico entre dos redes virtuales de Azure [emparejadas](../../../virtual-network/virtual-network-peering-overview.md) está sujeto a costos de transferencia. Un enorme volumen de datos que consta de muchos terabytes se intercambia entre la capa de aplicación de SAP y la capa de DBMS. Puede acumular costos sustanciales si la capa de aplicación de SAP y la capa de DBMS se separan entre dos redes virtuales de Azure emparejadas.
 
-Use dos máquinas virtuales para la implementación de DBMS en producción dentro de un conjunto de disponibilidad de Azure. Use también enrutamiento independiente para la capa de aplicación de SAP y el tráfico de administración y operaciones a las dos máquinas virtuales de DBMS. Consulte la siguiente imagen:
+Use dos VM para la implementación de DBMS en producción dentro de un conjunto de disponibilidad de Azure o entre dos instancias de Azure Availability Zones. Use también enrutamiento independiente para la capa de aplicación de SAP y el tráfico de administración y operaciones a las dos máquinas virtuales de DBMS. Consulte la siguiente imagen:
 
 ![Diagrama de dos máquinas virtuales en dos subredes](./media/virtual-machines-shared-sap-deployment-guide/general_two_dbms_two_subnets.PNG)
 
@@ -314,19 +323,13 @@ El uso de direcciones IP virtuales privadas en funcionalidades como SQL Server A
 
 Si hay una conmutación por error del nodo de base de datos, no hay necesidad de volver a configurar la aplicación de SAP. En su lugar, las arquitecturas de aplicaciones de SAP más comunes se vuelven a conectar con la dirección IP virtual privada. Mientras tanto, el equilibrador de carga reacciona a la conmutación por error del nodo mediante la redirección del tráfico con la dirección IP virtual privada al segundo nodo.
 
-Azure ofrece dos [SKU de equilibrador de carga](../../../load-balancer/load-balancer-overview.md) diferentes: una SKU básica y una SKU estándar. A menos que quiera implementar en varias zonas de disponibilidad de Azure, la SKU de equilibrador de carga básica es suficiente.
+Azure ofrece dos [SKU de equilibrador de carga](../../../load-balancer/load-balancer-overview.md) diferentes: una SKU básica y una SKU estándar. En función de las ventajas de la instalación y la funcionalidad, debe usar la SKU estándar del Azure Load Balancer. Una de las grandes ventajas de la versión estándar del equilibrador de carga es que el tráfico de datos no se enruta a través del propio equilibrador de carga.
 
-¿El tráfico entre las máquinas virtuales de DBMS y la capa de aplicación de SAP siempre se enruta a través del equilibrador? La respuesta depende de cómo se configure el equilibrador de carga. 
+Puede encontrar un ejemplo de cómo configurar un equilibrador de carga interno en el artículo [Tutorial: Configuración de un grupo de disponibilidad de SQL Server Always On en Azure Virtual Machines de forma manual](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial.md#create-an-azure-load-balancer).
 
-En este momento, el tráfico entrante a la máquina virtual de DBMS siempre se enruta a través del equilibrador de carga. La ruta de tráfico saliente desde la máquina virtual de DBMS hasta la máquina virtual de la capa de aplicación depende de la configuración del equilibrador de carga. 
+> [!NOTE]
+> Hay diferencias en el comportamiento de la SKU básica y estándar relacionadas con el acceso de las direcciones IP públicas. Una solución alternativa a las restricciones de la SKU estándar para acceder a las direcciones IP públicas se describe en el artículo [Conectividad del punto de conexión público para las máquinas virtuales que usan Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
-El equilibrador de carga ofrece una opción de DirectServerReturn. Si se configura esa opción, el tráfico dirigido desde la máquina virtual de DBMS hasta la capa de aplicación de SAP *NO* se enruta a través del equilibrador de carga. En su lugar, pasa directamente a la capa de aplicación. Si no se configura DirectServerReturn, el tráfico de retorno a la capa de aplicación de SAP se enruta a través del equilibrador de carga.
-
-Se recomienda configurar DirectServerReturn en combinación con equilibradores de carga que estén colocados entre la capa de aplicación de SAP y la capa de DBMS. Esta configuración reduce la latencia de red entre las dos capas.
-
-Para ver un ejemplo de cómo realizar esta configuración con SQL Server Always On, consulte [Configuración de un cliente de escucha ILB para grupos de disponibilidad AlwaysOn en Azure](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
-
-Si usa las plantillas JSON publicadas en GitHub como referencia para las implementaciones de infraestructura SAP en Azure, debe estudiar esta [plantilla para un sistema SAP de tres niveles](https://github.com/Azure/azure-quickstart-templates/tree/4099ad9bee183ed39b88c62cd33f517ae4e25669/sap-3-tier-marketplace-image-converged-md). En esta plantilla, también puede ver la configuración correcta del equilibrador de carga.
 
 ### <a name="azure-accelerated-networking"></a>Redes aceleradas de Azure
 Para reducir aún más la latencia de red entre máquinas virtuales de Azure, se recomienda elegir [Redes aceleradas de Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Use esta opción al implementar máquinas virtuales de Azure para una carga de trabajo SAP, especialmente para la capa de aplicación de SAP y la capa de DBMS de SAP.
@@ -336,11 +339,11 @@ Para reducir aún más la latencia de red entre máquinas virtuales de Azure, se
 >
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Redes aceleradas de Windows][Logo_Windows] Windows
 >
 > Para información sobre cómo implementar máquinas virtuales con redes aceleradas para Windows, consulte [Creación de una máquina virtual Windows con redes aceleradas](../../../virtual-network/create-vm-accelerated-networking-powershell.md).
 >
-> ![Linux][Logo_Linux] Linux
+> ![Redes aceleradas de Linux][Logo_Linux] Linux
 >
 > Para más información sobre la distribución de Linux, consulte [Creación de una máquina virtual Linux con redes aceleradas](../../../virtual-network/create-vm-accelerated-networking-cli.md).
 >

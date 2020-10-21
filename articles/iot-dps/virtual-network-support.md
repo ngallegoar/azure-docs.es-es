@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534607"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998588"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Compatibilidad de Azure IoT Hub Device Provisioning Service (DPS) con redes virtuales
 
@@ -75,7 +75,7 @@ Para configurar un punto de conexión privado, siga estos pasos:
 
 2. En la página _Crear un punto de conexión privado_ de la sección Datos básicos, escriba la información que se menciona en la tabla siguiente.
 
-    ![Configuración del recurso al que se asigna un nuevo punto de conexión privado](./media/virtual-network-support/create-private-endpoint-basics.png)
+    ![Aspectos básicos de Crear un punto de conexión privado](./media/virtual-network-support/create-private-endpoint-basics.png)
 
     | Campo | Value |
     | :---- | :-----|
@@ -88,7 +88,7 @@ Para configurar un punto de conexión privado, siga estos pasos:
 
 3. En la página _Crear un punto de conexión privado_ de la sección Recurso, escriba la información que se menciona en la tabla siguiente.
 
-    ![Configuración del recurso al que se asigna un nuevo punto de conexión privado](./media/virtual-network-support/create-private-endpoint-resource.png)
+    ![Recurso de Crear un punto de conexión privado](./media/virtual-network-support/create-private-endpoint-resource.png)
 
     | Campo | Value |
     | :---- | :-----|
@@ -107,7 +107,7 @@ Para configurar un punto de conexión privado, siga estos pasos:
  
     Haga clic en **Siguiente: Etiquetas** y, de manera opcional, proporcione las etiquetas del recurso.
 
-    ![Configuración del recurso al que se asigna un nuevo punto de conexión privado](./media/virtual-network-support/create-private-endpoint-configuration.png)
+    ![Configuración de un punto de conexión privado](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
 6. Haga clic en **Revisar y crear** y luego en **Crear** para crear el recurso del punto de conexión privado.
 
@@ -141,7 +141,7 @@ Puede solicitar un punto de conexión privado a un recurso de DPS por identifica
 
 5. El propietario de DPS verá la solicitud del punto de conexión privado en la lista **Conexiones de punto de conexión privado** en la pestaña Redes de DPS. En esa página, el propietario tiene las opciones **Aprobar** o **Rechazar** para llevar a cabo la acción correspondiente en el punto de conexión privado, como se muestra a continuación.
 
-    ![Pestaña Propiedades de DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
+    ![Aprobación de DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
 
 
 ## <a name="pricing-private-endpoints"></a>Precios de los puntos de conexión privados
