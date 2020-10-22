@@ -1,14 +1,14 @@
 ---
 title: Administrar imágenes firmadas
-description: Aprenda a habilitar la confianza en el contenido para Azure Container Registry y a insertar y extraer imágenes firmadas. La confianza de contenido es una característica del nivel de servicio Premium.
+description: Aprenda a habilitar la confianza en el contenido para Azure Container Registry y a insertar y extraer imágenes firmadas. La confianza en el contenido implementa confianza en el contenido de Docker y es una característica del nivel de servicio Premium.
 ms.topic: article
-ms.date: 09/06/2019
-ms.openlocfilehash: 34bb56bab869cb1f12541b65c59b06a73b215377
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/18/2020
+ms.openlocfilehash: cfe337a0f46e37ed616664e8e0645e319bcfb519
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076857"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91409171"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confianza en el contenido en Azure Container Registry
 
@@ -40,7 +40,7 @@ El primer paso es habilitar la confianza en el contenido en el nivel de registro
 
 Para habilitar la confianza en el contenido para el registro, primero vaya al registro en Azure Portal. En **Directivas**, seleccione **Confianza del contenido** > **Habilitada** > **Guardar**. También puede usar el comando [az acr config content-trust update][az-acr-config-content-trust-update] en la CLI de Azure.
 
-![Habilitación de la confianza en el contenido para un registro en Azure Portal][content-trust-01-portal]
+![Captura de pantalla que muestra cómo habilitar la confianza en el contenido para un registro en Azure Portal.][content-trust-01-portal]
 
 ## <a name="enable-client-content-trust"></a>Habilitación de la confianza en el contenido en el cliente
 
@@ -71,8 +71,10 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 Solo los usuarios o sistemas a los que se ha concedido permiso pueden insertar imágenes de confianza en el registro. Para conceder permiso de inserción de imágenes de confianza a un usuario (o a un sistema con una entidad de servicio), debe conceder a sus identidades de Azure Active Directory el rol `AcrImageSigner`. Esto se agrega al rol `AcrPush` (o equivalente) necesario para insertar imágenes en el registro. Para más información, consulte [Roles y permisos de Azure Container Registry](container-registry-roles.md).
 
-> [!NOTE]
-> No se puede conceder el permiso de inserción de imagen de confianza a la [cuenta de administrador](container-registry-authentication.md#admin-account) de Azure Container Registry.
+> [!IMPORTANT]
+> No se puede conceder permiso de inserción de imágenes de confianza a las siguientes cuentas administrativas: 
+> * la [cuenta de administrador](container-registry-authentication.md#admin-account) de un registro de contenedor de Azure;
+> * una cuenta de usuario de Azure Active Directory con el [rol de administrador del sistema clásico](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 A continuación, puede ver los detalles de la concesión del rol `AcrImageSigner` en Azure Portal y la CLI de Azure.
 
@@ -82,7 +84,7 @@ Vaya al registro en Azure Portal y, a continuación, seleccione **Control de acc
 
 En este ejemplo, se ha asignado el rol `AcrImageSigner` a dos entidades: una entidad de servicio llamada "service-principal" y un usuario llamado "Azure User".
 
-![Habilitación de la confianza en el contenido para un registro en Azure Portal][content-trust-02-portal]
+![Concesión de permisos de firma de imágenes de ACR en Azure Portal][content-trust-02-portal]
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -92,17 +94,16 @@ Para conceder permisos de firma a un usuario con la CLI de Azure, asigne el rol 
 az role assignment create --scope <registry ID> --role AcrImageSigner --assignee <user name>
 ```
 
-Por ejemplo, para concederse el rol a usted mismo, puede ejecutar los siguientes comandos en una sesión autenticada de la CLI de Azure. Modifique el valor de `REGISTRY` para que refleje el nombre del registro de contenedor de Azure.
+Por ejemplo, para conceder el rol a un usuario no administrativo, puede ejecutar los siguientes comandos en una sesión autenticada de la CLI de Azure. Modifique el valor de `REGISTRY` para que refleje el nombre del registro de contenedor de Azure.
 
 ```bash
 # Grant signing permissions to authenticated Azure CLI user
 REGISTRY=myregistry
-USER=$(az account show --query user.name --output tsv)
 REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
 ```
 
 ```azurecli
-az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee $USER
+az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee azureuser@contoso.com
 ```
 
 También puede conceder a una [entidad de servicio](container-registry-auth-service-principal.md) derechos para insertar imágenes de confianza en el registro. El uso de una entidad de servicio es útil para sistemas de compilación y otros sistemas desatendidos que deban insertar imágenes de confianza en el registro. El formato es similar al utilizado para conceder un permiso de usuario, pero debe especificar un identificador de la entidad de servicio para el valor `--assignee`.
@@ -118,10 +119,11 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 ## <a name="push-a-trusted-image"></a>Inserción de una imagen de confianza
 
-Para insertar una etiqueta de imagen de confianza en el registro de contenedor, habilite la confianza en el contenido e inserte la imagen con `docker push`. La primera vez que inserte una etiqueta firmada, se le solicitará que cree una frase de contraseña para una clave de firma de raíz y una clave de firma del repositorio. Las claves de raíz y del repositorio se generan y almacenan localmente en su equipo.
+Para insertar una etiqueta de imagen de confianza en el registro de contenedor, habilite la confianza en el contenido e inserte la imagen con `docker push`. La primera vez que se complete una inserción con una etiqueta firmada, se le solicitará que cree una frase de contraseña para una clave de firma de raíz y una clave de firma del repositorio. Las claves de raíz y del repositorio se generan y almacenan localmente en su equipo.
 
 ```console
 $ docker push myregistry.azurecr.io/myimage:v1
+[...]
 The push refers to repository [myregistry.azurecr.io/myimage]
 ee83fc5847cb: Pushed
 v1: digest: sha256:aca41a608e5eb015f1ec6755f490f3be26b48010b178e78c00eac21ffbe246f1 size: 524
@@ -156,16 +158,19 @@ Status: Downloaded newer image for myregistry.azurecr.io/myimage@sha256:0800d17e
 Tagging myregistry.azurecr.io/myimage@sha256:0800d17e37fb4f8194495b1a188f121e5b54efb52b5d93dc9e0ed97fce49564b as myregistry.azurecr.io/myimage:signed
 ```
 
-Si un cliente con la confianza en el contenido habilitada trata de extraer una etiqueta sin firmar, se produce un error en la operación:
+Si un cliente con la confianza en el contenido habilitada trata de extraer una etiqueta sin firmar, se produce un error en la operación similar al siguiente:
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:unsigned
-No valid trust data for unsigned
+Error: remote trust data does not exist
 ```
 
 ### <a name="behind-the-scenes"></a>Entre bambalinas
 
 Al ejecutar `docker pull`, el cliente de Docker usa la misma biblioteca que en la [CLI de Notary][docker-notary-cli] para solicitar la asignación de hash de etiqueta a SHA-256 para la etiqueta que va a extraer. Después de comprobar las firmas en los datos de confianza, el cliente indica al motor de Docker que realice una "extracción por hash". Durante la extracción, el motor utiliza la suma de comprobación de SHA-256 como una dirección de contenido para solicitar y validar el manifiesto de imagen desde el registro de contenedor de Azure.
+
+> [!NOTE]
+> Azure Container Registry no es compatible oficialmente con la CLI de Notary, pero sí es compatible con Notary Server API, que se incluye con Docker Desktop. Actualmente se recomienda la versión **0.6.0** de Notary.
 
 ## <a name="key-management"></a>Administración de claves
 
@@ -196,7 +201,7 @@ Para deshabilitar la confianza en el contenido para el registro, vaya al registr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información acerca de la confianza del contenido, consulte [Content trust in Docker][docker-content-trust] (Confianza en el contenido de Docker). Aunque se han tratado varios aspectos importantes en este artículo, la confianza en el contenido es un tema amplio y se describe con más profundidad en la documentación de Docker.
+* Consulte [Confianza en el contenido en Docker][docker-content-trust] para obtener más información sobre la confianza en el contenido, incluidos los comandos de [confianza de Docker](https://docs.docker.com/engine/reference/commandline/trust/) y las [delegaciones de confianza](https://docs.docker.com/engine/security/trust/trust_delegation/). Aunque se han tratado varios aspectos importantes en este artículo, la confianza en el contenido es un tema amplio y se describe con más profundidad en la documentación de Docker.
 
 * Consulte la documentación de [Azure Pipelines](/azure/devops/pipelines/build/content-trust) para un ejemplo de uso de la confianza en contenido al compilar una imagen de Docker e insertarla.
 

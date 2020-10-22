@@ -1,14 +1,14 @@
 ---
 title: Administración de la infraestructura híbrida a gran escala con Azure Arc
 description: Aprenda a administrar de forma eficaz los equipos de sus clientes y los clústeres de Kubernetes fuera de Azure.
-ms.date: 09/15/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2ffbe9019398896c594b7cb0e0424d2b5f4dc37a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 66a798265683045d7ff9f3d8d811141800d08f9b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605316"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91336622"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Administración de la infraestructura híbrida a gran escala con Azure Arc
 
@@ -16,19 +16,16 @@ Como proveedor de servicios, es posible que haya incorporado varios inquilinos d
 
 [Azure Arc](../../azure-arc/overview.md) ayuda a simplificar entornos complejos y distribuidos en entornos locales, perimetrales y multinube, lo que permite implementar los servicios de Azure en cualquier lugar y amplía la administración de Azure a cualquier infraestructura.
 
-Con los [servidores habilitados para Azure Arc (versión preliminar)](../../azure-arc/servers/overview.md), los clientes pueden administrar las máquinas Windows y Linux hospedadas fuera de Azure en la red corporativa, de la misma forma con la que se administran las máquinas virtuales nativas de Azure. Al vincular una máquina híbrida a Azure, esta se conecta y se trata como un recurso de Azure. Después, los proveedores de servicios pueden administrar estas máquinas que no son de Azure junto con los recursos de Azure de sus clientes.
+Con los [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md), los clientes pueden administrar las máquinas Windows y Linux hospedadas fuera de Azure en la red corporativa, del mismo modo que se administran las máquinas virtuales nativas de Azure. Al vincular una máquina híbrida a Azure, esta se conecta y se trata como un recurso de Azure. Después, los proveedores de servicios pueden administrar estas máquinas que no son de Azure junto con los recursos de Azure de sus clientes.
 
 [Kubernetes habilitado para Azure Arc (versión preliminar)](../../azure-arc/kubernetes/overview.md) permite a los clientes asociar y configurar clústeres de Kubernetes dentro y fuera de Azure. Cuando un clúster de Kubernetes está asociado a Azure Arc, aparecerá en Azure Portal, con un identificador de Azure Resource Manager y una identidad administrada. Los clústeres se asocian a suscripciones estándar de Azure, viven en un grupo de recursos y pueden recibir etiquetas como cualquier otro recurso de Azure.
 
-En este tema se proporciona información general sobre cómo los proveedores de servicios pueden usar servidores habilitados para Azure Arc (versión preliminar) y Kubernetes habilitado para Azure Arc (versión preliminar) de forma escalable para administrar el entorno híbrido de sus clientes, con visibilidad en todos los inquilinos de clientes administrados.
+En este tema se proporciona información general sobre cómo los proveedores de servicios pueden usar los servidores habilitados para Azure Arc y Kubernetes habilitado para Azure Arc (versión preliminar) de forma escalable para administrar el entorno híbrido de sus clientes, con visibilidad en todos los inquilinos de los clientes administrados.
 
 > [!TIP]
 > Aunque en este tema hacemos referencia a proveedores de servicios y clientes, esta guía es aplicable también a [empresas que usan Azure Lighthouse para administrar varios inquilinos](../concepts/enterprise.md).
 
-## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers-preview"></a>Administración de servidores híbridos a gran escala con servidores habilitados para Azure Arc (versión preliminar)
-
-> [!NOTE]
-> Los servidores habilitados para Azure Arc son una opción que actualmente se encuentra en versión preliminar. Por el momento, no es aconsejable para cargas de trabajo de producción.
+## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers"></a>Administración de servidores híbridos a gran escala con servidores habilitados para Azure Arc
 
 Como proveedor de servicios, puede administrar máquinas Windows Server o Linux locales fuera de Azure que los clientes han conectado a su suscripción mediante el [agente de Azure Connected Machine](../../azure-arc/servers/agent-overview.md).
 

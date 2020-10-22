@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: 90dbc0b888c6d6eeed97a676024abc9cc0dca6fe
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 50b0324be8da8024dcbda140eff062f3ff712225
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017173"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371191"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Introducción a Protección contra DDoS de Azure estándar
 
@@ -61,7 +61,7 @@ Entre las características de Protección contra DDoS estándar se incluyen:
 
 El servicio Protección contra DDoS estándar supervisa el uso de tráfico real y lo compara constantemente con los umbrales definidos en la directiva de DDoS. Cuando se supera el umbral de tráfico, se inicia automáticamente la mitigación de DDoS. Cuando el tráfico vuelve a estar por debajo del umbral, se quita la mitigación.
 
-![Mitigación](./media/ddos-protection-overview/mitigation.png)
+![Diagrama que muestra un flujo que comienza con un cliente en Azure Portal en DDoS Protection Estándar, en las direcciones I P públicas en la generación de directivas que termina en dos direcciones I P públicas.](./media/ddos-protection-overview/mitigation.png)
 
 Durante la mitigación, el servicio Protección contra DDoS redirige el tráfico enviado al recurso protegido y realiza varias comprobaciones, como las que se indican a continuación:
 
@@ -81,3 +81,4 @@ Microsoft se ha asociado con [BreakingPoint Cloud](https://www.ixiacom.com/produ
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Configuración del servicio Protección contra DDoS estándar](manage-ddos-protection.md)
+- [Precios de Azure DDoS Protection](https://azure.microsoft.com/pricing/details/ddos-protection/)

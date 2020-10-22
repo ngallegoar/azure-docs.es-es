@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 919585d557a668e44f229451ab202fb8bcab9079
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 9f4d1e0d43758645d43843417eadf0ce21d43cb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985141"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91533849"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Asignación de roles de Azure AD en Privileged Identity Management
 
@@ -51,7 +51,7 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de administr
 
 1. Seleccione **Roles** para ver la lista de roles de los permisos de Azure AD.
 
-    ![Roles de Azure AD](./media/pim-how-to-add-role-to-user/roles-list.png)
+    ![Captura de pantalla de la página "Roles" con la acción "Agregar asignaciones" seleccionada.](./media/pim-how-to-add-role-to-user/roles-list.png)
 
 1. Seleccione **Agregar asignaciones** para abrir la página **Agregar asignaciones**.
 

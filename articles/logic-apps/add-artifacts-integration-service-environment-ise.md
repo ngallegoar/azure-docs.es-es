@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: d8fe945b028b574e71ae24b1483ad8e7fd67b01d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078726"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91269750"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Incorporación de recursos al entorno del servicio de integración (ISE) en Azure Logic Apps
 
@@ -40,7 +40,7 @@ Para crear aplicaciones lógicas que se ejecuten en el entorno del servicio de i
 
 1. Proporcione información sobre la aplicación lógica que desea crear, por ejemplo:
 
-   ![Selección del entorno de servicio de integración](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
+   ![Captura de pantalla que muestra la ventana "Logic App" (Aplicación lógica) "Create" (Crear) con información de ejemplo.](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
@@ -121,7 +121,7 @@ Para usar conectores personalizados en su ISE, créelos desde directamente dentr
 
 1. En la lista **Ubicación**, en la sección **Entornos de servicio de integración**, seleccione el mismo ISE que usan las aplicaciones lógicas y, después, seleccione **Crear**, por ejemplo:
 
-   ![Selección del entorno de servicio de integración](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
+   ![Captura de pantalla que muestra la ventana "Crear conector personalizado de Logic Apps" con información de ejemplo seleccionada.](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
 1. Seleccione el nuevo conector personalizado y, a continuación, seleccione **Editar**, por ejemplo:
 

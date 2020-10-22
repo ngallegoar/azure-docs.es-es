@@ -1,28 +1,32 @@
 ---
 title: Administración de dispositivos en una aplicación de Azure IoT Central | Microsoft Docs
-description: Como operador, aprenda a administrar dispositivos en la aplicación de Azure IoT Central.
-author: sarahhubbard
-ms.author: sahubbar
-ms.date: 12/06/2019
+description: Como operador, aprenda a administrar dispositivos en la aplicación de Azure IoT Central. Obtenga información acerca de cómo administrar dispositivos y realizar importaciones y exportaciones en bloque de los dispositivos a la aplicación.
+author: dominicbetts
+ms.author: dobett
+ms.date: 10/08/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ee9552b251cbc8cca1891de043ee79682e7b2d6c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.custom: contperfq2
+ms.openlocfilehash: 1782982c75e502ea8df70818a134b5b009188959
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017105"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850105"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Administración de dispositivos en la aplicación de Azure IoT Central
 
 En este artículo se describe cómo puede administrar dispositivos en la aplicación de Azure IoT Central como operador. Como operador, puede hacer lo siguiente:
 
 - Usar la página **Devices** (Dispositivos) para ver, agregar y eliminar los dispositivos conectados a una aplicación de Azure IoT Central.
+- Importar y exportar dispositivos en bloque.
 - Mantener un inventario actualizado de los dispositivos.
-- Mantener actualizados los metadatos del dispositivo cambiando los valores almacenados en las propiedades del dispositivo desde sus vistas.
+- Mantenga actualizados los metadatos del dispositivo cambiando los valores almacenados en las propiedades del dispositivo desde sus vistas.
 - Controlar el comportamiento de los dispositivos mediante la actualización de una configuración en un dispositivo específico desde sus vistas.
+
+Para obtener información sobre cómo administrar grupos personalizados de dispositivos, consulte [Tutorial: Uso de grupos de dispositivos para analizar la telemetría de dispositivo](tutorial-use-device-groups.md).
 
 ## <a name="view-your-devices"></a>Visualización de los dispositivos
 
@@ -36,7 +40,6 @@ Para ver un dispositivo determinado:
 
     ![Página Detalles del dispositivo](./media/howto-manage-devices/devicelist.png)
 
-
 ## <a name="add-a-device"></a>Agregar un dispositivo
 
 Para agregar un dispositivo real a una aplicación de Azure IoT Central:
@@ -49,7 +52,7 @@ Para agregar un dispositivo real a una aplicación de Azure IoT Central:
 
 1. Cambie el botón de alternancia **Simulated** **On** (Activado) u **Off** (Desactivado). Un dispositivo real hace referencia a un dispositivo físico que se conecta a la aplicación de Azure IoT Central. Un dispositivo simulado tiene datos de ejemplo generados por Azure IoT Central, que los pone a su disposición.
 
-1. Haga clic en **Crear**.
+1. Seleccione **Crear**.
 
 1. El dispositivo aparece ahora en la lista de dispositivos de esta plantilla. Selecciónelo para ver su página de detalles, que contiene todas las vistas del dispositivo.
 
@@ -82,10 +85,9 @@ Para registrar dispositivos en la aplicación en bloque:
 
     ![Importación correcta](./media/howto-manage-devices/bulkimport3a.png)
 
-
 Si se produce un error en la operación de importación de dispositivos, aparece un mensaje de error en el panel Device Operations (Operaciones de dispositivo). Se genera un archivo de registro descargable con todos los errores.
 
-**Migración de dispositivos a una plantilla**
+## <a name="migrate-devices-to-a-template"></a>Migración de dispositivos a una plantilla
 
 Si para registrar dispositivos inicia la importación en **All devices** (Todos los dispositivos), los dispositivos se crean sin asociación con ninguna plantilla. Los dispositivos deben estar asociados con una plantilla para explorar los datos y otros detalles sobre ellos. Siga estos pasos para asociar dispositivos con una plantilla:
 
@@ -95,8 +97,7 @@ Si para registrar dispositivos inicia la importación en **All devices** (Todos 
 
     ![Dispositivos no asociados](./media/howto-manage-devices/unassociateddevices1a.png)
 
-
-1. Use el filtro de la cuadrícula para determinar si el valor de la columna **Device Template** (Plantilla de dispositivo) es "Unassociated" (Sin asociar) en cualquiera de los dispositivos.
+1. Use el filtro de la cuadrícula para determinar si el valor de la columna **Plantilla de dispositivo** es **Sin asociar** en cualquiera de los dispositivos.
 
 1. Seleccione los dispositivos que quiere asociar con una plantilla:
 
@@ -104,11 +105,9 @@ Si para registrar dispositivos inicia la importación en **All devices** (Todos 
 
     ![Asociar dispositivos](./media/howto-manage-devices/unassociateddevices2a.png)
 
-
 1. Elija la plantilla en la lista de plantillas disponibles y seleccione **Migrate** (Migrar).
 
 1. Los dispositivos seleccionados están asociados con la plantilla de dispositivo que eligió.
-
 
 ## <a name="export-devices"></a>Exportación de dispositivos
 
@@ -124,7 +123,6 @@ Para realizar la exportación masiva de dispositivos desde la aplicación:
 
     ![Exportación](./media/howto-manage-devices/export1a.png)
 
-
 1. Se inicia el proceso de exportación. Para realizar un seguimiento del estado, utilice el panel Device Operations (Operaciones de dispositivo).
 
 1. Cuando la exportación finaliza, se muestra un mensaje de confirmación junto con un vínculo para descargar el archivo generado.
@@ -132,7 +130,6 @@ Para realizar la exportación masiva de dispositivos desde la aplicación:
 1. Seleccione el vínculo **Download File** (Descargar archivo) para descargar el archivo en una carpeta local del disco.
 
     ![Exportación correcta](./media/howto-manage-devices/export2a.png)
-
 
 1. El archivo CSV exportado contiene las siguientes columnas: Id. de dispositivo, nombre del dispositivo, claves de dispositivo y huellas digitales de certificado X509:
 
@@ -159,7 +156,7 @@ Para eliminar ya sea un dispositivo real o simulado de la aplicación de Azure I
 
 ## <a name="change-a-property"></a>Cambio de una propiedad
 
-Las propiedades de la nube son los metadatos de dispositivo asociados al dispositivo, como la ciudad y el número de serie. Las propiedades que se pueden escribir controlan el comportamiento de un dispositivo. En otras palabras, le permite proporcionar entradas para el dispositivo.  Las propiedades del dispositivo las establece el dispositivo y son de solo lectura en IoT Central. Puede ver y actualizar las propiedades en las vistas de **Detalles del dispositivo**.
+Las propiedades de la nube son los metadatos de dispositivo asociados al dispositivo, como la ciudad y el número de serie. Las propiedades de la nube solo existen en la aplicación IoT Central y no se sincronizan con sus dispositivos. Las propiedades que se pueden escribir controlan el comportamiento de un dispositivo y permiten establecer el estado de un dispositivo de forma remota, por ejemplo, estableciendo la temperatura objetivo de un dispositivo termostato.  Las propiedades del dispositivo las establece el dispositivo y son de solo lectura en IoT Central. Puede ver y actualizar las propiedades en las vistas de **Detalles del dispositivo**.
 
 1. Elija **Dispositivos** en el panel izquierdo.
 
@@ -171,12 +168,6 @@ Las propiedades de la nube son los metadatos de dispositivo asociados al disposi
 
 1. Elija **Guardar**. Si guardó las propiedades que se pueden escribir, los valores se envían al dispositivo. Cuando el dispositivo confirma el cambio de la propiedad que se puede escribir, el estado vuelve a **synced**(sincronizado). Si guardó una propiedad de la nube, el valor se actualiza.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a administrar dispositivos en la aplicación de Azure IoT Central, le sugerimos el paso siguiente:
-
-> [!div class="nextstepaction"]
-> [Uso de grupos de dispositivos](tutorial-use-device-groups.md)
-
-<!-- Next how-tos in the sequence -->
+Ahora que ha aprendido a administrar dispositivos en la aplicación Azure IoT Central, el paso siguiente que sugerimos es que obtenga más información sobre cómo [Configurar reglas](howto-configure-rules.md) para sus dispositivos.

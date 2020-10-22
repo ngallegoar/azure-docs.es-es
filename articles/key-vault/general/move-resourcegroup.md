@@ -11,18 +11,22 @@ ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another resource group.
-ms.openlocfilehash: fe8051d551077666c06ac033f22303fd643ac602
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: ea152e1d78ab1ea610eee5420394c89524673993
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585740"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042389"
 ---
 # <a name="moving-an-azure-key-vault-across-resource-groups"></a>Movimiento de un almacén de Azure Key Vault entre grupos de recursos
 
 ## <a name="overview"></a>Información general
 
 El movimiento de un almacén de claves entre grupos de recursos es una característica que es compatible con el almacén de claves. El movimiento de un almacén de claves entre grupos de recursos no afectará a las configuraciones de directiva de acceso o firewall del almacén de claves. Las aplicaciones conectadas y las entidades de servicio deben seguir funcionando según lo previsto.
+
+> [!IMPORTANT]
+> **No pueden migrarse los almacenes de claves que se usan para el cifrado de discos.**
+> Si utiliza Key Vault con el cifrado de discos para una máquina virtual, el almacén de claves no puede migrarse a otro grupo de recursos o a una suscripción mientras esté habilitado el cifrado de discos. Antes de mover el almacén de claves a un nuevo grupo de recursos o a una nueva suscripción, debe deshabilitar el cifrado de discos. 
 
 ## <a name="design-considerations"></a>Consideraciones de diseño
 

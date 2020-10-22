@@ -9,16 +9,16 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 92540c57179ae0198f78b588681167fe48097362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f6e90edc0503326dc9dbb06abfcf59fa2d51e1e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82134040"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043823"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Implementación de módulos de IoT Edge a escala con Visual Studio Code
 
-Puede crear una **implementación automática de IoT Edge** mediante Visual Studio Code para administrar las implementaciones en curso de muchos dispositivos a la vez. Las implementaciones automáticas de IoT Edge forman parte de la característica de [Administración de dispositivos automática](/azure/iot-hub/iot-hub-automatic-device-management) de IoT Hub. Las implementaciones son procesos dinámicos que permiten implementar varios módulos en varios dispositivos. También puede realizar un seguimiento del estado de los módulos, y realizar cambios cuando sea necesario.
+Puede crear una **implementación automática de IoT Edge** mediante Visual Studio Code para administrar las implementaciones en curso de muchos dispositivos a la vez. Las implementaciones automáticas de IoT Edge forman parte de la característica de [Administración de dispositivos automática](../iot-hub/iot-hub-automatic-device-management.md) de IoT Hub. Las implementaciones son procesos dinámicos que permiten implementar varios módulos en varios dispositivos. También puede realizar un seguimiento del estado de los módulos, y realizar cambios cuando sea necesario.
 
 Para más información, consulte el artículo [Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala](module-deployment-monitoring.md).
 
@@ -27,7 +27,10 @@ En este artículo, configurará Visual Studio Code y la extensión de IoT. A co
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure.
-* Un [dispositivo de IoT Edge](how-to-register-device.md#register-with-visual-studio-code) que tenga instalado el entorno de ejecución de Azure IoT Edge.
+* Uno o más dispositivos IoT Edge.
+
+  Si no tiene un dispositivo IoT Edge configurado, puede crear uno en una máquina virtual de Azure. Siga los pasos de alguno de los artículos de inicio rápido para [Crear un dispositivo virtual Linux](quickstart-linux.md) o [Crear un dispositivo virtual Windows](quickstart.md).
+
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Visual Studio Code.
 
@@ -57,13 +60,16 @@ Para implementar módulos con Visual Studio Code, guarde el manifiesto de implem
 
 Este es un manifiesto de implementación básico con un módulo como ejemplo:
 
+>[!NOTE]
+>Este manifiesto de implementación de ejemplo usa la versión de esquema 1.1 para el centro y el agente de IoT Edge. La versión de esquema 1.1 se publicó junto con la versión 1.0.10 de IoT Edge y habilita características como el orden de inicio y la priorización de rutas del módulo.
+
 ```json
 {
   "content": {
     "modulesContent": {
       "$edgeAgent": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "runtime": {
             "type": "docker",
             "settings": {
@@ -92,7 +98,7 @@ Este es un manifiesto de implementación básico con un módulo como ejemplo:
           },
           "modules": {
             "SimulatedTemperatureSensor": {
-              "version": "1.0",
+              "version": "1.1",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",
@@ -223,8 +229,8 @@ Después de haber configurado el manifiesto de implementación y las etiquetas e
   | Parámetro | Descripción |
   | --- | --- |
   | Id. de implementación | El nombre de la implementación que se creará en IoT Hub. Asigne a su implementación un nombre exclusivo de hasta 128 letras en minúscula. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`. |
-  | Condición de destino | Escriba una condición de destino para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`. |
-  | Priority |  Un número entero positivo. Si dos o más implementaciones se destinen al mismo dispositivo, se aplicará la implementación con el valor numérico más alto para la prioridad. |
+  | Condición de destino | Escriba una condición de destino para determinar qué dispositivos se dirigirán a esta implementación.  La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`.  |
+  | Prioridad |  Un entero positivo. Si dos o más implementaciones se destinen al mismo dispositivo, se aplicará la implementación con el valor numérico más alto para la prioridad. |
 
   Después de especificar la prioridad, el terminal debe mostrar una salida similar a la siguiente:
 

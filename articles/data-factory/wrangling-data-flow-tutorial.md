@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: f9b5380fa219d768651703eeb9fe445fcd215332
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e9a4f7266522fc17c33e2086af6cb7367bbed39e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921766"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91650687"
 ---
 # <a name="prepare-data-with-wrangling-data-flow"></a>Preparación de datos con un flujo de datos de limpieza y transformación
 
@@ -25,13 +25,13 @@ ms.locfileid: "85921766"
 
 Hay dos maneras de crear un flujo de datos de limpieza y transformación en Azure Data Factory. Una forma consiste en hacer clic en el icono del signo más y seleccionar **Flujo de datos** en el panel de recursos de Factory.
 
-![Limpieza y transformación](media/wrangling-data-flow/tutorial7.png)
+![Captura de pantalla que muestra Data Flow en el panel Recursos de fábrica.](media/wrangling-data-flow/tutorial7.png)
 
 El otro método está en el panel de actividades del lienzo de la canalización. Abra el acordeón **Movimiento y transformación** y arrastre la actividad **Flujo de datos** al lienzo.
 
 En ambos métodos, en el panel lateral que se abre, seleccione **Creación de un flujo de datos** y elija **Wrangling data flow** (Flujo de datos de limpieza y transformación). Haga clic en Aceptar.
 
-![Limpieza y transformación](media/wrangling-data-flow/tutorial1.png)
+![Captura de pantalla que resalta la opción de flujo de datos de limpieza y transformación.](media/wrangling-data-flow/tutorial1.png)
 
 ## <a name="author-a-wrangling-data-flow"></a>Generar un flujo de datos de limpieza y transformación
 
@@ -44,21 +44,21 @@ Agregue un **Conjunto de datos de origen** para el flujo de datos de limpieza y 
 
 Haga clic en **Crear** para abrir el editor de mashup Power Query Online.
 
-![Limpieza y transformación](media/wrangling-data-flow/tutorial5.png)
+![Captura de pantalla que muestra el botón Crear que abre el editor de mashup de Power Query Online.](media/wrangling-data-flow/tutorial5.png)
 
-Genere el flujo de datos de limpieza y transformación con la preparación de datos sin código. Para ver la lista de funciones disponibles, consulte las [funciones de transformación](wrangling-data-flow-functions.md)/.
+Genere el flujo de datos de limpieza y transformación con la preparación de datos sin código. Para ver la lista de funciones disponibles, consulte las [funciones de transformación](wrangling-data-flow-functions.md).
 
-![Limpieza y transformación](media/wrangling-data-flow/tutorial6.png)
+![Captura de pantalla que muestra el proceso para crear el flujo de datos de limpieza y transformación.](media/wrangling-data-flow/tutorial6.png)
 
 ## <a name="running-and-monitoring-a-wrangling-data-flow"></a>Ejecución y supervisión del flujo de datos de limpieza y transformación
 
 Para una ejecución de depuración de canalización de un flujo de datos de limpieza y transformación, haga clic en **Depurar** en el lienzo de la canalización. Una vez publicado el flujo de datos, **Trigger now** (Desencadenar ahora) ejecuta a petición la última canalización publicada. Los flujos de datos de limpieza y transformación se pueden programar con todos los desencadenadores de Azure Data Factory existentes.
 
-![Limpieza y transformación](media/wrangling-data-flow/tutorial3.png)
+![Captura de pantalla que muestra cómo agregar un flujo de datos de limpieza y transformación.](media/wrangling-data-flow/tutorial3.png)
 
 Vaya a la pestaña **Supervisión** para visualizar la salida de una ejecución de actividad de flujo de datos de limpieza y transformación desencadenada.
 
-![Limpieza y transformación](media/wrangling-data-flow/tutorial2.png)
+![Captura de pantalla que muestra la salida de una ejecución de actividad de flujo de datos de limpieza y transformación desencadenada.](media/wrangling-data-flow/tutorial2.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

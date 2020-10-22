@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 3a39b12afb715cf091ff1af1dcc7cc702769bed3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/29/2020
+ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908020"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91450133"
 ---
 # <a name="execute-python-script-module"></a>Módulo Ejecutar script de Python
 
@@ -57,8 +57,11 @@ if spec is None:
 > [!NOTE]
 > Si la canalización contiene varios módulos Ejecutar script de Python que necesitan paquetes que no están en la lista preinstalada, instale los paquetes en cada módulo.
 
+> [!WARNING]
+> El módulo Ejecutar script de Python no admite la instalación de paquetes que dependan de bibliotecas nativas adicionales con comandos de tipo "apt-get", como Java, PyODBC, etc. Esto se debe a que este módulo se ejecuta en un entorno sencillo solo con Python preinstalado y con permisos que no son de administrador.  
+
 ## <a name="upload-files"></a>Carga de archivos
-El módulo Ejecutar script de Python admite la carga de archivos con el [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#&preserve-view=trueupload-file-name--path-or-stream-).
+El módulo Ejecutar script de Python admite la carga de archivos con el [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
 
 En el ejemplo siguiente se muestra cómo cargar un archivo de imagen en el módulo Ejecutar script de Python:
 
@@ -140,7 +143,10 @@ El módulo Ejecución de script de Python contiene código de Python de ejemplo 
 
     Se pueden devolver dos conjuntos de datos al diseñador, que deben ser una secuencia de tipo `pandas.DataFrame`. Puede crear otras salidas en el código de Python y escribirlas directamente en Azure Storage.
 
-6. Envíe la canalización, o seleccione el módulo y haga clic en **Ejecutar seleccionados** para ejecutar solo el script de Python.
+    > [!WARNING]
+    > **No** se recomienda conectarse a una base de datos u otros almacenamientos externos en el **módulo Ejecutar script de Python**. Puede usar el [módulo Importar datos](./import-data.md) y el [módulo Exportar datos](./export-data.md).     
+
+6. Envíe la canalización.
 
     Todos los datos y el código se cargan en una máquina virtual y se ejecutan con el entorno de Python especificado.
 

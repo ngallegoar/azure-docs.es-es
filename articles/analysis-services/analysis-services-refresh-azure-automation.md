@@ -6,18 +6,18 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 31dc1973af42a1785a2a65cb1887f479e44af162
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553910"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019144"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualización con Azure Automation
 
 Mediante el uso de Azure Automation y los runbooks de PowerShell, puede realizar operaciones de actualización de datos automatizadas en los modelos tabulares de análisis de Azure.  
 
-El ejemplo de este artículo usa el [módulo SqlServer de PowerShell](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). Más adelante en este artículo, se proporciona un ejemplo de un runbook de PowerShell que muestra cómo actualizar un modelo.  
+El ejemplo de este artículo usa el [módulo SqlServer de PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps). Más adelante en este artículo, se proporciona un ejemplo de un runbook de PowerShell que muestra cómo actualizar un modelo.  
 
 ## <a name="authentication"></a>Authentication
 
@@ -54,15 +54,15 @@ La entidad de servicio que cree debe tener permisos de administrador de servidor
 
 1. En la cuenta de Automation, cree un recurso de **credenciales** que se usará para almacenar de forma segura la entidad de servicio.
 
-    ![Crear una credencial](./media/analysis-services-refresh-azure-automation/6.png)
+    ![Captura de pantalla que muestra la página "Credenciales" con la acción "Agregar credencial" seleccionada.](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Escriba los detalles de la credencial. En **Nombre de usuario**, escriba el identificador de aplicación de la entidad de servicio (appid) y, a continuación, en **Contraseña**, escriba el secreto de la entidad de servicio.
+2. Escriba los detalles de la credencial. En **Nombre de usuario**, escriba el id. de aplicación de la entidad de servicio (appid) y, a continuación, en **Contraseña**, escriba el secreto de la entidad de servicio.
 
     ![Crear una credencial](./media/analysis-services-refresh-azure-automation/7.png)
 
 3. Importe el runbook de Automation.
 
-    ![Importación del runbook](./media/analysis-services-refresh-azure-automation/8.png)
+    ![Captura de pantalla que muestra la página "Runbooks" con la acción "Importar un runbook" seleccionada.](./media/analysis-services-refresh-azure-automation/8.png)
 
 4. Busque el archivo [Refresh-Model.ps1](#sample-powershell-runbook), proporcione un **Nombre** y una **Descripción**  y, luego, haga clic en **Crear** .
 
@@ -80,7 +80,7 @@ La entidad de servicio que cree debe tener permisos de administrador de servidor
 
 6. Para probar el runbook, haga clic en **Iniciar**.
 
-    ![Iniciar el runbook](./media/analysis-services-refresh-azure-automation/11.png)
+    ![Captura de pantalla que muestra la página "Información general" con la acción "Empezar" seleccionada.](./media/analysis-services-refresh-azure-automation/11.png)
 
 7. Rellene los parámetros **DATABASENAME**, **ANALYSISSERVER** y **REFRESHTYPE** y, a continuación, haga clic en **Aceptar**. El parámetro **WEBHOOKDATA** no es necesario cuando se ejecuta manualmente el runbook.
 
@@ -202,7 +202,7 @@ $_Credential = Get-AutomationPSCredential -Name "ServicePrincipal"
 
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData)
-{ 
+{ 
     # Retrieve AAS details from Webhook request body
     $atmParameters = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
     Write-Output "CredentialName: $($atmParameters.CredentialName)"
@@ -226,4 +226,4 @@ else
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Muestras](analysis-services-samples.md)  
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](/rest/api/analysisservices/servers)

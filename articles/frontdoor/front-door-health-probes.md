@@ -9,21 +9,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: c96dac55df2cdc15b7d3699e947c851a9fe69b02
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4cbeea8ad20d41daff3d4ad086a36df5e988991f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399640"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449236"
 ---
 # <a name="health-probes"></a>Sondeos de estado
 
-Con el fin de determinar el estado y la proximidad de cada back-end de un entorno de Front Door especificado, cada entorno envía periódicamente una solicitud HTTP/HTTPS sintética a cada uno de los servidores back-end configurados. Front Door usa entonces las respuestas de estos sondeos para determinar los "mejores" servidores back-end a los que se deben enrutar las solicitudes de cliente reales. 
+Con el fin de determinar el estado y la proximidad de cada back-end de un entorno de Front Door especificado, cada entorno envía periódicamente una solicitud HTTP/HTTPS sintética a cada uno de los servidores back-end configurados. Front Door usa entonces las respuestas de estos sondeos para determinar los "mejores" recursos de servidor back-end a los que enrutar las solicitudes de los clientes. 
 
 > [!WARNING]
-> Como Front Door tiene muchos entornos perimetrales en todo el mundo, el volumen de solicitudes de sondeos de estado a los back-end puede ser bastante superior, desde 25 solicitudes cada minuto hasta un máximo de 1200 solicitudes por minuto, dependiendo de la frecuencia de sondeo de estado configurada. Con la frecuencia de sondeo predeterminada de 30 segundos, el volumen de sondeo del back-end debe ser de aproximadamente 200 solicitudes por minuto.
+> Como Front Door tiene muchos entornos perimetrales en todo el mundo, el volumen de solicitudes de sondeo de estado a los back-end puede ser bastante superior, desde 25 solicitudes por minuto hasta un máximo de 1200 solicitudes por minuto, dependiendo de la frecuencia de sondeo de estado configurada. Con la frecuencia de sondeo predeterminada de 30 segundos, el volumen de sondeo del back-end debe ser de aproximadamente 200 solicitudes por minuto.
 
 ## <a name="supported-protocols"></a>Protocolos admitidos
 
@@ -59,7 +59,7 @@ Para determinar el mantenimiento, Azure Front Door usa el mismo proceso de tres 
 
     * Para configurar _x_, se cambia la propiedad SuccessfulSamplesRequired de la configuración de equilibrio de carga.
 
-3. Aparte del conjunto de servidores back-end con un estado correcto del grupo de back-end, Front Door mide y mantiene también la latencia (tiempo de ida y vuelta) de cada back-end.
+3. Para los conjuntos de servidores back-end con un estado correcto del grupo de servidores back-end, Front Door mide y mantiene también la latencia (tiempo de ida y vuelta) de cada back-end.
 
 
 ## <a name="complete-health-probe-failure"></a>Error de sondeo de estado completo

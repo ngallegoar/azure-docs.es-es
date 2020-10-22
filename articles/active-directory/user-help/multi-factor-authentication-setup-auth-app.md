@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 953f74a18ae7874c8772cdc8179e5e5bdd1a86d2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 10b6b788077eccda522c9e8c6e631939ca1819fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738649"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530347"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Configuración de una aplicación de autenticación como método de verificación en dos fases
 
@@ -33,7 +33,7 @@ Se puede configurar una aplicación de autenticación para que envíe una notifi
 
 2. Seleccione **Recibir notificaciones para verificación** en el área **¿Cómo quiere usar la aplicación móvil?** y, a continuación, seleccione **Configurar**.
 
-    ![Página Comprobación de seguridad adicional, con las opciones de aplicación móvil y notificaciones](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
+    ![Captura de pantalla que muestra la página "Comprobación de seguridad adicional", con las opciones "Aplicación móvil" y "Recibir notificaciones para verificación" seleccionadas.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
 
     Aparece la página **Configurar aplicación móvil**.
 
@@ -48,7 +48,7 @@ Se puede configurar una aplicación de autenticación para que envíe una notifi
 
 5. Vuelva al equipo, asegúrese de que en la página **Comprobación de seguridad adicional** aparece el mensaje que indica que la configuración se realizó correctamente y, después, seleccione **Siguiente**.
 
-    ![Página Comprobación de seguridad adicional, con mensaje de operación correcta](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
+    ![Captura de pantalla que muestra la página "Comprobación de seguridad adicional", con el mensaje de operación correcta "La aplicación móvil se ha configurado..." resaltado.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
 
     La aplicación de autenticación enviará una notificación al dispositivo móvil como prueba.
 

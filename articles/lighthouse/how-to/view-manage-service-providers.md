@@ -1,14 +1,14 @@
 ---
 title: Visualización y administración de proveedores de servicios
 description: Los clientes pueden usar la página proveedores de servicios en Azure Portal para ver información acerca de los proveedores de servicios, ofertas de proveedores de servicios y recursos delegados.
-ms.date: 08/12/2020
+ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: c22408a52d973a244d67528a73d4eaa487f166ba
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ecbeb7f5b6fccb7b66043cf57aa5f48674c6fe8b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167171"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974403"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualización y administración de proveedores de servicios
 
@@ -76,7 +76,9 @@ Los filtros de la parte superior de la página permiten ordenar y agrupar la inf
 
 Es posible que los clientes quieran obtener visibilidad sobre las suscripciones o los grupos de recursos que se han delegado Azure Lighthouse. Esto es especialmente útil para los clientes con un gran número de suscripciones o para los que tienen muchos usuarios que realizan tareas de administración.
 
-Se proporciona una [definición de directiva integrada de Azure Policy](../../governance/policy/samples/built-in-policies.md#lighthouse) para auditar la delegación de ámbitos en un inquilino de administración. Esta directiva se puede asignar a un grupo de administración que incluya todas las suscripciones que quiera auditar. Al comprobar el cumplimiento de esta directiva, las suscripciones o los grupos de recursos delegados (dentro del grupo de administración al que se asigna la directiva) se mostrarán en un estado no conforme. Luego, puede revisar los resultados y confirmar que no hay ninguna delegación inesperada.
+Se proporciona una [definición de directiva integrada de Azure Policy](../../governance/policy/samples/built-in-policies.md#lighthouse) para [auditar la delegación de ámbitos en un inquilino de administración](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Esta directiva se puede asignar a un grupo de administración que incluya todas las suscripciones que quiera auditar. Al comprobar el cumplimiento de esta directiva, las suscripciones o los grupos de recursos delegados (dentro del grupo de administración al que se asigna la directiva) se mostrarán en un estado no conforme. Luego, puede revisar los resultados y confirmar que no hay ninguna delegación inesperada.
+
+Otra [definición de directiva integrada](../../governance/policy/samples/built-in-policies.md#lighthouse) le permite [restringir las delegaciones a inquilinos de administración específicos](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json). Esta directiva se puede aplicar de forma similar a un grupo de administración que incluya las suscripciones para las que desea limitar las delegaciones. Una vez implementada la directiva, se denegarán todos los intentos de delegar una suscripción a un inquilino fuera de los que especifique.
 
 Para más información sobre cómo asignar una directiva y ver los resultados del estado de cumplimiento, consulte [Inicio rápido: Creación de una asignación de directiva](../../governance/policy/assign-policy-portal.md).
 

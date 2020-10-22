@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 1c2df017a9af47bfa330c8e0fa7561bf5b2d5bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ffb13912780edcf3d92093e672d1dae983e50a8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514700"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977415"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usar el servicio Administrador de dispositivos de StorSimple para supervisar el dispositivo StorSimple
 
@@ -77,7 +77,7 @@ Si ejecuta Update 3 o posterior, puede desglosar el uso de la capacidad de almac
 
 También puede hacer clic en cada uno de los volúmenes de la lista y ver el uso correspondiente.
 
-![Utilización de la capacidad principal de todos los volúmenes anclados localmente](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
+![Utilización de la capacidad principal de todos los volúmenes anclados localmente 2](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
 
 ### <a name="cloud-storage-usage"></a>Uso de almacenamiento en la nube
 Estos gráficos muestran la cantidad de almacenamiento en la nube que se usa. Estos datos están desduplicados y comprimidos. Esta cantidad incluye instantáneas en la nube que podrían contener datos que no se reflejan en ningún volumen principal y que se mantienen con fines de retención necesaria o heredada. Puede comparar las cifras de consumo de almacenamiento principal y en la nube para hacerse una idea de la tasa de reducción de datos, si bien el número no será exacto.

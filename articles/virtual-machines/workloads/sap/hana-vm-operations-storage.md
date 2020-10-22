@@ -7,20 +7,20 @@ author: msjuergent
 manager: bburns
 editor: ''
 tags: azure-resource-manager
-keywords: ''
+keywords: SAP, Azure HANA, disco Ultra Storage, Premium Storage
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/03/2020
+ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60947a8138972834f30274715226648d1b2360a1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9194b461cdceab889e1dfd20e3e70f3f69cb4369
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440701"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978261"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
@@ -229,7 +229,7 @@ El disco Ultra ofrece la posibilidad de definir un único disco que responda a s
 Otra ventaja del disco Ultra puede ser una mejor latencia de lectura en comparación con Premium Storage. Una latencia de lectura más rápida puede tener ventajas si desea reducir los tiempos de inicio de HANA y la carga posterior de los datos en la memoria. También se pueden apreciar las ventajas del almacenamiento en disco Ultra cuando HANA está escribiendo puntos de retorno. 
 
 > [!NOTE]
-> El disco Ultra todavía no está presente en todas las regiones de Azure y aún no es compatible con todos los tipos de máquinas virtuales que se indican a continuación. Para obtener información detallada sobre dónde está disponible el disco Ultra y qué familias de máquinas virtuales se admiten, consulte el artículo [¿Qué tipos de disco están disponibles en Azure?](../../windows/disks-types.md#ultra-disk).
+> El disco Ultra todavía no está presente en todas las regiones de Azure y aún no es compatible con todos los tipos de máquinas virtuales que se indican a continuación. Para obtener información detallada sobre dónde está disponible el disco Ultra y qué familias de máquinas virtuales se admiten, consulte el artículo [¿Qué tipos de disco están disponibles en Azure?](../../disks-types.md#ultra-disk).
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>Solución de almacenamiento recomendada para producción con configuración de disco Ultra pura
 En esta configuración, puede conservar los volúmenes **/hana/data** y **/hana/log** por separado. Los valores sugeridos se derivan de los KPI que SAP tiene para certificar los tipos de máquina virtual de SAP HANA y las configuraciones de almacenamiento como se recomienda en las [notas del producto SAP TDI Storage](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
@@ -266,69 +266,13 @@ A menudo, las recomendaciones superan los requisitos mínimos de SAP como se ind
 
 
 ## <a name="nfs-v41-volumes-on-azure-netapp-files"></a>Volúmenes de NFS v4.1 en Azure NetApp Files
-Azure NetApp Files proporciona recursos compartidos de NFS nativos que se pueden usar para los volúmenes **/hana/shared**, **/hana/data** y **/hana/log**. El uso de recursos compartidos de NFS basados en ANF para los volúmenes **/hana/data** y **/hana/log** requiere el uso del protocolo NFS v4.1. El protocolo NFS v3 no admite el uso de los volúmenes **/hana/data** y **/hana/log** al basar los recursos compartidos en ANF. 
-
-> [!IMPORTANT]
-> **No** se admite el protocolo NFS v3 implementado en Azure NetApp Files para su uso con **/hana/data** y **/hana/log**. El uso de NFS 4.1 es obligatorio para los volúmenes **/hana/data** y **/hana/log** desde un punto de vista funcional. Por su parte, para el volumen **/hana/shared**, se puede usar el protocolo NFS v3 o NFS v4.1 desde un punto de vista funcional.
-
-### <a name="important-considerations"></a>Consideraciones importantes
-A la hora de considerar Azure NetApp Files para SAP Netweaver y SAP HANA, tenga en cuenta los siguientes aspectos importantes:
-
-- El grupo de capacidad mínimo es de 4 TiB.  
-- El tamaño del volumen mínimo es de 100 GiB.
-- Azure NetApp Files y todas las máquinas virtuales en las que los volúmenes de Azure NetApp Files se montarán, se deben implementar en la misma red virtual de Azure o en [redes virtuales emparejadas](../../../virtual-network/virtual-network-peering-overview.md) de la misma región.  
-- La red virtual seleccionada debe tener una subred delegada en Azure NetApp Files.
-- El rendimiento de un volumen de Azure NetApp es una función de la cuota del volumen y del nivel de servicio, como se documenta en [Nivel de servicio para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Al ajustar el tamaño de los volúmenes de Azure NetApp de HANA, asegúrese de que el rendimiento resultante cumple los requisitos del sistema HANA.  
-- Azure NetApp Files ofrece la [directiva de exportación](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md): puede controlar los clientes permitidos, el tipo de acceso (lectura y escritura, solo lectura, etc.). 
-- La característica Azure NetApp Files no depende aún de la zona. En la actualidad, la característica Azure NetApp Files no se implementa en todas las zonas de disponibilidad de una región de Azure. Tenga en cuenta las posibles implicaciones de latencia en algunas regiones de Azure.  
-- Es importante que las máquinas virtuales se implementen muy cerca del almacenamiento de Azure NetApp para conseguir una latencia baja. 
-- El identificador de usuario para <b>sid</b>adm y el identificador de grupo para `sapsys` en las máquinas virtuales deben coincidir con la configuración de Azure NetApp Files. 
-
-> [!IMPORTANT]
-> Para las cargas de trabajo de SAP HANA, una baja latencia resulta fundamental. Trabaje con su representante de Microsoft para asegurarse de que las máquinas virtuales y los volúmenes de Azure NetApp Files se implementan en ubicaciones muy cercanas entre sí.  
-
-> [!IMPORTANT]
-> Si hay una discrepancia entre el identificador de usuario para <b>sid</b>adm y el identificador de grupo para `sapsys` entre la máquina virtual y la configuración de Azure NetApp, los permisos de archivos en volúmenes de Azure NetApp, montados en máquinas virtuales, aparecerán como `nobody`. Asegúrese de especificar el identificador de usuario correcto para <b>sid</b>adm y el identificador de grupo para `sapsys` al [incorporar un nuevo sistema](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) a Azure NetApp Files.
-
-### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Ajuste del tamaño de la base de datos HANA en Azure NetApp Files
-
-El rendimiento de un volumen de Azure NetApp es una función del tamaño del volumen y del nivel de servicio, como se documenta en [Nivel de servicio para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
-
-Al diseñar la infraestructura de SAP en Azure, debe tener en cuenta los requisitos mínimos de rendimiento del almacenamiento de SAP, lo cual se traduce en estas características de rendimiento mínimas:
-
-- Habilitar la lectura/escritura en **/hana/log** de 250 MB/s con tamaños de E/S de 1 MB  
-- Habilitar la actividad de lectura de al menos 400 MB/s para **/hana/data** con tamaños de E/S de 16 MB y 64 MB  
-- Habilitar la actividad de escritura de al menos 250 MB/s para **/hana/data** con tamaños de E/S de 16 MB y 64 MB  
-
-Los [límites de rendimiento de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md) por 1 TiB de cuota de volumen son los siguientes:
-- Capa de almacenamiento Premium: 64 MiB/s  
-- Capa de almacenamiento Ultra: 128 MiB/s  
-
-> [!IMPORTANT]
-> Independientemente de la capacidad que implemente en un volumen NFS individual, se espera que el rendimiento se nivele en el rango de 1,2-1,4 GB/s de ancho de banda usado por un consumidor en una máquina virtual. Esto tiene que ver con la arquitectura subyacente de la oferta de ANF y los límites de sesiones de Linux relacionadas alrededor de NFS. Las cifras relativas al rendimiento y a la capacidad de proceso que se indican en el artículo [Banco de pruebas de rendimiento de resultados de pruebas para Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) se obtuvieron en un volumen NFS compartido con varias máquinas virtuales cliente y como resultado con varias sesiones. Dicho escenario es diferente del escenario que medimos en SAP. Ahí medimos la capacidad de procesamiento de una sola máquina virtual en un volumen NFS hospedado en ANF.
-
-Para cumplir los requisitos de rendimiento mínimo de SAP para los datos y el registro, y de acuerdo con las directrices para `/hana/shared`, los tamaños recomendados serían los siguientes:
-
-| Volumen | Size<br /> Capa Premium Storage | Size<br /> Capa de almacenamiento Ultra | Protocolo NFS admitido |
-| --- | --- | --- |
-| /hana/log/ | 4 TiB | 2 TiB | v4.1 |
-| /hana/data | 6,3 TiB | 3,2 TiB | v4.1 |
-| /hana/shared | Max (512 GB, 1xRAM) por cuatro nodos de trabajo | Max (512 GB, 1xRAM) por cuatro nodos de trabajo | v3 o v4.1 |
+Para información detallada sobre ANF para HANA, lea el documento [Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA](./hana-vm-operations-netapp.md)
 
 
-> [!NOTE]
-> Las recomendaciones de tamaño de Azure NetApp Files que se han indicado se dirigen a satisfacer los requisitos mínimos que SAP expresa a sus proveedores de infraestructura. En escenarios reales de implementaciones de clientes y de cargas de trabajo, es posible que no sea suficiente. Utilice estas recomendaciones como punto de partida y adáptelas en función de los requisitos de la carga de trabajo específica.  
-
-Por tanto, podría considerar la posibilidad de implementar un rendimiento similar para los volúmenes de ANF, tal como se indicó anteriormente en el almacenamiento de disco Ultra. Tenga en cuenta también los tamaños enumerados para los volúmenes de las diferentes SKU de máquina virtual como ya se ha hecho en las tablas de disco Ultra.
-
-> [!TIP]
-> Puede cambiar el tamaño de los volúmenes de Azure NetApp Files de manera dinámica, sin necesidad de `unmount` los volúmenes, detener las máquinas virtuales o detener SAP HANA. Esto permite que la aplicación se adapte a las demandas de rendimiento esperadas e imprevistas.
-
-La documentación sobre cómo implementar una configuración de escalabilidad horizontal de SAP HANA con un nodo de espera mediante los volúmenes de NFS v4.1 hospedados en ANF y publicados en [Escalabilidad horizontal de SAP HANA con nodo en espera en máquinas virtuales de Azure con Azure NetApp Files en SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Solución con control de costo con Azure Premium Storage
-Hasta ahora, la solución de Azure Premium Storage que se describe en este documento en la sección [Soluciones con Premium Storage y el Acelerador de escritura de Azure para máquinas virtuales de la serie M de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) estaba diseñada para escenarios admitidos de producción de SAP HANA. Una de las características de las configuraciones admitidas con la producción es la separación de los volúmenes de datos de SAP HANA y el registro de la fase de puesta al día en dos volúmenes diferentes. La razón de esta separación es que las características de la carga de trabajo en los volúmenes son diferentes. Además, con las configuraciones de producción sugeridas, podría ser necesario un tipo de almacenamiento en caché diferente o incluso diferentes tipos de almacenamiento de bloques de Azure. Las configuraciones admitidas de producción con el destino de almacenamiento en bloque de Azure para cumplir también con el [Acuerdo de Nivel de Servicio de única máquina virtual para Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).  En escenarios que no son de producción, es posible que algunas de las consideraciones tomadas para los sistemas de producción no se apliquen a sistemas que no sean de producción de menor calidad. Como resultado, se pueden combinar los datos y el volumen de registro de HANA. Aunque eventualmente con algunos culpables, como por ejemplo no cumplir con ciertos KPI de rendimiento o latencia que se requieren para los sistemas de producción. Otro aspecto para reducir costos en estos entornos puede ser el uso del [almacenamiento SSD estándar de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage). A pesar de una opción que invalida el [Acuerdo de Nivel de Servicio de una única máquina virtual para Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+Hasta ahora, la solución de Azure Premium Storage que se describe en este documento en la sección [Soluciones con Premium Storage y el Acelerador de escritura de Azure para máquinas virtuales de la serie M de Azure](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) estaba diseñada para escenarios admitidos de producción de SAP HANA. Una de las características de las configuraciones admitidas con la producción es la separación de los volúmenes de datos de SAP HANA y el registro de la fase de puesta al día en dos volúmenes diferentes. La razón de esta separación es que las características de la carga de trabajo en los volúmenes son diferentes. Además, con las configuraciones de producción sugeridas, podría ser necesario un tipo de almacenamiento en caché diferente o incluso diferentes tipos de almacenamiento de bloques de Azure. Las configuraciones admitidas de producción con el destino de almacenamiento en bloque de Azure para cumplir también con el [Acuerdo de Nivel de Servicio de única máquina virtual para Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).  En escenarios que no son de producción, es posible que algunas de las consideraciones tomadas para los sistemas de producción no se apliquen a sistemas que no sean de producción de menor calidad. Como resultado, se pueden combinar los datos y el volumen de registro de HANA. Aunque eventualmente con algunos culpables, como por ejemplo no cumplir con ciertos KPI de rendimiento o latencia que se requieren para los sistemas de producción. Otro aspecto para reducir costos en estos entornos puede ser el uso del [almacenamiento SSD estándar de Azure](./planning-guide-storage.md#azure-standard-ssd-storage). A pesar de una opción que invalida el [Acuerdo de Nivel de Servicio de una única máquina virtual para Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
 
 Una alternativa menos costosa para estas configuraciones podría ser similar a la siguiente:
 

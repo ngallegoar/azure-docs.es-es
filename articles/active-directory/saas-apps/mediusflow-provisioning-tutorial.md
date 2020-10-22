@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: fae6c9f76f5c502d3a31c76330bd5b348d523e37
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 71dc05e3949c2675be6255723530693304e1aa3e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360623"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850088"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutorial: Configuración de MediusFlow para el aprovisionamiento automático de usuarios
 
@@ -62,7 +62,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 1.  Inicie sesión en la [consola de administración de MediusFlow](https://office365.cloudapp.mediusflow.com/) con el identificador de inquilino.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/1-auth.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/1-auth.png" alt-text="Captura de pantalla de la consola de administración de MediusFlow. El cuadro de nombre de inquilino de MediusFlow y el botón Autenticar están resaltados en el primer paso de integración." border="false":::
 
 2. Compruebe la conexión con MediusFlow.
 
@@ -76,35 +76,35 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 4. Guarde la configuración.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/4-save-config.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Captura de pantalla de la consola de administración de MediusFlow. El cuadro de nombre de inquilino de MediusFlow y el botón Autenticar están resaltados en el primer paso de integración." border="false":::
 
 5. Seleccione el aprovisionamiento de usuarios y haga clic en **Aceptar**.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Captura de pantalla de la consola de administración de MediusFlow. El cuadro de nombre de inquilino de MediusFlow y el botón Autenticar están resaltados en el primer paso de integración." border="false":::
 
 6. Haga clic en **Generate Secret Key** (Generar clave secreta). Copie y guarde este valor, que se escribirá en el campo **Token secreto** de la pestaña **Aprovisionamiento** en la aplicación MediusFlow en Azure Portal.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/6-create-secret-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Captura de pantalla de la consola de administración de MediusFlow. El cuadro de nombre de inquilino de MediusFlow y el botón Autenticar están resaltados en el primer paso de integración." border="false":::
 
 7. Haga clic en **Aceptar**.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/7-confirm-secret.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Captura de pantalla de la consola de administración de MediusFlow. El cuadro de nombre de inquilino de MediusFlow y el botón Autenticar están resaltados en el primer paso de integración." border="false":::
 
 8. Para que los usuarios se importen con un conjunto predefinido de roles, compañías y otras opciones de configuración generales en MediusFlow, antes deberá configurar esta opción. Para empezar, haga clic en **Add new configuration** (Agregar nueva configuración).
 
-    ![Configurar usuarios](./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Captura de pantalla de la consola de administración de MediusFlow. El cuadro de nombre de inquilino de MediusFlow y el botón Autenticar están resaltados en el primer paso de integración." border="false":::
 
 9. Proporcione la configuración predeterminada para los usuarios. En esta vista, puede configurar el atributo predeterminado. Si la configuración estándar es correcta, basta con proporcionar un nombre de empresa válido. Dado que estos valores de configuración se capturan de MediusFlow, antes se deben configurar. Para obtener más información, consulte la sección **Requisitos previos** de este artículo:
 
-    ![Configurar usuarios](./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Captura de pantalla de la consola de administración de MediusFlow. El cuadro de nombre de inquilino de MediusFlow y el botón Autenticar están resaltados en el primer paso de integración." border="false":::
 
 10. Haga clic en el botón **Guardar** para guardar la configuración de los usuarios.
 
-    ![Configurar usuarios](./media/mediusflow-provisioning-tutorial/10-done-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Captura de pantalla de la consola de administración de MediusFlow. El cuadro de nombre de inquilino de MediusFlow y el botón Autenticar están resaltados en el primer paso de integración." border="false":::
 
 11. Para obtener el vínculo de aprovisionamiento de usuarios, haga clic en **Copiar vínculo de SCIM**. Copie y guarde este valor. Este valor se escribirá en el campo **Dirección URL del inquilino** de la pestaña **Aprovisionamiento** de la aplicación MediusFLow en Azure Portal.
  
-    ![Configurar usuarios](./media/mediusflow-provisioning-tutorial/11-get-scim-link.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Captura de pantalla de la consola de administración de MediusFlow. El cuadro de nombre de inquilino de MediusFlow y el botón Autenticar están resaltados en el primer paso de integración." border="false":::
 
 ## <a name="step-3-add-mediusflow-from-the-azure-ad-application-gallery"></a>Paso 3. Agregar MediusFLow desde la galería de aplicaciones de Azure AD
 

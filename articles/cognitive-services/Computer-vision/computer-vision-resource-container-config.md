@@ -1,7 +1,7 @@
 ---
-title: 'Configurar contenedores: Computer Vision'
+title: 'Configuración de contenedores OCR de Read: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: En este artículo se muestra cómo configurar los valores obligatorios y opcionales para los contenedores de Reconocer texto en Computer Vision.
+description: En este artículo se muestra cómo configurar los valores obligatorios y opcionales para los contenedores OCR de Read en Computer Vision.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 674c906a4316ec92101f3f2028a57aa82db3f504
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 00c96333e612c7f92d7c53630eaa006b060986ad
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982009"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91536246"
 ---
-# <a name="configure-computer-vision-docker-containers"></a>Configuración de contenedores de Docker de Computer Vision
+# <a name="configure-read-ocr-docker-containers"></a>Configuración de contenedores OCR de Read en Docker
 
-El entorno de ejecución del contenedor de Computer Vision se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
+El entorno de ejecución del contenedor OCR de Read de Computer Vision se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
 
 ## <a name="configuration-settings"></a>Parámetros de configuración
 
@@ -33,10 +33,12 @@ El contenedor también tiene los siguientes valores de configuración específic
 
 |Obligatorio|Configuración|Propósito|
 |--|--|--|
-|No|ReadEngineConfig:ResultExpirationPeriod|Período de expiración del resultado en horas. El valor predeterminado es 48 horas. Este valor especifica cuándo debe borrar el sistema los resultados de reconocimiento. Por ejemplo, si es `resultExpirationPeriod=1`, el sistema borra el resultado del reconocimiento 1 hora después del proceso. Si es `resultExpirationPeriod=0`, el sistema borra el resultado del reconocimiento una vez recuperado el resultado.|
-|No|Cache:Redis|Habilita el almacenamiento en Redis para guardar los resultados. Se *necesita* una memoria caché si se colocan varios contenedores de lectura detrás de un equilibrador de carga.|
-|No|Queue:RabbitMQ|Habilita RabbitMQ para el envío de tareas. Este valor resulta útil cuando se colocan varios contenedores de lectura detrás de un equilibrador de carga.|
-|No|Storage::DocumentStore::MongoDB|Habilita MongoDB para el almacenamiento de resultados permanente.|
+|No|ReadEngineConfig:ResultExpirationPeriod| Solo contenedores con la versión 2.0. Período de expiración del resultado en horas. El valor predeterminado es 48 horas. Este valor especifica cuándo debe borrar el sistema los resultados de reconocimiento. Por ejemplo, si es `resultExpirationPeriod=1`, el sistema borra el resultado del reconocimiento 1 hora después del proceso. Si es `resultExpirationPeriod=0`, el sistema borra el resultado del reconocimiento una vez recuperado el resultado.|
+|No|Cache:Redis| Solo contenedores con la versión 2.0. Habilita el almacenamiento en Redis para guardar los resultados. Se *necesita* una memoria caché si se colocan varios contenedores de lectura detrás de un equilibrador de carga.|
+|No|Queue:RabbitMQ|Solo contenedores con la versión 2.0. Habilita RabbitMQ para el envío de tareas. Este valor resulta útil cuando se colocan varios contenedores de lectura detrás de un equilibrador de carga.|
+|No|Queue:Azure:QueueVisibilityTimeoutInMilliseconds | Solo contenedores con la versión 3.x. Tiempo que un mensaje es invisible cuando otro trabajo lo procesa. |
+|No|Storage::DocumentStore::MongoDB|Solo contenedores con la versión 2.0. Habilita MongoDB para el almacenamiento de resultados permanente. |
+|No|Storage:ObjectStore:AzureBlob:ConnectionString| Solo contenedores con la versión 3.x. Cadena de conexión de Azure Blob Storage. |
 
 ## <a name="apikey-configuration-setting"></a>Opción de configuración ApiKey
 
@@ -118,29 +120,6 @@ Reemplace {_argument_name_} por sus propios valores:
 Los siguientes ejemplos de Docker son del contenedor Lectura.
 
 
-# <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
-
-### <a name="basic-example"></a>Ejemplo básico
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
-
-### <a name="logging-example"></a>Ejemplo de registro 
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-Logging:Console:LogLevel:Default=Information
-```
-
 # <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-1)
 
 ### <a name="basic-example"></a>Ejemplo básico
@@ -159,6 +138,53 @@ ApiKey={API_KEY}
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
 mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+# <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+
+### <a name="basic-example"></a>Ejemplo básico
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### <a name="logging-example"></a>Ejemplo de registro 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+# <a name="version-20-preview"></a>[Versión 2.0 (versión preliminar)](#tab/version-2)
+
+### <a name="basic-example"></a>Ejemplo básico
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
+
+### <a name="logging-example"></a>Ejemplo de registro 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

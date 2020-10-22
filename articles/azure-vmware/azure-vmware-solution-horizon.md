@@ -3,12 +3,12 @@ title: Implementación de Horizon en Azure VMware Solution
 description: Aprenda a implementar VMware Horizon en Azure VMware Solution.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 9f8951c1c346eb15ac981b99a4dbf1541f3e3eed
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729056"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078891"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implementación de Horizon en Azure VMware Solution 
 
@@ -110,17 +110,17 @@ En este ejemplo básico puede conectar el controlador de dominio de AD de Azure 
 
 Una variación del ejemplo básico descrito podría ser admitir la conectividad de recursos locales. Podrían ser usuarios accediendo a escritorios y generando tráfico de aplicaciones de escritorio virtual o conectándose a un pod local de Horizon mediante CPA.
 
-El diagrama siguiente muestra cómo se puede hacer. Para conectar la red corporativa a Azure Virtual Network, se necesita ExpressRoute. También es necesario conectar la red corporativa a cada una de las nubes privadas o SDDC mediante Global Reach, que permite la conectividad desde el SDDC a los recursos de ExpressRoute y locales.
+El diagrama siguiente muestra cómo se puede hacer.  Para conectar la red corporativa a Azure Virtual Network, se necesita ExpressRoute.  También es necesario conectar la red corporativa a cada una de las nubes privadas o SDDC mediante Global Reach, que permite la conectividad desde el SDDC a los recursos de ExpressRoute y locales.
 
 :::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Diferencias entre Horizon en Azure VMware Solution y Horizon Cloud en Azure" border="false":::
 
 ### <a name="multiple-horizon-pods-on-azure-vmware-solution-across-multiple-regions"></a>Varios pods de Horizon en Azure VMware Solution en varias regiones
 
-Para observar otro ejemplo de pod de Horizon, veamos un ejemplo que muestra el escalado de Horizon en varios pods. En este ejemplo se van a implementar dos pods de Horizon en dos regiones diferentes y se van a federar mediante CPA. La configuración de red es como la del ejemplo anterior, con algunos vínculos entre regiones adicionales. 
+Para observar otro ejemplo de pod de Horizon, veamos un ejemplo que muestra el escalado de Horizon en varios pods.  En este ejemplo se van a implementar dos pods de Horizon en dos regiones diferentes y se van a federar mediante CPA.  La configuración de red es como la del ejemplo anterior, con algunos vínculos entre regiones adicionales. 
 
-Hay que conectar la instancia de Azure Virtual Network de cada región a las nubes privadas o SDDC de la otra región, permitiendo a los servidores de conexión de Horizon que forman parte de la federación de CPA conectarse a todos los escritorios que se están administrando. La incorporación de nubes privadas o SDDC adicionales a esta configuración permitiría escalar hasta 24 000 sesiones en total. 
+Hay que conectar la instancia de Azure Virtual Network de cada región a las nubes privadas o SDDC de la otra región, permitiendo a los servidores de conexión de Horizon que forman parte de la federación de CPA conectarse a todos los escritorios que se están administrando.  La incorporación de nubes privadas o SDDC adicionales a esta configuración permitiría escalar hasta 24 000 sesiones en total. 
 
-Aunque en este ejemplo se muestran varias regiones, se aplicaría el mismo principio si se quisieran implementar dos pods de Horizon en la misma región. Tenga en cuenta que debería asegurarse de que el segundo pod de Horizon se implementara en una *instancia independiente de Azure Virtual Network*. Por último, de la misma forma que en el ejemplo anterior de un único pod, puede conectar la red corporativa y el pod local a este ejemplo de varios pods o regiones mediante ExpressRoute y Global Reach.
+Aunque en este ejemplo se muestran varias regiones, se aplicaría el mismo principio si se quisieran implementar dos pods de Horizon en la misma región. Tenga en cuenta que debería asegurarse de que el segundo pod de Horizon se implementara en una *instancia independiente de Azure Virtual Network*.  Por último, de la misma forma que en el ejemplo anterior de un único pod, puede conectar la red corporativa y el pod local a este ejemplo de varios pods o regiones mediante ExpressRoute y Global Reach.
 
 :::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Diferencias entre Horizon en Azure VMware Solution y Horizon Cloud en Azure" border="false":::
 
@@ -173,7 +173,7 @@ En este ejemplo, el número total de hosts asciende a 18, lo que resulta en una
 
 ## <a name="horizon-on-azure-vmware-solution-licensing"></a>Licencias de Horizon en Azure VMware Solution 
 
-Hay cuatro componentes en los costos generales de ejecución de Horizon en Azure VMware Solution. 
+Hay cuatro componentes en los costos generales de ejecución de Horizon en Azure VMware Solution. 
 
 ### <a name="azure-vmware-solution-capacity-cost"></a>Costo de capacidad de Azure VMware Solution
 
@@ -197,11 +197,14 @@ Trabaje con el equipo de ventas de VMware EUC para determinar el costo de la lic
 
 En función de la arquitectura de implementación estándar, las máquinas virtuales de infraestructura de Horizon se componen de servidores de conexión, UAG y administradores de volúmenes de aplicaciones, y se implementan en la instancia de Azure Virtual Network del cliente. Se necesitan instancias nativas de Azure adicionales para admitir servicios de alta disponibilidad (HA), Microsoft SQL o Microsoft Active Directory (AD) en Azure. Esta es una lista de instancias de Azure en función de un ejemplo de implementación de 2000 escritorios. 
 
+>[!NOTE]
+>Para poder controlar los errores, implemente un servidor más de los necesarios para el número de conexiones (n+1). El número mínimo recomendado de instancias del servidor de conexión, UAG y el administrador de volúmenes de aplicaciones es 2, y el número requerido aumentará en función de la cantidad de usuarios admitidos por el entorno.  Un solo servidor de conexión admite un máximo de 4000 sesiones, aunque se recomiendan 2000 como procedimiento recomendado. Se admiten hasta siete servidores de conexión por pod, con una recomendación de 12 000 sesiones activas en total por pod. Para obtener los números más recientes, consulte el [artículo de base de conocimientos de VMware sobre los límites y recomendaciones de tamaño de VMware Horizon 7](https://kb.vmware.com/s/article/2150348).
+
 | Componente de infraestructura de Horizon | Instancia de Azure | Número de instancias necesarias (para 2000 escritorios)    | Comentario  |
 |----------------------------------|----------------|----------------------------------------------------|----------|
-| Servidor de conexión                | D4sv3          | 2       | *Incluye 1 instancia de alta disponibilidad*             |    
-| UAG                              | F2sv2          | 2       | *Incluye 1 instancia de alta disponibilidad*             |
-| Administrador de volúmenes de aplicaciones              | D4sv3          | 2       | *Incluye 1 instancia de alta disponibilidad*             |
+| Servidor de conexión                | D4sv3          | 2       | *Consulte la nota anterior*                         |    
+| UAG                              | F2sv2          | 2       | *Consulte la nota anterior*                         |
+| Administrador de volúmenes de aplicaciones              | D4sv3          | 2       | *Consulte la nota anterior*                         |
 | Conector de nube                  | D4sv3          | 1       |                                          |
 | Controlador de AD                    | D4sv3          | 2       | *Opción de usar el servicio MSFT AD en Azure* |
 | Base de datos MS-SQL                  | D4sv3          | 2       | *Opción de usar el servicio SQL en Azure*     |

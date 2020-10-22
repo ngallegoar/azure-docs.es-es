@@ -1,6 +1,6 @@
 ---
 title: Actualización de los modelos de Machine Learning con Azure Data Factory
-description: Describe cómo crear canalizaciones predictivas con Azure Data Factory y Azure Machine Learning
+description: En este artículo se describe cómo crear canalizaciones predictivas con Azure Data Factory v1 y Azure Machine Learning Studio (clásico).
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 0204a2873b288dcb2082dbd5c9c984d29fa6d456
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bed66ab8f3dc3db47b94070cbbeb64fb91163f8c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254929"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014467"
 ---
-# <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
+# <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning Studio (clásico) con la actividad de actualización de recurso
 
 > [!div class="op_single_selector" title1="Actividades de transformación"]
 > * [Actividad de Hive](data-factory-hive-activity.md) 
@@ -26,8 +26,8 @@ ms.locfileid: "85254929"
 > * [Actividad MapReduce](data-factory-map-reduce.md)
 > * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Actividad de Spark](data-factory-spark.md)
-> * [Actividad de ejecución de Batch de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Actividad Actualizar recurso de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Actividad de ejecución de lotes de Azure Machine Learning Studio (clásico)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Actividad de actualización de recurso de Azure Machine Learning Studio (clásico)](data-factory-azure-ml-update-resource-activity.md)
 > * [Actividad de procedimiento almacenado](data-factory-stored-proc-activity.md)
 > * [Actividad U-SQL de Data Lake Analytics](data-factory-usql-activity.md)
 > * [Actividad personalizada de .NET](data-factory-use-custom-activities.md)
@@ -36,10 +36,10 @@ ms.locfileid: "85254929"
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte [actualización de los modelos de aprendizaje automático en Data Factory](../update-machine-learning-models.md).
 
-Este artículo complementa el artículo de integración principal Azure Data Factory - Azure Machine Learning: [Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Si aún no lo ha hecho, revise el artículo principal antes de leer este artículo. 
+Este artículo complementa el artículo principal de integración de Azure Data Factory - Azure Machine Learning Studio (clásico): [Creación de canalizaciones predictivas con Azure Machine Learning Studio (clásico) y Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Si aún no lo ha hecho, revise el artículo principal antes de leer este artículo. 
 
 ## <a name="overview"></a>Información general
-Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Aprendizaje automático de Azure tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Después de terminar con el nuevo entrenamiento, tendrá que actualizar el servicio web de puntuación con el modelo de Aprendizaje automático que volvió a entrenar. Los pasos más comunes para habilitar el nuevo entrenamiento y actualizar los modelos de Aprendizaje automático de Azure mediante los servicios web son:
+Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Azure Machine Learning Studio (clásico) tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Después de terminar con el nuevo entrenamiento, tendrá que actualizar el servicio web de puntuación con el modelo de Aprendizaje automático que volvió a entrenar. Los pasos más comunes para habilitar el nuevo entrenamiento y actualizar los modelos de Studio (clásico) mediante los servicios web son:
 
 1. Crear un experimento en [Azure Machine Learning Studio (clásico)](https://studio.azureml.net).
 2. Cuando esté satisfecho con el modelo, use Azure Machine Learning Studio (clásico) para publicar los servicios web tanto para el **experimento de entrenamiento** como para el **experimento predictivo** o de puntuación.
@@ -49,13 +49,13 @@ En la tabla siguiente se describen los servicios web empleados en este ejemplo. 
 - **Servicio web de entrenamiento**: recibe datos de entrenamiento y genera modelos entrenados. El resultado del nuevo entrenamiento es un archivo .ilearner en Blob Storage de Azure. El **punto de conexión predeterminado** se crea automáticamente para cuando publique el experimento de entrenamiento como un servicio web. Se pueden crear más puntos de conexión, pero el ejemplo usa solo el predeterminado.
 - **Servicio web de puntuación**: recibe ejemplos de datos sin etiqueta y realiza predicciones. El resultado de la predicción puede presentarse en diversas formas, como un archivo .csv o las filas de una base de datos de Azure SQL Database, según la configuración del experimento. El punto de conexión predeterminado se crea automáticamente cuando se publica el experimento predictivo como un servicio web. 
 
-La siguiente imagen muestra la relación entre los puntos de conexión de entrenamiento y de puntuación de Aprendizaje automático de Azure.
+En la siguiente imagen se muestra la relación entre los puntos de conexión de entrenamiento y de puntuación de Azure Machine Learning Studio (clásico).
 
 ![SERVICIOS WEB](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-Puede invocar el **training web service** a través de **actividad de ejecución de lotes de Azure Machine Learning**. La invocación de un servicio web de entrenamiento es lo mismo que invocar un servicio web de Azure Machine Learning (servicio web de puntuación) para puntuar datos. Las secciones anteriores abarcan cómo invocar un servicio web de Azure Machine Learning a partir de una canalización de Azure Data Factory. 
+Puede invocar el **servicio web de entrenamiento** mediante la **actividad de ejecución de lotes de Azure Machine Learning Studio (clásico)** . La invocación de un servicio web de entrenamiento es lo mismo que invocar un servicio web de Azure Machine Learning Studio (clásico) (servicio web de puntuación) para puntuar datos. Las secciones anteriores explican en detalle cómo invocar un servicio web de Azure Machine Learning Studio (clásico) a partir de una canalización de Azure Data Factory. 
 
-Puede invocar el **scoring web service** a través de **Actividad de recursos de actualización de Aprendizaje automático de Azure** para actualizar el servicio web con el modelo recién entrenado. Los ejemplos siguientes proporcionan definiciones de servicios vinculados: 
+Puede invocar el **servicio web de puntuación** a través de la **actividad de actualización de recurso de Azure Machine Learning Studio (clásico)** para actualizar el servicio web con el modelo recién entrenado. Los ejemplos siguientes proporcionan definiciones de servicios vinculados: 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>El servicio web de puntuación es un servicio web clásico
 Si el servicio web de puntuación es un **servicio web clásico**, cree el segundo **punto de conexión no predeterminado y actualizable** mediante Azure Portal. Para conocer los pasos necesarios para ello, consulte el artículo [Creación de puntos de conexión](../../machine-learning/studio/create-endpoint.md). Después de crear el punto de conexión actualizable no predeterminado, realice los siguientes pasos:
@@ -88,7 +88,7 @@ Si el servicio web es el nuevo tipo de servicio web que expone un punto de conex
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-Puede obtener valores para los marcadores de posición en la dirección URL al consultar el servicio web en el [Portal de servicios web Azure Machine Learning](https://services.azureml.net/). El nuevo tipo de punto de conexión del recurso de actualización requiere un token AAD (Azure Active Directory). Especifique **servicePrincipalId** y **servicePrincipalKey** en el servicio vinculado Azure Machine Learning. Consulte [Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md). Esta es la definición de un servicio vinculado AzureML de ejemplo: 
+Puede obtener valores para los marcadores de posición en la dirección URL al consultar el servicio web en el [Portal de servicios web Azure Machine Learning Studio (clásico)](https://services.azureml.net/). El nuevo tipo de punto de conexión del recurso de actualización requiere un token AAD (Azure Active Directory). Especifique **servicePrincipalId** y **servicePrincipalKey** en el servicio vinculado Studio (clásico). Consulte [Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md). Esta es la definición de un servicio vinculado AzureML de ejemplo: 
 
 ```json
 {
@@ -108,20 +108,20 @@ Puede obtener valores para los marcadores de posición en la dirección URL al c
 }
 ```
 
-El escenario siguiente proporciona más detalles. Tiene un ejemplo para volver a entrenar y actualizar modelos de Azure Machine Learning a partir de una canalización de Azure Data Factory.
+El escenario siguiente proporciona más detalles. Tiene un ejemplo para volver a entrenar y actualizar modelos de Studio (clásico) a partir de una canalización de Azure Data Factory.
 
-## <a name="scenario-retraining-and-updating-an-azure-ml-model"></a>Escenario: entrenamiento y actualización de un modelo de Aprendizaje automático de Azure
-Esta sección proporciona una canalización de ejemplo que usa la **actividad Ejecución de lotes de Azure Machine Learning** para volver a entrenar un modelo. La canalización usa también la **actividad Actualizar recurso de Azure Machine Learning** para actualizar el modelo en el servicio web de puntuación. La sección también proporciona fragmentos JSON para todos los servicios vinculados, conjuntos de datos y canalización en el ejemplo.
+## <a name="scenario-retraining-and-updating-a-studio-classic-model"></a>Escenario: entrenamiento y actualización de un modelo de Studio (clásico)
+Esta sección proporciona una canalización de ejemplo que usa la **actividad de ejecución por lotes de Azure Machine Learning Studio (clásico)** para volver a entrenar un modelo. La canalización usa también la **actividad de actualización de recursos de Azure Machine Learning Studio (clásico)** para actualizar el modelo en el servicio web de puntuación. La sección también proporciona fragmentos JSON para todos los servicios vinculados, conjuntos de datos y canalización en el ejemplo.
 
-Esta es la vista de diagrama de la canalización de ejemplo. Como se puede apreciar, la actividad Ejecución de lotes de Azure Machine Learning toma la entrada de entrenamiento y genera un resultado de entrenamiento (archivo iLearner). La Actividad de recursos de actualización de Aprendizaje automático de Azure toma este resultado de entrenamiento y actualiza el modelo en el punto de conexión de servicio web de puntuación. La Actividad de recursos de actualización no produce ningún resultado. El placeholderBlob es simplemente un conjunto de datos de salida ficticio que el servicio de Azure Data Factory necesita para ejecutar la canalización.
+Esta es la vista de diagrama de la canalización de ejemplo. Como se puede apreciar, la actividad de ejecución de lotes de Studio (clásico) toma la entrada de entrenamiento y genera una salida de entrenamiento (archivo iLearner). La actividad de actualización de recurso de Studio (clásico) toma esta salida de entrenamiento y actualiza el modelo en el punto de conexión de servicio web de puntuación. La Actividad de recursos de actualización no produce ningún resultado. El placeholderBlob es simplemente un conjunto de datos de salida ficticio que el servicio de Azure Data Factory necesita para ejecutar la canalización.
 
 ![diagrama de canalización](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
 ### <a name="azure-blob-storage-linked-service"></a>Servicio vinculado de almacenamiento de blobs de Azure:
 Azure Storage contiene los siguientes datos:
 
-* datos de aprendizaje. Los datos de entrada para el servicio web de entrenamiento de Azure Machine Learning.  
-* archivo iLearner. La salida del servicio web de entrenamiento de Azure Machine Learning. Este archivo también es la entrada para la actividad Actualizar recurso.  
+* datos de aprendizaje. Los datos de entrada para el servicio web de entrenamiento de Studio (clásico).  
+* archivo iLearner. La salida del servicio web de entrenamiento de Studio (clásico). Este archivo también es la entrada para la actividad Actualizar recurso.  
 
 Esta es la definición de JSON de ejemplo del servicio vinculado:
 
@@ -138,7 +138,7 @@ Esta es la definición de JSON de ejemplo del servicio vinculado:
 ```
 
 ### <a name="training-input-dataset"></a>Conjunto de datos de entrada de entrenamiento:
-El siguiente conjunto de datos representa los datos de entrenamiento de entrada para el servicio web de entrenamiento de Azure Machine Learning. La actividad de ejecución de lotes de Azure Machine Learning toma este conjunto de datos como entrada.
+El siguiente conjunto de datos representa los datos de entrenamiento de entrada para el servicio web de entrenamiento de Studio (clásico). La actividad de ejecución de lotes de Studio (clásico) toma este conjunto de datos como entrada.
 
 ```JSON
 {
@@ -169,7 +169,7 @@ El siguiente conjunto de datos representa los datos de entrenamiento de entrada 
 ```
 
 ### <a name="training-output-dataset"></a>Conjunto de datos de salida de entrenamiento:
-El siguiente conjunto de datos representa el archivo iLearner de salida del servicio web de entrenamiento de Aprendizaje automático de Azure. La actividad de ejecución de lotes de Azure Machine Learning produce este conjunto de datos. Este conjunto de datos es también la entrada para la Actividad de recursos de actualización de Aprendizaje automático de Azure.
+El siguiente conjunto de datos representa el archivo iLearner de salida del servicio web de entrenamiento de Azure Machine Learning Studio (clásico). La actividad de ejecución de lotes de Azure Machine Learning Studio (clásico) produce este conjunto de datos. Este conjunto de datos es también la entrada para la actividad de actualización de recurso de Azure Machine Learning Studio (clásico).
 
 ```JSON
 {
@@ -192,8 +192,8 @@ El siguiente conjunto de datos representa el archivo iLearner de salida del serv
 }
 ```
 
-### <a name="linked-service-for-azure-machine-learning-training-endpoint"></a>Servicio vinculado para el punto de conexión de entrenamiento de Azure Machine Learning
-El siguiente fragmento JSON define un servicio vinculado de Azure Machine Learning que apunta al punto de conexión predeterminado del servicio web de entrenamiento.
+### <a name="linked-service-for-studio-classic-training-endpoint"></a>Servicio vinculado al punto de conexión de entrenamiento de Studio (clásico)
+El siguiente fragmento JSON define un servicio vinculado de Studio (clásico) que apunta al punto de conexión predeterminado del servicio web de entrenamiento.
 
 ```JSON
 {    
@@ -216,8 +216,8 @@ En **Azure Machine Learning Studio (clásico)** , haga lo siguiente para obtene
 4. En **Azure Machine Learning Studio (clásico)** , haga clic en el vínculo **EJECUCIÓN DE LOTES**.
 5. Copie el **URI de solicitud** de la sección **Solicitar** y péguelo en el editor de JSON de Data Factory.   
 
-### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Servicio vinculado para el punto de conexión de puntuación actualizable de Aprendizaje automático de Azure:
-El siguiente fragmento JSON define un servicio vinculado de Azure Machine Learning que apunta al punto de conexión no predeterminado y actualizable del servicio web de puntuación.  
+### <a name="linked-service-for-studio-classic-updatable-scoring-endpoint"></a>Servicio vinculado para el punto de conexión de puntuación actualizable de Studio (clásico):
+El siguiente fragmento JSON define un servicio vinculado de Studio (clásico) que apunta al punto de conexión no predeterminado y actualizable del servicio web de puntuación.  
 
 ```JSON
 {
@@ -237,7 +237,7 @@ El siguiente fragmento JSON define un servicio vinculado de Azure Machine Learni
 ```
 
 ### <a name="placeholder-output-dataset"></a>Conjunto de datos de salida de marcador de posición:
-La actividad Actualizar recurso de Azure Machine Learning no genera ningún resultado. Sin embargo, Azure Data Factory requiere un conjunto de datos de salida para impulsar la programación de una canalización. Por lo tanto, utilizamos un conjunto de datos ficticio o un marcador de posición en este ejemplo.  
+La actividad de actualización de recurso de Studio (clásico) no genera ningún resultado. Sin embargo, Azure Data Factory requiere un conjunto de datos de salida para impulsar la programación de una canalización. Por lo tanto, utilizamos un conjunto de datos ficticio o un marcador de posición en este ejemplo.  
 
 ```JSON
 {
@@ -260,7 +260,7 @@ La actividad Actualizar recurso de Azure Machine Learning no genera ningún resu
 ```
 
 ### <a name="pipeline"></a>Canalización
-La canalización tiene dos actividades: **AzureMLBatchExecution** y **AzureMLUpdateResource**. La actividad Ejecución de lotes de Azure Machine Learning toma los datos de entrenamiento como entrada y genera como resultado un archivo iLearner. La actividad invoca el servicio web de entrenamiento (el experimento de entrenamiento expuesto como servicio web) con los datos de entrenamiento de entrada y recibe el archivo ilearner desde el servicio web. El placeholderBlob es simplemente un conjunto de datos de salida ficticio que el servicio de Azure Data Factory necesita para ejecutar la canalización.
+La canalización tiene dos actividades: **AzureMLBatchExecution** y **AzureMLUpdateResource**. La actividad de ejecución de lotes de Azure Machine Learning Studio (clásico) toma los datos de entrenamiento como entrada y genera como salida un archivo iLearner. La actividad invoca el servicio web de entrenamiento (el experimento de entrenamiento expuesto como servicio web) con los datos de entrenamiento de entrada y recibe el archivo ilearner desde el servicio web. El placeholderBlob es simplemente un conjunto de datos de salida ficticio que el servicio de Azure Data Factory necesita para ejecutar la canalización.
 
 ![diagrama de canalización](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 

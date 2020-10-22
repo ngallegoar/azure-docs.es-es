@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 43b6f5d4367cfc641183a17fda89cf1381c22a6c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8f92501bdb8261a67d3dc2b8aefbe1fb1498ef1e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258598"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91445897"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -296,9 +296,9 @@ Vayamos paso a paso para comprender cómo funcionan las actualizaciones en un no
 
    En las versiones de POA 1.4.0 y versiones posteriores, puede encontrar el estado de la actualización viendo los eventos de estado en NodeAgentService con la propiedad WUOperationStatus-\<NodeName>. Las secciones resaltadas en las imágenes que tiene a continuación muestran el estado de la actualización de Windows en el nodo *poanode_0* y *poanode_2*:
 
-   [![Imagen del estado de la operación de Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+   [![Captura de pantalla que muestra la ventana de la consola de estado de la operación de Windows Update con poanode_0 resaltado.](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
-   [![Imagen del estado de la operación de Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+   [![Captura de pantalla que muestra la ventana de la consola de estado de la operación de Windows Update con poanode_1 resaltado.](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
    También puede obtener los detalles mediante el uso de PowerShell. Para ello, conéctese al clúster y recupere el estado de la tarea de reparación mediante [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
    
@@ -328,7 +328,7 @@ Vayamos paso a paso para comprender cómo funcionan las actualizaciones en un no
 
 1. En las versiones de POA 1.4.0 y versiones posteriores, cuando finaliza un intento de actualización de nodo, se publica un evento con la propiedad "WUOperationStatus-[NodeName]" en NodeAgentService para recibir una notificación cuando se inicie el siguiente intento de descargar e instalar las actualizaciones de Windows. Esto se muestra en la siguiente imagen:
 
-     [![Imagen del estado de la operación de Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+     [![Captura de pantalla que muestra la ventana de la consola de estado de la operación de Windows Update con NodeAgentService.](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
 
 ### <a name="diagnostics-logs"></a>Registros de diagnóstico
 

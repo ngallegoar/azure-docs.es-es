@@ -14,12 +14,12 @@ ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a5a20498ccd0a133c6e02d366af690acf2665e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe2f464791995b9168868f1661a3c303d46f7987
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742273"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530126"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Visualización del historial de auditoría para los roles de Azure AD en Privileged Identity Management
 
@@ -32,7 +32,7 @@ Desde noviembre de 2019, la parte de roles de Azure AD de Privileged Identity Ma
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que tenga el rol [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 1. Abra **Azure AD Privileged Identity Management**. Si tiene un banner en la parte superior de la página de introducción, siga las instrucciones de la pestaña **Nueva versión** de este artículo. De lo contrario, siga las instrucciones de la pestaña **Versión anterior**.
 
-    [![Nueva versión de roles de Azure AD](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Selección de la pestaña para la versión")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+    [![Captura de pantalla que muestra la página "Roles de Azure AD: historial de auditoría de roles de directorio".](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Selección de la pestaña para la versión")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
 # <a name="new-version"></a>[Nueva versión](#tab/new)
 
@@ -123,11 +123,11 @@ Siga estos pasos para ver el historial de auditoría de los roles de Azure AD.
     - Ver el motivo de un evento de auditoría en la columna **Razón para el estado**.
     - Consultar el aprobador en la columna **Iniciado por (actor)** para el evento "Solicitud para agregar al miembro al rol aprobada".
 
-    [![Nueva versión de roles de Azure AD](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrado del registro de auditoría para el servicio PIM")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
+    [![Captura de pantalla que muestra la página "Registros de auditoría" con el menú "Iniciado por (actor)" abierto y "PIM" seleccionado.](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrado del registro de auditoría para el servicio PIM")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
 
 1. Seleccionar un evento de registro de auditoría para ver el número de vale en la pestaña **Actividad** del panel **Detalles**.
   
-    [![Nueva versión de roles de Azure AD](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Comprobación del número de vale del evento de auditoría")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
+    [![Captura de pantalla que muestra la página "Registros de auditoría" con el número de vale resaltado en el panel "Detalles".](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Comprobación del número de vale del evento de auditoría")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
 
 1. Puede ver el solicitante (persona que activa el rol) en la pestaña **Destinos** del panel **Detalles** para un evento de auditoría. Hay dos tipos de destino para los roles de Azure AD:
 

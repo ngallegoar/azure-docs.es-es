@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 306a4773563b829ecad09a021f6763192e8246f5
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: adac0d460753f24d06bffc72f9b2b38c2a3306d7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445850"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078109"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalización del conjunto de estándares en el panel de cumplimiento normativo
 
@@ -84,6 +84,31 @@ En los pasos siguientes se explica cómo agregar un paquete para supervisar el c
     > Asimismo, un estándar recién agregado en el panel de cumplimiento puede tardar unas horas en aparecer en el mismo.
 
     [![Panel de cumplimiento normativo que muestra los nuevos y viejos valores de Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
+
+
+## <a name="removing-a-standard-from-your-dashboard"></a>Eliminación de un estándar del panel
+
+Si alguno de los estándares normativos proporcionados no es relevante para su organización, quitarlo de la interfaz de usuario es un proceso sencillo. Esto le permite personalizar aún más el panel de cumplimiento normativo y centrarse solo en los estándares que se apliquen en su caso.
+
+Para quitar un estándar:
+
+1. En el menú de Security Center, seleccione **Directiva de seguridad**.
+
+1. Seleccione la suscripción pertinente de la que desea quitar un estándar.
+
+    > [!NOTE]
+    > Puede quitar un estándar de una suscripción, pero no de un grupo de administración. 
+
+    Se abrirá la página de directivas de seguridad. En la suscripción seleccionada, se muestra la directiva predeterminada, el sector y los estándares normativos, así como las iniciativas personalizadas que haya creado.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Eliminación de un estándar normativo del panel de cumplimiento normativo en Azure Security Center":::
+
+1. Para el estándar que desea quitar, seleccione **Deshabilitar**. Se abrirá una ventana de confirmación.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Eliminación de un estándar normativo del panel de cumplimiento normativo en Azure Security Center":::.
+
+1. Seleccione **Sí**. Se quitará el estándar. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

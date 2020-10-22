@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 80746d7cef4bb0a70c6bb9eb6ff2e053ea6c7a0a
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: c79586703c49fe37d4d0915f49b69e6aa842083e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824696"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017529"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas de Azure NetApp Files
 
@@ -86,6 +86,9 @@ Azure NetApp Files proporciona métricas sobre el almacenamiento asignado, el us
 
 
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>Métricas de replicación de volúmenes
+
+> [!NOTE] 
+> El tamaño de transferencia de red (por ejemplo, las métricas de la *transferencia total de replicación de volúmenes*) pueden diferir de los volúmenes de origen o de destino de una replicación entre regiones. Este comportamiento es el resultado del uso de un motor de replicación eficaz para minimizar el costo de la transferencia de red.
 
 - *¿Es correcto el estado de replicación del volumen?*    
     La condición de la relación de replicación. `1` indica un estado correcto. `0` indica un estado incorrecto.

@@ -3,12 +3,12 @@ title: Configuración de los valores de uso de los laboratorios educativos de Az
 description: Obtenga información sobre cómo configurar el número de alumnos del laboratorio, registrarlos en el laboratorio, controlar el número de horas que pueden usar la máquina virtual y mucho más.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 229147891d1456d7b7b11fd5297755842d85e600
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 742fcd2b504bce7ad2257edd559e4b66a9172d24
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445957"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399676"
 ---
 # <a name="add-and-manage-lab-users"></a>Incorporación y administración de usuarios de laboratorio
 
@@ -166,7 +166,7 @@ Para establecer más cuotas, haga lo siguiente:
 
 Para agregar alumnos a un laboratorio de clase, use sus cuentas de correo electrónico. Los alumnos pueden tener los siguientes tipos de cuentas de correo electrónico:
 
-- Una cuenta de correo electrónico de alumno proporcionada por la instancia de Azure Active Directory de Office 365 de la universidad. 
+- Una cuenta de correo electrónico de alumno proporcionada por la instancia de Azure Active Directory de la universidad.
 - Una cuenta de correo electrónico con un dominio de Microsoft, como *outlook.com*, *hotmail.com*, *msn.com* o *live.com*.
 - Una cuenta de correo electrónico que no sea de Microsoft, como las proporcionadas por Yahoo! o Google. No obstante, estos tipos de cuentas se deben vincular a una cuenta de Microsoft.
 - Una cuenta de GitHub. Esta cuenta se debe vincular a una cuenta de Microsoft.

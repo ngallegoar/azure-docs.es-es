@@ -10,23 +10,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 558d1c098f07f8e09a6a68a065cac9b7b38cfbf3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 42697a57d39f4a34eee4866b67e2cde947db1ff5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399657"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449262"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtrado geográfico en un dominio para Azure Front Door
 
-De forma predeterminada, Azure Front Door responde a las solicitudes del usuario independientemente de la ubicación del usuario que realiza la solicitud. Sin embargo, puede que en algunos casos desee restringir el acceso a las aplicaciones web por país o región. El servicio de firewall de aplicaciones web (WAF) en Front Door le permite definir una directiva que usa reglas de acceso personalizadas en una ruta de acceso concreta de su punto de conexión para permitir o bloquear el acceso desde determinados países o regiones. 
+De forma predeterminada, Azure Front Door responde a todas las solicitudes del usuario, independientemente del lugar de donde venga la solicitud. En algunos escenarios quizá desee restringir el acceso a la aplicación web por país o región. El servicio de firewall de aplicaciones web (WAF) de Front Door permite definir una directiva mediante reglas de acceso personalizadas en una ruta de acceso concreta del punto de conexión para permitir o bloquear el acceso desde determinados países o regiones. 
 
-Habitualmente, una directiva de WAF incluye un conjunto de reglas personalizadas. Las reglas constan de condiciones de coincidencia, acciones y prioridades. En las condiciones de coincidencia, se definen una variable de coincidencia, un operador y un valor de coincidencia.  En el caso de la regla de filtrado geográfico, la variable de coincidencia es REMOTE_ADDR, el operador es GeoMatch y el valor es el código de país o región de dos letras que interese. Puede combinar una condición GeoMatch y una condición de coincidencia de la cadena REQUEST_URI para crear una regla de filtrado geográfico basada en ruta de acceso.
+Una directiva de WAF incluye un conjunto de reglas personalizadas. Las reglas constan de condiciones de coincidencia, acciones y prioridades. En las condiciones de coincidencia se definen una variable de coincidencia, un operador y un valor de coincidencia. En el caso de la regla de filtrado geográfico, la variable de coincidencia es REMOTE_ADDR, el operador es GeoMatch y el valor es el código de país o región de dos letras. Puede combinar una condición GeoMatch y una condición de coincidencia de la cadena REQUEST_URI para crear una regla de filtrado geográfico basada en la ruta de acceso.
 
-Las directivas de filtrado geográfico para Front Door se pueden configurar mediante [Azure PowerShell](front-door-tutorial-geo-filtering.md) o nuestra [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+Las directivas de filtrado geográfico para Front Door se pueden configurar mediante [Azure PowerShell](front-door-tutorial-geo-filtering.md) o una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
 ## <a name="countryregion-code-reference"></a>Referencia de código de país o región
 
@@ -212,5 +212,5 @@ Las directivas de filtrado geográfico para Front Door se pueden configurar medi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información acerca de la [seguridad de la capa de aplicaciones con Front Door](front-door-application-security.md).
 - Aprenda a [crear una instancia de Front Door](quickstart-create-front-door.md).
+- Aprenda a [configurar una directiva de WAF para el filtrado geográfico](front-door-tutorial-geo-filtering.md).

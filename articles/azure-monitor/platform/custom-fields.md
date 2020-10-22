@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 496dab24f636c97e1c7b27b871e1fded9216277d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974708"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448567"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Creación de campos personalizados en un área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 
@@ -101,7 +101,7 @@ Ahora, resaltamos el nombre del servicio en la propiedad **RenderedDescription**
 
 Como podemos ver, el nombre del servicio se identifica correctamente en algunos registros, pero no en otros.   En **Resultados de búsqueda**, vemos que parte del nombre del **Adaptador de rendimiento de WMI** no aparece seleccionado.  El campo **Resumen** indica que un registro ha identificado **Instalador de Módulos** en lugar de **Instalador de Módulos de Windows**.  
 
-![Search Results](media/custom-fields/search-results-01.png)
+![Captura de pantalla que muestra partes del nombre del servicio resaltadas en el panel Search Results (Resultados de la búsqueda) y un nombre de servicio incorrecto resaltado en el resumen.](media/custom-fields/search-results-01.png)
 
 Vamos a comenzar con el registro **WMI Performance Adapter** (Adaptador de rendimiento de WMI).  Hacemos clic en el icono de edición y luego en **Modify this highlight**(Modificar texto resaltado).  
 
@@ -113,7 +113,7 @@ Ampliamos la selección para que incluya la palabra **WMI** y ejecutamos de nuev
 
 Ahora, podemos ver que las entradas de **Adaptador de rendimiento de WMI** se han corregido. Log Analytics utilizará esta información para corregir los registros de **Instalador de módulos de Windows**.
 
-![Search Results](media/custom-fields/search-results-02.png)
+![Captura de pantalla que muestra el nombre completo del servicio resaltado en el panel Search Results (Resultados de la búsqueda) y los nombres de servicio correctos resaltados en el resumen.](media/custom-fields/search-results-02.png)
 
 Ahora podemos ejecutar una consulta que compruebe que **Service_CF** se ha creado, aunque aún no se ha agregado a ningún registro. Eso es porque el campo personalizado no funciona con los registros existentes, así que tenemos que esperar hasta que se recopilen registros nuevos.
 

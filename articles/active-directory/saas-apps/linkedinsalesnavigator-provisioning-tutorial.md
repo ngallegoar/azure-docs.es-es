@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: ef87a1c7163825fcee8f4a27408719839d8a6d43
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e908c8d19a4640995c536580b6584558212ada3e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549711"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361585"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutorial: Configuración de LinkedIn Sales Navigator para el aprovisionamiento automático de usuarios
 
@@ -71,12 +71,12 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
     > [!NOTE]
     > Si no está habilitada la asignación de licencias automática, solo se sincronizan los datos de usuario.
 
-    ![Aprovisionamiento de LinkedIn Sales Navigator](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
+    ![Captura de pantalla que muestra la configuración global del centro de cuentas de LinkedIn.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
 
     > [!NOTE]
     > Si está habilitada la asignación de licencias automática, debe tomar nota de la instancia de la aplicación y del tipo de licencia. Las licencias se asignan por orden de llegada hasta que se obtienen todas las licencias.
 
-    ![Aprovisionamiento de LinkedIn Sales Navigator](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
+    ![Captura de pantalla que muestra la página de configuración de S C I M.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
 
 5. Haga clic en **Generar token**. El token de acceso debería aparecer en el campo **Token de acceso**.
 
@@ -90,7 +90,7 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
 
 10. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Aprovisionamiento de LinkedIn Sales Navigator](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
+    ![Captura de pantalla que muestra la página de aprovisionamiento de LinkedIn Elevate.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 
 11. Rellene los campos siguientes en **Credenciales de administrador**:
 
@@ -106,7 +106,7 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
 
 14. En la sección **Asignaciones de atributos**, revise los atributos de usuario y de grupo que se sincronizarán de Azure AD a LinkedIn Sales Navigator. Tenga en cuenta que los atributos seleccionados como propiedades **Matching** se usarán para establecer coincidencias con las cuentas de usuario y los grupos de LinkedIn Sales Navigator para las operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
-    ![Aprovisionamiento de LinkedIn Sales Navigator](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
+    ![La captura de pantalla muestra las asignaciones, incluidas las asignaciones de atributos.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
 
 15. Para habilitar el servicio de aprovisionamiento de Azure AD para LinkedIn Sales Navigator, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 

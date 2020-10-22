@@ -3,19 +3,19 @@ title: Cómo agregar fuentes de datos de diferentes orígenes a Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Incorporación de fuentes de datos diferentes a Metrics Advisor
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.author: aahi
-ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/12/2020
+ms.author: mbullwin
+ms.openlocfilehash: a37f3cfd250d152129245395680dbd847359e869
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324474"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046917"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Incorporación de fuentes de datos de diferentes orígenes de datos a Metrics Advisor
 
@@ -133,7 +133,7 @@ Solo se permite una marca de tiempo por cada archivo JSON.
 
 ## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Data Explorer (Kusto)</span>
 
-* **Cadena de conexión**: Consulte [Ver y copiar una cadena de conexión](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) para obtener información sobre cómo recuperar la cadena de conexión de Azure Data Explorer (Kusto).
+* **Cadena de conexión**: Metrics Advisor admite el acceso a Azure Data Explorer (Kusto) mediante la autenticación de la aplicación de Azure AD. Deberá crear y registrar una aplicación de Azure AD y, a continuación, autorizarla para acceder a una base de datos de Azure Data Explorer. Para obtener la cadena de conexión, consulte la documentación de [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app).
 
 * **Consultar** Consulte [Lenguaje de consulta Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query) para obtener y formular datos en datos de series temporales multidimensionales. Puede usar las variables `@StartTime` y `@EndTime` en la consulta. Deben tener el formato `yyyy-MM-dd HH:mm:ss`.
 

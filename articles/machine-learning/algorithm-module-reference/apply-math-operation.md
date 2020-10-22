@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 654b10a283c4dcf5a1a1866ec51799aad45a8893
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898902"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91536773"
 ---
 # <a name="apply-math-operation"></a>Aplicación de operación matemática
 
@@ -22,11 +22,11 @@ En este artículo se describe un módulo del diseñador de Azure Machine Learnin
 
 Use el módulo Aplicación de operación matemática para crear cálculos que se aplican a columnas numéricas del conjunto de datos de entrada. 
 
-Las operaciones matemáticas admitidas incluyen funciones aritméticas comunes, como la multiplicación y la división, funciones trigonométricas, una variedad de funciones de redondeo y funciones especiales que se usan en ciencia de datos, como funciones gamma y de error.  
+Las operaciones matemáticas incluyen funciones aritméticas comunes, funciones trigonométricas, funciones de redondeo y funciones especiales que se usan en ciencia de datos, como funciones gamma y de error.  
 
 Después de definir una operación y ejecutar la canalización, los valores se agregan al conjunto de datos. En función de cómo configure el módulo, puede:
 
-+ Anexar los resultados al conjunto de datos. Esto es especialmente útil cuando se comprueba el resultado de la operación.
++ Anexar los resultados al conjunto de datos (útil para comprobar el resultado de la operación).
 + Reemplazar valores de columna por los nuevos valores calculados.
 + Generar una nueva columna para los resultados y no mostrar los datos originales. 
 
@@ -48,14 +48,14 @@ Busque la operación que necesita en estas categorías:
   
      La categoría **Redondeo** incluye una variedad de funciones para realizar operaciones como el redondeo, el valor superior, el valor inferior y el truncamiento a varios niveles de precisión. Puede especificar el nivel de precisión para números enteros y decimales.  
   
--   [Especiales](#special-math-functions)  
+-   [Especial](#special-math-functions)  
   
      La categoría **Especiales** incluye funciones matemáticas que se utilizan especialmente en ciencia de datos, como las integrales elípticas y la función de error gaussiana.  
   
 -   [Trigonométricas](#trigonometric-functions)  
   
      La categoría **Trigonométricas** incluye todas las funciones trigonométricas estándar. Por ejemplo, puede convertir radianes en grados o funciones de cálculo como una tangente en radianes o grados.
-     Estas funciones son unarias, lo que significa que toman una sola columna de valores como entrada, aplican la función trigonométrica y devuelven una columna de valores como resultado.  Por lo tanto, debe asegurarse de que la columna de entrada sea del tipo adecuado y contenga el tipo correcto de valores para la operación especificada.   
+     Estas funciones son unarias, lo que significa que toman una sola columna de valores como entrada, aplican la función trigonométrica y devuelven una columna de valores como resultado. Asegúrese de que la columna de entrada sea del tipo adecuado y contenga el tipo correcto de valores para la operación especificada.   
 
 ## <a name="how-to-configure-apply-math-operation"></a>Configuración del módulo Aplicación de operación matemática  
 
@@ -74,7 +74,7 @@ Cada instancia de este módulo puede realizar un solo tipo de operación cada ve
     - Cualquier columna que elija debe ser de tipo de datos numérico. 
     - El intervalo de datos debe ser válido para la operación matemática seleccionada. De lo contrario, puede producirse un error o un resultado NaN (no es un número). Por ejemplo, Ln(-1,0) es una operación no válida y da como resultado un valor de `NaN`.
   
-1.  Haga clic en **Category** (Categoría) para seleccionar el **tipo** de operación matemática que realizar.
+1.  Seleccione **Category** (Categoría) para seleccionar el **tipo** de operación matemática que realizar.
     
 1. Elija una operación específica de la lista de esa categoría.
   
@@ -82,7 +82,7 @@ Cada instancia de este módulo puede realizar un solo tipo de operación cada ve
   
 1.  Utilice la opción **Output mode** (Modo de salida) para indicar cómo desea que se genere la operación matemática: 
 
-    - **Append** (Anexión). Todas las columnas que se usan como entradas se incluyen en el conjunto de datos de salida, además de anexarse una columna adicional que contiene los resultados de la operación matemática.
+    - **Append**. Todas las columnas que se usan como entradas se incluyen en el conjunto de datos de salida, además de anexarse una columna adicional que contiene los resultados de la operación matemática.
     - **Inplace** (Reemplazo). Los valores de las columnas que se usan como entradas se reemplazan por los nuevos valores calculados. 
     - **ResultOnly** (Solo resultado). Se devuelve una sola columna que contiene los resultados de la operación matemática.
   
@@ -92,8 +92,8 @@ Cada instancia de este módulo puede realizar un solo tipo de operación cada ve
 
 Si genera los resultados con las opciones **Append** (Anexión) o **ResultOnly** (Solo resultado), los encabezados de columna del conjunto de datos devuelto indican la operación y las columnas que se usaron. Por ejemplo, si compara dos columnas mediante el operador **Equals** (Es igual a), los resultados serían similares a los siguientes:  
   
--   **Equals(Col2_Col1)** , que indica que ha contrastado la columna Col2 con Col1.  
--   **Equals(Col2_$10)** , que indica que ha comparado la columna 2 con la constante 10.  
+-   **Equals(Col2_Col1)**, que indica que ha contrastado la columna Col2 con Col1.  
+-   **Equals(Col2_$10)**, que indica que ha comparado la columna 2 con la constante 10.  
 
 Aunque use la opción **Inplace**, los datos de origen no se eliminan ni se cambian; la columna del conjunto de datos original sigue estando disponible en el diseñador. Para ver los datos originales, puede conectar el módulo [Agregar columnas](add-columns.md) y combinarlo con la salida de **Aplicación de operación matemática**.  
     
@@ -113,7 +113,7 @@ Devuelve una tangente inversa de cuatro cuadrantes.
 
 Seleccione las columnas que contienen las coordenadas de puntos. Para el segundo argumento, que corresponde a la coordenada x, también puede especificar una constante.  
 
-Corresponde a la función ATAN2 en Matlab.  
+Corresponde a la función ATAN2 en MATLAB.  
 
 ### <a name="conj"></a>Conj
 
@@ -124,15 +124,15 @@ Devuelve el conjugado de los valores de la columna seleccionada.
 Calcula la raíz cúbica de los valores de la columna seleccionada.  
 
 ### <a name="doublefactorial"></a>DoubleFactorial  
- Calcula el doble factorial de los valores de la columna seleccionada. El doble factorial es una extensión de la función factorial normal y se expresa como x!!.  
+ Calcula el doble factorial de los valores de la columna seleccionada. El factorial doble es una extensión de la función factorial normal y se indica con `x!!`.  
 
 ### <a name="eps"></a>Eps
 
-Devuelve el tamaño de la diferencia entre el valor actual y el siguiente número de doble precisión más alto. Corresponde a la función EPS en Matlab.  
+Devuelve el tamaño de la diferencia entre el valor actual y el siguiente número de doble precisión más alto. Corresponde a la función EPS en MATLAB.  
   
 ### <a name="exp"></a>Exp
 
-Devuelve e elevado a la potencia del valor de la columna seleccionada. Es igual que la función Excel EXP.  
+Devuelve e elevado a la potencia del valor de la columna seleccionada. Esta función es igual que la función EXP de Excel.  
 
 ### <a name="exp2"></a>Exp2
 
@@ -154,7 +154,7 @@ Devuelve el factorial de los valores de la columna seleccionada.
 ### <a name="hypotenuse"></a>Hypotenuse
 Calcula la hipotenusa de un triángulo en el que la longitud de un lado se especifica como una columna de valores y la longitud del segundo lado se especifica como una constante o como dos columnas.  
 
-### <a name="ln"></a>Ln
+### <a name="ln"></a>Lín
 
 Devuelve el logaritmo natural de los valores de la columna seleccionada.  
 
@@ -170,11 +170,11 @@ Puede especificar la base (el segundo argumento) como una constante o selecciona
 
 ### <a name="log10"></a>Log10
 
-Devuelve los valores del logaritmo de base 10 de la columna seleccionada.  
+Devuelve los valores del logaritmo de base 10 de la columna seleccionada.  
 
 ### <a name="log2"></a>Log2
 
-Devuelve los valores del logaritmo de base 2 de la columna seleccionada.  
+Devuelve los valores del logaritmo de base 2 de la columna seleccionada.  
 
 ### <a name="nthroot"></a>NthRoot
 Devuelve la radiación del valor con un número n que especifique.  
@@ -235,11 +235,11 @@ Devuelve True si los valores de **Column set** (Conjunto de columnas) son menore
 
 ### <a name="notequalto"></a>NotEqualTo
 
-Devuelve True si los valores de **Column set** (Conjunto de columnas) no son iguales a la constante o la columna de comparación, y devuelve False si son iguales.  
+Devuelve True si los valores del **Conjunto de columnas** no son iguales que la constante o la columna de comparación y devuelve False si lo son.  
 
 ### <a name="pairmax"></a>PairMax
 
-Devuelve el valor que sea mayor: el valor de **Column set** (Conjunto de columnas) o el valor de la constante o la columna de comparación.  
+Devuelve el valor mayor entre el valor del **Conjunto de columnas** o el valor de la columna de comparación o constante.  
 
 ### <a name="pairmin"></a>PairMin
 
@@ -266,13 +266,13 @@ Especifique las columnas de origen mediante **Column set** (Conjunto de columnas
 
 Para sumar los valores de dos columnas, elija una columna o columnas mediante **Column set** (Conjunto de columnas) y, a continuación, seleccione una segunda columna mediante **Second argument** (Segundo argumento).  
 
-### <a name="divide"></a>Divide
+### <a name="divide"></a>Dividir
 
 Divide los valores de **Column set** (Conjunto de columnas) entre una constante o entre los valores de columna definidos en **Second argument** (Segundo argumento).  En otras palabras, primero seleccionará el divisor y después el dividendo. El valor de salida es el cociente.
 
 ### <a name="multiply"></a>Multiplicar
 
-Multiplica los valores de **Column set** (Conjunto de columnas) por la constante o los valores de columna especificados.  
+Multiplica los valores del **Conjunto de columnas** por la constante o los valores de columna especificados.  
 
 ### <a name="subtract"></a>Restar
 
@@ -288,51 +288,51 @@ El diseñador de Azure Machine Learning admite diversas operaciones de redondeo.
 
 ### <a name="ceiling"></a>Ceiling
 
-Devuelve el valor superior de los valores de **Column set** (Conjunto de columnas).  
+Devuelve el límite superior para los valores del **Conjunto de columnas**.  
 
 ### <a name="ceilingpower2"></a>CeilingPower2
 
-Devuelve el valor superior al cuadrado de los valores de **Column set** (Conjunto de columnas).  
+Devuelve el límite superior al cuadrado para los valores del **Conjunto de columnas**.  
 
 ### <a name="floor"></a>Floor
 
-Devuelve el valor inferior de los valores de **Column set** (Conjunto de columnas), a la precisión especificada.  
+Devuelve el límite inferior para los valores del **Conjunto de columnas** con la precisión especificada.  
 
 ### <a name="mod"></a>Mod
 
-Devuelve la parte fraccionaria de los valores de **Column set** (Conjunto de columnas), a la precisión especificada.  
+Devuelve la parte fraccionaria de los valores del **Conjunto de columnas** con la precisión especificada.  
 
-### <a name="quotient"></a>Quotient
+### <a name="quotient"></a>Cociente
 
-Devuelve la parte fraccionaria de los valores de **Column set** (Conjunto de columnas), a la precisión especificada.  
+Devuelve la parte fraccionaria de los valores del **Conjunto de columnas** con la precisión especificada.  
 
-### <a name="remainder"></a>Remainder
+### <a name="remainder"></a>Resto
 
-Devuelve el resto de los valores de **Column set** (Conjunto de columnas).  
+Devuelve el resto de los valores del **Conjunto de columnas**.  
 
 ### <a name="rounddigits"></a>RoundDigits
 
-Devuelve los valores de **Column set** (Conjunto de columnas), redondeados por la regla 4/5 al número de dígitos especificado.  
+Devuelve los valores del **Conjunto de columnas** redondeados por la regla 4/5 el número de dígitos especificado.  
 
 ### <a name="rounddown"></a>RoundDown
 
-Devuelve los valores de **Column set** (Conjunto de columnas), redondeados hacia abajo al número de dígitos especificado.  
+Devuelve los valores del **Conjunto de columnas** redondeados hacia abajo el número de dígitos especificado.  
 
 ### <a name="roundup"></a>RoundUp
 
-Devuelve los valores de **Column set** (Conjunto de columnas), redondeados hacia arriba al número de dígitos especificado.  
+Devuelve los valores del **Conjunto de columnas**redondeados hacia arriba el número de dígitos especificado.  
 
 ### <a name="toeven"></a>ToEven
 
-Devuelve los valores de **Column set** (Conjunto de columnas), redondeado al número par entero más cercano.  
+Devuelve los valores del **Conjunto de columnas** redondeados al número par entero más próximo.  
 
 ### <a name="toodd"></a>ToOdd
 
-Devuelve los valores de **Column set** (Conjunto de columnas), redondeado al número impar entero más cercano.  
+Devuelve los valores del **Conjunto de columnas** redondeados al número impar entero más próximo.  
 
 ### <a name="truncate"></a>Truncate
 
-Trunca los valores de **Column set** (Conjunto de columnas) quitando todos los dígitos no permitidos por la precisión especificada.  
+Trunca los valores del **Conjunto de columnas** quitando todos los dígitos no permitidos por la precisión especificada.  
   
 ## <a name="special-math-functions"></a>Funciones matemáticas especiales
 
@@ -360,7 +360,7 @@ La función de error (también denominada función de error de Gauss) es una fun
 
 Devuelve el valor de la función de error complementaria.  
 
-Erfc se define como 1 – erf(x).  
+`Erfc` se define como 1 – erf(x).  
 
 ### <a name="erfscaled"></a>ErfScaled
 
@@ -370,7 +370,7 @@ La versión escalada de la función de error se puede usar para evitar el desbor
 
 ### <a name="erfinverse"></a>ErfInverse
 
-Devuelve el valor de la función erf inversa.  
+Devuelve el valor de la función `erf` inversa.  
 
 ### <a name="exponentialintegralein"></a>ExponentialIntegralEin
 
@@ -580,7 +580,7 @@ Supongamos que el conjunto de datos tiene varias columnas y que suma el conjunto
 |2|3|-1|4|6|-2|
 |0|1|-1|0|2|-2|
 
-Si necesita realizar cálculos más complejos, puede encadenar varias instancias del módulo **Aplicación de operación matemática**. Por ejemplo, podría sumar dos columnas mediante una instancia de **Aplicación de operación matemática** y, a continuación, usar otra instancia de **Aplicación de operación matemática** para dividir la suma entre una constante para obtener la media.  
+Si necesita realizar cálculos más complejos, puede encadenar varias instancias del módulo **Aplicación de operación matemática**. Por ejemplo, podría agregar dos columnas mediante una instancia de **Aplicar operación matemática** y, a continuación, utilice otra instancia de **Aplicar operación matemática** para dividir la suma por una constante para obtener la media.  
   
 También puede usar uno de los siguientes módulos para realizar todos los cálculos a la vez, mediante un script SQL, R o Python:
  

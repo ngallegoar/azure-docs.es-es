@@ -1,17 +1,15 @@
 ---
 title: Vista de ejecución de vértices de Data Lake Tools para Visual Studio
 description: En este artículo se describe cómo usar la vista de la ejecución de vértices para examinar los trabajos de Data Lake Analytics.
-services: data-lake-analytics
 ms.service: data-lake-analytics
-ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: how-to
 ms.date: 10/13/2016
-ms.openlocfilehash: 2fdce38b19cd38439baa5d640707d159cd713657
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3fba7bdaa5db1d812fbcd479e5f1eab50c8d1032
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125623"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215865"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Use the Vertex Execution View in Data Lake Tools for Visual Studio (Usar la vista de ejecución de vértices de Data Lake Tools para Visual Studio)
 Obtenga información acerca de cómo usar la vista de la ejecución de vértices para examinar los trabajos de Data Lake Analytics.
@@ -20,20 +18,20 @@ Obtenga información acerca de cómo usar la vista de la ejecución de vértices
 ## <a name="open-the-vertex-execution-view"></a>Abrir la vista de ejecución de vértices
 Abra un trabajo de U-SQL en Data Lake Tools para Visual Studio. Haga clic en la **vista de ejecución de vértices** en la esquina inferior izquierda. Se le solicitará cargar primero los perfiles, lo que puede tardar algún tiempo según la conectividad de red.
 
-![Vista de ejecución de vértices de Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
+![Captura de pantalla que muestra Vista Ejecución de vértice en las herramientas de Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
 
 ## <a name="understand-vertex-execution-view"></a>Comprensión de la vista de ejecución de vértices
 La vista de ejecución de vértices consta de tres partes:
 
-![Vista de ejecución de vértices de Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
+![Captura de pantalla que muestra Vista Ejecución de vértice con "Selector de vértices" y los paneles centrales superior e inferior resaltados.](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
 
 El **selector de vértices** a la izquierda permite seleccionar vértices por características (como las 10 lecturas de datos más importantes o elegir por fase). Uno de los filtros usados más comúnmente es el de los **vértices en la ruta de acceso crítica**. La **ruta de acceso crítica** es la cadena más larga de vértices de un trabajo de U-SQL. Saber cómo funciona resulta útil para la optimización de los trabajos al comprobar qué vértice tarda más tiempo.
   
-![Vista de ejecución de vértices de Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
+![Captura de pantalla que muestra el panel central superior de Vista Ejecución de vértice con el "estado de ejecución de todos los vértices".](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
 
 El panel superior central muestra el **estado de ejecución de todos los vértices**.
   
-![Vista de ejecución de vértices de Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
+![Captura de pantalla que muestra el panel central inferior de Vista Ejecución de vértice con información sobre cada vértice.](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 
 El panel inferior central muestra información sobre cada vértice:
 * Nombre del proceso: nombre de la instancia de vértice. Se compone de distintas partes de StageName|VertexName|VertexRunInstance. Por ejemplo, el vértice SV7_Split[62].v1 corresponde a la segunda instancia en ejecución (.v1, índice que comienza desde 0) del número de vértice 62 en Stage SV7_Split.

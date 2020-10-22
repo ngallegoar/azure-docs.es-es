@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: 4b4e454532dec31cbcc92269d63c8be1ff92a9f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 25a50a2841a03929804be45be8012f9b5d0457ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247530"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91357138"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Supervisión y diagnóstico para Azure Service Fabric
 
@@ -39,7 +39,7 @@ Service Fabric proporciona un conjunto completo de eventos listos para usar. Est
 
 * EventStore: EventStore es una característica que ofrece la plataforma que proporciona eventos de la plataforma Service Fabric y que está disponible en Service Fabric Explorer y en la API de REST. Puede ver una vista de instantánea de lo que está ocurriendo en el clúster para cada entidad (por ejemplo, nodo, servicio, aplicación y consulta) según la hora del evento. Obtenga más información sobre EventStore en [Información general de EventStore](service-fabric-diagnostics-eventstore.md).    
 
-![EventStore](media/service-fabric-diagnostics-overview/eventstore.png)
+![Captura de pantalla que muestra la pestaña EVENTOS con los diversos eventos del panel Nodos, incluido un evento NodeDown.](media/service-fabric-diagnostics-overview/eventstore.png)
 
 Los diagnósticos se proporcionan en forma de un conjunto completo de eventos predefinidos. Estos [eventos de Service Fabric](service-fabric-diagnostics-events.md) muestran las acciones que realiza la plataforma en entidades diferentes, como nodos, aplicaciones, servicios, particiones, etc. En el último escenario de los anteriores, si un nodo dejara de funcionar, la plataforma emitiría un evento `NodeDown` y podría recibir una notificación inmediatamente de la herramienta de supervisión de su elección. Otros ejemplos comunes son `ApplicationUpgradeRollbackStarted` o `PartitionReconfigured` durante una conmutación por error. **Los mismos eventos están disponibles en los clústeres de Windows y Linux.**
 

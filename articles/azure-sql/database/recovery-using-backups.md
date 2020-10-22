@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 6b07b6c3e54f4aebcda6c2e84047ecd1a27b3d5b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809500"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448804"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperación de una base de datos de Azure SQL Database o Instancia administrada de Azure SQL mediante copias de seguridad automatizadas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,11 +33,6 @@ Si ha configurado la [retención de copia de seguridad a largo plazo](long-term-
 
 > [!IMPORTANT]
 > Durante la restauración no se puede sobrescribir ninguna base de datos existente.
-
-De forma predeterminada, las copias de seguridad de Azure SQL Database e Instancia administrada de Azure SQL se almacenan en un almacenamiento de blobs de replicación geográfica (tipo de almacenamiento RA-GRS). Además, SQL Managed Instance también admite el almacenamiento de copia de seguridad con redundancia local (LRS) y con redundancia de zona (ZRS). La redundancia garantiza que los datos estén protegidos frente a eventos previstos e imprevistos, como errores transitorios del hardware, interrupciones del suministro eléctrico o de la red y desastres naturales masivos. El almacenamiento con redundancia de zona (ZRS) solo está disponible en [determinadas regiones](../../storage/common/storage-redundancy.md#zone-redundant-storage).
-
-> [!IMPORTANT]
-> La configuración de la redundancia de almacenamiento para las copias de seguridad solo está disponible para la instancia administrada y se permite durante el proceso de creación. Una vez que se ha aprovisionado el recurso, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad.
 
 Cuando se usan los niveles de servicio Estándar o Premium, la restauración de la base de datos puede suponer un costo de almacenamiento adicional. El costo adicional se genera cuando el tamaño máximo de la base de datos restaurada es mayor que la cantidad de almacenamiento incluida en el nivel de rendimiento y el nivel de servicio de la base de datos de destino. Para más información sobre los precios del almacenamiento adicional, consulte la [página de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Cuando la cantidad de espacio real usado es menor que la cantidad de almacenamiento incluido, se puede evitar este costo adicional con el establecimiento del tamaño máximo de la base de datos en la cantidad incluida.
 
@@ -91,13 +86,13 @@ Puede recuperar una base de datos única o una base de datos de instancia a un m
 
 Para recuperar una base de datos en un momento dado mediante Azure Portal, abra la página de información general de la base de datos y seleccione **Restaurar** en la barra de herramientas. Elija el origen de la copia de seguridad y seleccione el punto de copia de seguridad a un momento dado a partir del cual se creará una nueva base de datos.
 
-  ![Captura de pantalla de opciones de restauración de base de datos](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
+  ![Captura de pantalla de opciones de restauración de base de datos para SQL Database.](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>Instancia administrada de SQL
 
 Para recuperar una base de datos de instancia administrada a un momento dado mediante Azure Portal, abra la página de información general de la base de datos y seleccione **Restaurar** en la barra de herramientas. Elija el punto de copia de seguridad a un momento dado a partir del que se creará una nueva base de datos.
 
-  ![Captura de pantalla de opciones de restauración de base de datos](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
+  ![Captura de pantalla de opciones de restauración de base de datos para Instancia administrada de SQL.](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
 > Para restaurar una base de datos mediante programación desde una copia de seguridad, consulte [Recuperación mediante programación con copias de seguridad automatizadas](recovery-using-backups.md).
@@ -143,7 +138,7 @@ Para ver un script de PowerShell de ejemplo que muestre cómo restaurar una base
 ## <a name="geo-restore"></a>Geo-restore
 
 > [!IMPORTANT]
-> La restauración geográfica solo está disponible para las instancias administradas configuradas con el tipo de almacenamiento de copia de seguridad con redundancia geográfica (RA-GRS). Las instancias administradas configuradas con tipos de almacenamiento de copia de seguridad con redundancia local o con redundancia de zona no admiten la restauración geográfica.
+> La restauración geográfica solo está disponible para bases de datos o instancias administradas SQL configuradas con [almacenamiento de copia de seguridad](automated-backups-overview.md#backup-storage-redundancy) con redundancia geográfica.
 
 Puede restaurar una base de datos en cualquier servidor de SQL Database o en una base de datos de instancia en cualquier Instancia administrada de cualquier región de Azure a partir de las copias de seguridad con replicación geográfica más recientes. La restauración geográfica usa una copia de seguridad con replicación geográfica como su origen. Puede solicitar una restauración geográfica, aunque la base de datos o el centro de datos sea inaccesible debido a una interrupción.
 
@@ -196,7 +191,7 @@ Para ver un script de PowerShell que indica cómo realizar la restauración geog
 No se puede realizar una restauración a un momento dado en una base de datos de replicación geográfica secundaria. Solo puede hacerlo en una base de datos principal. Para obtener información detallada sobre cómo usar la restauración geográfica a fin de recuperarse de una interrupción, consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](../../key-vault/general/disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
-> La restauración geográfica es la solución de recuperación ante desastres más básica disponible en SQL Database e Instancia administrada de SQL. Depende de copias de seguridad con replicación geográfica creadas automáticamente con el objetivo de punto de recuperación (RPO) igual a 1 hora y un tiempo de recuperación estimado de hasta 12 horas. No garantiza que la región de destino tenga la capacidad de restaurar las bases de datos después de una interrupción regional porque es probable que se produzca un fuerte aumento de la demanda. Si la aplicación usa bases de datos relativamente pequeñas y no es de importancia crítica para la empresa, la restauración geográfica es una solución de recuperación ante desastres adecuada. 
+> La restauración geográfica es la solución de recuperación ante desastres más básica disponible en SQL Database e Instancia administrada de SQL. Depende de copias de seguridad con replicación geográfica creadas automáticamente con el objetivo de punto de recuperación (RPO) hasta 1 hora y un tiempo de recuperación estimado de hasta 12 horas. No garantiza que la región de destino tenga la capacidad de restaurar las bases de datos después de una interrupción regional porque es probable que se produzca un fuerte aumento de la demanda. Si la aplicación usa bases de datos relativamente pequeñas y no es de importancia crítica para la empresa, la restauración geográfica es una solución de recuperación ante desastres adecuada. 
 >
 > En el caso de las aplicaciones críticas para la empresa que necesitan bases de datos grandes y deben garantizar la continuidad empresarial, use [Grupos de conmutación por error automática](auto-failover-group-overview.md). Ofrecen un RPO y un objetivo de tiempo de recuperación mucho menor, y la capacidad siempre está garantizada. 
 >

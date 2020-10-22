@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 440f901f06e431c371b7445f4a04499c475c9aa1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8032c3607dd74cddbaa5fd6690a95ebdf218809a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932537"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91628201"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Procedimientos: Implementación de una aplicación web de recuento de personas
 
@@ -127,14 +127,13 @@ Ahora que se completó el [manifiesto de implementación](https://go.microsoft.c
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'"--subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
 ```
 
 Rellene los parámetros obligatorios:
 
-* Nombre de implementación: elija un nombre para esta implementación
 * Nombre de la instancia de IoT Hub: nombre de la instancia de Azure IoT Hub
-* Deployment.json: nombre del archivo de implementación
+* DeploymentManifest.json: nombre del archivo de implementación
 * Nombre de dispositivo IoT Edge: nombre del dispositivo IoT Edge del equipo host
 * Suscripción: nombre o id. de la suscripción
 
@@ -157,7 +156,7 @@ Esta aplicación web de recuento de personas permite configurar rápidamente una
 Hay disponible una forma de contenedor para esta aplicación en Azure Container Registry. Use el comando docker pull siguiente para descargarla. Póngase en contacto con Microsoft en projectarchon@microsoft.com para solicitar el token de acceso.
 
 ```bash
-docker login rtvsofficial.azurecr.io -u <token name> -p <password>
+docker login rtvsofficial.azurecr.io -u <token name> -p <password>
 docker pull rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0
 ```
 

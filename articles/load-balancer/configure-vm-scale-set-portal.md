@@ -1,17 +1,17 @@
 ---
 title: 'Configuración de un conjunto de escalado de máquinas virtuales con una instancia existente de Azure Load Balancer: Azure Portal'
-description: Aprenda a configurar un conjunto de escalado de máquinas virtuales con una instancia existente de Azure Load Balancer.
+description: Aprenda a configurar un conjunto de escalado de máquinas virtuales con una instancia existente de Azure Load Balancer mediante Azure Portal.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 8e55b2a87813da802ec1b00c610b33da4461c008
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809442"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91439514"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configuración de un conjunto de escalado de máquinas virtuales con una instancia existente de Azure Load Balancer mediante Azure Portal
 
@@ -62,7 +62,7 @@ En esta sección, creará un conjunto de escalado de máquinas virtuales en Azur
     | Confirmar contraseña               | Escriba de nuevo la contraseña del administrador. |
 
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Creación de un conjunto de escalado de máquinas virtuales." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Captura de pantalla que muestra la pestaña Aspectos básicos de Crear conjunto de escalado de máquinas virtuales." border="true":::
 
 4. Seleccione la pestaña **Redes**.
 
@@ -79,7 +79,7 @@ En esta sección, creará un conjunto de escalado de máquinas virtuales en Azur
     | Seleccionar un equilibrador de carga            | Seleccione **myLoadBalancer** o el equilibrador de carga existente. |
     | Seleccionar un grupo de back-end             | Seleccione **myBackendPool** o el grupo de back-end existente.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Creación de un conjunto de escalado de máquinas virtuales." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Captura de pantalla que muestra la pestaña Aspectos básicos de Crear conjunto de escalado de máquinas virtuales." border="true":::
 
 6. Seleccione la pestaña **Administración**.
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4dc768b92a9ffbeafc31ef81d065237f47fb645e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331886"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015011"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
@@ -80,6 +80,14 @@ Si un usuario intenta realizar una acción no permitida por su rol, es posible q
 ## <a name="encryption-of-data-at-rest"></a>Cifrado de datos en reposo
 
 Azure Digital Twins permite el cifrado de los datos en reposo y en tránsito a medida que se escriben en nuestros centros de datos y los descifra automáticamente mientras accede a ellos. Este cifrado se produce mediante una clave de cifrado administrada de Microsoft.
+
+## <a name="cross-origin-resource-sharing-cors"></a>Uso compartido de recursos entre orígenes
+
+Azure Digital Twins no admite actualmente el **uso compartido de recursos entre orígenes (CORS)** . Como resultado, si está llamando a una API REST desde una aplicación de explorador, una interfaz de [API Management (APIM)](../api-management/api-management-key-concepts.md) o un conector de [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview), es posible que vea un error de directiva.
+
+Para resolver este error, realice una de las siguientes acciones:
+* Quite el encabezado CORS `Access-Control-Allow-Origin` del mensaje. Este encabezado indica si la respuesta se puede compartir. 
+* Como alternativa, cree un proxy CORS y solicite la API REST de Azure Digital Twins través de él. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

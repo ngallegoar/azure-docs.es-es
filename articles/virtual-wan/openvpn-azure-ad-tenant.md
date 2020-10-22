@@ -3,17 +3,17 @@ title: 'Inquilino de Azure AD para las conexiones VPN de usuario: Autenticació
 description: Puede usar la VPN de usuario de WAN virtual de Azure (punto a sitio) para conectarse a la red virtual mediante la autenticación de Azure AD
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: e88437dc03772348ebbe0d179afc7fd4ddd24bd9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a54397fe7cfecef6813105645b7f2b218894875e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507563"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91367859"
 ---
 # <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Preparación de un inquilino de Azure Active Directory para conexiones de VPN de usuario del protocolo OpenVPN
 
@@ -76,7 +76,7 @@ Siga los pasos descritos en [este artículo](../active-directory/fundamentals/ad
 
 4. Seleccione **Aceptar** cuando se le solicite.
 
-    ![Accept](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![Captura de pantalla que muestra el cuadro de diálogo con el mensaje sobre permisos solicitados, aceptar para su organización e información adicional.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 5. En su instancia de Azure AD, en **Aplicaciones empresariales**, ahora debería mostrarse la **VPN de Azure** en la lista.
 

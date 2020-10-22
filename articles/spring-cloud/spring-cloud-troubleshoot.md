@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: d3094a8cca317e53dd3b8bc8e9b32b956c89a376
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 98b7f9b1ed5e09a1f731e45f8ca2d148a4084986
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904194"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91336163"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solución de problemas comunes de Azure Spring Cloud
 
@@ -131,7 +131,7 @@ No se puede cargar un archivo *.zip* para una aplicación de Steeltoe de .NET Co
 
 Al implementar el paquete de aplicación mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), esta sondea periódicamente el progreso de la implementación y, al final, muestra el resultado de la implementación.
 
-Asegúrese de que la aplicación esté empaquetada en el formato de archivo *.zip* correcto. Si no está correctamente empaquetado, el proceso se bloqueará o se mostrará un mensaje de error.
+Asegúrese de que la aplicación esté empaquetada en el formato de archivo *.zip* correcto. Si no está correctamente empaquetado, el proceso dejará de responder o se mostrará un mensaje de error.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 17636bf993df5105093ca690e36db22493a2472e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea791e4fc1031c0a5c041119c409f8623ce7aee9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005980"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91260383"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Conexión a su área de trabajo de Azure Synapse mediante vínculos privados (versión preliminar)
 
@@ -34,7 +34,7 @@ Seleccione **Conexiones de punto de conexión privado** en **Seguridad** y, a co
 En la pestaña **Básico** de la ventana **Crear un punto de conexión privado**, elija su **Suscripción** y **Grupo de recursos**. Asigne un **Nombre** al punto de conexión privado que desea crear. Seleccione la **Región** en la que desea crear el punto de conexión privado.
 
 Los puntos de conexión privados se crean en una subred. La suscripción, el grupo de recursos y la región seleccionados filtran las subredes de puntos de conexión privados. Seleccione **Siguiente: Recurso >** cuando haya terminado.
-![Selección de los detalles de suscripción y región](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)
+![Selección de los detalles de suscripción y región 1](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)
 
 ## <a name="step-4-select-your-azure-synapse-workspace-details"></a>Paso 4: Selección de los detalles del área de trabajo de Azure Synapse
 
@@ -43,17 +43,17 @@ Seleccione **Conectarse a un recurso de Azure en mi directorio** en la pestaña 
 Seleccione el área de trabajo de Azure Synapse como **Recurso**. Cada área de trabajo de Azure Synapse tiene tres opciones de **Subrecurso de destino** donde puede crear un punto de conexión privado: Sql, SqlOnDemand y Dev.
 
 Seleccione **Siguiente: Configuración >** para avanzar a la siguiente parte de la configuración.
-![Selección de los detalles de suscripción y región](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-3.png)
+![Selección de los detalles de suscripción y región 2](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-3.png)
 
 En la pestaña **Configuración**, seleccione la **Red virtual** y la **Subred** en la que se debe crear el punto de conexión privado. También debe crear un registro DNS que se asigne al punto de conexión privado.
 
 Seleccione **Sí** para **Integrar con la zona DNS privada** para integrar el punto de conexión privado en una zona DNS privada. Si no tiene una zona DNS privada asociada a la instancia de Microsoft Azure Virtual Network, se crea una nueva zona DNS privada. Seleccione **Revisar y crear** cuando haya terminado.
 
-![Selección de los detalles de suscripción y región](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
+![Selección de los detalles de suscripción y región 3](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
 
 Una vez que se complete la implementación, abra el área de trabajo de Azure Synapse en Azure Portal y seleccione **Conexiones de punto de conexión privado**. Se muestran el nuevo punto de conexión privado y el nombre de la conexión del punto de conexión privado asociada al punto de conexión privado.
 
-![Selección de los detalles de suscripción y región](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-5.png)
+![Selección de los detalles de suscripción y región 4](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-5.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

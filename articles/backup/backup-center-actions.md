@@ -3,12 +3,12 @@ title: Acciones con el Centro de copias de seguridad
 description: En este artículo se explica cómo realizar acciones con el Centro de copia de seguridad.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 81c81f0e9d955e0a5243485baaedff4e6f0fc10d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90993830"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854433"
 ---
 # <a name="perform-actions-using-backup-center"></a>Acciones con el Centro de copias de seguridad
 
@@ -70,7 +70,7 @@ Siga las instrucciones siguientes que correspondan al tipo de origen de datos qu
 ### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Si va a restaurar un servidor de Azure Database for PostgreSQL
 
 1. Vaya al Centro de copias de seguridad y seleccione **Restauración** en la parte superior de la pestaña **Información general**.
-2. Seleccione el tipo de origen de datos del que desea realizar la copia de seguridad (en este caso, servidor de Azure Database for PostgreSQL).
+2. Seleccione el tipo de origen de datos que quiere restaurar (en este caso, servidor de Azure Database for PostgreSQL).
 
     ![Seleccionar el origen de datos para restaurar el servidor de Azure Database for PostgreSQL](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 

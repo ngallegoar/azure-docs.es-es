@@ -1,17 +1,17 @@
 ---
 title: 'Continuidad empresarial en Azure Database for PostgreSQL: servidor único'
 description: En este artículo se describe la continuidad empresarial (restauración a un momento dado, interrupción del centro de datos, restauración geográfica, réplicas) al usar Azure Database for PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 75cd86bd1587a9294caef00efdf973fe8a26c150
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 4189aadb6e37fc70bcaeecca2110d6fcc3959dd3
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612027"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939875"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL con un único servidor
 
@@ -19,16 +19,19 @@ En este artículo de introducción se describen las funcionalidades de continuid
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Características que puede utilizar para proporcionar continuidad empresarial
 
-Azure Database for PostgreSQL proporciona características de continuidad empresarial entre las que se incluyen copias de seguridad automatizadas y la capacidad de los usuarios de iniciar la restauración geográfica. Cada una de ellas posee distintas características que abarcan los conceptos de tiempo de recuperación calculado (ERT) y pérdida de datos potencial. El tiempo calculado de recuperación (ER) es la duración estimada que tardará la base de datos en estar completamente funcional después de una solicitud de restauración o de conmutación por error. Cuando entienda estas opciones, puede elegir las que más relevantes considere y utilizarlas juntas en distintos escenarios. A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. A esto se le denomina "objetivo de tiempo de recuperación" (RTO). También debe conocer la cantidad máxima de actualizaciones de datos recientes (intervalo de tiempo) que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. A esto se le conoce como "objetivo de punto de recuperación" (RPO).
+A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. A esto se le denomina "objetivo de tiempo de recuperación" (RTO). También debe conocer la cantidad máxima de actualizaciones de datos recientes (intervalo de tiempo) que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. A esto se le conoce como "objetivo de punto de recuperación" (RPO).
 
-La tabla siguiente compara los valores de ERT y RPO para las características disponibles:
+Azure Database for PostgreSQL proporciona características de continuidad empresarial que incluyen copias de seguridad con redundancia geográfica con la capacidad de iniciar la restauración geográfica y la implementación de réplicas de lectura en otra región. Cada una de ellas posee distintas características que abarcan los conceptos de tiempo de recuperación y pérdida de datos potencial. Con la característica de [restauración geográfica](concepts-backup.md), se crea un servidor con los datos de copia de seguridad que se replican desde otra región. El tiempo total que se tarda en la restauración y la recuperación depende del tamaño de la base de datos y de la cantidad de registros que se van a recuperar. El tiempo total para establecer el servidor varía de unos minutos a pocas horas. Con las [réplicas de lectura](concepts-read-replicas.md), los registros de transacciones de la principal se transmiten de forma asincrónica a la réplica. El intervalo entre la principal y la réplica depende de la latencia entre los sitios y de la cantidad de datos que se van a transmitir. En caso de que se produzca un error en el sitio principal, como un error de zona de disponibilidad, la promoción de la réplica proporciona un RTO más corto y una pérdida de datos reducida. 
+
+En la tabla siguiente se comparan el RTO y el RPO en un escenario típico:
 
 | **Funcionalidad** | **Basic** | **Uso general** | **Memoria optimizada** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Restauración a un momento dado a partir de una copia de seguridad | Cualquier punto de restauración dentro del período de retención | Cualquier punto de restauración dentro del período de retención | Cualquier punto de restauración dentro del período de retención |
-| Restauración geográfica de las copias de seguridad con replicación geográfica | No compatible | ERT < 12 horas<br/>RPO < 1 hora | ERT < 12 horas<br/>RPO < 1 hora |
+| Restauración geográfica de las copias de seguridad con replicación geográfica | No compatible | RTO: varía <br/>RPO < 1 hora | RTO: varía <br/>RPO < 1 hora |
+| Réplicas de lectura | RTO: minutos <br/>RPO < 5 minutos* | RTO: minutos <br/>RPO < 5 minutos*| RTO: minutos <br/>RPO < 5 minutos*|
 
-También puede considerar el uso de [réplicas de lectura](concepts-read-replicas.md).
+\* El RPO puede ser superior en algunos casos, en función de varios factores, como la carga de trabajo de la base de datos principal y la latencia entre regiones. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperación de un servidor tras un error del usuario o la aplicación
 

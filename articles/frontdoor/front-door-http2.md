@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 7cdcef80ef2433d34b32589d2539089fb9801eb1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 20d45f5966aca3df89e17e03aa6120a4ddf5c5b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399436"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448705"
 ---
 # <a name="http2-support-in-azure-front-door"></a>Compatibilidad con HTTP/2 en Azure Front Door
 
 Actualmente, la compatibilidad con HTTP/2 está activa para todas las configuraciones de Azure Front Door. No es necesaria ninguna otra acción por parte de los clientes.
 
-HTTP/2 es una revisión principal de HTTP/1.1. Proporciona un rendimiento web más rápido, tiempo de respuesta reducido y experiencia de usuario mejorada, al tiempo que se mantienen los métodos HTTP conocidos, los códigos de estado y la semántica. Aunque HTTP/2 está diseñado para trabajar con HTTP y HTTPS, muchos exploradores web de cliente solo admiten HTTP/2 sobre Seguridad de la capa de transporte (TLS).
+HTTP/2 es una revisión principal de HTTP/1.1 que proporciona un rendimiento web más rápido al reducir el tiempo de respuesta. HTTP/2 mantiene los métodos HTTP conocidos, los códigos de estado y la semántica para mejorar la experiencia del usuario. Aunque HTTP/2 está diseñado para trabajar con HTTP y HTTPS, muchos exploradores web de cliente solo admiten HTTP/2 sobre Seguridad de la capa de transporte (TLS).
 
 > [!NOTE]
 > La compatibilidad con el protocolo HTTP/2 solo está disponible para las solicitudes de los clientes a Front Door. La comunicación entre Front Door y los servidores back-end en el grupo de back-end se produce a través de HTTP/1.1. 

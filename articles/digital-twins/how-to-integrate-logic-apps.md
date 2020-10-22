@@ -8,18 +8,21 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 6726dab6f1037f01eda316968e3c5b503aa9dbfb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326590"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045302"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integración con Logic Apps mediante un conector personalizado
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) es un servicio en la nube que le ayuda a automatizar flujos de trabajo entre aplicaciones y servicios. Al conectar Logic Apps a las API de Azure Digital Twins, puede crear esos flujos automatizados en torno a Azure Digital Twins y sus datos.
 
-Azure Digital Twins actualmente no tiene un conector certificado (precompilado) para Logic Apps. En su lugar, el proceso actual para usar Logic Apps con Azure Digital Twins es crear un [**conector personalizado de Logic Apps**](../logic-apps/custom-connector-overview.md) mediante una instancia [personalizada de Swagger de Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) que se ha modificado para funcionar con Logic Apps.
+Azure Digital Twins actualmente no tiene un conector certificado (precompilado) para Logic Apps. En su lugar, el proceso actual para usar Logic Apps con Azure Digital Twins es crear un [**conector personalizado de Logic Apps**](../logic-apps/custom-connector-overview.md) mediante una instancia [personalizada de Swagger de Azure Digital Twins](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) que se ha modificado para funcionar con Logic Apps.
+
+> [!NOTE]
+> Hay varias versiones de Swagger incluidas en el ejemplo personalizado de Swagger vinculado anteriormente. La versión más reciente se encontrará en la subcarpeta con la fecha más reciente, pero también se admiten las versiones anteriores incluidas en el ejemplo.
 
 En este artículo, usará [Azure Portal](https://portal.azure.com) para **crear un conector personalizado** que se puede usar para conectar Logic Apps a una instancia de Azure Digital Twins. A continuación, **creará una aplicación lógica** que usa esta conexión para un escenario de ejemplo, en el que los eventos desencadenados por un temporizador actualizarán automáticamente un gemelo de la instancia de Azure Digital Twins. 
 
@@ -90,7 +93,12 @@ Se le dirigirá a la página de implementación del conector. Cuando haya termin
 
 A continuación, va a configurar el conector que ha creado para la conexión con Azure Digital Twins.
 
-En primer lugar, descargue un archivo de Swagger de Azure Digital Twins personalizado que se ha modificado para que funcione con Logic Apps. Descargue el ejemplo **Swaggers personalizados de Azure Digital Twins** desde [este vínculo](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) mediante el botón *Descargar archivo ZIP*. Vaya a la carpeta descargada *Azure_Digital_Twins_Custom_Swaggers.zip* y descomprímala. La instancia de Swagger personalizada para este tutorial se encuentra en *Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.json*.
+En primer lugar, descargue un archivo de Swagger de Azure Digital Twins personalizado que se ha modificado para que funcione con Logic Apps. Descargue el ejemplo **Swaggers personalizados de Azure Digital Twins** desde [**este vínculo**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) mediante el botón *Descargar archivo ZIP*. Vaya a la carpeta descargada *Azure_Digital_Twins_Custom_Swaggers.zip* y descomprímala. 
+
+La instancia de Swagger personalizada para este tutorial se encuentra en la carpeta _**Azure_Digital_Twins_Custom_Swaggers\LogicApps**_. Esta carpeta contiene subcarpetas denominadas *Estable* y *Versión preliminar*, y ambas contienen versiones diferentes de Swagger organizadas por fecha. La carpeta con la fecha más reciente incluirá la última copia de Swagger. Sea cual sea la versión que seleccione, el archivo Swagger se denomina _**digitaltwins.json**_.
+
+> [!NOTE]
+> A menos que esté trabajando con una característica en vista previa, por lo general se recomienda usar la versión más reciente de *Estable* de Swagger. Sin embargo, las versiones anteriores y las versiones preliminares de Swagger siguen siendo compatibles. 
 
 A continuación, diríjase a la página de información general del conector en [Azure Portal](https://portal.azure.com) y pulse *Editar*.
 
@@ -184,7 +192,7 @@ Es posible que se le pida que inicie sesión con sus credenciales de Azure para 
 En el nuevo cuadro *DigitalTwinsAdd*, rellene los campos como se indica a continuación:
 * _id_: rellene el *Identificador de gemelo* del gemelo digital de la instancia que desea que la aplicación lógica actualice.
 * _twin_: en este campo especificará el cuerpo que requiere la solicitud de API seleccionada. En el caso de *DigitalTwinsUpdate*, el cuerpo tiene el formato de código de revisión JSON. Para más información sobre cómo estructurar una revisión JSON para actualizar el gemelo, consulte la sección [Actualización de un gemelo digital](how-to-manage-twin.md#update-a-digital-twin) de *Procedimiento: Administración de Digital Twins*.
-* _api-version_: En la versión preliminar pública actual, este valor es *2020-05-31-preview*.
+* _api-version_: La versión de API más reciente. En la versión preliminar pública actual, este valor es *2020-05-31-preview*.
 
 Presione *Guardar* en el Diseñador de aplicaciones lógicas.
 
@@ -196,7 +204,7 @@ Puede elegir otras operaciones seleccionando _+ Nuevo paso_ en la misma ventana.
 
 Ahora que se ha creado la aplicación lógica, el evento de actualización del gemelo que definió en el Diseñador de aplicaciones lógicas debe aparecer con una periodicidad de cada tres segundos. Esto significa que, después de tres segundos, debería poder consultar el gemelo y ver reflejados los nuevos valores de revisión.
 
-Puede consultar el gemelo mediante el método que elija (como una [aplicación cliente personalizada](tutorial-command-line-app.md), la [aplicación de ejemplo Explorador de Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), los [SDK y las API](how-to-use-apis-sdks.md) o la [CLI](how-to-use-cli.md)). 
+Puede consultar el gemelo mediante el método que elija (como una [aplicación cliente personalizada](tutorial-command-line-app.md), la [aplicación de ejemplo Explorador de Azure Digital Twins](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), los [SDK y las API](how-to-use-apis-sdks.md) o la [CLI](how-to-use-cli.md)). 
 
 Para más información sobre cómo consultar la instancia de Azure Digital Twins, consulte [*Procedimiento: Consulta del grafo de gemelos*](how-to-query-graph.md).
 

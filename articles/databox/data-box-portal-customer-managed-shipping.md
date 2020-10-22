@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: b09176ad8cb93d7710975b67de619b4f58eaa2f0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142543"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951917"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Uso del envío autoadministrado para Azure Data Box en Azure Portal
 
@@ -41,7 +41,7 @@ Al realizar el pedido de Data Box, puede elegir la opción de envío autoadminis
 2. Al elegir el tipo de envío, seleccione la opción **Envío autoadministrado**. Esta opción solo está disponible si se encuentra en una región admitida, tal como se describe en los requisitos previos.
 
 3. Cuando proporcione la dirección de envío, tendrá que validarla y completar el pedido.
-   ![Envío autoadministrado](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Envío autoadministrado 2](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Cuando el dispositivo esté preparado y haya recibido una notificación por correo electrónico, podrá programar una recogida.
 
@@ -78,7 +78,7 @@ Al realizar el pedido de Data Box, puede elegir la opción de envío autoadminis
 
 9. Si ha recibido una cita para una entrega, el pedido debe encontrarse en el estado **Listo para recibir el paquete en el centro de datos de Azure** en Azure Portal. Siga las instrucciones que aparecen en **Programar la entrega** para devolver el dispositivo.
 
-   ![Visualización del código de autorización](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
+   ![Visualización del código de autorización 2](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
 10. Después de verificar el identificador y el código de autorización y de entregar el dispositivo en el centro de datos, el estado del pedido debe ser **Recibido**.
 

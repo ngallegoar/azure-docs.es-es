@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480460"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996388"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Creación de informes interactivos Azure Monitor para VM con libros
 
-Los libros combinan texto, [consultas de registros](../log-query/query-language.md), métricas y parámetros en informes interactivos avanzados. Otros miembros del equipo con acceso a los mismos recursos de Azure pueden editar los libros.
+Los libros combinan texto, [consultas de registros](/azure/data-explorer/kusto/query/), métricas y parámetros en informes interactivos avanzados. Otros miembros del equipo con acceso a los mismos recursos de Azure pueden editar los libros.
 
 Los libros son útiles en escenarios como los siguientes:
 
@@ -66,7 +66,7 @@ Un libro se compone de secciones que constan de tablas, texto, controles de entr
 
 Los libros tienen dos modos: **modo de edición** y **modo de lectura**. Cuando se inicia por primera vez un libro, se abre en **modo de edición**. Se muestra todo el contenido del libro, incluidos los pasos y los parámetros que se encuentran ocultos. El **modo de lectura** presenta una vista simplificada de estilo del informe. El modo de lectura permite reducir la complejidad que conlleva la creación de un informe, a la vez que se puede acceder a la mecánica subyacente con tan solo unos clics cuando la necesita para realizar modificaciones.
 
-![Controles de edición de la sección de libros de Azure Monitor para VM](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
+![Captura de pantalla de la sección Libro de Virtual Machines en Azure Monitor, donde se muestra un nuevo libro en el modo de edición con los controles de edición resaltados.](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
 1. Cuando haya terminado de editar una sección, haga clic en **Edición finalizada** en la esquina inferior izquierda de la sección.
 
@@ -102,7 +102,7 @@ Para incluir los datos de otras áreas de trabajo de Log Analytics o de una apli
 
 Cada sección tiene su propia configuración avanzada, a la que se puede acceder mediante el icono de configuración ![Controles de edición de la sección de libros](media/vminsights-workbooks/006-settings.png) situado a la derecha del botón **Agregar parámetros**.
 
-![Controles de edición de la sección de libros de Azure Monitor para VM](media/vminsights-workbooks/007-settings-expanded.png)
+![Captura de pantalla del cuadro de diálogo Configuración avanzada en la sección Libro de Virtual Machines de Azure Monitor. Se resalta el icono que abre el cuadro de diálogo.](media/vminsights-workbooks/007-settings-expanded.png)
 
 |         |          |
 | ---------------- |:-----|
@@ -118,11 +118,11 @@ Uno de los libros compilados previamente, **Tráfico de TCP**, proporciona infor
 
 La primera sección del libro se basa en datos de consulta de registro. La segunda sección también se basa en datos de consulta de registro pero, si se selecciona una fila en la primera tabla, se actualizará el contenido de los gráficos de forma interactiva:
 
-![Controles de edición de la sección de libros de Azure Monitor para VM](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
+![Captura de pantalla de la sección Virtual Machines de Azure Monitor, donde se muestra el tráfico TCP del libro compilado previamente.](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
 
 El comportamiento es posible mediante la utilización de la configuración avanzada **Cuando se seleccione un elemento, exporte un parámetro**, que está habilitada en la consulta de registro de la tabla.
 
-![Controles de edición de la sección de libros de Azure Monitor para VM](media/vminsights-workbooks/009-settings-export.png)
+![Captura de pantalla del cuadro de diálogo Configuración avanzada de un libro de Virtual Machines con la opción "When an item is selected, export a parameter" (Cuando se seleccione un elemento, exporte un parámetro) activada.](media/vminsights-workbooks/009-settings-export.png)
 
 Después, la segunda consulta de registro utiliza los valores exportados cuando se selecciona una fila para crear un conjunto de valores que luego utilizan el encabezado y los gráficos de la sección. Si no se selecciona ninguna fila, oculta el encabezado y los gráficos de la sección. 
 
@@ -141,7 +141,7 @@ Las secciones de las métricas le proporcionan acceso total para incorporar dato
 
 Este es un ejemplo de datos de la máquina virtual que se extraen en un libro para proporcionar una visualización de cuadrícula del rendimiento de la CPU:
 
-![Controles de edición de la sección de libros de Azure Monitor para VM](media/vminsights-workbooks/010-metrics-grid.png)
+![Captura de pantalla de la sección de métricas de un libro de máquina virtual en Azure Monitor. El rendimiento de la CPU de cada máquina virtual se muestra gráficamente.](media/vminsights-workbooks/010-metrics-grid.png)
 
 ## <a name="adding-parameter-sections"></a>Incorporación de secciones de parámetros
 
@@ -180,11 +180,11 @@ Si la columna es un tipo de cadena, la cadena nula o vacía se considera falsa y
 
 Echemos un vistazo a los parámetros del informe Información general de conexiones. Haga clic en el símbolo de edición junto a **Dirección**.
 
-![Controles de edición de la sección de libros de Azure Monitor para VM](media/vminsights-workbooks/011-workbook-using-dropdown.png)
+![Captura de pantalla de la sección para agregar y editar parámetros de informe en Azure Monitor. El icono de edición para el parámetro Dirección está seleccionado.](media/vminsights-workbooks/011-workbook-using-dropdown.png)
 
 Esto iniciará el elemento de menú **Editar parámetro**.
 
-![Controles de edición de la sección de libros de Azure Monitor para VM](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+![Captura de pantalla del cuadro de diálogo Editar parámetro. El nombre del parámetro es Dirección, el tipo de parámetro es Desplegable y está seleccionado JSON para Obtener datos de.](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
 JSON permite generar una tabla arbitraria que se rellena con contenido. Por ejemplo, el siguiente JSON genera dos valores en la lista desplegable:
 

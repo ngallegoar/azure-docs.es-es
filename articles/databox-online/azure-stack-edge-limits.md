@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f1bb5662b48765c08ec58d1f7fa9d341de4937bc
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904458"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992754"
 ---
 # <a name="azure-stack-edge-pro-limits"></a>Límites de Azure Stack Edge Pro
 
@@ -27,12 +27,16 @@ Tenga en cuenta estos límites cuando implemente y use su solución de Microsoft
 
 En la siguiente tabla se describen los límites de los dispositivos Azure Stack Edge Pro. 
 
+En la tabla siguiente, se describen los límites de los dispositivos de Azure Stack Edge.
+
 | Descripción | Value |
 |---|---|
 |No. de archivos por dispositivo |100 millones |
-|No. de recursos compartidos por dispositivo |24 |
 |No. de recursos compartidos por contenedor |1 |
+|N.º máximo de puntos de conexión de uso compartido y puntos de conexión REST por dispositivo| 24 |
+|N.º máximo de cuentas de almacenamiento con niveles por dispositivo| 24|
 |Tamaño máximo de archivo escrito en un recurso compartido| 5 TB |
+|Número máximo de grupos de recursos por dispositivo| 800 |
 
 ## <a name="azure-storage-limits"></a>Límites de almacenamiento de Azure
 

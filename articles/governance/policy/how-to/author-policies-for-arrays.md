@@ -1,14 +1,14 @@
 ---
 title: Creación de directivas para propiedades de matriz en recursos
 description: Aprenda a trabajar con parámetros de matriz y expresiones de lenguaje de matriz, evaluar el alias [*] y anexar elementos con las reglas de definición de Azure Policy.
-ms.date: 08/17/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 5b9392a943e264ae5eca989ee87eb9ff09b36972
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: c67982197c0161d99f29747d6fd11166cba86079
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048489"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91576904"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creación de directivas para propiedades de matriz en recursos de Azure
 
@@ -194,12 +194,24 @@ Los siguientes resultados se derivan de la combinación de la condición y la re
 |`{<field>,"Equals":"127.0.0.1"}` |Nada |Coincidencia total |Un elemento de matriz se evalúa como true (127.0.0.1 == 127.0.0.1) y otro como false (127.0.0.1 == 192.168.1.1), por lo que la condición **Equals** es _false_ y el efecto no se desencadena. |
 |`{<field>,"Equals":"10.0.4.1"}` |Nada |Coincidencia total |Ambos elementos de matriz se evalúan como false (10.0.4.1 == 127.0.0.1 y 10.0.4.1 == 192.168.1.1), por lo que la condición **Equals** es _false_ y el efecto no se desencadena. |
 
-## <a name="the-append-effect-and-arrays"></a>El efecto de anexar y matrices
+## <a name="modifying-arrays"></a>Modificación de matrices
 
-El [efecto append](../concepts/effects.md#append) se comporta de manera diferente en función de si **details.field** es un alias **\[\*\]** o no.
+[append](../concepts/effects.md#append) y [modify](../concepts/effects.md#modify) alteran las propiedades de un recurso durante la creación o la actualización. Cuando se trabaja con propiedades de matriz, el comportamiento de estos efectos depende de si la operación intenta modificar el alias **\[\*\]** :
 
-- Cuando no es un alias **\[\*\]** , append reemplaza toda la matriz por la propiedad **value**.
-- Cuando se trata de un alias **\[\*\]** , append agrega la propiedad **value** a la matriz existente o crea una nueva matriz.
+> [!NOTE]
+> El uso del efecto `modify` con alias está actualmente en **versión preliminar**.
+
+|Alias |Efecto | Resultado |
+|-|-|-|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | Azure Policy anexa toda la matriz especificada en los detalles del efecto, si falta. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` con la operación `add` | Azure Policy anexa toda la matriz especificada en los detalles del efecto, si falta. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` con la operación `addOrReplace` | Azure Policy anexa toda la matriz especificada en los detalles del efecto, si falta, o reemplaza la matriz existente. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `append` | Azure Policy anexa el miembro de la matriz especificado en los detalles del efecto. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` con la operación `add` | Azure Policy anexa el miembro de la matriz especificado en los detalles del efecto. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` con la operación `addOrReplace` | Azure Policy quita todos los miembros de la matriz existentes y anexa el miembro de la matriz especificado en los detalles del efecto. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `append` | Azure Policy anexa un valor a la propiedad `action` de cada miembro de la matriz. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` con la operación `add` | Azure Policy anexa un valor a la propiedad `action` de cada miembro de la matriz. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` con la operación `addOrReplace` | Azure Policy anexa o reemplaza la propiedad `action` existente de cada miembro de la matriz. |
 
 Para obtener más información, consulte [Ejemplos de append](../concepts/effects.md#append-examples).
 

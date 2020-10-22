@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d835507a17417f8b500c0fc13d0a662e606a37ff
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320734"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996412"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisitos del sistema de Azure Stack Edge Pro con GPU 
 
@@ -32,21 +32,29 @@ Los requisitos del sistema de Azure Stack Edge Pro son:
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/azure-stack-edge-gateway-supported-client-protocols.md)]
 
-## <a name="supported-storage-accounts"></a>Cuentas de almacenamiento admitidas
+## <a name="supported-azure-storage-accounts"></a>Cuentas admitidas de Azure Storage
 
 [!INCLUDE [Supported storage accounts](../../includes/azure-stack-edge-gateway-supported-storage-accounts.md)]
 
-## <a name="supported-tiered-storage-accounts"></a>Cuentas de almacenamiento con niveles admitidas
+## <a name="supported-edge-storage-accounts"></a>Cuentas admitidas de almacenamiento de Edge
 
-Cuando se administra desde Azure Stack, se admiten las siguientes cuentas de almacenamiento con niveles, con las interfaces SMB, NFS o REST.
+Se admiten las siguientes cuentas de almacenamiento de Edge con la interfaz de REST del dispositivo. Las cuentas de almacenamiento de Edge se crean en el dispositivo. Para obtener más información, consulte [Cuentas de almacenamiento de Edge](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
 
 |Tipo  |Cuenta de almacenamiento  |Comentarios  |
 |---------|---------|---------|
 |Estándar     |GPv1: Blob en bloques         |         |
-|    |  Blob Storage: Blob en bloques       | Solo se admite para NAS     |
 
-\* Actualmente no se admiten blobs en páginas ni Azure Files en Azure Stack.
-** Los niveles de acceso frecuente y esporádico no existen en Azure Stack. Use Azure PowerShell para trasladar los datos al nivel de archivo una vez que se carguen los datos. Para instrucciones paso a paso, vaya a [Uso de Azure PowerShell para establecer el nivel de blob]().
+* Actualmente no se admiten blobs en páginas ni archivos de Azure Files.
+
+## <a name="supported-local-azure-resource-manager-storage-accounts"></a>Cuentas locales de almacenamiento de Azure Resource Manager admitidas
+
+Estas cuentas de almacenamiento se crean mediante las API locales del dispositivo cuando se conecta a una instancia local de Azure Resource Manager. Se admiten las siguientes cuentas de almacenamiento:
+
+|Tipo  |Cuenta de almacenamiento  |Comentarios  |
+|---------|---------|---------|
+|Estándar     |GPv1: blob en bloques, blob en páginas        | El tipo de SKU es Standard_LRS.       |
+|Premium     |GPv1: blob en bloques, blob en páginas        | El tipo de SKU es Premium_LRS.        |
+
 
 ## <a name="supported-storage-types"></a>Tipos de almacenamiento compatibles
 

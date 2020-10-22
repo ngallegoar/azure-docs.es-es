@@ -1,6 +1,6 @@
 - name: Documentación de Azure API Management
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: Acerca de API Management
       href: api-management-key-concepts.md
@@ -62,8 +62,6 @@
       items:
         - name: Línea de base de seguridad
           href: security-baseline.md
-        - name: Controles de seguridad integrados
-          href: api-management-security-controls.md
     - name: Suscripciones
       href: api-management-subscriptions.md
     - name: Versiones
@@ -160,6 +158,8 @@
       items:
         - name: Descripción del portal para desarrolladores
           href: api-management-howto-developer-portal.md
+        - name: Migración desde un portal para desarrolladores en desuso a uno nuevo
+          href: developer-portal-deprecated-migration.md
         - name: Autenticación mediante Azure Active Directory
           href: api-management-howto-aad.md
         - name: "Autenticación mediante Azure\_AD\_B2C"
@@ -170,13 +170,13 @@
           href: api-management-howto-configure-notifications.md
         - name: Habilitar OAuth en la consola
           href: api-management-howto-oauth2.md
-        - name: 'Portal heredado: personalización del portal'
+        - name: 'Portal en desuso: personalización del portal'
           href: api-management-customize-styles.md
-        - name: 'Portal heredado: modificación de páginas y diseños'
+        - name: 'Portal en desuso: modificación de páginas y diseños'
           href: api-management-modify-content-layout.md
-        - name: 'Portal heredado: personalización con plantillas'
+        - name: 'Portal en desuso: personalización con plantillas'
           href: api-management-developer-portal-templates.md
-    - name: Plantillas del portal heredado
+    - name: Plantillas del portal en desuso
       items:
         - name: Referencia de modelo de datos
           href: api-management-template-data-model-reference.md

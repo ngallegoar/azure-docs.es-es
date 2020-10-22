@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 7cac14708adecbdf3c809e3a9656d25c727d80e3
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8455fafe9ce2465df450e9556e8b2442b01e4e23
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206168"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449719"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use la interfaz de usuario web local para administrar los dispositivos Data Box y Data Box Heavy
 
-En este artículo se describen algunas de las tareas de administración y configuración que se pueden realizar en los dispositivos Data Box y Data Box Heavy. Puede administrar los dispositivos Data Box y Data Box Heavy a través de la interfaz de usuario de Azure Portal y de la interfaz de usuario web local para el dispositivo. En este artículo nos centraremos en las tareas que puede realizar mediante la interfaz de usuario web.
+En este artículo se describen algunas de las tareas de administración y configuración que se realizan en los dispositivos Data Box y Data Box Heavy. Puede administrar los dispositivos Data Box y Data Box Heavy a través de la interfaz de usuario de Azure Portal y de la interfaz de usuario web local para el dispositivo. Este artículo se centra en las tareas realizadas con la interfaz de usuario web local.
 
 La interfaz de usuario web local para Data Box y Data Box Heavy se usa para la configuración inicial del dispositivo. También puede usar la interfaz de usuario web local para apagar o reiniciar el dispositivo, ejecutar pruebas de diagnóstico, actualizar el software, ver registros de copia y generar un paquete de registro para el Soporte técnico de Microsoft. En un dispositivo Data Box Heavy con dos nodos independientes, puede acceder a dos interfaces de usuario web local independientes correspondientes a cada nodo del dispositivo.
 
@@ -202,6 +202,49 @@ Para habilitar la firma de SMB en el dispositivo de Azure:
 4. En la interfaz de usuario web local, vaya a **Apagar o reiniciar**.
 5. Seleccione **Reiniciar**.
 
+## <a name="enable-backup-operator-privileges"></a>Habilitación de los privilegios de operador de copia de seguridad
+
+Los usuarios de la interfaz de usuario web tienen privilegios de operador de copia de seguridad en los recursos compartidos SMB de forma predeterminada. Si no desea esto, use **Enable Backup Operator privileges** (Habilitar los privilegios de operador de copia de seguridad) para deshabilitar o habilitar los privilegios.
+
+Para más información, consulte Operadores de copia de seguridad en [Grupos de seguridad de Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
+
+Para habilitar los privilegios de operador de copia de seguridad en el dispositivo de Azure:
+
+1. En la esquina superior derecha de la interfaz de usuario web local del dispositivo, seleccione **Configuración**.
+
+   ![Apertura de Settings (Configuración) de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. Haga clic en **Enable** (Habilitar) para habilitar los privilegios de operador de copia de seguridad.
+
+   ![Habilitación de los privilegios de operador de copia de seguridad](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
+
+3. Seleccione **Apply** (Aplicar).
+4. En la interfaz de usuario web local, vaya a **Apagar o reiniciar**.
+5. Seleccione **Reiniciar**.
+
+## <a name="enable-acls-for-azure-files"></a>Habilitación de las ACL para Azure Files
+
+Los metadatos de los archivos se transfieren de forma predeterminada cuando los usuarios cargan datos mediante SMB en Data Box. Los metadatos incluyen listas de control de acceso (ACL), atributos de archivo y marcas de tiempo. Si no quiere esto, use **ACLs for Azure Files** (ACL para Azure Files) para deshabilitar o habilitar esta característica.
+
+<!--For more information about metadata that is transferred, see [Preserving the ACLs and metadata with Azure Data Box](./data-box-local-web-ui-admin.md#enable-backup-operator-privileges) - IN DEVELOPMENT-->
+
+> [!Note]
+> Para transferir metadatos con archivos, debe ser un operador de copia de seguridad. Al usar esta característica, asegúrese de que los usuarios locales de la interfaz de usuario web son operadores de copia de seguridad. Consulte [Habilitación de los privilegios de operador de copia de seguridad](#enable-backup-operator-privileges).
+
+Para habilitar la transferencia de ACL para Azure Files:
+
+1. En la esquina superior derecha de la interfaz de usuario web local del dispositivo, seleccione **Configuración**.
+
+    ![Apertura de Settings (Configuración) de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. Haga clic en **Enable** (Habilitar) para las ACL para Azure Files.
+
+     ![Habilitación de las ACL para Azure Files](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
+  
+3. Seleccione **Aplicar**.
+4. En la interfaz de usuario web local, vaya a **Apagar o reiniciar**.
+5. Seleccione **Reiniciar**.
+
 ## <a name="enable-tls-11"></a>Habilitación de TLS 1.1
 
 De manera predeterminada, Azure Data Box usa la Seguridad de la capa de transporte (TLS) 1.2 para el cifrado, ya que es más segura que TSL 1.1. Sin embargo, si usted o sus clientes usan un explorador para obtener acceso a datos que no admiten TLS 1.2, puede habilitar TLS 1.1.
@@ -212,7 +255,7 @@ Para habilitar TLS 1.1 en el dispositivo de Azure:
 
 1. En la esquina superior derecha de la interfaz de usuario web local del dispositivo, seleccione **Configuración**.
 
-    ![Abrir Configuración](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Apertura de Settings (Configuración) de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Habilite** TLS 1.1.
 

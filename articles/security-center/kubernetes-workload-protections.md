@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 332c33ce46298e5338587cd4d001466d30c1a9e6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 500131121640026fd3fda5be9eecb376d2db8f0e
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90931882"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999323"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protección de las cargas de trabajo de Kubernetes
 
@@ -38,7 +38,7 @@ Security Center ofrece más características de seguridad del contenedor si habi
 |Estado de la versión:|Versión preliminar|
 |Precios:|Gratuito|
 |Roles y permisos necesarios:|**Propietario** o **administrador de seguridad** para editar una asignación<br>**Lector** para ver las recomendaciones|
-|Clústeres admitidos|Se requiere la versión 1.14 (o posterior) de Kubernetes<br>Ningún recurso PodSecurityPolicy (antiguo modelo de PSP) en los clústeres<br>No se admiten nodos de Windows|
+|Clústeres admitidos:|Se requiere la versión 1.14 (o posterior) de Kubernetes<br>Ningún recurso PodSecurityPolicy (antiguo modelo de PSP) en los clústeres<br>No se admiten nodos de Windows|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
 |||
 
@@ -58,7 +58,7 @@ Azure Security Center incluye un conjunto de recomendaciones que están disponib
 
     1. En cualquiera de los controles de seguridad, seleccione la recomendación para ver los recursos en los que puede instalar el complemento y seleccione **Corregir**. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Página de detalles de recomendación para **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recomendación **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**":::
 
 1. Aproximadamente 30 minutos después de completarse la instalación del complemento, Security Center muestra el estado de mantenimiento de los clústeres de las siguientes recomendaciones, cada uno en el control de seguridad pertinente como se muestra a continuación:
 
@@ -95,11 +95,15 @@ Azure Security Center incluye un conjunto de recomendaciones que están disponib
     1. Seleccione **Guardar**.
 
 
-1. Para aplicar cualquiera de las recomendaciones, establézcala en **Denegar** en la pestaña **Parámetros** de la directiva de seguridad de Security Center:
+1. Para aplicar cualquiera de las recomendaciones, 
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opción Denegar del parámetro de Azure Policy":::
+    1. abra la página de detalles de recomendaciones y haga clic en **Denegar**:
 
-    Con ella se denegará cualquier solicitud no compatible a los clústeres de AKS
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Recomendación **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**":::
+
+        Se abrirá el panel donde se establece el ámbito. 
+
+    1. Cuando lo haya establecido, seleccione **Change to deny** (Cambiar a denegar).
 
 1. Para ver qué recomendaciones se aplican a los clústeres:
 
@@ -109,7 +113,7 @@ Azure Security Center incluye un conjunto de recomendaciones que están disponib
 
 1. Al ver una recomendación de la protección de cargas de trabajo establecida, verá el número de pods afectados ("componentes de Kubernetes") mostrados junto con el clúster. Para ver una lista de los pods específicos, seleccione el clúster y, a continuación, seleccione **Realizar acción**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Visualización de los pods afectados para una recomendación de K8s"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Recomendación **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**"::: 
 
 1. Para probar la aplicación, use las dos implementaciones de Kubernetes siguientes:
 

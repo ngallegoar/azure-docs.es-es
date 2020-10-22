@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43565e812abcf0b7dbb992ac4d25a62a4d08df2b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921795"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018651"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Listas de exclusión de Firewall de aplicaciones web (WAF) con Front Door Service 
 
@@ -45,6 +45,17 @@ Puede especificar una coincidencia exacta con un atributo de cadena de consulta,
 Los nombres de encabezado y cookies no distinguen mayúsculas de minúsculas.
 
 Puede aplicar la lista de exclusión a todas las reglas del conjunto de reglas administradas, a las reglas de un grupo de reglas específico o a una sola regla, tal como se muestra en el ejemplo anterior. 
+
+## <a name="define-exclusion-based-on-web-application-firewall-logs"></a>Definición de la exclusión basada en registros de Web Application Firewall
+ La [supervisión y registro de Azure Web Application Firewall](waf-front-door-monitor.md) muestra los detalles coincidentes de una solicitud bloqueada. Si un valor de encabezado, de cookie, de argumento de publicación o de argumento de consulta genera falsos positivos para algunas reglas, puede excluir esa parte de la solicitud para que la regla la considere. En la siguiente tabla se muestran los valores de ejemplo de los registros de WAF y las condiciones de exclusión correspondientes.
+
+|matchVariableName de registros de WAF    |Exclusión de reglas en el portal|
+|--------|------|
+|CookieValue:SOME_NAME  |El nombre de la cookie de solicitud es igual a SOME_NAME|
+|HeaderValue:SOME_NAME  |El nombre del encabezado de solicitud es igual a SOME_NAME|
+|PostParamValue:SOME_NAME|  El nombre de los argumentos del cuerpo de solicitud es igual a SOME_NAME|
+|QueryParamValue:SOME_NAME| El nombre de los argumentos de la cadena de consulta es igual a SOME_NAME|
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

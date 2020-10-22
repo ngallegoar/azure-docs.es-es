@@ -2,20 +2,20 @@
 title: Residencia de datos
 description: Residencia de datos e información sobre los servidores habilitados para Azure Arc.
 ms.topic: reference
-ms.date: 09/22/2020
+ms.date: 10/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 73acb07b8caa3c1368c936463f04969c29d37985
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c5ece96acc3ee07ba2896279888363c7d52d737e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327772"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856456"
 ---
 # <a name="azure-arc-enabled-servers-data-residency"></a>Servidores habilitados para Azure Arc: Residencia de datos
 
 En este artículo se explica el concepto de residencia de datos y cómo se aplica a los servidores habilitados para Azure Arc.
 
-Los servidores habilitados para Azure Arc están **[disponibles](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** en **Estados Unidos, Europa, Reino Unido o Asia Pacífico**.
+Los servidores habilitados para Azure Arc están **[disponibles](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** en **Estados Unidos, Europa, Reino Unido, Australia y Asia Pacífico**.
 
 ## <a name="data-residency"></a>Residencia de datos
 

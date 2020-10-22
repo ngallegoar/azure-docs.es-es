@@ -1,16 +1,14 @@
 ---
 title: Restauración y copia de seguridad periódicas de Azure Service Fabric independiente
 description: Use la característica de copia de seguridad periódica y restauración de Service Fabric para habilitar la copia de seguridad periódica de los datos de su aplicación.
-author: hrushib
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.author: hrushib
-ms.openlocfilehash: dd91b8eb120de24d752073fd80157e9d2a663594
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: d20882ba5f7f31ef453c5d28f8bc37155cc99abd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531328"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91538592"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Restauración y copia de seguridad periódicas de Service Fabric independiente
 > [!div class="op_single_selector"]
@@ -22,7 +20,7 @@ Service Fabric es una plataforma de sistemas distribuidos que facilita el desarr
 
 Service Fabric replica el estado en varios nodos para asegurarse de que el servicio ofrece alta disponibilidad. Incluso si se produce un error en un nodo del clúster, el servicio sigue estando disponible. Sin embargo, en algunos casos, aún se desea que los datos del servicio sean de confianza frente a los errores mayores.
  
-Por ejemplo, es posible que un servicio quiera realizar copias de seguridad de los datos como medida de protección en los escenarios siguientes:
+Por ejemplo, es posible que un servicio deba realizar copias de seguridad de los datos como medida de protección en los escenarios siguientes:
 - En caso de que se produzca una pérdida permanente de todo un clúster de Service Fabric.
 - En caso de que se produzca una pérdida permanente de la mayoría de las réplicas de una partición del servicio.
 - Errores administrativos por los cuales el estado se elimina o daña accidentalmente. Por ejemplo, un administrador con suficientes privilegios elimina el servicio por error.
@@ -39,23 +37,23 @@ Service Fabric proporciona un conjunto de API para lograr la siguiente funcional
     - Azure Storage
     - Recurso compartido de archivos (local)
 - Enumeración de las copias de seguridad
-- Desencadenamiento de una copia de seguridad ad hoc de una partición
+- Desencadenamiento de una copia de seguridad no planeada de una partición
 - Restauración de una partición mediante la copia de seguridad anterior
 - Suspensión temporal de las copias de seguridad
 - Administración de la retención de copias de seguridad (próximamente)
 
 ## <a name="prerequisites"></a>Prerrequisitos
-* Clúster de Service Fabric con la versión 6.4 de Fabric y versiones posteriores. Consulte este [artículo](service-fabric-cluster-creation-for-windows-server.md) para ver los pasos para descargar el paquete necesario.
+* Un clúster de Service Fabric con la versión 6.4 de Fabric o versiones posteriores. Consulte este [artículo](service-fabric-cluster-creation-for-windows-server.md) para ver los pasos para descargar el paquete necesario.
 * Se requiere el certificado X.509 para el cifrado de secretos a fin de conectarse al almacenamiento y almacenar las copias de seguridad. Consulte este [artículo](service-fabric-windows-cluster-x509-security.md) para saber cómo adquirir o crear un certificado X.509 autofirmado.
 
-* Aplicación con estado de confianza de Service Fabric compilada con la versión 3.0 del SDK de Service Fabric o una versión posterior. En el caso de las aplicaciones destinadas a .Net Core 2.0, la aplicación debe compilarse con la versión 3.1 del SDK de Service Fabric o una versión posterior.
-* Instale el módulo Microsoft.ServiceFabric.Powershell.Http [en versión preliminar] para realizar llamadas de configuración.
+* Aplicación con estado de confianza de Service Fabric compilada con la versión 3.0 del SDK de Service Fabric o una versión posterior. En el caso de las aplicaciones destinadas a .NET Core 2.0, la aplicación debe crearse con la versión 3.1 del SDK para Service Fabric o una versión posterior.
+* Instale el módulo Microsoft.ServiceFabric.PowerShell.Http [en versión preliminar] para realizar llamadas de configuración.
 
 ```powershell
-    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+    Install-Module -Name Microsoft.ServiceFabric.PowerShell.Http -AllowPrerelease
 ```
 
-* Asegúrese de que el clúster esté conectado mediante el comando `Connect-SFCluster` antes de realizar una solicitud de configuración con el módulo Microsoft.ServiceFabric.Powershell.Http.
+* Asegúrese de que el clúster esté conectado mediante el comando `Connect-SFCluster` antes de realizar una solicitud de configuración con el módulo Microsoft.ServiceFabric.PowerShell.Http.
 
 ```powershell
 
@@ -112,7 +110,7 @@ Primero debe habilitar el _servicio de copia de seguridad y restauración_ en el
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Habilitación de la copia de seguridad periódica del servicio de confianza con estado y Reliable Actors
 Vamos a examinar los pasos para habilitar la copia de seguridad periódica del servicio de confianza con estado y Reliable Actors. Con estos pasos se asume que:
-- El clúster está configurado con el _servicio de copia de seguridad y restauración_.
+- El clúster está configurado con el servicio de copia de seguridad y restauración.
 - Se implementa un servicio de confianza con estado en el clúster. Para las finalidades de esta guía de inicio rápido, el URI de la aplicación es `fabric:/SampleApp` y el URI del servicio de confianza con estado que pertenece a esta aplicación es `fabric:/SampleApp/MyStatefulService`. Este servicio se implementa con una única partición y el id. de partición es `23aebc1e-e9ea-4e16-9d5c-e91a614fefa7`.  
 
 ### <a name="create-backup-policy"></a>Creación de una directiva de copia de seguridad
@@ -122,7 +120,7 @@ El primer paso consiste en crear una directiva de copia de seguridad que describ
 Para el almacenamiento de copia de seguridad, cree un recurso compartido de archivos y conceda acceso de lectura y escritura a este recurso compartido de archivos para todas las máquinas de nodo de Service Fabric. En este ejemplo se asume que el recurso compartido denominado `BackupStore` existe en `StorageServer`.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con el módulo Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usa el módulo Microsoft.ServiceFabric.PowerShell.Http
 
 ```powershell
 
@@ -177,7 +175,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 Después de definir la directiva para satisfacer los requisitos de protección de datos de la aplicación, la directiva de copia de seguridad debe asociarse a la aplicación. En función de los requisitos, la directiva de copia de seguridad puede asociarse a una aplicación, un servicio o una partición.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con el módulo Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usa el módulo Microsoft.ServiceFabric.PowerShell.Http
 
 ```powershell
 Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
@@ -203,7 +201,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
     ![Habilitar la copia de seguridad de aplicaciones][3] 
 
-2. Por último, seleccione la directiva que quiera y haga clic en "Habilitar copia de seguridad".
+2. Por último, seleccione la directiva que quiera y seleccione *Habilitar copia de seguridad*.
 
     ![Seleccionar la directiva][4]
 
@@ -217,7 +215,7 @@ Después de habilitar la copia de seguridad para la aplicación, empezará a rea
 
 Las copias de seguridad asociadas a todas las particiones que pertenecen a los servicios de confianza con estado y Reliable Actors de la aplicación pueden enumerarse con _GetBackups_ API. En función de los requisitos, las copias de seguridad pueden enumerarse para una aplicación, un servicio o una partición.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con el módulo Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usa el módulo Microsoft.ServiceFabric.PowerShell.Http
 
 ```powershell
     Get-SFApplicationBackupList -ApplicationId WordCount     

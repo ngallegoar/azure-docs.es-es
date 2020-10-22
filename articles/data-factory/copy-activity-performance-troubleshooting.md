@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: d464124c6841cb2e3186d521b93d7ae08f94c9e9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 10/12/2020
+ms.openlocfilehash: b21f7ba81a74482da6fc4a59948bf16036e5d337
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440531"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951098"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solución de problemas de rendimiento de la actividad de copia
 
@@ -40,7 +40,7 @@ Como referencia, actualmente las sugerencias de optimización del rendimiento pr
 | Específica del almacén de datos   | Carga de datos en **Azure Synpase Analytics (anteriormente SQL DW)** : se recomienda usar PolyBase o la instrucción COPY si no se usa. |
 | &nbsp;                | Copia de datos de o a **Azure SQL Database**: cuando la DTU tiene un uso elevado, se recomienda actualizar a un nivel superior. |
 | &nbsp;                | Copia de datos de o a **Azure Cosmos DB**: cuando la RU tiene un uso elevado, se recomienda actualizar a una RU mayor. |
-|                       | Copia de datos de **tabla de SAP**: al copiar una gran cantidad de datos, se recomienda aprovechar la opción de partición del conector SAP para permitir la carga paralela y aumentar el número máximo de particiones. |
+|                       | Copia de datos de una **tabla de SAP**: al copiar una gran cantidad de datos, se recomienda aprovechar la opción de partición del conector SAP para permitir la carga paralela y aumentar el número máximo de particiones. |
 | &nbsp;                | Ingesta de datos de **Amazon Redshift**: se recomienda el uso de UNLOAD si no se usa. |
 | Limitación del almacén de datos | Si el almacén de datos limita un número de operaciones de lectura o escritura durante la copia, se recomienda realizar una comprobación y aumentar la tasa de solicitudes permitida para el almacén de datos o reducir la carga de trabajo simultánea. |
 | Entorno de ejecución de integración  | Si usa un **entorno de ejecución de integración (IR) autohospedado** y la actividad de copia espera mucho tiempo en la cola hasta que el IR tiene disponible un recurso para la ejecución, se recomienda escalar horizontal o verticalmente el entorno de ejecución de integración. |
@@ -74,7 +74,7 @@ Si el rendimiento de la actividad de copia no satisface sus expectativas, quiere
 
     - Compruebe si puede [copiar archivos en función del nombre o la ruta de acceso del archivo con particiones de tiempo](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De este modo, no se aporta carga alguna a la enumeración del lado de origen.
 
-    - Compruebe si en su lugar puede usar el filtro nativo del almacén de datos, específicamente "**prefix**" para Amazon S3 y Azure Blob. El filtro de prefijo es un filtro del lado servidor del almacén de datos y tendría un rendimiento mucho mejor.
+    - Compruebe si en su lugar puede usar el filtro nativo del almacén de datos, específicamente "**prefix**" para Amazon S3/Azure Blob/Azure File Storage y "**listAfter/listBefore**" para ADLS Gen1. Estos filtros son del lado servidor del almacén de datos y tendrían un rendimiento mucho mejor.
 
     - Considere la posibilidad de dividir un conjunto de datos de gran tamaño en varios conjuntos de datos más pequeños y permitir que esos trabajos de copia se ejecuten simultáneamente, abordando cada uno de ellos una parte de los datos. Puede hacerlo con Lookup/GetMetadata + ForEach + Copy. Consulte las plantillas de solución de [Copia de archivos de varios contenedores](solution-template-copy-files-multiple-containers.md) o [Migración de datos de Amazon S3 a ADLS Gen2](solution-template-migration-s3-azure.md) como ejemplo general.
 
@@ -128,7 +128,7 @@ Si el rendimiento de la copia no satisface sus expectativas, quiere solucionar p
 
     - Compruebe si puede [copiar archivos en función del nombre o la ruta de acceso del archivo con particiones de tiempo](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De este modo, no se aporta carga alguna a la enumeración del lado de origen.
 
-    - Compruebe si en su lugar puede usar el filtro nativo del almacén de datos, específicamente "**prefix**" para Amazon S3 y Azure Blob. El filtro de prefijo es un filtro del lado servidor del almacén de datos y tendría un rendimiento mucho mejor.
+    - Compruebe si en su lugar puede usar el filtro nativo del almacén de datos, específicamente "**prefix**" para Amazon S3/Azure Blob/Azure File Storage y "**listAfter/listBefore**" para ADLS Gen1. Estos filtros son del lado servidor del almacén de datos y tendrían un rendimiento mucho mejor.
 
     - Considere la posibilidad de dividir un conjunto de datos de gran tamaño en varios conjuntos de datos más pequeños y permitir que esos trabajos de copia se ejecuten simultáneamente, abordando cada uno de ellos una parte de los datos. Puede hacerlo con Lookup/GetMetadata + ForEach + Copy. Consulte las plantillas de solución de [Copia de archivos de varios contenedores](solution-template-copy-files-multiple-containers.md) o [Migración de datos de Amazon S3 a ADLS Gen2](solution-template-migration-s3-azure.md) como ejemplo general.
 

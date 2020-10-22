@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8acbc7eec7581adcf0d73ffcd4bb2aa7ab2dd572
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883496"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951152"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Desarrollo de un módulo de IoT Edge en C# para mover archivos de Azure Stack Edge Pro
+# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Desarrollo de un módulo IoT Edge en C# para mover archivos con Azure Stack Edge Pro
 
 En este artículo, se explican los pasos para crear un módulo de IoT Edge e implementarlo con el dispositivo Azure Stack Edge Pro. Azure Stack Edge Pro es una solución de almacenamiento que permite procesar datos y enviarlos por la red a Azure.
 
@@ -259,7 +259,7 @@ En la sección anterior, creó una solución de IoT Edge y agregó código a Fil
  
 3. Una vez que se proporcionan las credenciales, puede insertar la imagen del módulo en su registro de contenedor de Azure. En el explorador de VS Code, haga clic con el botón derecho en el archivo **module.json** y seleccione **Build and Push IoT Edge solution** (Compilar e insertar la solución de IoT Edge).
 
-    ![Compilación e inserción de la solución de IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![Compilar e insertar solución IoT Edge 2](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     Cuando le indica a Visual Studio Code que compile la solución, se ejecutan dos comandos en el terminal integrado: docker build y docker push. Estos dos comandos compilan el código, empaquetan CSharpModule.dll en contenedores e insertan el código en el registro de contenedor que especificó cuando inicializó la solución.
 

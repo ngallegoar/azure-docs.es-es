@@ -4,12 +4,12 @@ description: En este artículo se muestra cómo usar Azure AD en Azure Automati
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: c17c9cdc02c87037a39b8d6029bc4506afa8ad28
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbd1f977b548c2b8e7980709ea125c07e22b1fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064395"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400679"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Uso de Azure AD para autenticarse en Azure
 
@@ -21,7 +21,7 @@ Puede habilitar Azure AD a través de los siguientes módulos de PowerShell:
 
 * Azure Active Directory PowerShell para Graph (módulos AzureRM y Az). Azure Automation incluye el módulo AzureRM y su actualización reciente, el módulo Az. Entre sus funcionalidades de incluye la autenticación no interactiva en Azure mediante la autenticación basada en credenciales del usuario (OrgId) de Azure AD. Consulte [Azure AD 2.0.2.76](https://www.powershellgallery.com/packages/AzureAD/2.0.2.76).
 
-* Microsoft Azure Active Directory para Windows PowerShell versión (módulo MSOnline). Este módulo habilita las interacciones con Microsoft Online, incluido Office 365.
+* Microsoft Azure Active Directory para Windows PowerShell versión (módulo MSOnline). Este módulo habilita las interacciones con Microsoft Online, incluido Microsoft 365.
 
 >[!NOTE]
 >PowerShell Core no es compatible con el módulo MSOnline. Para usar los cmdlets de módulo, debe ejecutarlos desde Windows PowerShell. Se recomienda usar la versión más reciente de los módulos de Azure Active Directory PowerShell para Graph en lugar del módulo MSOnline. 
@@ -46,7 +46,7 @@ Antes de instalar los módulos de Azure AD en el equipo, haga lo siguiente:
 ### <a name="install-the-msonline-module"></a>Instalación del módulo MSOnline
 
 >[!NOTE]
->Para instalar el módulo MSOnline, debe ser miembro de un rol de administrador en Office 365. Consulte [Acerca de los roles de administrador](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
+>Para instalar el módulo MSOnline, debe ser miembro de un rol de administrador. Consulte [Acerca de los roles de administrador](/microsoft-365/admin/add-users/about-admin-roles).
 
 1. Asegúrese de que la característica Microsoft .NET Framework 3.5.x está habilitada en el equipo. Probablemente el equipo tiene instalada una versión más reciente, pero se puede habilitar o deshabilitar la compatibilidad con versiones anteriores de .NET Framework. 
 

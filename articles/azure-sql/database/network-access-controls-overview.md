@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: caad78bf61c9ad470464d69c7320aa1d08dcee09
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4afb6844512bd59a5c377d826267a748837ed855
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435378"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952002"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Controles de acceso a la red de Azure SQL Database y Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Vea el vídeo siguiente para obtener una explicación de alto nivel sobre estos 
 
 ## <a name="allow-azure-services"></a>Allow Azure Services (Permitir servicios de Azure)
 
-Durante la creación de un nuevo servidor SQL lógico en [Azure Portal](single-database-create-quickstart.md), esta opción se deja desactivada.
+De manera predeterminada, durante la creación de un servidor SQL lógico en [Azure Portal](single-database-create-quickstart.md), esta opción se deja en **DESACTIVADO**. Esta opción aparece cuando se permite la conectividad con el punto de conexión de servicio público.
 
 También puede cambiar esta opción desde el panel de firewall después de crear el servidor SQL lógico, como sigue.
   

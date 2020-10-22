@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 34e81076c27086ad838cca23de0e150a3c1b076c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c5a442a3d3711b85c0bad30218cb1ffab92558d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798914"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91403728"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -28,7 +28,7 @@ Network Performance Monitor ofrece tres amplias funcionalidades:
 
 * [Monitor de conectividad de servicio](network-performance-monitor-service-connectivity.md): puede supervisar la conectividad de los usuarios a los servicios que le interesen, determinar qué infraestructura se encuentra en la ruta de acceso e identificar dónde se producen los cuellos de botella en la red. Puede conocer las interrupciones antes que sus usuarios y ver el lugar exacto de los problemas a lo largo de la ruta de acceso de la red. 
 
-    Esta funcionalidad le ayuda a realizar pruebas basadas en HTTP, HTTPS, TCP e ICMP con el fin de supervisar, casi en tiempo real o históricamente, la disponibilidad y el tiempo de respuesta del servicio. También puede supervisar la contribución de la red en latencia y pérdida de paquetes. Con un mapa de topología de red, puede aislar las ralentizaciones de la red. Puede identificar las zonas problemáticas a lo largo de la ruta de acceso de la red, desde el nodo al servicio, con datos de latencia en cada salto. Con las pruebas integradas, puede supervisar la conectividad de red a Office 365 y Dynamics CRM sin ninguna configuración previa. Con esta funcionalidad, puede supervisar la conectividad de red a cualquier punto de conexión compatible con TCP, como sitios web, aplicaciones SaaS, aplicaciones PaaS y bases de datos SQL.
+    Esta funcionalidad le ayuda a realizar pruebas basadas en HTTP, HTTPS, TCP e ICMP con el fin de supervisar, casi en tiempo real o históricamente, la disponibilidad y el tiempo de respuesta del servicio. También puede supervisar la contribución de la red en latencia y pérdida de paquetes. Con un mapa de topología de red, puede aislar las ralentizaciones de la red. Puede identificar las zonas problemáticas a lo largo de la ruta de acceso de la red, desde el nodo al servicio, con datos de latencia en cada salto. Con las pruebas integradas, puede supervisar la conectividad de red a Microsoft 365 y Dynamics CRM sin ninguna configuración previa. Con esta funcionalidad, puede supervisar la conectividad de red a cualquier punto de conexión compatible con TCP, como sitios web, aplicaciones SaaS, aplicaciones PaaS y bases de datos SQL.
 
 * [Supervisión de ExpressRoute](network-performance-monitor-expressroute.md): supervise el rendimiento y la conectividad de un extremo a otro entre las sucursales y Azure a través de Azure ExpressRoute.  
 
@@ -82,7 +82,7 @@ Use los procesos básicos para instalar agentes en [Conexión de equipos Windows
 
     Para supervisar un vínculo de red, instale agentes en ambos puntos de conexión del vínculo en cuestión. Si no está seguro de la topología de la red, instale los agentes en servidores con cargas de trabajo críticas entre las que desee supervisar el rendimiento de red. Por ejemplo, si quiere supervisar la conexión de red entre un servidor web y un servidor que ejecuta SQL, instale un agente en ambos servidores. Los agentes supervisan la conectividad de red (vínculos) entre los hosts, no los hosts propiamente dichos. 
 
-* **Monitor de conectividad de servicio**: instale un agente de Log Analytics en cada nodo desde el que supervisará la conectividad de red al punto de conexión de servicio. Un ejemplo es si desea supervisar la conectividad de red a Office 365 desde sus oficinas etiquetadas O1, O2 y O3. Instale el agente de Log Analytics como mínimo en un nodo en O1, O2 y O3. 
+* **Monitor de conectividad de servicio**: instale un agente de Log Analytics en cada nodo desde el que supervisará la conectividad de red al punto de conexión de servicio. Un ejemplo es si desea supervisar la conectividad de red a Microsoft 365 desde sus oficinas etiquetadas O1, O2 y O3. Instale el agente de Log Analytics como mínimo en un nodo en O1, O2 y O3. 
 
 * **Supervisión de ExpressRoute**: instale como mínimo un agente de Log Analytics en la red virtual de Azure. Asimismo, instale al menos un agente en la subred local, que se conecta mediante el emparejamiento privado de ExpressRoute.  
 
@@ -128,7 +128,7 @@ Network Performance Monitor usa transacciones sintéticas para supervisar el ren
 
    ![Vista Supervisión del rendimiento](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Monitor de conectividad de servicio**: esta funcionalidad proporciona pruebas preconfiguradas integradas para supervisar la conectividad de red a Office 365 y Dynamics 365 desde los agentes. Elija los servicios de Office 365 y Dynamics 365 que desea supervisar seleccionando las casillas junto a ellos. Para elegir los agentes desde los que desea realizar la supervisión, seleccione el botón **Add Agents** (Agregar agentes). Si no desea utilizar esta funcionalidad o si desea configurarla más adelante, no seleccione nada y haga clic en **Save & Continue** (Guardar y continuar).
+   **Monitor de conectividad de servicio**: esta funcionalidad proporciona pruebas preconfiguradas integradas para supervisar la conectividad de red a Microsoft 365 y Dynamics 365 desde los agentes. Elija los servicios de Microsoft 365 y Dynamics 365 que desea supervisar seleccionando las casillas junto a ellos. Para elegir los agentes desde los que desea realizar la supervisión, seleccione el botón **Add Agents** (Agregar agentes). Si no desea utilizar esta funcionalidad o si desea configurarla más adelante, no seleccione nada y haga clic en **Save & Continue** (Guardar y continuar).
 
    ![Vista del Monitor de conectividad de servicio](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 

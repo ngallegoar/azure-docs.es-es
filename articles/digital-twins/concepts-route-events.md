@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 02b977a7b6abdb77deec3973bd94b82fae9c2af5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800473"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044299"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Enrutar eventos dentro y fuera de Azure Digital Twins
 
@@ -21,7 +21,7 @@ Azure Digital Twins usa **rutas de eventos** para enviar datos a los consumidore
 Durante la versión preliminar, hay dos casos principales para el envío de datos de Azure Digital Twins:
 * El envío de datos desde un gemelo del grafo de Azure Digital Twins a otro. Por ejemplo, cuando cambia una propiedad de un gemelo digital, puede que desee notificar y actualizar otro gemelo digital en consecuencia.
 * El envío de datos a servicios de datos descendentes, para almacenamiento o procesamiento adicional (también conocido como *salida de datos*). Por ejemplo,
-  - Un hospital puede querer enviar datos de eventos de Azure Digital Twins a [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), para registrar los datos de series temporales de eventos relacionados con el lavado de manos para análisis masivo.
+  - Un hospital puede querer enviar datos de eventos de Azure Digital Twins a [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), para registrar los datos de series temporales de eventos relacionados con el lavado de manos para análisis masivo.
   - Una empresa que ya use [Azure Maps](../azure-maps/about-azure-maps.md) podría querer usar Azure Digital Twins para mejorar su solución. Puede habilitar con rapidez un mapa de Azure después de configurar Azure Digital Twins, incorporar las entidades del mapa de Azure a Azure Digital Twins como [gemelos digitales](concepts-twins-graph.md) en el grafo de gemelos, o ejecutar consultas eficaces que aprovechen los datos de Azure Maps y Azure Digital Twins conjuntamente.
 
 Las rutas de eventos se utilizan para ambos escenarios.
@@ -55,7 +55,9 @@ Para definir una ruta de eventos, los desarrolladores deben definir primero los 
 * Centro de eventos
 * Azure Service Bus
 
-Los puntos de conexión se configuran mediante las API de plano de control (compatibles con la [CLI de Azure Digital Twins](how-to-use-cli.md)), o a través de Azure Portal. Una definición de punto de conexión proporciona:
+Para crear un punto de conexión, puede usar [**API del plano de control**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins) de Azure Digital Twins, [**comandos de la CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli) o [**Azure Portal**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins). 
+
+Al definir un punto de conexión, debe proporcionar:
 * El nombre del punto de conexión
 * El tipo de punto de conexión (Event Grid, centro de eventos o Service Bus)
 * La cadena de conexión principal o la cadena de conexión secundaria 
@@ -69,15 +71,24 @@ Las API del punto de conexión que están disponibles en el plano de control son
 
 ## <a name="create-an-event-route"></a>Crear una ruta de eventos
  
-Las rutas de eventos se crean en una aplicación cliente con la siguiente llamada a [SDK de .NET (C#)](how-to-use-apis-sdks.md): 
+Para crear una ruta de eventos, puede usar [**API del plano de datos**](how-to-manage-routes-apis-cli.md#create-an-event-route) de Azure Digital Twins, [**comandos de la CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli) o [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route). 
+
+Este es un ejemplo de cómo crear una ruta de eventos dentro de una aplicación cliente mediante una llamada al [SDK de .NET (C# )](how-to-use-apis-sdks.md) `CreateEventRoute`: 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-name>"));
+EventRoute er = new EventRoute("endpointName");
+er.Filter("true"); //Filter allows all messages
+await client.CreateEventRoute("routeName", er);
 ```
 
-* El elemento `endpoint-name` identifica un punto de conexión, como un centro de eventos, Event Grid o Service Bus. Estos puntos de conexión deben crearse en la suscripción y conectarse a Azure Digital Twins mediante las API de plano de control antes de realizar esta llamada de registro.
+1. En primer lugar, se crea un objeto `EventRoute` y el constructor toma el nombre de un extremo. Este campo `endpointName` identifica un punto de conexión, como un centro de eventos, Event Grid o Service Bus. Estos puntos de conexión deben crearse en la suscripción y conectarse a Azure Digital Twins mediante las API de plano de control antes de realizar esta llamada de registro.
 
-El objeto de ruta de eventos que se pasa a `EventRoutes.Add` también toma un [parámetro **filter**](./how-to-manage-routes-apis-cli.md#filter-events), que se puede usar para restringir los tipos de eventos que siguen esta ruta.
+2. El objeto de ruta de eventos también tiene un campo [**Filtro**](./how-to-manage-routes-apis-cli.md#filter-events), que se puede usar para restringir los tipos de eventos que siguen esta ruta. Un filtro de `true` habilita la ruta sin filtrado adicional (un filtro de `false` deshabilita la ruta). 
+
+3. A continuación, este objeto de ruta de eventos se pasa a `CreateEventRoute`, junto con un nombre para la ruta.
+
+> [!TIP]
+> Todas las funciones del SDK cuentan con versiones sincrónicas y asincrónicas.
 
 Las rutas también se pueden crear con la [CLI de Azure Digital Twins](how-to-use-cli.md).
 

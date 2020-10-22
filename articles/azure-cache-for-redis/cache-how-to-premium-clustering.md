@@ -5,13 +5,13 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/13/2018
-ms.openlocfilehash: d37aa275a07586738bf7416cee6611bdc8284df3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 10/09/2020
+ms.openlocfilehash: 9545dd1480b9d16285d936787cf37fc087e882e1
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004773"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000051"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Configuración de la agrupación en clústeres de Redis para una instancia de Azure Cache for Redis de nivel Prémium
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. En este artículo se describe cómo configurar la agrupación en clústeres en una instancia de Azure Cache for Redis de nivel Prémium.
@@ -31,19 +31,51 @@ En Azure, el clúster de Redis se ofrece como un modelo de principal/réplica do
 ## <a name="clustering"></a>Agrupación en clústeres
 La agrupación en clústeres se habilita en la hoja **New Azure Cache for Redis** (Nuevo Azure Cache for Redis) durante la creación de la memoria caché. 
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+1. Para crear una instancia de caché premium, inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Crear un recurso**. Además de crear memorias caché en el Portal de Azure, también puede crearlas mediante las plantillas de Resource Manager, PowerShell o la CLI de Azure. Para más información sobre cómo crear una instancia de Azure Cache for Redis, consulte [Creación de una caché](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-La agrupación en clústeres se configura en la hoja **Clúster de Redis** .
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Crear recurso.":::
+   
+2. En la página **Nuevo**, seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
 
-![Agrupación en clústeres][redis-cache-clustering]
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Crear recurso.":::
 
-Puede tener hasta 10 particiones en el clúster. Haga clic en **Habilitado** y deslice el control deslizante o escriba un número comprendido entre 1 y 10 para **Número de particiones** y haga clic en **Aceptar**.
+3. En la página **Nueva caché en Redis**, configure las opciones de la nueva caché premium.
+   
+   | Parámetro      | Valor sugerido  | Descripción |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Nombre DNS** | Escriba un nombre único global. | El nombre de la memoria caché debe ser una cadena de entre 1 y 63 caracteres, y solo puede contener números, letras o guiones. El nombre debe comenzar y terminar por un número o una letra y no puede contener guiones consecutivos. El *nombre de host* de la instancia de caché será *\<DNS name>.redis.cache.windows.net*. | 
+   | **Suscripción** | Desplácese hacia abajo y seleccione su suscripción. | La suscripción en la que se creará esta nueva instancia de Azure Cache for Redis. | 
+   | **Grupos de recursos** | Desplácese hacia abajo y elija un grupo de recursos, o seleccione **Crear nuevo** y escriba un nombre nuevo para el grupo de recursos. | Nombre del grupo de recursos en el que se van a crear la caché y otros recursos. Al colocar todos los recursos de la aplicación en un grupo de recursos, puede administrarlos o eliminarlos fácilmente. | 
+   | **Ubicación** | Desplácese hacia abajo y seleccione una ubicación. | Seleccione una [región](https://azure.microsoft.com/regions/) cerca de otros servicios que vayan a usar la memoria caché. |
+   | **Tipo de caché** | Desplácese hacia abajo y seleccione una caché premium para configurar las características premium. Para obtener más información, consulte [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/). |  El plan de tarifa determina el tamaño, el rendimiento y las características disponibles para la memoria caché. Para más información, consulte la [introducción a Azure Redis Cache](cache-overview.md). |
 
-Cada partición es un par de caché principal/réplica administrado por Azure y el tamaño total de la memoria caché se calcula multiplicando el número de particiones por el tamaño de la memoria caché seleccionado en el plan de tarifa. 
+4. Seleccione la pestaña **Redes** o haga clic en el botón **Redes** de la parte inferior de la página.
 
-![Agrupación en clústeres][redis-cache-clustering-selected]
+5. En la pestaña **Redes**, seleccione el método de conectividad. En el caso de las instancias de caché premium, puede conectarse de forma pública, mediante puntos de conexión de servicio o direcciones IP públicas, o de forma privada con un punto de conexión privado.
 
-Cuando se haya creado la memoria caché, conéctese a ella y úsela simplemente como una memoria caché no agrupada y Redis distribuirá los datos a través de las particiones de memoria caché. Si el diagnóstico está [habilitado](cache-how-to-monitor.md#enable-cache-diagnostics), las métricas se capturan por separado para cada partición y pueden [verse](cache-how-to-monitor.md) en la hoja Azure Cache for Redis. 
+6. Seleccione el botón **Siguiente: Opciones avanzadas** o haga clic en el botón **Siguiente: Opciones avanzadas** de la parte inferior de la página.
+
+7. En la pestaña **Opciones avanzadas** de la instancia de caché premium, configure el puerto no TLS, la agrupación en clústeres y la persistencia de datos. Para habilitar la agrupación en clústeres, haga clic en **Habilitar**.
+
+    :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering.png" alt-text="Crear recurso.":::
+
+    Puede tener hasta 10 particiones en el clúster. Después de hacer clic en **Habilitado**, deslice el control deslizante o escriba un número comprendido entre 1 y 10 para **Número de particiones** y haga clic en **Aceptar**.
+
+    Cada partición es un par de caché principal/réplica administrado por Azure y el tamaño total de la memoria caché se calcula multiplicando el número de particiones por el tamaño de la memoria caché seleccionado en el plan de tarifa.
+
+    :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png" alt-text="Crear recurso.":::
+
+    Cuando se haya creado la memoria caché, conéctese a ella y úsela simplemente como una memoria caché no agrupada y Redis distribuirá los datos a través de las particiones de memoria caché. Si el diagnóstico está [habilitado](cache-how-to-monitor.md#enable-cache-diagnostics), las métricas se capturan por separado para cada partición y pueden [verse](cache-how-to-monitor.md) en la hoja Azure Cache for Redis. 
+
+8. Seleccione el botón **Siguiente: Etiquetas** o haga clic en el botón **Siguiente: Etiquetas** situado en la parte inferior de la página.
+
+9. Opcionalmente, en la pestaña **Etiquetas**, escriba el nombre y el valor si quiere clasificar el recurso. 
+
+10. Seleccione  **Revisar y crear**. Pasará a la pestaña Revisar y crear, donde Azure validará la configuración.
+
+11. Tras aparecer el mensaje verde Validación superada, seleccione **Crear**.
+
+La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página  **Información general**  de Azure Cache for Redis. Si en  **Estado**  se muestra  **En ejecución**, la caché está lista para su uso. 
 
 > [!NOTE]
 > 

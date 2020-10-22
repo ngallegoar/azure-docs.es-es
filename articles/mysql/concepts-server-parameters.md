@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: e7ca86d0146f05d5171d5eae18aac81d75122bcc
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258545"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91627353"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parámetros del servidor en Azure Database for MySQL
 
@@ -54,6 +54,12 @@ Para mejorar los problemas de rendimiento de las consultas cortas del grupo de s
 
 > [!IMPORTANT]
 > Pruebe el grupo de subprocesos antes de activarlo en producción. 
+
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+En Azure Database for MySQL, siempre están habilitados los registros binarios (p. ej., `log_bin` está establecido en ACTIVADO). En el caso de que desee usar desencadenadores, obtendrá un error similar a *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)* [No tiene el privilegio SUPER y el registro binario está habilitado (es posible que desee usar la variable menos segura)]. 
+
+El formato de registro binario siempre es **ROW** y todas las conexiones al servidor **ALWAYS** usan un registro binario basado en filas. Con el registro binario basado en filas, no existen problemas de seguridad y el registro binario no se puede interrumpir, de modo que puede establecer [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) en **TRUE** de forma segura.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -111,7 +117,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|262 144|128|268435455|
 |De uso general|4|262 144|128|536870912|
 |De uso general|8|262 144|128|1073741824|
@@ -129,13 +135,13 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
 |Básico|1|50|10|50|
-|Básico|2|100|10|100|
+|Básica|2|100|10|100|
 |De uso general|2|300|10|600|
 |De uso general|4|625|10|1250|
 |De uso general|8|1250|10|2.500|
-|De uso general|16|2500|10|5000|
+|De uso general|16|2.500|10|5000|
 |De uso general|32|5000|10|10000|
-|De uso general|64|10 000|10|20000|
+|De uso general|64|10000|10|20000|
 |Memoria optimizada|2|625|10|1250|
 |Memoria optimizada|4|1250|10|2.500|
 |Memoria optimizada|8|2.500|10|5000|
@@ -160,7 +166,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|16384|268435455|
 |De uso general|4|16777216|16384|536870912|
 |De uso general|8|16777216|16384|1073741824|
@@ -185,7 +191,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo **|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|0|0|16777216|
 |De uso general|4|0|0|33554432|
 |De uso general|8|0|0|67108864|
@@ -214,7 +220,7 @@ Si recibe un error similar a "Tamaño de la fila demasiado grande (> 8126)", es 
 Este parámetro se puede establecer en un nivel de sesión mediante `init_connect`. Para establecer **innodb_strict_mode** en el nivel de sesión, consulte cómo [ajustar un parámetro que no aparece en la lista](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
 
 > [!NOTE]
-> Si tiene un servidor de réplica de lectura, al establecer **innodb_strict_mode** como desactivado el nivel de sesión de un servidor maestro, se interrumpirá la replicación. Se recomienda mantener el parámetro establecido así si tiene réplicas de lectura.
+> Si tiene un servidor de réplica de lectura, al establecer **innodb_strict_mode** como desactivado en el nivel de sesión de un servidor de origen, se interrumpirá la replicación. Se recomienda mantener el parámetro establecido así si tiene réplicas de lectura.
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
@@ -223,7 +229,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|524 288|32 768|4 194 304|
 |De uso general|4|524 288|32 768|8388608|
 |De uso general|8|524 288|32 768|16777216|
@@ -243,7 +249,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|1024|67108864|
 |De uso general|4|16777216|1024|134217728|
 |De uso general|8|16777216|1024|268435456|

@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c341235a646fff28a16d30d1bf010932b02cf19
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 2cd95d01c9b49bb6002c00c805dc82dcf30941e3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660963"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91295046"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único
 
@@ -306,7 +306,7 @@ Microsoft ha proporcionado una herramienta que puede usar para comprobar el prov
 2.  Haga clic en Instalar ahora para empezar a descargar e instalar la herramienta.
 3.  Seleccione “I can’t set up federation with Office 365, Azure, or other services that use Azure Active Directory” (No se puede configurar la federación con Office 365, Azure u otros servicios que usan Azure Active Directory).
 4.  Una vez que haya descargado la herramienta y esté en funcionamiento, verá la ventana de diagnóstico de conectividad. La herramienta le lleva por los pasos para probar la conexión de federación.
-5.  El Analizador de conectividad abre el IDP de SAML 2.0 para que inicie sesión; escriba las credenciales de la entidad de seguridad de usuario que va a probar: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  El Analizador de conectividad abre el IDP de SAML 2.0 para que inicie sesión; escriba las credenciales de la entidad de seguridad de usuario que va a probar: ![Captura de pantalla que muestra la ventana de inicio de sesión del IDP de SAML 2.0.](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  En la ventana de inicio de sesión de la prueba de federación, debe escribir un nombre de cuenta y una contraseña para el inquilino de Azure AD que está configurado para federarse con el proveedor de identidades de SAML 2.0. La herramienta intentará iniciar sesión con esas credenciales y se mostrará una salida con resultados detallados de las pruebas realizadas durante el intento de inicio de sesión.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. En esta ventana se muestra un resultado erróneo de las pruebas. Al hacer clic en Review detailed results (Revisar resultados detallados), se muestra información sobre los resultados de cada prueba que se ha realizado. También puede guardar los resultados en el disco para compartirlos.

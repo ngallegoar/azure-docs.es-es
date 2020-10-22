@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: dccd953d2a31b306994c06ae644959e18332f5da
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090183"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91450405"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solución VMware Monitoring (en desuso) en Azure Monitor
 
@@ -133,16 +133,16 @@ Puede obtener más detalles haciendo clic en un host ESXi o un tipo de evento.
 
 Al hacer clic en un nombre de host ESXi, verá la información de ese host ESXi. Si quiere restringir los resultados con el tipo de evento, agregue `“ProcessName_s=EVENT TYPE”` en la consulta de búsqueda. Puede seleccionar **ProcessName** en el filtro de búsqueda. Esta acción limita la información.
 
-![Detalles](./media/vmware/eventhostdrilldown.png)
+![Captura de pantalla de las hojas Hosts ESXi por número de eventos y Desglose por tipo de evento en la vista del panel de VMware Monitoring.](./media/vmware/eventhostdrilldown.png)
 
 #### <a name="find-high-vm-activities"></a>Búsqueda de actividades de máquina virtual que usan numerosos recursos
 Una máquina virtual se puede crear y eliminar en cualquier host ESXi. Es útil para que un administrador identifique el número de máquinas virtuales que crea un host ESXi. Esto, a su vez, ayuda a entender la planeación de capacidad y rendimiento. Es fundamental realizar un seguimiento de los eventos de actividad de máquina virtual al administrar el entorno.
 
-![Detalles](./media/vmware/vmactivities1.png)
+![Captura de pantalla de la hoja de actividades de máquina virtual en el panel de VMware Monitoring, donde se muestra un gráfico de creación y eliminación de máquinas virtuales por el host ESXi.](./media/vmware/vmactivities1.png)
 
 Si quiere ver los datos de creación de máquinas virtuales de host ESXi adicionales, haga clic en un nombre de host ESXi.
 
-![Detalles](./media/vmware/createvm.png)
+![Captura de pantalla de un panel en el panel de VMware Monitoring que muestra una tabla con una fila de datos para cada máquina virtual creada por un host ESXi.](./media/vmware/createvm.png)
 
 #### <a name="common-log-queries"></a>Consultas de registro comunes
 La solución incluye otras consultas útiles que pueden ayudarlo a administrar los hosts ESXi, como espacio elevado de almacenamiento, alta latencia de almacenamiento y errores de ruta.

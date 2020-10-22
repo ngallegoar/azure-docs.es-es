@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 3642b95f5bd6d0207508ca85f1d22ce20b44eae3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614056"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715468"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Introducción al portal para desarrolladores de Azure API Management
 
@@ -172,7 +172,7 @@ También puede habilitar CORS manualmente.
 
 ### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>¿Qué permisos necesito para editar el portal para desarrolladores?
 
-Si ve el error `Oops. Something went wrong. Please try again later.` al abrir el portal en el modo administrativo, es posible que no tenga los permisos necesarios (RBAC).
+Si ve el error `Oops. Something went wrong. Please try again later.` al abrir el portal en el modo administrativo, es posible que no tenga los permisos necesarios (RBAC de Azure).
 
 Los portales heredados requieren el permiso `Microsoft.ApiManagement/service/getssotoken/action` en el ámbito de servicio (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) para permitir que el administrador de usuarios tenga acceso a los portales. El nuevo portal requiere el permiso `Microsoft.ApiManagement/service/users/token/action` en el ámbito `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
 

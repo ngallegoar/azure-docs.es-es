@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 6d6431aa26637e4b956d5c334a2862f689f845bf
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319327"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448157"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Conexión de Configuration Manager con Azure Monitor
 Puede conectar el entorno de Microsoft Endpoint Configuration Manager con Azure Monitor para sincronizar los datos de recopilación del dispositivo y hacer referencia a estas recopilaciones en Azure Monitor y Azure Automation.  
@@ -135,7 +135,7 @@ Una vez completada la configuración inicial para importar las recopilaciones de
 4. Seleccione **Grupos de equipos** y, a continuación, **SCCM**.  
 5. Seleccione **Importar pertenencias de la recopilación de Configuration Manager** y, después, haga clic en **Guardar**.  
    
-    ![Grupos de equipos: pestaña SCCM](./media/collect-sccm/sccm-computer-groups01.png)
+    ![Captura de pantalla de la configuración avanzada de los grupos de equipos para S C C M que contiene la opción Import Configuration Manager collection memberships (Importar pertenencias de la recopilación de Configuration Manager).](./media/collect-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Visualización de datos de Configuration Manager
 
@@ -143,7 +143,7 @@ Después de agregar una conexión de Log Analytics en Configuration Manager y de
 
 Después de importar las recopilaciones, puede ver cuántos equipos con pertenencias a las recopilaciones se han detectado. También puede ver el número de recopilaciones que se han importado.
 
-![Grupos de equipos: pestaña SCCM](./media/collect-sccm/sccm-computer-groups02.png)
+![Captura de pantalla de la configuración avanzada de grupos de equipos para S C C M que muestra la opción Import Configuration Manager collection memberships (Importar pertenencias de la recopilación de Configuration Manager) seleccionada.](./media/collect-sccm/sccm-computer-groups02.png)
 
 Al hacer clic en cualquiera de ellos, se abre el editor de consultas de registro con todos los grupos importados o todos los equipos que pertenecen a cada grupo. Con [Búsqueda de registros](../log-query/log-query-overview.md), puede analizar con más profundidad los datos de pertenencia de las colecciones.
 

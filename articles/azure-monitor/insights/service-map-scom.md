@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326042"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91441506"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integración de System Center Operations Manager con la característica Map de Azure Monitor para VM
 
@@ -73,11 +73,11 @@ Para configurar la integración de la característica Asignar con Azure Monitor 
 
 6. Opcional: Seleccione el grupo de recursos de todos los servidores de administración para comunicarse con Log Analytics y, a continuación, haga clic en **Agregar área de trabajo**.
 
-    ![Grupo de recursos de configuración de Operations Manager](media/service-map-scom/scom-config-pool.png)
+    ![Captura de pantalla de la página Server Pool (Grupo de servidores) de Add Microsoft Operations Management Suite Workspace (Agregar área de trabajo de Microsoft Operations Management Suite) con la opción All Management Servers Resource Pool (Grupo de recursos de todos los servidores de administración) seleccionada.](media/service-map-scom/scom-config-pool.png)
 
     Es posible que el proceso de configuración y registro del área de trabajo de Log Analytics tarde un minuto. Una vez configurado, Operations Manager inicia la primera sincronización de asignación.
 
-    ![Grupo de recursos de configuración de Operations Manager](media/service-map-scom/scom-config-success.png)
+    ![Captura de pantalla de la pantalla Completion (Finalización) de Add Microsoft Operations Management Suite Workspace (Agregar área de trabajo de Microsoft Operations Management Suite) que confirma que se ha agregado el área de trabajo.](media/service-map-scom/scom-config-success.png)
 
 ## <a name="monitor-integration"></a>Integración de la supervisión
 
@@ -98,11 +98,11 @@ La carpeta de Service Map tiene cuatro nodos:
 
 * **Machine Group Dependency Views** (Vistas de dependencia de grupo de máquinas): Muestra todos los grupos de máquinas sincronizados desde la característica Asignar. Puede hacer clic en cualquier grupo para ver su diagrama de aplicaciones distribuidas.
 
-    ![Diagrama de aplicaciones distribuidas de Operations Manager](media/service-map-scom/scom-group-dad.png)
+    ![Captura de pantalla de Service Map que muestra un diagrama con imágenes para cada grupo de máquinas y líneas que indican las dependencias entre ellas.](media/service-map-scom/scom-group-dad.png)
 
 * **Server Dependency Views** (Vistas de dependencia de servidor): Muestra todos los servidores sincronizados desde la característica Asignar. Puede hacer clic en cualquier servidor para ver su diagrama de aplicaciones distribuidas.
 
-    ![Diagrama de aplicaciones distribuidas de Operations Manager](media/service-map-scom/scom-dad.png)
+    ![Captura de pantalla de Service Map que muestra un diagrama con imágenes para cada servidor y líneas que indican las dependencias entre ellos.](media/service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Edición o eliminación del área de trabajo
 

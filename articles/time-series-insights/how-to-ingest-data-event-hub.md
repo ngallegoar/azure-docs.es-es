@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: ee94a36ea27a15067cbcbab22b10629bc4b37634
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c7f811991cdc325a3901a696216af21883f02fdb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095558"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91596237"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Incorporación de un origen de eventos de Event Hubs al entorno de Azure Time Series Insights
 
@@ -42,7 +42,7 @@ Para agregar un nuevo grupo de consumidores al centro de eventos:
 
     [![Apertura del espacio de nombres del centro de eventos](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png#lightbox)
 
-1. En la instancia del centro de eventos, seleccione **Entidades > Grupos de consumidores**. Luego, seleccione **+ Grupo de consumidores** para agregar un nuevo grupo de consumidores. 
+1. En la instancia del centro de eventos, seleccione **Entidades > Grupos de consumidores**. Luego, seleccione **+ Grupo de consumidores** para agregar un nuevo grupo de consumidores.
 
    [![Centro de eventos: Incorporación de un grupo de consumidores](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png#lightbox)
 
@@ -68,11 +68,11 @@ Para agregar un nuevo grupo de consumidores al centro de eventos:
 
 1. Seleccione los valores apropiados para **Opción de importación**:
 
-   * Cuando ya tenga un centro de eventos en una de sus suscripciones seleccione **Use Event Hub from available subscriptions** (Usar el centro de eventos de las suscripciones disponibles). Esta opción presenta el enfoque más sencillo.
+   - Cuando ya tenga un centro de eventos en una de sus suscripciones seleccione **Use Event Hub from available subscriptions** (Usar el centro de eventos de las suscripciones disponibles). Esta opción presenta el enfoque más sencillo.
 
      [![Selección de una opción de importación de origen de eventos](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png#lightbox)
 
-    *  En la siguiente tabla se explican las propiedades necesarias para la opción **Use Event Hub from available subscriptions** (Usar el centro de eventos de las suscripciones disponibles):
+   - En la siguiente tabla se explican las propiedades necesarias para la opción **Use Event Hub from available subscriptions** (Usar el centro de eventos de las suscripciones disponibles):
 
        [![Detalles del centro de eventos y la suscripción](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
@@ -84,10 +84,10 @@ Para agregar un nuevo grupo de consumidores al centro de eventos:
        | Valor de la directiva del centro de eventos | Seleccione la directiva de acceso compartido deseada. Puede crear la directiva de acceso compartido en el centro de eventos en la pestaña **Configurar**. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **lectura**. |
        | Clave de la directiva del Centro de eventos | Se rellena previamente a partir del valor de la directiva del centro de eventos seleccionado. |
 
-    * Si el centro de eventos es externo a sus suscripciones o si quiere elegir opciones avanzadas, seleccione **Indicar manualmente la configuración del Centro de eventos**.
+   - Si el centro de eventos es externo a sus suscripciones o si quiere elegir opciones avanzadas, seleccione **Indicar manualmente la configuración del Centro de eventos**.
 
        En la siguiente tabla se explican las propiedades necesarias para la opción **Indicar manualmente la configuración del Centro de eventos**:
- 
+
        | Propiedad | Descripción |
        | --- | --- |
        | Id. de suscripción | La suscripción a la que pertenece la instancia y el espacio de nombres del centro de eventos deseado. |
@@ -97,7 +97,7 @@ Para agregar un nuevo grupo de consumidores al centro de eventos:
        | Valor de la directiva del centro de eventos | Seleccione la directiva de acceso compartido deseada. Puede crear la directiva de acceso compartido en el centro de eventos en la pestaña **Configurar**. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **lectura**. |
        | Clave de la directiva del Centro de eventos | La clave de acceso compartido que se usa para autenticar el acceso al espacio de nombres de Service Bus. Especifique la clave principal o secundaria aquí. |
 
-    * Ambas opciones comparten las siguientes opciones de configuración:
+   - Ambas opciones comparten las siguientes opciones de configuración:
 
        | Propiedad | Descripción |
        | --- | --- |
@@ -113,8 +113,8 @@ Para agregar un nuevo grupo de consumidores al centro de eventos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Defina las directivas de acceso a datos](time-series-insights-data-access.md) para proteger los datos.
+- [Defina las directivas de acceso a datos](time-series-insights-data-access.md) para proteger los datos.
 
-* Realice el [envío de eventos](time-series-insights-send-events.md) al origen del evento.
+- Realice el [envío de eventos](time-series-insights-send-events.md) al origen del evento.
 
-* Acceda al entorno en el [explorador de Azure Time Series Insights](https://insights.timeseries.azure.com).
+- Acceda al entorno en el [explorador de Azure Time Series Insights](https://insights.timeseries.azure.com).

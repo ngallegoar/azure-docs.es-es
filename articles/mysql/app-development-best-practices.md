@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 93bd6972a89065832a20fbd66949cde5b7510534
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: dc9764ce68d54418578c293833c1fd38080ba0ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794193"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91538915"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Procedimientos recomendados para compilar una aplicación con Azure Database for MySQL 
 
@@ -69,9 +69,9 @@ La aplicación podría experimentar [errores transitorios](https://docs.microsof
 Una buena práctica es esperar 5 segundos antes del primer reintento. Después, aumente gradualmente la espera entre cada reintento, hasta 60 segundos. Para investigar el problema más a fondo, limite el número máximo de reintentos en cuyo momento la aplicación considera que se produjo un error en la operación. Consulte [Solución de problemas de conexión](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-connection-issues) para más información. 
 
 ### <a name="enable-read-replication-to-mitigate-failovers"></a>Habilitar la replicación de lectura para mitigar las conmutaciones por error
-Se puede usar la [Replicación de datos de entrada](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) en los escenarios de conmutación por error. Cuando se usan réplicas de lectura, no se produce una conmutación por error automatizada entre servidores maestros y réplicas. 
+Se puede usar la [Replicación de datos de entrada](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) en los escenarios de conmutación por error. Cuando se usan réplicas de lectura, no se produce una conmutación por error automatizada entre servidores de origen y réplicas. 
 
-Observará un retraso entre el servidor maestro y la réplica, ya que la replicación es asincrónica. El retraso de red puede verse afectado por muchos factores, por ejemplo, el tamaño de la carga de trabajo que se ejecuta en el servidor maestro y la latencia entre los centros de datos. En la mayoría de los casos, el retraso de la réplica oscila entre unos segundos y un par de minutos.
+Observará un retraso entre el servidor de origen y la réplica, ya que la replicación es asincrónica. El retraso de red puede verse afectado por muchos factores, por ejemplo, el tamaño de la carga de trabajo que se ejecuta en el servidor de origen y la latencia entre los centros de datos. En la mayoría de los casos, el retraso de la réplica oscila entre unos segundos y un par de minutos.
 
 ## <a name="database-deployment"></a>Implementación de bases de datos 
 

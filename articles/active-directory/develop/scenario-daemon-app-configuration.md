@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/08/2020
+ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ad5c2ad76f9ab98a6ad284a0bb50f3a611dc9a00
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8e065651a5527c0ab425614197ce128325454942
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206029"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91257680"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicación de demonio que llama a las API web: configuración de código
 
@@ -51,16 +51,13 @@ En las bibliotecas MSAL, las credenciales del cliente (secreto o certificado) se
 
 El archivo de configuración define:
 
-- La autoridad o la instancia de nube y el identificador de inquilino.
+- La instancia de nube y el identificador de inquilino, que forman la *autoridad*.
 - El identificador de cliente que recibió del registro de la aplicación.
 - Un secreto de cliente o un certificado.
 
-> [!NOTE]
-> Los fragmentos de código de .NET del resto del artículo hacen referencia al elemento [config](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs) del ejemplo [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2).
-
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[appsettings. json](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) del ejemplo de [demonio de consola de .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2).
+A continuación se muestra un ejemplo de definición de la configuración en un archivo [*appsettings.json*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json). Este ejemplo se ha tomado del ejemplo de código [Demonio de consola de .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) de GitHub.
 
 ```json
 {
@@ -124,9 +121,9 @@ Haga referencia al paquete MSAL en el código de la aplicación.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-Agregue el paquete NuGet [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) a la aplicación.
+Agregue el paquete NuGet [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) a la aplicación y, a continuación, agregue una directiva `using` en el código para hacer referencia a él.
+
 En MSAL.NET, la aplicación cliente confidencial está representada por la interfaz `IConfidentialClientApplication`.
-Use el espacio de nombres MSAL.NET en el código fuente.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -167,6 +164,23 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
            .Build();
+```
+
+El elemento `Authority` es una concatenación de la instancia de nube y el identificador de inquilino, por ejemplo `https://login.microsoftonline.com/contoso.onmicrosoft.com` o `https://login.microsoftonline.com/eb1ed152-0000-0000-0000-32401f3f9abd`. En el archivo *appsettings.json* que se muestra en la sección [Archivo de configuración](#configuration-file), estos se representan mediante los valores `Instance` y `Tenant`, respectivamente.
+
+En el ejemplo de código del que se tomó el fragmento de código anterior, `Authority` es una propiedad de la clase [AuthenticationConfig](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/ffc4a9f5d9bdba5303e98a1af34232b434075ac7/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs#L61-L70) y se define como tal:
+
+```csharp
+/// <summary>
+/// URL of the authority
+/// </summary>
+public string Authority
+{
+    get
+    {
+        return String.Format(CultureInfo.InvariantCulture, Instance, Tenant);
+    }
+}
 ```
 
 # <a name="python"></a>[Python](#tab/python)

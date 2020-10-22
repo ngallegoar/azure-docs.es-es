@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447846"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046730"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticación de un dispositivo de bajada en Azure IoT Hub
 
@@ -59,7 +59,7 @@ Al crear la identidad del dispositivo, proporcione la información siguiente:
 
 * Seleccione **Clave simétrica** como el tipo de autenticación.
 
-* Opcionalmente, elija **Establecer un dispositivo primario** y seleccione el dispositivo de puerta de enlace IoT Edge a través del que se va a conectar este dispositivo de bajada. Este paso es opcional para la autenticación de clave simétrica, pero se recomienda porque la configuración de un dispositivo primario habilita [funciones sin conexión](offline-capabilities.md) para el dispositivo de bajada. Siempre puede actualizar los detalles del dispositivo para agregar o cambiar el primario más adelante.
+* Seleccione **Establecer un dispositivo primario** y elija el dispositivo de puerta de enlace de IoT Edge a través del que se va a conectar este dispositivo de bajada. Este paso habilita [funcionalidades sin conexión](offline-capabilities.md) para el dispositivo de bajada. Siempre puede cambiar el dispositivo primario más adelante.
 
    ![Creación de la identidad del dispositivo con la autenticación de clave simétrica en el portal](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
@@ -110,7 +110,7 @@ Para la autenticación con X.509 autofirmado, en ocasiones denominada autenticac
 
 4. Copie los certificados de dispositivo principal y secundario y sus claves en cualquier ubicación del dispositivo de bajada. Mueva también una copia del certificado de la entidad de certificación raíz compartido que generaron el certificado de dispositivo de puerta de enlace y los certificados de dispositivo de bajada.
 
-   Hará referencia a estos archivos de certificado en todas las aplicaciones del dispositivo de bajada que se conecten a IoT Hub. Puede usar un servicio como [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una función como [Protocolo de copia segura](https://www.ssh.com/ssh/scp/) para mover los archivos de certificado.
+   Hará referencia a estos archivos de certificado en todas las aplicaciones del dispositivo de bajada que se conecten a IoT Hub. Puede usar un servicio como [Azure Key Vault](../key-vault/index.yml) o una función como [Protocolo de copia segura](https://www.ssh.com/ssh/scp/) para mover los archivos de certificado.
 
 5. En función de su lenguaje preferido, revise los ejemplos de cómo se puede hacer referencia a los certificados X. 509 en las aplicaciones de IoT:
 
@@ -156,7 +156,7 @@ Esta sección se basa en las instrucciones detalladas en el artículo de IoT Hub
 
 5. Copie el certificado de dispositivo y las claves en cualquier ubicación del dispositivo de bajada. Mueva también una copia del certificado de la entidad de certificación raíz compartido que generaron el certificado de dispositivo de puerta de enlace y los certificados de dispositivo de bajada.
 
-   Hará referencia a estos archivos en todas las aplicaciones del dispositivo de bajada que se conecten a IoT Hub. Puede usar un servicio como [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una función como [Protocolo de copia segura](https://www.ssh.com/ssh/scp/) para mover los archivos de certificado.
+   Hará referencia a estos archivos en todas las aplicaciones del dispositivo de bajada que se conecten a IoT Hub. Puede usar un servicio como [Azure Key Vault](../key-vault/index.yml) o una función como [Protocolo de copia segura](https://www.ssh.com/ssh/scp/) para mover los archivos de certificado.
 
 6. En función de su lenguaje preferido, revise los ejemplos de cómo se puede hacer referencia a los certificados X. 509 en las aplicaciones de IoT:
 
@@ -201,7 +201,7 @@ O:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-Si ha establecido una relación de tipo primario-secundario para este dispositivo de bajada, puede simplificar la cadena de conexión mediante una llamada a la puerta de enlace directamente como el host de la conexión. Las relaciones de elementos primarios y secundarios son obligatorias para la autenticación X. 509, pero opcionales para la autenticación de clave simétrica. Por ejemplo:
+Gracias a la relación de tipo primario-secundario, puede simplificar la cadena de conexión mediante una llamada a la puerta de enlace directamente como host de la conexión. Por ejemplo:
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

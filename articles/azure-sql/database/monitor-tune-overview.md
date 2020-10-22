@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 6e17e2a6e5c9151080facc3a2dd8c1a18c0580fe
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.reviewer: jrasnick, sstein
+ms.date: 09/30/2020
+ms.openlocfilehash: 6c8d048d43a16191cc7b1245ad2d686ba2ca22ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982176"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91596977"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Supervisión y ajuste del rendimiento en Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,13 +25,16 @@ Para supervisar el rendimiento de una base de datos en Azure SQL Database e Inst
 
 Azure SQL Database ofrece una serie de asesores de base de datos para proporcionar recomendaciones de ajuste del rendimiento y opciones de ajuste automáticas para mejorar el rendimiento. Además, en Información de rendimiento de consultas se muestran los detalles de las consultas responsables de la mayor parte del uso de la CPU y la E/S de las bases de datos individuales y agrupadas.
 
-Azure SQL Database e Instancia administrada de Azure SQL cuentan con funcionalidades avanzadas de supervisión y ajuste respaldadas por inteligencia artificial para ayudarle a solucionar los problemas de las bases de datos y soluciones, y maximizar su rendimiento. Puede optar por configurar la [exportación de streaming](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) de los resultados de [Intelligent Insights](intelligent-insights-overview.md) y de otras métricas y registros de recursos de bases de datos a uno de varios destinos para su consumo y análisis, especialmente mediante [SQL Analytics](../../azure-monitor/insights/azure-sql.md)). Azure SQL Analytics es una solución de supervisión en la nube que se utiliza para supervisar el rendimiento de todas las bases de datos a escala, endistintas suscripciones y en una vista única. Para obtener una lista de los registros y las métricas que puede exportar, consulte el artículo sobre la [telemetría de diagnóstico para la exportación](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export).
+Azure SQL Database e Instancia administrada de Azure SQL cuentan con funcionalidades avanzadas de supervisión y ajuste respaldadas por inteligencia artificial para ayudarle a solucionar los problemas de las bases de datos y soluciones, y maximizar su rendimiento. Puede optar por configurar la [exportación de streaming](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) de los resultados de [Intelligent Insights](intelligent-insights-overview.md) y de otras métricas y registros de recursos de bases de datos a uno de varios destinos para su consumo y análisis, especialmente mediante [SQL Analytics](../../azure-monitor/insights/azure-sql.md). Azure SQL Analytics es una solución de supervisión en la nube que se utiliza para supervisar el rendimiento de todas las bases de datos a escala, endistintas suscripciones y en una vista única. Para obtener una lista de los registros y las métricas que puede exportar, consulte el artículo sobre la [telemetría de diagnóstico para la exportación](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export).
 
-Por último, SQL Server tiene sus propias funcionalidades de supervisión y diagnóstico que aprovechan SQL Database e Instancia administrada de Azure SQL, como el [almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) y las [vistas de administración dinámica (DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Consulte [Supervisión del rendimiento en Azure SQL Database con vistas de administración dinámica](monitoring-with-dmvs.md) para que los scripts supervisen diversos problemas de rendimiento.
+SQL Server tiene sus propias funcionalidades de supervisión y diagnóstico que aprovechan SQL Database y SQL Managed Instance, como el [almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) y las [vistas de administración dinámica (DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Consulte [Supervisión del rendimiento en Azure SQL Database con vistas de administración dinámica](monitoring-with-dmvs.md) para que los scripts supervisen diversos problemas de rendimiento.
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Funcionalidades de supervisión y optimización en Azure Portal
 
-En Azure Portal, Azure SQL Database e Instancia administrada de Azure SQL permiten la supervisión de las métricas de recursos. Además, Azure SQL Database ofrece asesores de bases de datos e Información de rendimiento de consultas proporciona recomendaciones para el ajuste y el análisis del rendimiento de las consultas. Por último, en Azure Portal, lo puede habilitar de forma automática para los [servidores SQL lógicos](logical-servers.md) y sus bases de datos individuales y agrupadas.
+En Azure Portal, Azure SQL Database e Instancia administrada de Azure SQL permiten la supervisión de las métricas de recursos. Además, Azure SQL Database ofrece asesores de bases de datos, e Información de rendimiento de consultas proporciona recomendaciones para el ajuste y el análisis del rendimiento de las consultas. Por último, en Azure Portal, puede habilitar de forma automática el ajuste para los [servidores SQL lógicos](logical-servers.md) y sus bases de datos individuales y agrupadas.
+
+> [!NOTE]
+> Las bases de datos con un uso muy bajo pueden mostrarse en el portal con un uso inferior al real. Debido a la forma en que se emite la telemetría al convertir un valor doble al entero más próximo, algunas cantidades de uso inferiores a 0,5 se redondean a 0, lo que provoca una pérdida en la granularidad de la telemetría emitida. Para obtener más información, consulte [Redondeo a cero de métricas de grupos elásticos y bases de datos bajos](#low-database-and-elastic-pool-metrics-rounding-to-zero).
 
 ### <a name="azure-sql-database-and-azure-sql-managed-instance-resource-monitoring"></a>Supervisión de recursos de Azure SQL Database e Instancia administrada de Azure SQL
 
@@ -46,6 +49,33 @@ Azure SQL Database incluye [asesores de bases de datos](database-advisor-impleme
 ### <a name="query-performance-insight-in-azure-sql-database"></a>Información de rendimiento de consultas en Azure SQL Database
 
 En [Información de rendimiento de consultas](query-performance-insight-use.md) se muestra el rendimiento en Azure Portal de las consultas que más consumen y de mayor tamaño para bases de datos únicas y agrupadas.
+
+### <a name="low-database-and-elastic-pool-metrics-rounding-to-zero"></a>Redondeo a cero de métricas de grupos elásticos y bases de datos bajos
+
+A partir de septiembre de 2020, las bases de datos con un uso muy bajo pueden mostrarse en el portal con un uso inferior al real. Debido a la forma en que se emite la telemetría al convertir un valor doble al entero más próximo, algunas cantidades de uso inferiores a 0,5 se redondearán a 0, lo que provoca una pérdida en la granularidad de la telemetría emitida.
+
+Por ejemplo: Considere una ventana de 1 minuto con los cuatro puntos de datos siguientes: 0,1, 0,1, 0,1 y 0,1: estos valores bajos se redondean a 0, 0, 0 y 0, y presentan un promedio de 0. Si alguno de los puntos de datos es superior a 0,5, por ejemplo: 0,1, 0,1, 0,9 y 0,1 se redondean a 0, 0, 1 y 0, y muestran un promedio de 0,25.
+
+Métricas afectadas de bases de datos:
+- cpu_percent
+- log_write_percent
+- workers_percent
+- sessions_percent
+- physical_data_read_percent
+- dtu_consumption_percent2
+- xtp_storage_percent
+
+Métricas afectadas de grupos elásticos:
+- cpu_percent
+- physical_data_read_percent
+- log_write_percent
+- memory_usage_percent
+- data_storage_percent
+- peak_worker_percent
+- peak_session_percent
+- xtp_storage_percent
+- allocated_data_storage_percent
+
 
 ## <a name="generate-intelligent-assessments-of-performance-issues"></a>Generación de evaluaciones inteligentes de problemas de rendimiento
 

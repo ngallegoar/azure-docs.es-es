@@ -1,6 +1,6 @@
 ---
 title: 'Azure Front Door: almacenamiento en caché | Microsoft Docs'
-description: Este artículo le ayuda a comprender cómo Azure Front Door supervisa el estado de los servidores back-end.
+description: Este artículo ayuda a entender el comportamiento de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -9,28 +9,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: aada5b976721fdfed31131095f7f2b12aefefea9
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024288"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91535838"
 ---
 # <a name="caching-with-azure-front-door"></a>Almacenamiento en caché con Azure Front Door
-En el documento siguiente se especifica el comportamiento de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché. Front Door es una red Content Delivery Network (CDN) moderna, junto con la aceleración de sitios dinámicos y el equilibrio de carga; también admite comportamientos de almacenamiento en caché como cualquier otra red CDN.
+En el documento siguiente se especifican los comportamientos de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché. Front Door es una red Content Delivery Network (CDN) moderna con aceleración de sitios dinámicos y equilibrio de carga; también admite comportamientos de almacenamiento en caché como cualquier otra red CDN.
 
 ## <a name="delivery-of-large-files"></a>Suministro de archivos grandes
-Azure Front Door proporciona archivos grandes sin un límite en el tamaño de los archivos. Front Door usa una técnica denominada fragmentación de objetos. Cuando se solicita un archivo grande, Front Door recupera partes más pequeñas del back-end. Después de recibir una solicitud de un archivo completo o intervalo de bytes, un entorno de Front Door solicita el archivo desde el back-end en fragmentos de 8 MB.
+Azure Front Door proporciona archivos grandes sin un límite en el tamaño de los archivos. Front Door usa una técnica denominada fragmentación de objetos. Cuando se solicita un archivo grande, Front Door recupera partes más pequeñas del back-end. Después de recibir una solicitud de un archivo completo o de intervalos de bytes, el entorno de Front Door solicita el archivo desde el back-end en fragmentos de 8 MB.
 
-</br>Una vez que el fragmento llega al entorno de Front Door, se almacena en caché y se sirve inmediatamente al usuario. Después, Front Door realiza una captura previa del siguiente fragmento en paralelo. Este captura previa garantiza que el contenido sigue estando un fragmento por delante del usuario, lo que reduce la latencia. Este proceso continúa hasta que se descarga todo el archivo (si se solicita), todos los intervalos de bytes están disponibles (si se solicitan) o el cliente finaliza la conexión.
+</br>Una vez que el fragmento llega al entorno de Front Door, se almacena en caché y se sirve inmediatamente al usuario. Después, Front Door realiza una captura previa del siguiente fragmento en paralelo. Este captura previa garantiza que el contenido sigue estando un fragmento por delante del usuario, lo que reduce la latencia. Este proceso continúa hasta que se descarga todo el archivo (si se ha solicitado) o el cliente termina la conexión.
 
 </br>Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
-Front Door almacena en caché los fragmentos cuando se reciben, por lo que no es necesario poner todo el archivo en la caché de Front Door. Las solicitudes posteriores para el archivo o los intervalos de bytes se sirven desde la caché. Si no se almacenan en caché todos los fragmentos, se usa la captura previa para solicitar fragmentos del back-end. Esta optimización se basa en la capacidad del servidor de origen para admitir solicitudes de intervalo de bytes; si no las admite, esta optimización no es efectiva.
+Front Door almacena en caché los fragmentos cuando se reciben, por lo que no es necesario poner todo el archivo en la caché de Front Door. Las solicitudes subsiguientes del archivo o los intervalos de bytes se sirven desde la caché. Si no se almacenan en caché todos los fragmentos, se usa la captura previa para solicitar fragmentos del back-end. Esta optimización se basa en la capacidad del back-end de admitir solicitudes de intervalos de bytes. Si el back-end no admite solicitudes de intervalos de bytes, esta optimización no sirve.
 
 ## <a name="file-compression"></a>Compresión de archivos
-Front Door puede comprimir dinámicamente el contenido en el borde, lo que genera una respuesta más pequeña y rápida a sus clientes. Todos los archivos son aptos para la compresión. Sin embargo, un archivo debe tener un tipo MIME que sea apto para la lista de compresión. Actualmente, Front Door no permite cambiar esta lista. La lista actual es:</br>
+Front Door comprime dinámicamente el contenido en el borde, lo que genera un tiempo de respuesta menor y más rápido para los clientes. Todos los archivos son aptos para la compresión. Sin embargo, un archivo debe ser de tipo MIME, apto para la compresión. Actualmente, Front Door no permite cambiar esta lista. La lista actual es:</br>
 - "application/eot"
 - "application/font"
 - "application/font-sfnt"
@@ -79,19 +79,19 @@ Estos perfiles admiten las codificaciones de compresión siguientes:
 - [Brotli](https://en.wikipedia.org/wiki/Brotli)
 
 Si una solicitud admite la compresión gzip y Brotli, la compresión Brotli tiene prioridad.</br>
-Cuando una solicitud de un recurso especifica la compresión gzip y la solicitud genera un error de caché, Front Door realiza la compresión del recurso directamente en el servidor POP. Después, el archivo comprimido se envía desde la caché. El elemento resultante se devuelve con transfer-encoding: chunked.
+Cuando una solicitud de un recurso especifica la compresión y la solicitud genera un error de caché, Front Door realiza la compresión del recurso directamente en el servidor POP. Después, el archivo comprimido se envía desde la caché. El elemento resultante se devuelve con transfer-encoding: chunked.
 
 ## <a name="query-string-behavior"></a>Comportamiento de las cadenas de consulta
 Front Door permite controlar cómo se almacenan los archivos en caché para una solicitud web que contiene una cadena de consulta. En una solicitud web con una cadena de consulta, esta última es la parte de la solicitud que hay después del signo de interrogación (?). Una cadena de consulta puede contener uno o más pares clave-valor, en los cuales el nombre de campo y su valor están separados por un signo igual (=). Los pares clave-valor están separados entre ellos por una Y comercial (&). Por ejemplo, `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Si hay más de un par clave-valor en una cadena de consulta de una solicitud, no importa el orden en el que se especifiquen.
-- **Pasar por alto las cadenas de consulta**: modo predeterminado. En este modo, Front Door pasa las cadenas de consulta del solicitante al back-end en la primera solicitud y almacena en la memoria caché el recurso. Todas las solicitudes posteriores del recurso que se ofrecen desde el entorno Front Door omiten las cadenas de consulta hasta que expira el recurso en caché.
+- **Pasar por alto las cadenas de consulta**: En este modo, Front Door pasa las cadenas de consulta del solicitante al back-end en la primera solicitud y almacena en la memoria caché el recurso. Todas las solicitudes del recurso subsecuentes que se ofrecen desde el entorno de Front Door omiten las cadenas de consulta hasta que expira el recurso en caché.
 
-- **Almacenar en caché todas las URL únicas**: en este modo, cada solicitud con un URL único, incluida la cadena de consulta, se trata como un recurso único con su propia memoria caché. Por ejemplo, la respuesta desde el back-end a una solicitud de `www.example.ashx?q=test1` se almacena en caché en el entorno Front Door y se devuelve en los sucesivos almacenamientos en caché con la misma cadena de consulta. Se almacena en caché una solicitud de `www.example.ashx?q=test2` como un recurso independiente con su propia configuración de período de vida.
+- **Almacenar en caché todas las URL únicas**: en este modo, cada solicitud con un URL único, incluida la cadena de consulta, se trata como un recurso único con su propia memoria caché. Por ejemplo, la respuesta desde el back-end a una solicitud de `www.example.ashx?q=test1` se almacena en caché en el entorno de Front Door y se devuelve en los almacenamientos en caché subsecuentes con la misma cadena de consulta. Se almacena en caché una solicitud de `www.example.ashx?q=test2` como un recurso independiente con su propia configuración de período de vida.
 
 ## <a name="cache-purge"></a>Purga de la memoria caché
 
-Front Door almacena en caché los recursos hasta que el período de vida de dichos recursos (TTL) expira. Después de la expiración del TTL del recurso, cuando un cliente lo solicite, el entorno de Front Door recuperará una nueva copia actualizada de este para atender la solicitud del cliente y almacenará en caché la versión actualizada.
+Front Door almacena en caché los recursos hasta que el período de vida de dichos recursos (TTL) expira. Siempre que un cliente solicita un recurso con un período de vida expirado, el entorno de Front Door recupera una nueva copia actualizada de este para atender la solicitud y almacena en caché la versión actualizada.
 
-El procedimiento recomendado para asegurarse de que los usuarios siempre obtengan la copia más reciente de los recursos es crear versiones correspondientes a cada actualización y publicarlos como nuevas URL. Front Door recuperará inmediatamente los nuevos recursos en las siguientes solicitudes de los clientes. A veces puede que quiera purgar contenido almacenado en caché de todos los nodos perimetrales y forzarlos todos para recuperar nuevos activos actualizados. Esto puede deberse a actualizaciones de la aplicación web o a actualizaciones rápidas de los activos de actualización que contienen información incorrecta.
+El procedimiento recomendado para asegurarse de que los usuarios siempre obtengan la copia más reciente de los recursos es crear versiones correspondientes a cada actualización y publicarlos como nuevas URL. Front Door recuperará inmediatamente los nuevos recursos en las siguientes solicitudes de los clientes. A veces puede que quiera purgar contenido almacenado en caché de todos los nodos perimetrales y forzarlos todos para recuperar nuevos activos actualizados. Esto puede deberse a actualizaciones de la aplicación web o a actualizaciones rápidas de los recursos que contienen información incorrecta.
 
 Seleccione los recursos que quiere purgar de los nodos perimetrales. Para borrar todos los recursos, seleccione **Purgar todo**. De lo contrario, en **Ruta de acceso**, escriba la ruta de acceso de cada recurso que quiera purgar.
 
@@ -113,7 +113,7 @@ El siguiente orden de encabezados se usa para determinar cuánto tiempo se almac
 2. Cache-Control: max-age=\<seconds>
 3. Expira: \<http-date>
 
-Los encabezados de respuesta Cache-Control que indican que la respuesta no se almacena en caché como Cache-Control: private, Cache-Control: no-cache y Cache-Control: no-store se respetan. Sin embargo, si hay varias solicitudes en lucha en un servidor POP por la misma dirección URL, es posible que compartan la respuesta. Si no hay ningún control de caché presente, el comportamiento predeterminado es que AFD almacenará en caché el recurso durante un tiempo X, donde X se elige aleatoriamente entre 1 y 3 días.
+Los encabezados de respuesta Cache-Control que indican que la respuesta no se almacena en caché como Cache-Control: private, Cache-Control: no-cache y Cache-Control: no-store se respetan.  Si no hay ningún control de caché presente, el comportamiento predeterminado es que Front Door almacene en caché el recurso durante un tiempo X, donde X se elige aleatoriamente entre 1 y 3 días.
 
 ## <a name="request-headers"></a>Encabezados de solicitud
 
@@ -123,9 +123,9 @@ Los siguientes encabezados de solicitud no se reenviarán a un back-end cuando s
 
 ## <a name="cache-duration"></a>Duración de la caché
 
-La duración de la caché se puede configurar tanto en el diseñador de Front Door como en el motor de reglas. La duración de la caché establecida en el diseñador de Front Door es la duración mínima de la caché. Esta invalidación no funcionará si el encabezado de control de la caché del origen tiene un valor de TTL mayor que el valor de invalidación. 
+La duración de la caché se puede configurar tanto en el diseñador de Front Door como en el motor de reglas. La duración en caché establecida en el diseñador de Front Door es la mínima. Esta invalidación no funcionará si el encabezado de control de la caché del origen tiene un valor de período de vida mayor que el valor de invalidación. 
 
-La duración de la caché establecida mediante el motor de reglas es una invalidación de caché verdadera, lo que significa que usará el valor de invalidación con independencia del encabezado de respuesta de origen.
+La duración en caché establecida mediante el motor de reglas es una invalidación de caché verdadera, lo que significa que usará el valor de invalidación con independencia del encabezado de respuesta de origen.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

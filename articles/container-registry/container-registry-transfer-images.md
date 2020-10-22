@@ -2,14 +2,14 @@
 title: Transferencia de artefactos
 description: Transferir colecciones de imágenes u otros artefactos de un registro de contenedor a otro registro mediante la creación de una canalización de transferencia con cuentas de Azure Storage
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: ed848380457862fee506bf5111789e5d44545bdd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fd2cee972ef173853572b871bc80b92b28c505cd
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253418"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932607"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos a otro registro
 
@@ -21,7 +21,7 @@ Para transferir artefactos, cree una *canalización de transferencia* que repliq
 * El blob se copia de la cuenta de almacenamiento de origen a una cuenta de almacenamiento de destino
 * El blob de la cuenta de almacenamiento de destino se importa como artefactos en el registro de destino. Puede configurar la canalización de importación para que se desencadene siempre que el blob del artefacto se actualice en el almacenamiento de destino.
 
-La transferencia es ideal para copiar contenido entre dos registros de contenedor de Azure en nubes físicamente desconectadas, administrada por las cuentas de almacenamiento en cada nube. En el caso de la copia de imagen de registros de contenedor en nubes conectadas, incluido Docker Hub y otros proveedores en la nube, se recomienda la [importación de imágenes](container-registry-import-images.md) en su lugar.
+La transferencia es ideal para copiar contenido entre dos registros de contenedor de Azure en nubes físicamente desconectadas, administrada por las cuentas de almacenamiento en cada nube. Si, en su lugar, desea copiar imágenes de los registros de contenedor en nubes conectadas, incluido Docker Hub y otros proveedores en la nube, se recomienda la [importación de imágenes](container-registry-import-images.md).
 
 En este artículo, usará implementaciones de plantilla de Azure Resource Manager para crear y ejecutar la canalización de transferencia. La CLI de Azure se usa para aprovisionar los recursos asociados, como los secretos de almacenamiento. Se recomienda la CLI de Azure versión 2.2.0 o posterior. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
 
@@ -32,11 +32,18 @@ Esta característica está disponible en el nivel de servicio de un registro de 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Registros de contenedor**: necesita un registro de origen existente con artefactos para transferir y un registro de destino. La transferencia de ACR está pensada para el movimiento entre nubes físicamente desconectadas. Para las pruebas, los registros de origen y de destino pueden estar en la misma o en otra suscripción de Azure, inquilino de Active Directory o nube. Si necesita crear un registro, consulte [Inicio rápido: Creación de un registro de contenedor privado con la CLI de Azure](container-registry-get-started-azure-cli.md). 
-* **Cuentas de almacenamiento**: cree cuentas de almacenamiento de origen y de destino en una suscripción y ubicación de su elección. Con fines de prueba, puede usar la misma suscripción o suscripciones que los registros de origen y de destino. En el caso de escenarios entre nubes, normalmente se crea una cuenta de almacenamiento independiente en cada nube. Si es necesario, cree las cuentas de almacenamiento con la [CLI de Azure](../storage/common/storage-account-create.md?tabs=azure-cli) u otras herramientas. 
+* **Registros de contenedor**: necesita un registro de origen existente con artefactos para transferir y un registro de destino. La transferencia de ACR está pensada para el movimiento entre nubes físicamente desconectadas. Para las pruebas, los registros de origen y de destino pueden estar en la misma o en otra suscripción de Azure, inquilino de Active Directory o nube. 
+
+   Si necesita crear un registro, consulte [Inicio rápido: Creación de un registro de contenedor privado con la CLI de Azure](container-registry-get-started-azure-cli.md). 
+* **Cuentas de almacenamiento**: cree cuentas de almacenamiento de origen y de destino en una suscripción y ubicación de su elección. Con fines de prueba, puede usar la misma suscripción o suscripciones que los registros de origen y de destino. En el caso de escenarios entre nubes, normalmente se crea una cuenta de almacenamiento independiente en cada nube. 
+
+  Si es necesario, cree las cuentas de almacenamiento con la [CLI de Azure](../storage/common/storage-account-create.md?tabs=azure-cli) u otras herramientas. 
 
   Cree un contenedor de blobs para la transferencia de artefactos en cada cuenta. Por ejemplo, cree un contenedor denominado *transfer*. Dos o más canalizaciones de transferencia pueden compartir la misma cuenta de almacenamiento, pero deben usar diferentes ámbitos de contenedor de almacenamiento.
-* **Almacenes de claves**: los almacenes de claves son necesarios para almacenar los secretos de token de SAS que se usan para tener acceso a las cuentas de almacenamiento de origen y de destino. Cree los almacenes de claves de origen y de destino en la misma suscripción o suscripciones de Azure que los registros de origen y de destino. Si es necesario, cree los almacenes de claves con la [CLI de Azure](../key-vault/secrets/quick-create-cli.md) u otras herramientas.
+* **Almacenes de claves**: los almacenes de claves son necesarios para almacenar los secretos de token de SAS que se usan para tener acceso a las cuentas de almacenamiento de origen y de destino. Cree los almacenes de claves de origen y de destino en la misma suscripción o suscripciones de Azure que los registros de origen y de destino. Para demostraciones, las plantillas y los comandos que se usan en este artículo también suponen que los almacenes de claves de origen y de destino se encuentran en los mismos grupos de recursos que los registros de origen y de destino, respectivamente. Este uso de grupos de recursos comunes no es necesario, pero simplifica las plantillas y los comandos que se usan en este artículo.
+
+   Si es necesario, cree los almacenes de claves con la [CLI de Azure](../key-vault/secrets/quick-create-cli.md) u otras herramientas.
+
 * **Variables de entorno**: por ejemplo, los comandos de este artículo establecen las siguientes variables de entorno para los entornos de origen y de destino. Todos los ejemplos tienen el formato del shell de Bash.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -62,7 +69,7 @@ La autenticación de almacenamiento usa tokens de SAS, administrados como secret
 
 ### <a name="things-to-know"></a>Cosas que debe saber
 * ExportPipeline e ImportPipeline normalmente estarán en distintos inquilinos de Active Directory asociados a las nubes de origen y de destino. Este escenario requiere identidades administradas independientes y almacenes de claves para los recursos de exportación e importación. Con fines de prueba, estos recursos se pueden colocar en la misma nube, compartiendo identidades.
-* Los ejemplos de canalización crean identidades administradas asignadas por el sistema para tener acceso a los secretos del almacén de claves. ExportPipelines e ImportPipelines también admiten identidades asignadas por el usuario. En este caso, debe configurar los almacenes de claves con directivas de acceso para las identidades. 
+* De forma predeterminada, las plantillas ExportPipeline e ImportPipeline permiten a una identidad administrada asignada por el sistema acceder a los secretos del almacén de claves. Las plantillas ExportPipeline e ImportPipeline también admiten la identidad asignada por el usuario que proporcione. 
 
 ## <a name="create-and-store-sas-keys"></a>Creación y almacenamiento de claves SAS
 
@@ -152,7 +159,13 @@ La propiedad `options` para las canalizaciones de exportación admite valores bo
 
 ### <a name="create-the-resource"></a>Crear el recurso
 
-Ejecute [az deployment group create][az-deployment-group-create] para crear el recurso. En el ejemplo siguiente se nombra a la implementación como *exportPipeline*.
+Ejecute [az deployment group create][az-deployment-group-create] para crear un recurso denominado *exportPipeline*, tal como se muestra en estos ejemplos. De forma predeterminada, con la primera opción, la plantilla de ejemplo habilita una identidad asignada por el sistema en el recurso ExportPipeline. 
+
+Con la segunda opción, puede proporcionar el recurso con una identidad asignada por el usuario. (No se muestra la creación de la identidad asignada por el usuario).
+
+Con cualquiera de las dos opciones, la plantilla configura la identidad para tener acceso al token de SAS en el almacén de claves de exportación. 
+
+#### <a name="option-1-create-resource-and-enable-system-assigned-identity"></a>Opción 1: Crear un recurso y habilitar una identidad asignada por el sistema
 
 ```azurecli
 az deployment group create \
@@ -162,10 +175,23 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+#### <a name="option-2-create-resource-and-provide-user-assigned-identity"></a>Opción 2: Crear un recurso y proporcionar una identidad asignada por el usuario
+
+En este comando, proporcione el identificador de recurso de la identidad asignada por el usuario como parámetro adicional.
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
 En la salida del comando, anote el identificador de recurso (`id`) de la canalización. Puede almacenar este valor en una variable de entorno para su uso posterior si ejecuta [az deployment group show][az-deployment-group-show]. Por ejemplo:
 
 ```azurecli
-EXPORT_RES_ID=$(az group deployment show \
+EXPORT_RES_ID=$(az deployment group show \
   --resource-group $SOURCE_RG \
   --name exportPipeline \
   --query 'properties.outputResources[1].id' \
@@ -198,20 +224,39 @@ La propiedad `options` para las canalizaciones de importación admite valores bo
 
 ### <a name="create-the-resource"></a>Crear el recurso
 
-Ejecute [az deployment group create][az-deployment-group-create] para crear el recurso.
+Ejecute [az deployment group create][az-deployment-group-create] para crear un recurso denominado *importPipeline*, tal como se muestra en estos ejemplos. De forma predeterminada, con la primera opción, la plantilla de ejemplo habilita una identidad asignada por el sistema en el recurso ImportPipeline. 
+
+Con la segunda opción, puede proporcionar el recurso con una identidad asignada por el usuario. (No se muestra la creación de la identidad asignada por el usuario).
+
+Con cualquiera de las dos opciones, la plantilla configura la identidad para tener acceso al token de SAS en el almacén de claves de importación. 
+
+#### <a name="option-1-create-resource-and-enable-system-assigned-identity"></a>Opción 1: Crear un recurso y habilitar una identidad asignada por el sistema
 
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
   --template-file azuredeploy.json \
-  --parameters azuredeploy.parameters.json \
-  --name importPipeline
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json 
 ```
 
-Si tiene previsto ejecutar la importación manualmente, anote el identificador de recurso (`id`) de la canalización. Puede almacenar este valor en una variable de entorno para su uso posterior si ejecuta [az deployment group show][az-deployment-group-show]. Por ejemplo:
+#### <a name="option-2-create-resource-and-provide-user-assigned-identity"></a>Opción 2: Crear un recurso y proporcionar una identidad asignada por el usuario
+
+En este comando, proporcione el identificador de recurso de la identidad asignada por el usuario como parámetro adicional.
 
 ```azurecli
-IMPORT_RES_ID=$(az group deployment show \
+az deployment group create \
+  --resource-group $TARGET_RG \
+  --template-file azuredeploy.json \
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
+Si tiene previsto ejecutar la importación manualmente, anote el identificador de recurso (`id`) de la canalización. Puede almacenar este valor en una variable de entorno para su uso posterior si ejecuta el comando [az deployment group show][az-deployment-group-show]. Por ejemplo:
+
+```azurecli
+IMPORT_RES_ID=$(az deployment group show \
   --resource-group $TARGET_RG \
   --name importPipeline \
   --query 'properties.outputResources[1].id' \
@@ -246,12 +291,22 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+Para su uso posterior, guarde el identificador de recurso de la ejecución de canalización en una variable de entorno:
+
+```azurecli
+EXPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $SOURCE_RG \
+  --name exportPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
+```
+
 Los artefactos pueden tardar varios minutos en exportarse. Cuando la implementación se complete correctamente, compruebe la exportación de artefactos; para ello, registre el blob exportado en el contenedor *transfer* de la cuenta de almacenamiento de origen. Por ejemplo, ejecute el comando [az storage blob list][az-storage-blob-list]:
 
 ```azurecli
 az storage blob list \
-  --account-name $SOURCE_SA
-  --container transfer
+  --account-name $SOURCE_SA \
+  --container transfer \
   --output table
 ```
 
@@ -300,11 +355,21 @@ Ejecute [az deployment group create][az-deployment-group-create] para ejecutar e
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
+  --name importPipelineRun \
   --template-file azuredeploy.json \
   --parameters azuredeploy.parameters.json
 ```
 
-Cuando la implementación finalice correctamente, compruebe la importación de artefactos; para ello, registre los repositorios en el registro de contenedor de destino. Por ejemplo, ejecute [az acr repository list][az-acr-repository-list]:
+Para su uso posterior, guarde el identificador de recurso de la ejecución de canalización en una variable de entorno:
+
+```azurecli
+IMPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $TARGET_RG \
+  --name importPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
+
+When deployment completes successfully, verify artifact import by listing the repositories in the target container registry. For example, run [az acr repository list][az-acr-repository-list]:
 
 ```azurecli
 az acr repository list --name <target-registry-name>
@@ -329,20 +394,20 @@ az deployment group create \
 
 ## <a name="delete-pipeline-resources"></a>Eliminar recursos de canalización
 
-Para eliminar un recurso de canalización, elimine su implementación de Resource Manager mediante el comando [az deployment group delete][az-deployment-group-delete]. En los ejemplos siguientes se eliminan los recursos de canalización creados en este artículo:
+En el siguiente ejemplo, los comandos usan [az resource delete][az-resource-delete] para suprimir los recursos de canalización creados en este artículo. Los identificadores de recursos se almacenaron previamente en variables de entorno.
 
-```azurecli
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipeline
+```
+# Delete export resources
+az resource delete \
+--resource-group $SOURCE_RG \
+--ids $EXPORT_RES_ID $EXPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipelineRun
-
-az deployment group delete \
-  --resource-group $TARGET_RG \
-  --name importPipeline  
+# Delete import resources
+az resource delete \
+--resource-group $TARGET_RG \
+--ids $IMPORT_RES_ID $IMPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 ```
 
 ## <a name="troubleshooting"></a>Solución de problemas
@@ -374,8 +439,6 @@ Para importar imágenes de contenedor único a un registro de contenedor de Azur
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
 [az-login]: /cli/azure/reference-index#az-login
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
 [az-keyvault-secret-show]: /cli/azure/keyvault/secret#az-keyvault-secret-show
@@ -387,3 +450,4 @@ Para importar imágenes de contenedor único a un registro de contenedor de Azur
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
+[az-resource-delete]: /cli/azure/resource#az-resource-delete

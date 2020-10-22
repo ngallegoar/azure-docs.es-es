@@ -1,6 +1,6 @@
 ---
 title: Restricción del acceso mediante firmas de acceso compartido en Azure HDInsight
-description: Obtener información acerca de cómo usar firmas de acceso compartido para restringir el acceso de HDInsight a datos almacenados en blobs de Almacenamiento de Azure.
+description: Obtener información sobre cómo usar firmas de acceso compartido para restringir el acceso de HDInsight a datos almacenados en Azure Blob Storage.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 8ab181eb72b5a3ab54ad8dba19d23288926b8969
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea14a67f11974c8f7cdeea9eb84e5efb2377fb15
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006320"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856571"
 ---
-# <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight
+# <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Blob Storage para restringir el acceso a datos en HDInsight
 
-HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociadas con el clúster. Puede usar firmas de acceso compartido en el contenedor de blobs para restringir el acceso a los datos. Las firmas de acceso compartido (SAS) son una característica de las cuentas de Almacenamiento de Azure que permite limitar el acceso a los datos. Por ejemplo, al proporcionar acceso de solo lectura a los datos.
+HDInsight tiene acceso total a los datos de las cuentas de Azure Blob Storage asociadas al clúster. Puede usar firmas de acceso compartido en el contenedor de blobs para restringir el acceso a los datos. Las firmas de acceso compartido (SAS) son una característica de las cuentas de Azure Blob Storage que permite limitar el acceso a los datos. Por ejemplo, al proporcionar acceso de solo lectura a los datos.
 
 > [!IMPORTANT]  
 > Para una solución con Apache Ranger, considere la posibilidad de usar HDInsight unido a un dominio. Para más información, consulte el documento [Configuración de clústeres de HDInsight unidos a un dominio](./domain-joined/apache-domain-joined-configure.md).
@@ -39,7 +39,7 @@ HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociad
 
 * Si usa C#, debe usar la versión 2013 de Visual Studio o superior.
 
-* El esquema de URI para la cuenta de almacenamiento. Este esquema sería `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Storage, el identificador URI sería `wasbs://`.
+* El esquema de URI para la cuenta de almacenamiento. Este esquema sería `wasb://` para Azure Blob Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Blob Storage, el identificador URI sería `wasbs://`.
 
 * Un clúster de HDInsight existente al que agregar una firma de acceso compartido. Si no es así, puede usar Azure PowerShell para crear un clúster y agregar una firma de acceso compartido durante la creación del clúster.
 

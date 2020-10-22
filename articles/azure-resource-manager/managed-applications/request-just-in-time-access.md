@@ -3,18 +3,18 @@ title: Solicitud de acceso Just-In-Time
 description: Describe cómo los editores de Azure Managed Applications solicitan acceso Just-In-Time a una aplicación administrada.
 author: MSEvanhi
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: 7f475774828bcaecd471e13de994b156041323ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e1a929924e2c291e0044da99f3ae5d7d1c3b894
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75649484"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371579"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Habilitación y solicitud de acceso Just-In-Time para Azure Managed Applications
 
-Los consumidores de la aplicación administrada pueden ser reacios a concederle acceso permanente al grupo de recursos administrados. Como editor de una aplicación administrada, es preferible que los consumidores sepan exactamente cuando necesita acceder a los recursos administrados. Para ofrecer a los consumidores mayor control sobre la concesión de acceso a los recursos administrados, Azure Managed Applications proporciona una característica denominada acceso Just-In-Time (JIT), que se encuentra actualmente en versión preliminar.
+Los consumidores de la aplicación administrada pueden ser reacios a concederle acceso permanente al grupo de recursos administrados. Como editor de una aplicación administrada, es preferible que los consumidores sepan exactamente cuando necesita acceder a los recursos administrados. Para ofrecer a los consumidores mayor control sobre la concesión de acceso a los recursos administrados, Azure Managed Applications proporciona una característica denominada acceso Just-In-Time (JIT). Esta funcionalidad actualmente está en su versión preliminar.
 
 El acceso JIT permite solicitar acceso con privilegios elevados a recursos de la aplicación administrada con fines de solución de problemas o mantenimiento. Siempre tendrá acceso de solo lectura a los recursos, pero puede tener mayor acceso durante un período de tiempo específico.
 
@@ -34,9 +34,7 @@ Este artículo se centra en las acciones que los editores llevan a cabo para hab
 
 ## <a name="add-jit-access-step-to-ui"></a>Agregar el paso de acceso JIT a la interfaz de usuario
 
-El archivo CreateUiDefinition.json es exactamente igual que el archivo de interfaz de usuario que crea para el acceso permanente, excepto en que debe incluir un paso que permita a los consumidores habilitar el acceso JIT. Para más información sobre cómo publicar su primera oferta de aplicaciones administradas en Azure Marketplace, consulte [Aplicaciones administradas de Azure en Marketplace](publish-marketplace-app.md).
-
-Para admitir la funcionalidad JIT para la oferta, agregue el siguiente contenido al archivo CreateUiDefinition.json:
+En el archivo CreateUiDefinition.json, incluya un paso que permita a los consumidores habilitar el acceso JIT. Para admitir la funcionalidad JIT para la oferta, agregue el siguiente contenido al archivo CreateUiDefinition.json.
 
 En "steps":
 
@@ -58,7 +56,7 @@ En "steps":
     ]
 }
 ```
- 
+
 En "outputs":
 
 ```json
@@ -70,15 +68,17 @@ En "outputs":
 
 ## <a name="enable-jit-access"></a>Habilitar el acceso JIT
 
-Al definir su oferta en Marketplace, asegúrese de habilitar el acceso JIT.
+Al crear la oferta en el Centro de partners, asegúrese de habilitar el acceso JIT.
 
-1. Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com).
+1. Inicie sesión en el portal de Marketplace comercial del [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
-1. Proporcione valores para publicar la aplicación administrada en Marketplace. Seleccione **Sí** en **Enable JIT Access?** (¿Habilitar el acceso JIT?)
+1. Para obtener instrucciones sobre cómo crear una nueva aplicación administrada, siga los pasos descritos en [Creación de una oferta de aplicación de Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
-   ![Habilitar acceso Just-In-Time](./media/request-just-in-time-access/marketplace-enable.png)
+1. En la página **Configuración técnica**, seleccione la casilla **Habilitar acceso Just-In-Time (JIT)** .
 
-Ha agregado un paso de configuración JIT a la interfaz de usuario y habilitado el acceso JIT en la oferta de Marketplace. Cuando los consumidores implementen la aplicación administrada, pueden [activar el acceso JIT para su instancia](approve-just-in-time-access.md#enable-during-deployment).
+   :::image type="content" source="./media/request-just-in-time-access/enable-just-in-time-access.png" alt-text="Habilitar acceso Just-In-Time":::
+
+Ha agregado un paso de configuración JIT a la interfaz de usuario y habilitado el acceso JIT en la oferta de Marketplace comercial. Cuando los consumidores implementen la aplicación administrada, pueden [activar el acceso JIT para su instancia](approve-just-in-time-access.md#enable-during-deployment).
 
 ## <a name="request-access"></a>Solicitar acceso
 

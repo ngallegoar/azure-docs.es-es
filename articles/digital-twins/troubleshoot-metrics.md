@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: f2dc93767457bfb96a9457a73adb83c0ed965308
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: db4383526874c98f717c5f166b296d814724184a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069754"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044642"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solución de problemas de Azure Digital Twins: Métricas
 
@@ -22,7 +22,7 @@ Las métricas están habilitadas de forma predeterminada. Puede ver las métrica
 
 ## <a name="how-to-view-azure-digital-twins-metrics"></a>Procedimiento para ver las métricas de Azure Digital Twins
 
-1. Cree una instancia de Azure Digital Twins. Puede encontrar instrucciones sobre cómo configurar una instancia de Azure Digital Twins en [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-scripted.md).
+1. Cree una instancia de Azure Digital Twins. Puede encontrar instrucciones sobre cómo configurar una instancia de Azure Digital Twins en [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-portal.md).
 
 2. Busque la instancia de Azure Digital Twins en [Azure Portal](https://portal.azure.com) (puede abrir la página correspondiente escribiendo su nombre en la barra de búsqueda del portal). 
 
@@ -34,12 +34,12 @@ Las métricas están habilitadas de forma predeterminada. Puede ver las métrica
     
 3. Para elegir entre enviar los datos de las métricas a un punto de conexión de Event Hubs o a una cuenta de Azure Storage, seleccione **Configuración de diagnóstico** en el menú y, luego, **Agregar configuración de diagnóstico**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico y el botón para agregarla":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página de métricas de Azure Digital Twins":::
 
     Para más información sobre este proceso, consulte [*Solución de problemas: Configuración de diagnósticos*](troubleshoot-diagnostics.md).
 
 4. Para optar por configurar alertas para los datos de métricas, seleccione **Alertas** en el menú y, a continuación, **+ Nueva regla de alerta**.
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Captura de pantalla que muestra la página Alertas y el botón para agregar":::
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Captura de pantalla que muestra la página de métricas de Azure Digital Twins":::
 
     Para más información sobre este proceso, consulte [*Solución de problemas: Configuración de alertas*](troubleshoot-alerts.md).
 
@@ -69,8 +69,8 @@ Métricas relacionadas con la facturación:
 | Métrica | Nombre para mostrar de la métrica | Unidad | Tipo de agregación| Descripción | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Operaciones de API de facturación (versión preliminar) | Count | Total | Métrica de facturación para el recuento de todas las solicitudes de API realizadas en el servicio Azure Digital Twins. | Id. de medidor |
-| BillingMessagesProcessed | Mensajes de facturación procesados (versión preliminar) | Count | Total | Métrica de facturación para el número de mensajes enviados desde Azure Digital Twins a puntos de conexión externos. | Id. de medidor |
-| BillingQueryUnits | Unidades de consulta de facturación (versión preliminar) | Count | Total | Número de unidades de consulta, una medida del uso de recursos de servicio calculada internamente, que se consume para ejecutar consultas. También hay una API auxiliar disponible para medir las unidades de consulta: [Clase de QueryChargeHelper](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) | Id. de medidor |
+| BillingMessagesProcessed | Mensajes de facturación procesados (versión preliminar) | Count | Total | Métrica de facturación para el número de mensajes enviados desde Azure Digital Twins a puntos de conexión externos.<br><br>Para que se considere un solo mensaje para su facturación, una carga no debe ser superior a 1 KB. Las cargas superiores a este se contarán como mensajes adicionales en incrementos de 1 KB (por lo que un mensaje de entre 1 y 2 KB se contará como dos mensajes, entre 2 y 3 KB serán tres mensajes, etc.).<br>Esta restricción también se aplica a las respuestas, por lo que una llamada que devuelve 1,5 KB en el cuerpo de la respuesta, por ejemplo, se facturará como dos operaciones. | Id. de medidor |
+| BillingQueryUnits | Unidades de consulta de facturación (versión preliminar) | Count | Total | Número de unidades de consulta, una medida del uso de recursos de servicio calculada internamente, que se consume para ejecutar consultas. También hay una API auxiliar disponible para medir las unidades de consulta: [Clase de QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | Id. de medidor |
 
 #### <a name="ingress-metrics"></a>Métricas de entrada
 

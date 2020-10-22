@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 6/10/2020
-ms.openlocfilehash: 075c8b2670121e7d493d0d99397961155fd0de4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a46c2024269affc06d18806aa186fb8b0feaafe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736581"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91533764"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copia incremental de nuevos archivos por el nombre de archivo con particiones de tiempo mediante la herramienta Copiar datos
 
@@ -122,13 +122,13 @@ Haga lo siguiente para preparar su instancia de Blob Storage para el tutorial.
 
     a. Busque y seleccione el contenedor **source** y, después, seleccione **Elegir**.
 
-    ![Seleccione el archivo o la carpeta de entrada.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Choose the input file or folder (Elegir archivo o carpeta de entrada).](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
 
     b. En **File loading behavior** (Comportamiento de carga de archivos), seleccione **Incremental load: time-partitioned folder/file names** (Carga Incremental: nombres de archivo/carpeta con particiones de tiempo).
 
     c. Escriba la ruta de acceso de carpeta dinámica como **source/{year}/{month}/{day}/{hour}/** y cambie el formato como se muestra en la captura de pantalla siguiente. Seleccione **Binary copy** (Copia binaria) y haga clic en **Siguiente**.
 
-    ![Seleccione el archivo o la carpeta de entrada.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
+    ![Captura de pantalla que muestra el cuadro de diálogo Choose the input file or folder (Elegir archivo o carpeta de entrada) con una carpeta seleccionada.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
 
 5. En la página **Destination data store** (Almacén de datos de destino), seleccione el elemento **AzureBlobStorage**, que es la misma cuenta de almacenamiento que el almacén de origen de datos y, a continuación, haga clic en **Siguiente**.
 
@@ -139,11 +139,11 @@ Haga lo siguiente para preparar su instancia de Blob Storage para el tutorial.
 
     b. Escriba la ruta de acceso de carpeta dinámica como **destination/{year}/{month}/{day}/{hour}/** y cambie el formato de la siguiente manera:
 
-    ![Elección del archivo o la carpeta de salida](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Choose the output file or folder (Elegir archivo o carpeta de salida).](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
 
     c. Haga clic en **Next**.
 
-    ![Elección del archivo o la carpeta de salida](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Choose the output file or folder (Elegir archivo o carpeta de salida) con Next (Siguiente) seleccionada.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
 7. En la página **Settings** (Configuración), seleccione **Next** (Siguiente).
 
 8. En la página **Summary** (Resumen), revise la configuración y seleccione **Next** (Siguiente).
@@ -155,14 +155,14 @@ Haga lo siguiente para preparar su instancia de Blob Storage para el tutorial.
 
 10. Observe que la pestaña **Monitor** (Supervisión) de la izquierda se selecciona automáticamente.  Debe esperar a que la canalización se ejecute cuando se desencadene automáticamente (después de una hora aproximadamente). Cuando se ejecute, haga clic en el vínculo del nombre de canalización **DeltaCopyFromBlobPipeline** para ver los detalles de la ejecución de la actividad o vuelva a ejecutar la canalización. Seleccione **Refresh** (Actualizar) para actualizar la lista.
 
-    ![La supervisión de la canalización se ejecuta](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
+    ![Captura de pantalla que muestra la pestaña Pipeline runs (Ejecuciones de canalizaciones).](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
 11. Como solo hay una actividad (actividad de copia) en la canalización, solo verá una entrada. Ajuste el ancho de columna de la columnas de **origen** y **destino** (si es necesario) para mostrar más detalles. Puede ver que el archivo de origen (file1.txt) se ha copiado de *source/2020/03/17/03/* a *destination/2020/03/17/03/* con el mismo nombre de archivo. 
 
-    ![La supervisión de la canalización se ejecuta](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
+    ![Captura de pantalla que muestra los detalles de ejecución de las canalizaciones.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
 
     Esto también se puede confirmar usando el Explorador de Azure Storage(https://storageexplorer.com/) ) para examinar los archivos.
 
-    ![La supervisión de la canalización se ejecuta](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
+    ![Captura de pantalla que muestra los detalles de ejecución de la canalización respecto al destino.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
 
 12. Cree otro archivo de texto vacío con el nuevo nombre **file2.txt**. Cargue el archivo file2.txt en la ruta de acceso de carpeta **source/2020/03/17/04** de su cuenta de almacenamiento. Puede usar varias herramientas para realizar estas tareas, como el [Explorador de Azure Storage](https://storageexplorer.com/).
 
@@ -171,7 +171,7 @@ Haga lo siguiente para preparar su instancia de Blob Storage para el tutorial.
 
 13. Para volver a la vista **Ejecuciones de canalización**, seleccione **Todas las ejecuciones de la canalización** y espere a que la misma canalización se desencadene de nuevo automáticamente al cabo de una hora.  
 
-    ![La supervisión de la canalización se ejecuta](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
+    ![Captura de pantalla que muestra el vínculo All pipeline runs (Todas las ejecuciones de la canalización) para volver a esa página.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
 14. Seleccione el nuevo vínculo **DeltaCopyFromBlobPipeline** para la segunda ejecución de canalización cuando se realice y repita el proceso para revisar los detalles. Puede ver que el archivo de origen (file2.txt) se ha copiado de **source/2020/03/17/04/** a **destination/2020/03/17/04/** con el mismo nombre de archivo. Esto también se puede confirmar usando el Explorador de Azure Storage (https://storageexplorer.com/) ) para examinar los archivos en el contenedor **destination**.
 

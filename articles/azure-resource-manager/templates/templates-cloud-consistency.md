@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509763"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91356892"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desarrollo de plantillas de ARM para la coherencia en la nube
 
@@ -655,7 +655,7 @@ Es un desafío realizar el seguimiento de todas las configuraciones relacionadas
 
 En la imagen siguiente se muestra un ejemplo típico de un proceso de desarrollo de un equipo en el que se usa un entorno de desarrollo integrado (IDE). Los distintos tipos de pruebas se ejecutan en diferentes etapas de la escala de tiempo. En este caso, dos desarrolladores trabajan en la misma solución, pero este escenario se aplica igualmente a un único desarrollador o un equipo grande. Normalmente, cada desarrollador crea una copia local de un repositorio central, lo que permite a cada uno de ellos trabajar en la copia local sin afectar a otros que pueden estar trabajando en los mismos archivos.
 
-![Flujo de trabajo](./media/templates-cloud-consistency/workflow.png)
+![Diagrama que muestra dos conjuntos de pruebas unitarias y pruebas de integración en paralelo en el entorno de desarrollo integrado local, que se combinan en el flujo de desarrollo de C I / C D en las pruebas unitarias, después en las pruebas de integración, posteriormente en la implementación de prueba y, finalmente, en la implementación.](./media/templates-cloud-consistency/workflow.png)
 
 Tenga en cuenta las sugerencias siguientes para las pruebas y la automatización:
 

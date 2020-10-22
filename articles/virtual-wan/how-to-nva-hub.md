@@ -1,27 +1,30 @@
 ---
 title: 'Azure Virtual WAN: Creación de una aplicación virtual de red (NVA) en el centro de conectividad'
-description: En este tutorial, aprenderá a implementar una aplicación virtual de red en el centro de conectividad de Virtual WAN.
+description: Aprenda a implementar una aplicación virtual de red en el centro de conectividad de Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: c5f120d6d9d80db4eaa9cf6f68e8dd27d45c8aea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e174f9b78606e0bea5cded3a176f4207745bb5c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095283"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077310"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Creación de una aplicación virtual de red en un centro de conectividad de Azure Virtual WAN (versión preliminar)
 
-En este tutorial se muestra cómo usar Virtual WAN para conectarse a recursos de Azure mediante una **aplicación virtual de red** (NVA) en Azure. Este tipo de conexión requiere un dispositivo VPN local que tenga una dirección IP pública asignada. Para más información sobre Virtual WAN, consulte la [Introducción a Virtual WAN](virtual-wan-about.md).
+En este artículo se muestra cómo usar Virtual WAN para conectarse a recursos de Azure mediante una **aplicación virtual de red** (NVA) en Azure. Este tipo de conexión requiere un dispositivo VPN local que tenga una dirección IP pública asignada. Para obtener más información sobre Virtual WAN, consulte [¿Qué es Virtual WAN?](virtual-wan-about.md).
 
 Los pasos que se describen en este artículo le ayudarán a crear una aplicación virtual de red **Barracuda CloudGen WAN** en el centro de conectividad de Virtual WAN. Para completar este ejercicio, debe tener un dispositivo local de la nube de Barracuda Cloud Premise (CPE) y una licencia de la aplicación Barracuda CloudGen WAN que implementará en el centro antes de empezar.
 
-## <a name="before-you-begin"></a>Antes de empezar
+Para obtener documentación de implementación de **Cisco SD-WAN** en Azure Virtual WAN, envíe un correo electrónico a Cisco, a la siguiente dirección de correo electrónico: vwan_public_preview@external.cisco.com
+
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar con la configuración, compruebe que se cumplen los criterios siguientes:
 
@@ -63,14 +66,14 @@ En este paso, creará una aplicación virtual de red en el centro de conectivida
 
 1. Busque el centro de conectividad de Virtual WAN que creó en el paso anterior y ábralo.
 
-   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Centro de conectividad virtual":::
+   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Conceptos básicos":::
 1. Busque el icono de las aplicaciones virtuales de red y seleccione el vínculo **Crear**.
 1. En la hoja **Network Virtual Appliance** (Aplicación virtual de red), seleccione **Barracuda CloudGen WAN** y, después, seleccione el botón **Crear**.
 
-   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Seleccione NVA":::
+   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Conceptos básicos":::
 1. Pasará a la oferta que hay en Azure Marketplace de la puerta de enlace de Barracuda CloudGen WAN. Lea los términos y, luego, seleccione el botón **Crear** cuando esté listo.
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Aspectos básicos de la NVA de Barracuda":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Conceptos básicos":::
 1. En la página **Aspectos básicos** tendrá que especificar la siguiente información:
 
    * **Suscripción**: elija la suscripción que usó para implementar Virtual WAN y el centro de conectividad.
@@ -80,7 +83,7 @@ En este paso, creará una aplicación virtual de red en el centro de conectivida
    * **Grupo de recursos administrados**: es el nombre del grupo de recursos administrados en el que Barracuda implementará los recursos que administren. El nombre se debe rellenar previamente en este caso.
 1. Seleccione el botón **Siguiente: puerta de enlace de CloudGen WAN**.
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="Puerta de enlace de CloudGen WAN":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="Conceptos básicos":::
 1. Especifique aquí la siguiente información:
 
    * **Centro de conectividad de Virtual WAN**: el centro de conectividad de Virtual WAN en que desea implementar esta NVA.
@@ -95,5 +98,5 @@ En este paso, creará una aplicación virtual de red en el centro de conectivida
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre Virtual WAN, consulte la página [Introducción a Virtual WAN](virtual-wan-about.md).
+* Para obtener más información sobre Virtual WAN, consulte la página [¿Qué es Virtual WAN?](virtual-wan-about.md).
 * Para más información sobre las NVA de un centro de conectividad de Virtual WAN, consulte el artículo [Acerca de la aplicación virtual de red en el centro de conectividad de Virtual WAN (versión preliminar)](about-nva-hub.md).

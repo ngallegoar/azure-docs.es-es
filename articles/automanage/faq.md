@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: ed97f7861f5dd959fd41ac22b4e497f492dbc3a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932418"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91714964"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Preguntas más frecuentes sobre Azure Automanage para máquinas virtuales
 
@@ -28,15 +28,18 @@ Si su problema con Azure no se trata en este artículo, visite los foros de Azur
 
 Los requisitos previos para habilitar Azure Automanage son los siguientes:
 - Solo máquinas virtuales de Windows Server.
-- Las máquinas virtuales deben estar en ejecución.
+- Las máquinas virtuales deben estar en ejecución
 - Las máquinas virtuales deben estar en una región admitida.
 - El usuario debe tener los permisos correctos.
 - Solo máquinas virtuales que no son de conjunto de escalado.
-- Las máquinas virtuales no se deben vincular a un área de trabajo de análisis de registros en una suscripción distinta.
+- Las máquinas virtuales no deben vincularse a un área de trabajo de Log Analytics de otra suscripción
+- Automanage no admite suscripciones de espacio aislado en este momento
 
-**¿Qué permiso de RBAC es necesario para habilitar Automanage?**
+**¿Qué permiso de Azure RBAC es necesario para habilitar Automanage?**
 
-Los usuarios deben tener el rol Propietario. Para aplicar Automanage, los usuarios también pueden tener el rol Colaborador junto con el rol Administrador de acceso de usuario.
+Si va a habilitar Automanage en una máquina virtual con una cuenta de Automanage existente, necesita el rol de colaborador en el grupo de recursos donde reside la máquina virtual.
+
+Si usa una cuenta de Automanage nueva al habilitarlo, debe tener el rol de propietario o de administrador de acceso de usuario y colaborador para la suscripción.
 
 
 **¿Qué regiones se admiten?**
@@ -48,6 +51,9 @@ Se admiten máquinas virtuales en las regiones siguientes: Oeste de Europa, Este
 
 Automanage inscribe, configura y supervisa los servicios mencionados [aquí](virtual-machines-best-practices.md) durante todo el ciclo de vida de la máquina virtual.
 
+**¿Funciona Azure Automanage con máquinas virtuales habilitadas para Azure Arc?**
+
+Actualmente Automanage no admite máquinas virtuales habilitadas para Arc.
 
 **¿Se pueden personalizar configuraciones en Azure Automanage?**
 
@@ -82,6 +88,11 @@ Sí, tenemos una directiva integrada que aplicará automáticamente Automanage a
 **¿Qué es una cuenta de Automanage?**
 
 Una cuenta de Automanage es una identidad de servicio administrado (MSI) que proporciona el contexto de seguridad o la identidad bajo la cual se producen las operaciones automatizadas.
+
+
+**Al habilitar Automanage, ¿afecta a las máquinas virtuales adicionales además de a las máquinas virtuales seleccionadas?**
+
+Si la máquina virtual está vinculada a un área de trabajo de Log Analytics existente, se volverá a usar esa área de trabajo para aplicar estas soluciones: Change Tracking, Inventory y Update Management. Todas las máquinas virtuales conectadas a esa área de trabajo tendrán habilitadas esas soluciones.
 
 
 **¿Se puede cambiar el perfil de configuración de una máquina virtual?**

@@ -5,20 +5,42 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 5e293bb98405affd824d4bbc50b6f24c5a0e3c11
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 03b569422b6ce9e74f77637a514c1c0b28011bed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999622"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761148"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte 3: Configuración de permisos de nivel de directorio y de archivo en SMB 
 
 Antes de comenzar este artículo, asegúrese de completar el anterior, [Asignación de permisos de nivel de recurso compartido a una identidad](storage-files-identity-ad-ds-assign-permissions.md), para garantizar la vigencia de los permisos de nivel de recurso compartido.
 
-Tras asignar permisos de nivel de recurso compartido con RBAC, debe configurar las ACL de Windows adecuadas a los niveles de raíz, de directorio o de archivo para sacar partido del control de acceso granular. Considere los permisos de nivel de recurso compartido de RBAC como el equipo selector de alto nivel que determina si un usuario puede acceder al recurso compartido, Las ACL de Windows funcionan en un nivel más granular para determinar qué operaciones puede realizar el usuario en el directorio o archivo. Los permisos tanto de nivel de recurso compartido como de nivel de archivo o de directorio se aplican cuando un usuario intenta acceder a un archivo o directorio, de modo que, si existe alguna una diferencia entre alguno de ellos, solo se aplicará el más restrictivo. Por ejemplo, si un usuario tiene acceso de lectura y escritura en el nivel de archivo, pero solo de lectura en un nivel de recurso compartido, solo podrá leer ese archivo. Y lo mismo sucede a la inversa: si un usuario tuviera acceso de lectura y escritura en el nivel de recurso compartido, pero solo de lectura en el nivel de archivo, solo podría leer el archivo.
+Tras asignar permisos de nivel de recurso compartido con Azure RBAC, debe configurar las ACL de Windows adecuadas a los niveles de raíz, de directorio o de archivo para sacar partido del control de acceso granular. Considere los permisos de nivel de recurso compartido de Azure RBAC como el equipo selector de alto nivel que determina si un usuario puede acceder al recurso compartido. Las ACL de Windows funcionan en un nivel más granular para determinar qué operaciones puede realizar el usuario en el directorio o archivo. Los permisos tanto de nivel de recurso compartido como de nivel de archivo o de directorio se aplican cuando un usuario intenta acceder a un archivo o directorio, de modo que, si existe alguna una diferencia entre alguno de ellos, solo se aplicará el más restrictivo. Por ejemplo, si un usuario tiene acceso de lectura y escritura en el nivel de archivo, pero solo de lectura en un nivel de recurso compartido, solo podrá leer ese archivo. Y lo mismo sucede a la inversa: si un usuario tuviera acceso de lectura y escritura en el nivel de recurso compartido, pero solo de lectura en el nivel de archivo, solo podría leer el archivo.
+
+## <a name="azure-rbac-permissions"></a>Permisos de Azure RBAC
+
+En la siguiente tabla se incluyen los permisos de RBAC de Azure relacionados con esta configuración:
+
+
+| Rol integrado  | Permiso NTFS  | Acceso resultante  |
+|---------|---------|---------|
+|Lector de recursos compartidos de SMB de datos de archivos de Storage | Control total, modificación, lectura, escritura y ejecución | Leer y ejecutar  |
+|     |   Lectura |     Lectura  |
+|Colaborador de recursos compartidos de SMB de datos de archivos de Storage  |  Control total    |  Modificación, lectura, escritura y ejecución |
+|     |  Modificar         |  Modificar    |
+|     |  Leer y ejecutar |  Leer y ejecutar |
+|     |  Lectura           |  Lectura    |
+|     |  Escritura          |  Escritura   |
+|Colaborador elevado de recursos compartidos de SMB de datos de archivos de Storage | Control total  |  Modificación, lectura, escritura, edición y ejecución |
+|     |  Modificar          |  Modificar |
+|     |  Leer y ejecutar  |  Leer y ejecutar |
+|     |  Lectura            |  Lectura   |
+|     |  Escritura           |  Escritura  |
+
+
 
 ## <a name="supported-permissions"></a>Permisos admitidos
 
@@ -63,7 +85,7 @@ else
 
 ```
 
-Si tiene problemas para conectarse a Azure Files, vea [la herramienta de solución de problemas publicada para solucionar los errores de montaje de Azure Files en Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). También proporcionamos una [guía](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para solucionar aquellos escenarios en los que el puerto 445 está bloqueado. 
+Si tiene problemas para conectarse a Azure Files, vea [la herramienta de solución de problemas publicada para solucionar los errores de montaje de Azure Files en Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). También proporcionamos una [guía](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para solucionar aquellos escenarios en los que el puerto 445 está bloqueado. 
 
 ## <a name="configure-windows-acls"></a>Configuración de ACL de Windows
 

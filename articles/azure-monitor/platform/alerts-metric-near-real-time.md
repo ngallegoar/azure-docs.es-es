@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 8/20/2020
+ms.date: 9/30/2020
 ms.subservice: alerts
-ms.openlocfilehash: 8a608e43ef41abfb7002811df5629eb789c3ae22
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: d99e37171f2fb5b86bee897caca55c3e8782f92e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595587"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108820"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos compatibles para las alertas de métricas de Azure Monitor
 
@@ -37,7 +37,9 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 |Microsoft.Automation/automationAccounts | Sí| No | [Cuentas de Automation](./metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft.AVS/privateClouds | No | No | |
 |Microsoft.Batch/batchAccounts | Sí | No | [Cuentas de Batch](./metrics-supported.md#microsoftbatchbatchaccounts) |
-|Microsoft.Cache/Redis | Sí | No | [Azure Cache for Redis](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.Cache/Redis | Sí | Sí | [Azure Cache for Redis](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Cloud Services clásico](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
+|Microsoft.ClassicCompute/virtualMachines | No | No | [Virtual Machines clásico](./metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | Sí | No | [Cuentas de almacenamiento (clásicas)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
 |Microsoft.ClassicStorage/storageAccounts/blobServices | Sí | No | |
 |Microsoft.ClassicStorage/storageAccounts/fileServices | Sí | No | |
@@ -50,11 +52,11 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 |Microsoft.ContainerRegistry/registries | Sin | No | [Registros de contenedor](./metrics-supported.md#microsoftcontainerregistryregistries) |
 |Microsoft.ContainerService/managedClusters | Sí | No | [Clústeres administrados](./metrics-supported.md#microsoftcontainerservicemanagedclusters) |
 |Microsoft.DataBoxEdge/dataBoxEdgeDevices | Sí | Sí | [Data Box](./metrics-supported.md#microsoftdataboxedgedataboxedgedevices) |
-|Microsoft.DataFactory/datafactories| Sí| No | [Factorías de datos V1](./metrics-supported.md#microsoftdatafactorydatafactories) |
-|Microsoft.DataFactory/factories |Sí | Sin | [Factorías de datos V2](./metrics-supported.md#microsoftdatafactoryfactories) |
-|Microsoft.DataShare/accounts | Sí | Sin | |
+|Microsoft.DataFactory/datafactories| Sí| Sin | [Factorías de datos V1](./metrics-supported.md#microsoftdatafactorydatafactories) |
+|Microsoft.DataFactory/factories |Sí | No | [Factorías de datos V2](./metrics-supported.md#microsoftdatafactoryfactories) |
+|Microsoft.DataShare/accounts | Sí | No | |
 |Microsoft.DBforMariaDB/servers | Sin | No | [DB for MariaDB](./metrics-supported.md#microsoftdbformariadbservers) |
-|Microsoft.DBforMySQL/servers | Sin | No |[DB para MySQL](./metrics-supported.md#microsoftdbformysqlservers)|
+|Microsoft.DBforMySQL/servers | No | No |[DB para MySQL](./metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/flexibleServers | Sí | No | |
 |Microsoft.DBforPostgreSQL/servers | No | No | [DB para PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | No | No | [DB for PostgreSQL V2](./metrics-supported.md#microsoftdbforpostgresqlserversv2)|
@@ -72,7 +74,7 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 |Microsoft.Insights/Components | Sí | No | [Application Insights](./metrics-supported.md#microsoftinsightscomponents) |
 |Microsoft.KeyVault/vaults | Sí |Sí |[Almacenes](./metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft.Kusto/Clusters | Sí |No |[Clústeres de Data Explorer](./metrics-supported.md#microsoftkustoclusters)|
-|Microsoft.Logic/integrationServiceEnvironments | Sí | Sin |[Entornos del servicio de integración](./metrics-supported.md#microsoftlogicintegrationserviceenvironments) |
+|Microsoft.Logic/integrationServiceEnvironments | Sí | No |[Entornos del servicio de integración](./metrics-supported.md#microsoftlogicintegrationserviceenvironments) |
 |Microsoft.Logic/workflows | Sin | No |[Logic Apps](./metrics-supported.md#microsoftlogicworkflows) |
 |Microsoft.MachineLearningServices/workspaces | Sí | No | [Machine Learning](./metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
 |Microsoft.Maps/accounts | Sí | No | [Cuentas de Maps](./metrics-supported.md#microsoftmapsaccounts) |
@@ -87,17 +89,17 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 |Microsoft.Network/loadBalancers (solo para SKU estándar)| Sí| No | [Equilibradores de carga](./metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/natGateways| No | Sin | |
 |Microsoft.Network/privateEndpoints| No | Sin | |
-|Microsoft.Network/privateLinkServices| No | Sin |
+|Microsoft.Network/privateLinkServices| Sin | Sin |
 |Microsoft.Network/publicipaddresses | Sin | No |[Direcciones IP públicas](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
 |Microsoft.Network/trafficManagerProfiles | Sí | Sin | [Perfiles de Traffic Manager](./metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.OperationalInsights/workspaces| Sí | No | [Áreas de trabajo de Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces)|
-|Microsoft.Peering/peerings | Sí | Sin | [Emparejamientos](./metrics-supported.md#microsoftpeeringpeerings) |
+|Microsoft.Peering/peerings | Sí | No | [Emparejamientos](./metrics-supported.md#microsoftpeeringpeerings) |
 |Microsoft.Peering/peeringServices | Sí | No | [Instancias de Peering Service](./metrics-supported.md#microsoftpeeringpeeringservices) |
 |Microsoft.PowerBIDedicated/capacities | Sin | No | [Capacidades](./metrics-supported.md#microsoftpowerbidedicatedcapacities) |
 |Microsoft.Relay/namespaces | Sí | No | [Retransmisiones](./metrics-supported.md#microsoftrelaynamespaces) |
 |Microsoft.Search/searchServices | Sin | No | [Servicios de búsqueda](./metrics-supported.md#microsoftsearchsearchservices) |
 |Microsoft.ServiceBus/namespaces | Sí | No | [Service Bus](./metrics-supported.md#microsoftservicebusnamespaces) |
-|Microsoft.Sql/managedInstances | Sin | Sí | [Instancias administradas de SQL](./metrics-supported.md#microsoftsqlmanagedinstances) |
+|Microsoft.Sql/managedInstances | No | Sí | [Instancias administradas de SQL](./metrics-supported.md#microsoftsqlmanagedinstances) |
 |Microsoft.Sql/servers/databases | No | Sí | [Bases de datos SQL Database](./metrics-supported.md#microsoftsqlserversdatabases) |
 |Microsoft.Sql/servers/elasticPools | No | Sí | [Grupos elásticos de SQL](./metrics-supported.md#microsoftsqlserverselasticpools) |
 |Microsoft.Storage/storageAccounts |Sí | No | [Cuentas de almacenamiento](./metrics-supported.md#microsoftstoragestorageaccounts)|
@@ -117,7 +119,7 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 ## <a name="payload-schema"></a>Esquema de carga
 
 > [!NOTE]
-> También puede usar el [esquema de alerta común](https://aka.ms/commonAlertSchemaDocs), que le ofrece la ventaja de tener una carga útil de alerta única y extensible en todos los servicios de alerta Azure Monitor, para las integraciones de su webhook. [Obtenga más información sobre las definiciones de esquemas de alertas comunes.](https://aka.ms/commonAlertSchemaDefinitions)
+> También puede usar el [esquema de alerta común](./alerts-common-schema.md), que le ofrece la ventaja de tener una carga útil de alerta única y extensible en todos los servicios de alerta Azure Monitor, para las integraciones de su webhook. [Obtenga más información sobre las definiciones de esquemas de alertas comunes.](./alerts-common-schema-definitions.md)
 
 
 La operación POST contiene el esquema y la carga útil de JSON siguientes para todas las nuevas métricas cuando se usa un [grupo de acciones](./action-groups.md) configurado correctamente:
@@ -178,4 +180,3 @@ La operación POST contiene el esquema y la carga útil de JSON siguientes para 
 * Más información sobre la nueva [experiencia de alertas](./alerts-overview.md).
 * Más información sobre las [alertas de registro en Azure](./alerts-unified-log.md).
 * Más información sobre las [alertas en Azure](./alerts-overview.md).
-

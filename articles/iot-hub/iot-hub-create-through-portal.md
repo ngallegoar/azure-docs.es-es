@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 8f7555129f5f514d1954ac56cf87872a85ca91d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c7414728ab65258f73f80ee7fb303c7e6b961052
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326739"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91404967"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creación de una instancia de IoT Hub mediante Azure Portal
 
@@ -78,7 +78,7 @@ La pestaña de rutas es la primera pestaña del panel de enrutamiento de mensaje
 
 ![Captura de pantalla que muestra la incorporación de una nueva ruta](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
-Escriba un nombre para el centro. El nombre debe ser único dentro de la lista de rutas de ese centro. 
+Asígnele un nombre a la ruta. El nombre de la ruta debe ser único dentro de la lista de rutas de ese centro de conectividad. 
 
 En **Endpoint** (Punto de conexión) puede seleccionar uno de la lista desplegable o agregar uno nuevo. En este ejemplo, ya están disponibles una cuenta de almacenamiento y un contenedor. Para agregarlos como punto de conexión, haga clic en **+Add** (+Agregar) junto a la lista desplegable de puntos de conexión y seleccione **Blob Storage**. En la pantalla siguiente se muestra dónde se especifican la cuenta de almacenamiento y el contenedor.
 

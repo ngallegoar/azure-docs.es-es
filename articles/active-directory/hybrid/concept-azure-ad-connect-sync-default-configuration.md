@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661855"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91295233"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronización de Azure AD Connect: Introducción a la configuración predeterminada
 En este artículo se explican las reglas de configuración rápida. Se documentan las reglas y cómo afectan a la configuración. Este artículo lo guía en la configuración predeterminada de la sincronización de Azure AD Connect. El objetivo es que el lector comprenda cómo funciona el modelo de configuración, denominado "aprovisionamiento declarativo", en un ejemplo real. En este artículo se supone que ya instaló y configuró Azure AD Connect Sync mediante el asistente para instalación.
@@ -160,7 +160,7 @@ Puede ver igualmente que esta regla de sincronización se usa para la sincroniza
 #### <a name="scoping-filter"></a>Filtro de ámbito
 La sección Filtro de ámbito se utiliza para configurar cuándo se debe aplicar una regla de sincronización. Como el nombre de la regla de sincronización que estamos examinando indica que solo debe aplicarse para los usuarios habilitados, el ámbito se configura de modo que el atributo **userAccountControl** de AD no deba tener establecido el bit 2. Cuando el motor de sincronización encuentra un usuario en AD, se aplica esta sincronización regla cuando el atributo **userAccountControl** tenga establecido el valor decimal 512 (usuario normal habilitado). No se aplicará cuando el usuario ha establecido el valor de **userAccountControl** en 514 (usuario normal deshabilitado).
 
-![Pestaña Ámbito del Editor de reglas de sincronización](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Captura de pantalla que muestra la sección "Filtro de ámbito" de la ventana "Editar regla de sincronización de entrada".](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 El filtro de ámbito tiene grupos y cláusulas que pueden anidarse. Deben cumplirse todas las cláusulas dentro de un grupo para que se aplique una regla de sincronización. Cuando se definen varios grupos, se debe cumplir al menos uno para que la regla se aplique. Es decir, un operador OR lógico se evalúa entre grupos y uno AND lógico, dentro de un grupo. Puede encontrar un ejemplo de esto en la regla de sincronización saliente **Out to AAD – Group Join**. Hay varios grupos de filtros de sincronización, por ejemplo, uno para los grupos de seguridad (`securityEnabled EQUAL True`) y otro para los de distribución (`securityEnabled EQUAL False`).
 

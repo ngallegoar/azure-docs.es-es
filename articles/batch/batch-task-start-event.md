@@ -2,13 +2,13 @@
 title: Evento de inicio de tarea de Azure Batch
 description: Información de referencia del evento de inicio de tarea de Batch. Este evento se emite una vez que el programador programa que una tarea se inicie en un nodo de ejecución.
 ms.topic: reference
-ms.date: 04/20/2017
-ms.openlocfilehash: ed7b3014279fc87fbaae6f1c270f056e95073aaf
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 10/08/2020
+ms.openlocfilehash: 3a57ffbb1e1659cff54d101aa4b90ca1bd5d3a57
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965100"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91851023"
 ---
 # <a name="task-start-event"></a>Evento de inicio de tarea
 
@@ -23,6 +23,7 @@ ms.locfileid: "85965100"
     "id": "myTask",
     "taskType": "User",
     "systemTaskVersion": 220192842,
+    "requiredSlots": 1,
     "nodeInfo": {
         "poolId": "pool-001",
         "nodeId": "tvm-257509324_1-20160908t162728z"
@@ -45,6 +46,7 @@ ms.locfileid: "85965100"
 |`id`|String|Identificador de la tarea.|
 |`taskType`|String|Tipo de la tarea. Puede ser "JobManager", que indica que es una tarea del administrador de trabajos, o "User", que indica que no lo es.|
 |`systemTaskVersion`|Int32|Se trata del contador interno de reintentos de una tarea. De manera interna, el servicio de Batch puede reintentar una tarea para tener en cuenta los problemas transitorios. Estos problemas pueden incluir errores internos de programación o intentos de recuperación a partir de nodos de proceso en estado no válido.|
+|`requiredSlots`|Int32|Ranuras necesarias para ejecutar la tarea.|
 |[`nodeInfo`](#nodeInfo)|Tipo complejo|Contiene información sobre el nodo de ejecución en que se ejecutó la tarea.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complejo|Especifica que la tarea es una tarea de instancias múltiples que requiere varios nodos de proceso.  Consulte [multiInstanceSettings](/rest/api/batchservice/get-information-about-a-task) para detalles.|
 |[`constraints`](#constraints)|Tipo complejo|Restricciones de ejecución que se aplican a esta tarea.|

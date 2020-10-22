@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6678f64802dc497de6cf0a70ba5ff0bbcaf44e1c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e5aafaa02f503582bd0050f8a6389d78b52eaa76
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033128"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939160"
 ---
 # <a name="cloud-tiering-overview"></a>Información general de nube por niveles
 La nube por niveles es una característica opcional de Azure File Sync por la que los archivos a los que se tiene acceso con frecuencia se almacenan en caché localmente en el servidor mientras que todos los demás archivos se organizan en niveles en Azure Files, según la configuración de directiva. Cuando un archivo está en capas, el filtro del sistema de archivos de Azure File Sync (StorageSync.sys) sustituye al archivo localmente por un puntero o punto de repetición de análisis. El punto de repetición de análisis representa una dirección URL del archivo en Azure Files. Un archivo con niveles tiene los atributos “sin conexión” y FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS establecidos en NTFS para que las aplicaciones de terceros puedan identificar de forma segura archivos con niveles.
@@ -48,9 +48,9 @@ En las versiones del agente 9 y más recientes, el tamaño de archivo mínimo pa
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 KB   |
-|64 KB (65536)               | 128 KB  |
+|64 KB (65536)    | 128 KB  |
 
-Con Windows Server 2019 y el agente de Azure File Sync (versión 12 y posteriores), también se admiten los tamaños de clúster de hasta 2 MB, y los niveles de clústeres de mayor tamaño funcionan de la misma manera. Las versiones anteriores del sistema operativo o del agente admiten tamaños de clúster de hasta 64 KB.
+Actualmente se admiten tamaños de clúster de hasta 64 KB, pero la nube por niveles no funciona para tamaños mayores.
 
 Todos los sistemas de archivos que usa Windows organizan el disco duro en función del tamaño del clúster (lo que también se conoce como tamaño de la unidad de asignación). El tamaño del clúster representa la cantidad más pequeña de espacio en disco que se puede usar para conservar un archivo. Cuando los tamaños de archivo no son un múltiplo par del tamaño del clúster, se debe usar espacio adicional para conservar el archivo (hasta el siguiente múltiplo del tamaño del clúster).
 
@@ -85,11 +85,23 @@ Cuando hay más de un punto de conexión de servidor en un volumen, el umbral de
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>¿Cómo funciona la directiva de organización por niveles basada en fechas junto con la directiva de organización por niveles del espacio disponible de volumen? 
 Cuando se habilita la nube por niveles en el punto de conexión de un servidor, se establece una directiva de espacio disponible en el volumen. Esta directiva siempre tiene prioridad sobre cualquier otra, incluidas las directivas de fecha. Opcionalmente, puede habilitar una directiva de fecha para cada punto de conexión de servidor de ese volumen. Esta directiva administra que solo los archivos a los que se tiene acceso (es decir, los que se leen o en los que se escribe) dentro del intervalo de días que describe esta directiva se conservarán de forma local. Los archivos a los que no se tiene acceso con el número de días especificado se almacenarán en niveles. 
 
-La organización en niveles en la nube usa la hora de último acceso para determinar qué archivos deben estar organizados en niveles. El controlador de filtro de la nube por niveles (storagesync.sys) realiza un seguimiento de la hora del último acceso y registra la información en el almacén térmico de la nube por niveles. Puede ver el almacén térmico mediante un cmdlet de PowerShell local.
+La organización en niveles en la nube usa la hora de último acceso para determinar qué archivos deben estar organizados en niveles. El controlador de filtro de la nube por niveles (storagesync.sys) realiza un seguimiento de la hora del último acceso y registra la información en el almacén térmico de la nube por niveles. Puede recuperar el almacén térmico y guardarlo en un archivo CSV mediante un cmdlet de PowerShell local de servidor.
 
 ```powershell
+# There is a single heat store for files on a volume / server endpoint / individual file.
+# The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number
+
+# Import the PS module:
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
-Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+
+# VOLUME FREE SPACE: To get the order in which files will be tiered using the volume free space policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrder
+
+# DATE POLICY: To get the order in which files will be tiered using the date policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrderV2
+
+# Find the heat store information for a particular file:
+Get-StorageSyncHeatStoreInformation -FilePath '<PathToSpecificFile>'
 ```
 
 > [!IMPORTANT]

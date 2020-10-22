@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 76015602cbf949b166c4067ad72bace5d355d70b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aee886e4e5ccaa3e07851ba839532f47c0a46ef8
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932067"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342049"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender para servidores SQL en máquinas 
 
@@ -48,14 +48,14 @@ Ambos métodos se describen a continuación.
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Paso 1. Aprovisione el agente de Log Analytics en el host de SQL Server:
 
-- **SQL Server en Azure VM**: si la máquina SQL se hospeda en una máquina virtual de Azure, puede [aprovisionar automáticamente el agente de Log Analytics](security-center-enable-data-collection.md#workspace-configuration). Como alternativa, puede seguir el procedimiento manual para [incorporar máquinas de Azure Stack](quickstart-onboard-machines.md#add-non-azure-computers).
-- **SQL Server en Azure Arc**: si el servidor SQL Server se hospeda en una máquina de [Azure Arc](https://docs.microsoft.com/azure/azure-arc/), puede implementar el agente de Log Analytics con la recomendación "El agente de Log Analytics debe estar instalado en las máquinas basadas en Windows de Azure Arc (versión preliminar)." de Security Center. Como alternativa, puede seguir el procedimiento manual en la [documentación de Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
+- **SQL Server en Azure VM**: si la máquina SQL se hospeda en una máquina virtual de Azure, puede [aprovisionar automáticamente el agente de Log Analytics](security-center-enable-data-collection.md#workspace-configuration). Como alternativa, puede seguir el procedimiento manual para [incorporar máquinas virtuales de Azure Stack](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
+- **SQL Server en Azure Arc**: si el servidor SQL Server se hospeda en una máquina de [Azure Arc](../azure-arc/index.yml), puede implementar el agente de Log Analytics con la recomendación "El agente de Log Analytics debe estar instalado en las máquinas basadas en Windows de Azure Arc (versión preliminar)." de Security Center. Como alternativa, puede seguir el procedimiento manual en la [documentación de Azure Arc](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal).
 
 - **SQL Server local**: si el servidor SQL Server se hospeda en una máquina local de Windows sin Azure Arc, tiene dos opciones para conectarlo a Azure:
     
-    - **Implementación de Azure Arc**: puede conectar cualquier máquina de Windows a Security Center. Sin embargo, Azure Arc proporciona una integración más profunda entre *todas* las de su entorno de Azure. Si configura Azure Arc, verá la página **SQL Server: Azure Arc** en el portal y las alertas de seguridad aparecerán en una pestaña **Seguridad** dedicada en esa página. Por lo tanto, la primera opción (y la recomendada) es [configurar Azure Arc en el host](https://docs.microsoft.com/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows) y seguir las instrucciones anteriores para **SQL Server en Azure Arc**.
+    - **Implementación de Azure Arc**: puede conectar cualquier máquina de Windows a Security Center. Sin embargo, Azure Arc proporciona una integración más profunda entre *todas* las de su entorno de Azure. Si configura Azure Arc, verá la página **SQL Server: Azure Arc** en el portal y las alertas de seguridad aparecerán en una pestaña **Seguridad** dedicada en esa página. Por lo tanto, la primera opción (y la recomendada) es [configurar Azure Arc en el host](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) y seguir las instrucciones anteriores para **SQL Server en Azure Arc**.
         
-    - **Conexión de la máquina Windows sin Azure Arc**: si opta por conectar un servidor SQL Server que se ejecute en una máquina Windows sin usar Azure Arc, siga las instrucciones del artículo sobre cómo [conectar máquinas Windows a Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+    - **Conexión de la máquina Windows sin Azure Arc**: si opta por conectar un servidor SQL Server que se ejecute en una máquina Windows sin usar Azure Arc, siga las instrucciones del artículo sobre cómo [conectar máquinas Windows a Azure Monitor](../azure-monitor/platform/agent-windows.md).
 
 
 ### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Paso 2. Habilite el plan opcional en la página de precios y configuración de Security Center:
@@ -75,11 +75,11 @@ Ambos métodos se describen a continuación.
     El plan se habilitará en todos los servidores SQL conectados al área de trabajo seleccionada. La protección de datos estará totalmente activa después del primer reinicio de la instancia de SQL Server.
 
     >[!TIP] 
-    > Para crear una nueva área de trabajo, siga las instrucciones de [Crear un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+    > Para crear una nueva área de trabajo, siga las instrucciones de [Crear un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 
 1. Opcionalmente, configure notificaciones de alertas de seguridad por correo electrónico. 
-    Puede establecer una lista de destinatarios que reciban una notificación por correo electrónico cuando se generen alertas de Security Center. El correo electrónico contiene un vínculo directo a la alerta de Azure Security Center con todos los detalles pertinentes. Para más información, consulte el artículo sobre cómo [configurar las notificaciones por correo electrónico para recibir alertas](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
+    Puede establecer una lista de destinatarios que reciban una notificación por correo electrónico cuando se generen alertas de Security Center. El correo electrónico contiene un vínculo directo a la alerta de Azure Security Center con todos los detalles pertinentes. Para más información, consulte el artículo sobre cómo [configurar las notificaciones por correo electrónico para recibir alertas](security-center-provide-security-contact-details.md).
 
 
 
@@ -97,7 +97,7 @@ Puede ver los resultados de la evaluación de vulnerabilidades directamente desd
 
     Aparece la vista detallada de esta recomendación.
 
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Vista detallada de la recomendación":::
+    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Es necesario corregir los resultados de la evaluación de vulnerabilidades de los servidores SQL Server en las máquinas (versión preliminar)":::
 
 1. Para más detalles, explore en profundidad lo siguiente:
 
@@ -118,10 +118,10 @@ Las alertas de Azure Defender están disponibles en la página de alertas de Sec
 
 1. Las alertas están diseñadas para ser independientes, con pasos de corrección detallados e información de investigación en cada una. Puede investigar más con otras funcionalidades de Azure Security Center y Azure Sentinel para obtener una visión más general:
 
-    * Habilite la característica de auditoría de SQL Server para realizar más investigaciones. Si es usuario de Azure Sentinel, puede cargar los registros de auditoría de SQL desde los eventos del registro de seguridad de Windows a Sentinel y disfrutar de una experiencia de investigación enriquecida. [Obtenga más información sobre cómo realizar auditorías de SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15).
+    * Habilite la característica de auditoría de SQL Server para realizar más investigaciones. Si es usuario de Azure Sentinel, puede cargar los registros de auditoría de SQL desde los eventos del registro de seguridad de Windows a Sentinel y disfrutar de una experiencia de investigación enriquecida. [Obtenga más información sobre cómo realizar auditorías de SQL Server](/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?preserve-view=true&view=sql-server-ver15).
     * Para mejorar la posición de seguridad, siga las recomendaciones de Security Center para la máquina host indicadas en cada alerta. Esto reducirá los riesgos de futuros ataques. 
 
-    [Obtenga más información sobre cómo administrar y responder a alertas](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts).
+    [Obtenga más información sobre cómo administrar y responder a alertas](security-center-managing-and-responding-alerts.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -130,5 +130,5 @@ Para obtener material relacionado, vea el siguiente artículo:
 
 - [Alertas se seguridad de SQL Database y Azure Synapse Analytics (anteriormente, SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Configuración de notificaciones de alertas de seguridad por correo electrónico](security-center-provide-security-contact-details.md)
-- [Más información sobre Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
-- [Paquete de seguridad de datos de Azure Security Center](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+- [Más información sobre Azure Sentinel](../sentinel/index.yml)
+- [Paquete de seguridad de datos de Azure Security Center](../azure-sql/database/azure-defender-for-sql.md)

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886310"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91276091"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -102,24 +102,17 @@ Una ejecución se produce cuando se envía un script para entrenar un modelo. Un
 
 [Área de trabajo](#workspace) > [Experimentos](#experiments) > [Ejecutar](#runs) > **Configuración de ejecución**
 
-Una configuración de ejecución es un conjunto de instrucciones que define cómo se debe ejecutar un script en un destino de proceso determinado. Esta configuración incluye un amplio conjunto de definiciones de comportamiento como, por ejemplo, si quiere usar un entorno de Python existente o un entorno de Conda creado a partir de la especificación.
+Una configuración de ejecución define cómo se debe ejecutar un script en un destino de proceso especificado. La configuración se usa para especificar el script, el destino de proceso y el entorno de aprendizaje automático de Azure en el que se ejecutará, cualquier configuración específica del trabajo distribuido y algunas propiedades adicionales. Para más información sobre el conjunto completo de opciones configurables para las ejecuciones, consulte [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
 
 Una configuración de ejecución puede conservarse en un archivo dentro del directorio que contiene el script de entrenamiento.   O bien, se puede crear como un objeto en memoria y usarse para enviar una ejecución.
 
-Para ver configuraciones de ejecución de ejemplo, consulte [Uso de un destino de proceso para entrenar el modelo](how-to-set-up-training-targets.md).
-
-### <a name="estimators"></a>Estimadores
-
-Para facilitar el entrenamiento de modelos con marcos conocidos, la clase Estimator le permite construir fácilmente configuraciones de ejecución. Puede crear y usar un objeto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) genérico para enviar scripts de entrenamiento que usen cualquier plataforma de aprendizaje que elija, como scikit-learn.
-
-Para obtener más información acerca de los objetos Estimator, consulte [Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator](how-to-train-ml-models.md).
+Para encontrar ejemplos de configuraciones de ejecución, consulte [Configuración de una ejecución de entrenamiento](how-to-set-up-training-targets.md).
 
 ### <a name="snapshots"></a>Instantáneas
 
 [Área de trabajo](#workspace) > [Experimentos](#experiments) > [Ejecutar](#runs) > **Instantánea**
 
 Al enviar una ejecución, Azure Machine Learning comprime el directorio que contiene el script como un archivo zip y lo envía al destino de proceso. A continuación, el archivo .zip se extrae y el script se ejecuta. Azure Machine Learning también almacena el archivo .zip como una instantánea como parte del registro de ejecución. Cualquier persona con acceso al área de trabajo puede buscar un registro de ejecución y descargar la instantánea.
-
 
 ### <a name="logging"></a>Registro
 
@@ -133,7 +126,7 @@ Hay varias maneras de ver los registros: supervisar el estado de ejecución en t
 
 ### <a name="git-tracking-and-integration"></a>Integración y seguimiento de Git
 
-Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Esto funciona con ejecuciones enviadas mediante un estimador, una canalización de aprendizaje automático o una ejecución del script. También funciona para las ejecuciones enviadas desde el SDK o la CLI de Machine Learning.
+Cuando se inicia una ejecución de entrenamiento en la que el directorio de origen es un repositorio de GIT local, se almacena información sobre el repositorio en el historial de ejecución. Esto funciona con las ejecuciones enviadas mediante una configuración de ejecución de script o una canalización de aprendizaje automático. También funciona para las ejecuciones enviadas desde el SDK o la CLI de Machine Learning.
 
 Para más información, consulte [Integración de Git con Azure Machine Learning](concept-train-model-git-integration.md).
 

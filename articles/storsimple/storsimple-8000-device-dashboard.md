@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ed624fd5fb86b95e0b79c1c7ed4de50749ec7046
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93d230656fd7ef34e76a143fb3186d23f8d3afed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512044"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91766242"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Uso del resumen del dispositivo del servicio StorSimple Device Manager
 
@@ -86,7 +86,7 @@ El área de información esencial captura algunas de las propiedades importantes
 
 * El icono **Capacidad** muestra el almacenamiento principal que está aprovisionado y el almacenamiento restante que queda en el dispositivo, en relación con el almacenamiento total disponible para él. **Aprovisionado** hace referencia a la cantidad de almacenamiento que está preparada y asignada para su uso. **Restante** hace referencia a la capacidad restante que se puede aprovisionar en este dispositivo. 
 
-    ![Icono de Uso](./media/storsimple-8000-device-dashboard/device-summary8.png)
+    ![Icono de Uso 2](./media/storsimple-8000-device-dashboard/device-summary8.png)
 
     Haga clic en este icono para ver cómo se aprovisiona la capacidad a través de los volúmenes anclados localmente y en capas. La capacidad **restante en capas** es la capacidad disponible que se puede aprovisionar, incluida la capacidad en la nube, mientras que la capacidad **restante en local** es la capacidad restante en los discos conectados a este dispositivo.
 

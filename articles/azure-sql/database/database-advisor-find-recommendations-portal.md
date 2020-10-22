@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 035b13140ee1fb7a48d0cea9a3611eac145d9f8c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 0b7aab13871f1450a3c6907b30b446869b2fefa7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970688"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91443884"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Búsqueda y aplicación de recomendaciones de rendimiento
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,7 +103,7 @@ Puede establecer la base de datos para que implemente las recomendaciones de for
    ![Configuración del asesor](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Seleccione las acciones que desee automatizar:
 
-   ![Índices recomendados](./media/database-advisor-find-recommendations-portal/server.png)
+   ![Captura de pantalla que muestra dónde seleccionar las acciones que automatizar.](./media/database-advisor-find-recommendations-portal/server.png)
 
 > [!NOTE]
 > Tenga en cuenta que la opción **DROP_INDEX** no es compatible con las aplicaciones que usan sugerencias de índice y la conmutación de particiones.
@@ -139,7 +139,7 @@ Puede que una recomendación no se aplique de manera inmediata. El portal propor
 
 Haga clic en una recomendación en proceso de la lista para ver más información:
 
-![Índices recomendados](./media/database-advisor-find-recommendations-portal/operations.png)
+![Captura de pantalla que muestra la lista de recomendaciones en proceso.](./media/database-advisor-find-recommendations-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>Reversión de una recomendación
 

@@ -4,17 +4,17 @@ description: Obtenga información sobre cómo el entorno de ejecución de Azure 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2019
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 25493312854bbd495dce01f8f107b3e3320cb92c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4e4895b227bfc699e94155515e829d0bf33aaf9b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016961"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043058"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Información del entorno de ejecución de Azure IoT Edge y su arquitectura
 
@@ -32,7 +32,7 @@ El entorno de ejecución de Azure IoT Edge es el responsable de las siguientes f
 
 ![El entorno de ejecución comunica la información y el estado del módulo a IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
-Las responsabilidades del entorno de ejecución de IoT Edge se dividen en dos categorías: comunicación y administración de los módulos. Estos dos roles los realizan dos componentes que forman parte del runtime de IoT Edge. El *centro de IoT Edge* es responsable de la comunicación, mientras que el *agente de IoT Edge* implementa y supervisa los módulos.
+Las responsabilidades del entorno de ejecución de IoT Edge se dividen en dos categorías: comunicación y administración de los módulos. Estos dos roles los realizan dos componentes que forman parte del runtime de IoT Edge.  El *centro de IoT Edge* es responsable de la comunicación, mientras que el *agente de IoT Edge* implementa y supervisa los módulos.
 
 El agente y el centro de IoT Edge son módulos, como cualquier otro que se ejecuta en un dispositivo de IoT Edge. A veces se denominan *módulos del entorno de ejecución*.
 
@@ -49,7 +49,7 @@ Para reducir el ancho de banda que usa la solución IoT Edge, el centro de IoT E
 
 ![El centro de IoT Edge es una puerta de enlace entre los dispositivos físicos e IoT Hub](./media/iot-edge-runtime/Gateway.png)
 
-El centro de IoT Edge puede determinar si está conectado a IoT Hub. Si se pierde la conexión, el centro de IoT Edge guarda los mensajes o las actualizaciones gemelas localmente. Una vez que se vuelva a establecer una conexión, se sincronizan todos los datos. La ubicación que usa esta caché temporal viene determinada por una propiedad del módulo gemelo del centro de IoT Edge. El tamaño de la caché no está limitado y aumentará siempre y cuando el dispositivo tenga capacidad de almacenamiento. Para más información, consulte la [Funcionalidades sin conexión](offline-capabilities.md).
+El centro de IoT Edge puede determinar si está conectado a IoT Hub. Si se pierde la conexión, el centro de IoT Edge guarda los mensajes o las actualizaciones gemelas localmente. Una vez que se vuelva a establecer una conexión, se sincronizan todos los datos. La ubicación que usa esta caché temporal viene determinada por una propiedad del módulo gemelo del centro de IoT Edge. El tamaño de la caché no está limitado y aumentará siempre y cuando el dispositivo tenga capacidad de almacenamiento.  Para más información, consulte la [Funcionalidades sin conexión](offline-capabilities.md).
 
 ### <a name="module-communication"></a>Comunicación entre módulos
 
@@ -71,7 +71,7 @@ Para recibir un mensaje, registre una devolución de llamada que procese los men
    await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
    ```
 
-Para más información sobre la clase ModuleClient y sus métodos de comunicación, consulte la referencia de API de su lenguaje preferido para el SDK: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable) o [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Para más información sobre la clase ModuleClient y sus métodos de comunicación, consulte la referencia de API de su lenguaje preferido para el SDK: [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C](/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient) o [Node.js](/javascript/api/azure-iot-device/moduleclient).
 
 El desarrollador de soluciones es responsable de especificar las reglas que determinan cómo el centro de IoT Edge pasa los mensajes entre los módulos. Las reglas de enrutamiento se definen en la nube y se envían al centro de IoT Edge de su módulo gemelo. Se utiliza la misma sintaxis de las rutas de IoT Hub para definir las rutas entre módulos de Azure IoT Edge. Para más información, consulte [Aprenda a implementar módulos y establecer rutas en IoT Edge](module-composition.md).
 
@@ -86,8 +86,8 @@ El [demonio de seguridad de IoT Edge](iot-edge-security-manager.md) inicia el ag
 Cada elemento del manifiesto de implementación contiene información específica de un módulo y el agente de IoT Edge lo usa para controlar el ciclo de vida del módulo. Estas son algunas de las propiedades más interesantes:
 
 * **Settings.Image**: la imagen de contenedor que usa el agente de IoT Edge al iniciar el módulo. El agente de IoT Edge debe configurarse con las credenciales del registro de contenedor si la imagen está protegida por una contraseña. Las credenciales para el registro de contenedor se pueden configurar mediante el manifiesto de implementación de forma remota o en el propio dispositivo IoT Edge actualizando el archivo `config.yaml` en la carpeta del programa IoT Edge.
-* **settings.createOptions**: una cadena que se pasa directamente al demonio del contenedor de Moby cuando se inicia un contenedor del módulo. Si se agregan opciones en esta propiedad, se pueden realizar configuraciones avanzadas, como el reenvío de puertos o el montaje de volúmenes en el contenedor de un módulo.  
-* **status**: el estado en el que el agente de IoT Edge pone el módulo. Normalmente, este valor se establece en *running*, ya que la mayoría de los usuarios quieren que el agente de IoT Edge inicie inmediatamente todos los módulos del dispositivo. Sin embargo, puede especificar que el estado inicial de un módulo sea stopped y esperar a indicar más adelante al agente de IoT Edge que inicie un módulo. El agente de IoT Edge notifica el estado de cada módulo a la nube en las propiedades notificadas. Una diferencia entre la propiedad deseada y la notificada es un indicador de un dispositivo con un comportamiento incorrecto. Los estados admitidos son los siguientes:
+* **settings.createOptions**: una cadena que se pasa directamente al demonio del contenedor de Moby cuando se inicia un contenedor del módulo. Si se agregan opciones en esta propiedad, se pueden realizar configuraciones avanzadas, como el reenvío de puertos o el montaje de volúmenes en el contenedor de un módulo.  
+* **status**: el estado en el que el agente de IoT Edge pone el módulo. Normalmente, este valor se establece en *running*, ya que la mayoría de los usuarios quieren que el agente de IoT Edge inicie inmediatamente todos los módulos del dispositivo. Sin embargo, puede especificar que el estado inicial de un módulo sea stopped y esperar a indicar más adelante al agente de IoT Edge que inicie un módulo.  El agente de IoT Edge notifica el estado de cada módulo a la nube en las propiedades notificadas. Una diferencia entre la propiedad deseada y la notificada es un indicador de un dispositivo con un comportamiento incorrecto. Los estados admitidos son los siguientes:
 
   * Downloading (Descargando)
   * En ejecución
@@ -124,6 +124,22 @@ El agente de IoT Edge desempeña un papel fundamental en la seguridad de un disp
 
 Para más información acerca del marco de seguridad de Azure IoT Edge, consulte [Administrador de seguridad de IoT Edge](iot-edge-security-manager.md).
 
+## <a name="runtime-quality-telemetry"></a>Telemetría de calidad en tiempo de ejecución
+
+IoT Edge recopila la telemetría anónima del entorno en tiempo de ejecución del host y de los módulos del sistema para mejorar la calidad del producto. Esta información se denomina telemetría de calidad en tiempo de ejecución. La telemetría recopilada se envía periódicamente como mensajes de dispositivo a nube a IoT Hub desde el agente de IoT Edge. Estos mensajes no aparecen en la telemetría normal del cliente y no consumen ninguna cuota de mensajes.
+
+El agente de IoT Edge y el concentrador generan métricas que se pueden recopilar para comprender el rendimiento del dispositivo. El agente de IoT Edge recopila un subconjunto de estas métricas como parte de la telemetría de calidad en tiempo de ejecución. Las métricas recopiladas para la telemetría de calidad en tiempo de ejecución se etiquetan con la etiqueta `ms_telemetry`. Para obtener información sobre todas las métricas disponibles, consulte [Acceso a las métricas integradas](how-to-access-built-in-metrics.md).
+
+Cualquier información que pueda identificar a una persona u organización, como los nombres de dispositivo y módulos, se quita antes de la carga para garantizar la naturaleza anónima de la telemetría de calidad en tiempo de ejecución.
+
+El agente de IoT Edge recopila la telemetría cada hora y envía un mensaje a IoT Hub cada 24 horas.
+
+Si quiere dejar de enviar telemetría en tiempo de ejecución desde sus dispositivos, hay dos maneras de hacerlo:
+
+* Establezca la variable de entorno `SendRuntimeQualityTelemetry` en `false` para **edgeAgent**, o
+* Desactive la opción en Azure Portal durante la implementación.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Información sobre los módulos de Azure IoT Edge](iot-edge-modules.md)
+* [Información sobre los módulos de Azure IoT Edge](iot-edge-modules.md)
+* [Más información sobre las métricas del entorno de ejecución de IoT Edge](how-to-access-built-in-metrics.md)

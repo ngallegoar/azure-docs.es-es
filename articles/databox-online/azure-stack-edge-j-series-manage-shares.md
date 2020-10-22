@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 44f22f365699ddc345849df78d6e27c2703d785b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8fbf765168fd848a2ae349badf4017289b5a4380
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904699"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952274"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Stack Edge Pro
+# <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -65,7 +65,7 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 
 1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Puerta de enlace > Recursos compartidos**. Seleccione **+ Agregar recurso compartido** en la barra de comandos.
 
-    ![Seleccionar Agregar recurso compartido](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
+    ![Seleccionar Agregar recurso compartido 2](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
 
 2. En **Agregar recurso compartido**, especifique la configuración del recurso compartido. Proporcione un nombre exclusivo para el recurso compartido.
     
@@ -125,7 +125,7 @@ Siga estos pasos en Azure Portal para desmontar un recurso compartido.
 
 1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Puerta de enlace > Recursos compartidos**.
 
-    ![Seleccionar recurso compartido](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
+    ![Seleccionar recurso compartido 2](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
 
 2. En la lista de recursos compartidos, seleccione el que desee desmontar. Desea asegurarse de que ningún módulo usa el recurso compartido que desmonta. Si un módulo usa el recurso compartido, verá que aparecen problemas con este módulo. Seleccione **Desmontar**.
 
@@ -145,7 +145,7 @@ Siga estos pasos en Azure Portal para eliminar un recurso compartido.
 
 1. En la lista de recursos compartidos, seleccione y haga clic en el recurso compartido que desea eliminar.
 
-    ![Seleccionar recurso compartido](media/azure-stack-edge-j-series-manage-shares/delete-share-1.png)
+    ![Seleccionar recurso compartido 3](media/azure-stack-edge-j-series-manage-shares/delete-share-1.png)
 
 2. Haga clic en **Eliminar**.
 
@@ -169,7 +169,7 @@ Siga estos pasos en Azure Portal para actualizar un recurso compartido.
 
 1.  En Azure Portal, vaya a **Recursos compartidos**. Seleccione y haga clic en el recurso compartido que desea actualizar.
 
-    ![Seleccionar recurso compartido](media/azure-stack-edge-j-series-manage-shares/refresh-share-1.png)
+    ![Seleccionar recurso compartido 4](media/azure-stack-edge-j-series-manage-shares/refresh-share-1.png)
 
 2.  Haga clic en **Actualizar**. 
 

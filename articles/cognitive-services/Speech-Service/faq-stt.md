@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661527"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91397766"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -29,7 +29,7 @@ Si no encuentra respuestas a sus preguntas en estas P+F, [consulte otras opcione
 
 **P: ¿Por dónde empiezo si quiero usar un modelo de línea base?**
 
-**R.** : Primero, obtenga una [clave suscripción](get-started.md). Si quiere realizar llamadas REST a los modelos de línea de base implementados previamente, vea las [API REST](rest-apis.md). Si quiere usar WebSockets, [descargue el SDK](speech-sdk.md).
+**R.** : Primero, obtenga una [clave suscripción](overview.md#try-the-speech-service-for-free). Si quiere realizar llamadas REST a los modelos de línea de base implementados previamente, vea las [API REST](rest-apis.md). Si quiere usar WebSockets, [descargue el SDK](speech-sdk.md).
 
 **P: ¿Siempre es necesario crear un modelo de voz personalizado?**
 
@@ -152,17 +152,17 @@ Consulte [Cuotas y límites de los servicios de Voz](speech-services-quotas-and-
 
 **R.** : La carga de una lista de palabras las agregará al vocabulario, pero no enseñará al sistema cómo se usan normalmente. Al proporcionar expresiones completas o parciales (oraciones o frases que es probable que digan los usuarios), el modelo de lenguaje puede aprender las palabras nuevas y cómo se usan. El modelo de lenguaje personalizado es bueno no solo para agregar palabras nuevas al sistema, sino también para ajustar la probabilidad de palabras conocidas para la aplicación. Al proporcionar expresiones completas se ayuda al sistema a aprender mejor.
 
-## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modelo de inquilino (Habla personalizada con datos de Office 365)
+## <a name="tenant-model-custom-speech-with-microsoft-365-data"></a>Modelo de inquilino (Habla personalizada con datos de Microsoft 365)
 
 **P: ¿Qué información se incluye en el modelo de inquilino y cómo se crea?**
 
-**R:** Un modelo de inquilino se crea con documentos y correos electrónicos de [grupos públicos](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) que puede ver cualquier usuario de la organización.
+**R:** Un modelo de inquilino se crea con documentos y correos electrónicos de [grupos públicos](https://support.microsoft.com/office/learn-about-microsoft-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) que puede ver cualquier usuario de la organización.
 
 **P: ¿Qué experiencias de voz mejora el modelo de inquilino?**
 
 **R:** Cuando el modelo de inquilino se habilita, se crea y se publica, se usa para mejorar el reconocimiento de las aplicaciones empresariales compiladas con el servicio de Voz, que también pasan un token de Azure AD de usuario que indica la pertenencia a la empresa.
 
-Las experiencias de voz integradas en Office 365, como el Dictado y los subtítulos de PowerPoint, no cambian cuando se crea un modelo de inquilino para las aplicaciones del servicio de voz.
+Las experiencias de voz integradas en Microsoft 365, como el Dictado y los subtítulos de PowerPoint, no cambian cuando se crea un modelo de inquilino para las aplicaciones del servicio de voz.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

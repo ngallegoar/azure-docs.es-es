@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 9593a6c4fa45d9810aabb2bbb3123428930c5891
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401578"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449216"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Cómo hace coincidir Front Door las solicitudes con una regla de enrutamiento
+# <a name="how-requests-are-matched-to-a-routing-rule"></a>Cómo se hacen coincidir las solicitudes con una regla de enrutamiento
 
-Después de establecer una conexión y hacer un protocolo de enlace TLS, cuando una solicitud llega a un entorno de Front Door, una de las primeras cosas que hace Front Door es determinar, de todas las configuraciones, con qué regla de enrutamiento concreta hacer coincidir la solicitud y, luego, emprender la acción definida. El siguiente documento explica el modo en que Front Door determina qué configuración de enrutamiento se usará al procesar una solicitud HTTP.
+Después de establecer una conexión y de completar un protocolo de enlace TLS, cuando una solicitud llega a un entorno de Front Door, una de las primeras cosas que hace Front Door es determinar con qué regla de enrutamiento concreta hacer coincidir la solicitud y, luego, emprende la acción definida en la configuración. El siguiente documento explica el modo en que Front Door determina qué configuración de enrutamiento se usará al procesar una solicitud HTTP.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Estructura de una configuración de enrutamiento de Front Door
 Una configuración de regla de enrutamiento de Front Door se compone de dos partes principales: un "lado izquierdo" y un "lado derecho". La solicitud entrante se hace coincidir con el lado izquierdo de la ruta mientras que el lado derecho define cómo se procesa la solicitud.
@@ -41,7 +41,7 @@ La decisión de cómo procesar la solicitud depende de si el almacenamiento en c
 Esta sección se centrará en cómo se busca la coincidencia con una regla de enrutamiento de Front Door determinada. El concepto básico es que siempre coincidimos con la regla **coincidencia más específica primero** fijándonos solo en el "lado izquierdo".  En primer lugar, buscamos la coincidencia en función del protocolo HTTP, el host de front-end y, luego, la ruta de acceso.
 
 ### <a name="frontend-host-matching"></a>Coincidencia de host de front-end
-Al comparar los hosts de front-end, utilizamos la lógica como sigue:
+Al comparar los hosts de front-end, utilizamos la lógica que se define a continuación:
 
 1. Busque cualquier enrutamiento con una coincidencia exacta en el host.
 2. Si no hay una coincidencia de hosts de front-end exacta, rechace la solicitud y envíe un error 400 de solicitud incorrecta.

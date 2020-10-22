@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 4599346cd4538151f6c758253f1f1bf29bafdcbf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 437fe4636fd5b93656758c9fa55f2b18d64a4b6b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985780"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91540700"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Descripción de los cambios en la CA raíz para Azure Database for MySQL
 
@@ -30,6 +30,7 @@ El nuevo certificado se usará a partir del 26 de octubre de 2020 (26/10/2020). 
 Todas las aplicaciones que usan SSL/TLS y comprueban el certificado raíz tienen que actualizar el certificado raíz. Para saber si las conexiones comprueban el certificado raíz, puede revisar la cadena de conexión.
 -   Si la cadena de conexión incluye `sslmode=verify-ca` o `sslmode=verify-full`, tiene que actualizar el certificado.
 -   Si la cadena de conexión incluye `sslmode=disable`, `sslmode=allow`, `sslmode=prefer` o `sslmode=require`, no tiene que actualizar los certificados. 
+-  Si usa conectores de Java y la cadena de conexión incluye useSSL=false o requireSSL=false, no es preciso actualizar los certificados.
 -   Si la cadena de conexión no especifica sslmode, no tiene que actualizar los certificados.
 
 Si utiliza un cliente que abstrae la cadena de conexión, revise la documentación del cliente para saber si comprueba los certificados.
@@ -119,7 +120,7 @@ En el caso de los servidores creados después del 26 de octubre de 2020 (26/10/2
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. ¿Con qué frecuencia actualiza Microsoft sus certificados o cuál es la directiva de expiración?
 Estos certificados utilizados por Azure Database for MySQL provienen de entidades de certificación (CA) de confianza. Por lo tanto, la compatibilidad de estos certificados en Azure Database for MySQL está ligada a la compatibilidad de estos certificados por parte de la CA. Sin embargo, como en este caso, puede haber errores imprevistos en estos certificados predefinidos, que deben corregirse lo antes posible.
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11. Si utilizo réplicas de lectura, ¿tengo que realizar esta actualización solo en el servidor maestro o en las réplicas de lectura?
+### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11. Si utilizo réplicas de lectura, ¿tengo que realizar esta actualización solo en el servidor de origen o en las réplicas de lectura?
 Puesto que esta actualización es un cambio en el lado cliente, si el cliente leía los datos del servidor réplica, deberá aplicar también los cambios para esos clientes.
 
 ### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Si estoy usando la replicación de datos de entrada, ¿es necesario llevar a cabo alguna acción?
@@ -137,7 +138,7 @@ Si usa la [replicación de datos de entrada](concepts-data-in-replication.md) pa
 
     Si observa que el certificado se proporciona para CA_file, SSL_Cert y SSL_Key, deberá actualizar el archivo agregando el [nuevo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
 
-*   Si la replicación de datos se realiza entre dos instancias de Azure Database for MySQL, deberá restablecer la réplica ejecutando **CALL mysql.az_replication_change_master** y proporcionar el nuevo certificado raíz dual como último parámetro [master_ssl_ca](howto-data-in-replication.md#link-master-and-replica-servers-to-start-data-in-replication).
+*   Si la replicación de datos se realiza entre dos instancias de Azure Database for MySQL, deberá restablecer la réplica ejecutando **CALL mysql.az_replication_change_master** y proporcionar el nuevo certificado raíz dual como último parámetro [master_ssl_ca](howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication).
 
 ### <a name="13-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>13. ¿Tenemos que consultar en el lado servidor para comprobar si se está utilizando SSL?
 Para comprobar si está usando la conexión SSL para conectarse al servidor, consulte [Comprobación de la conexión SSL](howto-configure-ssl.md#step-4-verify-the-ssl-connection).

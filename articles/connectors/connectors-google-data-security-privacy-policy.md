@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: b82b79d076871b961d5c496bc70beac1b5067b2d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2a5204be638f108b40e431b148c9cb97788c4a52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288112"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400764"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Directivas de privacidad y seguridad de datos para conectores de Google en Azure Logic Apps
 
@@ -40,7 +40,7 @@ En esta directiva, cuando se usa una cuenta de consumidor de Gmail, puede usar e
 
 * Servicios de Google: Gmail, Google Calendar, Contactos de Google, Google Drive, Hojas de cálculo de Google y Tareas de Google.
 
-* Servicios de Microsoft aprobados: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive y SharePoint Online.
+* Servicios de Microsoft aprobados: Dynamics 365, Excel Online, Microsoft Teams, Microsoft 365, OneDrive y SharePoint Online.
 
 * Conectores para orígenes de datos administrados por el cliente: FTP, RSS, SFTP, SMTP y SQL Server.
 

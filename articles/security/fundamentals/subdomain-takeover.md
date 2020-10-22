@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2020
+ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: faa61dc351bebd3d2a85ad229036e5b9fba9256e
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514618"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91447370"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Evitar las entradas DNS pendientes y la adquisición de subdominios
 
@@ -107,24 +107,19 @@ Ejecute la consulta como un usuario que tenga:
 - al menos acceso de nivel de lector a las suscripciones de Azure
 - acceso de lectura al gráfico de recursos de Azure
 
-Si es un administrador global del inquilino de su organización, eleve los privilegios de su cuenta para que tenga acceso a toda la suscripción de su organización mediante las instrucciones del artículo [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+Si es un administrador global del inquilino de su organización, eleve los privilegios de su cuenta para que tenga acceso a toda la suscripción de su organización mediante las instrucciones del artículo [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](../../role-based-access-control/elevate-access-global-admin.md).
 
 
 > [!TIP]
-> Azure Resource Graph tiene límites paginación y límites de ancho de banda que debe tener en cuenta si tiene un entorno de Azure de gran tamaño. [Obtenga más información](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) sobre el trabajo con grandes conjuntos de datos de recursos de Azure. 
+> Azure Resource Graph tiene límites paginación y límites de ancho de banda que debe tener en cuenta si tiene un entorno de Azure de gran tamaño. 
+> 
+> [Más información sobre el trabajo con grandes conjuntos de datos de recursos de Azure](../../governance/resource-graph/concepts/work-with-data.md).
 > 
 > La herramienta usa el procesamiento por lotes de suscripciones para evitar estas limitaciones.
 
 ### <a name="run-the-script"></a>Ejecute el script.
 
-Hay dos versiones del script y ambas tienen los mismos parámetros de entrada y producen una salida similar:
-
-|Script  |Información  |
-|---------|---------|
-|**Get-DanglingDnsRecordsPsCore.ps1**    |El modo paralelo solo se admite en la versión 7 de PowerShell y versiones posteriores; de lo contrario, se ejecutará el modo de serie.|
-|**Get-DanglingDnsRecordsPsDesktop.ps1** |Solo se admite en la versión de escritorio de PowerShell, o inferior a la versión 6, ya que este script usa [Windows Workflow](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview).|
-
-Obtenga más información y descargue los scripts de PowerShell de GitHub: https://aka.ms/DanglingDNSDomains.
+Obtenga más información sobre el script de PowerShell, **Get-DanglingDnsRecords.ps1**y descárguelo desde GitHub: https://aka.ms/DanglingDNSDomains.
 
 ## <a name="remediate-dangling-dns-entries"></a>Corrección de las entradas DNS pendientes 
 
@@ -152,7 +147,7 @@ Algunos servicios de Azure ofrecen características que ayudan a crear medidas p
 
 ### <a name="use-azure-dns-alias-records"></a>Uso de registros de alias de Azure DNS
 
-Los [registros de alias](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) de Azure DNS pueden evitar referencias pendientes mediante un acoplamiento del ciclo de vida de un registro DNS con un recurso de Azure. Por ejemplo, considere un registro DNS que se califica como un registro de alias que apunte a una dirección IP pública o a un perfil de Traffic Manager. Si elimina los recursos subyacentes, el registro de alias de DNS se convierte en un conjunto de registros vacío. Ya no hace referencia al recurso eliminado. Es importante tener en cuenta que se aplican límites a lo que se puede proteger con los registros de alias. Actualmente, esta lista se limita a lo siguiente:
+Los [registros de alias](../../dns/dns-alias.md#scenarios) de Azure DNS pueden evitar referencias pendientes mediante un acoplamiento del ciclo de vida de un registro DNS con un recurso de Azure. Por ejemplo, considere un registro DNS que se califica como un registro de alias que apunte a una dirección IP pública o a un perfil de Traffic Manager. Si elimina los recursos subyacentes, el registro de alias de DNS se convierte en un conjunto de registros vacío. Ya no hace referencia al recurso eliminado. Es importante tener en cuenta que se aplican límites a lo que se puede proteger con los registros de alias. Actualmente, esta lista se limita a lo siguiente:
 
 - Azure Front Door
 - Perfiles de Traffic Manager
@@ -161,7 +156,7 @@ Los [registros de alias](https://docs.microsoft.com/azure/dns/dns-alias#scenario
 
 A pesar de las ofertas de servicio limitadas actualmente, se recomienda usar registros de alias para defenderse de la adquisición de subdominios siempre que sea posible.
 
-[Obtenga más información](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) sobre las funcionalidades y los registros de alias de Azure DNS.
+[Obtenga más información sobre las funcionalidades de los registros de alias de Azure DNS](../../dns/dns-alias.md#capabilities).
 
 
 
@@ -171,7 +166,7 @@ Al crear entradas DNS para Azure App Service, cree un registro TXT asuid.{subdom
 
 Estos registros no impiden que alguien cree la instancia de Azure App Service con el mismo nombre que en la entrada CNAME. Sin la capacidad de demostrar la propiedad del nombre de dominio, los actores de amenazas no pueden recibir tráfico ni controlar el contenido.
 
-[Obtenga más información](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain) sobre cómo asignar un nombre DNS personalizado existente a Azure App Service.
+[Obtenga más información sobre cómo asignar un nombre DNS personalizado existente a Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md).
 
 
 
@@ -185,13 +180,13 @@ A menudo, los desarrolladores y los equipos de operaciones deben ejecutar proces
 
     - Incluya "Quitar entrada DNS" en la lista de comprobaciones necesarias al retirar un servicio.
 
-    - Incluya [bloqueos de eliminación](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) en los recursos que tengan una entrada DNS personalizada. Un bloqueo de eliminación sirve como indicador para quitar la asignación antes de desaprovisionar el recurso. Medidas como esta solo pueden funcionar si se combinan con programas educativos internos.
+    - Incluya [bloqueos de eliminación](../../azure-resource-manager/management/lock-resources.md) en los recursos que tengan una entrada DNS personalizada. Un bloqueo de eliminación sirve como indicador para quitar la asignación antes de desaprovisionar el recurso. Medidas como esta solo pueden funcionar si se combinan con programas educativos internos.
 
 - **Creación de procedimientos para la detección:**
 
     - Revise los registros DNS con regularidad para asegurarse de que todos los subdominios están asignados a recursos de Azure:
 
-        - Existentes: consulte las zonas DNS para ver los recursos que apuntan a subdominios de Azure, como *.azurewebsites.net o *.cloudapp.azure.com (vea [esta lista de referencia](azure-domains.md)).
+        - Existentes: consulte las zonas DNS para ver los recursos que apuntan a subdominios de Azure, como *.azurewebsites.net o *.cloudapp.azure.com (consulte la [lista de referencia de los dominios de Azure](azure-domains.md)).
         - De su propiedad: confirme que posee todos los recursos a los que se dirigen sus subdominios DNS.
 
     - Mantenga un catálogo de servicios de los puntos de conexión de nombre de dominio completo (FQDN) de Azure y los propietarios de la aplicación. Para compilar el catálogo de servicios, ejecute el siguiente script de consulta de Azure Resource Graph. Este script proyecta la información del punto de conexión de FQDN de los recursos a los que tiene acceso y los envía a un archivo CSV. Si tiene acceso a todas las suscripciones de su inquilino, el script tiene en cuenta todas estas suscripciones, tal y como se muestra en el siguiente script de ejemplo. Para limitar los resultados a un conjunto específico de suscripciones, edite el script como se muestra.
@@ -207,8 +202,8 @@ A menudo, los desarrolladores y los equipos de operaciones deben ejecutar proces
 
 Para obtener más información sobre los servicios relacionados y las características de Azure que puede usar para defenderse de la adquisición de subdominios, consulte las páginas siguientes.
 
-- [Azure DNS admite el uso de registros de alias para dominios personalizados](https://docs.microsoft.com/azure/dns/dns-alias#prevent-dangling-dns-records)
+- [Impedir que los registros DNS queden pendientes con Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Uso del identificador de comprobación de dominio al agregar dominios personalizados en Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
+- [Uso de un identificador de comprobación de dominio al agregar dominios personalizados en Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)
 
-- [Inicio rápido: Ejecutar la primera consulta de Resource Graph con Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
+- [Inicio rápido: Ejecutar la primera consulta de Resource Graph con Azure PowerShell](../../governance/resource-graph/first-query-powershell.md)

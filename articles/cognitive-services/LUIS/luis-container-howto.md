@@ -1,27 +1,29 @@
 ---
-title: 'Contenedores de Docker: LUIS'
+title: Instalación y ejecución de contenedores de Docker para LUIS
 titleSuffix: Azure Cognitive Services
-description: El contenedor de LUIS carga la aplicación entrenada o publicada en un contenedor de Docker y proporciona acceso a las predicciones de consulta de los puntos de conexión de la API del contenedor.
+description: Use el contenedor de LUIS para cargar una aplicación entrenada o publicada y obtener acceso a sus predicciones de forma local.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bec96f45de69ab2698f3f0cf26f08222e4595ea5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: entorno local, Docker, contenedor
+ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889508"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91460992"
 ---
-# <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
+# <a name="install-and-run-docker-containers-for-luis"></a>Instalación y ejecución de contenedores de Docker para LUIS
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
+Los contenedores permiten usar LUIS en su propio entorno. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo, aprenderá a descargar, instalar y ejecutar un contenedor de LUIS.
 
 El contenedor Language Understanding (LUIS) carga el modelo de Language Understanding entrenado o publicado. Como [aplicación de LUIS](https://www.luis.ai), el contenedor de Docker proporciona acceso a las predicciones de consulta desde los puntos de conexión de API del contenedor. Puede recopilar registros de consultas del contenedor y cargarlos de nuevo en la aplicación de Language Understanding para mejorar la precisión de predicción de la aplicación.
 

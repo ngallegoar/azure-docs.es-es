@@ -1,6 +1,6 @@
 ---
 title: Instalación de Update 0.6 en StorSimple Virtual Array | Microsoft Docs
-description: Describe cómo usar la IU web de StorSimple Virtual Array para aplicar actualizaciones mediante Azure Portal y el método de revisiones
+description: Describe cómo usar la interfaz de usuario web de StorSimple Virtual Array para aplicar la actualización 0.6 mediante Azure Portal y el método de revisiones.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 02b85cb90948f35cb6f6c855cfbe81fd58301de0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33563d12ac31679eb3b658e7625d95581988536d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513582"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977483"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Instalación de Update 0.6 en StorSimple Virtual Array
 
@@ -97,26 +97,26 @@ Utilice este método para instalar actualizaciones en un dispositivo que ejecute
 
 1. En la interfaz de usuario web local, vaya a **Mantenimiento** > **Actualización de software**. Tome nota de la versión de software que se está ejecutando. Si está ejecutando **10.0.10290.0**, no es necesario actualizar el agente MDS en el paso 6.
    
-    ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![Actualización de dispositivo 1](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
 2. En **Update file path**(Ruta de acceso del archivo de actualización), escriba el nombre del archivo de actualización o de revisión. Asimismo, también puede acceder al archivo de instalación de la actualización o de la revisión si está en un recurso compartido de red. Haga clic en **Aplicar**.
    
-    ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update2m.png)
+    ![Actualización de dispositivo 2](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
 3. Se mostrará una advertencia. Dado que la matriz virtual es un dispositivo de nodo único, una vez aplicada la actualización, se reiniciará el dispositivo y habrá un tiempo de inactividad. Haga clic en el icono de marca de verificación.
    
-   ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update3m.png)
+   ![Actualización de dispositivo 3](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
 4. Se inicia la actualización. Una vez que el dispositivo se actualice correctamente, este se reiniciará. La interfaz de usuario local no será accesible durante este tiempo.
    
-    ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update5m.png)
+    ![Actualización de dispositivo 4](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
 5. Una vez completado el reinicio, se le llevará a la página de **inicio de sesión** . Para comprobar que el software del dispositivo se ha actualizado, en la interfaz de usuario de web local, vaya a **Mantenimiento** > **Actualización de software**. La versión de software que aparece debe ser **10.0.0.0.0.10293** para Update 0.6.
    
    > [!NOTE]
    > Las versiones de software se muestran de forma ligeramente distinta en la interfaz de usuario web local y Azure Portal. Por ejemplo, la misma versión aparece como **10.0.0.0.0.10293** en la interfaz de usuario web local y como **10.0.10293.0** en Azure Portal.
    
-    ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-06/update6m.png)
+    ![Actualización de dispositivo 5](./media/storsimple-virtual-array-install-update-06/update6m.png)
 
 6. Omita este paso si se estaba ejecutando StorSimple Virtual Array Update 0.5 (**10.0.10290.0**) antes de aplicar esta actualización. Tomó nota de la versión de software en el paso 1 antes de iniciar la actualización. Si estaba ejecutando Update 0.5, el agente MDS ya está actualizado.
 

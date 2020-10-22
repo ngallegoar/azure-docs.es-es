@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: cf8e7340ce3554bf27364335457a5b7eadcdc049
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 377677c9e5e81487059241db68baff639a3de033
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90931956"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715033"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Creación de una preferencia personalizada en Azure Automanage para máquinas virtuales
 
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
 > Las cuentas de evaluación gratuita no tienen acceso a las máquinas virtuales que se usan en este tutorial. Actualice a una suscripción de pago por uso.
 
 > [!IMPORTANT]
-> El siguiente permiso de RBAC es necesario para habilitar Automanage: Rol **Propietario** o **Colaborador** junto con roles **Administrador de acceso de usuario**.
+> El siguiente permiso de Azure RBAC es necesario para habilitar Automanage: el rol **Propietario** o **Colaborador** junto con el rol **Administrador de acceso de usuario**.
 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
@@ -57,11 +57,11 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 4. En **Perfil de configuración**, haga clic en **Browse and change profiles and preferences** (Examinar y cambiar perfiles y preferencias).
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Examine y cambie perfiles y preferencias.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Seleccione una máquina virtual existente en la lista de máquinas virtuales disponibles.":::
 
 5. En la hoja **Selección del perfil y las preferencias de configuración**, seleccione un perfil en el lado izquierdo: *Desarrollo/pruebas* para pruebas, *Prod* para producción.
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Examine el perfil de configuración de producción.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Seleccione una máquina virtual existente en la lista de máquinas virtuales disponibles.":::
 
 6. En el perfil elegido, en **Preferencias de configuración**, hay una lista desplegable donde puede realizar ajustes para determinados servicios.
     1. Haga clic en **Create new preferences** (Crear nuevas preferencias).
@@ -71,7 +71,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
         1. Nombre de preferencia
         1. Region
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Rellene las preferencias de configuración.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Seleccione una máquina virtual existente en la lista de máquinas virtuales disponibles.":::
 
 7. Vaya a la pestaña Preferencias y ajuste las preferencias de configuración que desee.
         
@@ -88,7 +88,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 Deje de usar rápidamente Azure Automanage para máquinas virtuales deshabilitando la administración automática.
 
-:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Deshabilite Automanage en una máquina virtual.":::
+:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Seleccione una máquina virtual existente en la lista de máquinas virtuales disponibles.":::
 
 1. Vaya a la página **Automanage – Azure virtual machine best practices** (Automanage: procedimientos recomendados para máquinas virtuales de Azure) en la que se muestran todas las máquinas virtuales administradas automáticamente.
 1. Active la casilla situada junto a la máquina virtual que desea deshabilitar.

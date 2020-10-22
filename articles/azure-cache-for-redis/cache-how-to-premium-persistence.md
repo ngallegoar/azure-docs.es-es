@@ -5,16 +5,16 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/24/2017
-ms.openlocfilehash: aaee1c07f0fc8d5b0bba03550986291aea814fcb
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 10/09/2020
+ms.openlocfilehash: fbfd384787d35317a4e45c4f91cf8a3ad4ba5a61
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004798"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000008"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Configuración de la persistencia de datos en el nivel Prémium de Azure Cache for Redis
-Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con redes virtuales. En este artículo, se describe cómo se configura la persistencia de una instancia de Azure Cache for Redis del nivel Prémium.
+En este artículo, aprenderá a configurar la persistencia de una instancia de Azure Cache for Redis del nivel premium a través de Azure Portal. Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. 
 
 ## <a name="what-is-data-persistence"></a>¿Qué es la persistencia de datos?
 La [persistencia de Redis](https://redis.io/topics/persistence) permite conservar los datos almacenados en Redis. También puede tomar instantáneas y realizar copias de seguridad de los datos que puede cargar en el caso de un error de hardware. Se trata de una inmensa ventaja sobre el nivel Básico o Estándar, donde todos los datos se almacenan en la memoria y puede haber una posible pérdida de datos en caso de error donde los nodos de la memoria caché están inactivos. 
@@ -32,54 +32,62 @@ La persistencia escribe los datos de Redis en una cuenta de Azure Storage que po
 > 
 > 
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+1. Para crear una instancia de caché premium, inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Crear un recurso**. Además de crear memorias caché en el Portal de Azure, también puede crearlas mediante las plantillas de Resource Manager, PowerShell o la CLI de Azure. Para más información sobre cómo crear una instancia de Azure Cache for Redis, consulte [Creación de una caché](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Una vez se selecciona un plan de tarifa premium, haga clic en **Persistencia de Redis**.
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Creación de un recurso.":::
+   
+2. En la página **Nuevo**, seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
 
-![Persistencia de Redis][redis-cache-persistence]
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Creación de un recurso.":::
 
-Los pasos de la siguiente sección explican cómo configurar la persistencia de Redis en la nueva caché Premium. Una vez configurada la persistencia de Redis, haga clic en **Crear** para crear su nueva caché premium con persistencia de Redis.
+3. En la página **Nueva caché en Redis**, configure las opciones de la nueva caché premium.
+   
+   | Parámetro      | Valor sugerido  | Descripción |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Nombre DNS** | Escriba un nombre único global. | El nombre de la memoria caché debe ser una cadena de entre 1 y 63 caracteres, y solo puede contener números, letras o guiones. El nombre debe comenzar y terminar por un número o una letra y no puede contener guiones consecutivos. El *nombre de host* de la instancia de caché será *\<DNS name>.redis.cache.windows.net*. | 
+   | **Suscripción** | Desplácese hacia abajo y seleccione su suscripción. | La suscripción en la que se creará esta nueva instancia de Azure Cache for Redis. | 
+   | **Grupos de recursos** | Desplácese hacia abajo y elija un grupo de recursos, o seleccione **Crear nuevo** y escriba un nombre nuevo para el grupo de recursos. | Nombre del grupo de recursos en el que se van a crear la caché y otros recursos. Al colocar todos los recursos de la aplicación en un grupo de recursos, puede administrarlos o eliminarlos fácilmente. | 
+   | **Ubicación** | Desplácese hacia abajo y seleccione una ubicación. | Seleccione una [región](https://azure.microsoft.com/regions/) cerca de otros servicios que vayan a usar la memoria caché. |
+   | **Tipo de caché** | Desplácese hacia abajo y seleccione una caché premium para configurar las características premium. Para obtener más información, consulte [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/). |  El plan de tarifa determina el tamaño, el rendimiento y las características disponibles para la memoria caché. Para más información, consulte la [introducción a Azure Redis Cache](cache-overview.md). |
 
-## <a name="enable-redis-persistence"></a>Habilitación de la persistencia de Redis
+4. Seleccione la pestaña **Redes** o haga clic en el botón **Redes** de la parte inferior de la página.
 
-La persistencia de Redis se habilita en la hoja **Persistencia de los datos**, seleccionando la persistencia **RDB** o **AOF**. Para nuevas caché, a esta hoja se obtiene acceso durante el proceso de creación de la caché, como se describe en la sección anterior. Para las memorias caché existentes, a la hoja **Persistencia de los datos** se accede desde el **menú Recursos** de la caché.
+5. En la pestaña **Redes**, seleccione el método de conectividad. En el caso de las instancias de caché premium, puede conectarse de forma pública, mediante puntos de conexión de servicio o direcciones IP públicas, o de forma privada con un punto de conexión privado.
 
-![Configuración de Redis][redis-cache-settings]
+6. Seleccione el botón **Siguiente: Opciones avanzadas** o haga clic en el botón **Siguiente: Opciones avanzadas** de la parte inferior de la página.
 
+7. En la pestaña **Opciones avanzadas** de la instancia de caché premium, configure el puerto no TLS, la agrupación en clústeres y la persistencia de datos. Para la persistencia de datos, puede elegir la persistencia de **RDB** o **AOF**. 
 
-## <a name="configure-rdb-persistence"></a>Configuración de la persistencia de RDB
+8. Para habilitar la persistencia de RDB, haga clic en **RDB** y configure las opciones. 
+   
+   | Parámetro      | Valor sugerido  | Descripción |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Frecuencia de copia de seguridad** | Desplácese hacia abajo y seleccione un intervalo de copia de seguridad. Las opciones disponibles son: **15 minutos**, **30 minutos**, **60 minutos**, **6 horas**, **12 horas** y **24 horas**. | Este intervalo empieza la cuenta atrás cuando se completa correctamente la operación de copia de seguridad anterior y se inicia cuando se produce una nueva copia de seguridad. | 
+   | **Storage Account** | Desplácese hacia abajo y seleccione la cuenta de almacenamiento. | Debe elegir una cuenta de almacenamiento en la misma región que la memoria caché y se recomienda una cuenta de **Premium Storage** porque Premium Storage tiene un mayor rendimiento.  | 
+   | **Clave de almacenamiento** | Desplácese hacia abajo y seleccione si se usará la **Clave principal** o la **Clave secundaria**. | Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a configurar la clave que quiera en la lista desplegable **Clave de almacenamiento**. | 
 
-Para habilitar la persistencia de RDB, haga clic en **RDB**. Para deshabilitar la persistencia de RDB en una caché Premium previamente habilitada, haga clic en **Deshabilitada**.
+    La primera copia de seguridad se inicia cuando transcurre el intervalo de frecuencia de copia de seguridad.
 
-![Persistencia de RDB en Redis][redis-cache-rdb-persistence]
+9. Para habilitar la persistencia de AOF, haga clic en **AOF** y configure las opciones. 
+   
+   | Parámetro      | Valor sugerido  | Descripción |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Primera cuenta de almacenamiento** | Desplácese hacia abajo y seleccione la cuenta de almacenamiento. | Esta cuenta de almacenamiento debe estar en la misma región que la memoria caché y se recomienda una cuenta **Premium Storage** porque el almacenamiento Premium tiene un mayor rendimiento. | 
+   | **Primera clave de almacenamiento** | Desplácese hacia abajo y seleccione si se usará la **Clave principal** o la **Clave secundaria**. | Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a configurar la clave que quiera en la lista desplegable **Clave de almacenamiento**. | 
+   | **Segunda cuenta de almacenamiento** | (Opcional) Desplácese hacia abajo y seleccione si se usará la **Clave principal** o la **Clave secundaria**. | También puede configurar una cuenta de almacenamiento adicional. Si se configura una segunda cuenta de almacenamiento, las operaciones de escritura en la caché de réplica se realizan en esta segunda cuenta de almacenamiento. | 
+   | **Segunda clave de almacenamiento** | (Opcional) Desplácese hacia abajo y seleccione si se usará la **Clave principal** o la **Clave secundaria**. | Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a configurar la clave que quiera en la lista desplegable **Clave de almacenamiento**. | 
 
-Para configurar el intervalo de copia de seguridad, seleccione una **Frecuencia de copia de seguridad** en la lista desplegable. Las opciones disponibles son: **15 minutos**, **30 minutos**, **60 minutos**, **6 horas**, **12 horas** y **24 horas**. Este intervalo empieza la cuenta atrás cuando se completa correctamente la operación de copia de seguridad anterior y se inicia cuando se produce una nueva copia de seguridad.
+    Cuando se habilita la persistencia de AOF, las operaciones de escritura en la memoria caché se guardan en la cuenta de almacenamiento designada (o las cuentas si ha configurado una segunda cuenta de almacenamiento). Si se produce un error catastrófico que daña la caché principal y de réplica, el registro de AOF almacenado se usa para regenerar la memoria caché.
 
-Haga clic en **Cuenta de almacenamiento** para seleccionar la cuenta de almacenamiento que quiere usar y, en el cuadro desplegable **Clave de almacenamiento**, elija la **clave principal** o la **clave secundaria** que se va a utilizar. Debe elegir una cuenta de almacenamiento en la misma región que la memoria caché y se recomienda una cuenta de **Premium Storage** porque Premium Storage tiene un mayor rendimiento. 
+10. Seleccione el botón **Siguiente: Etiquetas** o haga clic en el botón **Siguiente: Etiquetas** situado en la parte inferior de la página.
 
-> [!IMPORTANT]
-> Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a configurar la clave que quiera en la lista desplegable **Clave de almacenamiento**.
-> 
-> 
+11. Opcionalmente, en la pestaña **Etiquetas**, escriba el nombre y el valor si quiere clasificar el recurso. 
 
-Haga clic en **Aceptar** para guardar la configuración de persistencia.
+12. Seleccione  **Revisar y crear**. Pasará a la pestaña Revisar y crear, donde Azure validará la configuración.
 
-La siguiente copia de seguridad (o la primera copia de seguridad para las nuevas cachés) se inicia cuando transcurre el intervalo de frecuencia de copia de seguridad.
+13. Tras aparecer el mensaje verde Validación superada, seleccione **Crear**.
 
-## <a name="configure-aof-persistence"></a>Configuración de la persistencia de AOF
-
-Para habilitar la persistencia de AOF, haga clic en **AOF**. Para deshabilitar la persistencia de AOF en una caché Premium habilitada anteriormente, haga clic en **Deshabilitada**.
-
-![Persistencia de AOF en Redis][redis-cache-aof-persistence]
-
-Para configurar la persistencia de AOF, especifique **Primera cuenta de almacenamiento**. Esta cuenta de almacenamiento debe estar en la misma región que la memoria caché y se recomienda una cuenta **Premium Storage** porque el almacenamiento Premium tiene un mayor rendimiento. También puede configurar una cuenta de almacenamiento adicional denominada **Segunda cuenta de almacenamiento**. Si se configura una segunda cuenta de almacenamiento, las operaciones de escritura en la caché de réplica se realizan en esta segunda cuenta de almacenamiento. Para cada cuenta de almacenamiento configurada, seleccione la **Clave principal** o **Clave secundaria** que se usará del menú desplegable **Clave de almacenamiento**. 
-
-> [!IMPORTANT]
-> Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a configurar la clave que quiera en la lista desplegable **Clave de almacenamiento**.
-> 
-> 
-
-Cuando se habilita la persistencia de AOF, las operaciones de escritura en la memoria caché se guardan en la cuenta de almacenamiento designada (o las cuentas si ha configurado una segunda cuenta de almacenamiento). Si se produce un error catastrófico que daña la caché principal y de réplica, el registro de AOF almacenado se usa para regenerar la memoria caché.
+La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página  **Información general**  de Azure Cache for Redis. Si en  **Estado**  se muestra  **En ejecución**, la caché está lista para su uso. 
 
 ## <a name="persistence-faq"></a>P+F de persistencia
 La lista siguiente contiene respuestas a las preguntas frecuentes sobre la persistencia de Azure Cache for Redis.
@@ -148,7 +156,7 @@ La persistencia de AOF afecta a la productividad aproximadamente entre un 15 y u
 
 ### <a name="how-can-i-remove-the-second-storage-account"></a>¿Cómo puedo quitar la segunda cuenta de almacenamiento?
 
-Puede quitar la cuenta de almacenamiento secundaria de persistencia de AOF si establece la segunda cuenta de almacenamiento de modo que sea la misma que la primera cuenta de almacenamiento. Para obtener instrucciones, vea [Configuración de la persistencia de AOF](#configure-aof-persistence).
+Puede quitar la cuenta de almacenamiento secundaria de persistencia de AOF si establece la segunda cuenta de almacenamiento de modo que sea la misma que la primera cuenta de almacenamiento. Para las memorias caché existentes, a la hoja **Persistencia de los datos** se accede desde el **menú Recursos** de la caché. Para deshabilitar la persistencia de AOF, haga clic en **Deshabilitada**.
 
 ### <a name="what-is-a-rewrite-and-how-does-it-affect-my-cache"></a>¿Qué es una reescritura y cómo afecta a la memoria caché?
 

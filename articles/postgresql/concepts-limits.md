@@ -1,18 +1,18 @@
 ---
 title: 'Límites en Azure Database for PostgreSQL: servidor único'
 description: En este artículo, se describen los límites de Azure Database for PostgreSQL con un único servidor, como el número de opciones del motor de almacenamiento y de conexión.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f48245983898c542197deb7e0b3cd53bd39be33
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76836463"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91707530"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Límites de Azure Database for PostgreSQL con un único servidor
 En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos. Para más información sobre los niveles de recursos (proceso, memoria, almacenamiento), consulte el artículo acerca de los [planes de tarifa](concepts-pricing-tiers.md).
@@ -24,12 +24,12 @@ A continuación se muestran el número máximo de conexiones por plan de tarifa 
 |**Plan de tarifa**| **Núcleos virtuales**| **Conexiones máximas** | **Número máximo de conexiones de usuario** |
 |---|---|---|---|
 |Básico| 1| 55 | 50|
-|Básico| 2| 105 | 100|
+|Básica| 2| 105 | 100|
 |De uso general| 2| 150| 145|
 |De uso general| 4| 250| 245|
 |De uso general| 8| 480| 475|
 |De uso general| 16| 950| 945|
-|De uso general| 32| 1\.500| 1495|
+|De uso general| 32| 1.500| 1495|
 |De uso general| 64| 1900| 1895|
 |Memoria optimizada| 2| 300| 295|
 |Memoria optimizada| 4| 500| 495|
@@ -66,6 +66,11 @@ Una conexión de PostgreSQL, aunque no esté activa, puede ocupar aproximadament
 
 ### <a name="utf-8-characters-on-windows"></a>Caracteres UTF-8 en Windows
 - En algunos escenarios, los caracteres UTF-8 no se admiten completamente en PostgreSQL de código abierto en Windows, lo que afecta a Azure Database for PostgreSQL. Consulte el subproceso en [Bug #15476 en postgresql-archive](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) para más información.
+
+### <a name="gss-error"></a>Error de GSS
+Si ve un error relacionado con **GSS**, es probable que use una versión de cliente o controlador más reciente que todavía no sea totalmente compatible con el servidor único de Azure Postgres. Se sabe que este error afecta a las [versiones de controlador JDBC 42.2.15 y 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868).
+   - Tenemos previsto completar la actualización a finales de noviembre. Considere la posibilidad de usar una versión del controlador en funcionamiento mientras tanto.
+   - O bien, considere la posibilidad de deshabilitar la solicitud de GSS.  Use un parámetro de conexión como `gssEncMode=disable`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Comprenda lo que [hay disponible en cada plan de tarifa](concepts-pricing-tiers.md).

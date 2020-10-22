@@ -3,12 +3,12 @@ title: Replicar máquinas virtuales de Azure Stack en Azure con Azure Site Recov
 description: Aprenda a configurar la recuperación ante desastres en Azure para máquinas virtuales de Azure Stack con el servicio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564316"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448975"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
 
@@ -164,13 +164,13 @@ Configure el equipo del servidor de configuración, regístrelo en el almacén y
 1. Haga clic en **Preparar infraestructura** > **Origen**.
 2. En **Preparar origen**, haga clic en **+Servidor de configuración**.
 
-    ![Configurar origen](./media/azure-stack-site-recovery/plus-config-srv.png)
+    ![Captura de pantalla del cuadro de diálogo +Servidor de configuración con el mensaje "Haga clic en +Servidor de configuración en la barra de comandos anterior para configurar uno...".](./media/azure-stack-site-recovery/plus-config-srv.png)
 
 3. En **Agregar servidor**, compruebe que aparezca **Servidor de configuración** en **Tipo de servidor**.
 5. Descargue el archivo de instalación unificada de Site Recovery.
 6. Descargue la clave de registro del almacén. Necesita la clave de registro cuando ejecuta la instalación unificada. La clave será válida durante cinco días a partir del momento en que se genera.
 
-    ![Configurar origen](./media/azure-stack-site-recovery/set-source2.png)
+    ![Captura de pantalla del cuadro de diálogo Agregar servidor con el tipo de servidor establecido en servidor de configuración y el botón Descargar la clave de registro del almacén resaltado.](./media/azure-stack-site-recovery/set-source2.png)
 
 
 ### <a name="run-azure-site-recovery-unified-setup"></a>Ejecución de la instalación unificada de Azure Site Recovery
@@ -314,26 +314,7 @@ A continuación, ejecute una conmutación por error de prueba de la manera sigui
 
 ### <a name="fail-back-to-azure-stack"></a>Conmutar por recuperación en Azure Stack
 
-Cuando el sitio principal esté de nuevo activo y en ejecución, puede conmutar por recuperación desde Azure a Azure Stack. Para ello, deberá descargar el VHD de máquina virtual de Azure y cargarlo en Azure Stack.
-
-1. Apague la máquina virtual de Azure, para que se pueda descargar el disco duro virtual.
-2. Para empezar a descargar el disco duro virtual, instale el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
-3. Navegue hasta la máquina virtual en Azure Portal (con el nombre de la máquina virtual).
-4. En **Discos**, haga clic en el nombre del disco y recopile la configuración.
-
-    - Por ejemplo, el URI de disco duro virtual usado en nuestra prueba, `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd`, puede dividirse para obtener los siguientes parámetros de entrada que se usan para descargar el disco duro virtual.
-        - Cuenta de almacenamiento: 502055westcentralus
-        - Contenedor: wahv9b8d2ceb284fb59287
-        - Nombre de disco duro virtual: copied-3676553984.vhd
-
-5. Ahora, use el Explorador de Azure Storage para descargar el disco duro virtual.
-6. Cargue el disco duro virtual en Azure Stack con [estos pasos](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
-7. En la máquina virtual existente o en una nueva, conecte los discos duros virtuales cargados.
-8. Compruebe que el disco del sistema operativo sea correcto e inicie la máquina virtual.
-
-
-En esta fase, la conmutación por recuperación se ha completado.
-
+Cuando el sitio principal esté de nuevo activo y en ejecución, puede conmutar por recuperación desde Azure a Azure Stack. Para ello, siga los pasos que se indican [aquí](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
 ## <a name="conclusion"></a>Conclusión
 

@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 67392f965b3fddec7fc7a03bd328a224dad42208
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442988"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371531"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: Carga de conjuntos de datos de taxis de Nueva York
 
@@ -91,7 +91,7 @@ Siga estos pasos para crear una base de datos en blanco.
 
 11. Para supervisar el proceso de implementación, seleccione **Notificaciones** en la barra de herramientas.
   
-     ![notificación](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+     ![Captura de pantalla que muestra Azure Portal con el panel Notificaciones abierto con la implementación en curso.](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Crear una regla de firewall de nivel de servidor
 

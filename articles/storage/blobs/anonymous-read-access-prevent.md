@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/02/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 0ed8b04353c50bff53d074ebdb1efa2a286c8e59
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 3d843440adc61b315616a05f223c5a13ebe271ed
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086579"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930839"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir el acceso de lectura público anónimo a contenedores y blobs
 
@@ -59,7 +59,7 @@ Siga estos pasos para crear una métrica que realice el seguimiento de las solic
 
 Una vez configurada la métrica, las solicitudes anónimas comenzarán a aparecer en el gráfico. En la imagen siguiente se muestran las solicitudes anónimas agregadas en los últimos treinta minutos.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Captura de pantalla que muestra las solicitudes anónimas agregadas al almacenamiento de blobs":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Captura de pantalla que muestra cómo configurar la métrica para sumar transacciones de blobs":::
 
 También puede configurar una regla de alerta para recibir una notificación cuando se realice un determinado número de solicitudes anónimas a su cuenta de almacenamiento. Para más información, vea [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -70,6 +70,9 @@ Los registros de Azure Storage capturan detalles sobre las solicitudes realizada
 Para registrar las solicitudes a su cuenta de Azure Storage con el fin de evaluar las solicitudes anónimas, puede usar el registro de Azure Storage en Azure Monitor (versión preliminar). Para más información, consulte [Supervisión de Azure Storage](../common/monitor-storage.md).
 
 El registro de Azure Storage en Azure Monitor admite el uso de consultas de registro para analizar los datos de registro. Para consultar los registros, puede usar un área de trabajo de Azure Log Analytics. Para más información sobre las consultas de registro, consulte el [Tutorial: Introducción a las consultas de Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+
+> [!NOTE]
+> La versión preliminar del registro de Azure Storage en Azure Monitor solo se admite en la nube pública de Azure. Las nubes de Government no admiten el registro de Azure Storage con Azure Monitor.
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Creación de una configuración de diagnóstico en Azure Portal
 
@@ -85,7 +88,7 @@ Para registrar datos de Azure Storage con Azure Monitor y analizarlos con Azure 
 1. En **Detalles de la categoría**, en la sección **registro**, elija qué tipos de solicitudes registrar. Todas las solicitudes anónimas serán solicitudes de lectura, así que seleccione **StorageRead** para capturar las solicitudes anónimas.
 1. En **Detalles del destino**, seleccione **Enviar a Log Analytics**. Seleccione la suscripción y el área de trabajo de Log Analytics que creó anteriormente, como se muestra en la siguiente imagen.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Captura de pantalla que muestra cómo crear una configuración de diagnóstico para el registro de las solicitudes":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Captura de pantalla que muestra cómo configurar la métrica para sumar transacciones de blobs":::
 
 Después de crear la configuración de diagnóstico, las solicitudes a la cuenta de almacenamiento se registran posteriormente según esa configuración. Para más información, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
@@ -187,7 +190,7 @@ Para crear una directiva con un efecto de auditoría para la configuración de a
 1. Seleccione **Agregar definición de directiva** para crear una nueva definición de directiva.
 1. En el campo donde se indica la **ubicación de la definición**, seleccione el botón **Más** para especificar dónde se encuentra el recurso de directiva de auditoría.
 1. Escriba un nombre para la directiva. Si lo desea, puede escribir también una descripción y la categoría.
-1. En la **regla de directiva**, agregue la siguiente definición de directiva a la sección **policyRule**.
+1. En **Regla de directivas**, agregue la siguiente definición de directiva a la sección **policyRule**.
 
     ```json
     {
@@ -215,22 +218,22 @@ Para crear una directiva con un efecto de auditoría para la configuración de a
 
 ### <a name="assign-the-policy"></a>Asignación de la directiva
 
-A continuación, asigne la directiva a un recurso. El ámbito de la directiva corresponde a ese recurso y a todos los recursos que hay debajo del mismo. Para obtener más información sobre la asignación de directivas, consulte [estructura de asignaciones de Azure Policy](../../governance/policy/concepts/assignment-structure.md).
+A continuación, asigne la directiva a un recurso. El ámbito de la directiva corresponde a ese recurso y a todos los recursos que hay debajo del mismo. Para más información sobre la asignación de directivas, consulte [Estructura de asignaciones de Azure Policy](../../governance/policy/concepts/assignment-structure.md).
 
 Para asignar la directiva con Azure Portal, haga lo siguiente:
 
 1. En Azure Portal, vaya al servicio Azure Policy.
 1. Seleccione **Asignaciones** en la sección **Creación**.
 1. Seleccione **Asignar directiva** para crear una nueva asignación de directiva.
-1. En el campo del **ámbito**, seleccione el ámbito de la asignación de directiva.
-1. En el campo de la **definición de directiva**, seleccione el botón **Más** y, a continuación, seleccione la directiva que definió en la sección anterior de la lista.
+1. En el campo **Ámbito**, seleccione el ámbito de la asignación de directiva.
+1. En el campo **Definición de directiva**, seleccione el botón **Más** y, a continuación, seleccione la directiva que definió en la sección anterior de la lista.
 1. Escriba un nombre para la asignación de directiva. La descripción es opcional.
 1. Deje la opción **Cumplimiento de directivas** como *Habilitada*. Esta configuración no tiene ningún efecto en la directiva de auditoría.
 1. Seleccione **Revisar y crear** para crear la asignación.
 
 ### <a name="view-compliance-report"></a>Ver el informe de cumplimiento
 
-Una vez asignada la Directiva, puede ver el informe de cumplimiento. El informe de cumplimiento de una directiva de auditoría proporciona información sobre las cuentas de almacenamiento que no cumplen con esa directiva. Para obtener más información, consulte [Obtención de datos de cumplimiento de directivas](../../governance/policy/how-to/get-compliance-data.md).
+Una vez asignada la directiva, puede ver el informe de cumplimiento. El informe de cumplimiento de una directiva de auditoría proporciona información sobre las cuentas de almacenamiento que no cumplen con esa directiva. Para más información, consulte [Obtención de datos de cumplimiento de directiva](../../governance/policy/how-to/get-compliance-data.md).
 
 El informe de cumplimiento puede tardar varios minutos en estar disponible después de que se cree la asignación de directiva.
 
@@ -238,10 +241,10 @@ Para ver el informe de cumplimiento en Azure Portal, siga estos pasos:
 
 1. En Azure Portal, vaya al servicio Azure Policy.
 1. Seleccione **Cumplimiento**.
-1. Filtre los resultados en función del nombre de la asignación de directiva que creó en el paso anterior. El informe muestra el número de recursos que no cumplen con la directiva.
+1. Filtre los resultados por el nombre de la asignación de directiva que creó en el paso anterior. El informe muestra el número de recursos que no cumplen con la directiva.
 1. Puede explorar en profundidad el informe para obtener más detalles, incluida una lista de cuentas de almacenamiento que no cumplen los requisitos.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Captura de pantalla que muestra el informe de cumplimiento de la directiva de auditoría para el acceso público de blobs":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Captura de pantalla que muestra cómo configurar la métrica para sumar transacciones de blobs":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Uso de Azure Policy para aplicar el acceso autorizado
 
@@ -277,7 +280,7 @@ Después de crear la directiva con el efecto de denegación y asignarla a un ám
 
 En la siguiente imagen se muestra el error que se produce si se intenta crear una cuenta de almacenamiento que permita el acceso público (el valor predeterminado de una nueva cuenta) cuando una directiva con un efecto de denegación requiere que no se permita el acceso público.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Captura de pantalla que muestra el error que se produce al crear una cuenta de almacenamiento que infringe la directiva":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Captura de pantalla que muestra cómo configurar la métrica para sumar transacciones de blobs":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

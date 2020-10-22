@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05447db97311fb78707079528e0570b3fd42df59
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006303"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977585"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar un servidor de archivos mediante Azure Portal
 ![Diagrama que muestra los pasos necesarios para implementar una matriz virtual. La primera parte del tercer paso está etiquetada como "Configurar como servidor de archivos" y aparece resaltada.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -118,7 +118,7 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
     ![Captura de pantalla de la página Todos los recursos de Azure Portal. Se resalta el servicio Administrador de dispositivos.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. En la lista filtrada, seleccione su servicio StorSimple Device Manager y, a continuación, navegue hasta **Administración > Dispositivos**. En la hoja **Dispositivos**, compruebe que el dispositivo se ha conectado correctamente al servicio y tiene el estado **Listo para configurar**.
     
-    ![Configurar un servidor de archivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
+    ![Implementación](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
 ## <a name="step-2-configure-the-device-as-file-server"></a>Paso 2: Configurar el dispositivo como servidor de archivos
 Siga estos pasos en [Azure Portal](https://portal.azure.com/) para completar la configuración requerida del dispositivo.
@@ -129,7 +129,7 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/) para completar la 
    ![Configurar un servidor de archivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Haga clic en el dispositivo y verá un mensaje del banner que indica que el dispositivo está listo para configurar.
    
-    ![Configurar un servidor de archivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
+    ![Configurar un servidor de archivos 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Haga clic en **Configurar** en la barra de comandos. Se abrirá la hoja **Configurar**. En **dicha hoja**, realice estas acciones:
    
    1. El nombre del servidor de archivos se rellena automáticamente.
@@ -140,7 +140,7 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/) para completar la 
     
    4. Haga clic en **Configurar los valores obligatorios** para especificar las credenciales de la cuenta de almacenamiento que va a usar en su dispositivo. Haga clic en **Agregar nuevo** si no hay ninguna credencial de la cuenta de almacenamiento configurada. **Asegúrese de que la cuenta de almacenamiento que usa es compatible con los blobs en bloques. No se admiten blobs en páginas.** Más información sobre [blobs en bloques y blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-      ![Configurar un servidor de archivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Configurar un servidor de archivos 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. En la hoja **Agregar credenciales de cuenta de almacenamiento**, realice las siguientes operaciones: 
 
     1. Elija la suscripción actual si la cuenta de almacenamiento está en la misma suscripción que el servicio. Si la cuenta de almacenamiento está fuera de la suscripción del servicio, especifique otra. 
@@ -153,19 +153,19 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/) para completar la 
     
     5. Haga clic en **Agregar** para agregar esta credencial. 
    
-        ![Configurar un servidor de archivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
+        ![Configurar un servidor de archivos 4](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
 
 5. Una vez que la credencial se haya creado correctamente, se actualizará la hoja **Configurar** para mostrar las credenciales de la cuenta de almacenamiento especificada. Haga clic en **Configurar**.
    
-   ![Configurar un servidor de archivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
+   ![Configurar un servidor de archivos 5](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
    
    Verá que se crea un servidor de archivos. Cuando el servidor de archivos se cree correctamente, recibirá una notificación.
    
-   ![Configurar un servidor de archivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
+   ![Configurar un servidor de archivos 5b](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
    
    El estado del dispositivo también cambiará a **En línea**.
    
-   ![Configurar un servidor de archivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
+   ![Configurar un servidor de archivos 5c](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
    
    Puede pasar a agregar un recurso compartido.
 
@@ -189,15 +189,15 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/) para crear un recu
    
    5. Haga clic en **Agregar** para crear el recurso compartido. 
     
-       ![Agregar un recurso compartido](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Agregar un recurso compartido 1](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
        Se le notifica que la creación del recurso compartido está en curso.
    
-       ![Agregar un recurso compartido](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Agregar un recurso compartido 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
       Una vez creado el recurso compartido con la configuración especificada, la hoja **Recursos compartidos** se actualizará para reflejar el nuevo recurso compartido. De forma predeterminada, las opciones de supervisión y copia de seguridad están habilitadas en el recurso compartido.
    
-      ![Agregar un recurso compartido](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Agregar un recurso compartido 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>Paso 4: Conexión al recurso compartido
 Ahora, necesitará conectarse a uno o varios recursos compartidos que creó en el paso anterior. Realice estos pasos en su host de Windows Server conectado a StorSimple Virtual Array.

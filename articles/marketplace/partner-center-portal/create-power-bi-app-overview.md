@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: f3699892471a1535cda5fc182a4c9121fd3c250c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f34723bec6dc2212f8897eca849e6535d737fc8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317610"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91397426"
 ---
 # <a name="power-bi-app-creation-overview"></a>Introducción a la creación de la aplicación Power BI
 
@@ -23,7 +23,7 @@ En este artículo se explica cómo publicar una aplicación Power BI en Microsof
 Ventajas de publicar en Marketplace comercial:
 
 - Promocionar la empresa con la marca de Microsoft.
-- Llegar potencialmente a más de 100 millones de usuarios de Office 365 y Dynamics 365 en AppSource y a más de 200 000 organizaciones en Azure Marketplace.
+- Llegar potencialmente a más de 100 millones de usuarios de Microsoft 365 y Dynamics 365 en AppSource y a más de 200 000 organizaciones en Azure Marketplace.
 - Recibir clientes potenciales de alta calidad de estos mercados.
 - Promocionar sus servicios mediante los equipos de campo y televenta de Microsoft.
 

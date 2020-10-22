@@ -12,12 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: references_regions
+ms.openlocfilehash: c0d0e1c5f096a45c08265927a288b4ff56876d94
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90967508"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951594"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -58,62 +59,106 @@ Análisis de tráfico examina los registros de flujo sin formato del grupo de se
 ## <a name="supported-regions-nsg"></a>Regiones admitidas: Grupo de seguridad de red 
 
 Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes regiones admitidas:
-
-* Centro de Canadá
-* Centro-Oeste de EE. UU.
-* Este de EE. UU.
-* Este de EE. UU. 2
-* Centro-Norte de EE. UU
-* Centro-sur de EE. UU.
-* Centro de EE. UU.
-* Oeste de EE. UU.
-* Oeste de EE. UU. 2
-* Centro de Francia
-* Oeste de Europa
-* Norte de Europa
-* Sur de Brasil
-* Oeste de Reino Unido
-* Sur de Reino Unido 2
-* Este de Australia
-* Sudeste de Australia
-* Este de Asia
-* Sudeste de Asia
-* Centro de Corea del Sur
-* Centro de la India
-* Sur de la India
-* Japón Oriental 
-* Japón Occidental
-* US Gov - Virginia
-* Este de China 2
+:::row:::
+   :::column span="":::
+      Centro de Australia  
+      Este de Australia  
+      Sudeste de Australia  
+      Sur de Brasil  
+      Centro de Canadá  
+      Este de Canadá  
+      Centro de la India  
+      Centro de EE. UU.  
+      Este de China 2  
+      Norte de China 2  
+   :::column-end:::
+   :::column span="":::
+      Este de Asia  
+      Este de EE. UU.  
+      Este de EE. UU. 2  
+      EUAP de Este de EE. UU. 2  
+      Centro de Francia  
+      Japón Oriental  
+      Japón Occidental  
+      Centro de Corea del Sur  
+      Corea del Sur  
+      Centro-Norte de EE. UU  
+   :::column-end:::
+   :::column span="":::
+      Norte de Europa  
+      Norte de Sudáfrica  
+      Centro-sur de EE. UU.  
+      Sur de la India  
+      Sudeste de Asia  
+      Norte de Suiza  
+      Oeste de Suiza  
+      Sur de Reino Unido  
+      Oeste de Reino Unido  
+      USGov: Arizona  
+   :::column-end:::
+   :::column span="":::
+      USGov Texas  
+      USGov Virginia  
+      USNat East  
+      USNat West  
+      USSec oriental  
+      USSec occidental  
+      Centro-Oeste de EE. UU.  
+      Oeste de Europa  
+      Oeste de EE. UU.  
+      Oeste de EE. UU. 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Regiones admitidas: Áreas de trabajo de Log Analytics
 
 El área de trabajo de Log Analytics debe existir en las siguientes regiones:
-* Centro de Canadá
-* Centro-Oeste de EE. UU.
-* Este de EE. UU.
-* Este de EE. UU. 2
-* Centro-Norte de EE. UU
-* Centro-sur de EE. UU.
-* Centro de EE. UU.
-* Oeste de EE. UU.
-* Oeste de EE. UU. 2
-* Centro de EE. UU.
-* Centro de Francia
-* Oeste de Europa
-* Norte de Europa
-* Sur de Brasil
-* Oeste de Reino Unido
-* Sur de Reino Unido 2
-* Este de Australia
-* Sudeste de Australia
-* Este de Asia
-* Sudeste de Asia
-* Centro de Corea del Sur
-* Centro de la India
-* Japón Oriental
-* US Gov - Virginia
-* Este de China 2
+:::row:::
+   :::column span="":::
+      Centro de Australia  
+      Este de Australia  
+      Sudeste de Australia  
+      Sur de Brasil  
+      Centro de Canadá  
+      Centro de la India  
+      Centro de EE. UU.  
+      Este de China 2  
+      Este de Asia  
+      Este de EE. UU.  
+   :::column-end:::
+   :::column span="":::
+      Este de EE. UU. 2  
+      EUAP de Este de EE. UU. 2  
+      Centro de Francia  
+      Centro-oeste de Alemania  
+      Japón Oriental  
+      Centro de Corea del Sur  
+      Centro-Norte de EE. UU  
+      Norte de Europa  
+      Norte de Sudáfrica  
+      Centro-sur de EE. UU.  
+   :::column-end:::
+   :::column span="":::
+      Sudeste de Asia  
+      Norte de Suiza  
+      Oeste de Suiza  
+      Centro de Emiratos Árabes Unidos  
+      Sur de Reino Unido  
+      Oeste de Reino Unido  
+      USGov: Arizona  
+      USGov Virginia  
+      USNat East  
+      USNat West  
+   :::column-end:::
+   :::column span="":::
+      USSec oriental  
+      USSec occidental  
+      Centro-Oeste de EE. UU.  
+      Oeste de Europa  
+      Oeste de EE. UU.  
+      Oeste de EE. UU. 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

@@ -2,23 +2,25 @@
 title: 'Funciones de plantillas: objetos'
 description: Describe las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con objetos.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: fede4d6c71e45b119e500d4c9c6f91765d052036
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/12/2020
+ms.openlocfilehash: 632e92bb798a5e8469079ef4693b7f321617f88c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676801"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977891"
 ---
 # <a name="object-functions-for-arm-templates"></a>Funciones de objeto para plantillas de Resource Manager
 
 Resource Manager proporciona varias funciones para trabajar con objetos en la plantilla de Azure Resource Manager (ARM).
 
 * [contains](#contains)
+* [createObject](#createobject)
 * [empty](#empty)
 * [intersection](#intersection)
 * [json](#json)
 * [length](#length)
+* [null](#null)
 * [union](#union)
 
 ## <a name="contains"></a>contains
@@ -101,6 +103,58 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | objectFalse | Bool | False |
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
+
+## <a name="createobject"></a>createObject
+
+`createObject(key1, value1, key2, value2, ...)`
+
+Crea un objeto a partir de las claves y los valores.
+
+### <a name="parameters"></a>Parámetros
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| key1 |No |string |El nombre de la clave. |
+| value1 |No |int, booleano, cadena, objeto o matriz |Valor de la clave. |
+| claves adicionales |No |string |Nombres adicionales de las claves. |
+| valores adicionales |No |int, booleano, cadena, objeto o matriz |Valores adicionales para las claves. |
+
+La función solo acepta un número par de parámetros. Cada clave debe tener un valor coincidente.
+
+### <a name="return-value"></a>Valor devuelto
+
+Un objeto con cada par de clave y valor.
+
+### <a name="example"></a>Ejemplo
+
+En el ejemplo siguiente se crea un objeto a partir de distintos tipos de valores.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+    ],
+    "outputs": {
+        "newObject": {
+            "type": "object",
+            "value": "[createObject('intProp', 1, 'stringProp', 'abc', 'boolProp', true(), 'arrayProp', createArray('a', 'b', 'c'), 'objectProp', createObject('key1', 'value1'))]"
+        }
+    }
+}
+```
+
+La salida del ejemplo anterior con los valores predeterminados es un objeto denominado `newObject`con el siguiente valor:
+
+```json
+{
+  "intProp": 1,
+  "stringProp": "abc",
+  "boolProp": true,
+  "arrayProp": ["a", "b", "c"],
+  "objectProp": {"key1": "value1"}
+}
+```
 
 ## <a name="empty"></a>empty
 
@@ -237,40 +291,58 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 `json(arg1)`
 
-Devuelve un objeto JSON.
+Convierte una cadena JSON válida en un tipo de datos JSON.
 
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |string |Valor que se va a convertir en JSON. |
+| arg1 |Sí |string |Valor que se va a convertir en JSON. La cadena debe ser una cadena JSON con el formato correcto. |
 
 ### <a name="return-value"></a>Valor devuelto
 
-Objeto JSON de la cadena especificada o un objeto vacío si se especifica **null**.
+El tipo de datos JSON de la cadena especificada o un valor vacío si se especifica **null**.
 
 ### <a name="remarks"></a>Observaciones
 
 Si necesita incluir un valor de parámetro o variable en el objeto JSON, use la función [concat](template-functions-string.md#concat) para crear la cadena que se pasa a la función.
 
+También puede usar [null ()](#null) para obtener un valor null.
+
 ### <a name="example"></a>Ejemplo
 
-En la siguiente [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) se muestra cómo usar la función json. Tenga en cuenta que puede pasar una cadena que represente al objeto o usar **null** cuando no se necesita ningún valor.
+En la siguiente [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) se muestra cómo usar la función json. Tenga en cuenta que puede pasar **null** para un objeto vacío.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "jsonObject1": {
+        "jsonEmptyObject": {
             "type": "string",
             "defaultValue": "null"
         },
-        "jsonObject2": {
+        "jsonObject": {
             "type": "string",
             "defaultValue": "{\"a\": \"b\"}"
         },
-        "testValue": {
+        "jsonString": {
+            "type": "string",
+            "defaultValue": "\"test\""
+        },
+        "jsonBoolean": {
+            "type": "string",
+            "defaultValue": "true"
+        },
+        "jsonInt": {
+            "type": "string",
+            "defaultValue": "3"
+        },
+        "jsonArray": {
+            "type": "string",
+            "defaultValue": "[[1,2,3 ]"
+        },
+        "concatValue": {
             "type": "string",
             "defaultValue": "demo value"
         }
@@ -278,17 +350,33 @@ En la siguiente [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-
     "resources": [
     ],
     "outputs": {
-        "jsonOutput1": {
+        "emptyObjectOutput": {
             "type": "bool",
-            "value": "[empty(json(parameters('jsonObject1')))]"
+            "value": "[empty(json(parameters('jsonEmptyObject')))]"
         },
-        "jsonOutput2": {
+        "objectOutput": {
             "type": "object",
-            "value": "[json(parameters('jsonObject2'))]"
+            "value": "[json(parameters('jsonObject'))]"
         },
-        "paramOutput": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[json(parameters('jsonString'))]"
+        },
+        "booleanOutput": {
+            "type": "bool",
+            "value": "[json(parameters('jsonBoolean'))]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[json(parameters('jsonInt'))]"
+        },
+        "arrayOutput": {
+            "type": "array",
+            "value": "[json(parameters('jsonArray'))]"
+        },
+        "concatObjectOutput": {
             "type": "object",
-            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
+            "value": "[json(concat('{\"a\": \"', parameters('concatValue'), '\"}'))]"
         }
     }
 }
@@ -298,9 +386,13 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Value |
 | ---- | ---- | ----- |
-| jsonOutput1 | Boolean | True |
-| jsonOutput2 | Object | {"a": "b"} |
-| paramOutput | Object | {"a": "demo value"}
+| emptyObjectOutput | Boolean | True |
+| objectOutput | Object | {"a": "b"} |
+| stringOutput | String | test |
+| booleanOutput | Boolean | True |
+| intOutput | Entero | 3 |
+| arrayOutput | Array | [ 1, 2, 3 ] |
+| concatObjectOutput | Object | {"a": "demo value"} |
 
 ## <a name="length"></a>length
 
@@ -377,6 +469,44 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
 | objectLength | Int | 4 |
+
+## <a name="null"></a>null
+
+`null()`
+
+Devuelve NULL.
+
+### <a name="parameters"></a>Parámetros
+
+La función null no acepta ningún parámetro.
+
+### <a name="return-value"></a>Valor devuelto
+
+Valor booleano que siempre es null.
+
+### <a name="example"></a>Ejemplo
+
+En el siguiente ejemplo se utiliza la función null.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(null())]"
+        },
+    }
+}
+```
+
+El resultado del ejemplo anterior es:
+
+| Nombre | Tipo | Value |
+| ---- | ---- | ----- |
+| emptyOutput | Bool | True |
 
 ## <a name="union"></a>union
 

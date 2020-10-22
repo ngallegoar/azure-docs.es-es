@@ -1,18 +1,18 @@
 ---
 title: 'Administración de réplicas de lectura mediante la CLI de Azure y API REST en Azure Database for PostgreSQL: servidor único'
 description: 'Aprenda a administrar réplicas de lectura desde la CLI de Azure con API REST en Azure Database for PostgreSQL: servidor único'
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 491b3ecfc950fa5f76bfe78eec52e81433294c23
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 20bedf7e48b2e40cd67e33ea024a3ae0a9d305a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500085"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91707547"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Creación y administración de réplicas de lectura desde la CLI de Azure con API REST
 
@@ -35,12 +35,12 @@ Puede crear y administrar réplicas de lectura mediante la CLI de Azure.
 ### <a name="prerequisites"></a>Requisitos previos
 
 - [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- Un [servidor de Azure Database for PostgreSQL](quickstart-create-server-up-azure-cli.md) que se usará como servidor maestro.
+- Un [servidor de Azure Database for PostgreSQL](quickstart-create-server-up-azure-cli.md) que se usará como servidor principal.
 
 
-### <a name="prepare-the-master-server"></a>Preparación del servidor maestro
+### <a name="prepare-the-primary-server"></a>Preparación del servidor principal
 
-1. Compruebe el valor de `azure.replication_support` del servidor maestro. Debe ser al menos una réplica para que las réplicas de lectura funcionen.
+1. Compruebe el valor de `azure.replication_support` del servidor principal. Debe ser al menos una réplica para que las réplicas de lectura funcionen.
 
    ```azurecli-interactive
    az postgres server configuration show --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support
@@ -66,7 +66,7 @@ El comando [az postgres server replica create](/cli/azure/postgres/server/replic
 | --- | --- | --- |
 | resource-group | myresourcegroup |  Grupo de recursos donde se creará el servidor de réplica.  |
 | name | mydemoserver-replica | Nombre del nuevo servidor de réplica que se crea. |
-| source-server | mydemoserver | Nombre o identificador de recurso del servidor maestro existente desde el que replicar. Use el identificador de recurso si quiere que los grupos de recursos de la réplica y del maestro sean diferentes. |
+| source-server | mydemoserver | Nombre o identificador de recurso del servidor principal existente desde el que replicar. Use el identificador de recurso si quiere que los grupos de recursos de la réplica y del maestro sean diferentes. |
 
 En el siguiente ejemplo de la CLI, la réplica se crea en la misma región que el maestro.
 
@@ -83,44 +83,44 @@ az postgres server replica create --name mydemoserver-replica --source-server my
 > [!NOTE]
 > Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md). 
 
-Si no ha establecido el parámetro `azure.replication_support` en **REPLICA** en un servidor maestro de uso general u optimizado para memoria y no ha reiniciado el servidor, recibirá un error. Complete estos dos pasos antes de crear una réplica.
+Si no ha establecido el parámetro `azure.replication_support` en **REPLICA** en un servidor principal de uso general u optimizado para memoria y ha reiniciado el servidor, aparece un error. Complete estos dos pasos antes de crear una réplica.
 
 > [!IMPORTANT]
 > Revise la [sección sobre las consideraciones de la información general de Réplicas de lectura](concepts-read-replicas.md#considerations).
 >
-> Antes de actualizar la configuración de un servidor maestro a un nuevo valor, actualice la configuración de réplica a un valor igual o superior. Esta acción ayuda a que la réplica haga frente a los cambios realizados en el servidor maestro.
+> Antes de actualizar la configuración de un servidor principal a un nuevo valor, actualice la configuración de réplica a un valor igual o superior. Esta acción ayuda a que la réplica haga frente a los cambios realizados en el servidor maestro.
 
 ### <a name="list-replicas"></a>Lista de réplicas
-Puede ver la lista de réplicas de un servidor maestro con el comando [az postgres server replica list](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list).
+Puede ver la lista de réplicas de un servidor principal con el comando [az postgres server replica list](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list).
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Detención de la replicación en un servidor de réplica
-Puede detener la replicación entre un servidor maestro y una réplica de lectura mediante el uso del comando [az postgres server replica stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop).
+Puede detener la replicación entre un servidor principal y una réplica de lectura mediante el uso del comando [az postgres server replica stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop).
 
-Después de detener la replicación en un servidor maestro y en una réplica de lectura, este proceso no se puede deshacer. La réplica de lectura se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor independiente no puede volver a convertirse en una réplica.
+Después de detener la replicación en un servidor principal y en una réplica de lectura, este proceso no se puede deshacer. La réplica de lectura se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor independiente no puede volver a convertirse en una réplica.
 
 ```azurecli-interactive
 az postgres server replica stop --name mydemoserver-replica --resource-group myresourcegroup 
 ```
 
-### <a name="delete-a-master-or-replica-server"></a>Eliminación de un servidor maestro o de réplica
-Para eliminar un servidor maestro o de réplica, use el comando [az postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete).
+### <a name="delete-a-primary-or-replica-server"></a>Eliminación de un servidor principal o de réplica
+Para eliminar un servidor principal o de réplica, use el comando [az postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete).
 
-Cuando se elimina un servidor maestro, la replicación se detiene en todas las réplicas de lectura. Las réplicas de lectura se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
+Cuando se elimina un servidor principal, la replicación se detiene en todas las réplicas de lectura. Las réplicas de lectura se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
 
 ```azurecli-interactive
 az postgres server delete --name myserver --resource-group myresourcegroup
 ```
 
-## <a name="rest-api"></a>API DE REST
+## <a name="rest-api"></a>API REST
 Puede crear y administrar réplicas de lectura mediante [API REST de Azure](/rest/api/azure/).
 
-### <a name="prepare-the-master-server"></a>Preparación del servidor maestro
+### <a name="prepare-the-primary-server"></a>Preparación del servidor principal
 
-1. Compruebe el valor de `azure.replication_support` del servidor maestro. Debe ser al menos una réplica para que las réplicas de lectura funcionen.
+1. Compruebe el valor de `azure.replication_support` del servidor principal. Debe ser al menos una réplica para que las réplicas de lectura funcionen.
 
    ```http
    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/configurations/azure.replication_support?api-version=2017-12-01
@@ -166,25 +166,25 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md). 
 
-Si no ha establecido el parámetro `azure.replication_support` en **REPLICA** en un servidor maestro de uso general u optimizado para memoria y no ha reiniciado el servidor, recibirá un error. Complete estos dos pasos antes de crear una réplica.
+Si no ha establecido el parámetro `azure.replication_support` en **REPLICA** en un servidor principal de uso general u optimizado para memoria y ha reiniciado el servidor, aparece un error. Complete estos dos pasos antes de crear una réplica.
 
-Una réplica se crea con la misma configuración de proceso y almacenamiento que el servidor maestro. Después de crear una réplica, se pueden cambiar varias configuraciones independientemente del servidor maestro: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copia de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
+Una réplica se crea con la misma configuración de proceso y almacenamiento que el servidor maestro. Después de crear una réplica, se pueden cambiar varios valores independientemente del servidor principal: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copias de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
 
 
 > [!IMPORTANT]
-> Antes de actualizar la configuración de un servidor maestro a un nuevo valor, actualice la configuración de réplica a un valor igual o superior. Esta acción ayuda a que la réplica haga frente a los cambios realizados en el servidor maestro.
+> Antes de actualizar la configuración de un servidor principal a un nuevo valor, actualice la configuración de réplica a un valor igual o superior. Esta acción ayuda a que la réplica haga frente a los cambios realizados en el servidor maestro.
 
 ### <a name="list-replicas"></a>Lista de réplicas
-Puede ver la lista de réplicas de un servidor maestro mediante la [API de lista de réplicas](/rest/api/postgresql/replicas/listbyserver):
+Puede ver la lista de réplicas de un servidor principal mediante la [API de lista de réplicas](/rest/api/postgresql/replicas/listbyserver):
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Detención de la replicación en un servidor de réplica
-Puede detener la replicación entre un servidor maestro y una réplica de lectura mediante la [API de actualización](/rest/api/postgresql/servers/update).
+Puede detener la replicación entre un servidor principal y una réplica de lectura mediante la [API de actualización](/rest/api/postgresql/servers/update).
 
-Después de detener la replicación en un servidor maestro y en una réplica de lectura, este proceso no se puede deshacer. La réplica de lectura se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor independiente no puede volver a convertirse en una réplica.
+Después de detener la replicación en un servidor principal y en una réplica de lectura, este proceso no se puede deshacer. La réplica de lectura se convierte en un servidor independiente que admite operaciones de lectura y escritura. Este servidor independiente no puede volver a convertirse en una réplica.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}?api-version=2017-12-01
@@ -198,10 +198,10 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-### <a name="delete-a-master-or-replica-server"></a>Eliminación de un servidor maestro o de réplica
-Para eliminar un servidor maestro o una réplica, use la [API de eliminación](/rest/api/postgresql/servers/delete):
+### <a name="delete-a-primary-or-replica-server"></a>Eliminación de un servidor principal o de réplica
+Para eliminar un servidor principal o de réplica, use la [API de eliminación](/rest/api/postgresql/servers/delete):
 
-Cuando se elimina un servidor maestro, la replicación se detiene en todas las réplicas de lectura. Las réplicas de lectura se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
+Cuando se elimina un servidor principal, la replicación se detiene en todas las réplicas de lectura. Las réplicas de lectura se convierten en servidores independientes que ahora admiten tanto lectura como escritura.
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}?api-version=2017-12-01

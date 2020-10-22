@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 2ef7095d186902425adb5065c470325be1283023
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: d06501abe69ce9b06656cfa8949c42bb53a03983
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475743"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91439241"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Conector de Azure Monitor Logs para Logic Apps y Power Automate
 [Azure Logic Apps](../../logic-apps/index.yml) y [Power Automate](https://flow.microsoft.com) le permite crear flujos de trabajo automatizados, con cientos de acciones para diversos servicios. El conector de Azure Monitor Logs le permite crear flujos de trabajo destinados a recuperar datos de un área de trabajo de Log Analytics o de una aplicación Application Insights en Azure Monitor. En este artículo se describen las acciones que se incluyen con el conector y se proporciona un tutorial para crear un flujo de trabajo con estos datos.
@@ -68,7 +68,7 @@ Haga clic en **+ Nuevo paso** para agregar una acción que se ejecute después d
 
 Haga clic en **Azure Log Analytics: ejecutar consulta y ver resultados**.
 
-![Acción Ejecutar la consulta y visualizar los resultados](media/logicapp-flow-connector/select-query-action-visualize.png)
+![Captura de pantalla de una acción nueva agregada a un paso en el Diseñador de aplicación lógica. Registros de Azure Monitor aparece resaltado debajo de Elegir una acción.](media/logicapp-flow-connector/select-query-action-visualize.png)
 
 
 ### <a name="add-azure-monitor-logs-action"></a>Adición de una acción de Azure Monitor Logs
@@ -87,7 +87,7 @@ Event
 
 Seleccione *Establecer en la consulta* en **Intervalo de tiempo** y **Tabla HTML** en **Tipo de gráfico**.
    
-![Acción Ejecutar la consulta y visualizar los resultados](media/logicapp-flow-connector/run-query-visualize-action.png)
+![Captura de pantalla de la configuración de la acción nueva de Azure Monitor Logs denominada Ejecutar consulta y ver resultados.](media/logicapp-flow-connector/run-query-visualize-action.png)
 
 La cuenta asociada a la conexión actual enviará el correo. Puede hacer clic en **Cambiar conexión** para especificar otra cuenta.
 

@@ -3,12 +3,12 @@ title: Colas y temas de Service Bus como controladores de eventos para eventos d
 description: Aquí se describe cómo puede usar las colas y temas de Service Bus como controladores de eventos para eventos de Azure Event Grid.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 9edf9ebd66eca2f1a6749d40ee22437bf17e55c4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: ab219f0dc6009dc01d5915995fc04094e72a88cf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440803"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91629512"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Colas y temas de Service Bus como controladores de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar eventos y **Azure Service Bus** es uno de ellos. 
@@ -51,7 +51,7 @@ az eventgrid event-subscription create \
 ```
 
 ## <a name="message-properties"></a>Propiedades del mensaje
-Si utiliza un **tema o cola de Service Bus** como controlador de eventos para eventos de Event Grid, establezca los siguientes encabezados de mensaje: 
+Si usa una **cola o un tema de Service Bus** como controlador de eventos de Event Grid, estas son las propiedades que recibirá en los encabezados del mensaje: 
 
 | Nombre de propiedad | Descripción |
 | ------------- | ----------- | 

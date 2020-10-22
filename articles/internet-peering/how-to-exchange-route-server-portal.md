@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
-ms.openlocfilehash: 1eaf7413b01bceacbcbf3640bfe654fdad026672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e10cd91eadd338217845b1504e8e9160bccfc98
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700675"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537198"
 ---
 # <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Creación o modificación de un emparejamiento de Exchange con el servidor de ruta en Azure Portal
 
@@ -74,7 +74,7 @@ Como proveedor de intercambio de Internet, puede crear una solicitud de empareja
 1.  En **Direct Peering Connection** (Conexión de emparejamiento directo), rellene los siguientes detalles de la sesión de BGP:
 
     > [!div class="mx-imgBorder"]
-    > ![Configuración del servidor de ruta de emparejamiento directo](./media/setup-exchange-conf-tab-direct-route.png)
+    > ![Captura de pantalla que muestra el panel Direct Peering Connection (Conexión de emparejamiento directo) con detalles agregados.](./media/setup-exchange-conf-tab-direct-route.png)
 
 
      * En Peering Facility (Instalación de emparejamiento), seleccione la ubicación física adecuada para el emparejamiento.
@@ -99,19 +99,19 @@ Como proveedor de intercambio de Internet, puede crear una solicitud de empareja
 1. Seleccione **ASN registrados** en la sección Configuración.
 
     > [!div class="mx-imgBorder"]
-    > ![Configuración del servidor de ruta de emparejamiento directo](./media/setup-exchange-registered-asn.png)
+    > ![Captura de pantalla que muestra el panel Emparejamiento con el elemento de menú Registered A S Ns (A S N registrados) activado.](./media/setup-exchange-registered-asn.png)
 
 1. Seleccione **Add registered ASN** (Agregar ASN registrado) para crear un nuevo ASN de cliente en su suscripción de Exchange.
 
     > [!div class="mx-imgBorder"]
-    > ![Configuración del servidor de ruta de emparejamiento directo](./media/setup-exchange-register-new-asn.png)
+    > ![Captura de pantalla que muestra el panel Register an A S N (Registrar un A S N) con los cuadros de texto Name (Nombre) y A S N.](./media/setup-exchange-register-new-asn.png)
 
 1. En Register an ASN (Registrar un ASN), seleccione un nombre, rellene el ASN de cliente y haga clic en Guardar.
 
 1. En Registered ASNs (ASN registrados), habrá una clave de prefijo asociada asignada a cada ASN. Como proveedor de Exchange, tendrá que proporcionar esta clave de prefijo al cliente para que pueda registrar Peering Service en su suscripción.
 
     > [!div class="mx-imgBorder"]
-    > ![Configuración del servidor de ruta de emparejamiento directo](./media/setup-exchange-register-asn-prefixkey.png)
+    > ![Captura de pantalla que muestra el panel Registered A S Ns (A S N registrados) con claves de prefijo.](./media/setup-exchange-register-asn-prefixkey.png)
 
 
 

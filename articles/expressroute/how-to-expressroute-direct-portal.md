@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 52aba71ba289a1b5479a6a9eaef7e07418b563fd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: dac9df23209fa93b8060ad80d58fd66f7a356ecd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986374"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91651486"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Creación de un recurso de ExpressRoute Direct mediante Azure Portal
 
@@ -26,7 +26,7 @@ Compruebe que el proveedor de recursos **Microsoft.Network** está registrado en
 1. Acceda a la configuración de la suscripción como se describe en [Proveedores y tipos de recursos de Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 1. En la suscripción, en **Proveedores de recursos**, compruebe que el proveedor **Microsoft.Network** muestra un estado **Registrado**. Si el proveedor de recursos Microsoft.Network no está en la lista de proveedores registrados, agréguelo.
 
-## <a name="1-create-expressroute-direct"></a><a name="create-erdir"></a>1. Creación de un recurso de ExpressRoute Direct
+## <a name="create-expressroute-direct"></a><a name="create-erdir"></a>Creación de un recurso de ExpressRoute Direct
 
 1. En el menú [Azure Portal](https://portal.azure.com) o en la página **Inicio**, seleccione **Crear un recurso**.
 
@@ -65,7 +65,11 @@ Compruebe que el proveedor de recursos **Microsoft.Network** está registrado en
 
 1. Seleccione **Crear**. Verá un mensaje en el que se le indica que la implementación está en curso. El estado se mostrará en esta página a medida que se creen los recursos. 
 
-## <a name="2-change-admin-state-of-links"></a><a name="state"></a>2. Cambiar el estado de administración de vínculos
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Generación de la Carta de autorización (LOA)
+
+En este momento, la generación de la carta de autorización no está disponible en el portal. Use **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** o **[Azure CLI](expressroute-howto-expressroute-direct-cli.md#authorization)** para obtener la carta de autorización.
+
+## <a name="change-admin-state-of-links"></a><a name="state"></a>Cambiar el estado de administración de los vínculos
 
 Este proceso debe usarse para llevar a cabo una prueba de nivel 1, para garantizar que cada conexión cruzada está correctamente revisada en cada enrutador principal y secundario.
 
@@ -83,7 +87,7 @@ Este proceso debe usarse para llevar a cabo una prueba de nivel 1, para garantiz
 
 1. Repita el mismo proceso para **vínculo2**.
 
-## <a name="3-create-a-circuit"></a><a name="circuit"></a>3. Crear un circuito
+## <a name="create-a-circuit"></a><a name="circuit"></a>Crear un circuito
 
 De forma predeterminada, puede crear 10 circuitos en la suscripción donde se encuentra el recurso ExpressRoute Direct. Si desea aumentar este número, puede ponerse en contacto con el soporte técnico. Recuerde que debe realizar usted mismo el seguimiento tanto del ancho de banda aprovisionado como el del utilizado. El ancho de banda aprovisionado es la suma del ancho de banda de todos los circuitos en el recurso de ExpressRoute Direct. El ancho de banda utilizado es el uso físico de las interfaces físicas subyacentes.
 

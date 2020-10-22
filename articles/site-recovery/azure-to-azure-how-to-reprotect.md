@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: c3e4b1c97c5fcc86a863313c2d6f54d93f26390e
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3b9edab6e908b4506a92c78aa8f3f53277b9c17b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055048"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91360878"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotección de máquinas virtuales de Azure conmutadas por error en la región principal
 
@@ -31,7 +31,7 @@ Al [conmutar por error](site-recovery-failover.md) las máquinas virtuales de Az
 
 1. En **Almacén** > **Elementos replicados**, haga clic con el botón derecho en la máquina virtual que se conmutó por error y, luego, seleccione **Volver a proteger**. La dirección de reprotección debe mostrarse desde la ubicación secundaria a la principal.
 
-   ![Reprotección](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Captura de pantalla que muestra una máquina virtual con un menú contextual con la opción Volver a proteger seleccionada.](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 1. Revise el grupo de recursos, la red, el almacenamiento y los conjuntos de disponibilidad. A continuación, haga clic en **Aceptar**. Si hay algún recurso marcado como nuevo, se crea como parte del proceso de reprotección.
 1. Este trabajo de reprotección inicializa el sitio de destino con los datos más recientes. Una vez finalizado el proceso, se produce la replicación diferencial. Después, puede conmutar por recuperación al sitio principal. Puede seleccionar la cuenta de almacenamiento o la red que desea usar durante la reprotección mediante la opción de personalización.

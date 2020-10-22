@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: dd61ac9751010d57cbf5b742a5081beb3ac560e9
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5d161b287f9706473c96d25684fa23a2c94b8c3e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826067"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91532160"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migración de trabajos de Azure Scheduler to Azure Logic Apps
 
@@ -96,7 +96,7 @@ La creación de una aplicación lógica individual permite ejecutar varios traba
 
    Por ejemplo, puede incluir una acción de HTTP que envía una solicitud a una dirección URL o las acciones que trabajar con Colas de almacenamiento, colas de Service Bus o temas de Service Bus:
 
-   ![Acción HTTP](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
+   ![La captura de pantalla muestra una acción Retraso hasta, seguida de una acción H T T P con un método POST.](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
 1. Cuando haya terminado, guarde la aplicación lógica.
 
@@ -155,7 +155,7 @@ En Logic Apps, cada trabajo único se ejecuta como una instancia de la ejecució
 
    Por ejemplo, puede incluir una acción de HTTP que envía una solicitud a una dirección URL o las acciones que trabajar con Colas de almacenamiento, colas de Service Bus o temas de Service Bus:
 
-   ![Acción HTTP](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
+   ![La captura de pantalla muestra una acción H T T P con un método POST.](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
 1. Cuando haya terminado, guarde la aplicación lógica.
 

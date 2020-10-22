@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4985784a17f2e0350a7b2c7a4f62f574862d50c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423803"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91714353"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Uso de Azure Private Link para conectar redes a Azure Automation de forma segura (versión preliminar)
 
@@ -128,7 +128,7 @@ Seleccione el recurso para ver todos los detalles. Esto crea un punto de conexi�
 
 Del mismo modo, se crea un nombre de dominio completo (FQDN) único para State Configuration (agentsvc) y para el tiempo de ejecución del trabajo de Hybrid Runbook Worker (jrds). Cada uno de ellos tiene asignado una IP independiente de la red virtual y el **estado de conexión** se muestra como **aprobado**.
 
-Si el consumidor del servicio tiene permisos de RBAC en el recurso de Automation, podrá elegir el método de aprobación automático. En este caso, cuando el recurso de proveedor de Automation recibe la solicitud, no se requerirá ninguna acción del proveedor de servicios y la conexión se aprobará automáticamente.
+Si el consumidor del servicio tiene permisos de RBAC de Azure en el recurso de Automation, podrá elegir el método de aprobación automático. En este caso, cuando el recurso de proveedor de Automation recibe la solicitud, no se requerirá ninguna acción del proveedor de servicios y la conexión se aprobará automáticamente.
 
 ## <a name="set-public-network-access-flags"></a>Establecimiento de marcas de acceso de red
 

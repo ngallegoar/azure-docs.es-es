@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/23/2020
 ms.author: ryanwi
-ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f1c35fc80a4ab5b293a974b8f2901716e65f32b1
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.reviewer: hirsin, jesakowi, jmprieur, marsma
+ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
+ms.openlocfilehash: 79475414f6785474596beae208fefae81a673dea
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705697"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842689"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
 
@@ -48,15 +48,15 @@ En OAuth 2.0, estos tipos de permisos se denominan *ámbitos*. A menudo se hace 
 * Escribir en el calendario de un usuario mediante `Calendars.ReadWrite`
 * Enviar correo electrónico con un usuario mediante `Mail.Send`
 
-Una aplicación suele solicitar estos permisos, para lo que especifica los ámbitos en las solicitudes al punto de conexión de la autorización de la Plataforma de identidad de Microsoft. Aun así, ciertos permisos con privilegios elevados solo se pueden conceder con el consentimiento del administrador y se solicitan o conceden con el [punto de conexión de consentimiento del administrador](v2-permissions-and-consent.md#admin-restricted-permissions). Siga leyendo para obtener más información.
+Una aplicación suele solicitar estos permisos, para lo que especifica los ámbitos en las solicitudes al punto de conexión de la autorización de la Plataforma de identidad de Microsoft. Aun así, ciertos permisos con privilegios elevados solo se pueden conceder con el consentimiento del administrador y se solicitan o conceden con el [punto de conexión de consentimiento del administrador](#admin-restricted-permissions). Siga leyendo para obtener más información.
 
 ## <a name="permission-types"></a>Tipos de permisos
 
 La plataforma de identidad de Microsoft admite dos tipos de permisos: **permisos delegados** y **permisos de aplicación**.
 
-* **Permisos delegados**: se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y se le delega el permiso a la aplicación para actuar como el usuario que inició sesión al realizar llamadas al recurso de destino. Algunos permisos delegados pueden ser consentidos por usuarios que no sean administradores, pero otros con más privilegios requieren el [consentimiento del administrador](v2-permissions-and-consent.md#admin-restricted-permissions). Para información sobre qué roles de administrador pueden consentir los permisos delegados, consulte [Permisos de roles de administrador en Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Permisos delegados**: se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y se le delega el permiso a la aplicación para actuar como el usuario que inició sesión al realizar llamadas al recurso de destino. Algunos permisos delegados pueden ser consentidos por usuarios que no sean administradores, pero otros con más privilegios requieren el [consentimiento del administrador](#admin-restricted-permissions). Para información sobre qué roles de administrador pueden consentir los permisos delegados, consulte [Permisos de roles de administrador en Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-* **Permisos de aplicación**: los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano.  Los permisos de aplicación solo pueden ser [aceptados por un administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+* **Permisos de aplicación**: los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano.  Los permisos de aplicación solo pueden ser [aceptados por un administrador](#requesting-consent-for-an-entire-tenant).
 
 _Los permisos efectivos_ son los que la aplicación tendrá al realizar solicitudes al recurso de destino. Es importante comprender la diferencia entre, por un lado, los permisos delegados y los de aplicación que se conceden a una aplicación y, por otro, sus permisos efectivos al realizar llamadas al recurso de destino.
 
@@ -302,6 +302,16 @@ response_type=token            //code or a hybrid flow is also possible here
 
 Se abre una pantalla de consentimiento para todos los permisos registrados (si es aplicable en función de las descripciones anteriores de consentimiento y `/.default`); a continuación, se devuelve un token de identificación en lugar de un token de acceso.  Este comportamiento se da para determinados clientes heredados que migran de ADAL a MSAL, pero **no deben** usarlos los nuevos clientes que tienen como destino el punto de conexión de la Plataforma de identidad de Microsoft.
 
+### <a name="client-credentials-grant-flow-and-default"></a>Flujo de concesión de credenciales de cliente y ./default
+
+`./default` también se utiliza cuando se solicitan permisos de aplicación (o *roles*) en una aplicación no interactiva, como una aplicación de demonio que usa el flujo de concesión de [credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) para llamar a una API web.
+
+Para crear permisos de aplicación (roles) para una API web, consulte [Procedimientos: Agregar roles de aplicación en la aplicación y recibirlos en el token](howto-add-app-roles-in-azure-ad-apps.md).
+
+Las solicitudes de credenciales de cliente en la aplicación cliente **deben** incluir `scope={resource}/.default`, donde `{resource}` es la API web a la que la aplicación tiene previsto llamar. **No** se admite la emisión de una solicitud de credenciales de cliente con permisos de aplicación individuales (roles). Se incluirán en el token de acceso devuelto todos los permisos de aplicación (roles) que se han concedido para esa API web.
+
+Para conceder acceso a los permisos de aplicación que defina, incluida la concesión de consentimiento de administrador para la aplicación, consulte [Inicio rápido: Configuración de una aplicación cliente para acceder a las API web](quickstart-configure-app-access-web-apis.md).
+
 ### <a name="trailing-slash-and-default"></a>Barra diagonal final y /.default
 
 Algunos URI de recursos tienen una barra diagonal final (`https://contoso.com/` en lugar de `https://contoso.com`), lo que puede causar problemas con la validación de tokens.  Esto puede ocurrir principalmente cuando se solicita un token para la administración de recursos de Azure (`https://management.azure.com/`), que tiene una barra diagonal final en el URI de recurso y requiere que esté presente cuando se solicita el token.  Por lo tanto, al solicitar un token para `https://management.azure.com/` y usar `/.default`, debe solicitar `https://management.azure.com//.default` (tenga en cuenta la doble barra diagonal).
@@ -311,3 +321,8 @@ En general, si ha validado que se está emitiendo el token y la API que debe ace
 ## <a name="troubleshooting-permissions-and-consent"></a>Solución de problemas con permisos y consentimientos
 
 Si usted o los usuarios de su aplicación observan errores inesperados durante el proceso de consentimiento, consulte en este artículo los pasos para solucionar el problema: [Error inesperado al otorgar consentimiento a una aplicación](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Tokens de identificador | Plataforma de identidad de Microsoft](id-tokens.md)
+* [Tokens de acceso | Plataforma de identidad de Microsoft](access-tokens.md)

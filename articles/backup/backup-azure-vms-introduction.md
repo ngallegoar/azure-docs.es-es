@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de máquina virtual de Azure
 description: En este artículo, aprenderá cómo el servicio Azure Backup realiza copias de seguridad de las máquinas virtuales de Azure y cómo seguir los procedimientos recomendados.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 30d27f3f9c559fd149bd45f303127e0eec40b878
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014649"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173851"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -51,7 +51,7 @@ Al realizar la copia de seguridad de máquinas virtuales de Azure con Azure Back
 
 **Cifrado** | **Detalles** | **Soporte técnico**
 --- | --- | ---
-**SSE** | Con SSE, Azure Storage proporciona cifrado en reposo al cifrar automáticamente los datos antes de almacenarlos. Azure Storage también descifra los datos antes de recuperarlos. Azure Backup admite copias de seguridad de máquinas virtuales con dos tipos de Storage Service Encryption:<li> **SEE con claves administradas por la plataforma**: Este cifrado es el predeterminado para todos los discos de las máquinas virtuales. Consulte más información [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).<li> **SEE con claves administradas por el cliente**. Con CMK, puede administrar las claves usadas para cifrar los discos. Consulte más información [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys). | Azure Backup usa SSE para el cifrado en reposo de las VM de Azure.
+**SSE** | Con SSE, Azure Storage proporciona cifrado en reposo al cifrar automáticamente los datos antes de almacenarlos. Azure Storage también descifra los datos antes de recuperarlos. Azure Backup admite copias de seguridad de máquinas virtuales con dos tipos de Storage Service Encryption:<li> **SEE con claves administradas por la plataforma**: Este cifrado es el predeterminado para todos los discos de las máquinas virtuales. Consulte más información [aquí](../virtual-machines/windows/disk-encryption.md#platform-managed-keys).<li> **SEE con claves administradas por el cliente**. Con CMK, puede administrar las claves usadas para cifrar los discos. Consulte más información [aquí](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). | Azure Backup usa SSE para el cifrado en reposo de las VM de Azure.
 **Azure Disk Encryption** | Azure Disk Encryption cifra los discos de datos y de sistema operativo para VM de Azure.<br/><br/> Azure Disk Encryption se integra con las claves de cifrado de BitLocker (BEK), que se protegen en un almacén de claves como secretos. Azure Disk Encryption también se integra con las claves de cifrado de las claves de Azure Key Vault (KEK). | Azure Backup admite la copia de seguridad de VM de Azure administradas y no administradas cifradas con solo BEK solo o con BEK junto con KEK.<br/><br/> Se crea una copia de seguridad tanto de las BEK como las KEK y estas se cifran.<br/><br/> Dado que se crea una copia de seguridad de las KEK y BEK, los usuarios con los permisos necesarios pueden restaurar las claves y los secretos en el almacén de claves, si fuera necesario. Estos usuarios también pueden recuperar la VM cifrada.<br/><br/> Los usuarios no autorizados o Azure no pueden leer las claves y los secretos cifrados.
 
 Para VM de Azure administradas y no administradas, Azure Backup admite VM cifradas con solo BEK o VM cifradas con BEK y KEK.
@@ -105,6 +105,13 @@ Estos escenarios comunes pueden afectar al tiempo total de copia de seguridad:
 - **Discos fragmentados:** las operaciones de copia de seguridad son más rápidas los cambios en el disco son contiguos. Si los cambios se expanden horizontalmente y se fragmentan a lo largo de un disco, la copia de seguridad será más lenta.
 - **Actividad de disco:** si los discos protegidos que están en proceso de copia de seguridad incremental tienen una actividad diaria de más de 200 GB, la copia de seguridad puede tardar mucho tiempo (más de ocho horas) en completarse.
 - **Versiones de Azure Backup:** la versión más reciente de Azure Backup (conocida como la versión de restauración instantánea) usa un proceso más optimizado que la comparación de la suma de comprobación para identificar los cambios. Sin embargo, si usa la restauración instantánea y ha eliminado una instantánea de copia de seguridad, la copia de seguridad cambia a la comparación de la suma de comprobación. En este caso, la operación de copia de seguridad será superior a 24 horas (o un sufrirá un error).
+
+### <a name="restore-performance"></a>Rendimiento de la restauración
+
+Estos escenarios comunes pueden afectar al tiempo total de restauración:
+
+- El tiempo total de restauración depende de las operaciones de entrada/salida por segundo (IOPS) y el rendimiento de la cuenta de almacenamiento.
+- El tiempo total de la restauración puede verse afectado si la cuenta de almacenamiento de destino se carga con otras operaciones de lectura y escritura de aplicación. Para mejorar la operación de restauración, seleccione una cuenta de almacenamiento que no tenga cargados otros datos de aplicación.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

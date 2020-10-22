@@ -4,12 +4,12 @@ description: Busque las respuestas a preguntas habituales sobre la copia de segu
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 9c6e99b81ce10cfabd4109bb18376b2579edef20
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 6abfdb09fe16272e870fff517359759968417f79
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500341"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91461230"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 
@@ -101,6 +101,10 @@ Puede seleccionar la base de datos, que ahora tiene un nuevo nombre y configurar
 Una base de datos que [se agrega a una instancia protegida automáticamente](backup-sql-server-database-azure-vms.md#enable-auto-protection) puede no aparecer inmediatamente entre los elementos protegidos. Esto se debe a que la detección normalmente se ejecuta cada ocho horas. Sin embargo, puede detectar y proteger nuevas bases de datos de inmediato si ejecuta manualmente una detección seleccionando **Volver a detectar bases de datos**, tal como se muestra en la siguiente imagen:
 
   ![Detectar manualmente una base de datos recién agregada](./media/backup-azure-sql-database/view-newly-added-database.png)
+  
+## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>¿Se pueden proteger bases de datos con TDE (Cifrado de datos transparente) activado y permanecerán estas bases de datos cifradas durante todo el proceso de copia de seguridad?
+
+Sí, Azure Backup admite la copia de seguridad de bases de datos o servidores SQL Server con TDE habilitado. Backup admite [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) con claves administradas por Azure o con claves administradas por el cliente (BYOK).  Backup no realiza ningún cifrado de SQL como parte del proceso de copia de seguridad, por lo que la base de datos permanecerá cifrada cuando se realice una copia de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

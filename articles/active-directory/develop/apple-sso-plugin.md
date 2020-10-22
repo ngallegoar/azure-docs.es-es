@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e43ce318ca9e9b14ad059dd296799667653e0f95
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561353"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530704"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Complemento de Microsoft Enterprise SSO para dispositivos Apple (versión preliminar)
 
@@ -93,7 +93,7 @@ No es necesario agregar aplicaciones que usen MSAL o ASWebAuthenticationSession 
 
 De forma predeterminada, el complemento Microsoft Enterprise SSO proporciona inicio de sesión único en aplicaciones autorizadas solo cuando dicho complemento ya tiene una credencial compartida. El complemento Microsoft Enterprise SSO puede adquirir una credencial compartida cuando otra aplicación basada en ADAL o MSAL la llama durante la adquisición de tokens. La mayoría de las aplicaciones de Microsoft usan Microsoft Authenticator o el complemento de inicio de sesión único. Esto significa que, de forma predeterminada, lo mejor es el inicio de sesión único fuera de los flujos de las aplicaciones nativas.  
 
-Al habilitar la marca `browser_sso_interaction_enabled`, las aplicaciones que no son de MSAL y el explorador Safari pueden realizar el arranque inicial y obtener una credencial compartida. Si el complemento Microsoft Enterprise SSO aún no tiene una credencial compartida, intentará obtener una cada vez que se solicite un inicio de sesión desde una dirección URL de Azure AD en el explorador Safari, ASWebAuthenticationSession, SafariViewController u otra aplicación nativa incluida en la lista de permitidos.  
+Al habilitar la marca `browser_sso_interaction_enabled`, las aplicaciones que no son de MSAL y el explorador Safari pueden realizar el arranque inicial y obtener una credencial compartida. Si el complemento Microsoft Enterprise SSO aún no tiene una credencial compartida, intentará obtener una cada vez que se solicite un inicio de sesión desde una dirección URL de Azure AD en el explorador Safari, ASWebAuthenticationSession, SafariViewController u otra aplicación nativa incluida permitida.  
 
 - **Clave**: `browser_sso_interaction_enabled`
 - **Tipo**: `Integer`

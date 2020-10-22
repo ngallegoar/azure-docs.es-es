@@ -3,12 +3,12 @@ title: Carga de archivos VHD en Azure DevTest Labs mediante el Explorador de Sto
 description: Carga de un archivo VHD en la cuenta de almacenamiento del laboratorio mediante el Explorador de Microsoft Azure Storage
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6ed6ace63a135628b6d306b946c0356091bf1bd2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d4e421932ebba5d4f389000c12bcf44ac2f37599
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654521"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91282534"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Carga de un archivo VHD en la cuenta de almacenamiento del laboratorio mediante el Explorador de Microsoft Azure Storage
 
@@ -90,13 +90,13 @@ Los siguientes pasos le guían en la carga de un archivo VHD en DevTest Labs med
 
     1. En el panel derecho del Explorador de Storage, verá una lista de los blobs en el contenedor de blobs **uploads** de la cuenta de almacenamiento del laboratorio. En la barra de herramientas del editor de blobs, seleccione **Cargar** 
         
-        ![Botón Cargar][6]
+        ![Captura de pantalla que muestra el panel derecho del Explorador de Storage con el botón "Upload" (Cargar) seleccionado.][6]
     
     1. En el menú desplegable **Cargar**, seleccione **Upload files...** (Cargar archivos...).
     
     1. En el diálogo **Upload files** (Cargar archivos), seleccione los puntos suspensivos.
         
-        ![Selección del archivo][8]  
+        ![Captura de pantalla que muestra el cuadro de diálogo "Upload files" (Cargar archivos) con los puntos suspensivos seleccionados.][8]  
 
     1. En el diálogo **Select files to upload** (Seleccionar archivos para cargar), vaya al archivo VHD deseado, selecciónelo y luego haga clic en **Abrir**.
     

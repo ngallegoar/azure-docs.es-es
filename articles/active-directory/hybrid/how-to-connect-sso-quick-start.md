@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658751"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91295032"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -125,7 +125,7 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 1. Abra la herramienta Editor de administración de directivas de grupo.
 2. Edite la directiva de grupo que se aplica a algunos o todos los usuarios. En este ejemplo se usa la **directiva de dominio predeterminada**.
 3. Vaya a **Configuración de usuario** > **Directiva** > **Plantillas administrativas** > **Componentes de Windows** > **Internet Explorer** > **Panel de control de Internet** > **Página de seguridad**. A continuación, seleccione **Lista de asignación de sitio a zona**.
-    ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso6.png)
+    ![Captura de pantalla que muestra la "Página de seguridad" con la opción "Lista de asignación de sitio a zona" seleccionada.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite la directiva y escriba los valores siguientes en el cuadro de diálogo:
    - **Nombre de valor**: dirección URL de Azure AD a la que se reenvían los vales de Kerberos.
    - **Valor** (datos): **1** indica la zona de intranet.
@@ -142,15 +142,15 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 
 5. Seleccione **Aceptar** y, después, otra vez **Aceptar**.
 
-    ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![Captura de pantalla que muestra la ventana "Mostrar contenido" con una asignación de zona seleccionada.](./media/how-to-connect-sso-quick-start/sso7.png)
 
 6. Vaya a **Configuración de usuario** > **Directiva** > **Plantillas administrativas** > **Componentes de Windows** > **Internet Explorer** > **Panel de control de Internet** > **Página de seguridad** > **Zona Intranet**. Después, seleccione **Permitir actualizaciones en la barra de estado a través de script**.
 
-    ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![Captura de pantalla que muestra la página "Zona de intranet" con la opción "Permitir actualizaciones en la barra de estado a través de script" seleccionada.](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. Habilite la configuración de directiva y después seleccione **Aceptar**.
 
-    ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![Captura de pantalla que muestra la ventana "Permitir actualizaciones en la barra de estado a través de script" con la configuración de directiva habilitada.](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>Opción "Preferencia de directiva de grupo": pasos detallados
 
@@ -158,7 +158,7 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 2. Edite la directiva de grupo que se aplica a algunos o todos los usuarios. En este ejemplo se usa la **directiva de dominio predeterminada**.
 3. Vaya a **Configuración de usuario** > **Preferencias** > **Configuración de Windows** > **Registro** > **Nuevo** > **Elemento del Registro**.
 
-    ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![Captura de pantalla que muestra las opciones "Registro" y "Elemento del registro" seleccionadas.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Escriba los siguientes valores en los campos apropiados y haga clic en **Aceptar**.
    - **Ruta de acceso de la clave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
@@ -166,7 +166,7 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
    - **Tipo de valor**: ***REG_DWORD***
    - **Información del valor**: ***00000001***
  
-     ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Captura de pantalla que muestra la ventana "Nuevas propiedades de Registro".](./media/how-to-connect-sso-quick-start/sso16.png)
  
      ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso17.png)
 

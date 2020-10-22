@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 07a8c26f7fc314680c51270ebafe03d4e3a84757
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4d9a5900990ea41788ced5f25690619fbde68d33
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749862"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854994"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades administradas en Azure HDInsight
 
@@ -27,7 +27,7 @@ Hay dos tipos de identidades administradas: asignadas por el sistema y asignadas
 
 En Azure HDInsight, las identidades administradas solo se pueden usar en el servicio HDInsight para los componentes internos. Actualmente, no hay ningún método admitido para generar tokens de acceso con las identidades administradas instaladas en los nodos de clúster de HDInsight para acceder a los servicios externos. En algunos servicios de Azure, como máquinas virtuales de proceso, las identidades administradas se implementan con un punto de conexión que puede usar para adquirir tokens de acceso. Actualmente, este punto de conexión no está disponible en los nodos de HDInsight.
 
-Si necesita arrancar las aplicaciones para evitar colocar secretos y contraseñas en los trabajos de análisis (por ejemplo, trabajos de SCALA), puede distribuir sus propios certificados a los nodos de clúster mediante acciones de script y, a continuación, usar ese certificado para adquirir un token de acceso (por ejemplo, para acceder a Azure KeyVault).
+Si necesita arrancar las aplicaciones para evitar colocar secretos y contraseñas en los trabajos de análisis (por ejemplo, trabajos de SCALA), puede distribuir sus propios certificados a los nodos de clúster mediante acciones de script y, luego, usar ese certificado para adquirir un token de acceso (por ejemplo, para acceder a Azure Key Vault).
 
 ## <a name="create-a-managed-identity"></a>Creación de una entidad administrada
 
@@ -44,9 +44,18 @@ Los pasos restantes para configurar la identidad administrada dependen del escen
 
 Las identidades administradas se usan en Azure HDInsight en varios escenarios. Consulte en los documentos relacionados las instrucciones detalladas para la instalación y la configuración:
 
-* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
+* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2-portal.md#create-a-user-assigned-managed-identity)
 * [Paquete de seguridad de la empresa](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Cifrado de disco mediante claves administradas por el cliente](disk-encryption.md)
+
+HDInsight renovará automáticamente los certificados para las identidades administradas que use en estos escenarios. Aun así, hay una limitación cuando se usan varias identidades administradas diferentes para clústeres de larga duración. Es posible que la renovación de certificados no funcione según lo esperado para todas las identidades administradas. Debido a esta limitación, si planea usar clústeres de larga duración (por ejemplo, más de 60 días), se recomienda que use la misma identidad administrada para todos los escenarios anteriores. 
+
+Si ya ha creado un clúster de larga duración con varias identidades administradas diferentes y se encuentra con uno de estos problemas:
+ * En los clústeres de ESP, empiezan a producirse errores en los servicios de clúster, o bien empiezan a producirse errores de autenticación en el escalado vertical y otras operaciones.
+ * En los clústeres de ESP, al cambiar el certificado LDAPS de AAD-DS, el certificado LDAPS no se actualiza automáticamente y, por tanto, empiezan a producirse errores en el escalado vertical y la sincronización de LDAP.
+ * Empiezan a producirse errores en el acceso de MSI a ADLS Gen2.
+ * Las claves de cifrado no se pueden girar en el escenario CMK.
+Después, debe asignar los roles y permisos necesarios para los escenarios anteriores a todas las identidades administradas que se usan en el clúster. Por ejemplo, si ha usado identidades administradas diferentes para los clústeres ADLS Gen2 y ESP, ambos deben tener asignados los roles "Propietario de datos de Storage Blob" y "Colaborador de HDInsight Domain Services" para evitar encontrarse con estos problemas.
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

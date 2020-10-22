@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 2e0788b6a7eb6f1d43185d8b484adddd76374ea3
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 49840c2591bc1a991920b00aec020d4f652c9a50
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086715"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168399"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -47,13 +47,15 @@ A continuación se muestra el código de ejemplo para recuperar todos los metada
 **Solicitud**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01 | ConvertTo-Json
 ```
+> [!NOTE]
+> La marca `-NoProxy` solo está disponible en PowerShell 6 o una versión posterior. Puede omitir la marca si no tiene una configuración de proxy.
 
 **Respuesta**
 
 > [!NOTE]
-> La respuesta es una cadena JSON. La respuesta de ejemplo siguiente se ha impreso correctamente para mejorar la legibilidad.
+> La respuesta es una cadena JSON. Canalizamos nuestra consulta REST a través del cmdlet `ConvertTo-Json` para la impresión con sangría.
 
 ```json
 {
@@ -250,8 +252,8 @@ offer | Ofrece información de la imagen de la máquina virtual y solo está pre
 osType | Linux o Windows | 2017-04-02
 placementGroupId | [Grupo de selección de ubicación](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de su conjunto de escalado de máquina virtual | 2017-08-01
 plan | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) que contiene el nombre, el producto y el editor de una máquina virtual si es una imagen de Azure Marketplace | 2018-04-02
-platformUpdateDomain |  El [dominio de actualización](manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
-platformFaultDomain | El [dominio de error](manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
+platformUpdateDomain |  El [dominio de actualización](../manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
+platformFaultDomain | El [dominio de error](../manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
 provider | Proveedor de la máquina virtual | 2018-10-01
 publicKeys | [Colección de claves públicas](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) asignada a la máquina virtual y rutas de acceso | 2018-04-02
 publisher | Publicador de la imagen de VM | 2017-04-02
@@ -730,7 +732,7 @@ Add-Type -AssemblyName System.Security
 $signedCms = New-Object -TypeName System.Security.Cryptography.Pkcs.SignedCms
 $signedCms.Decode($signature);
 $content = [System.Text.Encoding]::UTF8.GetString($signedCms.ContentInfo.Content)
-Write-Host "Attested data: " $conten
+Write-Host "Attested data: " $content
 $json = $content | ConvertFrom-Json
 # Do additional validation here
 ```

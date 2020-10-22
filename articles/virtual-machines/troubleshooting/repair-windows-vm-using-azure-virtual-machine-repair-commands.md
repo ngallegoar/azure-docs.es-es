@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 7addc87f3096a75a55d0ea3b5804fd0006d5cb8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 82bebcbda3110d51ae72df1fb4b18fedaa6c2f4e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526493"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91597699"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparación de una máquina virtual Windows mediante los comandos de reparación de máquinas virtuales de Azure
 
@@ -43,7 +43,7 @@ Siga estos pasos para solucionar el problema de la máquina virtual:
 1. Inicio de Azure Cloud Shell
 2. Ejecutar az extension add/update.
 3. Ejecutar az vm repair create.
-4. Ejecutar az vm repair run.
+4. Ejecutar az vm repair run o completar los pasos de mitigación.
 5. Ejecutar az vm repair restore.
 
 Para documentación e instrucciones adicionales, consulte [az vm repair](/cli/azure/ext/vm-repair/vm/repair).
@@ -60,7 +60,7 @@ Para documentación e instrucciones adicionales, consulte [az vm repair](/cli/az
 
    Si prefiere instalar y usar la CLI en un entorno local, para esta guía de inicio rápido se requiere la versión 2.0.30 de la CLI de Azure o una versión posterior. Ejecute ``az --version`` para encontrar la versión. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
    
-   Si tiene que iniciar sesión en Cloud Shell con una cuenta diferente a la que ha iniciado sesión actualmente en Azure Portal, puede usar ``az login`` [desde la referencia de az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).  Para cambiar entre suscripciones asociadas a su cuenta, puede usar ``az account set --subscription`` [de la referencia de az account set](/cli/azure/account?view=azure-cli-latest#az-account-set).
+   Si tiene que iniciar sesión en Cloud Shell con una cuenta diferente a la que ha iniciado sesión actualmente en Azure Portal, puede usar ``az login`` [desde la referencia de az login](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).  Para cambiar entre suscripciones asociadas a su cuenta, puede usar ``az account set --subscription`` [de la referencia de az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true).
 
 2. Si es la primera vez que usa los comandos `az vm repair`, agregue la extensión de la CLI vm-repair.
 
@@ -77,14 +77,16 @@ Para documentación e instrucciones adicionales, consulte [az vm repair](/cli/az
 3. Ejecute `az vm repair create`. Este comando creará una copia del disco del sistema operativo para la máquina virtual no funcional, creará una máquina virtual de reparación en un nuevo grupo de recursos y conectará la copia del disco del sistema operativo.  La máquina virtual de reparación tendrá el mismo tamaño y región que la máquina virtual no funcional especificada. El grupo de recursos y el nombre de la máquina virtual que se usan en todos los pasos serán los de la máquina virtual no funcional. Si la máquina virtual usa Azure Disk Encryption, el comando intentará desbloquear el disco cifrado para que sea accesible cuando se conecte a la máquina virtual de reparación.
 
    ```azurecli-interactive
-   az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
+   az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password 'password!234' --verbose
    ```
 
-4. Ejecute `az vm repair run`. Este comando ejecutará el script de reparación especificado en el disco conectado a través de la máquina virtual de reparación. Si la guía de solución de problemas que usa especifica un identificador de ejecución, úselo aquí; si no también puede usar `az vm repair list-scripts` para ver los scripts de reparación disponibles. El grupo de recursos y el nombre de la máquina virtual usados aquí son para la máquina virtual no funcional empleada en el paso 3.
+4. Ejecute `az vm repair run`. Este comando ejecutará el script de reparación especificado en el disco conectado a través de la máquina virtual de reparación. Si la guía de solución de problemas que usa especifica un identificador de ejecución, úselo aquí; si no también puede usar `az vm repair list-scripts` para ver los scripts de reparación disponibles. El grupo de recursos y el nombre de la máquina virtual usados aquí son para la máquina virtual no funcional empleada en el paso 3. Puede encontrar información adicional sobre los scripts de reparación en la [biblioteca de scripts de reparación](https://github.com/Azure/repair-script-library).
 
    ```azurecli-interactive
    az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id win-hello-world --verbose
    ```
+   
+   Opcionalmente, puede completar los pasos de mitigación manuales necesarios con la máquina virtual de reparación y, a continuación, continuar con el paso 5.
 
 5. Ejecute `az vm repair restore`. Este comando cambiará el disco del sistema operativo que se reparó por el disco del sistema operativo original de la máquina virtual. El grupo de recursos y el nombre de la máquina virtual que se usan aquí son para la máquina virtual no funcional que se emplea en el paso 3.
 

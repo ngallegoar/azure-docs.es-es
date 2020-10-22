@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a6cb3392aa83b2c02df621449a73f7cb68691ec6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b00a944b69b8492d4aa00258154bf00f1c66ad33
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608611"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127121"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Uso de Azure Data Box Heavy para migrar el contenido del recurso compartido de archivos a SharePoint Online
 
@@ -21,9 +21,9 @@ Utilice Azure Data Box Heavy y la Herramienta de migración de SharePoint (SPMT)
 
 Microsoft Azure Data Box es un servicio que le permite solicitar un dispositivo desde Microsoft Azure Portal. Después puede copiar terabytes de datos desde los servidores al dispositivo. Después de enviarlo a Microsoft, los datos se copian en Azure. Según el tamaño de los datos que se van a transferir, puede elegir entre:
 
-- [Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) con 35 TB de capacidad utilizable por solicitud para los conjuntos de datos pequeños y medianos.
-- [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) con 80 TB de capacidad utilizable por dispositivo para conjuntos de datos medianos y grandes.
-- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) con 770 TB de capacidad utilizable por dispositivo para grandes conjuntos de datos.
+- [Data Box Disk](./data-box-disk-overview.md) con 35 TB de capacidad utilizable por solicitud para los conjuntos de datos pequeños y medianos.
+- [Data Box](./data-box-overview.md) con 80 TB de capacidad utilizable por dispositivo para conjuntos de datos medianos y grandes.
+- [Data Box Heavy](./data-box-heavy-overview.md) con 770 TB de capacidad utilizable por dispositivo para grandes conjuntos de datos.
 
 En este artículo se habla específicamente sobre cómo usar Data Box Heavy para migrar el contenido del recurso compartido de archivos a SharePoint Online.
 
@@ -37,7 +37,7 @@ En este artículo se habla específicamente sobre cómo usar Data Box Heavy para
 
 ### <a name="for-sharepoint-online"></a>Para SharePoint Online
 
-- Revise los [requisitos mínimos para la Herramienta de migración de SharePoint (SPMT)](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
+- Revise los [requisitos mínimos para la Herramienta de migración de SharePoint (SPMT)](/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 
 ## <a name="workflow-overview"></a>Introducción al flujo de trabajo
 
@@ -82,9 +82,9 @@ Para optimizar el rendimiento y la conectividad, se recomienda crear una máquin
 1. Inicie sesión en Azure Portal y, a continuación, [cree una máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 2. [Monte el recurso compartido de archivos de Azure en la máquina virtual](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer).
 3. [Descargue la Herramienta de migración de SharePoint](https://spmtreleasescus.blob.core.windows.net/install/default.htm) e instálela en la máquina virtual de Azure.
-4. Inicie la Herramienta de migración de SharePoint. Haga clic en **Iniciar sesión** y escriba su nombre de usuario y la contraseña de Office 365.
+4. Inicie la Herramienta de migración de SharePoint. Haga clic en **Inicio de sesión** y escriba el nombre de usuario y la contraseña de su cuenta profesional o educativa.
 5. Cuando se le pregunte **¿Dónde están los datos?** , seleccione **Recurso compartido de archivos**. Escriba la ruta de acceso al recurso compartido de archivos de Azure donde se encuentran los datos.
-6. Siga las instrucciones siguientes de la forma habitual, incluida la ubicación de destino. Para más información, vaya a [Uso de la herramienta de migración de SharePoint](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
+6. Siga las instrucciones siguientes de la forma habitual, incluida la ubicación de destino. Para más información, vaya a [Uso de la herramienta de migración de SharePoint](/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 
 > [!IMPORTANT]
 > - La velocidad a la que los datos se ingieren en SharePoint Online se ve afectada por varios factores, independientemente de si ya tiene los datos en Azure. Entender estos factores le ayudará a planear y maximizar la eficacia de la migración.  Para más información, vaya a [Velocidad de migración de SharePoint Online y OneDrive](/sharepointmigration/sharepoint-online-and-onedrive-migration-speed).

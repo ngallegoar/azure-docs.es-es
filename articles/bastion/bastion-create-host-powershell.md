@@ -1,30 +1,30 @@
 ---
-title: Creación de un host bastión con Azure PowerShell | Microsoft Docs
+title: Creación de un host bastión con Azure PowerShell | Microsoft Docs
 description: En este artículo aprenderá a crear un host de Azure Bastion.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 02/03/2020
+ms.date: 10/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: c62ac014513f3e93a04008af06ef8ffe5008ed2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba2716613a0e950cbae5c65add410ac8a8b38955
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744262"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077733"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Creación de un host Azure Bastion con Azure PowerShell
 
 En este artículo se muestra cómo crear un host de Azure Bastion mediante PowerShell. Una vez que haya aprovisionado el servicio Azure Bastion en la red virtual, ya puede disponer de la completa experiencia de RDP/SSH en todas las máquinas virtuales de la misma red virtual. La implementación de Azure Bastion se realiza por red virtual, no por suscripción o cuenta, ni por máquina virtual.
 
-Opcionalmente, puede crear un host de Azure Bastion mediante [Azure Portal](bastion-create-host-portal.md).
+Opcionalmente, puede crear un host de Azure Bastion mediante [Azure Portal](./tutorial-create-host-portal.md).
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
 Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial).
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="create-a-bastion-host"></a><a name="createhost"></a>Creación de un host de Bastion
 
@@ -53,5 +53,4 @@ Esta sección le ayuda a crear un nuevo recurso Azure Bastion con Azure PowerShe
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información, lea las [P+F sobre Bastion](bastion-faq.md).
-
 * Para usar grupos de seguridad de red con la subred de Azure Bastion, consulte [Trabajo con grupos de seguridad de red](bastion-nsg.md).

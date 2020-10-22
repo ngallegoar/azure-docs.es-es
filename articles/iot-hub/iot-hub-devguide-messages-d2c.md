@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: a451e13b39aea27b4f1e23f9faa30f4b11c1cff1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 256ede9471f3e889dcce9415a6728414b5ab5f75
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021245"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91766947"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -126,7 +126,7 @@ Puede habilitar o deshabilitar la ruta de reserva en Azure Portal -> hoja Enruta
 
 ## <a name="non-telemetry-events"></a>Eventos que no son de telemetría
 
-Además de los datos de telemetría del dispositivo, el enrutamiento de mensajes permite enviar eventos de cambio de dispositivo gemelo, eventos del ciclo de vida del dispositivo y eventos de cambio de gemelos digitales. Por ejemplo, si se crea una ruta con el origen de datos establecido en **eventos de cambio de dispositivo gemelo**, IoT Hub envía mensajes al punto de conexión que contienen el cambio en el dispositivo gemelo. De forma similar, si se crea una ruta con el origen de datos establecido en **eventos del ciclo de vida del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha eliminado o se ha creado. Por último, como parte de la [versión preliminar pública de IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), un desarrollador puede crear rutas con el origen de datos establecido en **eventos de cambio de gemelo digital** e IoT Hub enviará mensajes siempre que se establezca o cambie una [propiedad](../iot-pnp/iot-plug-and-play-glossary.md) de gemelo digital, se sustituya un [gemelo digital](../iot-pnp/iot-plug-and-play-glossary.md) o cuando se produzca un evento de cambio para el dispositivo gemelo subyacente.
+Además de los datos de telemetría del dispositivo, el enrutamiento de mensajes permite enviar eventos de cambio de dispositivo gemelo, eventos del ciclo de vida del dispositivo y eventos de cambio de gemelos digitales. Por ejemplo, si se crea una ruta con el origen de datos establecido en **eventos de cambio de dispositivo gemelo**, IoT Hub envía mensajes al punto de conexión que contienen el cambio en el dispositivo gemelo. De forma similar, si se crea una ruta con el origen de datos establecido en **eventos del ciclo de vida del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha eliminado o se ha creado. Por último, como parte de [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), un desarrollador puede crear rutas con el origen de datos establecido en **eventos de cambio de gemelo digital** e IoT Hub enviará mensajes siempre que se establezca o cambie una [propiedad](../iot-pnp/iot-plug-and-play-glossary.md) de gemelo digital, se sustituya un [gemelo digital](../iot-pnp/iot-plug-and-play-glossary.md) o se produzca un evento de cambio para el dispositivo gemelo subyacente.
 
 [IoT Hub también se integra con Azure Event Grid](iot-hub-event-grid.md) para publicar los eventos de dispositivo con el fin de admitir integraciones en tiempo real y la automatización de flujos de trabajo basados en estos eventos. Consulte las [diferencias principales entre el enrutamiento de mensajes y Event Grid](iot-hub-event-grid-routing-comparison.md) para obtener información sobre la mejor opción para su escenario.
 

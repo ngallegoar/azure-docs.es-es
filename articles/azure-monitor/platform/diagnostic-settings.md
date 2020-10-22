@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: c0fdf256409608c2eb3c6490dc25342d9d324832
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614037"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449333"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos
 Los [registros de plataforma](platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos.
@@ -73,15 +73,15 @@ Puede realizar configuraciones de diagnóstico en Azure Portal desde el menú de
 
    - Si se trata de un único recurso, en el menú de este recurso, haga clic en la opción **Configuración de diagnóstico** de **Supervisar**.
 
-        ![Configuración de diagnóstico](media/diagnostic-settings/menu-resource.png)
+        ![Captura de pantalla de la sección Monitoring (Supervisión) de un menú de recursos en Azure Portal con Diagnostics settings (Configuración de diagnóstico) resaltado.](media/diagnostic-settings/menu-resource.png)
 
    - Si se trata de uno o varios recursos, en el menú de Azure Monitor, haga clic en la opción **Configuración de diagnóstico** de **Configuración** y después en el recurso.
 
-      ![Configuración de diagnóstico](media/diagnostic-settings/menu-monitor.png)
+        ![Captura de pantalla de la sección Settings (Configuración) del menú de Azure Monitor con Diagnostics settings (Configuración de diagnóstico) resaltado.](media/diagnostic-settings/menu-monitor.png)
 
    - En el registro de actividad, haga clic en la opción **Registro de actividad** del menú **Azure Monitor** y después en **Configuración de diagnóstico**. No olvide deshabilitar cualquier configuración heredada del registro de actividad. Consulte [Deshabilitar la configuración existente](./activity-log.md#legacy-collection-methods) para más información.
 
-        ![Configuración de diagnóstico](media/diagnostic-settings/menu-activity-log.png)
+        ![Captura de pantalla del menú de Azure Monitor con el registro de actividad seleccionado y Diagnostics settings (Configuración de diagnóstico) resaltado en la barra de menús de Monitor - Activity Log (Supervisar - Registro de actividad).](media/diagnostic-settings/menu-activity-log.png)
 
 2. Si no existe ninguna configuración en el recurso que ha seleccionado, se le pide que cree una. Haga clic en **Agregar configuración de diagnóstico**.
 

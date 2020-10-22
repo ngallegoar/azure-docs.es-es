@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
-ms.openlocfilehash: fa5524525aa76279cdcceaf0f5fd2a74753786ea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a992e432a6111b5da02187bcf6592587c4d31bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300606"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977517"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Instalación de Update 0.5 en StorSimple Virtual Array
 
@@ -92,26 +92,26 @@ Utilice este método para instalar actualizaciones en un dispositivo que ejecute
 
 1. En la interfaz de usuario web local, vaya a **Mantenimiento** > **Actualización de software**.
    
-    ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![Actualización de dispositivo 1](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
 2. En **Update file path**(Ruta de acceso del archivo de actualización), escriba el nombre del archivo de actualización o de revisión. Asimismo, también puede acceder al archivo de instalación de la actualización o de la revisión si está en un recurso compartido de red. Haga clic en **Aplicar**.
    
-    ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update2m.png)
+    ![Actualización de dispositivo 2](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
 3. Se mostrará una advertencia. Dado que se trata de un dispositivo de nodo único, una vez aplicada la actualización, se reiniciará el dispositivo y habrá un tiempo de inactividad. Haga clic en el icono de marca de verificación.
    
-   ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update3m.png)
+   ![Actualización de dispositivo 3](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
 4. Se inicia la actualización. Una vez que el dispositivo se actualice correctamente, este se reiniciará. La interfaz de usuario local no será accesible durante este tiempo.
    
-    ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update5m.png)
+    ![Actualización de dispositivo 4](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
 5. Una vez completado el reinicio, se le llevará a la página de **inicio de sesión** . Para comprobar que el software del dispositivo se ha actualizado, en la interfaz de usuario de web local, vaya a **Mantenimiento** > **Actualización de software**. La versión de software que aparece debe ser **10.0.0.0.0.10290.0** para Update 0.5.
    
    > [!NOTE]
    > Las versiones de software se muestran de forma ligeramente distinta en la interfaz de usuario web local y Azure Portal. Por ejemplo, la misma versión aparece como **10.0.0.0.0.10290** en la interfaz de usuario web local y como **10.0.10290.0** en Azure Portal.
    
-    ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update6m.png)
+    ![Actualización de dispositivo 5](./media/storsimple-virtual-array-install-update-05/update6m.png)
 
 6. El siguiente paso consiste en actualizar el agente de MDS. En la página **Actualización de software**, vaya a **Actualizar ruta de acceso al archivo** y vaya al archivo `GenevaMonitoringAgentPackageInstaller.msi`. Repita los pasos del 2 al 4. Después de que se reinicie la matriz virtual, inicie sesión en la interfaz de usuario web local.
 

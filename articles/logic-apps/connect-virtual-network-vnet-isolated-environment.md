@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 41fdc342d82b07e82bb6e7b32e1a4f98f94d2a8e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/25/2020
+ms.openlocfilehash: 49248575cb10f3df746b9ba484244e4702fb5d72
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647545"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91369015"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -168,6 +168,8 @@ Si no permite el acceso a estas dependencias, se produce un error en la implemen
 
 * [Direcciones de entrada y salida de Logic Apps para la región del ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
 
+* [Direcciones IP de Azure para conectores de la región ISE que se encuentran en este archivo de descarga](https://www.microsoft.com/download/details.aspx?id=56519)
+
 * Debe habilitar los puntos de conexión de servicio para Azure SQL, Storage, Service Bus y Event Hubs porque no puede enviar tráfico a través de un firewall a estos servicios.
 
 <a name="create-environment"></a>
@@ -282,6 +284,21 @@ Si no permite el acceso a estas dependencias, se produce un error en la implemen
 
    > [!IMPORTANT]
    > Los conectores ISE administrados que están disponibles después de crear el ISE no aparecen automáticamente en el selector de conectores en el Diseñador de aplicación lógica. Para poder usar estos conectores ISE, tiene que [agregarlos manualmente a su ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) para que aparezcan en el Diseñador de aplicación lógica.
+
+   > [!IMPORTANT]
+   > Los conectores ISE administrados no admiten [etiquetas](../azure-resource-manager/management/tag-support.md) actualmente. Si configura una directiva que exige etiquetado, al intentar agregar conectores ISE  
+   > se podría generar un error similar al ejemplo siguiente: 
+   > 
+   > ```json
+   > {
+   >    "error": { 
+   >       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+   >       "message": "The tags are not supported in the managed API 'azureblob'."
+   >    }
+   > }
+   > ```
+   > Para agregar conectores ISE, tiene que deshabilitar o quitar la directiva.
+   > 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

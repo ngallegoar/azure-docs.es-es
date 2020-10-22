@@ -9,18 +9,18 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 728db85e7b5afab676612d908e2ba420c7582194
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 15f9387aac909c0245d25b3a208ed24444b2b343
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645572"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91329417"
 ---
 # <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 Para crear un recurso compartido de archivos de Azure, debe responder a tres preguntas sobre cómo lo usará:
 
 - **¿Cuáles son los requisitos de rendimiento para el recurso compartido de archivos de Azure?**  
-    Azure Files ofrece recursos compartidos de archivos estándar, que se hospedan en hardware basado en disco duro (HDD), y recursos compartidos de archivos prémium, que se hospedan en hardware basado en disco de estado sólido (SSD).
+    Azure Files ofrece recursos compartidos de archivos estándar (entre los que se incluyen recursos compartidos de archivos optimizados para transacciones, de acceso frecuento o de acceso esporádico), que se hospedan en hardware basado en disco duro, y recursos compartidos de archivos premium, que se hospedan en hardware basado en disco de estado sólido.
 
 - **¿Qué tamaño de recurso compartido de archivos necesita?**  
     Los recursos compartidos de archivos estándar pueden abarcar hasta 100 TiB, pero esta característica no está habilitada de forma predeterminada. Si necesita un recurso compartido de archivos de más de 5 TiB, deberá habilitar la característica de recurso compartido de archivos de gran tamaño para su cuenta de almacenamiento. Los recursos compartidos de archivos prémium pueden abarcar hasta 100 TiB sin ninguna configuración especial; sin embargo, los recursos compartidos de archivos prémium se aprovisionan en lugar de pagarse por uso como sucede con los recursos compartidos de archivos estándar. Esto significa que el aprovisionamiento de un recurso compartido de archivos mucho más grande de lo necesario aumentará el costo total del almacenamiento.
@@ -35,14 +35,14 @@ Para más información sobre estas tres opciones, consulte [Planeamiento de una 
 ## <a name="prerequisites"></a>Prerrequisitos
 - En este artículo se supone que ya ha creado una suscripción a Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - Si planea usar Azure PowerShell, [instale la versión más reciente](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Si planea usar la CLI de Azure, [instale la versión más reciente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Si planea usar la CLI de Azure, [instale la versión más reciente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 Los recursos compartidos de archivos de Azure se implementan en *cuentas de almacenamiento*, que son objetos de nivel superior que representan un grupo compartido de almacenamiento. Este grupo de almacenamiento se puede usar para implementar varios recursos compartidos de archivos. 
 
 Azure admite varios tipos de cuentas de almacenamiento para los distintos escenarios de almacenamiento que pueden tener los clientes, pero hay dos tipos principales de cuentas de almacenamiento para Azure Files. El tipo de cuenta de almacenamiento que debe crear depende de si desea crear un recurso compartido de archivos estándar o un recurso compartido de archivos prémium: 
 
-- **Cuentas de almacenamiento de uso general, versión 2 (GPv2)** : Las cuentas de almacenamiento de GPv2 permiten implementar recursos compartidos de archivos de Azure en hardware estándar o basado en disco duro (HDD). Además de almacenar recursos compartidos de archivos de Azure, las cuentas de almacenamiento de GPv2 pueden almacenar otros recursos de almacenamiento, como contenedores de blobs, colas o tablas. 
+- **Cuentas de almacenamiento de uso general, versión 2 (GPv2)** : Las cuentas de almacenamiento de GPv2 permiten implementar recursos compartidos de archivos de Azure en hardware estándar o basado en disco duro (HDD). Además de almacenar recursos compartidos de archivos de Azure, las cuentas de almacenamiento de GPv2 pueden almacenar otros recursos de almacenamiento, como contenedores de blobs, colas o tablas. Los recursos compartidos de archivos se pueden implementar en los niveles de transacción optimizada (valor predeterminado), acceso frecuente o acceso esporádico.
 
 - **Cuentas de almacenamiento FileStorage**: Las cuentas de almacenamiento FileStorage permiten implementar recursos compartidos de archivos de Azure en hardware prémium o basado en unidades de estado sólido (SSD). Las cuentas FileStorage solo se pueden usar para almacenar recursos compartidos de archivos de Azure. No se puede implementar ningún otro recurso de almacenamiento (contenedores de blobs, colas, tablas, etc.) en una cuenta FileStorage.
 
@@ -66,7 +66,10 @@ Los demás campos de datos básicos son independientes de la elección de la cue
 - **Nombre de la cuenta de almacenamiento**: nombre del recurso de la cuenta de almacenamiento que se va a crear. Este nombre debe ser único globalmente, pero puede ser cualquier nombre que desee. El nombre de la cuenta de almacenamiento se usará como el nombre del servidor al montar un recurso compartido de archivos de Azure a través de SMB.
 - **Ubicación**: región de la cuenta de almacenamiento donde se va a realizar la implementación. Puede ser la región asociada al grupo de recursos o cualquier otra región disponible.
 - **Replication** (Replicación): aunque se trata de la replicación etiquetada, este campo significa **redundancia** en realidad; este es el nivel de redundancia deseado: redundancia local (LRS), redundancia de zona (ZRS), redundancia geográfica (GRS) y redundancia de zona geográfica. Esta lista desplegable también contiene redundancia geográfica con acceso de lectura (RA-GRS) y redundancia de zona geográfica con acceso de lectura (RA-GZRS), que no se aplican a los recursos compartidos de archivos de Azure. Los recursos compartidos de archivos creados en una cuenta de almacenamiento con estas opciones seleccionadas tendrán redundancia geográfica o redundancia de zona geográfica, respectivamente. En función de la región o el tipo de cuenta de almacenamiento seleccionado, es posible que algunas opciones de redundancia no se permitan.
-- **Nivel de acceso**: este campo no se aplica a Azure Files, por lo que puede elegir uno de los botones de radio.
+- **Nivel de acceso de blob**: este campo no se aplica a Azure Files, por lo que puede elegir uno de los botones de radio. 
+
+> [!Important]  
+> La selección del nivel de acceso de blob no afecta al nivel del recurso compartido de archivos.
 
 #### <a name="the-networking-blade"></a>Hoja Redes
 La sección Redes le permite configurar las opciones de redes. Esta configuración es opcional para la creación de la cuenta de almacenamiento y se puede configurar más adelante si lo desea. Para obtener más información sobre estas opciones, vea [Consideraciones de redes para Azure Files](storage-files-networking-overview.md).
@@ -92,7 +95,7 @@ Para crear una cuenta de almacenamiento mediante PowerShell, usaremos el cmdlet 
 
 Para simplificar la creación de la cuenta de almacenamiento y el recurso compartido de archivos subsiguiente, almacenaremos varios parámetros en variables. Puede reemplazar el contenido de la variable por los valores que desee, pero tenga en cuenta que el nombre de la cuenta de almacenamiento debe ser único globalmente.
 
-```azurepowershell-interactive
+```powershell
 $resourceGroupName = "myResourceGroup"
 $storageAccountName = "mystorageacct$(Get-Random)"
 $region = "westus2"
@@ -100,7 +103,7 @@ $region = "westus2"
 
 Para crear una cuenta de almacenamiento capaz de almacenar recursos compartidos de archivos de Azure estándar, usaremos el siguiente comando. El parámetro `-SkuName` está relacionado con el tipo de redundancia deseado; si desea una cuenta de almacenamiento con redundancia geográfica o con redundancia de zona geográfica, también debe quitar el parámetro `-EnableLargeFileShare`.
 
-```azurepowershell-interactive
+```powershell
 $storAcct = New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $storageAccountName `
@@ -112,7 +115,7 @@ $storAcct = New-AzStorageAccount `
 
 Para crear una cuenta de almacenamiento capaz de almacenar recursos compartidos de archivos de Azure prémium, usaremos el siguiente comando. Observe que el parámetro `-SkuName` ha cambiado para incluir tanto `Premium` como el nivel de redundancia deseado de redundancia local (`LRS`). El parámetro `-Kind` es `FileStorage` en lugar de `StorageV2` porque los recursos compartidos de archivos prémium deben crearse en una cuenta de almacenamiento de FileStorage en lugar de en una cuenta de almacenamiento de GPv2.
 
-```azurepowershell-interactive
+```powershell
 $storAcct = New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $storageAccountName `
@@ -126,7 +129,7 @@ Para crear una cuenta de almacenamiento con la CLI de Azure, usaremos el comando
 
 Para simplificar la creación de la cuenta de almacenamiento y el recurso compartido de archivos subsiguiente, almacenaremos varios parámetros en variables. Puede reemplazar el contenido de la variable por los valores que desee, pero tenga en cuenta que el nombre de la cuenta de almacenamiento debe ser único globalmente.
 
-```azurecli-interactive
+```bash
 resourceGroupName="myResourceGroup"
 storageAccountName="mystorageacct$RANDOM"
 region="westus2"
@@ -134,7 +137,7 @@ region="westus2"
 
 Para crear una cuenta de almacenamiento capaz de almacenar recursos compartidos de archivos de Azure estándar, usaremos el siguiente comando. El parámetro `--sku` está relacionado con el tipo de redundancia deseado; si desea una cuenta de almacenamiento con redundancia geográfica o con redundancia de zona geográfica, también debe quitar el parámetro `--enable-large-file-share`.
 
-```azurecli-interactive
+```bash
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -146,7 +149,7 @@ az storage account create \
 
 Para crear una cuenta de almacenamiento capaz de almacenar recursos compartidos de archivos de Azure prémium, usaremos el siguiente comando. Observe que el parámetro `--sku` ha cambiado para incluir tanto `Premium` como el nivel de redundancia deseado de redundancia local (`LRS`). El parámetro `--kind` es `FileStorage` en lugar de `StorageV2` porque los recursos compartidos de archivos prémium deben crearse en una cuenta de almacenamiento de FileStorage en lugar de en una cuenta de almacenamiento de GPv2.
 
-```azurecli-interactive
+```bash
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -158,11 +161,18 @@ az storage account create \
 ---
 
 ## <a name="create-file-share"></a>Creación de un recurso compartido de archivos
-Una vez que haya creado su cuenta de almacenamiento, todo lo que queda es crear el recurso compartido de archivos. Este proceso es prácticamente el mismo, independientemente de si usa un recurso compartido de archivos prémium o un recurso compartido de archivos estándar. La diferencia principal es la **cuota** y lo que representa.
+Una vez que haya creado su cuenta de almacenamiento, todo lo que queda es crear el recurso compartido de archivos. Este proceso es prácticamente el mismo, independientemente de si usa un recurso compartido de archivos prémium o un recurso compartido de archivos estándar. Debe tener en cuenta las siguientes diferencias.
 
-En el caso de los recursos compartidos de archivos estándar, es un límite superior del recurso compartido de archivos de Azure, que los usuarios finales no pueden superar. El objetivo principal de la cuota para un recurso compartido de archivos estándar es presupuestario: "no quiero que este recurso compartido de archivos crezca más allá de este punto". Si no se especifica una cuota, el recurso compartido de archivos estándar puede abarcar hasta 100 TiB (o 5 TiB si no se establece la propiedad de recursos compartidos de archivos grandes para una cuenta de almacenamiento).
+Los recursos compartidos de archivos estándar pueden implementarse en uno de los niveles estándar: optimizado para transacciones (valor predeterminado), acceso frecuente o acceso esporádico. Se trata de un nivel de recurso compartido de archivos que no se ve afectado por el **nivel de acceso de blob** de la cuenta de almacenamiento (esta propiedad solo se relaciona con Azure Blob Storage, no está relacionada con Azure Files). Puede cambiar el nivel del recurso compartido en cualquier momento una vez implementado. Los recursos compartidos de archivos premium no se pueden convertir directamente en recursos compartidos de archivos estándar en ningún nivel estándar.
 
-En el caso de recursos compartidos de archivos prémium, la cuota se sobrecarga para indicar **tamaño aprovisionado**. El tamaño aprovisionado es la cantidad que se facturará, independientemente del uso real. Al aprovisionar un recurso compartido de archivos prémium, se deben tener en cuenta dos factores: 1) el crecimiento futuro del recurso compartido desde una perspectiva de uso del espacio y 2) las IOPS necesarias para la carga de trabajo. Cada GiB aprovisionado le da derecho a IOPS reservadas y de ráfaga adicionales. Para obtener más información sobre cómo planear un recurso compartido de archivos prémium, consulte el tema sobre el [aprovisionamiento de recursos compartidos de archivos prémium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+> [!Important]  
+> Los recursos compartidos de archivos se pueden mover entre niveles dentro de los tipos de cuenta de almacenamiento GPv2 (transacción optimizada, nivel de acceso frecuente y nivel de acceso esporádico). Los movimientos de recursos compartidos entre niveles incurren en transacciones: el traslado de un nivel de acceso frecuente a un nivel de acceso esporádico incurrirá en el cargo de transacción de escritura del nivel de acceso esporádico, mientras que si dicho traslado se realiza de un nivel esporádico a un nivel frecuente, todos los archivos incurrirán en el cargo de transacción de lectura del nivel de acceso esporádico.
+
+La propiedad **quota** significa algo ligeramente distinto en los recursos compartidos de archivos premium y en los estándar:
+
+- En el caso de los recursos compartidos de archivos estándar, es un límite superior del recurso compartido de archivos de Azure, que los usuarios finales no pueden superar. El objetivo principal de la cuota para un recurso compartido de archivos estándar es presupuestario: "no quiero que este recurso compartido de archivos crezca más allá de este punto". Si no se especifica una cuota, el recurso compartido de archivos estándar puede abarcar hasta 100 TiB (o 5 TiB si no se establece la propiedad de recursos compartidos de archivos grandes para una cuenta de almacenamiento).
+
+- En el caso de recursos compartidos de archivos prémium, la cuota se sobrecarga para indicar **tamaño aprovisionado**. El tamaño aprovisionado es la cantidad que se facturará, independientemente del uso real. Al aprovisionar un recurso compartido de archivos prémium, se deben tener en cuenta dos factores: 1) el crecimiento futuro del recurso compartido desde una perspectiva de uso del espacio y 2) las IOPS necesarias para la carga de trabajo. Cada GiB aprovisionado le da derecho a IOPS reservadas y de ráfaga adicionales. Para obtener más información sobre cómo planear un recurso compartido de archivos prémium, consulte el tema sobre el [aprovisionamiento de recursos compartidos de archivos prémium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Si acaba de crear la cuenta de almacenamiento, puede navegar a esta desde la pantalla de implementación. Para ello, seleccione **Ir al recurso**. Si ya ha creado la cuenta de almacenamiento anteriormente, puede navegar a esta a través del grupo de recursos que la contiene. Una vez en la cuenta de almacenamiento, seleccione el icono con la etiqueta **Recursos compartidos de archivos** (también puede navegar a **Recursos compartidos de archivos** a través de la tabla de contenido de la cuenta de almacenamiento).
@@ -174,70 +184,20 @@ En la lista de recursos compartidos de archivos, debería ver los recursos compa
 La hoja Nuevo recurso compartido de archivos debería aparecer en la pantalla. Complete los campos de la hoja Nuevo recurso compartido de archivos para crear un recurso compartido de archivos:
 
 - **Nombre**: nombre del recurso compartido de archivos que se va a crear.
-- **Cuota**: cuota del recurso compartido de archivos para los recursos compartidos de archivos estándar; tamaño aprovisionado del recurso compartido de archivos para los recursos compartidos de archivos prémium.
+- **Cuota**: cuota del recurso compartido de archivos para los recursos compartidos de archivos estándar; tamaño aprovisionado del recurso compartido de archivos para los recursos compartidos de archivos premium.
+- **Niveles**: el nivel seleccionado para un recurso compartido de archivos. Este campo solo está disponible en una **cuenta de almacenamiento de uso general (GPv2)** . Puede elegir los niveles optimizado para transacciones, acceso frecuente o acceso esporádico. El nivel del recurso compartido de archivos se puede cambiar en cualquier momento. Se recomienda elegir el nivel más alto posible durante una migración para minimizar los gastos de transacciones y, a continuación, cambiar a un nivel inferior si lo desea una vez completada la migración.
 
 Seleccione **Crear** para terminar de crear el nuevo recurso compartido de archivos. Tenga en cuenta que si la cuenta de almacenamiento está en una red virtual, no podrá crear correctamente un recurso compartido de archivos de Azure, a menos que el cliente también esté en la red virtual. También puede resolver esta limitación puntual mediante el cmdlet `New-AzRmStorageShare` de Azure PowerShell.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Puede crear el recurso compartido de archivos de Azure con el cmdlet de [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare). Los siguientes comandos de PowerShell suponen que ha establecido las variables `$resourceGroupName` y `$storageAccountName` como se ha definido anteriormente en la sección sobre la creación de una cuenta de almacenamiento con Azure PowerShell. 
+Puede crear un recurso compartido de archivos con el cmdlet [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare). Los siguientes comandos de PowerShell suponen que ha establecido las variables `$resourceGroupName` y `$storageAccountName` como se ha definido anteriormente en la sección sobre la creación de una cuenta de almacenamiento con Azure PowerShell. 
+
+En el siguiente ejemplo se muestra la creación de un recurso compartido de archivos con un nivel explícito mediante el parámetro `-AccessTier`. Esto requiere el uso de la versión preliminar del módulo Az.Storage como se indica en el ejemplo. Si no se especifica un nivel, ya sea porque se está usando el módulo Az.Storage en disponibilidad general, o porque no se incluyó este comando, el nivel predeterminado para los recursos compartidos de archivos estándar será optimizado para transacciones.
 
 > [!Important]  
 > En el caso de los recursos compartidos de archivos prémium, el parámetro `-QuotaGiB` hace referencia al tamaño aprovisionado del recurso compartido de archivos. El tamaño aprovisionado del recurso compartido de archivos es la cantidad que se facturará, independientemente del uso. Los recursos compartidos de archivos estándar se facturan en función del uso en lugar de basarse en el tamaño aprovisionado.
 
-```azurepowershell-interactive
-$shareName = "myshare"
-
-New-AzRmStorageShare `
-    -ResourceGroupName $resourceGroupName `
-    -StorageAccountName $storageAccountName `
-    -Name $shareName `
-    -QuotaGiB 1024 | Out-Null
-```
-
-> [!Note]  
-> El nombre del recurso compartido de archivos debe estar en minúsculas. Para obtener detalles completos sobre cómo asignar un nombre a recursos compartidos y archivos, consulte  [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](https://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-Para poder crear un recurso compartido de archivos de Azure con la CLI de Azure, debe obtener una clave de cuenta de almacenamiento para autorizar la operación de creación del recurso compartido de archivos. Esto puede hacerse con el comando [`az storage account keys list`](/cli/azure/storage/account/keys):
-
-```azurecli-interactive
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
-```
-
-Una vez que tenga la clave de la cuenta de almacenamiento, puede crear el recurso compartido de archivos de Azure con el comando de [`az storage share create`](/cli/azure/storage/share). 
-
-> [!Important]  
-> En el caso de los recursos compartidos de archivos prémium, el parámetro `--quota` hace referencia al tamaño aprovisionado del recurso compartido de archivos. El tamaño aprovisionado del recurso compartido de archivos es la cantidad que se facturará, independientemente del uso. Los recursos compartidos de archivos estándar se facturan en función del uso en lugar de basarse en el tamaño aprovisionado.
-
-```azurecli-interactive
-shareName="myshare"
-
-az storage share create \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
-    --name $shareName \
-    --quota 1024 \
-    --output none
-```
-
-Se producirá un error en este comando si la cuenta de almacenamiento está incluida en una red virtual y el equipo desde el que lo invoca no forma parte de dicha red virtual. Para solucionar esta limitación puntual puede usar el cmdlet `New-AzRmStorageShare` de Azure PowerShell como se describió anteriormente, o ejecutar la CLI de Azure desde un equipo que forme parte de la red virtual, incluso a través de una conexión VPN.
-
----
-
-> [!Note]  
-> El nombre del recurso compartido de archivos debe estar en minúsculas. Para obtener detalles completos sobre cómo asignar un nombre a recursos compartidos y archivos, consulte  [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](https://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-### <a name="create-a-hot-or-cool-file-share"></a>Creación de un recurso compartido de archivos de acceso frecuente o esporádico
-Una **cuenta de almacenamiento de uso general v2 (GPv2)** puede contener recursos compartidos de archivos de acceso frecuente o esporádico u optimizados para transacciones (o una combinación de todos). Los recursos compartidos optimizados para transacciones están disponibles en todas las regiones de Azure, pero los recursos compartidos de archivos de acceso frecuente y esporádico solo están disponibles [en un subconjunto de regiones](storage-files-planning.md#storage-tiers). Puede crear un recurso compartido de archivos de acceso frecuente o esporádico mediante el módulo en versión preliminar de Azure PowerShell o la CLI de Azure. 
-
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-Azure Portal no admite todavía la creación de recursos compartidos de archivos de acceso frecuente y esporádico, o el traslado de los recursos compartidos de archivos optimizados para transacciones existentes a acceso frecuente o esporádico. Consulte las instrucciones para crear un recurso compartido de archivos con PowerShell o la CLI de Azure.
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 # Update the Azure storage module to use the preview version. You may need to close and 
 # reopen PowerShell before running this command. If you are running PowerShell 5.1, ensure 
 # the following:
@@ -251,15 +211,70 @@ Install-Module -Name Az.Storage -RequiredVersion "2.1.1-preview" -AllowClobber -
 # Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
 # been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2 
 # storage accounts. Standard tiers are only available in standard storage accounts. 
-$shareName = "myhotshare"
+$shareName = "myshare"
 
 New-AzRmStorageShare `
-    -ResourceGroupName $resourceGroupName `
-    -StorageAccountName $storageAccountName `
-    -Name $shareName `
-    -AccessTier Hot
+        -ResourceGroupName $resourceGroupName `
+        -StorageAccountName $storageAccountName `
+        -Name $shareName `
+        -AccessTier TransactionOptimized `
+        -QuotaGiB 1024 | `
+    Out-Null
+```
 
-# You can also change an existing share's tier.
+> [!Note]  
+> La capacidad de establecer y cambiar los niveles mediante PowerShell se proporciona en la versión preliminar del módulo Az.Storage de PowerShell. Puede que estos cmdlets o sus salidas cambien antes de su publicación en la versión con disponibilidad general del módulo Az.Storage de PowerShell, por lo que debe crear scripts con esto en mente.
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+Puede crear un recurso compartido de archivos con el comando [`az storage share-rm create`](https://docs.microsoft.com/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=true#az_storage_share_rm_create). Los siguientes comandos de la CLI de Azure suponen que ha establecido las variables `$resourceGroupName` y `$storageAccountName` como se ha definido anteriormente en la sección sobre la creación de una cuenta de almacenamiento con la CLI de Azure.
+
+La funcionalidad para crear o mover un recurso compartido de archivos a un nivel específico está disponible en la actualización más reciente de la CLI de Azure. La actualización de la CLI de Azure es específica de la distribución de Linux o del sistema operativo que está usando. Para obtener instrucciones sobre cómo actualizar la CLI de Azure en el sistema, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+
+> [!Important]  
+> En el caso de los recursos compartidos de archivos prémium, el parámetro `--quota` hace referencia al tamaño aprovisionado del recurso compartido de archivos. El tamaño aprovisionado del recurso compartido de archivos es la cantidad que se facturará, independientemente del uso. Los recursos compartidos de archivos estándar se facturan en función del uso en lugar de basarse en el tamaño aprovisionado.
+
+```bash
+shareName="myshare"
+
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
+    --name $shareName \
+    --access-tier "TransactionOptimized" \
+    --quota 1024 \
+    --output none
+```
+
+> [!Note]  
+> La capacidad de establecer un nivel con el parámetro `--access-tier` se proporciona en una versión preliminar del último paquete de la CLI de Azure. Este comando o su salida pueden cambiar antes de pasar a tener disponibilidad general, por lo que debe crear scripts con esto en mente.
+
+---
+
+> [!Note]  
+> El nombre del recurso compartido de archivos debe estar en minúsculas. Para obtener detalles completos sobre cómo asignar un nombre a recursos compartidos y archivos, consulte  [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+
+### <a name="changing-the-tier-of-an-azure-file-share"></a>Cambio del nivel de un recurso compartido de archivos de Azure
+Los recursos compartidos de archivos que se implementan en una **cuenta de almacenamiento de uso general v2 (GPv2)** pueden pertenecer a los niveles optimizado para transacciones, de acceso frecuente o de acceso esporádico. Puede cambiar el nivel del recurso compartido de archivos de Azure en cualquier momento, en función de los costos de las transacciones, tal como se ha descrito anteriormente.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+En la página de la cuenta de almacenamiento principal, seleccione **Recursos compartidos de archivos**, seleccione el icono con la etiqueta **Recursos compartidos de archivos** (también puede navegar a **Recursos compartidos de archivos** a través de la tabla de contenido de la cuenta de almacenamiento).
+
+![Captura de pantalla del icono Recursos compartidos de archivos](media/storage-how-to-create-file-share/create-file-share-1.png)
+
+En la lista de tabla de recursos compartidos de archivos, seleccione el recurso para el que desea cambiar el nivel. En la página información general del recurso compartido de archivos, seleccione **Cambiar nivel** en el menú.
+
+![Aparece una captura de pantalla de la página de información general del recurso compartido de archivos con el botón Cambiar nivel resaltado](media/storage-how-to-create-file-share/change-tier-0.png)
+
+En el cuadro de diálogo resultante, seleccione el nivel deseado: optimizado para transacciones, acceso frecuente o acceso esporádico.
+
+![Captura de pantalla del cuadro de diálogo Cambiar nivel](media/storage-how-to-create-file-share/change-tier-1.png)
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+En el siguiente cmdlet de PowerShell se supone que ha establecido las variables `$resourceGroupName`, `$storageAccountName` y `$shareName` como se describe en las secciones anteriores de este documento.
+
+```PowerShell
+# This cmdlet requires Az.Storage version 2.1.1-preview, which is installed
+# in the earlier example.
 Update-AzRmStorageShare `
     -ResourceGroupName $resourceGroupName `
     -StorageAccountName $storageAccountName `
@@ -267,27 +282,16 @@ Update-AzRmStorageShare `
     -AccessTier Cool
 ```
 
-> [!Note]  
-> La capacidad de establecer y cambiar los niveles mediante PowerShell se proporciona en la versión preliminar del módulo Az.Storage de PowerShell. Puede que estos cmdlets o sus salidas cambien antes de su publicación en la versión con disponibilidad general del módulo Az.Storage de PowerShell, por lo que debe crear scripts con esto en mente.
-
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-La funcionalidad para crear o mover un recurso compartido de archivos a un nivel específico está disponible en la actualización más reciente de la CLI de Azure. La actualización de la CLI de Azure es específica de la distribución de Linux o del sistema operativo que está usando. Para obtener instrucciones sobre cómo actualizar la CLI de Azure en el sistema, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+En el siguiente comando de la CLI de Azure se supone que ha establecido las variables `$resourceGroupName`, `$storageAccountName` y `$shareName` como se describe en las secciones anteriores de este documento.
 
 ```bash
-# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
-# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2
-# storage accounts. Standard tiers are only available in standard storage accounts.
-shareName="myhotshare"
-
-az storage share-rm create \
+az storage share-rm update \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \
     --name $shareName \
-    --access-tier "Hot"
+    --access-tier "Cool"
 ```
-
-> [!Note]  
-> La capacidad de establecer un nivel con el parámetro `--access-tier` se proporciona en una versión preliminar del último paquete de la CLI de Azure. Este comando o su salida pueden cambiar antes de pasar a tener disponibilidad general, por lo que debe crear scripts con esto en mente.
 
 ---
 

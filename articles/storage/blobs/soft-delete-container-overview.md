@@ -10,12 +10,12 @@ ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: f41caf61ac23b05ba0ff95d785be2e7449adf75d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3c6aa408ab3e89c367fca0701773b35fb9b41bb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228637"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91460805"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminación temporal de contenedores (versión preliminar)
 
@@ -42,11 +42,7 @@ La deshabilitación de la eliminación temporal de contenedores no provoca la el
 
 ## <a name="about-the-preview"></a>Acerca de la versión preliminar
 
-La eliminación temporal de contenedores está disponible en versión preliminar en las siguientes regiones:
-
-- Centro de Francia
-- Este de Canadá
-- Centro de Canadá
+La eliminación temporal de contenedores está disponible en versión preliminar en todas las regiones públicas de Azure.
 
 > [!IMPORTANT]
 > La versión preliminar de la eliminación temporal de contenedores está pensada para usos que no tengan que ver con la producción. En este momento no hay contratos de nivel de servicio de producción disponibles.

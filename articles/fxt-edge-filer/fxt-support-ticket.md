@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 16b219afa329cc105fb70000d8a088d67883feed
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: a6630a04f3811aae0b75bc378a66e8a05e4f8203
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184676"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91650449"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Apertura de una incidencia de soporte técnico para Azure FXT Edge Filer
 
@@ -23,7 +23,7 @@ Use Azure Portal para abrir una incidencia de soporte técnico con Soporte técn
 1. En el panel izquierdo, desplácese hasta la parte inferior y haga clic en **Ayuda y soporte técnico**.
 1. Haga clic en **Nueva solicitud de soporte técnico**. 
 
-   ![Captura de pantalla de un formulario de solicitud de soporte técnico](media/fxt-support-blank.png)
+   ![Captura de pantalla en la que se muestra la página "Help + support" (Ayuda y soporte técnico) con la opción "New support request" (Nueva solicitud de soporte técnico) seleccionada.](media/fxt-support-blank.png)
 
 1. Rellene el formulario de la solicitud.  
     1. En la pestaña **Aspectos básicos**, para **Tipo de problema**, elija ``Technical``. 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0affcb3c1bab6eb5616c69bb15faf423895328b0
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 8a762cfd1ecb4e290417b5d24b0ae75f6e10baf1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322524"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973707"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -136,7 +136,7 @@ No se puede cambiar el nombre de los discos administrados. Sin embargo, es posib
 
 Las imágenes de generación 1 solo pueden usar particiones GPT en discos de datos, no en discos del sistema operativo. Los discos de SO deben usar el estilo de partición de MBR.
 
-[Las imágenes de generación 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) pueden utilizar la creación de particiones GPT en el disco del sistema operativo, así como en los discos de datos.
+[Las imágenes de generación 2](./generation-2.md) pueden utilizar la creación de particiones GPT en el disco del sistema operativo, así como en los discos de datos.
 
 **¿Qué tipos de discos admiten instantáneas?**
 
@@ -241,7 +241,7 @@ No, la carga solo se puede usar durante la creación de un nuevo disco vacío co
 
 **¿Cómo se carga en un disco administrado?**
 
-Cree un disco administrado con la propiedad [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) de [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) establecida en "Upload" y, después, puede cargar datos en él.
+Cree un disco administrado con la propiedad [createOption](/rest/api/compute/disks/createorupdate#diskcreateoption) de [creationData](/rest/api/compute/disks/createorupdate#creationdata) establecida en "Upload" y, después, puede cargar datos en él.
 
 **¿Puedo conectar un disco a una máquina virtual mientras se encuentra en un estado de carga?**
 
@@ -396,13 +396,19 @@ No, solo se admite en discos administrados SSD premium admitidos.
 
 No, los discos administrados SSD estándar de cualquier tamaño no se pueden usar con discos no administrados ni blobs en páginas.
 
+**¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y con el sistema operativo en Gen1 VMs?**
+
+El tipo de partición compatible con Azure para discos de sistema operativo Gen1 es el registro de arranque maestro (MBR). Aunque los discos del sistema operativo Gen1 solo admiten MBR, los discos de datos admiten GPT. Aunque puede asignar hasta un disco del sistema operativo 4 TiB, el tipo de partición MBR solo puede usar hasta 2 TiB de este espacio en disco para el sistema operativo. Azure admite hasta 32 TiB para discos de datos administrados.
+
+**¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y con el sistema operativo en máquinas virtuales de Gen2?**
+
+El tipo de partición compatible con Azure para discos de sistema operativo Gen2 es la Tabla de particiones GUID (GPT). Las máquinas virtuales de Gen2 admiten hasta un disco de sistema operativo 4 TiB. Azure admite hasta 32 TiB para discos de datos administrados.
+
+
 **¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
 
-El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco del sistema operativo es de 4 TiB. Azure admite hasta 32 TiB para discos de datos administrados.
+El tipo de partición compatible con Azure para un disco del sistema operativo que utilice discos no administrados es el registro de arranque maestro (MBR).  Aunque puede asignar hasta un disco del sistema operativo 4 TiB, el tipo de partición MBR solo puede usar hasta 2 TiB de este espacio en disco para el sistema operativo. Azure admite hasta 4 TiB para discos de datos no administrados.
 
-**¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
-
-El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco no administrado del sistema operativo es de 4 TiB. Azure admite hasta 4 TiB para discos de datos no administrados.
 
 **¿Cuál es el mayor tamaño de blob en páginas admitido?**
 
@@ -421,7 +427,7 @@ No es necesario actualizar las herramientas de Azure existentes para crear, cone
 
 **¿Se admiten los tamaños de disco P4 y P6 para blobs en páginas o discos no administrados?**
 
-Los tamaños de disco P4 (32 GiB) y P6 (64 GiB) no se admiten como niveles de disco predeterminados para discos no administrados y blobs en páginas. Deberá [establecer el nivel de blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) explícitamente en P4 y P6 para que el disco se asigne a estos niveles. Si implementa un disco no administrado o un blob en páginas con el tamaño de disco o la longitud de contenido inferior a 32 GiB o entre 32 y 64 GiB sin establecer el nivel de blob, continuará en el nivel P10 con 500 IOPS y 100 MiB/s y el plan de tarifa asignado.
+Los tamaños de disco P4 (32 GiB) y P6 (64 GiB) no se admiten como niveles de disco predeterminados para discos no administrados y blobs en páginas. Deberá [establecer el nivel de blob](/rest/api/storageservices/set-blob-tier) explícitamente en P4 y P6 para que el disco se asigne a estos niveles. Si implementa un disco no administrado o un blob en páginas con el tamaño de disco o la longitud de contenido inferior a 32 GiB o entre 32 y 64 GiB sin establecer el nivel de blob, continuará en el nivel P10 con 500 IOPS y 100 MiB/s y el plan de tarifa asignado.
 
 **Si mi disco administrado premium existente de menos de 64 GiB se creó antes de habilitar el disco pequeño (alrededor del 15 de junio de 2017), ¿cómo se factura?**
 
@@ -491,6 +497,6 @@ No.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 
-Si su pregunta no aparece aquí, háganoslo saber y lo ayudaremos a encontrar una respuesta. Puede publicar una pregunta al final de este artículo en los comentarios. Para ponerse en contacto con el equipo de Azure Storage y otros miembros de la Comunidad sobre este artículo, use el MSDN [Página de preguntas y respuestas de Microsoft sobre Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
+Si su pregunta no aparece aquí, háganoslo saber y lo ayudaremos a encontrar una respuesta. Puede publicar una pregunta al final de este artículo en los comentarios. Para ponerse en contacto con el equipo de Azure Storage y otros miembros de la Comunidad sobre este artículo, use la [Página de preguntas y respuestas de Microsoft sobre Azure Storage](/answers/products/azure?product=storage).
 
 Para solicitar características, envíe sus solicitudes e ideas al [foro de comentarios de Azure Storage](https://feedback.azure.com/forums/217298-storage).

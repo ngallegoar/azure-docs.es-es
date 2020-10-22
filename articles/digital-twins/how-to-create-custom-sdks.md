@@ -8,26 +8,26 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ccbe6cb332f357eeef02dff22b8a4be328b8de0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 53887b7487c3f0bb70c9f8cc7cd61246fabc0b37
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324236"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970136"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creación de SDK personalizados para Azure Digital Twins con AutoRest
 
 En este momento, los únicos SDK de plano de datos publicados para interactuar con las API de Azure Digital Twins son para .NET (C#), JavaScript y Java. Puede leer sobre estos SDK en general, en [*Procedimiento: las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md). Si está trabajando en otro lenguaje, este artículo le mostrará cómo generar su propio SDK de plano de datos en el lenguaje de su elección mediante AutoRest.
 
 >[!NOTE]
-> También puede usar AutoRest para generar un SDK de plano de control si lo desea. Para ello, complete los pasos descritos en este artículo con el [archivo Swagger (OpenAPI) del plano de control](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) en lugar del plano de datos.
+> También puede usar AutoRest para generar un SDK de plano de control si lo desea. Para ello, complete los pasos descritos en este artículo con el **archivo Swagger (OpenAPI) del plano de control** de la (carpeta Swagger del plano de control)https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) en lugar del plano de datos.
 
 ## <a name="set-up-your-machine"></a>Configuración de la máquina
 
 Para generar un SDK, necesitará:
 * [AutoRest](https://github.com/Azure/autorest) versión 2.0.4413 (la versión 3 no se admite actualmente)
 * [Node.js](https://nodejs.org) como requisito previo para AutoRest
-* El [archivo Swagger (OpenAPI) del plano de datos](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2020-05-31-preview) de Azure Digital Twins titulado *digitaltwins.json*, y su correspondiente carpeta de ejemplos. Descargue el archivo Swagger y su carpeta de ejemplos en la máquina local.
+* El archivo más reciente de **plano de datos Swagger** (OpenAPI) de Azure Digital Twins de la [carpeta de plano de datos Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins) y su carpeta de ejemplos.  Descargue el archivo Swagger *digitaltwins.json* y su carpeta de ejemplos en la máquina local.
 
 Una vez que la máquina esté equipada con todos los elementos de la lista anterior, estará listo para usar AutoRest para crear el SDK.
 

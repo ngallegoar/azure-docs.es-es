@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083827"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91397970"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solución de errores de replicación de máquinas virtuales de Azure en Azure
 
@@ -197,11 +197,11 @@ Intente acceder al servidor DNS desde la máquina virtual. Si no puede acceder a
 
 #### <a name="possible-cause"></a>Causa posible
 
-No se puede establecer una conexión con los puntos de conexión de autenticación e identidad IP4 de Office 365.
+No se puede establecer una conexión con los puntos de conexión de autenticación e identidad IP4 de Microsoft 365.
 
 #### <a name="fix-the-problem"></a>Corrección del problema
 
-Azure Site Recovery debe tener acceso a los intervalos de direcciones IP de Office 365 para la autenticación.
+Azure Site Recovery debe tener acceso a los intervalos de direcciones IP de Microsoft 365 para la autenticación.
 Si usa un proxy que funcione como firewall o reglas de grupos de seguridad de red (NSG) de Azure para controlar la conectividad de salida de la red en la máquina virtual, asegúrese de usar una regla de NSG basada en [etiquetas de servicio de Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) para permitir el acceso a AAD. Ya no se admiten las reglas de NSG basadas en direcciones IP.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: error de configuración de Site Recovery (151197)
@@ -281,14 +281,14 @@ Para que el estado de replicación de la máquina virtual sea correcto de nuevo,
 1. Vaya a **Elementos replicados** > _Nombre de la máquina virtual_ > **Discos**.
 1. Seleccione el disco no protegido y, a continuación, **Habilitar replicación**:
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="Habilitar la replicación en discos de máquina virtual":::.
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="com-error.":::.
 
 #### <a name="to-dismiss-the-warning"></a>Para descartar la advertencia
 
 1. Vaya a **Elementos replicados** > _Nombre de la máquina virtual_.
 1. Seleccione la advertencia en la sección **Información general** y, a continuación, seleccione **Aceptar**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="Descartar advertencia de nuevo disco.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="com-error.":::
 
 ## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>Se ha quitado la máquina virtual del almacén con información (código de error 150225)
 
@@ -309,7 +309,7 @@ Puede omitir esta advertencia si no pretende proteger esta máquina virtual de n
 
 1. Quite el bloqueo de la máquina virtual o del grupo de recursos de la máquina virtual. Por ejemplo, en la siguiente imagen, debe eliminarse el bloqueo de recursos de la máquina virtual llamada `MoveDemo`:
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Eliminación del bloqueo de la máquina virtual.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-error.":::
 
 1. Descargue el script para [quitar una configuración obsoleta de Site Recovery](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Ejecute el script _Cleanup-stale-asr-config-Azure-VM.ps1_. Proporcione el **identificador de la suscripción**, el **grupo de recursos de la máquina virtual** y el **nombre de la máquina virtual** como parámetros.
@@ -334,7 +334,7 @@ Una configuración obsoleta puede producirse en una máquina virtual de Azure si
 
 1. Quite el bloqueo de la máquina virtual o del grupo de recursos de la máquina virtual. Por ejemplo, en la siguiente imagen, debe eliminarse el bloqueo de recursos de la máquina virtual llamada `MoveDemo`:
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Eliminación del bloqueo de la máquina virtual.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-error.":::
 
 1. Descargue el script para [quitar una configuración obsoleta de Site Recovery](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Ejecute el script _Cleanup-stale-asr-config-Azure-VM.ps1_. Proporcione el **identificador de la suscripción**, el **grupo de recursos de la máquina virtual** y el **nombre de la máquina virtual** como parámetros.
@@ -367,7 +367,7 @@ Es posible que no vea la máquina virtual que quiere habilitar para la replicaci
 
 1. Quite el bloqueo, en caso de haberlo, de la máquina virtual o del grupo de recursos de la máquina virtual. Por ejemplo, en la siguiente imagen, debe eliminarse el bloqueo de recursos de la máquina virtual llamada `MoveDemo`:
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Eliminación del bloqueo de la máquina virtual.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-error.":::
 
 1. Descargue el script para [quitar una configuración obsoleta de Site Recovery](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Ejecute el script _Cleanup-stale-asr-config-Azure-VM.ps1_. Proporcione el **identificador de la suscripción**, el **grupo de recursos de la máquina virtual** y el **nombre de la máquina virtual** como parámetros.
@@ -404,17 +404,17 @@ Para habilitar la replicación en la máquina virtual, su estado de aprovisionam
 
 Durante la configuración de la recuperación ante desastres, si la máquina virtual de origen forma parte de una red virtual y otra máquina virtual de la misma red virtual ya está asignada a una red del grupo de recursos de destino, el cuadro de lista desplegable de selección de red no está disponible (aparece atenuado) de forma predeterminada.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Lista de selección de red no disponible.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="com-error.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problema 2: ha protegido previamente la máquina virtual y, a continuación, ha deshabilitado la replicación
 
 Deshabilitar la replicación de una máquina virtual no elimina la asignación de red. La asignación debe eliminarse del almacén de Recovery Services donde la máquina virtual está protegida. Seleccione **Almacén de Recovery Services** y vaya a **Administrar** > **Infraestructura de Site Recovery** > **Para Azure Virtual Machines** > **Asignación de red**.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Eliminación de la asignación de red.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="com-error.":::
 
 La red de destino que se configuró durante la instalación de la recuperación ante desastres puede cambiarse después, una vez protegida la máquina virtual. Para **Modificar asignación de red** seleccione el nombre de red:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="Modificación de la asignación de red.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="com-error.":::
 
 
 ## <a name="com-or-vss-error-code-151025"></a>COM+ o VSS (código de error 151025)
@@ -437,7 +437,7 @@ Establezca los servicios de aplicación del sistema COM+ y de instantáneas de v
 1. Abra la consola de Servicios en Windows.
 1. Asegúrese de que los servicios de aplicación del sistema COM+ y de instantáneas de volumen no se establecen en **Deshabilitado** como su **Tipo de inicio**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="Comprobación de tipo de inicio de los servicios de aplicación del sistema COM+ y de instantáneas de volumen.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="com-error.":::
 
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>Tamaño del disco administrado no compatible (código de error 150172)
 

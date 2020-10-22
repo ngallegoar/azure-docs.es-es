@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439002"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339720"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Uso de controles de aplicaciones adaptables para reducir las superficies de ataque de las máquinas
 
@@ -52,7 +52,7 @@ Al definir listas de aplicaciones seguras conocidas y generar alertas cuando se 
 |----|:----|
 |Estado de la versión:|Disponible con carácter general|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
-|Máquinas admitidas:|![Sí](./media/icons/yes-icon.png) Máquinas de Azure y que no son de Azure que ejecutan Windows y Linux<br>![Sí](./media/icons/yes-icon.png) Máquinas de [Azure Arc](https://docs.microsoft.com/azure/azure-arc/)|
+|Máquinas admitidas:|![Sí](./media/icons/yes-icon.png) Máquinas de Azure y que no son de Azure que ejecutan Windows y Linux<br>![Sí](./media/icons/yes-icon.png) Máquinas de [Azure Arc](../azure-arc/index.yml)|
 |Roles y permisos necesarios:|Los roles **Lector de seguridad** y **Lector** pueden ver grupos y las listas de aplicaciones seguras conocidas.<br>Los roles **Colaborador** y **Administrador de seguridad** pueden editar grupos y las listas de aplicaciones seguras conocidas.|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
 |||
@@ -85,7 +85,7 @@ Seleccione la recomendación o abra la página de controles de aplicaciones adap
     - **Ninguna recomendación**: máquinas sin una lista de aplicaciones permitidas definida y que no admiten la característica. Es posible que su máquina virtual esté en esta pestaña por las siguientes razones:
       - Falta un agente de Log Analytics
       - El agente de Log Analytics no envía eventos
-      - Es una máquina Windows con una directiva de [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) ya existente habilitada por un GPO o una directiva de seguridad local.
+      - Es una máquina Windows con una directiva de [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) ya existente habilitada por un GPO o una directiva de seguridad local.
 
       > [!TIP]
       > Security Center necesita al menos dos semanas de datos para definir las recomendaciones únicas por grupo de máquinas. Las máquinas que se han creado recientemente, o que pertenecen a suscripciones que solo se habilitaron recientemente con Azure Defender, aparecerán en la pestaña **Ninguna recomendación**.
@@ -150,6 +150,23 @@ Para editar las reglas de un grupo de máquinas:
 1. Seleccione **Guardar** para aplicar los cambios.
 
 
+## <a name="review-and-edit-a-groups-settings"></a>Revisión y edición de la configuración de un grupo
+
+1. Para ver los detalles y la configuración de su grupo, seleccione **Configuración de grupo**.
+
+    En este panel se muestra el nombre del grupo (que se puede modificar), el tipo de sistema operativo, la ubicación y otros detalles pertinentes.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Apertura de controles de aplicaciones adaptables desde el panel de Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > La opción **Forzar**, en la configuración del modo de protección de tipos de archivo, está atenuada en **todos** los escenarios. No hay opciones para forzar disponibles en estos momentos. 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Apertura de controles de aplicaciones adaptables desde el panel de Azure":::
+
+1. Opcionalmente, puede modificar el nombre del grupo o los modos de protección de tipos de archivo.
+
+1. Seleccione **Aplicar** y **Guardar**.
+
 
 
 ## <a name="respond-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Respuesta a la recomendación "Allowlist rules in your adaptive application control policy should be updated" (Se deben actualizar las reglas de listas de permitidos de la directiva de control de aplicaciones adaptables)
@@ -207,7 +224,7 @@ Cuando se mueve una máquina de un grupo a otro, la directiva de control de apli
 
 Para administrar los controles de aplicaciones adaptables mediante programación, use nuestra API REST. 
 
-La documentación completa de la API se puede encontrar [aquí](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols).
+La documentación completa de la API se puede encontrar [aquí](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Algunas de las funciones que están disponibles en la API REST:
 

@@ -4,17 +4,17 @@ description: En esta página se describe cómo crear una solicitud de soporte t�
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.topic: conceptual
+ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 06/04/2020
-ms.openlocfilehash: 4557d2ecdb49cd50396986f0ea30277f50ecf9f7
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cfcdd143a26d36ed3c4646122fce7c19c41976d0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987293"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448845"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Solicitud de aumentos de cuota para Azure SQL Database y la instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -107,7 +107,7 @@ Si su suscripción requiere acceso en una región determinada, seleccione la opc
 
 1. Especifique los detalles de **Modelo de compra** y **Consumo esperado**.
 
-   ![Solicitar acceso a la región](./media/quota-increase-request/quota-details-whitelisting.png)
+   ![Solicitar acceso a la región](./media/quota-increase-request/quota-request.png)
 
 ### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a> Habilitar el acceso de la serie M a una región
 
@@ -118,7 +118,7 @@ Para habilitar hardware de la serie M para una suscripción y región, se debe a
 1. En la lista **Seleccionar una ubicación**, seleccione la región de Azure que se va a usar. La cuota es por suscripción en cada región.
 
 
-   ![Solicitar acceso a la región](./media/quota-increase-request/quota-m-series.png)
+   ![Solicitar acceso a la región de la serie M](./media/quota-increase-request/quota-m-series.png)
 
 ## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> Tipo de cuota de instancia administrada de SQL
 

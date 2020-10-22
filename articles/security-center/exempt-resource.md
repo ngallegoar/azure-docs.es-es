@@ -3,16 +3,16 @@ title: Exención de un recurso de las recomendaciones de seguridad de Azure Secu
 description: Sepa cómo eximir un recurso de las recomendaciones de seguridad y la puntuación segura.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b4d043812800bec1070624382755aeb355ea595a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932433"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91532557"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Exención de un recurso de las recomendaciones y la puntuación segura
 
@@ -32,7 +32,7 @@ El recurso se mostrará como no aplicable y el motivo aparecerá como "exento" c
 |----|:----|
 |Estado de la versión:|Versión preliminar|
 |Precios:|Se trata de una funcionalidad premium de Azure Policy que se ofrece a los clientes de Azure Defender sin costo adicional. En el caso de otros usuarios, pueden aplicarse cargos en el futuro.|
-|Roles y permisos necesarios:|**propietario de la suscripción** o **colaborador de la directiva** para crear una exención.<br>Para crear una regla, necesita permisos para editar directivas en Azure Policy.<br>Obtenga más información en [Permisos de RBAC en Azure Policy](../governance/policy/overview.md#rbac-permissions-in-azure-policy).|
+|Roles y permisos necesarios:|**propietario de la suscripción** o **colaborador de la directiva** para crear una exención.<br>Para crear una regla, necesita permisos para editar directivas en Azure Policy.<br>Obtenga más información en [Permisos de Azure RBAC en Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
 |||
 
@@ -45,7 +45,7 @@ El recurso se mostrará como no aplicable y el motivo aparecerá como "exento" c
 
     Se abre el panel Crear exención.
 
-    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Panel Crear exención":::
+    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Opción Crear una exención del menú contextual":::
 
 1. Escriba los criterios y seleccione uno de ellos para la exención de este recurso:
     - **Mitigado**: este problema no es importante para el recurso porque se ha administrado mediante una herramienta o un proceso diferentes de los que se sugieren.
@@ -56,13 +56,13 @@ El recurso se mostrará como no aplicable y el motivo aparecerá como "exento" c
     - El recurso se muestra en la pestaña **No aplicable** de la página de detalles de la recomendación.
     - La franja de información en la parte superior de la página de detalles de la recomendación muestra el número de recursos exentos:
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Número de recursos exentos":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Opción Crear una exención del menú contextual":::
 
 1. Para revisar los recursos exentos, abra la pestaña **No aplicable**.
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modificación de una exención":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Opción Crear una exención del menú contextual":::
 
-    La razón de cada exención se incluye en la tabla. 
+    La razón de cada exención se incluye en la tabla (1).
 
     Para modificar o eliminar una exención, seleccione el menú de puntos suspensivos ("...") como se muestra (2).
 
@@ -73,7 +73,7 @@ Las reglas de exención usan Azure Policy para crear una exención para el recur
 
 Puede usar Azure Policy para realizar un seguimiento de todas las exenciones de la página **Exención**:
 
-:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Página de exenciones de Azure Policy":::
+:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Opción Crear una exención del menú contextual":::
 
 
 

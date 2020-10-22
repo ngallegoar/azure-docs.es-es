@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 9cf65b2fdeb7faa03b950593db86dd32a4ef91a7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea4038e88d41a089958d4199e4c5a00f0d2acabd
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495745"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015573"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Análisis de datos con Azure Machine Learning
 
@@ -56,7 +56,7 @@ FROM [dbo].[vTargetMail]
 
 Una vez que los datos están disponibles en Azure Data Lake Storage, los almacenes de datos de Azure Machine Learning se utilizan para [conectarse a los servicios de almacenamiento de Azure](https://docs.microsoft.com/azure/machine-learning/how-to-access-data). Siga los pasos que se indican a continuación para crear un almacén de datos y el correspondiente conjunto de datos:
 
-1. Inicie Azure Machine Learning Studio desde Azure Portal o inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com/).
+1. Inicie Azure Machine Learning Studio desde Azure Portal o inicie sesión en [Estudio de Azure Machine Learning](https://ml.azure.com/).
 
 1. Haga clic en **Almacenes de datos** en el panel izquierdo de la sección **Administrar** y, a continuación, haga clic en **New Datastore** (Nuevo almacén de datos).
 
@@ -90,7 +90,7 @@ Después, siga los pasos que aparecen a continuación para configurar el diseña
 
 1. Arrastre el conjunto de datos que creó anteriormente al lienzo.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Captura de pantalla del módulo de conjunto de datos en el lienzo.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Captura de pantalla del panel izquierdo de la interfaz de Azure Machine Learning":::
 
 ## <a name="clean-the-data"></a>Limpiar los datos
 
@@ -100,13 +100,13 @@ Para limpiar los datos, anule las columnas que no sean pertinentes para el model
 
 1. Arrastre el módulo **Seleccionar columnas en el conjunto de datos** bajo la opción **Transformación de datos < Manipulación** en el lienzo. Conecte este módulo con el módulo del **Conjunto datos**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Captura de pantalla del módulo de selección de columnas en el lienzo." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Captura de pantalla del panel izquierdo de la interfaz de Azure Machine Learning" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
 
 1. Haga clic en el módulo para abrir el panel Propiedades. Haga clic en Editar columna para especificar cuáles son las columnas que desea anular.
 
 1. Excluya dos columnas: CustomerAlternateKey y GeographyKey. Haga clic en **Guardar**
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Captura de pantalla con las columnas que se van a anular.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Captura de pantalla del panel izquierdo de la interfaz de Azure Machine Learning":::
 
 ## <a name="build-the-model"></a>Generar el modelo
 
@@ -116,7 +116,7 @@ Los datos se dividen en 80-20: 80 % para entrenar un modelo de aprendizaje autom
 
 1. En el panel de propiedades, escriba 0,8 en **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida).
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Captura de pantalla que muestra la relación de división de 0,8.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Captura de pantalla del panel izquierdo de la interfaz de Azure Machine Learning":::
 
 1. Arrastre el módulo **Árbol de decisión aumentado de dos clases** al lienzo.
 
@@ -124,9 +124,9 @@ Los datos se dividen en 80-20: 80 % para entrenar un modelo de aprendizaje autom
 
 1. Para el módulo Train Model (Entrenar modelo) en la opción **Label column** (Columna de etiqueta) del panel Propiedades, seleccione Editar columna. Seleccione la columna **BikeBuyer** como columna de predicción y haga clic en **Guardar**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Captura de pantalla que muestra la columna de etiqueta, BikeBuyer, seleccionada.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Captura de pantalla del panel izquierdo de la interfaz de Azure Machine Learning":::
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Captura de pantalla del módulo Train Model (Entrenar modelo) conectado a los módulos Two-Class Boosted Decision Tree (Árbol de decisión promovido por dos clases) y Split Data (Dividir datos).":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Captura de pantalla del panel izquierdo de la interfaz de Azure Machine Learning":::
 
 ## <a name="score-the-model"></a>Puntuación del modelo
 
@@ -142,11 +142,11 @@ Ahora pruebe cómo funciona el modelo con datos de prueba. Se compararán dos al
 
 1. Haga clic en **Enviar** para configurar la ejecución de la canalización.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Captura de pantalla de todos los módulos restantes en el lienzo." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Captura de pantalla del panel izquierdo de la interfaz de Azure Machine Learning" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
 
 1. Una vez finalizada la ejecución, haga clic con el botón derecho en el módulo **Evaluate Model** (Evaluar modelo) y haga clic en **Visualize Evaluation results** (Visualizar resultados de evaluación).
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Captura de pantalla de los resultados.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Captura de pantalla del panel izquierdo de la interfaz de Azure Machine Learning":::
 
 Las métricas proporcionadas son la curva ROC, el diagrama de retirada-precisión y la curva de elevación. Al mirar estas métricas, se puede observar que el primer modelo funciona mejor que el segundo. Para ver lo que predijo el primer modelo, haga clic con el botón derecho en el módulo Score Model (Puntuar modelo) y haga clic en Visualize Scored results (Visualizar resultados con puntuación) para ver los resultados previstos.
 

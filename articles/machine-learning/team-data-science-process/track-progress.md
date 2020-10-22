@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8cf1e5a4d97b882e7a8d0c81041bbcde709760d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78a543fabadcc0d4e1766af1bc5c65aac0dadebe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75864203"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91358932"
 ---
 # <a name="track-the-progress-of-data-science-projects"></a>Seguimiento del progreso de los proyectos de ciencia de datos
 
@@ -46,7 +46,7 @@ Este es un panel de ejemplo sencillo que hace el seguimiento de las actividades 
 
 - El **gráfico de evolución ascendente** muestra el trabajo completado en comparación con la cantidad total de trabajo del sprint.
 
-![Panel](./media/track-progress/dashboard.png)
+![Captura de pantalla que muestra un ejemplo del panel de Azure DevOps.](./media/track-progress/dashboard.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

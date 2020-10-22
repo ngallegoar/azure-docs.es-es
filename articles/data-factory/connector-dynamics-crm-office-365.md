@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: 54aac9fda42a867ab66d631279efbca4f812b01a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/23/2020
+ms.openlocfilehash: 942cbda3652692acc8eedf2ec9508bb501a60547
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497629"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91332107"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -81,7 +81,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en "Dynamics", "DynamicsCrm" o "CommonDataServiceForApps". | Sí |
 | deploymentType | El tipo de implementación de la instancia de Dynamics. El valor debe ser "Online" para Dynamics en línea. | Sí |
-| serviceUri | Dirección URL de la instancia de Dynamics. Un ejemplo es https://www.crmdynamics.com. | Sí |
+| serviceUri | Dirección URL de servicio de la instancia de Dynamics, la misma a la que se accede desde el explorador. "https://\<organization-name>.crm[x].dynamics.com" es un ejemplo. | Sí |
 | authenticationType | Tipo de autenticación para conectarse a un servidor de Dynamics. Los valores válidos son "AADServicePrincipal" y "Office365". | Sí |
 | servicePrincipalId | Identificador de cliente de la aplicación de Azure AD. | Sí, cuando la autenticación es "AADServicePrincipal" |
 | servicePrincipalCredentialType | Tipo de credencial que se usará para la autenticación de entidad de servicio. Los valores válidos son "ServicePrincipalKey" y "ServicePrincipalCert". | Sí, cuando la autenticación es "AADServicePrincipal" |
@@ -102,7 +102,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
         "type": "Dynamics",  
         "typeProperties": {  
             "deploymentType": "Online",  
-            "serviceUri": "https://www.crmdynamics.com",  
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",  
             "authenticationType": "AADServicePrincipal",  
             "servicePrincipalId": "<service principal id>",  
             "servicePrincipalCredentialType": "ServicePrincipalKey",  
@@ -124,7 +124,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
         "type": "Dynamics", 
         "typeProperties": { 
             "deploymentType": "Online", 
-            "serviceUri": "https://www.crmdynamics.com", 
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com", 
             "authenticationType": "AADServicePrincipal", 
             "servicePrincipalId": "<service principal id>", 
             "servicePrincipalCredentialType": "ServicePrincipalCert", 
@@ -154,7 +154,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
         "type": "Dynamics",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://www.crmdynamics.com",
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {

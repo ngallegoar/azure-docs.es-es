@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258e05b135195004fec628936bb458ea8f1dc7b1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 706770db4309d1a909bc1161ab9d6657b6c5310a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419995"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91533555"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurar alertas de seguridad para roles de Azure AD en Privileged Identity Management
 
@@ -38,7 +38,7 @@ Siga los pasos que se describen en este artículo para investigar las alertas de
 
 # <a name="new-version"></a>[Nueva versión](#tab/new)
 
-![Roles de Azure AD: panel de alerta que muestra las alertas y la gravedad](./media/pim-how-to-configure-security-alerts/view-alerts.png)
+![Captura de pantalla que muestra la página "Alertas" con una lista de alertas y su gravedad.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## <a name="security-alerts"></a>Alertas de seguridad
 
@@ -108,8 +108,8 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 | **Solución** | Revise los usuarios de la lista y quite los que no necesite para nada el rol de administrador global. </br>En su lugar, asigne roles con privilegios inferiores a estos usuarios. |
 | **Prevención** | Asigne a los usuarios el rol con privilegios mínimos que necesiten. |
 | **Acción de mitigación en el portal** | Quítele a la cuenta su rol con privilegios. |
-| **Desencadenador** | Se desencadena si se cumplen dos criterios diferentes, y puede configurar ambos. En primer lugar, debe alcanzar un umbral determinado de administradores globales. En segundo lugar, un porcentaje determinado de las asignaciones de roles totales deben ser administradores globales. Si solo se cumple uno de estos criterios, la alerta no aparece. |
-| **Número mínimo de administradores globales** | Esta configuración especifica el número de administradores globales, de 2 a 100, que considera que son demasiado pocos para su organización de Azure AD. |
+| **Desencadenador** | Se desencadena si se cumplen dos criterios diferentes, y puede configurar ambos. En primer lugar, debe alcanzar un umbral determinado de asignaciones de roles de administradores globales. En segundo lugar, un porcentaje determinado de las asignaciones de roles totales deben ser administradores globales. Si solo se cumple uno de estos criterios, la alerta no aparece. |
+| **Número mínimo de administradores globales** | Esta configuración especifica el número de asignaciones de roles de administradores globales, de 2 a 100, que considera que son demasiado pocos para su organización de Azure AD. |
 | **Porcentaje de Administradores globales** | Esta configuración especifica el porcentaje mínimo de administradores que son administradores globales, del 0 % al 100 %, por debajo del cual no desea que la organización de Azure AD DIP. |
 
 ### <a name="roles-are-being-activated-too-frequently"></a>Se activan roles con demasiada frecuencia
@@ -125,21 +125,21 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 | **Período de tiempo de renovación de activaciones** | Esta opción especifica el período de tiempo, en días, horas, minutos y segundos, que quiere usar para realizar el seguimiento de renovaciones sospechosas. |
 | **Number of activation renewals** (Número de renovaciones de activación) | Esta configuración especifica el número de activaciones, de 2 a 100, en las que le gustaría recibir notificaciones, dentro del período de tiempo elegido. Puede cambiar este valor moviendo el control deslizante o escribiendo un número en el cuadro de texto. |
 
-## <a name="configure-security-alert-settings"></a>Configuración de alertas de seguridad
+## <a name="customize-security-alert-settings"></a>Personalización de la configuración de alertas de seguridad
 
-En la página de alertas, vaya a **Configuración**.
+En la página **Alertas**, seleccione **Configuración**.
 
 ![Página de alertas con la opción Configuración resaltada](media/pim-how-to-configure-security-alerts/alert-settings.png)
 
 Personalice la configuración de las diferentes alertas para que encajen con su entorno y con sus objetivos de seguridad.
 
-![Página de configuración de una alerta para habilitar y configurar los valores](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+![Página de configuración de una alerta para habilitar y configurar los valores](media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 # <a name="previous-version"></a>[Versión anterior](#tab/previous)
 
-![Roles de Azure AD: panel de alerta que muestra las alertas y la gravedad](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Roles de Azure AD: panel de alertas que muestra las alertas y la gravedad](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
-## <a name="security-alerts"></a>Alertas de seguridad
+## <a name="security-alert-details"></a>Detalles de alertas de seguridad
 
 En esta sección se enumeran todas las alertas de seguridad para roles de Azure AD, y cómo resolverlas y evitarlas. La gravedad tiene el significado siguiente:
 

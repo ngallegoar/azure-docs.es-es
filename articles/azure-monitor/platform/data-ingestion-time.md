@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87bfe1109640f158b92f54b945d314ac65a93ddc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666644"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107919"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tiempo de la ingesta de datos de registro en Azure Monitor
 Azure Monitor es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. Con frecuencia se plantean preguntas sobre el tiempo necesario para que los datos de registro estén disponibles una vez que se han recopilado. En este artículo se explican los distintos factores que afectan a esta latencia.
@@ -51,13 +51,13 @@ Una vez disponibles en el punto de ingesta, tardarán entre 2 y 5 minutos más 
 ### <a name="management-solutions-collection"></a>Recopilación de las soluciones de administración
 Algunas soluciones no recopilan los datos de un agente y pueden usar un método de recopilación que introduce latencia adicional. Algunas soluciones recopilan los datos a intervalos regulares sin intentar la recopilación casi en tiempo real. A continuación se incluyen algunos ejemplos específicos:
 
-- La solución Office 365 sondea los registros de actividad mediante la API de Actividad de administración de Office 365, que actualmente no proporciona garantías de latencia casi en tiempo real.
+- La solución Microsoft 365 sondea los registros de actividad mediante la API de Actividad de administración, que actualmente no proporciona garantías de latencia casi en tiempo real.
 - Los datos de las soluciones de Windows Analytics (Update Compliance por ejemplo) se recopilan con una frecuencia diaria por la solución.
 
 Consulte la documentación de cada solución para determinar su frecuencia de recopilación.
 
 ### <a name="pipeline-process-time"></a>Tiempo del proceso de canalización
-Una vez que las entradas de registro se han ingerido en la canalización de Azure Monitor (como se indica en la propiedad [_TimeReceived](log-standard-properties.md#_timereceived)), se escriben en un almacenamiento temporal para garantizar el aislamiento de inquilinos y para asegurarse de que no se pierden datos. Normalmente, este proceso agrega de 5 a 15 segundos. Algunas soluciones de administración implementan algoritmos más pesados para agregar datos y obtener perspectivas a medida que los datos van entrando. Por ejemplo, Network Performance Monitor agrega los datos de entrada en intervalos de 3 minutos, agregando así una latencia de 3 minutos. Otro proceso que agrega latencia es el proceso que controla los registros personalizados. En algunos casos, este proceso puede agregar algunos minutos de latencia a los registros recopilados de los archivos por el agente.
+Una vez que las entradas de registro se han ingerido en la canalización de Azure Monitor (como se indica en la propiedad [_TimeReceived](./log-standard-columns.md#_timereceived)), se escriben en un almacenamiento temporal para garantizar el aislamiento de inquilinos y para asegurarse de que no se pierden datos. Normalmente, este proceso agrega de 5 a 15 segundos. Algunas soluciones de administración implementan algoritmos más pesados para agregar datos y obtener perspectivas a medida que los datos van entrando. Por ejemplo, Network Performance Monitor agrega los datos de entrada en intervalos de 3 minutos, agregando así una latencia de 3 minutos. Otro proceso que agrega latencia es el proceso que controla los registros personalizados. En algunos casos, este proceso puede agregar algunos minutos de latencia a los registros recopilados de los archivos por el agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Aprovisionamiento de nuevos tipos de datos personalizados
 Cuando se crea un nuevo tipo de datos personalizados desde un [registro personalizado](data-sources-custom-logs.md) o la [API del recopilador de datos](data-collector-api.md), el sistema crea un contenedor de almacenamiento dedicado. Se trata de una sobrecarga de un solo uso que se produce solo con la primera aparición de este tipo de datos.
@@ -77,8 +77,8 @@ El tiempo de ingesta puede variar para diferentes recursos en diferentes circuns
 
 | Paso | Propiedad o función | Comentarios |
 |:---|:---|:---|
-| Registro creado en el origen de datos | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Si el origen de datos no establece este valor, se establecerá en el mismo tiempo que _TimeReceived. |
-| Registro recibido por el punto de conexión de ingesta de Azure Monitor | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| Registro creado en el origen de datos | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>Si el origen de datos no establece este valor, se establecerá en el mismo tiempo que _TimeReceived. |
+| Registro recibido por el punto de conexión de ingesta de Azure Monitor | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
 | Registro almacenado en el área de trabajo y disponible para las consultas. | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Retrasos de latencia de la ingesta
@@ -143,4 +143,3 @@ Heartbeat
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Lea el [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) para Azure Monitor.
-

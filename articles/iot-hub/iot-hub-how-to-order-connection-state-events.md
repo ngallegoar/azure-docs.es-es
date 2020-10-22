@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af8bd9a0420c90df4dea16fa8ebacbf4ea6494db
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 90b7b6aebfce1c37bef76d371d829048d755e39e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87488135"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147262"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenación de eventos de conexión de dispositivos de Azure IoT Hub mediante Azure Cosmos DB
 
@@ -29,7 +29,7 @@ El número de secuencia es una representación de cadena de un número hexadecim
 
 * Una colección en la base de datos. Consulte [Incorporación de una colección](../cosmos-db/create-sql-api-java.md#add-a-container) para ver un tutorial. Cuando cree la colección, use `/id` para la clave de partición.
 
-* Una instancia de IoT Hub en Azure. Si aún no ha creado ninguna, vea un tutorial en [Introducción a Azure IoT Hub](iot-hub-csharp-csharp-getstarted.md).
+* Una instancia de IoT Hub en Azure. Si aún no ha creado ninguna, vea un tutorial en [Introducción a Azure IoT Hub](./quickstart-send-telemetry-dotnet.md).
 
 ## <a name="create-a-stored-procedure"></a>Creación de un procedimiento almacenado
 
@@ -227,11 +227,11 @@ En el flujo de trabajo de la aplicación lógica, las condiciones ayudan a ejecu
 
 5. Seleccione **Agregar nuevo parámetro**. En la lista desplegable que aparece, seleccione las casillas que están junto a **Clave de partición** y **Parámetros del procedimiento almacenado** y, después, haga clic en cualquier parte de la pantalla. Esto agregará un campo para el valor de la clave de partición y un campo para los parámetros del procedimiento almacenado.
 
-   ![rellenar acción de aplicación lógica](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
+   ![Captura de pantalla que muestra un elemento Ejecutar procedimiento almacenado con Agregar nuevo parámetro seleccionado.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
 6. Escriba el valor de la clave de partición y los parámetros como se muestra a continuación. Asegúrese de colocar los corchetes y las comillas dobles como se indica a continuación. Tendrá que hacer clic en **Agregar contenido dinámico** para obtener los valores válidos que puede usar aquí.
 
-   ![rellenar acción de aplicación lógica](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+   ![Captura de pantalla que muestra un elemento Ejecutar procedimiento almacenado con parámetros especificados.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
 7. En la parte superior del panel, donde dice **Para cada uno**, en **Seleccionar una salida de los pasos anteriores**, asegúrese de que está seleccionado **Cuerpo**.
 
@@ -335,7 +335,7 @@ Puede ver los resultados del procedimiento almacenado ejecutado en el documento 
 
 ## <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
-En lugar de usar [Azure Portal](https://portal.azure.com), puede llevar a cabo los pasos de IoT Hub mediante la CLI de Azure. Para más información, consulte las páginas de la CLI de Azure para [crear una suscripción de eventos](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) y [crear un dispositivo IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
+En lugar de usar [Azure Portal](https://portal.azure.com), puede llevar a cabo los pasos de IoT Hub mediante la CLI de Azure. Para más información, consulte las páginas de la CLI de Azure para [crear una suscripción de eventos](/cli/azure/eventgrid/event-subscription) y [crear un dispositivo IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -361,7 +361,7 @@ Si no desea perder el trabajo realizado en la aplicación lógica, deshabilítel
 
 7. Seleccione **Eliminar**.
 
-Para quitar una cuenta de Azure Cosmos DB de Azure Portal, haga clic con el botón derecho en el nombre de la cuenta y haga clic en **Eliminar cuenta**. Consulte las instrucciones detalladas para [eliminar una cuenta de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+Para quitar una cuenta de Azure Cosmos DB de Azure Portal, haga clic con el botón derecho en el nombre de la cuenta y haga clic en **Eliminar cuenta**. Consulte las instrucciones detalladas para [eliminar una cuenta de Azure Cosmos DB](../cosmos-db/how-to-manage-database-account.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

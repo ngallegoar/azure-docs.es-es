@@ -4,15 +4,15 @@ description: Diseñe aplicaciones de alto rendimiento mediante discos administra
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/27/2017
+ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 48157c8d9285c48d49e76f39602075a2a8ac9682
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6519f9d549c513e03400366447812a170f9ab41c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650711"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978669"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: diseño de alto rendimiento
 
@@ -130,7 +130,7 @@ Los contadores de rendimiento están disponibles para el procesador y la memoria
 | **Máx. memoria** |Cantidad de memoria necesaria para ejecutar la aplicación sin problemas |% de bytes confirmados en uso |Use vmstat |
 | **Máx. CPU** |Cantidad de CPU necesaria para ejecutar la aplicación sin problemas |% de tiempo de procesador |%util |
 
-Obtenga más información sobre [iostat](https://linux.die.net/man/1/iostat) y [PerfMon](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal).
+Obtenga más información sobre [iostat](https://linux.die.net/man/1/iostat) y [PerfMon](/windows/win32/perfctrs/performance-counters-portal).
 
 
 
@@ -305,45 +305,11 @@ Por ejemplo, puede aplicar estas directrices a un SQL Server que funciona en Pre
 
 ## <a name="optimize-performance-on-linux-vms"></a>Optimización del rendimiento en máquinas virtuales Linux
 
-Para todos los discos ultra o SSD Premium con la memoria caché establecida en **ReadOnly** o **None**, debe deshabilitar las "barreras" cuando monte el sistema de archivos. En este escenario no se necesitan barreras, ya que las operaciones de escritura en los discos de Premium Storage son duraderas para esta configuración de la caché. Cuando la solicitud de escritura se completa correctamente, los datos están escritos en el almacenamiento permanente. Para deshabilitar las "barreras", utilice uno de los siguientes métodos. Elija uno para el sistema de archivos:
-  
-* Para **reiserFS**, para deshabilitar las barreras, utilice la opción de montaje `barrier=none`. (Para habilitar las barreras, use `barrier=flush`).
-* Para **ext3/ext4**,, para deshabilitar las barreras, utilice la opción de montaje `barrier=0`. (Para habilitar las barreras, use `barrier=1`).
-* Para **XFS**, para deshabilitar las barreras, utilice la opción de montaje `nobarrier`. (Para habilitar las barreras, use `barrier`).
-* Para los discos de Premium Storage con la caché establecida en **ReadWrite**, habilite las barreras para la durabilidad de escritura.
-* Para que las etiquetas de volumen persistan después de reiniciar la VM, debe actualizar /etc/fstab con las referencias del identificador único universal (UUID) en los discos. Para más información, vea [Adición de un disco administrado a una máquina virtual Linux](./linux/add-disk.md).
+En el caso de todas las SSD o discos Ultra Premium, es posible que pueda deshabilitar "barreras" para sistemas de archivos en el disco con el fin de mejorar el rendimiento cuando se sabe que no hay cachés que puedan perder datos.  Si el almacenamiento en caché de Azure está establecido en Solo lectura o Ninguno, puede deshabilitar las barreras.  Pero si el almacenamiento en caché se establece en Lectura y escritura, las barreras deben permanecer habilitadas para garantizar la durabilidad de la escritura.  Normalmente, las barreras están habilitadas de forma predeterminada, pero puede deshabilitarlas usando uno de los siguientes métodos, en función del tipo de sistema de archivos:
 
-Las distribuciones de Linux siguientes han sido validadas para discos SSD. Para mejorar el rendimiento y la estabilidad con los discos SSD, se recomienda actualizar las máquinas virtuales a una de estas versiones o a una versión más reciente. 
-
-Algunas de las versiones requieren Linux Integration Services (LIS) v4.0 para Azure. Para descargar e instalar una distribución, siga el vínculo que aparece en la tabla siguiente. Agregamos imágenes a la lista cuando se completa la validación. Nuestras validaciones muestran que el rendimiento varía en cada imagen. El rendimiento depende en las características de carga de trabajo y la configuración de la imagen. Se ajustan diferentes imágenes a los distintos tipos de cargas de trabajo.
-
-| Distribución | Versión | Kernel compatible | Detalles |
-| --- | --- | --- | --- |
-| Ubuntu | 12.04 o más reciente| 3.2.0-75.110+ | &nbsp; |
-| Ubuntu | 14.04 o más reciente| 3.13.0-44.73+  | &nbsp; |
-| Debian | 7.x, 8.x o más reciente| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 o más reciente| 3.12.36-38.1+ | &nbsp; |
-| SUSE | SLES 11 SP4 o más reciente| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+ o más reciente| 3.18.4+ | &nbsp; |
-| CentOS | 6.5, 6.6, 6.7, 7.0 o más reciente| &nbsp; | [LIS4 requerido](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Vea la nota en la siguiente sección* |
-| CentOS | 7.1+ o más reciente| 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Vea la nota en la siguiente sección* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ o más reciente | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ o más reciente | &nbsp; | UEK4 o RHCK |
-| Oracle | 7.0-7.1 o más reciente | &nbsp; | UEK4 o RHCK con[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-| Oracle | 6.4-6.7 o más reciente | &nbsp; | UEK4 o RHCK con[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-
-### <a name="lis-drivers-for-openlogic-centos"></a>Controladores de LIS para CentOS Openlogic
-
-Si tiene máquinas virtuales de OpenLogic CentOS, ejecute el comando siguiente para instalar a los controladores más recientes:
-
-```
-sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
-sudo yum install microsoft-hyper-v
-sudo reboot
-```
-
-En algunos casos, el comando anterior también actualizará el kernel. Si se requiere una actualización del kernel, puede que tenga que volver a ejecutar los comandos anteriores después del reinicio para instalar completamente el paquete microsoft-hyper-v.
-
+* Para **reiserFS**, use la opción barrier=none mount para deshabilitar las barreras.  Para habilitar de forma explícita las barreras, use barrier=flush.
+* Para **ext3/ext4**, use la opción barrier=0 mount para deshabilitar las barreras.  Para habilitar de forma explícita las barreras, use barrier=1.
+* Para **XFS**, utilice la opción nobarrier mount para deshabilitar las barreras.  Para habilitar de forma explícita las barreras, use barrier.  Tenga en cuenta que en versiones posteriores del kernel de Linux, el diseño del sistema de archivos XFS siempre garantiza la durabilidad, y la deshabilitación de barreras no tiene ningún efecto.  
 
 ## <a name="disk-striping"></a>Seccionamiento del disco
 
@@ -377,7 +343,7 @@ Hay opciones de configuración que puede modificar para tener en cuenta este mul
 
 Por ejemplo, supongamos que su aplicación con SQL Server ejecuta una consulta de gran tamaño y una operación de índice al mismo tiempo. Supongamos que desea que la operación de índice sea más eficaz en comparación con la consulta de gran tamaño. En tal caso, puede establecer el valor de MAXDOP de la operación de índice para que sea mayor que el valor de MAXDOP para la consulta. De este modo, SQL Server tiene un mayor número de procesadores que puede aprovechar para la operación de índice en comparación con el número de procesadores que puede dedicar a la consulta de gran tamaño. Recuerde que no controla el número de subprocesos que SQL Server usará para cada operación. Puede controlar el número máximo de procesadores que se dedicó a multi-threading.
 
-Obtenga más información sobre [Grados de paralelismo](https://technet.microsoft.com/library/ms188611.aspx) en SQL Server. Descubra la configuración que influye en el multi-threading en la aplicación y sus configuraciones para optimizar el rendimiento.
+Obtenga más información sobre [Grados de paralelismo](/previous-versions/sql/sql-server-2008-r2/ms188611(v=sql.105)) en SQL Server. Descubra la configuración que influye en el multi-threading en la aplicación y sus configuraciones para optimizar el rendimiento.
 
 ## <a name="queue-depth"></a>Profundidad de la cola
 

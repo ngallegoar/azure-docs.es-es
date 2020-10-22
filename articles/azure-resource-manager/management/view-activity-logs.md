@@ -3,12 +3,12 @@ title: Visualización de registros de actividad de Azure para supervisar recurso
 description: Use los registros de actividad para revisar las acciones y los errores de los usuarios. Muestra PowerShell de Azure Portal, la CLI de Azure y REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827068"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371599"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visualización de registros de actividad para supervisar acciones sobre recursos
 
@@ -20,7 +20,7 @@ Mediante los registros de actividad, puede determinar:
 * el estado de la operación
 * los valores de otras propiedades que podrían ayudarle en la investigación de la operación
 
-El registro de actividad contiene todas las operaciones de escritura (PUT, POST, DELETE) para los recursos. No incluye operaciones de lectura (GET). Para obtener una lista de las acciones de recurso, consulte [Operaciones del proveedor de recursos de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Puede usar los registros de actividad para encontrar un error al solucionar problemas o para supervisar cómo un usuario de su organización modificó un recurso.
+El registro de actividad contiene todas las operaciones de escritura (PUT, POST, DELETE) para los recursos. No incluye operaciones de lectura (GET). Para obtener una lista de las acciones de recurso, consulte [Operaciones del proveedor de recursos de Azure](../../role-based-access-control/resource-provider-operations.md). Puede usar los registros de actividad para encontrar un error al solucionar problemas o para supervisar cómo un usuario de su organización modificó un recurso.
 
 Los registros de actividad se conservan 90 días. Puede consultar cualquier intervalo de fechas, siempre que no hayan transcurrido más de 90 días desde la fecha inicial.
 
@@ -195,4 +195,4 @@ Las operaciones REST para trabajar con el registro de actividad forman parte de 
 * Para ver más detalles sobre los cambios en las aplicaciones desde el nivel de infraestructura hasta la implementación de aplicaciones, consulte el artículo sobre el [Uso de Application Change Analysis en Azure Monitor](../../azure-monitor/app/change-analysis.md).
 * Para aprender sobre los comandos para ver operaciones de implementación, consulte [Visualización de operaciones de implementación](../templates/deployment-history.md).
 * Para aprender a evitar eliminaciones en un recurso para todos los usuarios, consulte [Bloqueo de recursos con Azure Resource Manager](lock-resources.md).
-* Para ver la lista de operaciones disponibles para cada proveedor de Microsoft Azure Resource Manager, consulte [Operaciones del proveedor de recursos de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md)
+* Para ver la lista de operaciones disponibles para cada proveedor de Microsoft Azure Resource Manager, consulte [Operaciones del proveedor de recursos de Azure](../../role-based-access-control/resource-provider-operations.md).

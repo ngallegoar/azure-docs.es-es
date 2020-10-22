@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 834d3bd3e41be0487a3d05f00846bcb58bfe00a8
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018203"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91714218"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -99,13 +99,13 @@ Para agregar y verificar un certificado raíz o intermedio en su grupo de inscri
 
 1. En la página **Certificado principal**, cargue el certificado X.509 principal. Este es su certificado raíz o intermedio:
 
-    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Captura de pantalla del certificado principal":::
+    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Captura de pantalla de adición de un grupo de inscripción X.509":::
 
-1. Use el **código de verificación** para generar un código de verificación en la herramienta que usa. A continuación, seleccione **Verificar** para cargar el certificado de verificación.
+1. Haga clic en **Generar código de verificación** para generar un código para la herramienta que está usando y generar el certificado de verificación. A continuación, seleccione **Verificar** para cargar el certificado de verificación.
 
 1. Cuando la verificación se haya realizado correctamente, verá la confirmación siguiente:
 
-    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Captura de pantalla de certificado principal verificado":::
+    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Captura de pantalla de adición de un grupo de inscripción X.509":::
 
 La verificación de la titularidad del certificado garantiza que la persona que carga el certificado está en posesión de la clave privada.
 
@@ -147,7 +147,7 @@ El flujo es ligeramente diferente en función de si los dispositivos usan tokens
 
 1. Copie la clave principal del grupo desde el grupo de inscripción **SAS-IoT-Devices**:
 
-    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Clave principal del grupo desde el grupo de inscripción SAS-IoT-Devices":::
+    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Captura de pantalla de adición de un grupo de inscripción X.509":::
 
 1. Use el comando `az iot central device compute-device-key` para generar las claves SAS del dispositivo. Use la clave principal del grupo del paso anterior. El identificador del dispositivo debe estar en minúsculas:
 

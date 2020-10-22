@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 4876c5cb0490a96d5a77da9ced83e1650e98379a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488837"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400815"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para Azure Logic Apps
 
@@ -136,7 +136,7 @@ Logic Apps proporciona estos conocidos conectores estándar para automatizar tar
 | [![Conector administrado de Azure Service Bus][azure-service-bus-icon]<br>**Azure Service Bus**][azure-service-bus-doc] | Administre mensajes asincrónicos, sesiones y suscripciones a temas con el conector más usado en Logic Apps. |
 | [![Conector administrado de SQL Server][sql-server-icon]<br>**SQL Server**][sql-server-doc] | Conéctese a SQL Server en el entorno local o a una base de datos de Azure SQL Database en la nube para poder administrar los registros, ejecutar procedimientos almacenados o realizar consultas. |
 | [![Conector administrado de Azure Blob Storage][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | Conéctese a su cuenta de almacenamiento para crear y administrar el contenido en blobs. |
-| [![Conector administrado de Office 365 Outlook][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Conéctese a su cuenta de correo electrónico de Office 365 para crear y administrar correos electrónicos, tareas, eventos de calendario y reuniones, contactos, solicitudes y más. |
+| [![Conector administrado de Office 365 Outlook][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Conéctese a su cuenta de correo electrónico profesional o educativa para crear y administrar correos electrónicos, tareas, eventos de calendario y reuniones, contactos, solicitudes y más. |
 | [![Conector administrado SFTP-SSH][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | Conéctese a servidores SFTP accesibles desde internet mediante SSH para trabajar con archivos y carpetas. |
 | [![Conector administrado de SharePoint Online][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc] | Conéctese a SharePoint Online para administrar archivos, datos adjuntos, carpetas y mucho más. |
 | [![Conector administrado de colas de Azure][azure-queues-icon]<br>**Colas <br>de Azure**][azure-queues-doc] | Conéctese a su cuenta de Azure Storage para poder crear y administrar colas y mensajes. |
@@ -588,7 +588,7 @@ Aunque cree conexiones desde una aplicación lógica, estas son recursos de Azur
 [instagram-doc]: ./connectors-create-api-instagram.md "Conectar con Instagram. Desencadenar eventos o realizar acciones en ellos"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Conectar con Mandrill para realizar comunicaciones"
 [mysql-doc]: /connectors/mysql/ "Conectarse con su base de datos de MySQL local para que pueda leer y escribir datos"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Conectarse a su cuenta de Office 365 para enviar y recibir correos electrónicos, administrar su calendario y contactos y mucho más"
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Conectarse a su cuenta profesional o educativa para enviar y recibir correos electrónicos, administrar su calendario y contactos y mucho más"
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Conectarse a la instancia personal de Microsoft OneDrive para cargar, eliminar, mostrar archivos y mucho más"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Conectarse a la instancia de Microsoft OneDrive de su empresa para cargar, eliminar, mostrar archivos y mucho más"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Conectarse a una base de datos de Oracle para agregar, insertar, eliminar filas y mucho más"

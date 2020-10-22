@@ -13,12 +13,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: d692302df1f5c03a7dce60858b31e0ca66de4c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56ee7df52abf97c920dfe2fa4ba5d1d858975f7d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744536"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537097"
 ---
 # <a name="delegate-user-management-with-my-staff-preview"></a>Delegación de la administración de usuarios con Mi personal (versión preliminar)
 
@@ -104,7 +104,7 @@ Si el inicio de sesión con un número de teléfono como nombre de usuario (inic
 
 1. Seleccione **Aceptar** cuando haya terminado.
 
-    ![Quitar el número de teléfono de un miembro del personal en Mi personal](media/my-staff-team-manager/enableforms2.png)
+    ![Captura de pantalla que muestra la ventana "¿Habilitar número de teléfono para iniciar sesión?" con el botón "Aceptar" seleccionado.](media/my-staff-team-manager/enableforms2.png)
 
 ### <a name="remove-a-phone-number"></a>Quitar un número de teléfono
 

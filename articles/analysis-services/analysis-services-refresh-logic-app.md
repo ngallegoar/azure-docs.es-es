@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: 7412a28b53f3b17fb888e3877ecbe50a19c4a3d3
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 8a8d434fca7cab4432f38fc64093cf1fe060bd5f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552244"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019093"
 ---
 # <a name="refresh-with-logic-apps"></a>Actualización con Logic Apps
 
@@ -53,9 +53,9 @@ Con este paso, se rellena con la dirección URL de HTTP POST después de que se 
 
 2. Agregue un nuevo paso y busque **HTTP**.  
 
-   ![Adición de actividad HTTP](./media/analysis-services-async-refresh-logic-app/9.png)
+   ![Captura de pantalla de la sección "Elegir una acción" con el icono "HTTP" seleccionado.](./media/analysis-services-async-refresh-logic-app/9.png)
 
-   ![Adición de actividad HTTP](./media/analysis-services-async-refresh-logic-app/10.png)
+   ![Captura de pantalla de la ventana "HTTP" con el icono "HTTP - HTTP" seleccionado.](./media/analysis-services-async-refresh-logic-app/10.png)
 
 3. Seleccione **HTTP** para agregar esta acción.
 
@@ -98,15 +98,15 @@ Si no tiene pensado usar una herramienta de orquestación, como Azure Data Facto
 
 Con el ejemplo anterior, elimine la primera actividad y reemplácela por una actividad de **programación**.
 
-![Actividad de programación](./media/analysis-services-async-refresh-logic-app/12.png)
+![Captura de pantalla que muestra la página "Logic Apps" con el icono "Programación" seleccionado.](./media/analysis-services-async-refresh-logic-app/12.png)
 
-![Actividad de programación](./media/analysis-services-async-refresh-logic-app/13.png)
+![Captura de pantalla que muestra la página "Desencadenadores".](./media/analysis-services-async-refresh-logic-app/13.png)
 
 En este ejemplo, usaremos **Periodicidad**.
 
 Cuando se haya agregado la actividad, configure el intervalo y la frecuencia, agregue un nuevo parámetro y elija **A estas horas**.
 
-![Actividad de programación](./media/analysis-services-async-refresh-logic-app/16.png)
+![Captura de pantalla que muestra la sección "Periodicidad" con el parámetro "En estas horas" seleccionado.](./media/analysis-services-async-refresh-logic-app/16.png)
 
 Seleccione las horas deseadas.
 
@@ -117,4 +117,4 @@ Guarde la aplicación lógica.
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Muestras](analysis-services-samples.md)  
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](/rest/api/analysisservices/servers)

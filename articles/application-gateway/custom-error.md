@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 953be98de855162127fd8b8b8273fe9817668db7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ff3e9db4dcfe0bedc348323dbbddd1e66124fc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934827"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91360164"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Creación de páginas de error personalizadas de Application Gateway
 
@@ -48,7 +48,7 @@ Después de especificar una página de error, la puerta de enlace de la aplicaci
 
 1. Vaya a Application Gateway en el portal y elija una puerta de enlace de aplicaciones.
 
-    ![Introducción a ag](media/custom-error/ag-overview.png)
+    ![Instantánea en la que aparece la página de información general de una puerta de enlace de aplicación.](media/custom-error/ag-overview.png)
 2. Haga clic en **Agentes de escucha** y vaya a un agente de escucha determinado en el que desea especificar una página de error.
 
     ![Agentes de escucha de Application Gateway](media/custom-error/ag-listener.png)

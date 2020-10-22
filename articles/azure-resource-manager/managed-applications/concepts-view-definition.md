@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bff846b4b64778d5e40ea7f08f88faf3dde81d9e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81391689"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371616"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Artefacto de definición de vistas en Azure Managed Applications
 
@@ -131,7 +131,7 @@ Cuando proporciona esta vista en **viewDefinition.json**, esta reemplaza la pág
 |description|No|La descripción de la aplicación administrada.|
 |comandos|No|La matriz de botones adicionales de la barra de herramientas de la página de introducción; consulte [comandos](#commands).|
 
-![Información general](./media/view-definition/overview.png)
+![Captura de pantalla que muestra la información general de una aplicación administrada con un control de acción de prueba para ejecutar una aplicación de demostración.](./media/view-definition/overview.png)
 
 ## <a name="metrics"></a>Métricas
 
@@ -188,7 +188,7 @@ La vista de métricas le permite recopilar y agregar datos de los recursos de la
 |resourceTagFilter|No|La matriz de etiquetas del recurso (se separarán con la palabra `or`) para las que se mostrarán métricas. Se aplica encima del filtro de tipo de recurso.|
 |resourceType|Sí|El tipo de recurso para el que se mostrarán métricas.|
 
-![Métricas](./media/view-definition/metrics.png)
+![Captura de pantalla que muestra una página de supervisión denominada This is my metrics view (Esta es mi vista de métricas) para una aplicación administrada.](./media/view-definition/metrics.png)
 
 ## <a name="custom-resources"></a>Recursos personalizados
 
@@ -234,7 +234,7 @@ En esta vista, puede realizar operaciones GET, PUT, DELETE y POST para el tipo d
 |comandos|No|La matriz de botones adicionales de la barra de herramientas de la vista CustomResources; consulte [comandos](#commands).|
 |columnas|No|La matriz de columnas del recurso personalizado. Si no se ha definido, se mostrará la columna `name` de forma predeterminada. La columna debe tener `"key"` y `"displayName"`. Para la clave, proporcione la clave de la propiedad que se va a mostrar en una vista. Si es anidada, utilice el punto como delimitador, por ejemplo, `"key": "name"` o `"key": "properties.property1"`. Como nombre para mostrar, proporcione el nombre de la propiedad que se mostrará en una vista. También puede proporcionar una propiedad `"optional"`. Si se establece en true, la columna se oculta en una vista de forma predeterminada.|
 
-![CustomResources](./media/view-definition/customresources.png)
+![Captura de pantalla que muestra una página de recursos llamada Test custom resource type (Tipo de recurso personalizado de prueba) y el control Custom Context Action (Acción de contexto personalizado).](./media/view-definition/customresources.png)
 
 ## <a name="commands"></a>Comandos:
 

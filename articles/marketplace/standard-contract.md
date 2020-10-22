@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/20/2020
-ms.openlocfilehash: 3487b5a069b1862ec302a979318ea78722b1433c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 3079cb18f7bc88d691081a7970f5833e8b8d6887
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361694"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078194"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrato estándar para el Marketplace comercial de Microsoft
 
@@ -34,7 +34,7 @@ Hay dos tipos de modificaciones para los anunciantes de Marketplace comercial:
 * Modificaciones personalizadas: Estas son modificaciones especiales al Contrato estándar que están dirigidas a cliente únicamente a clientes específicos a través de los Id. de inquilino de Azure. Los anunciantes pueden elegir al inquilino al que desean dirigirse. Solo los clientes del inquilino recibirán los términos con modificaciones personalizadas en el flujo de compra de la oferta.  Los clientes deben aceptar los términos del Contrato estándar y las modificaciones antes de que puedan usar su oferta.
 
 >[!Note]
->Estos dos tipos de modificaciones se superponen entre sí. Los clientes específicos con modificaciones personalizadas también obtendrán la modificación universal al Contrato estándar durante la compra.
+>Estos dos tipos de modificaciones se superponen entre sí. Los clientes específicos con modificaciones personalizadas también obtendrán la modificación universal al Contrato estándar durante la compra. Las modificaciones se limitan a 4000 caracteres, incluidos los espacios.
 
 Puede aprovechar el Contrato estándar del Marketplace comercial de Microsoft para los siguientes tipos de ofertas:  aplicaciones de Azure (plantillas de solución y aplicaciones administradas), máquinas virtuales y SaaS.
 

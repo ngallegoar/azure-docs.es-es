@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651172"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91446699"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acceso seguro a datos en Azure Machine Learning
 
@@ -48,7 +48,7 @@ Cuando esté listo para usar los datos de la solución de almacenamiento basada 
 
 En el siguiente diagrama se ofrece una demostración visual de este flujo de trabajo recomendado.
 
-![Diagrama de concepto de datos](./media/concept-data/data-concept-diagram.svg)
+![En el diagrama se muestra el servicio Azure Storage que fluye a un almacén de datos, que fluye a un conjunto de datos. El conjunto de datos fluye al entrenamiento del modelo, que fluye al desfase de datos, que fluye de vuelta al conjunto de datos.](./media/concept-data/data-concept-diagram.svg)
 
 ## <a name="datastores"></a>Almacenes de datos
 
@@ -60,14 +60,14 @@ A continuación se indican los servicios de almacenamiento basados en la nube de
 + Recurso compartido de archivos de Azure
 + Azure Data Lake
 + Azure Data Lake Gen2
-+ Azure SQL Database
++ Azure SQL Database
 + Azure Database for PostgreSQL
 + Sistema de archivos de Databricks
 + Azure Database for MySQL
 
 ## <a name="datasets"></a>Conjuntos de datos
 
-Los conjuntos de datos de Azure Machine Learning son referencias que apuntan a los datos del servicio de almacenamiento. No son copias de sus datos. Mediante la creación de un conjunto de datos de Azure Machine Learning, creará una referencia a la ubicación del origen de datos, junto con una copia de sus metadatos. 
+Los conjuntos de datos de Azure Machine Learning no son copias de los datos. Mediante la creación de un conjunto de datos, puede crear una referencia a los datos en su servicio de almacenamiento, junto con una copia de sus metadatos. 
 
 Dado que los conjuntos de datos se evalúan de forma diferida y los datos permanecen en su ubicación existente, usted:
 

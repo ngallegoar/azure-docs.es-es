@@ -13,19 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: ef1f8966497492f5a4969aca594c43abdf80945c
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 62c1b323899f03a043904f4b10d5fe3bb551e0f4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612908"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91441767"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Diseño de redes virtuales con recursos de puertas de enlace de NAT
 
-Los recursos de puerta de enlace de NAT forman parte de [Virtual Network NAT](nat-overview.md) y proporcionan conectividad saliente a Internet para una o varias subredes de una red virtual. La subred de la red virtual indica qué puerta de enlace de NAT se usará. NAT proporciona traducción de direcciones de red de origen (SNAT) para una subred.  Los recursos de puerta de enlace de NAT especifican las direcciones IP estáticas que usan las máquinas virtuales al crear flujos de salida. Las direcciones IP estáticas proceden de recursos de direcciones IP públicas, recursos de prefijos IP públicos, o ambos. Si se usa un recurso de prefijo de dirección IP pública, un recurso de puerta de enlace NAT consume todas las direcciones IP de todos los recursos con prefijo de dirección IP pública. Un recurso de puerta de enlace de NAT puede usar un máximo de 16 direcciones IP desde cualquiera de ellas.
-
+Los recursos de puerta de enlace de NAT forman parte de [Virtual Network NAT](nat-overview.md) y proporcionan conectividad saliente a Internet para una o varias subredes de una red virtual. La subred de la red virtual indica qué puerta de enlace de NAT se usará. NAT proporciona traducción de direcciones de red de origen (SNAT) para una subred.  Los recursos de puerta de enlace de NAT especifican las direcciones IP estáticas que usan las máquinas virtuales al crear flujos de salida. Las direcciones IP estáticas proceden de recursos de direcciones IP públicas (PIP), recursos de prefijos IP públicos, o ambos. Si se usa un recurso de prefijo de dirección IP pública, un recurso de puerta de enlace NAT consume todas las direcciones IP de todos los recursos con prefijo de dirección IP pública. Un recurso de puerta de enlace de NAT puede usar un máximo de 16 direcciones IP desde cualquiera de ellas.
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="Virtual Network NAT para la salida a Internet">
@@ -231,7 +230,7 @@ Aunque parece que el escenario funciona, su modelo de estado y modo de error no 
 
 Cada recurso de puerta de enlace NAT puede proporcionar hasta 50 Gbps de rendimiento. Puede dividir las implementaciones en varias subredes y asignar a cada subred o grupos de subredes una puerta de enlace NAT para realizar escalar horizontalmente.
 
-Cada puerta de enlace NAT puede admitir 64 000 conexiones por dirección IP de salida asignada.  Revise la siguiente sección sobre la traducción de direcciones de red de origen (SNAT) para más información, así como el [artículo de solución de problemas ](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) para obtener instrucciones específicas sobre la resolución de problemas.
+Cada puerta de enlace NAT puede admitir 64 000 flujos para TCP y UDP respectivamente por dirección IP de salida asignada.  Revise la siguiente sección sobre la traducción de direcciones de red de origen (SNAT) para más información, así como el [artículo de solución de problemas ](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) para obtener instrucciones específicas sobre la resolución de problemas.
 
 ## <a name="source-network-address-translation"></a>Traducción de direcciones de red de origen
 
@@ -239,27 +238,39 @@ La traducción de direcciones de red de origen (SNAT) reescribe el origen de un 
 
 ### <a name="fundamentals"></a>Aspectos básicos
 
-Examinemos un ejemplo de cuatro flujos que explican el concepto básico.  La puerta de enlace de NAT utiliza el recurso de dirección IP pública 65.52.0.2.
+Examinemos un ejemplo de cuatro flujos que explican el concepto básico.  La puerta de enlace NAT usa el recurso de dirección IP pública 65.52.1.1 y la máquina virtual realiza las conexiones con la dirección 65.52.0.1.
 
 | Flujo | Tupla de origen | Tupla de destino |
 |:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
 Estos flujos pueden tener el siguiente aspecto después de que se haya producido la traducción de puertos de origen:
 
 | Flujo | Tupla de origen | Tupla de origen con SNAT | Tupla de destino | 
 |:---:|:---:|:---:|:---:|
-| 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
-| 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
-| 3 | 192.168.0.17.5768 | 65.52.0.2:236 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:237 | 65.52.0.2:80 |
+| 1 | 192.168.0.16:4283 | **65.52.1.1:1234** | 65.52.0.1:80 |
+| 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
+| 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
 
-El destino verá el origen del flujo como 65.52.0.2 (tupla de origen con SNAT) con el puerto asignado que se muestra.  PAT como se muestra en la tabla anterior también se denomina SNAT de enmascaramiento de puertos.  Varios orígenes privados se enmascaran detrás de una IP y un puerto.
+El destino verá el origen del flujo como 65.52.0.1 (tupla de origen con SNAT) con el puerto asignado que se muestra.  PAT como se muestra en la tabla anterior también se denomina SNAT de enmascaramiento de puertos.  Varios orígenes privados se enmascaran detrás de una IP y un puerto.  
 
-No asuma una dependencia de la forma concreta en que se asignan los puertos de origen.  Lo anterior es una ilustración solo del concepto fundamental.
+#### <a name="source-snat-port-reuse"></a>Reutilización del puerto de origen (SNAT)
+
+Las puertas de enlace NAT reutilizan los puertos de origen (SNAT) oportunamente.  Lo siguiente ilustra este concepto como un flujo adicional para el conjunto anterior de flujos.  La máquina virtual del ejemplo es un flujo a la dirección 65.52.0.2.
+
+| Flujo | Tupla de origen | Tupla de destino |
+|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
+
+Probablemente, una puerta de enlace NAT traducirá el flujo 4 a un puerto que también se puede usar para otros destinos.  Consulte [Escalado](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#scaling) para más información sobre el ajuste correcto del aprovisionamiento de direcciones IP.
+
+| Flujo | Tupla de origen | Tupla de origen con SNAT | Tupla de destino | 
+|:---:|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.1.1:**1234** | 65.52.0.2:80 |
+
+No dependa de la forma específica en la que se asignan los puertos de origen en el ejemplo anterior.  Lo anterior es una ilustración solo del concepto fundamental.
 
 El SNAT que proporciona NAT es diferente del [equilibrador de carga](../load-balancer/load-balancer-outbound-connections.md) en varios aspectos.
 
@@ -292,7 +303,12 @@ El escalado de NAT es primordialmente una función de la administración del inv
 
 SNAT asigna direcciones privadas a una o varias direcciones IP públicas y reescribe la dirección de origen y el puerto de origen en los procesos. Un recurso de puerta de enlace de NAT usará 64 000 puertos (puertos SNAT) por dirección IP pública para esta traducción. Los recursos de puerta de enlace de NAT se pueden escalar verticalmente hasta un máximo de 16 direcciones IP y un millón de puertos SNAT. Si se proporciona un recurso de prefijo de dirección IP pública, cada dirección IP dentro del prefijo proporciona un inventario de puertos SNAT. Y agregar más direcciones IP públicas aumenta los puertos SNAT del inventario disponibles. TCP y UDP son inventarios de puertos SNAT independientes y no están relacionados.
 
-Los recursos de puerta de enlace de NAT reutilizan los puertos de origen. Antes de realizar el escalado debe asumir que cada flujo requiere un nuevo puerto SNAT y escalar el número total de direcciones IP disponibles para el tráfico de salida.
+Los recursos de puerta de enlace NAT reutilizan los puertos de origen (SNAT) oportunamente. Como guía de diseño con fines de escalado, se debe asumir que cada flujo requiere un nuevo puerto SNAT y escalar el número total de direcciones IP disponibles para el tráfico de salida.  Debe considerar detenidamente la escala para la que está diseñando y aprovisionar las cantidades de direcciones IP en consecuencia.
+
+Es más probable que se reutilicen los puertos SNAT a destinos diferentes cuando sea posible. Y, a medida que se aproxime el agotamiento de los puertos SNAT, los flujos pueden no realizarse correctamente.  
+
+Consulte [Aspectos básicos de SNAT](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#source-network-address-translation) por ver ejemplos.
+
 
 ### <a name="protocols"></a>Protocolos
 
@@ -344,11 +360,9 @@ Queremos saber cómo podemos mejorar el servicio. ¿Falta una funcionalidad? Pro
   - [Plantilla](./quickstart-create-nat-gateway-template.md)
 * Información acerca de la API de recursos de la puerta de enlace de NAT
   - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [CLI de Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
+  - [CLI de Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway)
   - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
 * Información acerca de las [zonas de disponibilidad](../availability-zones/az-overview.md).
 * Información acerca del [equilibrador de carga estándar](../load-balancer/load-balancer-standard-overview.md).
 * Información sobre las [zonas de disponibilidad y el equilibrador de carga estándar](../load-balancer/load-balancer-standard-availability-zones.md).
 * [Indíquenos qué crear a continuación para Virtual Network NAT en UserVoice](https://aka.ms/natuservoice).
-
-

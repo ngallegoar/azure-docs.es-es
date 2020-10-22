@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: cd98d5b8d2d4a959a48bfb04fe2eb9e16c4113c9
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851147"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91629002"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Solución de errores de conexiones salientes
 
@@ -44,7 +44,7 @@ Cuando se agotan los [puertos efímeros asignados previamente](load-balancer-out
 Los puertos efímeros tienen un tiempo de inactividad de 4 minutos (no ajustable). Si los reintentos son demasiado agresivos, el agotamiento no tiene ninguna oportunidad de solucionarlo por sí mismo. Por lo tanto, una parte fundamental del diseño es considerar cómo y con qué frecuencia la aplicación vuelve a intentar las transacciones.
 
 ## <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>Asignación de una IP pública a cada máquina virtual
-La asignación de una dirección IP pública cambia el escenario a [IP pública a una máquina virtual](load-balancer-outbound-connections.md). Todos los puertos efímeros de la dirección IP pública que se usan para cada máquina virtual están disponibles para la máquina virtual. (En contraste con los escenarios donde los puertos efímeros de una dirección IP pública se comparten con todas las máquinas virtuales asociadas al grupo back-end respectivo). Existen ventajas e inconvenientes que deben considerarse, como el costo adicional de las direcciones IP públicas y el posible impacto de la creación de listas de permitidos con un gran número de direcciones IP individuales.
+La asignación de una dirección IP pública cambia el escenario a [IP pública a una máquina virtual](load-balancer-outbound-connections.md). Todos los puertos efímeros de la dirección IP pública que se usan para cada máquina virtual están disponibles para la máquina virtual. (En contraste con los escenarios donde los puertos efímeros de una dirección IP pública se comparten con todas las máquinas virtuales asociadas al grupo back-end respectivo). Existen ventajas e inconvenientes que deben considerarse, como el costo adicional de las direcciones IP públicas y el posible impacto del filtrado de un gran número de direcciones IP individuales.
 
 >[!NOTE] 
 >Esta opción no está disponible para roles de trabajo web.

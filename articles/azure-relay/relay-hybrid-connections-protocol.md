@@ -3,12 +3,12 @@ title: Guía del protocolo de conexiones híbridas de Retransmisión de Azure | 
 description: En este artículo se describen las interacciones en el lado cliente con el servicio de retransmisión de Conexiones híbridas para la conexión de clientes en los roles de agente de escucha y remitente.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fec021d961a17102f8d979c61ee46af6b938f073
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272016"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91531452"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexiones híbridas de Azure Relay
 
@@ -55,7 +55,7 @@ La información codificada solo es válida durante un breve período, básicamen
 
 Además de las conexiones WebSocket, el agente de escucha puede recibir también marcos de solicitud HTTP de un remitente, si esta funcionalidad está habilitada explícitamente en la conexión híbrida.
 
-Los agentes de escucha que se conectan a Conexiones híbridas con compatibilidad para HTTP deben controlar el gesto `request`. Un agente de escucha que no controla `request` y, por lo tanto, provoca errores repetidos de tiempo de espera mientras está conectado, PODRÍA incluirse en la lista de no permitidos del servicio en el futuro.
+Los agentes de escucha que se conectan a Conexiones híbridas con compatibilidad para HTTP deben controlar el gesto `request`. En el futuro, el servicio PODRÍA bloquear a un cliente de escucha que no controla `request` y, por lo tanto, provoca errores repetidos de tiempo de espera mientras está conectado.
 
 Los metadatos de encabezado de marco HTTP se convierten en JSON para que se puedan administrar más fácilmente en el marco del agente de escucha; también porque las bibliotecas de análisis de encabezados HTTP son más inusuales que los analizadores JSON. Los metadatos HTTP que solo son de interés para la relación entre el remitente y la puerta de enlace HTTP de retransmisión, incluida la información de autorización, no se reenvían. Los cuerpos de solicitud HTTP se transfieren de manera transparente como marcos binarios de WebSocket.
 
@@ -326,7 +326,7 @@ El contenido JSON de `request` es este:
 
 ##### <a name="responding-to-requests"></a>Respuesta a las solicitudes
 
-El receptor DEBE responder. Los errores repetidos para responder a las solicitudes mientras se mantiene la conexión podrían dar lugar a que el agente de escucha se incluyera en la lista de no permitidos.
+El receptor DEBE responder. Los errores repetidos para responder a las solicitudes mientras se mantiene la conexión podrían dar lugar a que se bloqueara el cliente de escucha.
 
 Las respuestas se pueden enviar en cualquier orden, pero cada solicitud se debe responder en 60 segundos o la entrega se notificará como si no hubiera pasado. La fecha límite de 60 segundos se cuenta hasta que el servicio recibe el marco `response`. Una respuesta en curso con varios marcos binarios no se puede volver inactiva durante más de 60 segundos, o se termina.
 

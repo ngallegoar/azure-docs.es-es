@@ -1,7 +1,7 @@
 ---
 title: Uso de la CLI de Azure para asignar un rol de Azure para el acceso a datos
 titleSuffix: Azure Storage
-description: Aprenda a usar la CLI de Azure para asignar permisos a una entidad de seguridad de Azure Active Directory con el control de acceso basado en rol (RBAC). Azure Storage admite roles integrados y personalizados de Azure para la autenticación mediante Azure AD.
+description: Aprenda a usar la CLI de Azure para asignar permisos a una entidad de seguridad de Azure Active Directory con el control de acceso basado en rol de Azure (RBAC de Azure). Azure Storage admite roles integrados y personalizados de Azure para la autenticación mediante Azure AD.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5714ab17f82f9c4d9c1d00f297c0950e41f54cdc
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 31d98e0d37da1b957d86e425e01fe04de842f532
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827986"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715142"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Uso de la CLI de Azure para asignar un rol de Azure para obtener acceso a datos de blobs y colas
 
@@ -139,6 +139,6 @@ az role assignment create \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Administración del acceso a los recursos de Azure mediante RBAC y Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Conceder acceso a datos de blob y de cola de Azure con RBAC mediante Azure PowerShell](storage-auth-aad-rbac-powershell.md)
-- [Conceder acceso a datos de blob y cola de Azure con RBAC en Azure Portal](storage-auth-aad-rbac-portal.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure con el módulo de Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Uso del módulo de Azure PowerShell para asignar un rol de Azure para el acceso a datos de blobs y colas](storage-auth-aad-rbac-powershell.md)
+- [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](storage-auth-aad-rbac-portal.md)

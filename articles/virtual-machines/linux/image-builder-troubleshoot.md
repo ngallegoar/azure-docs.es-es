@@ -3,16 +3,16 @@ title: Solución de problemas del servicio Azure Image Builder
 description: Solución de errores y problemas comunes al usar el servicio Azure VM Image Builder
 author: cynthn
 ms.author: danis
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: ee65cd1605e23dfd5699f92a900bdb5e7952fe13
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 7c937353c645ee5d977a52ec0f8e935eba19a940
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459936"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969983"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Solución de problemas del servicio Azure Image Builder
 
@@ -522,7 +522,7 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 230
 El servicio Image Builder usa el puerto 22 (Linux) o 5986 (Windows) para conectarse a la máquina virtual de compilación. Esto sucede cuando el servicio se desconecta de la máquina virtual de compilación durante la compilación de la imagen. Los motivos de desconexión pueden variar, pero habilitar o configurar firewalls en el script puede bloquear los puertos anteriores.
 
 #### <a name="solution"></a>Solución
-Revise los scripts para los cambios y la habilitación del firewall, o los cambios en SSH o WinRM, y asegúrese de que los cambios permitan la conectividad constante entre el servicio y la máquina virtual de compilación en los puertos anteriores. Para obtener más información sobre las redes de Image Builder, consulte los [requisitos](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+Revise los scripts para los cambios y la habilitación del firewall, o los cambios en SSH o WinRM, y asegúrese de que los cambios permitan la conectividad constante entre el servicio y la máquina virtual de compilación en los puertos anteriores. Para obtener más información sobre las redes de Image Builder, consulte los [requisitos](./image-builder-networking.md).
 
 ## <a name="devops-task"></a>Tarea de DevOps 
 
@@ -586,11 +586,23 @@ Puede haber algunos casos en los que necesite investigar las compilaciones corre
 
 Si un usuario no canceló la compilación, entonces lo hizo el agente de usuario de Azure DevOps. Lo más probable es que se haya agotado el tiempo de espera de una hora debido a las funcionalidades de Azure DevOps. Si usa un proyecto y un agente privados, dispondrá de 60 minutos de tiempo de compilación. Si la compilación supera el tiempo de espera, DevOps cancela la tarea en ejecución.
 
-Para más información sobre las funcionalidades y limitaciones de Azure DevOps, vea [Agentes hospedados por Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations).
+Para más información sobre las funcionalidades y limitaciones de Azure DevOps, vea [Agentes hospedados por Microsoft](/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations).
  
 #### <a name="solution"></a>Solución
 
 Puede hospedar sus propios agentes de DevOps o tratar de reducir el tiempo de la compilación. Por ejemplo, si va a realizar la distribución a Shared Image Gallery, replique en una región. Si desea realizar la replicación de forma asincrónica. 
+
+### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>Inicio de sesión lento de Windows: "Espere al Instalador de módulos de Windows"
+
+#### <a name="error"></a>Error
+Después de crear una imagen de Windows 10 con Image Builder, cree una máquina virtual a partir de la imagen, RDP, y espere unos minutos en el primer inicio de sesión; verá una pantalla azul con el mensaje:
+```text
+Please wait for the Windows Modules Installer
+```
+
+#### <a name="solution"></a>Solución
+En primer lugar, en la comprobación de la compilación de la imagen, compruebe que no se necesiten reinicios destacados, agregando un personalizador de reinicio de Windows como última personalización, y que se haya completado toda la instalación de software. Por último, agregue la opción [/mode:vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) al sysprep predeterminado que utiliza AIB; consulte a continuación "Las máquinas virtuales creadas a partir de imágenes de AIB no se crean correctamente" > "Invalidación de comandos".  
+
  
 ## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>Las máquinas virtuales creadas a partir de imágenes de AIB no se crean correctamente
 

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2927cbe9a586d8e7a35cea1b523122f9c1c3fed7
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 4b37e2530d8716f48eae696fef8f856e8334e24b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085644"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91713670"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure
 
@@ -48,7 +48,7 @@ Para más información sobre la biblioteca cliente de identidades de Azure, cons
 
 ### <a name="assign-azure-roles-for-access-to-data"></a>Asignación de roles de Azure para el acceso a los datos
 
-Cuando una entidad de seguridad de Azure AD intenta acceder a los datos de blobs o colas, dicha entidad debe tener permisos para el recurso. Si la entidad de seguridad es una identidad administrada de Azure o una cuenta de usuario de Azure AD que ejecuta código en el entorno de desarrollo, se le debe asignar un rol de Azure que conceda acceso a los datos de blobs o colas en Azure Storage. Para información sobre la asignación de permisos a través de RBAC, consulte la sección titulada **Asignación de roles de Azure para derechos de acceso** en [Autorización del acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+Cuando una entidad de seguridad de Azure AD intenta acceder a los datos de blobs o colas, dicha entidad debe tener permisos para el recurso. Si la entidad de seguridad es una identidad administrada de Azure o una cuenta de usuario de Azure AD que ejecuta código en el entorno de desarrollo, se le debe asignar un rol de Azure que conceda acceso a los datos de blobs o colas en Azure Storage. Para información sobre la asignación de permisos a través de Azure RBAC, consulte la sección titulada **Asignación de roles de Azure para derechos de acceso** en [Autorización del acceso a blobs y colas de Azure con Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Autenticación del usuario en el entorno de desarrollo
 
@@ -163,6 +163,6 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Administrar los derechos de acceso a los datos de almacenamiento con RBAC](storage-auth-aad-rbac.md).
+- [Administración de los derechos de acceso a los datos de almacenamiento con RBAC de Azure](storage-auth-aad-rbac.md).
 - [Usar Azure AD con aplicaciones de almacenamiento](storage-auth-aad-app.md).
 - [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de blob](../blobs/authorize-active-directory-powershell.md)

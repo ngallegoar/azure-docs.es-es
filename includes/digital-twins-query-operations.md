@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/28/2020
 ms.author: baanders
-ms.openlocfilehash: 6dfddd9179569075abdbd94b6c1afa719db9ba1e
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 333a7ec4ae0e5c8cbc94a603e2ccf81ee92e7d48
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905605"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078466"
 ---
 ## <a name="query-language-features"></a>Características del lenguaje de consulta
 
@@ -32,6 +32,8 @@ Puede mejorar aún más las consultas con las siguientes operaciones:
 * Obtención de gemelos en varios tipos de relación (consultas `JOIN`). 
   - Durante la versión preliminar, se permiten hasta cinco niveles de `JOIN`.
 * Selección de solo los principales resultados de la consulta (operador `Select TOP`)
+* Recuento del número de elementos de un conjunto de resultados mediante `Select COUNT`
+* Uso de las proyecciones para elegir las columnas que devolverá una consulta
 * Uso de funciones escalares: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTSWITH`, `ENDSWITH`.
 * Uso de operadores de comparación de consulta: `IN`/`NIN`, `=`, `!=`, `<`, `>`, `<=` y `>=`.
 * Uso de cualquier combinación (operador `AND`, `OR`, `NOT`) de `IS_OF_MODEL`, funciones escalares y operadores de comparación.

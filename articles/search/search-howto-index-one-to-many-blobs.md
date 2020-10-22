@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 6606391d7fd5c2419714531e1220d97fb29aea4d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e5a69525c4bd0717c0561bc61ee3c52aa68e1c9d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529597"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91533968"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexación de blobs para producir varios documentos de búsqueda
 De manera predeterminada, un indexador de blobs tratará el contenido de un blob como un único documento de búsqueda. Determinados valores de **parsingMode** admiten escenarios donde un blob individual puede dar lugar a varios documentos de búsqueda. A continuación, se muestran los diferentes tipos de **parsingMode** que permiten que un indexador extraiga más de un documento de búsqueda de un blob:
@@ -64,9 +64,9 @@ Al crear un indexador y establecer el valor de **parsingMode** en `jsonLines`: s
     }
 ```
 
-Esta configuración dará como resultado el índice de Azure Cognitive Search que contiene la información siguiente (el id. codificado en base64 se ha reducido para abreviar).
+El resultado de esta configuración será que el índice de Azure Cognitive Search contendrá la información siguiente (el id. codificado en base64 se ha reducido para abreviar).
 
-| id | temperatura | presión | timestamp |
+| Id. | temperatura | presión | timestamp |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |
@@ -108,6 +108,9 @@ Si quiere configurar la asignación de campos explícita, asegúrese de que _sou
 
 > [!NOTE]
 > El enfoque usado por `AzureSearch_DocumentKey` para garantizar la unicidad por entidad extraída está sujeto a cambios y, por tanto, no debe confiar en su valor para las necesidades de la aplicación.
+
+## <a name="help-us-make-azure-cognitive-search-better"></a>Ayúdenos a mejorar Azure Cognitive Search
+Si tiene solicitudes o ideas para mejorar las características, comuníquelas en [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Si necesita ayuda para usar la característica existente, publique su pregunta en [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

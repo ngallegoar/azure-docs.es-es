@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325158"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91445772"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solución Wire Data 2.0 (versión preliminar) en Azure Monitor
 
@@ -364,15 +364,15 @@ En la página **Introducción** del área de trabajo de Log Analytics en Azure P
 
 Puede usar la hoja **Agentes que capturan el tráfico de red** para determinar la cantidad de ancho de banda de red que usan los equipos. Esta hoja puede ayudar a encontrar fácilmente el equipo _que emite más información_ en su entorno. Estos equipos se pueden sobrecargar, actuar de forma anómala o usar más recursos de red de lo normal.
 
-![ejemplo de búsqueda de registros](./media/wire-data/log-search-example01.png)
+![Captura de pantalla de la hoja de agentes que capturan el tráfico de red en el panel de Wire Data 2.0 que muestra el ancho de banda de red consumido por cada equipo.](./media/wire-data/log-search-example01.png)
 
 De forma similar, puede usar la hoja **Subredes locales** para determinar cuánto tráfico de red se está moviendo a través de las subredes. A menudo, los usuarios definen subredes en torno a áreas cruciales de sus aplicaciones. En esta hoja se ofrece una vista de esas áreas.
 
-![ejemplo de búsqueda de registros](./media/wire-data/log-search-example02.png)
+![Captura de pantalla de la hoja de subredes locales en el panel de Wire Data 2.0 que muestra el ancho de banda de red consumido por cada instancia de LocalSubnet.](./media/wire-data/log-search-example02.png)
 
 La hoja **Protocolos en el nivel de la aplicación** es útil porque ayuda a saber qué protocolos están en uso. Por ejemplo, es posible que espere que SSH no esté en uso en su entorno de red. Ver la información disponible en la hoja permite confirmar o desmentir rápidamente las expectativas.
 
-![ejemplo de búsqueda de registros](./media/wire-data/log-search-example03.png)
+![Captura de pantalla de la hoja de protocolos en el nivel de aplicación en el panel de Wire Data 2.0 que muestra el ancho de banda de red consumido por cada protocolo.](./media/wire-data/log-search-example03.png)
 
 También es útil saber si el tráfico de protocolo aumenta o disminuye con el tiempo. Por ejemplo, si está aumentando la cantidad de datos que transmite una aplicación, es posible que se trate de algo que deba tener en cuenta o que le resulte de interés.
 

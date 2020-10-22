@@ -1,14 +1,16 @@
 ---
 title: Características del aprendizaje automático con LUIS
 description: Agregue características a un modelo de lenguaje para proporcionar sugerencias sobre cómo reconocer la entrada que quiera etiquetar o clasificar.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: 02a6fd27dbe22a40b29b47515edec5506d3b2075
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/22/2020
+ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075168"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91372031"
 ---
 # <a name="machine-learning-features"></a>Características del aprendizaje automático
 
@@ -20,12 +22,10 @@ Una característica se puede describir como una función, como f(x) = y. En la e
 
 ## <a name="types-of-features"></a>Tipos de características
 
-LUIS admite listas de frases y modelos como características:
+Las características son una parte necesaria del diseño del esquema. LUIS admite listas de frases y modelos como características:
 
-* Característica de lista de frases 
+* Característica de lista de frases
 * Modelo (intención o entidad) como una característica
-
-Las características deben considerarse como una parte necesaria del diseño del esquema.
 
 ## <a name="find-features-in-your-example-utterances"></a>Búsqueda de características en las expresiones de ejemplo
 
@@ -43,32 +43,6 @@ Determine si el texto, ya que distingue un rasgo, tiene que:
 * Coincidir con una palabra o frase exacta: considere la posibilidad de agregar una entidad de expresión regular o una entidad de lista como característica a la entidad o la intención.
 * Coincidir con un concepto conocido como fechas, horas o nombres de personas: use una entidad precompilada como característica para la entidad o la intención.
 * Aprender nuevos ejemplos con el tiempo: use una lista de frases de algunos ejemplos del concepto como característica para la entidad o la intención.
-
-## <a name="combine-features"></a>Combinación de características
-
-Puede usar más de una característica para describir un rasgo o concepto. Una combinación común consiste en usar una característica de la lista de frases y un tipo de entidad que se use a menudo como característica:
-
- * entidad precompilada
- * entidad de la expresión regular
- * entidad de lista
-
-### <a name="ticket-booking-entity-example"></a>Ejemplo de entidad de reserva de billete
-
-Como primer ejemplo, imagine una aplicación para reservar un vuelo con una intención de reserva de vuelo y una entidad de reserva de billete.
-
-La entidad de reserva de billete es una entidad de aprendizaje automático para el destino del vuelo. Para ayudar a extraer la ubicación, use dos características para ayudar:
-
-* Una lista de frases de palabras pertinentes, como **avión**, **vuelo**, **reserva** o **billete**.
-* Una entidad precompilada **geographyV2** como característica para la entidad.
-
-### <a name="pizza-entity-example"></a>Ejemplo de entidad de pizza
-
-Como otro ejemplo, imagine una aplicación para pedir una pizza con una intención de creación de pedido de pizza y una entidad de pizza.
-
-La entidad de pizza es una entidad de aprendizaje automático para los detalles de la pizza. Para ayudar a extraer los detalles, use dos características:
-
-* Una lista de frases de palabras pertinentes, como **queso**, **masa**, **pepperoni** o **mozzarella**.
-* Una entidad precompilada **number** como característica para la entidad.
 
 ## <a name="create-a-phrase-list-for-a-concept"></a>Creación de una lista de frases para un concepto
 
@@ -176,12 +150,12 @@ Continuando con el ejemplo de la dirección de envío:
 
 Dirección de envío (entidad con aprendizaje automático)
 
- * Número de la calle (subentidad) 
- * Dirección postal (subentidad) 
- * Nombre de la calle (subentidad) 
- * Ciudad (subentidad) 
- * Estado o provincia (subentidad) 
- * País o región (subentidad) 
+ * Número de la calle (subentidad)
+ * Dirección postal (subentidad)
+ * Nombre de la calle (subentidad)
+ * Ciudad (subentidad)
+ * Estado o provincia (subentidad)
+ * País o región (subentidad)
  * Código postal (subentidad)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Característica obligatoria con entidades precompiladas
@@ -217,6 +191,59 @@ Aunque el uso más común es aplicar una característica a un modelo específico
 El uso más común de una característica global es agregar un vocabulario adicional a la aplicación. Por ejemplo, si los clientes usan un idioma principal, pero se espera poder usar otro idioma en la misma expresión, puede agregar una característica que incluya palabras del idioma secundario.
 
 Dado que el usuario espera usar el idioma secundario en cualquier intención o entidad, agregue palabras del idioma secundario a la lista de frases. Configure la lista de frases como una característica global.
+
+## <a name="combine-features-for-added-benefit"></a>Combinación de características para obtener una ventaja adicional
+
+Puede usar más de una característica para describir un rasgo o concepto. El siguiente es un emparejamiento que se utiliza habitualmente:
+
+* Característica de lista de frases: Puede usar listas de frases múltiples como características para el mismo modelo.
+* Modelo como característica: [entidad precompilada](luis-reference-prebuilt-entities.md), [entidad de expresión regular](reference-entity-regular-expression.md), [entidad de lista](reference-entity-list.md). 
+
+### <a name="example-ticket-booking-entity-features-for-a-travel-app"></a>Ejemplo: características de entidad de reserva de billetes para una aplicación de viajes  
+
+Como ejemplo básico, imagine una aplicación para reservar un vuelo con una _intención_ de reserva de vuelo y una _entidad_ de reserva de billetes. La entidad de reserva de billetes captura la información para reservar un billete de avión en un sistema de reserva. 
+
+La entidad de aprendizaje automático para la reserva del billete tiene dos subentidades para capturar el origen y el destino. Las características deben agregarse a cada subentidad, no a la entidad de nivel superior.
+
+:::image type="content" source="media/luis-concept-features/ticket-booking-entity.png" alt-text="Esquema de la entidad de reserva de billetes":::
+
+La entidad de reserva de billetes es una entidad de aprendizaje automático, con una subentidad de _origen_ y otra de _destino_. Estas dos subentidades indican una ubicación geográfica. Para ayudar a extraer las ubicaciones y distinguir entre el _origen_ y el _destino_, cada subentidad debe tener unas determinadas características.
+
+|Tipo|Subentidad de origen |Subentidad de destino|
+|--|--|--|
+|Modelo como característica|Entidad [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) precompilada|Entidad [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) precompilada|
+|Lista de frases|**Palabras de origen**: `start at`, `begin from`, `leave`|**Palabras de destino**: `to`, `arrive`, `land at`, `go`, `going`, `stay`, `heading`|
+|Lista de frases|Códigos de aeropuerto: la misma lista para el origen y el destino|Códigos de aeropuerto: la misma lista para el origen y el destino|
+|Lista de frases|Nombres de aeropuerto: la misma lista para el origen y el destino|Códigos de aeropuerto: la misma lista para el origen y el destino|
+
+Si prevé que se van a usar códigos y nombres de aeropuerto, LUIS debe tener listas de frases que utilicen ambos tipos de frases. Los códigos de aeropuerto pueden ser más comunes como texto escrito en un bot de chat, mientras que los nombres de aeropuerto pueden ser más habituales como conversación hablada, como un bot de chat con voz.
+
+Los detalles de coincidencia de las características solo se devuelven para los modelos, no para las listas de frases porque solo se devuelven modelos en el JSON de predicción.
+
+#### <a name="ticket-booking-labeling-in-the-intent"></a>Etiquetado de reserva de billetes en la intención
+
+Después de crear la entidad de aprendizaje automático, debe agregar expresiones de ejemplo a una intención y etiquetar la entidad primaria y todas las subentidades.
+
+En el ejemplo de reserva de billetes, etiquete las expresiones de ejemplo en la intención con la entidad `TicketBooking` y las subentidades del texto.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Esquema de la entidad de reserva de billetes":::
+
+### <a name="example-pizza-ordering-app"></a>Ejemplo: aplicación de pedidos de pizza
+
+En un segundo ejemplo, imagine una aplicación para una pizzería, que recibe pedidos de pizzas que incluyen los detalles del tipo de pizza que pide un cliente. Cada detalle de la pizza debe extraerse, si es posible, para completar el procesamiento del pedido.
+
+La entidad de aprendizaje automático de este ejemplo es más compleja, pues tiene subentidades anidadas, listas de frases, entidades precompiladas y entidades personalizadas.
+
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Esquema de la entidad de reserva de billetes":::
+
+En este ejemplo se usan características en el nivel de subentidad y en el elemento secundario del nivel de subentidad. Determinar qué nivel obtiene qué tipo de lista de frases o modelo como una característica es una parte importante del diseño de la entidad.
+
+Aunque las subentidades pueden tener muchas listas de frases como características que ayudan a detectar la entidad, cada subentidad solo tiene un modelo como una característica. En este [aplicación de pizzería](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json), estos modelos son principalmente listas.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Esquema de la entidad de reserva de billetes":::
+
+La expresiones de ejemplo correctamente etiquetadas aparecen de modo que se muestre cómo se anidan las entidades. 
+
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

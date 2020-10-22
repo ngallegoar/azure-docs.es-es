@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8d1e2454dc4b9a9fbc85d2e5edc5ba3ede33f9c0
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: f8f5d41b7f4df3cd82a388bc24ccc8fa5a9a91f6
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595658"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044112"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor    
 
@@ -46,7 +46,7 @@ Además, tenga en cuenta que algunas soluciones, como [Azure Security Center](ht
 
 ### <a name="log-analytics-dedicated-clusters"></a>Clústeres dedicados de Log Analytics
 
-Los clústeres dedicados de Log Analytics son colecciones de áreas de trabajo en un único clúster de Azure Data Explorer administrado para permitir escenarios avanzados, como las [claves administradas por el cliente](customer-managed-keys.md).  Los clústeres dedicados de Log Analytics solo admiten un modelo de precios de reserva de capacidad a partir de 1000 GB/día con un descuento del 25 % en comparación con los precios de pago por uso. Cualquier uso por encima del nivel de reserva se facturará según la tarifa de pago por uso. La reserva de capacidad del clúster tiene un período de compromiso de 31 días después de aumentar el nivel de reserva. Durante el período de compromiso, no se puede reducir el nivel de reserva de capacidad, pero se puede aumentar en cualquier momento. Más información sobre la [creación de clústeres de Log Analytics](customer-managed-keys.md#create-cluster-resource) y la [asociación de áreas de trabajo a ellos](customer-managed-keys.md#workspace-association-to-cluster-resource).  
+Los clústeres dedicados de Log Analytics son colecciones de áreas de trabajo en un único clúster de Azure Data Explorer administrado para permitir escenarios avanzados, como las [claves administradas por el cliente](customer-managed-keys.md).  Los clústeres dedicados de Log Analytics usan un modelo de precios de reserva de capacidad que se debe configurar en al menos 1000 GB/día. Este nivel de capacidad tiene un descuento del 25 % en comparación con los precios de pago por uso. Cualquier uso por encima del nivel de reserva se facturará según la tarifa de pago por uso. La reserva de capacidad del clúster tiene un período de compromiso de 31 días después de aumentar el nivel de reserva. Durante el período de compromiso, no se puede reducir el nivel de reserva de capacidad, pero se puede aumentar en cualquier momento. Cuando las áreas de trabajo están asociadas a un clúster, la facturación de ingesta de datos para esas áreas de trabajo se realiza en el nivel de clúster con el nivel de reserva de capacidad configurado. Más información sobre la [creación de clústeres de Log Analytics](customer-managed-keys.md#create-cluster-resource) y la [asociación de áreas de trabajo a ellos](customer-managed-keys.md#workspace-association-to-cluster-resource). La información de precios de reserva de capacidad está disponible en la [página de precios de Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
 
 El nivel de reserva de capacidad del clúster se configura mediante programación con Azure Resource Manager con el parámetro `Capacity` en `Sku`. El parámetro `Capacity` se especifica en unidades de GB y puede tener valores de 1000 GB/día o más en incrementos de 100 GB/día. Esto se detalla en [Clave administrada por el cliente de Azure Monitor](customer-managed-keys.md#create-cluster-resource). Si el clúster necesita una reserva superior a 2000 GB/día, póngase en contacto con nosotros en [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
@@ -56,7 +56,7 @@ Hay dos modos de facturación para el uso en un clúster. Estos pueden especific
 
 2. **Áreas de trabajo**: los costos de reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster (después de tener en cuenta las asignaciones por nodo de [Azure Security Center](https://docs.microsoft.com/azure/security-center/) para cada área de trabajo). Si el volumen total de datos ingeridos en un área de trabajo durante un día es menor que la reserva de capacidad, cada área de trabajo se factura por sus datos ingeridos con la tasa de reserva de capacidad por GB efectiva y la facturación de una fracción de la reserva de capacidad. La parte sin usar de la reserva de capacidad se factura al recurso de clúster. Si el volumen total de datos ingeridos en un área de trabajo durante un día es superior al de la reserva de capacidad, se factura a cada área de trabajo una fracción de la reserva de capacidad en función de su fracción de la cantidad de datos ingeridos ese día, y también una fracción de los datos ingeridos por encima de la reserva de capacidad. No se factura nada al recurso de clúster si el volumen total de datos ingeridos en un área de trabajo durante un día supera la reserva de capacidad.
 
-En las opciones de facturación del clúster, la retención de datos se factura en el nivel del área de trabajo. Tenga en cuenta que la facturación del clúster comienza cuando se crea este, independientemente de si las áreas de trabajo se han asociado al clúster. Además, tenga en cuenta que las áreas de trabajo asociadas a un clúster ya no tienen un plan de tarifa.
+En las opciones de facturación del clúster, la retención de datos se factura por área de trabajo. Tenga en cuenta que la facturación del clúster comienza cuando se crea este, independientemente de si las áreas de trabajo se han asociado al clúster. Además, tenga en cuenta que las áreas de trabajo asociadas a un clúster ya no tienen un plan de tarifa.
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Estimación de los costos de administración del entorno 
 
@@ -102,7 +102,7 @@ Las suscripciones que contenían un área de trabajo de Log Analytics o un recur
 
 El uso en el plan de tarifa independiente se factura por el volumen de datos ingerido. Se indica en el servicio **Log Analytics** y el medidor se denomina "Datos analizados". 
 
-Los cargos del plan de tarifa por nodo y por VM supervisada (nodo) en una granularidad de hora. En cada nodo supervisado, se asignan al área de trabajo 500 MB de datos al día que no se facturan. Esta asignación se agrega en el nivel de área de trabajo. Los datos ingeridos por encima de la asignación de datos diaria agregada se facturan por GB como datos con un uso por encima del límite. Tenga en cuenta que, en su factura, el servicio será **Insight and Analytics** para el uso de Log Analytics si el área de trabajo se encuentra en el plan de tarifa por nodo. El uso se muestra en tres medidores:
+Los cargos del plan de tarifa por nodo y por VM supervisada (nodo) en una granularidad de hora. En cada nodo supervisado, se asignan al área de trabajo 500 MB de datos al día que no se facturan. Esta asignación se calcula con granularidad por hora y se agrega en el nivel de área de trabajo cada día. Los datos ingeridos por encima de la asignación de datos diaria agregada se facturan por GB como datos con un uso por encima del límite. Tenga en cuenta que, en su factura, el servicio será **Insight and Analytics** para el uso de Log Analytics si el área de trabajo se encuentra en el plan de tarifa por nodo. El uso se muestra en tres medidores:
 
 1. Nodo: se usa para el número de nodos supervisados (VM) en unidades de nodo*meses.
 2. Data Overage per Node (Datos por encima del límite por nodo): es el número de GB de datos ingeridos en exceso de la asignación de datos agregados.
@@ -125,6 +125,10 @@ Ninguno de los planes de tarifa heredados tiene precios basados en la región.
 
 > [!NOTE]
 > Para usar los derechos que proceden de la adquisición de OMS E1 Suite, OMS E2 Suite o un complemento de OMS para System Center, elija el plan de tarifa *Por nodo* de Log Analytics.
+
+## <a name="log-analytics-and-security-center"></a>Log Analytics y Security Center
+
+La facturación de [Azure Security Center](https://docs.microsoft.com/azure/security-center/) está estrechamente vinculada a la facturación de Log Analytics. Security Center proporciona una asignación de 500 MB/nodo/día para un conjunto de [tipos de datos de seguridad](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) y los tipos de datos Update y UpdateSummary cuando la solución Update Management no se está ejecutando en el área de trabajo o el destino de la solución está habilitado. Si el área de trabajo está en el plan de tarifa heredado por nodo, las asignaciones de Security Center y Log Analytics se combinan y se aplican conjuntamente a todos los datos ingeridos facturables.  
 
 ## <a name="change-the-data-retention-period"></a>Cambio del período de retención de datos
 
@@ -234,12 +238,12 @@ El límite diario se puede configurar mediante ARM si se establece el parámetro
 
 Aunque Azure Portal presenta una indicación visual cuando se alcanza el umbral de límite de datos, este comportamiento no tiene que alinearse necesariamente con la forma en la que el usuario administra los problemas de funcionamiento que requieren atención inmediata.  Para recibir una notificación de alerta, puede crear una nueva regla de alerta en Azure Monitor.  Para obtener más información, consulte [Cómo crear, ver y administrar alertas](alerts-metric.md).
 
-Para comenzar, esta es la configuración recomendada para la alerta:
+Para empezar, esta es la configuración recomendada para la alerta al consultar la tabla `Operation` con la función `_LogOperation`. 
 
 - Destino: seleccione el recurso de Log Analytics
 - Criterios: 
    - Nombre de señal: Búsqueda de registros personalizada
-   - Consulta de búsqueda: Operación | donde Detalle tiene "OverQuota"
+   - Consulta de búsqueda: `_LogOperation | where Detail has 'OverQuota'`
    - Basado en: Número de resultados
    - Condición: Mayor que
    - Umbral: 0
@@ -283,6 +287,24 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
+
+### <a name="nodes-billed-by-the-legacy-per-node-pricing-tier"></a>Nodos facturados según el plan de tarifa heredado por nodo
+
+El [plan de tarifa heredado por nodo](#legacy-pricing-tiers) factura para los nodos con granularidad por hora y tampoco cuenta los nodos solo enviando un conjunto de tipos de datos de seguridad. Su recuento diario de nodos se aproximará a la siguiente consulta:
+
+```kusto
+find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now()) project Computer, _IsBillable, Type, TimeGenerated
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| where _IsBillable == true
+| summarize billableNodesPerHour=dcount(computerName) by bin(TimeGenerated, 1h)
+| summarize billableNodesPerDay = sum(billableNodesPerHour)/24., billableNodeMonthsPerDay = sum(billableNodesPerHour)/24./31.  by day=bin(TimeGenerated, 1d)
+| sort by day asc
+```
+
+El número de unidades de la factura está en unidades de nodo*meses, que se representa mediante `billableNodeMonthsPerDay` en la consulta. Si el área de trabajo tiene instalada la solución Update Management, agregue los tipos de datos Update y UpdateSummary a la lista en la cláusula WHERE de la consulta anterior. Por último, hay cierta complejidad adicional en el algoritmo de facturación real cuando se usa un destino de la solución que no está representado en la consulta anterior. 
+
 
 > [!TIP]
 > Use estas consultas `find` con moderación, ya que la ejecución de exámenes entre tipos de datos [consume muchos recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane). Si no necesita resultados **por equipo**, consulte el tipo de datos Usage (vea a continuación).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 6f8ec56cc5747921ee786bd4c069070ff865f9fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c403f5381cba03727ad85ff7de7e73fabaab67f9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507932"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977449"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Instalación de Update 1.1 en StorSimple Virtual Array
 
@@ -101,26 +101,26 @@ Este procedimiento tarda aproximadamente 4 minutos en completarse. Realice los p
 
 1. En la interfaz de usuario web local, vaya a **Mantenimiento** > **Actualización de software**. Tome nota de la versión de software que se está ejecutando. **Continúe con esta actualización solo si se ejecuta Update 1 (10.0.10296.0). Si se ejecuta Update 0.6, primero [instale Update 1](storsimple-virtual-array-install-update-1.md) en el dispositivo y después instale Update 1.1.**
    
-    ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-11/update1m.png)
+    ![Actualización de dispositivo 1](./media/storsimple-virtual-array-install-update-11/update1m.png)
 
 2. En **Update file path**(Ruta de acceso del archivo de actualización), escriba el nombre del archivo de actualización o de revisión. Asimismo, también puede acceder al archivo de instalación de la actualización o de la revisión si está en un recurso compartido de red. Haga clic en **Aplicar**.
    
-    ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-11/update2m.png)
+    ![Actualización de dispositivo 2](./media/storsimple-virtual-array-install-update-11/update2m.png)
 
 3. Se mostrará una advertencia. Dado que la matriz virtual es un dispositivo de nodo único, una vez aplicada la actualización, se reiniciará el dispositivo y habrá un tiempo de inactividad. Haga clic en el icono de marca de verificación.
    
-   ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-11/update3m.png)
+   ![Actualización de dispositivo 3](./media/storsimple-virtual-array-install-update-11/update3m.png)
 
 4. Se inicia la actualización. Una vez que el dispositivo se actualice correctamente, este se reiniciará. La interfaz de usuario local no será accesible durante este tiempo.
    
-    ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-11/update5m.png)
+    ![Actualización de dispositivo 4](./media/storsimple-virtual-array-install-update-11/update5m.png)
 
 5. Una vez completado el reinicio, se le llevará a la página de **inicio de sesión** . Para comprobar que el software del dispositivo se ha actualizado, en la interfaz de usuario de web local, vaya a **Mantenimiento** > **Actualización de software**. La versión de software que aparece debe ser **10.0.0.0.0.10307** para Update 1.1.
    
    > [!NOTE]
    > Las versiones de software se muestran de forma ligeramente distinta en la interfaz de usuario web local y Azure Portal. Por ejemplo, la misma versión aparece como **10.0.0.0.0.10307** en la interfaz de usuario web local y como **10.0.10307.0** en Azure Portal.
    
-    ![actualizar dispositivo](./media/storsimple-virtual-array-install-update-11/update6m.png)
+    ![Actualización de dispositivo 5](./media/storsimple-virtual-array-install-update-11/update6m.png)
 
 6. Repita los pasos del 2 al 4 para instalar la corrección de seguridad de Windows con el archivo `Windows8.1-KB4284815-x64`. La matriz virtual se reinicia después de la instalación. Debe iniciar sesión en la interfaz de usuario web local.
 
