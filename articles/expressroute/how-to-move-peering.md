@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: duau
-ms.openlocfilehash: 5671be5e54a9bb789e349a4da6d0f1809807d974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 608d6c87442821e904fde16c6b75841fe792e3f0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401425"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206295"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Cambiar un emparejamiento público a emparejamiento de Microsoft
 
@@ -31,7 +31,7 @@ Para conectarse al emparejamiento de Microsoft, necesita configurar y administra
 > [!Warning]
 > El grupo de direcciones IP NAT anunciado a Microsoft no se debe anunciar a Internet. Esto interrumpirá la conectividad con otros servicios de Microsoft.
 
-Consulte [Enrutamiento asimétrico con varias rutas de acceso de red](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) para ver advertencias de enrutamiento asimétrico antes de configurar el emparejamiento de Microsoft.
+Consulte [Enrutamiento asimétrico con varias rutas de acceso de red](./expressroute-asymmetric-routing.md) para ver advertencias de enrutamiento asimétrico antes de configurar el emparejamiento de Microsoft.
 
 * Si usa el emparejamiento público y actualmente tiene reglas de red IP para las direcciones IP públicas que se usan para acceder a [Azure Storage](../storage/common/storage-network-security.md) o [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md), tiene que asegurarse de que el grupo de IP de NAT configurado con el emparejamiento de Microsoft se incluye en la lista de direcciones IP públicas de la cuenta de Azure Storage o Azure SQL.<br>
 * Para cambiar a un emparejamiento de Microsoft sin sufrir tiempos de inactividad, realice los pasos de este artículo en el orden en el que aparecen.

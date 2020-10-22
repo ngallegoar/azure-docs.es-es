@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0e217676f5e1f4dcba24917cb140d9d4d8fcc422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7550d0f997182b3938285f1d0a360a31bf05177
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90024373"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207468"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigación de Z-fighting
 
@@ -78,8 +78,8 @@ La mitigación de Z-fighting proporcionada es un intento de mejora. No hay ningu
 
 ## <a name="api-documentation"></a>Documentación de la API
 
-* [Propiedad RemoteManager.ZFightingMitigationSettings de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
-* [RemoteManager::ZFightingMitigationSettings() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
+* [Propiedad RemoteManager.ZFightingMitigationSettings de C#](/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
+* [RemoteManager::ZFightingMitigationSettings() de C++](/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

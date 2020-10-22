@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 01c0b6f280b8179760c6ecc55fd7feca3ddf2080
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 695b0b0ac06e63912ca0a471be3d96c148458c29
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90038920"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104247"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Columnas estándar en registros de Azure Monitor
-Los datos de los registros de Azure Monitor se [almacenan como un conjunto de registros en un área de trabajo de Log Analytics o una aplicación de Application Insights](../log-query/logs-structure.md), cada uno con un tipo de datos determinado que tiene un conjunto singular de columnas. Muchos tipos de datos tendrán columnas estándar que son comunes entre varios tipos. En este artículo se describen estas columnas y se proporcionan ejemplos de cómo puede usarlas en las consultas.
+Los datos de los registros de Azure Monitor se [almacenan como un conjunto de registros en un área de trabajo de Log Analytics o una aplicación de Application Insights](./data-platform-logs.md), cada uno con un tipo de datos determinado que tiene un conjunto singular de columnas. Muchos tipos de datos tendrán columnas estándar que son comunes entre varios tipos. En este artículo se describen estas columnas y se proporcionan ejemplos de cómo puede usarlas en las consultas.
 
 Las aplicaciones basadas en el área de trabajo de Application Insights almacenan sus datos en un área de trabajo de Log Analytics y usan las mismas columnas estándar que otras tablas del área de trabajo. Las aplicaciones clásicas almacenan sus datos por separado y tienen diferentes columnas estándar, como se especifica en este artículo.
 
@@ -212,4 +212,3 @@ union withsource = tt *
 - Obtenga más información sobre cómo se almacenan los [datos del registro de Azure Monitor](../log-query/log-query-overview.md).
 - Reciba una lección sobre [escritura de consultas de registro](../log-query/get-started-queries.md).
 - Reciba una lección sobre [la unión de tablas en consultas de registro](../log-query/joins.md).
-

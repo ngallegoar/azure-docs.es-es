@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7acd287964d25cc7e98c11ec1986c73d8ae265da
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300109"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104145"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -243,7 +243,7 @@ Consulte [Definición del control de acceso por tabla](#table-level-rbac) a cont
 
 **RBAC de nivel de tabla** le permite definir un control más pormenorizado de los datos de un área de trabajo de Log Analytics, además de los restantes permisos. Este control le permite definir tipos de datos específicos que son accesibles solo a un conjunto concreto de usuarios.
 
-El control de acceso de la tabla se implementa con [roles personalizados de Azure](../../role-based-access-control/custom-roles.md) para conceder o denegar el acceso a [tablas](../log-query/logs-structure.md) específicas del área de trabajo. Estos roles se aplican a las áreas de trabajo con los [modos de control de acceso](design-logs-deployment.md#access-control-mode) contexto del área de trabajo o contexto del recurso, independientemente del [modo de acceso](design-logs-deployment.md#access-mode) del usuario.
+El control de acceso de la tabla se implementa con [roles personalizados de Azure](../../role-based-access-control/custom-roles.md) para conceder o denegar el acceso a [tablas](./data-platform-logs.md) específicas del área de trabajo. Estos roles se aplican a las áreas de trabajo con los [modos de control de acceso](design-logs-deployment.md#access-control-mode) contexto del área de trabajo o contexto del recurso, independientemente del [modo de acceso](design-logs-deployment.md#access-mode) del usuario.
 
 Cree un [rol personalizado](../../role-based-access-control/custom-roles.md) con las acciones siguientes para definir el acceso al control de acceso de la tabla.
 

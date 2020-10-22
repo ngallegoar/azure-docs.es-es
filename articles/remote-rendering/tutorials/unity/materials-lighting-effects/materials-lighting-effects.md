@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0580614468d4003b3640fd4df08ff02f3a1c8476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04cb48a3ff84a67995c1a920a323fa568a67cdf3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021075"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203252"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>Tutorial: Refinamiento de materiales, iluminación y efectos
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 Proporcionar información visual al usuario es una parte importante de la experiencia del usuario en cualquier aplicación. Azure Remote Rendering proporciona mecanismos de información visual mediante [invalidaciones de estado jerárquicas](../../../overview/features/override-hierarchical-state.md). Las invalidaciones de estado jerárquicas se implementan con componentes asociados a las instancias locales de los modelos. Hemos aprendido a crear estas instancias locales en [Sincronización del gráfico de objetos remotos en la jerarquía de Unity](../manipulate-models/manipulate-models.md#synchronizing-the-remote-object-graph-into-the-unity-hierarchy).
 
-En primer lugar, vamos a crear un contenedor en torno al componente [**HierarchicalStateOverrideComponent**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent). **HierarchicalStateOverrideComponent** es el script local que controla las invalidaciones en la entidad remota. Los [**recursos del tutorial**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) incluyen una clase base abstracta llamada **BaseEntityOverrideController**, que ampliaremos para crear el contenedor.
+En primer lugar, vamos a crear un contenedor en torno al componente [**HierarchicalStateOverrideComponent**](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent). **HierarchicalStateOverrideComponent** es el script local que controla las invalidaciones en la entidad remota. Los [**recursos del tutorial**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) incluyen una clase base abstracta llamada **BaseEntityOverrideController**, que ampliaremos para crear el contenedor.
 
 1. Cree un script llamado **EntityOverrideController** y reemplace su contenido por el código siguiente:
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2a10558e76a6e9af7c7571dc4ba3d063ce3e2286
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d4ce68bdda5fbc3dfdb7396141289a58dab5bd1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84021167"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204102"
 ---
 # <a name="create-client-side-performance-traces"></a>Creación de seguimientos del rendimiento en el cliente
 
@@ -24,7 +24,7 @@ Si no está familiarizado con la funcionalidad :::no-loc text="performance traci
 
 ### <a name="installation"></a>Instalación
 
-Las aplicaciones que se usan para realizar el seguimiento con ARR son herramientas de uso general que se pueden utilizar para todo el desarrollo de Windows. Se proporcionan con el [Kit de herramientas de rendimiento de Windows](https://docs.microsoft.com/windows-hardware/test/wpt/). Para obtenerlo, descargue [Windows Assessment and Deployment Kit](https://docs.microsoft.com/windows-hardware/get-started/adk-install).
+Las aplicaciones que se usan para realizar el seguimiento con ARR son herramientas de uso general que se pueden utilizar para todo el desarrollo de Windows. Se proporcionan con el [Kit de herramientas de rendimiento de Windows](/windows-hardware/test/wpt/). Para obtenerlo, descargue [Windows Assessment and Deployment Kit](/windows-hardware/get-started/adk-install).
 
 ### <a name="terminology"></a>Terminología
 
@@ -35,13 +35,13 @@ Cuando busca información acerca de seguimientos de rendimiento, inevitablemente
 * `WPR`
 * `WPA`
 
-**ETW** son las siglas en inglés de [**E**vent **T**racing para **W**indows](https://docs.microsoft.com/windows/win32/etw/about-event-tracing) (o Seguimiento de eventos para Windows). Simplemente es el nombre de la eficaz herramienta de seguimiento del nivel de kernel que se integra en Windows. Se denomina de seguimiento de *eventos* porque las aplicaciones que admiten ETW emiten eventos para registrar las acciones que pueden ayudar a realizar un seguimiento de los problemas de rendimiento. De forma predeterminada, el sistema operativo ya emite eventos para elementos como los accesos al disco, los modificadores de tareas y otros similares. Las aplicaciones como ARR también emiten eventos personalizados, por ejemplo, los fotogramas que se han descartado, el retraso de la red, etc.
+**ETW** son las siglas en inglés de [**E**vent **T**racing para **W**indows](/windows/win32/etw/about-event-tracing) (o Seguimiento de eventos para Windows). Simplemente es el nombre de la eficaz herramienta de seguimiento del nivel de kernel que se integra en Windows. Se denomina de seguimiento de *eventos* porque las aplicaciones que admiten ETW emiten eventos para registrar las acciones que pueden ayudar a realizar un seguimiento de los problemas de rendimiento. De forma predeterminada, el sistema operativo ya emite eventos para elementos como los accesos al disco, los modificadores de tareas y otros similares. Las aplicaciones como ARR también emiten eventos personalizados, por ejemplo, los fotogramas que se han descartado, el retraso de la red, etc.
 
 **ETL** son las siglas en inglés de **E**vent **T**race **L**ogging (o registro del seguimiento de eventos). Simplemente significa que se ha recopilado (registrado) un seguimiento y, por lo tanto, se suele usar como extensión de archivo para los archivos que almacenan los datos de seguimiento. Así, cuando realice un seguimiento, después, normalmente, tendrá un archivo \*.etl.
 
-**WPR** son las siglas en inglés de [**W**indows **P**erformance **R**ecorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) (o Grabador de rendimiento de Windows) y es el nombre de la aplicación que inicia y detiene la grabación de los seguimientos de evento. WPR toma un archivo de perfil (\*.wprp) que configura los eventos exactos que se van a registrar. Este tipo de archivo `wprp` se proporciona con el SDK de ARR. Al realizar seguimientos en un equipo de escritorio, puede iniciar WPR directamente. En cambio, cuando realiza un seguimiento en HoloLens, normalmente se hace mediante la interfaz web.
+**WPR** son las siglas en inglés de [**W**indows **P**erformance **R**ecorder](/windows-hardware/test/wpt/windows-performance-recorder) (o Grabador de rendimiento de Windows) y es el nombre de la aplicación que inicia y detiene la grabación de los seguimientos de evento. WPR toma un archivo de perfil (\*.wprp) que configura los eventos exactos que se van a registrar. Este tipo de archivo `wprp` se proporciona con el SDK de ARR. Al realizar seguimientos en un equipo de escritorio, puede iniciar WPR directamente. En cambio, cuando realiza un seguimiento en HoloLens, normalmente se hace mediante la interfaz web.
 
-**WPA** son las siglas de [**W**indows **P**erformance **A**nalyzer](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) (o Analizador de rendimiento de Windows) y es el nombre de la aplicación GUI que se usa para abrir archivos \*.etl y examinar los datos a fin de identificar los problemas de rendimiento. WPA le permite ordenar los datos por varios criterios, mostrarlos de varias maneras, profundizar en los detalles y correlacionar la información.
+**WPA** son las siglas de [**W**indows **P**erformance **A**nalyzer](/windows-hardware/test/wpt/windows-performance-analyzer) (o Analizador de rendimiento de Windows) y es el nombre de la aplicación GUI que se usa para abrir archivos \*.etl y examinar los datos a fin de identificar los problemas de rendimiento. WPA le permite ordenar los datos por varios criterios, mostrarlos de varias maneras, profundizar en los detalles y correlacionar la información.
 
 Aunque los seguimientos de ETL se pueden crear en cualquier dispositivo Windows (equipo local, HoloLens, servidor en la nube, etc.), normalmente se guardan en el disco y se analizan con WPA en un equipo de escritorio. Los archivos ETL se pueden enviar a otros desarrolladores para que los examinen. Sin embargo, tenga en cuenta que la información importante, como las rutas de acceso de los archivos y las direcciones IP, se puede capturar en los seguimientos ETL. Puede usar ETW de dos maneras: para grabar o para analizar los seguimientos. La grabación de seguimientos es sencilla y requiere una configuración mínima. Por otro lado, el análisis de los seguimientos requiere un conocimiento aceptable tanto de la herramienta WPA como del problema que se esté investigando. El material general para el aprendizaje de WPA se proporcionará a continuación, así como directrices para interpretar los seguimientos específicos de ARR.
 
@@ -51,7 +51,7 @@ Para identificar los problemas de rendimiento de ARR, es preferible realizar un 
 
 ### <a name="wpr-configuration"></a>Configuración de WPR
 
-1. Inicie [:::no-loc text="Windows Performance Recorder":::](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) desde el *menú Inicio*.
+1. Inicie [:::no-loc text="Windows Performance Recorder":::](/windows-hardware/test/wpt/windows-performance-recorder) desde el *menú Inicio*.
 1. Expanda **Más opciones**.
 1. Haga clic en **Agregar perfiles...** .
 1. Seleccione el archivo *AzureRemoteRenderingNetworkProfiling.wprp*. Puede encontrar este archivo en el SDK de ARR en *Tools/ETLProfiles*.
@@ -95,7 +95,7 @@ Ahora tiene un archivo ETL que puede abrir directamente en WPA o enviarlo a otra
 
 El Analizador de rendimiento de Windows es la herramienta estándar para abrir los archivos ETL e inspeccionar los seguimientos. La explicación de cómo funciona WPA está fuera del ámbito de este artículo. Para empezar, consulte estos recursos:
 
-* Vea los [vídeos introductorios](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) para obtener una primera información general.
+* Vea los [vídeos introductorios](/windows-hardware/test/wpt/windows-performance-analyzer) para obtener una primera información general.
 * El propio WPA tiene una pestaña *Getting Started* (Introducción), en la que se explican los pasos habituales. Vea los temas disponibles. Especialmente, en "View Data" (Ver datos), obtiene una introducción rápida sobre cómo crear grafos para datos específicos.
 * Hay información excelente [en este sitio web](https://randomascii.wordpress.com/2015/09/24/etw-central/), sin embargo, no toda es pertinente para principiantes.
 

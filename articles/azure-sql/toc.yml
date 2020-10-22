@@ -51,8 +51,6 @@
               href: ./database/security-controls-policy.md
             - name: Línea de base de seguridad
               href: database/security-baseline.md
-            - name: Atributos de seguridad
-              href: database/security-controls.md
             - name: Azure Defender para SQL
               href: database/azure-defender-for-sql.md
             - name: Protección contra amenazas avanzada
@@ -1072,7 +1070,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: Configuración manual
                           items:
-                            - name: Prerrequisitos
+                            - name: Requisitos previos
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: Tutorial
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

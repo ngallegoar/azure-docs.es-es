@@ -5,16 +5,16 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 2d3da9273651b23a80b0f5e2874581a744caf533
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5a1851b71ac017349ff131811d946ec2c077440b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330883"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105998"
 ---
 # <a name="common-alert-schema-definitions"></a>Definiciones de esquemas de alertas comunes
 
-En este artículo se describen las [definiciones del esquema de alertas comunes](https://aka.ms/commonAlertSchemaDocs) de Azure Monitor, incluyendo aquellas para webhooks, Azure Logic Apps, Azure Functions y los runbooks de Azure Automation. 
+En este artículo se describen las [definiciones del esquema de alertas comunes](./alerts-common-schema.md) de Azure Monitor, incluyendo aquellas para webhooks, Azure Logic Apps, Azure Functions y los runbooks de Azure Automation. 
 
 Cualquier instancia de alerta describe el recurso afectado y la causa de la alerta. Estas instancias se describen en el esquema común de las secciones siguientes:
 * **Información esencial**: un conjunto de campos estandarizados común a todos los tipos de alertas, que describen en qué recurso se encuentra la alerta junto con otros metadatos de alerta comunes (por ejemplo, gravedad o descripción). 
@@ -541,5 +541,5 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre el [esquema de alertas comunes](https://aka.ms/commonAlertSchemaDocs).
-- Obtenga información sobre [cómo crear una aplicación lógica que aproveche el esquema común de alertas para controlar todas las alertas](./alerts-common-schema-integrations.md). 
+- Obtenga más información sobre el [esquema de alertas comunes](./alerts-common-schema.md).
+- Obtenga información sobre [cómo crear una aplicación lógica que aproveche el esquema común de alertas para controlar todas las alertas](./alerts-common-schema-integrations.md).

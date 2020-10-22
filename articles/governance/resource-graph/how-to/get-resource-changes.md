@@ -3,12 +3,12 @@ title: Obtención de los cambios del recurso
 description: Aprenda los métodos para identificar cuándo un recurso se cambió, obtener una lista de las propiedades que cambiaron y evaluar las diferencias.
 ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: bab51ac7b55e2a838d98b46a09289f2cc19bfde3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 70213caeaf71e1adc5a11ec0e9cbadfea032dca4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057576"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203473"
 ---
 # <a name="get-resource-changes"></a>Obtención de los cambios del recurso
 
@@ -28,7 +28,7 @@ La detección y los detalles de cambios son de utilidad para los siguientes esce
 En este artículo se muestra cómo recopilar esta información a través del SDK del Resource Graph. Para ver esta información en Azure Portal, consulte Azure Policy [Historial de cambios](../../policy/how-to/determine-non-compliance.md#change-history) o [Historial de cambios](../../../azure-monitor/platform/activity-log.md#view-the-activity-log) del Registro de actividad de Azure. Para obtener detalles sobre los cambios en sus aplicaciones desde el nivel de infraestructura hasta la implementación de aplicaciones, consulte el artículo sobre el [uso de Application Change Analysis (versión preliminar)](../../../azure-monitor/app/change-analysis.md) en Azure Monitor.
 
 > [!NOTE]
-> Los detalles de cambio en Resource Graph son para las propiedades de Resource Manager. Para realizar un seguimiento de los cambios dentro de una máquina virtual, consulte las opciones [Seguimiento de cambios](../../../automation/change-tracking.md) o Azure Policy [Configuración de invitado para VM](../../policy/concepts/guest-configuration.md) de Azure Automation.
+> Los detalles de cambio en Resource Graph son para las propiedades de Resource Manager. Para realizar un seguimiento de los cambios dentro de una máquina virtual, consulte las opciones [Seguimiento de cambios](../../../automation/change-tracking/overview.md) o Azure Policy [Configuración de invitado para VM](../../policy/concepts/guest-configuration.md) de Azure Automation.
 
 > [!IMPORTANT]
 > El historial de cambios en Azure Resource Graph está disponible como versión preliminar pública.

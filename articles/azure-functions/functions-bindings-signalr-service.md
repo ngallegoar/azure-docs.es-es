@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 863620ce6f0af33b05ef290ae95ccdc99a53a54d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1446808b77e5eea78a9912db4c7a8e2dd783f33a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77523043"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104383"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Enlaces de SignalR Service para Azure Functions
 
@@ -36,7 +36,7 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 [Paquete NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService
 [core tools]: ./functions-run-local.md
 [conjunto de extensiones]: ./functions-bindings-register.md#extension-bundles
-[Actualización de las extensiones]: ./install-update-binding-extensions-manual.md
+[Actualización de las extensiones]: ./functions-bindings-register.md
 [Extensión Azure Tools]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 Para más información sobre cómo configurar y usar SignalR Service y Azure Functions juntos, consulte [Desarrollo y configuración de Azure Functions con Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md).
@@ -56,4 +56,4 @@ Para usar las anotaciones de SignalR Service en las funciones de Java, debe agre
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Devolución de la dirección URL del punto de conexión de servicio y el token de acceso (enlace de entrada)](./functions-bindings-signalr-service-input.md)
-- [Envío de mensajes de SignalR Service (enlace de salida)](./functions-bindings-signalr-service-output.md) 
+- [Envío de mensajes de SignalR Service (enlace de salida)](./functions-bindings-signalr-service-output.md)

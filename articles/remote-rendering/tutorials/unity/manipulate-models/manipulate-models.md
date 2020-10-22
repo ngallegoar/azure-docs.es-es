@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ce38fd1a9c49a1715562b59fb14667a88ce44181
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: d9a7d7db93e00b9fcccab08522b3363935badf26
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653169"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203847"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipulación de modelos
 
@@ -237,7 +237,7 @@ En primer lugar, vamos a crear un contenedor estático en torno a las consultas 
     ```
 
     > [!NOTE]
-    > Unity tiene una clase denominada [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html), y Azure Remote Rendering tiene una clase denominada [**RayCastHit**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.raycasthit). La **C** mayúscula es una diferencia importante para evitar errores de compilación.
+    > Unity tiene una clase denominada [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html), y Azure Remote Rendering tiene una clase denominada [**RayCastHit**](/dotnet/api/microsoft.azure.remoterendering.raycasthit). La **C** mayúscula es una diferencia importante para evitar errores de compilación.
 
     **RemoteRayCaster** proporciona un punto de acceso común para proyectar los rayos remotos en la sesión actual. Para ser más específico, implementaremos a continuación un controlador de puntero de MRTK. El script implementará la interfaz `IMixedRealityPointerHandler`, que indicará a MRTK que queremos que este script escuche los eventos del [puntero de Mixed Reality](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/Input/Pointers.html).
 

@@ -3,16 +3,17 @@ title: Base de referencia de seguridad de Azure Machine Learning
 description: La base de referencia de seguridad de Azure Machine Learning proporciona instrucciones de procedimientos y recursos para implementar las recomendaciones de seguridad especificadas en Azure Security Benchmark.
 author: msmbaldwin
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d29bef20bef6de576b9b531952c48173819a5fa1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cc8974be9adb81391134790d85336016a7d9f1c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461026"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204340"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Base de referencia de seguridad de Azure Machine Learning
 
@@ -720,7 +721,7 @@ Quite los recursos de Azure cuando ya no los necesite.
 
 - [Habilitación de la supervisión de la integridad de los archivos](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Información general de Change Tracking e Inventario en Azure Automation](../automation/change-tracking.md)
+- [Información general de Change Tracking e Inventario en Azure Automation](../automation/change-tracking/overview.md)
 
 - [Habilitación del inventario de máquinas virtuales de Azure](../automation/automation-tutorial-installed-software.md)
 

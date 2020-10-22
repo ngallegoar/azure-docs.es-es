@@ -1,22 +1,22 @@
 ---
 title: Definiciones de directivas integradas para Azure IoT Hub
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy en Azure IoT Hub. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bcb7a8e040a8e32a8513e5e0e73d6c124e04563a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fae56b1f1c8f6439548f6acd51a553b873e20196
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816270"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316727"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Definiciones integradas de Azure Policy para Azure IoT Hub
 
-Para obtener código de ejemplo de IoT Hub que muestre cómo implementar escenarios comunes de IoT, consulte los [inicios rápidos de IoT Hub](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli). Hay inicios rápidos para varios lenguajes de programación, como C, Node.js y Python.
+Para obtener código de ejemplo de IoT Hub que muestre cómo implementar escenarios comunes de IoT, consulte los [inicios rápidos de IoT Hub](./quickstart-send-telemetry-cli.md). Hay inicios rápidos para varios lenguajes de programación, como C, Node.js y Python.
 
 Esta página es un índice de las definiciones de directivas integradas de [Azure Policy](../governance/policy/overview.md) en Azure IoT Hub. Puede encontrar elementos integrados adicionales de Azure Policy para otros servicios en [Definiciones de elementos integrados de Azure Policy](../governance/policy/samples/built-in-policies.md).
 
