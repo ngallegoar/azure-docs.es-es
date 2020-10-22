@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: df904e183d3f77751d86d0cefab5423d753f146b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7924b06b9056a53fa9861fcd0df516845662b34b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979339"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341573"
 ---
 # <a name="access-built-in-metrics"></a>Acceso a las métricas integradas
 
 Los componentes de entorno de ejecución de Azure IoT Edge, IoT Edge Hub y IoT Edge Agent generan métricas integradas en el [formato de exposición de Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). Obtenga acceso a estas métricas de forma remota para supervisar y comprender el estado de un dispositivo IoT Edge.
 
-A partir de la versión 1.0.10, las métricas se exponen automáticamente de manera predeterminada en el **puerto 9600** de los módulos **edgeHub** y **edgeAgent** (`http://edgeHub:9600/metrics` y `http://edgeAgent:9600/metics`). No se asignan por puertos al host de manera predeterminada.
+A partir de la versión 1.0.10, las métricas se exponen automáticamente de manera predeterminada en el **puerto 9600** de los módulos **edgeHub** y **edgeAgent** (`http://edgeHub:9600/metrics` y `http://edgeAgent:9600/metrics`). No se asignan por puertos al host de manera predeterminada.
 
 Para acceder a las métricas desde el host, exponga y asigne el puerto de las métricas desde `createOptions` del módulo. En el ejemplo siguiente se asigna el puerto de métricas predeterminado al puerto 9601 en el host:
 
 ```
 {
   "ExposedPorts": {
-    "9600/tcp": {},
+    "9600/tcp": {}
   },
   "HostConfig": {
     "PortBindings": {

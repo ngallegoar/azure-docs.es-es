@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 61804aaf65a97485e2b2b5bb4869c335a14ce812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d7c9935d7e0d6bb2d457aa4c08f9b2b3e5fa910
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513565"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218704"
 ---
 # <a name="disaster-recovery-for-azure-data-share"></a>Recuperación ante desastres para Azure Data Share
 
@@ -29,13 +29,9 @@ Los consumidores de datos pueden tener una suscripción activa al recurso compar
 
 ## <a name="related-information"></a>Información relacionada
 
-- [Continuidad empresarial y recuperación ante desastres](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
-- [Creación de alta disponibilidad a su estrategia de continuidad empresarial y recuperación ante desastres](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
+- [Continuidad empresarial y recuperación ante desastres](../best-practices-availability-paired-regions.md)
+- [Creación de alta disponibilidad a su estrategia de continuidad empresarial y recuperación ante desastres](/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información acerca de cómo empezar a compartir datos, vaya al tutorial que cubre cómo [compartir sus datos](share-your-data.md).
-
-
-
-

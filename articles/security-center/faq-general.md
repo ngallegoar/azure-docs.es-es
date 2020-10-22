@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 5695f9fa090419d803f4f3603b45b771321e5ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91301455"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341692"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Preguntas más frecuentes: preguntas generales sobre Azure Security Center
 
@@ -62,7 +62,7 @@ Para obtener información sobre cómo configurar una directiva de seguridad, con
 El Centro de seguridad de Azure analiza el estado de seguridad de los recursos de Azure. Las recomendaciones se crean una vez que se identifican las posibles vulnerabilidades de seguridad. Las recomendaciones le guían en el proceso de configurar el control necesario. Algunos ejemplos son:
 
 * Aprovisionamiento de antimalware para ayudar a identificar y eliminar software malintencionado.
-* [Grupos de seguridad de red](../virtual-network/security-overview.md) y reglas para controlar el tráfico a las máquinas virtuales.
+* [Grupos de seguridad de red](../virtual-network/network-security-groups-overview.md) y reglas para controlar el tráfico a las máquinas virtuales.
 * Aprovisionamiento de un firewall de aplicaciones web para ayudar a defenderse contra ataques dirigidos a las aplicaciones web.
 * Implementación de actualizaciones del sistema que faltan.
 * Resolución de las configuraciones de sistema operativo que no coinciden con las líneas base recomendadas.

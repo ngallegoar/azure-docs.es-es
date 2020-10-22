@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas en Azure Security Center
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy en Azure Security Center. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 0c445dc882c40724c20c773b3a5e191fb06970a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7478199e4bb6f1e9ad986193370d4ea8610bd7a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823146"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340910"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definiciones integradas de Azure Policy en Azure Security Center
 
@@ -52,5 +52,5 @@ En este artículo, ha aprendido sobre las definiciones de directiva de seguridad
 - [Guía de planeamiento y operaciones de Azure Security Center](./security-center-planning-and-operations-guide.md): Aprenda a planear y entender las consideraciones de diseño en Azure Security Center.
 - [Supervisión del estado de seguridad en Azure Security Center](./security-center-monitoring.md): Aprenda a supervisar el estado de los recursos de Azure.
 - [Administración y respuesta a las alertas de seguridad en Azure Security Center](./security-center-managing-and-responding-alerts.md): aprenda a administrar y responder a alertas de seguridad.
-- [Supervisión de las soluciones de asociados con Azure Security Center](./security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+- [Supervisión de las soluciones de asociados con Azure Security Center](./security-center-partner-integration.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 - [Azure Policy](../governance/policy/overview.md): Aprenda a auditar y regular los recursos de Azure.

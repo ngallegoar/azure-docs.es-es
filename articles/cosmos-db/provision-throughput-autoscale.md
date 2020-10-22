@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9d645a16a59e34d1915cf9febde6b1f8a789355
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570735"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282102"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Creación de contenedores y bases de datos de Azure Cosmos con rendimiento de escalabilidad automática
 
@@ -85,6 +85,6 @@ Para más información, consulte esta [documentación](how-to-choose-offer.md) s
 * Revise las [preguntas más frecuentes sobre Escalabilidad automática](autoscale-faq.md).
 * Obtenga información acerca de cómo [elegir entre el rendimiento manual y de escalabilidad automática](how-to-choose-offer.md).
 * Obtenga información sobre el [aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o un contenedor de Azure Cosmos](how-to-provision-autoscale-throughput.md).
-* Más información sobre la [creación de particiones](partition-data.md) en Azure Cosmos DB.
+* Más información sobre la [creación de particiones](partitioning-overview.md) en Azure Cosmos DB.
 
 

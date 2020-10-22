@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 328a565dbb22a13c71a7001d43941e7be062dff9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7301f6bbb33c3eedff2e8c41edeaacb3df66d4c2
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449050"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342032"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introducción a Azure Defender para SQL
 
-Azure Defender para SQL incluye dos planes de Azure Defender que amplían el [paquete de seguridad de datos](../azure-sql/database/advanced-data-security.md) de Azure Security Center para proteger las bases de datos y sus datos dondequiera que se encuentren. 
+Azure Defender para SQL incluye dos planes de Azure Defender que amplían el [paquete de seguridad de datos](../azure-sql/database/azure-defender-for-sql.md) de Azure Security Center para proteger las bases de datos y sus datos dondequiera que se encuentren. 
 
 ## <a name="availability"></a>Disponibilidad
 
@@ -69,5 +69,5 @@ En este artículo, ha obtenido información sobre Azure Defender para SQL.
 Para obtener material relacionado, consulte los siguientes artículos: 
 
 - [Habilitación de Azure Defender para servidores SQL Server en máquinas virtuales](defender-for-sql-usage.md)
-- [Habilitación de Azure Defender para servidores de bases de datos de SQL](../azure-sql/database/advanced-data-security.md)
+- [Habilitación de Azure Defender para servidores de bases de datos de SQL](../azure-sql/database/azure-defender-for-sql.md)
 - [La lista de alertas de Azure Defender para SQL](alerts-reference.md#alerts-sql-db-and-warehouse)

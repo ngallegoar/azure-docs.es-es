@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 6bbc38d79f51ba4ffcc3795718d276a7e9c0bf03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440770"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339737"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtención de visibilidad de todos los inquilinos en Azure Security Center
 En este artículo se explica cómo administrar la posición de seguridad de la organización a escala mediante la aplicación de directivas de seguridad a todas las suscripciones vinculadas al inquilino de Azure Active Directory.
@@ -33,10 +33,10 @@ El grupo de administración raíz se crea de manera automática cuando realiza c
 2. Crea un grupo de administración mediante una llamada API.
 3. Crea un grupo de administración con PowerShell.
 
-Para más información sobre los grupos de administración, consulte el artículo [Organización de los recursos con grupos de administración de Azure](../azure-resource-manager/management-groups-overview.md).
+Para más información sobre los grupos de administración, consulte el artículo [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/overview.md).
 
 ## <a name="create-a-management-group-in-the-azure-portal"></a>Creación de un grupo de administración en Azure Portal
-Puede organizar las suscripciones en grupos de administración y aplicar las directivas de gobernanza a los grupos de administración. Todas las suscripciones dentro de un grupo de administración heredan automáticamente las directivas que se aplican al grupo de administración. Aunque los grupos de administración no son necesarios para incorporar Security Center, se recomienda crear al menos un grupo de administración para que se cree el grupo de administración raíz. Una vez creado el grupo, todas las suscripciones del inquilino de Azure AD estarán vinculadas a él. Para las instrucciones de PowerShell y otra información, consulte [Creación de grupos de administración para la administración de los recursos y la organización](../azure-resource-manager/management-groups-create.md).
+Puede organizar las suscripciones en grupos de administración y aplicar las directivas de gobernanza a los grupos de administración. Todas las suscripciones dentro de un grupo de administración heredan automáticamente las directivas que se aplican al grupo de administración. Aunque los grupos de administración no son necesarios para incorporar Security Center, se recomienda crear al menos un grupo de administración para que se cree el grupo de administración raíz. Una vez creado el grupo, todas las suscripciones del inquilino de Azure AD estarán vinculadas a él. Para las instrucciones de PowerShell y otra información, consulte [Creación de grupos de administración para la administración de los recursos y la organización](../governance/management-groups/create-management-group-portal.md).
 
  
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).

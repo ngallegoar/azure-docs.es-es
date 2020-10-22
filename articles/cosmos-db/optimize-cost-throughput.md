@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef0462b849210bc9b6963ab25e7a216c978f0568
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801331"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281070"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Puede aprovisionar el rendimiento en bases de datos o contenedores, y cada estra
 
 * Si aprovisiona el rendimiento en una base de datos, todos los contenedores, por ejemplo, colecciones, tablas y grafos dentro de esa base de datos, pueden compartir el rendimiento según la carga. El rendimiento reservado en el nivel de base de datos se comparte de forma desigual, según la carga de trabajo en un conjunto específico de contenedores.
 
-* Si aprovisiona el rendimiento en un contenedor, se garantiza el rendimiento para ese contenedor, respaldado por el SLA. La elección de una clave de partición lógica es fundamental para la distribución uniforme de la carga para todas las particiones lógicas de un contenedor. Consulte los artículos de [creación de particiones](partitioning-overview.md) y [escalado horizontal](partition-data.md) para más detalles.
+* Si aprovisiona el rendimiento en un contenedor, se garantiza el rendimiento para ese contenedor, respaldado por el SLA. La elección de una clave de partición lógica es fundamental para la distribución uniforme de la carga para todas las particiones lógicas de un contenedor. Consulte los artículos de [creación de particiones](partitioning-overview.md) y [escalado horizontal](partitioning-overview.md) para más detalles.
 
 Las siguientes son algunas directrices para decidir una estrategia de rendimiento aprovisionado:
 

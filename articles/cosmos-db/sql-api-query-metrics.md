@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec98d194921cd9a7eced06ccee20a3375e8c8a82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f43a335e6490858828fb2efcaa8436dcb6f3d250
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008699"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280522"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimización del rendimiento de consultas con Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Azure Cosmos DB proporciona una [API de SQL para consultar datos](how-to-sql-que
 
 ## <a name="about-sql-query-execution"></a>Acerca de la ejecución de consultas SQL
 
-En Azure Cosmos DB, se almacenan los datos en contenedores, que pueden crecer hasta cualquier [tamaño de almacenamiento o rendimiento de las solicitudes](partition-data.md). Azure Cosmos DB escala los datos de forma fluida entre particiones físicas en segundo plano para controlar el crecimiento de los datos o el aumento del rendimiento aprovisionado. Puede emitir consultas SQL a cualquier contenedor mediante la API de REST o uno de los [SDK de SQL](sql-api-sdk-dotnet.md) compatibles.
+En Azure Cosmos DB, se almacenan los datos en contenedores, que pueden crecer hasta cualquier [tamaño de almacenamiento o rendimiento de las solicitudes](partitioning-overview.md). Azure Cosmos DB escala los datos de forma fluida entre particiones físicas en segundo plano para controlar el crecimiento de los datos o el aumento del rendimiento aprovisionado. Puede emitir consultas SQL a cualquier contenedor mediante la API de REST o uno de los [SDK de SQL](sql-api-sdk-dotnet.md) compatibles.
 
 Una breve introducción a la creación de particiones: se define una clave de partición como "ciudad", que determina la forma en que los datos se dividen entre particiones físicas. Los datos que pertenecen a una única clave de partición (por ejemplo, "city" == "Seattle") se almacenan en una partición física, pero normalmente una única partición física tiene varias claves de partición. Cuando una partición alcanza su tamaño de almacenamiento, el servicio divide de forma fluida la partición en dos nuevas particiones y divide la clave de partición uniformemente entre estas particiones. Como las particiones son transitorias, las API usan una abstracción de un "intervalo de claves de partición", que indica los intervalos de valores hash de clave de partición. 
 
@@ -163,7 +163,7 @@ Con Azure Cosmos DB, las consultas se realizan normalmente en el orden siguiente
 
 Las consultas que necesitan consultar todas las particiones necesitan una mayor latencia y pueden consumir un mayor número de RU. Puesto que cada partición tiene indexación automática en todas las propiedades, la consulta se puede atender eficazmente desde el índice en este caso. Puede acelerar las consultas que abarcan particiones mediante las opciones de paralelismo.
 
-Para aprender más sobre la creación de particiones y las claves de particiones, consulte [Creación de particiones en Azure Cosmos DB](partition-data.md).
+Para aprender más sobre la creación de particiones y las claves de particiones, consulte [Creación de particiones en Azure Cosmos DB](partitioning-overview.md).
 
 ### <a name="sdk-and-query-options"></a>SDK y opciones de consulta
 Consulte [Sugerencias de rendimiento](performance-tips.md) y [Prueba de rendimiento](performance-testing.md) para saber cómo obtener el mejor rendimiento del cliente de Azure Cosmos DB. Esto incluye el uso de los SDK más recientes, la configuración de opciones específicas de la plataforma, como el número predeterminado de conexiones, la frecuencia de recolección de elementos no utilizados y el uso de opciones de conectividad ligera, como Direct/TCP. 

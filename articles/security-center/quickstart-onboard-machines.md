@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8fa72dcd857977474cf76eada500214bf8129aca
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993604"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340876"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Conexión de máquinas que no son de Azure a Security Center
 
@@ -86,7 +86,7 @@ Para agregar máquinas virtuales de Azure Stack, necesitará la información de 
 1. Inicie sesión en el portal de **Azure Stack** y abra la página **Máquinas virtuales**.
 1. Seleccione la máquina virtual que desea proteger con Security Center.
     >[!TIP]
-    > Para obtener información acerca de cómo crear una máquina virtual en Azure Stack, consulte [este tutorial de inicio rápido de máquinas virtuales Windows](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) o [este tutorial de inicio rápido de máquinas virtuales Linux](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+    > Para obtener información acerca de cómo crear una máquina virtual en Azure Stack, consulte [este tutorial de inicio rápido de máquinas virtuales Windows](/azure-stack/user/azure-stack-quick-windows-portal) o [este tutorial de inicio rápido de máquinas virtuales Linux](/azure-stack/user/azure-stack-quick-linux-portal).
 1. Seleccione **Extensiones**. Se muestra la lista de extensiones de máquina virtual instaladas en esta máquina virtual.
 1. Seleccione la pestaña **Agregar**. En el menú **Nuevo recurso** se muestra la lista de extensiones de máquina virtual disponibles.
 1. Seleccione la extensión **Azure Monitor, Update and Configuration Management** y seleccione **Crear**. Se abre la página de configuración **Instalar extensión**.
