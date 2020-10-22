@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 01/01/2020
-  ms.openlocfilehash: 66d082c844e3c9c78bf8dbec09e52f8efaf1ee57
-  ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+  ms.date: 11/21/2020
+  ms.openlocfilehash: 4b3308b7475d9f1adc5446907e19d363fc4faca0
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92132285"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92367030"
 landingContent:
 - title: Análisis de los costos
   linkLists:
@@ -72,14 +72,10 @@ landingContent:
     links:
     - text: Uso de alertas sobre los costos
       url: costs/cost-mgt-alerts-monitor-usage-spending.md
-    - text: Asignación de costos
-      url: costs/allocate-costs.md
     - text: Visualización y descarga de la factura de Azure
       url: understand/download-azure-invoice.md
     - text: Visualización y descarga de los datos de uso y los cargos de Azure
       url: understand/download-azure-daily-usage.md
-    - text: Visualización de los cargos de servicios externos
-      url: understand/understand-azure-marketplace-charges.md
 - title: Optimización de los costos
   linkLists:
   - linkListType: concept
@@ -142,23 +138,3 @@ landingContent:
       url: understand/mca-download-tax-document.md
     - text: Pago de la factura para el contrato de cliente de Microsoft
       url: understand/pay-bill.md
-- title: Adquisición de reservas
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Elección de la reserva que se va a comprar
-      url: reservations/determine-reservation-purchase.md
-    - text: Cambios de reserva y reembolsos
-      url: reservations/exchange-and-refund-azure-reservations.md
-  - linkListType: how-to-guide
-    links:
-    - text: Adquisición de una reserva
-      url: reservations/prepare-buy-reservation.md
-    - text: Administración de reservas
-      url: reservations/manage-reserved-vm-instance.md
-    - text: Visualización de compras de reservas
-      url: reservations/view-purchase-refunds.md
-    - text: Contracargo del costo de una reserva
-      url: reservations/charge-back-usage.md
-    - text: Renovación de reservas
-      url: reservations/reservation-renew.md

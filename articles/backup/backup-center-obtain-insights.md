@@ -3,16 +3,16 @@ title: Obtención de conclusiones mediante el Centro de copias de seguridad
 description: Obtenga información sobre cómo analizar las tendencias históricas y sacar conclusiones más profundas sobre las copias de seguridad con el Centro de copias de seguridad.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 5964f285089feea721a0b452efed884e905b89cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0f687ee123abe2f95ad0d23a6fe302f4a5c22e1
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993557"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173760"
 ---
 # <a name="obtain-insights-using-backup-center"></a>Obtención de conclusiones mediante el Centro de copias de seguridad
 
-Para analizar las tendencias históricas y obtener información más detallada sobre las copias de seguridad, el Centro de copias de seguridad proporciona una interfaz para [Informes de Backup](configure-reports.md), que usa [Registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) y [Libros de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Informes de Backup ofrece las siguientes funcionalidades:
+Para analizar las tendencias históricas y obtener información más detallada sobre las copias de seguridad, el Centro de copias de seguridad proporciona una interfaz para [Informes de Backup](configure-reports.md), que usa [Registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md) y [Libros de Azure](../azure-monitor/platform/workbooks-overview.md). Informes de Backup ofrece las siguientes funcionalidades:
 
 - Asignación y previsión del almacenamiento en la nube consumido.
 
@@ -32,7 +32,7 @@ Para analizar las tendencias históricas y obtener información más detallada s
 
 ### <a name="configure-your-vaults-to-send-data-to-a-log-analytics-workspace"></a>Configuración de almacenes para enviar datos a un área de trabajo de Log Analytics
 
-[Obtenga información sobre cómo configurar los valores de diagnóstico a gran escala para los almacenes](https://docs.microsoft.com/azure/backup/configure-reports#get-started)
+[Obtenga información sobre cómo configurar los valores de diagnóstico a gran escala para los almacenes](./configure-reports.md#get-started)
 
 ### <a name="view-backup-reports-in-the-backup-center-portal"></a>Visualización de Informes de Backup en el portal del Centro de copias de seguridad
 
@@ -42,17 +42,17 @@ Al seleccionar el elemento de menú **Informes de Backup** en el Centro de copia
 
 A continuación se muestran las vistas disponibles:
 
-1. **Resumen**: use esta pestaña para obtener información general sobre el conjunto de copias de seguridad. [Más información](https://docs.microsoft.com/azure/backup/configure-reports#summary)
+1. **Resumen**: use esta pestaña para obtener información general sobre el conjunto de copias de seguridad. [Más información](./configure-reports.md#summary)
 
-1. **Elementos de copia de seguridad**: use esta pestaña para ver información y tendencias sobre el almacenamiento en la nube consumido en el nivel de elemento de Backup. [Más información](https://docs.microsoft.com/azure/backup/configure-reports#backup-items)
+1. **Elementos de copia de seguridad**: use esta pestaña para ver información y tendencias sobre el almacenamiento en la nube consumido en el nivel de elemento de Backup. [Más información](./configure-reports.md#backup-items)
 
-1. **Uso**: use esta pestaña para ver los parámetros de facturación principales de las copias de seguridad. [Más información](https://docs.microsoft.com/azure/backup/configure-reports#usage)
+1. **Uso**: use esta pestaña para ver los parámetros de facturación principales de las copias de seguridad. [Más información](./configure-reports.md#usage)
 
-1. **Trabajos**: use esta pestaña para ver tendencias de ejecución prolongada de los trabajos, como el número de trabajos con errores por día y las causas principales de los errores de los trabajos. [Más información](https://docs.microsoft.com/azure/backup/configure-reports#jobs)
+1. **Trabajos**: use esta pestaña para ver tendencias de ejecución prolongada de los trabajos, como el número de trabajos con errores por día y las causas principales de los errores de los trabajos. [Más información](./configure-reports.md#jobs)
 
-1. **Directivas**: use esta pestaña para ver información sobre todas las directivas activas, como el número de elementos asociados y el almacenamiento en la nube total consumido por los elementos de los que se ha realizado una copia de seguridad por una directiva determinada. [Más información](https://docs.microsoft.com/azure/backup/configure-reports#policies)
+1. **Directivas**: use esta pestaña para ver información sobre todas las directivas activas, como el número de elementos asociados y el almacenamiento en la nube total consumido por los elementos de los que se ha realizado una copia de seguridad por una directiva determinada. [Más información](./configure-reports.md#policies)
 
-1. **Optimizar**: use esta pestaña para obtener visibilidad sobre las posibles oportunidades de optimización de costos para las copias de seguridad. [Más información](https://docs.microsoft.com/azure/backup/configure-reports#optimize)
+1. **Optimizar**: use esta pestaña para obtener visibilidad sobre las posibles oportunidades de optimización de costos para las copias de seguridad. [Más información](./configure-reports.md#optimize)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

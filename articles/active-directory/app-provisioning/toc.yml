@@ -5,6 +5,8 @@
   items:
     - name: ¿Qué es el aprovisionamiento de aplicaciones?
       href: user-provisioning.md
+    - name: Novedades de la documentación
+      href: whats-new-docs.md
 - name: Tutoriales
   expanded: true
   items:

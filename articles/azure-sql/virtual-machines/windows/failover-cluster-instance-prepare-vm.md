@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f42d6c8015061406958bdc16473dc0f042d3143a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272508"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164251"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparación de máquinas virtuales para una FCI (SQL Server en máquinas virtuales de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -101,14 +101,14 @@ Después de anular el registro del proveedor de recursos, puede desinstalar SQL�
 
 En cada máquina virtual, abra el puerto TCP de Firewall de Windows que SQL Server utiliza. De forma predeterminada, es el puerto 1433. Sin embargo, puede cambiar el puerto de SQL Server en una implementación de máquina virtual de Azure, por lo que debe abrir el puerto que utiliza SQL Server en su entorno. Este puerto se abre automáticamente en las imágenes SQL Server implementadas desde Azure Marketplace. 
 
-Si utiliza un [equilibrador de carga](hadr-vnn-azure-load-balancer-configure.md), también deberá abrir el puerto que usa el sondeo de estado. De forma predeterminada, es el puerto 59999. Pero puede ser cualquier puerto TCP que especifique al crear el equilibrador de carga. 
+Si utiliza un [equilibrador de carga](failover-cluster-instance-vnn-azure-load-balancer-configure.md), también deberá abrir el puerto que usa el sondeo de estado. De forma predeterminada, es el puerto 59999. Pero puede ser cualquier puerto TCP que especifique al crear el equilibrador de carga. 
 
 En esta tabla se detallan los puertos que es posible que necesite abrir, en función de la configuración de la FCI: 
 
    | Propósito | Port | Notas
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | Puerto normal para las instancias predeterminadas de SQL Server. Si usó una imagen de la galería, este puerto se abre automáticamente. </br> </br> **Utilizado por**: Todas las configuraciones de FCI. |
-   | Sondeo de mantenimiento | TCP 59999 | Cualquier puerto TCP abierto. Configure el [sondeo de estado](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) del equilibrador de carga y el clúster para utilizar este puerto. </br> </br> **Utilizado por**: FCI con equilibrador de carga. |
+   | Sondeo de mantenimiento | TCP 59999 | Cualquier puerto TCP abierto. Configure el [sondeo de estado](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) del equilibrador de carga y el clúster para utilizar este puerto. </br> </br> **Utilizado por**: FCI con equilibrador de carga. |
    | Recurso compartido de archivos | UDP 445 | Puerto que el servicio del recurso compartido de archivos utiliza. </br> </br> **Utilizado por**: FCI con recurso compartido de archivos Premium. |
 
 ## <a name="join-the-domain"></a>Unir al dominio
