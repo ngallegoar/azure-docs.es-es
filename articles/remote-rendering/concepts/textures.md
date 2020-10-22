@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dc38b53705c24cb12a001237a9a80ec66ec33e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27395fe377972f51c849f8a61f51a628612ed54d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613781"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202674"
 ---
 # <a name="textures"></a>Texturas
 
@@ -89,12 +89,12 @@ Dependiendo del tipo de textura que se supone que se va a usar, puede haber rest
 
 ## <a name="api-documentation"></a>Documentación de la API
 
-* [Clase Texture de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.texture)
-* [RemoteManager.LoadTextureAsync() de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtextureasync)
-* [RemoteManager.LoadTextureFromSASAsync() de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtexturefromsasasync)
-* [Clase Texture de C++](https://docs.microsoft.com/cpp/api/remote-rendering/texture)
-* [RemoteManager::LoadTextureAsync() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadtextureasync)
-* [RemoteManager::LoadTextureFromSASAsync() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadtexturefromsasasync)
+* [Clase Texture de C#](/dotnet/api/microsoft.azure.remoterendering.texture)
+* [RemoteManager.LoadTextureAsync() de C#](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtextureasync)
+* [RemoteManager.LoadTextureFromSASAsync() de C#](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtexturefromsasasync)
+* [Clase Texture de C++](/cpp/api/remote-rendering/texture)
+* [RemoteManager::LoadTextureAsync() de C++](/cpp/api/remote-rendering/remotemanager#loadtextureasync)
+* [RemoteManager::LoadTextureFromSASAsync() de C++](/cpp/api/remote-rendering/remotemanager#loadtexturefromsasasync)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

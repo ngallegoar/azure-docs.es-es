@@ -4,12 +4,12 @@ description: Instrucciones sobre cómo mover el almacén de Recovery Services en
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 55c906585e6f6d4a2ae3f2279b2c3ffbaaccb025
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bd1870e803f5051e2a65a6cddbb72406421d4fc3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056436"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171615"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Traslado del almacén de Recovery Services entre suscripciones y grupos de recursos de Azure
 
@@ -178,7 +178,7 @@ Si tiene que conservar los datos protegidos actuales en el almacén antiguo y ma
   - Solo podrá restaurar los datos de copia de seguridad de los puntos de recuperación que no hayan expirado en el almacén antiguo.
   - Tendrá que crear una réplica inicial de los datos en el nuevo almacén.
 
-- En el caso de una VM de Azure, puede [detener la protección con conservación de datos](backup-azure-manage-vms.md#stop-protecting-a-vm) para la VM en el almacén antiguo, moverla a otro grupo de recursos y, después, protegerla en el nuevo almacén. Vea [Instrucciones y limitaciones](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) para mover una máquina virtual a otro grupo de recursos.
+- En el caso de una VM de Azure, puede [detener la protección con conservación de datos](backup-azure-manage-vms.md#stop-protecting-a-vm) para la VM en el almacén antiguo, moverla a otro grupo de recursos y, después, protegerla en el nuevo almacén. Vea [Instrucciones y limitaciones](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md) para mover una máquina virtual a otro grupo de recursos.
 
   Una máquina virtual solo se puede proteger en un almacén a la vez. No obstante, la VM del nuevo grupo de recursos se puede proteger en el nuevo almacén, ya que se considera una VM distinta.
 

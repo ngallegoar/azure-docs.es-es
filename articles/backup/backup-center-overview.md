@@ -3,12 +3,12 @@ title: Información general del Centro de copias de seguridad
 description: En este artículo se proporciona información general sobre el Centro de copias de seguridad para Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 2857433e00a678603e30c8e5fc276020c4658f2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eab2e8f9694ca83d0e050f55bc6f6dd802a7331
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614296"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173739"
 ---
 # <a name="overview-of-backup-center"></a>Información general del Centro de copias de seguridad
 
@@ -16,9 +16,9 @@ El Centro de copias de seguridad proporciona una **experiencia única de adminis
 
 Entre algunas de las ventajas principales del Centro de copias de seguridad se incluyen:
 
-* **Un solo panel de visualización para administrar las copias de seguridad**: el Centro de copias de seguridad está diseñado para funcionar bien en un entorno de Azure grande y distribuido. Puede usar el Centro de copias de seguridad para administrar de forma eficaz las copias de seguridad que abarcan varios tipos de cargas de trabajo, almacenes, suscripciones, regiones e inquilinos de [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview).
+* **Un solo panel de visualización para administrar las copias de seguridad**: el Centro de copias de seguridad está diseñado para funcionar bien en un entorno de Azure grande y distribuido. Puede usar el Centro de copias de seguridad para administrar de forma eficaz las copias de seguridad que abarcan varios tipos de cargas de trabajo, almacenes, suscripciones, regiones e inquilinos de [Azure Lighthouse](../lighthouse/overview.md).
 * **Administración centrada en el origen de datos**: el Centro de copias de seguridad proporciona vistas y filtros que se centran en los orígenes de datos de los que se realiza la copia de seguridad (por ejemplo, VM y bases de datos). Esto permite que un propietario de recursos o un administrador de copias de seguridad supervisen y operen las copias de seguridad de los elementos sin necesidad de centrarse en el almacén en el que se realiza la copia de seguridad de un elemento. Una característica principal de este diseño es la capacidad de filtrar las vistas por propiedades específicas del origen de datos, como la suscripción del origen de datos, el grupo de recursos del origen de datos y las etiquetas del origen de datos. Por ejemplo, si su organización sigue una práctica de asignar distintas etiquetas a las VM que pertenecen a diferentes departamentos, puede usar el Centro de copias de seguridad para filtrar la información de copia de seguridad en función de las etiquetas de las VM subyacentes de las que se hace una copia de seguridad sin necesidad de centrarse en la etiqueta del almacén.
-* **Experiencias conectadas**: el Centro de copias de seguridad proporciona integraciones nativas a los servicios de Azure existentes que permiten la administración a gran escala. Por ejemplo, el Centro de copias de seguridad usa la experiencia de [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) para ayudarle a controlar las copias de seguridad. También aprovecha los [libros de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) y los [registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) para ayudarle a ver informes detallados sobre las copias de seguridad. Por lo tanto, no es necesario conocer los nuevos principios para usar las diversas características que ofrece el Centro de copias de seguridad.
+* **Experiencias conectadas**: el Centro de copias de seguridad proporciona integraciones nativas a los servicios de Azure existentes que permiten la administración a gran escala. Por ejemplo, el Centro de copias de seguridad usa la experiencia de [Azure Policy](../governance/policy/overview.md) para ayudarle a controlar las copias de seguridad. También aprovecha los [libros de Azure](../azure-monitor/platform/workbooks-overview.md) y los [registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md) para ayudarle a ver informes detallados sobre las copias de seguridad. Por lo tanto, no es necesario conocer los nuevos principios para usar las diversas características que ofrece el Centro de copias de seguridad.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 

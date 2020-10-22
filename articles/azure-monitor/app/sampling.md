@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 151bc87bd5674a61b8652adfa70634318c405240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4c5000adb2339d3fd0f828781a60f75c75894b5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839612"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168603"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -212,7 +212,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-adaptive-sampling-for-azure-functions"></a>Configuración del muestreo adaptable para Azure Functions
 
-Siga las instrucciones de [esta página](../../azure-functions/functions-monitoring.md#configure-sampling) para configurar el muestreo adaptable para las aplicaciones que se ejecutan en Azure Functions.
+Siga las instrucciones de [esta página](../../azure-functions/configure-monitoring.md#configure-sampling) para configurar el muestreo adaptable para las aplicaciones que se ejecutan en Azure Functions.
 
 ## <a name="fixed-rate-sampling"></a>Muestreo de frecuencia fija
 

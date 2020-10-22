@@ -3,12 +3,12 @@ title: Copia de seguridad y restauración de VM de Azure cifradas
 description: Se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure cifradas, y cómo restaurarlas, con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 6ce0068203c91d9d2031ce2f8735cccf94172dd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67c0e879fe2acf241b1ed08a5658209bf70b1b9c
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89014921"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173906"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
@@ -16,13 +16,13 @@ En este artículo se describe cómo realizar una copia de seguridad de máquinas
 
 ## <a name="encryption-using-platform-managed-keys"></a>Cifrado mediante claves administradas por la plataforma
 
-De forma predeterminada, todos los discos de las máquinas virtuales se cifran automáticamente en reposo mediante claves administradas por la plataforma (PMK) que usan el [cifrado del servicio de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Puede realizar una copia de seguridad de estas máquinas virtuales mediante Azure Backup sin ninguna acción específica necesaria para admitir el cifrado en su extremo. Para más información sobre el cifrado con claves administradas por la plataforma, [consulte este artículo](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).
+De forma predeterminada, todos los discos de las máquinas virtuales se cifran automáticamente en reposo mediante claves administradas por la plataforma (PMK) que usan el [cifrado del servicio de almacenamiento](../storage/common/storage-service-encryption.md). Puede realizar una copia de seguridad de estas máquinas virtuales mediante Azure Backup sin ninguna acción específica necesaria para admitir el cifrado en su extremo. Para más información sobre el cifrado con claves administradas por la plataforma, [consulte este artículo](../virtual-machines/windows/disk-encryption.md#platform-managed-keys).
 
 ![Discos cifrados](./media/backup-encryption/encrypted-disks.png)
 
 ## <a name="encryption-using-customer-managed-keys"></a>Cifrado con claves administradas por el cliente
 
-Cuando cifre discos con claves administradas por el cliente (CMK), la clave que se utiliza para cifrar los discos se almacena en Azure Key Vault y la administra el usuario. El cifrado de Storage Service Encryption (SSE) mediante CMK difiere del cifrado de Azure Disk Encryption (ADE). ADE utiliza las herramientas de cifrado del sistema operativo. SSE cifra los datos en el servicio de almacenamiento, lo que permite utilizar cualquier sistema operativo o imagen para las máquinas virtuales. Para más información sobre cifrado de discos administrados con claves administradas por el cliente, consulte [este artículo](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+Cuando cifre discos con claves administradas por el cliente (CMK), la clave que se utiliza para cifrar los discos se almacena en Azure Key Vault y la administra el usuario. El cifrado de Storage Service Encryption (SSE) mediante CMK difiere del cifrado de Azure Disk Encryption (ADE). ADE utiliza las herramientas de cifrado del sistema operativo. SSE cifra los datos en el servicio de almacenamiento, lo que permite utilizar cualquier sistema operativo o imagen para las máquinas virtuales. Para más información sobre cifrado de discos administrados con claves administradas por el cliente, consulte [este artículo](../virtual-machines/windows/disk-encryption.md#customer-managed-keys).
 
 ## <a name="encryption-support-using-ade"></a>Compatibilidad con cifrado mediante ADE
 

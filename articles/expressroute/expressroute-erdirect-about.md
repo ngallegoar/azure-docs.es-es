@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: duau
-ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0365fd8d0d04b7d144ca6826d3d5eff976558eb3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566405"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202163"
 ---
 # <a name="about-expressroute-direct"></a>Acerca de ExpressRoute Direct
 
@@ -73,7 +73,7 @@ ExpressRoute Direct admite escenarios de ingesta de datos masivos en Azure Stora
     * Debe agregar la etiqueta de VLAN externa (STAG) en función del identificador de VLAN especificado por Microsoft: *aplicable solo en QinQ*.
     * Debe admitir varias sesiones de BGP (VLAN) por puerto y dispositivo.
     * Conectividad IPv4 e IPv6. *Para IPv6, no se creará ninguna subinterfaz adicional. La dirección IPv6 se agregará a la subinterfaz existente*. 
-    * Opcional: Compatibilidad con la [detección de reenvío bidireccional (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd), que se configura de manera predeterminada en todos los emparejamientos privados en circuitos de ExpressRoute.
+    * Opcional: Compatibilidad con la [detección de reenvío bidireccional (BFD)](./expressroute-bfd.md), que se configura de manera predeterminada en todos los emparejamientos privados en circuitos de ExpressRoute.
 
 ## <a name="vlan-tagging"></a>Etiquetado de VLAN
 

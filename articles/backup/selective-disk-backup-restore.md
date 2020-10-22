@@ -4,12 +4,12 @@ description: En este artículo, se describen la copia de seguridad y la restaura
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: ce7e53bc740882a819e8a21e3ac95ab47d3b876a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 21e4ead8b3302ceef4cc53c126b9eab5784544b4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271382"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174109"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Copia de seguridad y restauración selectivas de discos para máquinas virtuales de Azure
 
@@ -240,6 +240,8 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "
 ```
 
 ## <a name="using-the-azure-portal"></a>Uso de Azure Portal
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 Con Azure Portal, puede ver los discos incluidos y excluidos en el panel de detalles de copia de seguridad de la máquina virtual y en el panel de detalles del trabajo de copia de seguridad.  Durante la restauración, al seleccionar el punto de recuperación desde el que se realiza la restauración, puede ver los discos de copia de seguridad en ese punto de recuperación.
 

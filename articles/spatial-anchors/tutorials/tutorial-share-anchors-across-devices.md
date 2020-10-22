@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 440d8af17bccaf8d3fcb92f65e5d91ed969aec31
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b29873e161b64c52abbfdf3f2611714f6b012361
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971417"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097293"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Tutorial: Uso compartido de Spatial Anchors entre sesiones y dispositivos
 
@@ -86,7 +86,7 @@ Seleccione **Aceptar**.
 
 Abra Visual Studio Code y el proyecto de la carpeta *Sharing\SharingServiceSample*. 
 
-Para implementar el servicio de uso compartido mediante Visual Studio Code, siga las instrucciones de <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Publicación de una aplicación de ASP.NET Core en Azure con Visual Studio Code</a>. Comience en la sección "Abrirlo con Visual Studio Code". Tal como se explicó en el paso anterior, no cree otro proyecto de ASP.NET, porque ya tiene uno para implementarlo y publicarlo: SharingServiceSample.
+Para implementar el servicio de uso compartido mediante Visual Studio Code, siga las instrucciones de <a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Publicación de una aplicación de ASP.NET Core en Azure con Visual Studio Code</a>. Comience en la sección "Abrirlo con Visual Studio Code". Tal como se explicó en el paso anterior, no cree otro proyecto de ASP.NET, porque ya tiene uno para implementarlo y publicarlo: SharingServiceSample.
 
 ---
 
@@ -104,4 +104,3 @@ Puede mejorar la aplicación web de ASP.NET Core para que use Azure Cosmos DB y
 
 > [!div class="nextstepaction"]
 > [Uso de Azure Cosmos DB para almacenar delimitadores](./tutorial-use-cosmos-db-to-store-anchors.md)
-

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 570a21a307d60ab1e2c02d6481746576f5dcf0e3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930295"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166937"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procedimientos: Detección de opiniones mediante la API Text Analytics
 
@@ -36,7 +36,7 @@ Análisis de sentimiento admite una amplia gama de idiomas, y hay más en la ver
 | [Contenedor de Docker](text-analytics-how-to-install-containers.md) basado en Linux | X  |  |
 | Minería de opiniones                            |                       | X                                 |
 
-### <a name="sentiment-scoring-and-labeling"></a>Puntuación y etiquetado de sentimiento
+## <a name="sentiment-scoring-and-labeling"></a>Puntuación y etiquetado de sentimiento
 
 La versión 3 de Análisis de sentimiento aplica etiquetas de sentimiento al texto, que se devuelven en el nivel de oración y de documento, con una puntuación de confianza para cada una de ellas. 
 
@@ -51,7 +51,7 @@ Las etiquetas son *positive*, *negative* y *neutral*. En el nivel de documento, 
 
 Las puntuaciones de confianza oscilan entre 1 y 0. Las puntuaciones más próximas a 1 indican una mayor confianza en la clasificación de la etiqueta, mientras que las puntuaciones inferiores indican una menor confianza. Para cada documento o frase, las puntuaciones previstas asociadas a las etiquetas (positive, negative y neutral) se suman hasta un máximo de 1.
 
-### <a name="opinion-mining"></a>Minería de opiniones
+## <a name="opinion-mining"></a>Minería de opiniones
 
 La minería de opiniones es una característica de Análisis de sentimiento, a partir de la versión 3.1-preview.1. Esta característica, también conocida como Análisis de sentimiento basada en aspectos en el procesamiento de lenguaje natural (NLP), proporciona información más detallada sobre las opiniones relacionadas con los aspectos (como los atributos de los productos o servicios) en el texto.
 

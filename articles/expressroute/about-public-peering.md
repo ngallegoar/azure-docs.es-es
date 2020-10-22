@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau
-ms.openlocfilehash: a5829399b70871903c8eb433b95e0cb09e5d2c60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 477145619e1b4d8b41c422389b57a46615597478
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398093"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202555"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Creación y administración del emparejamiento público de ExpressRoute
 
@@ -30,7 +30,7 @@ Este artículo le ayuda a crear y administrar la configuración de enrutamiento 
 
 ## <a name="connectivity"></a>Conectividad
 
-La conectividad siempre se inicia desde la WAN a los servicios de Microsoft Azure. Servicios de Microsoft Azure no podrá iniciar conexiones en la red a través de este dominio de enrutamiento. Si el circuito ExpressRoute está habilitado para el emparejamiento público de Azure, puede acceder a los [intervalos de IP públicas que se usan en Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) a través del circuito.
+La conectividad siempre se inicia desde la WAN a los servicios de Microsoft Azure. Servicios de Microsoft Azure no podrá iniciar conexiones en la red a través de este dominio de enrutamiento. Si el circuito ExpressRoute está habilitado para el emparejamiento público de Azure, puede acceder a los [intervalos de IP públicas que se usan en Azure](../virtual-network/public-ip-addresses.md#public-ip-addresses) a través del circuito.
 
 Una vez que se habilita el emparejamiento público, puede conectarse a la mayoría de servicios de Azure. No se permite elegir de forma selectiva servicios para los que anunciemos rutas.
 
@@ -60,7 +60,7 @@ Para validar la disponibilidad de un servicio específico, puede consultar la do
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
 > [!NOTE]
-> El emparejamiento público de Azure tiene 1 dirección IP de NAT asociada a cada sesión BGP. Para más de 2 direcciones IP de NAT, migre al emparejamiento de Microsoft. El emparejamiento de Microsoft le permite configurar sus propias asignaciones de NAT, así como usar filtros de ruta para los anuncios de prefijo selectivo. Para obtener más información, consulte [Cambio al emparejamiento de Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
+> El emparejamiento público de Azure tiene 1 dirección IP de NAT asociada a cada sesión BGP. Para más de 2 direcciones IP de NAT, migre al emparejamiento de Microsoft. El emparejamiento de Microsoft le permite configurar sus propias asignaciones de NAT, así como usar filtros de ruta para los anuncios de prefijo selectivo. Para obtener más información, consulte [Cambio al emparejamiento de Microsoft](./how-to-move-peering.md).
 >
 
 ## <a name="custom-route-filters"></a>Filtros de ruta personalizados

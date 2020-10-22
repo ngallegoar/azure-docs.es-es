@@ -4,12 +4,12 @@ description: En este artículo, descubra las respuestas a preguntas comunes sobr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 51c54aa732259180a5393488891b21956553f581
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056725"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172838"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -24,7 +24,7 @@ Cuando se crea una máquina virtual, puede habilitar la copia de seguridad de m�
 ### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>¿Por qué la copia de seguridad inicial tarda tanto en completarse?
 
 La copia de seguridad inicial siempre es una copia de seguridad completa y el tiempo que tarde dependerá del tamaño de los datos y del momento de procesamiento de la copia de seguridad. <br>
-Para mejorar el rendimiento de la copia de seguridad, consulte [Procedimientos recomendados de copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices); [Consideraciones de copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) y [Rendimiento de copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+Para mejorar el rendimiento de la copia de seguridad, consulte [Procedimientos recomendados de copia de seguridad](./backup-azure-vms-introduction.md#best-practices); [Consideraciones de copia de seguridad](./backup-azure-vms-introduction.md#backup-and-restore-considerations) y [Rendimiento de copia de seguridad](./backup-azure-vms-introduction.md#backup-performance)<br>
 Aunque el tiempo total de copia de seguridad para copias de seguridad incrementales es menor que 24 horas, es posible que esto no sea el caso para la primera copia de seguridad.
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>¿Están los costos de la copia de seguridad incluidos en el costo de la máquina virtual?
@@ -109,7 +109,7 @@ Azure Backup admite ahora la copia de seguridad y restauración de discos select
 
 ### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>¿Se conservan las identidades administradas si se produce un cambio de inquilino durante la copia de seguridad?
 
-Si se producen [cambios en los inquilinos](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection), es necesario deshabilitar y volver a habilitar las [identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para que las copias de seguridad funcionen de nuevo.
+Si se producen [cambios en los inquilinos](/azure/devops/organizations/accounts/change-azure-ad-connection), es necesario deshabilitar y volver a habilitar las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) para que las copias de seguridad funcionen de nuevo.
 
 ## <a name="restore"></a>Restauración
 
@@ -199,7 +199,7 @@ Después de mover la máquina virtual a un grupo de recursos nuevo, puede volver
 
 Los puntos de restauración de la máquina virtual anterior estarán disponibles por si necesita restaurarlos. Si no necesita estos datos de copia de seguridad, puede dejar de proteger la máquina virtual anterior con la eliminación de datos.
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>¿Hay un límite en el número de máquinas virtuales que se pueden asociar con la misma directiva de copia de seguridad?
+### <a name="is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy"></a>¿Hay un límite en el número de máquinas virtuales que se pueden asociar con la misma directiva de copia de seguridad?
 
 Sí, hay un límite de 100 máquinas virtuales que se pueden asociar a la misma directiva de copia de seguridad desde el portal. Para más de 100 máquinas virtuales, se recomienda crear varias directivas de copia de seguridad con la misma programación o con una programación diferente.
 
@@ -207,6 +207,6 @@ Sí, hay un límite de 100 máquinas virtuales que se pueden asociar a la misma 
 
 Actualmente, puede ver la configuración de retención en un nivel de elemento de copia de seguridad en función de la directiva de copia de seguridad que se asigna a la máquina virtual.
 
-Una manera de ver la configuración de retención de las copias de seguridad consiste en ir al [panel](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) del elemento de copia de seguridad de la máquina virtual, en Azure Portal. Al seleccionar el vínculo a su directiva de copia de seguridad, podrá ver la duración de la retención de todos los puntos de retención diarios, semanales, mensuales y anuales asociados a la máquina virtual.
+Una manera de ver la configuración de retención de las copias de seguridad consiste en ir al [panel](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) del elemento de copia de seguridad de la máquina virtual, en Azure Portal. Al seleccionar el vínculo a su directiva de copia de seguridad, podrá ver la duración de la retención de todos los puntos de retención diarios, semanales, mensuales y anuales asociados a la máquina virtual.
 
-También puede usar el [Explorador de Backup](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) para ver la configuración de retención de todas las máquinas virtuales dentro de un único panel. Navegue hasta el Explorador de Backup desde cualquier almacén de Recovery Services, vaya a la pestaña **Elementos de copia de seguridad** y seleccione la vista avanzada para ver información de retención detallada de cada máquina virtual.
+También puede usar el [Explorador de Backup](./monitor-azure-backup-with-backup-explorer.md) para ver la configuración de retención de todas las máquinas virtuales dentro de un único panel. Navegue hasta el Explorador de Backup desde cualquier almacén de Recovery Services, vaya a la pestaña **Elementos de copia de seguridad** y seleccione la vista avanzada para ver información de retención detallada de cada máquina virtual.

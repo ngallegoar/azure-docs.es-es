@@ -3,12 +3,12 @@ title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614009"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173276"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -45,7 +45,7 @@ Los almacenes tienen las siguientes características:
 - Especificará cómo se replican los datos en el almacén para la redundancia:
   - **Almacenamiento con redundancia local (LRS)** : Para protegerse frente a los errores de un centro de datos, puede usar LRS. LRS replica los datos en una unidad de escalado de almacenamiento. [Más información](../storage/common/storage-redundancy.md#locally-redundant-storage).
   - **Almacenamiento con redundancia geográfica (GRS)** : Para protegerse contra las interrupciones de toda la región, puede usar GRS. GRS replica los datos en una región secundaria. [Más información](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **Almacenamiento con redundancia de zona (ZRS)** replica los datos en [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), lo que garantiza la residencia y la resistencia de los datos en la misma región. [Más información](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Almacenamiento con redundancia de zona (ZRS)** replica los datos en [zonas de disponibilidad](../availability-zones/az-overview.md#availability-zones), lo que garantiza la residencia y la resistencia de los datos en la misma región. [Más información](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - De forma predeterminada, los almacenes de Recovery Services usan GRS.
 
 Los almacenes de Recovery Services incluyen las siguientes características adicionales:

@@ -3,12 +3,12 @@ title: Modelo de datos para eventos de diagnóstico de Azure Backup
 description: Este modelo de datos es en referencia al modo específico del recurso de enviar eventos de diagnóstico a Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52c5c0694ed59aea20453ae7a2bd3209d76df433
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569594"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173973"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de datos para eventos de diagnóstico de Azure Backup
 
@@ -239,7 +239,7 @@ Cada registro de las tablas anteriores tiene un **Nombre de operación** asociad
 | AddonAzureBackupPolicy | Directiva |  Representa un registro que contiene todos los detalles de una copia de seguridad y una directiva de retención, por ejemplo, identificador, nombre, configuración de retención, etc. |
 | AddonAzureBackupPolicy | PolicyAssociation | Representa una asignación entre un elemento de copia de seguridad y la directiva de copia de seguridad que se le ha aplicado. |   
 
-A menudo hay que realizar combinaciones entre diferentes tablas y diferentes conjuntos de registros que forman parte de la misma tabla (diferenciados por el nombre de operación) para obtener todos los campos necesarios para el análisis. Vea las [consultas de ejemplo](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) para comenzar. 
+A menudo hay que realizar combinaciones entre diferentes tablas y diferentes conjuntos de registros que forman parte de la misma tabla (diferenciados por el nombre de operación) para obtener todos los campos necesarios para el análisis. Vea las [consultas de ejemplo](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries) para comenzar. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
