@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f8b1129c94ecf80efb60a13a0b80b1cc1817ff3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 905560094afa9338d44ba73120d316b3c81b5580
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871095"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277148"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-exceptions"></a>Diagnóstico y solución de problemas de las excepciones de tasa de solicitud demasiado grande en Azure Cosmos DB
 El mensaje "Tasa de solicitudes demasiado grande" o el código de error 429 indican que las solicitudes están siendo limitadas.
@@ -24,7 +24,7 @@ En la sección siguiente se indican las causas y las soluciones conocidas para l
 Consulte [Supervisión de Azure Cosmos DB](monitor-cosmos-db.md) para comprobar el número de excepciones 429.
 
 #### <a name="cause"></a>Causa:
-El rendimiento consumido (unidades de solicitud por segundo) ha superado el [rendimiento aprovisionado](set-throughput.md). El SDK reintentará automáticamente las solicitudes según la directiva de reintentos especificada. Si recibe este error con frecuencia, considere la posibilidad de aumentar el rendimiento de la colección. Compruebe las métricas del portal para ver si está obteniendo errores 429. Revise su clave de partición para asegurarse de que se produce una [distribución uniforme del volumen de solicitudes y almacenamiento](partition-data.md).
+El rendimiento consumido (unidades de solicitud por segundo) ha superado el [rendimiento aprovisionado](set-throughput.md). El SDK reintentará automáticamente las solicitudes según la directiva de reintentos especificada. Si recibe este error con frecuencia, considere la posibilidad de aumentar el rendimiento de la colección. Compruebe las métricas del portal para ver si está obteniendo errores 429. Revise su clave de partición para asegurarse de que se produce una [distribución uniforme del volumen de solicitudes y almacenamiento](partitioning-overview.md).
 
 #### <a name="solution"></a>Solución:
 1. Use el [portal o el SDK](set-throughput.md) para aumentar el rendimiento aprovisionado.

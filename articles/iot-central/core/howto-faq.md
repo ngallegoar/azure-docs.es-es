@@ -7,12 +7,12 @@ ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: f9c7412afcc191470902cc256586f9db21f8e78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbe0dbe55f903c25556698a5d510bf9e67b408be
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91852063"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126727"
 ---
 # <a name="frequently-asked-questions-for-iot-central"></a>Preguntas más frecuentes sobre IoT Central
 
@@ -61,7 +61,7 @@ Azure IoT Central usa Azure IoT Hub como una puerta de enlace en la nube que per
 - Administración de dispositivos.
 - Conectividad de dispositivos segura.
 
-Para más información acerca de IoT Hub, consulte [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
+Para más información acerca de IoT Hub, consulte [Azure IoT Hub](../../iot-hub/index.yml).
 
 **¿Dónde puedo obtener más información sobre Device Provisioning Service (DPS)?**
 

@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: how-to
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 7027fe9988c0c559db72c3c388c7a579d533c57e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86e1d74d5e4ab9f6e799c73bcf0d807d0d874f21
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85509445"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219724"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Supervisión del estado del hardware de Azure FXT Edge Filer
 
@@ -29,9 +29,9 @@ En esta sección se explican las diversas luces de estado integradas en el hardw
 
 ![imagen de la parte delantera de la unidad de disco duro, horizontal, con las etiquetas de llamada 2 (esquina superior izquierda), 1 (esquina inferior izquierda) y 3 (derecha)](media/fxt-monitor/fxt-drive-callouts.png)
 
-Cada portadora de la unidad tiene dos LED de estado: un indicador de actividad (1) y un indicador de estado (2). 
+Cada portadora de la unidad tiene dos LED de estado: un indicador de actividad (1) y un indicador de estado (2).
 
-* El LED de actividad (1) se enciende cuando la unidad está en uso.  
+* El LED de actividad (1) se enciende cuando la unidad está en uso.
 * El LED de estado (2) indica la condición de la unidad mediante los códigos de la tabla siguiente.
 
 | Estado del LED de estado de la unidad              | Significado  |
@@ -44,30 +44,29 @@ Cada portadora de la unidad tiene dos LED de estado: un indicador de actividad (
 
 El lado derecho de la unidad (3) se etiqueta con la capacidad de la unidad y otra información.
 
-Los números de unidad están impresos en el espacio entre las unidades. En Azure FXT Edge Filer, la unidad 0 es la unidad superior izquierda y la unidad 1 está directamente debajo de ella. La numeración continúa siguiendo ese modelo. 
+Los números de unidad están impresos en el espacio entre las unidades. En Azure FXT Edge Filer, la unidad 0 es la unidad superior izquierda y la unidad 1 está directamente debajo de ella. La numeración continúa siguiendo ese modelo.
 
 ![foto de una bahía de disco duro en el chasis de FXT, que muestra los números de unidad y las etiquetas de capacidad](media/fxt-drives-photo.png)
 
 ## <a name="left-control-panel"></a>Panel de control izquierdo
 
-El panel de control frontal izquierdo tiene varios indicadores LED de estado (1) y un indicador de estado del sistema grande encendido (2). 
+El panel de control frontal izquierdo tiene varios indicadores LED de estado (1) y un indicador de estado del sistema grande encendido (2).
 
 ![panel de estado izquierdo, con los indicadores de estado etiquetados como 1 a la izquierda y la etiqueta 2 señalando la luz indicadora de estado del sistema grande de la derecha](media/fxt-monitor/fxt-control-panel-left.jpg)
 
-### <a name="control-panel-status-indicators"></a>Indicadores de estado del panel de control 
+### <a name="control-panel-status-indicators"></a>Indicadores de estado del panel de control
 
-Los indicadores de estado de la izquierda muestran una luz ámbar fija si hay un error en ese sistema. En la tabla siguiente se describen posibles causas y soluciones para los errores. 
+Los indicadores de estado de la izquierda muestran una luz ámbar fija si hay un error en ese sistema. En la tabla siguiente se describen posibles causas y soluciones para los errores.
 
-Si sigue teniendo el error después de intentar estas soluciones, [póngase en contacto con el soporte técnico](fxt-support-ticket.md) para obtener ayuda. 
+Si sigue teniendo el error después de intentar estas soluciones, [póngase en contacto con el soporte técnico](fxt-support-ticket.md) para obtener ayuda.
 
 | Icono | Descripción | Condición de error | Posibles soluciones |
 |----------------|---------------|--------------------|----------------------|
 | ![icono de la unidad](media/fxt-monitor/fxt-hd-icon.jpg) | Estado de la unidad | Error de la unidad | Compruebe el Registro de eventos del sistema para determinar si la unidad tiene un error, o bien <br>Ejecute la prueba de diagnóstico en línea correspondiente; reinicie el sistema y ejecute los diagnósticos insertados (ePSA), o bien <br>Si las unidades están configuradas en una matriz RAID, reinicie el sistema e introduzca el programa de utilidad de configuración del adaptador de host |
 |![icono de temperatura](media/fxt-monitor/fxt-temp-icon.jpg) | Estado de la temperatura | Error térmico: por ejemplo, un ventilador ha fallado o la temperatura ambiente está fuera del intervalo | Compruebe las siguientes condiciones tratables: <br>Falta un ventilador o bien se ha estropeado <br>Se ha quitado la cobertura del sistema, la tapa del aire, la protección del módulo de memoria o el soporte de relleno trasero <br>La temperatura ambiente es demasiado alta <br>El flujo de aire externo está obstruido |
-|![icono de electricidad](media/fxt-monitor/fxt-electric-icon.jpg) | Estado eléctrico | Error eléctrico: por ejemplo, el voltaje se encuentra fuera del intervalo o hay un error en la fuente de alimentación o en un regulador de voltaje |  Compruebe el registro de eventos del sistema o los mensajes del sistema para determinar el problema específico. Si hay un problema en la fuente de alimentación, compruebe el LED de estado de la fuente de alimentación y vuelva a colocarla si es necesario. | 
+|![icono de electricidad](media/fxt-monitor/fxt-electric-icon.jpg) | Estado eléctrico | Error eléctrico: por ejemplo, el voltaje se encuentra fuera del intervalo o hay un error en la fuente de alimentación o en un regulador de voltaje |  Compruebe el registro de eventos del sistema o los mensajes del sistema para determinar el problema específico. Si hay un problema en la fuente de alimentación, compruebe el LED de estado de la fuente de alimentación y vuelva a colocarla si es necesario. |
 |![icono de memoria](media/fxt-monitor/fxt-memory-icon.jpg) | Estado de la memoria | Error de memoria | Compruebe el registro de eventos del sistema o los mensajes del sistema para determinar la ubicación de la memoria que ha producido el error; vuelva a colocar el módulo de memoria. |
 |![Icono de PCIe](media/fxt-monitor/fxt-pcie-icon.jpg) | Estado de PCIe | Error de la tarjeta PCIe | Reinicie el sistema; actualice los controladores de la tarjeta de PCIe; vuelva a instalar la tarjeta |
-
 
 ### <a name="system-health-status-indicator"></a>Indicador de estado del sistema
 
@@ -81,5 +80,3 @@ Presione el botón de identificador o estado del sistema para alternar entre el 
 | Azul parpadeante | El modo de identificador del sistema está activo. Presione el botón de identificador y estado del sistema si desea cambiar al modo de estado del sistema. |
 | Ámbar fijo | El sistema está en modo a prueba de errores. Si el problema persiste, [póngase en contacto con el Soporte técnico y servicio al cliente de Microsoft](fxt-support-ticket.md). |
 | Ámbar parpadeante | Error del sistema. Compruebe el registro de eventos del sistema para consultar los mensajes de error específicos. Para obtener información acerca del evento y los mensajes de error generados por el firmware del sistema y los agentes que supervisan los componentes del sistema, consulte la página de búsqueda de códigos de error en qrl.dell.com. |
-
-

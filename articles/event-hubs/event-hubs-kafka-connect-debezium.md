@@ -5,18 +5,18 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: cac04bed797bb9956125bc1a38fdfa5c8285050e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4bd6cdf6d3a5dc30b90abc5094202360181ae0b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061689"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318516"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integración de la compatibilidad de Apache Kafka Connect en Azure Event Hubs (versión preliminar) con Debezium para operaciones de captura de datos modificados
 
 La **captura de datos modificados (CDC)** es una técnica que se usa para realizar un seguimiento de los cambios de nivel de fila en tablas de base de datos como respuesta a las operaciones de creación, actualización y eliminación. [Debezium](https://debezium.io/) es una plataforma distribuida que se basa en las características de captura de datos modificados que hay disponibles en distintas bases de datos (por ejemplo, la [descodificación lógica en PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). Proporciona un conjunto de [conectores Kafka Connect](https://debezium.io/documentation/reference/1.2/connectors/index.html) que aprovechan los cambios de nivel de fila en tablas de base de datos y los convierten en secuencias de eventos que se envían a [Apache Kafka](https://kafka.apache.org/).
 
-Este tutorial lo guiará a través de la configuración de un sistema basado en la captura de datos modificados en Azure con [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about?WT.mc_id=devto-blog-abhishgu) (para Kafka), [Azure Database for PostgreSQL](../postgresql/overview.md) y Debezium. Usará el [conector de PostgreSQL de Debezium ](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) para transmitir modificaciones de base de datos desde PostgreSQL a temas de Kafka en Azure Event Hubs.
+Este tutorial lo guiará a través de la configuración de un sistema basado en la captura de datos modificados en Azure con [Azure Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (para Kafka), [Azure Database for PostgreSQL](../postgresql/overview.md) y Debezium. Usará el [conector de PostgreSQL de Debezium ](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) para transmitir modificaciones de base de datos desde PostgreSQL a temas de Kafka en Azure Event Hubs.
 
 En este tutorial, realizará los siguientes pasos:
 

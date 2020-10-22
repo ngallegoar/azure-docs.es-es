@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: ad5b4245cc445ecf8fae22c39db3365d71730a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400150"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318449"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configure claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps
 
@@ -39,7 +39,7 @@ En este tema se muestra cómo configurar y especificar su propia clave de cifrad
 
 * Un almacén de claves de Azure con las propiedades **Soft Delete** y **Do Not Purge**
 
-  Para obtener más información acerca de cómo habilitar estas propiedades, consulte [Información general sobre la eliminación temporal Azure Key Vault ](../key-vault/general/soft-delete-overview.md) y [Configurar las claves administradas por el cliente con Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Si no está familiarizado con Azure Key Vault, obtenga información acerca de [cómo crear un almacén de claves](../key-vault/secrets/quick-create-portal.md#create-a-vault) mediante el Azure Portal o mediante el comando de Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
+  Para obtener más información acerca de cómo habilitar estas propiedades, consulte [Información general sobre la eliminación temporal Azure Key Vault ](../key-vault/general/soft-delete-overview.md) y [Configurar las claves administradas por el cliente con Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Si no está familiarizado con Azure Key Vault, obtenga información acerca de [cómo crear un almacén de claves](../key-vault/secrets/quick-create-portal.md#create-a-vault) mediante el Azure Portal o mediante el comando de Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
 
 * En el almacén de claves, una clave se crea con estos valores de propiedad:
 
@@ -52,7 +52,7 @@ En este tema se muestra cómo configurar y especificar su propia clave de cifrad
 
   ![Creación de clave de cifrado administrada por el cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
 
-  Para obtener más información, configure [Configurar las claves administradas por el cliente con Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) o el comando de Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
+  Para obtener más información, configure [Configurar las claves administradas por el cliente con Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md) o el comando de Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
 
 * Una herramienta que puede usar para crear su ISE mediante una llamada a la API de REST de Logic Apps con una solicitud HTTPS PUT. Por ejemplo, puede usar [Postman](https://www.getpostman.com/downloads/) o puede compilar una aplicación lógica que realice esta tarea.
 
@@ -225,7 +225,7 @@ Para esta tarea, puede usar el comando de Azure PowerShell [Set-AzKeyVaultAccess
 
    1. Cuando haya terminado con el panel **Directivas de acceso**, seleccione **Guardar**.
 
-Para más información, consulte [Autenticación en Key Vault](/azure/key-vault/general/authentication) y [Asignación de una directiva de acceso de Key Vault](/azure/key-vault/general/assign-access-policy-portal).
+Para más información, consulte [Autenticación en Key Vault](../key-vault/general/authentication.md) y [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

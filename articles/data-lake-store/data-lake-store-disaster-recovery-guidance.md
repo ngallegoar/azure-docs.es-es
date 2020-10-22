@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: fe5940083d04c1b5cc60b21834adf609e523e059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48136f8d9172c3674e849e24efca4ae5070f83ab
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666252"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109126"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Guía de alta disponibilidad y recuperación ante desastres para Data Lake Storage Gen1
 
@@ -21,8 +21,8 @@ Data Lake Storage Gen1 proporciona almacenamiento con redundancia local (LRS). P
 
 Es fundamental preparar un plan de recuperación ante desastres. Revise la información de este artículo y estos recursos adicionales que le ayudarán a crear su propio plan.
 
-* [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
-* [Guía técnica sobre resistencia en Azure](../resiliency/resiliency-technical-guidance.md)
+* [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [Guía técnica sobre resistencia en Azure](/azure/architecture/framework/resiliency/overview)
 
 ### <a name="best-practice-recommendations"></a>Mejores prácticas recomendadas
 

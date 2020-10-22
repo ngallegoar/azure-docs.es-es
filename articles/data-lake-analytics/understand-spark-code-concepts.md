@@ -6,12 +6,12 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: 7b5be20bb8b5eb1d56c1214104037d5d824445b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2abd5882e310b17c633a82009f44624fad156f14
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132354"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221135"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Descripción del código de Apache Spark para los desarrolladores de U-SQL
 
@@ -214,8 +214,8 @@ El optimizador de consultas basado en el costo de Spark tiene sus propias funcio
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Descripción de los formatos de datos de Spark para desarrolladores de U-SQL](understand-spark-data-formats.md)
-- [.NET para Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
-- [Actualización de las soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
+- [.NET para Apache Spark](/dotnet/spark/what-is-apache-spark-dotnet)
+- [Actualización de las soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)
 - [Transformación de datos mediante la actividad de Spark en Azure Data Factory](../data-factory/transform-data-using-spark.md)
 - [Transformación de datos mediante la actividad de Hive de Hadoop en Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
 - [Qué es Apache Spark en Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

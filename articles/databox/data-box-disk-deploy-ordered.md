@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b24d3aa9b5071a69e3e3fb866dc5ba2ac3e57b19
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: c83e46932e8d2a28d8503fe3fb6514988c364d97
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950948"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125276"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitud de Azure Data Box Disk
 
@@ -49,7 +49,7 @@ Antes de comenzar, asegúrese de que:
 Inicie sesión en:
 
 * Azure Portal en esta dirección URL: https://portal.azure.com para realizar el pedido de Data Box Disk.
-* O bien, en el portal de Azure Government en esta dirección URL: https://portal.azure.us. Para más información, vaya a [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal) (Conexión a Azure Government mediante el portal).
+* O bien, en el portal de Azure Government en esta dirección URL: https://portal.azure.us. Para más información, vaya a [Connect to Azure Government using the portal](../azure-government/documentation-government-get-started-connect-with-portal.md) (Conexión a Azure Government mediante el portal).
 
 Realice los pasos siguientes para realizar el pedido de Data Box Disk.
 
@@ -83,7 +83,7 @@ Realice los pasos siguientes para realizar el pedido de Data Box Disk.
     |Región de Azure de destino| Seleccione la región de la cuenta de almacenamiento.<br> Actualmente, se admiten cuentas de almacenamiento de todas las regiones de EE.UU., Oeste de Europa, Norte de Europa, Canadá y Australia. |
     |Tamaño de datos estimado, en TB| Escriba una estimación, en TB. <br>Según el tamaño de los datos, Microsoft envía un número adecuado de SSD de 8 TB (7 TB de capacidad utilizable). <br>La capacidad máxima utilizable de cinco discos 35 TB. |
     |Clave de paso de disco| Si marca **Usar la clave personalizada en lugar de la clave de paso generada por Azure**, proporcione la clave de paso de disco. <br> Proporcione una clave alfanumérica de entre 12 y 32 caracteres de longitud que tenga al menos un carácter numérico y un carácter especial. Solo se permiten los caracteres especiales `@?_+`. <br> Puede elegir omitir esta opción y usar la clave de paso generada por Azure para desbloquear los discos.|
-    |Destino de almacenamiento     | Elija una cuenta de almacenamiento o discos administrados, o ambos. <br> En función de la región de Azure especificada, seleccione una cuenta de almacenamiento en la lista filtrada de una cuenta de almacenamiento existente. Data Box Disk solo puede estar vinculado con una cuenta de almacenamiento. <br> También puede crear una nueva **cuenta de uso general v1**, **cuenta de uso general v2** o **cuenta de almacenamiento de blobs**. <br>Se admiten cuentas de almacenamiento con redes virtuales. Para permitir que el servicio de Data Box trabaje con cuentas de almacenamiento seguro, habilite los servicios de confianza dentro de la configuración de firewall de la red de la cuenta de almacenamiento. Para obtener más información, vea cómo [agregar Azure Data Box como un servicio de confianza](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
+    |Destino de almacenamiento     | Elija una cuenta de almacenamiento o discos administrados, o ambos. <br> En función de la región de Azure especificada, seleccione una cuenta de almacenamiento en la lista filtrada de una cuenta de almacenamiento existente. Data Box Disk solo puede estar vinculado con una cuenta de almacenamiento. <br> También puede crear una nueva **cuenta de uso general v1**, **cuenta de uso general v2** o **cuenta de almacenamiento de blobs**. <br>Se admiten cuentas de almacenamiento con redes virtuales. Para permitir que el servicio de Data Box trabaje con cuentas de almacenamiento seguro, habilite los servicios de confianza dentro de la configuración de firewall de la red de la cuenta de almacenamiento. Para obtener más información, vea cómo [agregar Azure Data Box como un servicio de confianza](../storage/common/storage-network-security.md#exceptions).|
 
     Si usa la cuenta de almacenamiento como el destino de almacenamiento, consulte la siguiente captura de pantalla:
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79e7c5db2a2c445ae740a21744a0bdfe0736c01a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85505620"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342440"
 ---
 # <a name="access-the-vfxt-cluster"></a>Acceso al clúster de vFXT
 
@@ -27,7 +27,7 @@ Hay dos pasos básicos:
 > [!NOTE]
 > En este artículo se da por supuesto que ha establecido una dirección IP pública en el controlador del clúster o en otra VM dentro de la red virtual del clúster. En este artículo se describe cómo usar esa máquina virtual como host para acceder al clúster. Si usa una VPN o ExpressRoute para el acceso a la red virtual, vaya a [Conexión al panel de control de Avere](#connect-to-the-avere-control-panel-in-a-browser).
 
-Antes de conectarse, asegúrese de que el par de claves pública y privada SSH que usó al crear el controlador del clúster está instalado en el equipo local. Lea la documentación de las claves SSH para [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) o para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) si necesita ayuda. Si utilizó una contraseña en lugar de una clave pública, se le pedirá que la escriba cuando se conecte.
+Antes de conectarse, asegúrese de que el par de claves pública y privada SSH que usó al crear el controlador del clúster está instalado en el equipo local. Lea la documentación de las claves SSH para [Windows](../virtual-machines/linux/ssh-from-windows.md) o para [Linux](../virtual-machines/linux/mac-create-ssh-keys.md) si necesita ayuda. Si utilizó una contraseña en lugar de una clave pública, se le pedirá que la escriba cuando se conecte.
 
 ## <a name="create-an-ssh-tunnel"></a>Creación de un túnel SSH
 

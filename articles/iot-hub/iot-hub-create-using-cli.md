@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: 69372e4c212e2ce81bcd4c91d460aa191a1d3476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6daed4f5f1871d76da707edec00010cd27dfa8db
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087871"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142348"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Creación de una instancia de IoT Hub mediante la CLI de Azure
 
@@ -30,7 +30,7 @@ Para completar este procedimiento, se necesita una suscripción de Azure. Si no 
 
 Si está ejecutando la CLI de Azure localmente, en lugar de usar Cloud Shell, deberá iniciar sesión en su cuenta de Azure.
 
-En el símbolo del sistema, ejecute el [comando de inicio de sesión](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli):
+En el símbolo del sistema, ejecute el [comando de inicio de sesión](/cli/azure/get-started-with-azure-cli):
 
    ```azurecli
    az login
@@ -42,7 +42,7 @@ Siga las instrucciones para realizar la autenticación mediante el código e ini
 
 Use la CLI de Azure para crear un grupo de recursos y, luego, agregue una instancia de IoT Hub.
 
-1. Cuando crea una instancia de IoT Hub, debe crearla en un grupo de recursos. Use un grupo de recursos existente o ejecute el [comando siguiente para crear un grupo de recursos](https://docs.microsoft.com/cli/azure/resource):
+1. Cuando crea una instancia de IoT Hub, debe crearla en un grupo de recursos. Use un grupo de recursos existente o ejecute el [comando siguiente para crear un grupo de recursos](/cli/azure/resource):
     
    ```azurecli-interactive
    az group create --name {your resource group name} --location westus
@@ -56,7 +56,7 @@ Use la CLI de Azure para crear un grupo de recursos y, luego, agregue una instan
    > ```
    >
 
-2. Ejecute el [comando siguiente para crear una instancia de IoT Hub](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) en el grupo de recursos, con un nombre único global para la instancia de IoT Hub:
+2. Ejecute el [comando siguiente para crear una instancia de IoT Hub](/cli/azure/iot/hub#az-iot-hub-create) en el grupo de recursos, con un nombre único global para la instancia de IoT Hub:
     
    ```azurecli-interactive
    az iot hub create --name {your iot hub name} \
@@ -70,16 +70,16 @@ El comando anterior crea una instancia de IoT Hub en el plan de tarifa S1 según
 
 ## <a name="remove-an-iot-hub"></a>Eliminación de una instancia de IoT Hub
 
-Puede usar la CLI de Azure para [eliminar un recurso individual](https://docs.microsoft.com/cli/azure/resource), como una instancia de IoT Hub, o para eliminar un grupo de recursos y todos sus recursos, incluida cualquier instancia de IoT Hub.
+Puede usar la CLI de Azure para [eliminar un recurso individual](/cli/azure/resource), como una instancia de IoT Hub, o para eliminar un grupo de recursos y todos sus recursos, incluida cualquier instancia de IoT Hub.
 
-Ejecute el comando siguiente para [eliminar una instancia de IoT Hub](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-delete):
+Ejecute el comando siguiente para [eliminar una instancia de IoT Hub](/cli/azure/iot/hub#az-iot-hub-delete):
 
 ```azurecli-interactive
 az iot hub delete --name {your iot hub name} -\
   -resource-group {your resource group name}
 ```
 
-Ejecute el comando siguiente para [eliminar un grupo de recursos](https://docs.microsoft.com/cli/azure/group#az-group-delete) y todos sus recursos:
+Ejecute el comando siguiente para [eliminar un grupo de recursos](/cli/azure/group#az-group-delete) y todos sus recursos:
 
 ```azurecli-interactive
 az group delete --name {your resource group name}

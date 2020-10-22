@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306572"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318125"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamiento de una implementación de revisiones de acceso de Azure Active Directory
 
@@ -87,7 +87,7 @@ Tenga en cuenta las necesidades de su organización a la hora de determinar la e
 
 ### <a name="engage-the-right-stakeholders"></a>Interactuar con las partes interesadas adecuadas
 
-Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de que interactúa con las partes interesadas adecuadas](https://aka.ms/deploymentplans) y que los roles del proyecto están claros.
+Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de que interactúa con las partes interesadas adecuadas](../fundamentals/active-directory-deployment-plans.md) y que los roles del proyecto están claros.
 
 En el caso de las revisiones de acceso, probablemente tenga que incluir a representantes de los siguientes equipos de su organización:
 
@@ -182,7 +182,7 @@ Entre los objetivos típicos de revisión, se incluyen:
 
 * La [pertenencia](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) a un grupo (sincronizado con Azure AD o creado en Azure AD o Microsoft 365, incluido Microsoft Teams).
 
-* Un [paquete de acceso](/azure/active-directory/governance/entitlement-management-overview) que agrupa recursos (grupos, aplicaciones y sitios) en un único paquete para administrar el acceso.
+* Un [paquete de acceso](./entitlement-management-overview.md) que agrupa recursos (grupos, aplicaciones y sitios) en un único paquete para administrar el acceso.
 
 * [Roles de recursos de Azure AD y de Azure Resource](../privileged-identity-management/pim-resource-roles-assign-roles.md), tal y como se definen en Privileged Identity Management.
 
@@ -518,4 +518,3 @@ Obtenga información sobre las siguientes tecnologías relacionadas.
 * [¿Qué es la administración de derechos de Azure AD?](entitlement-management-overview.md)
 
 * [¿Qué es Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
-

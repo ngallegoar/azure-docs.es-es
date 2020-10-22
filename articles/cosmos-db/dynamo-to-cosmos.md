@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: mansha
-ms.openlocfilehash: cfdeda8ac3957da272ab4c47fb93930c826d55aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 167d1f21a2eb7ea4c685b5bbbb5d8d64fcc1367e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261875"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278705"
 ---
 # <a name="migrate-your-application-from-amazon-dynamodb-to-azure-cosmos-db"></a>Migre su aplicación de Amazon DynamoDB a Azure Cosmos DB
 
@@ -144,7 +144,7 @@ client_documentDB = new CosmosClient("your connectionstring from the Azure porta
 
 Con Azure Cosmos DB, puede usar las siguientes opciones para optimizar la conexión:
 
-* **ConnectionMode**: use el modo de conexión directa para conectarse a los nodos de datos del servicio Azure Cosmos DB. Use el modo de puerta de enlace solo para inicializar y almacenar en caché las direcciones lógicas y actualizar en las actualizaciones. Para más información, consulte el artículo sobre los [modos de conectividad](performance-tips.md#networking).
+* **ConnectionMode**: use el modo de conexión directa para conectarse a los nodos de datos del servicio Azure Cosmos DB. Use el modo de puerta de enlace solo para inicializar y almacenar en caché las direcciones lógicas y actualizar en las actualizaciones. Para más información, consulte el artículo sobre los [modos de conectividad](sql-sdk-connection-modes.md).
 
 * **ApplicationRegion**: esta opción se usa para establecer la región de replicación geográfica preferida que se usa para interactuar con Azure Cosmos DB. Para más información, consulte el artículo sobre [distribución global](distribute-data-globally.md).
 

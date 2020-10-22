@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 8b36eee38275d18e6977c056192176f6fd54a917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611663"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123722"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use Azure Portal para administrar Azure Data Box y Azure Data Box Heavy
 
@@ -222,8 +222,8 @@ Estos son los estados para un pedido de importación.
 |Received     | El dispositivo se recibió y examinó en el centro de datos de Azure. <br> Una vez que se inspecciona el envío, se iniciará la carga del dispositivo.      |
 |Copia de datos     | La copia de datos está en curso. Realice un seguimiento del progreso de la copia del pedido en Azure Portal. <br> Espere hasta que se complete. |
 |Completed       |El pedido se realizó correctamente.<br> Compruebe que los datos están en Azure antes de eliminarlos en el entorno local de los servidores.         |
-|Completed with errors (Completado con errores)| Se completó la copia de datos pero se produjeron errores durante la copia. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal. Consulte los [ejemplos de registros de copia cuando la carga se completa con errores](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Completado con advertencias| Se completó la copia de datos, pero se modificaron los datos. Los datos tenían errores de nombre de archivo o blob no críticos que se corrigieron cambiando los nombres de archivo o blob. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal. Tome nota de las modificaciones en los datos. Consulte los [ejemplos de registros de copia cuando la carga se completa con advertencias](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
+|Completed with errors (Completado con errores)| Se completó la copia de datos pero se produjeron errores durante la copia. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal. Consulte los [ejemplos de registros de copia cuando la carga se completa con errores](./data-box-logs.md#upload-completed-with-errors).   |
+|Completado con advertencias| Se completó la copia de datos, pero se modificaron los datos. Los datos tenían errores de nombre de archivo o blob no críticos que se corrigieron cambiando los nombres de archivo o blob. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal. Tome nota de las modificaciones en los datos. Consulte los [ejemplos de registros de copia cuando la carga se completa con advertencias](./data-box-logs.md#upload-completed-with-warnings).   |
 |Canceled            |El pedido se ha cancelado. <br> Se canceló el pedido o se produjo un error y el servicio lo canceló. Si el pedido no se puede completar en 90 días, también se cancela el pedido y se le notifica.     |
 |Limpieza | Se borran los datos en los discos del dispositivo. La limpieza del dispositivo se considera completa cuando el historial de pedidos está disponible para su descarga en Azure Portal.|
 
@@ -238,9 +238,9 @@ Estos son los estados para un pedido de exportación.
 |Processed (Procesado)     | El procesamiento del pedido está completado. Según su pedido, el dispositivo se prepara para la copia de datos en el centro de datos. Se crean recursos compartidos de dispositivos.         |
 |Copia de datos en curso     | La copia de datos de las cuentas de Azure Storage especificadas en el dispositivo está en curso. Realice un seguimiento del progreso de la copia del pedido en Azure Portal. <br> Espere hasta que se complete. |
 |Copia completada     | Se completó la copia de datos de las cuentas de Azure Storage especificadas en el dispositivo. Un archivo de registro detallado (si la opción se habilitó en el pedido) y un registro de copia se crean en la cuenta de almacenamiento. El registro detallado contiene información sobre todos los archivos (nombre, ruta de acceso, suma de comprobación de cálculo) que se copian en el dispositivo. El registro de copia contiene el resumen del proceso de copia que incluye una lista de archivos que no se pudieron copiar debido a errores.<br> Los datos de la cuenta de almacenamiento permanecen tal cual. |
-|Copia completada con errores| Se completó la copia de datos pero se produjeron errores durante la copia. <br> Revise los registros de copia de la cuenta de Azure Storage mediante la ruta de acceso proporcionada en Azure Portal. Consulte los [ejemplos de registros de copia cuando la descarga se completó con errores](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Copia completada con advertencias| Se completó la copia de datos de la cuenta de Azure Storage, pero los datos tenían errores no críticos. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal. Tome nota de los errores no críticos. Consulte los [ejemplos de registros de copia cuando la descarga se completó con advertencias](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
-|Error de copia| No se pudo realizar la copia de datos de la cuenta de Azure Storage y se terminó el pedido. No se enviará un dispositivo.<br> Revise los registros de copia de la cuenta de Azure Storage mediante la ruta de acceso proporcionada en Azure Portal. Consulte los [ejemplos de registros de copia cuando la descarga produjo errores](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Copia completada con errores| Se completó la copia de datos pero se produjeron errores durante la copia. <br> Revise los registros de copia de la cuenta de Azure Storage mediante la ruta de acceso proporcionada en Azure Portal. Consulte los [ejemplos de registros de copia cuando la descarga se completó con errores](./data-box-logs.md#upload-completed-with-errors).   |
+|Copia completada con advertencias| Se completó la copia de datos de la cuenta de Azure Storage, pero los datos tenían errores no críticos. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal. Tome nota de los errores no críticos. Consulte los [ejemplos de registros de copia cuando la descarga se completó con advertencias](./data-box-logs.md#upload-completed-with-warnings).   |
+|Error de copia| No se pudo realizar la copia de datos de la cuenta de Azure Storage y se terminó el pedido. No se enviará un dispositivo.<br> Revise los registros de copia de la cuenta de Azure Storage mediante la ruta de acceso proporcionada en Azure Portal. Consulte los [ejemplos de registros de copia cuando la descarga produjo errores](./data-box-logs.md#upload-completed-with-errors).   |
 |Dispatched (Enviado)     |Ha enviado el pedido. Use el identificador de seguimiento que se muestra en el pedido del portal para realizar un seguimiento del envío.        |
 |Delivered (Entregado)     |El envío se entregó a la dirección especificada.        |
 |Picked up (Recogido)     |El transportista recogió y analizó el envío de devolución.         |

@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: d6c447deedbdcc4f2439fc069f368db88b3560b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88483b29c8951f8e3f38f7cdc5bbdfb80eeca2b1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278046"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370141"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>Tutorial: Asignación del rol Lectores de directorio a un grupo de Azure AD y administración de las asignaciones de roles
 
@@ -23,9 +23,9 @@ ms.locfileid: "91278046"
 > [!NOTE]
 > La asignación del rol **Lectores de directorio** a un grupo en este artículo se encuentra en la **versión preliminar pública**. 
 
-Este artículo le guía en la creación de un grupo en Azure Active Directory (Azure AD) y en la asignación a ese grupo del rol [**Lectores de directorio**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers). Los permisos de Lectores de directorio permiten a los propietarios del grupo agregar miembros adicionales al mismo, como una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) de [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) y [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). De esta forma, se evita la necesidad de que un [administrador global ](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) o un [administrador de roles con privilegios](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) asignen el rol Lectores de directorio directamente para cada identidad de servidor lógico de Azure SQL en el inquilino.
+Este artículo le guía en la creación de un grupo en Azure Active Directory (Azure AD) y en la asignación a ese grupo del rol [**Lectores de directorio**](../../active-directory/roles/permissions-reference.md#directory-readers). Los permisos de Lectores de directorio permiten a los propietarios del grupo agregar miembros adicionales al mismo, como una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) de [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) y [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). De esta forma, se evita la necesidad de que un [administrador global ](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) o un [administrador de roles con privilegios](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) asignen el rol Lectores de directorio directamente para cada identidad de servidor lógico de Azure SQL en el inquilino.
 
-En este tutorial se usa la característica que se presentó en [Uso de grupos de nube para administrar las asignaciones de roles en Azure Active Directory (versión preliminar)](../../active-directory/users-groups-roles/roles-groups-concept.md). 
+En este tutorial se usa la característica que se presentó en [Uso de grupos de nube para administrar las asignaciones de roles en Azure Active Directory (versión preliminar)](../../active-directory/roles/groups-concept.md). 
 
 Para obtener más información sobre las ventajas de asignar el rol Lectores de directorio a un grupo de Azure AD para Azure SQL, consulte [Rol Lectores de directorio en Azure Active Directory para Azure SQL](authentication-aad-directory-readers-role.md).
 
@@ -38,7 +38,7 @@ Para obtener más información sobre las ventajas de asignar el rol Lectores de 
 
 ### <a name="create-a-new-group-and-assign-owners-and-role"></a>Creación de un nuevo grupo y asignación de propietarios y roles
 
-1. Para esta configuración inicial, se requiere un usuario con los permisos [Administrador global](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) o [Administrador de roles con privilegios](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
+1. Para esta configuración inicial, se requiere un usuario con los permisos [Administrador global](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) o [Administrador de roles con privilegios](../../active-directory/roles/permissions-reference.md#privileged-role-administrator).
 1. Haga que el usuario con privilegios inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Vaya al recurso **Azure Active Directory**. En **Administrado**, vaya a **Grupos**. Seleccione **Nuevo grupo** para crear un grupo.
 1. Seleccione **Seguridad** como el tipo de grupo y rellene el resto de los campos. Asegúrese de que el valor de **Azure AD roles can be assigned to the group (Preview)** (Los roles de Azure AD se pueden asignar a un grupo [versión preliminar]) se haya cambiado a **Sí**. A continuación, asigne el rol **Lectores de directorio** de Azure AD al grupo.
@@ -94,7 +94,7 @@ No es necesario asignar el rol **Lectores de directorio** a la identidad del ser
 ## <a name="directory-readers-role-assignment-using-powershell"></a>Asignación del rol Lectores de directorio mediante PowerShell
 
 > [!IMPORTANT]
-> Estos pasos iniciales tiene que ejecutarlos [administrador global](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) o un [Administrador de roles con privilegios](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator). Además de PowerShell, Azure AD ofrece Microsoft Graph API para [crear un grupo al que se puedan asignar roles en Azure AD](../../active-directory/users-groups-roles/roles-groups-create-eligible.md#using-microsoft-graph-api).
+> Estos pasos iniciales tiene que ejecutarlos [administrador global](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) o un [Administrador de roles con privilegios](../../active-directory/roles/permissions-reference.md#privileged-role-administrator). Además de PowerShell, Azure AD ofrece Microsoft Graph API para [crear un grupo al que se puedan asignar roles en Azure AD](../../active-directory/roles/groups-create-eligible.md#using-microsoft-graph-api).
 
 1. Descargue el módulo de PowerShell de la versión preliminar de Azure AD con los siguientes comandos. Tiene que ejecutar PowerShell como administrador.
 
