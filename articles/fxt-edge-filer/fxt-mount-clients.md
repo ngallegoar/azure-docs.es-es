@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: ea963b143cedf36137d9c36bc57d323353da6786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa1f9da2c60aaf4c552916d16c266e984bf08892
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86231359"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340519"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Tutorial: Montaje del clúster
 
@@ -20,6 +20,7 @@ En este tutorial le enseñamos a montar clientes NFS en el clúster de sistemas 
 Este tutorial le enseña lo siguiente:
 
 > [!div class="checklist"]
+>
 > * Estrategias para clientes de equilibrio de carga en el intervalo de direcciones IP orientadas al cliente.
 > * Cómo construir una ruta de acceso de montaje a partir de una unión de espacio de nombres y direcciones IP orientadas al cliente.
 > * Los argumentos que se van a usar en un comando de montaje.
@@ -108,6 +109,6 @@ Para garantizar un montaje de cliente sin problemas, use estos valores y argumen
 
 Después de montar los clientes, puede probar el flujo de trabajo y empezar a trabajar con el clúster.
 
-Si necesita mover datos a un nuevo archivador principal en la nube, aproveche la estructura de la memoria caché mediante el uso de ingesta paralela de datos. En [Mover datos al clúster de vFXT](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-data-ingest) se describen algunas estrategias. (Avere vFXT for Azure es un producto basado en la nube que usa una tecnología de almacenamiento en caché muy similar a Azure FXT Edge Filer).
+Si necesita mover datos a un nuevo archivador principal en la nube, aproveche la estructura de la memoria caché mediante el uso de ingesta paralela de datos. En [Mover datos al clúster de vFXT](../avere-vfxt/avere-vfxt-data-ingest.md) se describen algunas estrategias. (Avere vFXT for Azure es un producto basado en la nube que usa una tecnología de almacenamiento en caché muy similar a Azure FXT Edge Filer).
 
 Consulte [Monitor Azure FXT Edge Filer hardware status](fxt-monitor.md) (Supervisión del estado de hardware de Azure FXT Edge Filer) si necesita solucionar problemas de hardware.

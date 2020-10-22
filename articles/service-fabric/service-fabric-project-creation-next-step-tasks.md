@@ -3,12 +3,12 @@ title: Pasos siguientes de la creación del proyecto de Service Fabric
 description: Obtenga información sobre el proyecto de aplicación que acaba de crear en Visual Studio.  Obtenga información acerca de cómo crear servicios mediante tutoriales y aprenda a desarrollar servicios para Service Fabric.
 ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01a69016e0c299fba0365fab5332b572fd2ca87a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75349409"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314471"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Su aplicación de Service Fabric y próximos pasos
 La aplicación Azure Service Fabric se ha creado. En este artículo se describen algunos tutoriales que puede probar, la composición del proyecto, información adicional que podría interesarle y posibles pasos siguientes.
@@ -24,7 +24,7 @@ O bien pruebe uno de los recorridos y cree por primera vez...
 - [Servicio ejecutable de invitado en Windows](quickstart-guest-app.md) 
 - [Aplicación contenedora de Windows](service-fabric-get-started-containers.md) 
 
-Puede que también esté interesado en probar nuestras [aplicaciones de ejemplo](https://aka.ms/servicefabricsamples).
+Puede que también esté interesado en probar nuestras [aplicaciones de ejemplo](/samples/browse/?products=azure).
 
 ## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>¿Tiene preguntas o comentarios?  ¿Necesita informar de un problema?
 Lea las [preguntas más frecuentes](service-fabric-common-questions.md) y busque respuestas sobre lo que puede hacer Service Fabric y cómo se debe usar.
@@ -62,5 +62,3 @@ Al igual que sucede con otras plataformas, una aplicación de Service Fabric, no
 - [Cree un clúster de Windows en Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 - Visualice el clúster, incluidas las aplicaciones implementadas y el diseño físico, con [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 - [Control de versiones y actualización de los servicios](service-fabric-application-upgrade-tutorial.md)
-
-

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: c448d7e5a5e0bea29063930bed3a59a0461b8cf5
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 49ecf753b1dd547eab251222a6c2709d96e9c89b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767627"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146517"
 ---
 <!--for build: for each metric, if you understand what it is, it's ok. otw add more info.  -->
 # <a name="understand-iot-hub-metrics"></a>Comprender las métricas de IoT Hub
@@ -58,8 +58,8 @@ IoT Hub proporciona varias métricas para ofrecerle una visión general del esta
 |devices.totalDevices|Total de dispositivos (en desuso)|Count|Total|Número de dispositivos registrados en IoT Hub|None|
 |devices.connectedDevices.<br>allProtocol|Dispositivos conectados (en desuso) |Count|Total|Número de dispositivos conectados a IoT Hub|None|
 |d2c.telemetry.egress.<br>success|Enrutamiento: mensajes de telemetría entregados|Count|Total|Número de veces que los mensajes se han entregado correctamente a todos los puntos de conexión mediante el enrutamiento de IoT Hub. Si un mensaje se enruta a varios puntos de conexión, este valor aumenta en uno por cada entrega correcta. Si un mensaje se enruta al mismo punto de conexión varias veces, este valor aumenta en uno por cada entrega correcta.|None|
-|d2c.telemetry.egress.<br>dropped|Enrutamiento: mensajes de telemetría quitados |Count|Total|Número de veces que se han quitado los mensajes con el enrutamiento de IoT Hub a causa de puntos de conexión inactivos. Este valor no cuenta los mensajes entregados a la ruta de reserva porque los mensajes quitados no se entregan allí.|None|
-|d2c.telemetry.egress.<br>orphaned|Enrutamiento: mensajes de telemetría huérfanos |Count|Total|Número de veces que los mensajes eran huérfanos a causa del enrutamiento de IoT Hub porque no coincidían con ninguna consulta de enrutamiento, cuando la ruta de reserva está deshabilitada.|None|
+|d2c.telemetry.egress.<br>dropped|Enrutamiento: mensajes de telemetría quitados |Count|Total|Número de veces que se han quitado los mensajes con el enrutamiento de IoT Hub a causa de puntos de conexión inactivos. Este valor no cuenta los mensajes entregados a la ruta de reserva porque los mensajes quitados no se entregan allí.|None|
+|d2c.telemetry.egress.<br>orphaned|Enrutamiento: mensajes de telemetría huérfanos |Count|Total|Número de veces que los mensajes eran huérfanos a causa del enrutamiento de IoT Hub porque no coincidían con ninguna consulta de enrutamiento, cuando la ruta de reserva está deshabilitada.|None|
 |d2c.telemetry.egress.<br>no válido|Enrutamiento: mensajes de telemetría incompatibles|Count|Total|Número de veces que el enrutamiento de IoT Hub no ha podido entregar mensajes debido a una incompatibilidad con el punto de conexión. Un mensaje es incompatible con un punto de conexión cuando IoT Hub intenta entregar el mensaje a un punto de conexión y se produce un error no transitorio. Los mensajes no válidos no se vuelven a intentar. Este valor no incluye los reintentos.|None|
 |d2c.telemetry.egress.<br>fallback|Enrutamiento: mensajes entregados a la reserva|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes al punto de conexión asociado con la ruta de reserva.|None|
 |d2c.endpoints.egress.<br>eventHubs|Enrutamiento: mensajes entregados al centro de eventos|Count|Total|Número de veces que el enrutamiento de IoT Hub ha entregado mensajes correctamente a los puntos de conexión personalizados de tipo Centro de eventos. Esto no incluye las rutas de mensajes a un punto de conexión integrado (eventos).|None|
@@ -139,4 +139,4 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)
 
-* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/quickstart-linux.md)

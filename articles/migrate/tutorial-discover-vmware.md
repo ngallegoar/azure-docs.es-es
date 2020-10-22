@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo detectar las máquinas virtual
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: f39ad3cbc357575f735b963346c8a8b0cc95e7c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3e8f61c898b08cc0638597e77fd3260cb4593b2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442221"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311300"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Tutorial: Detección de máquinas virtuales de VMware con Server Assessment
 
@@ -238,7 +238,7 @@ Configure el dispositivo por primera vez.
    
    No se admite el inicio de sesión con un PIN.
 3. Después de iniciar sesión correctamente, vuelva a la aplicación web. 
-4. Si la cuenta de usuario de Azure que se usa para el registro tiene los [permisos](tutorial-prepare-vmware.md#prepare-azure) adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
+4. Si la cuenta de usuario de Azure que se usa para el registro tiene los permisos adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
 1. Una vez que el dispositivo se ha registrado correctamente, puede ver los detalles de registro haciendo clic en **Ver detalles**.
 
 
@@ -248,7 +248,7 @@ Configure el dispositivo por primera vez.
 El dispositivo necesita conectarse a vCenter Server para detectar los datos de configuración y rendimiento de las máquinas virtuales.
 
 1. En **Paso 1: Proporcionar las credenciales de vCenter Server**, haga clic en **Agregar credenciales** para especificar un nombre descriptivo para las credenciales, agregue un **nombre de usuario** y una **contraseña** para la cuenta de vCenter Server que utilizará el dispositivo para detectar máquinas virtuales en la instancia de vCenter Server.
-    - Debe haber configurado una cuenta con los permisos necesarios en el [tutorial anterior](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
+    - Debe haber configurado una cuenta con los permisos necesarios en el tutorial anterior.
     - Si desea limitar el ámbito de la detección a objetos específicos de VMware (centros de datos de vCenter Server, clústeres, una carpeta de clústeres, hosts, una carpeta de hosts o máquinas virtuales individuales), consulte las instrucciones de [este artículo](set-discovery-scope.md) para restringir la cuenta usada por Azure Migrate.
 1. En el **Paso 2: Proporcionar los detalles de vCenter Server**, haga clic en **Agregar origen de detección** para seleccionar el nombre descriptivo de las credenciales en la lista desplegable, especifique la **dirección IP o el FQDN** de la instancia de vCenter Server. Puede dejar el **puerto** en el valor predeterminado (443) o especificar un puerto personalizado en el que vCenter Server escuche y hacer clic en **Guardar**.
 1. Al hacer clic en Guardar, el dispositivo intentará validar la conexión a vCenter Server con las credenciales proporcionadas y mostrar el **estado de validación** en la tabla con la dirección IP o el FQDN de vCenter Server.
@@ -268,5 +268,5 @@ La detección funciona como se indica a continuación:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Evalúe las máquinas virtuales de VMware](tutorial-assess-vmware.md) para la migración a máquinas virtuales de Azure.
+- [Evalúe las máquinas virtuales de VMware](./tutorial-assess-vmware-azure-vm.md) para la migración a máquinas virtuales de Azure.
 - [Revise los datos](migrate-appliance.md#collected-data---vmware) que el dispositivo recopila durante la detección.

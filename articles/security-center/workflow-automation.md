@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b713977d811411ea2ccd7dfa22c7757321ecd7aa
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.openlocfilehash: 015b3fb116c4eb16e4280e2f71873e88dccff278
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91712296"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92344039"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Creación de respuestas automáticas a alertas y recomendaciones con automatización del flujo de trabajo
 
 Cada programa de seguridad incluye varios flujos de trabajo para la respuesta a incidentes. Estos procesos pueden incluir notificaciones para las partes interesadas competentes, iniciar un proceso de administración de cambios y aplicar pasos de corrección específicos. Los expertos en seguridad recomiendan automatizar tantos pasos de esos procedimientos como sea posible. Recuerde que la automatización reduce la sobrecarga. También puede mejorar la seguridad asegurándose de que los pasos del proceso se realizan de forma rápida, coherente y según sus requisitos predefinidos.
 
-En este artículo se describe la característica de automatización de flujos de trabajo de Azure Security Center. Esta característica puede desencadenar una instancia de Logic Apps sobre alertas y recomendaciones de seguridad. Por ejemplo, si quiere que Security Center envíe un correo electrónico a un usuario específico cuando se produce una alerta. También aprenderá a crear instancias de Logic Apps con [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+En este artículo se describe la característica de automatización de flujos de trabajo de Azure Security Center. Esta característica puede desencadenar una instancia de Logic Apps sobre alertas y recomendaciones de seguridad. Por ejemplo, si quiere que Security Center envíe un correo electrónico a un usuario específico cuando se produce una alerta. También aprenderá a crear instancias de Logic Apps con [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 > [!NOTE]
 > Si ya se ha usado la vista Cuadernos de estrategias (versión preliminar) de la barra lateral, se encontrarán las mismas características junto con la función expandida en la página nueva de automatización del flujo de trabajo.
@@ -32,7 +32,7 @@ En este artículo se describe la característica de automatización de flujos de
 |----|:----|
 |Estado de la versión:|Disponible con carácter general|
 |Precios:|Gratuito|
-|Roles y permisos necesarios:|**Rol Administrador de seguridad** o **Propietario** en el grupo de recursos<br>También debe tener permisos de escritura para el recurso de destino.<br><br>Para trabajar con flujos de trabajo de Azure Logic Apps, también debe tener los siguientes roles o permisos de Logic Apps:<br> Son necesarios los permisos de - [Operador de aplicación lógica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) o el acceso de lectura o desencadenamiento de aplicación lógica (este rol no puede crear ni editar aplicaciones lógicas, solo *ejecutar* las existentes).<br> Los permisos de - [Colaborador de la aplicación lógica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) son necesarios para la creación y modificación de aplicaciones lógicas.<br>Si quiere usar conectores de aplicaciones lógicas, es posible que necesite credenciales adicionales para iniciar sesión en sus servicios respectivos (por ejemplo, en las instancias de Outlook, Teams o Slack).|
+|Roles y permisos necesarios:|**Rol Administrador de seguridad** o **Propietario** en el grupo de recursos<br>También debe tener permisos de escritura para el recurso de destino.<br><br>Para trabajar con flujos de trabajo de Azure Logic Apps, también debe tener los siguientes roles o permisos de Logic Apps:<br> Son necesarios los permisos de - [Operador de aplicación lógica](../role-based-access-control/built-in-roles.md#logic-app-operator) o el acceso de lectura o desencadenamiento de aplicación lógica (este rol no puede crear ni editar aplicaciones lógicas, solo *ejecutar* las existentes).<br> Los permisos de - [Colaborador de la aplicación lógica](../role-based-access-control/built-in-roles.md#logic-app-contributor) son necesarios para la creación y modificación de aplicaciones lógicas.<br>Si quiere usar conectores de aplicaciones lógicas, es posible que necesite credenciales adicionales para iniciar sesión en sus servicios respectivos (por ejemplo, en las instancias de Outlook, Teams o Slack).|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
 |||
 
@@ -101,9 +101,9 @@ En este artículo, ha obtenido información sobre cómo crear aplicaciones lógi
 
 Para obtener material relacionado, consulte: 
 
-- [Módulo de Microsoft Learn sobre cómo la automatización de flujos de trabajo para automatizar una respuesta de seguridad](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
+- [Módulo de Microsoft Learn sobre cómo la automatización de flujos de trabajo para automatizar una respuesta de seguridad](/learn/modules/resolve-threats-with-azure-security-center/)
 - [Recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md)
 - [Alertas de seguridad en el Centro de seguridad de Azure](security-center-alerts-overview.md)
-- [Acerca de Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
-- [Conectores de Aplicaciones lógicas](https://docs.microsoft.com/connectors/)
+- [Acerca de Azure Logic Apps](../logic-apps/logic-apps-overview.md)
+- [Conectores de Aplicaciones lógicas](/connectors/)
 - [Esquemas de tipos de datos de automatización de flujo de trabajo](https://aka.ms/ASCAutomationSchemas)

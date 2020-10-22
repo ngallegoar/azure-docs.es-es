@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7446a221d266230b319c808a88ef4fac05e6fff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843318"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320510"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Introducción a los clústeres de Service Fabric en Azure
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Una máquina física o virtual que forma parte de un clúster se denomina nodo del clúster. Los clústeres pueden escalarse a miles de nodos. Si agrega nuevos nodos al clúster, Service Fabric reequilibra las réplicas e instancias de la partición del servicio en el número aumentado de nodos. El rendimiento general de la aplicación mejora y se reduce la contención para el acceso a la memoria. Si los nodos del clúster no se usan de forma eficaz, puede reducir su número de nodos. Service Fabric vuelve a reequilibrar las réplicas e instancias de la partición en el número reducido de nodos para aprovechar mejor el hardware de cada nodo.
@@ -78,7 +78,7 @@ Para obtener más información, consulte [Control de acceso basado en rol (RBAC)
 ### <a name="network-security-groups"></a>Grupos de seguridad de red 
 Los grupos de seguridad de red (NSG) controlan el tráfico entrante y saliente de una subred, VM o NIC específica.  De forma predeterminada, cuando se colocan varias máquinas virtuales en la misma red virtual, pueden comunicarse entre sí a través de cualquier puerto.  Si desea restringir las comunicaciones entre las máquinas, puede definir los NSG para segmentar la red o aislar las máquinas virtuales entre sí.  Si tiene varios tipos de nodo en un clúster, puede aplicar los NSG a subredes para impedir que las máquinas que pertenecen a distintos tipos de nodos se comuniquen entre sí.  
 
-Para obtener más información, consulte la información sobre [grupos de seguridad](../virtual-network/security-overview.md).
+Para obtener más información, consulte la información sobre [grupos de seguridad](../virtual-network/network-security-groups-overview.md).
 
 ## <a name="scaling"></a>Ampliación
 

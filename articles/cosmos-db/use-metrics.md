@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6de0a6632c53055dd3d3f428481dcc465b67ef6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6869aa8bc7ede7d2047abf8eddc98b01f567fa
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568019"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280816"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Supervisión y depuración con métricas de Azure Cosmos DB
 
@@ -59,7 +59,7 @@ Tener una buena cardinalidad de las claves de partición es esencial para cualqu
 
 :::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Métricas de rendimiento de Cosmos DB en Azure Portal":::
 
-Una distribución de rendimiento desigual puede provocar particiones *activas*, lo que pueden dar lugar a solicitudes limitadas y la necesidad de volver a crear particiones. Para más información sobre la creación de particiones en Azure Cosmos DB, consulte [Partición y escalado en Azure Cosmos DB](./partition-data.md).
+Una distribución de rendimiento desigual puede provocar particiones *activas*, lo que pueden dar lugar a solicitudes limitadas y la necesidad de volver a crear particiones. Para más información sobre la creación de particiones en Azure Cosmos DB, consulte [Partición y escalado en Azure Cosmos DB](./partitioning-overview.md).
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Determinación de la distribución de almacenamiento en las particiones
 
@@ -71,7 +71,7 @@ Puede determinar la causa raíz por la que la partición está sesgando la distr
 
 :::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Métricas de rendimiento de Cosmos DB en Azure Portal":::
 
-Después de identificar qué clave de partición está causando el sesgo en la distribución, puede que tenga que volver a crear particiones en el contenedor con una clave de partición más distribuida. Para más información sobre la creación de particiones en Azure Cosmos DB, consulte [Partición y escalado en Azure Cosmos DB](./partition-data.md).
+Después de identificar qué clave de partición está causando el sesgo en la distribución, puede que tenga que volver a crear particiones en el contenedor con una clave de partición más distribuida. Para más información sobre la creación de particiones en Azure Cosmos DB, consulte [Partición y escalado en Azure Cosmos DB](./partitioning-overview.md).
 
 ## <a name="compare-data-size-against-index-size"></a>Comparación del tamaño de los datos con el tamaño de índice
 

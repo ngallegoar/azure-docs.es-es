@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 09b23e9951c6da597b82d2e012a57f2c93410a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d156887416fb9a587c9690c3b275229e91f1dbe
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289810"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339805"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivo de novedades de Azure Security Center
 
@@ -28,6 +28,50 @@ En este página se proporciona información acerca de lo siguiente:
 - Nuevas características
 - Corrección de errores
 - Funciones obsoletas
+
+
+## <a name="april-2020"></a>Abril de 2020
+
+Las actualizaciones de abril incluyen:
+- [Los paquetes de cumplimiento dinámico ya están disponibles con carácter general](#dynamic-compliance-packages-are-now-generally-available)
+- [Las recomendaciones de identidad ahora están incluidas en el nivel gratuito de Azure Security Center](#identity-recommendations-now-included-in-azure-security-center-free-tier)
+
+
+### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Los paquetes de cumplimiento dinámico ya están disponibles con carácter general
+
+El panel de cumplimiento normativo de Azure Security Center ahora incluye **paquetes de cumplimiento dinámico** (ya disponible con carácter general) para realizar un seguimiento de los estándares de la industria y normativas adicionales.
+
+Los paquetes de cumplimiento dinámico se pueden agregar a su suscripción o grupo de administración desde la página de la directiva de seguridad de Security Center. Cuando haya incorporado un estándar o una prueba comparativa, el estándar aparece en el panel de cumplimiento normativo con todos los datos de cumplimiento asociados asignados como evaluaciones. Podrá descargar un informe de resumen para cualquiera de los estándares que se hayan incorporado.
+
+Ahora, puede agregar estándares como:
+
+- **NIST SP 800-53 R4**
+- **SWIFT CSP CSCF-v2020**
+- **UK Official y UK NHS**
+- **Canada Federal PBMM**
+- **Azure CIS 1.1.0 (nuevo)** (que es una representación más completa de Azure CIS 1.1.0)
+
+Además, recientemente hemos agregado el **Azure Security Benchmark**, las instrucciones específicas de Azure creadas por Microsoft para las prácticas recomendadas de seguridad y cumplimiento basadas en los marcos de cumplimiento comunes. Se admitirán estándares adicionales en el panel a medida que estén disponibles.  
+ 
+Más información sobre [cómo personalizar el conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md).
+
+
+### <a name="identity-recommendations-now-included-in-azure-security-center-free-tier"></a>Recomendaciones de identidad ahora incluidas en el nivel gratuito de Azure Security Center
+
+Las recomendaciones de seguridad para la identidad y el acceso en el nivel gratuito de Azure Security Center ya están disponibles con carácter general. Esto forma parte del esfuerzo de hacer que las características de la administración de posturas de seguridad en la nube (CSPM) sean gratuitas. Hasta ahora, estas recomendaciones solo estaban disponibles en el plan de tarifa estándar.
+
+Los ejemplos de recomendaciones de identidad y acceso incluyen:
+
+- "La autenticación multifactor debe estar habilitada en las cuentas con permisos de propietario en la suscripción".
+- "Debe designar un máximo de tres propietarios para la suscripción".
+- "Las cuentas en desuso deben quitarse de la suscripción".
+
+Si tiene suscripciones en el plan de tarifa gratuito, su puntuación de seguridad se verá afectada por este cambio ya que nunca se evaluó su identidad y seguridad de acceso.
+
+Más información sobre [recomendaciones de identidad y acceso](recommendations-reference.md#recs-identity).
+
+Más información acerca de la [supervisión de la identidad y el acceso](security-center-identity-access.md).
+
 
 
 ## <a name="march-2020"></a>Marzo de 2020
@@ -49,7 +93,7 @@ Cada programa de seguridad incluye varios flujos de trabajo para la respuesta a 
 
 Para más información acerca de las capacidades de Security Center automática y manual para ejecutar los flujos de trabajo, consulte [ automatización de flujos de trabajo](workflow-automation.md).
 
-Más información acerca de la [creación de Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Más información acerca de la [creación de Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integración de Azure Security Center con Windows Admin Center
@@ -170,7 +214,7 @@ Hoy estamos presentando una nueva funcionalidad en Security Center que permite a
 
 Para más información acerca de las capacidades de Security Center automática y manual para ejecutar los flujos de trabajo, consulte [ automatización de flujos de trabajo](workflow-automation.md).
 
-Para información acerca de la creación de Logic Apps, consulte [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Para información acerca de la creación de Logic Apps, consulte [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ### <a name="quick-fix-for-bulk-resources-generally-available"></a>Corrección rápida de los recursos en masa disponibles con carácter general
@@ -226,9 +270,9 @@ Las aplicaciones que se instalan en máquinas virtuales a menudo pueden tener vu
 
 La compatibilidad de Azure Security Center para la protección contra amenazas y la evaluación de vulnerabilidades en las bases de SQL que se ejecutan en máquinas virtuales IaaS está ahora en versión preliminar.
 
-[Evaluación de vulnerabilidades](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) es un servicio fácil de configurar que puede detectar, realizar un seguimiento y ayudarle a corregir posibles puntos vulnerables de una base de datos. Permite ver la postura de seguridad como parte de la puntuación segura de Azure e incluye los pasos para resolver problemas de seguridad y mejorar las defensas de su base de datos.
+[Evaluación de vulnerabilidades](../azure-sql/database/sql-vulnerability-assessment.md) es un servicio fácil de configurar que puede detectar, realizar un seguimiento y ayudarle a corregir posibles puntos vulnerables de una base de datos. Permite ver la postura de seguridad como parte de la puntuación segura de Azure e incluye los pasos para resolver problemas de seguridad y mejorar las defensas de su base de datos.
 
-[Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) detecta actividades anómalas que indican intentos inusuales y potencialmente perjudiciales de acceder a su servidor SQL Server o de aprovechar sus vulnerabilidades. Supervisa de forma constante la base de datos en busca de actividad sospechosa y proporciona alertas de seguridad sobre patrones de acceso a la base de datos anómalos para que pueda tomar medidas. Las alertas proporcionan detalles de la actividad sospechosa y recomiendan acciones para investigar y mitigar la amenaza.
+[Advanced Threat Protection](../azure-sql/database/threat-detection-overview.md) detecta actividades anómalas que indican intentos inusuales y potencialmente perjudiciales de acceder a su servidor SQL Server o de aprovechar sus vulnerabilidades. Supervisa de forma constante la base de datos en busca de actividad sospechosa y proporciona alertas de seguridad sobre patrones de acceso a la base de datos anómalos para que pueda tomar medidas. Las alertas proporcionan detalles de la actividad sospechosa y recomiendan acciones para investigar y mitigar la amenaza.
 
 
 ### <a name="support-for-custom-policies-preview"></a>Compatibilidad con directivas personalizadas (versión preliminar)
@@ -302,7 +346,7 @@ Al habilitar JIT para las máquinas virtuales, se crea una directiva que determi
 
 Las solicitudes se registran en el registro de actividad de Azure para que pueda supervisar y auditar fácilmente el acceso. La página Just-in-Time también le ayuda a identificar rápidamente las máquinas virtuales existentes que tienen habilitado JIT y las máquinas virtuales en las que se recomienda JIT.
 
-[Más información acerca de Azure Firewall](https://docs.microsoft.com/azure/firewall/overview).
+[Más información acerca de Azure Firewall](../firewall/overview.md).
 
 
 ### <a name="single-click-remediation-to-boost-your-security-posture-preview"></a>Corrección de un solo clic para impulsar la postura de seguridad (versión preliminar)

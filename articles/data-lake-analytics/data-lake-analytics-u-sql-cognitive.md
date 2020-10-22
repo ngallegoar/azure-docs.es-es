@@ -1,18 +1,16 @@
 ---
 title: Funcionalidades de Cognitive en U-SQL para Azure Data Lake Analytics
 description: Aprenda a usar la inteligencia de las funcionalidades de Cognitive en U-SQL. Estos ejemplos de código le ayudarán a empezar.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/05/2018
-ms.openlocfilehash: 35973f3453daf61ee18b04b68e2fee4dd2e52402
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19d947b8b595107c76c1201d05e4d5ade3d7a092
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87125486"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220065"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Introducción a las funcionalidades de Cognitive de U-SQL
 
@@ -32,4 +30,4 @@ Antes de comenzar, siga los pasos de este artículo para registrar extensiones c
 ## <a name="next-steps"></a>Pasos siguientes
 * [Ejemplos de U-SQL/Cognitive](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
 * [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Uso de funciones de ventana de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-use-window-functions.md)
+* [Uso de funciones de ventana de U-SQL para trabajos de Análisis de Azure Data Lake](./data-lake-analytics-u-sql-get-started.md)

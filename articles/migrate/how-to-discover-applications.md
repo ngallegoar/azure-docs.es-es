@@ -3,12 +3,12 @@ title: Detección de aplicaciones, roles y características en servidores locale
 description: Obtenga información sobre cómo detectar aplicaciones, roles y características en servidores locales con Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118654"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315209"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Detección de aplicaciones, roles y características de la máquina
 
@@ -46,7 +46,7 @@ Después de implementar el dispositivo y proporcionar las credenciales, el dispo
 
 ## <a name="verify-permissions"></a>Comprobar los permisos
 
-Has [creado una cuenta de vCenter Server de solo lectura](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) para detección y valoración. La cuenta de solo lectura necesita privilegios habilitados para  > **las operaciones de invitado** de **Virtual Machines**, con el fin de interactuar con la máquina virtual para la detección de aplicaciones.
+Has [creado una cuenta de vCenter Server de solo lectura](./tutorial-discover-vmware.md#prepare-vmware) para detección y valoración. La cuenta de solo lectura necesita privilegios habilitados para  > **las operaciones de invitado** de **Virtual Machines**, con el fin de interactuar con la máquina virtual para la detección de aplicaciones.
 
 ### <a name="add-the-user-account-to-the-appliance"></a>Adición de la cuenta de usuario al dispositivo
 

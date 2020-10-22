@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afb6adc38fd44366b837119518622dd8931f9096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de7395f42021144eab3dd400bf9a953d57b5a6ee
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565572"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312583"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Preguntas más frecuentes sobre Azure Active Directory
 Azure Active Directory (Azure AD) es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
@@ -162,7 +162,7 @@ Para ver una lista exhaustiva de las aplicaciones preintegradas, consulte [Activ
 
 Para más información, consulte:
 
-* [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](../manage-apps/configure-saml-single-sign-on.md)
 * [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
 ---

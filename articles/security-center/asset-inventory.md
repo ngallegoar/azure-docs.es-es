@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 98e4a5097f1ebd26c54d1e0de9bda7ca2055c320
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: d15d73b0f2b87b8e6f66c7bd4e7fb34f6b06e1a0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950744"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341930"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explore y administre los recursos con las herramientas de administración e inventario de recursos.
 
@@ -68,22 +68,22 @@ La página de inventario proporciona las siguientes herramientas:
     ![Opciones de exportación del inventario](./media/asset-inventory/inventory-export-options.png)
 
     > [!TIP]
-    > La documentación de KQL proporciona una base de datos con algunos datos de ejemplo junto con algunas consultas sencillas para saber cómo funciona el lenguaje. [Más información en este tutorial de KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+    > La documentación de KQL proporciona una base de datos con algunos datos de ejemplo junto con algunas consultas sencillas para saber cómo funciona el lenguaje. [Más información en este tutorial de KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
 - **Opciones de administración de recursos**: el inventario le permite realizar consultas de detección complejas. Cuando haya encontrado los recursos que coinciden con las consultas, el inventario proporciona accesos directos a operaciones como:
 
     - Asignación de etiquetas a los recursos filtrados: active las casillas junto a los recursos que quiere etiquetar.
     - Incorporación de nuevos servidores a Security Center: use el botón de la barra de herramientas **Agregar servidores que no son de Azure**.
-    - Automatización de cargas de trabajo con Azure Logic Apps: use el botón **Desencadenar aplicación lógica** para ejecutar una aplicación lógica en uno o varios recursos. Las aplicaciones lógicas deben prepararse de antemano y aceptar el tipo de desencadenador correspondiente (solicitud HTTP). [Más información sobre las aplicaciones lógicas](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
+    - Automatización de cargas de trabajo con Azure Logic Apps: use el botón **Desencadenar aplicación lógica** para ejecutar una aplicación lógica en uno o varios recursos. Las aplicaciones lógicas deben prepararse de antemano y aceptar el tipo de desencadenador correspondiente (solicitud HTTP). [Más información sobre las aplicaciones lógicas](../logic-apps/logic-apps-overview.md)
 
 
 ## <a name="how-does-asset-inventory-work"></a>¿Cómo funciona el inventario de recursos?
 
-El inventario de recursos emplea [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/), un servicio de Azure que proporciona la capacidad de consultar los datos de la posición de seguridad de Security Center en varias suscripciones.
+El inventario de recursos emplea [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), un servicio de Azure que proporciona la capacidad de consultar los datos de la posición de seguridad de Security Center en varias suscripciones.
 
 ARG está diseñado para proporcionar una exploración de recursos eficaz con la posibilidad de realizar consultas a escala.
 
-Con el [lenguaje de consulta de Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/), el inventario de recursos puede generar rápidamente información detallada gracias a la referencia cruzada de los datos de ASC con otras propiedades de recursos.
+Con el [lenguaje de consulta de Kusto (KQL)](/azure/data-explorer/kusto/query/), el inventario de recursos puede generar rápidamente información detallada gracias a la referencia cruzada de los datos de ASC con otras propiedades de recursos.
 
 
 ## <a name="how-to-use-asset-inventory"></a>Uso del inventario de recursos
@@ -156,5 +156,5 @@ En este artículo se describe la página del inventario de recursos de Azure Sec
 
 Para más información sobre las herramientas relacionadas, consulte las siguientes páginas:
 
-- [Azure Resource Graph (AGR)](https://docs.microsoft.com/azure/governance/resource-graph/)
-- [Lenguaje de consulta de Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Azure Resource Graph (AGR)](../governance/resource-graph/index.yml)
+- [Lenguaje de consulta de Kusto (KQL)](/azure/data-explorer/kusto/query/)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261263"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276112"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consulta de un contenedor de Azure Cosmos
 
@@ -19,7 +19,7 @@ En este artículo se explica cómo consultar un contenedor (colección, grafo, t
 
 ## <a name="in-partition-query"></a>Consulta en la partición
 
-Al consultar los datos de los contenedores, si la consulta tiene un filtro de clave de partición especificado, Azure Cosmos DB optimiza automáticamente la consulta. Enruta la consulta a las [particiones físicas](partition-data.md#physical-partitions) correspondientes a los valores de clave de partición especificados en el filtro.
+Al consultar los datos de los contenedores, si la consulta tiene un filtro de clave de partición especificado, Azure Cosmos DB optimiza automáticamente la consulta. Enruta la consulta a las [particiones físicas](partitioning-overview.md#physical-partitions) correspondientes a los valores de clave de partición especificados en el filtro.
 
 Por ejemplo, considere la consulta siguiente con un filtro de igualdad en `DeviceId`. Si ejecutamos esta consulta en un contenedor con particiones en `DeviceId`, esta consulta se filtrará en una sola partición física.
 
@@ -61,7 +61,7 @@ Puede administrar la ejecución de consultas en paralelo ajustando los parámetr
 
 - **MaxBufferedItemCount**: equilibra la latencia de las consultas frente al uso de memoria del lado cliente. Si se omite esta opción o se establece en -1, el SDK administra el número de elementos almacenados en búfer durante la ejecución de consultas en paralelo.
 
-Debido a la capacidad de Azure Cosmos DB de paralelizar las consultas entre particiones, la latencia de las consultas normalmente se escalará correctamente, ya que el sistema agrega [particiones físicas](partition-data.md#physical-partitions). Sin embargo, el cargo RU aumenta significativamente a medida que aumenta el número total de particiones físicas.
+Debido a la capacidad de Azure Cosmos DB de paralelizar las consultas entre particiones, la latencia de las consultas normalmente se escalará correctamente, ya que el sistema agrega [particiones físicas](partitioning-overview.md#physical-partitions). Sin embargo, el cargo RU aumenta significativamente a medida que aumenta el número total de particiones físicas.
 
 Al ejecutar una consulta entre particiones, en esencia se realiza una consulta independiente por cada partición física individual. Aunque las consultas de consultas entre particiones usarán el índice, si está disponible, todavía no son casi tan eficaces como las consultas en la partición.
 

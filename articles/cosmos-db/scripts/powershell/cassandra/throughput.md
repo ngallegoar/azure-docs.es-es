@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: bb9be90752711acf224d6978fa76912e54eb9101
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bb69843e3035e1cf59a9e341ae39ef249b6a9fe
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843584"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282785"
 ---
 # <a name="throughput-rus-operations-with-powershell-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Operaciones de capacidad de proceso (RU/s) con PowerShell para un espacio de claves o una tabla para Cassandra API de Azure Cosmos DB
 
@@ -60,5 +60,3 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/).
-
-Encontrará más ejemplos de scripts de PowerShell de Azure Cosmos DB en los [scripts de PowerShell de Azure Cosmos DB](../../../powershell-samples.md).

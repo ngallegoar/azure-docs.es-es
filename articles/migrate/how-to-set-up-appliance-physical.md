@@ -4,12 +4,12 @@ description: Aprenda a configurar un dispositivo de Azure Migrate para la evalu
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: 348c12e08a9bed98016ac825921b67836b32b9e9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1e9d79d16e805eeaf770327a56a4247067c78a35
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448076"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314153"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configuración de un dispositivo para servidores físicos
 
@@ -122,7 +122,7 @@ Configure el dispositivo por primera vez.
    
    No se admite el inicio de sesión con un PIN.
 3. Después de iniciar sesión correctamente, vuelva a la aplicación web. 
-4. Si la cuenta de usuario de Azure que se usa para el registro tiene los [permisos](tutorial-prepare-physical.md) adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
+4. Si la cuenta de usuario de Azure que se usa para el registro tiene los [permisos](./tutorial-discover-physical.md) adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
 1. Una vez que el dispositivo se ha registrado correctamente, puede ver los detalles de registro haciendo clic en **Ver detalles**.
 
 

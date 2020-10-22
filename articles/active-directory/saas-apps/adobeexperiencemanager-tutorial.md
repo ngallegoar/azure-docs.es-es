@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 4607d4dfba68ca8f78ec4e3aaa4da36966ea843a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: d82fa5b44d4797d4254a91b4caa72b7c6b5e02ab
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760842"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309244"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Tutorial: Integración de Azure Active Directory con Adobe Experience Manager
 
@@ -27,7 +27,7 @@ La integración de Adobe Experience Manager con Azure AD proporciona las siguien
 * Puede habilitar que los usuarios inicien sesión automáticamente en Adobe Experience Manager (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -259,12 +259,12 @@ Si desea crear los usuarios manualmente, trabaje con el [equipo de soporte técn
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Adobe Experience Manager en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Adobe Experience Manager para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Adobe Experience Manager en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Adobe Experience Manager para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

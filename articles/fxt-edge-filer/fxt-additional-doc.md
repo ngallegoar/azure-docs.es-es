@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 314d745072d33fecd8fbf9eafe543fd0d52fe3cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6be5e9bda27ddff157eda10bbb695dfacaecda7a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185781"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342270"
 ---
 # <a name="additional-documentation-for-azure-fxt-edge-filer"></a>Documentación adicional para Azure FXT Edge Filer
 
@@ -19,17 +19,16 @@ Algunos recursos fuera del sitio web docs.microsoft.com pueden ayudarle a compre
 
 ## <a name="avere-vfxt-for-azure-cache-documentation"></a>Avere vFXT para la documentación de la memoria caché de Azure
 
-[Avere vFXT para Azure](https://docs.microsoft.com/azure/avere-vfxt/) es un producto de caché de clúster similar que usa nodos virtuales en Microsoft Azure. Se crea con Azure Portal, pero usa el mismo software de configuración del panel de control que el caché de hardware de Azure FXT Edge Filer. 
+[Avere vFXT para Azure](../avere-vfxt/index.yml) es un producto de caché de clúster similar que usa nodos virtuales en Microsoft Azure. Se crea con Azure Portal, pero usa el mismo software de configuración del panel de control que el caché de hardware de Azure FXT Edge Filer.
 
-## <a name="legacy-hardware-documentation"></a>Documentación de hardware heredada 
+## <a name="legacy-hardware-documentation"></a>Documentación de hardware heredada
 
-Esta tecnología se usó previamente en productos de Avere Systems. La documentación de usuario para esos productos anteriores está disponible en el [sitio web que tiene la documentación heredada de Avere](https://azure.github.io/Avere/). 
+Esta tecnología se usó previamente en productos de Avere Systems. La documentación de usuario para esos productos anteriores está disponible en el [sitio web que tiene la documentación heredada de Avere](https://azure.github.io/Avere/).
 
 Específicamente, estos documentos pueden tener detalles útiles:
 
-* [Guía de configuración del clúster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html): incluye información general sobre las tareas comunes de configuración y administración del clúster, así como explicaciones detalladas de las páginas de configuración del clúster. 
+* [Guía de configuración del clúster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html): incluye información general sobre las tareas comunes de configuración y administración del clúster, así como explicaciones detalladas de las páginas de configuración del clúster.
 
 * [Guía del panel](https://azure.github.io/Avere/legacy/dashboard/4_7/html/ops_dashboard_index.html): explica las características de la pestaña **Panel** del panel de control.
 
 * [Guía de creación de clústeres de FXT](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html): guía de creación de clústeres de productos anteriores.
-

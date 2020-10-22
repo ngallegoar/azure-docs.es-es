@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37f8016e087642ae0a7455e35f3ce18d7229e169
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81680716"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146638"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Supervisión remota y notificaciones de IoT con Azure Logic Apps conectando IoT Hub y el buzón de correo
 
@@ -22,7 +22,7 @@ ms.locfileid: "81680716"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) puede ayudar a orquestar flujos de trabajo entre servicios locales y de nube, una o más empresas y entre distintos protocolos. Una aplicación lógica comienza con un desencadenador, seguido de una o varias acciones que se pueden secuenciar mediante controles integrados, como condiciones e iteradores. Esta flexibilidad hace que Logic Apps sea una solución de IoT ideal para los escenarios de supervisión de IoT. Por ejemplo, la llegada de los datos de telemetría desde un dispositivo en un punto de conexión de IoT Hub puede iniciar flujos de trabajo de aplicaciones lógicas para almacenar los datos en un blob de Azure Storage, enviar alertas por correo electrónico para avisar de anomalías de datos, programar una visita del técnico si un dispositivo notifica un error, etc.
+[Azure Logic Apps](../logic-apps/index.yml) puede ayudar a orquestar flujos de trabajo entre servicios locales y de nube, una o más empresas y entre distintos protocolos. Una aplicación lógica comienza con un desencadenador, seguido de una o varias acciones que se pueden secuenciar mediante controles integrados, como condiciones e iteradores. Esta flexibilidad hace que Logic Apps sea una solución de IoT ideal para los escenarios de supervisión de IoT. Por ejemplo, la llegada de los datos de telemetría desde un dispositivo en un punto de conexión de IoT Hub puede iniciar flujos de trabajo de aplicaciones lógicas para almacenar los datos en un blob de Azure Storage, enviar alertas por correo electrónico para avisar de anomalías de datos, programar una visita del técnico si un dispositivo notifica un error, etc.
 
 ## <a name="what-you-learn"></a>Conocimientos que adquirirá
 
@@ -104,7 +104,7 @@ Cree un espacio de nombres de Service Bus y una cola. Más adelante en este tema
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Agregar un punto de conexión personalizado y una regla de enrutamiento al centro de IoT
 
-Agregue un punto de conexión personalizado para la cola de Service Bus al centro de IoT y cree una regla de enrutamiento de mensajes para dirigir los mensajes que contienen una alerta de temperatura a ese punto de conexión, donde la aplicación lógica los recogerá. La regla de enrutamiento usa una consulta de enrutamiento, `temperatureAlert = "true"`, para reenviar los mensajes según el valor de la propiedad de aplicación `temperatureAlert` que establece el código de cliente que se ejecuta en el dispositivo. Para más información, consulte [Consulta de enrutamiento de mensajes basada en las propiedades del mensaje](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Agregue un punto de conexión personalizado para la cola de Service Bus al centro de IoT y cree una regla de enrutamiento de mensajes para dirigir los mensajes que contienen una alerta de temperatura a ese punto de conexión, donde la aplicación lógica los recogerá. La regla de enrutamiento usa una consulta de enrutamiento, `temperatureAlert = "true"`, para reenviar los mensajes según el valor de la propiedad de aplicación `temperatureAlert` que establece el código de cliente que se ejecuta en el dispositivo. Para más información, consulte [Consulta de enrutamiento de mensajes basada en las propiedades del mensaje](./iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties).
 
 ### <a name="add-a-custom-endpoint"></a>Agregar un punto de conexión personalizado
 

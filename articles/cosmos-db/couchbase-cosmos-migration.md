@@ -7,12 +7,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: b0c9ef99e4cbb0683273d613d3a85e7f6455a40d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87366728"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282475"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migración de CouchBase a API de SQL de Azure Cosmos DB
 
@@ -33,7 +33,7 @@ A continuación se indican las principales características que funcionan de man
 
 * Azure Cosmos DB tiene un campo "id." en el documento, mientras que Couchbase tiene el identificador como parte del cubo. El campo "id." es único en la partición.
 
-* Azure Cosmos DB escala mediante la técnica de creación de particiones o particionamiento. Eso significa que divide los datos en varias particiones. Estas particiones se crean en función de la propiedad de clave de partición que se proporciona. Se puede seleccionar la clave de partición para optimizar tanto operaciones de lectura como de escritura o también optimizadas para lectura/escritura. Para obtener más información, vea el articulo [Creación de particiones](./partition-data.md).
+* Azure Cosmos DB escala mediante la técnica de creación de particiones o particionamiento. Eso significa que divide los datos en varias particiones. Estas particiones se crean en función de la propiedad de clave de partición que se proporciona. Se puede seleccionar la clave de partición para optimizar tanto operaciones de lectura como de escritura o también optimizadas para lectura/escritura. Para obtener más información, vea el articulo [Creación de particiones](./partitioning-overview.md).
 
 * En Azure Cosmos DB no es necesario que la jerarquía de nivel superior indique la colección, porque ya existe el nombre de la colección. Esta característica simplifica la estructura JSON. A continuación se proporciona un ejemplo en el que se muestran las diferencias en cuanto al modelo de datos entre Couchbase y Azure Cosmos DB:
 

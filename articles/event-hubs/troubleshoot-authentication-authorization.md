@@ -3,12 +3,12 @@ title: 'Solución de problemas de autenticación y autorización: Azure Event Hu
 description: En este artículo se proporciona información sobre cómo solucionar problemas de autenticación y autorización con Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: cd5f48dfb146a027f0b95b4ddea3dc054a315c6e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 368fd8efda1b828f99bc41da0743768989c1a601
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91566234"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329617"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Solución de problemas de autenticación y autorización: Azure Event Hubs
 En el artículo [Solución de problemas de conectividad](troubleshooting-guide.md) se ofrecen sugerencias para solucionar problemas de conectividad con Azure Event Hubs. En este artículo se proporcionan sugerencias y recomendaciones para solucionar problemas de autenticación y autorización con Azure Event Hubs. 
@@ -21,7 +21,7 @@ Si usa Azure Active Directory (Azure AD) para la autenticación y la autorizaci
 - [Remitente de los datos de Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) para el acceso de emisión.
 - [Receptor de datos de Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) para el acceso de recepción.
 
-En el caso de los roles integrados del registro de esquema, consulte [Roles del registro de esquema](schema-registry-overview.md#role-based-access-control).
+En el caso de los roles integrados del registro de esquema, consulte [Roles del registro de esquema](schema-registry-overview.md#azure-role-based-access-control).
 
 ### <a name="resource-scopes"></a>Ámbitos de recursos
 - **Grupo de consumidores**: en este ámbito, la asignación de roles solo se aplica a esta entidad. Actualmente, Azure Portal no admite la asignación de un rol de Azure a una entidad de seguridad en este nivel. 

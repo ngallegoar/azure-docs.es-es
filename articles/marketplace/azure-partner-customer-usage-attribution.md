@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 72d8cb0ef80210cca1dbf1d2726590c0cb8540e5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 167c2f091d4d8a7d7d5c32009b484125d7275796
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91261405"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282348"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribución de uso de partners y clientes de marketplace comercial
 
@@ -268,7 +268,7 @@ Al implementar el software de \<PARTNER>, Microsoft puede identificar la instala
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-Descubra las opciones de soporte técnico en el Marketplace comercial en [Soporte técnico para el programa Marketplace comercial en el Centro de partners](./partner-center-portal/support.md).
+Descubra las opciones de soporte técnico en el Marketplace comercial en [Soporte técnico para el programa Marketplace comercial en el Centro de partners](support.md).
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Envío de una solicitud de consulta técnica
 

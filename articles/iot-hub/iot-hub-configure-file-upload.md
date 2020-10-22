@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
-ms.openlocfilehash: bd7cc37b8fc81fc9d4109826743f2243913d0604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d374ff372e0bc3fb183d9210f663987e4804114
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60735054"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142535"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configuración de cargas de archivos de IoT Hub mediante Azure Portal
 
@@ -52,5 +52,5 @@ Siga estos vínculos para más información sobre la administración de Azure Io
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)
-* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/quickstart-linux.md)
 * [Protección total de la solución de IoT](../iot-fundamentals/iot-security-ground-up.md)
