@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 0a25ae41a5f4ed73148f629799ca4865d756a769
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91fd974c730037907258cb4a670f6fa836bfda6c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962458"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144877"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedimientos recomendados para Azure App Service
-En este artículo se resumen los procedimientos recomendados para usar el [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
+En este artículo se resumen los procedimientos recomendados para usar el [Azure App Service](./overview.md). 
 
 ## <a name="colocation"></a><a name="colocation"></a>Ubicación compartida
 Cuando los recursos de Azure que componen una solución como una aplicación web y una base de datos se encuentran en regiones distintas puede ocurrir lo siguiente:

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d92dd191c8bfe590f6dab392ff679e5d7712ae6c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921099"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143860"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Registros de Azure Monitor para proveedores de servicios
 
@@ -35,7 +35,7 @@ En esta arquitectura, el área de trabajo se implementa en el inquilino del clie
 
 Los administradores de proveedores de servicios disponen de dos métodos para obtener acceso a un área de trabajo de Log Analytics en un inquilino del cliente:
 
-- Un cliente puede agregar usuarios individuales desde el proveedor de servicios como [usuarios invitados de Azure Active Directory (B2B)](../../active-directory/b2b/what-is-b2b.md). Los administradores del proveedor de servicios tendrán que iniciar sesión en el directorio de cada cliente en Azure Portal para poder acceder a estas áreas de trabajo. Esto también requiere que los clientes administren el acceso individual de cada administrador del proveedor de servicios.
+- Un cliente puede agregar usuarios individuales desde el proveedor de servicios como [usuarios invitados de Azure Active Directory (B2B)](../../active-directory/external-identities/what-is-b2b.md). Los administradores del proveedor de servicios tendrán que iniciar sesión en el directorio de cada cliente en Azure Portal para poder acceder a estas áreas de trabajo. Esto también requiere que los clientes administren el acceso individual de cada administrador del proveedor de servicios.
 - Para mejorar la escalabilidad y la flexibilidad, los proveedores de servicios pueden usar la funcionalidad de [administración de recursos delegados de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) de [Azure Lighthouse](../../lighthouse/overview.md) para acceder al inquilino del cliente. Con este método, los administradores de proveedores de servicios se incluyen en un grupo de usuarios de Azure AD en el inquilino del proveedor de servicios. Se concede acceso a este grupo durante el proceso de incorporación de cada cliente. Posteriormente, estos administradores pueden acceder a las áreas de trabajo de cada cliente desde su propio inquilino del proveedor de servicios, en lugar de tener que iniciar sesión en el inquilino de cada cliente individualmente. Esta forma de acceder a los recursos de las áreas de trabajo de Log Analytics de los clientes reduce el trabajo que debe llevar a cabo el cliente y puede facilitar la recopilación y el análisis de los datos entre varios clientes administrados por el mismo proveedor de servicios a través de herramientas como [Workbooks de Azure Monitor](./workbooks-overview.md). Para obtener más información, consulte [Supervisión de los recursos del cliente a escala](../../lighthouse/how-to/monitor-at-scale.md).
 
 Las ventajas de la arquitectura distribuida son las siguientes:
@@ -81,7 +81,7 @@ Hay dos opciones para implementar registros en una ubicación central:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Automatice la creación y configuración de áreas de trabajo con [plantillas de Resource Manager](template-workspace-configuration.md).
+* Automatice la creación y configuración de áreas de trabajo con [plantillas de Resource Manager](../samples/resource-manager-workspace.md).
 
 * Automatice la creación de áreas de trabajo con [PowerShell](./powershell-workspace-configuration.md).
 

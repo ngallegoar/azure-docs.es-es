@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: db042a6112944e1c825177506782758d0a96b390
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9be4b14ca51b56ec0a52147b409a56f87cf302
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448401"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341896"
 ---
 # <a name="using-custom-security-policies"></a>Uso de directivas de seguridad personalizadas
 
@@ -21,7 +21,7 @@ Para ayudarle a proteger los sistemas y el entorno, Azure Security Center genera
 
 Gracias a esta característica, puede agregar sus propias iniciativas *personalizadas*. A continuación, recibirá recomendaciones si el entorno no sigue las directivas que creó. Cualquier iniciativa personalizada que cree aparecerá junto a las iniciativas integradas en el panel de cumplimiento normativo, según se describe en el tutorial [Mejora del cumplimiento normativo](security-center-compliance-dashboard.md).
 
-Como se explicó en la [documentación de Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location), cuando se especifica una ubicación para la iniciativa personalizada, debe ser un grupo de administración o una suscripción. 
+Como se explicó en la [documentación de Azure Policy](../governance/policy/concepts/definition-structure.md#definition-location), cuando se especifica una ubicación para la iniciativa personalizada, debe ser un grupo de administración o una suscripción. 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Agregar una iniciativa personalizada a la suscripción 
 
@@ -136,7 +136,7 @@ A continuación se muestra un ejemplo de una directiva personalizada que incluye
 }
   ```
 
-Para ver otro ejemplo del uso de la propiedad de securityCenter, consulte [esta sección de la documentación de la API de REST](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
+Para ver otro ejemplo del uso de la propiedad de securityCenter, consulte [esta sección de la documentación de la API de REST](/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -146,4 +146,4 @@ En este artículo, ha aprendido a crear directivas de seguridad personalizadas.
 Para obtener material relacionado, consulte los siguientes artículos: 
 
 - [Introducción a las directivas de seguridad](tutorial-security-policy.md)
-- [Lista de directivas de seguridad integradas](security-center-policy-definitions.md)
+- [Lista de directivas de seguridad integradas](./policy-reference.md)

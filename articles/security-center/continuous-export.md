@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 8b27c3d0982e945fcabc6e7748646ea2ee1a4184
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ffc74e05d6cbe7722b9bf293c1a1e75a7de1b879
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945302"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342066"
 ---
 # <a name="continuously-export-security-alerts-and-recommendations"></a>Exportación continua de alertas y recomendaciones de seguridad
 
@@ -80,7 +80,7 @@ Los pasos siguientes son necesarios si va a configurar una exportación continua
 
 ### <a name="configure-continuous-export-using-the-rest-api"></a>Configuración de la exportación continua mediante la API REST
 
-La exportación continua se puede configurar y administrar mediante las [API de automatizaciones](https://docs.microsoft.com/rest/api/securitycenter/automations) de Azure Security Center. Use esta API para crear o actualizar reglas para exportarlas a cualquiera de los siguientes destinos posibles:
+La exportación continua se puede configurar y administrar mediante las [API de automatizaciones](/rest/api/securitycenter/automations) de Azure Security Center. Use esta API para crear o actualizar reglas para exportarlas a cualquiera de los siguientes destinos posibles:
 
 - Centro de eventos de Azure
 - Área de trabajo de Log Analytics
@@ -97,7 +97,7 @@ La API proporciona funcionalidad adicional que no está disponible en Azure Port
     > [!TIP]
     > Si ha configurado la exportación múltiple mediante la API o si ha usado parámetros que son solo de la API, esas características adicionales no se mostrarán en la interfaz de usuario de Security Center. En su lugar, habrá un banner que le informará de que existen otras configuraciones.
 
-En la [documentación de la API REST](https://docs.microsoft.com/rest/api/securitycenter/automations) encontrará más información sobre la API de automatizaciones.
+En la [documentación de la API REST](/rest/api/securitycenter/automations) encontrará más información sobre la API de automatizaciones.
 
 
 
@@ -163,7 +163,7 @@ Para ver los esquemas de eventos de los tipos de datos exportados, visite el art
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Visualización de las recomendaciones y alertas exportadas en Azure Monitor
 
-En algunos casos, puede elegir ver las alertas de seguridad exportadas o las recomendaciones en [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview). 
+En algunos casos, puede elegir ver las alertas de seguridad exportadas o las recomendaciones en [Azure Monitor](../azure-monitor/platform/alerts-overview.md). 
 
 Azure Monitor proporciona un conjunto de alertas unificadas que consta de varias alertas de Azure, como el registro de diagnóstico, las alertas de métricas y las alertas personalizadas basadas en las consultas del área de trabajo de Log Analytics.
 
@@ -173,13 +173,13 @@ Para ver las alertas y recomendaciones de Security Center en Azure Monitor, conf
 
     ![Página de alertas de Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
-1. En la página de creación de reglas, configure la nueva regla (de la misma manera que configuraría una [regla de alertas de registro en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)):
+1. En la página de creación de reglas, configure la nueva regla (de la misma manera que configuraría una [regla de alertas de registro en Azure Monitor](../azure-monitor/platform/alerts-unified-log.md)):
 
     * En **Recurso**, seleccione el área de trabajo de Log Analytics a la que exportó las recomendaciones y las alertas de seguridad.
 
     * En **Condición**, seleccione **Custom log search** (Búsqueda de registros personalizada). En la página que aparece, configure la consulta, el período de retrospectiva y el período de frecuencia. En la consulta de búsqueda, puede escribir *SecurityAlert* o *SecurityRecommendation* para consultar los tipos de datos que Security Center exporta continuamente al habilitar la característica de exportación continua a Log Analytics. 
     
-    * Opcionalmente, en [Grupo de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups), configure el grupo de acciones que desea desencadenar. Los grupos de acciones pueden desencadenar el envío de correo electrónico, los vales de ITSM, los webhooks, etc.
+    * Opcionalmente, en [Grupo de acciones](../azure-monitor/platform/action-groups.md), configure el grupo de acciones que desea desencadenar. Los grupos de acciones pueden desencadenar el envío de correo electrónico, los vales de ITSM, los webhooks, etc.
     ![Regla de alerta de Azure Monitor](./media/continuous-export/azure-monitor-alert-rule.png)
 
 Ahora verá las nuevas alertas o recomendaciones de Azure Security Center (según las reglas de exportación continua configuradas y la condición definida en la regla de alerta de Azure Monitor) en las alertas de Azure Monitor, con el desencadenamiento automático de un grupo de acciones (si se proporciona).
@@ -214,7 +214,7 @@ En este artículo, ha aprendido a configurar exportaciones continuas de sus reco
 Para obtener material relacionado, consulte la documentación siguiente: 
 
 - Obtenga más información sobre las [plantillas de automatización de flujos de trabajo](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
-- [Documentación de Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)
-- [Documentación de Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
-- [Documentación sobre Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
+- [Documentación de Azure Event Hubs](../event-hubs/index.yml)
+- [Documentación de Azure Sentinel](../sentinel/index.yml)
+- [Documentación sobre Azure Monitor](../azure-monitor/index.yml)
 - [Exportación de esquemas de tipos de datos](https://aka.ms/ASCAutomationSchemas)

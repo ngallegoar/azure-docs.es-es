@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e0a11ef72698d749349cce8dd7eff73e5284a86
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575578"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122473"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: Creación de un pedido de exportación para Azure Data Box (versión preliminar)
 
@@ -164,7 +164,7 @@ Si selecciona **Usar archivo XML**, puede especificar los contenedores y blobs c
 2. Seleccione **+ Contenedor** para crear un contenedor.
     ![Captura de pantalla de la sección Contenedores.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
 
-3. En la pestaña **Nuevo contenedor** que aparece en el lado derecho de Azure Portal, agregue un nombre para el contenedor. El nombre debe estar en minúsculas y puede incluir números y guiones "-". A continuación, seleccione **Nivel de acceso público** en el cuadro de lista desplegable. Se recomienda elegir **Private (non anonymous access)** [Privado (acceso no anónimo)] para evitar que otros usuarios tengan acceso a los datos. Para más información sobre los niveles de acceso a los contenedores, consulte [Permisos de acceso a contenedores](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+3. En la pestaña **Nuevo contenedor** que aparece en el lado derecho de Azure Portal, agregue un nombre para el contenedor. El nombre debe estar en minúsculas y puede incluir números y guiones "-". A continuación, seleccione **Nivel de acceso público** en el cuadro de lista desplegable. Se recomienda elegir **Private (non anonymous access)** [Privado (acceso no anónimo)] para evitar que otros usuarios tengan acceso a los datos. Para más información sobre los niveles de acceso a los contenedores, consulte [Permisos de acceso a contenedores](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
    ![Captura de pantalla de la pestaña Nuevo contenedor que muestra la opción Privado (sin acceso anónimo) seleccionada.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
@@ -228,7 +228,7 @@ En el archivo XML siguiente se muestra un ejemplo de nombres de blob, prefijos d
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-   <!-- BlobList/prefix/Container list for Blob storage for export  -->
+   <!-- BlobList/prefix/Container list for Blob storage for export  -->
    <BlobList>
       <BlobPath>/8tbpageblob/8tbpageblob/8tbpageblob</BlobPath>
       <BlobPathPrefix>/blockblob4dot75tbdata/</BlobPathPrefix>
@@ -237,7 +237,7 @@ En el archivo XML siguiente se muestra un ejemplo de nombres de blob, prefijos d
       <BlobPathPrefix>/8mbfiles/</BlobPathPrefix>
       <BlobPathPrefix>/64mbfiles/</BlobPathPrefix>
    </BlobList>
-   <!-- FileList/prefix/Share list for Azure File storage for export  -->
+   <!-- FileList/prefix/Share list for Azure File storage for export  -->
    <AzureFileList>
       <FilePathPrefix>/64mbfiles/</FilePathPrefix>
       <FilePathPrefix>/4mbfiles/prefix2/subprefix</FilePathPrefix>

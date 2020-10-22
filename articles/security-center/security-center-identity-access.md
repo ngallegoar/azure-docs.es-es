@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 02e78969ce30f109f16309075b040b06c773b0dd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 88ab04eb69be0f9f765e6f95a0ea1194189d823a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946234"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341269"
 ---
 # <a name="monitor-identity-and-access"></a>Supervisión de la identidad y el acceso
 
@@ -30,7 +30,7 @@ Con la supervisión de las actividades y la configuración relacionada con la id
 
 Azure Security Center tiene dos controles de seguridad dedicados para asegurarse de que cumple los requisitos de identidad y seguridad de la organización: 
 
- - **Administración del acceso y los permisos**: le recomendamos que adopte el [modelo de acceso con privilegios mínimos](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) y que se asegure de conceder a los usuarios solo el acceso necesario para que puedan realizar sus tareas. Este control también incluye recomendaciones para implementar el [control de acceso basado en roles (RBAC)](../role-based-access-control/overview.md) para controlar el acceso a los recursos.
+ - **Administración del acceso y los permisos**: le recomendamos que adopte el [modelo de acceso con privilegios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) y que se asegure de conceder a los usuarios solo el acceso necesario para que puedan realizar sus tareas. Este control también incluye recomendaciones para implementar el [control de acceso basado en roles (RBAC)](../role-based-access-control/overview.md) para controlar el acceso a los recursos.
  
  - **Habilitación de MFA**: con [MFA](https://www.microsoft.com/security/business/identity/mfa) habilitada, las cuentas son más seguras y los usuarios podrán seguir autenticándose en casi cualquier aplicación con inicio de sesión único.
 
@@ -84,7 +84,7 @@ Para ver qué cuentas no tienen MFA habilitado, use la siguiente consulta de Azu
     > Las cuentas se muestran como identificadores de objeto en lugar de nombres de cuenta para proteger la privacidad de los titulares.
 
 > [!TIP]
-> También puede usar el método [Assessments - Get](https://docs.microsoft.com/rest/api/securitycenter/assessments/get) de la API REST de Security Center.
+> También puede usar el método [Assessments - Get](/rest/api/securitycenter/assessments/get) de la API REST de Security Center.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
