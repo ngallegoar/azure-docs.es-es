@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 536f5e7d2fa12d1f9a9f09a31b463d2096dcad37
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323732"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207417"
 ---
 # <a name="system-requirements"></a>Requisitos del sistema
 
@@ -80,7 +80,7 @@ Asegúrese de que los firewalls (en el dispositivo, dentro de los enrutadores, e
 El software siguiente debe estar instalado:
 
 * La versión más reciente de **Visual Studio 2019** [(descargar)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Visual Studio Tools para Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). En concreto, las instalaciones de *carga de trabajo* siguientes son obligatorias:
+* [Visual Studio Tools para Mixed Reality](/windows/mixed-reality/install-the-tools). En concreto, las instalaciones de *carga de trabajo* siguientes son obligatorias:
   * **Desarrollo para el escritorio con C++**
   * **Desarrollo de Plataforma universal de Windows (UWP)**
 * **Windows SDK 10.0.18362.0** [(descargar)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)

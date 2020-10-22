@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 29a5617e9d3ec90af49cc3fb5129ada86bf172ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8e36c71b9eb8267406e046fab6209c0aa0068ad
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87505481"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282668"
 ---
 # <a name="create-a-container-with-indexing-turned-off-in-an-azure-cosmos-db-account-using-powershell"></a>Creación de un contenedor con la indexación desactivada en una cuenta de Azure Cosmos DB mediante PowerShell
 
@@ -50,5 +50,3 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/).
-
-Encontrará más ejemplos de scripts de PowerShell de Azure Cosmos DB en los [scripts de PowerShell de Azure Cosmos DB](../../../powershell-samples.md).

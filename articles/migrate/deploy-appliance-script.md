@@ -3,12 +3,12 @@ title: Configuración de un dispositivo de Azure Migrate con un script
 description: Aprenda a configurar un dispositivo de Azure Migrate con un script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 6b0637019e40308cf40dcdbb4dc78512a8aa91e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4f92d787ea2a72dd534e514e27fa1a5defef39c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438916"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317323"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configuración de un dispositivo con un script
 
@@ -16,7 +16,7 @@ Siga este artículo para crear una [aplicación de Azure Migrate](./migrate-appl
 
 Puede implementar la aplicación para máquinas virtuales de Hyper-V y VMware mediante un script o mediante una plantilla que se descarga de Azure Portal. El uso de un script es útil si no se puede crear una máquina virtual mediante la plantilla descargada.
 
-- Para usar una plantilla, siga los tutoriales de [VMware](tutorial-prepare-vmware.md) o [Hyper-V](tutorial-prepare-hyper-v.md).
+- Para usar una plantilla, siga los tutoriales de [VMware](./tutorial-discover-vmware.md) o [Hyper-V](./tutorial-discover-hyper-v.md).
 - Para configurar una aplicación para servidores físicos, solo puede usar un script. Siga [este artículo](how-to-set-up-appliance-physical.md).
 - Para configurar una aplicación en una nube de Azure Government, siga [este artículo](deploy-appliance-script-government.md).
 

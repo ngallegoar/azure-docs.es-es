@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Azure Scheduler?
       href: scheduler-intro.md
-- name: Primeros pasos
+- name: Introducción
   items:
     - name: 'Creación y administración de programaciones: Azure PowerShell'
       href: scheduler-powershell-reference.md
@@ -49,7 +49,7 @@
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/updates/'
     - name: Página de preguntas y respuestas de Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-scheduler.html'
+      href: /answers/topics/azure-scheduler.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-scheduler'
     - name: Precios

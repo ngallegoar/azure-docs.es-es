@@ -406,8 +406,6 @@
           href: backup-encryption.md
         - name: Cifrado con claves administradas por el cliente
           href: encryption-at-rest-with-cmk.md
-        - name: Controles de seguridad integrados
-          href: backup-security-controls.md
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

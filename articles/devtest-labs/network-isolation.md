@@ -3,12 +3,12 @@ title: Aislamiento de red en Azure DevTest Labs
 description: Obtenga información sobre el aislamiento de red en Azure DevTest Labs.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: fbd2725cd3677e03cadbe0ae1f060b141f5d212b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aafa6bf94c7963d69bfb67a28a520b811c4fbacf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88875542"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149157"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>Aislamiento de red en DevTest Labs
 
@@ -57,7 +57,7 @@ Consulte también los artículos siguientes:
  
    > [!div class="mx-imgBorder"]
    > ![Prueba de Contoso](./media/network-isolation/contoso-test.png)
-1. En la cuenta de almacenamiento, vaya a Firewalls y redes virtuales y asegúrese de que la casilla "Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento" está activada. Como [DevTest Labs es un servicio de confianza de Microsoft](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), esta opción permitirá que el laboratorio funcione normalmente en un modo aislado de red. 
+1. En la cuenta de almacenamiento, vaya a Firewalls y redes virtuales y asegúrese de que la casilla "Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento" está activada. Como [DevTest Labs es un servicio de confianza de Microsoft](../storage/common/storage-network-security.md#trusted-microsoft-services), esta opción permitirá que el laboratorio funcione normalmente en un modo aislado de red. 
 
    > [!div class="mx-imgBorder"]
    > ![Firewalls de laboratorio de Contoso](./media/network-isolation/contoso-lab-firewalls-vnets.png)
@@ -74,7 +74,7 @@ Con esto, Azure Storage permitirá conexiones entrantes de la red virtual agrega
 
 También puede elegir automatizar estos pasos para configurar esta opción para varios laboratorios. 
 
-[Más información sobre la administración de reglas de acceso de red predeterminadas para Azure Storage mediante PowerShell y la CLI](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=/azure/virtual-network/toc.json#powershell)
+[Más información sobre la administración de reglas de acceso de red predeterminadas para Azure Storage mediante PowerShell y la CLI](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#powershell)
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>Elementos que hay que recordar al usar un laboratorio en un modo aislado de red
 
@@ -82,7 +82,7 @@ También puede elegir automatizar estos pasos para configurar esta opción para 
 
 Dentro de un laboratorio con aislamiento de red, para acciones como cargar un VHD a la cuenta de almacenamiento del laboratorio para crear imágenes personalizadas, el propietario del laboratorio deberá habilitar explícitamente el acceso a la cuenta de almacenamiento desde un punto de conexión permitido. Para ello, puede crear una máquina virtual y tener acceso seguro a la cuenta de almacenamiento del laboratorio desde esa máquina virtual. 
 
-[Más información sobre el acceso a una cuenta de almacenamiento de forma privada desde una máquina virtual](../private-link/create-private-endpoint-storage-portal.md)
+[Más información sobre el acceso a una cuenta de almacenamiento de forma privada desde una máquina virtual](../private-link/tutorial-private-endpoint-storage-portal.md)
 
 ### <a name="exporting-usage-data-from-the-lab"></a>Exportación de datos de uso del laboratorio 
 

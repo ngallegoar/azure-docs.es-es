@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5da707d02d867ea35382b09612a89144f0a6527f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568104"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282300"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Compatibilidad de idiomas y regiones con la traducción de texto y voz
 
@@ -57,6 +57,7 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 |Filipino|  `fil`   |
 |Finés|   `fi`    |
 |Francés|    `fr`    |
+|Francés (Canadá)|   `fr-ca` |
 |Alemán|    `de`    |
 |Griego| `el`    |
 |Gujarati|  `gu`    |
@@ -364,6 +365,7 @@ Convierta la voz en texto para traducir al idioma de texto que prefiera. La conv
 |Inglés|
 |Finés|
 |Francés|
+|Francés (Canadá)|
 |Alemán|
 |Gujarati|
 |Hindi|
@@ -401,6 +403,7 @@ Convertir texto a voz. La conversión de texto en voz se usa para agregar una sa
 |Inglés|
 |Finés|
 |Francés|
+|Francés (Canadá)|
 |Alemán|
 |Griego|
 |Hebreo|

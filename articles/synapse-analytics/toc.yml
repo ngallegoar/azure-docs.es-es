@@ -44,8 +44,6 @@
       href: quickstart-create-workspace-powershell.md
     - name: Implementación con una plantilla
       href: quickstart-deployment-template-workspaces.md
-    - name: Uso de Synapse Studio
-      href: quickstart-synapse-studio.md
     - name: Vinculación de un área de trabajo de Power BI
       href: quickstart-power-bi.md
     - name: Creación de grupos
@@ -602,7 +600,7 @@
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: "Azure\_SQL\_Database"
+            - name: Azure SQL Database
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

@@ -105,12 +105,22 @@
               href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Creación de una oferta de Azure Container
               href: partner-center-portal/create-azure-container-offer.md
-    - name: Oferta de máquina virtual de Azure
+    - name: Ofertas de máquina virtual de Azure
       items:
         - name: Planificación de una oferta de máquina virtual
           href: marketplace-virtual-machines.md
         - name: Creación y publicación de una oferta de máquina virtual
           items:
+            - name: Creación de una oferta de máquina virtual
+              href: azure-vm-create.md
+            - name: Configuración de las propiedades de una oferta de máquina virtual
+              href: azure-vm-create-properties.md
+            - name: Configuración de un listado de ofertas de máquina virtual
+              href: azure-vm-create-listing.md
+            - name: Creación de planes de máquina virtual
+              href: azure-vm-create-plans.md
+            - name: Adición de un público en la versión preliminar
+              href: azure-vm-create-preview.md
             - name: Creación de recursos técnicos de máquina virtual
               items:
                 - name: Creación de una máquina virtual a partir de una base aprobada
@@ -127,16 +137,6 @@
                   href: azure-vm-create-faq.md
                 - name: Solución de problemas de certificación de máquina virtual
                   href: azure-vm-create-certification-faq.md
-            - name: Creación de una oferta de máquina virtual
-              href: azure-vm-create.md
-            - name: Configuración de las propiedades de una oferta de máquina virtual
-              href: azure-vm-create-properties.md
-            - name: Configuración de un listado de ofertas de máquina virtual
-              href: azure-vm-create-listing.md
-            - name: Creación de planes de máquina virtual
-              href: azure-vm-create-plans.md
-            - name: Adición de un público en la versión preliminar
-              href: azure-vm-create-preview.md
     - name: Servicios de consultoría
       items:
         - name: Planificación de una oferta de servicios de consultoría
