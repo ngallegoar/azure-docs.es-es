@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
-ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21d8f513ea0f749f0318b9bc5926a746f840505b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82024972"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147827"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Administración automática de dispositivos y módulos IoT mediante la CLI de Azure
 
@@ -36,7 +36,7 @@ Las configuraciones automáticas se ejecutan por primera vez poco después de cr
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) en la suscripción de Azure. 
 
-* La [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en su entorno. Como mínimo, la versión de la CLI de Azure debe ser la 2.0.70. Use `az –-version` para asegurarse. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack. 
+* La [CLI de Azure](/cli/azure/install-azure-cli) en su entorno. Como mínimo, la versión de la CLI de Azure debe ser la 2.0.70. Use `az –-version` para asegurarse. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack. 
 
 * La [extensión de IoT para la CLI de Azure](https://github.com/Azure/azure-cli).
 
@@ -136,7 +136,7 @@ Use el comando siguiente para crear una configuración:
 
 * --**hub-name**: nombre de la instancia de IoT Hub en la que se creará la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
-* --**target-condition**: escriba una condición de destino para determinar qué dispositivos o módulos se identificarán con esta configuración. En la configuración automática de dispositivos, la condición se basa en las etiquetas del dispositivo gemelo o en sus propiedades deseadas y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.desired.devicemodel='4000x'`. En la configuración automática de módulos, la condición se basa en las etiquetas del módulo gemelo o en sus propiedades deseadas. Por ejemplo, `from devices.modules where tags.environment='test'` o `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
+* --**target-condition**: escriba una condición de destino para determinar qué dispositivos o módulos se identificarán con esta configuración.  En la configuración automática de dispositivos, la condición se basa en las etiquetas del dispositivo gemelo o en sus propiedades deseadas y debe coincidir con el formato de expresión.  Por ejemplo, `tags.environment='test'` o `properties.desired.devicemodel='4000x'`.  En la configuración automática de módulos, la condición se basa en las etiquetas del módulo gemelo o en sus propiedades deseadas. Por ejemplo, `from devices.modules where tags.environment='test'` o `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
 * --**priority**: debe ser un entero positivo. En el caso de que dos o más configuraciones se destinen al mismo dispositivo o módulo, se aplicará la configuración que tenga el mayor valor numérico, según la prioridad.
 
@@ -155,7 +155,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**hub-name**: el nombre de la instancia de IoT Hub en la que está la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
-Revise la configuración en la ventana de comandos. La propiedad **metrics** enumera un recuento para cada métrica que evalúa cada centro:
+Revise la configuración en la ventana de comandos.  La propiedad **metrics** enumera un recuento para cada métrica que evalúa cada centro:
 
 * **targetedCount**: una métrica del sistema que especifica la cantidad de dispositivos o módulos gemelos en IoT Hub que coinciden con la condición de destino.
 
@@ -235,8 +235,8 @@ En este artículo, ha aprendido cómo configurar y supervisar dispositivos IoT a
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)
-* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 Para explorar el uso del servicio IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario, vea: 
 
-* [Servicio Azure IoT Hub Device Provisioning](/azure/iot-dps)
+* [Servicio Azure IoT Hub Device Provisioning](../iot-dps/index.yml)

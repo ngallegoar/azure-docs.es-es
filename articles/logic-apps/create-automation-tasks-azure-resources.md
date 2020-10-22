@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1826b17a971b49fdfe8d5df02d71eb682b15db6f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2b3b40b5958df52dabf92155a1de809578f1d374
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269733"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201127"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Administración de los recursos de Azure y supervisión de los costos mediante la creación de tareas de automatización (versión preliminar)
 
@@ -47,7 +47,7 @@ En este artículo se muestra cómo completar las tareas siguientes:
 
 Actualmente, se puede crear una tarea de automatización solo en el nivel de recurso, ver el historial de ejecución de la tarea y editar el flujo de trabajo de la aplicación lógica subyacente de la tarea, que se basa en el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Las tareas de automatización son más básicas y ligeras que [Azure Automation](../automation/automation-intro.md).
 
-En comparación, Azure Automation es un servicio de automatización y configuración basado en la nube que facilita una administración coherente en los entornos que se encuentran dentro y fuera de Azure. El servicio consta de la [automatización de procesos para organizarlos](../automation/automation-intro.md#process-automation) a través del uso de [runbooks](../automation/automation-runbook-execution.md), administración de configuración con [Change Tracking e Inventario](../automation/change-tracking.md), administración de actualizaciones, funcionalidades compartidas y características heterogéneas. Azure proporciona un control completo durante la implementación, las operaciones y la retirada de las cargas de trabajo y recursos.
+En comparación, Azure Automation es un servicio de automatización y configuración basado en la nube que facilita una administración coherente en los entornos que se encuentran dentro y fuera de Azure. El servicio consta de la [automatización de procesos para organizarlos](../automation/automation-intro.md#process-automation) a través del uso de [runbooks](../automation/automation-runbook-execution.md), administración de configuración con [Change Tracking e Inventario](../automation/change-tracking/overview.md), administración de actualizaciones, funcionalidades compartidas y características heterogéneas. Azure proporciona un control completo durante la implementación, las operaciones y la retirada de las cargas de trabajo y recursos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

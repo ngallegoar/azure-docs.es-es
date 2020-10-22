@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9e635d606870d09e9aac82de7da32e074b124159
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fd792684150598449deabd14c0e19f266597bd9
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906951"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093980"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>CI/CD de Azure Spring Cloud con Acciones de GitHub
 
 Acciones de GitHub admite un flujo de trabajo del ciclo de vida de desarrollo de software automatizado. Con Acciones de GitHub para Azure Spring Cloud puede crear flujos de trabajo en el repositorio para compilar, probar, empaquetar, publicar e implementar en Azure. 
 
 ## <a name="prerequisites"></a>Requisitos previos
-En este ejemplo se requiere la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+En este ejemplo se requiere la [CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 ::: zone pivot="programming-language-csharp"
 ## <a name="set-up-github-repository-and-authenticate"></a>Configuración y autenticación de repositorios de GitHub
@@ -289,7 +289,7 @@ jobs:
 ```
 
 ## <a name="deploy-with-maven-plugin"></a>Implementación con el complemento Maven
-Otra opción es usar el [complemento Maven](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart) para implementar el archivo .jar y actualizar la configuración de la aplicación. El comando `mvn azure-spring-cloud:deploy` es idempotente y creará automáticamente las aplicaciones si fuera necesario. No es preciso crear las aplicaciones correspondientes de antemano.
+Otra opción es usar el [complemento Maven](./spring-cloud-quickstart.md) para implementar el archivo .jar y actualizar la configuración de la aplicación. El comando `mvn azure-spring-cloud:deploy` es idempotente y creará automáticamente las aplicaciones si fuera necesario. No es preciso crear las aplicaciones correspondientes de antemano.
 
 ```
 name: AzureSpringCloud
@@ -340,5 +340,5 @@ Si al ejecutarse la acción aparece un error, por ejemplo, si no ha establecido 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Key Vault para Acciones de GitHub en Spring Cloud](./spring-cloud-github-actions-key-vault.md)
-* [Entidades de servicio de Azure Active Directory](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az-ad-sp-create-for-rbac)
+* [Entidades de servicio de Azure Active Directory](/cli/azure/ad/sp?preserve-view=true&view=azure-cli-latest#az-ad-sp-create-for-rbac)
 * [Acciones de GitHub para Azure](https://github.com/Azure/actions/)

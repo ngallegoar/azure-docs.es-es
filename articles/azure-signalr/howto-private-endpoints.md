@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80369883b84ca30cae475235d41addcfba7e52e1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84302147"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152340"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Uso de puntos de conexión privados para Azure SignalR Service
 
@@ -82,8 +82,8 @@ El nombre de zona DNS recomendado para los puntos de conexión privados de Azure
 
 Para más información sobre cómo configurar su propio servidor DNS para que admita puntos de conexión privados, consulte los siguientes artículos:
 
-- [Resolución de nombres de recursos en redes virtuales de Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configuración de DNS para puntos de conexión privados](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Resolución de nombres de recursos en redes virtuales de Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [Configuración de DNS para puntos de conexión privados](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## <a name="create-a-private-endpoint"></a>Creación de un punto de conexión privado
 
@@ -198,7 +198,7 @@ Esta restricción es el resultado de los cambios de DNS realizados cuando Azure 
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Reglas de grupo de seguridad de red para subredes con puntos de conexión privados
 
-Actualmente, no se pueden configurar reglas de [grupo de seguridad de red](../virtual-network/security-overview.md) (NSG) ni rutas definidas por el usuario para puntos de conexión privados. Las reglas de NSG que se aplican a la subred que hospeda el punto de conexión privado se aplican al punto de conexión privado. Una solución alternativa limitada para este problema es implementar las reglas de acceso para los puntos de conexión privados en las subredes de origen, aunque este enfoque puede requerir mayor sobrecarga de administración.
+Actualmente, no se pueden configurar reglas de [grupo de seguridad de red](../virtual-network/network-security-groups-overview.md) (NSG) ni rutas definidas por el usuario para puntos de conexión privados. Las reglas de NSG que se aplican a la subred que hospeda el punto de conexión privado se aplican al punto de conexión privado. Una solución alternativa limitada para este problema es implementar las reglas de acceso para los puntos de conexión privados en las subredes de origen, aunque este enfoque puede requerir mayor sobrecarga de administración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: e7d966aa5aa4b5a498c80cab26686411dd586185
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5ac3d76d8c80947b820d195b9727d1fe50d32899
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044605"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372351"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Creación de soluciones de un extremo a otro
 
@@ -445,12 +445,6 @@ Con [Azure Cloud Shell](https://shell.azure.com), puede eliminar todos los recur
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-A continuación, use este comando para eliminar el registro de aplicación de Azure AD que creó para la aplicación cliente:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 Por último, elimine la carpeta de ejemplo del proyecto que descargó en la máquina local.

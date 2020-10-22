@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 2134dde0fa0b92bec4519c0d6a24dcaad3792baa
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 1cb5312e164bac09930497c377f1590b6a77ca05
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575187"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205326"
 ---
 # <a name="configure-the-model-conversion"></a>Configuración de la conversión de modelos
 
@@ -258,7 +258,7 @@ Como se describe en la sección de [procedimientos recomendados para realizar ca
 ### <a name="texture-sizes"></a>Tamaños de texturas
 
 Dependiendo del tipo de escenario, la cantidad de datos de textura puede ser mayor que la memoria usada para los datos de la malla. Los modelos de fotogrametría son candidatos.
-La configuración de la conversión no proporciona una manera de reducir verticalmente las texturas de forma automática. Si fuera necesario, el escalado de textura debe realizarse como un paso del procesamiento previo del cliente. Sin embargo, el paso de conversión elige un [formato de compresión de textura](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11) adecuado:
+La configuración de la conversión no proporciona una manera de reducir verticalmente las texturas de forma automática. Si fuera necesario, el escalado de textura debe realizarse como un paso del procesamiento previo del cliente. Sin embargo, el paso de conversión elige un [formato de compresión de textura](/windows/win32/direct3d11/texture-block-compression-in-direct3d-11) adecuado:
 
 * `BC1` para texturas de color opacas
 * `BC7` para las texturas de color de origen con canal alfa

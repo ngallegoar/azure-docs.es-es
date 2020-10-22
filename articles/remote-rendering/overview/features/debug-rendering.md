@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ebde1be459078f4f3473ebc3042d8acebcce910a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7924409a1760d59f4ecc88a736f7b8238fbd647b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613737"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205870"
 ---
 # <a name="debug-rendering"></a>Representación de la depuración
 
@@ -77,7 +77,7 @@ Sin embargo, los efectos proporcionados no proporcionan ninguna introspección d
 
 ## <a name="api-documentation"></a>Documentación de la API
 
-* [RemoteManager::DebugRenderingSettings() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
+* [RemoteManager::DebugRenderingSettings() de C++](/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

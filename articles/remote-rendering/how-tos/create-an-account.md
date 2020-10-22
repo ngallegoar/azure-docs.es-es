@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 7a4e6d80d80441a1b94c1fb2bd8f82f247235fe3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fb321aeeae1f0ef5aaadce22e228024895176143
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318099"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202657"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Creación de una cuenta de Azure Remote Rendering
 
@@ -101,7 +101,7 @@ Las demás listas desplegables se seleccionan como en el primer paso.
 
 Si ha agregado los tres roles, la cuenta de Azure Remote Rendering tiene acceso a la cuenta de almacenamiento mediante las identidades de servicio administradas asignadas por el sistema.
 > [!IMPORTANT]
-> Azure Storage almacena en caché las asignaciones de roles de Azure, por lo que puede haber un retraso de hasta 30 minutos entre el momento en que se concede acceso a la cuenta de representación remota y el momento en que se puede usar para acceder a la cuenta de almacenamiento. Para más información, consulte la [documentación sobre el control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#role-assignment-changes-are-not-being-detected).
+> Azure Storage almacena en caché las asignaciones de roles de Azure, por lo que puede haber un retraso de hasta 30 minutos entre el momento en que se concede acceso a la cuenta de representación remota y el momento en que se puede usar para acceder a la cuenta de almacenamiento. Para más información, consulte la [documentación sobre el control de acceso basado en rol](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

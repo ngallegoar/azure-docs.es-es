@@ -3,12 +3,12 @@ title: Acerca del proceso de restauración de máquinas virtuales de Azure
 description: Obtenga información sobre cómo el servicio Azure Backup restaura máquinas virtuales de Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f9e81c4fa40e5a1d984c163ffa5f37d8092f9032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67af1ed193c289358f929953bc3caa5d04ef7e09
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985328"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171759"
 ---
 # <a name="about-azure-vm-restore"></a>Acerca de la restauración de máquinas virtuales de Azure
 
@@ -32,7 +32,7 @@ En este artículo se describe cómo el [servicio Azure Backup](./backup-overview
 - **Disponibilidad (tipos de replicación)** : Azure Backup ofrece dos tipos de replicación para mantener la alta disponibilidad de los datos o del almacenamiento:
   - El [almacenamiento con redundancia local (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replica los datos tres veces (crea tres copias de los datos) en una unidad de escalado de almacenamiento de un centro de datos. Todas las copias de los datos se encuentran en la misma región. LRS es una opción de bajo costo para proteger los datos contra errores de hardware local.
   - El [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) es la opción de replicación predeterminada y recomendada. GRS replica los datos en una región secundaria (a cientos de kilómetros de la ubicación principal de los datos de origen). GRS cuesta más que LRS, pero proporciona un mayor nivel de durabilidad de los datos, aunque se produzca una interrupción regional.
-  - El [almacenamiento con redundancia de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica los datos en [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantizando así la residencia de datos y la resistencia en la misma región. El almacenamiento con redundancia de zona no tiene ningún tiempo de inactividad. Por lo tanto, de las cargas de trabajo críticas que requieren [residencia de datos](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), y que no deben tener ningún tiempo de inactividad, se pueden realizar copias de seguridad en el almacenamiento con redundancia de zona.
+  - El [almacenamiento con redundancia de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica los datos en [zonas de disponibilidad](../availability-zones/az-overview.md#availability-zones), garantizando así la residencia de datos y la resistencia en la misma región. El almacenamiento con redundancia de zona no tiene ningún tiempo de inactividad. Por lo tanto, de las cargas de trabajo críticas que requieren [residencia de datos](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), y que no deben tener ningún tiempo de inactividad, se pueden realizar copias de seguridad en el almacenamiento con redundancia de zona.
 
 - **Restauración entre regiones (CRR)** : Restauración entre regiones (CRR), una de las [opciones de restauración](./backup-azure-arm-restore-vms.md#restore-options), le permite restaurar máquinas virtuales de Azure en una región secundaria, que es una [región emparejada de Azure](../best-practices-availability-paired-regions.md#what-are-paired-regions).
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: e488f2ddc44f1339d648cd6fe6b1aae18b748679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f84201de1f63704fefcf5de4041b95ed8c2122cd
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892642"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094065"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Descripción de las métricas en Azure Spring Cloud
 
@@ -176,12 +176,12 @@ Para obtener más información, consulte [Contadores dotnet](/dotnet/core/diagno
 
 * [Inicio rápido: Supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento](spring-cloud-quickstart-logs-metrics-tracing.md)
 
-* [Introducción al Explorador de métricas de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
+* [Introducción al Explorador de métricas de Azure](../azure-monitor/platform/metrics-getting-started.md)
 
-* [Análisis de registros y métricas con la configuración de diagnóstico](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
+* [Análisis de registros y métricas con la configuración de diagnóstico](./diagnostic-services.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Tutorial: Supervisión de recursos de Spring Cloud mediante alertas y grupos de acciones](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
+* [Tutorial: Supervisión de recursos de Spring Cloud mediante alertas y grupos de acciones](./spring-cloud-tutorial-alerts-action-groups.md)
 
-* [Cuotas y planes de servicio de Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
+* [Cuotas y planes de servicio de Azure Spring Cloud](./spring-cloud-quotas.md)

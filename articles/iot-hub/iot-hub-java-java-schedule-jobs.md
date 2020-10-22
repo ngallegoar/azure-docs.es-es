@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: c1cac67d79363ce25fb55d73cc3d8c42ea901fb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36092e0bb7d0249837d2eaa7898e9231ecb5f5a9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325090"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146996"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Programación y difusión de trabajos (Java)
 
@@ -54,7 +54,7 @@ Al final de este tutorial, tendrá una aplicación de dispositivo de consola de 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Asegúrese de seleccionar **Java 8** en **Long-term support** (Soporte técnico a largo plazo) para obtener descargas de JDK 8.
+* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). Asegúrese de seleccionar **Java 8** en **Long-term support** (Soporte técnico a largo plazo) para obtener descargas de JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 

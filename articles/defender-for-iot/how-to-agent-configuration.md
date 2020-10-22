@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: c348b800e9587f13e6ff004317a2aa12efb03394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa863ce556840903d16238d6afef32136ba2b80d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932285"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090852"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configuración de agentes de seguridad
 
@@ -118,7 +118,7 @@ La siguiente tabla contiene las propiedades controlables de los agentes de segur
 Los valores predeterminados están disponibles en el esquema pertinente en [GitHub](https\://aka.ms/iot-security-module-default).
 
 | Nombre| Status | Valores válidos| Valores predeterminados| Descripción |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|--------|--|-------|----|
 |highPriorityMessageFrequency|Requerido: false |Valores válidos:  Duración en formato ISO 8601 |Valor predeterminado: PT7M |Intervalo de tiempo máximo antes de que los mensajes de prioridad alta se envíen.|
 |lowPriorityMessageFrequency |Requerido: false|Valores válidos:  Duración en formato ISO 8601 |Valor predeterminado: PT5H |Tiempo máximo antes de que los mensajes de prioridad baja se envíen.|
 |snapshotFrequency |Requerido: false|Valores válidos:  Duración en formato ISO 8601 |Valor predeterminado: PT13H |Intervalo de tiempo para la creación de instantáneas de estado del dispositivo.|
@@ -129,7 +129,7 @@ Los valores predeterminados están disponibles en el esquema pertinente en [GitH
 ### <a name="supported-security-events"></a>Eventos de seguridad admitidos
 
 |Nombre del evento| PropertyName | Valor predeterminado| Evento de instantánea| Estado de los detalles  |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|-|---------|----|----|
 |Evento de diagnóstico|eventPriorityDiagnostic| Off| False| Eventos de diagnóstico relacionados con el agente. Use este evento para el registro detallado.|
 |Error de configuración |eventPriorityConfigurationError |Bajo |False |El agente no pudo analizar la configuración. Contraste la configuración con el esquema.|
 |Estadísticas de eventos quitados |eventPriorityDroppedEventsStatistics |Bajo |True|Estadísticas de eventos relacionados con el agente. |

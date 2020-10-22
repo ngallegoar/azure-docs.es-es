@@ -3,12 +3,12 @@ title: 'Azure Service Fabric: uso de las referencias de KeyVault de la aplicaci�
 description: En este artículo se explica cómo usar la compatibilidad con KeyVaultReference de Service Fabrica para los secretos de aplicación.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: c4de6ae17ae728e1dbadbd6d6e2d94c0e1471112
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f2221bb3e8e3ee3181b2cff70107dccc203954cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91261148"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313792"
 ---
 # <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Compatibilidad de KeyVaultReference para aplicaciones de Service Fabric (versión preliminar)
 
@@ -18,7 +18,7 @@ Un desafío común al compilar aplicaciones en la nube es cómo almacenar de man
 > No se recomienda utilizar esta característica en versión preliminar en entorno de producción.
 
 > [!NOTE]
-> La característica en versión preliminar de referencia de KeyVault solo admite secretos [con versión](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning). No se admiten secretos sin versión.
+> La característica en versión preliminar de referencia de KeyVault solo admite secretos [con versión](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). No se admiten secretos sin versión.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

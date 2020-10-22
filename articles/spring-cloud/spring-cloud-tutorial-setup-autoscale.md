@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905394"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091073"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutorial: Configuración de la escalabilidad automática para aplicaciones de microservicios
 
@@ -25,7 +25,7 @@ El escalado automático es una característica integrada de Azure Spring Cloud q
 Para seguir estos procedimientos, necesita:
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-* Una instancia del servicio Azure Spring Cloud implementada. Como comienzo, siga el [inicio rápido para implementar una aplicación mediante la CLI de Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli).
+* Una instancia del servicio Azure Spring Cloud implementada. Como comienzo, siga el [inicio rápido para implementar una aplicación mediante la CLI de Azure](./spring-cloud-quickstart.md).
 * Al menos una aplicación ya creada en su instancia de servicio.
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Vaya a la página Escalabilidad automática de Azure Portal
@@ -70,5 +70,5 @@ Si está en el nivel Básico y se le imponen uno o varios de estos limites, pued
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a la escalabilidad automática en Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Supervisión de la escalabilidad automática con la CLI de Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
+* [Introducción a la escalabilidad automática en Microsoft Azure](../azure-monitor/platform/autoscale-overview.md)
+* [Supervisión de la escalabilidad automática con la CLI de Azure](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)

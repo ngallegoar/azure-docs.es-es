@@ -11,12 +11,12 @@ ms.author: wesmc
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 0d3afc8d24b95f170bd22b3dc2cf29e7f97e77c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5147d6d7f1bd1fcd43835f6a66196c7642ad4ff
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839561"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151944"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Conexión de IoT DevKit AZ3166 a Azure IoT Hub
 
@@ -33,7 +33,7 @@ Se puede usar [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-develope
 
 ¿Aún no tiene un DevKit? Pruebe el [simulador de DevKit](https://azure-samples.github.io/iot-devkit-web-simulator/) o [compre un DevKit](https://aka.ms/iot-devkit-purchase).
 
-Puede encontrar el código fuente de todos los tutoriales de DevKit en la [galería de códigos de ejemplo](https://docs.microsoft.com/samples/browse/?term=mxchip).
+Puede encontrar el código fuente de todos los tutoriales de DevKit en la [galería de códigos de ejemplo](/samples/browse/?term=mxchip).
 
 ## <a name="what-you-need"></a>Lo que necesita
 
@@ -267,7 +267,7 @@ En lugar de aprovisionar Azure IoT Hub y el dispositivo desde Azure Portal, pued
 
     ![Seleccionar suscripción](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
 
-1. Después, seleccione o cree un [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology).
+1. Después, seleccione o cree un [grupo de recursos](../azure-resource-manager/management/overview.md#terminology).
 
     ![Selección de un grupo de recursos](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
 

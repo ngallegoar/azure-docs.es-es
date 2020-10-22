@@ -4,12 +4,12 @@ description: Funcionalidad de restauración instantánea de Azure y preguntas fr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95de22d8493181f098e480afc4f319c44c633e42
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000386"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173915"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Rendimiento mejorado de la copia de seguridad y la restauración con la funcionalidad de restauración instantánea de Azure Backup
 
@@ -60,6 +60,8 @@ Las instantáneas incrementales se almacenan en la cuenta de almacenamiento de l
 ## <a name="configure-snapshot-retention"></a>Configuración de la retención de instantáneas
 
 ### <a name="using-azure-portal"></a>Uso de Azure Portal
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 En Azure Portal puede ver que se ha agregado un campo al panel **VM Backup Policy** (Directiva de copia de seguridad de máquina virtual) en la sección **Restauración instantánea**. Puede cambiar la duración de la retención de instantáneas en el panel **VM Backup Policy** (Directiva de copia de seguridad de máquina virtual) para todas las máquinas virtuales asociadas con la directiva de copia de seguridad específica.
 

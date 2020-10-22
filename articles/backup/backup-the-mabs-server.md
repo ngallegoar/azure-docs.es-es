@@ -3,12 +3,12 @@ title: Copia de seguridad del servidor de MABS
 description: Aprenda a realizar copias de seguridad con Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: de62f0f57273ad7bd77df917d909627819165adb
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946582"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172119"
 ---
 # <a name="back-up-the-mabs-server"></a>Copia de seguridad del servidor de MABS
 
@@ -184,9 +184,9 @@ Si el servidor de MABS sigue estando operativo y el bloque de almacenamiento est
 
 Puede realizar una copia de seguridad de la base de datos de MABS en un disco local con copia de seguridad de SQL Server nativa, independiente de MABS.
 
-- Vea una [introducción](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) a las copias de seguridad de SQL Server.
+- Vea una [introducción](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) a las copias de seguridad de SQL Server.
 
-- [Obtenga más información](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sobre las copias de seguridad de SQL Server en la nube.
+- [Obtenga más información](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sobre las copias de seguridad de SQL Server en la nube.
 
 ## <a name="back-up-to-a-share-protected-by-mabs"></a>Copia de seguridad en un recurso compartido protegido por MABS
 
@@ -238,9 +238,9 @@ Esta opción de copia de seguridad usa SQL nativo para realizar una copia de seg
 
 Puede realizar una copia de seguridad de la base de datos de MABS como lo haría con cualquier otra base de datos de SQL Server con la copia de seguridad nativa de SQL Server.
 
-- Vea una [introducción](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) a las copias de seguridad de SQL Server.
+- Vea una [introducción](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) a las copias de seguridad de SQL Server.
 
-- [Obtenga más información](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sobre las copias de seguridad de SQL Server en la nube.
+- [Obtenga más información](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sobre las copias de seguridad de SQL Server en la nube.
 
 ### <a name="recover-the-mabs-database"></a>Recuperación de la base de datos de MABS
 

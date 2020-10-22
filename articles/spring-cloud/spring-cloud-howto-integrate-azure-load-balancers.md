@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 02772f153cdda7e3f3c866c727d589e755e19033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd0b9d1369fb1c0e662de83b7056da0ff7c83bd1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906937"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090835"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integración de Azure Spring Cloud con soluciones de equilibrio de carga de Azure
 
@@ -28,10 +28,10 @@ Azure ya proporciona diferentes soluciones de equilibrio de carga. Existen tres 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Azure Spring Cloud: [creación de un servicio Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
-* Azure Traffic Manager: [creación de una instancia de Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* Azure App Gateway: [creación de una instancia de Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* Azure Front Door: [creación de una instancia de Front Door](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* Azure Spring Cloud: [creación de un servicio Azure Spring Cloud](./spring-cloud-quickstart.md)
+* Azure Traffic Manager: [creación de una instancia de Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* Azure App Gateway: [creación de una instancia de Application Gateway](../application-gateway/quick-create-portal.md)
+* Azure Front Door: [creación de una instancia de Front Door](../frontdoor/quickstart-create-front-door.md)
 
 ## <a name="integrate-azure-spring-cloud-with-azure-traffic-manager"></a>Integración de Azure Spring Cloud con Azure Traffic Manager
 
@@ -92,6 +92,6 @@ Para integrar con el servicio Azure Spring Cloud y configurar el grupo de back-e
     ![Front Door 2](media/spring-cloud-load-balancers/front-door-2.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Creación de un perfil de Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* [Creación de una instancia de Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* [Creación de una instancia de Front Door](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* [Creación de un perfil de Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* [Creación de una instancia de Application Gateway](../application-gateway/quick-create-portal.md)
+* [Creación de una instancia de Front Door](../frontdoor/quickstart-create-front-door.md)

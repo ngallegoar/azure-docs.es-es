@@ -3,12 +3,12 @@ title: 'Agente de Microsoft Azure Recovery Services (MARS): Preguntas frecuente
 description: Responde las preguntas habituales acerca de la realización de copias de seguridad de archivos y carpetas con Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: e3a5b6d07982c3261b457d4999025c44489c0a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fb9e3993d6f56833e43a4d451c0865b7fd732d3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182520"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172513"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Preguntas más frecuentes: agente de Microsoft Azure Recovery Services (MARS)
 
@@ -32,7 +32,7 @@ Las credenciales del almacén expiran después de 10 días. Si el archivo de cr
 
 ### <a name="what-characters-are-allowed-for-the-passphrase"></a>¿Qué caracteres se permiten para la frase de contraseña?
 
-La frase de contraseña debe usar caracteres del juego de caracteres ASCII, con [valores ASCII menores o iguales que 127](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127).
+La frase de contraseña debe usar caracteres del juego de caracteres ASCII, con [valores ASCII menores o iguales que 127](/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>¿De qué unidades se pueden hacer copias de seguridad de archivos y carpetas?
 

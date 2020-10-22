@@ -4,12 +4,12 @@ description: Síntomas, causas y soluciones de errores de Azure Backup relaciona
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1711652434be3d9937c8199bc1999273ef58e4d0
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182044"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170290"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -103,7 +103,6 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 
 Este error se produce cuando uno de los errores de extensión deja a la máquina virtual en un estado de aprovisionamiento con errores.<br>Abra **Azure Portal > VM > Configuración > Extensiones > Estado de las extensiones** y compruebe que el estado de todas las extensiones es **Aprovisionamiento realizado correctamente**. Para más información, consulte [Estados de aprovisionamiento](../virtual-machines/states-lifecycle.md#provisioning-states).
 
-- Si la extensión VMSnapshot está en un estado con errores, haga clic con el botón derecho en la extensión con errores y elimínela. Desencadene una copia de seguridad a petición. Esta acción volverá a instalar las extensiones y ejecutará el trabajo de copia de seguridad.  <br>
 - Si cualquier otra extensión está en un estado con errores, puede interferir con la copia de seguridad. Asegúrese que se resuelven esos problemas de extensiones y vuelva a intentar la operación de copia de seguridad.
 - Si el estado de aprovisionamiento de la máquina virtual es un estado de actualización, puede interferir con la copia de seguridad. Asegúrese de que sea correcto y vuelva a intentar la operación de copia de seguridad.
 

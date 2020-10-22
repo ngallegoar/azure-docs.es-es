@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 072eeb0bee0d0441549d2edad448f3b1c85a28a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566507"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202351"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuitos ExpressRoute y emparejamiento
 
@@ -70,7 +70,7 @@ Cada emparejamiento requiere sesiones de BGP independientes (un par para cada ti
 
 ## <a name="expressroute-health"></a><a name="health"></a>Estado de ExpressRoute
 
-Los circuitos de ExpressRoute se pueden supervisar para comprobar la disponibilidad, la conectividad con redes virtuales y la utilización del ancho de banda mediante [ Network Performance Monitor ](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
+Los circuitos de ExpressRoute se pueden supervisar para comprobar la disponibilidad, la conectividad con redes virtuales y la utilización del ancho de banda mediante [ Network Performance Monitor ](../networking/network-monitoring-overview.md) (NPM).
 
 NPM supervisa el estado del emparejamiento privado de Azure y el emparejamiento de Microsoft. Para más información, consulte nuestra [publicación](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/).
 

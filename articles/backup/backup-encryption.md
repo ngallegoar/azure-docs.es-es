@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo las características de cifrado de
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: f55deba58cd7b725bd030409296794e5de911c09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47ecf5c16682691bd9ff7014400ea6e8ab658a92
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017913"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173934"
 ---
 # <a name="encryption-in-azure-backup"></a>Cifrado en Azure Backup
 
@@ -24,12 +24,12 @@ Azure Backup incluye el cifrado en dos niveles:
   - **Usando claves administradas por el cliente**: al realizar una copia de seguridad de Azure Virtual Machines, puede elegir cifrar los datos mediante las claves de cifrado que posee y administra. Azure Backup le permite usar las claves RSA almacenadas en Azure Key Vault para cifrar las copias de seguridad. La clave de cifrado utilizada para cifrar las copias de seguridad puede ser diferente de la que se usa para el origen. Los datos se protegen mediante una clave de cifrado de datos (DEK) basada en AES 256, que, a su vez, está protegida con las claves del usuario. Esto le proporciona un control total sobre los datos y las claves. Para permitir el cifrado, se requiere que conceda acceso al almacén de Recovery Services a la clave de cifrado en Azure Key Vault. Puede deshabilitar la clave o revocar el acceso siempre que sea necesario. Sin embargo, debe habilitar el cifrado con las claves antes de intentar proteger los elementos en el almacén. [Obtenga más información aquí](encryption-at-rest-with-cmk.md).
   - **Cifrado de nivel de infraestructura**: Además de cifrar los datos en el almacén de Recovery Services mediante claves administradas por el cliente, también puede elegir tener una capa adicional de cifrado configurada en la infraestructura de almacenamiento. La plataforma administra este cifrado de infraestructura. Junto con el cifrado en reposo mediante claves administradas por el cliente, permite el cifrado de dos niveles de los datos de copia de seguridad. El cifrado de infraestructura solo se puede configurar si primero elige usar sus propias claves para el cifrado en reposo. El cifrado de infraestructura usa claves administradas por la plataforma para cifrar datos.
 - **Cifrado específico de la carga de trabajo de la que se está realizando una copia de seguridad**  
-  - **Copia de seguridad de máquinas virtuales de Azure**: Azure Backup admite la copia de seguridad de máquinas virtuales con discos cifrados mediante [claves administradas por la plataforma](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys), así como [claves administradas por el cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) que posee y administra. Además, también puede hacer una copia de seguridad de las máquinas virtuales de Azure que tienen el sistema operativo o los discos de datos cifrados mediante [Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade). ADE usa BitLocker para las VM Windows y DM-Crypt para las VM Linux a fin de realizar el cifrado de invitado.
+  - **Copia de seguridad de máquinas virtuales de Azure**: Azure Backup admite la copia de seguridad de máquinas virtuales con discos cifrados mediante [claves administradas por la plataforma](../virtual-machines/windows/disk-encryption.md#platform-managed-keys), así como [claves administradas por el cliente](../virtual-machines/windows/disk-encryption.md#customer-managed-keys) que posee y administra. Además, también puede hacer una copia de seguridad de las máquinas virtuales de Azure que tienen el sistema operativo o los discos de datos cifrados mediante [Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade). ADE usa BitLocker para las VM Windows y DM-Crypt para las VM Linux a fin de realizar el cifrado de invitado.
 
 >[!NOTE]
 >El cifrado de infraestructura se encuentra actualmente en versión preliminar limitada y solo está disponible en las regiones Este de EE. UU., Oeste de EE. UU. 2, Centro y Sur de EE. UU. y US Gov Arizona. Si desea usar la característica en alguna de estas regiones, rellene [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) y envíelo por correo electrónico a [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Cifrado de Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md)
 - [Preguntas más frecuentes de Azure Backup](backup-azure-backup-faq.md#encryption) para cualquier pregunta que pueda tener sobre el cifrado

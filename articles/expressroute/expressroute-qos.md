@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: duau
-ms.openlocfilehash: 871af5b767e8cfe10db3a0a1c15c47340e25581f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f14f43fa341df40ecd35340b7311e1acd18004c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395033"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204714"
 ---
 # <a name="expressroute-qos-requirements"></a>Requisitos de QoS ExpressRoute
 Skype Empresarial tiene varias cargas de trabajo que requieren tratamiento diferenciado de QoS. Si piensa consumir servicios de voz a través de ExpressRoute, debe cumplir los requisitos descritos a continuación.
@@ -24,7 +24,7 @@ Skype Empresarial tiene varias cargas de trabajo que requieren tratamiento difer
 > 
 > 
 
-En la tabla siguiente se proporciona una lista de las marcas de DSCP que usan Microsoft Teams y Skype Empresarial. Consulte [Administración de QoS para Skype Empresarial](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) para obtener más información.
+En la tabla siguiente se proporciona una lista de las marcas de DSCP que usan Microsoft Teams y Skype Empresarial. Consulte [Administración de QoS para Skype Empresarial](/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) para obtener más información.
 
 | **Clase de tráfico** | **Tratamiento (marcado de DSCP)** | **Cargas de trabajo de Microsoft Teams y Skype Empresarial** |
 | --- | --- | --- |
@@ -34,7 +34,7 @@ En la tabla siguiente se proporciona una lista de las marcas de DSCP que usan Mi
 | **Valor predeterminado** |AF11 (10) |Transferencia de archivos |
 | |CS0 (0) |Nada más |
 
-* Debe clasificar las cargas de trabajo y marcar los valores de DSCP correctos. Siga las instrucciones proporcionadas [aquí](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) sobre cómo establecer marcados de DSCP en la red.
+* Debe clasificar las cargas de trabajo y marcar los valores de DSCP correctos. Siga las instrucciones proporcionadas [aquí](/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) sobre cómo establecer marcados de DSCP en la red.
 * Debe configurar y admitir varias colas de QoS dentro de la red. La voz debe ser una clase independiente y recibir el tratamiento EF especificado en [RFC 3246](https://www.ietf.org/rfc/rfc3246.txt). 
 * Puede decidir el mecanismo de puesta en cola, la directiva de detección de congestión y la asignación de ancho de banda por clase de tráfico. Sin embargo, se debe preservar el marcado de DSCP para cargas de trabajo de Skype Empresarial. Si utiliza marcados de DSCP no enumerados anteriormente, por ejemplo, AF31 (26), debe reescribir este valor de DSCP a 0 antes de enviar el paquete a Microsoft. Microsoft solo envía paquetes marcados con el valor de DSCP que se muestra en la tabla anterior. 
 
@@ -45,4 +45,3 @@ En la tabla siguiente se proporciona una lista de las marcas de DSCP que usan Mi
   * [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
   * [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
-

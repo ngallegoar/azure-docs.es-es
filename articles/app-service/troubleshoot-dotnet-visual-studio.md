@@ -6,16 +6,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 72df946ed35dfdfd2811089a51ab9403d2e0567c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 346b1f83a9c18e35b009e88ae82d6984274fd4e4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983006"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147753"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
-En este tutorial se muestra cómo usar herramientas de Visual Studio para ayudar a depurar una aplicación en [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), ya sea en [modo de depuración](/visualstudio/debugger/) de manera remota o consultando los registros del servidor web o de aplicación.
+En este tutorial se muestra cómo usar herramientas de Visual Studio para ayudar a depurar una aplicación en [App Service](./overview.md), ya sea en [modo de depuración](/visualstudio/debugger/) de manera remota o consultando los registros del servidor web o de aplicación.
 
 Aprenderá a realizar los siguientes procedimientos:
 
@@ -49,7 +49,7 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
    >
    >
 
-    Para obtener más información acerca de la conexión a recursos de Azure desde Visual Studio, consulte [Administración de cuentas, suscripciones y roles administrativos](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
+    Para obtener más información acerca de la conexión a recursos de Azure desde Visual Studio, consulte [Administración de cuentas, suscripciones y roles administrativos](../role-based-access-control/role-assignments-portal.md).
 2. En el **Explorador de servidores**, expanda **Azure** y, a continuación, **App Service**.
 3. Expanda el grupo de recursos que incluye la aplicación que creó en [Creación de una aplicación web de ASP.NET Framework en Azure](quickstart-dotnet-framework.md) y luego haga clic con el botón derecho en el nodo de la aplicación y haga clic en **Ver configuración**.
 
@@ -125,7 +125,7 @@ En esta sección se muestra cómo realizar una depuración remota mediante el pr
     }
     ```
 
-1. [Establezca un punto de interrupción](https://docs.microsoft.com/visualstudio/debugger/) en la línea `ViewBag.Message`.
+1. [Establezca un punto de interrupción](/visualstudio/debugger/) en la línea `ViewBag.Message`.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y, luego, haga clic en **Publicar**.
 
@@ -176,7 +176,7 @@ La depuración remota solo funciona con WebJobs continuos. Los WebJobs bajo dema
 
 2. En el proyecto ContosoAdsWebJob, abra *Functions.cs*.
 
-3. [Establezca un punto de interrupción](https://docs.microsoft.com/visualstudio/debugger/) en la primera instrucción del método `GnerateThumbnail`.
+3. [Establezca un punto de interrupción](/visualstudio/debugger/) en la primera instrucción del método `GnerateThumbnail`.
 
     ![Establecimiento de punto de interrupción](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -241,7 +241,7 @@ Si la función [escribió registros](https://github.com/Azure/azure-webjobs-sdk/
       <httpRuntime targetFramework="4.5" />
     </system.web>
     ```
-* Si encuentra que el depurador no entra en el código que desea depurar, es posible que deba cambiar la configuración de Solo mi código.  Para más información, consulte [Specify whether to debug only user code using Just My Code in Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code) (Elección de depurar solo código de usuario con Solo mi código en Visual Studio).
+* Si encuentra que el depurador no entra en el código que desea depurar, es posible que deba cambiar la configuración de Solo mi código.  Para más información, consulte [Specify whether to debug only user code using Just My Code in Visual Studio](/visualstudio/debugger/just-my-code) (Elección de depurar solo código de usuario con Solo mi código en Visual Studio).
 * Cuando habilita la característica de depuración remota, se inicia un temporizador en el servidor y 48 horas después la característica se desactiva automáticamente. Este límite de 48 horas es por motivos de seguridad y rendimiento. Puede activar fácilmente la característica las veces que lo desee. Recomendamos dejarla deshabilitada cuando no esté realizando activamente una depuración.
 * Puede asociar manualmente el depurador a cualquier proceso, no solo al proceso de la aplicación (w3wp.exe). Para obtener más información acerca de cómo utilizar el modo de depuración en Visual Studio, consulte [Depuración en Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
@@ -330,7 +330,7 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
     ```
 
 `WebPageTraceListener` le permite ver los resultados de seguimiento si navega a `/trace.axd`.
-1. Agregue un <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elemento de seguimiento</a> bajo `<system.web>` en el archivo Web.config, como en el siguiente ejemplo:
+1. Agregue un <a href="/previous-versions/dotnet/netframework-4.0/6915t83k(v=vs.100)">elemento de seguimiento</a> bajo `<system.web>` en el archivo Web.config, como en el siguiente ejemplo:
 
     ``` xml
     <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
@@ -481,7 +481,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
     This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production web app you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) should run in a region as close as possible to the browsers accessing your web app in order to minimize latency.
 3. Set the **Replication** drop-down list to **Locally redundant**.
    
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-account-create.md).
 4. Click **Create**.
 
     ![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    
@@ -600,7 +600,7 @@ Para obtener más información sobre cómo solucionar problemas de aplicaciones 
 Si desea obtener ayuda para una pregunta específica sobre la solución de problemas, comience una conversación en alguno de los siguientes foros:
 
 * [El foro sobre Azure en el sitio de ASP.NET](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [El foro de Azure en Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+* [El foro de Azure en Microsoft Q&A](/answers/topics/azure-webapps.html).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Depuración en Visual Studio
