@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/01/2020
 ms.author: tamram
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 115ab9767c23afd5876eb23821bd1283777cdb5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fb77179a00969da7a3dc372dc70c99cfe4220ca
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018933"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091005"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Administración de propiedades y metadatos de contenedor con .NET
 
-Los contenedores de blobs admiten propiedades del sistema y metadatos definidos por el usuario, además de los datos que contienen. En este artículo se muestra cómo administrar propiedades del sistema y metadatos definidos por el usuario con la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Los contenedores de blobs admiten propiedades del sistema y metadatos definidos por el usuario, además de los datos que contienen. En este artículo se muestra cómo administrar propiedades del sistema y metadatos definidos por el usuario con la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage).
 
 ## <a name="about-properties-and-metadata"></a>Acerca de las propiedades y los metadatos
 

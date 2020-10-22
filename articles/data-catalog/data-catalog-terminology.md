@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e636a039302d2ea61c7135bff1fceb4763f25df
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68736288"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151446"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminología de Azure Data Catalog
 
@@ -39,7 +39,7 @@ Los metadatos estructurales son los metadatos extraídos de un origen de datos q
 
 ## <a name="descriptive-metadata"></a>Metadatos descriptivos
 
-Metadatos descriptivos son los metadatos que describen el propósito o el objetivo de un recurso de datos. Normalmente, los metadatos descriptivos son agregados por los usuarios del catálogo mediante el portal de Azure Data Catalog, pero también se pueden extraer del origen de datos durante el registro. Por ejemplo, la herramienta de registro para Azure Data Catalog extraerá las descripciones de la propiedad Description en SQL Server Analysis Services y SQL Server Reporting Services y desde [la propiedad extendida ms_description](https://technet.microsoft.com/library/ms190243.aspx) en bases de datos de SQL Server, si estas propiedades se han rellenado con valores.
+Metadatos descriptivos son los metadatos que describen el propósito o el objetivo de un recurso de datos. Normalmente, los metadatos descriptivos son agregados por los usuarios del catálogo mediante el portal de Azure Data Catalog, pero también se pueden extraer del origen de datos durante el registro. Por ejemplo, la herramienta de registro para Azure Data Catalog extraerá las descripciones de la propiedad Description en SQL Server Analysis Services y SQL Server Reporting Services y desde [la propiedad extendida ms_description](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)) en bases de datos de SQL Server, si estas propiedades se han rellenado con valores.
 
 ## <a name="request-access"></a>Solicitar acceso
 
@@ -86,4 +86,4 @@ El registro es el acto de extraer metadatos de recursos de datos de un origen de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Inicio rápido: Creación de una instancia de Azure Data Catalog](data-catalog-get-started.md) 
+[Inicio rápido: Creación de una instancia de Azure Data Catalog](data-catalog-get-started.md)

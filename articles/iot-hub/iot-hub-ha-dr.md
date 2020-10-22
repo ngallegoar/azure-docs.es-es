@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: d4a5ad36e9d6d71ad88d0b5c56b6079f34483347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c665e30ed9b284f7c93cf8588b710c9f22457a0a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021439"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151676"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de IoT Hub
 
-Como primer paso para implementar una solución IoT resistente, los arquitectos, desarrolladores y propietarios de empresas deben definir los objetivos de tiempo de actividad para las soluciones que vayan a crear. Estos objetivos se pueden definir principalmente en función de los objetivos de negocio específicos para cada escenario. En este contexto, en el artículo de [orientación técnica sobre la continuidad empresarial de Azure](https://docs.microsoft.com/azure/architecture/resiliency/) se describe un marco general para ayudar a reflexionar sobre la continuidad empresarial y recuperación ante desastres. El documento [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) proporciona una guía de arquitectura enfocada a estrategias para que las aplicaciones de Azure logren alta disponibilidad y recuperación ante desastres.
+Como primer paso para implementar una solución IoT resistente, los arquitectos, desarrolladores y propietarios de empresas deben definir los objetivos de tiempo de actividad para las soluciones que vayan a crear. Estos objetivos se pueden definir principalmente en función de los objetivos de negocio específicos para cada escenario. En este contexto, en el artículo de [orientación técnica sobre la continuidad empresarial de Azure](/azure/architecture/resiliency/) se describe un marco general para ayudar a reflexionar sobre la continuidad empresarial y recuperación ante desastres. El documento [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](/azure/architecture/reliability/disaster-recovery) proporciona una guía de arquitectura enfocada a estrategias para que las aplicaciones de Azure logren alta disponibilidad y recuperación ante desastres.
 
 En este artículo se describen las características de alta disponibilidad y recuperación ante desastres que ofrece específicamente el servicio IoT Hub. Las amplias áreas tratadas en este artículo son:
 
@@ -64,7 +64,7 @@ Una vez completada la operación de conmutación por error para la instancia de 
 >
 > - Si usa Azure Functions o Azure Stream Analytics para conectar el punto de conexión de eventos integrado, puede que tenga que realizar un **reinicio**. Esto se debe a que, durante la conmutación por error, los desplazamientos anteriores ya no son válidos.
 >
-> - Al enrutar al almacenamiento, se recomienda enumerar los blobs o los archivos e iterar sobre ellos para garantizar que se leen todos sin pasar por alto ninguna partición. El intervalo de partición podría cambiar durante una conmutación por error iniciada por Microsoft o una conmutación por error manual. Puede usar la [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para la lista de blobs o la [API List ADLS Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) para la lista de archivos. Para obtener más información, vea [Azure Storage como punto de conexión de enrutamiento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> - Al enrutar al almacenamiento, se recomienda enumerar los blobs o los archivos e iterar sobre ellos para garantizar que se leen todos sin pasar por alto ninguna partición. El intervalo de partición podría cambiar durante una conmutación por error iniciada por Microsoft o una conmutación por error manual. Puede usar la [API List Blobs](/rest/api/storageservices/list-blobs) para la lista de blobs o la [API List ADLS Gen2](/rest/api/storageservices/datalakestoragegen2/path/list) para la lista de archivos. Para obtener más información, vea [Azure Storage como punto de conexión de enrutamiento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Conmutación por error iniciada por Microsoft
 

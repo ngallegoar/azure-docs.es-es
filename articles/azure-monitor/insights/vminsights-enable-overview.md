@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
-ms.openlocfilehash: 4041b824d099edbefcc45c68163257ca69ddf7de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions
+ms.openlocfilehash: b903fda9a64233b4906941167ca7fd5819a0316b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995677"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164489"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Información general sobre la habilitación de Azure Monitor para VM
 
@@ -37,30 +38,42 @@ Antes de empezar, asegúrese de conocer la información de los apartados siguien
 >[!NOTE]
 >La siguiente información que se describe en esta sección también se aplica a la [solución Service Map](service-map.md).  
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
 
 Azure Monitor para VM admite un área de trabajo de Log Analytics en las siguientes regiones:
 
-- Centro-Oeste de EE. UU.
-- Oeste de EE. UU.
-- Oeste de EE. UU. 2
-- Centro-sur de EE. UU.
-- Este de EE. UU.
-- Este de EE. UU. 2
-- Centro de EE. UU.
-- Centro-Norte de EE. UU
-- US Gov Az
-- US Gov Va
-- Centro de Canadá
-- Sur de Reino Unido
-- Norte de Europa
-- Oeste de Europa
-- Este de Asia
-- Sudeste de Asia
-- Centro de la India
-- Japón Oriental
-- Este de Australia
-- Sudeste de Australia
+- África
+  - Norte de Sudáfrica
+- Asia Pacífico
+  - Este de Asia
+  - Sudeste de Asia
+- Australia
+  - Este de Australia
+  - Sudeste de Australia
+- Azure Government
+  - US Gov Az
+  - US Gov Va
+- Canadá
+  - Centro de Canadá
+- Europa
+  - Norte de Europa
+  - Oeste de Europa
+- India
+  - Centro de la India
+- Japón
+  - Japón Oriental
+- Reino Unido
+  - Sur de Reino Unido 2
+- Estados Unidos
+  - Centro de EE. UU.
+  - Este de EE. UU.
+  - Este de EE. UU. 2
+  - Centro-Norte de EE. UU
+  - Centro-sur de EE. UU.
+  - Centro-Oeste de EE. UU.
+  - Oeste de EE. UU.
+  - Oeste de EE. UU. 2
+
 
 >[!NOTE]
 >Puede supervisar máquinas virtuales de Azure en cualquier región. Las máquinas virtuales no se limitan a las regiones admitidas por el área de trabajo de Log Analytics.

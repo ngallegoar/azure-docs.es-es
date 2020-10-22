@@ -3,16 +3,16 @@ title: Uso de Azure DevTest Labs en varios laboratorios y suscripciones
 description: Aprenda a notificar el uso de Azure DevTest Labs en varios laboratorios y suscripciones.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287282"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152196"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Notificación del uso de Azure DevTest Labs en varios laboratorios y suscripciones
 
-La mayoría de las grandes organizaciones quiere realizar un seguimiento del uso de los recursos para hacerlos más eficaces, visualizando tendencias y valores atípicos en el uso. En función del uso de los recursos, los propietarios o administradores de laboratorios pueden personalizarlos para [mejorar el uso de los recursos y los costos](../cost-management-billing/manage/getting-started.md). En Azure DevTest Labs, puede descargar el uso de recursos por laboratorio, lo cual permite un análisis más profundo de los patrones de uso. Estos patrones de uso pueden ayudar a identificar cambios para mejorar la eficacia. A la mayoría de las empresas les gustaría conocer tanto el uso de laboratorios individuales como el uso total en [varios laboratorios y suscripciones](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+La mayoría de las grandes organizaciones quiere realizar un seguimiento del uso de los recursos para hacerlos más eficaces, visualizando tendencias y valores atípicos en el uso. En función del uso de los recursos, los propietarios o administradores de laboratorios pueden personalizarlos para [mejorar el uso de los recursos y los costos](../cost-management-billing/cost-management-billing-overview.md). En Azure DevTest Labs, puede descargar el uso de recursos por laboratorio, lo cual permite un análisis más profundo de los patrones de uso. Estos patrones de uso pueden ayudar a identificar cambios para mejorar la eficacia. A la mayoría de las empresas les gustaría conocer tanto el uso de laboratorios individuales como el uso total en [varios laboratorios y suscripciones](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 En este artículo se describe cómo administrar la información sobre el uso de los recursos en varios laboratorios y suscripciones.
 

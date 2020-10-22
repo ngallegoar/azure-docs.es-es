@@ -4,12 +4,12 @@ description: En este tutorial, implementará un clúster administrado de Service
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: c7ed1a8fceeddecb942edb541c6112492a6e5a2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0265a1393c697cbd767de13df1064a5eea957380
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410247"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316169"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Tutorial: Implementación de un clúster administrado de Service Fabric (versión preliminar)
 
@@ -37,7 +37,7 @@ Antes de empezar este tutorial:
 
 * Instalación de [Service Fabric SDK y del módulo de PowerShell](service-fabric-get-started.md).
 
-* Instale [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0&preserve-view=true#azservicefabric) (o posterior).
+* Instale [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) (o posterior).
 
 ## <a name="connect-to-your-azure-account"></a>Conexión a la cuenta de Azure
 
@@ -73,7 +73,7 @@ En este paso, proporcione sus propios valores para los siguientes parámetros:
 
 * **Nombre del clúster**: escriba un nombre único para el clúster, como *miclustersf*.
 * **Contraseña de administrador**: escriba una contraseña para el administrador que se va a usar para RDP en las máquinas virtuales subyacentes del clúster.
-* **Huella digital de certificado de cliente**: proporcione la huella digital de certificado de cliente que quiera utilizar para acceder al clúster. Si no tiene un certificado, siga los pasos que se indican en [Establecimiento y recuperación de un certificado](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) para crear un certificado autofirmado.
+* **Huella digital de certificado de cliente**: proporcione la huella digital de certificado de cliente que quiera utilizar para acceder al clúster. Si no tiene un certificado, siga los pasos que se indican en [Establecimiento y recuperación de un certificado](../key-vault/certificates/quick-create-portal.md) para crear un certificado autofirmado.
 * **SKU de clúster**: especifique el tipo de [clúster administrado de Service Fabric](overview-managed-cluster.md#service-fabric-managed-cluster-skus) que se va a implementar. Los clústeres de SKU *básicos* solo están diseñados para implementaciones de prueba y no permiten la incorporación o eliminación de tipos de nodo.
 
 ```powershell

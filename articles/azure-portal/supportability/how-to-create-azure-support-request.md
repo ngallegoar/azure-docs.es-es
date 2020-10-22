@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mblythe
-ms.openlocfilehash: b44b38e52b50dd7994326f09bebbb775c93c0e2e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0831cc40c7d6b25e1db78c84a7adfa644497d486
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073706"
+ms.locfileid: "92091447"
 ---
 # <a name="create-an-azure-support-request"></a>Creación de una solicitud de soporte técnico de Azure
 
@@ -39,7 +39,7 @@ Azure proporciona soporte ilimitado para la administración de suscripciones, lo
 
 Puede ir a **Ayuda y soporte técnico** en Azure Portal. Está disponible en el menú de Azure Portal, en el encabezado global o en el menú de recursos de un servicio. Debe tener los permisos adecuados para enviar una solicitud de soporte técnico.
 
-### <a name="role-based-access-control"></a>Control de acceso basado en rol
+### <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
 
 Para crear una solicitud de soporte técnico, debe ser un [propietario](../../role-based-access-control/built-in-roles.md#owner), un[colaborador](../../role-based-access-control/built-in-roles.md#contributor) o debe tener asignado el rol de [colaborador de la solicitud de soporte técnico](../../role-based-access-control/built-in-roles.md#support-request-contributor) en el nivel de suscripción. Para crear una solicitud de soporte técnico sin una suscripción, por ejemplo, en un escenario de Azure Active Directory, debe ser [administrador](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 

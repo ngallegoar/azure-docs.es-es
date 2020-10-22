@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de VMware en Azure Migrate
 description: Obtenga información sobre la compatibilidad de la evaluación de máquinas virtuales de VMware con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667799"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315806"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de compatibilidad para la evaluación de VMware 
 
@@ -117,4 +117,4 @@ El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Revise](best-practices-assessment.md) los procedimientos recomendados para crear evaluaciones.
-- [Prepárese para la evaluación de VMware](tutorial-prepare-vmware.md).
+- [Prepárese para la evaluación de VMware](./tutorial-discover-vmware.md).

@@ -3,12 +3,12 @@ title: Actualización de nodos de clúster para usar discos administrados de Azu
 description: Aquí se muestra cómo actualizar un clúster de Service Fabric existente para usar Azure Managed Disks con poco o ningún tiempo de inactividad del clúster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717530"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316153"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Actualización de nodos de clúster para usar Azure Managed Disks
 
@@ -25,7 +25,7 @@ La estrategia general para actualizar un nodo de clúster de Service Fabric para
 Este artículo le guiará a lo largo de los pasos necesarios para actualizar el tipo de nodo principal de un clúster de ejemplo para usar discos administrados, al tiempo que evita cualquier tiempo de inactividad del clúster (vea la nota siguiente). El estado inicial del clúster de prueba de ejemplo consta de un tipo de nodo de [durabilidad Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), respaldado por un solo conjunto de escalado con cinco nodos.
 
 > [!NOTE]
-> Las limitaciones de un equilibrador de carga de SKU básico impiden que se agregue un conjunto de escalado adicional. En su lugar, se recomienda usar el equilibrador de carga de SKU estándar. Para obtener más información, consulte [una comparación de las dos SKU](/azure/load-balancer/skus).
+> Las limitaciones de un equilibrador de carga de SKU básico impiden que se agregue un conjunto de escalado adicional. En su lugar, se recomienda usar el equilibrador de carga de SKU estándar. Para obtener más información, consulte [una comparación de las dos SKU](../load-balancer/skus.md).
 
 > [!CAUTION]
 > Experimentará una interrupción con este procedimiento solo si tiene dependencias en el DNS del clúster (por ejemplo, al acceder a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). El [procedimiento recomendado para los servicios de front-end](/azure/architecture/microservices/design/gateway) en el nivel de arquitectura es tener algún tipo de [equilibrador de carga](/azure/architecture/guide/technology-choices/load-balancing-overview) delante de los tipos de nodo para que el intercambio de nodos sea posible sin interrupción.

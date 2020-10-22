@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: 89dc962c73a6446afc79eec2a0fcfd5c0e32e84e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 834fd32d17c4a5ff112dd11a331a59336d7cbcb7
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576717"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315249"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Creación de una valoración de Azure VMware Solution (AVS)
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo crear una valoración de Azure VMware Soluti
 - Asegúrese de que ha [creado](how-to-add-tool-first-time.md) un proyecto de Azure Migrate.
 - Si ya ha creado un proyecto, asegúrese de que ha [agregado](how-to-assess.md) la herramienta Azure Migrate: Server Assessment.
 - Para crear una evaluación, debe configurar un dispositivo con Azure Migrate para [VMware](how-to-set-up-appliance-vmware.md), que detecta las máquinas locales y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment. [Más información](migrate-appliance.md).
-- También podría [importar los metadatos de servidor](tutorial-assess-import.md) en formato de valores separados por comas (CSV).
+- También podría [importar los metadatos de servidor](./tutorial-discover-import.md) en formato de valores separados por comas (CSV).
 
 
 ## <a name="azure-vmware-solution-avs-assessment-overview"></a>Información general sobre la valoración de Azure VMware Solution (AVS)
