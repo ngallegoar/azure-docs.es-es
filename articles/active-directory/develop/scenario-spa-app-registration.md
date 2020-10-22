@@ -12,18 +12,16 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 2d596b6d0e291d197146bf5e00827d82b74c125c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 638ebf8aefc67584805c1402499ca23fc1febb45
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434544"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217208"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicación de página única: Registro de aplicación
 
 Para registrar una aplicación de página única (SPA) en la Plataforma de identidad de Microsoft, complete los pasos siguientes. Los pasos de registro difieren entre MSAL.js 1.0, que admite el flujo de concesión implícita, y MSAL.js 2.0, que admite el flujo de código de autorización con PKCE.
-
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="create-the-app-registration"></a>Creación del registro de aplicaciones
 

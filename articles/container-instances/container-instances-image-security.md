@@ -4,12 +4,12 @@ description: Recomendaciones para proteger las imágenes y los secretos de Azure
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: f49f115e10326887cf4d23406437467256b7df2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898bdf77bf4b6636e78f5d735fc8650da4fde2b8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922241"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148661"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Consideraciones de seguridad para Azure Container Instances
 
@@ -34,7 +34,7 @@ Una imagen de contenedor disponible públicamente no garantiza la seguridad. Las
 
 Aproveche las soluciones para analizar imágenes de contenedor en un registro privado e identificar posibles puntos vulnerables. Es importante comprender el nivel de detalles de la detección de amenazas que proporcionan las distintas soluciones.
 
-Por ejemplo, Azure Container Registry ofrece la opción de [integrarlo con Azure Security Center](../security-center/azure-container-registry-integration.md) para analizar automáticamente todas las imágenes de Linux insertadas en un registro. El analizador Qualys integrado de Azure Security Center detecta puntos vulnerables en las imágenes, las clasifica y proporciona una guía de corrección.
+Por ejemplo, Azure Container Registry ofrece la opción de [integrarlo con Azure Security Center](../security-center/defender-for-container-registries-introduction.md) para analizar automáticamente todas las imágenes de Linux insertadas en un registro. El analizador Qualys integrado de Azure Security Center detecta puntos vulnerables en las imágenes, las clasifica y proporciona una guía de corrección.
 
 En Azure Marketplace hay disponibles soluciones de supervisión de seguridad y análisis de imágenes, como [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) y [Aqua Security](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview).  
 
@@ -138,7 +138,7 @@ Supervise la actividad de los recursos, como archivos, red y otros recursos, a l
 
 Mantenga un registro de auditoría preciso del acceso administrativo a su ecosistema de contenedores, incluido el clúster de Kubernetes, el registro de contenedores y las imágenes de contenedor. Estos registros podrían ser necesarios para fines de auditoría y serán útiles como prueba forense después de un incidente de seguridad. Las soluciones de Azure incluyen:
 
-* [Integración de Azure Kubernetes Service con Azure Security Center](../security-center/azure-kubernetes-service-integration.md) para supervisar la configuración de seguridad del entorno del clúster y generar recomendaciones de seguridad
+* [Integración de Azure Kubernetes Service con Azure Security Center](../security-center/defender-for-kubernetes-introduction.md) para supervisar la configuración de seguridad del entorno del clúster y generar recomendaciones de seguridad
 * [Solución de supervisión de contenedores de Azure](../azure-monitor/insights/containers.md)
 * Registros de recurso para [Azure Container Instances](container-instances-log-analytics.md) y [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md)
 

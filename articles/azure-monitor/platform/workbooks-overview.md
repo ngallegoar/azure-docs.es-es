@@ -6,12 +6,12 @@ services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: dd0c08fa968f9d029f1b89be1183ab374f1b5348
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dd553f0a41f82991c467ab256a87beabbff25ee
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932403"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143627"
 ---
 # <a name="azure-monitor-workbooks"></a>Libros de Azure Monitor
 
@@ -97,7 +97,7 @@ Si seleccionamos el botón Editar inmediatamente debajo de la cuadrícula de los
 
 ![Captura de pantalla de la consulta Kusto subyacente](./media/workbooks-overview/kusto.png)
 
-Al hacer clic en los botones otros **Editar** de la derecha, se mostrarán varios componentes principales que conforman los libros, como los [cuadros de texto](workbooks-visualizations.md#text) basados en marcado, los elementos de la interfaz de usuario de la [selección de parámetros](workbooks-parameters.md) y otros [tipos de gráficos y visualizaciones](workbooks-visualizations.md). 
+Al hacer clic en los botones otros **Editar** de la derecha, se mostrarán varios componentes principales que conforman los libros, como los [cuadros de texto](workbooks-text-visualizations.md) basados en marcado, los elementos de la interfaz de usuario de la [selección de parámetros](workbooks-parameters.md) y otros [tipos de gráficos y visualizaciones](#visualizations). 
 
 Explorar las plantillas predefinidas en modo de edición y después modificarlas para adaptarlas a sus necesidades y guardar su propio libro personalizado es una excelente manera de empezar a obtener información sobre lo que es posible con los libros de Azure Monitor.
 
@@ -129,5 +129,5 @@ Una vez que empiece a crear sus propias plantillas de libro, es posible que quie
 
 ## <a name="next-step"></a>Paso siguiente
 
-* [Comience](workbooks-visualizations.md) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.
+* [Comience](#visualizations) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.
 * [Controle](workbooks-access-control.md) y comparta el acceso a los recursos del libro.

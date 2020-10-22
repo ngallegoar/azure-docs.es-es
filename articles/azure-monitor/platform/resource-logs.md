@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87800507"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143915"
 ---
 # <a name="azure-resource-logs"></a>Registros de recursos de Azure
 Los registros de recursos de Azure son [registros de plataforma](platform-logs-overview.md) que proporcionan información sobre las operaciones que se realizaron en un recurso de Azure. El contenido de estos registros de recurso varía según el servicio de Azure y el tipo de recurso. Los registros de recurso no se recopilan de forma predeterminada. Debe crear una configuración de diagnóstico para cada recurso de Azure con el fin de enviar sus registros de recursos a un área de trabajo Log Analytics que se usará con [registros de Azure Monitor](data-platform-logs.md), Azure Event Hubs para reenviar fuera de Azure o Azure Storage para el archivado.
@@ -27,7 +27,7 @@ Consulte [Creación de una configuración de diagnóstico para enviar registros 
 - Usar las consultas de registro para realizar un análisis complejo y obtener información detallada sobre los datos de registro.
 - Usar las alertas de registro con lógicas de alertas complejas.
 
-[Cree una configuración de diagnóstico](diagnostic-settings.md) para enviar los registro de recursos a un área de trabajo de Log Analytics. Estos datos se almacenan en tablas, tal como se describe en [Estructura de registros de Azure Monitor](../log-query/logs-structure.md). Las tablas que usan los registros de recurso dependen del tipo de colección del recurso:
+[Cree una configuración de diagnóstico](diagnostic-settings.md) para enviar los registro de recursos a un área de trabajo de Log Analytics. Estos datos se almacenan en tablas, tal como se describe en [Estructura de registros de Azure Monitor](./data-platform-logs.md). Las tablas que usan los registros de recurso dependen del tipo de colección del recurso:
 
 - Azure Diagnostics: todos los datos se escriben en la tabla _AzureDiagnostics_.
 - Específicos del recurso: los datos se escriben en una tabla individual para cada categoría del recurso.

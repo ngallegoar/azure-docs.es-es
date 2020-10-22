@@ -1,18 +1,16 @@
 ---
 title: Uso de Herramientas de Azure Data Lake para Visual Studio Code
 description: Obtenga información sobre cómo usar Herramientas de Azure Data Lake para Visual Studio Code para crear, probar y ejecutar scripts U-SQL.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 02/09/2018
-ms.openlocfilehash: b554869864ff71fb31b6c4e2b891fd42c4a380b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7da5454581e0e414dc832d4fcec50277f3b7f40
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87126489"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221254"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Uso de Herramientas de Azure Data Lake para Visual Studio Code
 
@@ -22,7 +20,7 @@ En este artículo, obtendrá información sobre cómo usar Herramientas de Azure
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Herramientas de Azure Data Lake para VS Code es compatible con Windows, Linux y macOS. La ejecución y depuración locales de U-SQL solo funcionan en Windows.
+Herramientas de Azure Data Lake para VS Code es compatible con Windows, Linux y macOS.  La ejecución y depuración locales de U-SQL solo funcionan en Windows.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
@@ -67,15 +65,15 @@ Abra la paleta de comandos (Ctrl+Mayús+P) y escriba **ADL: Open Sample Script**
 4. Escriba el código siguiente en el archivo Sin título-1:
 
    ```usql
-   @departments  =
-       SELECT * FROM
-           (VALUES
-               (31,    "Sales"),
-               (33,    "Engineering"),
-               (34,    "Clerical"),
-               (35,    "Marketing")
-           ) AS
-                 D( DepID, DepName );
+   @departments  =
+       SELECT * FROM
+           (VALUES
+               (31,    "Sales"),
+               (33,    "Engineering"),
+               (34,    "Clerical"),
+               (35,    "Marketing")
+           ) AS
+                 D( DepID, DepName );
    ```
 
    OUTPUT @departments     TO "/Output/departments.csv" USING Outputters.Csv();
@@ -146,7 +144,7 @@ Herramientas de Azure Data Lake admite varios códigos personalizados. Para obte
 
 ## <a name="work-with-assemblies"></a>Trabajo con ensamblados
 
-Para información sobre el desarrollo de ensamblados, consulte [Desarrollo de ensamblados U-SQL para trabajos de Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
+Para información sobre el desarrollo de ensamblados, consulte [Desarrollo de ensamblados U-SQL para trabajos de Azure Data Lake Analytics]().
 
 Puede usar Herramientas de Data Lake para registrar ensamblados de código personalizados en el catálogo de Data Lake Analytics.
 

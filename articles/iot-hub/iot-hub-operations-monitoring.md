@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 9d9824be536ca657d9213a47898ad19b0c39d8b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022027"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139331"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Supervisión de operaciones de IoT Hub (en desuso)
 
@@ -191,7 +191,7 @@ La categoría de enrutamiento de mensajes realiza un seguimiento de los errores 
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>Conexión con el punto de conexión de supervisión
 
-El punto de conexión de supervisión en su centro de IoT es un punto de conexión compatible con centros de eventos. Puede utilizar cualquier mecanismo que funcione con Event Hubs para leer mensajes de supervisión desde este punto de conexión. El ejemplo siguiente crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. Para más información sobre cómo procesar los mensajes de Event Hubs, consulte el tutorial [Introducción a Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+El punto de conexión de supervisión en su centro de IoT es un punto de conexión compatible con centros de eventos. Puede utilizar cualquier mecanismo que funcione con Event Hubs para leer mensajes de supervisión desde este punto de conexión. El ejemplo siguiente crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. Para más información sobre cómo procesar los mensajes de Event Hubs, consulte el tutorial [Introducción a Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 Para conectarse al punto de conexión de supervisión, necesita una cadena de conexión y el nombre del punto de conexión. Los pasos siguientes le muestran cómo buscar los valores necesarios en el portal:
 
@@ -271,4 +271,4 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)
 
-* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/quickstart-linux.md)

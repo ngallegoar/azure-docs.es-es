@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
-ms.openlocfilehash: e0bb4df611c6a9cfecf0aadbdfc3a577243856ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6df47d3fd62083a5d0940a1d6da50ac5d7d955f4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327625"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150912"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: autenticación de Azure SignalR Service con Azure Functions
 
@@ -356,13 +356,13 @@ Para una aplicación de función que se ejecute en Azure, se necesita una cuenta
 
 ### <a name="configure-function-app-for-authentication"></a>Configuración de una aplicación de función para la autenticación
 
-Hasta ahora, la aplicación de chat funciona de forma anónima. En Azure, deberá utilizar [Autenticación de App Service](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) para autenticar al usuario. El identificador o el nombre de usuario del usuario autenticado se puede pasar al enlace *SignalRConnectionInfo* para generar información de conexión que se autentica como el usuario.
+Hasta ahora, la aplicación de chat funciona de forma anónima. En Azure, deberá utilizar [Autenticación de App Service](../app-service/overview-authentication-authorization.md) para autenticar al usuario. El identificador o el nombre de usuario del usuario autenticado se puede pasar al enlace *SignalRConnectionInfo* para generar información de conexión que se autentica como el usuario.
 
 Cuando se envía un mensaje, la aplicación puede decidir enviarlo a todos los clientes conectados, o solo a aquellos clientes que se han a autenticado en un determinado usuario.
 
 1. En VS Code, abra **negotiate/function.json**.
 
-1. Inserte una [expresión de enlace](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) en la propiedad *userId* del enlace *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. Esto establece el valor en el nombre de usuario del usuario autenticado. El atributo tendrá ahora un aspecto similar al siguiente.
+1. Inserte una [expresión de enlace](../azure-functions/functions-triggers-bindings.md) en la propiedad *userId* del enlace *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. Esto establece el valor en el nombre de usuario del usuario autenticado. El atributo tendrá ahora un aspecto similar al siguiente.
 
     ```json
     {
@@ -431,11 +431,11 @@ La autenticación de App Service admite la autenticación con Azure Active Direc
 
 1. Siga la documentación del proveedor de inicio de sesión de su elección para completar la configuración.
 
-    - [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
-    - [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)
-    - [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)
-    - [Cuenta Microsoft](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
-    - [Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)
+    - [Azure Active Directory](../app-service/configure-authentication-provider-aad.md)
+    - [Facebook](../app-service/configure-authentication-provider-facebook.md)
+    - [Twitter](../app-service/configure-authentication-provider-twitter.md)
+    - [Cuenta Microsoft](../app-service/configure-authentication-provider-microsoft.md)
+    - [Google](../app-service/configure-authentication-provider-google.md)
 
 ### <a name="update-the-web-app"></a>Actualización de la aplicación web
 
@@ -517,4 +517,3 @@ En este tutorial, ha aprendido a usar Azure Functions con Azure SignalR Service.
 > [Creación de aplicaciones en tiempo real con Azure Functions](signalr-concept-azure-functions.md)
 
 [¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsauth)
-

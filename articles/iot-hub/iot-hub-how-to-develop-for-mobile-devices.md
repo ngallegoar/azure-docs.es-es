@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: robinsh
-ms.openlocfilehash: 945b02003a443c04e692fdc06ca5714de362d074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63fade17d10189cbe8e775b2a859902f1c2bb004
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68883094"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151633"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Desarrollar contenido para dispositivos móviles mediante los SDK de Azure IoT
 
-El contenido que puede encontrar en Internet de las cosas puede hacer referencia a una amplia gama de dispositivos con distintas capacidades: sensores, microcontroladores, dispositivos inteligentes, puertas de enlace industriales e incluso dispositivos móviles.  Un dispositivo móvil puede ser un dispositivo de IoT, donde se envíe telemetría del dispositivo a la nube y que administre la nube.  Asimismo, también puede ser el dispositivo que se encargue de ejecutar una aplicación de servicio de back-end, para administrar otros dispositivos de IoT.  En ambos casos, los [SDK de Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) se pueden usar para desarrollar aplicaciones que funcionen en dispositivos móviles.  
+El contenido que puede encontrar en Internet de las cosas puede hacer referencia a una amplia gama de dispositivos con distintas capacidades: sensores, microcontroladores, dispositivos inteligentes, puertas de enlace industriales e incluso dispositivos móviles.  Un dispositivo móvil puede ser un dispositivo de IoT, donde se envíe telemetría del dispositivo a la nube y que administre la nube.  Asimismo, también puede ser el dispositivo que se encargue de ejecutar una aplicación de servicio de back-end, para administrar otros dispositivos de IoT.  En ambos casos, los [SDK de Azure IoT Hub](./iot-hub-devguide-sdks.md) se pueden usar para desarrollar aplicaciones que funcionen en dispositivos móviles.  
 
 ## <a name="develop-for-native-ios-platform"></a>Desarrollar contenido para la plataforma nativa iOS
 
@@ -52,5 +52,5 @@ Estos documentos indican cómo desarrollar una aplicación de dispositivo o de s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Referencia de la API REST de IoT Hub](https://docs.microsoft.com/rest/api/iothub/)
+* [Referencia de la API REST de IoT Hub](/rest/api/iothub/)
 * [Código fuente del SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c)

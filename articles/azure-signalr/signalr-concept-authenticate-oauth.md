@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d7b94da2f922e7dba8c165dcf9d1e906855f6dfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 731e4306575a8bd5f63dd47ca213a0e52a21487b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294281"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151235"
 ---
 # <a name="azure-signalr-service-authentication"></a>Autenticación de Azure SignalR Service
 
@@ -48,7 +48,7 @@ Para realizar este tutorial, debe disponer de los siguientes requisitos previos:
 * Una cuenta creada en [GitHub](https://github.com/)
 * [Git](https://git-scm.com/)
 * [SDK de .NET Core](https://www.microsoft.com/net/download/windows)
-* [Azure Cloud Shell configurado](https://docs.microsoft.com/azure/cloud-shell/quickstart)
+* [Azure Cloud Shell configurado](../cloud-shell/quickstart.md)
 * Descargue o clone el repositorio de GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples).
 
 ## <a name="create-an-oauth-app"></a>Creación de una aplicación de OAuth
@@ -388,7 +388,7 @@ En esta sección, se activará la autenticación real mediante la adición del a
 
 ## <a name="deploy-the-app-to-azure"></a>Implementar la aplicación en Azure
 
-En esta sección, utilizará la interfaz de la línea de comandos (CLI) de Azure desde Azure Cloud Shell para crear una nueva aplicación web de [Azure App Service](https://docs.microsoft.com/azure/app-service/) para hospedar la aplicación de ASP.NET en Azure. La aplicación web se configurará para usar la implementación de Git local. La aplicación web también se configurará con la cadena de conexión de SignalR, los secretos de la aplicación de OAuth de GitHub y un usuario de implementación.
+En esta sección, utilizará la interfaz de la línea de comandos (CLI) de Azure desde Azure Cloud Shell para crear una nueva aplicación web de [Azure App Service](../app-service/index.yml) para hospedar la aplicación de ASP.NET en Azure. La aplicación web se configurará para usar la implementación de Git local. La aplicación web también se configurará con la cadena de conexión de SignalR, los secretos de la aplicación de OAuth de GitHub y un usuario de implementación.
 
 En los pasos descritos en esta sección se usa la extensión *signalr* para la CLI de Azure. Ejecute el siguiente comando para instalar la extensión *signalr* para la versión de la CLI de Azure:
 

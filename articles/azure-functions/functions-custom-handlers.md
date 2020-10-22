@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 8/18/2020
 ms.topic: article
-ms.openlocfilehash: f3106553def982eb90ccc90822206e75a11ce354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294601"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164557"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Controladores personalizados de Azure Functions (versión preliminar)
 
@@ -566,7 +566,7 @@ El host de Functions genera mensajes de registro adicionales, incluida informaci
 
 Localmente, los registros se imprimen en la consola.
 
-En Azure, [consulte los seguimientos de Application Insights](functions-monitoring.md#query-telemetry-data) para ver los mensajes de registro. Si la aplicación genera un gran volumen de registros, solo se enviará un subconjunto de mensajes de registro a Application Insights. [Deshabilite el muestreo](functions-monitoring.md#configure-sampling) para asegurarse de que se registran todos los mensajes.
+En Azure, [consulte los seguimientos de Application Insights](analyze-telemetry-data.md#query-telemetry-data) para ver los mensajes de registro. Si la aplicación genera un gran volumen de registros, solo se enviará un subconjunto de mensajes de registro a Application Insights. [Deshabilite el muestreo](configure-monitoring.md#configure-sampling) para asegurarse de que se registran todos los mensajes.
 
 ### <a name="test-custom-handler-in-isolation"></a>Prueba del controlador personalizado en aislamiento
 

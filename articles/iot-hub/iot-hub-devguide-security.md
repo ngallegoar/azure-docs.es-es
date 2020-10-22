@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: c7ad38dc43280164fc9dbca5d5f2381e613dc1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbe277c7451b02887ec5657b1a183fcd001d134e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281341"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148282"
 ---
 # <a name="control-access-to-iot-hub"></a>Control del acceso a IoT Hub
 
@@ -454,7 +454,7 @@ Estos son los pasos principales del modelo de servicio de tokens:
 4. El dispositivo o el módulo usan el token directamente con el centro de IoT.
 
 > [!NOTE]
-> Puede usar la clase .NET [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) o la clase de Java [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) para crear un token en el servicio correspondiente.
+> Puede usar la clase .NET [SharedAccessSignatureBuilder](/dotnet/api/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder) o la clase de Java [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) para crear un token en el servicio correspondiente.
 
 El servicio de token puede establecer la caducidad de los tokens como desee. Cuando expira el token, el centro de IoT interrumpe la conexión del dispositivo o del módulo. A continuación, el dispositivo o el módulo deben solicitar un nuevo token al servicio de token. Un tiempo de expiración corto aumenta la carga tanto en el dispositivo o el módulo como en el servicio de token.
 

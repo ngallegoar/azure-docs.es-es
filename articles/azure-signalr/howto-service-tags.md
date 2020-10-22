@@ -8,16 +8,16 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 8810309fef5dbbb35465a2af15d42fa8a59d5401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaa97c2cb062f30b1260ec7f80f85a3caccf932f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84302107"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152323"
 ---
 # <a name="use-service-tags-for-azure-signalr-service"></a>Uso de etiquetas de servicio para Azure SignalR Service
 
-Puede usar [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) para Azure SignalR Service al configurar [Grupo de seguridad de red](../virtual-network/security-overview.md#network-security-groups). Permite definir una regla de seguridad de red de salida para los puntos de conexión de Azure SignalR Service sin necesidad de codificar direcciones IP.
+Puede usar [etiquetas de servicio](../virtual-network/network-security-groups-overview.md#service-tags) para Azure SignalR Service al configurar [Grupo de seguridad de red](../virtual-network/network-security-groups-overview.md#network-security-groups). Permite definir una regla de seguridad de red de salida para los puntos de conexión de Azure SignalR Service sin necesidad de codificar direcciones IP.
 
 Azure SignalR Service administra estas etiquetas de servicio. No puede crear su propia etiqueta de servicio ni modificar una etiqueta existente. Microsoft administra estos prefijos de direcciones para que coincidan con la etiqueta de servicio y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
 
@@ -46,4 +46,4 @@ Puede permitir el tráfico saliente a Azure SignalR Service si agrega una nueva 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Grupos de seguridad de red: etiquetas de servicio](../virtual-network/security-overview.md#security-rules)
+- [Grupos de seguridad de red: etiquetas de servicio](../virtual-network/network-security-groups-overview.md#security-rules)

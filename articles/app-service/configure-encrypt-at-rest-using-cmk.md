@@ -3,12 +3,12 @@ title: Cifrado del origen de la aplicación en reposo
 description: Aprenda a cifrar los datos de la aplicación en Azure Storage e impleméntelos como un archivo de paquete.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 62bb1e51bada155b98fe46740662b86b753d44fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5524b749b1e15342dd0133920d7190e33ced18ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90978475"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146047"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Cifrado en reposo con claves administradas por el cliente
 
@@ -22,7 +22,7 @@ Para el cifrado de datos en reposo de la aplicación web se requiere una cuenta 
 
 ### <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
-En primer lugar, [cree una cuenta de Azure Storage](../storage/common/storage-account-create.md) y [cífrela con claves administradas por el cliente](../storage/common/encryption-customer-managed-keys.md). Una vez creada la cuenta de almacenamiento, use el [Explorador de Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) para cargar archivos de paquete.
+En primer lugar, [cree una cuenta de Azure Storage](../storage/common/storage-account-create.md) y [cífrela con claves administradas por el cliente](../storage/common/customer-managed-keys-overview.md). Una vez creada la cuenta de almacenamiento, use el [Explorador de Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) para cargar archivos de paquete.
 
 A continuación, use el Explorador de Storage para [generar una SAS](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer). 
 

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 4a3bff9854e8e316bf368b2222d2244ab9ee6346
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b97ae5d4ba4295ebbb51c960e4cbb76c53dc88a8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962016"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148076"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -986,7 +986,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-El objeto `SamplingPercentageEstimatorSettings` configura el [muestreo adaptable](https://docs.microsoft.com/azure/application-insights/app-insights-sampling). Esto significa que, en ciertos escenarios de gran volumen, App Insights envía un subconjunto de datos de telemetría seleccionados al servidor.
+El objeto `SamplingPercentageEstimatorSettings` configura el [muestreo adaptable](../azure-monitor/app/sampling.md). Esto significa que, en ciertos escenarios de gran volumen, App Insights envía un subconjunto de datos de telemetría seleccionados al servidor.
 
 Después de crear la fábrica de telemetría, la puede pasar al proveedor de registro de Application Insights:
 

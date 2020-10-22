@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de servidores físicos en Azure Migrat
 description: Obtenga información sobre la compatibilidad para la evaluación de servidores físicos con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f7dea69c78bb038c06e5cb276628eba0381bb2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660346"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319297"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de compatibilidad para la evaluación de servidores físicos 
 
@@ -74,4 +74,4 @@ El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Preparación de la valoración de servidores físicos](tutorial-prepare-physical.md).
+[Preparación de la valoración de servidores físicos](./tutorial-discover-physical.md).

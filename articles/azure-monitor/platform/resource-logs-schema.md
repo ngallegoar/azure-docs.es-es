@@ -4,12 +4,12 @@ description: Conozca el esquema de los eventos y servicios admitidos para los re
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 17b4b161e76f018d8f669ee7e9b5dd578bb3e035
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b9d3dafdf62bda2d07eb7f9d7c357f61ec913d44
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278403"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143999"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema específico de servicio y común para los registros de recursos de Azure
 
@@ -64,7 +64,7 @@ El esquema para los registros de recursos varía según la categoría de registr
 | Explorador de datos de Azure | [Registros de Azure Data Explorer](/azure/data-explorer/using-diagnostic-logs) |
 | Azure Database for MySQL | [Registros de diagnóstico de Azure Database for MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Registros de Azure Database for PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
-| Azure Databricks | [Registro de diagnósticos en Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Azure Databricks | [Registro de diagnósticos en Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
 | Azure Digital Twins | [Configuración de diagnósticos de Azure Digital Twins](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Registros de Azure Event Hubs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Esquema no disponible. |
@@ -96,4 +96,3 @@ El esquema para los registros de recursos varía según la categoría de registr
 * [Transmisión de registros de recursos a **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
 * [Cambio de la configuración de diagnóstico del registro de recursos con la API REST de Azure Monitor](/rest/api/monitor/diagnosticsettings)
 * [Análisis de registros desde Azure Storage con Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
-

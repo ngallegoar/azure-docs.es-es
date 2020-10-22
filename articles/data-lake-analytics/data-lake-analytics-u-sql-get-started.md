@@ -1,18 +1,16 @@
 ---
 title: Introducción al lenguaje U-SQL en Azure Data Lake Analytics
 description: Obtenga información sobre los conceptos básicos del lenguaje U-SQL en Azure Data Lake Analytics. Escriba la primera consulta con variables para datos adicionales de archivos, transforme el conjunto de filas y agregue datos.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/23/2017
-ms.openlocfilehash: 6f2af2eed8aa01f35e1813bcd910f3ea22e2a335
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5920f2b5823e568d56d13107200eb0025a654db0
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87128852"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219928"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Introducción a U-SQL en Azure Data Lake Analytics
 
@@ -21,7 +19,7 @@ U-SQL es un lenguaje que combina SQL declarativo con C# imperativo para permitir
 ## <a name="learning-resources"></a>Recursos de aprendizaje
 
 * En el [Tutorial de U-SQL](https://aka.ms/usqltutorial) se proporciona un tutorial guiado de la mayor parte del lenguaje U-SQL. Se recomienda leer este documento a todos los desarrolladores que quieran aprender U-SQL.
-* Para más información sobre la **sintaxis del lenguaje U-SQL**, consulte la [referencia del lenguaje U-SQL](https://docs.microsoft.com/u-sql/).
+* Para más información sobre la **sintaxis del lenguaje U-SQL**, consulte la [referencia del lenguaje U-SQL](/u-sql/).
 * Para comprender la **filosofía del diseño de U-SQL**, consulte la entrada del blog de Visual Studio [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/) (Introducción s U-SQL: un lenguaje que facilita el procesamiento de marcrodatos).
 
 ## <a name="prerequisites"></a>Prerequisites

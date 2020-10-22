@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: df3c8d2abf59de6c9f685ad8d93e6689738df8e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 830e72a8de047b0219cfa0be264fad2e1f83beb2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302532"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142614"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configuración de cargas de archivos de IoT Hub mediante la CLI de Azure
 
@@ -25,17 +25,17 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* Un centro de Azure IoT. Si no tiene instancias de IoT Hub, puede usar el [`az iot hub create` comando](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) para crear una o [crear una instancia de IoT Hub mediante el portal](iot-hub-create-through-portal.md).
+* Un centro de Azure IoT. Si no tiene instancias de IoT Hub, puede usar el [`az iot hub create` comando](/cli/azure/iot/hub#az-iot-hub-create) para crear una o [crear una instancia de IoT Hub mediante el portal](iot-hub-create-through-portal.md).
 
-* Una cuenta de Azure Storage. Si no tiene ninguna cuenta de Azure Storage, puede usar la CLI de Azure para crear una. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md).
+* Una cuenta de Azure Storage. Si no tiene ninguna cuenta de Azure Storage, puede usar la CLI de Azure para crear una. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md).
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Inicio de sesión y configuración de la cuenta de Azure
 
 Inicie sesión en la cuenta de Azure y seleccione su suscripción.
 
-1. En el símbolo del sistema, ejecute el [comando de inicio de sesión](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest):
+1. En el símbolo del sistema, ejecute el [comando de inicio de sesión](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest):
 
     ```azurecli
     az login
@@ -43,7 +43,7 @@ Inicie sesión en la cuenta de Azure y seleccione su suscripción.
 
     Siga las instrucciones para realizar la autenticación mediante el código e inicie sesión en la cuenta de Azure a través de un explorador web.
 
-2. Si tiene varias suscripciones de Azure, iniciar sesión en Azure le concede acceso a todas las cuentas de Azure asociadas con las credenciales. Use el siguiente [comando para mostrar las cuentas de Azure](https://docs.microsoft.com/cli/azure/account) que tiene disponibles para su uso:
+2. Si tiene varias suscripciones de Azure, iniciar sesión en Azure le concede acceso a todas las cuentas de Azure asociadas con las credenciales. Use el siguiente [comando para mostrar las cuentas de Azure](/cli/azure/account) que tiene disponibles para su uso:
 
     ```azurecli
     az account list
@@ -144,5 +144,5 @@ Siga estos vínculos para más información sobre la administración de Azure Io
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)
-* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/quickstart-linux.md)
 * [Protección total de la solución de IoT](../iot-fundamentals/iot-security-ground-up.md)

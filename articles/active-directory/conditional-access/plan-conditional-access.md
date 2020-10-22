@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 10/16/2020
 ms.author: baselden
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b90ca2812651e139fb62d86ba0bf4d181d5e9d76
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992866"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145284"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planeamiento de la implementación del acceso condicional
 
@@ -291,11 +291,7 @@ Azure Active Directory permite crear [ubicaciones con nombre](location-condition
 
 ### <a name="plan-your-policy-deployment"></a>Planear la implementación de la directiva
 
-Cuando las nuevas directivas estén listas para su entorno, asegúrese de revisar cada una de ellas antes de publicarla para evitar resultados no deseados. Consulte la siguiente documentación para comprender información importante sobre cómo se aplican las directivas y cómo evitar incidencias.
-
-* [Qué debería saber](best-practices.md)
-
-* [Qué no debería hacer](best-practices.md)
+Cuando las nuevas directivas estén listas para su entorno, asegúrese de revisar cada una de ellas antes de publicarla para evitar resultados no deseados.
 
 ## <a name="common-policies"></a>Directivas comunes
 
@@ -462,10 +458,6 @@ Los [controles personalizados](controls.md) redirigen a los usuarios a un servic
 ### <a name="terms-of-use"></a>Términos de uso
 
 Antes de acceder a determinadas aplicaciones en la nube de su entorno, puede obtener el consentimiento de los usuarios mediante su aceptación de las condiciones de uso (CDU). Siga este [inicio rápido para crear las condiciones de uso](require-tou.md).
-
-### <a name="classic-policies"></a>Directivas clásicas
-
-En [Azure Portal](https://portal.azure.com/), encontrará las directivas de CA en Azure Active Directory > Seguridad > Acceso condicional. Es posible que su organización también tenga directivas de CA antiguas que no se hayan creado con esta página. Estas directivas se conocen como directivas clásicas. Se recomienda que [considere la posibilidad de migrar estas directivas clásicas en Azure Portal](best-practices.md).
 
 ## <a name="troubleshoot-conditional-access"></a>Solución de problemas de acceso condicional
 

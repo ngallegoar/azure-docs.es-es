@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 1f893f8e2ec03681697f15cd85685d4c99b13de6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397307"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151963"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Data Catalog
 En este artículo se responden algunas de las preguntas más frecuentes relativas al servicio Azure Data Catalog.
@@ -87,7 +87,7 @@ Las propiedades específicas varían de un origen de datos a otro, pero en gener
 >
 
 > [!NOTE]
-> En el caso de orígenes de datos como SQL Server Analysis Services que tienen una propiedad **Description** de primera clase, la herramienta de registro de orígenes de datos de Data Catalog extrae el valor de dicha propiedad. En el caso de las bases de datos relacionales de SQL Server *locales* que no tienen una propiedad **Description** de primera clase, la herramienta de registro de orígenes de datos de Data Catalog extrae el valor de la propiedad extendida **ms_description** de los objetos y columnas. Esta propiedad no es compatible con SQL Azure. Para más información, consulte [Usar propiedades extendidas en objetos de base de datos](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> En el caso de orígenes de datos como SQL Server Analysis Services que tienen una propiedad **Description** de primera clase, la herramienta de registro de orígenes de datos de Data Catalog extrae el valor de dicha propiedad. En el caso de las bases de datos relacionales de SQL Server *locales* que no tienen una propiedad **Description** de primera clase, la herramienta de registro de orígenes de datos de Data Catalog extrae el valor de la propiedad extendida **ms_description** de los objetos y columnas. Esta propiedad no es compatible con SQL Azure. Para más información, consulte [Usar propiedades extendidas en objetos de base de datos](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)).
 >
 >
 
@@ -122,7 +122,7 @@ Data Catalog es un servicio en la nube que puede funcionar con orígenes de dato
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>¿Se pueden extraer más metadatos, o metadatos más ricos, de los orígenes de datos que se registran?
 Trabajamos activamente para ampliar las funcionalidades de Data Catalog. Si desea que se extraigan más metadatos del origen de datos durante el registro, sugiéralo (o vote por ello si ya se ha planteado) en el [foro de comentarios de Azure Data Catalog](https://feedback.azure.com/forums/906052-data-catalog). 
 
-Si desea incluir metadatos de columna o esquema, vistas previas o perfiles de datos para orígenes de datos en los que no se extraen estos metadatos mediante la herramienta de registro de orígenes de datos, puede usar la API de Data Catalog para añadir estos metadatos. Para más información, consulte la [API de REST de Azure Data Catalog](https://docs.microsoft.com/rest/api/datacatalog/).
+Si desea incluir metadatos de columna o esquema, vistas previas o perfiles de datos para orígenes de datos en los que no se extraen estos metadatos mediante la herramienta de registro de orígenes de datos, puede usar la API de Data Catalog para añadir estos metadatos. Para más información, consulte la [API de REST de Azure Data Catalog](/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>¿Cómo se restringe la visibilidad de los recursos de datos registrados para que solo determinadas personas puedan detectarlos?
 Seleccione los recursos de datos en Data Catalog y haga clic en el botón **Tomar posesión**. Los propietarios de los recursos de datos de Data Catalog pueden cambiar la configuración de visibilidad para permitir que todos los usuarios detecten los recursos que se poseen o restringir la visibilidad a determinados usuarios. Para más información, consulte [Administración de recursos de datos en Azure Data Catalog](data-catalog-how-to-manage.md).

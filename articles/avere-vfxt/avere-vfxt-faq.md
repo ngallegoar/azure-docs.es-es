@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.custom: references_regions
-ms.openlocfilehash: c6459e2daf17772b28ee53289754deb33b4823ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 647a9792384a21dfc191371ef444cbdc098bc819
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272698"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342372"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Preguntas frecuentes acerca de Avere vFXT for Azure
 
@@ -160,7 +160,7 @@ No se admite desasociar y reconectar SSD. Los metadatos o el contenido de los ar
 
 ### <a name="does-the-system-encrypt-the-cache"></a>¿El sistema cifra la memoria caché?
 
-Los datos se reparten entre los discos, pero no se cifran. Sin embargo, puede cifrar los discos en sí. Para más información, consulte [Protección y uso de directivas en máquinas virtuales en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/security-policy#encryption).
+Los datos se reparten entre los discos, pero no se cifran. Sin embargo, puede cifrar los discos en sí. Para más información, consulte [Protección y uso de directivas en máquinas virtuales en Azure](../virtual-machines/security-policy.md#encryption).
 
 ## <a name="technical-networking"></a>Técnica: Redes
 
@@ -259,7 +259,7 @@ No. El contrato de nivel de servicio (SLA) de almacenamiento de archivos no es c
 
 No suele recomendarse el almacenamiento de blobs en el nivel de acceso esporádico para el archivador principal de Avere vFXT for Azure. El nivel de acceso esporádico ofrece menores costos de almacenamiento pero mayores costos de operaciones. (Consulte [Precios de blobs en bloques](<https://azure.microsoft.com/pricing/details/storage/blobs/>) para obtener más detalles). Si se va a acceder a los datos y se van a modificar o eliminar con frecuencia, considere la posibilidad de usar el nivel de acceso frecuente.
 
-[Niveles de acceso](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) proporciona más información sobre cuándo puede tener sentido usar el almacenamiento de nivel de acceso esporádico como archivador principal de vFXT.
+[Niveles de acceso](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) proporciona más información sobre cuándo puede tener sentido usar el almacenamiento de nivel de acceso esporádico como archivador principal de vFXT.
 
 ### <a name="how-do-i-encrypt-the-blob-container"></a>¿Cómo se puede cifrar el contenedor de blobs?
 

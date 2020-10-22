@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: ce1c7df70bf10280ba642e8ce2cec4864dfbbaec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e0fb2ffa7b573ecfeda163d9ad99597ff735a2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85985043"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109211"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operaciones del sistema de archivos en Azure Data Lake Storage Gen1 mediante el uso de la API de REST
 > [!div class="op_single_selector"]
@@ -186,6 +186,5 @@ HTTP/1.1 200 OK
 * [Account management operations on Data Lake Storage Gen1 using REST API](data-lake-store-get-started-rest-api.md) (Operaciones de administración de cuentas en Data Lake Storage Gen1 mediante la API de REST).
 
 ## <a name="see-also"></a>Consulte también
-* [Azure Data Lake Storage Gen1 REST API Reference](https://docs.microsoft.com/rest/api/datalakestore/) (Referencia sobre la API de REST de Azure Data Lake Storage Gen1)
+* [Azure Data Lake Storage Gen1 REST API Reference](/rest/api/datalakestore/) (Referencia sobre la API de REST de Azure Data Lake Storage Gen1)
 * [Abrir aplicaciones de macrodatos de código abierto que funcionan con Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
-

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 370ea2f16632ae18142f0770742e5a52d3cabae0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75429152"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151652"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Procedimiento para clonar un centro de Azure IoT Hub en otra región
 
@@ -385,7 +385,7 @@ Ahora, el portal valida la plantilla e implementa el centro clonado. Si tiene da
 
 Ahora que tiene el clon listo y en funcionamiento, debe copiar todos los dispositivos del centro original en el clon. 
 
-Hay varias formas de conseguirlo. Puede que haya usado [Service Device Provisioning (DPS)](/azure/iot-dps/about-iot-dps) para aprovisionar los dispositivos o que no lo haya hecho. Si lo ha hecho, el proceso no es complicado. Si no lo ha hecho, puede ser muy complicado. 
+Hay varias formas de conseguirlo. Puede que haya usado [Service Device Provisioning (DPS)](../iot-dps/about-iot-dps.md) para aprovisionar los dispositivos o que no lo haya hecho. Si lo ha hecho, el proceso no es complicado. Si no lo ha hecho, puede ser muy complicado. 
 
 Si no ha usado DPS para aprovisionar los dispositivos, puede omitir la sección siguiente y comenzar con [Uso de Import/Export para trasladar los dispositivos al nuevo centro](#using-import-export-to-move-the-devices-to-the-new-hub).
 
@@ -601,4 +601,4 @@ Para obtener más información sobre IoT Hub y el desarrollo del centro, consult
 
 * [Información general sobre la administración de dispositivos de IoT Hub](iot-hub-device-management-overview.md)
 
-* Si quiere implementar la aplicación de ejemplo, consulte [Implementación de aplicaciones .NET Core](https://docs.microsoft.com/dotnet/core/deploying/index).
+* Si quiere implementar la aplicación de ejemplo, consulte [Implementación de aplicaciones .NET Core](/dotnet/core/deploying/index).

@@ -5,15 +5,15 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080205"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150167"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidad del sistema operativo en Azure App Service
-En este artículo se describe la funcionalidad del sistema operativo de línea base común que está disponible para todas las aplicaciones Windows que se ejecutan en el [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos. 
+En este artículo se describe la funcionalidad del sistema operativo de línea base común que está disponible para todas las aplicaciones Windows que se ejecutan en el [Azure App Service](./overview.md). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos. 
 
 > [!NOTE] 
 > Las [aplicaciones Linux](overview.md#app-service-on-linux) en App Service se ejecutan en sus propios contenedores. No se permite ningún acceso al sistema operativo host, pero sí tiene acceso a la raíz del contenedor. Del mismo modo, para las [aplicaciones que se ejecutan en contenedores de Windows](quickstart-custom-container.md?pivots=container-windows), tiene acceso administrativo al contenedor, pero no al sistema operativo host. 
@@ -126,4 +126,3 @@ App Service no proporciona acceso mediante Escritorio remoto a las instancias de
 ## <a name="more-information"></a>Más información
 
 [Espacio aislado de Azure App Service](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox): la información más actualizada sobre el entorno de ejecución de App Service. El equipo de desarrollo de App Service mantiene directamente esta página.
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 22885d9d29bfbfc008b668889f7813ece1df8918
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 5aa6906f7f06e109342d81db6171773a68642e0c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945758"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342287"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -33,7 +33,7 @@ Azure Security Center realiza sus recomendaciones de seguridad en función de la
 
 Security Center le ofrece las siguientes opciones para trabajar con directivas de seguridad:
 
-* **Ver y editar la directiva predeterminada integrada**: al habilitar Security Center, una iniciativa integrada denominada "Predeterminada de ASC" se asigna automáticamente a todas las suscripciones registradas de Security Center. Para personalizar esta iniciativa, puede habilitar o deshabilitar las directivas individuales de la misma. Consulte la lista de [directivas de seguridad integradas](security-center-policy-definitions.md) para comprender las opciones disponibles.
+* **Ver y editar la directiva predeterminada integrada**: al habilitar Security Center, una iniciativa integrada denominada "Predeterminada de ASC" se asigna automáticamente a todas las suscripciones registradas de Security Center. Para personalizar esta iniciativa, puede habilitar o deshabilitar las directivas individuales de la misma. Consulte la lista de [directivas de seguridad integradas](./policy-reference.md) para comprender las opciones disponibles.
 
 * **Agregue sus propias directivas personalizadas**: si quiere personalizar las iniciativas de seguridad que se aplican a su suscripción, puede hacerlo en Security Center. A continuación, recibirá recomendaciones si las máquinas no siguen las directivas que creó. Para obtener instrucciones sobre la creación y asignación de directivas personalizadas, consulte [Uso de las directivas de seguridad personalizadas](custom-security-policies.md).
 

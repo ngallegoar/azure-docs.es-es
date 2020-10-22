@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: fc5029f26e5d615502925c4def4e2973c118f38d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 421066ef30e23a79b26f97939cdfffb5be83afb5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029994"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148233"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
 
@@ -38,4 +38,4 @@ El patrón admitido para los mensajes de nube a dispositivo con HTTP es disposit
 
 O bien, mejore la lógica del lado del dispositivo para completar, rechazar o abandonar los mensajes en cola rápidamente o acortar el período de vida, o considere la posibilidad de enviar menos mensajes. Consulte [Período de vida de un mensaje C2D](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
-Por último, considere el uso de la [API para purgar la cola](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) a fin de limpiar periódicamente los mensajes pendientes antes de que se alcance el límite.
+Por último, considere el uso de la [API para purgar la cola](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) a fin de limpiar periódicamente los mensajes pendientes antes de que se alcance el límite.

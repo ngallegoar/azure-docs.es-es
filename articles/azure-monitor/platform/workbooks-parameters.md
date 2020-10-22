@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 5751223697638128d86675badf7ec15abc36ef4e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dccf8a11691ed02d50b88afc481ec0612fe15b9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932386"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143597"
 ---
 # <a name="workbook-parameters"></a>Parámetros de libro
 
@@ -81,5 +81,5 @@ Use la sección `Previews` del panel _Editar parámetro_ para ver las opciones d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Comience](workbooks-visualizations.md) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.
+* [Comience](./workbooks-overview.md#visualizations) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.
 * [Controle](workbooks-access-control.md) y comparta el acceso a los recursos del libro.

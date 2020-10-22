@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497053"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127087"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Creación de un panel de proveedor de Power BI
 
@@ -44,14 +44,14 @@ En este tutorial, aprenderá a:
 
 * Una plantilla de la aplicación de supervisión continua de pacientes de Azure IoT Central. Si aún no tiene una, puede seguir los pasos descritos en [Implementación de una plantilla de aplicación](overview-iot-central-healthcare.md).
 
-* Un [espacio de nombres de Azure Event Hubs y un centro de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+* Un [espacio de nombres de Azure Event Hubs y un centro de eventos](../../event-hubs/event-hubs-create.md).
 
-* La aplicación lógica que quiere que acceda al centro de eventos. Para iniciar la aplicación lógica con un desencadenador de Azure Event Hubs, necesita una [aplicación lógica en blanco](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow).
+* La aplicación lógica que quiere que acceda al centro de eventos. Para iniciar la aplicación lógica con un desencadenador de Azure Event Hubs, necesita una [aplicación lógica en blanco](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Una cuenta del servicio Power BI. Si aún no tiene una, puede [crear una cuenta de evaluación gratuita para el servicio Power BI](https://app.powerbi.com/). Si no ha usado Power BI antes, puede resultarle útil consultar [Introducción a Power BI](https://docs.microsoft.com/power-bi/service-get-started).
+* Una cuenta del servicio Power BI. Si aún no tiene una, puede [crear una cuenta de evaluación gratuita para el servicio Power BI](https://app.powerbi.com/). Si no ha usado Power BI antes, puede resultarle útil consultar [Introducción a Power BI](/power-bi/service-get-started).
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Configuración de una exportación continua de datos a Azure Event Hubs
-En primer lugar, debe configurar una exportación continua de datos desde la plantilla de la aplicación de Azure IoT Central al centro de eventos de Azure de su suscripción. Para ello, siga los pasos de este tutorial de Azure IoT Central para la [Exportación a Event Hubs](https://docs.microsoft.com/azure/iot-central/core/howto-export-data). Solo tendrá que exportar los datos de telemetría para los fines de este tutorial.
+En primer lugar, debe configurar una exportación continua de datos desde la plantilla de la aplicación de Azure IoT Central al centro de eventos de Azure de su suscripción. Para ello, siga los pasos de este tutorial de Azure IoT Central para la [Exportación a Event Hubs](../core/howto-export-data.md). Solo tendrá que exportar los datos de telemetría para los fines de este tutorial.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Creación de un conjunto de datos de streaming de Power BI
 
@@ -72,10 +72,10 @@ En primer lugar, debe configurar una exportación continua de datos desde la pla
     >[!div class="mx-imgBorder"] 
     >![Especificar valores del conjunto de datos](media/enter-dataset-values.png)
 
-Para más información sobre los conjuntos de datos de streaming en Power BI, puede leer este documento sobre [Streaming en tiempo real en Power BI](https://docs.microsoft.com/power-bi/service-real-time-streaming).
+Para más información sobre los conjuntos de datos de streaming en Power BI, puede leer este documento sobre [Streaming en tiempo real en Power BI](/power-bi/service-real-time-streaming).
 
 ## <a name="connect-your-logic-app-to-azure-event-hubs"></a>Conexión de la aplicación lógica a Azure Event Hubs
-Para conectar la aplicación lógica a Azure Event Hubs, puede seguir las instrucciones que se describen en este documento sobre [Envío de eventos con Azure Event Hubs y Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs#add-event-hubs-action). Estos son algunos parámetros sugeridos:
+Para conectar la aplicación lógica a Azure Event Hubs, puede seguir las instrucciones que se describen en este documento sobre [Envío de eventos con Azure Event Hubs y Azure Logic Apps](../../connectors/connectors-create-api-azure-event-hubs.md#add-event-hubs-action). Estos son algunos parámetros sugeridos:
 
 |Parámetro|Valor|
 |---|---|
@@ -91,7 +91,7 @@ Al final de este paso, el diseñador de la aplicación lógica debe tener el sig
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Transmisión de datos a Power BI desde la aplicación lógica
 El siguiente paso consiste en analizar los datos procedentes del centro de eventos para transmitirlos a los conjuntos de datos de Power BI que ha creado previamente.
 
-1. Antes de poder hacerlo, debe comprender la carga JSON que se envía desde el dispositivo al centro de eventos. Para hacerlo, examine este [esquema de ejemplo](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#telemetry) y modifíquelo para que coincida con su esquema o utilice el [explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) para inspeccionar los mensajes. Si usa las aplicaciones de supervisión continua de pacientes, los mensajes tendrán el siguiente aspecto:
+1. Antes de poder hacerlo, debe comprender la carga JSON que se envía desde el dispositivo al centro de eventos. Para hacerlo, examine este [esquema de ejemplo](../core/howto-export-data.md#telemetry-format) y modifíquelo para que coincida con su esquema o utilice el [explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) para inspeccionar los mensajes. Si usa las aplicaciones de supervisión continua de pacientes, los mensajes tendrán el siguiente aspecto:
 
 **Telemetría del dispositivo Smart Vitals Patch**
 

@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
-ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d824c94a2c5751013b78c69ed5abd048c50856b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78673396"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151724"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Desarrollo para la plataforma Android Things con SDK de Azure IoT
 
-Los [SDK de Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) proporcionan compatibilidad de primer nivel para plataformas populares, entre otras: Windows, Linux, OSX, MBED y plataformas móviles, como iOS y Android.  Como parte de nuestro compromiso para permitir más opciones y mayor flexibilidad en las implementaciones de IoT, el SDK de Java también admite la plataforma [Android Things](https://developer.android.com/things/).  Los desarrolladores pueden aprovechar las ventajas del sistema de operativo Android Things en el dispositivo, a la vez de usar [Azure IoT Hub](about-iot-hub.md) como central de mensajes que se puede escalar a millones de dispositivos conectados simultáneamente.
+Los [SDK de Azure IoT Hub](./iot-hub-devguide-sdks.md) proporcionan compatibilidad de primer nivel para plataformas populares, entre otras: Windows, Linux, OSX, MBED y plataformas móviles, como iOS y Android.  Como parte de nuestro compromiso para permitir más opciones y mayor flexibilidad en las implementaciones de IoT, el SDK de Java también admite la plataforma [Android Things](https://developer.android.com/things/).  Los desarrolladores pueden aprovechar las ventajas del sistema de operativo Android Things en el dispositivo, a la vez de usar [Azure IoT Hub](about-iot-hub.md) como central de mensajes que se puede escalar a millones de dispositivos conectados simultáneamente.
 
 En este tutorial se describen los pasos para crear una aplicación de dispositivo en Android Things mediante el SDK de Java de Azure IoT.
 

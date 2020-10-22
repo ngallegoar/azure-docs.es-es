@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 0d8e10a18436b0b52820dd0bf15ad0b2de969b79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c43c8a0b9fdf30b5ce5ae6ecbf123b563099ff6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337949"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148775"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -28,7 +28,7 @@ Este ejemplo se puede utilizar para supervisar la información del Wi-Fi de MXCh
 
 ## <a name="what-you-need"></a>Lo que necesita
 
-- Configurar el entorno de desarrollo siguiendo la [Guía de introducción](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+- Configurar el entorno de desarrollo siguiendo la [Guía de introducción](./iot-hub-arduino-iot-devkit-az3166-get-started.md).
 
 - En la ventana de terminal GitBash (u otra interfaz de línea de comandos de Git), escriba los siguientes comandos:
 
@@ -114,4 +114,4 @@ Ha aprendido a:
 - Conexión de un dispositivo MXChip IoT DevKit al acelerador de la solución de supervisión remota de Azure IoT.
 - Usar la función de dispositivos gemelos de Azure IoT para detectar y controlar el color del LED RGB de DevKit.
 
-Este es el siguiente paso que le sugerimos: [Información general sobre el acelerador de la solución de supervisión remota de Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+Este es el siguiente paso que le sugerimos: [Información general sobre el acelerador de la solución de supervisión remota de Azure IoT](/azure/iot-suite/)
