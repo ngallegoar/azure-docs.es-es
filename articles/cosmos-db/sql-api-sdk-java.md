@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6db0965c0b5e28ac1e70da2cbeea276728f29822
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 1061cd7a37cbe9ce5ea360de22594d6eb4c0c2f5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569928"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275303"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -232,7 +232,7 @@ Este es el SDK sincrónico original de Azure Cosmos DB para Java v2 para SQL AP
 * Se ha agregado compatibilidad con período de vida (TTL) para los documentos.
 
 ### <a name="160"></a><a name="1.6.0"></a>1.6.0
-* Se han implementado [colecciones particionadas](partition-data.md) y [niveles de rendimiento definidos por el usuario](performance-levels.md).
+* Se han implementado [colecciones particionadas](partitioning-overview.md) y [niveles de rendimiento definidos por el usuario](performance-levels.md).
 
 ### <a name="151"></a><a name="1.5.1"></a>1.5.1
 * Se ha corregido un error en HashPartitionResolver para generar valores hash en little endian que sean consistentes con otros SDK.

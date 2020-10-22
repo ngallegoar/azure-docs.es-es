@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/06/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 6b717fd15b25ae4abd2af3520dba2e72f8f9f3a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6fbf84ec3822195f62970dbf08115059ffb7e4a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88556180"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122609"
 ---
 # <a name="upload-files-from-your-devices-to-the-cloud"></a>Cargar archivos desde dispositivos a la nube
 
@@ -54,7 +54,7 @@ Si desea deshabilitar las cargas de archivos de dispositivo en la aplicación Io
 
 ## <a name="upload-a-file-from-a-device"></a>Carga de un archivo desde un dispositivo
 
-IoT Central usa la capacidad de carga de archivos de IoT Hub para permitir que los dispositivos carguen archivos. Para ver el código de ejemplo que muestra cómo cargar archivos desde un dispositivo, consulte el[ejemplo de la carga de archivos de IoT Central](https://docs.microsoft.com/samples/iot-for-all/iotc-file-upload-device/iotc-file-upload-device/).
+IoT Central usa la capacidad de carga de archivos de IoT Hub para permitir que los dispositivos carguen archivos. Para ver el código de ejemplo que muestra cómo cargar archivos desde un dispositivo, consulte el[ejemplo de la carga de archivos de IoT Central](/samples/iot-for-all/iotc-file-upload-device/iotc-file-upload-device/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

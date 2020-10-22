@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7c708268eaeade1cfb625c73ff8758a1941ff5b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b3e006f717ed1c66c7db29dbd70c226d2d75ea8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80157456"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127223"
 ---
 # <a name="build-end-to-end-solution-with-azure-iot-central-and-dynamics-365-field-service"></a>Creación de una solución de un extremo a otro con Azure IoT Central y Dynamics 365 for Field Service 
 
@@ -34,5 +34,5 @@ Los siguientes procesos de integración se pueden implementar fácilmente median
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información acerca de las [plantillas de IoT Central Government](./overview-iot-central-government.md)
-* Más información acerca de [IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
-* Más información acerca de los [servicios de campo de Dynamics 365](https://docs.microsoft.com/dynamics365/field-service/cfs-iot-overview)
+* Más información acerca de [IoT Central](../core/overview-iot-central.md)
+* Más información acerca de los [servicios de campo de Dynamics 365](/dynamics365/field-service/cfs-iot-overview)

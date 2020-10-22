@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8e91a611084d201e6609f7e203eaa08c81e19a00
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: caaab07200a8631935a2b5d5368a0c16ea9a60c5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569994"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320211"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Solución de problemas de grupos de servidores de Hiperescala de PostgreSQL
 En este artículo se describen algunas técnicas que puede usar para solucionar problemas con el grupo de servidores. Además de este artículo, puede consultar cómo usar [Kibana](monitor-grafana-kibana.md) para buscar los registros o cómo usar [Grafana](monitor-grafana-kibana.md) para visualizar las métricas del grupo de servidores. 
@@ -51,13 +51,13 @@ Por ejemplo, supongamos que va a solucionar problemas de un grupo de servidores 
 
 ### <a name="install-tools"></a>Instalación de herramientas
 
-Instale Azure Data Studio, `kubectl` y `azdata` en el equipo cliente que usa para ejecutar el cuaderno en Azure Data Studio. Para ello, siga las instrucciones que se indican en [Instalación de las herramientas de cliente](install-client-tools.md).
+Instale Azure Data Studio, `kubectl` y [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] en el equipo cliente que usa para ejecutar el cuaderno en Azure Data Studio. Para ello, siga las instrucciones que se indican en [Instalación de las herramientas de cliente](install-client-tools.md).
 
 ### <a name="update-the-path-environment-variable"></a>Actualización de la variable de entorno PATH
 
 Asegúrese de que estas herramientas se pueden invocar desde cualquier parte de este equipo cliente. Por ejemplo, en un equipo cliente con Windows, actualice la variable de entorno del sistema PATH y agregue la carpeta en la que ha instalado kubectl.
 
-### <a name="sign-in-with-azdata"></a>Inicio de sesión con `azdata`
+### <a name="sign-in-with-azure-data-cli-azdata"></a>Inicio de sesión con [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 Inicie sesión en el controlador de datos de Arc desde este equipo cliente y antes de iniciar Azure Data Studio. Para ello, ejecute un comando como:
 

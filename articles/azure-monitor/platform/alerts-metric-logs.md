@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7085dd601499004a91fc77a9181f0b097d0b543a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ebb513e55e6b61f608354ae1cb3bf3864a54ae
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87446185"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108854"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creación de alertas de métricas para registros en Azure Monitor
 
@@ -62,7 +62,7 @@ Antes de que funcione la métrica para registros recopilada en los datos de Log 
 
  Las alertas de métricas se pueden crear y administrar mediante Azure Portal, plantillas de Resource Manager, la API REST, PowerShell y la CLI de Azure. Dado que las alertas de métricas para registros es una variante de alertas de métricas: una vez que se cumplan los requisitos previos, se puede crear una alerta de métrica para registros para el área de trabajo de Log Analytics especificada. Todas las características y funcionalidades de [ alertas de métricas](./alerts-metric-near-real-time.md) se aplicarán a las alertas de métricas para registros, incluido el esquema de carga, los límites de cuota aplicables y el precio facturado.
 
-Para obtener instrucciones paso a paso y ejemplos, consulte [creación y administración de alertas de métricas](https://aka.ms/createmetricalert). En concreto, para las alertas de métricas de registros, siga las instrucciones para administrar las alertas de métricas y asegúrese de lo siguiente:
+Para obtener instrucciones paso a paso y ejemplos, consulte [creación y administración de alertas de métricas](./alerts-metric.md). En concreto, para las alertas de métricas de registros, siga las instrucciones para administrar las alertas de métricas y asegúrese de lo siguiente:
 
 - El destino para la alerta de métrica es un *área de trabajo de Log Analytics* válida.
 - La señal elegida para la alerta de métrica para el *área de trabajo de Log Analytics* seleccionada es del tipo **Métrica**.
@@ -690,4 +690,3 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 - Obtenga más información sobre las [alertas de métricas](alerts-metric.md).
 - Más información sobre las [alertas de registro en Azure](./alerts-unified-log.md).
 - Más información sobre las [alertas en Azure](alerts-overview.md).
-

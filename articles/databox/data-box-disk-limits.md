@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: cb2654c2854692d120cf6dea7fa8fb901e14688e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0e56c5eeebb4f3a869feacb996d690ea7dde86
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203513"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124176"
 ---
 # <a name="azure-data-box-disk-limits"></a>Límites de Azure Data Box Disk
 
@@ -35,9 +35,9 @@ En esta sección se describen los límites del servicio Azure Storage y las conv
 
 Para conocer la información más reciente sobre los límites del servicio de almacenamiento de Azure y los procedimientos recomendados para asignar nombres a recursos compartidos, contenedores y archivos, vaya a:
 
-- [Nomenclatura y referencia de contenedores](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Nomenclatura y referencia de recursos compartidos](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [Convenciones de blobs en bloques y blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [Nomenclatura y referencia de contenedores](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
+- [Nomenclatura y referencia de recursos compartidos](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Convenciones de blobs en bloques y blobs en páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
 > Si hay archivos o directorios que superan los límites del servicio Azure Storage, o no cumplen las convenciones de nomenclatura de archivos y blobs de Azure, estos archivos o directorios no se ingieren en Azure Storage mediante el servicio Data Box.
@@ -64,7 +64,7 @@ Estos son los límites del tamaño de los datos que se pueden copiar en la cuent
 
 | Tipo de datos             | Límite predeterminado          |
 |--------------------------|------------------------|
-| blob en bloques, blob en páginas    | Para obtener información actualizada acerca de estos límites, consulte [Objetivos de escalabilidad de Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage), [Objetivos de escala para cuentas de almacenamiento estándar de Azure](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts) y [Objetivos de escalabilidad de Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets). <br /><br /> Los límites incluyen datos de todos los orígenes, incluido Data Box Disk.|
+| blob en bloques, blob en páginas    | Para obtener información actualizada acerca de estos límites, consulte [Objetivos de escalabilidad de Azure Blob Storage](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [Objetivos de escala para cuentas de almacenamiento estándar de Azure](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) y [Objetivos de escalabilidad de Azure Files](../storage/files/storage-files-scale-targets.md#file-share-and-file-scale-targets). <br /><br /> Los límites incluyen datos de todos los orígenes, incluido Data Box Disk.|
 
 
 ## <a name="azure-object-size-limits"></a>Límites de tamaño de objeto de Azure

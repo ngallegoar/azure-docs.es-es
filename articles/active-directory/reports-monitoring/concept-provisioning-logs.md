@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056164"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319722"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)
 
@@ -215,7 +215,7 @@ En la pestaña **Resumen** se proporciona información general sobre lo que suce
 
 - Puede usar el atributo Id. de cambio como identificador único. Esto es útil, por ejemplo, al hablar con el soporte técnico del producto.
 
-- Actualmente no hay ninguna opción para descargar los datos de aprovisionamiento como un archivo CSV, aunque puede exportar los datos mediante [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
+- Actualmente no hay ninguna opción para descargar los datos de aprovisionamiento como un archivo CSV, aunque puede exportar los datos mediante [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
 
 - Es posible que vea eventos omitidos para los usuarios que no estén en el ámbito. Esto es normal, especialmente cuando el ámbito de sincronización se establece en todos los usuarios y grupos. Nuestro servicio evaluará todos los objetos del inquilino, incluso los que estén fuera del ámbito. 
 
@@ -245,10 +245,10 @@ Use la tabla siguiente para entender mejor cómo resolver los errores que puede 
 |DuplicateSourceEntries | No se pudo completar la operación porque se encontró más de un usuario con los atributos coincidentes configurados. Quite el usuario duplicado o vuelva a configurar las asignaciones de atributos como se describe [aquí](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Cuando se evalúa a cada usuario, se intenta importar al usuario desde el sistema de origen. Este error suele producirse cuando al usuario que se importará le falta la propiedad coincidente definida en las asignaciones de atributos. Sin un valor presente en el objeto user para el atributo coincidente, no se pueden evaluar los cambios de ámbito, coincidencia o exportación. Tenga en cuenta que la presencia de este error no indica que el usuario está en el ámbito, ya que aún no se ha evaluado su ámbito.|
 |EntrySynchronizationSkipped | El servicio de aprovisionamiento ha consultado correctamente el sistema de origen y ha identificado al usuario. No se realizó ninguna acción adicional en el usuario y se omitió. La omisión podría deberse a que el usuario está fuera del ámbito, o a que ya existe en el sistema de destino sin necesidad de realizar más cambios.|
-|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Al realizar una solicitud GET para recuperar un usuario o grupo, se recibieron varios usuarios o grupos en la respuesta. Se espera solo un usuario o grupo en la respuesta. Si, [por ejemplo](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group), se realiza una solicitud GET para recuperar un grupo y se proporciona un filtro para excluir miembros y el punto de conexión SCIM devuelve a esos miembros, se producirá este error.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Al realizar una solicitud GET para recuperar un usuario o grupo, se recibieron varios usuarios o grupos en la respuesta. Se espera solo un usuario o grupo en la respuesta. Si, [por ejemplo](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group), se realiza una solicitud GET para recuperar un grupo y se proporciona un filtro para excluir miembros y el punto de conexión SCIM devuelve a esos miembros, se producirá este error.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Comprobación del estado de aprovisionamiento de usuarios](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD](../app-provisioning/application-provisioning-config-problem.md)
-* [Registros de aprovisionamiento de Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+* [Registros de aprovisionamiento de Graph API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

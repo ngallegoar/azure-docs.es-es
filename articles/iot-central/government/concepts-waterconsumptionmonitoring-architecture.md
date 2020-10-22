@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 3a64ca5b0c2a092f895873e097ea6beb9a235a37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57dfec33beef6a9b5a6a3cd8edc43cae32d62e33
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77017707"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123018"
 ---
 # <a name="water-consumption-monitoring-reference-architecture"></a>Arquitectura de referencia de supervisión del consumo de agua 
 
@@ -34,7 +34,7 @@ Echemos un vistazo a los componentes clave que generalmente desempeñan un papel
 ## <a name="devices-and-connectivity"></a>Dispositivos y conectividad 
 En esta sección se hace referencia a los dispositivos usados en las soluciones inteligentes de control de agua, como aquellos para la supervisión de la calidad del agua o la supervisión del consumo de agua, generalmente como dispositivos inteligentes de supervisión del agua. Los dispositivos de agua inteligentes pueden ser medidores de flujo, monitores de la calidad del agua, válvulas inteligentes, detectores de fugas, etc.
 
-Los dispositivos que se usan en las soluciones inteligentes para el agua normalmente se conectan mediante redes de área extensa de bajo consumo (LPWAN) mediante un operador de red de terceros. Para estos tipos de dispositivos, puede usar el [Puente de dispositivos de Azure IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) para enviar los datos del dispositivo a la aplicación de IoT en Azure IoT Central. Como alternativa, puede tener puertas de enlace de dispositivo que sean compatibles con IP y puedan conectarse directamente a IoT Central.
+Los dispositivos que se usan en las soluciones inteligentes para el agua normalmente se conectan mediante redes de área extensa de bajo consumo (LPWAN) mediante un operador de red de terceros. Para estos tipos de dispositivos, puede usar el [Puente de dispositivos de Azure IoT Central](../core/howto-build-iotc-device-bridge.md) para enviar los datos del dispositivo a la aplicación de IoT en Azure IoT Central. Como alternativa, puede tener puertas de enlace de dispositivo que sean compatibles con IP y puedan conectarse directamente a IoT Central.
 
 ## <a name="iot-central"></a>IoT Central 
 Azure IoT Central es una plataforma de aplicaciones de IoT que le ayuda a empezar a trabajar con su solución IoT rápidamente. Puede utilizar su marca, personalizar e integrar la solución con servicios de terceros.
@@ -54,4 +54,4 @@ Los datos de IoT se pueden usar para potenciar diversos tipos de aplicaciones em
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [crear una aplicación de IoT Central para el consumo de agua](./tutorial-water-consumption-monitoring.md).
 * Más información acerca de las [plantillas de IoT Central Government](./overview-iot-central-government.md)
-* Para más información acerca de IoT Central, consulte [Introducción a IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central).
+* Para más información acerca de IoT Central, consulte [Introducción a IoT Central](../core/overview-iot-central.md).

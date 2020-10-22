@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 50a9d5e3d3bbb608160ee160c5f1aede8f70e530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c4f9954977d6c5523bc70586d3b0cbb0328bcd8
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262674"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278040"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Protección de las claves de Azure Cosmos con Azure Key Vault 
 
@@ -94,5 +94,5 @@ De forma similar, puede agregar un usuario para acceder al almacén de claves. D
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para configurar un firewall para Azure Cosmos DB, vea el artículo sobre la [compatibilidad con un firewall](firewall-support.md).
-* Para configurar el punto de conexión de servicio de red virtual, vea el artículo [Protección del acceso a una cuenta de Azure Cosmos DB con el uso de un punto de conexión de servicio de red virtual de Azure](vnet-service-endpoint.md).
+* Para configurar un firewall para Azure Cosmos DB, vea el artículo sobre la [compatibilidad con un firewall](how-to-configure-firewall.md).
+* Para configurar el punto de conexión de servicio de red virtual, vea el artículo [Protección del acceso a una cuenta de Azure Cosmos DB con el uso de un punto de conexión de servicio de red virtual de Azure](how-to-configure-vnet-service-endpoint.md).

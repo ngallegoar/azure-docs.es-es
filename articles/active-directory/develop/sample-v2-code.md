@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 10/21/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 948eea168b071813cf20e03d3a0744a824fd4c8c
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e4327d8426a5dc1668993efd418c3f21624d407d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773899"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327661"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Ejemplos de código de la Plataforma de identidad de Microsoft (punto de conexión v2.0)
 
@@ -27,9 +27,6 @@ Puede usar la plataforma de identidad de Microsoft para:
 - Requerir un token de acceso para tener acceso a una API web protegida.
 
 Este artículo describe brevemente y proporciona vínculos a ejemplos para el punto de conexión de la Plataforma de identidad de Microsoft. Estos ejemplos le muestran cómo se hace y también proporciona fragmentos de código que puede usar en sus aplicaciones. En la página de ejemplos de código, encontrará temas Léame detallados que le ayudarán con los requisitos, la instalación y la configuración. Los comentarios dentro del código lo ayudarán a comprender las secciones críticas.
-
-> [!NOTE]
-> Si está interesado en los ejemplos de v1.0, consulte los [ejemplos de código de Azure AD (punto de conexión v1.0)](../azuread-dev/sample-v1-code.md).
 
 Para entender el escenario básico de cada tipo de ejemplo, consulte el artículo sobre los [tipos de aplicaciones para el punto de conexión de la Plataforma de identidad de Microsoft](v2-app-types.md).
 
@@ -142,5 +139,4 @@ Para ver [ejemplos](https://github.com/microsoftgraph/msgraph-community-samples/
 
 ## <a name="see-also"></a>Consulte también
 
-- [Introducción a Azure Active Directory para desarrolladores (v1.0)](../azuread-dev/v1-overview.md)
-- [Conceptos y referencia de Microsoft Graph API](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)
+[Conceptos y referencia de Microsoft Graph API](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)

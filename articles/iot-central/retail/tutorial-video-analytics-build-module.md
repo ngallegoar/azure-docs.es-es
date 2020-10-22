@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 4bbc25f98f494660fc4997af1c3a248172ef08d2
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c2f6f386f4a8ea062980c0efc97d0cfb4f37f4f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873479"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124901"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Tutorial: Modificación y compilación de los módulos de la puerta de enlace de análisis de vídeo en directo
 
@@ -28,8 +28,8 @@ Para completar los pasos de este tutorial, necesitará lo siguiente:
 * [Node.js](https://nodejs.org/en/download/) versión 10 o posterior.
 * [Visual Studio Code](https://code.visualstudio.com/Download) con la extensión [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) instalada.
 * El motor de [Docker](https://www.docker.com/products/docker-desktop).
-* Una instancia de [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) para hospedar las versiones de los módulos.
-* Una cuenta de [Azure Media Services](https://docs.microsoft.com/azure/media-services/). Si completó los tutoriales anteriores, puede volver a usar la que ha creado anteriormente.
+* Una instancia de [Azure Container Registry](../../container-registry/index.yml) para hospedar las versiones de los módulos.
+* Una cuenta de [Azure Media Services](../../media-services/index.yml). Si completó los tutoriales anteriores, puede volver a usar la que ha creado anteriormente.
 
 ## <a name="clone-the-repository"></a>Clonación del repositorio
 

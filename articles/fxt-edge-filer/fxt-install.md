@@ -6,39 +6,40 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.openlocfilehash: 7c77e25d0dcabc49f2e6672645c6bc41e8662ec8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48ee6de28bcd76d4c484b77c981062bad1a3754d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75551036"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219758"
 ---
-# <a name="tutorial-install-azure-fxt-edge-filer"></a>Tutorial: Instalación de Azure FXT Edge Filer 
+# <a name="tutorial-install-azure-fxt-edge-filer"></a>Tutorial: Instalación de Azure FXT Edge Filer
 
 Este tutorial describe cómo instalar un nodo de hardware para la caché de almacenamiento híbrido de Azure FXT Edge Filer. Debe instalar al menos tres nodos de hardware para crear un clúster de Azure FXT Edge Filer.
 
-El procedimiento de instalación consiste en desempaquetar y montar en un bastidor el dispositivo; a continuación, debe colocar el brazo de administración de cables (CMA) y el bisel frontal. En un tutorial independiente se explica cómo conectar los cables de red y cómo conectar la alimentación. 
+El procedimiento de instalación consiste en desempaquetar y montar en un bastidor el dispositivo; a continuación, debe colocar el brazo de administración de cables (CMA) y el bisel frontal. En un tutorial independiente se explica cómo conectar los cables de red y cómo conectar la alimentación.
 
-Se tarda aproximadamente una hora en instalar un nodo de Azure FXT Edge Filer. 
+Se tarda aproximadamente una hora en instalar un nodo de Azure FXT Edge Filer.
 
-En este tutorial se incluyen estos pasos de configuración: 
+En este tutorial se incluyen estos pasos de configuración:
 
 > [!div class="checklist"]
+>
 > * Desempaquetado del dispositivo
 > * Montaje en bastidor del dispositivo
 > * Instalación del bisel frontal (opcional)
 
-## <a name="installation-prerequisites"></a>Requisitos previos de instalación 
+## <a name="installation-prerequisites"></a>Requisitos previos de instalación
 
 Antes de comenzar, asegúrese de que el centro de datos y el bastidor que usará tengan estas características:
 
 * Una ranura 1U disponible en el bastidor en el que se va a montar el dispositivo.
 * Una fuente de alimentación de CA y sistemas de refrigeración que satisfagan las necesidades de Azure FXT Edge Filer. (Lea [Power and thermal specifications](fxt-specs.md#power-and-thermal-specifications) [Especificaciones de energía y térmicas] para obtener ayuda para planificar y calibrar la instalación).  
 
-  > [!NOTE] 
+  > [!NOTE]
   > Para aprovechar al máximo las dos unidades de alimentación redundantes (PSU), use las unidades de distribución de energía en dos circuitos de rama diferentes cuando conecte la alimentación CA. Lea [Connect power cables](fxt-network-power.md#connect-power-cables) (Conectar los cables de alimentación) para obtener más detalles.  
 
-## <a name="unpack-the-hardware-node"></a>Desempaquetar el nodo de hardware 
+## <a name="unpack-the-hardware-node"></a>Desempaquetar el nodo de hardware
 
 Cada nodo de Azure FXT Edge Filer se envía en una sola caja. Complete estos pasos para desempaquetar un dispositivo.
 
@@ -56,7 +57,7 @@ Cada nodo de Azure FXT Edge Filer se envía en una sola caja. Complete estos pas
    * Un folleto con las instrucciones de instalación del bastidor
    * Un folleto informativo sobre la seguridad, el entorno y las normativas
 
-Si no recibió alguno de los elementos enumerados aquí, póngase en contacto con el vendedor del dispositivo. 
+Si no recibió alguno de los elementos enumerados aquí, póngase en contacto con el vendedor del dispositivo.
 
 Asegúrese de que el dispositivo haya tenido el tiempo suficiente para alcanzar la misma temperatura que la habitación antes de instalarlo o encenderlo. Si observa condensación en cualquier parte del dispositivo, espere al menos 24 horas antes de instalarlo.
 
@@ -64,20 +65,20 @@ El paso siguiente es el montaje en bastidor del dispositivo.
 
 ## <a name="rack-the-device"></a>Montaje del dispositivo en el bastidor
 
-El dispositivo Azure FXT Edge Filer debe instalarse en un bastidor estándar de 19 pulgadas. 
+El dispositivo Azure FXT Edge Filer debe instalarse en un bastidor estándar de 19 pulgadas.
 
-La memoria caché de almacenamiento híbrido de Azure FXT Edge Filer se compone de tres o más dispositivos de Azure FXT Edge Filer. Repita los pasos de instalación del bastidor para cada dispositivo que vaya a formar parte de su sistema. 
+La memoria caché de almacenamiento híbrido de Azure FXT Edge Filer se compone de tres o más dispositivos de Azure FXT Edge Filer. Repita los pasos de instalación del bastidor para cada dispositivo que vaya a formar parte de su sistema.
 
 ### <a name="rack-install-prerequisites"></a>Requisitos previos de instalación del bastidor
 
 * Antes de comenzar, lea las instrucciones de seguridad en el folleto sobre la seguridad, el entorno y las normativas que se envió junto con el dispositivo.
 
   > [!NOTE]
-  > Asegúrese de que siempre hay dos personas para levantar el nodo, incluso al instalarlo en un bastidor o lo retirarlo del mismo. 
+  > Asegúrese de que siempre hay dos personas para levantar el nodo, incluso al instalarlo en un bastidor o lo retirarlo del mismo.
 
-* Identifique el tipo de instalación de raíl que se usa con el bastidor de su equipo. 
+* Identifique el tipo de instalación de raíl que se usa con el bastidor de su equipo.
   * Para los bastidores a presión con orificios cuadrados o redondos, siga las instrucciones de montaje de los raíles no mecanizados.
-  * Para los bastidores con orificios a rosca, siga las instrucciones para montar los raíles de forma mecanizada. 
+  * Para los bastidores con orificios a rosca, siga las instrucciones para montar los raíles de forma mecanizada.
   
     Para la configuración de montaje del raíl con herramientas, necesitará los siguientes ocho tornillos: 10-32, 12-24, M5 o M6. El diámetro de los cabezales de los tornillos debe ser inferior a 10 mm (0,4 pulgadas).
 
@@ -92,7 +93,7 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 
 ### <a name="rail-assembly---tool-less-rails-square-hole-or-round-hole-racks"></a>Montaje de los raíles no mecanizados (bastidores de agujeros cuadrados y redondos)
 
-Para bastidores con orificios cuadrados o redondos a presión, siga este procedimiento para ensamblar e instalar los raíles. 
+Para bastidores con orificios cuadrados o redondos a presión, siga este procedimiento para ensamblar e instalar los raíles.
 
 1. Coloque las piezas de los raíles izquierdo y derecho etiquetadas como **FRONTAL** mirando hacia adentro. Coloque cada pieza de manera que coincida con los orificios del lado frontal de las bridas verticales del bastidor. (1)
 
@@ -121,7 +122,7 @@ Para bastidores con orificios a rosca, siga este procedimiento para ensamblar e 
 Siga estos pasos para montar el dispositivo Azure FXT Edge Filer en el bastidor.
 
 1. Tire de los raíles deslizantes interiores hacia fuera del bastidor hasta que se bloqueen en su sitio. (1)
-1. Ubique los separadores de los raíles posteriores laterales del dispositivo y encájelos en las ranuras en J de los ensamblajes deslizantes. (2) 
+1. Ubique los separadores de los raíles posteriores laterales del dispositivo y encájelos en las ranuras en J de los ensamblajes deslizantes. (2)
 1. Gire el dispositivo hacia abajo hasta que todos los separadores de los raíles queden fijos en las ranuras en J. (3)
 1. Inserte el dispositivo hasta que las pestañas de cierre hagan clic.
 1. Presione los botones de bloqueo deslizantes de los dos raíles (4) y deslice el dispositivo para que encaje en el bastidor.
@@ -130,7 +131,7 @@ Siga estos pasos para montar el dispositivo Azure FXT Edge Filer en el bastidor.
 
 ### <a name="remove-the-system-from-the-rack"></a>Extracción del sistema del bastidor
 
-Para extraer el dispositivo del bastidor, siga este procedimiento. 
+Para extraer el dispositivo del bastidor, siga este procedimiento.
 
 1. Ubique las pestañas de cierre laterales en los raíles internos (1).
 2. Desbloquee las pestañas; para ello, gírelas hasta la posición de desbloqueo (2).
@@ -141,7 +142,7 @@ Para extraer el dispositivo del bastidor, siga este procedimiento.
 ### <a name="engage-the-slam-latch"></a>Enganchar el pestillo a presión
 
 1. De cara a la parte anterior, ubique el pestillo a presión (1) en alguno de los laterales del sistema.
-2. Los pestillos se encajan automáticamente al insertar el sistema en el bastidor. 
+2. Los pestillos se encajan automáticamente al insertar el sistema en el bastidor.
 
 Para liberar los pestillos al retirar el sistema, tire de ellos hacia arriba (2).
 
@@ -149,50 +150,50 @@ Se proporcionan tornillos rígidos para asegurar el sistema al bastidor para su 
 
 ![Ilustración numerada para acoplar y soltar el pestillo a presión](media/fxt-install/engaging-releasing-slam-latch-400.png)
 
-### <a name="install-the-cable-management-arm"></a>Instale el brazo de administración de cables 
+### <a name="install-the-cable-management-arm"></a>Instale el brazo de administración de cables
 
-Se proporciona un brazo de administración de cables (CMA) opcional con FXT Edge Filer. Las instrucciones impresas para instalarlo se proporcionan en el paquete. 
+Se proporciona un brazo de administración de cables (CMA) opcional con FXT Edge Filer. Las instrucciones impresas para instalarlo se proporcionan en el paquete.
 
 1. Desembale e identifique los componentes del kit del brazo de administración de cables:
    * Bandeja de CMA (1)
    * CMA (2)
    * Envolturas de cables de nylon (3)
    * Soportes de fijación CMA (4)
-   * Cable indicador de estado (5) 
+   * Cable indicador de estado (5)
 
-   > [!TIP] 
+   > [!TIP]
    > Para asegurar el CMA para su envío en el bastidor, enrolle las envolturas de en torno a ambas cestas y a la bandeja y átelas firmemente. Si asegura el CMA de esta manera, también asegurará su sistema en entornos inestables.
 
    ![Ilustración de piezas de CMA](media/fxt-install/cma-kit-400.png)
 
 2. Instale la bandeja de CMA.
 
-   La bandeja de CMA proporciona soporte y actúa de sostén para el CMA. 
+   La bandeja de CMA proporciona soporte y actúa de sostén para el CMA.
 
-   1. Alinee y enganche cada lado de la bandeja con los soportes del receptor en los bordes internos de los raíles. 
+   1. Alinee y enganche cada lado de la bandeja con los soportes del receptor en los bordes internos de los raíles.
    1. Empuje la bandeja hacia adelante hasta que encaje en su lugar. (1)
    1. Para retirar la bandeja, presione los botones de liberación hacia el centro y tire de la bandeja para extraerla de los soportes del receptor (2).
 
    ![Ilustración de la instalación de la bandeja de CMA](media/fxt-install/cma-tray-install-400.png)
 
-3. Instale los soportes de fijación de CMA. 
+3. Instale los soportes de fijación de CMA.
 
    > [!NOTE]
    >
-   > * Puede colocar el CMA en el raíl de montaje derecho o izquierdo, dependiendo de cómo intente enrutar los cables desde el sistema. 
-   > * Para mayor comodidad, monte el CMA en el lado opuesto a las fuentes de alimentación (lado A). Si está montado en el lado B, el CMA debe desconectarse para poder quitar la fuente de alimentación externa. 
-   > * Retire siempre la bandeja antes de retirar las fuentes de alimentación. 
+   > * Puede colocar el CMA en el raíl de montaje derecho o izquierdo, dependiendo de cómo intente enrutar los cables desde el sistema.
+   > * Para mayor comodidad, monte el CMA en el lado opuesto a las fuentes de alimentación (lado A). Si está montado en el lado B, el CMA debe desconectarse para poder quitar la fuente de alimentación externa.
+   > * Retire siempre la bandeja antes de retirar las fuentes de alimentación.
 
    ![Ilustración de la instalación del soporte de CMA](media/fxt-install/cma-bracket-l-r-install-400.png)
 
    1. Seleccione el soporte de fijación de CMA apropiado para el lado donde quiera montar el CMA (lado B o lado A).
    1. Instale el soporte de fijación de CMA con la marca correspondiente del lado A o del lado B en la parte posterior del raíl deslizante.
-   1. Alinee los orificios del soporte con los anclajes del raíl deslizante. Empuje el soporte hacia abajo hasta que encaje en su lugar. 
+   1. Alinee los orificios del soporte con los anclajes del raíl deslizante. Empuje el soporte hacia abajo hasta que encaje en su lugar.
 
 4. Instale el CMA.
 
-   1. En la parte posterior del sistema, coloque el pestillo en la parte delantera del CMA en el soporte más interno del ensamblaje deslizante hasta que el pestillo encaje (1). 
-   1. Coloque el otro pestillo en el extremo del soporte más externo hasta que el pestillo encaje (2). 
+   1. En la parte posterior del sistema, coloque el pestillo en la parte delantera del CMA en el soporte más interno del ensamblaje deslizante hasta que el pestillo encaje (1).
+   1. Coloque el otro pestillo en el extremo del soporte más externo hasta que el pestillo encaje (2).
    1. Para retirar el CMA, desenganche ambos pestillos presionando los botones de liberación de CMA que están en la parte superior de las carcasas del pestillo interior y exterior (3).
 
    ![Ilustración de la instalación principal de CMA](media/fxt-install/cma-install-400.png)
@@ -203,20 +204,21 @@ Se proporciona un brazo de administración de cables (CMA) opcional con FXT Edge
 
 ## <a name="install-the-front-bezel-optional"></a>Instalación del bisel frontal (opcional)
 
-En esta sección se explica cómo instalar y quitar el bisel frontal (placa frontal) del hardware de Azure FXT Edge Filer. 
+En esta sección se explica cómo instalar y quitar el bisel frontal (placa frontal) del hardware de Azure FXT Edge Filer.
 
-Para instalar el bisel frontal: 
+Para instalar el bisel frontal:
 
-1. Localice y quite la llave del bisel que se proporciona en el paquete del mismo. 
-1. Alinee el bisel con la parte frontal del chasis e inserte los anclajes en el lado derecho del bisel, justo en los orificios de la brida de montaje del bastidor que está en el lado derecho del nodo. 
+1. Localice y quite la llave del bisel que se proporciona en el paquete del mismo.
+1. Alinee el bisel con la parte frontal del chasis e inserte los anclajes en el lado derecho del bisel, justo en los orificios de la brida de montaje del bastidor que está en el lado derecho del nodo.
 1. Coloque el extremo izquierdo del bisel en el chasis. Presione el bisel hasta que el botón del lado izquierdo encaje en su lugar.
 1. Bloquee el bisel con la llave.
 
-Para quitar el bisel frontal: 
+Para quitar el bisel frontal:
+
 1. Desbloquee el bisel mediante la llave del mismo.
 1. Presione el botón de liberación del lado izquierdo y tire del extremo izquierdo del bisel para extraerlo del chasis.
 1. Desenganche el extremo derecho y retire el bisel.
-   
+
    ![Imagen que muestra el botón de liberación a la izquierda del bisel y cómo extraerlo tirando hacia afuera desde el lado izquierdo](media/fxt-install/remove-bezel-edited-600.png)
 
 ## <a name="next-steps"></a>Pasos siguientes

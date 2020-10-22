@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 7fbc69100a2cc5c23150fcc0c19e6c38ba6d438d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b65d1be9fa3ddb28a216d51e91ce2a8b20f15e6
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051175"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127189"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas más frecuentes
 
@@ -236,8 +236,8 @@ A.  Cuando copia los datos en Data Box, dependiendo de si los datos son un blob 
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>Q. Acabo de darme cuenta de que no he seguido los requisitos de nomenclatura de Azure en los contenedores. ¿Pueden aparecer errores al cargar los datos en Azure?
 A.  Si los nombres de los contenedores tienen mayúsculas, estas se convierten automáticamente en minúsculas. Si los nombres no son compatibles por algún otro motivo (caracteres especiales, otros idiomas, etc.), se producirá un error en la carga. Para obtener más información sobre procedimientos recomendados para asignar nombres a los recursos compartidos, contenedores o archivos, vaya a:
-- [Nomenclatura y referencia de recursos compartidos](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [Convenciones de blobs en bloques y blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [Nomenclatura y referencia de recursos compartidos](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Convenciones de blobs en bloques y blobs en páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>Q. ¿Cómo se comprueban los datos que se han copiado en Data Box?
 A.  Una vez completada la copia de datos, al ejecutar **Preparar para enviar**, los datos se validan. Data Box crea una lista de archivos y sumas de comprobación para los datos, durante el proceso de validación. Puede descargar la lista de archivos y comprobarla con los archivos de los datos de origen. Para obtener más información, vaya a [Preparar para enviar](data-box-deploy-picked-up.md#prepare-to-ship).
