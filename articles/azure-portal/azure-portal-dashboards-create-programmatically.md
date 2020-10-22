@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: c7fcced1833cb5f4ccb9c2c2fd44dd84a9abb3cb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7f52bd94a0286ea50d09ab7c77dce339e8a3ebf3
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077871"
+ms.locfileid: "92089373"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creación mediante programación de paneles de Azure
 
@@ -55,7 +55,7 @@ Después de configurar el panel, el siguiente paso es publicar el panel con el c
 
 ![Uso compartido de un panel](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Al seleccionar **Compartir**, se le pide que elija en qué suscripción y grupo de recursos se va a publicar. Debe tener acceso de escritura a la suscripción y al grupo de recursos que elija. Para obtener más información, vea [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure Portal](../role-based-access-control/role-assignments-portal.md).
+Al seleccionar **Compartir**, se le pide que elija en qué suscripción y grupo de recursos se va a publicar. Debe tener acceso de escritura a la suscripción y al grupo de recursos que elija. Para más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ![Cambios en el uso compartido y el acceso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

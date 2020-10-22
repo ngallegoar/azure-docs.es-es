@@ -4,12 +4,12 @@ description: Aprenda a ejecutar una migración de máquinas virtuales de VMware 
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 37181246a20044f16414735e2247fa90fc36433b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e263306cf18dfebe4b73f8d940b8eb5c99ed16f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530529"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310632"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migración de máquinas virtuales de VMware a Azure (sin agente)
 
@@ -36,8 +36,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Antes de comenzar este tutorial, debe:
 
-1. [Complete el primer tutorial](tutorial-prepare-vmware.md) para preparar Azure y VMware para la migración.
-2. Se recomienda completar el segundo tutorial para [evaluar las máquinas virtuales VMware](tutorial-assess-vmware.md) antes de migrarlas a Azure, pero no es obligatorio. 
+1. [Complete el primer tutorial](./tutorial-discover-vmware.md) para preparar Azure y VMware para la migración.
+2. Se recomienda completar el segundo tutorial para [evaluar las máquinas virtuales VMware](./tutorial-assess-vmware-azure-vm.md) antes de migrarlas a Azure, pero no es obligatorio. 
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Incorporación de la herramienta Azure Migrate Server Migration
@@ -59,7 +59,7 @@ Si aún no ha configurado un proyecto de Azure Migrate, [hágalo](how-to-add-too
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configuración del dispositivo de Azure Migrate
 
-Azure Migrate Server Migration ejecuta un dispositivo de máquina virtual VMware ligero que se usa para la detección, evaluación y migración sin agente de máquinas virtuales VMware. Si ha seguido el [tutorial de evaluación](tutorial-assess-vmware.md), ya ha configurado el dispositivo. Si no lo ha hecho, configúrelo ahora mediante uno de estos métodos:
+Azure Migrate Server Migration ejecuta un dispositivo de máquina virtual VMware ligero que se usa para la detección, evaluación y migración sin agente de máquinas virtuales VMware. Si ha seguido el [tutorial de evaluación](./tutorial-assess-vmware-azure-vm.md), ya ha configurado el dispositivo. Si no lo ha hecho, configúrelo ahora mediante uno de estos métodos:
 
 - **Plantilla OVA**: [Configúrelo](how-to-set-up-appliance-vmware.md) en una máquina virtual de VMware mediante una plantilla de OVA descargada.
 - **Script**: [configúrelo](deploy-appliance-script.md) en una máquina virtual VMware o en una máquina física con un script del instalador de PowerShell. Este método se debe usar si no se puede configurar una máquina virtual mediante una plantilla OVA o si trabaja con Azure Government.
@@ -210,7 +210,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
     - Mantenga las cargas de trabajo en ejecución y disponibles continuamente mediante la replicación de máquinas virtuales de Azure en una región secundaria con Site Recovery. [Más información](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para aumentar la seguridad:
     - Bloquee y limite el acceso de tráfico de entrada con la [administración Just-In-Time de Azure Security Center](../security-center/security-center-just-in-time.md).
-    - Restrinja el tráfico de red a los puntos de conexión de administración con [grupos de seguridad de red](../virtual-network/security-overview.md).
+    - Restrinja el tráfico de red a los puntos de conexión de administración con [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md).
     - Implemente [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
     - Obtenga más información sobre la [protección de recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) y visite [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Para supervisión y administración:

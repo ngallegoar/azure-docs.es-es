@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: ddba41acfcfe497059a661b701906cda0d4d77c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14f6fc685e99060474a17503cb13ba09a61a5a9a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398381"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149204"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2: Visualización de los mensajes enrutados
 
@@ -280,7 +280,7 @@ Inicie sesión en su cuenta de [Power BI](https://powerbi.microsoft.com/). Vaya 
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Uso de la CLI de Azure para quitar recursos
 
-Para quitar el grupo de recursos, use el comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` se estableció en **ContosoResources** al principio de este tutorial.
+Para quitar el grupo de recursos, use el comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` se estableció en **ContosoResources** al principio de este tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -288,7 +288,7 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>Uso de PowerShell para quitar recursos
 
-Para quitar el grupo de recursos, use el comando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` se estableció en **ContosoResources** al principio de este tutorial.
+Para quitar el grupo de recursos, use el comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` se estableció en **ContosoResources** al principio de este tutorial.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 31a3bfbc174ca9c4c46005a26cde65db1ff74b65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49496dbf1355ceee7619d93bcb0676892b7a212d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906922"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150572"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Línea de base de seguridad de Azure para Azure IoT Hub
 
@@ -33,9 +33,9 @@ Se recomienda restringir la conectividad a los recursos de Azure (incluido Azure
 Mantenga abiertos los puertos de hardware de los dispositivos a la mínima expresión para evitar el acceso no deseado. Asimismo, cree mecanismos para prevenir o detectar la alteración física del dispositivo.
 
 - [Compatibilidad con redes virtuales](virtual-network-support.md)
-- [Procedimientos recomendados de redes de IoT](https://docs.microsoft.com/azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc#networking)
+- [Procedimientos recomendados de redes de IoT](../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc#networking)
 - [¿Qué es Azure Private Link?](../private-link/private-link-overview.md)
-- [Grupo de seguridad de red de Azure](../virtual-network/security-overview.md)
+- [Grupo de seguridad de red de Azure](../virtual-network/network-security-groups-overview.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -57,7 +57,7 @@ Mantenga abiertos los puertos de hardware de los dispositivos a la mínima expre
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteja las aplicaciones web críticas
 
-**Instrucciones**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
+**Guía**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -75,7 +75,7 @@ Azure DDoS Protection Basic ya está habilitado y disponible sin costo adicional
 
 - [Administración de Azure DDoS Protection Basic](../virtual-network/ddos-protection-overview.md)
 
-- [Protección contra amenazas en Azure Security Center](../security-center/threat-protection.md)
+- [Protección contra amenazas en Azure Security Center](../security-center/azure-defender.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -138,7 +138,7 @@ Implemente la solución de firewall que prefiera en cada uno de los límites de 
 
 **Guía**: Use etiquetas para los recursos de red asociados a la implementación de Azure IoT Hub a fin de organizarlos lógicamente en una taxonomía.
 
-- [Creación y uso de etiquetas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -148,7 +148,7 @@ Implemente la solución de firewall que prefiera en cada uno de los límites de 
 
 **Guía**: Use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en los recursos de red relacionados con Azure IoT Hub. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -274,9 +274,9 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 **Guía**: El control de acceso basado en roles de Azure (Azure RBAC) permite administrar el acceso a los recursos de Azure IoT Hub a través de las asignaciones de roles. Puede asignar estos roles a usuarios, grupos de entidades de servicio e identidades administradas. Hay roles integrados predefinidos para determinados recursos, y estos roles se pueden inventariar o consultar mediante herramientas, como la CLI de Azure, Azure PowerShell o Azure Portal. 
 
-- [Obtención de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -296,7 +296,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 También puede habilitar un acceso Just-in-Time a cuentas administrativas mediante Azure AD Privileged Identity Management y Azure Resource Manager.
 
-- [Más información acerca de Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Más información acerca de Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -340,7 +340,7 @@ También puede habilitar un acceso Just-in-Time a cuentas administrativas median
 
 **Guía**: use la característica de supervisión y los informes de seguridad de Azure Active Directory para detectar cuando se producen actividades sospechosas o no seguras en el entorno. Use Azure Security Center para supervisar la actividad de identidad y acceso.
 
-- [Procedimiento para identificar usuarios de Azure AD marcados por una actividad de riesgo](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Procedimiento para identificar usuarios de Azure AD marcados por una actividad de riesgo](../active-directory/identity-protection/overview-identity-protection.md)
 - [Supervisión de la actividad de identidad y acceso de los usuarios en Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Supervisión de Azure Security Center**: Sí
@@ -376,9 +376,9 @@ Para el acceso al dispositivo y el servicio, IoT Hub usa tokens de seguridad y t
 
 use Azure AD Privileged Identity Management (PIM) para la generación de registros y alertas cuando se produzca actividad sospechosa o insegura en el entorno.
 
-- [Descripción de los informes de Azure AD](/azure/active-directory/reports-monitoring/)
+- [Descripción de los informes de Azure AD](../active-directory/reports-monitoring/index.yml)
 - [Procedimiento para usar las revisiones de acceso e identidades de Azure AD](../active-directory/governance/access-reviews-overview.md)
-- [Implementación de Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Implementación de Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -392,7 +392,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 Use registros de diagnóstico de Azure Monitor para supervisar los intentos de conexión no autorizados en la categoría conexiones.
 
-- [Integración de los registros de actividad de Azure en Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integración de los registros de actividad de Azure en Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Configuración de registros de diagnóstico para IoT Hub](iot-hub-monitor-resource-health.md)
 
@@ -404,7 +404,7 @@ Use registros de diagnóstico de Azure Monitor para supervisar los intentos de c
 
 **Guía**: use las características de Azure Active Directory Identity Protection para configurar las respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios. También puede hacer que Azure Sentinel ingiera los datos para investigarlos más.
   
-- [Visualización de los inicios de sesión de riesgo de Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Visualización de los inicios de sesión de riesgo de Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
   
 - [Configuración y habilitación de las directivas de riesgo de protección de identidad](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
   
@@ -430,7 +430,7 @@ Use registros de diagnóstico de Azure Monitor para supervisar los intentos de c
 
 **Instrucciones**: use etiquetas para ayudar a realizar el seguimiento de los recursos de Azure que almacenan o procesan información confidencial.
  
-- [ Creación y uso de etiquetas](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -440,9 +440,9 @@ Use registros de diagnóstico de Azure Monitor para supervisar los intentos de c
 
 **Guía**: Implemente el aislamiento mediante suscripciones independientes y grupos de administración para dominios de seguridad individuales, como el tipo de entorno y el nivel de confidencialidad de los datos. Puede restringir el nivel de acceso a los recursos de Azure que necesitan sus aplicaciones y entornos empresariales. Puede controlar el acceso a los recursos de Azure a través de RBAC de Azure.
   
-- [ Creación de suscripciones adicionales de Azure](/azure/billing/billing-create-subscription)
-- [ Creación de grupos de administración](/azure/governance/management-groups/create)
-- [ Creación y uso de etiquetas](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
+- [ Creación de grupos de administración](../governance/management-groups/create-management-group-portal.md)
+- [ Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -593,7 +593,7 @@ Azure IoT Hub proporciona cifrado de datos en reposo y en tránsito a medida que
 
 **Instrucciones**: Aplique etiquetas a los recursos de Azure (no todos los recursos admiten etiquetas, pero sí la mayoría) para organizarlas lógicamente en una taxonomía.
 
-- [Creación y uso de etiquetas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -603,11 +603,11 @@ Azure IoT Hub proporciona cifrado de datos en reposo y en tránsito a medida que
 
 **Guía**: Use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
   
-- [ Creación de suscripciones adicionales de Azure](/azure/billing/billing-create-subscription)
+- [ Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
   
-- [ Creación de grupos de administración](/azure/governance/management-groups/create)
+- [ Creación de grupos de administración](../governance/management-groups/create-management-group-portal.md)
   
-- [ Creación y uso de etiquetas](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -725,7 +725,7 @@ Azure Resource Manager tiene la capacidad de exportar la plantilla en notación 
 
 También puede usar las recomendaciones de Azure Security Center como línea de base de configuración segura para los recursos de Azure.
 
-- [Visualización de los alias de Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Tutorial: Creación y administración de directivas para aplicar el cumplimiento](../governance/policy/tutorials/create-and-manage.md)
 
@@ -769,8 +769,8 @@ También puede usar las recomendaciones de Azure Security Center como línea de 
 
 **Guía**: Si usa definiciones personalizadas de Azure Policy para los recursos de Azure IoT Hub u otros relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
 
-- [Almacenamiento de código en Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
-- [Documentación de Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Documentación de Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -830,8 +830,8 @@ Use identidades administradas con Azure Key Vault para simplificar la administra
 - [Tokens de seguridad de IoT Hub](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 - [Uso de identidades administradas para IoT Hub](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
-- [Creación de un almacén de claves](/azure/key-vault/quick-create-portal)
-- [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](/azure/key-vault/managed-identity)
+- [Creación de un almacén de claves](../key-vault/secrets/quick-create-portal.md)
+- [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](../key-vault/general/assign-access-policy-portal.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -940,7 +940,7 @@ Realice periódicamente la restauración de datos de contenido en Azure Backup. 
  
  
 - [Descripción de Azure RBAC](../role-based-access-control/overview.md)
-- [Eliminación temporal para Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Eliminación temporal para Azure Blob Storage](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -973,7 +973,7 @@ Realice periódicamente la restauración de datos de contenido en Azure Backup. 
   
 - [Alertas de seguridad en Azure Security Center](../security-center/security-center-alerts-overview.md)
   
-- [Uso de etiquetas para organizar los recursos de Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Uso de etiquetas para organizar los recursos de Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -1039,5 +1039,5 @@ Realice periódicamente la restauración de datos de contenido en Azure Backup. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [prueba comparativa de seguridad de Azure](/azure/security/benchmarks/overview).
-- Obtenga más información sobre las [líneas de base de seguridad de Azure](/azure/security/benchmarks/security-baselines-overview).
+- Consulte la [prueba comparativa de seguridad de Azure](../security/benchmarks/overview.md).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).

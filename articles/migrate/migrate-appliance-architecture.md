@@ -3,12 +3,12 @@ title: Arquitectura del dispositivo de Azure Migrate
 description: Proporciona información general sobre el dispositivo de Azure Migrate usado en la evaluación y migración del servidor.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a01932a9e4f72d7ce6747214b53f124d54942894
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322264"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312904"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitectura del dispositivo de Azure Migrate
 
@@ -51,8 +51,8 @@ Durante la configuración del dispositivo, este se registra con Azure Migrate y 
 **Acción** | **Detalles** | **Permisos**
 --- | --- | ---
 **Registro de proveedores de recursos** | Estos proveedores de recursos se registran en la suscripción que elija durante la configuración del dispositivo: Microsoft.OffAzure, Microsoft.Migrate y Microsoft.KeyVault.<br/><br/> Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. | Para registrar los proveedores de recursos debe tener el rol colaborador o propietario de la suscripción.
-**Creación de una aplicación de Azure AD: comunicación** | Azure Migrate crea una aplicación de Azure Active Directory (Azure AD) que se usa para la comunicación (autenticación y autorización) entre los agentes que se ejecutan en la aplicación y sus respectivos servicios que se ejecutan en Azure.<br/><br/> Esta aplicación no tiene privilegios para realizar llamadas a Azure Resource Manager ni acceso RBAC en ningún recurso. | Necesita [estos permisos](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps) para que Azure Migrate cree la aplicación.
-**Creación de una aplicación de Azure AD: Key Vault** | Esta aplicación solo se crea para la migración sin agentes de máquinas virtuales de VMware a Azure.<br/><br/> Se usa exclusivamente para acceder a la instancia del almacén de claves creada en la suscripción del usuario para la migración sin agentes.<br/><br/> Tiene acceso RBAC a Azure Key Vault (la instancia creada en el inquilino del cliente) cuando se inicia la detección desde el dispositivo. | Necesita [estos permisos](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) para que Azure Migrate cree la aplicación.
+**Creación de una aplicación de Azure AD: comunicación** | Azure Migrate crea una aplicación de Azure Active Directory (Azure AD) que se usa para la comunicación (autenticación y autorización) entre los agentes que se ejecutan en la aplicación y sus respectivos servicios que se ejecutan en Azure.<br/><br/> Esta aplicación no tiene privilegios para realizar llamadas a Azure Resource Manager ni acceso RBAC en ningún recurso. | Necesita [estos permisos](./tutorial-discover-vmware.md#prepare-an-azure-user-account) para que Azure Migrate cree la aplicación.
+**Creación de una aplicación de Azure AD: Key Vault** | Esta aplicación solo se crea para la migración sin agentes de máquinas virtuales de VMware a Azure.<br/><br/> Se usa exclusivamente para acceder a la instancia del almacén de claves creada en la suscripción del usuario para la migración sin agentes.<br/><br/> Tiene acceso RBAC a Azure Key Vault (la instancia creada en el inquilino del cliente) cuando se inicia la detección desde el dispositivo. | Necesita [estos permisos](./tutorial-discover-vmware.md#prepare-an-azure-user-account) para que Azure Migrate cree la aplicación.
 
 
 
@@ -91,4 +91,3 @@ Para desactivar la actualización automática en el registro, establezca la clav
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Revise](migrate-appliance.md) la matriz de compatibilidad del dispositivo.
-

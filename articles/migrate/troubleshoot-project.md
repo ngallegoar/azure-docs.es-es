@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: b56244fccce623827367d504831ca8db517c108d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2245e13f348706f662055408196ea7a26484811
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121646"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314644"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Solución de problemas de proyectos de Azure Migrate
 
@@ -52,7 +52,7 @@ Si intenta crear un proyecto y detecta un error de implementación:
 - Si recibe el error "Las solicitudes deben incluir encabezados de identidad de usuario", es posible que no tenga acceso al inquilino de Azure Active Directory (Azure AD) de la organización. En este caso:
     - Cuando agrega un usuario a un inquilino de Azure AD por primera vez, recibe una invitación por correo electrónico para unirse al inquilino.
     - Acepte la invitación para agregarse correctamente al inquilino.
-    - Si no puede ver el correo electrónico, póngase en contacto con un usuario con acceso al inquilino y pídale que le [vuelva a enviar la invitación](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users).
+    - Si no puede ver el correo electrónico, póngase en contacto con un usuario con acceso al inquilino y pídale que le [vuelva a enviar la invitación](../active-directory/external-identities/add-users-administrator.md#resend-invitations-to-guest-users).
     - Cuando reciba el correo electrónico de invitación, ábralo y seleccione el vínculo para aceptar la invitación. A continuación, cierre la sesión en Azure Portal e inicie sesión de nuevo. (La actualización del explorador no funcionará). A continuación, puede empezar a crear el proyecto de migración.
 
 ## <a name="how-do-i-delete-a-project"></a>¿Cómo puedo eliminar un proyecto?

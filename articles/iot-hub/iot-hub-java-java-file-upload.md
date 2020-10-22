@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: e6006444e933dd93467dde01affd29c5d0c4a146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a02dc94c0dc0939e6c1eef624fc6fe65fb98ac6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019553"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147017"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Carga de archivos de un dispositivo a la nube con IoT Hub (Java)
 
@@ -52,7 +52,7 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Java:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Asegúrese de seleccionar **Java 8** en **Long-term support** (Soporte técnico a largo plazo) para obtener descargas de JDK 8.
+* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). Asegúrese de seleccionar **Java 8** en **Long-term support** (Soporte técnico a largo plazo) para obtener descargas de JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -284,4 +284,4 @@ En este tutorial ha aprendido a usar la funcionalidad de carga de archivos de Io
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Simulación de un dispositivo con IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Simulación de un dispositivo con IoT Edge](../iot-edge/quickstart-linux.md)

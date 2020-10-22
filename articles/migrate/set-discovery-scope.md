@@ -3,12 +3,12 @@ title: Establezca el ámbito para la detección de máquinas virtuales de VMware
 description: Describe cómo establecer el ámbito de detección para la evaluación y la migración de máquinas virtuales de VMware con Azure Migrate.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c61f544e3222dba83123aa1be5e53a19e671035
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919733"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314024"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Establecimiento del ámbito de detección para las máquinas virtuales de VMware
 
@@ -21,7 +21,7 @@ Al configurar el dispositivo, se conecta a vCenter Server e inicia la detección
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Si no ha configurado una cuenta de usuario de vCenter que Azure Migrate usa para la detección, hágalo ahora para la [evaluación](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) o la [migración sin agente](tutorial-prepare-vmware.md#assign-permissions-to-an-account).
+Si no ha configurado una cuenta de usuario de vCenter que Azure Migrate usa para la detección, hágalo ahora para la [evaluación](./tutorial-discover-vmware.md#prepare-vmware) o la [migración sin agente](./migrate-support-matrix-vmware-migration.md#agentless-migration).
 
 
 ## <a name="assign-permissions-and-roles"></a>Asignación de permisos y roles

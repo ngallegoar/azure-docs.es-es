@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaa9fa036f86fc822a4bb2175f404cdff1ca81d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361915"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362576"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configuración del asistente de Log Analytics
 
@@ -45,7 +45,7 @@ Familiarícese con estos artículos:
 
 - [Integración de registros de actividad con Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Administración de cuentas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md)
+- [Administración de cuentas de acceso de emergencia en Azure AD](../roles/security-emergency-access.md)
 
 - [Referencia rápida de KQL](/azure/data-explorer/kql-quick-reference)
 
@@ -96,11 +96,11 @@ La configuración de un área de trabajo de Log Analytics consta de dos pasos pr
 
 7. Busque **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 8. En la sección **Supervisión**, haga clic en **Configuración de diagnóstico**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
 
 9. En la página **Configuración de diagnóstico**, haga clic en **Agregar configuración de diagnóstico**.
 
@@ -128,7 +128,7 @@ En este procedimiento se describe cómo ejecutar consultas mediante el **lenguaj
 
 2. Busque **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. En la sección **Supervisión**, haga clic en **Registros**.
 
@@ -210,7 +210,7 @@ Este procedimiento muestra cómo enviar alertas cuando se usa la cuenta de Break
 
 2. Busque **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. En la sección **Supervisión**, haga clic en **Registros**.
 
@@ -301,7 +301,7 @@ En este procedimiento se muestra cómo crear un nuevo libro mediante la plantill
 
 2. Busque **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. En la sección **Supervisión**, haga clic en **Libros**.
 
@@ -353,7 +353,7 @@ Este procedimiento muestra cómo agregar una consulta a una plantilla de libro e
 
 2. Busque **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. En la sección **Supervisión**, haga clic en **Libros**.
 

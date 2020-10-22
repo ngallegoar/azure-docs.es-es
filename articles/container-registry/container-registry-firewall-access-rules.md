@@ -3,12 +3,12 @@ title: Reglas de acceso del firewall
 description: Configure reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall. Para ello, permita el acceso a la API de REST ("inclusión en lista blanca") y los nombres de dominio del punto de conexión de datos o los intervalos de direcciones IP específicos del servicio.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ecd5f802176cdc6881294f5dedefd3dd467244
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246986"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148504"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configuración de reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall
 
@@ -113,7 +113,7 @@ Busque la región específica, como **Storage.AustraliaCentral**.
 
 ## <a name="allow-access-by-service-tag"></a>Permitir el acceso por etiqueta de servicio
 
-En una red virtual de Azure, use las reglas de seguridad de red para filtrar el tráfico de un recurso (por ejemplo, una máquina virtual) a un registro de contenedor. Para simplificar la creación de las reglas de red de Azure, use la [etiqueta de servicio](../virtual-network/security-overview.md#service-tags) **AzureContainerRegistry**. Una etiqueta de servicio constituye un grupo de prefijos de dirección IP para tener acceso a un servicio de Azure de manera global o por región de Azure. La etiqueta se actualiza automáticamente cuando las direcciones cambian. 
+En una red virtual de Azure, use las reglas de seguridad de red para filtrar el tráfico de un recurso (por ejemplo, una máquina virtual) a un registro de contenedor. Para simplificar la creación de las reglas de red de Azure, use la [etiqueta de servicio](../virtual-network/network-security-groups-overview.md#service-tags) **AzureContainerRegistry**. Una etiqueta de servicio constituye un grupo de prefijos de dirección IP para tener acceso a un servicio de Azure de manera global o por región de Azure. La etiqueta se actualiza automáticamente cuando las direcciones cambian. 
 
 Por ejemplo, cree una regla de grupo de seguridad de red saliente con el destino **AzureContainerRegistry** para permitir el tráfico a un registro de contenedor de Azure. Para permitir el acceso a la etiqueta de servicio únicamente en una región específica, especifique la región con el siguiente formato: **AzureContainerRegistry**.[*nombre de la región*].
 
@@ -183,7 +183,7 @@ Si necesita obtener acceso a Microsoft Container Registry (MCR) desde detrás de
 
 * Obtenga información sobre los [Procedimientos recomendados de seguridad de la red de Azure](../security/fundamentals/network-best-practices.md).
 
-* Obtenga más información sobre los [grupos de seguridad](../virtual-network/security-overview.md) en una red virtual de Azure.
+* Obtenga más información sobre los [grupos de seguridad](../virtual-network/network-security-groups-overview.md) en una red virtual de Azure.
 
 * Más información sobre la configuración de [Private Link](container-registry-private-link.md) para un registro de contenedor
 

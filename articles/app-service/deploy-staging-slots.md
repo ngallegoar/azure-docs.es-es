@@ -5,17 +5,17 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef90603e8c8cdd66d43b9f88f6d128d8a472fd8a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962169"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150327"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
 
-Al implementar la aplicación web, la aplicación web en Linux, el back-end móvil o la aplicación API en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714), puede implementarlas en una ranura de implementación independiente en lugar de en la ranura de producción predeterminada si realiza la ejecución en el nivel de plan **Estándar**, **Premium** o **Aislado** de App Service. Las ranuras de implementación son aplicaciones activas con sus propios nombres de host. Los elementos de contenido y configuraciones de aplicaciones se pueden intercambiar entre dos ranuras de implementación, incluida la ranura de producción. 
+Al implementar la aplicación web, la aplicación web en Linux, el back-end móvil o la aplicación API en [Azure App Service](./overview.md), puede implementarlas en una ranura de implementación independiente en lugar de en la ranura de producción predeterminada si realiza la ejecución en el nivel de plan **Estándar**, **Premium** o **Aislado** de App Service. Las ranuras de implementación son aplicaciones activas con sus propios nombres de host. Los elementos de contenido y configuraciones de aplicaciones se pueden intercambiar entre dos ranuras de implementación, incluida la ranura de producción. 
 
 La implementación de la aplicación en un espacio que no sea de producción ofrece las siguientes ventajas:
 

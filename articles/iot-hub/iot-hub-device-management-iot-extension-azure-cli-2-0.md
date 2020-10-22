@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 88c3d1f4213b161d5e322349a7f0e1bc1dd952e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aded49b5b9509a75e61612e44ffa19ff377d1712
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80239656"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148316"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Usar la extensión de IoT de la CLI de Azure para la administración de dispositivos de Azure IoT Hub
 
@@ -23,7 +23,7 @@ ms.locfileid: "80239656"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[La extensión de IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) es una extensión de IoT de código abierto que se suma a las funcionalidades de la [CLI de Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). La CLI de Azure incluye comandos para interactuar con Azure Resource Manager y los puntos de conexión de administración. Por ejemplo, la puede utilizar para crear una máquina virtual de Azure o una instancia de IoT Hub. Una extensión de la CLI permite que un servicio de Azure aumente la CLI de Azure para proporcionar al usuario acceso a funcionalidades adicionales específicas de un servicio. La extensión de IoT proporciona a los desarrolladores de IoT acceso con la línea de comandos a todas las funcionalidades de IoT Hub, IoT Edge y del servicio IoT Hub Device Provisioning.
+[La extensión de IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) es una extensión de IoT de código abierto que se suma a las funcionalidades de la [CLI de Azure](/cli/azure/overview?view=azure-cli-latest). La CLI de Azure incluye comandos para interactuar con Azure Resource Manager y los puntos de conexión de administración. Por ejemplo, la puede utilizar para crear una máquina virtual de Azure o una instancia de IoT Hub. Una extensión de la CLI permite que un servicio de Azure aumente la CLI de Azure para proporcionar al usuario acceso a funcionalidades adicionales específicas de un servicio. La extensión de IoT proporciona a los desarrolladores de IoT acceso con la línea de comandos a todas las funcionalidades de IoT Hub, IoT Edge y del servicio IoT Hub Device Provisioning.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -61,7 +61,7 @@ Deberá ejecutar la CLI de Azure y la extensión de IoT de la CLI de Azure con v
 
 * [Python 2.7x o Python 3.x](https://www.python.org/downloads/)
 
-* La CLI de Azure. Si necesita instalarla, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Como mínimo, la versión de la CLI de Azure debe ser la 2.0.70. Use `az –version` para asegurarse.
+* La CLI de Azure. Si necesita instalarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Como mínimo, la versión de la CLI de Azure debe ser la 2.0.70. Use `az –version` para asegurarse.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 

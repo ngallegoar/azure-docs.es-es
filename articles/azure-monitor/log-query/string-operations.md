@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/16/2018
-ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 7838f9f1febcab073633dbb4af011e99acbe22d3
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75397464"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310291"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabajo con cadenas en consultas de registro de Azure Monitor
 
@@ -74,8 +74,8 @@ Operator       |Descripción                         |Distingue mayúsculas de m
 `!startswith_cs`  |El lado derecho no es una subsecuencia inicial del lado izquierdo|Sí        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |El lado derecho es una subsecuencia final del lado izquierdo|No             |`"Fabrikam" endswith "Kam"`
 `!endswith`    |El lado derecho no es una subsecuencia final del lado izquierdo|No         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |El lado derecho es una subsecuencia final del lado izquierdo|Sí             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |El lado derecho no es una subsecuencia final del lado izquierdo|Sí         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |El lado derecho es una subsecuencia final del lado izquierdo|Sí             |`"Fabrikam" endswith_cs "kam"`
+`!endswith_cs`    |El lado derecho no es una subsecuencia final del lado izquierdo|Sí         |`"Fabrikam" !endswith_cs "brik"`
 `matches regex`|El lado izquierdo contiene a una coincidencia del lado derecho        |Sí           |`"Fabrikam" matches regex "b.*k"`
 `in`           |Igual a uno de los elementos       |Sí           |`"abc" in ("123", "345", "abc")`
 `!in`          |No es igual a uno de los elementos   |Sí           |`"bca" !in ("123", "345", "abc")`

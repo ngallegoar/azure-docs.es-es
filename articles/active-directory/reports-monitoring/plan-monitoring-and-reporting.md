@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 568a524e9300905a5e70b2cf7481fc7eabfc669e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331206"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311224"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planeamiento de la implementación de la supervisión y los informes de Azure Active Directory
 
@@ -73,7 +73,7 @@ En este proyecto, definirá las audiencias que consumirán y supervisarán los i
 
 ### <a name="engage-the-right-stakeholders"></a>Interactuar con las partes interesadas adecuadas
 
-Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de que interactúa con las partes interesadas adecuadas](https://aka.ms/deploymentplans). Asegúrese también de que los roles de las partes interesadas en el proyecto se entienden bien; para ello, documente las partes interesadas y sus aportes y responsabilidades en el proyecto.
+Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de que interactúa con las partes interesadas adecuadas](../fundamentals/active-directory-deployment-plans.md). Asegúrese también de que los roles de las partes interesadas en el proyecto se entienden bien; para ello, documente las partes interesadas y sus aportes y responsabilidades en el proyecto.
 
 ### <a name="plan-communications"></a>Planeamiento de las comunicaciones
 
@@ -133,7 +133,7 @@ Aprenda a [instalar y utilizar las vistas de Log Analytics para los registros de
 
 El enrutamiento de registros a un centro de eventos de Azure permite la integración con herramientas SIEM de terceros. Esta integración le permite combinar los datos de registro de actividad de Azure AD con otros datos administrados por el SIEM, a fin de proporcionar una mejor comprensión del entorno. 
 
-Aprenda cómo [transmitir registros a un centro de eventos](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Aprenda cómo [transmitir registros a un centro de eventos](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Planeamiento de las operaciones y la seguridad de los informes y la de Azure AD
 

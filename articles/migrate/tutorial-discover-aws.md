@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo detectar instancias de AWS con Azu
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e48d123a9317d35cd2bb8e38a29d23cae3b75eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b837ae89831024b169782fe9ae1a062677a4b45b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275462"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311276"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Tutorial: Detección de instancias de AWS con Server Assessment
 
@@ -224,7 +224,7 @@ Configure el dispositivo por primera vez.
    
    No se admite el inicio de sesión con un PIN.
 3. Después de iniciar sesión correctamente, vuelva a la aplicación web. 
-4. Si la cuenta de usuario de Azure que se usa para el registro tiene los [permisos](tutorial-prepare-physical.md) adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
+4. Si la cuenta de usuario de Azure que se usa para el registro tiene los [permisos](./tutorial-discover-physical.md) adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
 1. Una vez que el dispositivo se ha registrado correctamente, puede ver los detalles de registro haciendo clic en **Ver detalles**.
 
 

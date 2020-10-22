@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95b5cc191ac6857bf8e1b09e70b22d928473fe03
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575017"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314852"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Ejecución de acciones basadas en el estado del grupo mediante ámbitos en Azure Logic Apps
 
@@ -31,7 +31,7 @@ Para seguir el ejemplo de este artículo, necesita estos elementos:
 
 * Una cuenta de correo electrónico de cualquier proveedor de correo electrónico compatible con Logic Apps. Este ejemplo utiliza Outlook.com. Si utiliza un proveedor diferente, el flujo general sigue siendo el mismo, pero la interfaz de usuario es diferente.
 
-* Una clave de Mapas de Bing. Para obtener esta clave, consulte cómo <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">obtener una clave de Mapas de Bing</a>.
+* Una clave de Mapas de Bing. Para obtener esta clave, consulte cómo <a href="/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key" target="_blank">obtener una clave de Mapas de Bing</a>.
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

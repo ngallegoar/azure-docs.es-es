@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 63497553f7cec2edf3c77ba8690dda2b15d104be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ff8ebeaf7c4a219bc403c81dfea62f4657a1fd8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324733"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148336"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Información general sobre la administración de dispositivos con IoT Hub
 
@@ -78,7 +78,7 @@ Dentro de cada una de estas cinco fases, hay que cumplir varios requisitos de op
   
     *Lecturas adicionales*:
     * [Uso de propiedades de dispositivos gemelos](tutorial-device-twins.md)
-    * [Configuración y supervisión de dispositivos IoT a escala](iot-hub-auto-device-config.md)
+    * [Configuración y supervisión de dispositivos IoT a escala](./iot-hub-automatic-device-management.md)
     * [Procedimientos recomendados para la configuración de dispositivos en una solución de IoT](iot-hub-configuration-best-practices.md)
 
 * **Supervisión**: supervisar la situación general del conjunto de dispositivos y el estado de las operaciones en curso, y alertar a los operadores sobre los problemas que puedan necesitar su atención.  Aplique dispositivos gemelos para que los dispositivos puedan notificar en tiempo real las condiciones de funcionamiento y el estado de las operaciones de actualización. Genere informes de panel eficaces que expongan los problemas más inmediatos mediante el uso de dispositivos gemelos.
@@ -86,7 +86,7 @@ Dentro de cada una de estas cinco fases, hay que cumplir varios requisitos de op
     *Lecturas adicionales*: 
     * [Uso de propiedades de dispositivos gemelos](tutorial-device-twins.md)
     * [Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes](iot-hub-devguide-query-language.md)
-    * [Configuración y supervisión de dispositivos IoT a escala](iot-hub-auto-device-config.md)
+    * [Configuración y supervisión de dispositivos IoT a escala](./iot-hub-automatic-device-management.md)
     * [Procedimientos recomendados para la configuración de dispositivos en una solución de IoT](iot-hub-configuration-best-practices.md)
 
 * **Retirada**: reemplazar o retirar dispositivos después de un error, ciclo de actualización o al final de la duración del servicio.  Use dispositivos gemelos para conservar la información del dispositivo si el dispositivo físico se va a reemplazar, o para archivarla si se va a retirar. Use el registro de identidades de IoT Hub para revocar de forma segura las credenciales y las identidades de los dispositivos.

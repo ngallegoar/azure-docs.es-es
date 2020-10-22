@@ -4,17 +4,17 @@ description: Aprenda ahora a importar los archivos de certificados a un servicio
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 426aa2ebbfb87fe2c80e0d1aff3eeecbe0e2472d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219882a3f7f6db665f1ec311098ef53464773b71
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050750"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313694"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importación de un archivo de certificados a un contenedor que se ejecuta en Service Fabric
 
 > [!NOTE]
-> En el caso de los clústeres de Service Fabric que se ejecutan en Azure, se recomienda usar la [Identidad administrada de la aplicación de Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) para aprovisionar certificados de aplicación desde dentro de un contenedor. La identidad administrada proporciona aislamiento de secretos y certificados en el nivel de servicio, y permite que el aprovisionamiento de certificados de la aplicación forme parte del flujo de trabajo de la aplicación, en lugar de ser parte del flujo de trabajo de la infraestructura. El mecanismo CertificateRef quedará en desuso en una versión futura.
+> En el caso de los clústeres de Service Fabric que se ejecutan en Azure, se recomienda usar la [Identidad administrada de la aplicación de Service Fabric](./concepts-managed-identity.md) para aprovisionar certificados de aplicación desde dentro de un contenedor. La identidad administrada proporciona aislamiento de secretos y certificados en el nivel de servicio, y permite que el aprovisionamiento de certificados de la aplicación forme parte del flujo de trabajo de la aplicación, en lugar de ser parte del flujo de trabajo de la infraestructura. El mecanismo CertificateRef quedará en desuso en una versión futura.
 
 Puede proteger los servicios de contenedor especificando un certificado. Service Fabric proporciona un mecanismo para los servicios dentro de un contenedor para acceder a un certificado que está instalado en los nodos de un clúster de Windows o Linux (versión 5.7 o superior). Este certificado debe instalarse en un almacén de certificados en LocalMachine en todos los nodos del clúster. La clave privada correspondiente al certificado debe estar disponible, ser accesible y, en Windows, exportable. La información del certificado se proporciona en el manifiesto de aplicación en la etiqueta `ContainerHostPolicies` como se muestra en el siguiente fragmento de código:
 

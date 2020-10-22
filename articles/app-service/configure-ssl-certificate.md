@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3201870d2d738a867f89166904d668b5596cbcdf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420887"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149076"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Incorporación de un certificado TLS/SSL en Azure App Service
 
@@ -145,8 +145,8 @@ En la página **Estado de Key Vault**, haga clic en **Repositorio de Key Vault**
 | Resource group | Como recomendación, seleccione el mismo grupo de recursos que tiene el certificado de App Service. |
 | Location | Seleccione la misma ubicación que tiene la aplicación de App Service. |
 | Plan de tarifa | Para obtener información, consulte [Detalles de precios de Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Directivas de acceso| Define las aplicaciones y el acceso permitido a los recursos del almacén. Puede configurarlo más adelante si sigue los pasos descritos en [Asignación de una directiva de acceso de Key Vault](/azure/key-vault/general/assign-access-policy-portal). |
-| Acceso de redes virtuales | Restringe el acceso de almacén a determinadas redes virtuales de Azure. Puede configurarlo más adelante si sigue los pasos descritos en [Configurar firewalls y redes virtuales de Azure Key Vault](/azure/key-vault/general/network-security) |
+| Directivas de acceso| Define las aplicaciones y el acceso permitido a los recursos del almacén. Puede configurarlo más adelante si sigue los pasos descritos en [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-portal.md). |
+| Acceso de redes virtuales | Restringe el acceso de almacén a determinadas redes virtuales de Azure. Puede configurarlo más adelante si sigue los pasos descritos en [Configurar firewalls y redes virtuales de Azure Key Vault](../key-vault/general/network-security.md) |
 
 Una vez que haya seleccionado el almacén, cierre la página del **repositorio de Key Vault**. La opción **Paso 1: Almacenamiento** debería mostrar una marca de verificación verde si se completó correctamente. Mantenga la página abierta para el siguiente paso.
 
@@ -189,7 +189,7 @@ Cuando se complete la operación, verá el certificado en la lista **Certificado
 Si usa Azure Key Vault para administrar los certificados, puede importar un certificado PKCS12 de Key Vault en App Service, siempre que [cumpla los requisitos](#private-certificate-requirements).
 
 ### <a name="authorize-app-service-to-read-from-the-vault"></a>Autorización a App Service para leer desde el almacén
-De forma predeterminada, el proveedor de recursos de App Service no tiene acceso al almacén de claves. Para usar un almacén de claves para la implementación de un certificado, debe [autorizar al proveedor de recursos acceso de lectura al almacén de claves](../key-vault/general/group-permissions-for-apps.md#grant-access-to-your-key-vault). 
+De forma predeterminada, el proveedor de recursos de App Service no tiene acceso al almacén de claves. Para usar un almacén de claves para la implementación de un certificado, debe [autorizar al proveedor de recursos acceso de lectura al almacén de claves](../key-vault/general/assign-access-policy-cli.md). 
 
 `abfa0a7c-a6b6-4736-8310-5855508787cd` es el nombre de la entidad de seguridad de servicio del proveedor de recursos para App Service y es el mismo para todas las suscripciones de Azure. Para un entorno en la nube de Azure Government, use `6a02c803-dafd-4136-b4c3-5a6f318b4714` en lugar del nombre de la entidad de seguridad de servicio del proveedor de recursos.
 
@@ -378,11 +378,11 @@ Ahora puede eliminar el certificado de App Service. En el panel de navegación i
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Más recursos
 

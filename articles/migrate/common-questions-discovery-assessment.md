@@ -3,12 +3,12 @@ title: Preguntas sobre la detección, la valoración y el análisis de dependenc
 description: Obtenga respuestas a preguntas comunes sobre detección, valoración y análisis de dependencias en Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 074f58a2f6c24f106de6b2b5003ce2dfd428f356
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb1696c521f436280177f0263abd66aa2bfed7dc
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577278"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312932"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Detección, valoración y análisis de dependencias: preguntas comunes
 
@@ -50,7 +50,7 @@ Nota: Si falta alguno de los contadores de rendimiento, Azure Migrate: Server As
 
 ## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>¿Por qué la clasificación de confianza de mi valoración es baja?
 
-La clasificación de confianza se calcula para las evaluaciones "en función del rendimiento" en función del porcentaje de [puntos de datos disponibles](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) necesarios para calcular la evaluación. Estos son los motivos por los que una valoración puede obtener una clasificación de confianza baja:
+La clasificación de confianza se calcula para las evaluaciones "en función del rendimiento" en función del porcentaje de [puntos de datos disponibles](./concepts-assessment-calculation.md#ratings) necesarios para calcular la evaluación. Estos son los motivos por los que una valoración puede obtener una clasificación de confianza baja:
 
 - No generó un perfil de su entorno durante el tiempo que está creando la evaluación. Por ejemplo, si está creando una evaluación con la duración de rendimiento establecida en una semana, debe esperar al menos una semana después de iniciar la detección para que se recopilen todos los puntos de datos. Si no puede esperar a la duración, cambie la duración del rendimiento a un período más pequeño y "recalcule" la evaluación.
  
@@ -58,7 +58,7 @@ La clasificación de confianza se calcula para las evaluaciones "en función del
 
 - Algunas máquinas virtuales se crearon después de iniciar la detección en Server Assessment. Por ejemplo, si va a crear una valoración para el historial de rendimiento del último mes, pero algunas máquinas virtuales se crearon en el entorno hace solo una semana. En este caso, los datos de rendimiento de las nuevas máquinas virtuales no estarán disponibles en ningún momento y la clasificación de confianza sería baja.
 
-[Obtenga más información](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) sobre la clasificación de confianza.
+[Obtenga más información](./concepts-assessment-calculation.md#confidence-ratings-performance-based) sobre la clasificación de confianza.
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>No puedo ver algunos grupos cuando creo una valoración de Azure VMware Solution (AVS).
 

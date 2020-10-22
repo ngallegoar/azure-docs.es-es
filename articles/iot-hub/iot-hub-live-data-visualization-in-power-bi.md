@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: ed429d2f584da20439b0cb0eedcf4742b9ae4599
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d10d0202e9e4c813cffe6373acfb5200ebb3266
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84634512"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146779"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI
 
@@ -140,9 +140,9 @@ En el trabajo de Stream Analytics, seleccione **Información general** y, a cont
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Creación y publicación de un informe de Power BI para visualizar los datos
 
-En los pasos siguientes se muestra cómo crear y publicar un informe mediante el servicio Power BI. Puede seguir estos pasos, con algunas modificaciones, si desea utilizar el "nuevo aspecto" en Power BI. Para comprender las diferencias y cómo navegar dentro del "nuevo aspecto", consulte [Nuevo aspecto del servicio Power BI](https://docs.microsoft.com/power-bi/consumer/service-new-look).
+En los pasos siguientes se muestra cómo crear y publicar un informe mediante el servicio Power BI. Puede seguir estos pasos, con algunas modificaciones, si desea utilizar el "nuevo aspecto" en Power BI. Para comprender las diferencias y cómo navegar dentro del "nuevo aspecto", consulte [Nuevo aspecto del servicio Power BI](/power-bi/consumer/service-new-look).
 
-1. Asegúrese de que la aplicación de ejemplo se ejecuta en el dispositivo. Si no es así, puede hacer referencia a los tutoriales en [Configurar su dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
+1. Asegúrese de que la aplicación de ejemplo se ejecuta en el dispositivo. Si no es así, puede hacer referencia a los tutoriales en [Configurar su dispositivo](./iot-hub-raspberry-pi-kit-node-get-started.md).
 
 2. Inicie sesión en su cuenta de [Power BI](https://powerbi.microsoft.com/en-us/).
 

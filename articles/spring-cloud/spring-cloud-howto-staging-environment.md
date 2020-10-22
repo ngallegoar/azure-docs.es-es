@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d36c185272b7b67ffb8a21a77cc3a64f22d0df5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72cf5553bec5985ba0310b4a347b0d2c60da6924
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888471"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090716"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configuración de un entorno de ensayo en Azure Spring Cloud
 
@@ -22,7 +22,7 @@ En este artículo se aborda cómo configurar una implementación de ensayo con e
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este artículo se da por hecho que ya ha implementado la aplicación PiggyMetrics, para lo que ha usado el [tutorial en el que se explica cómo iniciar una aplicación en Azure Spring Cloud](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics consta de tres aplicaciones: "gateway", "account-service" y "auth-service".  
+En este artículo se da por hecho que ya ha implementado la aplicación PiggyMetrics, para lo que ha usado el [tutorial en el que se explica cómo iniciar una aplicación en Azure Spring Cloud](./spring-cloud-quickstart.md). PiggyMetrics consta de tres aplicaciones: "gateway", "account-service" y "auth-service".  
 
 Si desea usar otra aplicación en este ejemplo, deberá realizar un sencillo cambio en una parte pública de la aplicación.  Con este cambio se diferencia la implementación de ensayo de la producción.
 

@@ -4,12 +4,12 @@ description: Implemente una aplicación web basada en Linux en dos regiones de A
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bcbce3c60aa0b4613b1dd1840c335c800193e549
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a203bfc9b1317bc258e4a93ae4ac03ecbdc7a15
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328696"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148427"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Implementación de una aplicación web de un registro de contenedor de Azure con replicación geográfica
 
@@ -27,7 +27,7 @@ En el siguiente artículo de la serie, actualizará la aplicación y, a continua
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Implementación automática en Web App for Containers
 
-Azure Container Registry proporciona compatibilidad para implementar aplicaciones en contenedor directamente en [Web Apps for Containers](../app-service/containers/index.yml). En este tutorial, usará Azure Portal para implementar la imagen de contenedor que se creó en el tutorial anterior en dos planes de aplicaciones web ubicados en distintas regiones de Azure.
+Azure Container Registry proporciona compatibilidad para implementar aplicaciones en contenedor directamente en [Web Apps for Containers](../app-service/index.yml). En este tutorial, usará Azure Portal para implementar la imagen de contenedor que se creó en el tutorial anterior en dos planes de aplicaciones web ubicados en distintas regiones de Azure.
 
 Si implementa una aplicación web a partir de una imagen de contenedor en el registro y tiene un registro con replicación geográfica en la misma región, Azure Container Registry crea un [webhook](container-registry-webhook.md) de implementación de imagen para usted. Cuando se inserta una nueva imagen en el repositorio de contenedor, el webhook captura el cambio e implementa automáticamente la nueva imagen de contenedor en la aplicación web.
 

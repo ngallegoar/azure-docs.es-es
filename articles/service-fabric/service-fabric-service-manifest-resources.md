@@ -4,12 +4,12 @@ description: Cómo describir los recursos de punto de conexión en un manifiesto
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 775e554128b9828915ce7dafaf4bccf597911912
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5e8f39fe25011d02b989614fdc6538cd92c12d4e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017597"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313566"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificación de los recursos en un manifiesto de servicio
 ## <a name="overview"></a>Información general
@@ -158,7 +158,7 @@ Este es un ejemplo de ApplicationManifest que muestra la configuración necesari
 
 En los clústeres de Linux, el valor predeterminado del almacén **MY** es la carpeta **/var/lib/sfcerts**.
 
-Para ver un ejemplo de una aplicación completa que utiliza un punto de conexión HTTPS, consulte [Incorporación de un punto de conexión HTTPS a un servicio de front-end de ASP.NET Core Web API mediante Kestrel](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
+Para ver un ejemplo de una aplicación completa que utiliza un punto de conexión HTTPS, consulte [Incorporación de un punto de conexión HTTPS a un servicio de front-end de ASP.NET Core Web API mediante Kestrel](./service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest).
 
 ## <a name="port-acling-for-http-endpoints"></a>Realización de ACL en el puerto para puntos de conexión HTTP
 Service Fabric agregará automáticamente los puntos de conexión ACL HTTP(S) especificados de forma predeterminada. **No** realizará un ACL de forma automática si un punto de conexión no tiene una propiedad [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) asociada y Service Fabric está configurado para ejecutarse con una cuenta con privilegios de administrador.

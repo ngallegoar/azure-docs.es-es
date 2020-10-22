@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo detectar servidores físicos l
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7cbd7939248686a251fdf56bf1a5f1acc952a3a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442292"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314077"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutorial: Detección de servidores físicos con Server Assessment
 
@@ -208,7 +208,7 @@ Configure el dispositivo por primera vez.
    
    No se admite el inicio de sesión con un PIN.
 3. Después de iniciar sesión correctamente, vuelva a la aplicación web. 
-4. Si la cuenta de usuario de Azure que se usa para el registro tiene los [permisos](tutorial-prepare-physical.md) adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
+4. Si la cuenta de usuario de Azure que se usa para el registro tiene los [permisos]() adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
 1. Una vez que el dispositivo se ha registrado correctamente, puede ver los detalles de registro haciendo clic en **Ver detalles**.
 
 
@@ -245,5 +245,3 @@ Una vez finalizada la detección, puede verificar que los servidores aparezcan e
 
 - [Valoración de los servidores físicos](tutorial-assess-physical.md) para la migración a máquinas virtuales de Azure.
 - [Revise los datos](migrate-appliance.md#collected-data---physical) que el dispositivo recopila durante la detección.
-
-

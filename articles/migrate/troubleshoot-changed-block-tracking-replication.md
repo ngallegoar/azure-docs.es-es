@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871194"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314726"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solución de problemas de replicación en la migración de máquinas virtuales VMware sin agente
 
@@ -90,7 +90,7 @@ El componente que intenta replicar datos en Azure está inactivo o no responde. 
     
     **Pasos para ejecutar la prueba comparativa de rendimiento:**
     
-      1. [Descargue](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
+      1. [Descargue](../storage/common/storage-use-azcopy-v10.md) azcopy
         
       2. Busque la cuenta de almacenamiento del dispositivo en el grupo de recursos. La cuenta de almacenamiento tiene un nombre similar a migrategwsa\*\*\*\*\*\*\*\*\*\*. Este es el valor del parámetro [account] (cuenta) en el comando anterior.
         
@@ -170,7 +170,7 @@ Estas son algunas causas posibles:
     
     **Pasos para ejecutar la prueba comparativa de rendimiento:**
     
-      1. [Descargue](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
+      1. [Descargue](../storage/common/storage-use-azcopy-v10.md) azcopy
         
       2. Busque la cuenta de almacenamiento del dispositivo en el grupo de recursos. La cuenta de almacenamiento tiene un nombre similar a migratelsa\*\*\*\*\*\*\*\*\*\*. Este es el valor del parámetro [account] (cuenta) en el comando anterior.
         
@@ -295,4 +295,4 @@ Esto sucede cuando el búfer del host NFC no tiene memoria suficiente. Para reso
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Continúe con la replicación de la máquina virtual y realice la [migración de prueba](https://go.microsoft.com/fwlink/?linkid=2139333).
+Continúe con la replicación de la máquina virtual y realice la [migración de prueba](./tutorial-migrate-vmware.md#run-a-test-migration).

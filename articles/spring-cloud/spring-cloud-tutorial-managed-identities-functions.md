@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 44268bf1b7805ece8de4a3499a7d53fc851af142
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 8ea8376307807abff8227d82bb6de7956fa3de99
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664994"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088540"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Tutorial: Uso de una identidad administrada para invocar Azure Functions desde una aplicación de Azure Spring Cloud
 
@@ -23,9 +23,9 @@ Tanto Azure Functions como App Services tienen compatibilidad integrada para la 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * [Registro para obtener una suscripción a Azure](https://azure.microsoft.com/free/)
-* [Instalación de la CLI de Azure versión 2.0.67 o superior](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Instalación de la CLI de Azure versión 2.0.67 o superior](/cli/azure/install-azure-cli)
 * [Instalación de Maven 3.0, o cualquier versión superior](https://maven.apache.org/download.cgi)
-* [Instalación de la versión 3.0.2009 de Azure Functions Core Tools o una posterior](https://docs.microsoft.com/azure/azure-functions/functions-run-local#install-the-azure-functions-core-tools)
+* [Instalación de la versión 3.0.2009 de Azure Functions Core Tools o una posterior](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)
 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
@@ -77,7 +77,7 @@ func init --worker-runtime node
 func new --template HttpTrigger --name HttpTrigger
 ```
 
-De forma predeterminada, las funciones usan la autenticación basada en claves para proteger los puntos de conexión HTTP. Como vamos a habilitar la autenticación de Azure AD para proteger el acceso a las funciones, queremos [establecer el nivel de autenticación en las funciones como anónimo](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger#secure-an-http-endpoint-in-production).
+De forma predeterminada, las funciones usan la autenticación basada en claves para proteger los puntos de conexión HTTP. Como vamos a habilitar la autenticación de Azure AD para proteger el acceso a las funciones, queremos [establecer el nivel de autenticación en las funciones como anónimo](../azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
 
 ```json function.json
 {
@@ -124,7 +124,7 @@ az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resour
 
 ## <a name="build-sample-spring-boot-app-to-invoke-the-function"></a>Creación de una aplicación de Spring Boot de ejemplo para invocar la función
 
-En este ejemplo se invocará la función desencadenada por HTTP; para ello, primero se solicita un token de acceso desde el [punto de conexión de MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) y, después, ese token se usa para autenticar la solicitud HTTP de la función.
+En este ejemplo se invocará la función desencadenada por HTTP; para ello, primero se solicita un token de acceso desde el [punto de conexión de MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) y, después, ese token se usa para autenticar la solicitud HTTP de la función.
 
 1. Clone el proyecto de ejemplo. 
 
@@ -173,6 +173,6 @@ En este ejemplo se invocará la función desencadenada por HTTP; para ello, prim
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Habilitación de la identidad administrada asignada por el sistema para una aplicación de Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity)
+* [Habilitación de la identidad administrada asignada por el sistema para una aplicación de Azure Spring Cloud](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
 * [Más información sobre las identidades administradas para recursos de Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [Configuración de una aplicación cliente demonio para llamadas de servicio a servicio](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad#configure-a-daemon-client-application-for-service-to-service-calls)
+* [Configuración de una aplicación cliente demonio para llamadas de servicio a servicio](../app-service/configure-authentication-provider-aad.md#configure-a-daemon-client-application-for-service-to-service-calls)

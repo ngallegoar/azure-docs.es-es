@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas comunes en la
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b31f29cdc9cd15ebf3ba88769095bfd0ef2628d2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260748"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148605"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solución de problemas habituales de Azure Container Instances
 
@@ -198,7 +198,7 @@ Durante la creación inicial, los contenedores de Windows pueden no tener conect
 
 ### <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>No se puede conectar a la API de Docker subyacente ni ejecutar contenedores con privilegios
 
-Azure Container Instances no expone acceso directo a la infraestructura subyacente que hospeda los grupos de contenedores. Esto incluye el acceso a la API de Docker que se ejecuta en el host del contenedor y la ejecución de contenedores con privilegios elevados. Si se requiere la interacción de Docker, compruebe la [documentación de referencia de REST](https://aka.ms/aci/rest) para ver lo que admite la API de ACI. Si falta algo, envíe una solicitud en los [foro de comentarios de ACI](https://aka.ms/aci/feedback).
+Azure Container Instances no expone acceso directo a la infraestructura subyacente que hospeda los grupos de contenedores. Esto incluye el acceso a la API de Docker que se ejecuta en el host del contenedor y la ejecución de contenedores con privilegios elevados. Si se requiere la interacción de Docker, compruebe la [documentación de referencia de REST](/rest/api/container-instances/) para ver lo que admite la API de ACI. Si falta algo, envíe una solicitud en los [foro de comentarios de ACI](https://aka.ms/aci/feedback).
 
 ### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Las direcciones IP del grupo de contenedores pueden no estar accesibles debido a que los puertos no coinciden
 

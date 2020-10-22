@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38edbd9e491d4bea469c6b83ad98df48fbce1d4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4030dedfb0d7308bb5a0f7a86bc49ee168e6d0c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597509"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362814"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Creación del primer paquete de acceso en la administración de derechos de Azure AD
 
@@ -42,7 +42,7 @@ Para consultar una demostración detallada del proceso de implementación de la 
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-También puede crear un paquete de acceso mediante programación con Microsoft Graph. Para ver un tutorial que muestra cómo crear un paquete de acceso mediante programación, consulte la [API de administración de derechos](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
+También puede crear un paquete de acceso mediante programación con Microsoft Graph. Para ver un tutorial que muestra cómo crear un paquete de acceso mediante programación, consulte la [API de administración de derechos](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -118,10 +118,10 @@ Un *paquete de acceso* es un conjunto de recursos que un equipo o proyecto neces
 
     ![New access package (Nuevo paquete de acceso): pestaña Resource roles (Roles de recursos)](./media/entitlement-management-access-package-first/resource-roles.png)
     >[!IMPORTANT]
-    >Los grupos a los que se pueden asignar roles que se agregan a un paquete de acceso se indicarán mediante el subtipo **Assignable to roles** (asignable a roles). Consulte [Creación de un grupo al que se pueden asignar roles](../users-groups-roles/roles-groups-create-eligible.md) en Azure Active Directory para obtener más detalles sobre los grupos que se pueden asignar a roles de Azure AD. Si no ve un grupo al que se pueden asignar roles que quiera agregar, o no puede agregarlo, asegúrese de que tiene los roles de administración de derechos y de Azure AD que se requieren para realizar esta operación. Quizá necesite pedirle a alguien con los roles necesarios que agregue el recurso al catálogo. Para obtener más información, vea [Roles necesarios para agregar recursos a un catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    >Los grupos a los que se pueden asignar roles que se agregan a un paquete de acceso se indicarán mediante el subtipo **Assignable to roles** (asignable a roles). Consulte [Creación de un grupo al que se pueden asignar roles](../roles/groups-create-eligible.md) en Azure Active Directory para obtener más detalles sobre los grupos que se pueden asignar a roles de Azure AD. Si no ve un grupo al que se pueden asignar roles que quiera agregar, o no puede agregarlo, asegúrese de que tiene los roles de administración de derechos y de Azure AD que se requieren para realizar esta operación. Quizá necesite pedirle a alguien con los roles necesarios que agregue el recurso al catálogo. Para obtener más información, vea [Roles necesarios para agregar recursos a un catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
-    > Si usa [grupos dinámicos](../users-groups-roles/groups-create-rule.md) no verá ningún otro rol disponible además del propietario; es así por diseño.
+    > Si usa [grupos dinámicos](../enterprise-users/groups-create-rule.md) no verá ningún otro rol disponible además del propietario; es así por diseño.
     > ![Información general de los escenarios](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
     
 
