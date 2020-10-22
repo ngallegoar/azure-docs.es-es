@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ea96b1bd1b1d661bb835e7bb48d58ce4c3e118
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227719"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309152"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Línea de base de seguridad de Azure para Service Fabric
 
@@ -78,7 +78,7 @@ Considere la posibilidad de implementar el firewall de aplicaciones web (WAF) de
 
 * [Configuración de la protección contra DDoS](../virtual-network/manage-ddos-protection.md)
 
-* [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../security-center/threat-protection.md)
+* [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../security-center/azure-defender.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -488,7 +488,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 * [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Creación de grupos de administración](../governance/management-groups/create.md)
+* [Creación de grupos de administración](../governance/management-groups/create-management-group-portal.md)
 
 * [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
@@ -572,7 +572,7 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 * [Descripción del cifrado en reposo en Azure](../security/fundamentals/encryption-atrest.md)
 
-* [Configuración de las claves de cifrado administradas por el cliente](../storage/common/storage-encryption-keys-portal.md)
+* [Configuración de las claves de cifrado administradas por el cliente](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 * [Habilitación del cifrado de disco para nodos de clústeres de Azure Service Fabric en Windows](./service-fabric-enable-azure-disk-encryption-windows.md)
 
@@ -608,7 +608,7 @@ Use una solución de terceros para realizar evaluaciones de vulnerabilidades en 
 
 * [Inducción al caos controlado en clústeres de Service Fabric](./service-fabric-controlled-chaos.md)
 
-* [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -698,7 +698,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 * [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Creación de grupos de administración](../governance/management-groups/create.md)
+* [Creación de grupos de administración](../governance/management-groups/create-management-group-portal.md)
 
 * [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
@@ -1042,7 +1042,7 @@ Si usa claves administradas por el cliente, asegúrese de que la eliminación te
 
 * [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md)
 
-* [Habilitación de la eliminación temporal en Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Habilitación de la eliminación temporal en Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 

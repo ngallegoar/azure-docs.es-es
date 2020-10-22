@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
-ms.openlocfilehash: 2cdce64b0ff03521a5848e2b4fd6e01431b5cc16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f1ab0440120cb9a96e6c05a4fc1987ead29188
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514750"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143264"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Modo de servicio en Azure SignalR Service
 
@@ -51,11 +51,11 @@ Además, en este modo, no hay ninguna conexión de servidor (si intenta usar el 
 > [!NOTE]
 > Tanto la opción API REST como WebSocket se admiten en el [SDK de administración](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md) del servicio SignalR. Si utiliza un lenguaje distinto de .NET, también puede invocar manualmente las API REST que siguen a esta [especificación](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md).
 >
-> Si utiliza Azure Functions, puede usar los [enlaces del servicio SignalR para Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service) (en adelante, enlace de función) para enviar mensajes como un enlace de salida.
+> Si utiliza Azure Functions, puede usar los [enlaces del servicio SignalR para Azure Functions](../azure-functions/functions-bindings-signalr-service.md) (en adelante, enlace de función) para enviar mensajes como un enlace de salida.
 
 También es posible que la aplicación de servidor reciba mensajes y eventos de conexión de los clientes. El servicio entregará los mensajes y los eventos de conexión en los puntos de conexión preconfigurados (llamados ascendentes) mediante webhooks. En comparación con el modo predeterminado, no hay ninguna garantía de permanencia y las solicitudes HTTP pueden ser menos eficientes que las conexiones de WebSocket.
 
-Para más información sobre cómo configurar los puntos de conexión ascendentes, consulte este [documento](https://docs.microsoft.com/azure/azure-signalr/concept-upstream).
+Para más información sobre cómo configurar los puntos de conexión ascendentes, consulte este [documento](./concept-upstream.md).
 
 A continuación, se muestra un diagrama que ilustra cómo funciona el modo sin servidor:
 

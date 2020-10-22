@@ -4,12 +4,12 @@ description: En este artículo se describe cómo utilizar Azure Communication Se
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mikben
-ms.openlocfilehash: fb37dfe9927c02711f4ab1b01cd89247059b27f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f84146a0513d02484f8f84560e04a977fb3ef373
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91340698"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145817"
 ---
 # <a name="azure-communication-services-as-an-event-grid-source"></a>Azure Communication Services como origen de Event Grid
 
@@ -23,7 +23,7 @@ En este artículo se proporcionan las propiedades y el esquema de los eventos de
 
 ### <a name="available-event-types"></a>Tipos de eventos disponibles
 
-Event Grid usa las [suscripciones a eventos](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) para enrutar los mensajes de eventos a los suscriptores. 
+Event Grid usa las [suscripciones a eventos](./concepts.md#event-subscriptions) para enrutar los mensajes de eventos a los suscriptores. 
 
 Azure Communication Services emite los siguientes tipos de evento:
 
@@ -45,7 +45,7 @@ Azure Communication Services emite los siguientes tipos de evento:
 
 ## <a name="event-subjects"></a>Asuntos de eventos
 
-El campo `subject` de todos los eventos de Communication Services identifica el usuario, el número de teléfono o la entidad de destino del evento. Los prefijos comunes se utilizan para permitir el [filtrado de Event Grid](https://docs.microsoft.com/azure/event-grid/event-filtering) simple.
+El campo `subject` de todos los eventos de Communication Services identifica el usuario, el número de teléfono o la entidad de destino del evento. Los prefijos comunes se utilizan para permitir el [filtrado de Event Grid](./event-filtering.md) simple.
 
 | Prefijo de asunto                              | Entidad de Communication Services |
 | ------------------------------------------- | ---------------------------- |
@@ -345,6 +345,6 @@ Esta sección contiene un ejemplo del aspecto que deben tener los datos para cad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para una introducción a Azure Event Grid, consulte [Introducción a Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
-* Para obtener una introducción a Azure Event Grid, consulte [Conceptos de Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
-* Para obtener una introducción a Azure Event Grid, consulte [Temas del sistema en Azure Event Grid](https://docs.microsoft.com/azure/event-grid/system-topics).
+* Para una introducción a Azure Event Grid, consulte [Introducción a Azure Event Grid](./overview.md).
+* Para obtener una introducción a Azure Event Grid, consulte [Conceptos de Event Grid](./concepts.md).
+* Para obtener una introducción a Azure Event Grid, consulte [Temas del sistema en Azure Event Grid](./system-topics.md).

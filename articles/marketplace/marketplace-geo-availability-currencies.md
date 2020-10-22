@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: 59c5473e88e0c4a8108f651e9543ec90c08290ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d04f95372eb050c3eea08d50d4c9bdbd3a0232b1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91759103"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282343"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidad geográfica y compatibilidad con monedas para marketplace comercial
 
@@ -196,7 +196,7 @@ Para más información sobre cómo especificar el precio de tipos de oferta conc
 
 - [Creación de una oferta de aplicación de Azure](partner-center-portal/create-new-azure-apps-offer.md)
 - [Creación de una oferta de contenedor de Azure](partner-center-portal/create-azure-container-offer.md)
-- [Creación de una oferta de máquina virtual de Azure](partner-center-portal/azure-vm-create-offer.md)
+- [Creación de una oferta de máquina virtual de Azure](azure-vm-create.md)
 - [Creación de una oferta de servicios de consultoría](partner-center-portal/create-consulting-service-offer.md)
 - [Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Creación de una oferta de Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)

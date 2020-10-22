@@ -3,12 +3,12 @@ title: Configuración de un laboratorio para usar Puerta de enlace de Escritorio
 description: Obtenga información sobre cómo configurar un laboratorio en Azure DevTest Labs con una puerta de enlace de Escritorio remoto para garantizar el acceso seguro a las máquinas virtuales de laboratorio sin tener que exponer el puerto RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b48a0709deb21ca0f8a27d1cf953c7d8d4ba2cc8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288085"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144711"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configuración del laboratorio de Azure DevTest Labs para usar una puerta de enlace de Escritorio remoto
 En Azure DevTest Labs, puede configurar una puerta de enlace de Escritorio remoto para el laboratorio con el fin de garantizar el acceso seguro a las máquinas virtuales (VM) del laboratorio sin tener que exponer el puerto RDP. El laboratorio proporciona un lugar central para que los usuarios del laboratorio vean todas las máquinas virtuales a las que tienen acceso y se conecten a ellas. El botón **Connect** (Conectar) de la página **Virtual Machine** (Máquina Virtual) crea un archivo RDP específico de la máquina que se puede abrir para conectarse a ella. Puede personalizar y proteger aún más la conexión RDP si conecta el laboratorio a una puerta de enlace de Escritorio remoto. 
@@ -79,7 +79,7 @@ Siga estos pasos para configurar el laboratorio para usar la autenticación de t
 1. **Guarde** los cambios.
 
     > [!NOTE] 
-    > Al hacer clic en **Guardar**, acepta los [términos de licencia de la puerta de enlace de Escritorio remoto](https://www.microsoft.com/licensing/product-licensing/products). Para más información sobre la puerta de enlace remota, vea [Bienvenido a Servicios de Escritorio remoto](https://aka.ms/rds) e [Implementación del entorno de Escritorio remoto](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+    > Al hacer clic en **Guardar**, acepta los [términos de licencia de la puerta de enlace de Escritorio remoto](https://www.microsoft.com/licensing/product-licensing/products). Para más información sobre la puerta de enlace remota, vea [Bienvenido a Servicios de Escritorio remoto](/windows-server/remote/remote-desktop-services/Welcome-to-rds) e [Implementación del entorno de Escritorio remoto](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 
 Si prefiere configurar el laboratorio mediante la automatización, vea [Set-DevTestLabGateway.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Set-DevTestLabGateway.ps1) para obtener un script de PowerShell de ejemplo para establecer las opciones **nombre de host de puerta de enlace** y **secreto del token de puerta de enlace**. En el [repositorio de GitHub de Azure DevTest Labs](https://github.com/Azure/azure-devtestlab) también se proporciona una plantilla de Azure Resource Manager que permite crear o actualizar un laboratorio con las opciones de **nombre de host de puerta de enlace** y **secreto del token de puerta de enlace**.
@@ -94,7 +94,7 @@ Este es un NSG de ejemplo que solo permite que el tráfico que primero atraviesa
 ## <a name="sample-to-create-a-remote-desktop-gateway"></a>Ejemplo para crear una puerta de enlace de Escritorio remoto
 
 > [!NOTE] 
-> Al usar las plantillas de ejemplo, acepta los [términos de licencia de la puerta de enlace de Escritorio remoto](https://www.microsoft.com/licensing/product-licensing/products). Para más información sobre la puerta de enlace remota, vea [Bienvenido a Servicios de Escritorio remoto](https://aka.ms/rds) e [Implementación del entorno de Escritorio remoto](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+> Al usar las plantillas de ejemplo, acepta los [términos de licencia de la puerta de enlace de Escritorio remoto](https://www.microsoft.com/licensing/product-licensing/products). Para más información sobre la puerta de enlace remota, vea [Bienvenido a Servicios de Escritorio remoto](/windows-server/remote/remote-desktop-services/Welcome-to-rds) e [Implementación del entorno de Escritorio remoto](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 En el [repositorio de GitHub de Azure DevTest Labs](https://github.com/Azure/azure-devtestlab) se proporcionan algunos ejemplos para facilitar la configuración de los recursos necesarios para usar la autenticación de token y la puerta de enlace de Escritorio remoto con DevTest Labs. En estos ejemplos se incluyen plantillas de Azure Resource Manager para máquinas de puerta de enlace, la configuración del laboratorio y la aplicación de función.
 

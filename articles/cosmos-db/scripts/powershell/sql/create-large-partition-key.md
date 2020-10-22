@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4f05d4dd13e63d8022ffb61be4451cb5350ba68f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e13db803a491f5baa33c17ab650995346cd48022
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504953"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282636"
 ---
 # <a name="create-a-container-with-a-large-partition-key-in-an-azure-cosmos-db-account-using-powershell"></a>Cree un contenedor con una clave de partición grande en una cuenta de Azure Cosmos DB mediante PowerShell
 
@@ -49,5 +49,3 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/).
-
-Encontrará más ejemplos de scripts de PowerShell de Azure Cosmos DB en los [scripts de PowerShell de Azure Cosmos DB](../../../powershell-samples.md).

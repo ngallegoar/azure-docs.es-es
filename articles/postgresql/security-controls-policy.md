@@ -1,18 +1,18 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para Azure Database for PostgreSQL
 description: Ofrece una lista de los controles de cumplimiento normativo de Azure Policy disponibles para Azure Database for PostgreSQL. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 766c0b5090c65a048a954be8feab151f1d13ab74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f17ff4d2bb1e52456cf22fc99e2b4a0a5807dd2d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826704"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312857"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-postgresql"></a>Controles de cumplimiento normativo de Azure Policy para Azure Database for PostgreSQL
 

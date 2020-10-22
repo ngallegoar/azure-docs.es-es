@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: f91cdaa81e18105eb39af442ab6152bfd2888ba9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4714b9330c4a9d9cd390a58f814e3cdb4b591038
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319714"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168148"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnóstico con Durable Functions en Azure
 
@@ -99,7 +99,7 @@ Para habilitar la emisión de los eventos de reproducción de orquestación deta
 ```
 
 > [!NOTE]
-> De forma predeterminada, el sistema en tiempo de ejecución de Azure Functions muestrea la telemetría de Application Insights para evitar que se emitan datos con demasiada frecuencia. Esto puede provocar que se pierda información de seguimiento cuando se producen muchos eventos de ciclo de vida en un breve período de tiempo. En el artículo [Supervisión de Azure Functions](../functions-monitoring.md#configure-sampling) se explica cómo configurar este comportamiento.
+> De forma predeterminada, el sistema en tiempo de ejecución de Azure Functions muestrea la telemetría de Application Insights para evitar que se emitan datos con demasiada frecuencia. Esto puede provocar que se pierda información de seguimiento cuando se producen muchos eventos de ciclo de vida en un breve período de tiempo. En el artículo [Supervisión de Azure Functions](../configure-monitoring.md#configure-sampling) se explica cómo configurar este comportamiento.
 
 ### <a name="single-instance-query"></a>Consultas en una sola instancia
 

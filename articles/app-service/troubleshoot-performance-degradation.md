@@ -7,15 +7,15 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: a9d3de5d4a88c782ad541ceb4916ec90a3bdd7b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82373dcd9e1d55e0c4a5867ddaff6875ee57da5a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958259"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147504"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Solucionar los problemas de rendimiento reducido de aplicaciones web en Azure App Service
-Este artículo lo ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
+Este artículo lo ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones de [Azure App Service](./overview.md).
 
 Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure y de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
 

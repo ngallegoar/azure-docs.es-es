@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/06/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: d1059bae047774864868fbe90df50a877f9a3869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d27e5b22fc0e24850a8c454ef1f07e77341ac15a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798064"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282518"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Uso de colecciones en el portal Aplicaciones
 
@@ -32,7 +32,7 @@ Las colecciones son diferentes vistas de las aplicaciones que se muestran en el 
 
 De forma predeterminada, la lista de colecciones del portal **Aplicaciones** muestra una lista denominada **Todas las aplicaciones**, que incluye todas las aplicaciones a las que tiene acceso:
 
-![Página Todas las aplicaciones del portal Aplicaciones](media/my-applications-portal-workspaces/my-apps-all.png)
+![Página Todas las aplicaciones del portal Aplicaciones](media/my-applications-portal-workspaces/my-apps-all-apps.png)
 
 Cualquier otra colección que vea en esta lista la creó el administrador y la compartió con usted. Puede elegir una de esas colecciones para ver un conjunto de aplicaciones más amplio, como *Compatibilidad* en el ejemplo siguiente:
 

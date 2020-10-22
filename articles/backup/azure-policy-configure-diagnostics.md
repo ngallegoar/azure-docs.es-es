@@ -3,12 +3,12 @@ title: Configuración de los valores de diagnóstico del almacén a gran escala
 description: Configuración de diagnóstico de Log Analytics de diagnóstico para todos los almacenes de un ámbito determinado mediante Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 33956fe7ce2e162d58ef3aa09feaea2882dccb36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293091"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171550"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuración de los valores de diagnóstico del almacén a gran escala
 
@@ -27,6 +27,8 @@ Para simplificar la creación de la configuración de diagnóstico a gran escala
 * Actualmente no se admite el ámbito del grupo de administración.
 
 * La directiva integrada no está disponible actualmente en nubes nacionales.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="assigning-the-built-in-policy-to-a-scope"></a>Asignación de la directiva integrada a un ámbito
 

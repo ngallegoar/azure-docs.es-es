@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d925c1387a408d38eb7974a01ebf3ce3386b7e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a44848e81e974d8294b84471d68ded8509f4ddf6
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067617"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282816"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Sugerencias de rendimiento para el SDK asincrónico de Azure Cosmos DB para Java v2
 
@@ -119,7 +119,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
   
   Algunas sugerencias de programación importantes al usar el modo directo:
   
-  * **Usar multithreading en la aplicación para una transferencia de datos TCP eficaz**: después de realizar una solicitud, la aplicación debe suscribirse para recibir datos en otro subproceso. Si no lo hace, se fuerza una operación "dúplex medio" inesperada y las solicitudes subsiguientes se bloquean esperando la respuesta de la solicitud anterior.
+  **Usar multithreading en la aplicación para una transferencia de datos TCP eficaz**: después de realizar una solicitud, la aplicación debe suscribirse para recibir datos en otro subproceso. Si no lo hace, se fuerza una operación "dúplex medio" inesperada y las solicitudes subsiguientes se bloquean esperando la respuesta de la solicitud anterior.
   
   * **Llevar a cabo las cargas de trabajo de proceso intensivo en un subproceso dedicado**: por motivos similares a la sugerencia anterior, es mejor colocar las operaciones como el procesamiento de datos complejos en un subproceso independiente. Una solicitud que extrae datos de otro almacén de datos (por ejemplo, si el subproceso emplea Azure Cosmos DB y almacenes de datos de Spark simultáneamente) puede experimentar una mayor latencia y se recomienda generar un subproceso adicional que espere una respuesta del otro almacén de datos.
   
@@ -137,13 +137,13 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
     Es importante tener en cuenta que las consultas en paralelo producen los mejores beneficios si los datos se distribuyen uniformemente entre todas las particiones con respecto a la consulta. Si la colección con particiones está dividida de tal forma que todos, o la mayoría de los datos, devueltos por una consulta se concentran en algunas particiones (una partición en el peor de los casos), entonces el rendimiento de la consulta se vería afectada por cuellos de botella debido a esas particiones.
 
-  * ***Ajuste de setMaxBufferedItemCount\:***
+  ***Ajuste de setMaxBufferedItemCount\:***
     
     Las consultas en paralelo están diseñadas para capturar previamente los resultados mientras el cliente procesa el lote actual de resultados. La captura previa ayuda a mejorar la latencia general de una consulta. setMaxBufferedItemCount limita el número de resultados capturados previamente. Establece setMaxBufferedItemCount en el número esperado de resultados devueltos (o un número más alto) permite que la consulta reciba el máximo beneficio de la captura previa.
 
     La captura previa funciona de la misma manera con independencia de MaxDegreeOfParallelism, y hay un único búfer para los datos de todas las particiones.
 
-* **Implementación del retroceso según intervalos de getRetryAfterInMilliseconds**
+**Implementación del retroceso según intervalos de getRetryAfterInMilliseconds**
 
   Durante las pruebas de rendimiento, debe aumentar la carga hasta que se limite una tasa de solicitudes pequeña. Si se limita, la aplicación cliente debe retroceder de acuerdo con el intervalo de reintento que el servidor especificó. Respetar el retroceso garantiza que dedica una cantidad de tiempo mínima de espera entre reintentos.
 
@@ -304,4 +304,4 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo diseñar la aplicación para escalarla y obtener un alto rendimiento, consulte [Partición y escalado en Azure Cosmos DB](partition-data.md).
+Para más información sobre cómo diseñar la aplicación para escalarla y obtener un alto rendimiento, consulte [Partición y escalado en Azure Cosmos DB](partitioning-overview.md).

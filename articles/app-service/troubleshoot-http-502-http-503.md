@@ -7,15 +7,15 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9a41c5912ec285094c1f47540caf3744ddd4d469
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd67ff4f7346daf7a590ab4fb45a32d227f1c3e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958333"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147535"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Solucionar los errores HTTP de "502 Puerta de enlace no válida" y "503 Servicio no disponible" en Azure App Service
-"502 Puerta de enlace no válida" y "503 Servicio no disponible" son errores comunes de su aplicación hospedada en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Este artículo le ayuda a solucionar estos errores.
+"502 Puerta de enlace no válida" y "503 Servicio no disponible" son errores comunes de su aplicación hospedada en [Azure App Service](./overview.md). Este artículo le ayuda a solucionar estos errores.
 
 Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure y de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
 
