@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: 453821e99f53a90a076ff13f010f2031a055cbf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7da02f7dd7e8fb19e031b814624b289730b3ee
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444175"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367727"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutorial: Creación de usuarios de Azure AD mediante aplicaciones de Azure AD
 
@@ -65,7 +65,7 @@ En este tutorial, aprenderá a:
     Para más información, consulte el comando [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver).
 
     > [!IMPORTANT]
-    > Si se configura una identidad de Azure AD para el servidor lógico de Azure SQL, se debe conceder el permiso [**Lectores de directorios**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) a la identidad. Veremos este paso en la sección siguiente. **No** omita este paso porque la autenticación de Azure AD dejará de funcionar.
+    > Si se configura una identidad de Azure AD para el servidor lógico de Azure SQL, se debe conceder el permiso [**Lectores de directorios**](../../active-directory/roles/permissions-reference.md#directory-readers) a la identidad. Veremos este paso en la sección siguiente. **No** omita este paso porque la autenticación de Azure AD dejará de funcionar.
 
     - Si ha usado el comando [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) con el parámetro `AssignIdentity` para crear un servidor de SQL Server en el pasado, tendrá que ejecutar el comando [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) posteriormente como un comando independiente para habilitar esta propiedad en el tejido de Azure.
 

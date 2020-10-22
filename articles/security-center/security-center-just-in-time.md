@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 4a709527c0de2e092bcca2bbd9bc596aa0eb4cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6091ccbb64ec880224e861e1b8ee2bd39363385c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440734"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342389"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Protección de los puertos de administración con acceso Just-in-Time
 
@@ -35,7 +35,7 @@ Esta página le enseña cómo incluir JIT en el programa de seguridad. Aprender�
 |----|:----|
 |Estado de la versión:|Disponible con carácter general|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
-|Máquinas virtuales admitidas:|![Sí](./media/icons/yes-icon.png) Máquinas virtuales implementadas mediante Azure Resource Manager.<br>![No](./media/icons/no-icon.png) Máquinas virtuales con modelos de implementación clásica. [Más información acerca de estos modelos de implementación](../azure-resource-manager/management/deployment-models.md).<br>![No](./media/icons/no-icon.png) Máquinas virtuales que las instancias de Azure Firewall protegen y que [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview) controla.|
+|Máquinas virtuales admitidas:|![Sí](./media/icons/yes-icon.png) Máquinas virtuales implementadas mediante Azure Resource Manager.<br>![No](./media/icons/no-icon.png) Máquinas virtuales con modelos de implementación clásica. [Más información acerca de estos modelos de implementación](../azure-resource-manager/management/deployment-models.md).<br>![No](./media/icons/no-icon.png) Máquinas virtuales que las instancias de Azure Firewall protegen y que [Azure Firewall Manager](../firewall-manager/overview.md) controla.|
 |Roles y permisos necesarios:|Los roles **Lector** y **SecurityReader** pueden ver el estado y los parámetros de JIT.<br>Para crear roles personalizados que puedan funcionar con JIT, consulte [¿Cuáles son los permisos necesarios para configurar y usar Just-In-Time?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Para crear un rol con privilegios mínimos para los usuarios que necesiten solicitar acceso JIT a una máquina virtual y no realizar ninguna otra operación JIT, use el [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) de las páginas de la comunidad de GitHub de Security Center.|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
 |||
@@ -215,7 +215,7 @@ Los siguientes comandos de PowerShell crean esta configuración JIT:
 
 La característica de acceso a máquina virtual Just-in-Time se puede usar mediante la API de Azure Security Center. Use esta API para obtener más información acerca de las máquinas virtuales configuradas, cómo agregar otras nuevas o solicitar acceso a una máquina virtual, entre otras cosas. 
 
-Obtenga más información en [Directivas de acceso a redes JIT](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+Obtenga más información en [Directivas de acceso a redes JIT](/rest/api/securitycenter/jitnetworkaccesspolicies).
 
 
 --- 
@@ -319,7 +319,7 @@ Ejecute lo siguiente en PowerShell:
     Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
     ```
 
-Para más información, consulte la [documentación del cmdlet de PowerShell](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview).
+Para más información, consulte la [documentación del cmdlet de PowerShell](/powershell/scripting/developer/cmdlet/cmdlet-overview).
 
 
 
@@ -329,7 +329,7 @@ Para más información, consulte la [documentación del cmdlet de PowerShell](ht
 
 La característica de acceso a máquina virtual Just-in-Time se puede usar mediante la API de Azure Security Center. Use esta API para obtener más información acerca de las máquinas virtuales configuradas, cómo agregar otras nuevas o solicitar acceso a una máquina virtual, entre otras cosas. 
 
-Obtenga más información en [Directivas de acceso a redes JIT](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+Obtenga más información en [Directivas de acceso a redes JIT](/rest/api/securitycenter/jitnetworkaccesspolicies).
 
 ---
 

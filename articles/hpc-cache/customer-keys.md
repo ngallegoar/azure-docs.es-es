@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 2cd97e205d88fe7ead02889f5ae9ad9df0985f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092531"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340536"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Uso de claves de cifrado administradas por el cliente para Azure HPC Cache
 
@@ -58,7 +58,7 @@ Permisos de acceso al almacén de claves:
 
 * El usuario que crea la instancia de Azure HPC Cache debe tener permisos equivalentes al [rol de colaborador de Key Vault](../role-based-access-control/built-in-roles.md#key-vault-contributor). Se necesitan los mismos permisos para configurar y administrar Azure Key Vault.
 
-  Para obtener más información, consulte [Protección del acceso a un almacén de claves](../key-vault/key-vault-secure-your-key-vault.md).
+  Para obtener más información, consulte [Protección del acceso a un almacén de claves](../key-vault/general/secure-your-key-vault.md).
 
 ## <a name="1-set-up-azure-key-vault"></a>1. Configuración de Azure Key Vault
 
@@ -66,7 +66,7 @@ Puede configurar un almacén de claves y una clave antes de crear la memoria cac
 
 En el momento de la creación de la memoria caché, debe especificar un almacén, una clave y una versión de clave que se usarán para el cifrado de la caché.
 
-Para más detalles, consulte la [documentación de Azure Key Vault](../key-vault/key-vault-overview.md).
+Para más detalles, consulte la [documentación de Azure Key Vault](../key-vault/general/overview.md).
 
 > [!NOTE]
 > Azure Key Vault debe usar la misma suscripción y estar en la misma región que Azure HPC Cache. Asegúrese de que la región que elija [admita la característica de claves administradas por el cliente](hpc-cache-overview.md#region-availability).
@@ -92,7 +92,7 @@ El usuario que crea la memoria caché debe tener privilegios iguales a los del [
 
 1. Después de seleccionar un almacén, seleccione la clave individual en las opciones disponibles o cree una clave nueva. Debe ser una clave RSA de 2048 bits.
 
-1. Especifique la versión de la clave seleccionada. Obtenga más información sobre el control de versiones en la [documentación de Azure Key Vault](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning).
+1. Especifique la versión de la clave seleccionada. Obtenga más información sobre el control de versiones en la [documentación de Azure Key Vault](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning).
 
 Continúe con el resto de las especificaciones y cree la memoria caché como se describe en [Creación de una instancia de Azure HPC Cache](hpc-cache-create.md).
 

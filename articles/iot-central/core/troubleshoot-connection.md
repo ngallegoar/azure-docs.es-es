@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 2bf48b6808fccb1f4344e66a2b8f1fc2d4c52ef6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34a9350f830171a137ca3a63ecae2203edec92b2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322456"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127376"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Solucione los problemas por los que no se muestran los datos de los dispositivos en Azure IoT Central.
 
@@ -34,9 +34,9 @@ Esta sección le ayudará a determinar si los datos llegan a IoT Central.
 
 Si todavía no lo ha hecho, instale la herramienta `az cli` y la extensión `azure-iot`.
 
-Para más información sobre cómo instalar `az cli`, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Para más información sobre cómo instalar `az cli`, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Para [instalar](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) la extensión `azure-iot`, ejecute el comando siguiente:
+Para [instalar](/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) la extensión `azure-iot`, ejecute el comando siguiente:
 
 ```cmd/bash
 az extension add --name azure-iot
@@ -155,7 +155,7 @@ Si ve problemas relacionados con el flujo de autenticación:
 | 401 | El token de autorización no se puede comprobar. Por ejemplo, ha expirado o no es aplicable al URI de la solicitud. Este código de error también se devuelve a los dispositivos como parte del flujo de atestación de TPM. | Asegúrese de que el dispositivo tenga las credenciales correctas. |
 | 404 | La instancia de Device Provisioning Service o un recurso como, por ejemplo, una inscripción, no existe. | [Abra una incidencia en el departamento de asistencia al cliente](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
 | 412 | La etiqueta `ETag` de la solicitud no coincide con la etiqueta `ETag` del recurso existente, según las especificaciones de RFC7232. | [Abra una incidencia en el departamento de asistencia al cliente](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
-| 429 | El servicio está limitando las operaciones. Para conocer los límites de servicio específicos, consulte [Límites de IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | Reduzca la frecuencia de los mensajes y divida las responsabilidades entre más dispositivos. |
+| 429 | El servicio está limitando las operaciones. Para conocer los límites de servicio específicos, consulte [Límites de IoT Hub Device Provisioning Service](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Reduzca la frecuencia de los mensajes y divida las responsabilidades entre más dispositivos. |
 | 500 | Se ha producido un error interno. | [Abra una incidencia en el departamento de asistencia al cliente](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) para comprobar si pueden ayudarle. |
 
 ## <a name="payload-shape-issues"></a>Problemas con la forma de la carga útil

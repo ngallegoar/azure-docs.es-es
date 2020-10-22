@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d232f7ba1304d76a0ba2db62b9f0f9b4229513f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bcea36b99ae51da256d6b4fc49a4e3965a8c82c
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378614"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279173"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Facturación según uso mediante el servicio de medición de marketplace comercial
 
@@ -153,7 +153,7 @@ Puede abrir una incidencia de soporte técnico si tiene cualquiera de los proble
 - Una incidencia que debe escalarse debido a un error por su parte (por ejemplo, un evento de uso incorrecto).
 - Cualquier otra incidencia relacionada con la facturación según uso.
 
-Para conocer las opciones de soporte técnico del publicador y abrir una incidencia de soporte técnico en Microsoft, siga las instrucciones que encontrará en [Soporte técnico para el programa de marketplace comercial en el Centro de partners](./support.md).
+Para conocer las opciones de soporte técnico del publicador y abrir una incidencia de soporte técnico en Microsoft, siga las instrucciones que encontrará en [Soporte técnico para el programa de marketplace comercial en el Centro de partners](../support.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

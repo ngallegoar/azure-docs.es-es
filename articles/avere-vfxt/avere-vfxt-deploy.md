@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 31d12466186bb7f66197218fbb9675888a35fef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 110fc658ffc3b72de91bbf1c9562f3efeecaf55b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272780"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342423"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementación del clúster de vFXT
 
@@ -64,7 +64,7 @@ Rellene la información siguiente:
 
 * **Controller username** (Nombre de usuario del controlador): establezca el nombre de usuario raíz de la máquina virtual del controlador de clúster.
 
-* **Tipo de autenticación**: elija la contraseña o la autenticación con clave pública SSH para conectarse al controlador. Se recomienda el método de clave pública SSH; lea [Creación y uso de claves SSH](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) si necesita ayuda.
+* **Tipo de autenticación**: elija la contraseña o la autenticación con clave pública SSH para conectarse al controlador. Se recomienda el método de clave pública SSH; lea [Creación y uso de claves SSH](../virtual-machines/linux/ssh-from-windows.md) si necesita ayuda.
 
 * **Contraseña** o **clave pública SSH**: según el tipo de autenticación seleccionado, debe proporcionar una clave pública RSA o una contraseña en los campos siguientes. Esta credencial se usa con el nombre de usuario proporcionado anteriormente.
 

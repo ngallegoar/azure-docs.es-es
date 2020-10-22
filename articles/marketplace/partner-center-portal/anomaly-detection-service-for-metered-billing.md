@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: cb134c82f231eb8b6329b1acafb181032edd6936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 909b818c60932f5b1d6071ea1ccf0ee4c76173b4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320092"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280531"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Servicio de detección de anomalías para la facturación de uso medido
 
@@ -74,7 +74,7 @@ Para enviar una incidencia:
     - **Marketplace comercial** > **Facturación de uso medido** > **Se ha enviado un uso incorrecto para la oferta de SaaS**
 3. En **Siguiente paso**, seleccione el botón **Revisar soluciones** para que se le redirija para iniciar sesión en el Centro de partners y poder enviar una incidencia de soporte técnico.
 
-Para ver más opciones de soporte técnico para editores, consulte [Soporte técnico para el programa Marketplace comercial en el Centro de partners](support.md).
+Para ver más opciones de soporte técnico para editores, consulte [Soporte técnico para el programa Marketplace comercial en el Centro de partners](../support.md).
 
 ## <a name="next-step"></a>Paso siguiente
 

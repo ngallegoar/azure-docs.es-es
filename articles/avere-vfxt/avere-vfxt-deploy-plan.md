@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f852ec056f3252005bba0bc142c05a9cfbe6c20
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272797"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342406"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear un sistema de Avere vFXT
 
@@ -109,7 +109,7 @@ Cada nodo de vFXT será idéntico. Es decir, si crea un clúster de tres nodos, 
 
 La caché de disco por nodo se puede configurar y puede oscilar entre los 1000 GB y los 8000 GB. El tamaño recomendado de la memoria caché es de 4 TB por nodo para los nodos Standard_E32s_v3.
 
-Para obtener información adicional sobre estas máquinas virtuales, lea la documentación de Microsoft Azure: [Tamaños de máquina virtual optimizada para memoria](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
+Para obtener información adicional sobre estas máquinas virtuales, lea la documentación de Microsoft Azure: [Tamaños de máquina virtual optimizada para memoria](../virtual-machines/sizes-memory.md)
 
 ## <a name="account-quota"></a>Cuotas de la cuenta
 

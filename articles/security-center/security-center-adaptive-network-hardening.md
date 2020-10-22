@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: e6bb3389fe035b1ccfbefaca788a40530581ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2b17e15c5548b4c9b93a62a7d4dfe62ff44404c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851086"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341760"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protección de red adaptable en Azure Security Center
 Obtenga información sobre cómo configurar la protección de red adaptable en Security Center.
@@ -33,7 +33,7 @@ Obtenga información sobre cómo configurar la protección de red adaptable en S
 |||
 
 ## <a name="what-is-adaptive-network-hardening"></a>¿Qué es la protección de red adaptable?
-La aplicación de [grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) para filtrar el tráfico hacia y desde los recursos mejora la postura de seguridad de red. Sin embargo, aún puede haber algunos casos en los que el tráfico real que fluye a través del NSG es un subconjunto de las reglas de NSG definidas. En estos casos, puede mejorar la postura de seguridad al proteger aún más las reglas de NSG, según los patrones de tráfico real.
+La aplicación de [grupos de seguridad de red (NSG)](../virtual-network/network-security-groups-overview.md) para filtrar el tráfico hacia y desde los recursos mejora la postura de seguridad de red. Sin embargo, aún puede haber algunos casos en los que el tráfico real que fluye a través del NSG es un subconjunto de las reglas de NSG definidas. En estos casos, puede mejorar la postura de seguridad al proteger aún más las reglas de NSG, según los patrones de tráfico real.
 
 La protección de red adaptable proporciona recomendaciones para proteger mejor las reglas de NSG. Usa un algoritmo de aprendizaje automático que tiene en cuenta el tráfico real, la configuración de confianza conocida, la inteligencia de amenazas y otros indicadores de riesgo, y luego proporciona recomendaciones para permitir el tráfico solo desde tuplas IP y puerto específicas.
 
@@ -93,7 +93,7 @@ Instrucciones importantes a la hora de modificar una regla de protección de red
 * No puede cambiar reglas de tipo "permitir" para convertirlas en reglas de tipo "denegar". 
 
   > [!NOTE]
-  > La creación y modificación de reglas de tipo "denegar" se realiza directamente en el NSG. Para más información, consulte [Creación, modificación o eliminación de un grupo de seguridad de red ](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > La creación y modificación de reglas de tipo "denegar" se realiza directamente en el NSG. Para más información, consulte [Creación, modificación o eliminación de un grupo de seguridad de red ](../virtual-network/manage-network-security-group.md).
 
 * Una regla de tipo **Denegar todo el tráfico** es el único tipo de regla "denegar" que figuraría aquí, y no se puede modificar. Sin embargo, puede eliminar la regla (consulte [Eliminación de una regla](#delete-rule)).
   > [!NOTE]
@@ -121,7 +121,7 @@ Instrucciones importantes a la hora de modificar una regla de protección de red
 Puede agregar una regla de tipo "permitir" no recomendada por Security Center.
 
 > [!NOTE]
-> Aquí solo se pueden agregar reglas de tipo "permitir". Si quiere agregar reglas de tipo "denegar", puede hacerlo directamente en el NSG. Para más información, consulte [Creación, modificación o eliminación de un grupo de seguridad de red ](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Aquí solo se pueden agregar reglas de tipo "permitir". Si quiere agregar reglas de tipo "denegar", puede hacerlo directamente en el NSG. Para más información, consulte [Creación, modificación o eliminación de un grupo de seguridad de red ](../virtual-network/manage-network-security-group.md).
 
 *Para agregar una regla de protección de red adaptable:*
 

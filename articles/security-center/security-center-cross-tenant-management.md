@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68338341d47b8fa15d0bd88ea23e951210105fc4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84782819"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340791"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Administración entre inquilinos en Security Center
 
@@ -57,4 +57,4 @@ En este artículo se explica cómo funciona la administración entre inquilinos 
 
 * [Refuerce su seguridad con Azure Security Center](security-center-monitoring.md): descubra cómo supervisar el estado de sus recursos de Azure.
 * [Preguntas más frecuentes sobre Azure Security Center](faq-general.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Obtenga información acerca de Azure Lighthouse en escenarios empresariales](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise): conozca cómo Azure Lighthouse puede simplificar la administración entre inquilinos en empresas que usan varios inquilinos de Azure AD.
+* [Obtenga información acerca de Azure Lighthouse en escenarios empresariales](../lighthouse/concepts/enterprise.md): conozca cómo Azure Lighthouse puede simplificar la administración entre inquilinos en empresas que usan varios inquilinos de Azure AD.

@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 763fb82e0725e5a98112af3a79856c3703a5c2c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b061a6d3d7d2a6598d8ed7c48428d756db6e97d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77016092"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126282"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>Arquitectura de referencia de supervisión de residuos conectada 
 
@@ -33,7 +33,7 @@ Conceptos:
 Echemos un vistazo a los componentes clave que generalmente desempeñan un papel en una solución de supervisión del consumo de agua.
 
 ## <a name="devices-and-connectivity"></a>Dispositivos y conectividad 
-Los dispositivos que se usan en entornos abiertos, como los contenedores de residuos, normalmente se conectan mediante redes de área extensa de bajo consumo (LPWAN) a través de un operador de red de terceros. Para estos tipos de dispositivos, puede usar el [Puente de dispositivos de Azure IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) para enviar los datos del dispositivo a la aplicación de IoT en Azure IoT Central. Como alternativa, puede tener puertas de enlace de dispositivo que sean compatibles con IP y puedan conectarse directamente a IoT Central.
+Los dispositivos que se usan en entornos abiertos, como los contenedores de residuos, normalmente se conectan mediante redes de área extensa de bajo consumo (LPWAN) a través de un operador de red de terceros. Para estos tipos de dispositivos, puede usar el [Puente de dispositivos de Azure IoT Central](../core/howto-build-iotc-device-bridge.md) para enviar los datos del dispositivo a la aplicación de IoT en Azure IoT Central. Como alternativa, puede tener puertas de enlace de dispositivo que sean compatibles con IP y puedan conectarse directamente a IoT Central.
 
 ## <a name="iot-central"></a>IoT Central 
 Azure IoT Central es una plataforma de aplicaciones de IoT que le ayuda a empezar a trabajar con su solución IoT rápidamente. Puede utilizar su marca, personalizar e integrar la solución con servicios de terceros.
@@ -51,5 +51,4 @@ Los datos de IoT se pueden usar para potenciar una variedad de aplicaciones empr
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [crear una aplicación de administración de residuos conectada](./tutorial-connected-waste-management.md) de IoT Central.
 * Más información acerca de las [plantillas de IoT Central Government](./overview-iot-central-government.md)
-* Para más información acerca de IoT Central, consulte [Introducción a IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central).
-
+* Para más información acerca de IoT Central, consulte [Introducción a IoT Central](../core/overview-iot-central.md).

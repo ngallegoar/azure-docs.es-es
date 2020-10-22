@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: bcd06ce879282ab9897d7e22006bac19a5c22b8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e995e88b80bf14f9c7784f465bcd3d89d0bed65
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565095"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367965"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y uso de discos con conjuntos de escalado de máquinas virtuales con Azure PowerShell
 
@@ -88,7 +88,7 @@ Aunque la tabla anterior identifica las IOPS máximas por disco, se puede obtene
 ## <a name="create-and-attach-disks"></a>Creación y conexión de discos
 Puede crear y conectar discos durante la creación de un conjunto de escalado o a un conjunto de escalado existente.
 
-A partir versión `2019-07-01` de la API, puede establecer el tamaño del disco del sistema operativo en un conjunto de escalado de máquinas virtuales con la propiedad [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk). Después del aprovisionamiento, es posible que tenga que expandir o volver a particionar el disco para hacer uso de todo el espacio. Obtenga más información sobre la [expansión del disco aquí](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os).
+A partir versión `2019-07-01` de la API, puede establecer el tamaño del disco del sistema operativo en un conjunto de escalado de máquinas virtuales con la propiedad [storageProfile.osDisk.diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk). Después del aprovisionamiento, es posible que tenga que expandir o volver a particionar el disco para hacer uso de todo el espacio. Obtenga más información sobre la [expansión del disco aquí](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-within-the-os).
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Conexión de discos durante la creación del conjunto de escalado
 Cree un conjunto de escalado de máquinas virtuales con [New-AzVmss](/powershell/module/az.compute/new-azvmss). Cuando se le solicite, escriba el nombre de usuario y la contraseña de las instancias de máquina virtual. Para distribuir el tráfico a las instancias individuales de VM, también se crea un equilibrador de carga. El equilibrador de carga incluye reglas para distribuir el tráfico en el puerto TCP 80, y permitir el tráfico de Escritorio remoto en el puerto TCP 3389 y la conexión remota de PowerShell en el puerto TCP 5985.

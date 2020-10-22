@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 2a66873d558495049c97b987dfb69bbf83b4e1d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2edaf6dd139ed4612b91d3a19c3d1398d5afdec1
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439492"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340366"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permisos en Azure Security Center
 
@@ -62,4 +62,4 @@ En este artículo se ha explicado cómo Security Center usa RBAC para asignar pe
 - [Administrar recomendaciones de seguridad en Security Center](security-center-recommendations.md)
 - [Supervisar el estado de seguridad de los recursos de Azure](security-center-monitoring.md)
 - [Responder a alertas de seguridad en Security Center](security-center-managing-and-responding-alerts.md)
-- [Supervisar soluciones de seguridad de asociados](security-center-partner-solutions.md)
+- [Supervisar soluciones de seguridad de asociados](./security-center-partner-integration.md)

@@ -7,12 +7,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: a34544eb29f0a1417d10955bba755fb4f9965320
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0bf6836fd08e20d97f1cfd85627b25e31bf380
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136046"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278412"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelado de datos en Azure Cosmos DB
 
@@ -440,6 +440,6 @@ Como no hay ninguna manera única de representar un elemento de datos en una pan
 
 Para más información sobre Azure Cosmos DB, consulte la página de [documentación](https://azure.microsoft.com/documentation/services/cosmos-db/) del servicio.
 
-Para comprender cómo particionar los datos en varias particiones, consulte [Partición de datos en Azure Cosmos DB](sql-api-partition-data.md).
+Para comprender cómo particionar los datos en varias particiones, consulte [Partición de datos en Azure Cosmos DB](partitioning-overview.md).
 
 Para aprender a modelar y crear particiones de datos en Azure Cosmos DB con un ejemplo del mundo real, consulte [Procedimientos para modelar y crear particiones de datos mediante un ejemplo real](how-to-model-partition-example.md).

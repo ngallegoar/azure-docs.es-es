@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: c4eb30df74e2a8d6748ede987df0b1c41cff0ca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448479"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342100"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Eliminación de alertas de Azure Defender
 
@@ -139,7 +139,7 @@ Los métodos HTTP pertinentes para la eliminación de reglas en la API REST son:
 
 - **DELETE**: elimina una regla existente (pero no cambia el estado de las alertas que ya ha descartado).
 
-Para obtener información completa y ejemplos de uso, consulte la [documentación de la API](https://docs.microsoft.com/rest/api/securitycenter/). 
+Para obtener información completa y ejemplos de uso, consulte la [documentación de la API](/rest/api/securitycenter/). 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

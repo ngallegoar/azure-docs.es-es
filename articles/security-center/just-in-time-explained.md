@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 73b1ba5e93ad82498938055db50abb665849f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2aa75fb7c532d48188493b2ed09adc8b141b6a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449009"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340026"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Descripción del acceso a la máquina virtual Just-in-Time (JIT)
 
@@ -40,14 +40,14 @@ Para solucionar este dilema, Azure Security Center ofrece JIT. Gracias a JIT, se
 
 ## <a name="how-jit-operates-with-network-security-groups-and-azure-firewall"></a>Funcionamiento de JIT con grupos de seguridad de red y Azure Firewall
 
-Cuando se habilita el acceso a la máquina virtual Just-in-Time, se pueden seleccionar los puertos en la máquina virtual en los que se bloqueará el tráfico entrante. Security Center garantiza que existen reglas para "denegar todo el tráfico entrante" de los puertos seleccionados en el [grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) (NSG) y las [reglas de firewall de Azure](https://docs.microsoft.com/azure/firewall/rule-processing). Estas reglas restringen el acceso a los puertos de administración de las máquinas virtuales de Azure y los defienden frente a ataques. 
+Cuando se habilita el acceso a la máquina virtual Just-in-Time, se pueden seleccionar los puertos en la máquina virtual en los que se bloqueará el tráfico entrante. Security Center garantiza que existen reglas para "denegar todo el tráfico entrante" de los puertos seleccionados en el [grupo de seguridad de red](../virtual-network/network-security-groups-overview.md#security-rules) (NSG) y las [reglas de firewall de Azure](../firewall/rule-processing.md). Estas reglas restringen el acceso a los puertos de administración de las máquinas virtuales de Azure y los defienden frente a ataques. 
 
 En caso de que ya existan otras reglas relativas a los puertos seleccionados, las reglas existentes tendrán prioridad sobre las nuevas reglas para "denegar todo el tráfico entrante". Si no hay ninguna regla existente en los puertos seleccionados, las nuevas reglas tendrán prioridad principal en los grupos de seguridad de red y Azure Firewall.
 
-Cuando un usuario solicita acceso a una máquina virtual, Security Center comprueba que este tenga permisos de [control de acceso basado en rol (RBAC de Azure)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para ella. Si la solicitud se aprueba, Security Center configura los grupos de seguridad de red y Azure Firewall para permitir el tráfico entrante a los puertos seleccionados desde las direcciones (o rangos) IP relevantes durante el periodo especificado. Una vez transcurrido ese tiempo, Security Center restaura los NSG a su estado anterior. Las conexiones que ya están establecidas no se interrumpen.
+Cuando un usuario solicita acceso a una máquina virtual, Security Center comprueba que este tenga permisos de [control de acceso basado en rol (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md) para ella. Si la solicitud se aprueba, Security Center configura los grupos de seguridad de red y Azure Firewall para permitir el tráfico entrante a los puertos seleccionados desde las direcciones (o rangos) IP relevantes durante el periodo especificado. Una vez transcurrido ese tiempo, Security Center restaura los NSG a su estado anterior. Las conexiones que ya están establecidas no se interrumpen.
 
 > [!NOTE]
-> JIT no admite las máquinas virtuales que protegen los firewalls de Azure controlados mediante [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview).
+> JIT no admite las máquinas virtuales que protegen los firewalls de Azure controlados mediante [Azure Firewall Manager](../firewall-manager/overview.md).
 
 
 
