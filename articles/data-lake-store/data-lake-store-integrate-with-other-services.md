@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 9318ce7d73f2d05dde6815a0ded4269510760251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 388c0db11c38f3dcdb9c4452b8d7283b2e811885
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441993"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108701"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Integración de Azure Data Lake Storage Gen1 con otros servicios de Azure
 El Azure Data Lake Storage Gen1 puede usarse junto con otros servicios de Azure para habilitar una gama más amplia de escenarios. En el siguiente artículo se enumeran los servicios con los que puede integrarse Data Lake Storage Gen1.
@@ -51,7 +51,7 @@ Puede usar Power BI para importar datos desde una cuenta de Data Lake Storage Ge
 Puede registrar los datos desde Data Lake Storage Gen1 a Azure Data Catalog para que los datos se puedan reconocer en toda la organización. Para más información, consulte [Registro de datos de Data Lake Storage Gen1 en Azure Data Catalog](data-lake-store-with-data-catalog.md).
 
 ## <a name="use-data-lake-storage-gen1-with-sql-server-integration-services-ssis"></a>Uso de Data Lake Storage Gen1 con SQL Server Integration Services (SSIS)
-Puede usar el Administrador de conexiones de Data Lake Storage Gen1 en SSIS para conectar un paquete de SSIS a Data Lake Storage Gen1. Para más información, consulte [Uso de Data Lake Storage Gen1 con SSIS](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
+Puede usar el Administrador de conexiones de Data Lake Storage Gen1 en SSIS para conectar un paquete de SSIS a Data Lake Storage Gen1. Para más información, consulte [Uso de Data Lake Storage Gen1 con SSIS](/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
 
 ## <a name="use-data-lake-storage-gen1-with-azure-synapse-analytics"></a>Uso de Data Lake Storage Gen1 con Azure Synapse Analytics
 Puede usar PolyBase para cargar datos de Data Lake Storage Gen1 en Azure Synapse Analytics (antes SQL Data Warehouse). Para más información, consulte [Uso de Data Lake Storage Gen1 con Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
@@ -62,5 +62,4 @@ Puede usar Azure Data Lake Storage Gen1 para archivar y capturar datos recibidos
 ## <a name="see-also"></a>Consulte también
 * [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introducción a Data Lake Storage Gen1 con Portal](data-lake-store-get-started-portal.md)
-* [Introducción a Data Lake Storage Gen1 con PowerShell](data-lake-store-get-started-powershell.md)  
-
+* [Introducción a Data Lake Storage Gen1 con PowerShell](data-lake-store-get-started-powershell.md)

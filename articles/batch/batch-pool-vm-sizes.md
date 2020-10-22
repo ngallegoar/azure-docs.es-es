@@ -4,12 +4,12 @@ description: Cómo elegir uno de los tamaños de máquina virtual disponibles pa
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2819bb5e4000f18653e47b616a551d69ec525d2c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271314"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107511"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -24,7 +24,7 @@ Hay algunas excepciones y limitaciones a la hora de elegir un tamaño de máquin
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Grupos en la configuración de máquina virtual
 
-Los grupos de Batch en la configuración de máquina virtual son compatibles con casi todos los tamaños de máquina virtual ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). Consulte la tabla siguiente para más información sobre los tamaños admitidos y las restricciones.
+Los grupos de Batch en la configuración de máquina virtual son compatibles con casi todos los tamaños de máquina virtual ([Linux](../virtual-machines/sizes.md), [Windows](../virtual-machines/sizes.md)). Consulte la tabla siguiente para más información sobre los tamaños admitidos y las restricciones.
 
 | Series de máquinas virtuales  | Tamaños admitidos |
 |------------|---------|

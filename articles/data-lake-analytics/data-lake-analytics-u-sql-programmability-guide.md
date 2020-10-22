@@ -1,18 +1,16 @@
 ---
 title: Guía de programación de U-SQL para Azure Data Lake
 description: Obtenga más información sobre el conjunto de servicios de Azure Data Lake Analytics que le permiten crear una plataforma de macrodatos basada en la nube.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: 1c22aa9fb91b0a86704b95586afc1779023e85b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0e914b5f36d58ec3aab24099c8b3787f0cf648
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288951"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215457"
 ---
 # <a name="u-sql-programmability-guide"></a>Guía de programación de U-SQL
 
@@ -121,7 +119,7 @@ El código siguiente muestra cómo hacer referencia a un ensamblado:
 REFERENCE ASSEMBLY MyDB.[MyAssembly];
 ```
 
-Consulte las [instrucciones de registro de un ensamblado](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) que tratan este tema con mayor detalle.
+Consulte las [instrucciones de registro de un ensamblado](/archive/blogs/azuredatalake/how-to-register-u-sql-assemblies-in-your-u-sql-catalog) que tratan este tema con mayor detalle.
 
 
 ### <a name="use-assembly-versioning"></a>Uso del control de versiones de ensamblado

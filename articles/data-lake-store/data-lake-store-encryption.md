@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: a187b31657ec2a67c306d817a75150d19a5cf9b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497189"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109160"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Cifrado de datos en Azure Data Lake Storage Gen1
 
@@ -33,7 +33,7 @@ Los datos en tránsito (también conocidos como datos en movimiento) también se
 
 El cifrado para Data Lake Storage Gen1 se configura durante la creación de la cuenta y siempre está habilitado de forma predeterminada. Puede administrar las claves por su cuenta o dejar que Data Lake Storage Gen1 las administre en su nombre (esta es la opción predeterminada).
 
-Para más información, consulte [Introducción](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+Para más información, consulte [Introducción](./data-lake-store-get-started-portal.md).
 
 ## <a name="how-encryption-works-in-data-lake-storage-gen1"></a>Funcionamiento del cifrado en Data Lake Storage Gen1
 
@@ -105,7 +105,7 @@ En el siguiente diagrama, se ilustra este concepto:
 
 ## <a name="key-rotation"></a>Rotación de claves
 
-Cuando se usan claves administradas por el cliente, puede rotar la clave MEK. Para aprender a configurar una cuenta de Data Lake Storage Gen1 con claves administradas por el cliente, consulte [Introducción](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+Cuando se usan claves administradas por el cliente, puede rotar la clave MEK. Para aprender a configurar una cuenta de Data Lake Storage Gen1 con claves administradas por el cliente, consulte [Introducción](./data-lake-store-get-started-portal.md).
 
 ### <a name="prerequisites"></a>Requisitos previos
 
@@ -135,4 +135,4 @@ Tenga en cuenta que si usa las opciones predeterminadas para el cifrado, los dat
 Esta operación tardará menos de dos minutos y no hay ningún tiempo de inactividad previsto debido a la rotación de claves. Una vez completada la operación, la nueva versión de la clave está en uso.
 
 > [!IMPORTANT]
-> Una vez completada la operación de rotación de claves, la versión anterior de la clave ya no se usa de un modo activo para cifrar los datos.  Sin embargo, en algunos casos de error inesperado en los que se ven afectadas incluso copias redundantes de los datos, los datos se pueden restaurar desde una copia de seguridad que utiliza aún la clave antigua. Para asegurarse de que los datos son accesibles en estas circunstancias poco habituales, guarde una copia de la versión anterior de la clave de cifrado. Consulte la [Guía de recuperación ante desastres para los datos en Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) para ver los procedimientos recomendados para el planeamiento de la recuperación ante desastres. 
+> Una vez completada la operación de rotación de claves, la versión anterior de la clave ya no se usa de un modo activo para cifrar los datos.  Sin embargo, en algunos casos de error inesperado en los que se ven afectadas incluso copias redundantes de los datos, los datos se pueden restaurar desde una copia de seguridad que utiliza aún la clave antigua. Para asegurarse de que los datos son accesibles en estas circunstancias poco habituales, guarde una copia de la versión anterior de la clave de cifrado. Consulte la [Guía de recuperación ante desastres para los datos en Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) para ver los procedimientos recomendados para el planeamiento de la recuperación ante desastres.

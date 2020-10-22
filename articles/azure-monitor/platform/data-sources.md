@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 8ef498a51f25a6b084a0d048661f3d18a5881644
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48336b65ec564f834ef8a1e8f4911c89b1a37f31
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802077"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107953"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Orígenes de datos de supervisión para Azure Monitor
 Azure Monitor se basa en una [plataforma de datos de supervisión común](data-platform.md) que incluye [registros](data-platform-logs.md) y [métricas](data-platform-metrics.md). La recopilación de datos en esta plataforma permite que los datos de múltiples recursos se analicen juntos mediante un conjunto común de herramientas en Azure Monitor. Los datos de supervisión también pueden enviarse a otras ubicaciones para admitir determinados escenarios, y algunos recursos pueden realizar operaciones de escritura en otras ubicaciones para poder recopilarse en registros o métricas.
@@ -20,7 +20,7 @@ En este artículo se describen los diferentes orígenes de datos de datos de sup
 
 ## <a name="application-tiers"></a>Niveles de aplicación
 
-Los orígenes de datos de supervisión de las aplicaciones de Azure se pueden organizar en niveles. Los niveles más altos son su propia aplicación y los niveles más bajos son componentes de la plataforma de Azure. El método de acceso a los datos de cada nivel es variable. Los niveles de aplicación se resumen en la tabla siguiente y los orígenes de datos de supervisión en cada nivel se presentan en las siguientes secciones. Consulte [Supervisión de ubicaciones de datos en Azure](data-locations.md) para obtener una descripción de cada ubicación de datos y cómo puede acceder a sus datos.
+Los orígenes de datos de supervisión de las aplicaciones de Azure se pueden organizar en niveles. Los niveles más altos son su propia aplicación y los niveles más bajos son componentes de la plataforma de Azure. El método de acceso a los datos de cada nivel es variable. Los niveles de aplicación se resumen en la tabla siguiente y los orígenes de datos de supervisión en cada nivel se presentan en las siguientes secciones. Consulte [Supervisión de ubicaciones de datos en Azure](../monitor-reference.md) para obtener una descripción de cada ubicación de datos y cómo puede acceder a sus datos.
 
 
 ![Supervisión de niveles](../media/overview/overview.png)
@@ -208,4 +208,4 @@ Otros servicios de Azure escriben datos en la plataforma de datos de Azure Monit
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre la [tipos de datos de supervisión recopilados por Azure Monitor](data-platform.md) y cómo ver y analizar estos datos.
-- Enumere las [distintas ubicaciones en las que los recursos de Azure almacenan datos](data-locations.md) y cómo acceder a ellos. 
+- Enumere las [distintas ubicaciones en las que los recursos de Azure almacenan datos](../monitor-reference.md) y cómo acceder a ellos.

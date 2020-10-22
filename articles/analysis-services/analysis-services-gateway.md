@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fed184c349789dc38f12f62567acc0d0500ca94c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0d8960ddd8f617c59d6ac025fafe413256bc5b94
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016100"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107613"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local
 
@@ -29,22 +29,6 @@ Para Azure Analysis Services, el proceso de instalación de la puerta de enlace 
 - **Creación de un recurso de puerta de enlace en Azure**: en este paso, creará un recurso de puerta de enlace en Azure.
 
 - **Conexión del recurso de puerta de enlace a los servidores**: una vez que tenga un recurso de puerta de enlace, podrá comenzar a conectarle servidores. Puede conectar varios servidores y otros recursos, siempre que se encuentren en la misma región.
-
-
-
-## <a name="how-it-works"></a>Funcionamiento
-La puerta de enlace que se instala en un equipo de la organización funciona como un servicio de Windows, **Puerta de enlace de datos local**. Este servicio local se registra en el servicio en la nube de puerta de enlace a través de Azure Service Bus. Después debe crear un recurso de puerta de enlace de datos local para una suscripción de Azure. Posteriormente, los servidores de Azure Analysis Services se conectan al recurso de puerta de enlace de Azure. Cuando los modelos del servidor necesitan conectarse a los orígenes de datos locales para realizar consultas o procesamiento, un flujo de datos y consultas atraviesa el recurso de puerta de enlace, Azure Service Bus, el servicio de puerta de enlace de datos local y los orígenes de datos. 
-
-![Funcionamiento](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
-
-Flujo de datos y consultas:
-
-1. El servicio en la nube crea una consulta con las credenciales cifradas para el origen de datos local. A continuación, se envía a una cola de la puerta de enlace para su procesamiento.
-2. El servicio en la nube de puerta de enlace analiza la consulta e inserta la solicitud en la instancia de [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
-3. La puerta de enlace de datos local sondea Azure Service Bus en busca de solicitudes pendientes.
-4. La puerta de enlace obtiene la consulta, descifra las credenciales y se conecta a los orígenes de datos con ellas.
-5. La puerta de enlace envía la consulta al origen de datos para su ejecución.
-6. Los resultados se devuelven desde el origen de datos a la puerta de enlace y luego se envían al servicio en la nube y al servidor.
 
 ## <a name="installing"></a>Instalación
 
@@ -76,16 +60,6 @@ Estos son los nombres de dominio completos usados por la puerta de enlace.
 | *.msftncsi.com |443 |Se utiliza para probar la conectividad a Internet si el servicio Power BI no puede acceder a la puerta de enlace. |
 | *.microsoftonline-p.com |443 |Se utiliza para la autenticación dependiendo de la configuración. |
 | dc.services.visualstudio.com    |443 |Usado por AppInsights para recopilar datos de telemetría. |
-
-### <a name="forcing-https-communication-with-azure-service-bus"></a>Cómo forzar la comunicación HTTPS con Azure Service Bus
-
-Puede hacer que la puerta de enlace se comunique con Azure Service Bus mediante HTTPS en lugar de TCP directo. Sin embargo, de ese modo puede reducir en gran medida el rendimiento. Debe modificar el archivo *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* cambiando el valor de `AutoDetect` por `Https`. Este archivo suele encontrarse en *C:\Archivos de programa\Puerta de enlace de datos local*.
-
-```
-<setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
-    <value>Https</value>
-</setting>
-```
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

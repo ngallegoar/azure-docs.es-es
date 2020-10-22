@@ -6,12 +6,12 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: d7d9f55bbd3d8060670008f321a77b2a28376e47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bb44b7133e5644991d7413f4f824a8b55ffdd75
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87849026"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108378"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica clásica con una plantilla de Resource Manager
 
@@ -400,6 +400,5 @@ Una alerta en una plantilla de Resource Manager suele ser más útil al crear un
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre alertas](alerts-overview.md)
-* [Agregue la Configuración de diagnóstico](./diagnostic-settings-template.md) a la plantilla de Resource Manager
+* [Agregue la Configuración de diagnóstico](../samples/resource-manager-diagnostic-settings.md) a la plantilla de Resource Manager
 * Para conocer las propiedades y la sintaxis de JSON, consulte la referencia de la plantilla [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).
-

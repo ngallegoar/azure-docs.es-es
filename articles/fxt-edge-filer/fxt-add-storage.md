@@ -6,42 +6,43 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 3f736942627d088e3a639f89bef5438714c2608b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d10c6c1ce440b2ffe964dc78379ef3ab108e78e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79223142"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217531"
 ---
-# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Tutorial: Agregar el almacenamiento de back-end y configurar del espacio de nombres virtual 
+# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Tutorial: Agregar el almacenamiento de back-end y configurar del espacio de nombres virtual
 
-En este tutorial se explica cómo agregar un almacenamiento de back-end para la caché y cómo configurar el sistema de archivos virtual orientado al cliente. 
+En este tutorial se explica cómo agregar un almacenamiento de back-end para la caché y cómo configurar el sistema de archivos virtual orientado al cliente.
 
-El clúster se conecta a los sistemas de almacenamiento de back-end para obtener acceso a la solicitud de los clientes de datos y para almacenar los cambios de forma más permanente que en la memoria caché. 
+El clúster se conecta a los sistemas de almacenamiento de back-end para obtener acceso a la solicitud de los clientes de datos y para almacenar los cambios de forma más permanente que en la memoria caché.
 
-El espacio de nombres es un pseudosistema de archivos orientado al cliente que le permite intercambiar el almacenamiento de back-end sin tener que cambiar los flujos de trabajo del lado del cliente. 
+El espacio de nombres es un pseudosistema de archivos orientado al cliente que le permite intercambiar el almacenamiento de back-end sin tener que cambiar los flujos de trabajo del lado del cliente.
 
-En este tutorial, aprenderá a: 
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Cómo agregar el almacenamiento de back-end al clúster de Azure FXT Edge Filer 
+>
+> * Cómo agregar el almacenamiento de back-end al clúster de Azure FXT Edge Filer
 > * Cómo definir la ruta de acceso de orientada al cliente para el almacenamiento
 
 ## <a name="about-back-end-storage"></a>Acerca del almacenamiento de back-end
 
 El clúster de Azure FXT Edge Filer usa una definición del *archivador básico* para vincular un sistema de almacenamiento de back-end al clúster de FXT.
 
-Azure FXT Edge Filer es compatible con varios sistemas de hardware NAS populares y puede usar contenedores vacíos de Azure Blob u otro almacenamiento en la nube. 
+Azure FXT Edge Filer es compatible con varios sistemas de hardware NAS populares y puede usar contenedores vacíos de Azure Blob u otro almacenamiento en la nube.
 
 Los contenedores de almacenamiento en la nube deben estar vacíos cuando se agregan para que el sistema operativo FXT pueda administrar completamente todos los datos en el volumen de almacenamiento en la nube. Puede mover sus datos al contenedor en la nube después de agregar ese contenedor al clúster como un archivador básico.
 
 Use el Panel de control para agregar un archivador básico a su sistema.
 
 > [!NOTE]
-> 
+>
 > Si quiere usar Amazon AWS o el almacenamiento en la nube de Google, debe instalar una licencia de característica de FlashCloud<sup>TM</sup>. Póngase en contacto con su representante de Microsoft para obtener una clave de licencia y siga las instrucciones de la guía de configuración heredada [Adding or removing feature licenses](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/install_licenses.html#install-licenses) (Agregar o eliminar licencias de características).
-> 
-> La compatibilidad con Azure Blob Storage se incluye en la licencia del software Azure FXT Edge Filer. 
+>
+> La compatibilidad con Azure Blob Storage se incluye en la licencia del software Azure FXT Edge Filer.
 
 Para obtener información detallada sobre cómo agregar archivadores básicos, lea estas secciones de la guía de configuración de clústeres:
 
@@ -59,7 +60,7 @@ Defina un archivador de núcleo haciendo clic en el botón **Create** (Crear) en
 
 ![Haga clic en el botón Crear en la lista de archivadores básicos de la página para administrar archivadores básicos](media/fxt-cluster-config/create-core-filer-button.png)
 
-El asistente para **agregar un archivador básico nuevo** le guiará en el proceso de creación de un archivador básico que se vincula a su almacenamiento de back-end. La guía de configuración de clústeres tiene descripciones paso a paso del proceso, que es diferente para el almacenamiento NFS/NAS y para el almacenamiento en la nube (los enlaces están arriba). 
+El asistente para **agregar un archivador básico nuevo** le guiará en el proceso de creación de un archivador básico que se vincula a su almacenamiento de back-end. La guía de configuración de clústeres tiene descripciones paso a paso del proceso, que es diferente para el almacenamiento NFS/NAS y para el almacenamiento en la nube (los enlaces están arriba).
 
 Las subtareas incluyen:
 
@@ -71,15 +72,15 @@ Las subtareas incluyen:
 
 * Para los archivadores básicos de NAS, proporcione el nombre de dominio completo (FQDN) o la dirección IP. Se recomienda usar el FQDN en todos los archivadores básicos y se requiere para el acceso de SMB.
 
-* Seleccione una directiva de caché: la segunda página del asistente enumera las directivas de caché disponibles para el nuevo archivador básico. Para obtener más información, lea la [sección de directivas de caché de la guía de configuración de clústeres](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html). 
+* Seleccione una directiva de caché: la segunda página del asistente enumera las directivas de caché disponibles para el nuevo archivador básico. Para obtener más información, lea la [sección de directivas de caché de la guía de configuración de clústeres](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html).
 
   ![Segunda página de un asistente de archivador básico nuevo de hardware NAS; el menú desplegable "Directivas de caché" está abierto y muestra varias opciones deshabilitadas y tres opciones de directivas de caché válidas (omisión, lectura del almacenamiento en caché y lectura o escritura del almacenamiento en caché).](media/fxt-cluster-config/new-nas-choose-cache-policy.png)
 
 * Para el almacenamiento en la nube, debe especificar el servicio en la nube y las credenciales de acceso, entre otros parámetros. Para obtener más información, lea [Cloud service and protocol](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) (Servicio y protocolo en la nube) en la guía de configuración del clúster.
 
-  ![Información del archivador básico en la nube en el asistente de archivador básico nuevo](media/fxt-cluster-config/new-core-filer-cloud3.png) 
+  ![Información del archivador básico en la nube en el asistente de archivador básico nuevo](media/fxt-cluster-config/new-core-filer-cloud3.png)
   
-  Si ya ha agregado credenciales de acceso a la nube para este clúster, aparecerán en la lista. Actualice y agregue las credenciales en la página de configuración **Cluster** > **Cloud Credentials** (Clúster > Credenciales de la nube). 
+  Si ya ha agregado credenciales de acceso a la nube para este clúster, aparecerán en la lista. Actualice y agregue las credenciales en la página de configuración **Cluster** > **Cloud Credentials** (Clúster > Credenciales de la nube).
 
 Después de completar todas las configuraciones requeridas en el asistente, haga clic en el botón **Add Filer** (Agregar archivador) para enviar el cambio.
 
@@ -91,14 +92,14 @@ Al archivador básico de esta captura de pantalla le falta un elemento vserver. 
 
 ## <a name="configure-the-namespace"></a>Configurar el espacio de nombres
 
-El clúster de Azure FXT Edge Filer crea un sistema de archivos virtual denominado *espacio de nombres de clúster* que simplifica el acceso del cliente a los datos almacenados en diversos sistemas de back-end. Como los clientes solicitan archivos mediante una ruta de acceso virtual, los sistemas de almacenamiento pueden agregarse o reemplazarse sin tener que cambiar el flujo de trabajo del cliente. 
+El clúster de Azure FXT Edge Filer crea un sistema de archivos virtual denominado *espacio de nombres de clúster* que simplifica el acceso del cliente a los datos almacenados en diversos sistemas de back-end. Como los clientes solicitan archivos mediante una ruta de acceso virtual, los sistemas de almacenamiento pueden agregarse o reemplazarse sin tener que cambiar el flujo de trabajo del cliente.
 
-El espacio de nombres del clúster también le permite presentar los sistemas de almacenamiento en la nube y NAS en una estructura de archivos similar. 
+El espacio de nombres del clúster también le permite presentar los sistemas de almacenamiento en la nube y NAS en una estructura de archivos similar.
 
-Los elementos vserver del clúster mantienen el espacio de nombres y el contenido que se entrega a los clientes. Existen dos pasos para crear el espacio de nombres del clúster: 
+Los elementos vserver del clúster mantienen el espacio de nombres y el contenido que se entrega a los clientes. Existen dos pasos para crear el espacio de nombres del clúster:
 
-1. Crear un vserver 
-1. Configure uniones entre los sistemas de almacenamiento de back-end y las rutas del sistema de archivos orientados al cliente. 
+1. Crear un vserver
+1. Configure uniones entre los sistemas de almacenamiento de back-end y las rutas del sistema de archivos orientados al cliente.
 
 ### <a name="create-a-vserver"></a>Crear un vserver
 
@@ -109,7 +110,7 @@ Los vserver son servidores de archivos virtuales que controlan cómo fluyen los 
 * Los vserver aplican controles de acceso a archivos, incluidas las directivas de exportación del archivador básico y los sistemas de autenticación de usuarios
 * Los vserver proporcionan infraestructura SMB
 
-Antes de comenzar a configurar un vserver de clúster, lea la documentación adicional que tiene vinculada y consulte a su representante de Microsoft para que le ayude a entender el espacio de nombres y los vserver. Si usa redes VLAN, [créelas](fxt-configure-network.md#adjust-network-settings) antes de crear el vserver. 
+Antes de comenzar a configurar un vserver de clúster, lea la documentación adicional que tiene vinculada y consulte a su representante de Microsoft para que le ayude a entender el espacio de nombres y los vserver. Si usa redes VLAN, [créelas](fxt-configure-network.md#adjust-network-settings) antes de crear el vserver.
 
 Estas secciones de la guía de configuración del clúster le ayudarán a familiarizarse con las características del vserver FXT y del espacio de nombres global:
 
@@ -117,7 +118,7 @@ Estas secciones de la guía de configuración del clúster le ayudarán a famili
 * [Using a Global Namespace](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html) (Usar un espacio de nombres global)
 * [Creating a VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) (crear un vserver)
 
-Necesita al menos un vserver para su clúster. 
+Necesita al menos un vserver para su clúster.
 
 Para crear un vserver, necesita la información siguiente:
 
@@ -129,7 +130,7 @@ Para crear un vserver, necesita la información siguiente:
 
 * Si su red tiene VLAN, decida qué red VLAN usará en este vserver
 
-Use la página de configuración **VServer** > **Administrar VServers** para crear un nuevo vserver. Para obtener más información, lea [Creating a VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) (Crear un VServer) en la guía de configuración del clúster. 
+Use la página de configuración **VServer** > **Administrar VServers** para crear un nuevo vserver. Para obtener más información, lea [Creating a VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) (Crear un VServer) en la guía de configuración del clúster.
 
 ![ventana emergente para crear un nuevo vserver](media/fxt-cluster-config/new-vserver.png)
 
@@ -154,7 +155,6 @@ Primero, use la página **VServer** > **Reglas de exportación** para agregar nu
 En segundo lugar, use la página **VServer** > **Exportar directivas** para aplicar la directiva personalizada a las exportaciones del archivador básico cuando se acceda a través de ese vserver.
 
 Lea el artículo de la guía de configuración del clúster [Controlling Access to Core Filer Exports](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/export_rules_overview.html) (Controlar el acceso a las exportaciones del archivador básico) para obtener más información.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

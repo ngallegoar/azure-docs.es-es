@@ -6,22 +6,22 @@ ms.service: fxt-edge-filer
 ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: rohogue
-ms.openlocfilehash: d597d5d1e86a2ea13363bc270fb55304d77dee5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01c34304ac0e3e7faa42611758d77893e149a2f8
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184880"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218738"
 ---
 # <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Cómo apagar de forma segura el hardware de Azure FXT Edge Filer
 
 Aunque puede usar el botón de encendido físico para activar un nodo individual, no debe usarlo para apagar la unidad en circunstancias normales.
 
-Después de que un nodo de Azure FXT Edge Filer esté en uso como parte de un clúster, debe usar el software de panel de control del clúster para apagar el hardware. 
+Después de que un nodo de Azure FXT Edge Filer esté en uso como parte de un clúster, debe usar el software de panel de control del clúster para apagar el hardware.
 
-> [!NOTE] 
+> [!NOTE]
 > Para evitar la posible pérdida o corrupción de los datos, use siempre el software Panel de control para apagar una instancia de Azure FXT Edge Filer. No utilice el botón de encendido físico para apagarla, salvo que el soporte técnico y servicio al cliente de Microsoft le indique que lo haga.
-> 
+>
 > En caso de emergencia eléctrica, desconecte los cables de alimentación o use el mecanismo de desconexión de la electricidad del centro de datos.
 
 ## <a name="shut-down-a-node-from-the-control-panel"></a>Apagar un nodo desde el Panel de control
@@ -30,7 +30,7 @@ Siga estas instrucciones para apagar un nodo de Azure FXT Edge Filer con segurid
 
 1. Inicie sesión en el Panel de control del clúster. (Consulte las instrucciones en [Apertura de las páginas de configuración](fxt-cluster-create.md#open-the-settings-pages))
 1. Haga clic en la pestaña **Configuración** y, después, cargue la página **Clúster** > **FXT Nodes** (Nodos FXT).
-1. En la lista de nodos del clúster, busque el que quiere apagar. Haga clic en el botón **Apagar** de la columna **Acciones** correspondiente. 
+1. En la lista de nodos del clúster, busque el que quiere apagar. Haga clic en el botón **Apagar** de la columna **Acciones** correspondiente.
 1. Espere unos segundos. El nodo se apagará.
 
 ## <a name="next-steps"></a>Pasos siguientes

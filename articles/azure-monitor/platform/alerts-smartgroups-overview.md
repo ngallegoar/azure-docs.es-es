@@ -4,12 +4,12 @@ description: Los grupos inteligentes son agregaciones de las alertas que le ayud
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
-ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dff59ac207e6078a264d1350d24c9e6f4a461d78
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77665500"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108786"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
 
@@ -33,7 +33,7 @@ Se admiten los siguientes estados de grupo inteligente.
 | Confirmado | Un administrador revisó el grupo inteligente y empezó a trabajar en él. |
 | Closed | Se resolvió el problema. Después de cerrar un grupo inteligente, puede volver a abrirlo mediante el cambio a otro estado. |
 
-[Obtenga información sobre cómo cambiar el estado del grupo inteligente](https://aka.ms/managing-alert-smart-group-states).
+[Obtenga información sobre cómo cambiar el estado del grupo inteligente](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
 
 > [!NOTE]
 >  El cambio de estado de un grupo inteligente no modifica el estado de las alertas individuales que lo componen.
@@ -58,7 +58,5 @@ El nombre de un grupo inteligente es el nombre de su primera alerta. No se puede
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Administración de grupos inteligentes](https://aka.ms/managing-smart-groups)
-- [Cambio de estado de alerta y de grupo inteligente](https://aka.ms/managing-alert-smart-group-states)
-
-
+- [Administración de grupos inteligentes](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Cambio de estado de alerta y de grupo inteligente](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)

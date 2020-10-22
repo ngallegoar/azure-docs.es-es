@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 06/05/2020
-ms.openlocfilehash: 10f31b74b461941b15f13e45f90b5fbc408c90fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d815c27ecc7825f0bc1e6772654b094a799b63d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86108420"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216562"
 ---
 # <a name="security-overview-for-azure-data-share"></a>Información general de seguridad para Azure Data Share
 
@@ -23,12 +23,8 @@ Azure Data Share aprovecha la seguridad subyacente que ofrece Azure para protege
 
 Se pueden establecer controles de acceso en el nivel de recursos de Azure Data Share para asegurarse de que solo acceden los que tienen autorización. 
 
-Azure Data Share aprovecha la identidad administrada (anteriormente conocida como MSI) para tener acceso a los almacenes de datos que sirven para el uso compartido de datos. No hay intercambio de credenciales entre un proveedor de datos y un consumidor de datos. Para obtener más información sobre las identidades administradas, consulte [Identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). Para obtener más información sobre los roles y los permisos necesarios para compartir datos, consulte [Roles y requisitos](concepts-roles-permissions.md).
+Azure Data Share aprovecha la identidad administrada (anteriormente conocida como MSI) para tener acceso a los almacenes de datos que sirven para el uso compartido de datos. No hay intercambio de credenciales entre un proveedor de datos y un consumidor de datos. Para obtener más información sobre las identidades administradas, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). Para obtener más información sobre los roles y los permisos necesarios para compartir datos, consulte [Roles y requisitos](concepts-roles-permissions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información acerca de cómo empezar a compartir datos, vaya al tutorial que cubre cómo [compartir sus datos](share-your-data.md).
-
-
-
-

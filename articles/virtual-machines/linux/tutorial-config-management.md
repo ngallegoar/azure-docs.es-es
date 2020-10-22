@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 31a8457b4b1ac069cafbfd9713f15fdad7142d10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e233c7c4eb76e79e73d0c5fc386a9d908f0e35b5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87445796"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216698"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Supervisión de los cambios y actualización de una máquina virtual Linux en Azure
 
-Azure [Change Tracking](../../automation/change-tracking.md) permite identificar fácilmente los cambios y [Update Management](../../automation/update-management/update-mgmt-overview.md), administrar las actualizaciones del sistema operativo en las máquinas virtuales Linux de Azure.
+Azure [Change Tracking](../../automation/change-tracking/overview.md) permite identificar fácilmente los cambios y [Update Management](../../automation/update-management/overview.md), administrar las actualizaciones del sistema operativo en las máquinas virtuales Linux de Azure.
 
 En este tutorial, aprenderá a:
 
@@ -115,10 +115,10 @@ Para crear una nueva implementación de actualizaciones, seleccione **Programar 
 | --- | --- |
 | Nombre |Nombre único para identificar la implementación de actualizaciones. |
 |Sistema operativo| Linux o Windows|
-| Grupos que se deben actualizar |Para las máquinas de Azure, defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de máquinas virtuales de Azure e incluirlo en la implementación. </br></br>Para las máquinas que no son de Azure, seleccione una búsqueda guardada ya existente para seleccionar un grupo de esas máquinas e incluirlo en la implementación. </br></br>Para más información, consulte los [grupos dinámicos](../../automation/update-management/update-mgmt-groups.md).|
+| Grupos que se deben actualizar |Para las máquinas de Azure, defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de máquinas virtuales de Azure e incluirlo en la implementación. </br></br>Para las máquinas que no son de Azure, seleccione una búsqueda guardada ya existente para seleccionar un grupo de esas máquinas e incluirlo en la implementación. </br></br>Para más información, consulte los [grupos dinámicos](../../automation/update-management/configure-groups.md).|
 | Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../../azure-monitor/platform/computer-groups.md) |
 |Clasificaciones de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite|
-|Incluir o excluir actualizaciones|Se abrirá la página **Incluir/Excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte [Programación de una implementación de actualizaciones](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment) |
+|Incluir o excluir actualizaciones|Se abrirá la página **Incluir/Excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte [Programación de una implementación de actualizaciones](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment) |
 |Configuración de programación|Seleccione la hora de inicio y seleccione Una vez o de manera periódica para la periodicidad|
 | Scripts previos + scripts posteriores|Seleccione los scripts que se ejecutarán antes y después de la implementación.|
 | Ventana de mantenimiento |Número de minutos establecido para las actualizaciones. El valor no puede ser inferior a 30 minutos ni más de 6 horas |

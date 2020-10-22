@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: ce47bc5e880f15eaa1bbf07477673d2475e5a10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d4ef9f1d80604373463450adf597f8202611175
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489925"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216579"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceptación y recepción de datos con Azure Data Share  
 
@@ -34,7 +34,7 @@ Asegúrese de que se cumplen todos los requisitos previos antes de aceptar una i
 
 ### <a name="receive-data-into-a-storage-account"></a>Recepción de los datos en una cuenta de almacenamiento: 
 
-* Una cuenta de Azure Storage: si no la tiene, puede crear una cuenta de [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
+* Una cuenta de Azure Storage: si no la tiene, puede crear una cuenta de [Azure Storage](../storage/common/storage-account-create.md). 
 * Permisos para escribir en la cuenta de almacenamiento, que se encuentra en *Microsoft.Storage/storageAccounts/write*. Este permiso existe en el rol de colaborador. 
 * Permisos para agregar la asignación de roles a la cuenta de almacenamiento, que se encuentra en *Microsoft.Authorization/role assignments/write*. Este permiso existe en el rol de propietario.  
 
@@ -62,7 +62,7 @@ Asegúrese de que se cumplen todos los requisitos previos antes de aceptar una i
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Recibir datos en un clúster de Azure Data Explorer: 
 
-* Un clúster de Azure Data Explorer en el mismo centro de datos de Azure que el clúster de Data Explorer del proveedor de datos: Si aún no tiene uno, puede crear un [clúster de Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal). Si no conoce el centro de datos de Azure del clúster del proveedor de datos, puede crear el clúster más adelante en el proceso.
+* Un clúster de Azure Data Explorer en el mismo centro de datos de Azure que el clúster de Data Explorer del proveedor de datos: Si aún no tiene uno, puede crear un [clúster de Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal). Si no conoce el centro de datos de Azure del clúster del proveedor de datos, puede crear el clúster más adelante en el proceso.
 * Permisos para escribir en el clúster de Azure Data Explorer, que se encuentra en *Microsoft.Kusto/clusters/write*. Este permiso existe en el rol de colaborador. 
 * Permisos para agregar la asignación de roles al clúster de Azure Data Explorer, que se encuentra en *Microsoft.Authorization/role assignments/write*. Este permiso existe en el rol de propietario. 
 

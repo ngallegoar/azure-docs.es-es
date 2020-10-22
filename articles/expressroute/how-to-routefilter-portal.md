@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 5d5f46c4f078038b91881000cf8a6b67000683e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d142028d197f9e279b5f1e05757946dc40d2c153
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078636"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109143"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-the-azure-portal"></a>Tutorial: Configuración de filtros de ruta para el emparejamiento de Microsoft: Azure Portal
 
@@ -126,7 +126,7 @@ Para desasociar un circuito del filtro de ruta, haga clic con el botón derecho 
 :::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Captura de pantalla que muestra la página Filtro de ruta":::
 
 
-## <a name="clean-up-resources"></a><a name="delete"></a>Limpieza de recursos
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Para eliminar un filtro de ruta, haga clic en el botón **Eliminar**. Asegúrese de que el filtro de ruta no está asociado a ningún circuito antes de hacerlo.
 

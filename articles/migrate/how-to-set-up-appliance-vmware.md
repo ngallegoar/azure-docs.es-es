@@ -3,12 +3,12 @@ title: Configurar un dispositivo de Azure Migrate para VMware
 description: Obtenga información sobre cómo configurar un dispositivo de Azure Migrate para evaluar y migrar VM de VMware.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 9a4e652180b236262ea57ae49d35410ebfbdc927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f20bb77c29d98ab4e3549bfed43d47d1f1f7dc0c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448651"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318212"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configuración de un dispositivo para máquinas virtuales de VMware
 
@@ -58,7 +58,7 @@ Compruebe que el archivo OVA es seguro, antes de implementarlo.
 2. Ejecute el siguiente comando para generar el código hash para el archivo OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
-3. El código hash generado debe coincidir con esta [configuración](./tutorial-assess-vmware.md#verify-security) para la versión más reciente del dispositivo.
+3. El código hash generado debe coincidir con esta [configuración](./tutorial-discover-vmware.md#verify-security) para la versión más reciente del dispositivo.
 
 
 
@@ -117,7 +117,7 @@ Configure el dispositivo por primera vez.
    
    No se admite el inicio de sesión con un PIN.
 3. Después de iniciar sesión correctamente, vuelva a la aplicación web. 
-4. Si la cuenta de usuario de Azure que se usa para el registro tiene los [permisos](tutorial-prepare-vmware.md#prepare-azure) adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
+4. Si la cuenta de usuario de Azure que se usa para el registro tiene los [permisos](./tutorial-discover-vmware.md#prepare-an-azure-user-account) adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
 1. Una vez que el dispositivo se ha registrado correctamente, puede ver los detalles de registro haciendo clic en **Ver detalles**.
 
 
@@ -126,7 +126,7 @@ Configure el dispositivo por primera vez.
 El dispositivo necesita conectarse a vCenter Server para detectar los datos de configuración y rendimiento de las máquinas virtuales.
 
 1. En **Paso 1: Proporcionar las credenciales de vCenter Server**, haga clic en **Agregar credenciales** para especificar un nombre descriptivo para las credenciales, agregue un **nombre de usuario** y una **contraseña** para la cuenta de vCenter Server que utilizará el dispositivo para detectar máquinas virtuales en la instancia de vCenter Server.
-    - Debe haber configurado una cuenta con los permisos necesarios en el [tutorial anterior](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
+    - Debe haber configurado una cuenta con los permisos necesarios en el [tutorial anterior](./tutorial-discover-vmware.md#create-an-account-to-access-vcenter).
     - Si desea limitar el ámbito de la detección a objetos específicos de VMware (centros de datos de vCenter Server, clústeres, una carpeta de clústeres, hosts, una carpeta de hosts o máquinas virtuales individuales), consulte las instrucciones de [este artículo](set-discovery-scope.md) para restringir la cuenta usada por Azure Migrate.
 1. En el **Paso 2: Proporcionar los detalles de vCenter Server**, haga clic en **Agregar origen de detección** para seleccionar el nombre descriptivo de las credenciales en la lista desplegable, especifique la **dirección IP o el FQDN** de la instancia de vCenter Server. Puede dejar el **puerto** en el valor predeterminado (443) o especificar un puerto personalizado en el que vCenter Server escuche y hacer clic en **Guardar**.
 1. Al hacer clic en Guardar, el dispositivo intentará validar la conexión a vCenter Server con las credenciales proporcionadas y mostrar el **estado de validación** en la tabla con la dirección IP o el FQDN de vCenter Server.
@@ -145,4 +145,4 @@ La detección funciona como se indica a continuación:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Revise los tutoriales para la [valoración de VMware](tutorial-assess-vmware.md) y la [migración sin agente](tutorial-migrate-vmware.md).
+Revise los tutoriales para la [valoración de VMware](./tutorial-assess-vmware-azure-vm.md) y la [migración sin agente](tutorial-migrate-vmware.md).

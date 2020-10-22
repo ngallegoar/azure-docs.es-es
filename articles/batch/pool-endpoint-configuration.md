@@ -3,12 +3,12 @@ title: Configuración de puntos de conexión de nodo en un grupo de Azure Batch
 description: Cómo configurar o deshabilitar el acceso a los puertos SSH o RDP en nodos de proceso en un grupo de Azure Batch.
 ms.topic: how-to
 ms.date: 02/13/2018
-ms.openlocfilehash: 1713637a9aba937525e64e1c4146589fca443461
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7df7da539be75ef1befdff4b4e1fe5244c1702
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83780286"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109313"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurar o deshabilitar el acceso remoto a nodos de proceso en un grupo de Azure Batch
 
@@ -19,7 +19,7 @@ En su entorno, tal vez tenga que restringir o deshabilitar esta configuración d
 ## <a name="about-the-pool-endpoint-configuration"></a>Acerca de la configuración de puntos de conexión de grupo
 La configuración de punto de conexión consta de uno o varios [grupos de traducción de direcciones de red (NAT) ](/rest/api/batchservice/pool/add#inboundnatpool) de puertos front-end. (No confundir un grupo NAT con el grupo de nodos de proceso de Batch). Configure cada grupo NAT para invalidar la configuración de conexión predeterminada en los nodos de proceso del grupo. 
 
-Cada configuración de grupo NAT incluye una o varias [reglas de grupo de seguridad de red (NSG)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Cada regla NSG permite o deniega cierto tráfico de red al punto de conexión. Puede elegir permitir o denegar todo el tráfico, el tráfico identificado por una [etiqueta de servicio](../virtual-network/security-overview.md#service-tags) (por ejemplo, "Internet") o el tráfico procedente de subredes o direcciones IP específicas.
+Cada configuración de grupo NAT incluye una o varias [reglas de grupo de seguridad de red (NSG)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Cada regla NSG permite o deniega cierto tráfico de red al punto de conexión. Puede elegir permitir o denegar todo el tráfico, el tráfico identificado por una [etiqueta de servicio](../virtual-network/network-security-groups-overview.md#service-tags) (por ejemplo, "Internet") o el tráfico procedente de subredes o direcciones IP específicas.
 
 ### <a name="considerations"></a>Consideraciones
 * La configuración de punto de conexión del grupo forma parte de la [configuración de red](/rest/api/batchservice/pool/add#networkconfiguration) del grupo. La configuración de red puede incluir, opcionalmente, una configuración para unir el grupo a una [red virtual de Azure](batch-virtual-network.md). Si configura el grupo en una red virtual, puede crear reglas NSG que usen la configuración de dirección de la red virtual.
@@ -121,4 +121,4 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre el [flujo de trabajo y recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
-- Para obtener más información sobre reglas NSG en Azure, vea [Filtrado del tráfico de red con grupos de seguridad de red](../virtual-network/security-overview.md).
+- Para obtener más información sobre reglas NSG en Azure, vea [Filtrado del tráfico de red con grupos de seguridad de red](../virtual-network/network-security-groups-overview.md).

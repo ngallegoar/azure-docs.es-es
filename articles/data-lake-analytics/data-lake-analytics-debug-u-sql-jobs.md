@@ -1,22 +1,20 @@
 ---
 title: Depuración de código en C# para trabajos de U-SQL en Azure Data Lake
 description: En este artículo se describe cómo depurar vértices U-SQL con error mediante Herramientas de Azure Data Lake para Visual Studio.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: how-to
 ms.date: 11/30/2017
-ms.openlocfilehash: ca6fe4ad35e59472e8cf8f3b8476417e01c2668f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1d57e3904087bc5cb3711b23cfe6bcf18c3455
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87131878"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218024"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depuración de código C# definido por el usuario para trabajos de U-SQL con errores
 
-U-SQL proporciona un modelo de extensibilidad mediante C#. En los scripts de U-SQL es fácil llamar a funciones de C# y realizar funciones de análisis que no admitiría un lenguaje declarativo similar a SQL. Para más información sobre la extensibilidad de U-SQL, consulte la [Guía de programación de U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL proporciona un modelo de extensibilidad mediante C#. En los scripts de U-SQL es fácil llamar a funciones de C# y realizar funciones de análisis que no admitiría un lenguaje declarativo similar a SQL. Para más información sobre la extensibilidad de U-SQL, consulte la [Guía de programación de U-SQL](./data-lake-analytics-u-sql-programmability-guide.md#use-user-defined-functions-udf). 
 
 En la práctica, cualquier código puede necesitar depuración, pero es difícil depurar un trabajo distribuido con código personalizado en la nube con unos archivos de registro limitados. Las [Herramientas de Azure Data Lake para Visual Studio](https://aka.ms/adltoolsvs) incluyen una característica denominada **depuración de vértice con errores**, que ayuda a que sea más fácil depurar los errores que se producen en el código personalizado. Cuando se produce un error en el trabajo de U-SQL, el servicio conserva el estado de error y la herramienta le ayuda a descargar el entorno con error de la nube en la máquina local para su depuración. La descarga local captura todo el entorno en la nube, incluidos el código de usuario y los datos de entrada.
 

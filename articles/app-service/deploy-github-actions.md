@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 4bb40cc1f5d1ae2563ddd802cd8b7de11427503b
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: bdc236c3ba4c70ba44e61457e2bade7df65f3153
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893227"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108055"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementación de App Service con Acciones de GitHub
 
@@ -30,8 +30,6 @@ Comience a usar [Acciones de GitHub](https://help.github.com/en/articles/about-g
     - Python: [Creación de una aplicación de Python en Azure App Service](quickstart-python.md)
 
 ## <a name="workflow-file-overview"></a>Información general sobre el archivo de flujo de trabajo
-
-Los archivos de flujo de trabajo de Azure App Service tienen tres secciones:
 
 Un archivo YAML (.yml) define un flujo de trabajo en la ruta de acceso `/.github/workflows/` de su repositorio. En esta definición se incluyen los diversos pasos y parámetros que componen el flujo de trabajo.
 

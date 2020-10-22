@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071166"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108480"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guía del desarrollador de PowerShell para Azure Functions
 
@@ -143,7 +143,7 @@ También se admiten los siguientes parámetros habituales:
 * `PipelineVariable`
 * `OutVariable` 
 
-Para más información, consulte [About Common Parameters](https://go.microsoft.com/fwlink/?LinkID=113216) (Acerca de los parámetros habituales).
+Para más información, consulte [About Common Parameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters) (Acerca de los parámetros habituales).
 
 #### <a name="push-outputbinding-example-http-responses"></a>Ejemplo de Push-OutputBinding: Respuestas HTTP
 
@@ -560,7 +560,7 @@ Hay algunos modelos de simultaneidad que se pueden explorar según el tipo de ca
 
 Establezca estas variables de entorno en la [configuración de la aplicación](functions-app-settings.md) de la aplicación de funciones.
 
-En función del caso de uso, Durable Functions puede mejorar significativamente la escalabilidad. Para obtener más información, vea [Patrones de aplicación de Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+En función del caso de uso, Durable Functions puede mejorar significativamente la escalabilidad. Para obtener más información, vea [Patrones de aplicación de Durable Functions](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
 
 >[!NOTE]
 > Puede obtener advertencias que indiquen que "las solicitudes están en cola porque no hay espacios de ejecución disponibles". Tenga en cuenta que esto no es un error. El mensaje indica que las solicitudes se van a poner en cola y se controlarán cuando se completen las solicitudes anteriores.

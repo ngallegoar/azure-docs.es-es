@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 177b79e0a33f4d43d07da9d0dea26df40e2ef11e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64dfc7400380505c882979e68a3bf0adcb8942a0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723867"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107970"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Reglas de recopilación de datos en Azure Monitor (versión preliminar)
 Las reglas de recopilación de datos (DCR) definen los datos que entran en Azure Monitor y especifican dónde se deben enviar los datos o almacenarlos. En este artículo se proporciona información general sobre las reglas de recopilación de datos, incluido su contenido y su estructura, y cómo puede crearlas y trabajar con ellas.
@@ -68,7 +68,7 @@ En la tabla siguiente se enumeran los límites que se aplican actualmente a cada
 Actualmente hay dos métodos disponibles para crear una regla de recopilación de datos:
 
 - [Use Azure Portal](data-collection-rule-azure-monitor-agent.md) para crear una regla de recopilación de datos y asociarla a una o varias máquinas virtuales.
-- Editar directamente la regla de recopilación de datos en el archivo JSON y [enviarla mediante la API de REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules).
+- Editar directamente la regla de recopilación de datos en el archivo JSON y [enviarla mediante la API de REST](/rest/api/monitor/datacollectionrules).
 
 ## <a name="sample-data-collection-rule"></a>Eliminación de una regla de recopilación de datos
 La siguiente regla de recopilación de datos de ejemplo es para las máquinas virtuales con el agente de administración de Azure y tiene los detalles siguientes:

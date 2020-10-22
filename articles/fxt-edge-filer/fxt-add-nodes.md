@@ -6,28 +6,29 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 5b62927930212fc7e59fc4329a29ceecbe2815e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85ad78eeb095b427b1a6334f57c351e926022dff
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185339"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217820"
 ---
 # <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Tutorial: Incorporación de nodos de clúster a un clúster de Azure FXT Edge Filer
 
-Se crea un clúster de Azure FXT Edge Filer con un solo nodo. Debe agregar al menos dos nodos más y habilitar la alta disponibilidad antes de realizar otra configuración. 
+Se crea un clúster de Azure FXT Edge Filer con un solo nodo. Debe agregar al menos dos nodos más y habilitar la alta disponibilidad antes de realizar otra configuración.
 
-En este tutorial se explica cómo agregar nodos de clúster y habilitar la característica de alta disponibilidad (HA). 
+En este tutorial se explica cómo agregar nodos de clúster y habilitar la característica de alta disponibilidad (HA).
 
-En este tutorial, aprenderá a: 
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Agregar nodos al clúster FXT
 > * Habilitar la alta disponibilidad
 
 Los pasos descritos en este tutorial tardan aproximadamente 45 minutos en completarse.
 
-Antes de empezar este tutorial, active los nodos que quiera agregar y [establezca sus contraseñas iniciales](fxt-node-password.md). 
+Antes de empezar este tutorial, active los nodos que quiera agregar y [establezca sus contraseñas iniciales](fxt-node-password.md).
 
 ## <a name="1-load-the-cluster-nodes-page"></a>1. Carga de la página de nodos del clúster
 
@@ -47,19 +48,19 @@ Para agregar nodos, haga clic en la pestaña **Settings** (Configuración) y eli
 
 La lista **FXT Nodes - Unjoined** (Nodos FXT: no unidos) muestra todos los nodos de FXT sin asignar (la mayoría de los centros de datos solo tienen unos cuantos). Encuentre los nodos FXT que quiere agregar al clúster.
 
-> [!Tip] 
+> [!Tip]
 > Si no encuentra el nodo que quiere en la lista **Unjoined** (No unido), compruebe que cumple estos requisitos:
-> 
+>
 > * Está activado y ha tenido una [contraseña raíz establecida](fxt-node-password.md).
 > * Está conectado a una red a la que puede acceder. Si usa redes VLAN, debe estar en la misma VLAN que el clúster.
-> * Se puede detectar con el protocolo Bonjour. 
+> * Se puede detectar con el protocolo Bonjour.
 >
 >   Algunas opciones de firewall bloquean los puertos TCP/UDP que usa Bonjour, lo que impide que el sistema operativo de FXT detecte automáticamente los nodos.
-> 
-> Si el nodo que quiere agregar no está en la lista, pruebe estas soluciones: 
-> 
+>
+> Si el nodo que quiere agregar no está en la lista, pruebe estas soluciones:
+>
 > * Haga clic en el botón **Manual Discover** (Detección manual) para buscarlo por dirección IP.
-> 
+>
 > * Asigne manualmente direcciones IP temporales. Aunque no es algo frecuente, podría ser necesario si usa redes VLAN etiquetadas y los nodos no están en la red correcta o la red no admite direcciones IP asignadas automáticamente. Siga las instrucciones de la versión heredada de este documento para [establecer manualmente una dirección IP estática](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
 
 En la lista se muestra el nombre del nodo, la dirección IP, la versión de software y el estado de elegibilidad. Normalmente, en la columna **Status** (Estado) se indica que quiere unirse o se describe un problema de hardware o del sistema que hace que el nodo no sea válido para unirse al clúster.
@@ -70,43 +71,42 @@ Todos los nodos de un clúster deben usar la misma versión del sistema operativ
 
 Para más información sobre las opciones de esta página, lea [**Cluster** > **FXT Nodes**](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) (Clúster > Nodos FXT) en la guía de configuración del clúster.
 
-## <a name="3-click-the-allow-to-join-button"></a>3. Hacer clic en el botón para unirse 
+## <a name="3-click-the-allow-to-join-button"></a>3. Hacer clic en el botón para unirse
 
 Haga clic en el botón **Allow To Join*** (Permitir unirse) de la columna **Actions** (Acciones) del nodo que quiere agregar.
 
-Tras hacer clic en el botón, el estado del nodo podría cambiar ya que su software se actualiza como preparación para agregarlo al clúster. 
+Tras hacer clic en el botón, el estado del nodo podría cambiar ya que su software se actualiza como preparación para agregarlo al clúster.
 
 En la imagen siguiente se muestra un nodo que está en proceso de unirse al clúster (probablemente esté obteniendo una actualización del sistema operativo antes de agregarse). No aparece ningún botón en la columna **Actions** (Acciones) de los nodos que están en proceso de ser agregados al clúster.
 
 ![una fila de la tabla de nodos, que muestra el nombre de un nodo, la dirección IP, la versión de software, el mensaje que indica permiso para unirse y una última columna en blanco](media/fxt-cluster-config/node-join-in-process.png)
 
-Transcurridos unos instantes, el nuevo nodo debe aparecer en la lista de nodos del clúster en la parte superior de la página de configuración **FXT Nodes** (Nodos FXT). 
+Transcurridos unos instantes, el nuevo nodo debe aparecer en la lista de nodos del clúster en la parte superior de la página de configuración **FXT Nodes** (Nodos FXT).
 
 Repita este proceso para agregar los demás nodos al clúster. No es necesario esperar a que un nodo termine de unirse al clúster para iniciar otro.
 
 ## <a name="enable-high-availability"></a>Habilitación de alta disponibilidad
 
-Después de haber agregado un segundo nodo al clúster, es posible que vea un mensaje de advertencia en el panel del Panel de control que indica que no está configurada la característica de alta disponibilidad. 
+Después de haber agregado un segundo nodo al clúster, es posible que vea un mensaje de advertencia en el panel del Panel de control que indica que no está configurada la característica de alta disponibilidad.
 
 La alta disponibilidad (HA) permite que se compensen entre sí los nodos del clúster en caso de que uno deje de funcionar. De forma predeterminada, esta característica no está habilitada.
 
 ![Pestaña Dashboard (Panel) con el mensaje de que el clúster tiene más de un nodo, pero no está habilitada la alta disponibilidad en la tabla Conditions (Condiciones)](media/fxt-cluster-config/no-ha-2-nodes.png)
 
-> [!Note] 
+> [!Note]
 > No habilite la alta disponibilidad hasta que haya al menos tres nodos en el clúster.
 
-Siga este procedimiento para activar la alta disponibilidad: 
+Siga este procedimiento para activar la alta disponibilidad:
 
 1. Cargue la página **High Availability** (Alta disponibilidad) de la sección **Cluster** (Clúster) de la pestaña **Settings** (Configuración).
 
    ![Página de configuración de alta disponibilidad (Cluster > High Availability [Clúster > Alta disponibilidad]). La casilla "Enable HA" (Habilitar la alta disponibilidad) se encuentra en la parte superior y el botón de envío en la parte inferior.](media/fxt-cluster-config/enable-ha.png)
 
-2. Haga clic en la casilla **Enable HA** (Habilitar la alta disponibilidad) y haga clic en el **Submit** (Enviar). 
+2. Haga clic en la casilla **Enable HA** (Habilitar la alta disponibilidad) y haga clic en el **Submit** (Enviar).
 
 Aparece una alerta en el **panel** para confirmar que está habilitada la alta disponibilidad.
 
 ![Tabla del panel que muestra el mensaje de que la alta disponibilidad está ahora completamente configurada](media/fxt-cluster-config/ha-configured-alert.png)
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

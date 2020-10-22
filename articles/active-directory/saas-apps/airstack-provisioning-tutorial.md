@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3990f9533aa6746011b1f070139b39ec884711c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcb971cd0bd0addd3190e2a3a5f9c6740494b7fd
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91305933"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318962"
 ---
 # <a name="tutorial-configure-airstack-for-automatic-user-provisioning"></a>Tutorial: Configuración de Airstack para el aprovisionamiento automático de usuarios
 
@@ -89,7 +89,7 @@ Antes de configurar Airstack para el aprovisionamiento automático de usuarios c
 Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD para crear, actualizar y deshabilitar usuarios o grupos en Airstack en función de las asignaciones de grupos y usuarios de Azure AD.
 
 > [!TIP]
-> También puede optar por habilitar el inicio de sesión único basado en SAML para Airstack si sigue las instrucciones del [tutorial de inicio de sesión único de Airstack](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
+> También puede optar por habilitar el inicio de sesión único basado en SAML para Airstack si sigue las instrucciones del [tutorial de inicio de sesión único de Airstack](./airstack-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
 
 ### <a name="to-configure-automatic-user-provisioning-for-airstack-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Airstack en Azure AD, siga estos pasos:
 
@@ -153,4 +153,3 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)
-

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 03c35d0af97cf24d1683d0ff21f10a0371391616
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2653e0b557f7c5c04184628b3266e8f2909130f6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190207"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108293"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guía para la optimización del rendimiento de MapReduce en HDInsight y Azure Data Lake Storage Gen1
 
@@ -20,8 +20,8 @@ ms.locfileid: "88190207"
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Una cuenta de Azure Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen1. Consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
-* **Uso de MapReduce en HDInsight**. Para más información, consulte [Uso de MapReduce en Hadoop en HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce).
-* **Revisión de las directrices para la optimización del rendimiento en Data Lake Storage Gen1**. Para conocer los conceptos generales sobre rendimiento, consulte [Guía para la optimización del rendimiento de Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).
+* **Uso de MapReduce en HDInsight**. Para más información, consulte [Uso de MapReduce en Hadoop en HDInsight](../hdinsight/hadoop/hdinsight-use-mapreduce.md).
+* **Revisión de las directrices para la optimización del rendimiento en Data Lake Storage Gen1**. Para conocer los conceptos generales sobre rendimiento, consulte [Guía para la optimización del rendimiento de Data Lake Storage Gen1](./data-lake-store-performance-tuning-guidance.md).
 
 ## <a name="parameters"></a>Parámetros
 
