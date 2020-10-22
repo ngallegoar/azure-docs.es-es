@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a68793d893d8eb8de681eb438de39afc212370c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80c4d8a70454c007ac45f588e59c03ef45f10933
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84608730"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125071"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Uso de Azure Data Box o Azure Data Box Heavy para enviar datos al nivel del blob de Azure Storage adecuado
 
@@ -29,11 +29,11 @@ Azure Storage ofrece tres niveles diferentes para almacenar datos de la manera m
 
 El nivel de almacenamiento de acceso esporádico es para datos que se consultan con poca frecuencia y que deben almacenarse durante un mínimo de 30 días. El costo de almacenamiento del nivel poco frecuente es inferior al del nivel de acceso frecuente, pero los gastos de acceso a los datos son superiores en comparación con el nivel frecuente.
 
-El nivel de almacenamiento de archivo de Azure se realiza sin conexión y ofrece los menores costos de almacenamiento, pero los mayores costos de acceso. Este nivel está pensado para datos que permanecen en el almacenamiento de archivo durante un período mínimo de 180 días. Para obtener detalles de cada uno de estos niveles y el modelo de precios, consulte [Comparación de los niveles de almacenamiento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+El nivel de almacenamiento de archivo de Azure se realiza sin conexión y ofrece los menores costos de almacenamiento, pero los mayores costos de acceso. Este nivel está pensado para datos que permanecen en el almacenamiento de archivo durante un período mínimo de 180 días. Para obtener detalles de cada uno de estos niveles y el modelo de precios, consulte [Comparación de los niveles de almacenamiento](../storage/blobs/storage-blob-storage-tiers.md).
 
 Los datos de Data Box o de Data Box Heavy se cargan en un nivel de almacenamiento asociado a la cuenta de almacenamiento. Al crear una cuenta de almacenamiento, puede establecer el nivel de acceso como frecuente o poco frecuente. Según el patrón de acceso de la carga de trabajo y el costo, puede cambiar estos datos del nivel predeterminado a otro nivel de almacenamiento.
 
-Solo puede disponer los datos de almacenamiento de objetos en niveles de acceso en cuentas de Blob Storage o de uso general v2 (GPv2). Las cuentas de General Purpose v1 (GPv1) no admiten niveles. Para elegir el nivel de almacenamiento correcto para sus datos, revise las consideraciones que se detallan en [Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, acceso esporádico y acceso de archivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+Solo puede disponer los datos de almacenamiento de objetos en niveles de acceso en cuentas de Blob Storage o de uso general v2 (GPv2). Las cuentas de General Purpose v1 (GPv1) no admiten niveles. Para elegir el nivel de almacenamiento correcto para sus datos, revise las consideraciones que se detallan en [Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, acceso esporádico y acceso de archivo](../storage/blobs/storage-blob-storage-tiers.md).
 
 ## <a name="set-a-default-blob-tier"></a>Establecimiento de un nivel de blob predeterminado
 
@@ -41,13 +41,13 @@ El nivel de blob predeterminado se especifica cuando se crea la cuenta de almace
 
 Los niveles no se pueden especificar si intenta crear una nueva cuenta al realizar un pedido de Data Box o Data Box Heavy. Una vez creada la cuenta, puede modificar la cuenta en el portal para establecer el nivel de acceso predeterminado.
 
-También puede crear primero una cuenta de almacenamiento con el atributo de nivel de acceso especificado. Al crear el pedido de Data Box o Data Box Heavy, seleccione la cuenta de almacenamiento existente. Para más información sobre cómo establecer el nivel de blob predeterminado durante la creación de la cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento en Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal).
+También puede crear primero una cuenta de almacenamiento con el atributo de nivel de acceso especificado. Al crear el pedido de Data Box o Data Box Heavy, seleccione la cuenta de almacenamiento existente. Para más información sobre cómo establecer el nivel de blob predeterminado durante la creación de la cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento en Azure Portal](../storage/common/storage-account-create.md?tabs=portal).
 
 ## <a name="move-data-to-a-non-default-tier"></a>Transferencia de datos a un nivel distinto al predeterminado
 
 Una vez que se carguen los datos del dispositivo de Data Box en el nivel predeterminado, podrá mover los datos a un nivel no predeterminado. Existen dos maneras de mover los datos a un nivel distinto al predeterminado.
 
-- **Administración del ciclo de vida de Azure Blob Storage**: puede usar un enfoque basado en directivas para asignar automáticamente los datos a un nivel o para que expiren al final de su ciclo de vida. Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts).
+- **Administración del ciclo de vida de Azure Blob Storage**: puede usar un enfoque basado en directivas para asignar automáticamente los datos a un nivel o para que expiren al final de su ciclo de vida. Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md).
 - **Scripts**: puede usar un enfoque con scripts mediante Azure PowerShell para habilitar niveles de blob. Puede llamar a la operación `SetBlobTier` para establecer el nivel en el blob.
 
 ## <a name="use-azure-powershell-to-set-the-blob-tier"></a>Uso de Azure PowerShell para establecer el nivel de blob
@@ -116,5 +116,4 @@ Los pasos siguientes describen cómo establecer el nivel de blob de archivo medi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--  Obtenga información acerca de cómo tratar [escenarios de niveles de datos comunes con reglas de directivas de ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#examples).
-
+-  Obtenga información acerca de cómo tratar [escenarios de niveles de datos comunes con reglas de directivas de ciclo de vida](../storage/blobs/storage-lifecycle-management-concepts.md#examples).

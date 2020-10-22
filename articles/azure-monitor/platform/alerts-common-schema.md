@@ -4,12 +4,12 @@ description: Descripción del esquema de alertas comunes, por qué debería usar
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb182f88a896be436e3981ff4e361010ee2655f6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539489"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108837"
 ---
 # <a name="common-alert-schema"></a>Esquema de alertas comunes
 
@@ -39,7 +39,7 @@ El esquema de alertas comunes se manifestará principalmente en las notificacion
 
 El nuevo esquema también permitirá una experiencia de consumo de alertas más rica tanto en Azure Portal como en Azure Mobile App en el futuro inmediato. 
 
-[Más información sobre las definiciones de esquema para webhooks/Logic Apps/Azure Functions/runbook de Automation.](https://aka.ms/commonAlertSchemaDefinitions)
+[Más información sobre las definiciones de esquema para webhooks/Logic Apps/Azure Functions/runbook de Automation.](./alerts-common-schema-definitions.md)
 
 > [!NOTE]
 > Las siguientes acciones no admiten el esquema de alertas comunes: Conector ITSM.
@@ -120,5 +120,5 @@ Por ejemplo, el siguiente cuerpo de la solicitud realizado en la API REST de [c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Definiciones del esquema de alertas comunes para webhooks/Logic Apps/Azure Functions/runbook de Automation.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Obtenga información sobre cómo crear una aplicación lógica que aproveche el esquema común de alertas para controlar todas las alertas.](./alerts-common-schema-integrations.md) 
+- [Definiciones del esquema de alertas comunes para webhooks/Logic Apps/Azure Functions/runbook de Automation.](./alerts-common-schema-definitions.md)
+- [Obtenga información sobre cómo crear una aplicación lógica que aproveche el esquema común de alertas para controlar todas las alertas.](./alerts-common-schema-integrations.md)

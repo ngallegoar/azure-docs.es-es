@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 106f446c56377c1211d04e388608cd31e2aeef23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3834b1890cb20b717462c4cb8ed1f779570c675
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804221"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275212"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Azure Cosmos DB para .NET para SQL API: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -353,7 +353,7 @@ No son siempre los cambios más visibles, pero ayudan a nuestro equipo a distrib
 * Se ha agregado compatibilidad con la característica de período de vida (TTL) para los documentos.
 
 ### <a name="160"></a><a name="1.6.0"></a>1.6.0
-* Se han implementado [colecciones particionadas](partition-data.md) y [niveles de rendimiento definidos por el usuario](performance-levels.md).
+* Se han implementado [colecciones particionadas](partitioning-overview.md) y [niveles de rendimiento definidos por el usuario](performance-levels.md).
 
 ### <a name="156"></a><a name="1.5.6"></a>1.5.6
 * Solucionado el error RangePartitionResolver.resolveForRead por el que no se devolvían vínculos debido a una mala concatenación de resultados.

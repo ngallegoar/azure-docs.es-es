@@ -6,15 +6,15 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: a48b30d83e3e7e1667552d107cb457e49494c575
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 02544489816f5711ca6e599c2bce03737c747934
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578519"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106627"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registro de datos de Azure Data Lake Storage Gen1 en Azure Data Catalog
-En este artículo, obtendrá información sobre cómo integrar Azure Data Lake Storage Gen1 con Azure Data Catalog para hacer que los datos sean reconocibles dentro de una organización mediante la integración con Data Catalog. Para más información sobre la catalogación de datos, consulte [¿Qué es Azure Data Catalog?](../data-catalog/data-catalog-what-is-data-catalog.md). Para saber en qué escenarios se puede utilizar Data Catalog, consulte [Escenarios comunes de Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
+En este artículo, obtendrá información sobre cómo integrar Azure Data Lake Storage Gen1 con Azure Data Catalog para hacer que los datos sean reconocibles dentro de una organización mediante la integración con Data Catalog. Para más información sobre la catalogación de datos, consulte [¿Qué es Azure Data Catalog?](../data-catalog/overview.md). Para saber en qué escenarios se puede utilizar Data Catalog, consulte [Escenarios comunes de Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Antes de empezar este tutorial, debe contar con lo siguiente:

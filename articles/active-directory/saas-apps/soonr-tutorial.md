@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 8a21fecbe39008a79b60bdc9f133c3540d440207
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a467da5d249ee1c1c49a4630d281c914506690e
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545092"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126967"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>Tutorial: integración de Azure Active Directory con Soonr Workplace
 
@@ -99,7 +99,7 @@ Para configurar el inicio de sesión único de Azure AD con Soonr Workplace, sig
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Soonr Workplace](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<servername>.soonr.com/singlesignon/saml/metadata`
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con Soonr Workplace, sig
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Soonr Workplace](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<servername>.soonr.com/singlesignon/saml/SSO`
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: dech
-ms.openlocfilehash: 66eee67ae191d764228a85aaf1e63eae43208cc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16412e6949bd6bf3d9496b33a900a0331bd1e9fb
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537742"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278162"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutorial: Use la herramienta de migración de datos para migrar los datos a Azure Cosmos DB
 
@@ -351,7 +351,7 @@ dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<userna
 
 ## <a name="import-to-the-sql-api-bulk-import"></a><a id="SQLBulkTarget"></a>Importación a la API de SQL (importación en bloque)
 
-El importador masivo de Azure Cosmos DB permite importar desde cualquier opción de origen disponible con un procedimiento almacenado de Azure Cosmos DB para que resulte más eficaz. La herramienta admite la importación a un contenedor de Azure Cosmos con una sola partición. También admite la importación con particiones en la cual se dividen los datos en más de un contenedor de Azure Cosmos con una sola partición. Para más información sobre la creación de particiones de datos, consulte [Partición y escalado de datos en Azure Cosmos DB](partition-data.md). La herramienta crea, ejecuta y elimina el procedimiento almacenado de las colecciones de destino.  
+El importador masivo de Azure Cosmos DB permite importar desde cualquier opción de origen disponible con un procedimiento almacenado de Azure Cosmos DB para que resulte más eficaz. La herramienta admite la importación a un contenedor de Azure Cosmos con una sola partición. También admite la importación con particiones en la cual se dividen los datos en más de un contenedor de Azure Cosmos con una sola partición. Para más información sobre la creación de particiones de datos, consulte [Partición y escalado de datos en Azure Cosmos DB](partitioning-overview.md). La herramienta crea, ejecuta y elimina el procedimiento almacenado de las colecciones de destino.  
 
 :::image type="content" source="./media/import-data/documentdbbulk.png" alt-text="Captura de pantalla de opciones de origen de archivos JSON: herramientas de migración de base de datos":::
 
@@ -410,7 +410,7 @@ El importador masivo de Azure Cosmos DB tiene las siguientes opciones avanzadas 
 
 ## <a name="import-to-the-sql-api-sequential-record-import"></a><a id="SQLSeqTarget"></a>Importación a la API de SQL (importación de registros secuenciales)
 
-El importador de registros secuenciales de Azure Cosmos DB permite importar desde una opción de origen disponible según cada registro. Puede elegir esta opción si va a importar a una colección existente que ha alcanzado su cuota de procedimientos almacenados. La herramienta admite la importación a un solo contenedor de Azure Cosmos (con una sola partición o con varias). También admite la importación con particiones en la cual se dividen los datos en más de un contenedor de Azure Cosmos con una sola partición o con varias. Para más información sobre la creación de particiones de datos, consulte [Partición y escalado de datos en Azure Cosmos DB](partition-data.md).
+El importador de registros secuenciales de Azure Cosmos DB permite importar desde una opción de origen disponible según cada registro. Puede elegir esta opción si va a importar a una colección existente que ha alcanzado su cuota de procedimientos almacenados. La herramienta admite la importación a un solo contenedor de Azure Cosmos (con una sola partición o con varias). También admite la importación con particiones en la cual se dividen los datos en más de un contenedor de Azure Cosmos con una sola partición o con varias. Para más información sobre la creación de particiones de datos, consulte [Partición y escalado de datos en Azure Cosmos DB](partitioning-overview.md).
 
 :::image type="content" source="./media/import-data/documentdbsequential.png" alt-text="Captura de pantalla de opciones de origen de archivos JSON: herramientas de migración de base de datos":::
 

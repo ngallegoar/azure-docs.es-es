@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dce10fb85ac181bb06aef0058768bef659462a5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be1cfc097da4f1f10bb775c9b20043096b9fb8b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019987"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279641"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Cómo crear varios desencadenadores de Azure Functions para Cosmos DB
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo puede configurar varios desencadenadores de 
 
 Al compilar arquitecturas sin servidor con [Azure Functions](../azure-functions/functions-overview.md), se [recomienda](../azure-functions/functions-best-practices.md#avoid-long-running-functions) crear pequeños conjuntos de funciones que trabajen conjuntamente, en lugar de grandes funciones de larga duración.
 
-Al compilar flujos sin servidor basados en eventos mediante el [desencadenador de Azure Functions para Cosmos DB](./change-feed-functions.md), se producirá un escenario en el que querrá realizar varias acciones siempre que haya un nuevo evento en un determinado [contenedor de Azure Cosmos](./databases-containers-items.md#azure-cosmos-containers). Si las acciones que quiere desencadenar son independientes entre sí, la solución ideal consiste en **crear un desencadenador de Azure Functions para Cosmos DB por cada acción** que quiera realizar y que todas escuchen los cambios en el mismo contenedor de Azure Cosmos.
+Al compilar flujos sin servidor basados en eventos mediante el [desencadenador de Azure Functions para Cosmos DB](./change-feed-functions.md), se producirá un escenario en el que querrá realizar varias acciones siempre que haya un nuevo evento en un determinado [contenedor de Azure Cosmos](./account-databases-containers-items.md#azure-cosmos-containers). Si las acciones que quiere desencadenar son independientes entre sí, la solución ideal consiste en **crear un desencadenador de Azure Functions para Cosmos DB por cada acción** que quiera realizar y que todas escuchen los cambios en el mismo contenedor de Azure Cosmos.
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Optimización de contenedores para varios desencadenadores
 

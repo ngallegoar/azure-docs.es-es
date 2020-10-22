@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 5b3db919056f24ad8b46c9925c044453e671d99f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e664055893bbdef0f7090811b8a160a1b8a4a1fd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84219161"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124055"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutorial: Uso del servicio de copia de datos para copiar datos en Azure Data Box (versión preliminar)
 
@@ -71,7 +71,7 @@ Para copiar datos utilizando el servicio de copia de datos, tendrá que crear un
     |**Cuenta de almacenamiento de destino**    |Seleccione la cuenta de almacenamiento de destino para cargar datos desde la lista.         |
     |**Tipo de destino**       |Seleccione el tipo de almacenamiento de destino de la lista: **Blob en bloques**, **Blob en páginas** o **Azure Files**.        |
     |**Contenedor o recurso compartido de destino**    |Escriba el nombre del contenedor o el recurso compartido del cual desee cargar datos en la cuenta de almacenamiento de destino. El nombre puede ser un nombre de recurso compartido o de contenedor. Por ejemplo, use `myshare` o `mycontainer`. Además, puede escribir el nombre en el formato `sharename\directory_name` o `containername\virtual_directory_name`.        |
-    |**Copiar los archivos que coincidan con el patrón**    | Puede escribir el patrón de coincidencia de nombre de archivo de las siguientes dos maneras:<ul><li>**Uso de expresiones de caracteres comodín:** En las expresiones de caracteres comodín solo se admiten `*` y `?`. Por ejemplo, la expresión `*.vhd` coincide con todos los archivos que tienen la extensión `.vhd`. De forma similar, `*.dl?` coincide con todos los archivos con la extensión `.dl` o que empiezan por `.dl`, como `.dll`. Del mismo modo, `*foo` coincide con todos los archivos cuyos nombres terminan por `foo`.<br>Puede especificar directamente la expresión de caracteres comodín en el campo. De forma predeterminada, el valor especificado en el campo se trata como expresión comodín.</li><li>**Uso de expresiones regulares:** se admiten expresiones regulares basadas en POSIX. Por ejemplo, una expresión regular `.*\.vhd` coincidirá con todos los archivos que tienen la extensión `.vhd`. Para la expresión regular, proporcione el `<pattern>` directamente como `regex(<pattern>)`. Para más información sobre las expresiones regulares, vaya a [Lenguaje de expresiones regulares - Referencia rápida](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**Copiar los archivos que coincidan con el patrón**    | Puede escribir el patrón de coincidencia de nombre de archivo de las siguientes dos maneras:<ul><li>**Uso de expresiones de caracteres comodín:** En las expresiones de caracteres comodín solo se admiten `*` y `?`. Por ejemplo, la expresión `*.vhd` coincide con todos los archivos que tienen la extensión `.vhd`. De forma similar, `*.dl?` coincide con todos los archivos con la extensión `.dl` o que empiezan por `.dl`, como `.dll`. Del mismo modo, `*foo` coincide con todos los archivos cuyos nombres terminan por `foo`.<br>Puede especificar directamente la expresión de caracteres comodín en el campo. De forma predeterminada, el valor especificado en el campo se trata como expresión comodín.</li><li>**Uso de expresiones regulares:** se admiten expresiones regulares basadas en POSIX. Por ejemplo, una expresión regular `.*\.vhd` coincidirá con todos los archivos que tienen la extensión `.vhd`. Para la expresión regular, proporcione el `<pattern>` directamente como `regex(<pattern>)`. Para más información sobre las expresiones regulares, vaya a [Lenguaje de expresiones regulares - Referencia rápida](/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Optimización de archivos**              |Cuando esta característica está habilitada, se empaquetan los archivos inferiores a 1 MB durante la ingesta. Esto acelera la copia de datos para archivos pequeños. También ahorra un tiempo importante cuando el número de archivos supera el número de directorios.        |
  
 4. Seleccione **Inicio**. Se validan las entradas y, si la validación es correcta, se inicia el trabajo. El trabajo puede tardar unos minutos en iniciarse.

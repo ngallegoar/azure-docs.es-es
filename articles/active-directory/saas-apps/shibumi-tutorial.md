@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: d03b9ba3a78664e7050313f361c94c2930a87c9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fa7aef6c4c094ae391f9649a810971d4a33e670
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548748"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125207"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shibumi"></a>Tutorial: Integración de Azure Active Directory con Shibumi
 
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con Shibumi, realice los
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Shibumi](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SUBDOMAIN>.shibumi.com`
 
@@ -109,7 +109,7 @@ Para configurar el inicio de sesión único de Azure AD con Shibumi, realice los
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Shibumi](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.shibumi.com/saml/SSO`
 

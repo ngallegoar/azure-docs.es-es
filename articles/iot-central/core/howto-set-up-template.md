@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: c8fb60a4b549a7203057dd60298d2ae0540450d6
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803796"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122660"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central
 
@@ -45,7 +45,7 @@ En una aplicación de IoT Central, una plantilla de dispositivo usa un modelo de
 - Cree un modelo de funcionalidad del dispositivo mediante Visual Studio Code. Implemente el código del dispositivo a partir del modelo. Importe manualmente el modelo de funcionalidad del dispositivo en la aplicación de IoT Central y, a continuación, agregue las propiedades, las personalizaciones y los paneles en la nube que necesite la aplicación de IoT Central.
 - Cree un modelo de funcionalidad del dispositivo mediante Visual Studio Code. Implemente el código del dispositivo desde el modelo y conecte el dispositivo real a la aplicación de IoT Central mediante una primera conexión del dispositivo. IoT Central busca e importa el modelo de funcionalidad del dispositivo desde el repositorio público. Después, puede agregar las propiedades, las personalizaciones y los paneles en la nube que la aplicación de IoT Central necesita a la plantilla del dispositivo.
 
-También puede agregar plantillas de dispositivo a una aplicación de IoT Central mediante la [API de REST](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) o la [CLI](howto-manage-iot-central-from-cli.md).
+También puede agregar plantillas de dispositivo a una aplicación de IoT Central mediante la [API de REST](/learn/modules/manage-iot-central-apps-with-rest-api/) o la [CLI](howto-manage-iot-central-from-cli.md).
 
 Algunas [plantillas de aplicación](concepts-app-templates.md) ya incluyen plantillas de dispositivo que son útiles en el escenario que admite la plantilla de aplicación. Por ejemplo, consulte [Arquitectura de análisis en tienda](../retail/store-analytics-architecture.md).
 

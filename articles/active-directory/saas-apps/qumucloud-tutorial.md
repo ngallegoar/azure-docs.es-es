@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 37005176452ba75f6b79af7ab1bf9faab5402f51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c75e2f635c14556cfd08ab73a66d8ebc30aeb8e2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548946"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108650"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Tutorial: Integración de Azure Active Directory con Qumu Cloud
 
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con Qumu Cloud, siga los
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Qumu Cloud](common/idp-intiated.png)
+    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<subdomain>.qumucloud.com/saml/SSO`
 
@@ -109,7 +109,7 @@ Para configurar el inicio de sesión único de Azure AD con Qumu Cloud, siga los
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Qumu Cloud](common/metadata-upload-additional-signon.png)
+    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.qumucloud.com`
 
@@ -118,7 +118,7 @@ Para configurar el inicio de sesión único de Azure AD con Qumu Cloud, siga los
 
 6. La aplicación Qumu Cloud espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra User Attributes (Atributos de usuario) con el icono de edición seleccionado.](common/edit-attribute.png)
 
 7. Además de lo anterior, la aplicación Qumu Cloud espera que se devuelvan algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
 
@@ -131,9 +131,9 @@ Para configurar el inicio de sesión único de Azure AD con Qumu Cloud, siga los
 
     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![imagen](common/new-save-attribute.png)
+    ![Captura de pantalla que muestra User claims (Reclamaciones de usuario) con la opción Add new claim (Agregar nueva reclamación).](common/new-save-attribute.png)
 
-    ![imagen](common/new-attribute-details.png)
+    ![Captura de pantalla que muestra Manage user claims (Administrar reclamaciones de usuario) para escribir los valores que se describen.](common/new-attribute-details.png)
 
     b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 

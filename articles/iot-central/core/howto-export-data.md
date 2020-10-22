@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 9738b7d3fb435888e7ffc248b7b2ac6c0ef42471
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cbdeca41746099643fb06ff5861a39b2e032b33
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974408"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126710"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportación de datos de IoT a destinos en la nube mediante la característica de exportación de datos
 
@@ -93,7 +93,7 @@ Si no tiene un espacio de nombres existente de Service Bus al que exportar, siga
 
 Si no tiene una cuenta existente de Azure Storage a la que exportar, siga estos pasos:
 
-1. Cree una [cuenta de almacenamiento en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Puede obtener más información sobre cómo crear nuevas [cuentas de almacenamiento de Azure Blob ](https://aka.ms/blobdocscreatestorageaccount) o [cuentas de almacenamiento de Azure Data Lake Storage v2](../../storage/blobs/data-lake-storage-quickstart-create-account.md). La exportación de datos solo puede escribir datos en cuentas de almacenamiento que admiten blobs en bloques. En la lista siguiente se muestran los tipos de cuenta de almacenamiento compatibles conocidos:
+1. Cree una [cuenta de almacenamiento en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Puede obtener más información sobre cómo crear nuevas [cuentas de almacenamiento de Azure Blob ](../../storage/blobs/storage-quickstart-blobs-portal.md) o [cuentas de almacenamiento de Azure Data Lake Storage v2](../../storage/common/storage-account-create.md). La exportación de datos solo puede escribir datos en cuentas de almacenamiento que admiten blobs en bloques. En la lista siguiente se muestran los tipos de cuenta de almacenamiento compatibles conocidos:
 
     |Nivel de rendimiento|Tipo de cuenta|
     |-|-|

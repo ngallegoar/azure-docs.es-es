@@ -6,12 +6,12 @@ ms.author: pepogors
 author: peterpogorski
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 77d7b3fba62fb9f059df97c4f7fae99db783f3f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dc41d2c13c834657534971041440bb744cfca38
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729005"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319820"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Preguntas más frecuentes sobre los clústeres administrados de Service Fabric
 
@@ -41,7 +41,7 @@ El Acuerdo de Nivel de Servicio no cambia respecto al modelo de recursos de Serv
 
 ### <a name="what-is-the-difference-between-a-basic-and-standard-sku-cluster"></a>¿Cuál es la diferencia entre un clúster de SKU Básico y Estándar?
 
-Un clúster de SKU Básico supone que la mayoría de las configuraciones las proporciona el proveedor de recursos de Service Fabric. Los clústeres de SKU Básico están diseñados para usarse en entornos de prueba y preproducción. Un clúster de SKU Estándar permite a los usuarios configurar el clúster para satisfacer sus necesidades de forma específica. Para más información, vea [SKU de clúster administrado de Service Fabric](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster#service-fabric-managed-cluster-skus).
+Un clúster de SKU Básico supone que la mayoría de las configuraciones las proporciona el proveedor de recursos de Service Fabric. Los clústeres de SKU Básico están diseñados para usarse en entornos de prueba y preproducción. Un clúster de SKU Estándar permite a los usuarios configurar el clúster para satisfacer sus necesidades de forma específica. Para más información, vea [SKU de clúster administrado de Service Fabric](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
 
 ## <a name="cluster-deployment-and-management"></a>Implementación y administración de clústeres
 
@@ -66,7 +66,7 @@ En la versión preliminar, todas las actualizaciones en tiempo de ejecución se 
 
 ### <a name="is-there-a-local-development-experience-for-service-fabric-managed-clusters"></a>¿Hay alguna experiencia de desarrollo local para los clústeres administrados de Service Fabric?
 
-La experiencia de desarrollo local no cambia respecto a los clústeres de Service Fabric existentes. Para más información, vea [Creación de una aplicación .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet) para obtener más información sobre la experiencia de desarrollo local.
+La experiencia de desarrollo local no cambia respecto a los clústeres de Service Fabric existentes. Para más información, vea [Creación de una aplicación .NET](./service-fabric-quickstart-dotnet.md) para obtener más información sobre la experiencia de desarrollo local.
 
 ### <a name="can-i-deploy-my-applications-as-an-azure-resource-manager-resource"></a>¿Puedo implementar mis aplicaciones como un recurso de Azure Resource Manager?
 

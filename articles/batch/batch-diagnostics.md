@@ -4,12 +4,12 @@ description: Registre y analice los eventos de registro de diagnóstico de los r
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 265149e8d3cd775974ec690ebffbce92a1b82b2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848694"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108106"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
 
@@ -105,7 +105,7 @@ Para crear una configuración de diagnóstico en Azure Portal, siga los pasos qu
 6. Seleccione **ServiceLog**, **AllMetrics**, o ambas.
 7. Seleccione **Guardar** para crear la configuración de diagnóstico.
 
-También puede [habilitar la recopilación a través de Azure Monitor en Azure Portal](../azure-monitor/platform/diagnostic-settings.md) para configurar las opciones de diagnóstico, mediante una [plantilla de Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md) o con Azure PowerShell o la CLI de Azure. Para más información, consulte [Introducción a los registros de plataforma Azure](../azure-monitor/platform/platform-logs-overview.md).
+También puede [habilitar la recopilación a través de Azure Monitor en Azure Portal](../azure-monitor/platform/diagnostic-settings.md) para configurar las opciones de diagnóstico, mediante una [plantilla de Resource Manager](../azure-monitor/samples/resource-manager-diagnostic-settings.md) o con Azure PowerShell o la CLI de Azure. Para más información, consulte [Introducción a los registros de plataforma Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Acceso a los registros de diagnóstico en el almacenamiento
 

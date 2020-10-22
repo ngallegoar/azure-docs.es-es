@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52ae961a813b6d14592953fdf8662cbaecf662e1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320058"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280452"
 ---
 # <a name="managed-application-metered-billing"></a>Facturación según uso de aplicaciones administradas 
 
@@ -117,7 +117,7 @@ Puede abrir una incidencia de soporte técnico si tiene cualquiera de los proble
 * Una incidencia que debe escalarse debido a un error por su parte (por ejemplo, un evento de uso incorrecto).
 * Cualquier otra incidencia relacionada con la facturación según uso.
 
-Siga las instrucciones de [Soporte técnico para el programa de Marketplace comercial en el Centro de partners](./support.md) para conocer las opciones de soporte técnico para editores y abrir una incidencia de soporte técnico con Microsoft.
+Siga las instrucciones de [Soporte técnico para el programa de Marketplace comercial en el Centro de partners](../support.md) para conocer las opciones de soporte técnico para editores y abrir una incidencia de soporte técnico con Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

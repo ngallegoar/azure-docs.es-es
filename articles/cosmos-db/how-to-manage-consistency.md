@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7a07a42e208cb0f6fe91f6a65777fd28155106a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e43f2e9897293cb4d5bc25b6ef95252a28628401
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330594"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279598"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Administración de los niveles de coherencia en Azure Cosmos DB
 
@@ -288,8 +288,9 @@ item = client.ReadItem(doc_link, options)
 Aprenda cómo administrar los conflictos de datos o pase al siguiente concepto principal de Azure Cosmos DB. Vea los artículos siguientes:
 
 * [Niveles de coherencia en Azure Cosmos DB](consistency-levels.md)
-* [Administración de conflictos entre regiones](how-to-manage-conflicts.md)
 * [Creación de particiones y distribución de datos](partition-data.md)
+* [Administración de conflictos entre regiones](how-to-manage-conflicts.md)
+* [Creación de particiones y distribución de datos](partitioning-overview.md)
 * [Consistency Tradeoffs in Modern Distributed Database Systems Design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) (Compromisos de coherencia en el diseño de sistemas modernos de bases de datos distribuidas)
 * [Alta disponibilidad](high-availability.md)
 * [Acuerdo de Nivel de Servicio de Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

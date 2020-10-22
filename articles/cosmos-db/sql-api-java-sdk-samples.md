@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: 8910983ea5946c88d3d560c0cf0a321f8bd2c4ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead5ab6f914db951027406e43437ac30a4f85247
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569969"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279266"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>API de SQL de Azure Cosmos DB: Ejemplos de SDK para Java v4
 
@@ -102,7 +102,7 @@ donde *sample. Synchronicity.MainClass* puede ser
 > 
 
 ## <a name="database-examples"></a>Ejemplos de base de datos
-El archivo de [ejemplos de CRUD de base de datos](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/databasecrud/sync/DatabaseCRUDQuickstart.java) muestra cómo realizar las siguientes tareas: Para información sobre las bases de datos de Azure Cosmos antes de ejecutar los siguientes ejemplos, consulte el artículo conceptual [Uso de bases de datos, contenedores y elementos](databases-containers-items.md). 
+El archivo de [ejemplos de CRUD de base de datos](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/databasecrud/sync/DatabaseCRUDQuickstart.java) muestra cómo realizar las siguientes tareas: Para información sobre las bases de datos de Azure Cosmos antes de ejecutar los siguientes ejemplos, consulte el artículo conceptual [Uso de bases de datos, contenedores y elementos](account-databases-containers-items.md). 
 
 | Tarea | Referencia de API |
 | --- | --- |
@@ -112,7 +112,7 @@ El archivo de [ejemplos de CRUD de base de datos](https://github.com/Azure-Sampl
 | [Eliminación de una base de datos](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/databasecrud/sync/DatabaseCRUDQuickstart.java#L115-L123) | CosmosDatabase.delete |
 
 ## <a name="collection-examples"></a>Ejemplos de colección
-El archivo de [ejemplos de CRUD de colección](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) muestra cómo realizar las siguientes tareas. Para información sobre las colecciones de Azure Cosmos antes de ejecutar los siguientes ejemplos, consulte el artículo conceptual [Uso de bases de datos, contenedores y elementos](databases-containers-items.md).
+El archivo de [ejemplos de CRUD de colección](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) muestra cómo realizar las siguientes tareas. Para información sobre las colecciones de Azure Cosmos antes de ejecutar los siguientes ejemplos, consulte el artículo conceptual [Uso de bases de datos, contenedores y elementos](account-databases-containers-items.md).
 
 | Tarea | Referencia de API |
 | --- | --- |
@@ -149,7 +149,7 @@ El archivo de [ejemplos de CRUD de colección de almacenamiento analítico ](htt
 | [Creación de una colección](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/analyticalcontainercrud/sync/AnalyticalContainerCRUDQuickstart.java#L93-L108) | CosmosDatabase.createContainerIfNotExists |
 
 ## <a name="document-examples"></a>Ejemplos de documento
-El archivo de [ejemplos de CRUD de documentos](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java) muestra cómo realizar las siguientes tareas. Para información sobre los documentos de Azure Cosmos antes de ejecutar los ejemplos siguientes, consulte el artículo conceptual [Uso de bases de datos, contenedores y elementos](databases-containers-items.md).
+El archivo de [ejemplos de CRUD de documentos](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java) muestra cómo realizar las siguientes tareas. Para información sobre los documentos de Azure Cosmos antes de ejecutar los ejemplos siguientes, consulte el artículo conceptual [Uso de bases de datos, contenedores y elementos](account-databases-containers-items.md).
 
 | Tarea | Referencia de API |
 | --- | --- |

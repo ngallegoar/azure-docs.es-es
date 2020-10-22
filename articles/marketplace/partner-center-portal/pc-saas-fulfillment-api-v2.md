@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6c890e9fbda316bfa7f5f3a42572f35ca73811ea
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931808"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275537"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de cumplimiento de SaaS versión 2 en el marketplace comercial
 
@@ -953,11 +953,11 @@ El editor debe implementar un webhook en el servicio de SaaS para mantener la co
 
 Para iniciar el proceso de desarrollo, se recomienda crear respuestas de API ficticias en el lado del editor.  Pueden basarse en las respuestas de ejemplo que se proporcionan en este documento.
 
-Cuando el editor esté listo para las pruebas de un extremo a otro: 
+Cuando el editor esté listo para las pruebas de un extremo a otro:
 
 * Publique una oferta de SaaS para un público preliminar limitado y manténgalo en la fase de versión preliminar.
-* Esta oferta debe tener un plan con un precio de 0 para que no se produzcan gastos de facturación reales durante las pruebas.  Otra opción consiste en establecer un precio distinto de cero y cancelar todas las compras de prueba durante un plazo de 24 horas. 
-* Asegúrese de que todos los flujos se invoquen de extremo a extremo, como si un cliente comprase la oferta. 
+* Esta oferta debe tener un plan con un precio de 0 para que no se produzcan gastos de facturación reales durante las pruebas.  Otra opción consiste en establecer un precio distinto de cero y cancelar todas las compras de prueba durante un plazo de 24 horas.
+* Asegúrese de que todos los flujos se invoquen de extremo a extremo, como si un cliente comprase la oferta.
 * Si el partner quiere probar el flujo completo de compra y facturación, hágalo con una oferta cuyo precio sea superior a 0 USD.  La compra se facturará y se generará una factura.
 
 Se puede desencadenar un flujo de compra desde Azure Portal o sitios de Microsoft AppSource, en función de dónde se publique la oferta.
@@ -966,8 +966,7 @@ Las acciones de *cambiar plan*, *cambiar cantidad* y *cancelar suscripción* se 
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-Consulte [Soporte técnico para el programa Marketplace comercial en el Centro de partners](support.md) para ver las opciones de soporte técnico para editores.
-
+Consulte [Soporte técnico para el programa Marketplace comercial en el Centro de partners](../support.md) para ver las opciones de soporte técnico para editores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
