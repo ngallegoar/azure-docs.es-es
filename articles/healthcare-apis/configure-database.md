@@ -7,14 +7,14 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: 652445a96acfa0358211d1d97e0fcf288989d6ba
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 2850f831100533908d55c4aab372338e07b3807f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795786"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042497"
 ---
-# <a name="configure-database-settings"></a>Configuración de las opciones de la base de datos 
+# <a name="configure-database-settings"></a>Configuración de la base de datos 
 
 Azure API for FHIR usa una base de datos para almacenar sus datos. El rendimiento de la base de datos subyacente depende del número de unidades de solicitud (RU) seleccionado durante el aprovisionamiento del servicio o de la configuración de la base de datos una vez aprovisionado el servicio.
 
@@ -38,7 +38,12 @@ Si el rendimiento de la base de datos es superior a 10 000 RU/s o si los datos 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, aprendió a actualizar las RU para Azure API for FHIR. A continuación, implemente una instancia de Azure API for FHIR totalmente administrada:
+En este artículo, aprendió a actualizar las RU para Azure API for FHIR. Para más información acerca de cómo configurar las claves administradas por el cliente como configuración de base de datos:
+
+>[!div class="nextstepaction"]
+>[Configuración de claves administradas por el cliente](customer-managed-key.md)
+
+O implemente una instancia de Azure API for FHIR totalmente administrada:
  
 >[!div class="nextstepaction"]
 >[Implementación de Azure API for FHIR](fhir-paas-portal-quickstart.md)

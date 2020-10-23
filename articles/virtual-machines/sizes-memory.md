@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: ea58eeac5a77f2e1eaf2a7756de6d36a3fc0626b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1e27ee2c045404d13b10945ac65484281b0cd967
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825504"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019722"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamaños de máquina virtual optimizada para memoria
 
@@ -36,7 +36,7 @@ Los tamaños de máquinas virtuales optimizadas para memoria ofrecen una relaci�
 
 - Las [series Ev4 y Esv4](ev4-esv4-series.md) se ejecutan en los procesadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) de segunda generación en una configuración con Hyper-Threading y resultan muy convenientes para las diversas aplicaciones empresariales de uso intensivo de memoria y tienen hasta 504 GiB de RAM. Presenta las tecnologías [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel&reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Las series Ev4 y Esv4 no incluyen ningún disco temporal local. Para más información, consulte [Tamaños de máquina virtual de Azure sin disco temporal local](azure-vms-no-temp-disk.md).
 
-- Las [series Edv4 y Edsv4](edv4-edsv4-series.md) se ejecutan en los procesadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) de segunda generación, y resultan muy convenientes para bases de datos muy grandes u otras aplicaciones que se benefician de recuentos muy elevados de vCPU y grandes cantidades de memoria. Además, estos tamaños de máquina virtual incluyen el rápido almacenamiento local en SSD, que es mayor, para las aplicaciones que se benefician del almacenamiento local de alta velocidad y baja latencia. Presenta una velocidad de reloj turbo sostenida de todos los núcleos de 3,4 GHz, las tecnologías [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) y las extensiones de vector avanzadas 512 de [Intel&reg; (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
+- Las [series Edv4 y Edsv4](edv4-edsv4-series.md) se ejecutan en los procesadores Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) de segunda generación, y resultan muy convenientes para bases de datos muy grandes u otras aplicaciones que se benefician de recuentos muy elevados de vCPU y grandes cantidades de memoria. Además, estos tamaños de máquina virtual incluyen el rápido almacenamiento local en SSD, que es mayor, para las aplicaciones que se benefician del almacenamiento local de alta velocidad y baja latencia. Presenta una velocidad de reloj turbo de todos los núcleos de 3,4 GHz, las tecnologías [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) y las extensiones de vector avanzadas 512 de [Intel&reg; (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 
 - La [serie M](m-series.md) ofrece un elevado recuento de vCPU (hasta 128 vCPU) y una gran cantidad de memoria (hasta 3,8 TiB). También es muy conveniente para bases de datos extremadamente grandes u otras aplicaciones que se benefician de un elevado número de vCPU y grandes cantidades de memoria.
 

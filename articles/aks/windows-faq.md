@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Vea las preguntas frecuentes cuando ejecute cargas de trabajo de aplicaciones y grupos de nodos de Windows Server en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 10/12/2020
+ms.openlocfilehash: 00e749a8b066f72518b38685dd7a7779e406cf74
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927531"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013974"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Preguntas frecuentes sobre los grupos de nodos de Windows Server en AKS
 
@@ -113,6 +113,49 @@ Sí puede; no obstante, Azure Monitor se encuentra en versión preliminar públi
 
 Un clúster con nodos de Windows puede tener aproximadamente 500 servicios antes de que se agote el puerto.
 
+## <a name="can-i-use-azure-hybrid-benefit-with-windows-nodes"></a>¿Puedo usar Ventaja híbrida de Azure con los nodos de Windows?
+
+Sí. Ventaja híbrida de Azure para Windows Server reduce los costes operativos, al permitirle llevar su licencia de Windows Server local a los nodos de Windows de AKS.
+
+Ventaja híbrida de Azure puede usarse en todo el clúster de AKS o en nodos individuales. Para los nodos individuales, debe navegar hasta el [grupo de recursos de nodos][resource-groups] y aplicar Ventaja híbrida de Azure directamente a los nodos. Para obtener más información sobre cómo aplicar Ventaja híbrida de Azure a nodos individuales, consulte [Ventaja híbrida de Azure para Windows Server][hybrid-vms]. 
+
+Para usar Ventaja híbrida de Azure en un nuevo clúster de AKS, use el argumento `--enable-ahub`.
+
+```azurecli
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-sku Standard \
+    --windows-admin-password 'Password1234$' \
+    --windows-admin-username azure \
+    --network-plugin azure
+    --enable-ahub
+```
+
+Para usar Ventaja híbrida de Azure en un clúster de AKS existente, actualice el clúster con el argumento `--enable-ahub`.
+
+```azurecli
+az aks update \
+    --resource-group myResourceGroup
+    --name myAKSCluster
+    --enable-ahub
+```
+
+Para comprobar si se ha establecido Ventaja híbrida de Azure en el clúster, use el siguiente comando:
+
+```azurecli
+az vmss show --name myAKSCluster --resource-group MC_CLUSTERNAME
+```
+
+Si el clúster tiene Ventaja híbrida de Azure habilitada, la salida de `az vmss show` será similar a la siguiente:
+
+```console
+"platformFaultDomainCount": 1,
+  "provisioningState": "Succeeded",
+  "proximityPlacementGroup": null,
+  "resourceGroup": "MC_CLUSTERNAME"
+```
+
 ## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>¿Puedo usar el panel web de Kubernetes con los contenedores de Windows?
 
 Sí, puede usar el [panel web de Kubernetes][kubernetes-dashboard] para acceder a la información sobre los contenedores de Windows, pero en este momento no puede ejecutar *kubectl exec* en un contenedor de Windows en ejecución directamente desde el panel web de Kubernetes. Para obtener más detalles sobre la conexión al contenedor de Windows en ejecución, vea [Conexión con RDP a los nodos de Windows Server de clúster de Azure Kubernetes Service (AKS) para el mantenimiento o la solución de problemas][windows-rdp].
@@ -152,3 +195,5 @@ Para comenzar con los contenedores de Windows Server en AKS, [cree un grupo de n
 [windows-rdp]: rdp.md
 [upgrade-node-image]: node-image-upgrade.md
 [managed-identity]: use-managed-identity.md
+[hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
+[resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks

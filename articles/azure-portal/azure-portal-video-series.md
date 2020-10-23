@@ -9,12 +9,12 @@ ms.date: 08/17/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 3c34fd198164d7e3ae0851749cf51809df31ca19
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 42d9c418ee6feae7a763b1a2cc76d8edb2fec6ce
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522953"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873717"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Serie de vídeos sobre "procedimientos" de Azure Portal
 
@@ -22,18 +22,17 @@ La serie de vídeos de procedimientos de Azure Portal muestra cómo trabajar con
 
 ## <a name="featured-video"></a>Vídeo destacado
 
-En este vídeo destacado, le mostramos cómo implementar una aplicación web estática de Azure.
+En este vídeo destacado, le mostramos cómo crear y administrar un dominio de App Service.
 
-> [!VIDEO https://www.youtube.com/embed/H2MPsgujpNk]
+> [!VIDEO https://www.youtube.com/embed/b1kDT8-6a3g]
 
-[Procedimiento para implementar una aplicación web estática de Azure](https://www.youtube.com/watch?v=H2MPsgujpNk)
+[Creación y administración de un dominio de App Service](https://www.youtube.com/watch?v=b1kDT8-6a3g)
 
 Póngase al día con estos vídeos recientes que puede que haya perdido:
 
-| [Procedimiento para supervisar Azure Functions](https://www.youtube.com/watch?v=eVDZz8h0s00)  | [Procedimiento para usar el control de versiones de blobs](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Conexión a una cuenta de almacenamiento mediante Azure Private Link](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
+| [Cómo agregar y proteger un dominio personalizado en la aplicación web de App Service](https://www.youtube.com/watch?v=bXP6IvNYISw)  | [Mejoras en la experiencia con máquinas virtuales Linux](https://www.youtube.com/watch?v=obg6Fq2T898)  | [Procedimiento para usar el control de versiones de blobs](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
 | ------| ------ | ------ |
-| [![Imagen del vídeo de YouTube sobre el procedimiento para supervisar Azure Functions](https://i.ytimg.com/vi/eVDZz8h0s00/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=eVDZz8h0s00) | [![Imagen del vídeo de YouTube sobre el procedimiento para usar el control de versiones de blobs](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) | [![Imagen del vídeo de YouTube sobre la conexión a una cuenta de almacenamiento mediante Azure Private Link](https://i.ytimg.com/vi/vM7yDwHSc_o/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?v=vM7yDwHSc_o) |
-
+| [![Imagen de un vídeo de YouTube sobre cómo agregar y proteger un dominio personalizado en la aplicación web de App Service](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=bXP6IvNYISw) | [![Imagen de un vídeo de YouTube sobre mejoras en la experiencia con máquinas virtuales Linux](https://i.ytimg.com/vi/obg6Fq2T898/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?obg6Fq2T898) | [![Imagen del vídeo de YouTube sobre el procedimiento para usar el control de versiones de blobs](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) |
 
 ## <a name="video-playlist"></a>Lista de reproducción de vídeo
 

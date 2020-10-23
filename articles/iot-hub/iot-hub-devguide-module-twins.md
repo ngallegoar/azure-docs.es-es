@@ -1,21 +1,21 @@
 ---
 title: Módulos gemelos de Azure IoT Hub | Microsoft Docs
 description: 'Guía para desarrolladores: uso de módulos gemelos para sincronizar los datos de estado y configuración entre IoT Hub y sus dispositivos'
-author: ash2017
+author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.author: asrastog
+ms.date: 09/29/2020
+ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 81c5d410599edcbbb4e216b630709541be02c9fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6e728eaf8335a102e38a3b4b07ab5e504d452294
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323016"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996469"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Uso de módulos gemelos en IoT Hub
 
@@ -241,7 +241,7 @@ Las etiquetas y las propiedades deseadas y notificadas son objetos JSON con las 
 
 * **Claves**: Todas las claves en objetos JSON tienen codificación UTF-8, con distinción de mayúsculas y minúsculas, y una longitud de hasta 1 KB. Entre los caracteres permitidos no se incluyen los caracteres de control UNICODE (segmentos C0 y C1), ni `.`, `$` y SP.
 
-* **Valores**: Todos los valores en un objeto JSON pueden ser de los siguientes tipos JSON: booleano, número, cadena, objeto. No se permiten matrices.
+* **Valores**: Todos los valores en un objeto JSON pueden ser de los siguientes tipos JSON: booleano, número, cadena, objeto. También se admiten las matrices.
 
     * Los enteros pueden tener un valor mínimo de -4503599627370496 y un máximo de 4503599627370495.
 

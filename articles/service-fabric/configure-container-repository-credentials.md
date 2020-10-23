@@ -4,12 +4,12 @@ description: Configuración de credenciales de repositorio para descargar imáge
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 142ede6fcc59063d83854712a966a90c7472923b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 47a3fb39693bf6143d4033eed437f65b7e63eabb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421431"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978686"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Configuración de credenciales de repositorio para que la aplicación descargue imágenes de contenedor
 
@@ -83,10 +83,6 @@ Este es un ejemplo de lo que se puede agregar dentro de la sección `Hosting` en
           {
             "name": "DefaultContainerRepositoryPasswordType",
             "value": "PlainText"
-          },
-          {
-        "name": "DefaultMSIEndpointForTokenAuthentication",
-        "value": "URI"
           }
         ]
       },
@@ -100,6 +96,9 @@ Service Fabric permite usar tokens como credenciales para descargar imágenes re
 1. Asegúrese de que la *identidad administrada asignada por el sistema* está habilitada para la máquina virtual.
 
     ![Azure Portal: Opción para crear una identidad de un conjunto de escalado de máquinas virtuales](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+
+> [!NOTE]
+> En el caso de una identidad administrada asignada por el usuario, omita este paso. Los pasos restantes funcionarán de la misma forma, siempre que el conjunto de escalado solo esté asociado a una única identidad administrada asignada por el usuario.
 
 2. Conceda al conjunto de escalado de máquinas virtuales los permisos necesarios para extraer o leer imágenes del registro. En la hoja Access Control (IAM) de Azure Container Registry de Azure Portal, agregue una *asignación de roles*  para la máquina virtual:
 
@@ -121,25 +120,6 @@ Service Fabric permite usar tokens como credenciales para descargar imágenes re
 
     > [!NOTE]
     > Si la marca `UseDefaultRepositoryCredentials` está establecida en true cuando `UseTokenAuthenticationCredentials` es true, se producirá un error durante la implementación.
-
-### <a name="using-token-credentials-outside-of-azure-global-cloud"></a>Uso de credenciales de token fuera de la nube global de Azure
-
-Al usar credenciales de registro basadas en tokens, Service Fabric captura un token en nombre de la máquina virtual para presentarlo a ACR. De manera predeterminada, Service Fabric solicita un token cuyo público es el punto de conexión de nube de Azure global. Si va a realizar implementaciones en otra instancia de nube, como Azure Germany o Azure Government, deberá invalidar el valor predeterminado del parámetro `DefaultMSIEndpointForTokenAuthentication`. Si no va a realizar la implementación en un entorno especial, no invalide este parámetro. Si realizará la implementación, reemplazará el valor predeterminado, que es
-
-```
-http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.windows.net/
-```
-
-con el punto de conexión de recursos adecuado para su entorno. Por ejemplo, para [Azure Germany](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping), la invalidación sería 
-
-```json
-{
-    "name": "DefaultMSIEndpointForTokenAuthentication",
-    "value": "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.cloudapi.de/"
-}
-```
-
-[Más información sobre la captura de tokens de conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

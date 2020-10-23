@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 1f07f9d481ca8ede29c8b8443dad81a442962a71
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669031"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044146"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Administración de certificados en un dispositivo IoT Edge
 
@@ -33,10 +33,13 @@ Para más información sobre los diferentes tipos de certificados y sus roles, v
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-* Un dispositivo IoT Edge que se ejecute en [Windows](how-to-install-iot-edge-windows.md) o [Linux](how-to-install-iot-edge-linux.md).
+* Un dispositivo IoT Edge.
+
+  Si no tiene un dispositivo IoT Edge configurado, puede crear uno en una máquina virtual de Azure. Siga los pasos de alguno de los artículos de inicio rápido para [Crear un dispositivo virtual Linux](quickstart-linux.md) o [Crear un dispositivo virtual Windows](quickstart.md).
+
 * Tener un certificado de entidad de certificación (CA) raíz, ya sea autofirmado o comprado a través de una entidad de certificación comercial de confianza como Baltimore, Verisign, DigiCert o GlobalSign.
 
-Si todavía no tiene una entidad de certificación raíz pero quiere probar características de IoT Edge que requieren certificados de producción (por ejemplo, escenarios de puerta de enlace), puede [crear certificados de demostración para probar las características del dispositivo IoT Edge](how-to-create-test-certificates.md).
+  Si todavía no tiene una entidad de certificación raíz pero quiere probar características de IoT Edge que requieren certificados de producción (por ejemplo, escenarios de puerta de enlace), puede [crear certificados de demostración para probar las características del dispositivo IoT Edge](how-to-create-test-certificates.md).
 
 ### <a name="create-production-certificates"></a>Creación de certificados de producción
 
@@ -65,7 +68,7 @@ Por ejemplo, si ha usado los scripts de ejemplo para [Crear certificados de demo
 
 1. Copie los tres archivos de certificado y clave en el dispositivo IoT Edge.
 
-   Puede usar un servicio como [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una función como [Protocolo de copia segura](https://www.ssh.com/ssh/scp/) para mover los archivos de certificado.  Si ha generado los certificados en el propio dispositivo IoT Edge, puede omitir este paso y usar la ruta de acceso al directorio de trabajo.
+   Puede usar un servicio como [Azure Key Vault](../key-vault/index.yml) o una función como [Protocolo de copia segura](https://www.ssh.com/ssh/scp/) para mover los archivos de certificado.  Si ha generado los certificados en el propio dispositivo IoT Edge, puede omitir este paso y usar la ruta de acceso al directorio de trabajo.
 
 1. Abra el archivo de configuración del demonio de seguridad de IoT Edge.
 

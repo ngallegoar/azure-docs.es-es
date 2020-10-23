@@ -4,12 +4,12 @@ description: Resume la compatibilidad con la recuperación ante desastres de má
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 786947a03440cc837f9d104d43e8061c80a0844c
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 390dba92091a9e419bcd7a8f0e8e83f65597305e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803099"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045336"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -247,6 +247,7 @@ Generación 2 (Arranque UEFI) | Compatible
 Discos NVMe | No compatible
 Discos compartidos de Azure | No compatible
 Opción de transferencia segura | Compatible
+Discos con el acelerador de escritura habilitado | No compatible
 
 >[!IMPORTANT]
 > Para evitar cualquier problema de rendimiento, asegúrese de respetar los objetivos de escalabilidad y rendimiento del disco de la máquina virtual de máquinas virtuales [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md). Si usa la configuración predeterminada, Site Recovery crea las cuentas de almacenamiento y los discos necesarios en función de la configuración de origen. Si personaliza y selecciona su propia configuración, respete los objetivos de escalabilidad y rendimiento del disco de las máquinas virtuales de origen.
@@ -273,7 +274,7 @@ Disco Premium P20, P30, P40 o P50 | 16 KB, o más |20 MB/s | 1684 GB por disco
 **Configuración** | **Soporte técnico** | **Detalles**
 --- | --- | ---
 NIC | Número máximo admitido para un tamaño específico de máquina virtual de Azure | Las NIC se crean cuando se crea la máquina virtual durante la conmutación por error.<br/><br/> El número de tarjetas NIC en la máquina virtual de conmutación por error viene determinado por el número de tarjetas NIC que haya en la máquina virtual de origen en el momento de habilitar la replicación. Si agrega o quita una tarjeta NIC después de habilitar la replicación, esto no influirá en el número de NIC de la máquina virtual replicada después de la conmutación por error. <br/><br/> No existe garantía de que el orden de lo adaptadores de red después de la conmutación sea el mismo que el orden original. <br/><br/> Puede cambiar el nombre de los adaptadores de red en la región de destino en función de las convenciones de nomenclatura de su organización. El cambio de nombre de adaptador de red es compatible con PowerShell.
-Equilibrador de carga de Internet | No compatible | Azure Site Recovery no admite el equilibrador de carga público o de Internet.
+Equilibrador de carga de Internet | No compatible | Puede configurar equilibradores de carga públicos y de Internet en la región primaria. Aun así, Azure Site Recovery no admite los equilibradores de carga públicos o de Internet en la región de recuperación ante desastres.
 Equilibrador de carga interno | Compatible | Asocie el equilibrador de carga configurado previamente con un script de Azure Automation de un plan de recuperación.
 Dirección IP pública | Compatible | Asocie una dirección IP pública existente a la NIC. O bien, cree una dirección IP pública y asóciela con la NIC mediante un script de Azure Automation de un plan de recuperación.
 Grupo de seguridad de red en una tarjeta NIC | Compatible | Asocie el grupo de seguridad de red a la NIC con un script de Azure Automation de un plan de recuperación.

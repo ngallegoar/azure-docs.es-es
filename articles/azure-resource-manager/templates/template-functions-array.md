@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: matrices'
 description: Describe las funciones que se usan en una plantilla de Azure Resource Manager para trabajar con matrices.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/12/2020
+ms.openlocfilehash: a5cf73203cf59a0b9f2b5f49c923d0a077c065fc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677855"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979145"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funciones de matriz para plantillas de Resource Manager
 
@@ -278,12 +278,11 @@ Crea una matriz a partir de los parámetros.
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |Cadena, entero, matriz u objeto |El primer valor en la matriz. |
-| argumentos adicionales |No |Cadena, entero, matriz u objeto |Valores adicionales en la matriz. |
+| args |No |Cadena, entero, matriz u objeto |Valores de la matriz. |
 
 ### <a name="return-value"></a>Valor devuelto
 
-Matriz .
+Matriz . Cuando no se proporciona ningún parámetro, devuelve una matriz vacía.
 
 ### <a name="example"></a>Ejemplo
 
@@ -321,6 +320,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
         "arrayArray": {
             "type": "array",
             "value": "[createArray(parameters('arrayToTest'))]"
+        },
+        "emptyArray": {
+            "type": "array",
+            "value": "[createArray()]"
         }
     }
 }
@@ -334,6 +337,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | intArray | Array | [1, 2, 3] |
 | objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | Array | [["one", "two", "three"]] |
+| emptyArray | Array | [] |
 
 ## <a name="empty"></a>empty
 

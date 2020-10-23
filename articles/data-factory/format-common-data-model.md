@@ -5,14 +5,14 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 483e26cf4044b909c8d7923cfd74bd6fcf871e2a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905312"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042599"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato de Common Data Model en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -51,6 +51,8 @@ En la tabla siguiente se enumeran las propiedades que admite un origen CDM. Pued
 | Carpeta Corpus | la ubicación raíz de Corpus | Sí, si se utiliza el manifiesto | String | corpusPath |
 | Entidad Corpus | Ruta de acceso a la referencia de entidad | sí | String | Entidad |
 | No permitir que se encuentren archivos | Si es true, no se devuelve un error si no se encuentra ningún archivo. | no | `true` o `false` | ignoreNoFilesFound |
+
+Si la definición de la entidad que quiere usar en la transformación de origen se encuentra en el mismo directorio que la carpeta de datos, puede anular la selección de "Use entity from corpus" (Usar entidad del corpus) y, simplemente, escribir la entidad que quiere usar como referencia.
 
 ### <a name="sink-settings"></a>Configuración del receptor
 
