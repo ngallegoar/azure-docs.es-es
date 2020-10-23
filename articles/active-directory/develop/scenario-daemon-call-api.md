@@ -1,6 +1,6 @@
 ---
 title: 'Llamada a una API web desde una aplicación de demonio: Plataforma de identidad de Microsoft | Azure'
-description: Obtenga información sobre cómo compilar una aplicación de demonio que llama a las API web
+description: Obtenga información sobre cómo crear una aplicación de demonio que llama a una API web.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7319aacabd2c479c578fbb71ae0bc9fbb2dee9f2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 576eaf2ad9350651e4400d980e6fedce236dfa57
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119137"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91257612"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Aplicación de demonio que llama a las API web: llamada a una API web desde la aplicación
 

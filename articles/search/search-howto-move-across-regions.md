@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 09/10/2020
-ms.openlocfilehash: 7383d9f95435775448f7322d9eb7707f676e9952
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 774b605859df41e0b71ee82c38a6b08bdf5b9c49
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007050"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91629818"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Traslado del servicio Azure Cognitive Search a otra región de Azure
 
@@ -27,7 +27,7 @@ En ocasiones, los clientes preguntan sobre el traslado de un servicio de búsque
 
 + Asegúrese de que los servicios y las características que usa su cuenta se admitan en la región de destino.
 
-+ En el caso de las características en vista previa (GB), asegúrese de que la suscripción está en la lista de permitidos para la región de destino.
++ En el caso de las características en versión preliminar, asegúrese de que la suscripción está aprobada para la región de destino.
 
 ## <a name="prepare-and-move"></a>Preparación y traslado
 

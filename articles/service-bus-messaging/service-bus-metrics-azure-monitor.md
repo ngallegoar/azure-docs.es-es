@@ -2,13 +2,13 @@
 title: Métricas de Azure Service Bus en Azure Monitor | Microsoft Docs
 description: En este artículo se explica cómo usar Azure Monitor para supervisar las entidades de Service Bus (colas, temas y suscripciones).
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: 3081b46bebdba8e83e5584178b37aab2dffee599
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 09/30/2020
+ms.openlocfilehash: 169edb651a59302d0ea1245fd48787404dd3e555
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065019"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91598133"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de Azure Service Bus en Azure Monitor
 
@@ -93,7 +93,7 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 
 | Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
-|Conexiones activas|Número de conexiones activas en un espacio de nombres, así como en una entidad.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
+|Conexiones activas|Número de conexiones activas en un espacio de nombres, así como en una entidad en el espacio de nombres. El valor de esta métrica es un valor de un momento dado. Es posible que las conexiones que estaban activas inmediatamente después de ese momento dado no se reflejen en esta métrica.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
 |Conexiones abiertas |Número de conexiones abiertas.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
 |Conexiones cerradas |Número de conexiones cerradas.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
 
@@ -147,7 +147,7 @@ Azure Service Bus admite las siguientes dimensiones para las métricas de Azure 
     2. Escriba una **descripción** para la alerta.
     3. Seleccione la **gravedad** de la alerta. 
 
-        ![Detalles de alertas](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![Captura de pantalla de la página Crear regla. Definir detalles de alerta está expandido y los campos Nombre de la regla de alertas, Descripción y Gravedad están resaltados.](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. En la página **Crear regla**, expanda **Definir grupo de acciones**, seleccione **Nuevo grupo de acciones**, y realice las acciones siguientes en la página **Agregar grupo de acciones**. 
     1. Escriba un nombre para el grupo de acciones.
     2. Escriba un nombre corto para el grupo de acciones. 
@@ -161,7 +161,7 @@ Azure Service Bus admite las siguientes dimensiones para las métricas de Azure 
         2. Escriba la **dirección de correo electrónico**. 
         3. Seleccione **Aceptar**.
 
-            ![Detalles de alertas](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![Captura de pantalla de la página Agregar grupo de acciones. Se está agregando al grupo una acción denominada "Enviar correo electrónico" con el tipo de acción Email/SMS/Push/Voice (Correo electrónico, SMS, inserción o voz).](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. En la página **Agregar grupo de acciones**, seleccione **Aceptar**. 
 1. En la página **Crear regla**, seleccione **Crear regla de alertas**. 
 

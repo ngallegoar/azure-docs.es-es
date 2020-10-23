@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4ba90724f75635ea9fd5f72f75de6a46d7b6d288
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979424"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91447001"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solución de problemas de la administración de derechos de Azure AD
 
@@ -146,7 +146,7 @@ Solo se pueden cancelar las solicitudes pendientes que aún no se hayan entregad
     | P1 | Usuarios y grupos específicos del directorio u organizaciones conectadas específicas |
     | P2 | Todos los miembros del directorio (excepto los invitados) |
     | P3 | Todos los usuarios del directorio (incluidos los invitados) u organizaciones conectadas específicas |
-    | P4 | Todas las organizaciones conectadas o todos los usuarios (todas las organizaciones conectadas y todos los usuarios externos nuevos) |
+    | P4 | Todas las organizaciones conectadas configuradas O Todos los usuarios (todas las organizaciones conectadas y todos los usuarios externos nuevos) |
     
     Si alguna directiva está en una categoría de prioridad más alta, se omiten las categorías de prioridad inferior. Para ver un ejemplo de cómo se muestran al solicitante varias directivas con la misma prioridad, consulte [Selección de una directiva](entitlement-management-request-access.md#select-a-policy).
 

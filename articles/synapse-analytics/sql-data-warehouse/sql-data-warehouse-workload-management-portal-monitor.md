@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f46ed1890bb62acc92eea28c55bf9abd6153e8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13b0dc3af524b16430408f8a920c7477c412414d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208695"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91362736"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics: supervisión del portal de administración de cargas de trabajo
 
@@ -59,7 +59,8 @@ El gráfico siguiente está configurado de la siguiente manera:<br>
 Métrica 1: *Porcentaje mínimo de recursos efectivo* (agregación de tipo Avg, `blue line`)<br>
 Métrica 2: *Asignación de grupos de cargas de trabajo por porcentaje del sistema* (agregación de tipo Avg, `purple line`)<br>
 Filtro: [Grupo de cargas de trabajo] = `wgPriority`<br>
-![underutilized-wg.png](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png) El gráfico muestra que con un 25 % de aislamiento de cargas de trabajo, solo se usa un 10 % en promedio.  En este caso, el valor del parámetro `MIN_PERCENTAGE_RESOURCE` podría disminuir entre 10 o 15 y permitir que otras cargas de trabajo del sistema consuman los recursos.
+![Captura de pantalla que muestra un gráfico con las dos métricas y el filtro.](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png)
+El gráfico muestra que con un 25 % de aislamiento de cargas de trabajo, solo se usa un 10 % de media.  En este caso, el valor del parámetro `MIN_PERCENTAGE_RESOURCE` podría disminuir entre 10 o 15 y permitir que otras cargas de trabajo del sistema consuman los recursos.
 
 ### <a name="workload-group-bottleneck"></a>Cuello de botella de grupo de cargas de trabajo
 
@@ -81,7 +82,8 @@ Métrica 1: *Porcentaje máximo de recursos efectivo* (agregación de tipo Avg, 
 Métrica 2: *Asignación de grupos de cargas de trabajo por porcentaje máximo de recursos* (agregación de tipo Avg, `purple line`)<br>
 Métrica 3: *Consultas en cola del grupo de cargas de trabajo* (agregación de tipo Sum, `turquoise line`)<br>
 Filtro: [Grupo de cargas de trabajo] = `wgDataAnalyst`<br>
-![bottle-necked-wg](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) El gráfico muestra que con un límite del 9 % en los recursos, el grupo de cargas de trabajo se utiliza en más de un 90 % (de la métrica *Asignación de grupos de cargas de trabajo por porcentaje máximo de recursos*).  Hay un almacenamiento en cola de las consultas estable, tal como se desprende de la métrica *Consultas en cola del grupo de cargas de trabajo*.  En este caso, el aumento de `CAP_PERCENTAGE_RESOURCE` a un valor superior al 9 % permitirá que se ejecuten más consultas simultáneamente.  Al aumentar `CAP_PERCENTAGE_RESOURCE` se supone que hay suficientes recursos disponibles y que no están aislados por otros grupos de cargas de trabajo.  Verifique el límite máximo aumentado comprobando la métrica *Porcentaje máximo de recursos efectivo*.  Si desea más rendimiento, considere la posibilidad de aumentar `REQUEST_MIN_RESOURCE_GRANT_PERCENT` a un valor superior a 3.  El aumento de `REQUEST_MIN_RESOURCE_GRANT_PERCENT` podría permitir que las consultas se ejecuten más rápido.
+![Captura de pantalla que muestra un gráfico con las tres métricas y el filtro.](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png)
+El gráfico muestra que con un límite del 9 % en los recursos, el grupo de cargas de trabajo se utiliza en más de un 90 % (de la métrica *Asignación de grupos de cargas de trabajo por porcentaje máximo de recursos*).  Hay un almacenamiento en cola de las consultas estable, tal como se desprende de la métrica *Consultas en cola del grupo de cargas de trabajo*.  En este caso, el aumento de `CAP_PERCENTAGE_RESOURCE` a un valor superior al 9 % permitirá que se ejecuten más consultas simultáneamente.  Al aumentar `CAP_PERCENTAGE_RESOURCE` se supone que hay suficientes recursos disponibles y que no están aislados por otros grupos de cargas de trabajo.  Verifique el límite máximo aumentado comprobando la métrica *Porcentaje máximo de recursos efectivo*.  Si desea más rendimiento, considere la posibilidad de aumentar `REQUEST_MIN_RESOURCE_GRANT_PERCENT` a un valor superior a 3.  El aumento de `REQUEST_MIN_RESOURCE_GRANT_PERCENT` podría permitir que las consultas se ejecuten más rápido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

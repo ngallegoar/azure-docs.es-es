@@ -11,25 +11,28 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/27/2020
+ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: b2d179121b05d7bf3493937a9ff72e302fd31f3d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2a3e1e7279e915c0c5992190ef0c8d1d83880dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281147"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91596148"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Uso de la autenticación multifactor de Azure Active Directory
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics admiten conexiones de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) en las que se utiliza la autenticación *Azure Active Directory - Universal con MFA*. En este artículo, se explican las diferencias entre las distintas opciones de autenticación, así como las limitaciones asociadas al uso de la autenticación universal en Azure Active Directory (Azure AD) para Azure SQL.
 
-**Descarga de la versión de SSMS más reciente**: en el equipo cliente, descargue la versión más reciente de SSMS desde [Descarga de SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+**Descarga de la versión de SSMS más reciente**: en el equipo cliente, descargue la versión más reciente de SSMS desde [Descarga de SQL Server Management Studio (SSMS)](https://aka.ms/ssms). 
+
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 
 Para todas las características que se tratan en este artículo, utilice al menos la versión 17.2 de julio de 2017. El cuadro de diálogo de conexión más reciente debe ser similar a la siguiente imagen:
 
-  ![1mfa-universal-connect](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png "Complete el cuadro Nombre de usuario.")  
+  ![Captura de pantalla del cuadro de diálogo Conectar con el servidor en SQL Server Management Studio, que muestra la configuración de Tipo de servidor, Nombre del servidor y Autenticación.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)
 
 ## <a name="authentication-options"></a>Opciones de autenticación
 
@@ -57,11 +60,11 @@ Todos los usuarios invitados que deseen autenticarse con la autenticación unive
 1. Abra una conexión en SSMS. Escriba el nombre del servidor y seleccione la autenticación **Azure Active Directory - Universal con MFA**. Agregue el **nombre de usuario** con el que desee iniciar sesión.
 1. Active la casilla **Opciones** y vaya a la pestaña **Propiedades de conexión**. En el cuadro de diálogo **Conectar con base de datos**, especifique los detalles de su base de datos. Active la casilla **Nombre de dominio o ID de inquilino de AD** y proporcione la entidad de autenticación, por ejemplo, el nombre de dominio (**contosoprueba.enmicrosoft.com**) o el GUID del identificador del inquilino. 
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
+   ![Captura de pantalla de la pestaña Propiedades de conexión que resalta la configuración para la conexión con la base de datos y el nombre de dominio de AD o el id. del suscriptor.](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
 Si ejecuta SSMS 18.x o una versión posterior, ya no son necesarios el nombre de dominio de AD ni el identificador de inquilino para los usuarios invitados porque a partir de esta versión se reconocen de forma automática.
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
+   ![Captura de pantalla de la pestaña Propiedades de conexión en el cuadro de diálogo Conectar con el servidor de SSMS. La opción "MyDatabase" está seleccionada en el campo Conectar con base de datos.](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Compatibilidad con aplicaciones empresariales de Azure AD
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: a108459985f235f0280354ef7b4fa0cb181f5dda
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: b23783080e976f70ba8c5e02f67dcee36bbc9c34
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054252"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91444962"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Conectividad SSL/TLS en Azure Database for MariaDB
 Azure Database for MariaDB permite conectar el servidor de bases de datos a las aplicaciones cliente con la Capa de sockets seguros (SSL). Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación.
@@ -56,6 +56,17 @@ Por ejemplo, si se establece el valor de la versión de TLS mínima en TLS 1.0, 
 > Una vez que se aplica una versión de TLS mínima, esta no se puede deshabilitar posteriormente.
 
 Para obtener información sobre cómo establecer la configuración de TLS para Azure Database for MariaDB, consulte [Configuración de los valores de TLS](howto-tls-configurations.md).
+
+## <a name="cipher-support-by-azure-database-for-mariadb"></a>Cifrado admitido por el servidor único de Azure Database for MariaDB
+
+Como parte de la comunicación SSL/TLS, los conjuntos de cifrado se validan y son los únicos que tienen permitido comunicarse con el servidor de la base de datos. La validación del conjunto de cifrado se controla en el [nivel de puerta de enlace](concepts-connectivity-architecture.md#connectivity-architecture) y no de manera explícita en el propio nodo. Si los conjuntos de cifrado no coinciden con algunos de los conjuntos mencionados a continuación, se rechazarán las conexiones de cliente entrantes.
+
+### <a name="cipher-suite-supported"></a>Conjunto de cifrado compatible
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre [las reglas de firewall del servidor](concepts-firewall-rules.md)

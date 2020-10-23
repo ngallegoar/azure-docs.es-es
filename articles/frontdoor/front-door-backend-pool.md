@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 66767d4329a0a757de99308e1f586b56b327a515
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4beba141fec7a819df52e4c3a669312a4ad76998
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399929"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449297"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Back-end y grupos de back-end en Azure Front Door
-En este artículo se describen conceptos acerca de cómo asignar la implementación de aplicaciones con Azure Front Door. También se explican los distintos términos en la configuración de Front Door sobre back-end de aplicación.
+En este artículo se describen conceptos acerca de cómo asignar la implementación de una aplicación web con Azure Front Door. También se explica la terminología que se usa en las distintas configuraciones de Front Door relativas a los back-end de la aplicación.
 
 ## <a name="backends"></a>Backends
-Un back-end es igual a la instancia de implementación de una aplicación en una región. Front Door es compatible con back-ends de Azure y que no son de Azure, por lo que la región no está restringida solo a las regiones de Azure. Además, puede ser su centro de datos local o una instancia de aplicación en otra nube.
+Un back-end hace referencia a una implementación de aplicación web en una región. Front Door es compatible con los recursos de Azure y los que no son de Azure en el grupo de servidores back-end. La aplicación puede estar en el centro de datos local o en otro proveedor de servicios en la nube.
 
-Los back-end de Front Door hacen referencia al nombre de host o a la dirección IP pública de la aplicación, que puede atender solicitudes de cliente. Los back-ends no deben confundirse con el nivel de base de datos, la capa de almacenamiento, etc. Los back-ends deben considerarse como el punto de conexión público del back-end de aplicación. Al agregar un back-end en un grupo de back-end de Front Door, también debe agregar lo siguiente:
+Los back-end de Front Door hacen referencia al nombre de host o a la dirección IP pública de la aplicación que atiende las solicitudes de los clientes. Los back-ends no deben confundirse con el nivel de base de datos, la capa de almacenamiento, etc. Los back-end deben considerarse como el punto de conexión público del back-end de la aplicación. Al agregar un back-end en un grupo de servidores back-end de Front Door, también debe agregar lo siguiente:
 
 - **Tipo de host de back-end**. El tipo de recurso que desea agregar. Front Door es compatible con la detección automática de back-end de aplicación del servicio de aplicación, el servicio en la nube o el almacenamiento. Si desea usar un recurso diferente en Azure o incluso un back-end ajeno a Azure, seleccione **Host personalizado**.
 
@@ -41,13 +41,13 @@ Los back-end de Front Door hacen referencia al nombre de host o a la dirección 
 
 ### <a name="backend-host-header"></a><a name = "hostheader"></a>Encabezado de host de back-end
 
-Las solicitudes reenviadas por Front Door a un back-end incluyen un campo de encabezado de host que el back-end usa para recuperar el recurso de destino. El valor de este campo normalmente procede del URI del back-end y tiene el host y el puerto.
+Las solicitudes reenviadas por Front Door a un back-end incluyen un campo de encabezado de host que el back-end usa para recuperar el recurso de destino. El valor de este campo normalmente procede del URI del back-end y tiene el encabezado host y el puerto.
 
 Por ejemplo, una solicitud realizada para `www.contoso.com` tendrá el encabezado de host www.contoso.com. Si usa Azure Portal para configurar su back-end, el valor predeterminado para este campo es el nombre de host del back-end. Si el back-end es contoso-westus.azurewebsites.net, en Azure Portal, el valor que se rellena automáticamente el encabezado de host de back-end será contoso-westus.azurewebsites.net. En cambio, si se usan plantillas de Azure Resource Manager u otro método sin establecer explícitamente este campo, Front Door enviará el nombre de host entrante como el valor del encabezado de host. Si la solicitud se realizó para www\.contoso.com y el back-end es contoso-westus.azurewebsites.net que tiene un campo de encabezado vacío, Front Door establecerá el encabezado de host como www\.contoso.com.
 
 La mayoría de back-end de aplicación (por ejemplo, Azure Web Apps, Blob Storage y Cloud Services) requieren que el encabezado de host coincida con el dominio del back-end. En cambio, el host de front-end que se enrute al back-end usará otro nombre de host, como www.contoso.net.
 
-Si el back-end requiere que el encabezado de host coincida con el nombre de host de back-end, asegúrese de que el encabezado de host de back-end incluya el back-end de nombre de host.
+Si el back-end requiere que el encabezado de host coincida con el nombre de host de back-end, asegúrese de que el encabezado de host de back-end incluya el nombre de host del back-end.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>Configurar el encabezado de host de back-end para el back-end
 

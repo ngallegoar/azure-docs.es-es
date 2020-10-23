@@ -1,18 +1,18 @@
 ---
 title: 'Redireccionamiento de tráfico externo mediante la CLI: Azure Application Gateway'
-description: Obtenga información sobre cómo crear una puerta de enlace de aplicaciones que redirija el tráfico web interno al grupo adecuado mediante la CLI de Azure.
+description: Aprenda a crear una puerta de enlace de aplicación que redirija el tráfico web externo al grupo adecuado mediante la CLI de Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 7566122e4edf4357562e830197fade746f18a16f
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5a8d7aff6a030b3adbb5370caa166bbd290e09bc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594274"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91331057"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento externo mediante la CLI de Azure
 
@@ -131,8 +131,4 @@ En el explorador debe aparecer *bing.com*.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a:
-
-> * Configuración de la red
-> * Crear un agente de escucha y una regla de redireccionamiento
-> * Creación de una puerta de enlace de aplicaciones
+- [Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante la CLI de Azure](redirect-internal-site-cli.md)

@@ -1,22 +1,22 @@
 ---
 title: 'Azure VPN Gateway: Creación e instalación de archivos de configuración de cliente VPN: conexiones RADIUS P2S'
-description: Cree archivos de configuración de cliente VPN en Windows, Mac OS X y Linux para conexiones que usan autenticación RADIUS.
+description: Cree archivos de configuración de cliente VPN en Windows, OS X y Linux para conexiones que usan autenticación RADIUS.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 35631c8a0b66ade1457228ba16150f94f761f7b3
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: e6d811e19bb19c8c8bf96764cfcca2b1294f4a85
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419918"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91440068"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creación e instalación de archivos de configuración de cliente VPN para la autenticación P2S RADIUS
 
-Para conectarse de punto a sitio (P2S) a una red virtual, debe configurar el dispositivo cliente desde el que se va a conectar. Puede crear conexiones VPN de punto a sitio desde dispositivos cliente de Windows, Mac OS X y Linux. 
+Para conectarse de punto a sitio (P2S) a una red virtual, debe configurar el dispositivo cliente desde el que se va a conectar. Puede crear conexiones VPN de punto a sitio desde dispositivos cliente de Windows, OS X y Linux. 
 
 Con la autenticación RADIUS existen varias opciones de autenticación, por ejemplo, la autenticación con nombre de usuario y contraseña y mediante certificados. La configuración de cliente VPN es diferente para cada tipo de autenticación. Para configurar el cliente VPN, use los archivos de configuración de cliente que contienen la configuración necesaria. En este artículo se ayuda a crear e instalar la configuración de cliente VPN para el tipo de autenticación RADIUS que se quiere usar.
 
@@ -36,7 +36,7 @@ El flujo de trabajo de configuración de la autenticación P2S RADIUS es el sigu
 >
 >
 
-Para usar las secciones de este artículo, decida primero el tipo de autenticación que quiere usar: nombre de usuario y contraseña, certificado o de otro tipo. En cada sección hay pasos para Windows, Mac OS X y Linux (pasos limitados disponibles en este momento).
+Para usar las secciones de este artículo, decida primero el tipo de autenticación que quiere usar: nombre de usuario y contraseña, certificado o de otro tipo. En cada sección hay pasos para Windows, OS X y Linux (pasos limitados disponibles en este momento).
 
 
 ## <a name="usernamepassword-authentication"></a><a name="adeap"></a>Autenticación con nombre de usuario y contraseña
@@ -144,7 +144,7 @@ Use estos pasos para configurar al cliente VPN de Windows nativo para la autenti
     ![Detalles de la conexión VPN](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
 11. Seleccione **Configuración de autenticación**. Seleccione el **nombre de usuario** de la lista desplegable y escriba las credenciales. Si escribió las credenciales anteriormente, el **nombre de usuario** se elige automáticamente de la lista y se rellena previamente, junto con la contraseña. Seleccione **Aceptar** para guardar la configuración.
 
-    ![Configuración de autenticación](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+    ![Captura de pantalla que muestra el desplegable "Configuración de autenticación" con el campo "Nombre de usuario" seleccionado.](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. De nuevo en el cuadro de diálogo **Red**, seleccione **Aplicar** para guardar los cambios. Para iniciar la conexión, seleccione **Conectar**.
 
 #### <a name="linux-vpn-client-setup-through-strongswan"></a><a name="adlinuxcli"></a>Configuración de un cliente VPN en Linux mediante strongSwan

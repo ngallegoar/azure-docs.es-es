@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 17c0b7bd802d4a50343f88b9517313489943e10c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799492"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91536977"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Una su dispositivo de trabajo a la red de su organización
 Una su dispositivo Windows 10 de trabajo a la red de su organización para poder tener acceso a recursos potencialmente restringidos.
@@ -48,13 +48,13 @@ Si su dispositivo es nuevo y no se ha configurado aún, puede seguir el proceso 
 
 4. En su dispositivo móvil, apruebe su dispositivo para que pueda tener acceso a su cuenta. 
 
-    ![Pantalla Mobile notification (Notificación móvil)](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
+    ![Captura de pantalla que muestra la pantalla de notificación "Escriba la contraseña".](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
 
 5. Complete el proceso de experiencia inmediata, incluidos el establecimiento de su configuración de privacidad y la configuración de Windows Hello (si es necesario).
 
     Ahora su dispositivo se encuentra unido a la red de su organización.
 
-## <a name="to-make-sure-youre-joined"></a>Para asegurarse de que se ha unido
+## <a name="to-make-sure-youre-joined-new-device"></a>Para asegurarse de que se ha unido (nuevo dispositivo)
 Puede asegurarse de que se ha unido fijándose en su configuración.
 
 1. Abra **Configuración** y, a continuación, seleccione **Cuentas**.
@@ -63,7 +63,7 @@ Puede asegurarse de que se ha unido fijándose en su configuración.
 
 2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve texto que indica algo como **Conectado a Azure AD de *\<your_organization>***.
 
-    ![Pantalla Obtener acceso a trabajo o escuela con cuenta Contoso conectada](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
+    ![Captura de pantalla que muestra la ventana "Acceso profesional o educativo" con la cuenta "Conectada a (su organización) de Azure AD" seleccionada.](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
 
 ## <a name="to-join-an-already-configured-windows-10-device"></a>Para unir un dispositivo Windows 10 ya configurado

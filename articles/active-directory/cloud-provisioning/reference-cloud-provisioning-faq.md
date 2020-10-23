@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 28fb9da04c9c9d3e98b5226e1aee4cf5dde7183b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658377"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91628679"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Preguntas frecuentes sobre el aprovisionamiento en la nube de Azure Active Directory Connect
 
@@ -83,6 +83,18 @@ No, no se admite la instalación del agente en Server Core.
 **P:  ¿Puedo usar un servidor provisional con el agente de aprovisionamiento en la nube?**
 
 No, no se admiten servidores provisionales.
+
+**P:  ¿Puedo sincronizar cuentas de usuarios invitados?**
+
+No, no se admite la sincronización de cuentas de usuarios invitados.
+
+**P:  Si muevo un usuario de una unidad organizativa, cuyo ámbito es el aprovisionamiento en la nube, a una unidad organizativa cuyo ámbito es Azure AD Connect, ¿qué ocurre?**
+
+Se eliminará el usuario y se volverá a crear.  Mover un usuario de una unidad organizativa cuyo ámbito sea el aprovisionamiento en la nube se verá como una operación de eliminación.  Si el usuario se mueve a una unidad organizativa administrada por Azure AD Connect, se volverá a aprovisionar a Azure AD y se creará un usuario.
+
+**P:  Si cambio el nombre de la unidad organizativa que se encuentra en el ámbito del filtro de aprovisionamiento en la nube o la muevo, ¿qué ocurre con el usuario que se creó en Azure AD?**
+
+Nada.  Los usuarios no se eliminarán si se cambia el nombre de la unidad organizativa o se mueve.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

@@ -11,23 +11,26 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 874978288a38ff56ce220dd13cb6f3dfec902b2d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934589"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91532524"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
 Como alternativa al [SDK de Voz](speech-sdk.md), el servicio de voz le permite convertir voz a texto mediante una API REST. Cada punto de conexión accesible se asocia con una región. La aplicación requiere una clave de suscripción para el punto de conexión que se va a usar. La API REST es muy limitada y solo se debe usar en aquellos casos en que no pueda utilizarse [Speech SDK](speech-sdk.md).
 
-Antes de usar speech-to-text API REST debe comprender que:
+Antes de usar la API REST de conversión de voz en texto, tenga en cuenta lo siguiente:
 
 * Las solicitudes que usan la API REST y transmiten audio directamente solo pueden contener hasta 60 segundos de audio.
 * La API REST de voz a texto solo devuelve resultados finales. No se proporcionan resultados parciales.
 
 Si el envío de un audio más grande es necesario para la aplicación, considere la posibilidad de usar el [SDK de Voz](speech-sdk.md) o una API REST basada en archivos, como la [transcripción por lotes](batch-transcription.md).
+
+> [!TIP]
+> Consulte la [documentación](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) de Azure Government para conocer los puntos de conexión de la nube de administración pública (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -201,7 +204,7 @@ Los resultados se proporcionan como JSON. El formato `simple` incluye los siguie
 
 El campo `RecognitionStatus` puede contener estos valores:
 
-| Estado | Descripción |
+| Status | Descripción |
 |--------|-------------|
 | `Success` | El reconocimiento es correcto y el campo `DisplayText` está presente. |
 | `NoMatch` | Se detectó voz en la secuencia de audio, pero no se encontraron coincidencias de palabras en el idioma de destino. Normalmente significa que el idioma de reconocimiento es un idioma distinto al que habla el usuario. |

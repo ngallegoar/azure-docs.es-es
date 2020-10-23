@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6dac922f1a50dd54973f7eefff7011aab3b49994
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983749"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91441030"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Conexión de una VPN Gateway (puerta de enlace de red virtual) a una Virtual WAN
 
@@ -83,7 +83,7 @@ En esta sección, descargará el archivo de configuración de VPN para cada uno 
 
 1. En la parte superior de la página **Sitios VPN** de Virtual WAN, elija el **Sitio** y luego seleccione **Descargar la configuración de VPN de sitio a sitio**. Azure crea un archivo de configuración con los valores.
 
-   ![descargar archivo de configuración](./media/connect-virtual-network-gateway-vwan/download.png "descarga")
+   ![Captura de pantalla que muestra la página "Sitios VPN" con la acción "Descargar la configuración de VPN de sitio a sitio" seleccionada.](./media/connect-virtual-network-gateway-vwan/download.png "descarga")
 2. Descargue y abra el archivo de configuración.
 3. Repita estos pasos para el segundo sitio. Una vez que tenga abiertos ambos archivos de configuración, puede continuar con la siguiente sección.
 
@@ -98,7 +98,7 @@ En esta sección, creará dos puertas de enlace de red local de Azure VPN Gatewa
    * **Suscripción, Grupo de recursos y Ubicación** son los mismos para el centro de conectividad Virtual WAN.
 2. Revise y cree la puerta de enlace de red local. La puerta de enlace de red local debe ser similar a la de este ejemplo.
 
-   ![descargar archivo de configuración](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
+   ![Captura de pantalla que muestra la página "Configuración" con una dirección IP resaltada y la opción "Configurar BGP" seleccionada.](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
 3. Repita estos pasos para crear otra puerta de enlace de red local, pero esta vez use los valores de 'Instance1' en lugar de los valores de 'Instance0' del archivo de configuración.
 
    ![descargar archivo de configuración](./media/connect-virtual-network-gateway-vwan/lng2.png "instance1")

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682003"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361541"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Errores y advertencias de conversión de dibujos
 
@@ -35,9 +35,9 @@ El servicio de conversión no puede crear una característica del mapa a partir 
 
 * Las dos imágenes siguientes muestran ejemplos de polígonos que forman intersección con ellos mismos.
 
-     ![Ejemplo de un polígono que forma intersección con él mismo](./media/drawing-conversion-error-codes/geometry-warning-1.png)
+     ![Ejemplo de un polígono que forma intersección con él mismo, primer ejemplo.](./media/drawing-conversion-error-codes/geometry-warning-1.png)
 
-     ![Ejemplo de un polígono que forma intersección con él mismo](./media/drawing-conversion-error-codes/geometry-warning-2.png)
+     ![Ejemplo de un polígono que forma intersección con él mismo, segundo ejemplo.](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
 * A continuación se muestra una imagen con una polilínea sin cerrar. Supongamos que la capa solo admite geometría cerrada.
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a5db76f0258eb08f6b1f8ed102dc29e26c8d8bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e72129b1f391996f6d5b085fe602adb35a3aecbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206451"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371225"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acceso seguro a API locales con Azure AD Application Proxy
 
@@ -185,7 +185,7 @@ Para configurar la aplicación nativa para que se conecte a Azure Active Direc
 
 Después de configurar los parámetros, compile y ejecute la aplicación nativa. Al seleccionar el botón **Iniciar sesión**, la aplicación permite iniciar sesión y, a continuación, muestra una pantalla para confirmar que se conectó correctamente a SecretAPI.
 
-![Correcto](./media/application-proxy-secure-api-access/success.png)
+![Captura de pantalla que muestra un mensaje de secreto de A P I correcto y el botón Aceptar.](./media/application-proxy-secure-api-access/success.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

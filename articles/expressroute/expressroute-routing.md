@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 5b7af755c9843456c25c8d18b78be48d83b96acd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 208fe9c5bfa20bf5b2daab296af9f955db67a33d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569618"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204680"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -138,7 +138,7 @@ Las rutas predeterminadas solo se permiten en sesiones de configuración de pare
 * Se usa un enrutamiento definido por el usuario para permitir la conectividad a Internet a todas las subredes que la requieran.
 
 > [!NOTE]
-> El anuncio de rutas predeterminadas interrumpirá la activación de la licencia de Windows y de otras máquinas virtuales. Para solucionar este problema, siga las instrucciones que se indican [aquí](https://docs.microsoft.com/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) .
+> El anuncio de rutas predeterminadas interrumpirá la activación de la licencia de Windows y de otras máquinas virtuales. Para solucionar este problema, siga las instrucciones que se indican [aquí](/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) .
 > 
 > 
 
@@ -258,6 +258,7 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype Empresarial Online |12076:5130 |
+| Azure Active Directory |12076:5160 |
 | Otros servicios en línea de Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Pasos siguientes

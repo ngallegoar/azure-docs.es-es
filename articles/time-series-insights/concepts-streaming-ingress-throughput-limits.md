@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: a9ac55802e4bcc435bb4bd6fd4af8977db9fd293
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 4d1d071a36531ed5f159543e33e9ac043160cd70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950466"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91650772"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Límites de rendimiento de ingesta de streaming
 
@@ -28,20 +28,20 @@ A continuación, se describen las limitaciones de entrada de datos de streaming 
 
 En general, las tasas de entrada se ven como el factor del número de dispositivos que hay en la organización, la frecuencia de emisión de eventos y el tamaño de cada evento:
 
-*  **Número de dispositivos** × **Frecuencia de emisión de eventos** × **Tamaño de cada evento**.
+* **Número de dispositivos** × **Frecuencia de emisión de eventos** × **Tamaño de cada evento**.
 
 De forma predeterminada, Azure Time Series Insights Gen2 puede ingerir los datos entrantes a una velocidad de **hasta 1 megabyte por segundo (MBps) por entorno de Azure Time Series Insights Gen2**. Existen limitaciones adicionales [por partición de centro de conectividad](./concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits).
 
 > [!TIP]
 >
 > * La compatibilidad del entorno con velocidades de ingesta de hasta 8 Mbps se puede proporcionar a petición.
-> * Póngase en contacto con nosotros si necesita mayor rendimiento mediante el envío de una incidencia de soporte técnico a través de Azure Portal.
- 
+> * Póngase en contacto con nosotros si necesita mayor rendimiento enviando una incidencia de soporte técnico mediante Azure Portal.
+
 * **Ejemplo 1:**
 
     Contoso Shipping tiene 100.000 dispositivos que emiten un evento tres veces por minuto. El tamaño de un evento es de 200 bytes. Usan una instancia de IoT Hub con cuatro particiones como origen de eventos de Azure Time Series Insights Gen2.
 
-    * La tasa de ingesta para su entorno de Azure Time Series Insights Gen2 sería: **100 000 dispositivos * 200 bytes/evento * (3/60 evento/segundo) = 1 MBps**.
+  * La tasa de ingesta para su entorno de Azure Time Series Insights Gen2 sería: **100 000 dispositivos * 200 bytes/evento * (3/60 evento/segundo) = 1 MBps**.
     * Si se da por hecho que las particiones están equilibradas, la tasa de ingesta por partición sería de 0,25 Mbps.
     * La tasa de ingesta de Contoso Shipping estaría dentro de los límites de escala.
 
@@ -49,13 +49,13 @@ De forma predeterminada, Azure Time Series Insights Gen2 puede ingerir los datos
 
     Contoso Fleet Analytics tiene 40 000 dispositivos que emiten un evento cada segundo. Se usa un centro de eventos con un recuento de particiones de 2 como origen del evento de Azure Time Series Insights Gen2. El tamaño de un evento es de 200 bytes.
 
-    * La tasa de ingesta de entorno sería: **40 000 dispositivos * 200 bytes/evento * 1 evento/segundo = 8 Mbps**.
+  * La tasa de ingesta de entorno sería: **40 000 dispositivos * 200 bytes/evento * 1 evento/segundo = 8 Mbps**.
     * Si se da por hecho que las particiones están equilibradas, la tasa por partición sería de 4 Mbps.
     * La tasa de ingesta de análisis de Contoso Fleet Analytics supera los límites del entorno y de la partición. Es posible enviar una solicitud a Azure Time Series Insights Gen2 a través de Azure Portal para aumentar la tasa de ingesta del entorno y crear un centro de eventos con más particiones para estar dentro de los límites.
 
 ## <a name="hub-partitions-and-per-partition-limits"></a>Particiones del centro y límites por partición
 
-Al planear el entorno de Azure Time Series Insights Gen2, es importante tener en cuenta la configuración de los orígenes de eventos que se van a conectar a Azure Time Series Insights Gen2. Tanto Azure IoT Hub como Event Hubs usan particiones para habilitar el escalado horizontal para el procesamiento de eventos. 
+Al planear el entorno de Azure Time Series Insights Gen2, es importante tener en cuenta la configuración de los orígenes de eventos que se van a conectar a Azure Time Series Insights Gen2. Tanto Azure IoT Hub como Event Hubs usan particiones para habilitar el escalado horizontal para el procesamiento de eventos.
 
 Una *partición* es una secuencia ordenada de eventos que se mantiene en un centro. El número de particiones se establece durante la fase de creación del centro y no se puede cambiar.
 
@@ -64,7 +64,7 @@ Para conocer los procedimientos recomendados de partición de Event Hubs, revise
 > [!NOTE]
 > La mayoría de las instancias de IoT Hub que se usan con Azure Time Series Insights Gen2 solo necesitan cuatro particiones.
 
-Tanto si está creando un nuevo centro para el entorno de Azure Time Series Insights Gen2 como si usa uno existente, deberá calcular la tasa de ingesta por partición para determinar si se encuentra dentro de los límites. 
+Tanto si está creando un nuevo centro para el entorno de Azure Time Series Insights Gen2 como si usa uno existente, deberá calcular la tasa de ingesta por partición para determinar si se encuentra dentro de los límites.
 
 Azure Time Series Insights Gen2 tiene actualmente un **límite general por partición de 0,5 MBps**.
 

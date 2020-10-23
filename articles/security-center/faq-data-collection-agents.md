@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894816"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341845"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Preguntas frecuentes: preguntas sobre recopilación de datos, agentes y áreas de trabajo
 
@@ -43,7 +43,7 @@ Para más información, vea [Precios de Security Center ](https://azure.microsof
 
 ## <a name="what-is-the-log-analytics-agent"></a>¿Qué es el agente de Log Analytics?
 
-Para supervisar las amenazas y vulnerabilidades de seguridad, Azure Security Center depende del [agente de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent), que es el mismo agente que el servicio Azure Monitor usa. 
+Para supervisar las amenazas y vulnerabilidades de seguridad, Azure Security Center depende del [agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md), que es el mismo agente que el servicio Azure Monitor usa. 
 
 A veces, el agente se denomina Microsoft Monitoring Agent (o "MMA"). 
 
@@ -66,7 +66,7 @@ Las máquinas virtuales Linux o Windows de IaaS son aptas si:
 
 - La extensión del agente de Log Analytics no está instalada actualmente en la máquina virtual.
 - El estado de la máquina virtual es en ejecución.
-- El [agente de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) de Windows o Linux está instalado.
+- El [agente de máquina virtual de Azure](../virtual-machines/extensions/agent-windows.md) de Windows o Linux está instalado.
 - La máquina virtual no se utiliza como dispositivo, es decir, firewall de aplicaciones web o de próxima generación.
 
 
@@ -88,7 +88,7 @@ La ubicación del área de trabajo predeterminada depende de la región de Azure
 
 ## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>¿Qué datos recopila el agente de Log Analytics?
 
-Para obtener una lista completa de las aplicaciones y los servicios que supervisa el agente, consulte [¿Qué supervisa Azure Monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services)
+Para obtener una lista completa de las aplicaciones y los servicios que supervisa el agente, consulte [¿Qué supervisa Azure Monitor?](../azure-monitor/monitor-reference.md#azure-services)
 
 > [!IMPORTANT]
 > Tenga en cuenta que, para algunos servicios, como Azure Firewall, si ha habilitado el registro y ha elegido un recurso locuaz para registrar (por ejemplo, si configura el registro en *detallado*), puede que vea un impacto significativo en las necesidades de almacenamiento del área de trabajo de Log Analytics. 
@@ -166,7 +166,7 @@ Puede desactivar el aprovisionamiento automático en las suscripciones en la dir
 
 1. Si su suscripción tiene habilitado Azure Defender, abra la directiva de seguridad de esa suscripción y seleccione **Azure Defender está desactivado**.
 
-   ![Plan de tarifa][1]
+    :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Habilitación o deshabilitación de Azure Defender":::
 
 1. Después, desactive el aprovisionamiento automático seleccionando **Desactivar** en la página **Directiva de seguridad: Recopilación de datos**.
    ![Recopilación de datos][2]
@@ -200,7 +200,7 @@ Instale la extensión del agente de Log Analytics de forma manual para que Secur
 
 Puede conectar al agente a cualquier área de trabajo personalizada existente o a la que creara Security Center. Si el área de trabajo personalizada no tiene las soluciones "Security" o "SecurityCenterFree" habilitadas, será necesario aplicar una solución. Para la aplicación, seleccione el área de trabajo personalizada o la suscripción y aplique un plan de tarifa desde la página **Directiva de seguridad: plan de tarifa**.
 
-   ![Plan de tarifa][1]
+:::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Habilitación o deshabilitación de Azure Defender":::
 
 Security Center habilitará la solución correcta en el área de trabajo en función del plan de tarifa seleccionado.
 
@@ -271,7 +271,6 @@ El agente utiliza una cantidad simbólica de recursos del sistema y apenas tiene
 
 
 <!--Image references-->
-[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/use-another-workspace.png

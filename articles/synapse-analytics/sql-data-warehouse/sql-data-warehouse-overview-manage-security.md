@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 9428ad0756fac59f54e7036d26a1b7d6408cab31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06f62fd656357e16396a0458a9afee12dcfa507f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200977"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91629376"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Protección de una base de datos en Azure Synapse
 
@@ -33,7 +33,7 @@ Este artículo le guiará a través de los aspectos básicos de la protección d
 
 Seguridad de conexión hace referencia a cómo restringir y proteger las conexiones a la base de datos mediante reglas de firewall y cifrado de las conexiones.
 
-Las reglas de firewall las usan tanto el [servidor lógico con SQL Server](../../azure-sql/database/logical-servers.md) como sus bases de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan incluido explícitamente en la lista blanca. Para permitir conexiones desde la dirección IP pública de la máquina cliente o de la aplicación, primero debe crear una regla de firewall de nivel de servidor mediante Azure Portal, la API de REST o PowerShell.
+Las reglas de firewall las usan tanto el [servidor lógico con SQL Server](../../azure-sql/database/logical-servers.md) como sus bases de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan aprobado explícitamente. Para permitir conexiones desde la dirección IP pública de la máquina cliente o de la aplicación, primero debe crear una regla de firewall de nivel de servidor mediante Azure Portal, la API de REST o PowerShell.
 
 Como procedimiento recomendado, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall de nivel de servidor tanto como sea posible.  Para acceder al grupo de SQL desde su equipo local, asegúrese de que el firewall de su red y del equipo local permita la comunicación de salida en el puerto TCP 1433.  
 

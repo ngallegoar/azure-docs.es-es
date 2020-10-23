@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56eee39a9e99e9d6752d1b4f6eb7182043ff14d6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 168b41534f6ea6055294cc9e9cec139853904fea
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230592"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91358906"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalación y uso de las vistas de Log Analytics para Azure Active Directory
 
@@ -56,7 +56,7 @@ Para usar las vistas de Log Analytics, necesita:
 
 3. Seleccione cualquiera de estas vistas para pasar a los informes individuales. También puede establecer alertas sobre cualquiera de los parámetros del informe. Por ejemplo, vamos a establecer una alerta para cada vez que se produzca un error de inicio de sesión. Para ello, seleccione primero la vista **Sign-ins Events** (Eventos de inicio de sesión), seleccione **Sign-in errors over time** (Errores de inicio de sesión a lo largo del tiempo) y, a continuación, seleccione **Analytics** (Análisis) para abrir la página de detalles, con la consulta real detrás del informe. 
 
-    ![Detalles](./media/howto-install-use-log-analytics-views/details.png)
+    ![Captura de pantalla que muestra la página de detalles de análisis que tiene la consulta para el informe.](./media/howto-install-use-log-analytics-views/details.png)
 
 
 4. Seleccione **Set alert** (Establecer alerta) y, después, seleccione la lógica **Whenever the Custom log search is &lt; (Siempre que la búsqueda de registros personalizados sea) sin definir&gt;** en la sección **Alert criteria** (Criterios de alerta). Como queremos emitir una alerta cuando haya un error de inicio de sesión, establezca el **umbral** de la lógica de alerta predeterminada en **1** y, a continuación, seleccione **Hecho**. 

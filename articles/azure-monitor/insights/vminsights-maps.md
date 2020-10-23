@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: 3227585b62583d0a05f8dbc0444ee5bb4a27df77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 32ad92b333eda8cd429303177dba160f0b58af54
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320517"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91445534"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Uso de la característica de asignación de Azure Monitor para VM para conocer los componentes de una aplicación
 En Azure Monitor para VM, puede ver los componentes de la aplicación detectados en las máquinas virtuales (VM) de Windows y Linux que se ejecutan en Azure o en su entorno. Puede observar las VM de dos maneras. Ver una asignación directamente desde una VM o ver un asignación desde Azure Monitor para ver los componentes de los grupos de VM. En este artículo le ayudamos a comprender estos dos métodos de visualización y a usar la característica de asignación. 
@@ -95,7 +95,7 @@ La asignación muestra las dependencias de la VM mediante la detección de proce
 
 De forma predeterminada, la asignación muestra los últimos 30 minutos. Si quiere ver el aspecto de las dependencias en el pasado, puede consultar los intervalos de tiempo históricos de hasta hace una hora. Para ejecutar la consulta, use el selector **TimeRange** en la esquina superior izquierda. Puede ejecutar una consulta, por ejemplo, durante un incidente o para ver el estado antes de un cambio.  
 
-![Visión general directa de una asignación de máquina virtual](./media/vminsights-maps/map-direct-vm-01.png)
+![Captura de pantalla de la pestaña de asignación en la sección Conclusiones de supervisión de Azure Portal que muestra un diagrama de las dependencias entre máquinas virtuales.](./media/vminsights-maps/map-direct-vm-01.png)
 
 ## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Visualización de una asignación desde un conjunto de escalado de máquinas virtuales
 
@@ -111,7 +111,7 @@ Para cargar un asignación para una determinada instancia, seleccione primero es
 
 De forma predeterminada, la asignación muestra los últimos 30 minutos. Si quiere ver el aspecto de las dependencias en el pasado, puede consultar los intervalos de tiempo históricos de hasta hace una hora. Para ejecutar la consulta, use el selector **TimeRange**. Puede ejecutar una consulta, por ejemplo, durante un incidente o para ver el estado antes de un cambio.
 
-![Visión general directa de una asignación de máquina virtual](./media/vminsights-maps/map-direct-vmss-01.png)
+![Captura de pantalla de la pestaña de asignación en la sección Conclusiones de supervisión de Azure Portal que muestra un diagrama de dependencias entre conjuntos de escalado de máquinas virtuales.](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
 >También puede acceder a una asignación de una instancia específica desde la vista **Instancias** de su conjunto de escalado de máquinas virtuales. En la sección **Configuración**, vaya a **Instancias** > **Insights**.

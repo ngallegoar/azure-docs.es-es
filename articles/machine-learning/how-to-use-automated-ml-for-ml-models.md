@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 3214ce260fa4981b8ac970bdf3520ecd7de59e18
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 47df04a0195c4cfcc4e40db5bf21387a284f682c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985578"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91362255"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
 
@@ -143,7 +143,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
 1. (Opcional) Consulte la configuración de caracterización: Si decide habilitar **Caracterización automática** en el formulario **Ver configuración de caracterización**, se aplican las técnicas de caracterización predeterminadas. En **Ver configuración de caracterización** puede cambiar estos valores predeterminados y personalizarlos según corresponda. Obtenga información sobre cómo [personalizar las caracterizaciones](#customize-featurization). 
 
-    ![Formulario del tipo de tarea de Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Select task type (Seleccionar tipo de tarea) con la opción View featurization settings (Ver configuración de caracterización) seleccionada.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 ## <a name="customize-featurization"></a>Personalización de la caracterización
 
@@ -196,7 +196,7 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 
 1. Rellene el panel **Implementar modelo**.
 
-    Campo| Valor
+    Campo| Value
     ----|----
     Nombre| Escriba un nombre único para la implementación.
     Descripción| Escriba una descripción para saber mejor para qué sirve esta implementación.

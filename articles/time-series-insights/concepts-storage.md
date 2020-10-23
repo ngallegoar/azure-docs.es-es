@@ -1,52 +1,71 @@
 ---
 title: Introducción a Storage - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Información acerca del almacenamiento de datos en Azure Time Series Insights Gen2.
-author: esung22
-ms.author: elsung
-manager: diviso
+author: lyrana
+ms.author: lyhughes
+manager: deepakpalled
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: c05de0462dde2b09e0e01919dfc691a85df153fa
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483276"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91460835"
 ---
 # <a name="data-storage"></a>Almacenamiento de datos
 
-Cuando se crea un entorno de Azure Time Series Insights Gen2, se crean también dos recursos de Azure:
+En este artículo se describe el almacenamiento de datos en Azure Time Series Insights Gen2. Se explican el almacenamiento intermedio y en reposo, la disponibilidad de los datos y los procedimientos recomendados.
 
-* Un entorno de Azure Time Series Insights Gen2 que se puede configurar para el almacenamiento de datos intermedio.
-* Una cuenta de Azure Storage para el almacenamiento de datos en frío.
+## <a name="provisioning"></a>Aprovisionamiento
 
-Los datos del almacenamiento intermedio solo están disponibles a través de las [API Time Series Query](./time-series-insights-update-tsq.md) y el [explorador de Azure Time Series Insights](./time-series-insights-update-explorer.md). El almacén intermedio contendrá datos recientes dentro del [período de retención](./time-series-insights-update-plan.md#the-preview-environment) seleccionado al crear el entorno de Azure Time Series Insights Gen2.
+Al crear un entorno de Azure Time Series Insights Gen2, tiene las siguientes opciones:
 
-Azure Time Series Insights Gen2 guarda los datos del almacenamiento en reposo en Azure Blob Storage con el [formato de archivo de Parquet](#parquet-file-format-and-folder-structure). Azure Time Series Insights Gen2 administra estos datos del almacenamiento en reposo de forma exclusiva, aunque están disponibles para leerse directamente como archivos estándar de Parquet.
+* Almacenamiento de datos en reposo:
+  * Cree un nuevo recurso de Azure Storage en la suscripción y la región que ha elegido para el entorno.
+  * Conecte una cuenta de Azure Storage existente. Esta opción solo está disponible si se implementa desde una [plantilla](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions) de Azure Resource Manager y no está visible en Azure Portal.
+* Almacenamiento intermedio de datos:
+  * El almacenamiento intermedio de datos es opcional y se puede habilitar o deshabilitar durante o después del momento del aprovisionamiento. Si decide habilitar el almacenamiento intermedio en un momento posterior y ya hay datos en el almacenamiento en reposo, consulte [esta](concepts-storage.md#warm-store-behavior) sección a continuación para comprender el comportamiento esperado. El tiempo de retención de datos del almacenamiento intermedio se puede configurar entre 7 y 31 días, y esto también se puede ajustar según sea necesario.
+
+Cuando se ingiere un evento, se indexa en el almacenamiento intermedio (si está habilitado) y en el almacenamiento en reposo.
+
+[![Información general sobre almacenamiento](media/concepts-storage/pipeline-to-storage.png)](media/concepts-storage/pipeline-to-storage.png#lightbox)
 
 > [!WARNING]
 > Como propietario de la cuenta de Azure Blob Storage donde residen los datos del almacenamiento intermedio, tiene acceso total a todos los datos de la cuenta. Este acceso incluye permisos de escritura y eliminación. No modifique ni elimine los datos que escribe Azure Time Series Insights Gen2, ya que estas operaciones pueden provocar una pérdida de datos.
 
 ## <a name="data-availability"></a>Disponibilidad de los datos
 
-Azure Time Series Insights Gen2 crea particiones de los datos y los indexa para lograr un rendimiento óptimo de las consultas. Los datos están disponibles para realizar consultas tanto en almacenamiento parcialmente activo (si está habilitado) como en almacenamiento en reposo. La cantidad de datos que se va a ingerir puede afectar a esta disponibilidad.
+Azure Time Series Insights Gen2 crea particiones de los datos y los indexa para lograr un rendimiento óptimo de las consultas. Los datos están disponibles para realizar consultas tanto en almacenamiento parcialmente activo (si está habilitado) como en almacenamiento en reposo. La cantidad de datos que se ingieren y la tasa de rendimiento por partición pueden afectar a la disponibilidad. Consulte las [limitaciones de rendimiento](./concepts-streaming-ingress-throughput-limits.md) y los [procedimientos recomendados](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) del origen de eventos para obtener el mejor rendimiento. También puede configurar una [alerta](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) de retraso para recibir una notificación si el entorno experimenta problemas al procesar los datos.
 
 > [!IMPORTANT]
 > Es posible que experimente un período de hasta 60 segundos hasta que los datos estén disponibles. Si experimenta una latencia considerable de más de 60 segundos, envíe una incidencia de soporte técnico a través de Azure Portal.
 
-## <a name="azure-storage"></a>Azure Storage
+## <a name="warm-store"></a>Almacenamiento intermedio
+
+Los datos del almacenamiento intermedio solo están disponibles mediante las [API de consulta de Time Series](./time-series-insights-update-tsq.md), el [explorador de Azure Time Series Insights TSI](./time-series-insights-update-explorer.md) o el [conector de Power BI](./how-to-connect-power-bi.md). Las consultas al almacenamiento intermedio son gratuitas y no hay ninguna cuota, pero hay un [límite de 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) solicitudes simultáneas.
+
+### <a name="warm-store-behavior"></a>Comportamiento del almacenamiento intermedio
+
+* Cuando está habilitado, todos los datos transmitidos al entorno se enrutarán al almacenamiento intermedio, independientemente de la marca de tiempo del evento. Tenga en cuenta que la canalización de ingesta de streaming está diseñada para el streaming casi en tiempo real y [no se admite](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion) la ingesta de eventos históricos.
+* El período de retención se calcula en función del momento en el que el evento se indexa en el almacenamiento intermedio, no según la marca de tiempo del evento. Esto significa que los datos ya no están disponibles en el almacenamiento intermedio una vez transcurrido el período de retención, incluso si la marca de tiempo del evento es para el futuro.
+  * Ejemplo: un evento con pronósticos meteorológicos de 10 días se ingiere y se indexa en un contenedor de almacenamiento intermedio configurado con un período de retención de 7 días. Después de 7 días, el pronóstico no estará accesible en el almacenamiento intermedio, pero se puede consultar desde el almacenamiento en reposo.
+* Si habilita el almacenamiento intermedio en un entorno existente que ya tiene datos recientes indexados en el almacenamiento en reposo, tenga en cuenta que el almacenamiento intermedio no se rellenará con estos datos.
+* Si acaba de habilitar el almacenamiento intermedio y experimenta problemas al ver los datos recientes en el explorador, puede desactivar temporalmente las consultas del almacenamiento intermedio:
+
+   [![Deshabilitar las consultas del almacenamiento intermedio](media/concepts-storage/toggle-warm.png)](media/concepts-storage/toggle-warm.png#lightbox)
+
+## <a name="cold-store"></a>Almacenamiento en reposo
 
 En esta sección se describen detalles de Azure Storage relativos a Azure Time Series Insights Gen2.
 
 Para obtener una descripción detallada de Azure Blob Storage, lea [Introducción a Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md).
 
-### <a name="your-storage-account"></a>Cuenta de almacenamiento
-
-Cuando se crea un entorno de Azure Time Series Insights Gen2, se crea también una cuenta de Azure Storage como almacenamiento en reposo a largo plazo.  
+### <a name="your-cold-storage-account"></a>Cuenta de almacenamiento en reposo
 
 Azure Time Series Insights Gen2 conserva un máximo de dos copias de cada evento en su cuenta de Azure Storage. Una copia almacena los eventos ordenados por hora de ingesta, permitiendo siempre el acceso a los eventos en una secuencia ordenada por tiempo. Con el tiempo, Azure Time Series Insights Gen2 también crea una copia con una nueva partición de los datos que se van a optimizar para las consultas eficaces.
 

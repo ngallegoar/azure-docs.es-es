@@ -1,6 +1,6 @@
 - name: Documentación sobre la administración de aplicaciones
   href: index.yml
-- name: Introducción
+- name: Información general
   expanded: true
   items:
     - name: ¿Qué es la administración de aplicaciones?
@@ -220,6 +220,8 @@
           href: troubleshoot-password-based-sso.md
         - name: Solución de problemas del inicio de sesión único basado en SAML
           href: troubleshoot-saml-based-sso.md
+        - name: Depuración del inicio de sesión único basado en SAML
+          href: debug-saml-sso-issues.md
         - name: Solución de problemas sobre inicio de sesión del usuario
           items:
             - name: Petición de consentimiento inesperada

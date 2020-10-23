@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: f8411176e0979bdb894983bcf866abd0e1109e21
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 999be38e413288d2eb2f6342874e692972f300ad
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291677"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91409721"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Solicitud de aumentos de cuota para Azure HDInsight
 
 Las cuotas de núcleos de la CPU permiten garantizar que el uso de recursos se distribuya equitativamente entre todos los clientes de una determinada región de Azure. Sin embargo, en algunos casos, es posible que los requisitos empresariales exijan más recursos de clúster de los que permitirá la cuota actual. En tales casos, puede solicitar un aumento de la cuota de núcleos de la CPU para poder implementar clústeres, que cumplan los requisitos de procesamiento de datos.
 
-Cuando alcance un límite de cuota, no podrá implementar clústeres nuevos ni escalar horizontalmente los existentes con la adición de más nodos de trabajo. El límite de cuota única es la cuota de núcleos de CPU que existe en el nivel de región para cada suscripción. Por ejemplo, la suscripción puede tener un límite de 30 núcleos de CPU en la región Este de EE. UU., con otros 30 núcleos de CPU permitidos en el Este de EE. UU. 2.
+Cuando alcance un límite de cuota, no podrá implementar clústeres nuevos ni escalar horizontalmente los existentes con la adición de más nodos de trabajo. El límite de cuota única es la cuota de núcleos de CPU que existe en el nivel de región para cada suscripción. Por ejemplo, la suscripción puede tener un límite de 30 núcleos de CPU en la región Este de EE. UU., con otros 30 núcleos de CPU permitidos en el Este de EE. UU.
 
 ## <a name="gather-required-information"></a>Recopilación de la información necesaria
 

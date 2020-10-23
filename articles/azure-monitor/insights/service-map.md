@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f7268f698dcc26dbe99b517c9dd4584be67c3a82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825368"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448459"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 
@@ -169,7 +169,7 @@ Ciertos procesos cumplen roles determinados en los equipos: servidores web, serv
 
 En Service Map se muestran las conexiones con errores de procesos y equipos con una línea roja discontinua que indica que un sistema cliente no alcanza un proceso o puerto. Se informa de las conexiones erróneas de cualquier sistema con un agente de Mapa de servicio implementado si ese sistema es el que intenta establecer la conexión con errores. Service Map mide este proceso mediante la observación de los sockets TCP que no pueden establecer una conexión. Este error puede deberse a un firewall, una configuración incorrecta en el cliente o servidor o un servicio remoto que no está disponible.
 
-![Conexiones con errores](media/service-map/failed-connections.png)
+![Captura de pantalla de una parte de un mapa de servicio resaltando una línea roja discontinua que indica una conexión con errores entre el proceso backup.pl y el puerto 4475.](media/service-map/failed-connections.png)
 
 La comprensión de las conexiones con errores pueden ayudar a solucionar problemas, a la validación de la migración, el análisis de seguridad y al entendimiento general de la arquitectura. A veces las conexiones con errores son inofensivas, pero a menudo señalan directamente un problema, como un entorno de conmutación por error que de repente se convierte en inalcanzable o dos niveles de aplicación que no pueden comunicarse después de una migración a la nube.
 
@@ -193,7 +193,7 @@ Los grupos de puertos de servidor son cuadros que representan los puertos del se
 
 Al hacer clic en los puntos suspensivos (...) de la parte superior derecha de cualquier servidor aparece el menú contextual de ese servidor.
 
-![Conexiones con errores](media/service-map/context-menu.png)
+![Captura de pantalla que muestra el menú contextual abierto para un servidor en Service Map. El menú tiene las opciones Cargar mapa del servidor y Mostrar autovínculos.](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Cargar mapa del servidor
 
@@ -258,7 +258,7 @@ La integración de Service Map con Change Tracking es automática cuando ambas s
 
 El panel de **seguimiento de cambios del equipo** muestra todos los cambios, con el más reciente en primer lugar, además de un vínculo para profundizar en la búsqueda de registros a fin de obtener más detalles.
 
-![Panel de seguimiento de cambios del equipo](media/service-map/change-tracking.png)
+![Captura de pantalla del panel de seguimiento de cambios de la máquina en Service Map.](media/service-map/change-tracking.png)
 
 La imagen siguiente es una vista detallada de un evento ConfigurationChange que se puede ver después de seleccionar **Mostrar en Log Analytics**.
 
@@ -300,7 +300,7 @@ La integración de Service Map con Update Management es automática cuando ambas
 
 En el panel **Machine Updates** (Actualizaciones de la máquina) se muestran datos de la solución Update Management del servidor seleccionado. El panel muestra un resumen de las actualizaciones que faltan en el servidor durante el intervalo de tiempo seleccionado.
 
-![Panel de seguimiento de cambios del equipo](media/service-map/machine-updates.png)
+![Captura de pantalla del panel de actualizaciones de la máquina en Service Map.](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
 

@@ -6,112 +6,154 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: d61e052b10b7255cac37531f889324075d596f3c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ec2ffe71a32781a855da258f3621738f1a5f6be4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828462"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91294298"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solución de problemas de alertas de registro en Azure Monitor  
 
 En este artículo se muestra cómo solucionar problemas habituales con las alertas de registro en Azure Monitor. Además, se proporcionan soluciones a los problemas comunes sobre la funcionalidad y la configuración de las alertas de registro.
 
-El término *alertas de registro* describe las reglas que se desencadenan en función de una consulta de registros en un [área de trabajo de Azure Log Analytics](../log-query/get-started-portal.md) o en [Azure Application Insights](../log-query/log-query-overview.md). Obtenga más información acerca de la funcionalidad, la terminología y los tipos en [Alertas de registro en Azure Monitor](./alerts-unified-log.md).
+Las alertas de registro permiten a los usuarios usar una consulta de [Log Analytics](../log-query/get-started-portal.md) para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Las reglas pueden desencadenar una o varias acciones mediante [grupos de acciones](./action-groups.md). [Obtenga más información sobre la funcionalidad y la terminología de las alertas de registro](alerts-unified-log.md).
 
 > [!NOTE]
-> En este artículo no se tienen en cuenta los casos en que Azure Portal muestra una regla de alertas desencadenada y no se realiza una notificación a través de un grupo de acciones asociado. Para estos casos, consulte los detalles de [Crear y administrar grupos de acciones en Azure Portal](./action-groups.md).
+> En este artículo no se tienen en cuenta los casos en que Azure Portal muestra una regla de alertas desencadenada y no se realiza una notificación a través de un grupo de acciones asociado. Para estos casos, consulte los detalles sobre la solución de problemas [aquí](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
 
 ## <a name="log-alert-didnt-fire"></a>No se activó la alerta de registro
 
-Estas son algunas causas habituales por las que el estado de una [regla de alerta de registro en Azure Monitor](./alerts-log.md) configurada no se muestra [como *desencadenada* cuando se espera](./alerts-managing-alert-states.md).
-
 ### <a name="data-ingestion-time-for-logs"></a>Tiempo de ingesta de datos para registros
 
-La alerta de registro ejecuta periódicamente la consulta basada en [Log Analytics](../log-query/get-started-portal.md) o [Application Insights](../log-query/log-query-overview.md). Dado que Azure Monitor procesa muchos terabytes de datos de miles de clientes desde diferentes orígenes en todo el mundo, el servicio es susceptible de sufrir retrasos variables. Para obtener más información, consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](./data-ingestion-time.md).
+Azure Monitor procesa terabytes de registros de clientes de todo el mundo, lo que puede provocar [latencia en la ingesta de registros](./data-ingestion-time.md).
 
-Para mitigar los retrasos, el sistema espera y vuelve a intentar la consulta de alerta varias veces si detecta que aún no se han ingerido los datos necesarios. El sistema tiene un tiempo de espera establecido que aumenta exponencialmente. La alerta de registro solo se desencadena una vez que los datos están disponibles, por lo que el retraso puede deberse a una ingesta de datos de registro lenta.
+Los registros son datos semiestructurados e intrínsecamente con mayor latencia que las métricas. Si advierte que hay más de cuatro minutos de retraso en las alertas activadas, debería usar [alertas de métricas](alerts-metric-overview.md). Puede enviar datos al almacén de métricas desde los registros mediante [alertas de métricas para registros](alerts-metric-logs.md).
 
-### <a name="incorrect-time-period-configured"></a>Período de tiempo configurado incorrectamente
+El sistema vuelve a intentar la evaluación de la alerta varias veces para mitigar la latencia. Una vez que llegan los datos, se activa la alerta, que en la mayoría de los casos no coincide con la hora de entrada del registro.
 
-Como se describe en el artículo sobre la [terminología para alertas de registro](./alerts-unified-log.md#log-search-alert-rule---definition-and-types), el período de tiempo que se indica en la configuración especifica el intervalo de tiempo para la consulta. La consulta devuelve solo los registros que se crearon dentro de este intervalo.
+### <a name="incorrect-query-time-range-configured"></a>Configuración incorrecta del intervalo de tiempo de consulta
 
-El período restringe los datos capturados para una consulta de registros, con el fin de evitar abusos, y evita todos los comandos de tiempo (como **ago**) utilizados en la consulta de registros. Por ejemplo, si el período se establece en 60 minutos, y la consulta se ejecuta a la 1:15 p. m., los registros creados entre las 12:15 p. m. y la 1:15 p. m. son los únicos que se usan para la consulta de registros. Si la consulta de registros usa un comando de tiempo como **ago (1d)** , seguirá utilizando solo los datos entre las 12:15 p. m. y la 1:15 p. m., ya que el período está establecido en ese intervalo.
+El intervalo de tiempo de consulta se establece en la definición de la condición de la regla. Este campo se denomina **Período** en las áreas de trabajo y Application Insights, y **Reemplazar intervalo de tiempo de consulta** en los demás tipos de recursos. Al igual que en el análisis de registros, el intervalo de tiempo limita los datos de consulta al período especificado. Este intervalo se aplica incluso si se utiliza el comando **ago** en la consulta. 
 
-Compruebe que el período de tiempo en la configuración coincida con la consulta. En el ejemplo anterior, si la consulta de registros utiliza **ago (1d)** con el marcador verde, el período de tiempo debe establecerse en 24 horas o 1440 minutos (como se indica en rojo). Esta configuración garantiza que la consulta se ejecute según lo previsto.
+Por ejemplo, una consulta examina 60 minutos si el intervalo de tiempo es de 60 minutos, aunque el texto contenga **ago(1d)** . El intervalo de tiempo y el filtrado de tiempo de la consulta deben coincidir. En el caso del ejemplo, cambiar el valor de **Período** / **Reemplazar intervalo de tiempo de consulta** a un día funcionaría según lo esperado.
 
 ![Período de tiempo](media/alert-log-troubleshoot/LogAlertTimePeriod.png)
 
-### <a name="suppress-alerts-option-is-set"></a>Se ha establecido la opción Suprimir alertas
+### <a name="actions-are-muted-in-the-alert-rule"></a>Acciones silenciadas en la regla de alertas
 
-Como se describe en el paso 8 del artículo sobre cómo [crear una regla de alerta de registro en Azure Portal](./alerts-log.md#create-a-log-alert-rule-with-the-azure-portal), las alertas de registro proporcionan una opción **Suprimir alertas** destinada a suprimir las acciones de desencadenamiento y notificación durante un período de tiempo configurado. Como resultado, puede parecerle que una alerta no se desencadena. De hecho, se ha desencadenado, pero se ha suprimido.  
+Las alertas de registro ofrecen una opción para silenciar las acciones de alerta activadas durante un período de tiempo determinado. Este campo se denomina **Desactivar alertas** en áreas de trabajo y Application Insights. En los demás tipos de recursos, se denomina **Silenciar acciones**. 
+
+Un problema habitual es que crea que la alerta no ha desencadenado las acciones debido a un problema del servicio cuando, en realidad, se han silenciado en la configuración de la regla.
 
 ![Suprimir alertas](media/alert-log-troubleshoot/LogAlertSuppress.png)
 
-### <a name="metric-measurement-alert-rule-is-incorrect"></a>Regla de alertas de unidades métricas
+### <a name="metric-measurement-alert-rule-with-splitting-using-the-legacy-log-analytics-api"></a>Regla de alertas de unidades métricas con división mediante la API de Log Analytics heredada
 
-*Las alertas de registro de unidades métricas* constituyen un subtipo de alertas de registro que tienen funcionalidades especiales y una sintaxis de consulta de alerta restringida. Una regla para una alerta de registro de unidades métricas requiere que el resultado de la consulta sea una serie temporal métrica. Es decir, el resultado es una tabla con períodos de tiempo distintos, de igual tamaño, junto con los valores agregados correspondientes.
+[Unidades métricas](alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) es un tipo de alerta de registro que se basa en resultados de series temporales resumidos. Estas reglas permiten agrupar por columnas para [dividir las alertas](alerts-unified-log.md#split-by-alert-dimensions). Si usa la API de Log Analytics heredada, la división no funcionará según lo previsto. En esta API heredada no se puede elegir la agrupación.
 
-Puede optar por tener variables adicionales en la tabla junto con **AggregatedValue**. Estas variables se pueden usar para ordenar la tabla.
-
-Por ejemplo, suponga que se ha configurado una regla para una alerta de registro de unidades métricas como:
-
-- Consulta de `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
-- Período de tiempo de 6 horas
-- Umbral de 50
-- Lógica de alerta de tres infracciones consecutivas
-- **Aggregate Upon** establecido en **$table**
-
-Dado que el comando incluye **summarize ... by** (resumir … por) y se han proporcionado dos variables (**timestamp** y **$table**), el sistema elegirá **$table** para **Aggregate Upon**. El sistema ordena la tabla de resultados por el campo **$table**, como se muestra en la captura de pantalla siguiente. A continuación, examina las distintas instancias de **AggregatedValue** para cada tipo de tabla (como **availabilityResults**) para ver si se han producido tres o más infracciones consecutivas.
-
-![Ejecución de consultas de unidades métricas con varios valores](media/alert-log-troubleshoot/LogMMQuery.png)
-
-Dado que **Aggregate Upon** está definido en **$table**, los datos se ordenan en una columna **$table** (se indica en rojo). A continuación, se agrupan y buscan los tipos de campo **Aggregate Upon**.
-
-Por ejemplo, para **$table**, los valores de **availabilityResults** se considerarán un trazado o una entidad (se indica en naranja). En el trazado o la entidad de este valor, el servicio de alerta busca tres infracciones consecutivas (se indican en verde). Las infracciones desencadenan una alerta para el valor de la tabla **availabilityResults**.
-
-De forma similar, si se producen tres infracciones consecutivas para cualquier otro valor de **$table**, se desencadena otra notificación de alerta para el mismo fin. El servicio de alertas ordena automáticamente los valores en un trazado o una entidad (se indica en naranja) por tiempo.
-
-Ahora supongamos que la regla de la alerta de registro de unidades métricas se modificó y que la consulta era `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)`. El resto de la configuración sigue siendo la misma que antes, incluida la lógica de alerta de las tres infracciones consecutivas. En este caso, la opción de **Aggregate Upon** será **timestamp** de forma predeterminada. Solo se proporciona un valor en la consulta de **summarize... by** (es decir, **timestamp**). Al igual que en el ejemplo anterior, el resultado al final de la ejecución será el que se muestra en la siguiente ilustración.
-
-   ![Ejecución de consultas de unidades métricas con un valor singular](media/alert-log-troubleshoot/LogMMtimestamp.png)
-
-Dado que **Aggregate Upon** está definido en **timestamp**, los datos se ordenan en una columna **timestamp** (se indica en rojo). A continuación, se realiza la agrupación por **timestamp**. Por ejemplo, los valores de `2018-10-17T06:00:00Z` se considerarán un trazado o una entidad (se indica en naranja). En el trazado o la entidad de este valor, el servicio de alerta no encontrará ninguna infracción consecutiva (ya que cada valor de **timestamp** tiene una sola entrada). Por tanto, la alerta nunca se desencadenará. En este caso, el usuario tiene que:
-
-- Agregar una variable ficticia o una variable existente (como **$table**) para ordenar correctamente con el campo **Aggregate Upon** configurado.
-- Volver a configurar una regla de alerta para usar, en su lugar, la lógica de alerta basada en **infracción total**.
+La versión actual, ScheduledQueryRules API, permite establecer la opción **Agregado en** en las reglas de tipo [Unidades métricas](alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value), que funcionará según lo previsto. [Obtenga más información sobre cómo cambiar a la versión ScheduledQueryRules API actual](alerts-log-api-switch.md).
 
 ## <a name="log-alert-fired-unnecessarily"></a>Alerta de registro activada innecesariamente
 
-Una [regla de alertas de registro en Azure Monitor](./alerts-log.md) configurada podría desencadenarse inesperadamente al verla en [Alertas de Azure](./alerts-managing-alert-states.md). En las secciones siguientes se describen algunos motivos comunes.
+Es posible que una [regla de alertas de registro configurada en Azure Monitor](./alerts-log.md) se desencadene de forma inesperada. En las secciones siguientes se describen algunos motivos comunes.
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerta desencadenada por datos parciales
 
-Log Analytics y Application Insights están sujetos al procesamiento y a retrasos de ingesta. Al ejecutar una consulta de alerta de registro, es posible que encuentre que no hay datos disponibles o que solo algunos datos estén disponibles. Para obtener más información, consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](./data-ingestion-time.md).
+Azure Monitor procesa terabytes de registros de clientes de todo el mundo, lo que puede provocar [latencia en la ingesta de registros](./data-ingestion-time.md).
 
-En función de cómo configure la regla de alertas, puede producirse una activación incorrecta si no hay ningún dato en los registros, o los datos que hay son parciales, en el momento de la ejecución de la alerta. En tales casos, se recomienda cambiar la configuración o la consulta de alerta.
+Los registros son datos semiestructurados e intrínsecamente con mayor latencia que las métricas. Si advierte que hay errores de activación en las alertas, debería usar [alertas de métricas](alerts-metric-overview.md). Puede enviar datos al almacén de métricas desde los registros mediante [alertas de métricas para registros](alerts-metric-logs.md).
 
-Por ejemplo, si la regla de alertas de registro se configura para desencadenarse cuando el número de resultados de una consulta de Analytics sea menor que 5, la alerta se desencadenará cuando no haya datos (cero registros) o los resultados sean parciales (un registro). Sin embargo, después del retraso de la ingesta de datos, la misma consulta con todos los datos podría proporcionar un resultado de 10 registros.
+Las alertas de registro funcionan mejor cuando se quieren detectar datos en los registros. No funcionan tan bien cuando se quiere detectar la falta de datos en los registros. Por ejemplo, cuando se trata de alertas sobre el latido de máquinas virtuales. 
 
-### <a name="alert-query-output-is-misunderstood"></a>Salida de la consulta de alerta no comprendida
+Aunque existen funcionalidades integradas para evitar alertas falsas, pueden seguir produciéndose en datos con mucha latencia (en torno a más de 30 minutos) y en datos con picos de latencia.
 
-La lógica de las alertas de registros se proporcionan en una consulta de Analytics. La consulta de Analytics puede usar varias funciones matemáticas y macrodatos. El servicio de alertas ejecuta la consulta a los intervalos especificados con datos de un período especificado. Este servicio realiza pequeños cambios en la consulta en función del tipo de alerta. Este cambio puede verse en la sección **Consulta que se va a ejecutar** en la pantalla **Configurar lógica de señal**:
+### <a name="query-optimization-issues"></a>Problemas de optimización de consultas
+
+El servicio de alertas cambia la consulta para optimizarla y reducir la carga y la latencia de las alertas. El flujo de alerta se ha creado de forma que transforme los resultados que indican la emisión de una alerta. Por ejemplo, en un caso de una consulta como la siguiente:
+
+``` Kusto
+SecurityEvent
+| where EventID == 4624
+```
+
+Si la intención del usuario es enviar una alerta, cuando se produce este tipo de evento la lógica de alerta anexa `count` a la consulta. La consulta que se ejecutará será la siguiente:
+
+``` Kusto
+SecurityEvent
+| where EventID == 4624
+| count
+```
+
+No es necesario agregar lógica de alerta a la consulta y hacerlo puede incluso provocar problemas. En el ejemplo anterior, si incluye `count` en la consulta, siempre dará como resultado el valor 1, ya que el servicio de alertas ejecutará el comando `count` sobre `count`.
+
+La consulta optimizada es lo que ejecuta el servicio de alertas de registro. Puede ejecutar la consulta modificada en el [portal](../log-query/log-query-overview.md) o en la [API](/rest/api/loganalytics/) de Log Analytics.
+
+En el caso de las áreas de trabajo y Application Insights, se llama **Consulta que se va a ejecutar** en el panel de condición. En los demás tipos de recursos, seleccione **See final alert Query** (Ver consulta de alerta final) en la pestaña de condición.
 
 ![Consulta que se va a ejecutar](media/alert-log-troubleshoot/LogAlertPreview.png)
 
-El contenido del cuadro **Consulta que se va a ejecutar** es lo que ejecuta el servicio de alertas de registro. Si quiere saber cuál será el resultado de la consulta de alerta antes de crear la alerta,puede ejecutar la consulta indicada y el intervalo de tiempo a través del [portal de Analytics](../log-query/log-query-overview.md) o [Analytics API](/rest/api/loganalytics/).
-
 ## <a name="log-alert-was-disabled"></a>La alerta de registro se deshabilitó
 
-En las siguientes secciones se enumeran algunos de los motivos por los que Azure Monitor podría deshabilitar la [regla de alertas de registro](./alerts-log.md).
+En las siguientes secciones se enumeran algunos de los motivos por los que Azure Monitor podría deshabilitar la regla de alertas de registro. También se incluye un [ejemplo del registro de actividad que se envía cuando se deshabilita una regla](#activity-log-example-when-rule-is-disabled).
 
-### <a name="resource-where-the-alert-was-created-no-longer-exists"></a>El recurso donde se creó la alerta ya no existe
+### <a name="alert-scope-no-longer-exists-or-was-moved"></a>El ámbito de alerta ya no existe o se ha movido
 
-Las reglas de alertas de registro creadas en Azure Monitor están destinadas a un recurso específico, como un área de trabajo de Azure Log Analytics, una aplicación de Azure Application Insights y un recurso de Azure. A continuación, el servicio de alertas de registro ejecutará una consulta de Analytics proporcionada en la regla para el destino especificado. No obstante, tras la creación de la regla, los usuarios tienden a eliminarla de Azure, o a moverla en Azure (el destino de la regla de alertas de registro). Dado que el destino de la regla de alertas ya no es válido, se produce un error en la ejecución de la regla.
+Cuando los recursos de ámbito de una regla de alertas ya no son válidos, se produce un error en la ejecución de la regla. En este caso, la facturación también se detiene.
 
-En estos casos, Azure Monitor se deshabilita la alerta de registro y se asegura que no se le facture innecesariamente si la regla no se puede ejecutar continuamente durante un período cuantificable (por ejemplo, una semana). Puede averiguar la hora exacta en que Azure Monitor deshabilitó la alerta de registro a través del [registro de actividad de Azure](../../azure-resource-manager/management/view-activity-logs.md). En el registro de actividad de Azure, se agrega un evento cuando Azure Monitor deshabilita la regla de alertas de registro.
+Azure Monitor deshabilitará la alerta de registro después de una semana si se produce un error de forma continuada.
 
-El siguiente evento de ejemplo del registro de actividad de Azure es para una regla de alertas que se ha deshabilitado debido a un error continuo.
+### <a name="query-used-in-a-log-alert-isnt-valid"></a>La consulta que se usa en una alerta de registro no es válida
+
+Cuando se crea una regla de alertas de registro, se valida la consulta para comprobar si la sintaxis es correcta. En ocasiones, sin embargo, la consulta proporcionada en la regla de alertas de registro puede empezar a fallar. Estos son algunos de los motivos habituales:
+
+- Las reglas se crearon a través de la API y el usuario omitió la validación.
+- La consulta [se ejecuta en varios recursos](../log-query/cross-workspace-query.md) y uno o varios de los recursos se eliminaron o se movieron.
+- Se [produce un error en la consulta](https://dev.loganalytics.io/documentation/Using-the-API/Errors) por los siguientes motivos:
+    - La solución de registro no se [implementó en el área de trabajo](../insights/solutions.md#install-a-monitoring-solution), por lo que no se crearon tablas.
+    - Los datos dejaron de llegar a una tabla de la consulta durante más de 30 días.
+    - Todavía no se han creado [tablas de registros personalizadas](data-sources-custom-logs.md), porque no se ha iniciado el flujo de datos.
+- Los cambios en el [lenguaje de consulta](/azure/kusto/query/) incluyen un formato revisado para comandos y funciones. Por lo tanto, la consulta proporcionada anteriormente ya no es válida.
+
+[Azure Advisor](../../advisor/advisor-overview.md) le advierte acerca de este comportamiento. Agrega una recomendación sobre la regla de alertas de registro afectada. La categoría usada es "Alta disponibilidad" con impacto medio y la descripción "Reparar la regla de alerta de registro para garantizar la supervisión".
+
+## <a name="alert-rule-quota-was-reached"></a>Se alcanzó la cuota de la regla de alerta
+
+El número de reglas de alertas de búsqueda de registros por suscripción y recurso está sujeto a los límites de cuota descritos [en este artículo](../service-limits.md).
+
+### <a name="recommended-steps"></a>Pasos recomendados
+    
+Si ha alcanzado el límite de cuota, los siguientes pasos pueden ayudar a resolver el problema.
+
+1. Intente eliminar o deshabilitar las reglas de alertas de búsqueda de registros que ya no se usan.
+1. Intente usar la [división de alertas por dimensiones](alerts-unified-log.md#split-by-alert-dimensions) para reducir el número de reglas. Estas reglas pueden supervisar muchos recursos y casos de detección.
+1. Si necesita aumentar el límite de cuota, abra una solicitud de soporte técnico y proporcione la siguiente información:
+
+    - Los identificadores de suscripción y de recurso para los que tiene que aumentar los límites de cuota.
+    - El motivo de aumento de la cuota.
+    - Tipo de recurso para el que se va a aumentar la cuota: **Log Analytics**, **Application Insights**, etcétera.
+    - El límite de cuota solicitado.
+
+
+### <a name="to-check-the-current-usage-of-new-log-alert-rules"></a>Para comprobar el uso actual de las nuevas reglas de alertas de registro
+    
+#### <a name="from-the-azure-portal"></a>Desde Azure Portal
+
+1. Abra la pantalla *Alertas* y seleccione *Administrar reglas de alerta*.
+2. Filtre la suscripción correspondiente mediante el control desplegable *Suscripción*.
+3. Asegúrese de NO filtrar por un grupo de recursos, tipo de recurso o recurso específico.
+4. En el control desplegable *Tipo de señal*, seleccione "Búsqueda de registros".
+5. Compruebe que el control desplegable *Estado* está establecido en "Habilitado".
+6. El número total de reglas de alertas de búsqueda de registros se mostrará encima de la lista de reglas.
+
+#### <a name="from-api"></a>Desde la API
+
+- PowerShell: [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule)
+- API REST: [Lista por suscripción](/rest/api/monitor/scheduledqueryrules/listbysubscription)
+
+## <a name="activity-log-example-when-rule-is-disabled"></a>Ejemplo de registro de actividad cuando la regla está deshabilitada
+
+Si se produce un error en la consulta durante siete días de forma continuada, Azure Monitor deshabilitará la alerta de registro y dejará de facturar la regla. Puede averiguar la hora exacta en que Azure Monitor deshabilitó la alerta de registro a través del [registro de actividad de Azure](../../azure-resource-manager/management/view-activity-logs.md). Consulte este ejemplo:
 
 ```json
 {
@@ -174,55 +216,8 @@ El siguiente evento de ejemplo del registro de actividad de Azure es para una re
 }
 ```
 
-### <a name="query-used-in-a-log-alert-is-not-valid"></a>La consulta que se usa en una alerta de registro no es válida
-
-Cada regla de alertas de registro creada en Azure Monitor como parte de su configuración debe especificar una consulta de Analytics que el servicio de alerta ejecutará periódicamente. Es posible que la consulta de Analytics tuviera la sintaxis correcta en el momento de crear o actualizar la regla. Pero a veces, durante un período de tiempo, la consulta proporcionada en la regla de alertas de registro puede desarrollar problemas de sintaxis y provocar un error en la ejecución de la regla. Algunas razones comunes por las que una consulta de Analytics proporcionada en una regla de alertas de registro puede desarrollar errores son:
-
-- La consulta está escrita para [ejecutarse en varios recursos](../log-query/cross-workspace-query.md). Uno o varios de los recursos especificados ya no existen.
-- La [alerta de registro del tipo de unidades métricas](./alerts-unified-log.md#metric-measurement-alert-rules) configurada tiene una consulta de alerta que no cumple con las normas de sintaxis.
-- No ha habido ningún flujo de datos para la plataforma de Analytics. El [ejecución de la consulta produce un error](https://dev.loganalytics.io/documentation/Using-the-API/Errors) porque no hay ningún dato para la consulta proporcionada.
-- Los cambios en el [lenguaje de consulta](/azure/kusto/query/) incluyen un formato revisado para comandos y funciones. Por lo tanto, la consulta proporcionada anteriormente en una regla de alertas ya no es válida.
-
-[Azure Advisor](../../advisor/advisor-overview.md) le advierte acerca de este comportamiento. Se agregó una recomendación para la regla de alertas de registro específica en Azure Advisor, bajo la categoría de alta disponibilidad con un impacto medio y una descripción similar a "Reparar la regla de alertas de registro para garantizar la supervisión".
-
-> [!NOTE]
-> Si una consulta de alerta de la regla de alertas de registro no se rectifica después de que Azure Advisor proporcione una recomendación durante siete días, Azure Monitor deshabilitará la alerta de registro y se asegurará de que no le facturen innecesariamente cuando la regla no pueda ejecutarse continuamente durante un período cuantificable (siete días). Para averiguar la hora exacta en que Azure Monitor deshabilitó la regla de alertas de registro, puede buscar un evento en el [registro de actividad de Azure](../../azure-resource-manager/management/view-activity-logs.md).
-
-## <a name="alert-rule-quota-was-reached"></a>Se alcanzó la cuota de la regla de alerta
-
-El número de reglas de alertas de búsqueda de registros por suscripción y recurso está sujeto a los límites de cuota descritos [en este artículo](../service-limits.md).
-
-### <a name="recommended-steps"></a>Pasos recomendados
-    
-Si ha alcanzado el límite de cuota, los siguientes pasos pueden ayudar a resolver el problema.
-
-1. Intente eliminar o deshabilitar las reglas de alertas de búsqueda de registros que ya no se usan.
-2. Si necesita aumentar el límite de cuota, abra una solicitud de soporte técnico y proporcione la siguiente información:
-
-    - Los identificadores de suscripción para los que tiene que aumentar los límites de cuota.
-    - Motivo de aumento de cuota
-    - Tipo de recurso para el que se va a aumentar la cuota: **Log Analytics**, **Application Insights**, etc.
-    - Límite de cuota solicitado
-
-
-### <a name="to-check-the-current-usage-of-new-log-alert-rules"></a>Para comprobar el uso actual de las nuevas reglas de alertas de registro
-    
-#### <a name="from-the-azure-portal"></a>Desde Azure Portal
-
-1. Abra la pantalla *Alertas* y haga clic en *Administrar reglas de alertas.*
-2. Filtre la suscripción correspondiente mediante el control desplegable *Suscripción*.
-3. Asegúrese de NO filtrar por un grupo de recursos, tipo de recurso o recurso específico.
-4. En el control desplegable *Tipo de señal*, seleccione "Búsqueda de registros".
-5. Compruebe que el control desplegable *Estado* está establecido en "Habilitado".
-6. El número total de reglas de alertas de búsqueda de registros se mostrará encima de la lista de reglas.
-
-#### <a name="from-api"></a>Desde la API
-
-- PowerShell: [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule?view=azps-3.7.0)
-- API REST: [Lista por suscripción](/rest/api/monitor/scheduledqueryrules/listbysubscription)
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre las [alertas de registro en Azure](./alerts-unified-log.md).
-- Más información sobre [Application Insights](../log-query/log-query-overview.md).
+- Más información sobre la [configuración de alertas de registro](../log-query/log-query-overview.md).
 - Obtenga más información sobre las [consultas de registro](../log-query/log-query-overview.md).

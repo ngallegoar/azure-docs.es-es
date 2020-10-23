@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 37245711008442acd0379a35b393ac88c3775482
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 96d8c32791bd968dd8740a2d4633496b42e9f3f4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505543"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91360980"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escalado de máquinas virtuales
 Puede reducir y escalar horizontalmente los conjuntos de escalado de máquinas virtuales según umbrales de métricas de rendimiento, siguiendo una programación periódica o por una fecha determinada. También puede configurar notificaciones de correo electrónico y webhook para las acciones de escalado. Este tutorial muestra un ejemplo de configuración de todos estos objetos utilizando una plantilla de Resource Manager en un conjunto de escalado de máquinas virtuales.
@@ -63,7 +63,7 @@ En este tutorial, usaremos el [Explorador de recursos de Azure](https://resource
 
 6. Haga clic en Editar. **Reemplace** el elemento "perfiles" en la configuración de escalado automático por la siguiente configuración:
 
-    ![profiles](media/autoscale-virtual-machine-scale-sets/profiles.png)
+    ![Captura de pantalla que muestra el elemento de perfiles.](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

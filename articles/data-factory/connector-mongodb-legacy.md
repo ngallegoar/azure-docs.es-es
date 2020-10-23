@@ -1,6 +1,6 @@
 ---
 title: Copia de datos de MongoDB (heredado)
-description: Obtenga información sobre cómo copiar datos desde MongoDB en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
+description: Aprenda a copiar datos desde Mongo DB en almacenes de datos receptores compatibles mediante una actividad de copia de una canalización heredada de Azure Data Factory.
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: ce1419c7dbb2cdecfd653995707fd1ece7798557
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf4be078a7bee0bedbeac4326acb9ca290cde88
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558184"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91331988"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copia de datos desde MongoDB mediante Azure Data Factory (heredado)
 

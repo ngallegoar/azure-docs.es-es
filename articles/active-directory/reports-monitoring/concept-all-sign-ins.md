@@ -17,12 +17,12 @@ ms.date: 09/23/2020
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fc5051a6cc8b8f36a980ff86690ed4f8cbac60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340721"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319769"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Informes de actividad de inicio de sesión de Azure Active Directory: versión preliminar
 
@@ -32,8 +32,8 @@ La arquitectura de los informes de Azure Active Directory (Azure AD) consta de l
     - **Inicios de sesión**: información sobre cuándo los usuarios, las aplicaciones y los recursos administrados inician sesión en Azure AD y acceden a los recursos.
     - **Registros de auditoría** - [: los ](concept-audit-logs.md)registros de auditoría proporcionan información de la actividad del sistema sobre la administración de usuarios y grupos, aplicaciones administradas y actividades de directorio.
 - **Seguridad** 
-    - **Inicios de sesión de riesgo**: un [inicio de sesión de riesgo](concept-risky-sign-ins.md) es un indicador de un intento de inicio de sesión de alguien que no es el propietario legítimo de una cuenta de usuario.
-    - **Usuarios marcados en riesgo**: un [usuario en riesgo](concept-user-at-risk.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
+    - **Inicios de sesión de riesgo**: un [inicio de sesión de riesgo](../identity-protection/overview-identity-protection.md) es un indicador de un intento de inicio de sesión de alguien que no es el propietario legítimo de una cuenta de usuario.
+    - **Usuarios marcados en riesgo**: un [usuario en riesgo](../identity-protection/overview-identity-protection.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
 
 El informe inicios de sesión clásico de Azure Active Directory proporciona información general sobre los inicios de sesión de usuario interactivos. Además, ahora tiene acceso a tres informes de inicio de sesión adicionales que están en versión preliminar:
 
@@ -86,7 +86,7 @@ En la hoja del informe de inicios de sesión, puede cambiar entre:
 
 - **Inicios de sesión de entidad de servicio**: inicios de sesión realizados por aplicaciones y entidades de servicio que no impliquen a ningún usuario. En estos inicios de sesión, la aplicación o el servicio proporcionan una credencial en su propio nombre para autenticarse o acceder a los recursos.
 
-- **Inicios de sesión de identidades administradas para recursos de Azure**: inicios de sesión realizados por recursos de Azure que tienen secretos administrados por Azure. Para obtener más información, consulte [¿Qué son las identidades administradas para recursos de Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+- **Inicios de sesión de identidades administradas para recursos de Azure**: inicios de sesión realizados por recursos de Azure que tienen secretos administrados por Azure. Para obtener más información, consulte [¿Qué son las identidades administradas para recursos de Azure?](../managed-identities-azure-resources/overview.md) 
 
 
 ![Tipos de informes de inicios de sesión](./media/concept-all-sign-ins/sign-ins-report-types.png)

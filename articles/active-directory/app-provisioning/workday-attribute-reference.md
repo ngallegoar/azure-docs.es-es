@@ -1,6 +1,6 @@
 ---
 title: Referencia de atributos de Workday
-description: Obtenga información sobre qué atributos de SuccessFactors se admiten con el aprovisionamiento controlado por RR. HH. de SuccessFactors.
+description: Obtenga información acerca de los atributos que puede obtener de Workday mediante consultas XPATH.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 4d6e5fb765125a4cf68c4939e7350feb84509bf2
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 5892100140c6022763453a4141d87e6a7ba4ed75
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068105"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91266571"
 ---
 # <a name="workday-attribute-reference"></a>Referencia de atributos de Workday
 
@@ -117,7 +117,7 @@ En la tabla siguiente se captura la lista de atributos de WorkDay y las expresio
 
 Si la versión v30.0 de API de WWS o superior en la dirección URL de conexión, como se muestra a continuación:
 
-:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Información de versión de WorkDay":::
+:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="No hay información de versión de WorkDay":::
 
 ...entonces, antes de activar el trabajo de aprovisionamiento, debe actualizar las **expresiones de la API XPATH** en **Asignación de atributos -> Opciones avanzadas -> Editar lista de atributos para Workday** para que use los valores de la tabla. 
 

@@ -1,47 +1,40 @@
 ---
 title: Acciones de webhook para alertas de registro en alertas de Azure
-description: En este artículo se describe cómo crear una regla de alertas de registro mediante el área de trabajo de Log Analytics o Application Insights, cómo la alerta envía los datos como un webhook de HTTP y los detalles de las diferentes personalizaciones posibles.
+description: Describe cómo configurar una inserción de alertas de registro con la acción de webhook y las personalizaciones disponibles.
 author: yanivlavi
 ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 3311819f021533a28a41daf2c2f08193218fae96
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a074be9bcc62d8c20635400f462f52fb796d2fe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075275"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91294315"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
-Cuando se [crea una alerta de registro en Azure](alerts-log.md), se puede [configurar mediante grupos de acciones](action-groups.md), para así poder realizar una o varias acciones. En este artículo se describen las diferentes acciones de webhook que están disponibles y se muestra cómo configurar un webhook personalizado basado en JSON.
+
+La [alerta de registro](alerts-log.md) admite la [configuración de grupos de acciones de webhook](action-groups.md#webhook). En este artículo, describiremos qué propiedades están disponibles y cómo configurar un webhook JSON personalizado.
 
 > [!NOTE]
-> También se puede usar el [esquema de alertas comunes](https://aka.ms/commonAlertSchemaDocs) para las integraciones de webhook. El esquema de alerta común ofrece la ventaja de tener una carga útil de alerta única y extensible en todos los servicios de alerta de Azure Monitor. Tenga en cuenta que el esquema de alerta común no respeta la opción de JSON personalizada para las alertas de registro. Se aplaza a la carga del esquema de alerta común si se selecciona con independencia de la personalización que haya realizado en el nivel de la regla de alerta. [Obtenga más información sobre las definiciones de esquemas de alertas comunes.](https://aka.ms/commonAlertSchemaDefinitions)
-
-## <a name="webhook-actions"></a>Acciones de webhook
-
-Las acciones de webhook permiten invocar un proceso externo a través de una sola solicitud HTTP POST. El servicio al que se llama debe admitir webhooks y determinar cómo utilizará las cargas que reciba.
-
-Las acciones de webhook requieren las propiedades de la siguiente tabla.
-
-| Propiedad | Descripción |
-|:--- |:--- |
-| **Dirección URL de Webhook** |La dirección URL del webhook. |
-| **Carga de JSON personalizada** |La carga personalizada que se envía con el webhook, cuando se elige esta opción durante la creación de la alerta. Para más información, consulte [Administración de alertas de registro](alerts-log.md).|
+> Actualmente, el webhook personalizado basado en JSON no se admite en la versión `2020-05-01-preview` de la API.
 
 > [!NOTE]
-> El botón **Ver webhook** y la opción **Incluir la carga personalizada de JSON para webhook** de la alerta del registro muestran una carga de webhook de ejemplo con la personalización proporcionada. No contiene datos reales, pero es representativo del esquema JSON que se usa para las alertas de registro. 
+> Se recomienda usar un [esquema de alertas común](alerts-common-schema.md) para las integraciones de webhook. Este esquema ofrece la ventaja de tener una sola carga de alertas, extensible y unificada, para todos los servicios de alerta de Azure Monitor. En el caso de las reglas de alertas de registro que tienen definida una carga de JSON personalizada, habilitar el esquema común revierte el esquema de la carga al que se describe [aquí](alerts-common-schema-definitions.md#log-alerts). Las alertas con el esquema común habilitado tienen un límite de tamaño superior de 256 KB por alerta y la alerta mayor no incluirá los resultados de la búsqueda. Si no se incluyen los resultados de la búsqueda, debe usar `LinkToFilteredSearchResultsAPI` o `LinkToSearchResultsAPI` para acceder a ellos con la API de Log Analytics.
 
-Los webhooks incluyen una dirección URL y una carga con formato JSON que corresponde a los datos enviados al servicio externo. De forma predeterminada, la carga incluye los valores en la tabla siguiente. Puede optar por reemplazar esta carga con una personalizada de su propiedad. En ese caso, puede utilizar las variables de la tabla para cada uno de los parámetros e incluir así sus valores en la carga personalizada.
+## <a name="webhook-payload-properties"></a>Propiedades de la carga de webhook
 
+Las acciones de webhook permiten invocar una única solicitud HTTP POST. El servicio al que se llama debe admitir webhooks y saber cómo usar la carga que reciba.
+
+Propiedades de acción de webhook predeterminadas y sus nombres de parámetros JSON personalizados:
 
 | Parámetro | Variable | Descripción |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |Nombre de la regla de alerta. |
 | *Gravedad* |#severity |Gravedad establecida en la alerta de registros activada. |
-| *AlertThresholdOperator* |ThresholdOperator |Operador de umbral para la regla de alertas, que usa mayor que o menor que. |
+| *AlertThresholdOperator* |ThresholdOperator |Operador de umbral para la regla de alerta. |
 | *AlertThresholdValue* |#thresholdvalue |Valor de umbral para la regla de alerta. |
 | *LinkToSearchResults* |#linktosearchresults |Vínculo al portal de Analytics que devuelve los registros de la consulta que creó la alerta. |
 | *LinkToSearchResultsAPI* |#linktosearchresultsapi |Vínculo a la API de Analytics que devuelve los registros de la consulta que creó la alerta. |
@@ -54,15 +47,15 @@ Los webhooks incluyen una dirección URL y una carga con formato JSON que corres
 | *SearchQuery* |#searchquery |Consulta de búsqueda de registros utilizada por la regla de alerta. |
 | *SearchResults* |"IncludeSearchResults": true|Los registros devueltos por la consulta en forma de una tabla JSON, limitados a los primeros 1000 registros. Se agrega "IncludeSearchResults": true en una definición personalizada de webhook de JSON como una propiedad de nivel superior. |
 | *Dimensiones* |"IncludeDimensions": true|Combinaciones de valores de dimensiones que desencadenaron esa alerta como una sección JSON. Se agrega "IncludeDimensions": true en una definición personalizada de webhook de JSON como una propiedad de nivel superior. |
-| *AlertType*| #alerttype | El tipo de regla de alertas de registro configurada, bien como [Unidades métricas](alerts-unified-log.md#metric-measurement-alert-rules) o como [Número de resultados](alerts-unified-log.md#number-of-results-alert-rules).|
+| *AlertType*| #alerttype | El tipo de regla de alertas de registro configurada, bien como [Unidades métricas o como Número de resultados](alerts-unified-log.md#measure).|
 | *WorkspaceID* |#workspaceid |Identificador del área de trabajo de Log Analytics. |
 | *Identificador de la aplicación* |#applicationid |Identificador de la aplicación Application Insights. |
-| *Subscription ID* |#subscriptionid |Identificador de la suscripción a Azure usada. 
+| *Subscription ID* |#subscriptionid |Identificador de la suscripción a Azure usada. |
 
-> [!NOTE]
-> Los vínculos proporcionados pasan parámetros como *SearchQuery*, *Search Interval StartTime* y *Search Interval End time* de la dirección URL a Azure Portal o a la API.
+## <a name="custom-webhook-payload-definition"></a>Definición de carga de webhook personalizada
 
-Por ejemplo, podría especificar la siguiente carga personalizada que incluye un único parámetro denominado *text*. El servicio al que llama este webhook espera este parámetro.
+Puede usar la opción **Incluir la carga personalizada de JSON para webhook** para obtener una carga de JSON personalizada mediante los parámetros anteriores. También puede generar propiedades adicionales.
+Por ejemplo, podría especificar la siguiente carga personalizada que incluye un único parámetro denominado *text*. El servicio al que llama este webhook espera este parámetro:
 
 ```json
 
@@ -77,18 +70,21 @@ Esta carga de ejemplo se resuelve en algo similar a lo siguiente al enviarse al 
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-Como todas las variables de un webhook personalizado deben especificarse dentro de un contenedor JSON, como "#searchinterval", el webhook resultante también tendrá datos de variable dentro de contenedores, como "00:05:00".
+Las variables de un webhook personalizado se deben especificar dentro de un contenedor JSON. Por ejemplo, si se hace referencia a "#searchresultcount" en el ejemplo de webhook anterior, se generará la salida en función de los resultados de la alerta.
 
-Para incluir resultados de búsqueda en una carga personalizada, asegúrese de que el parámetro **IncludeSearchResults** se establece como una propiedad de nivel superior en la carga de JSON. 
+Para incluir los resultados de la búsqueda, agregue **IncludeSearchResults** como propiedad de nivel superior en la carga JSON personalizada. Los resultados de la búsqueda se incluyen como una estructura JSON, por lo que no se puede hacer referencia a ellos en campos definidos personalizados. 
+
+> [!NOTE]
+> El botón **View webhook (Ver webhook)** situado junto a la opción **Incluir la carga personalizada de JSON para webhook** muestra la vista previa de lo que se proporcionó. No contiene datos reales, pero es representativo del esquema JSON que se usará. 
 
 ## <a name="sample-payloads"></a>Cargas de ejemplo
 En esta sección se muestran cargas de ejemplo para los webhooks de alertas de registro. Estas cargas incluyen ejemplos en los que la carga es estándar y otros en los que es personalizada.
 
-### <a name="standard-webhook-for-log-alerts"></a>Webhook estándar para alertas de registro 
-En ambos ejemplos se incluye una carga ficticia con solo dos columnas y dos filas.
+### <a name="log-alert-for-log-analytics"></a>Alerta de registro para Log Analytics
+La carga de ejemplo siguiente corresponde a una acción de webhook estándar que se usa para las alertas basadas en Log Analytics:
 
-#### <a name="log-alert-for-log-analytics"></a>Alerta de registro para Log Analytics
-La carga de ejemplo siguiente corresponde a una acción de webhook estándar *sin una opción JSON personalizada*, que se usa para las alertas basadas en Log Analytics:
+> [!NOTE]
+> El valor del campo "Gravedad" cambia si ha [cambiado a la versión scheduledQueryRules API actual](alerts-log-api-switch.md) de [Alert API de Log Analytics heredada](api-alerts.md).
 
 ```json
 {
@@ -152,14 +148,10 @@ La carga de ejemplo siguiente corresponde a una acción de webhook estándar *si
     "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
     "AlertType": "Metric measurement"
 }
- ```
+```
 
-> [!NOTE]
-> El valor del campo "Severity" puede cambiar si ha [cambiado la preferencia de API](alerts-log-api-switch.md) para las alertas de registro en Log Analytics.
-
-
-#### <a name="log-alert-for-application-insights"></a>Alerta de registro para Application Insights
-La carga de ejemplo siguiente corresponde a un webhook estándar *sin una opción JSON personalizada*, que se usa para alertas de registro basadas en Application Insights:
+### <a name="log-alert-for-application-insights"></a>Alerta de registro para Application Insights
+La carga de ejemplo siguiente corresponde a un webhook estándar que se usa para alertas de registro basadas en recursos de Application Insights:
     
 ```json
 {
@@ -225,8 +217,73 @@ La carga de ejemplo siguiente corresponde a un webhook estándar *sin una opció
 }
 ```
 
-#### <a name="log-alert-with-custom-json-payload"></a>Alerta de registro con carga de JSON personalizada
-Por ejemplo, para crear una carga personalizada que solo incluya el nombre de la alerta y los resultados de la búsqueda, puede usar lo siguiente: 
+### <a name="log-alert-for-other-resources-logs-from-api-version-2020-05-01-preview"></a>Alerta de registro para otros registros de recursos (a partir de la versión `2020-05-01-preview` de la API)
+
+> [!NOTE]
+> Actualmente no hay cargos adicionales por la versión `2020-05-01-preview` de la API y las alertas de registro orientadas a los recursos.  Los precios de las características en versión preliminar se anunciarán en el futuro y se avisará antes del inicio de la facturación. Si decide seguir usando la nueva versión de la API y las alertas de registro orientadas a los recursos después del período de aviso, se le facturará según la tarifa aplicable.
+
+La carga de ejemplo siguiente corresponde a un webhook estándar cuando se usa para las alertas de registro basadas en otros registros de recursos (excepto las áreas de trabajo y Application Insights):
+
+```json
+{
+    "schemaId": "azureMonitorCommonAlertSchema",
+    "data": {
+        "essentials": {
+            "alertId": "/subscriptions/12345a-1234b-123c-123d-12345678e/providers/Microsoft.AlertsManagement/alerts/12345a-1234b-123c-123d-12345678e",
+            "alertRule": "AcmeRule",
+            "severity": "Sev4",
+            "signalType": "Log",
+            "monitorCondition": "Fired",
+            "monitoringService": "Log Alerts V2",
+            "alertTargetIDs": [
+                "/subscriptions/12345a-1234b-123c-123d-12345678e/resourcegroups/ai-engineering/providers/microsoft.compute/virtualmachines/testvm"
+            ],
+            "originAlertId": "123c123d-1a23-1bf3-ba1d-dd1234ff5a67",
+            "firedDateTime": "2020-07-09T14:04:49.99645Z",
+            "description": "log alert rule V2",
+            "essentialsVersion": "1.0",
+            "alertContextVersion": "1.0"
+        },
+        "alertContext": {
+            "properties": null,
+            "conditionType": "LogQueryCriteria",
+            "condition": {
+                "windowSize": "PT10M",
+                "allOf": [
+                    {
+                        "searchQuery": "Heartbeat",
+                        "metricMeasure": null,
+                        "targetResourceTypes": "['Microsoft.Compute/virtualMachines']",
+                        "operator": "LowerThan",
+                        "threshold": "1",
+                        "timeAggregation": "Count",
+                        "dimensions": [
+                            {
+                                "name": "ResourceId",
+                                "value": "/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm"
+                            }
+                        ],
+                        "metricValue": 0.0,
+                        "failingPeriods": {
+                            "numberOfEvaluationPeriods": 1,
+                            "minFailingPeriodsToAlert": 1
+                        },
+                        "linkToSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToFilteredSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z"
+                    }
+                ],
+                "windowStartTime": "2020-07-07T13:54:34Z",
+                "windowEndTime": "2020-07-09T13:54:34Z"
+            }
+        }
+    }
+}
+```
+
+### <a name="log-alert-with-a-custom-json-payload"></a>Alerta de registro con una carga de JSON personalizada
+Por ejemplo, para crear una carga personalizada que solo incluya el nombre de la alerta y los resultados de la búsqueda, use esta configuración: 
 
 ```json
     {

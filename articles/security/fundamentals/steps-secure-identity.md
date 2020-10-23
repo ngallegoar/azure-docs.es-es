@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: d05670d55d8a4f9ad7ab691da3f05f1c3e0cd177
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: a8fa14999c75528171fbe811ee64f65b913ed820
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386153"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399812"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -82,7 +82,7 @@ Si crea identidades directamente en Azure AD, puede usar [PowerShell para evitar
 Si la organización utiliza una solución de identidad híbrida con federación o autenticación de paso a través, debe habilitar la sincronización de hash de contraseñas por estos dos motivos:
 
 * El informe [Usuarios con credenciales filtradas](../../active-directory/reports-monitoring/concept-risk-events.md) de la administración de Azure AD le advierte sobre los pares de nombre de usuario y contraseña que se expusieron en la "web oscura". Se filtra un volumen increíble de contraseñas a través del phishing, el malware y la reutilización de contraseñas en sitios de terceros que luego se vulneran. Cuando Microsoft encuentre estas credenciales filtradas, le indicará en este informe si coinciden con las credenciales de la organización; sin embargo, para ello, debe [habilitar la sincronización del hash de contraseñas](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
-* Si se produce una interrupción en el entorno local (por ejemplo, si sufre un ataque de ransomware), podrá cambiar a la [autenticación en la nube mediante la sincronización del hash de contraseñas](choose-ad-authn.md). Este método de autenticación de copias de seguridad le permitirá continuar accediendo a las aplicaciones configuradas, gracias a la autenticación con Azure Active Directory, incluyendo Office 365. En este caso, el personal de TI no necesitará recurrir a las cuentas de correo electrónico personales para compartir los datos hasta que la interrupción del entorno local se resuelva.
+* Si se produce una interrupción en el entorno local (por ejemplo, si sufre un ataque de ransomware), podrá cambiar a la [autenticación en la nube mediante la sincronización del hash de contraseñas](choose-ad-authn.md). Este método de autenticación de copias de seguridad le permitirá continuar accediendo a las aplicaciones configuradas, gracias a la autenticación con Azure Active Directory, incluyendo Microsoft 365. En este caso, el personal de TI no necesitará recurrir a las cuentas de correo electrónico personales para compartir los datos hasta que la interrupción del entorno local se resuelva.
 
 Obtenga más información sobre el funcionamiento de la [sincronización del hash de contraseñas](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
@@ -193,7 +193,7 @@ El [autoservicio de restablecimiento de contraseña (SSPR)](../../active-directo
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementar el acceso a grupos y aplicaciones de autoservicio
 
-Azure AD ofrece la posibilidad de que los usuarios que no son administradores administren el acceso a los recursos mediante grupos de seguridad, grupos de Office 365, roles de aplicación y catálogos de paquetes de acceso.  [La administración de grupos de autoservicio](../../active-directory/users-groups-roles/groups-self-service-management.md) permite a los propietarios de grupos administrar sus propios grupos, sin necesidad de tener asignado un rol como administrador. Los usuarios también pueden crear y administrar grupos de Office 365 sin depender de los administradores para administrar sus solicitudes y los grupos no usados expiran automáticamente.  [La administración de derechos de Azure AD](../../active-directory/governance/entitlement-management-overview.md) habilita la delegación y visibilidad, con flujos de trabajo de solicitud de acceso completos y la expiración automática.  Puede delegar a los usuarios que no son administradores la capacidad de configurar sus propios paquetes de acceso para grupos, equipos, aplicaciones y sitios de SharePoint Online de su propiedad, con directivas personalizadas para quien se necesita aprobar el acceso, incluido el establecimiento, como aprobadores, de los administradores de los empleados y los patrocinadores socios comerciales.
+Azure AD ofrece la posibilidad de que los usuarios que no sean administradores administren el acceso a los recursos mediante grupos de seguridad, grupos de Microsoft 365, roles de aplicación y catálogos de paquetes de acceso.  [La administración de grupos de autoservicio](../../active-directory/users-groups-roles/groups-self-service-management.md) permite a los propietarios de grupos administrar sus propios grupos, sin necesidad de tener asignado un rol como administrador. Los usuarios también pueden crear y administrar grupos de Microsoft 365 sin depender de los administradores para administrar sus solicitudes y los grupos no usados expiran automáticamente.  [La administración de derechos de Azure AD](../../active-directory/governance/entitlement-management-overview.md) habilita la delegación y visibilidad, con flujos de trabajo de solicitud de acceso completos y la expiración automática.  Puede delegar a los usuarios que no son administradores la capacidad de configurar sus propios paquetes de acceso para grupos, equipos, aplicaciones y sitios de SharePoint Online de su propiedad, con directivas personalizadas para quien se necesita aprobar el acceso, incluido el establecimiento, como aprobadores, de los administradores de los empleados y los patrocinadores socios comerciales.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementar revisiones de acceso de Azure AD
 

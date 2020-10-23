@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: c9abc4dc89651eec7df635fb415314b2c12da3a6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319769"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91356373"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
 
@@ -170,7 +170,7 @@ Para ver cómo la fuente de cambios procesa nuevas acciones en un sitio de comer
 
 3. Agregue los nombres **collection** y **database**. (Estos nombres deben ser **changefeedlabcollection** y **changefeedlabdatabase** a menos que elija asignarles otros nombres).
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="Actualización de cadenas de conexión":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="Elemento visual de proyecto":::
  
 4. Guarde los cambios efectuados en todos los archivos editados.  
 
@@ -180,7 +180,7 @@ Para ver cómo la fuente de cambios procesa nuevas acciones en un sitio de comer
 
 7. Si va a [Azure Portal](https://portal.azure.com/), luego a la cuenta de Cosmos DB en su grupo de recursos y después a **Data Explorer**, verá los datos aleatorios importados en **changefeedlabcollection**.
  
-   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Datos generados en el portal":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Elemento visual de proyecto":::
 
 ## <a name="set-up-a-stream-analytics-job"></a>Configuración de un trabajo de Stream Analytics
 
@@ -190,7 +190,7 @@ Azure Stream Analytics es un servicio en la nube de procesamiento en tiempo real
 
 2. Seleccione **Entradas** tal y como se muestra a continuación.  
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="Creación de una entrada":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="Elemento visual de proyecto":::
 
 3. Seleccione **+ Add stream input** (+ Agregar entrada de flujo). Seleccione **Centro de eventos** en el menú desplegable.  
 
@@ -222,20 +222,7 @@ Azure Stream Analytics es un servicio en la nube de procesamiento en tiempo real
 
 8. Vuelva a **streamjob1** y seleccione **Editar consulta**.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="Editar consulta":::
- 
-9. Pegue la siguiente consulta en la ventana de consulta. La consulta **AVERAGE PRICE** calcula el precio medio de todos los artículos que ven los usuarios, el precio medio de todos los artículos que se agregan a los carros de los usuarios y el precio medio de todos los artículos que compran los usuarios. Esta métrica puede ayudar a las empresas de comercio electrónico a decidir los precios a los que venden los artículos y el inventario en el que deben invertir. Por ejemplo, si el precio medio de los artículos vistos es mucho mayor que el precio medio de los artículos comprados, una empresa podría optar por agregar artículos menos costosos a su inventario.
-
-   ```sql
-   /*AVERAGE PRICE*/      
-   SELECT System.TimeStamp AS Time, Action, AVG(Price)  
-    INTO averagePriceOutput  
-    FROM input  
-    GROUP BY Action, TumblingWindow(second,5) 
-   ```
-10. Seleccione **Guardar** en la esquina superior izquierda.  
-
-11. Vuelva ahora a **streamjob1** y seleccione el botón **Iniciar** situado en la parte superior de la página. Azure Stream Analytics puede tardar unos minutos en iniciarse, pero, finalmente, verá que cambia de "Iniciando" a "En ejecución".
+   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="Elemento visual de proyecto" a "En ejecución".
 
 ## <a name="connect-to-power-bi"></a>Conexión a Power BI
 
@@ -315,7 +302,7 @@ Power BI es un conjunto de herramientas de análisis de negocios que sirve para 
 
    Este es el aspecto de un panel de ejemplo con estos gráficos:
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Visualizaciones":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Elemento visual de proyecto":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Opcional: Visualización con un sitio de comercio electrónico
 
@@ -329,13 +316,13 @@ Ahora verá cómo puede usar la nueva herramienta de análisis de datos para con
 
 2. Seleccione la colección **topItems** y, en **Escala y configuración**, establezca **Período de vida** como **30 segundos** para que la colección topItems se actualice cada 30 segundos.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="Período de vida":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="Elemento visual de proyecto":::
 
 3. Para rellenar la colección **topItems** con los artículos comprados con más frecuencia, navegue a **streamjob1** y agregue una nueva **Salida**. Seleccione **Cosmos DB**.
 
 4. Rellene todos los campos obligatorios tal y como se muestra a continuación.
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="Salida de Cosmos":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="Elemento visual de proyecto":::
  
 5. Si ha agregado la consulta TOP 5 opcional en la parte anterior del laboratorio, continúe con la parte 5a. Si no, siga a la parte 5b.
 

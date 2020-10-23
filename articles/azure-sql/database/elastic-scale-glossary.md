@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 4f594f663267de7ed746082e77ae603e5592e721
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9c229fe6c1ccc7e2ce8e4f46ece51f315c8b7a90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84034716"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91362621"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glosario de las herramientas de Elastic Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -67,7 +67,7 @@ Aquí se muestra una representación de bases de datos de inquilino único y mul
 
 **Administrador de mapas de particiones**: un almacén de datos y objetos de administración que contiene los mapas de particiones, ubicaciones de particiones y asignaciones para uno o más conjuntos de particiones.
 
-![Asignaciones][2]
+![Diagrama que muestra un administrador de mapas de particiones asociado a shardmaps_global, shards_global y shard_mappings_global.][2]
 
 ## <a name="verbs"></a>Verbos
 **Escalado horizontal**: el acto de escalar o reducir horizontalmente una recopilación de particiones agregando o quitando particiones de un mapa de particiones.

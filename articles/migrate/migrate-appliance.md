@@ -3,12 +3,12 @@ title: Dispositivo con Azure Migrate
 description: Proporciona un resumen de compatibilidad con el dispositivo de Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: e2bd3f2fa40bbf31713393f18a04624d70cbd244
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084777"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91450045"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -47,12 +47,12 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 **Implementación admitida** | Impleméntelo como máquina virtual de VMware mediante la plantilla de OVA.<br/><br/> Impleméntelo como máquina física o máquina virtual de VMware mediante el script de instalación de PowerShell.
 **Compatibilidad con proyectos** |  Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
 **Límites de detección** | Un dispositivo puede detectar hasta 10 000 máquinas virtuales de VMware en una instancia de vCenter Server.<br/> Un dispositivo solo puede conectarse a una instancia de vCenter Server.
-**Plantilla de OVA** | Descarga desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140333).<br/><br/> El tamaño de la descarga es de 11,6 GB.<br/><br/> La plantilla del dispositivo descargada incluye una licencia de evaluación de Windows Server 2016 que es válida durante 180 días. Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo, o bien activar la licencia del sistema operativo de la máquina virtual del dispositivo.
+**Plantilla de OVA** | Descarga desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140333).<br/><br/> El tamaño de la descarga es 11,9 GB.<br/><br/> La plantilla del dispositivo descargada incluye una licencia de evaluación de Windows Server 2016 que es válida durante 180 días. Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo, o bien activar la licencia del sistema operativo de la máquina virtual del dispositivo.
 **Script de PowerShell** | Consulte este [artículo](./deploy-appliance-script.md#set-up-the-appliance-for-vmware).<br/><br/> 
 **Software/hardware** |  El dispositivo debe ejecutarse en una máquina con Windows Server 2016, 32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si ejecuta el dispositivo en una máquina virtual de VMware, necesitará recursos suficientes en vCenter Server para asignar una máquina virtual que cumpla los requisitos.<br/><br/> Si ejecuta el dispositivo en una máquina física, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware.
 **Requisitos de VMware** | Si el dispositivo se implementa como una máquina virtual de VMware, debe implementarse en un host ESXi que ejecute la versión 5.5 o una posterior.<br/><br/> vCenter Server que ejecute la versión 5.5, 6.0, 6.5 o 6.7.
 **VDDK (migración sin agentes)** | Si el dispositivo se implementa como una máquina virtual de VMware y ejecuta una migración sin agentes, es necesario tener instalado el VDDK de VMware vSphere en la máquina virtual del dispositivo.
-**Valor del código hash: OVA** | [Compruebe](tutorial-assess-vmware.md#verify-security) los valores hash de la plantilla de OVA.
+**Valor del código hash: OVA** | [Compruebe](tutorial-discover-vmware.md#verify-security) los valores hash de la plantilla de OVA.
 **Valor del código hash: script de PowerShell** | [Compruebe](deploy-appliance-script.md#verify-file-security) los valores hash del script de PowerShell.
 
 
@@ -67,11 +67,11 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 **Implementación admitida** | Impleméntelo como máquina virtual de Hyper-V mediante una plantilla de VHD.<br/><br/> Impleméntelo como máquina física o máquina virtual de Hyper-V mediante el script de instalación de PowerShell.
 **Compatibilidad con proyectos** |  Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
 **Límites de detección** | Un dispositivo puede detectar hasta 5000 VM de Hyper-V.<br/> Un dispositivo puede conectarse hasta a 300 hosts de Hyper-V.
-**Plantilla de VHD** | Carpeta comprimida que incluye el VHD. Descarga desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> El tamaño de la descarga es de 10,4 GB.<br/><br/> La plantilla del dispositivo descargada incluye una licencia de evaluación de Windows Server 2016 que es válida durante 180 días. Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo, o bien activar la licencia del sistema operativo de la máquina virtual del dispositivo.
+**Plantilla de VHD** | Carpeta comprimida que incluye el VHD. Descarga desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> El tamaño de la descarga es 8,91 GB.<br/><br/> La plantilla del dispositivo descargada incluye una licencia de evaluación de Windows Server 2016 que es válida durante 180 días. Si el período de evaluación está a punto de expirar, se recomienda descargar e implementar un nuevo dispositivo, o bien activar la licencia del sistema operativo de la máquina virtual del dispositivo.
 **Script de PowerShell** | Consulte este [artículo](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
-**Software/hardware***   |  El dispositivo debe ejecutarse en una máquina con Windows Server 2016, 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si se ejecuta el dispositivo como una máquina virtual de Hyper-V, se necesitan recursos suficientes en el host de Hyper-V para asignar 16 GB de RAM, 8 vCPU, alrededor de 80 GB de espacio de almacenamiento y un conmutador externo para la máquina virtual del dispositivo.<br/><br/> Si ejecuta el dispositivo en una máquina física, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware. 
+**Software/hardware***   |  El dispositivo debe ejecutarse en una máquina con Windows Server 2016, 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si ejecuta el dispositivo como si fuera una máquina virtual de Hyper-V, necesita suficientes recursos en el host de Hyper-V para asignar los requisitos de hardware.<br/><br/> Si ejecuta el dispositivo en una máquina física, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware. 
 **Requisitos de Hyper-V** | Si se implementa el dispositivo con la plantilla de VHD, la máquina virtual del dispositivo que proporciona Azure Migrate es la versión 5.0 de la máquina virtual de Hyper-V.<br/><br/> El host de Hyper-V debe ejecutarse en Windows Server 2012 R2 o posterior. 
-**Valor del código hash: VHD** | Valores hash de la plantilla de VHD.
+**Valor del código hash: VHD** | [Compruebe los](tutorial-discover-hyper-v.md#verify-security) valores hash de la plantilla de VHD.
 **Valor del código hash: script de PowerShell** | [Compruebe](deploy-appliance-script.md#verify-file-security) los valores hash del script de PowerShell.
 
 
@@ -84,9 +84,9 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 **Implementación admitida** | Impleméntelo como una máquina física dedicada o una máquina virtual mediante el script de instalación de PowerShell. El script está disponible para su descarga desde el portal.
 **Compatibilidad con proyectos** |  Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
 **Límites de detección** | Un dispositivo puede detectar hasta 1000 servidores físicos.
-**Script de PowerShell** | Descarga del script (AzureMigrateInstaller.ps1) en una carpeta comprimida desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140334). [Más información](tutorial-discover-physical.md).<br/><br/> El tamaño de la descarga es de 85 MB.
-**Software/hardware** |  El dispositivo debe ejecutarse en una máquina con Windows Server 2016, 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si ejecuta el dispositivo en una máquina física, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware.<br/> No se admite la ejecución del dispositivo en una máquina con Windows Server 2019.
-**Valor del código hash** | [Compruebe](deploy-appliance-script.md#verify-file-security) los valores hash del script de PowerShell.
+**Script de PowerShell** | Descarga del script (AzureMigrateInstaller.ps1) en una carpeta comprimida desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140334). [Más información](tutorial-discover-physical.md).<br/><br/> El tamaño de la descarga es de 85,8 MB.
+**Software/hardware** |  El dispositivo debe ejecutarse en una máquina con Windows Server 2016, 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si ejecuta el dispositivo en una máquina física, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware.<br/>_(Actualmente, la implementación del dispositivo solo se admite en Windows Server 2016)._
+**Valor del código hash** | [Compruebe](tutorial-discover-physical.md#verify-security) los valores hash del script de PowerShell.
 
 ## <a name="url-access"></a>acceso URL
 

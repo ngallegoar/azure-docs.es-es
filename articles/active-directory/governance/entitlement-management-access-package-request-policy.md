@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 160137ca2d14e0012a524ee0818b7fb269fa7984
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b7b70e8a408c22be0331bfd0dcbe01830b072ab8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980292"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449978"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Cambio de la configuración de solicitud de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -125,8 +125,8 @@ Siga estos pasos si quiere que los usuarios que no están en el directorio solic
     |  |  |
     | --- | --- |
     | **Organizaciones conectadas específicas** | Elija esta opción si desea seleccionar de una lista de organizaciones que el administrador haya agregado anteriormente. Todos los usuarios de las organizaciones seleccionadas pueden solicitar este paquete de acceso. |
-    | **Todas las organizaciones conectadas** | Elija esta opción si todos los usuarios de las organizaciones conectadas pueden solicitar este paquete de acceso. |
-    | **Todos los usuarios (todas las organizaciones conectadas y todos los nuevos usuarios externos)** | Elija esta opción si todos los usuarios de todas las organizaciones conectadas pueden solicitar este paquete de acceso y que la configuración de la lista de permitidos o denegados de B2B tenga prioridad para todos los usuarios externos nuevos. |
+    | **Todas las organizaciones conectadas configuradas** | Elija esta opción si todos los usuarios de todas las organizaciones conectadas configuradas pueden solicitar este paquete de acceso. Solo los usuarios de las organizaciones conectadas configuradas pueden solicitar paquetes de acceso que se muestran a los usuarios de todas las organizaciones configuradas. |
+    | **Todos los usuarios (todas las organizaciones conectadas y todos los nuevos usuarios externos)** | Elija esta opción si cualquier usuario de Internet debe poder solicitar este paquete de acceso.  Si no pertenecen a una organización conectada del directorio, se creará automáticamente una organización conectada para ellos cuando soliciten el paquete. La organización conectada creada automáticamente tendrá el estado **Propuesta**. Para más información sobre el estado Propuesta, consulte [Propiedades de estado de las organizaciones conectadas](entitlement-management-organization.md#state-properties-of-connected-organizations). |
 
     Una organización conectada es un dominio o directorio externo de Azure AD con el que tiene relación.
 

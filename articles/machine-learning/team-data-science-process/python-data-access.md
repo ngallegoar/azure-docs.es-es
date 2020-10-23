@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dcbaaeb2868a421a41227e1b5d9fdd84a96248eb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6c8e6fee2b9f01b8d7ab48990760aa4c4d6e11b2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852368"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361507"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acceso a conjuntos de datos con Python mediante la biblioteca de cliente de Python de Azure Machine Learning
 La versión preliminar de la biblioteca de cliente de Python de Microsoft Azure Machine Learning puede permitir un acceso seguro a los conjuntos de datos de Azure Machine Learning desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
@@ -71,7 +71,7 @@ Los fragmentos de código que se proporcionan en Azure Machine Learning Studio (
 
 Por motivos de seguridad, la funcionalidad de fragmento de código solo está disponible para los usuarios que tengan su rol definido como **Propietario** para el área de trabajo. Su rol se muestra en la página **USUARIOS** de Azure Machine Learning Studio (clásico), en **Configuración**.
 
-![Seguridad][security]
+![Captura de pantalla que muestra la configuración de la página USERS (USUARIOS) de Azure Machine Learning Studio.][security]
 
 Si su rol no está establecido como **Propietario**, puede solicitar que se le vuelva a invitar como propietario o pedir al propietario del área de trabajo que le proporcione el fragmento de código.
 
@@ -92,7 +92,7 @@ Los tokens de autorización se administran en la página **TOKENS DE AUTORIZACI�
 2. Seleccione el conjunto de datos al que le gustaría tener acceso. Puede seleccionar cualquiera de los conjuntos de datos de las listas **MIS CONJUNTOS DE DATOS** o **EJEMPLOS**.
 3. En la barra de herramientas de la parte inferior, haga clic en **Generate Data Access Code**(Generar código de acceso a datos). Este botón se deshabilitará si los datos están en un formato no compatible con la biblioteca cliente de Python.
    
-    ![Conjuntos de datos][datasets]
+    ![Captura de pantalla que muestra los conjuntos de datos con GENERATE DATA ACCESS CODE (GENERAR CÓDIGO DE ACCESO A DATOS).][datasets]
 4. Seleccione el fragmento de código de la ventana que aparece y cópielo al Portapapeles.
    
     ![Botón para generar código de acceso a datos][dataset-access-code]

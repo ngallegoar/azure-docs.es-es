@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e25299c2ce5d31da8f3caa5b02ab8def816b31ee
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414774"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91398228"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migración de datos de Amazon S3 a Azure Data Lake Storage Gen2
 
@@ -109,23 +109,23 @@ La plantilla contiene dos parámetros:
 
 3. Vaya a la plantilla **Migrar datos históricos desde AWS S3 en Azure Data Lake Storage Gen2**. Introduzca las conexiones en la tabla de control externa, AWS S3 como el almacén de origen de datos y Azure Data Lake Storage Gen2 como el almacén de destino. Tenga en cuenta que la tabla de control externa y el procedimiento almacenado hacen referencia a la misma conexión.
 
-    ![Crear una conexión](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
+    ![Captura de pantalla que muestra la plantilla Migrate historical data from AWS S3 to Azure Data Lake Storage Gen2.](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
 4. Seleccione **Usar esta plantilla**.
 
-    ![Uso de esta plantilla](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
+    ![Captura de pantalla que resalta el botón Usar esta plantilla.](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
     
 5. Verá que se crearon dos canalizaciones y tres conjuntos de valores, tal como se muestra en el ejemplo siguiente:
 
-    ![Revisión de la canalización](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
+    ![Captura de pantalla que muestra las dos canalizaciones y los tres conjuntos de datos que se crearon con la plantilla.](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
 6. Seleccione **Depurar**, escriba los **parámetros** y, a continuación, seleccione **Finalizar**.
 
-    ![Clic en **Depurar**](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
+    ![Captura de pantalla que muestra dónde seleccionar Depurar y especificar los parámetros antes de seleccionar Finalizar.](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
 7. Ve resultados similares al ejemplo siguiente:
 
-    ![Revisión del resultado](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
+    ![Captura de pantalla que muestra los resultados devueltos.](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
 
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Para que la plantilla copie los archivos modificados solo desde Amazon S3 en Azure Data Lake Storage Gen2
@@ -192,7 +192,7 @@ La plantilla contiene dos parámetros:
 
 8. También puede comprobar los resultados de la tabla de control mediante una consulta *"select * from s3_partition_delta_control_table"* . Verá que la salida es similar a la del ejemplo siguiente:
 
-    ![Revisión del resultado](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
+    ![Captura de pantalla que muestra los resultados de la tabla de control después de ejecutar la consulta.](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
     
 ## <a name="next-steps"></a>Pasos siguientes
 

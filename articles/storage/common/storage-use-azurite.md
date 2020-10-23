@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 35a93669bf301b3be1d560a0777751c12f3c9d14
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f18746242ef9f680f44be1fd614c6c769289aadb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001916"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91331580"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Uso del emulador Azurite para el desarrollo local de Azure Storage
 
@@ -555,6 +555,12 @@ Azurite se alinea con la lógica de control de errores de Azure Storage, pero ex
 Azurite admite la replicación con redundancia geográfica con acceso de lectura (RA-GRS). Si quiere ver los recursos de almacenamiento, puede obtener acceso a la ubicación secundaria si anexa `-secondary` al nombre de la cuenta. Por ejemplo, la siguiente dirección se puede usar para obtener acceso a un blob usando la cuenta secundaria de solo lectura en Azurite:
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
+
+### <a name="table-support"></a>Compatibilidad con tablas
+
+La compatibilidad con las tablas de Azurite está actualmente en desarrollo y abierta a colaboraciones. Para obtener el progreso más reciente, consulte el proyecto [Tabla de Azurite V3](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table).
+
+La compatibilidad con Durable Functions requiere tablas.
 
 ## <a name="azurite-is-open-source"></a>Azurite es de código abierto
 

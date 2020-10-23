@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 2edb3060437080e528d41d4af5f4affd4fbf3316
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d32a51e391edbfd32cf57265562d4e0cb8fe0681
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010195"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91362187"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Solución de problemas de conectividad en el grupo de Synapse SQL
 
@@ -34,13 +34,14 @@ El estado de su grupo de SQL se mostrará aquí. Si el servicio no se muestra co
 
 Si Resource Health muestra que la instancia del grupo de SQL está en pausa o se está escalando, siga las instrucciones para reanudarla.
 
-![Servicio pausado](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Aquí puede encontrar información adicional sobre Resource Health.
+![Captura de pantalla que muestra una instancia de SQL Data Warehouse en pausa o escalado.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+Aquí puede encontrar información adicional sobre Resource Health.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Comprobación de la operación de pausa o escalado
 
 Compruebe en el portal si su instancia del grupo de SQL está en pausa o se está escalando.
 
-![Servicio en pausa](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![Captura de pantalla que muestra cómo comprobar si un almacenamiento de datos está en pausa.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
 Si ve el servicio está en pausa o escalado, compruebe que no es durante la programación de mantenimiento. En el portal, en la página *Información general* del grupo de SQL, verá la programación de mantenimiento elegida.
 

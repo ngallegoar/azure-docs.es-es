@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 83cc1b2fd0936d814e4a31714fecfdea7ccce988
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f107741dc3e601d0a46c295932a745c99dadb96d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225673"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328083"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Línea de referencia de seguridad de Azure para Azure DNS
 
@@ -102,7 +102,7 @@ En Azure DNS, existe el rol Colaborador de zona DNS, así como un RBAC de Azure 
 
 - [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-- [Descripción de RBAC de Azure en Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Descripción de RBAC de Azure en Azure DNS](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -266,7 +266,7 @@ En Azure DNS, existe el rol Colaborador de zona DNS, así como un RBAC de Azure 
 
 - [Configuración de Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Descripción de RBAC de Azure en Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Descripción de RBAC de Azure en Azure DNS](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 - [Descripción de RBAC de Azure en Azure DNS privado](dns-protect-private-zones-recordsets.md)
 

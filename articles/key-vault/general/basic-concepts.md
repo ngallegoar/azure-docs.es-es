@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e0bb3c3f3a6a1a38f974acf361937928ad4e2cfd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983289"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91398517"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceptos básicos de Azure Key Vault
 
@@ -23,7 +23,7 @@ Azure Key Vault es un servicio en la nube para el almacenamiento de los secretos
 
 Estos son otros términos importantes:
 
-- **Tenant**: un inquilino es la organización que posee y administra una instancia específica de los servicios en la nube de Microsoft. Se usa más a menudo para hacer referencia al conjunto de servicios de Azure y Office 365 de una organización.
+- **Tenant**: un inquilino es la organización que posee y administra una instancia específica de los servicios en la nube de Microsoft. Se usa más a menudo para hacer referencia al conjunto de servicios de Azure y Microsoft 365 de una organización.
 
 - **Propietario del almacén**: un propietario del almacén puede crear un almacén de claves y obtener acceso completo y control sobre él. El propietario del almacén también puede configurar una auditoría para registrar quién accede a los secretos y claves. Los administradores pueden controlar el ciclo de vida de la clave. Pueden revertir a una nueva versión de la clave, realizar copias de seguridad de ella y efectuar otras tareas relacionadas.
 

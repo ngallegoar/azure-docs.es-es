@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
-ms.openlocfilehash: 363af1012b327a55703cc6e35a02dc1f27869bd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99d90e4d93f0e4a70350a5a33a65700c3e14acb4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82629072"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91398330"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copia de archivos nuevos y cambiados por LastModifiedDate con Azure Data Factory
 
@@ -75,7 +75,7 @@ La plantilla define seis parámetros:
     
 7. Ahora puede agregar un desencadenador de ventanas de saltos de tamaño constante para automatizar esta canalización para que siempre pueda copiar archivos nuevos y cambiados solo por LastModifiedDate de forma periódica.  Seleccione **Agregar desencadenador** y luego **Nuevo/Editar**.
 
-    ![Revisión del resultado](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
+    ![Captura de pantalla que resalta la opción de menú New/Edit (Nuevo/Editar) que aparece al seleccionar Add trigger (Agregar desencadenador).](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
 8. En la ventana **Agregar desencadenadores**, seleccione **+ Nuevo**.
 
@@ -103,7 +103,7 @@ La plantilla define seis parámetros:
 
 14. Revise el resultado. Verá que su canalización se desencadenará automáticamente cada 15 minutos y solo se copiarán los archivos nuevos o cambiados del almacén de origen en el almacén de destino en cada ejecución de canalización.
 
-    ![Revisión del resultado](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
+    ![Captura de pantalla que muestra los resultados devueltos al desencadenar la canalización.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
     
 ## <a name="next-steps"></a>Pasos siguientes
 

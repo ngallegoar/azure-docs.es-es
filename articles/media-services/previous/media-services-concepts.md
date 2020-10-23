@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: e75dde14cf7182f5153b3a42b26f1c7e8a4e78ac
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2a251ef426d41413cf81f46ca05b11640f01e87a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258034"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91333790"
 ---
 # <a name="azure-media-services-concepts"></a>Conceptos de Azure Media Services
 
@@ -103,12 +103,11 @@ Media Services proporciona empaquetado dinámico que permite entregar contenido 
 
 Para aprovechar el [empaquetado dinámico](media-services-dynamic-packaging-overview.md), tiene que modificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable y tener al menos un punto de conexión de streaming estándar o premium en estado iniciado.
 
-Media Services admite los siguientes codificadores a petición que se describen en este artículo:
+Media Services admite el siguiente codificador a petición, que se describe en este artículo:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Flujo de trabajo del Codificador multimedia](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Para obtener información acerca de los codificadores compatibles, consulte [Codificadores](media-services-encode-asset.md).
+Para obtener información sobre este codificador compatible, consulte [Introducción a los codificadores multimedia a petición de Azure](media-services-encode-asset.md).
 
 ## <a name="live-streaming"></a>Streaming en directo
 En Azure Media Services, un canal representa una canalización para procesar contenido de streaming en directo. Los canales reciben el flujo de entrada en directo de dos maneras posibles:

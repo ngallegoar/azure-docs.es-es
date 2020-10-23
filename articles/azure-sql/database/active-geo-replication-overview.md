@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: a269796c072a235e4ecd47731ca37a774750a3cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018389"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91445067"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creación y uso de la replicación geográfica activa: Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,7 +118,7 @@ Para asegurarse de que la aplicación pueda acceder de inmediato a la nueva base
 
 ## <a name="configuring-secondary-database"></a>Configuración de una base de datos secundaria
 
-Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. También se recomienda encarecidamente que la base de datos secundaria se cree con el mismo tamaño de proceso (unidades de transacción de base de datos o núcleos virtuales) que la principal. Si la base de datos principal está experimentando una carga de trabajo de escritura intensiva, es posible que una base de datos secundaria con un tamaño de proceso menor no pueda mantenerla. Provocará el retardo de la fase de puesta al día en la base de datos secundaria y una posible falta de disponibilidad. Para mitigar estos riesgos, una replicación geográfica activa limitará la velocidad de los registros de transacción de la base de datos principal si es necesario para permitir que sus secundarias se pongan al día.
+Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. También se recomienda encarecidamente que la base de datos secundaria se cree con la misma redundancia de almacenamiento de copia de seguridad y el mismo tamaño de proceso (unidades de transacción de base de datos o núcleos virtuales) que la principal. Si la base de datos principal está experimentando una carga de trabajo de escritura intensiva, es posible que una base de datos secundaria con un tamaño de proceso menor no pueda mantenerla. Provocará el retardo de la fase de puesta al día en la base de datos secundaria y una posible falta de disponibilidad. Para mitigar estos riesgos, una replicación geográfica activa limitará la velocidad de los registros de transacción de la base de datos principal si es necesario para permitir que sus secundarias se pongan al día.
 
 Otra consecuencia de una configuración de base de datos secundaria no equilibrada es que después de la conmutación por error, el rendimiento de la aplicación puede verse afectado debido a una capacidad de proceso insuficiente de la nueva base de datos principal. En ese caso, se deberá escalar verticalmente el objetivo del servicio de base de datos al nivel necesario, lo que puede tardar mucho tiempo y requerir un volumen considerable de recursos de proceso, así como una conmutación por error de [alta disponibilidad](high-availability-sla.md) al final del proceso de escalado vertical.
 
@@ -126,8 +126,13 @@ Si decide crear la base de datos secundaria con un tamaño de proceso más bajo,
 
 La limitación de la velocidad del registro de transacciones en la base de datos principal debido a un tamaño de proceso inferior en una base de datos secundaria se envía mediante el tipo de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visible en las vistas de bases de datos [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) y [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
+De forma predeterminada, la redundancia del almacenamiento de copia de seguridad de la base de datos secundaria es la misma que la de la base de datos principal. Si lo desea, puede configurar la base de datos secundaria con una redundancia de almacenamiento de copia de seguridad diferente. Las copias de seguridad siempre se realizan en la base de datos principal. Si la secundaria está configurada con una redundancia de almacenamiento de copia de seguridad diferente, después de la conmutación por error cuando la base de datos secundaria se promueve a principal, las copias de seguridad se facturarán según la redundancia de almacenamiento seleccionada en la nueva base de datos principal (anteriormente secundaria). 
+
 > [!NOTE]
 > La velocidad del registro de transacciones de la base de datos principal puede estar limitada por motivos no relacionados con el tamaño de proceso inferior de una base de datos secundaria. Este tipo de limitación puede producirse aunque la base de datos secundaria tenga el mismo tamaño de proceso que la principal o uno superior. Para obtener más información, incluidos los tipos de espera para diferentes tipos de limitaciones de velocidad de registro, vea [Gobernanza de la velocidad del registro de transacciones](resource-limits-logical-server.md#transaction-log-rate-governance).
+
+> [!NOTE]
+> La redundancia del almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente como versión preliminar pública en la región Sudeste de Asia de Azure. En la versión preliminar, si la base de datos de origen se crea con redundancia de copia de seguridad local o con redundancia de copia de seguridad de zona, no se admitirá la creación de una base de datos secundaria en una región de Azure distinta. 
 
 Para más información sobre los tamaños de proceso de SQL Database, consulte [¿Qué son los niveles de servicio de SQL Database?](purchasing-models.md)
 
@@ -248,9 +253,9 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 
 | Get-Help | Descripción |
 | --- | --- |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Se utiliza el argumento ADD SECONDARY ON SERVER a fin de crear una base de datos secundaria para una base de datos existente e iniciar la replicación de datos |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Se utiliza FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS para cambiar una base de datos de secundaria a principal e iniciar la conmutación por error. |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Se utiliza REMOVE SECONDARY ON SERVER para finalizar una replicación de datos entre una instancia de SQL Database y la base de datos secundaria especificada. |
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Se utiliza el argumento ADD SECONDARY ON SERVER a fin de crear una base de datos secundaria para una base de datos existente e iniciar la replicación de datos |
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Se utiliza FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS para cambiar una base de datos de secundaria a principal e iniciar la conmutación por error. |
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Se utiliza REMOVE SECONDARY ON SERVER para finalizar una replicación de datos entre una instancia de SQL Database y la base de datos secundaria especificada. |
 | [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Devuelve información sobre todos los vínculos de replicación existentes para cada base de datos en un servidor. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Obtiene la hora de la última replicación, el retraso de la última replicación y otro tipo de información sobre el vínculo de replicación para una base de datos determinada. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Muestra el estado de todas las operaciones de base de datos, incluido el estado de los vínculos de replicación. |

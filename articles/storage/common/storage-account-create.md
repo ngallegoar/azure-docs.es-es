@@ -1,27 +1,27 @@
 ---
 title: Crear una cuenta de almacenamiento
 titleSuffix: Azure Storage
-description: Obtenga información para crear una nueva cuenta de almacenamiento con Azure Portal, Azure PowerShell o la CLI de Azure. Una cuenta de Azure Storage proporciona un espacio de nombres único en Microsoft Azure para almacenar y tener acceso a los datos.
+description: Aprenda a crear una cuenta de almacenamiento para almacenar blobs, archivos, colas y tablas. Una cuenta de Azure Storage proporciona un espacio de nombres único en Microsoft Azure para leer y escribir los datos.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/07/2020
+ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8b6f5f302465d075b7a0bcb0e6b12c75b1379bb5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069857"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91333586"
 ---
-# <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
+# <a name="create-a-storage-account"></a>Creación de una cuenta de Storage
 
 Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. La cuenta de almacenamiento proporciona un espacio de nombres único para los datos de Azure Storage que es accesible desde cualquier lugar del mundo a través de HTTP o HTTPS. Los datos de la cuenta de Azure Storage son duraderos y altamente disponibles, seguros y escalables a gran escala.
 
-En este artículo de procedimientos se aprende a crear una cuenta de almacenamiento con [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), la [CLI de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) o una [plantilla de Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
+En este artículo de procedimientos se aprende a crear una cuenta de almacenamiento con [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), la [CLI de Azure](https://docs.microsoft.com/cli/azure) o una [plantilla de Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ El botón inicia un shell interactivo que se puede usar para ejecutar los pasos 
 
 ### <a name="install-the-cli-locally"></a>Instalación local de la CLI
 
-También puede instalar y usar la CLI de Azure localmente. Para este artículo de procedimientos es preciso usar la versión 2.0.4 de la CLI de Azure o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
+También puede instalar y usar la CLI de Azure localmente. Los ejemplos de este artículo requieren la CLI de Azure, versión 2.0.4 o posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 # <a name="template"></a>[Plantilla](#tab/template)
 
@@ -104,11 +104,9 @@ N/D
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Ahora ya está listo para crear una cuenta de almacenamiento.
-
 Cada cuenta de almacenamiento debe pertenecer a un grupo de recursos de Azure. Un grupo de recursos es un contenedor lógico para agrupar servicios de Azure. Al crear una cuenta de almacenamiento, puede elegir entre crear un grupo de recursos o usar uno existente. En este artículo se muestra cómo crear un nuevo grupo de recursos.
 
-Una cuenta de almacenamiento de **uso general v2** proporciona acceso a todos los servicios de Azure Storage: Blob, File, Queue, Table y Disk. Los pasos indicados aquí crean una cuenta de almacenamiento de uso general v2, pero los pasos para crear cualquier otro tipo de cuenta de almacenamiento son similares.
+Una cuenta de almacenamiento de **uso general v2** proporciona acceso a todos los servicios de Azure Storage: Blob, File, Queue, Table y Disk. Los pasos indicados aquí crean una cuenta de almacenamiento de uso general v2, pero los pasos para crear cualquier otro tipo de cuenta de almacenamiento son similares. Para obtener más información sobre los tipos de cuentas de almacenamiento y otros parámetros de la cuenta de almacenamiento, consulte [Introducción a las cuentas de Azure Storage](storage-account-overview.md).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -186,7 +184,7 @@ az storage account create \
 ```
 
 > [!IMPORTANT]
-> Si planea usar [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluya `--enable-hierarchical-namespace true` en esta lista de parámetros. 
+> Si planea usar [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluya `--enable-hierarchical-namespace true` en esta lista de parámetros.
 
 Para crear una cuenta de almacenamiento de uso general v2 con otra opción de replicación, sustituya el valor deseado de la tabla siguiente por el parámetro **sku**.
 
@@ -230,8 +228,6 @@ Para obtener información sobre cómo modificar esta plantilla o crear otras nue
 - [Ejemplos de plantillas de cuenta de almacenamiento adicionales](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 ---
-
-Para más información acerca de las opciones de replicación, consulte [Opciones de replicación de Azure Storage](storage-redundancy.md).
 
 ## <a name="delete-a-storage-account"></a>Eliminar una cuenta de almacenamiento
 
@@ -287,26 +283,6 @@ Como alternativa, puede eliminar el grupo de recursos, que elimina la cuenta de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo de procedimientos se ha creado una cuenta de almacenamiento estándar de uso general v2. Para aprender a cargar y descargar blobs en la cuenta de almacenamiento, vaya a alguna de las guías de inicio rápido de Blob Storage.
-
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-
-> [!div class="nextstepaction"]
-> [Uso de blobs con Azure Portal](../blobs/storage-quickstart-blobs-portal.md)
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-> [!div class="nextstepaction"]
-> [Uso de blobs con PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
-
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-> [!div class="nextstepaction"]
-> [Uso de blobs con la CLI de Azure](../blobs/storage-quickstart-blobs-cli.md)
-
-# <a name="template"></a>[Plantilla](#tab/template)
-
-> [!div class="nextstepaction"]
-> [Uso de blobs con Azure Portal](../blobs/storage-quickstart-blobs-portal.md)
-
----
+- [Introducción a las cuentas de almacenamiento](storage-account-overview.md)
+- [Actualización a una cuenta de almacenamiento de uso general v2](storage-account-upgrade.md)
+- [Traslado de una cuenta de Azure Storage a otra región](storage-account-move.md)

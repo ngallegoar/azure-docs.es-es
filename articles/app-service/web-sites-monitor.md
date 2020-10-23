@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: c4e9a66e6bd6b94d8397429769d7718b3e9c555d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959798"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148118"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Supervisión de aplicaciones en Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) proporciona funciones de supervisión integradas para aplicaciones Web, móviles y aplicaciones de API en el [Azure Portal](https://portal.azure.com).
+[Azure App Service](./overview.md) proporciona funciones de supervisión integradas para aplicaciones Web, móviles y aplicaciones de API en el [Azure Portal](https://portal.azure.com).
 
 En Azure Portal, puede repasar las *cuotas* y *métricas* de una aplicación y un plan de App Service, así como configurar *alertas* y *escalado* automático a partir de métricas.
 
@@ -58,7 +58,7 @@ Se pueden incrementar o quitar de la aplicación mediante la actualización del 
 ## <a name="understand-metrics"></a>Información sobre las métricas
 
 > [!NOTE]
-> **Uso del sistema de archivos** es una nueva métrica que se está implementando globalmente; no se espera ningún dato a menos que se haya incluido en la lista blanca de la versión preliminar privada.
+> **Uso del sistema de archivos** es una nueva métrica que se está implementando globalmente; no se espera ningún dato a menos que la aplicación esté hospedada en App Service Environment.
 > 
 
 > [!IMPORTANT]

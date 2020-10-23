@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 334cbef7460306ef2954881a1cab918573e1e371
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924587"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400645"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configuración de la recuperación ante desastres de VMware en Azure en un entorno multiinquilino con el programa Proveedor de soluciones en la nube (CSP)
 
-El [programa CSP](https://partner.microsoft.com/cloud-solution-provider) fomenta escenarios de colaboración para servicios en la nube de Microsoft, lo que incluye Office 365, Enterprise Mobility Suite y Microsoft Azure. Con CSP, los asociados tienen una relación completa con los clientes y se convierten en el principal punto de contacto de la relación. Los asociados pueden implementar suscripciones de Azure para los clientes y combinarlas con sus propias ofertas personalizadas de valor añadido.
+El [programa CSP](https://partner.microsoft.com/cloud-solution-provider) fomenta escenarios de colaboración para servicios en la nube de Microsoft, lo que incluye Microsoft 365, Enterprise Mobility Suite y Microsoft Azure. Con CSP, los asociados tienen una relación completa con los clientes y se convierten en el principal punto de contacto de la relación. Los asociados pueden implementar suscripciones de Azure para los clientes y combinarlas con sus propias ofertas personalizadas de valor añadido.
 
 Con [Azure Site Recovery](site-recovery-overview.md), los asociados pueden administrar la recuperación ante desastres de los clientes directamente mediante CSP. O bien, se puede usar CSP para configurar entornos de Site Recovery y dejar que los clientes administren sus propias necesidades de recuperación ante desastres en modo de autoservicio. En ambos escenarios, los asociados son el enlace entre Site Recovery y sus clientes. Los asociados atienden la relación con los clientes y les facturan por el uso de Site Recovery.
 

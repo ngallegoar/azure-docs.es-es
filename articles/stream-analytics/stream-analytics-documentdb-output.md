@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: dbeb1305a64fcace0be527708bc9122a4ffb931d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870840"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91596570"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Salida de Azure Stream Analytics a Azure Cosmos DB  
 Azure Stream Analytics puede tener como destino [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para la salida JSON, lo que permite el archivo de datos y las consultas de latencia baja en datos JSON no estructurados. En este documento tratan algunas prácticas recomendadas para implementar esta configuración.
@@ -72,7 +72,9 @@ Según la clave de partición que elija, es posible que reciba esta _advertencia
 
 Es importante que elija una propiedad de clave de partición que tenga varios valores distintos y le permita distribuir la carga de trabajo uniformemente entre estos valores. Como artefacto natural de creación de particiones, las solicitudes relacionadas con la misma clave de partición están limitadas por el rendimiento máximo de una sola partición. 
 
-El tamaño de almacenamiento para los documentos que pertenecen a la misma clave de partición está limitado a 20 GB. Una clave de partición idónea es la que aparece con frecuencia como filtro en sus consultas y que tiene suficiente cardinalidad para asegurar que la solución es escalable.
+El tamaño de almacenamiento para los documentos que pertenecen al mismo valor de clave de partición está limitado a 20 GB (el [límite del tamaño de la partición física](../cosmos-db/partition-data.md) es de 50 GB). Una [clave de partición idónea](../cosmos-db/partitioning-overview.md#choose-partitionkey) es la que aparece con frecuencia como filtro en sus consultas y que tiene suficiente cardinalidad para asegurar que la solución es escalable.
+
+No es necesario que las claves de partición empleadas para las consultas de Stream Analytics y Cosmos DB sean idénticas. Las topologías totalmente paralelas recomiendan el uso de la *clave de partición de entrada* (`PartitionId`) como la clave de partición de la consulta de Stream Analytics, pero es posible que no sea la opción recomendada para la clave de partición de un contenedor de Cosmos DB.
 
 Una clave de partición es también el límite para las transacciones de los procedimientos almacenados y desencadenadores de Azure Cosmos DB. Debe elegir la clave de partición para que los documentos que ocurren juntos en las transacciones compartan el mismo valor de clave de partición. El artículo [Creación de particiones en Azure Cosmos DB](../cosmos-db/partitioning-overview.md) proporciona más detalles acerca de cómo elegir una clave de partición.
 

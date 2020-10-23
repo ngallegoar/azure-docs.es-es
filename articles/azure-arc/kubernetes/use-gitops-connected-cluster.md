@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Uso de GitOps para una configuración de clúster habilitada para Azure Arc (versión preliminar)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: e25fdf3a51b3e9264c85707df31d3a4d107b25ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c00ed30c9a7424d083bf076c64cf008e0480bb2b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049966"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91714193"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implementación de configuraciones mediante GitOps en clústeres de Kubernetes habilitados para Arc (versión preliminar)
 
@@ -23,17 +23,19 @@ Se realiza el seguimiento de la conexión entre el clúster y uno o varios repos
 
 El elemento `config-agent` que se ejecuta en el clúster es responsable de inspeccionar los recursos de extensión de `sourceControlConfiguration` nuevos o actualizados en el recurso de Kubernetes habilitado para Azure Arc, de implementar un operador de Flux para inspeccionar el repositorio de Git y de propagar las actualizaciones realizadas en `sourceControlConfiguration`. Incluso es posible crear varios recursos de `sourceControlConfiguration` con ámbito de `namespace` en el mismo clúster de Kubernetes habilitado para Azure Arc para lograr el multiinquilinato. En ese caso, cada operador solo puede implementar configuraciones en su espacio de nombres respectivo.
 
-El repositorio de Git puede contener cualquier recurso de Kubernetes válido, incluidos espacios de nombres, ConfigMaps, implementaciones, DaemonSets, etc.  También puede contener gráficos de Helm para implementar aplicaciones. Un conjunto común de escenarios incluye la definición de una configuración de línea de base para la organización, que podría incluir roles y enlaces de RBAC comunes, agentes de supervisión o registro, o servicios para todo el clúster.
+El repositorio de Git puede contener cualquier recurso de Kubernetes válido, incluidos espacios de nombres, ConfigMaps, implementaciones, DaemonSets, etc.  También puede contener gráficos de Helm para implementar aplicaciones. Un conjunto común de escenarios incluye la definición de una configuración de línea de base para la organización, que podría incluir roles y enlaces de Azure comunes, agentes de supervisión o registro, o bien servicios para todo el clúster.
 
 Se puede usar el mismo patrón para administrar una colección mayor de clústeres, que se puede implementar en entornos heterogéneos. Por ejemplo, puede tener un repositorio que defina la configuración de línea de base para la organización y aplicarla a decenas de clústeres de Kubernetes a la vez. [Azure Policy puede automatizar](use-azure-policy.md) la creación de un elemento `sourceControlConfiguration` con un conjunto específico de parámetros en todos los recursos de Kubernetes habilitados para Azure Arc en un ámbito (suscripción o grupo de recursos).
 
 En esta guía de introducción se describirá la aplicación de un conjunto de configuraciones con ámbito de administración de clústeres.
 
+## <a name="before-you-begin"></a>Antes de empezar
+
+En este artículo se supone que ya tiene un clúster conectado de Kubernetes habilitado para Azure Arc. Si necesita un clúster conectado, vea el [inicio rápido sobre conexión de un clúster](./connect-cluster.md).
+
 ## <a name="create-a-configuration"></a>Creación de una configuración
 
-- Repositorio de ejemplo: <https://github.com/Azure/arc-k8s-demo>
-
-El repositorio de ejemplo está estructurado en torno al rol de un operador de clúster que le gustaría aprovisionar algunos espacios de nombres, implementar una carga de trabajo común y proporcionar una configuración específica del equipo. Mediante este repositorio se crean los siguientes recursos en el clúster:
+El [repositorio de ejemplo](https://github.com/Azure/arc-k8s-demo) que se utiliza en este documento está estructurado en torno al rol de un operador de clúster que quiere aprovisionar algunos espacios de nombres, implementar una carga de trabajo común y proporcionar una configuración específica del equipo. Mediante este repositorio se crean los siguientes recursos en el clúster:
 
 **Espacios de nombres:** `cluster-config`, `team-a`, `team-b`
 **Implementación:** `cluster-config/azure-vote`
@@ -47,12 +49,7 @@ Si va a asociar un repositorio privado a `sourceControlConfiguration`, asegúres
 Con la extensión de la CLI de Azure para `k8sconfiguration`, se va a vincular el clúster conectado a un [repositorio de Git de ejemplo](https://github.com/Azure/arc-k8s-demo). A esta configuración se le asignará el nombre `cluster-config`, se le indicará al agente que implemente el operador en el espacio de nombres `cluster-config` y se concederán permisos `cluster-admin` al operador.
 
 ```console
-az k8sconfiguration create \
-    --name cluster-config \
-    --cluster-name AzureArcTest1 --resource-group AzureArcTest \
-    --operator-instance-name cluster-config --operator-namespace cluster-config \
-    --repository-url https://github.com/Azure/arc-k8s-demo \
-    --scope cluster --cluster-type connectedClusters
+az k8sconfiguration create --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/Azure/arc-k8s-demo --scope cluster --cluster-type connectedClusters
 ```
 
 **Salida:**
@@ -159,7 +156,7 @@ Para obtener más información, vea la [documentación de Flux](https://aka.ms/F
 Con la CLI de Azure, valide que `sourceControlConfiguration` se ha creado correctamente.
 
 ```console
-az k8sconfiguration show --resource-group AzureArcTest --name cluster-config --cluster-name AzureArcTest1 --cluster-type connectedClusters
+az k8sconfiguration show --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 Tenga en cuenta que el recurso `sourceControlConfiguration` se actualiza con el estado de cumplimiento, los mensajes y la información de depuración.
@@ -302,7 +299,7 @@ Elimine `sourceControlConfiguration` mediante la CLI de Azure o Azure Portal.  D
 > Los cambios en el clúster que son el resultado de implementaciones desde el repositorio de Git sometido a seguimiento no se eliminan cuando se elimina `sourceControlConfiguration`.
 
 ```console
-az k8sconfiguration delete --name '<config name>' -g '<resource group name>' --cluster-name '<cluster name>' --cluster-type connectedClusters
+az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 **Salida:**

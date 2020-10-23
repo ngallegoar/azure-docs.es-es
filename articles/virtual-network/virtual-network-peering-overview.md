@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265167"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91531877"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
-El emparejamiento de redes virtuales permite conectar redes sin problemas en [Azure Virtual Network](virtual-networks-overview.md). A efectos de conectividad las redes virtuales aparecen como una sola. El tráfico entre máquinas virtuales usa la infraestructura de la red troncal de Microsoft. Al igual que el tráfico entre las máquinas virtuales de la misma red, el tráfico solo se enruta a través de la red *privada* de Microsoft.
+El emparejamiento de red virtual permite conectar sin problemas dos o más [redes virtuales](virtual-networks-overview.md) en Azure. A efectos de conectividad las redes virtuales aparecen como una sola. El tráfico entre las máquinas virtuales de la red virtual emparejada usa la infraestructura de la red troncal de Microsoft. Al igual que el tráfico entre las máquinas virtuales de la misma red, el tráfico solo se enruta a través de la red *privada* de Microsoft.
 
 La directiva admite los siguientes tipos de emparejamiento:
 

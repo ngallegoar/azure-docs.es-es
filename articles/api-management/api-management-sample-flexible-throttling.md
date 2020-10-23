@@ -15,20 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 7ef1c09b12d3c7e365f090391aa3fa8afa03749b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214008"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91537351"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitación avanzada de solicitudes con Azure API Management
 La posibilidad de limitar las solicitudes entrantes es un rol clave de Azure API Management. Ya sea mediante el control de la velocidad de solicitudes o de las solicitudes y los datos totales transferidos, Administración de API permite a los proveedores de API proteger sus API de uso indebido y crear valor para los diferentes niveles de productos de API.
 
+## <a name="rate-limits-and-quotas"></a>Límites de frecuencia y cuotas
+Los límites de frecuencia y las cuotas se utilizan para distintos fines.
+
+### <a name="rate-limits"></a>Límites de frecuencia
+Los límites de frecuencia suelen utilizarse para protegerse de ráfagas de volumen intensas y cortas. Por ejemplo, si sabe que la base de datos del servicio back-end se convierte en un cuello de botella cuando el volumen de llamadas es elevado, puede establecer una directiva de `rate-limit-by-key` y utilizar esta configuración para impedir que se realicen muchas llamadas.
+
+### <a name="quotas"></a>Cuotas
+Las cuotas suelen utilizarse para controlar la frecuencia de llamadas durante un período de tiempo más largo. Por ejemplo, pueden determinar el número total de llamadas que un suscriptor puede realizar en un determinado mes. Para rentabilizar la API, las cuotas se pueden establecer de forma diferente en las suscripciones basadas en niveles. Por ejemplo, es posible que una suscripción del nivel Básico no pueda realizar más de 10 000 llamadas al mes, mientras que el nivel Premium podría llegar a 100 millones de llamadas al mes.
+
+En Azure API Management, los límites de frecuencia suelen propagarse más rápido entre los nodos como protección frente a los picos. En cambio, la información sobre las cuotas de uso se usa a más largo plazo y, por tanto, su implementación es diferente.
+
+> [!CAUTION]
+> Debido a la naturaleza distribuida de la arquitectura de limitación, el límite de velocidad nunca es completamente preciso. La diferencia entre la cantidad configurada y la cantidad real de solicitudes permitidas varía según el volumen y la frecuencia de solicitudes, la latencia del back-end y otros factores.
+
 ## <a name="product-based-throttling"></a>Limitación basada en producto
 Hasta la fecha, las funcionalidades de limitación de velocidad se han circunscrito al ámbito de una suscripción de producto concreta, que se define en Azure Portal. Resulta útil para que el proveedor de la API aplique límites a los desarrolladores que inicien sesión para usar su API, pero no ayuda, por ejemplo, a imponer limitaciones a los usuarios finales individuales de la API. Es posible que un solo usuario de la aplicación del desarrollador consuma toda la cuota e impida que otros clientes del desarrollador puedan usar la aplicación. Además, es posible que varios clientes que generen un gran volumen de solicitudes limiten el acceso a los usuarios ocasionales.
 
-## <a name="custom-key-based-throttling"></a>Limitación por clave personalizada
+## <a name="custom-key-based-throttling"></a>Limitación por claves personalizadas
 
 > [!NOTE]
 > Las directivas `rate-limit-by-key` y `quota-by-key` no están disponibles en el nivel Consumo de Azure API Management. 

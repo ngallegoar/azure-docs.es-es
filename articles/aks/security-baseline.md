@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 306b70fb08622d161ab8f150dc5eec3fdbacaeeb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 303720cf50b5eabf22319e1eeae7423c4f1d94bb
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072873"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201705"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Base de referencia de seguridad de Azure para Azure Kubernetes Service
 
@@ -236,7 +236,7 @@ Habilite también otros registros de auditoría como kube-audit.
 
 Exporte estos registros a Log Analytics u otra plataforma de almacenamiento. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y use cuentas de Azure Storage para el almacenamiento de archivos a largo plazo.
 
-Habilite e incorpore estos datos en Azure Sentinel o en una SIEM de terceros, en función de los requisitos organizativos de la empresa.
+Habilite los datos integrados en Azure Sentinel o en una SIEM de terceros, en función de los requisitos empresariales de la organización.
 
 - [Revisión del esquema de registro, incluidos los roles de registro](view-master-logs.md)
 
@@ -854,7 +854,7 @@ Realice un seguimiento de las configuraciones de sus máquinas a fin de identifi
 
 - [Habilitación de la supervisión de la integridad de los archivos](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Descripción de Azure Change Tracking](../automation/change-tracking.md)
+- [Descripción de Azure Change Tracking](../automation/change-tracking/overview.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

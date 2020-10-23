@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: bd77af133b88e1ba93054dbb7e0f896d8d418f89
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 71ac7793fe5226215c5d4eab98f84dba356b114c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893554"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91275972"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integración de Git con Azure Machine Learning
 
@@ -35,7 +35,89 @@ Se recomienda clonar el repositorio en el directorio de los usuarios, de modo qu
 
 Puede clonar cualquier repositorio de Git en el que pueda autenticarse (GitHub, Azure Repos, BitBucket, etc.).
 
-Para consultar una guía sobre cómo usar la CLI de Git, lea [este vínculo](https://guides.github.com/introduction/git-handbook/).
+Para más información sobre la clonación, consulte la guía sobre [cómo usar la CLI de Git](https://guides.github.com/introduction/git-handbook/).
+
+## <a name="authenticate-your-git-account-with-ssh"></a>Autenticación de la cuenta de Git con SSH
+### <a name="generate-a-new-ssh-key"></a>Generación de una nueva clave SSH
+1) [Abra la ventana de terminal](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) en la pestaña Notebook de Azure Machine Learning.
+
+2) Pegue el texto siguiente y sustituya la dirección de correo electrónico.
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+Se crea una clave SSH y se usa el correo electrónico proporcionado como etiqueta.
+
+```
+> Generating public/private rsa key pair.
+```
+
+3) Cuando se le pida que especifique un archivo en el que guardar la clave, presione Entrar. Con esta acción se acepta la ubicación predeterminada del archivo.
+
+4) Compruebe que la ubicación predeterminada es "/home/azureuser/.ssh" y presione Entrar. De lo contrario, especifique la ubicación "/home/azureuser/.ssh".
+
+> [!TIP]
+> Asegúrese de que la clave SSH esté guardada en "/home/azureuser/.ssh". Este archivo se guarda en la instancia de proceso y solo es accesible para el propietario de esta.
+
+```
+> Enter a file in which to save the key (/home/azureuser/.ssh/id_rsa): [Press enter]
+```
+
+5) Cuando se le pida, escriba una frase de contraseña segura. Para mayor seguridad, se recomienda agregar una frase de contraseña a la clave SSH.
+
+```
+> Enter passphrase (empty for no passphrase): [Type a passphrase]
+> Enter same passphrase again: [Type passphrase again]
+```
+
+### <a name="add-the-public-key-to-git-account"></a>Adición de la clave pública a la cuenta de Git
+1) En la ventana de terminal, copie el contenido del archivo de clave pública. Si ha cambiado el nombre de la clave, reemplace id_rsa.pub por el nombre del archivo de clave pública.
+
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+> [!TIP]
+> **Copiar y pegar en el terminal**
+> * Windows: `Ctrl-Insert` para copiar y `Ctrl-Shift-v` o `Shift-Insert` para pegar.
+> * Mac OS: `Cmd-c` para copiar y `Cmd-v` para pegar.
+> * Es posible que Firefox o IE no admitan los permisos del Portapapeles correctamente.
+
+2) Seleccione y copie la salida de la clave en el portapapeles.
+
++ [GitHub](https://docs.github.com/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+
++ [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
+
++ [Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs) Comience en el **paso 2**.
+
++ [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Comience en el **paso 4**.
+
+### <a name="clone-the-git-repository-with-ssh"></a>Clonación del repositorio de Git con SSH
+
+1) Copie la dirección URL de clonación de Git de SSH del repositorio de Git.
+
+2) Pegue la dirección URL en el comando `git clone` siguiente para usar la dirección URL del repositorio de Git de SSH. Se parecerá a esta:
+
+```bash
+git clone git@example.com:GitUser/azureml-example.git
+Cloning into 'azureml-example'...
+```
+
+Verá una respuesta como la siguiente:
+
+```bash
+The authenticity of host 'example.com (192.30.255.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of known hosts.
+```
+
+Puede que SSH muestre la huella digital de SSH del servidor y le pida que la verifique. Deberá comprobar que la huella digital mostrada coincida con una de las huellas digitales de la página de claves públicas de SSH.
+
+SSH muestra esta huella digital cuando se conecta a un host desconocido para protegerle de [ataques de tipo "Man in the Middle"](https://technet.microsoft.com/library/cc959354.aspx). Una vez que acepte la huella digital del host, SSH no volverá a pedírsela a menos que la cambie.
+
+3) Cuando se le pregunte si quiere continuar con la conexión, escriba `yes`. Git clonará el repositorio y configurará el origen remoto para conectarse con SSH en futuros comandos de Git.
 
 ## <a name="track-code-that-comes-from-git-repositories"></a>Seguimiento del código proveniente de repositorios de Git
 
@@ -110,7 +192,7 @@ El comando de la CLI `az ml run` se puede usar para recuperar las propiedades de
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Para más información, consulte la documentación de referencia de [az ml run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest).
+Para más información, consulte la documentación de referencia de [az ml run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

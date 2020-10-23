@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: e512c233ccfd793b87f203f837b11e97966d8102
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016255"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91651163"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>Validación funcional de AppSource Dynamics 365 Finance and Operations
 
@@ -58,7 +58,7 @@ Para programar una llamada de revisión final, póngase en contacto con [appsour
 
     | Campo | Imagen <img src="" width="400px">|
     | --- | --- |
-    | Introducción al paquete | [![Pantalla de información general del paquete](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
+    | Introducción al paquete | [![Captura de pantalla que muestra la ventana "Introducción al paquete".](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Aprobadores de soluciones</li></ul> | [![Pantalla de información general del paquete](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
     | Contenido del paquete<ul><li>Modelo</li><li>Paquete de software implementable</li></ul> | [![Pantalla uno de contenido del paquete](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
     | <ul><li>Configuración de GER</li><li>Copia de seguridad completa de base de datos</li></ul><br>No se necesitan artefactos en la sección de **configuración de GER**. | [![Pantalla dos de contenido del paquete](media/dynamics-365-finance-operations/package-contents-2-45.png)](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |

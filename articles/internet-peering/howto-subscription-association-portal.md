@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
-ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710854"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91540275"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Asociación de un ASN del mismo nivel a una suscripción de Azure mediante el portal
 
@@ -70,12 +70,12 @@ Como proveedor de servicios de Internet o proveedor de intercambio de Internet, 
 1. A continuación, haga clic en **Revisar y crear** y observe cómo el portal ejecuta una validación básica de la información especificada. Esta información se muestra en una cinta en la parte superior, con el texto *Ejecutando la validación final...* .
 
     > [!div class="mx-imgBorder"]
-    > ![Pestaña de revisión de PeerAsn](./media/peerasn-review-tab-validation.png)
+    > ![Captura de pantalla que muestra la pestaña Basics (Aspectos básicos) de Associate a Peer A S N (Asociar un ASN del mismo nivel).](./media/peerasn-review-tab-validation.png)
 
 1. Cuando el mensaje de la cinta se convierta en *Validación superada*, compruebe la información y envíe la solicitud. Para ello, haga clic en **Crear**. Si no se supera la validación, haga clic en **Anterior** y repita los pasos anteriores para modificar la solicitud y asegurarse de que los valores que especifique no tienen errores.
 
     > [!div class="mx-imgBorder"]
-    > ![Pestaña de revisión de PeerAsn](./media/peerasn-review-tab.png)
+    > ![Captura de pantalla que muestra la pestaña Basics (Aspectos básicos) de Associate a Peer A S N (Asociar un ASN del mismo nivel) con Validation passed (Validación superada).](./media/peerasn-review-tab.png)
 
 1. Después de enviar la solicitud, espere a que finalice la implementación. Si se produce un error en la implementación, póngase en contacto con el [equipo de emparejamiento de Microsoft](mailto:peering@microsoft.com). Una implementación correcta tendrá un aspecto similar al siguiente.
 

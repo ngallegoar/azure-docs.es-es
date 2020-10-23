@@ -1,26 +1,84 @@
 ---
 title: Depuración interactiva con Visual Studio Code
 titleSuffix: Azure Machine Learning
-description: Depure de manera interactiva el código, las canalizaciones e implementaciones de Azure Machine Learning mediante Visual Studio Code
+description: Depure de manera interactiva el código, las canalizaciones y las implementaciones de Azure Machine Learning mediante Visual Studio Code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 08/06/2020
-ms.openlocfilehash: 3c2934c92be668d4b4c05f97a98395e2e219b7dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/30/2020
+ms.openlocfilehash: 374cc79b42d2dcaed0312c0ec205073906ce1fc5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907617"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530681"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuración interactiva con Visual Studio Code
 
 
 
-Obtenga información sobre cómo depurar interactivamente canalizaciones e implementaciones de Azure Machine Learning con Visual Studio Code (VS Code) y [depugpy](https://github.com/microsoft/debugpy/).
+Aprenda a depurar de manera interactiva experimentos, canalizaciones e implementaciones de Azure Machine Learning con Visual Studio Code (VS Code) y [depugpy](https://github.com/microsoft/debugpy/).
+
+## <a name="run-and-debug-experiments-locally"></a>Ejecución y depuración de experimentos de manera local
+
+Use la extensión de Azure Machine Learning para validar, ejecutar y depurar los experimentos de aprendizaje automático antes de enviarlos a la nube.
+
+### <a name="prerequisites"></a>Requisitos previos
+
+* Extensión de Azure Machine Learning para VS Code (versión preliminar) Para más información, consulte [Configuración de la extensión de Azure Machine Learning para VS Code](tutorial-setup-vscode-extension.md).
+* [Docker](https://www.docker.com/get-started)
+  * Docker Desktop para Mac y Windows
+  * Motor de Docker para Linux.
+* [Python 3](https://www.python.org/downloads/)
+
+> [!NOTE]
+> En Windows, asegúrese de [configurar Docker para usar contenedores de Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+
+> [!TIP]
+> En Windows, aunque no es necesario, se recomienda encarecidamente [usar Docker con el subsistema de Windows para Linux (WSL) 2](https://docs.microsoft.com/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
+
+> [!IMPORTANT]
+> Antes de ejecutar el experimento de manera local, asegúrese de que Docker se está ejecutando.
+
+### <a name="debug-experiment-locally"></a>Depuración del experimento de manera local
+
+1. En VS Code, abra la vista de la extensión de Azure Machine Learning.
+1. Expanda el nodo de suscripción que contiene el área de trabajo. Si aún no tiene una, puede [crear un área de trabajo de Azure Machine Learning](how-to-manage-resources-vscode.md#create-a-workspace) mediante la extensión.
+1. Expanda el nodo del área de trabajo.
+1. Haga clic con el botón derecho en el nodo **Experiments** (Experimentos) y seleccione **Create experiment** (Crear experimento). Cuando se le pida, proporcione un nombre para el experimento.
+1. Expanda el nodo **Experiments** (Experimentos), haga clic con el botón derecho en el experimento que quiera ejecutar y seleccione **Run Experiment** (Ejecutar experimento).
+1. En la lista de opciones para ejecutar el experimento, seleccione **Locally** (Localmente).
+1. **Uso por primera vez solo en Windows**. Cuando se le pregunte si desea permitir recursos compartidos de archivos, seleccione **Yes** (Sí). Cuando habilita los recursos compartidos de archivos, permite que Docker monte el directorio que contiene el script en el contenedor. Además, también permite que Docker almacene los registros y los resultados de la ejecución en un directorio temporal del sistema.
+1. Seleccione **Yes** (Sí) para depurar el experimento. De lo contrario, seleccione **No**. Si selecciona No, el experimento se ejecutará de manera local sin asociarse al depurador.
+1. Seleccione **Create new Run Configuration** (Crear configuración de ejecución) para crear la configuración de ejecución. La configuración de ejecución define el script que quiere ejecutar, las dependencias y los conjuntos de datos usados. Como alternativa, si ya tiene una, selecciónela en la lista desplegable.
+    1. Elija el entorno. Puede elegir cualquiera de los [mantenidos por Azure Machine Learning](resource-curated-environments.md) o crear el suyo propio.
+    1. Proporcione el nombre del script que quiere ejecutar. La ruta de acceso es relativa al directorio abierto en VS Code.
+    1. Elija si quiere usar un conjunto de datos de Azure Machine Learning o no. Puede crear [conjuntos de datos de Azure Machine Learning](how-to-manage-resources-vscode.md#create-dataset) mediante la extensión.
+    1. La herramienta debugpy es necesaria para asociar el depurador al contenedor que ejecuta el experimento. Para agregar debugpy como dependencia, seleccione **Add Debugpy** (Agregar debugpy). De lo contrario, seleccione **Skip** (Omitir). Si no se agrega debugpy como dependencia, el experimento se ejecuta sin asociarse al depurador.
+    1. En el editor, se abre un archivo de configuración que contiene los valores de configuración de ejecución. Si está satisfecho con la configuración, seleccione **Submit experiment** (Enviar experimento). Como alternativa, abra la paleta de comandos (**View > Command Palette** [Ver > Paleta de comandos]) en la barra de menús y escriba el comando `Azure ML: Submit experiment` en el cuadro de texto.
+1. Una vez enviado el experimento, se crea una imagen de Docker que contiene el script y las configuraciones especificadas en la configuración de ejecución.
+
+    Cuando se inicia el proceso de compilación de la imagen de Docker, el contenido del archivo `60_control_log.txt` se transmite a la consola de salida en VS Code.
+
+    > [!NOTE]
+    > La primera vez que se crea la imagen de Docker, esta operación puede tardar varios minutos.
+
+1. Después de que se ha creado la imagen, aparece un aviso para iniciar el depurador. Establezca los puntos de interrupción en el script y, cuando esté preparado para comenzar la depuración, seleccione **Iniciar depuración**. Al hacerlo, se asocia el depurador de VS Code al contenedor que ejecuta el experimento. Como alternativa, en la extensión de Azure Machine Learning, mantenga el mouse sobre el nodo de la ejecución actual y seleccione el icono de reproducción para iniciar el depurador.
+
+    > [!IMPORTANT]
+    > No puede tener varias sesiones de depuración para un solo experimento. Sin embargo, puede depurar dos o más experimentos mediante varias instancias de VS Code.
+
+Llegados a este punto, debería poder recorrer el código y depurarlo mediante VS Code.
+
+Si en algún momento quiere cancelar la ejecución, haga clic con el botón derecho en el nodo de ejecución y seleccione **Cancelar ejecución**.
+
+De forma similar a las ejecuciones de experimentos remotas, puede expandir el nodo de ejecución para inspeccionar los registros y las salidas.
+
+> [!TIP]
+> Las imágenes de Docker que usan las mismas dependencias definidas en el entorno se reutilizan entre ejecuciones. Sin embargo, si ejecuta un experimento con un entorno nuevo o diferente, se crea otra imagen. Dado que estas imágenes se guardan en el almacenamiento local, se recomienda quitar las imágenes de Docker antiguas o sin usar. Para quitar imágenes del sistema, use la [CLI de Docker](https://docs.docker.com/engine/reference/commandline/rmi/) o la [extensión de Docker para VS Code](https://code.visualstudio.com/docs/containers/overview).
 
 ## <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depuración y solución de problemas de canalizaciones de aprendizaje automático
 
@@ -281,7 +339,7 @@ Guarde el valor de `ip_address`. Se usa en la siguiente sección.
 En algunos casos, es posible que tenga que depurar interactivamente el código de Python incluido en la implementación de modelo. Por ejemplo, si el script de entrada presenta errores y no se puede determinar el motivo mediante un registro adicional. Mediante VS Code y debugpy, puede conectarse al código que se ejecuta en el contenedor de Docker.
 
 > [!IMPORTANT]
-> Este método de depuración no funciona cuando se usa `Model.deploy()` y `LocalWebservice.deploy_configuration` para implementar un modelo de manera local. En su lugar, debe crear una imagen con el método [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
+> Este método de depuración no funciona cuando se usa `Model.deploy()` y `LocalWebservice.deploy_configuration` para implementar un modelo de manera local. En su lugar, debe crear una imagen con el método [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
 
 Las implementaciones de servicios web locales requieren una instalación de Docker en funcionamiento en el sistema local. Para obtener más información sobre el uso de Docker, consulte la [Documentación de Docker](https://docs.docker.com/). Tenga en cuenta que, al trabajar con instancias de proceso, Docker ya está instalado.
 
@@ -416,7 +474,7 @@ Las implementaciones de servicios web locales requieren una instalación de Dock
 
 En este punto, VS Code se conecta a debugpy dentro del contenedor de Docker y se detiene en el punto de interrupción que se estableció anteriormente. Ahora puede recorrer el código a medida que se ejecuta, ver variables, etc.
 
-Para más información sobre cómo usar VS Code para implementar Python, consulte [Depurar el código de Python](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
+Para más información sobre cómo usar VS Code para implementar Python, consulte [Depurar el código de Python](https://code.visualstudio.com/docs/python/debugging).
 
 ### <a name="stop-the-container"></a>Detención del contenedor
 
@@ -428,6 +486,6 @@ docker stop debug
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha configurado Visual Studio Code remoto, puede usar una instancia de proceso como proceso remoto desde Visual Studio Code para depurar el código de forma interactiva. 
+Ahora que ha configurado VS Code remoto, puede usar una instancia de proceso como proceso remoto desde VS Code para depurar el código de forma interactiva. 
 
 [Tutorial: Formar su primer modelo de ML](tutorial-1st-experiment-sdk-train.md) muestra cómo usar una instancia de proceso con un cuaderno integrado.
