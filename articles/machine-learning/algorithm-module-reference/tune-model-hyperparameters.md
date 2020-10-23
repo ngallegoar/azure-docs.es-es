@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/17/2020
-ms.openlocfilehash: b88a9477c9d63becb32bc95ca78b4a8117168a47
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: 2ec1726056c7ab223f7d3de70a715a8254e95db4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907762"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940216"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimizar los hiperparámetros del modelo
 
@@ -77,9 +77,9 @@ En esta sección se describe cómo realizar un barrido de parámetros básico, q
 
 Cuando se complete el entrenamiento:
 
-+ Para ver los resultados del barrido, haga clic con el botón derecho en el módulo y, a continuación, seleccione **Visualizar**.
++ Para ver los resultados del barrido, puede hacer clic con el botón derecho en el módulo y seleccionar **Visualizar** o hacer clic con el botón derecho en el puerto de salida izquierdo del módulo.
 
-    La salida incluye todas las métricas de barrido y precisión aplicables al tipo de modelo, pero es la métrica seleccionada para la clasificación la que determina qué modelo se considera "el mejor".
+    En los **resultados de barrido** se incluyen todas las métricas de barrido y precisión aplicables al tipo de modelo, pero es la métrica seleccionada para la clasificación la que determina qué modelo se considera "el mejor".
 
 + Para guardar una instantánea del modelo entrenado, seleccione la pestaña **Outputs+logs** (Salidas+registros) en el panel derecho del módulo **Entrenar modelo**. Seleccione el icono **Register dataset** (Registrar conjunto de datos) para guardar el modelo como un módulo reutilizable.
 
