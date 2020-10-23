@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 9eb1f9162f0546e08f59391af1042becad25cf3b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 6f34b36d495a2ef326727629d090a0da5260ce10
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804000"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014569"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB
 
@@ -35,7 +35,9 @@ En la versión preliminar, cuando Azure Synapse Link está habilitado para una c
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>¿Se admite la copia de seguridad y restauración para las cuentas habilitadas para Azure Synapse Link?
 
-En la versión preliminar, en las cuentas de bases de datos habilitadas para Azure Synapse Link, no se admite la copia de seguridad y restauración de contenedores. Si tiene cargas de trabajo de producción que requieren la funcionalidad de copia de seguridad y restauración, se recomienda no habilitar Synapse Link en esas cuentas de bases de datos. 
+En el caso de los contenedores con el almacén analítico activado, en este momento no se admite la copia de seguridad ni la restauración automáticas de los datos en el almacén analítico. 
+
+Cuando Synapse Link esté habilitado en una cuenta de base de datos, Azure Cosmos DB seguirá [haciendo copias de seguridad](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) automáticamente, de los datos del almacén de transacciones (solo) de contenedores en el intervalo programado de copias de seguridad, como siempre. Es importante tener en cuenta que cuando un contenedor con un almacén analítico activado se restaura en una nueva cuenta, el contenedor se restaurará solo con el almacén transaccional y no se habilitará ningún almacén analítico. 
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>¿Puedo deshabilitar la característica Azure Synapse Link en mi cuenta de Azure Cosmos DB?
 

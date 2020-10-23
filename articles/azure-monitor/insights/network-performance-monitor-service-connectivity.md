@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dd8dcbe136558e997ca16a2d9754cbf1c4e7620b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 18c07266cec68aaf6e95fe4085b9d21244fecff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326110"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761046"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
@@ -19,8 +19,8 @@ Puede usar la funcionalidad Monitor de conectividad de servicio en [Network Perf
 
 Puede realizar las funciones siguientes con el Monitor de conectividad de servicio: 
 
-- Supervisar la conectividad de red con sus aplicaciones y servicios de red desde varias sucursales o ubicaciones. Entre las aplicaciones y servicios de red se incluyen Office 365, Dynamics CRM, aplicaciones de línea de negocio internas y bases de datos SQL.
-- Usar pruebas integradas para supervisar la conectividad de red con puntos de conexión de Office365 y Dynamics365. 
+- Supervisar la conectividad de red con sus aplicaciones y servicios de red desde varias sucursales o ubicaciones. Entre las aplicaciones y servicios de red se incluyen Microsoft 365, Dynamics CRM, aplicaciones de línea de negocio internas y bases de datos SQL.
+- Usar pruebas integradas para supervisar la conectividad de red con puntos de conexión de Microsoft 365 y Dynamics 365. 
 - Determinar el tiempo de respuesta, la latencia de la red y la pérdida de paquetes al conectarse con el punto de conexión.
 - Determinar si el rendimiento de una aplicación es deficiente debido a la red o porque hay algún problema en el extremo del proveedor de la aplicación.
 - Identificar las zonas activas de la red que podrían estar generando un rendimiento deficiente de la aplicación mediante la visualización de la latencia aportada por cada salto en un mapa de topología.
@@ -99,7 +99,7 @@ Determine si el rendimiento de una aplicación es deficiente debido a la red o a
 
 Una vez que determina que el problema se debe a la red, seleccione el vínculo de vista **Topología** para identificar el salto problemático en el mapa de topología. Un ejemplo se muestra en la imagen siguiente. De una latencia total de 105 ms entre el nodo y el punto de conexión de la aplicación, 96 ms se debe al salto marcado en rojo. Una vez que identifica el salto problemático, puede realizar alguna acción correctiva. 
 
-![Pruebas del Monitor de conectividad de servicio](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![Topología del punto de conexión del Monitor de conectividad de servicio](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnóstico 
 

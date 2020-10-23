@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 09/02/2020
-ms.openlocfilehash: ef860d57556e17d432988fd0fd43f861a31fde6c
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e97171e61814b832e78f7bd815d8d6f341a90840
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380506"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858179"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Planes y precios de las ofertas del marketplace comercial
 
@@ -39,11 +39,12 @@ En la tabla siguiente se muestran las opciones de los distintos planes de cada t
 |||||
 
 Los siguientes tipos de ofertas admiten planes:
--  Servicios de consultoría
--  Dynamics 365 Business Central
--  Dynamics 365 Customer Engagement & PowerApps
--  Dynamics 365 for Operations
--  Power BI app
+
+- Servicios de consultoría
+- Dynamics 365 Business Central
+- Dynamics 365 Customer Engagement & PowerApps
+- Dynamics 365 for Operations
+- Power BI app
 
 ## <a name="plan-information"></a>Información de los planes
 
@@ -53,12 +54,12 @@ Cada tipo de oferta requiere información diferente cuando se crea un plan. Pued
 
 Hay algunos detalles comunes que se deben completar en los planes nuevos:
 
--  **Identificador del plan**: cree un identificador único para cada uno de los planes de esta oferta. Use un máximo de 50 caracteres: solo minúsculas, caracteres alfanuméricos, guiones y caracteres de subrayado. Los clientes lo verán en la dirección URL del producto y en las plantillas de Azure Resource Manager (si procede). Una vez que se publique la oferta, este identificador no se podrá cambiar.
--  **Nombre del plan**: (llamada 1 de la imagen anterior) cree un nombre único para cada plan de esta oferta. Use un máximo de 50 caracteres. El nombre del plan se usa para diferenciar los planes de software que pueden formar parte de la misma oferta (por ejemplo, Nombre de la oferta: plan Estándar y plan Enterprise). Los clientes verán este nombre al decidir que plan van a seleccionar en su oferta.
--  **Resumen del plan**: (llamada 2 de la imagen anterior) este resumen aparece en los resultados de la búsqueda de Azure Marketplace y puede contener hasta 100 caracteres.
+- **Identificador del plan**: cree un identificador único para cada uno de los planes de esta oferta. Use un máximo de 50 caracteres: solo minúsculas, caracteres alfanuméricos, guiones y caracteres de subrayado. Los clientes lo verán en la dirección URL del producto y en las plantillas de Azure Resource Manager (si procede). Una vez que se publique la oferta, este identificador no se podrá cambiar.
+- **Nombre del plan**: (llamada 1 de la imagen anterior) cree un nombre único para cada plan de esta oferta. Use un máximo de 50 caracteres. El nombre del plan se usa para diferenciar los planes de software que pueden formar parte de la misma oferta (por ejemplo, Nombre de la oferta: plan Estándar y plan Enterprise). Los clientes verán este nombre al decidir que plan van a seleccionar en su oferta.
+- **Resumen del plan**: (llamada 2 de la imagen anterior) este resumen aparece en los resultados de la búsqueda de Azure Marketplace y puede contener hasta 100 caracteres.
    > [!NOTE]
    > Este campo no se aplica a las ofertas de SaaS.
--  **Descripción del plan**: (llamada 3 de la imagen anterior) agregue una descripción del plan en la que se explique lo que hace que este plan sea diferente de los restantes planes de su oferta. Use un máximo de 500 caracteres. Este contenido se mostrará a los clientes en las páginas de la descripción de la oferta cuando las exploran para seleccionan un plan.
+- **Descripción del plan**: (llamada 3 de la imagen anterior) agregue una descripción del plan en la que se explique lo que hace que este plan sea diferente de los restantes planes de su oferta. Use un máximo de 500 caracteres. Este contenido se mostrará a los clientes en las páginas de la descripción de la oferta cuando las exploran para seleccionan un plan.
 
 El nombre y la descripción del plan aparecen en la página de la descripción de la oferta en las tiendas en línea del marketplace comercial. En la captura de pantalla siguiente se muestran tres planes de una descripción de la oferta de SaaS en Azure Marketplace.
 
@@ -66,8 +67,8 @@ El nombre y la descripción del plan aparecen en la página de la descripción d
 
 Una vez que se crean los planes, en la página **Información general del plan** se muestra una lista del nombre, identificador, otros detalles, estado de publicación actual y todas las acciones disponibles en los planes. Estas acciones dependerán del estado del plan y pueden incluir:
 
--  Si el estado del plan es **Borrador**: eliminar borrador.
--  Si el estado del plan es **Activo**: detener venta del plan o sincronizar público privado.
+- Si el estado del plan es **Borrador**: eliminar borrador.
+- Si el estado del plan es **Activo**: detener venta del plan o sincronizar público privado.
 
 En la captura de pantalla siguiente se muestran dos borradores de ofertas.
 
@@ -77,9 +78,9 @@ En la captura de pantalla siguiente se muestran dos borradores de ofertas.
 
 El marketplace comercial funciona según un modelo de agencia, en el que los editores establecen los precios y Microsoft factura a los clientes y paga los ingresos al editor, a la vez que retiene la cuota correspondiente a la agencia. Los mercados, la visibilidad y los precios de la oferta se definen (cuando proceda) en las pestañas **Precios y disponibilidad** o **Disponibilidad**.
 
--  **Mercados**: Todos los planes debe estar disponible al menos en un mercado.  Puede seleccionar solo aquellos países con "Impuestos remitidos", en los que Microsoft lleva a cabo las ventas y la retención de impuestos en su nombre.
--  **Precios**: Los modelos de precios solo se aplican a los planes de las ofertas de aplicaciones administradas por Azure, de SaaS y de máquinas virtuales de Azure. Todos los planes de la misma oferta deben usar el mismo modelo de precios.  
--  **Visibilidad del plan**: en función del tipo de oferta, se puede definir una audiencia privada u ocultar la oferta o el plan en Azure Marketplace. Esto se explicará con más detalle en el apartado [Visibilidad del plan](#plan-visibility) de este mismo artículo.
+- **Mercados**: Todos los planes debe estar disponible al menos en un mercado.  Puede seleccionar solo aquellos países con "Impuestos remitidos", en los que Microsoft lleva a cabo las ventas y la retención de impuestos en su nombre.
+- **Precios**: Los modelos de precios solo se aplican a los planes de las ofertas de aplicaciones administradas por Azure, de SaaS y de máquinas virtuales de Azure. Todos los planes de la misma oferta deben usar el mismo modelo de precios.  
+- **Visibilidad del plan**: en función del tipo de oferta, se puede definir una audiencia privada u ocultar la oferta o el plan en Azure Marketplace. Esto se explicará con más detalle en el apartado [Visibilidad del plan](#plan-visibility) de este mismo artículo.
 
 > [!TIP]
 > Se recomienda crear planes que se ajusten perfectamente a los patrones de uso de la base de clientes de destino. Esto reduce la posibilidad de que los usuarios cambien de plan con frecuencia, cuando cambia el uso que hacen de los planes. Para ver un ejemplo de una oferta de SaaS con tres planes de facturación medidos, consulte el apartado [Oferta de ejemplo](./partner-center-portal/saas-metered-billing.md#sample-offer).
@@ -88,9 +89,9 @@ El marketplace comercial funciona según un modelo de agencia, en el que los edi
 
 En los siguientes tipos de ofertas es preciso asociar un modelo de precios a cada plan. Cada uno de estos tipos de oferta tiene diferentes modelos de precios disponibles:
 
--  **Aplicación administrada por Azure**: tarifa plana (mensual) y precios basados en el uso (dimensiones de servicio de medición).
--  **Software como servicio**: tarifa plana (mensual o anual), por usuario y precios basados en el uso (dimensiones de servicio de medición). 
--  **Máquina virtual de Azure**: traiga su propia licencia (BYOL) y precios basados en el uso. En el caso del modelo de precios basado en el uso, se puede cobrar por núcleo, por tamaño de núcleo o por mercado y tamaño de núcleo. El modelo de licencia BYOL no permite cargos adicionales basados en el uso   (las ofertas de máquinas virtuales BYOL no requieren un modelo de precios).
+- **Aplicación administrada por Azure**: tarifa plana (mensual) y precios basados en el uso (dimensiones de servicio de medición).
+- **Software como servicio**: tarifa plana (mensual o anual), por usuario y precios basados en el uso (dimensiones de servicio de medición). 
+- **Máquina virtual de Azure**: traiga su propia licencia (BYOL) y precios basados en el uso. En el caso del modelo de precios basado en el uso, se puede cobrar por núcleo, por tamaño de núcleo o por mercado y tamaño de núcleo. El modelo de licencia BYOL no permite cargos adicionales basados en el uso   (las ofertas de máquinas virtuales BYOL no requieren un modelo de precios).
 
 Todos los planes de la misma oferta deben usar el mismo modelo de precios. Por ejemplo, una oferta SaaS no puede tener un plan de tarifa plana y otro plan por usuario. Para más información, consulte la documentación de la oferta específica.
 
@@ -107,38 +108,23 @@ Para establecer precios personalizados en un mercado individual, exporte, modifi
 
 Revise los precios cuidadosamente antes de la publicación, ya que hay algunas restricciones en lo que se puede cambiar una vez publicado un plan:
 
--  Una vez que un plan se publica, el modelo de precios no se puede cambiar.
--  Una vez que se publica el periodo de facturación de un plan, no se puede eliminar.
--  Después de que se publica un precio para un mercado en el plan, no se puede cambiar más adelante.
+- Una vez que un plan se publica, el modelo de precios no se puede cambiar.
+- Una vez que se publica el periodo de facturación de un plan, no se puede eliminar.
+- Después de que se publica un precio para un mercado en el plan, no se puede cambiar más adelante.
 
 Los precios establecidos en dólares estadounidenses se convierten en la moneda local de todos los mercados seleccionados y usa los tipos de cambio actuales en el momento de guardarlos. Valide estos precios antes de realizar la publicación. Para ello, debe exportar la hoja de cálculo de precios y examinar el precio de cada mercado que haya seleccionado.
 
-1.  Primero debe guardar los cambios de precios para habilitar la exportación de los datos de precios. Cerca de la parte inferior de la pestaña **Precios y disponibilidad**, seleccione **Guardar borrador**.
-1.  En **Precio**, seleccione el vínculo **Export pricing data** (Exportar datos de precios).
-1.  Abra el archivo exportedPrice.xlsx en Microsoft Excel.
-1.  En la hoja de cálculo, realice las actualizaciones que desee en la información de los precios y, después, guarde el archivo .csv.
+1. Primero debe guardar los cambios de precios para habilitar la exportación de los datos de precios. Cerca de la parte inferior de la pestaña **Precios y disponibilidad**, seleccione **Guardar borrador**.
+1. En **Precio**, seleccione el vínculo **Export pricing data** (Exportar datos de precios).
+1. Abra el archivo exportedPrice.xlsx en Microsoft Excel.
+1. En la hoja de cálculo, realice las actualizaciones que desee en la información de los precios y, después, guarde el archivo .csv.
     > [!NOTE]
     > Para poder actualizar el archivo, es posible que tenga que habilitar la edición en Excel.
-1.  En la pestaña **Precios y disponibilidad**, en **Precio**, seleccione el vínculo **Import pricing data** (Importar datos de precios).
-1.  En el cuadro de diálogo que aparece, seleccione **Yes** (Sí).
-1.  Seleccione el archivo exportedPrice.xlsx que ha actualizado y, después, seleccione **Abrir**.
+1. En la pestaña **Precios y disponibilidad**, en **Precio**, seleccione el vínculo **Import pricing data** (Importar datos de precios).
+1. En el cuadro de diálogo que aparece, seleccione **Yes** (Sí).
+1. Seleccione el archivo exportedPrice.xlsx que ha actualizado y, después, seleccione **Abrir**.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### <a name="plan-visibility"></a>Visibilidad del plan
+## <a name="plan-visibility"></a>Visibilidad del plan
 
 Puede crear planes para algunos tipos de ofertas que estén disponibles públicamente o disponibles solo para una audiencia específica (privada). Las ofertas con planes privados se publicarán en Azure Portal. Más información sobre los planes privados en [Ofertas privadas en el marketplace comercial de Microsoft](private-offers.md).
 
@@ -157,12 +143,12 @@ En los planes de las ofertas de SaaS y de máquinas virtuales de Azure comercial
 
 > [!NOTE]
 > En esta sección se explican las evaluaciones gratuitas de los planes de pago de las ofertas que se venden a través de Microsoft. Esto no es lo mismo que la descripción de la evaluación gratuita de los asociados que eligen procesar sus transacciones de manera independiente. Puede crear una descripción de la evaluación gratuita (que no esté asociada con un plan) para los siguientes tipos de ofertas:
-> -  Máquina virtual de Azure 
-> -  SaaS 
-> -  Dynamics 365 Business Central
-> -  Dynamics 365 for Customer Engagement y Power Apps
-> -  Dynamics 365 for Operations
-> 
+> - Máquina virtual de Azure 
+> - SaaS 
+> - Dynamics 365 Business Central
+> - Dynamics 365 for Customer Engagement y Power Apps
+> - Dynamics 365 for Operations
+>
 > Para más información sobre las opciones de la descripción, consulte [Determinación de la opción de publicación](determine-your-listing-type.md).
 
 Las evaluaciones gratuitas se admiten para todos los modelos de facturación, excepto los planes medidos. Los planes de SaaS permiten evaluaciones gratuita de un mes. Los planes de máquinas virtuales de Azure permiten evaluaciones gratuitas de 1, 3 o 6 meses.
@@ -180,5 +166,5 @@ Para obtener información sobre las suscripciones de clientes que actualmente pa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--  Para aprender a agregar o actualizar planes en una oferta existente, consulte [Actualización de una oferta existente en el marketplace comercial](./partner-center-portal/update-existing-offer.md).
--  Para más información sobre las opciones de transacción y los modelos de precios asociados, consulte [Funcionalidades de transacción de marketplace comercial](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+- Para aprender a agregar o actualizar planes en una oferta existente, consulte [Actualización de una oferta existente en el marketplace comercial](./partner-center-portal/update-existing-offer.md).
+- Para más información sobre las opciones de transacción y los modelos de precios asociados, consulte [Funcionalidades de transacción de marketplace comercial](./marketplace-commercial-transaction-capabilities-and-considerations.md).

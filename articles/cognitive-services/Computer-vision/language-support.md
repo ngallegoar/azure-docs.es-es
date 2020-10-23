@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 844ef8c09f10e1df888ef4990db22be8705d5c01
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: b5c263506db68ea62b0d65b7b866cfab33a36236
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530206"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976885"
 ---
 # <a name="language-support-for-computer-vision"></a>Compatibilidad con idiomas para Computer Vision
 
@@ -25,7 +25,7 @@ Algunas características de Computer Vision admiten varios idiomas; las caracter
 
 Las API de OCR de Computer Vision admiten varios idiomas. No requieren que especifique un código de idioma. Consulte [Reconocimiento óptico de caracteres (OCR)](concept-recognizing-text.md) para obtener más información.
 
-|Idioma| Código de lenguaje | API de OCR | Read v3.0 | Versión preliminar pública de Read v3.1 |
+|Idioma| Código de lenguaje | API de OCR | Read v3.1 | Read v3.1-preview.2 |
 |:-----|:----:|:-----:|:---:|:---:|
 |Árabe | `ar`|✔ | | |
 |Chino (simplificado) | `zh-Hans`|✔ | |✔ |

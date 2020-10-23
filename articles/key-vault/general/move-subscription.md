@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2a06fd55d73c37caaa35797131d2b31817bf90f0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394744"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042412"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Traslado de Azure Key Vault a otra suscripción
 
@@ -36,6 +36,9 @@ Cuando se crea un almacén de claves, se asocia automáticamente a un identifica
 * Agregar nuevas entradas de la directiva de acceso asociadas al inquilino B.
 
 ## <a name="limitations"></a>Limitaciones
+
+> [!IMPORTANT]
+> **Los almacenes de claves utilizados para el cifrado de disco no pueden moverse** Si utiliza Key Vault con el cifrado de discos para una máquina virtual, el almacén de claves no puede migrarse a otro grupo de recursos o a una suscripción mientras esté habilitado el cifrado de discos. Antes de mover el almacén de claves a un nuevo grupo de recursos o a una nueva suscripción, debe deshabilitar el cifrado de discos. 
 
 Algunas entidades de servicio (usuarios y aplicaciones) están enlazadas a un inquilino específico. Si traslada el almacén de claves a una suscripción de otro inquilino, existe la posibilidad de que no pueda restaurar el acceso a una entidad de servicio específica. Asegúrese de que todas las entidades de servicio esenciales existen en el inquilino al que va a trasladar el almacén de claves.
 

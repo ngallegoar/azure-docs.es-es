@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 6cf77aa41a9a485ba70519fed33c1b6aec736525
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 49ffc33310564299131e2831b74154719b7cf7c7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89470075"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078585"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Creación de una copia de seguridad de aplicaciones del clúster de Red Hat OpenShift en Azure 4
 
@@ -90,7 +90,7 @@ EOF
 
 ## <a name="install-velero-on-azure-red-hat-openshift-4-cluster"></a>Instalación de un clúster de Red Hat OpenShift 4 en Azure
 
-En este paso se instalará Velero en su propio proyecto y las [definiciones de recursos personalizados](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necesarios para realizar copias de seguridad y restauraciones con Velero. Asegúrese de que ha iniciado sesión correctamente en un clúster de Red Hat OpenShift 4 en Azure.
+En este paso se instalará Velero en su propio proyecto y las [definiciones de recursos personalizados](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necesarios para realizar copias de seguridad y restauraciones con Velero. Asegúrese de que ha iniciado sesión correctamente en un clúster de Red Hat OpenShift en Azure 4.
 
 
 ```bash
@@ -120,14 +120,34 @@ oc get backups -n velero <name of backup> -o yaml
 
 Una copia de seguridad correcta generará `phase:Completed` y los objetos residirán en el contenedor de la cuenta de almacenamiento.
 
+## <a name="create-a-backup-with-velero-to-include-snapshots"></a>Creación de una copia de seguridad con Velero para incluir instantáneas
+
+Para crear una copia de seguridad de la aplicación con Velero para incluir los volúmenes persistentes de la aplicación, debe incluir el espacio de nombres en el que se encuentra la aplicación, así como la marca de `snapshot-volumes=true` al crear la copia de seguridad.
+
+```bash
+velero backup create <name of backup> --include-namespaces=nginx-example --snapshot-volumes=true --include-cluster-resources=true
+```
+
+Puede comprobar el estado de la copia de seguridad ejecutando:
+
+```bash
+oc get backups -n velero <name of backup> -o yaml
+```
+
+Una copia de seguridad correcta con la salida `phase:Completed` y los objetos residirán en el contenedor de la cuenta de almacenamiento.
+
+Para obtener más información sobre cómo crear copias de seguridad y restauraciones con Velero, consulte [Copia de seguridad de recursos de OpenShift de forma nativa](https://www.openshift.com/blog/backup-openshift-resources-the-native-way).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo se ha realizado una copia de seguridad de la aplicación del clúster de Red Hat OpenShift 4en Azure. Ha aprendido a:
 
 > [!div class="checklist"]
 > * Crear una copia de seguridad de aplicaciones del clúster de OpenShift 4 con Velero
+> * Crear una copia de seguridad de aplicaciones del clúster de OpenShift v4 con instantáneas mediante Velero
 
 
 Vaya al siguiente artículo para aprender a crear una restauración de aplicaciones del clúster de Red Hat OpenShift 4 en Azure.
 
 * [Creación de una restauración de aplicaciones del clúster de Red Hat OpenShift 4 en Azure](howto-create-a-restore.md)
+* [Creación de una restauración de aplicaciones del clúster de Red Hat OpenShift en Azure 4, incluidas las instantáneas](howto-create-a-restore.md)
