@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9821e53abcdf95c6cf235cb9d39cd310fcfb66f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334436"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279724"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configuración de Azure Private Link para una cuenta de Azure Cosmos
 
@@ -42,7 +42,7 @@ Siga los pasos que se indican a continuación para crear un punto de conexión p
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione un grupo de recursos.|
     | **Detalles de instancia** |  |
     | Nombre | Escriba cualquier nombre para su punto de conexión privado. Si el nombre ya existe, cree uno único. |
@@ -54,7 +54,7 @@ Siga los pasos que se indican a continuación para crear un punto de conexión p
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione **Conectarse a un recurso de Azure en mi directorio**. <br/><br/> A continuación, puede elegir uno de sus recursos para configurar Private Link. O bien, puede conectarse al recurso de otro usuario mediante un alias o identificador del recurso que haya compartido con usted.|
-    | Suscripción| Seleccione su suscripción. |
+    | Subscription| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.AzureCosmosDB/databaseAccounts**. |
     | Resource |Seleccione la cuenta de Azure Cosmos. |
     |Recurso secundario de destino |Seleccione el tipo de API de Azure Cosmos DB que desea asignar. Este valor predeterminado es solo una opción para las API de SQL, MongoDB y Cassandra. En el caso de las API de Gremlin y Table, también puede elegir **Sql**, ya que estas API son interoperables con la API de SQL. |
@@ -684,7 +684,7 @@ Si no limpia los registros DNS, pueden producirse problemas del plano de datos i
 
 Para más información sobre las características de seguridad de Azure Cosmos DB, consulte los siguientes artículos:
 
-* Para configurar un firewall para Azure Cosmos DB, consulte [Compatibilidad con firewalls](firewall-support.md).
+* Para configurar un firewall para Azure Cosmos DB, consulte [Compatibilidad con firewalls](how-to-configure-firewall.md).
 
 * Para aprender a configurar un punto de conexión de servicio de red virtual para su cuenta de Azure Cosmos, consulte [Configuración del acceso desde redes virtuales](how-to-configure-vnet-service-endpoint.md).
 
