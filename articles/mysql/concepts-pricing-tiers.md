@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 163f440c9f98a1d53793fddab2590f7345944fda
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 10/14/2020
+ms.openlocfilehash: 7cc19adcc4769baaf34a75ef7217de639d0a357c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171014"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079044"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Planes de tarifa de Azure Database for MySQL
 
@@ -51,7 +51,7 @@ El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamien
 | E/S | Variable |3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. |
 
 > [!NOTE]
-> Se admite el almacenamiento de hasta 16 TB y 20 000 IOPS en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de EE. UU., Centro-norte de EE. UU., Centro-sur de EE. UU., Norte de Europa, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Sudeste de Asia, Asia Pacífico, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Este de Australia, Sudeste de Australia, Oeste de EE. UU. 2 y Centro-oeste de EE. UU.
+> Se admite el almacenamiento de hasta 16 TB y 20 000 IOPS en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de EE. UU., Centro-norte de EE. UU., Centro-sur de EE. UU., Norte de Europa, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Sudeste de Asia, Asia Pacífico, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Este de Australia, Sudeste de Australia, Oeste de EE. UU. 2 y Centro-oeste de EE. UU., Este de Canadá y Centro de Canadá.
 >
 > El resto de regiones admiten hasta 4 TB de almacenamiento y 6000 IOPS.
 >

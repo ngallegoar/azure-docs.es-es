@@ -3,16 +3,16 @@ title: Crear y ejecutar trabajos en la aplicación de Azure IoT Central | Micros
 description: Los trabajos de Azure IoT Central permiten funcionalidades de administración de dispositivos de forma masiva, como actualizar propiedades o ejecutar un comando.
 ms.service: iot-central
 services: iot-central
-author: sarahhubbard
-ms.author: sahubbar
-ms.date: 09/10/2020
+author: philmea
+ms.author: philmea
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: ae8b830469a9b52ae68310dde2e65dcffdf4e3be
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 2b5fc349ae7d92bf36cfe9b1f3272cc1f4f7446b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060822"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017954"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Crear y ejecutar trabajos en la aplicación de Azure IoT Central
 
@@ -32,11 +32,19 @@ En el ejemplo siguiente se muestra cómo crear y ejecutar un trabajo para config
 
 1. Elija **Propiedad de la nube**, **Propiedad** o **Comando** como el **Tipo de trabajo**:
 
-    Para definir una configuración de trabajo **Propiedad**, seleccione una propiedad y establezca su nuevo valor. Para establecer la configuración de un trabajo **Comando**, elija el comando que desea ejecutar. Un trabajo de propiedad puede establecer varias propiedades.
+    Para configurar un trabajo de **Propiedad**, seleccione una propiedad y establezca su nuevo valor. Para configurar un trabajo de **Comando**, seleccione el comando que desea ejecutar. Un trabajo de propiedad puede establecer varias propiedades.
 
     :::image type="content" source="media/howto-run-a-job/configure-job.png" alt-text="Captura de pantalla que muestra las selecciones para crear un trabajo de propiedad denominado Set Light Threshold":::.
 
     Seleccione **Guardar y salir** para agregar el trabajo a la lista de trabajos guardados en la página **Trabajos**. Más adelante puede volver a un trabajo desde la lista de trabajos guardados.
+
+    Seleccione **Siguiente** para ir a la página **Opciones de entrega**. La página **Opciones de entrega** permite establecer las opciones de entrega para este trabajo: **Lotes** y **Umbral de cancelación**.
+
+    Los lotes permiten escalonar los trabajos para un gran número de dispositivos. El trabajo se divide en varios lotes, y cada lote contiene un subconjunto de dispositivos. Los lotes se ponen en cola y se ejecutan en secuencia.
+
+    El umbral de cancelación permite cancelar automáticamente un trabajo si el número de errores supera el límite establecido. El umbral se puede aplicar a todos los dispositivos del trabajo o a lotes individuales.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Captura de pantalla que muestra las selecciones para crear un trabajo de propiedad denominado Set Light Threshold":::
 
     Seleccione **Siguiente** para ir a la página **Revisar**. En la página **Revisar** se muestran los detalles de configuración del trabajo. Seleccione **Ejecutar** para enviar el trabajo.
 
@@ -51,7 +59,7 @@ En el ejemplo siguiente se muestra cómo crear y ejecutar un trabajo para config
 1. El trabajo aparece ahora en la lista **Últimos 30 días** de la página **Trabajos**. En esta página, se muestran los trabajos en ejecución actualmente y el historial de los trabajos ejecutados o guardados anteriormente.
 
     > [!NOTE]
-    > Puede ver hasta 30 días del historial de trabajos ejecutados anteriormente.
+    > Puede ver 30 días del historial de trabajos ejecutados anteriormente.
 
 ## <a name="manage-jobs"></a>Trabajos de administración
 
@@ -82,6 +90,7 @@ Una vez creado un trabajo, la columna **Estado** se actualizará con el mensaje 
 | Pending              | Este trabajo aún no ha comenzado a ejecutarse en los dispositivos.         |
 | En ejecución              | Este trabajo se está ejecutando actualmente en los dispositivos.             |
 | Detenido              | Un usuario ha detenido manualmente este trabajo.           |
+| Canceled             | Este trabajo se ha cancelado porque se ha superado el umbral establecido en la página **Opciones de entrega**. |
 
 El mensaje de estado va seguido de una descripción general de los dispositivos en el trabajo. En la tabla siguiente se muestran los valores posibles de *estado del dispositivo*:
 

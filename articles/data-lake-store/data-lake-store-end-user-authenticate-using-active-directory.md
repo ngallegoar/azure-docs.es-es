@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0dd5d1da41c5fcc596e4c70f797e75c30997ce0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5272f7d580a3f8a68afda9150a1e95c1807eba6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578553"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103788"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticación de usuario final en Azure Data Lake Storage Gen1 con Azure Active Directory
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Azure Data Lake Storage Gen1 usa Azure Active Directory para la autenticación. 
 
 Con ambas opciones, la aplicación recibe un token de OAuth 2.0 que se adjunta a cada solicitud realizada a Data Lake Storage Gen1 o Azure Data Lake Analytics.
 
-En este artículo se habla de cómo crear una **aplicación nativa de Azure AD para la autenticación de usuario final**. Para obtener instrucciones sobre la configuración de aplicaciones de Azure AD para la autenticación entre servicios, vea [Autenticación entre servicios con Data Lake Storage Gen1 mediante Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+En este artículo se habla de cómo crear una **aplicación nativa de Azure AD para la autenticación de usuario final**. Para obtener instrucciones sobre la configuración de aplicaciones de Azure AD para la autenticación entre servicios, vea [Autenticación entre servicios con Data Lake Storage Gen1 mediante Azure Active Directory](./data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).

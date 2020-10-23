@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 8/13/2020
-ms.openlocfilehash: cb785a6d988772ba160806621e44900d630b7e61
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.date: 10/14/2020
+ms.openlocfilehash: 8ac47937650d766a159c53f7390a8f1e355a28c2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225723"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074811"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Planes de tarifa de Azure Database for MariaDB
 
@@ -71,7 +71,10 @@ Estamos aumentando los límites de almacenamiento en nuestros niveles De uso gen
 | E/S | 3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx.| 3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. |
 
 > [!IMPORTANT]
-> El almacenamiento de gran tamaño actualmente se encuentra disponible en versión preliminar pública en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de EE. UU., Centro-norte de EE. UU., Centro-sur de EE. UU., Norte de Europa, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Sudeste de Asia, Asia Pacífico, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Este de Australia, Sudeste de Australia, Oeste de EE. UU. 2 y Centro-oeste de EE. UU.
+> El almacenamiento de gran tamaño actualmente se encuentra disponible en versión preliminar pública en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de EE. UU., Centro-norte de EE. UU., Centro-sur de EE. UU., Norte de Europa, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Sudeste de Asia, Asia Pacífico, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Este de Australia, Sudeste de Australia, Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de Canadá y Centro de Canadá.
+>
+> El resto de regiones admiten hasta 4 TB de almacenamiento y 6000 IOPS.
+>
 
 ### <a name="reaching-the-storage-limit"></a>Alcance del límite de almacenamiento
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 47f4085ff01526853fab29da2c1bc1a3e8998d23
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8f679626b69bd855e86b94cdde51955edd068e8f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90931957"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91714897"
 ---
 # <a name="enable-automanage-for-virtual-machines-through-azure-policy"></a>Habilitación de Automanage para máquinas virtuales a través de Azure Policy
 
@@ -28,7 +28,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
 > Las cuentas de evaluación gratuita no tienen acceso a las máquinas virtuales que se usan en este tutorial. Actualice a una suscripción de pago por uso.
 
 > [!IMPORTANT]
-> El siguiente permiso de RBAC es necesario para habilitar Automanage: Rol **Propietario** o **Colaborador** junto con roles **Administrador de acceso de usuario**.
+> El siguiente permiso de Azure RBAC es necesario para habilitar Automanage: el rol **Propietario** o **Colaborador** junto con el rol **Administrador de acceso de usuario**.
 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure

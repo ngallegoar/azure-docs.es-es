@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: fa7fd73a7d8019919a89dd9e9522b7389dc9c18f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d889b7dabc5d97a36f8b12bcff90cf3ad2069fb7
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932400"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082240"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -31,21 +31,21 @@ En Xcode, cree un proyecto de iOS nuevo y seleccione la plantilla **Aplicación 
 Agregue la biblioteca cliente para llamadas de Azure Communication Services y sus dependencias (AzureCore.framework y AzureCommunication.framework) al proyecto.
 
 > [!NOTE]
-> Con el lanzamiento del SDK de AzureCommunicationCalling, encontrará un script de Bash `BuildAzurePackages.sh`. Al ejecutar `sh ./BuildAzurePackages.sh`, el script le proporcionará la ruta de acceso a los paquetes generados del marco que se deben importar en la aplicación de ejemplo en el paso siguiente. Tenga en cuenta que deberá configurar las herramientas de la línea de comandos de Xcode si no lo ha hecho antes de ejecutar el script: Inicie Xcode, seleccione "Preferencias -> Ubicaciones". Elija la versión de Xcode para las herramientas de la línea de comandos.
+> Con el lanzamiento del SDK de AzureCommunicationCalling, encontrará un script de Bash `BuildAzurePackages.sh`. Al ejecutar `sh ./BuildAzurePackages.sh`, el script le proporcionará la ruta de acceso a los paquetes generados del marco que se deben importar en la aplicación de ejemplo en el paso siguiente. Tenga en cuenta que deberá configurar las herramientas de la línea de comandos de Xcode si no lo ha hecho antes de ejecutar el script: Inicie Xcode, seleccione "Preferencias -> Ubicaciones". Elija la versión de Xcode para las herramientas de la línea de comandos. **Fíjese que el script BuildAzurePackages.sh solo funciona con Xcode 11.5 y versiones posteriores.**
 
-1. Descargue la biblioteca cliente para llamadas de Azure Communication Services para iOS.
+1. Descargue la biblioteca cliente de llamadas de Azure Communication Services para iOS.
 2. En Xcode, haga clic en el archivo del proyecto y seleccione el destino de compilación para abrir el editor de configuración del proyecto.
 3. En la pestaña **General**, desplácese a la sección **Frameworks, Libraries, and Embedded Content** (Marcos, bibliotecas y contenido insertado) y haga clic en el icono **"+"** .
-4. En la parte inferior izquierda del cuadro de diálogo, elija **Add Files** (Agregar archivos) y vaya al directorio **AzureCommunicationCalling.framework** del paquete descomprimido de la biblioteca cliente.
+4. En la parte inferior izquierda del cuadro de diálogo, elija **Agregar archivos**, desplácese hasta el directorio **AzureCommunicationCalling.framework** del paquete de la biblioteca cliente sin comprimir.
     1. Repita el último paso para agregar **AzureCore.framework** y **AzureCommunication.framework**.
-5. Abra la pestaña **Build Settings** (Configuración de compilación) del editor de configuración del proyecto y desplácese a la sección **Search Paths** (Rutas de acceso de búsqueda). Agregue una entrada **Framework Search Paths** (Rutas de acceso de búsqueda del marco) para el directorio que contiene **AzureCommunicationCalling.framework**.
+5. Abra la pestaña **Configuración de la compilación** del editor de configuración del proyecto y desplácese hasta la sección **Rutas de búsqueda**. Agregue la entrada **Framework Search Paths** (Rutas de acceso de búsqueda del marco) para el directorio que contiene **AzureCommunicationCalling.framework**.
     1. Agregue otra entrada de rutas de acceso de búsqueda del marco que apunte a la carpeta que contiene las dependencias.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Captura de pantalla que muestra la actualización de las rutas de acceso de búsqueda del marco dentro de Xcode.":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Captura de pantalla que muestra la ventana de creación del proyecto nuevo dentro de Xcode.":::
 
 ### <a name="request-access-to-the-microphone"></a>Solicitud de acceso al micrófono
 
-Para acceder al micrófono del dispositivo, debe actualizar la lista de propiedades de información de la aplicación con `NSMicrophoneUsageDescription`. Puede establecer el valor asociado a una `string` que se incluirá en el cuadro de diálogo que el sistema usa para solicitar acceso al usuario.
+Para acceder al micrófono del dispositivo, debe actualizar la lista de propiedades de información de la aplicación con el elemento `NSMicrophoneUsageDescription`. Puede establecer el valor asociado al elemento `string` que se incluirá en el cuadro de diálogo que el sistema usa para solicitar acceso al usuario.
 
 Haga clic con el botón derecho en la entrada `Info.plist` del árbol del proyecto y seleccione **Abrir como** > **Código fuente**. Agregue las líneas siguientes a la sección `<dict>` de nivel superior y guarde el archivo.
 
@@ -113,7 +113,7 @@ Paso del objeto CommunicationUserCredential creado anteriormente a ACSCallClient
 callClient = ACSCallClient()
 callClient?.createCallAgent(userCredential!,
     withCompletionHandler: { (callAgent, error) in
-        if error != nil {
+        if error == nil {
             print("Create agent succeeded")
             self.callAgent = callAgent
         } else {
@@ -186,7 +186,7 @@ Una notificación push móvil es la notificación emergente que recibe en el dis
 - Paso 2: Xcode -> Signing & Capabilities (Firma y funcionalidades)-> Add Capability (Agregar funcionalidad) -> "Background Modes" (Modos en segundo plano)
 - Paso 3: "Background Modes" (Modos en segundo plano) -> seleccione "Voice over IP" (Voz sobre IP) y "Remote notifications" (Notificaciones remotas)
 
-:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Captura de pantalla que muestra cómo agregar funcionalidades en Xcode." lightbox="../media/ios/xcode-push-notification.png":::
+:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Captura de pantalla que muestra la ventana de creación del proyecto nuevo dentro de Xcode." lightbox="../media/ios/xcode-push-notification.png":::
 
 #### <a name="register-for-push-notifications"></a>Registro de notificaciones push
 
@@ -424,6 +424,8 @@ targetRemoteParticipantView.update(ACSScalingMode.fit)
 ```swift
 // [Bool] isRendering - indicating if stream is being rendered
 remoteVideoRenderer.isRendering()
+// [Synchronous] dispose() - dispose renderer and all `RendererView` associated with this renderer. To be called when you have removed all associated views from the UI.
+remoteVideoRenderer.dispose()
 ```
 
 ## <a name="device-management"></a>Administración de dispositivos
@@ -456,7 +458,7 @@ var localMicrophones = deviceManager.getMicrophoneList() // [ACSAudioDeviceInfo,
 var localSpeakers = deviceManager.getSpeakerList() // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
 ``` 
 
-### <a name="set-default-microphonespeaker"></a>Establecimiento del micrófono o altavoz predeterminado
+### <a name="set-default-microphonespeaker"></a>Establecimiento de micrófono/altavoz predeterminados
 
 El administrador de dispositivos le permite establecer un dispositivo predeterminado que se usará al iniciar una llamada. Si no se establecen los valores predeterminados de la pila, Communication Services revertirá a los valores predeterminados del sistema operativo.
 
@@ -509,10 +511,10 @@ localRenderer.dispose()
 
 ## <a name="eventing-model"></a>Modelo de eventos
 
-Puede suscribirse a la mayoría de las propiedades y colecciones para recibir notificaciones en caso de cambios en los valores.
+Puede suscribirse a la mayoría de las propiedades y colecciones que se van a notificar al cambiar los valores.
 
 ### <a name="properties"></a>Propiedades
-Para suscribirse a eventos de `property changed`:
+Para suscribirse a eventos `property changed`:
 
 ```swift
 call.delegate = self
@@ -529,7 +531,7 @@ public func onCallStateChanged(_ call: ACSCall!,
 ```
 
 ### <a name="collections"></a>Colecciones
-Para suscribirse a eventos de `collection updated`:
+Para suscribirse a eventos `collection updated`:
 
 ```swift
 call.delegate = self

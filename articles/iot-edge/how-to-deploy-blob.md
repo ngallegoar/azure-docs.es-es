@@ -7,12 +7,12 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b5b7b45cc52d900e5ecde59e6a5ae203533286b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80804629"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978873"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implementación del módulo de Azure Blob Storage en IoT Edge en el dispositivo
 
@@ -21,7 +21,10 @@ Hay varias maneras de implementar módulos en un dispositivo de IoT Edge, y toda
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure.
-- Un [dispositivo de IoT Edge](how-to-register-device.md) que tenga instalado el entorno de ejecución de Azure IoT Edge.
+- Un dispositivo IoT Edge.
+
+  Si no tiene un dispositivo IoT Edge configurado, puede crear uno en una máquina virtual de Azure. Siga los pasos de alguno de los artículos de inicio rápido para [Crear un dispositivo virtual Linux](quickstart-linux.md) o [Crear un dispositivo virtual Windows](quickstart.md).
+
 - [Visual Studio Code](https://code.visualstudio.com/) y las [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) si la implementación se hace desde Visual Studio Code.
 
 ## <a name="deploy-from-the-azure-portal"></a>Implementación desde Azure Portal
@@ -203,10 +206,10 @@ Azure IoT Edge proporciona plantillas de Visual Studio Code que facilitan el des
      - En el caso de los contenedores Linux, el formato es **\<your storage path or volume>:/blobroot**. Por ejemplo:
          - use [montaje de volumen](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` Asegúrese de seguir los pasos para [conceder acceso al directorio al usuario del contenedor](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux).
-     - En el caso de los contenedores Windows, el formato es **\<your storage path or volume>:C:/BlobRoot**. Por ejemplo
-         - use [montaje de volumen](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
-         - use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
-         - En lugar de usar la unidad local, puede asignar la ubicación de red de SMB. Para obtener más información, consulte [uso del recurso compartido de SMB como almacenamiento local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
+     - En el caso de los contenedores Windows, el formato es **\<your storage path or volume>:C:/BlobRoot**. Por ejemplo:
+         - Use [montaje de volumen](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
+         - Use [montaje de enlace](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
+         - En lugar de usar la unidad local, puede asignar la ubicación de red de SMB. Para obtener más información, consulte [Uso de un recurso compartido de SMB como almacenamiento local](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 
      > [!IMPORTANT]
      > No cambie la segunda mitad del valor de montaje de almacenamiento, que señala a una ubicación específica en Blob Storage en el módulo de IoT Edge. El montaje de almacenamiento siempre debe terminar con **:/blobroot** para contenedores Linux y **:C:/BlobRoot** para contenedores Windows.
@@ -271,7 +274,7 @@ Este proceso se describe en [Configuración de un dispositivo de IoT Edge para q
 
 Además, un módulo de almacenamiento de blobs también requiere el valor HTTPS_PROXY en el archivo del manifiesto de implementación. Puede editar directamente el archivo del manifiesto de implementación o usar Azure Portal.
 
-1. Vaya a su instancia de IOT Hub en Azure Portal y seleccione **IOT Edge** en el menú del panel izquierdo.
+1. Vaya a su instancia de IoT Hub en Azure Portal y seleccione **IoT Edge** en el menú del panel izquierdo.
 
 1. Seleccione el dispositivo con el módulo que desea configurar.
 

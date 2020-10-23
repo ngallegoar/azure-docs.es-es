@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: bdd27645045195016b7a563787470bf6f2187115
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b1007fe89cf455b6af8ebba00f24e8019ad8013
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84985476"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078296"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configuración de una conexión de red virtual a red virtual (clásico)
 
@@ -32,8 +32,6 @@ Este artículo lo ayuda a crear una conexión de puerta de enlace de VPN entre l
 >
 
 ![Diagrama de conectividad VNet a VNet](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
-
-
 
 ## <a name="about-vnet-to-vnet-connections"></a>Acerca de conexiones de red virtual a red virtual
 
@@ -61,7 +59,7 @@ Puede que desee conectar redes virtuales por las siguientes razones:
 
 Para más información acerca de las conexiones de red virtual a red virtual, consulte [Consideraciones de red virtual a red virtual](#faq) al final de este artículo.
 
-### <a name="working-with-azure-powershell"></a><a name="powershell"></a>Trabajo con Azure PowerShell
+## <a name="prerequisites"></a>Requisitos previos
 
 Usamos el portal para la mayoría de los pasos, pero debe usar PowerShell para crear las conexiones entre las redes virtuales. No se pueden crear las conexiones mediante Azure Portal. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
@@ -80,23 +78,14 @@ En la tabla siguiente se muestra un ejemplo de cómo definir las redes virtuales
 
 ## <a name="step-2---create-the-virtual-networks"></a><a name="vnetvalues"></a>Paso 2: Creación de las redes virtuales
 
-Cree dos redes virtuales en [Azure Portal](https://portal.azure.com). Si desea ver los pasos para crear redes virtuales clásicas, consulte [Creación de una red virtual clásica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
-
-Al usar el portal para crear una red virtual clásica, debe ir a la página de la red virtual siguiendo los pasos siguientes; en caso contrario, no aparecerá la opción para crear una red virtual clásica:
-
-1. Haga clic en "+" para abrir la página "Nuevo".
-2. En el campo "Buscar en el Marketplace", escriba "Virtual Network". Si en su lugar, selecciona Redes -> Virtual Network, no obtendrá la opción para crear una red virtual clásica.
-3. En la lista de resultados, busque "Virtual Network" y haga clic en esa opción para abrir la página Virtual Network. 
-4. En la página de red virtual, seleccione "Clásica" para crear una red virtual clásica. 
-
-Si usa este artículo como ejercicio, puede usar los valores de ejemplo siguientes:
+En este paso, creará dos redes virtuales clásicas. Si usa este artículo como ejercicio, puede usar los valores de ejemplo siguientes:
 
 **Valores para TestVNet1**
 
 Nombre: TestVNet1<br>
 Espacio de direcciones: 10.11.0.0/16, 10.12.0.0/16 (opcional)<br>
 Nombre de subred: predeterminado<br>
-Intervalo de direcciones de subred: 10.11.0.1/24<br>
+Intervalo de direcciones de subred: 10.11.0.0/24<br>
 Grupo de recursos: ClassicRG<br>
 Ubicación: Este de EE. UU.<br>
 GatewaySubnet: 10.11.1.0/27
@@ -115,7 +104,7 @@ GatewaySubnet: 10.41.1.0/27
 
 * **Espacios de direcciones de la red virtual**: en la página Espacios de direcciones de la red virtual, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual.<br>Los espacios de direcciones que selecciona no se pueden superponer con los espacios de direcciones de ninguna de las otras redes virtuales o las ubicaciones locales a las que se conectará esta red virtual.
 
-* **Ubicación** : al crear una red virtual, la debe asociar a una ubicación de Azure (región). Por ejemplo, Por ejemplo, si desea que las máquinas virtuales que implemente en la red virtual se encuentren físicamente en Oeste de EE.UU., seleccione esa ubicación. No se puede cambiar la ubicación asociada a la red virtual después de crearla.
+* **Ubicación**: al crear una red virtual, la debe asociar a una ubicación de Azure (región). Por ejemplo, Por ejemplo, si desea que las máquinas virtuales que implemente en la red virtual se encuentren físicamente en Oeste de EE.UU., seleccione esa ubicación. No se puede cambiar la ubicación asociada a la red virtual después de crearla.
 
 **Después de crear las redes virtuales, puede agregar la configuración siguiente:**
 
@@ -125,7 +114,11 @@ GatewaySubnet: 10.41.1.0/27
 
 * **Servidores DNS**: escriba el nombre del servidor DNS y la dirección IP. Mediante este valor no se crea un servidor DNS. Le permite especificar el servidor DNS que desea usar para la resolución de nombres para esta red virtual.
 
-En esta sección se configura el tipo de conexión, el sitio local y se crea la puerta de enlace.
+### <a name="to-create-a-classic-virtual-network"></a>Para crear una red virtual clásica
+
+[!INCLUDE [basic classic vnet](../../includes/vpn-gateway-vnet-classic.md)]
+
+[!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
 ## <a name="step-3---configure-the-local-site"></a><a name="localsite"></a>Paso 3: Configuración del sitio local
 
@@ -205,38 +198,7 @@ Una vez que se crean las puertas de enlace de red virtual para ambas redes virtu
 
 ## <a name="step-7---retrieve-values-from-the-network-configuration-file"></a><a name="getvalues"></a>Paso 7: Recuperación de valores desde el archivo de configuración de red
 
-Cuando crea redes virtuales clásicas en Azure Portal, el nombre que ve no es el nombre completo que usa para PowerShell. Por ejemplo, una red virtual que pareciera tener el nombre **TestVNet1** en el portal podría tener un nombre mucho más largo en el archivo de configuración de red. El nombre debería parecerse al siguiente: **Group ClassicRG TestVNet1**. Cuando cree conexiones, es importante usar los valores que ve en el archivo de configuración de red.
-
-En los pasos siguientes, se conectará a la cuenta de Azure y descargará y verá el archivo de configuración de red para obtener los valores requeridos para las conexiones.
-
-1. Descargue e instale la versión más reciente de los cmdlets de PowerShell para Azure Service Management (SM). Para obtener más información, consulte [Trabajo con Azure PowerShell](#powershell).
-
-2. Abra la consola de PowerShell con privilegios elevados. Use los siguientes ejemplos para conectarse. Estos comandos se deben ejecutar localmente mediante el módulo de administración de servicios de PowerShell. Para cambiar a la administración de servicios, use este comando:
-
-   ```powershell
-   azure config mode asm
-   ```
-3. Conéctese a su cuenta. Use el siguiente ejemplo para conectarse:
-
-   ```powershell
-   Add-AzureAccount
-   ```
-4. Compruebe las suscripciones para la cuenta.
-
-   ```powershell
-   Get-AzureSubscription
-   ```
-5. Si tiene varias suscripciones, seleccione la que quiera usar.
-
-   ```powershell
-   Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
-   ```
-6. Exporte y visualice el archivo de configuración de red. Cree un directorio en el equipo y, a continuación, exporte el archivo de configuración de red al directorio. En este ejemplo, se exporta el archivo de configuración de red a **C:\AzureNet**.
-
-   ```powershell
-   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-   ```
-7. Abra el archivo con un editor de texto y consulte los nombres de las redes virtuales y los sitios. Estos serán los nombres que usará cuando cree las conexiones.<br>Los nombres de las redes virtuales aparecen como **VirtualNetworkSite name =**<br>Los nombres de los sitios aparecen como **LocalNetworkSiteRef name =**
+[!INCLUDE [retrieve values](../../includes/vpn-gateway-values-classic.md)]
 
 ## <a name="step-8---create-the-vpn-gateway-connections"></a><a name="createconnections"></a>Paso 8: Creación de las conexiones de VPN Gateway
 

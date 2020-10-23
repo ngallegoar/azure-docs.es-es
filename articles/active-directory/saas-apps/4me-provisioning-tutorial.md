@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: a6dc9aa70c55a0ed511a73570274c68708988451
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8350ebc92575911991ca772229912941f2af10e0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331240"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91851295"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutorial: Configuración de 4me para el aprovisionamiento automático de usuarios
 
@@ -122,15 +122,15 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 10. En la sección **Asignaciones**, seleccione Synchronize **Azure Active Directory Users to 4me** (Sincronizar usuarios de Azure Active Directory con 4me).
 
-    ![Asignaciones de usuario de 4me](media/4me-provisioning-tutorial/4me-user-mapping.png)
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-mapping.png" alt-text="Captura de pantalla de la página Asignaciones. En el nombre, se resalta la opción para sincronizar usuarios de Azure Active Directory con FourMe." border="false":::
     
 11. Examine los atributos de grupo que se sincronizan entre Azure AD y 4me en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en 4me a fin de realizar operaciones de actualización. Compruebe que [4me admite el filtrado](https://developer.4me.com/v1/scim/users/) por el atributo coincidente que ha elegido. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Asignaciones de usuario de 4me](media/4me-provisioning-tutorial/4me-user-attributes.png)
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="Captura de pantalla de la página Asignaciones. En el nombre, se resalta la opción para sincronizar usuarios de Azure Active Directory con FourMe." border="false":::
     
 12. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to 4me** (Sincronizar grupos de Azure Active Directory con 4me).
 
-    ![Asignaciones de usuario de 4me](media/4me-provisioning-tutorial/4me-group-mapping.png)
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="Captura de pantalla de la página Asignaciones. En el nombre, se resalta la opción para sincronizar usuarios de Azure Active Directory con FourMe." border="false":::
     
 13. Examine los atributos de grupo que se sincronizan entre Azure AD y 4me en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en 4me a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 

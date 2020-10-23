@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d5e867849d17a489fad37d09215905d23fb0ed6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514243"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960327"
 ---
 # <a name="contact-microsoft-support"></a>Ponerse en contacto con el servicio de soporte técnico de Microsoft
 
@@ -39,7 +39,7 @@ En función de su [plan de soporte técnico](https://azure.microsoft.com/support
    3. Seleccione un **plan de soporte técnico** en la lista desplegable si tiene varios planes asociados a la suscripción. Para habilitar el soporte técnico, debe contar con un plan de soporte técnico de pago.
    4. Haga clic en **Next**.
 
-       ![Ponerse en contacto con el soporte técnico de MS a través del nuevo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
+       ![Contacto con el soporte técnico de MS a través del nuevo portal 2](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
 3. En la hoja **Nueva solicitud de soporte técnico**, seleccione **Step 2 Problem** (Paso 2 Problema). En la hoja **Problema**, siga estos pasos:
     
@@ -51,7 +51,7 @@ En función de su [plan de soporte técnico](https://azure.microsoft.com/support
     6. Seleccione **Compartir información de diagnóstico**.
     7. Haga clic en **Next**.
 
-       ![Ponerse en contacto con el soporte técnico de MS a través del nuevo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
+       ![Contacto con el soporte técnico de MS a través del nuevo portal 3](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
 4. En la hoja **Nueva solicitud de soporte**, haga clic en **Step 3 Contact information** (Paso 3 Información de contacto). En la hoja **Información de contacto**, realice los siguientes pasos:
 
@@ -59,7 +59,7 @@ En función de su [plan de soporte técnico](https://azure.microsoft.com/support
    2. En Información de contacto, especifique su nombre, correo electrónico, contacto opcional y país o región. Seleccione la casilla de verificación **Guardar cambios de contacto para solicitudes futuras de soporte técnico** .
    3. Haga clic en **Crear**.
    
-       ![Ponerse en contacto con el soporte técnico de MS a través del nuevo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![Contacto con el soporte técnico de MS a través del nuevo portal 4](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
       El Soporte técnico de Microsoft usará esta información para ponerse en contacto con usted para solicitar más información y comunicar el diagnóstico y la resolución.
       Una vez que ha enviado la solicitud, un ingeniero de soporte se pondrá en contacto con usted tan pronto como sea posible para procesar su solicitud.
@@ -76,11 +76,11 @@ Después de crear una incidencia de soporte técnico, puede administrar el ciclo
 
 2. Se muestra una lista tabular de todas las solicitudes de soporte técnico en la hoja **Ayuda y soporte técnico**.
 
-    ![Administrar solicitudes de soporte técnico](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Administración de solicitudes de soporte técnico 2](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
 3. Seleccione una solicitud de soporte técnico y haga clic en ella. Puede ver el estado y los detalles de esta solicitud. Haga clic en **+ Nuevo mensaje** si desea realizar un seguimiento de esta solicitud.
 
-    ![Administrar solicitudes de soporte técnico](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![Administración de solicitudes de soporte técnico 3](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Iniciar una sesión de soporte en Windows PowerShell para StorSimple
 

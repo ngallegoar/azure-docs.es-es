@@ -2,23 +2,17 @@
 title: Información general del agente de máquina virtual de Azure
 description: Información general del agente de máquina virtual de Azure
 services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: mimckitt
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 07/20/2019
-ms.author: akjosh
-ms.openlocfilehash: d9939b706eb63e5681ddef438cde92f32786f889
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.author: mimckitt
+ms.openlocfilehash: 1ef2c9ef4e2a2296ceb214c89bb6e3fb98dcb26f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612843"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974913"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Información general del agente de máquina virtual de Azure
 El agente de máquina virtual de Microsoft Azure (agente VM) es un proceso ligero y seguro que administra la interacción de máquinas virtuales (VM) con el controlador de tejido de Azure. El agente de VM tiene un rol principal que consiste en habilitar y ejecutar extensiones de máquina virtual de Azure. Las extensiones de máquina virtual habilitan la configuración posterior a la implementación de máquinas virtuales, como la instalación y la configuración de software. Las extensiones de máquina virtual también habilitan características de recuperación, como el restablecimiento de la contraseña administrativa de una máquina virtual. Sin el agente de máquina virtual de Azure, no se pueden ejecutar extensiones de máquina virtual.
@@ -70,11 +64,11 @@ $vm | Update-AzVM
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-- El Agente de máquina virtual de Windows necesita como mínimo Windows Server 2008 SP2 (64 bits) para ejecutarse, con .NET Framework 4.0. Consulte [Versión mínima admitida para los agentes de la máquina virtual en Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+- El agente de máquina virtual de Windows necesita como mínimo Windows Server 2008 SP2 (64 bits) para ejecutarse, con .NET Framework 4.0. Consulte [Versión mínima admitida para los agentes de la máquina virtual en Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
-- Asegúrese de que la máquina virtual tenga acceso a la dirección IP 168.63.129.16. Para más información, vea [¿Qué es la dirección IP 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+- Asegúrese de que la máquina virtual tenga acceso a la dirección IP 168.63.129.16. Para más información, vea [¿Qué es la dirección IP 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 
-- Asegúrese de que DHCP esté habilitado en la máquina virtual invitada. Es necesario a fin de obtener la dirección de host o de tejido de DHCP para que funcionen las extensiones y el agente de máquina virtual de IaaS. Si necesita una dirección IP privada estática, debe configurarla a través de Azure Portal o PowerShell y asegurarse de que está habilitada la opción DHCP dentro de la máquina virtual. [Obtenga más información](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-ps#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) acerca de cómo configurar una dirección IP estática con PowerShell.
+- Asegúrese de que DHCP esté habilitado en la máquina virtual invitada. Es necesario a fin de obtener la dirección de host o de tejido de DHCP para que funcionen las extensiones y el agente de máquina virtual de IaaS. Si necesita una dirección IP privada estática, debe configurarla a través de Azure Portal o PowerShell y asegurarse de que está habilitada la opción DHCP dentro de la máquina virtual. [Obtenga más información](../../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) acerca de cómo configurar una dirección IP estática con PowerShell.
 
 
 ## <a name="detect-the-vm-agent"></a>Detección del agente de VM
@@ -87,7 +81,7 @@ El módulo de PowerShell de Azure Resource Manager puede usarse para recuperar i
 Get-AzVM
 ```
 
-El siguiente ejemplo condensado de salida muestra la propiedad *ProvisionVMAgent* anidada dentro de *OSProfile*. Esta propiedad se puede usar para determinar si el agente de VM se ha implementado en la VM:
+El siguiente ejemplo condensado de salida muestra la propiedad *ProvisionVMAgent* anidada dentro de `OSProfile`. Esta propiedad se puede usar para determinar si el agente de VM se ha implementado en la VM:
 
 ```powershell
 OSProfile                  :
@@ -115,10 +109,19 @@ Cuando inicia sesión en una máquina virtual de Windows, el Administrador de ta
 
 
 ## <a name="upgrade-the-vm-agent"></a>Actualización del agente de VM
-El agente de VM de Azure para Windows se actualiza automáticamente en las imágenes implementadas desde Azure Marketplace. A medida que se implementan nuevas máquinas virtuales en Azure, reciben el agente de máquina virtual más reciente en tiempo de aprovisionamiento de máquina virtual. Si ha instalado el agente manualmente o está implementando imágenes de VM personalizadas, deberá realizar la actualización manualmente para incluir el nuevo agente de VM en el momento de creación de la imagen.
+El agente de máquina virtual de Azure para Windows se actualiza automáticamente en las imágenes implementadas desde Azure Marketplace. A medida que se implementan nuevas máquinas virtuales en Azure, reciben el agente de máquina virtual más reciente en tiempo de aprovisionamiento de máquina virtual. Si ha instalado el agente manualmente o está implementando imágenes de VM personalizadas, deberá realizar la actualización manualmente para incluir el nuevo agente de VM en el momento de creación de la imagen.
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Recopilación de registros automáticos de Windows Guest Agent
 Windows Guest Agent tiene una característica para recopilar automáticamente algunos registros. Esta característica está controlada por el proceso CollectGuestLogs.exe. Existe tanto para los servicios en la nube PaaS como para las máquinas virtuales de IaaS, y su objetivo es recopilar rápida y automáticamente algunos registros de diagnóstico de una máquina virtual, de modo que se puedan usar para realizar un análisis sin conexión. Los registros recopilados son registros de eventos, registros del sistema operativo, registros de Azure y algunas claves del Registro. Se genera un archivo ZIP que se transfiere al host de la máquina virtual. Este archivo ZIP puede ser consultado por los equipos de ingeniería y los profesionales de soporte técnico para investigar problemas en la solicitud del cliente propietario de la máquina virtual.
+
+## <a name="guest-agent-and-osprofile-certificates"></a>Certificados de agente invitado y OSProfile
+El agente de máquina virtual de Azure es responsable de instalar los certificados a los que se hace referencia en la propiedad `OSProfile` de una máquina virtual o un conjunto de escalado de máquinas virtuales. Si quita manualmente estos certificados de la consola MMC de los certificados dentro de la máquina virtual invitada, se espera que el agente invitado los vuelva a agregar.
+Para eliminar un certificado de forma permanente, tendrá que quitarlo de `OSProfile` y, luego, quitarlo del sistema operativo invitado.
+
+En el caso de una máquina virtual, use [Remove-AzVMSecret]() para quitar certificados de `OSProfile`.
+
+Para obtener más información sobre los certificados del conjunto de escalado de máquinas virtuales, consulte [Conjuntos de escalado de máquinas virtuales: ¿Cómo se quitan los certificados en desuso?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-remove-deprecated-certificates)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las extensiones de máquina virtual, consulte [Características y extensiones de las máquinas virtuales de Azure](overview.md).

@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a53e9ae42031203347784b78e162e8f806eb3c5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 16659eafccd4c15e37ef8a6d16a3765d0afdbc3e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320255"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960650"
 ---
 # <a name="linux-support"></a>Compatibilidad de Linux
 
-Puede acceder a los recursos de Windows Virtual Desktop desde sus dispositivos Linux con los siguientes clientes compatibles, que proporcionan nuestros asociados de cliente ligero de Linux. Estamos trabajando con varios asociados para habilitar clientes de Windows Virtual Desktop compatibles en más dispositivos y sistemas operativos basados en Linux. Si necesita que agreguemos compatibilidad con Windows Virtual Desktop en una plataforma Linux que no aparece aquí, háganoslo saber en nuestra [página UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+Puede acceder a los recursos de Windows Virtual Desktop desde sus dispositivos Linux con el [cliente web](connect-web.md) o los siguientes clientes compatibles, que proporcionan nuestros asociados de cliente ligero de Linux. Estamos trabajando con varios asociados para habilitar clientes de Windows Virtual Desktop compatibles en más dispositivos y sistemas operativos basados en Linux. Si necesita agregar compatibilidad con Windows Virtual Desktop en una plataforma Linux que no aparece aquí, háganoslo saber en nuestra [página UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
 
 ## <a name="connect-with-your-linux-device"></a>Conexión con el dispositivo Linux
 

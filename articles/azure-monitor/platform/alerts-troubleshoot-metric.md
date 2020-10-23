@@ -3,15 +3,15 @@ title: Solución de problemas con las alertas de métricas de Azure
 description: Problemas comunes con las alertas de métricas de Azure Monitor y posibles soluciones.
 author: harelbr
 ms.author: harelbr
-ms.topic: reference
-ms.date: 09/14/2020
+ms.topic: troubleshooting
+ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: b0e39982b3d62e0ef722a139024b499efc254f5f
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068769"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715318"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -76,10 +76,15 @@ Para obtener más información acerca de la recopilación de datos del sistema o
 > [!NOTE] 
 > Si ha configurado las métricas de invitado que se van a enviar a un área de trabajo de Log Analytics, estas aparecerán en el recurso del área de trabajo de Log Analytics y comenzarán a mostrar datos **solo** después de crear una regla de alerta que las supervise. Para ello, siga los pasos para [configurar una alerta de métrica para los registros](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
+> [!NOTE] 
+> Actualmente, las alertas de métricas no admiten la supervisión de métricas de invitado para varias máquinas virtuales con una sola regla de alertas. Puede conseguirlo con una [regla de alerta de registro](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). Para ello, asegúrese de que las métricas de invitado están recopiladas en un área de trabajo de Log Analytics y cree una regla de alerta de registro en el área de trabajo.
+
 ## <a name="cant-find-the-metric-to-alert-on"></a>No se puede encontrar la métrica de la que se deben generar alertas
 
-Si quiere generar alertas sobre una métrica específica, pero no puede ver ninguna métrica del recurso, [compruebe si el tipo de recurso es compatible con las alertas de métricas](./alerts-metric-near-real-time.md).
-Si puede ver algunas métricas del recurso, pero no puede encontrar ninguna métrica específica, [compruebe si esa métrica está disponible](./metrics-supported.md) y, si es así, consulte su descripción para ver si solo está disponible en versiones o ediciones específicas del recurso.
+Si quiere alertar sobre una métrica específica pero no puede verla al crear una regla de alerta, compruebe lo siguiente:
+- Si no puede ver ninguna métrica del recurso, [compruebe si el tipo de recurso es compatible con las alertas de métricas](./alerts-metric-near-real-time.md).
+- Si puede ver algunas métricas del recurso, pero no puede encontrar ninguna métrica específica, [compruebe si esa métrica está disponible](./metrics-supported.md) y, si es así, consulte su descripción para ver si solo está disponible en versiones o ediciones específicas del recurso.
+- Si la métrica no está disponible para el recurso, podría estar disponible en los registros de recursos y se puede supervisar mediante alertas de registro. Consulte aquí para obtener más información sobre cómo [recopilar y analizar registros de recursos desde un recurso de Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>No se puede encontrar la dimensión de la métrica de la que se deben generar alertas
 
@@ -110,7 +115,7 @@ Las alertas de métricas tienen estado de forma predeterminada y, por lo tanto, 
 
 Al crear una regla de alerta de métrica, el nombre de la métrica se valida con la [API de definiciones de métricas](/rest/api/monitor/metricdefinitions/list) para asegurarse de que existe. En algunos casos, le gustaría crear una regla de alerta en una métrica personalizada incluso antes de que se emita. Por ejemplo, al crear (mediante una plantilla de Resource Manager) un recurso de Application Insights que emitirá una métrica personalizada, junto con una regla de alerta que supervise esa métrica.
 
-Para evitar que se produzca un error en la implementación al intentar validar las definiciones de la métrica personalizada, puede usar el parámetro *skipMetricValidation* en la sección de criterios de la regla de alerta, lo que hará que se omita la validación de la métrica. Vea el ejemplo siguiente para obtener información sobre cómo usar este parámetro en una plantilla de Resource Manager. Para más información, consulte los [ejemplos de plantilla de Resource Manager completos para crear reglas de alertas de métricas](./alerts-metric-create-templates.md).
+Para evitar que se produzca un error en la implementación al intentar validar las definiciones de la métrica personalizada, puede usar el parámetro *skipMetricValidation* en la sección de criterios de la regla de alerta, lo que hará que se omita la validación de la métrica. Vea el ejemplo siguiente para informarse sobre cómo usar este parámetro en una plantilla de Resource Manager. Para obtener más información, consulte los [ejemplos de plantilla de Resource Manager completos para crear reglas de alertas de métricas](./alerts-metric-create-templates.md).
 
 ```json
 "criteria": {
@@ -252,6 +257,12 @@ Por ejemplo:
     - Nos gustaría actualizar la primera condición y supervisar solo las transacciones en las que la dimensión **ApiName** sea igual a *"GetBlob"* .
     - Dado que las métricas **Transactions** y **SuccessE2ELatency** admiten la dimensión **ApiName**, necesitaremos actualizar ambas condiciones y hacer que ambas especifiquen la dimensión **ApiName** con el valor *"GetBlob"* .
 
+## <a name="setting-the-alert-rules-period-and-frequency"></a>Establecimiento del período y la frecuencia de la regla de alerta
+
+Se recomienda elegir una *Granularidad de agregación (período)* mayor que la *Frecuencia de evaluación*, con el fin de reducir la probabilidad de que falte la primera evaluación de las series temporales agregadas en los casos siguientes:
+-   Regla de alertas de métricas que supervisa varias dimensiones: Cuando se agrega una nueva combinación de valores de dimensión.
+-   Regla de alertas de métricas que supervisa varios recursos: Cuando se agrega un nuevo recurso al ámbito.
+-   Regla de alertas de métricas que supervisa una métrica que no se emite de manera continua (métrica dispersa): Cuando la métrica se emite después de un período de más de 24 horas en el que no se emitió.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

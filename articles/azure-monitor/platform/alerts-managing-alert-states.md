@@ -5,16 +5,16 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
 ms.date: 09/24/2018
-ms.openlocfilehash: a53390dee8eb504f92e66bb3573814bd411be0b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b91c3d59a5a37457d67fdfbc646334fccb331df5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358973"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104808"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Administración de estados de alertas y de grupos inteligentes
 
-Las alertas en Azure Monitor ahora tienen un [estado de alerta y una condición de supervisión](https://aka.ms/azure-alerts-overview) y, de forma similar, los grupos inteligentes tienen un [estado de grupo inteligente](https://aka.ms/smart-groups). Los cambios en el estado ahora se registran en el historial que está asociado a la alerta o al grupo inteligente. Este artículo le guiará a través del proceso de cambiar el estado de las alertas y los grupos inteligentes.
+Las alertas en Azure Monitor ahora tienen un [estado de alerta y una condición de supervisión](./alerts-overview.md) y, de forma similar, los grupos inteligentes tienen un [estado de grupo inteligente](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json). Los cambios en el estado ahora se registran en el historial que está asociado a la alerta o al grupo inteligente. Este artículo le guiará a través del proceso de cambiar el estado de las alertas y los grupos inteligentes.
 
 ## <a name="change-the-state-of-an-alert"></a>Cambio en el estado de una alerta
 
@@ -46,4 +46,3 @@ Las alertas en Azure Monitor ahora tienen un [estado de alerta y una condición 
 
 1. Una vez hecho esto, el cambio de estado se registra en el historial del grupo inteligente correspondiente. Puede comprobar que se haya registrado si abre la página de detalles correspondiente y observa la sección de historial.     
 ![Captura de pantalla que muestra el historial de cambios del grupo inteligente.](./media/alerts-managing-alert-states/state-sg-history.jpg)
-

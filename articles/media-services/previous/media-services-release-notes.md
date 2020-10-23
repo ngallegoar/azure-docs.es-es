@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7764452d0e52a29204b276b4939c4a8a5c144ca4
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: bd4f50365ced61e35ae6d10a9763a0f9815098d7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268662"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014110"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
 
@@ -49,6 +49,18 @@ Queremos recibir opiniones de nuestros clientes para poder centrarnos en la solu
 ## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>Historial de versiones de la API de REST
 Para obtener información sobre el historial de versiones de la API de REST de Media Services, consulte la [Referencia de la API de REST de Azure Media Services].
 
+## <a name="september-2020"></a>Septiembre de 2020
+
+Las siguientes propiedades de v2 ya no se rellenarán con datos históricos del progreso del trabajo:
+
+* [HistoricalEvents](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+
+Para obtener el historial de tareas, debe usar las notificaciones de trabajo v2 a través de webhooks o mensajes de cola mediante puntos de conexión de notificación. Para más información, consulte:
+
+* [Uso del almacenamiento de la cola de Azure para supervisar las notificaciones sobre trabajos de Media Services](media-services-dotnet-check-job-progress-with-queues.md)
+* [Uso de Azure WebHooks para supervisar las notificaciones de trabajo de Media Services](media-services-dotnet-check-job-progress-with-webhooks.md)
+
 ## <a name="february-2020"></a>Febrero de 2020
 
 Algunos procesadores de multimedia de análisis se retirarán. Para ver las fechas de retirada, consulte el tema sobre [componentes heredados](legacy-components.md).
@@ -69,7 +81,7 @@ Consulte también [Migración de Azure Media Indexer y Azure Media Indexer 2 a V
 
 Anunciamos el desuso de los procesadores de multimedia *Windows Azure Media Encoder* (WAME) y *Azure Media Encoder* (AME). Para ver las fechas de retirada, consulte el tema [componentes heredados](legacy-components.md).
 
-Para más información, consulte [Migración de WAME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) y [Migración de AME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+Para más información, consulte [Migración de WAME a Media Encoder Standard](./migrate-windows-azure-media-encoder.md) y [Migración de AME a Media Encoder Standard](./migrate-azure-media-encoder.md).
 
 ## <a name="march-2019"></a>Marzo de 2019
 
@@ -186,7 +198,7 @@ Algunos clientes pueden experimentar un problema de etiqueta de repetición en e
 
 ## <a name="april-2016-release"></a><a id="apr_changes16"></a>Versión de abril de 2016
 ### <a name="media-analytics"></a>Media Analytics
- Media Services presentó Media Analytics para proporcionar una inteligencia de vídeo eficaz. Para más información, consulte [Introducción a Analytics de Media Services](media-services-analytics-overview.md).
+ Media Services presentó Media Analytics para proporcionar una inteligencia de vídeo eficaz. Para más información, consulte [Introducción a Analytics de Media Services](./legacy-components.md).
 
 ### <a name="apple-fairplay-preview"></a>Apple FairPlay (versión preliminar)
 Ahora puede utilizar Media Services para cifrar dinámicamente el contenido HTTP Live Streaming (HLS) con Apple FairPlay. Ahora también puede utilizar el servicio de entrega de licencias de Media Services para entregar licencias de FairPlay a los clientes. Para más información, consulte "Uso de Azure Media Services para transmitir contenido HLS protegido con Apple FairPlay".
@@ -263,7 +275,7 @@ Para más información, vea [este blog](https://azure.microsoft.com/blog/azure-m
 ## <a name="july-2015-release"></a><a id="july_changes_15"></a>Versión de julio de 2015
 * Se anuncia la disponibilidad general de Media Encoder Standard. Para más información, vea [esta publicación del blog](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
-    Media Encoder Standard usa valores preestablecidos que se describen en [esta sección](https://go.microsoft.com/fwlink/?LinkId=618336). Cuando se usa un valor preestablecido para codificaciones de 4K, debe obtener el tipo de unidad reservada Premium. Para más información, consulte [Escalado de codificación](media-services-scale-media-processing-overview.md).
+    Media Encoder Standard usa valores preestablecidos que se describen en [esta sección](./media-services-mes-presets-overview.md). Cuando se usa un valor preestablecido para codificaciones de 4K, debe obtener el tipo de unidad reservada Premium. Para más información, consulte [Escalado de codificación](media-services-scale-media-processing-overview.md).
 * Se utilizaron títulos en vivo en tiempo real con Media Services y Media Player. Para más información, vea [esta publicación del blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### <a name="media-services-net-sdk-updates"></a>Actualizaciones del SDK de Media Services para .NET

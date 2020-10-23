@@ -155,6 +155,8 @@
               href: concepts-infrastructure-double-encryption.md
             - name: Línea de base de seguridad
               href: security-baseline.md
+        - name: Mantenimiento planeado
+          href: concepts-planned-maintenance-notification.md
         - name: Continuidad empresarial
           items:
             - name: Introducción a la continuidad empresarial

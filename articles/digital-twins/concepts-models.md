@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1f6fc7bff31faa62c290a4c02be3e80fee6fa200
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 7b404d05f512449c99e60c0bfdc93aab22c399ef
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042639"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019025"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Descripción de los modelos gemelos de Azure Digital Twins
 
@@ -28,8 +28,10 @@ Los modelos de Azure Digital Twins se definen con el lenguaje de definición de 
 
 Azure Digital Twins usa la **_versión 2_ de DTDL**. Para más información sobre esta versión de DTDL, consulte la documentación de especificaciones en GitHub: [*Lenguaje de definición de Digital Twins (DTDL): versión 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). El uso de DTDL _versión 1_ con Azure Digital Twins está ahora en desuso.
 
-> [!TIP] 
-> No todos los servicios que usan DTDL implementan las mismas características exactas de DTDL. Por ejemplo, IoT Plug and Play no usa las características de DTDL que son para los grafos, mientras que Azure Digital Twins no implementa actualmente comandos de DTDL. Para más información sobre las características de DTDL que son específicas para Azure Digital Twins, consulte la sección que aparece más adelante en este artículo sobre los [detalles específicos de la implementación de DTDL de Azure Digital Twins](#azure-digital-twins-dtdl-implementation-specifics).
+> [!NOTE] 
+> No todos los servicios que usan DTDL implementan las mismas características exactas de DTDL. Por ejemplo, IoT Plug and Play no usa las características de DTDL que son para los grafos, mientras que Azure Digital Twins no implementa actualmente comandos de DTDL.
+>
+> Para más información sobre las características de DTDL que son específicas para Azure Digital Twins, consulte la sección que aparece más adelante en este artículo sobre los [detalles específicos de la implementación de DTDL de Azure Digital Twins](#azure-digital-twins-dtdl-implementation-specifics).
 
 ## <a name="elements-of-a-model"></a>Elementos de un modelo
 
@@ -75,6 +77,8 @@ Para que un modelo de DTDL sea compatible con Azure Digital Twins, debe cumplir 
 * DTDL para Azure Digital Twins no debe definir ningún *comando*.
 * Azure Digital Twins solo permite un único nivel de anidamiento de componente. Esto significa que una interfaz que se usa como componente no puede tener ningún componente. 
 * Las interfaces no pueden ser definidas insertadas en línea dentro de otras interfaces de DTDL, sino que deben definirse como entidades independientes de nivel superior con sus propios identificadores. A continuación, cuando otra interfaz quiere incluir esa interfaz como componente o a través de la herencia, puede hacer referencia a su identificador.
+
+Azure Digital Twins tampoco observa el atributo `writable` en las propiedades o relaciones. Aunque esto puede establecerse según las especificaciones de DTDL, el valor no lo usa Azure Digital Twins. En su lugar, siempre se tratan como grabables por parte de los clientes externos que tienen permisos de escritura generales en el servicio Azure Digital Twins.
 
 ## <a name="example-model-code"></a>Código de modelo de ejemplo
 
