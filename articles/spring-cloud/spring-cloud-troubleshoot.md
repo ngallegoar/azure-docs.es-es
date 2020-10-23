@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 98b7f9b1ed5e09a1f731e45f8ca2d148a4084986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5346858aa119f11ef34916b24c70c966286ab86
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336163"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089050"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solución de problemas comunes de Azure Spring Cloud
 
@@ -68,7 +68,7 @@ Al depurar los bloqueos de la aplicación, empiece por comprobar el estado de la
 
 
 
-Para obtener más información sobre Azure Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+Para obtener más información sobre Azure Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 ::: zone-end
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Mi aplicación experimenta un uso elevado de la CPU o la memoria
@@ -91,7 +91,7 @@ Para obtener más información, consulte [Métricas en Azure Spring Cloud](sprin
 
 Si todas las instancias están en funcionamiento, vaya a Azure Log Analytics para consultar los registros de la aplicación y examine la lógica del código. Esto le ayudará a ver si alguna puede afectar a la creación de particiones de escalado. Para obtener más información, consulte [Análisis de registros y métricas con la configuración de diagnóstico](diagnostic-services.md).
 
-Para obtener más información sobre Azure Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Consulte los registros con el [lenguaje de consulta Kusto](https://docs.microsoft.com/azure/kusto/query/).
+Para obtener más información sobre Azure Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Consulte los registros con el [lenguaje de consulta Kusto](/azure/kusto/query/).
 
 ::: zone pivot="programming-language-java"
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Lista de comprobación para la implementación de la aplicación Spring en Azure Spring Cloud
@@ -113,14 +113,14 @@ Antes de incorporar la aplicación, asegúrese de que cumple los siguientes crit
 
 Al configurar una instancia de servicio de Azure Spring Cloud desde Azure Portal, Azure Spring Cloud realiza la validación automáticamente.
 
-Pero si intenta configurar la instancia de servicio de Azure Spring Cloud mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) o una [plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), verifique lo siguiente:
+Pero si intenta configurar la instancia de servicio de Azure Spring Cloud mediante la [CLI de Azure](/cli/azure/get-started-with-azure-cli) o una [plantilla de Azure Resource Manager](../azure-resource-manager/index.yml), verifique lo siguiente:
 
 * Que la suscripción está activa.
 * Que Azure Spring Cloud [admite](spring-cloud-faq.md) la ubicación.
 * Que se ha creado el grupo de recursos de la instancia.
 * Que el nombre del recurso se ajusta a la regla de nomenclatura Solo debe contener minúsculas, números y guiones. El primer carácter debe ser una letra. El último carácter debe ser una letra o un número. El valor tiene que contener entre 2 y 32 caracteres.
 
-Si desea configurar la instancia de servicio de Azure Spring Cloud mediante la plantilla de Resource Manager, consulte primero [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
+Si desea configurar la instancia de servicio de Azure Spring Cloud mediante la plantilla de Resource Manager, consulte primero [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 El nombre de la instancia de servicio de Azure Spring Cloud se usará para solicitar un nombre de subdominio en `azureapps.io`, por lo que se producirá un error en la configuración si el nombre entra en conflicto con uno existente. Puede encontrar más detalles en los registros de actividad.
 
@@ -129,7 +129,7 @@ El nombre de la instancia de servicio de Azure Spring Cloud se usará para solic
 
 No se puede cargar un archivo *.zip* para una aplicación de Steeltoe de .NET Core mediante Azure Portal o la plantilla de Resource Manager.
 
-Al implementar el paquete de aplicación mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), esta sondea periódicamente el progreso de la implementación y, al final, muestra el resultado de la implementación.
+Al implementar el paquete de aplicación mediante la [CLI de Azure](/cli/azure/get-started-with-azure-cli), esta sondea periódicamente el progreso de la implementación y, al final, muestra el resultado de la implementación.
 
 Asegúrese de que la aplicación esté empaquetada en el formato de archivo *.zip* correcto. Si no está correctamente empaquetado, el proceso dejará de responder o se mostrará un mensaje de error.
 ::: zone-end
@@ -139,7 +139,7 @@ Asegúrese de que la aplicación esté empaquetada en el formato de archivo *.zi
 
 No puede cargar el archivo de Java Archive (JAR) o el paquete de origen mediante Azure Portal o la plantilla de Resource Manager.
 
-Al implementar el paquete de aplicación mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), esta sondea periódicamente el progreso de la implementación y, al final, muestra el resultado de la implementación.
+Al implementar el paquete de aplicación mediante la [CLI de Azure](/cli/azure/get-started-with-azure-cli), esta sondea periódicamente el progreso de la implementación y, al final, muestra el resultado de la implementación.
 
 Si se interrumpe el sondeo, se puede seguir usando el siguiente comando para capturar los registros de implementación:
 
@@ -153,7 +153,7 @@ Asegúrese de que la aplicación esté empaquetada en el [formato jar ejecutable
 
 No puede cargar el paquete de origen o JAR mediante Azure Portal o la plantilla de Resource Manager.
 
-Al implementar el paquete de aplicación mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), esta sondea periódicamente el progreso de la implementación y, al final, muestra el resultado de la implementación.
+Al implementar el paquete de aplicación mediante la [CLI de Azure](/cli/azure/get-started-with-azure-cli), esta sondea periódicamente el progreso de la implementación y, al final, muestra el resultado de la implementación.
 
 Si se interrumpe el sondeo, se puede seguir usando el siguiente comando para capturar los registros de creación e implementación:
 
@@ -171,7 +171,7 @@ Si va a migrar a Azure una solución existente de Spring Cloud, asegúrese de qu
 
 También puede consultar los registros de cliente de _Service Registry_ en Azure Log Analytics. Para obtener más información, consulte [Análisis de registros y métricas con la configuración de diagnóstico](diagnostic-services.md).
 
-Para obtener más información sobre Azure Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Consulte los registros con el [lenguaje de consulta Kusto](https://docs.microsoft.com/azure/kusto/query/).
+Para obtener más información sobre Azure Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Consulte los registros con el [lenguaje de consulta Kusto](/azure/kusto/query/).
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Deseo inspeccionar las variables de entorno de mi aplicación
 
@@ -231,7 +231,7 @@ Compruebe si la dependencia de `spring-boot-actuator` está habilitada en el paq
 </dependency>
 ```
 
-Si los registros de la aplicación se pueden archivar en una cuenta de almacenamiento, pero no se envían a Azure Log Analytics, compruebe si [configuró el área de trabajo correctamente](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace). Si usa un nivel gratuito de Azure Log Analytics, tenga en cuenta que [el nivel gratuito no proporciona ningún contrato de nivel de servicio (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+Si los registros de la aplicación se pueden archivar en una cuenta de almacenamiento, pero no se envían a Azure Log Analytics, compruebe si [configuró el área de trabajo correctamente](../azure-monitor/learn/quick-create-workspace.md). Si usa un nivel gratuito de Azure Log Analytics, tenga en cuenta que [el nivel gratuito no proporciona ningún contrato de nivel de servicio (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 ::: zone-end
 
 ## <a name="next-steps"></a>Pasos siguientes

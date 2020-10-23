@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 3f35a8130c834112961f4542883704c2b8dbd08f
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 2809fce890e1a7bcc47163c8a5d4c0210d6aa9d4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999252"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106134"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega continua con Acciones de GitHub
 
@@ -46,8 +46,8 @@ Para descargar el perfil de publicación de la aplicación de funciones:
 =======
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una cuenta de Azure con una suscripción activa. [Creación de una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Una cuenta de GitHub. Si no tiene ninguna, suscríbase para obtener una evaluación [gratuita](https://github.com/join).  
+- Una cuenta de Azure con una suscripción activa. [Cree su cuenta de forma gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Una cuenta de GitHub. Si no tiene ninguna, regístrese [gratis](https://github.com/join).  
 - Una aplicación funcional hospedada en Azure con un repositorio de GitHub.   
     - [Inicio rápido: Creación de una función en Azure mediante Visual Studio Code](functions-create-first-function-vs-code.md)
 
@@ -236,7 +236,7 @@ En el ejemplo siguiente se muestra la parte del flujo de trabajo que compila la 
 ```
 ---
 
-## <a name="deploy-the-function-app"></a>Implementación de la aplicación de funciones
+## <a name="deploy-the-function-app"></a>Implementar la aplicación de función
 Para implementar su código en una aplicación de funciones, use la acción `Azure/functions-action`. Esta acción tiene tres parámetros:
 
 |Parámetro |Explicación  |
@@ -912,4 +912,4 @@ jobs:
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información sobre la integración de Azure y GitHub](https://docs.microsoft.com/azure/developer/github/)
+> [Más información sobre la integración de Azure y GitHub](/azure/developer/github/)

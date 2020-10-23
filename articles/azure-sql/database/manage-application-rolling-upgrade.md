@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 1346fed738bb9afa595b63c91064a481e2ee2b51
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 659a8a3b38a79cc9dcc97f6f1e9c4395426ef7a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031946"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91450257"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Administración de actualizaciones graduales de aplicaciones en la nube mediante la replicación geográfica activa de SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Si la aplicación se basa en copias de seguridad de base de datos automáticas y
 > [!NOTE]
 > Estos pasos de preparación no afectarán el entorno de producción, que puede funcionar en modo de acceso completo.
 
-![Configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube.](./media/manage-application-rolling-upgrade/option1-1.png)
+![Diagrama que muestra la configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube.](./media/manage-application-rolling-upgrade/option1-1.png)
 
 Una vez completados los pasos preparatorios, la aplicación está preparada para la actualización real. En el siguiente diagrama se ilustran los pasos que intervienen en el proceso de actualización:
 
@@ -48,7 +48,7 @@ Una vez completados los pasos preparatorios, la aplicación está preparada para
 2. Desconecte la base de datos secundaria con el modo de finalización planeada (4). Esta acción crea una copia independiente totalmente sincronizada de la base de datos principal. Esta base de datos se actualizará.
 3. Cambie la base de datos secundaria al modo de lectura y escritura y ejecute el script de actualización (5).
 
-![Configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube.](./media/manage-application-rolling-upgrade/option1-2.png)
+![Diagrama que muestra la configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube que ejecuta el script de actualización.](./media/manage-application-rolling-upgrade/option1-2.png)
 
 Si la actualización finaliza correctamente, ahora está listo para cambiar a los usuarios a la copia actualizada de la aplicación, que se convierte en un entorno de producción. El cambio implica unos cuantos pasos más, como se ilustra en el diagrama siguiente:
 
@@ -67,7 +67,7 @@ En este punto, la aplicación es totalmente funcional y se pueden repetir los pa
 > [!NOTE]
 > La reversión no requiere cambios de DNS, ya que no ha realizado aún ninguna operación de intercambio.
 
-![Configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube.](./media/manage-application-rolling-upgrade/option1-4.png)
+![Diagrama que muestra la configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube con el entorno de ensayo retirado.](./media/manage-application-rolling-upgrade/option1-4.png)
 
 La principal ventaja de esta opción es que se puede actualizar una aplicación en una sola región mediante un conjunto de pasos sencillos. El costo de la actualización es relativamente bajo. 
 
@@ -98,7 +98,7 @@ Para que sea posible revertir la actualización, debe crear un entorno de ensayo
 > [!NOTE]
 > Estos pasos de preparación no afectan a la aplicación en el entorno de producción. Seguirá siendo completamente funcional en modo de lectura y escritura.
 
-![Configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube.](./media/manage-application-rolling-upgrade/option2-1.png)
+![Diagrama que muestra la configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube con una copia completamente sincronizada de la aplicación.](./media/manage-application-rolling-upgrade/option2-1.png)
 
 Una vez completados los pasos preparatorios, el entorno de ensayo está listo para la actualización. En el diagrama siguiente se muestran estos pasos de actualización:
 
@@ -110,7 +110,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Finalice la replicación geográfica mediante la desconexión de la secundaria (11). Esta acción crea una copia independiente aunque totalmente sincronizada de la base de datos de producción. Esta base de datos se actualizará. En el ejemplo siguiente se utiliza Transact-SQL, pero [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) también está disponible. 
+2. Finalice la replicación geográfica mediante la desconexión de la secundaria (11). Esta acción crea una copia independiente aunque totalmente sincronizada de la base de datos de producción. Esta base de datos se actualizará. En el ejemplo siguiente se utiliza Transact-SQL, pero [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0&preserve-view=true) también está disponible. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
@@ -120,14 +120,14 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 
 3. Ejecute el script de actualización en `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` y la base de datos principal de ensayo (12). Los cambios de la base de datos se replicarán automáticamente en la base de datos secundaria de ensayo.
 
-![Configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube.](./media/manage-application-rolling-upgrade/option2-2.png)
+![Diagrama que muestra la configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube con cambios en la base de datos replicados en el ensayo.](./media/manage-application-rolling-upgrade/option2-2.png)
 
 Si la actualización se completó correctamente, ya está listo para cambiar a los usuarios a la versión V2 de la aplicación. En el siguiente diagrama se ilustran los pasos que intervienen.
 
 1. Active una operación de intercambio entre los entornos de ensayo y producción de la aplicación web en la región primaria (13) y en la región de copia de seguridad (14). La versión V2 de la aplicación se convierte ahora en un entorno de producción con una copia redundante en la región de copia de seguridad.
 2. Si ya no necesita la aplicación V1 (15 y 16), puede retirar el entorno de ensayo.
 
-![Configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube.](./media/manage-application-rolling-upgrade/option2-3.png)
+![Diagrama que muestra la configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube con retirada opcional del entorno de ensayo.](./media/manage-application-rolling-upgrade/option2-3.png)
 
 Si el proceso de actualización no se realiza correctamente, por ejemplo, debido a un error en el script de actualización, el entorno de ensayo debe considerarse en estado incoherente. Para revertir la aplicación al estado previo a la actualización, revierta al uso de la versión V1 de la aplicación en el entorno de producción. En el diagrama siguiente se muestran los pasos necesarios:
 
@@ -139,7 +139,7 @@ En este punto, la aplicación es totalmente funcional y se pueden repetir los pa
 > [!NOTE]
 > La reversión no requiere cambios de DNS, ya que no ha realizado una operación de intercambio.
 
-![Configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube.](./media/manage-application-rolling-upgrade/option2-4.png)
+![Diagrama que muestra la configuración de la replicación geográfica de SQL Database para la recuperación ante desastres en la nube con el proceso de actualización revertido.](./media/manage-application-rolling-upgrade/option2-4.png)
 
 La principal ventaja de esta opción es que puede actualizar tanto la aplicación como su copia con redundancia geográfica en paralelo, sin poner en peligro la continuidad empresarial durante la actualización.
 

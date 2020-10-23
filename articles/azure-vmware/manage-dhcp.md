@@ -3,12 +3,12 @@ title: Creación y administración de DHCP
 description: En este artículo se explica cómo administrar DHCP en Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ba7c3983f55ed729c77d2f24d3ef311a00522148
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 2c059918f57b7f01058a031f1bf281b243855661
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069567"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91332838"
 ---
 # <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Creación y administración de DHCP en Azure VMWare Solution
 
@@ -56,7 +56,7 @@ Una vez que haya creado el servidor DHCP, deberá agregarle segmentos de red.
 
 ## <a name="create-dhcp-relay-service"></a>Creación de un servicio de retransmisión DHCP
 
-1. En la ventana de NSX-T, seleccione la pestaña **Redes** y, en **Administración de direcciones IP**, seleccione **DHCP**. Seleccione **ADD SERVER** (AGREGAR SERVIDOR). Elija DHCP Relay (Retransmisión DHCP) para **Server Type** (Tipo de servidor) y escriba el nombre del servidor y la dirección IP del servidor de retransmisión. Haga clic en **Guardar** para guardar los cambios.
+1. En la ventana de NXT-T, seleccione la pestaña **Networking** (Redes) y, en **IP Management** (Administración de direcciones IP), elija **DHCP**. Seleccione **ADD SERVER** (AGREGAR SERVIDOR). Elija DHCP Relay (Retransmisión DHCP) para **Server Type** (Tipo de servidor) y escriba el nombre del servidor y la dirección IP del servidor de retransmisión. Haga clic en **Guardar** para guardar los cambios.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="agregar un servidor DHCP" border="true":::
 

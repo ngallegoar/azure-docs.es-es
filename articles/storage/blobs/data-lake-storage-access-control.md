@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 31d67daebf2e15fb11b5ebe30c4f7741a09eed2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017241"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91716111"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Control de acceso en Azure Data Lake Storage Gen2
 
@@ -21,22 +21,22 @@ Azure Data Lake Storage Gen2 implementa un modelo de control de acceso compa
 
 <a id="azure-role-based-access-control-rbac"></a>
 
-## <a name="role-based-access-control"></a>Control de acceso basado en rol
+## <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
 
-RBAC utiliza las asignaciones de roles para aplicar eficazmente conjuntos de permisos a *entidades de seguridad*. Una *entidad de seguridad* es un objeto que representa a un usuario, un grupo, una entidad de servicio o una identidad administrada que se define en Azure Active Directory (AD), que solicita acceso a recursos de Azure.
+RBAC de Azure usa las asignaciones de roles para aplicar eficazmente conjuntos de permisos a *entidades de seguridad*. Una *entidad de seguridad* es un objeto que representa a un usuario, un grupo, una entidad de servicio o una identidad administrada que se define en Azure Active Directory (AD), que solicita acceso a recursos de Azure.
 
 Normalmente, los recursos de Azure están limitados a los recursos de nivel superior (por ejemplo: cuentas de Azure Storage). En el caso de Azure Storage y, por tanto, Azure Data Lake Storage Gen2, este mecanismo se ha ampliado al recurso de contenedor (sistema de archivos).
 
-Para aprender a asignar roles a las entidades de seguridad en el ámbito de la cuenta de almacenamiento, consulte [Concesión de acceso a datos de blob y cola de Azure con RBAC en Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para aprender a asignar roles a las entidades de seguridad en el ámbito de la cuenta de almacenamiento, consulte [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Los usuarios invitados no puede crear asignaciones de roles.
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>Impacto de las asignaciones de roles en las listas de control de acceso en el nivel de archivo y directorio
 
-Aunque el uso de las asignaciones de roles de Azure es un mecanismo eficaz para controlar los permisos de acceso, se trata de un mecanismo mucho más detallado en relación con las ACL. La granularidad más pequeña para RBAC es el nivel de contenedor y esto se evaluará con mayor prioridad que las listas ACL. Por lo tanto, si asigna un rol a una entidad de seguridad en el ámbito de un contenedor, esa entidad de seguridad tendrá el nivel de autorización asociado a ese rol para TODOS los directorios y archivos de ese contenedor, independientemente de las asignaciones de ACL.
+Aunque el uso de las asignaciones de roles de Azure es un mecanismo eficaz para controlar los permisos de acceso, se trata de un mecanismo mucho más detallado en relación con las ACL. La granularidad más pequeña para RBAC de Azure es el nivel de contenedor y esto se evaluará con mayor prioridad que las listas ACL. Por lo tanto, si asigna un rol a una entidad de seguridad en el ámbito de un contenedor, esa entidad de seguridad tendrá el nivel de autorización asociado a ese rol para TODOS los directorios y archivos de ese contenedor, independientemente de las asignaciones de ACL.
 
-Cuando a una entidad de seguridad se le conceden permisos de datos RBAC mediante un [rol integrado](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues) o un rol personalizado, primero se evalúan estos permisos tras la autorización de una solicitud. Si la operación solicitada está autorizada por las asignaciones de roles de Azure de la entidad de seguridad, la autorización se resuelve inmediatamente y no se realiza ninguna comprobación adicional de la ACL. Como alternativa, si la entidad de seguridad no tiene una asignación de roles de Azure, o la operación de la solicitud no coincide con el permiso asignado, se realizan comprobaciones de ACL para determinar si la entidad de seguridad está autorizada para realizar la operación solicitada.
+Cuando a una entidad de seguridad se le conceden permisos de datos RBAC de Azure a través de un [rol integrado](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), o bien a través de un rol personalizado, estos permisos se evalúan primero tras la autorización de una solicitud. Si la operación solicitada está autorizada por las asignaciones de roles de Azure de la entidad de seguridad, la autorización se resuelve inmediatamente y no se realiza ninguna comprobación adicional de la ACL. Como alternativa, si la entidad de seguridad no tiene una asignación de roles de Azure, o la operación de la solicitud no coincide con el permiso asignado, se realizan comprobaciones de ACL para determinar si la entidad de seguridad está autorizada para realizar la operación solicitada.
 
 > [!NOTE]
 > Si se ha asignado a la entidad de seguridad la asignación de roles integrada de Propietario de datos de Storage Blob, a esta entidad de seguridad se le considera *superusuario* y se le concede acceso total a todas las operaciones de mutación, incluida la configuración del propietario de un directorio o archivo, así como las ACL de archivos y directorios de los que no es propietario. El acceso de superusuario es la única manera autorizada para cambiar el propietario de un recurso.
@@ -102,7 +102,7 @@ Los permisos de un objeto de contenedor son **lectura**, **escritura** y **ejecu
 | **Ejecución (X)** | No significa nada en el contexto de Data Lake Storage Gen2 | Se requiere para atravesar los elementos secundarios de un directorio. |
 
 > [!NOTE]
-> Si va a conceder permisos únicamente mediante listas de control de acceso (no mediante RBAC), para conceder a una entidad de seguridad acceso de lectura o escritura a un archivo, necesitará otorgarle permisos de **ejecución** al contenedor y a cada carpeta de la jerarquía de carpetas que conduce al archivo.
+> Si va a conceder permisos únicamente mediante listas de control de acceso (no mediante RBAC de Azure), para conceder a una entidad de seguridad acceso de lectura o escritura a un archivo, necesitará otorgarle permisos de **ejecución** en el contenedor y en cada carpeta de la jerarquía de carpetas que conduce al archivo.
 
 #### <a name="short-forms-for-permissions"></a>Formas abreviadas de los permisos
 

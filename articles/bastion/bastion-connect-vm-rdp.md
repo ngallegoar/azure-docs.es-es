@@ -5,50 +5,39 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 02/24/2020
+ms.date: 10/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 79eb09a005f62846fc2f7e3e7b493d5e366edabc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ffb2d2f52e1bdfece7fe1bdcd04dcf9b1b600f3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744330"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077650"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Conexión a una máquina virtual Windows con Azure Bastion
 
-Con Azure Bastion, puede conectarse de forma segura y sin problemas a las máquinas virtuales en SSL directamente en Azure Portal. Cuando se usa Azure Bastion, las máquinas virtuales no necesitan un cliente, un agente o software adicional. En este artículo se muestra cómo conectarse a las máquinas virtuales Windows. Para información sobre cómo conectarse a una máquina virtual Linux, consulte [Conexión a una máquina virtual mediante Azure Bastion: Linux](bastion-connect-vm-ssh.md).
+Con Azure Bastion, puede conectarse de forma segura y sin problemas a las máquinas virtuales en SSL directamente en Azure Portal. Cuando se usa Azure Bastion, las máquinas virtuales no necesitan un cliente, un agente o software adicional. En este artículo se muestra cómo conectarse a las máquinas virtuales Windows. Para obtener información sobre la conexión a una máquina virtual Linux, consulte el artículo [Conexión a una máquina virtual Linux](bastion-connect-vm-ssh.md).
 
-Azure Bastion proporciona conectividad segura a todas las máquinas virtuales de la red virtual en la que se aprovisiona. El uso de Azure Bastion protege las máquinas virtuales frente a la exposición de los puertos de RDP/SSH al mundo exterior, al tiempo que ofrece acceso seguro mediante RDP/SSH. Para más información, consulte la [introducción](bastion-overview.md).
+Azure Bastion proporciona conectividad segura a todas las máquinas virtuales de la red virtual en la que se aprovisiona. El uso de Azure Bastion protege las máquinas virtuales frente a la exposición de los puertos de RDP/SSH al mundo exterior, al tiempo que ofrece acceso seguro mediante RDP/SSH. Para obtener más información, vea [¿Qué es Azure Bastion?](bastion-overview.md)
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
-Asegúrese de haber configurado un host de Azure Bastion para la red virtual donde está ubicada la máquina virtual. Cuando el servicio Bastion se aprovisiona e implementa en la red virtual, puede usarlo para conectarse a cualquier máquina virtual de la red virtual. Para configurar un host de Azure Bastion, consulte [Creación de un host de Azure Bastion](bastion-create-host-portal.md).
+Antes de empezar, compruebe que se cumplen los criterios siguientes:
 
-### <a name="required-roles"></a>Roles necesarios
+* Ya se ha instalado una red virtual con el host de Bastion.
 
-Para crear una conexión, se requieren los siguientes roles:
-
-* Rol de lector en la máquina virtual
-* Rol de lector en la tarjeta de interfaz de red con la dirección IP privada de la máquina virtual
-* Rol de lector en el recurso de Azure Bastion
-
-### <a name="ports"></a>Puertos
-
-Para conectarse a la máquina virtual Windows, debe tener abiertos los siguientes puertos en ella:
-
-* Puertos de entrada: RDP (3389)
+   Asegúrese de haber configurado un host de Azure Bastion para la red virtual donde está ubicada la máquina virtual. Cuando el servicio Bastion se aprovisiona e implementa en la red virtual, puede usarlo para conectarse a cualquier máquina virtual de la red virtual. Para configurar un host de Azure Bastion, consulte [Creación de un host de Bastion](tutorial-create-host-portal.md#createhost).
+* Una máquina virtual Windows en la red virtual.
+* Los siguientes roles necesarios:
+  * Rol de lector en la máquina virtual.
+  * Rol de lector en la tarjeta de interfaz de red con la dirección IP privada de la máquina virtual.
+  * Rol de lector en el recurso de Azure Bastion.
+* Puertos: Para conectarse a la máquina virtual Windows, debe tener abiertos los siguientes puertos en ella:
+  * Puertos de entrada: RDP (3389)
 
 ## <a name="connect"></a><a name="rdp"></a>Conexión
 
-1. Abra [Azure Portal](https://portal.azure.com). Vaya a la máquina virtual a la que quiere conectarse, luego haga clic en **Conectar** y seleccione **Bastion** en la lista desplegable.
-
-   ![Conexión de una máquina virtual](./media/bastion-connect-vm-rdp/connect.png)
-1. Después de hacer clic en Bastion, aparece una barra lateral con tres pestañas: RDP, SSH y Bastion. Si se aprovisionó Bastion para la red virtual, la pestaña Bastion aparece activa de manera predeterminada. Si no aprovisionó Bastion para la red virtual, puede hacer clic en el vínculo para configurarlo. Para instrucciones sobre la configuración, consulte el artículo sobre la [configuración de Bastion](bastion-create-host-portal.md).
-
-   ![Pestaña Bastion](./media/bastion-connect-vm-rdp/bastion.png)
-1. En la pestaña Bastion, escriba el nombre de usuario y la contraseña de la máquina virtual y, luego, haga clic en **Connect** (Conectar). La conexión RDP con esta máquina virtual a través de Bastion se abrirá directamente en Azure Portal (a través de HTML5) mediante el puerto 443 y el servicio Bastion.
-
-   ![Conexión RDP](./media/bastion-connect-vm-rdp/443rdp.png)
+[!INCLUDE [Connect to a Windows VM](../../includes/bastion-vm-rdp.md)]
  
 ## <a name="next-steps"></a>Pasos siguientes
 

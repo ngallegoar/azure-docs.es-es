@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: d9dea7cd0cc22cc8a1e0aa5c93ece76d689de0e0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835449"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91714386"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guía de seguridad del Explorador de Azure Storage
 
@@ -42,11 +42,11 @@ Se recomienda usar la autenticación de Azure AD siempre que sea posible.
 
 En esta sección se describen las dos tecnologías basadas en Azure AD que se pueden usar para proteger los recursos de almacenamiento.
 
-#### <a name="role-based-access-control-rbac"></a>Control de acceso basado en roles (RBAC)
+#### <a name="azure-role-based-access-control-azure-rbac"></a>Control de acceso basado en roles de Azure (RBAC de Azure)
 
-El [control de acceso basado en roles de Azure (RBAC de Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) permite controlar de forma detallada los recursos de Azure. Los roles y permisos de RBAC se pueden administrar desde Azure Portal.
+El [control de acceso basado en roles de Azure (RBAC de Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) permite controlar de forma detallada los recursos de Azure. Los roles y permisos de Azure se pueden administrar desde Azure Portal.
 
-El Explorador de Storage admite el acceso RBAC a cuentas de almacenamiento, blobs y colas. Si necesita acceder a recursos compartidos de archivos o tablas, deberá asignar roles de RBAC que concedan permiso para enumerar claves de cuenta de almacenamiento.
+El Explorador de Storage admite el acceso Azure RBAC a cuentas de almacenamiento, Blobs y colas. Si necesita acceder a recursos compartidos de archivos o tablas, deberá asignar roles de Azure que concedan permiso para enumerar claves de cuenta de almacenamiento.
 
 #### <a name="access-control-lists-acls"></a>Listas de control de acceso (ACL)
 
@@ -77,11 +77,11 @@ Al usar SAS en el Explorador de Storage, se recomiendan las siguientes directric
 
 ### <a name="storage-account-keys"></a>Claves de cuenta de almacenamiento
 
-Las claves de cuenta de almacenamiento conceden acceso no restringido a los servicios y recursos de una cuenta de almacenamiento. Por esta razón, se recomienda limitar el uso de las claves para acceder a los recursos del Explorador de Storage. En su lugar, use las características de RBAC o SAS para proporcionar acceso.
+Las claves de cuenta de almacenamiento conceden acceso no restringido a los servicios y recursos de una cuenta de almacenamiento. Por esta razón, se recomienda limitar el uso de las claves para acceder a los recursos del Explorador de Storage. En su lugar, use las características de Azure RBAC o SAS para proporcionar acceso.
 
-Algunos roles de RBAC conceden permiso para recuperar claves de cuenta de almacenamiento. Los usuarios con estos roles pueden eludir de manera eficaz los permisos concedidos o denegados mediante RBAC. Se recomienda no conceder este permiso, a menos que sea necesario.
+Algunos roles de Azure conceden permiso para recuperar claves de cuentas de almacenamiento. Los usuarios con estos roles pueden eludir de manera eficaz los permisos concedidos o denegados mediante Azure RBAC. Se recomienda no conceder este permiso, a menos que sea necesario.
 
-El Explorador de Storage intentará usar claves de cuenta de almacenamiento, si están disponibles para autenticar solicitudes. Puede deshabilitar esta característica en Configuración (**Servicios > Cuentas de almacenamiento > Usage of Keys [Deshabilitar el uso de claves]** ). Algunas características no son compatibles con RBAC, como trabajar con cuentas de almacenamiento clásicas. Estas características siguen requiriendo claves y no se ven afectadas por esta configuración.
+El Explorador de Storage intentará usar claves de cuenta de almacenamiento, si están disponibles para autenticar solicitudes. Puede deshabilitar esta característica en Configuración (**Servicios > Cuentas de almacenamiento > Usage of Keys [Deshabilitar el uso de claves]** ). Algunas características no son compatibles con Azure RBAC, como trabajar con cuentas de almacenamiento clásicas. Estas características siguen requiriendo claves y no se ven afectadas por esta configuración.
 
 Si debe usar claves para tener acceso a los recursos de almacenamiento, se recomiendan las siguientes directrices:
 

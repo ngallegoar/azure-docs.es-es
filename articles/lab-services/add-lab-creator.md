@@ -3,12 +3,12 @@ title: Incorporación de un usuario como creador de un laboratorio en Azure Lab 
 description: En este artículo se muestra cómo agregar un usuario al rol Creador de laboratorios para una cuenta de laboratorio en Azure Lab Services. Los creadores de laboratorios pueden crearlos en esta cuenta de laboratorio.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 34fbf9085f36d008607b648825585d3435cc2895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444291"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399489"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Incorporación de creadores de laboratorios a una cuenta de laboratorio de Azure Lab Services
 En este artículo se muestra cómo agregar usuarios como creadores de laboratorios a una cuenta de laboratorio en Azure Lab Services. Estos usuarios pueden, posteriormente, crear laboratorios educativos en la cuenta de laboratorio. 
@@ -31,7 +31,7 @@ Para proporcionar a los educadores el permiso para crear laboratorios para sus c
 ## <a name="add-a-non-microsoft-account-user-as-a-lab-creator"></a>Incorporación de un usuario que no es de una cuenta de Microsoft como creador de laboratorio
 Para agregar un usuario como creador de laboratorio, se usan sus cuentas de correo electrónico. Se pueden usar los siguientes tipos de cuentas de correo electrónico:
 
-- Una cuenta de correo electrónico proporcionada por la instancia de Azure Active Directory (AAD) de Office 365 de la universidad. 
+- Una cuenta de correo electrónico proporcionada por la instancia de Azure Active Directory (AAD) de la universidad.
 - Una cuenta de correo electrónico de Microsoft, como `@outlook.com`, `@hotmail.com`, `@msn.com` o `@live.com`.
 - Una cuenta de correo electrónico que no sea de Microsoft, como las proporcionadas por Yahoo o Google. No obstante, estos tipos de cuentas se deben vincular a una cuenta de Microsoft.
 - Una cuenta de GitHub. Esta cuenta se debe vincular a una cuenta de Microsoft.

@@ -4,12 +4,12 @@ description: Respuestas a algunas de las preguntas y escenarios de redes con Azu
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: 52e0a6f9261d89ecd7c660be118162a898988526
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385915"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91538065"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Preguntas más frecuentes acerca de las redes en Azure Functions
 
@@ -27,7 +27,7 @@ Dispone de un par de métodos para restringir el acceso a Internet:
     * En Restricciones de IP, también puede configurar [Puntos de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md), que restringen la función para que solo acepte tráfico entrante procedente de una red virtual concreta.
 * Eliminación de todos los desencadenadores de HTTP. Para algunas aplicaciones, basta simplemente con evitar los desencadenadores de HTTP y usar cualquier otro origen de evento para desencadenar la función.
 
-Tenga en cuenta que el editor de Azure Portal requiere acceso directo a la función en ejecución. Cualquier cambio de código a través de Azure Portal requerirá que el dispositivo que está usando examine el portal para incluir su IP en la lista blanca. No obstante, todavía puede usar todas las características de la pestaña de características de la plataforma con las restricciones de red implementadas.
+Tenga en cuenta que el editor de Azure Portal requiere acceso directo a la función en ejecución. Cualquier cambio de código mediante Azure Portal requerirá que el dispositivo que está usando examine el portal para incluir su IP en la lista aprobada. No obstante, todavía puede usar todas las características de la pestaña de características de la plataforma con las restricciones de red implementadas.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>¿Cómo puedo restringir mi aplicación de funciones a una red virtual?
 

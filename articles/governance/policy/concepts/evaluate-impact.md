@@ -1,18 +1,18 @@
 ---
 title: Evaluación del efecto de una nueva definición de Azure Policy
 description: Comprenda el proceso que debe seguir al introducir una nueva definición de directiva en el entorno de Azure.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 243f04cc20e1fb7167306b925a0e494b34cf1267
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9d73d703c38dce1335a471bfad9171d8b30a83c5
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544709"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873875"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Evaluación del efecto de una nueva definición de Azure Policy
 
-Azure Policy es una herramienta eficaz para administrar los recursos de Azure a los estándares empresariales y satisfacer las necesidades de cumplimiento normativo. Cuando las personas, los procesos o las canalizaciones crean o actualizan recursos, Azure Policy revisa la solicitud. Cuando el efecto de la definición de directiva es [Append](./effects.md#deny) o [DeployIfNotExists](./effects.md#deployifnotexists), la directiva modifica la solicitud o la agrega. Cuando el efecto de la definición de directiva es [Audit](./effects.md#audit) o [AuditIfNotExists](./effects.md#auditifnotexists), la directiva provoca la creación de una entrada del registro de actividad. Y cuando el efecto de la definición de directiva es [Deny](./effects.md#deny), la directiva detiene la creación o modificación de la solicitud.
+Azure Policy es una herramienta eficaz para administrar los recursos de Azure a los estándares empresariales y satisfacer las necesidades de cumplimiento normativo. Cuando las personas, los procesos o las canalizaciones crean o actualizan recursos, Azure Policy revisa la solicitud. Cuando el efecto de la definición de la directiva es [Modify](./effects.md#modify), [Append](./effects.md#deny) o [DeployIfNotExists](./effects.md#deployifnotexists), la directiva modifica la solicitud o la agrega. Cuando el efecto de la definición de la directiva es [Audit](./effects.md#audit) o [AuditIfNotExists](./effects.md#auditifnotexists), la directiva provoca la creación de una entrada del registro de actividad para los recursos nuevos y actualizados. Y cuando el efecto de la definición de directiva es [Deny](./effects.md#deny), la directiva detiene la creación o modificación de la solicitud.
 
 Estos resultados son exactamente lo que se desea cuando se sabe que la directiva se ha definido correctamente. Sin embargo, es importante validar que una nueva directiva funciona según lo previsto antes de permitirle cambiar o bloquear el trabajo. La validación debe asegurarse de que solo se determina que los recursos deseados no son compatibles y que no se incluyen correctamente los recursos compatibles (lo que se conoce como _falso positivo_) en los resultados.
 

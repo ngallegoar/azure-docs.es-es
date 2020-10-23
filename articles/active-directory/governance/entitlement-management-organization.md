@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50c5c02327aa9f48a605607de901258827b14896
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783950"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449871"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Agregar una organización conectada en la administración de derechos de Azure AD
 
@@ -66,6 +66,8 @@ Para agregar un directorio o dominio externo de Azure AD como organización cone
 
     ![Panel Aspectos básicos de "Agregar organización conectada"](./media/entitlement-management-organization/organization-basics.png)
 
+1. El estado se establecerá automáticamente en **Configurada** al crear una nueva organización conectada. Para más información acerca de las propiedades de estado, consulte [Propiedades de estado de las organizaciones conectadas](#state-properties-of-connected-organizations).
+
 1. Seleccione la pestaña **Directorio y dominio** y, a continuación, **Agregar directorio y dominio**.
 
     Se abre el panel **Seleccionar directorios y dominios**.
@@ -109,7 +111,7 @@ Si la organización conectada cambia a otro dominio, el nombre de la organizaci�
 
 1. En el panel de la izquierda, seleccione **Organizaciones conectadas** y, a continuación, seleccione la organización conectada para abrirla.
 
-1. En el panel de información general de la organización conectada, seleccione **Editar** para cambiar el nombre o la descripción de la organización.  
+1. En el panel de información general de la organización conectada, seleccione **Editar** para cambiar el nombre, la descripción o el estado de la organización.  
 
 1. En el panel **Directorio y dominio**, seleccione **Actualizar directorio y dominio** para cambiar a otro directorio o dominio.
 
@@ -135,6 +137,23 @@ Si ya no tiene una relación con un dominio o directorio externo de Azure AD, p
 ## <a name="managing-a-connected-organization-programmatically"></a>Administración de una organización conectada mediante programación
 
 También puede crear, enumerar, actualizar y eliminar organizaciones conectadas mediante Microsoft Graph. Un usuario de un rol adecuado con una aplicación con el permiso `EntitlementManagement.ReadWrite.All` delegado puede llamar a la API para administrar objetos [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) y establecer patrocinadores para ellos.
+
+## <a name="state-properties-of-connected-organizations"></a>Propiedades de estado de las organizaciones conectadas
+
+Actualmente, existen dos tipos diferentes de propiedades de estado para las organizaciones conectadas en la administración de derechos de Azure AD, configurada y propuesta: 
+
+- Una organización conectada configurada es una organización conectada totalmente funcional que permite a los usuarios de esa organización acceder a los paquetes de acceso. Cuando un administrador crea una nueva organización conectada en Azure Portal, tendrá el estado **Configurada** de forma predeterminada, ya que el administrador ha creado y desea usar esta organización conectada. Además, cuando se crea una organización conectada mediante programación con la API, el estado predeterminado debe ser **Configurada** a menos que se establezca en otro estado explícitamente. 
+
+    Las organizaciones conectadas configuradas se mostrarán en los selectores de organizaciones conectadas y estarán en el ámbito de las directivas que tengan como destino "todas" las organizaciones conectadas.
+
+- Una organización conectada propuesta es una organización conectada que se ha creado automáticamente, pero que un administrador no ha creado ni aprobado la organización. Cuando un usuario se suscribe a un paquete de acceso fuera de una organización conectada configurada, todas las organizaciones conectadas creadas automáticamente estarán en estado **Propuesta**, ya que ningún administrador del inquilino ha configurado esa asociación. 
+    
+    Las organizaciones conectadas propuestas no se mostrarán en los selectores de organizaciones conectadas configuradas y no estarán en el ámbito de la configuración "todas la organizaciones conectadas configuradas" de ninguna directiva. 
+
+Solo los usuarios de las organizaciones conectadas configuradas pueden solicitar paquetes de acceso que estén disponibles para los usuarios de todas las organizaciones configuradas. Los usuarios de las organizaciones conectadas propuestas tendrán una experiencia como si no hubiera ninguna organización conectada para ese dominio y no tendrán acceso al paquete de acceso hasta que un administrador cambie el estado.
+
+> [!NOTE]
+> Como parte de la implementación de esta nueva característica, todas las organizaciones conectadas creadas antes del 09/09/20 se consideran **configuradas**. Si tiene un paquete de acceso que permitía registrarse a los usuarios de cualquier organización, debe revisar la lista de las organizaciones conectadas que se crearon antes de esa fecha para asegurarse de que ninguna está clasificada de forma incorrecta como **Configurada**.  Un administrador puede actualizar la propiedad **Estado** según corresponda. Para obtener instrucciones, consulte [Actualización de una organización conectada](#update-a-connected-organization).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

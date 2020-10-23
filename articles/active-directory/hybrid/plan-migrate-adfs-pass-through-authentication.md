@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e5a5b06bc95d022cfad66118db4b55e9369b5bd
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a0ee8661ca985e1882cff54d2fc2cdc5e9ad0a22
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661890"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91335976"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migración de la federación a la autenticación de paso a través en Azure Active Directory
 
@@ -283,9 +283,9 @@ A continuación, implemente métodos de autenticación adicionales:
 
 4. Ejecute la instalación del agente de autenticación. Durante la instalación, debe especificar las credenciales de una cuenta de administrador global.
 
-   ![Captura de pantalla que muestra el botón Instalar en la página del paquete de agente de autenticación de Microsoft Azure AD Connect](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Captura de pantalla que muestra el botón para instalar que se usa para ejecutar el paquete del agente de autenticación de Microsoft Azure AD Connect.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-   ![Captura de pantalla que muestra la página de inicio de sesión](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Captura de pantalla que muestra la página de inicio de sesión de Microsoft.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. Una vez instalado el agente de autenticación, puede volver a la página de mantenimiento del agente de autenticación de paso a través para comprobar el estado de los agentes adicionales.
 
@@ -327,7 +327,7 @@ Primero, habilite la autenticación de paso a través:
    * **Inicio de sesión único de conexión directa** está establecido en **Habilitado**.
    * **Autenticación de paso a través** está establecido en **Deshabilitado**.
    
-   ![Captura de pantalla que muestra la configuración de la sección de inicio de sesión de usuario](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
+   ![Captura de pantalla que muestra la configuración que se va a comprobar en la sección de inicio de sesión de usuario.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
 8. Seleccione **Autenticación de paso a través** y compruebe que el estado es **Activo**.<br />
    
    Si el agente de autenticación no está activo, lleva a cabo algunos [pasos de solución de problemas](./tshoot-connect-pass-through-authentication.md) antes de continuar con el proceso de conversión de dominio en el paso siguiente. Si convierte los dominios antes de validar que los agentes de autenticación de paso a través están instalados correctamente y que su estado es **Activo** en Azure Portal, se arriesga a provocar una interrupción de la autenticación.
@@ -368,7 +368,7 @@ Realice la conversión mediante el módulo de PowerShell de Azure AD:
    * **Inicio de sesión único de conexión directa** está establecido en **Habilitado**.
    * **Autenticación de paso a través** está establecido en **Deshabilitado**.<br />
 
-   ![Captura de pantalla que muestra la configuración de la sección de inicio de sesión de usuario](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
+   ![Captura de pantalla que muestra la configuración de la sección de inicio de sesión de usuario del portal de Azure AD.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
 
 ## <a name="testing-and-next-steps"></a>Pruebas y pasos siguientes
 

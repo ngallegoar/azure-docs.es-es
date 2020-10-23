@@ -11,12 +11,12 @@ ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e46c6d1c14d226522a1d534418b91076efeaaccf
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f1c4fe8268d24026609f55d76a102a5c9a4e8295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070724"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91356323"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Tipos de conexión de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,7 +34,7 @@ Instancia administrada de Azure SQL admite los dos tipos de conexión siguientes
 
 En el tipo de conexión de redireccionamiento, una vez establecida la sesión TCP en el motor de SQL, la sesión de cliente obtiene la dirección IP virtual de destino del nodo de clúster virtual del equilibrador de carga. Los paquetes posteriores fluyen directamente al nodo de clúster virtual y omiten la puerta de enlace. En el siguiente diagrama, se ilustra este flujo de tráfico.
 
-![redirect.png](./media/connection-types-overview/redirect.png)
+![Diagrama que muestra una red local con redirect-find-db conectada a una puerta de enlace en una red virtual de Azure y una consulta redirect-query conectada a un nodo principal de la base de datos en la red virtual.](./media/connection-types-overview/redirect.png)
 
 > [!IMPORTANT]
 > El tipo de conexión de redireccionamiento solo funciona actualmente para los puntos de conexión privados. Independientemente de la configuración del tipo de conexión, las conexiones que llegan por el punto de conexión público se realizarían mediante proxy.
@@ -43,7 +43,7 @@ En el tipo de conexión de redireccionamiento, una vez establecida la sesión TC
 
 En el tipo de conexión de proxy, la sesión TCP se establece con la puerta de enlace y todos los paquetes posteriores fluyen por esta. En el siguiente diagrama, se ilustra este flujo de tráfico.
 
-![proxy.png](./media/connection-types-overview/proxy.png)
+![Diagrama que muestra una red local con un proxy conectado a una puerta de enlace en una red virtual de Azure, con conexión a un nodo principal de la base de datos en la red virtual.](./media/connection-types-overview/proxy.png)
 
 ## <a name="changing-connection-type"></a>Cambio del tipo de conexión
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5f0c022de69823aedbbb34eb369de350b4999c69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 694d63dacedd8ffcd075e73bb91b5ab0a089b58c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514346"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91766498"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configurar CHAP para el dispositivo StorSimple
 
@@ -58,7 +58,7 @@ En la autenticación unidireccional, el destino autentica el iniciador. Esta aut
    
    3. Confirme la contraseña.
 
-       ![Iniciador de CHAP](./media/storsimple-8000-configure-chap/configure-chap6.png)
+       ![Iniciador de CHAP 2](./media/storsimple-8000-configure-chap/configure-chap6.png)
 3. Haga clic en **Save**(Guardar). Se muestra un mensaje de confirmación. Haga clic en **Aceptar** para guardar los cambios.
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Para configurar la autenticación unidireccional en el servidor host de Windows
@@ -112,7 +112,7 @@ En la autenticación bidireccional, el destino autentica el iniciador y luego el
    2. Proporcione una **contraseña** para su dispositivo.
    3. Confirme la contraseña.
 
-       ![Iniciador de CHAP](./media/storsimple-8000-configure-chap/configure-chap11.png)
+       ![Iniciador de CHAP 3](./media/storsimple-8000-configure-chap/configure-chap11.png)
 4. Haga clic en **Save**(Guardar). Se muestra un mensaje de confirmación. Haga clic en **Aceptar** para guardar los cambios.
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Para configurar la autenticación bidireccional en el servidor host de Windows

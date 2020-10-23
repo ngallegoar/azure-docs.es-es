@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: f4dde6831902c0d15d5f985208e382963125d200
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: bd1ab5110313380c90e71ed161935c7274a845b7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307295"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91839255"
 ---
 # <a name="continuous-deployment-with-azure-devops"></a>Implementación continua con Azure DevOps
 
@@ -72,7 +72,7 @@ Los scripts están hospedados en la carpeta [Asistente de voz de Cognitive Servi
 1. Tenga en cuenta que estos scripts suponen que usa la región `westus2`; en caso contrario, actualice los argumentos de las tareas según corresponda.
 
     > [!div class="mx-imgBorder"]
-    > ![Carga de Enviar actividad](media/custom-commands/cicd-new-pipeline-yaml.png)
+    > ![Captura de pantalla que resalta el valor de la región en los argumentos.](media/custom-commands/cicd-new-pipeline-yaml.png)
 
 1. En el botón "Guardar y ejecutar", abra la lista desplegable y haga clic en "Guardar".
 

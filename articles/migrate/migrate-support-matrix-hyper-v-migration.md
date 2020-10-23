@@ -3,12 +3,12 @@ title: Compatibilidad con la evaluación y migración de Hyper-V en Azure Migra
 description: Obtenga información sobre la compatibilidad con la evaluación y migración de Hyper-V en Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 4f3609560fa59c08c4d92f4faa36c7fbbffb95d7
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 4ba8b8cea784167ad045c5635ce512a68b48d897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051158"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91442300"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de compatibilidad para la migración de Hyper-V
 
@@ -38,12 +38,12 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 | :----------------------------- | :------------------- |
 | **Sistema operativo** | Azure admite todos los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](../virtual-machines/linux/endorsed-distros.md). |
 **Windows Server 2003** | En el caso de las máquinas virtuales que ejecutan Windows Server 2003, debe [instalar Integration Services de Hyper-V](prepare-windows-server-2003-migration.md) antes de la migración. | 
-**Máquinas virtuales de Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente para estos sistemas operativos:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8. En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#linux-machines) manualmente.
+**Máquinas virtuales de Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente para estos sistemas operativos:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0 y 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4 y 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS y 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
 | **Cambios necesarios para Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure. Haga los ajustes manualmente antes de la migración. Los artículos pertinentes contienen instrucciones sobre cómo hacerlo. |
 | **Arranque de Linux**                 | Si/boot está en una partición dedicada, debe residir en el disco del sistema operativo y no distribuirse en varios discos.<br/> Si /boot forma parte de la partición raíz (/), la partición "/" debe estar en el disco del sistema operativo y no abarcar otros discos. |
-| **Arranque UEFI**                  | Compatible. Asegúrese de seleccionar un tamaño de máquina virtual compatible con una VM de generación 2 de Azure.  |
+| **Arranque UEFI**                  | Compatible. Las máquinas virtuales basadas en UEFI se migrarán a máquinas virtuales de segunda generación de Azure.  |
 | **UEFI: arranque seguro**         | No se admiten para la migración.|
-| **Tamaño del disco**                  | 2 TB para el disco del sistema operativo y 4 TB para los discos de datos.|
+| **Tamaño del disco**                  | 2 TB para el disco del sistema operativo (arranque BIOS), 4 TB para el disco del sistema operativo (arranque UEFI), 4 TB para los discos de datos.|
 | **Número de discos** | Un máximo de 16 discos por VM.|
 | **Discos/volúmenes cifrados**    | No se admiten para la migración.|
 | **Discos RDM/de acceso directo**      | No se admiten para la migración.|

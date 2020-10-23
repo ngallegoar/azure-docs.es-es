@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 08/12/2020
-ms.openlocfilehash: eff1db3aca2cab77d18698634b84e8e1b1c99f7e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 47d82982bbb7546b53dd4754c49bd22fe958d5ef
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375894"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976493"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Procedimiento para revisar y publicar una oferta en el marketplace comercial
 
@@ -170,6 +170,84 @@ Ahora que ha decidido publicar la oferta, lo que hará que esté disponible en e
     Existe la garantía de que la oferta estará públicamente disponible en el marketplace.
 
 Después de finalizar estas comprobaciones de validación, la oferta estará activa en el marketplace.
+
+## <a name="publishing-history"></a>Historial de publicación
+
+En la página **Historial** del Centro de partners se muestran los eventos de publicación para las ofertas comerciales de marketplace. Para cada evento, se muestra el usuario que inició la acción, el tipo de evento y la fecha y hora del evento. Se indican los [pasos de validación y publicación](#validation-and-publishing-steps) con la fecha y la hora de finalización.
+
+Para ver el historial de la oferta:
+
+1.    Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+2.    En el menú de navegación de la izquierda, seleccione **Marketplace comercial** > **Información general**.
+3.    Seleccione la oferta.
+4.    Seleccione la pestaña **Historial** en el menú de navegación de la izquierda. En la página se proporcionan detalles de los eventos siguientes, según corresponda a su oferta:
+
+|Evento    |Descripción    |
+|---------|---------------|
+|Oferta creada    |Se ha creado la oferta en el Centro de partners. Un usuario seleccionó el tipo de oferta, el id. de la oferta y el alias de la oferta en **Marketplace comercial** > **Información general**.    |
+|Plan creado: *nombre de plan*    |Un usuario creó un nuevo plan especificando el id. de plan y el nombre del plan en la pestaña **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
+|Plan eliminado    |Un usuario eliminó un plan borrador que no se había publicado, seleccionando **Eliminar borrador** en la página **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
+|Plan de detención de la venta iniciado: *nombre del plan*    |Un usuario inició un plan de detención de la venta, seleccionando **Dejar de vender** en la página de **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
+|Plan de detención de la venta cancelado: *nombre del plan*    |Un usuario canceló un plan de detención de la venta, seleccionando **Deshacer detención de la venta** en la página de **Información general del plan**.</br>*Este evento solo se aplica a los tipos de oferta que admiten planes*.    |
+|Envío de oferta a versión preliminar    |Un usuario envió la oferta a versión preliminar seleccionando **Publicar** en la página **Revisar y publicar**.    |
+|Cancelación del envío a versión preliminar iniciada    |Un usuario solicitó cancelar la publicación de la oferta en versión preliminar, seleccionando **Cancelar publicación** de la página **Información general de la oferta** después del envío a versión preliminar.</br>*Este evento se muestra mientras se procesa la solicitud de cancelación*.    |
+|Envío a versión preliminar cancelado    |Un usuario canceló la publicación de la oferta en versión preliminar, seleccionando **Cancelar publicación** de la página **Información general de la oferta** después del envío a versión preliminar.</br>*Este evento se muestra después de que la solicitud de cancelación se haya procesado correctamente*.    |
+|Cierre de sesión para llamada en directo    |Un usuario publicó la oferta en marketplace comercial, seleccionando **Llamada en directo** en la página **Información general de la oferta**.    |
+|Cancelación de publicación en marketplace iniciada    |Un usuario solicitó cancelar la publicación de la oferta, seleccionando **Cancelar publicación** de la página **Información general de la oferta** después de cerrar sesión para la llamada en directo.</br>*Este evento se muestra mientras se procesa la solicitud de cancelación*.    |
+|Publicación en marketplace comercial cancelada    |Un usuario canceló la publicación de la oferta, seleccionando **Cancelar publicación** de la página **Información general de la oferta** después de cerrar sesión para la llamada en directo.</br>*Este evento se muestra después de que la solicitud de cancelación se haya procesado correctamente*.    |
+|Audiencia privada sincronizada    |Un usuario actualizó y sincronizó la audiencia privada seleccionando **Sync private audience** (Sincronizar audiencia privada) en la página **Información general del plan** o en la página **Plan pricing & availability** (Precio y disponibilidad del plan).</br>*Este evento solo se aplica a los tipos de oferta que admiten planes privados*.    |
+|Venta de la oferta detenida    |Un usuario dejó de vender la oferta seleccionando **Dejar de vender** en la página **Información general de la oferta**.    |
+
+> [!NOTE]
+> En la página Historial no se indica cuándo se ha guardado un borrador de la oferta.
+
+### <a name="filter-options"></a>Opciones de filtro
+
+Puede usar filtros para reducir el historial completo de su oferta a eventos de publicación específicos:
+
+1.    Seleccione el botón de filtro en la esquina superior derecha de la página.
+2.    Elija un filtro y, a continuación, seleccione **Aplicar** para ver qué eventos del historial se corresponden con los criterios seleccionados.
+3.    Seleccione **Borrar filtros** para volver al historial completo de la oferta.
+
+Hay cuatro filtros:
+* Eventos
+* Usuarios
+* Date
+* Páginas
+
+Al elegir el filtro **Páginas**, puede seleccionar cualquiera de las páginas del Centro de partners aplicables a su tipo de oferta. Cuando se aplica, el filtro **Páginas** muestra todos los eventos **Envío de oferta a versión preliminar** con cambios en la página seleccionada.
+
+* Para todas las ofertas, se incluye la página **Configuración de la oferta** de manera predeterminada para cada evento de envío.
+* En el caso de las ofertas que admiten planes, se incluye la página **Información general del plan** para cada evento de envío.
+* En el caso de las ofertas que admiten la versión de prueba, se incluye la página **Versión de prueba** para cada evento de envío.
+
+### <a name="users"></a>Usuarios
+
+Si un usuario inició un evento, en la página Historial se mostrará el usuario según los siguientes escenarios:
+
+#### <a name="the-event-was-initiated-by-the-publisher"></a>Evento iniciado por el publicador
+
+El nombre de los usuarios con permisos de publicación para una oferta se mostrará en los eventos de publicación que inicien.
+
+[![En la página Historial se muestra el nombre de los usuarios con permisos de publicación.](./media/review-publish-offer/event-initiated-by-publisher.png)](./media/review-publish-offer/event-initiated-by-publisher.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-microsoft"></a>Evento iniciado por Microsoft
+
+Puede conceder permisos a los administradores de Microsoft para iniciar acciones en su nombre o tomar medidas correctivas después de un error inesperado del sistema. El nombre y el logotipo de Microsoft se muestran para publicar eventos iniciados por Microsoft en nombre de su cuenta.
+
+[![Ejemplo de cómo la página Historial muestra los eventos iniciados por Microsoft.](./media/review-publish-offer/event-initiated-by-microsoft.png)](./media/review-publish-offer/event-initiated-by-microsoft.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-an-unidentified-user"></a>Evento iniciado por un usuario no identificado
+
+El nombre de los usuarios que ya no estén asociados con una cuenta se quitará de la columna **Iniciado por** después de retirar los permisos de publicación.
+
+[![Ejemplo de cómo la página Historial muestra los eventos iniciados por usuarios no identificados.](./media/review-publish-offer/event-initiated-by-unidentified-user.png)](./media/review-publish-offer/event-initiated-by-unidentified-user.png#lightbox)
+
+#### <a name="validation-and-publishing-steps"></a>Pasos de validación y publicación
+
+No se muestra ningún usuario para los procesos del sistema que corresponden a [pasos de validación y publicación](#validation-and-publishing-steps). Estos eventos están codificados por colores según el estado de finalización del evento.
+
+[![Ejemplo de cómo en la página Historial se muestran los pasos de validación y publicación.](./media/review-publish-offer/validation-and-publishing-event.png)](./media/review-publish-offer/validation-and-publishing-event.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

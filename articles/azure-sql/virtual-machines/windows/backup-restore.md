@@ -8,17 +8,17 @@ editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 6a03a91eeb9296e60aa147f97634a15e8d344209
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a4965c587cb2f42c8411d48af2417dd3fe3d5edb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293043"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91360793"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Copia de seguridad y restauración de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -129,23 +129,23 @@ En la tabla siguiente se resumen las capacidades de cada opción de copia de seg
 
 | Opción | Copia de seguridad automatizada | Azure Backup para SQL | Copia de seguridad manual |
 |---|---|---|---|
-| Requiere servicio adicional de Azure |   | ![Sí](./media/backup-restore/yes.png) |   |
-| Configurar la directiva de copia de seguridad en Azure Portal | ![Sí](./media/backup-restore/yes.png) | ![Sí](./media/backup-restore/yes.png) |   |
-| Restaurar bases de datos en Azure Portal |   | ![Sí](./media/backup-restore/yes.png) |   |
-| Administrar varios servidores en un panel |   | ![Sí](./media/backup-restore/yes.png) |   |
-| Restauración a un momento dado | ![Sí](./media/backup-restore/yes.png) | ![Sí](./media/backup-restore/yes.png) | ![Sí](./media/backup-restore/yes.png) |
-| Objetivo de punto de recuperación (RPO) de 15 minutos | ![Sí](./media/backup-restore/yes.png) | ![Sí](./media/backup-restore/yes.png) | ![Sí](./media/backup-restore/yes.png) |
-| Directiva de retención de copia de seguridad a corto plazo (días) | ![Sí](./media/backup-restore/yes.png) | ![Sí](./media/backup-restore/yes.png) |   |
-| Directiva de retención de copia de seguridad a largo plazo (meses, años) |   | ![Sí](./media/backup-restore/yes.png) |   |
-| Compatibilidad integrada para SQL Server Always On |   | ![Sí](./media/backup-restore/yes.png) |   |
-| Copia de seguridad en cuentas de Azure Storage | ![Sí](./media/backup-restore/yes.png)(automático) | ![Sí](./media/backup-restore/yes.png)(automático) | ![Sí](./media/backup-restore/yes.png)(administrado por el cliente) |
-| Administración de archivos de copia de seguridad y almacenamiento | | ![Sí](./media/backup-restore/yes.png) |  |
-| Copia de seguridad en discos conectados en la VM |   |   | ![Sí](./media/backup-restore/yes.png) |
-| Informes de copia de seguridad personalizables centrales |   | ![Sí](./media/backup-restore/yes.png) |   |
-| Alertas por correo electrónico consolidadas de errores |   | ![Sí](./media/backup-restore/yes.png) |   |
-| Personalización de supervisión basada en registros de Azure Monitor |   | ![Sí](./media/backup-restore/yes.png) |   |
-| Supervisión de trabajos de copia de seguridad con SSMS o scripts de Transact-SQL | ![Sí](./media/backup-restore/yes.png) | ![Sí](./media/backup-restore/yes.png) | ![Sí](./media/backup-restore/yes.png) |
-| Restauración de bases de datos con SSMS o scripts de Transact-SQL | ![Sí](./media/backup-restore/yes.png) |   | ![Sí](./media/backup-restore/yes.png) |
+| Requiere servicio adicional de Azure |   | ![Marca de verificación verde.](./media/backup-restore/yes.png) |   |
+| Configurar la directiva de copia de seguridad en Azure Portal | ![Marca de verificación verde.](./media/backup-restore/yes.png) | ![Marca de verificación verde.](./media/backup-restore/yes.png) |   |
+| Restaurar bases de datos en Azure Portal |   | ![Marca de verificación verde.](./media/backup-restore/yes.png) |   |
+| Administrar varios servidores en un panel |   | ![Marca de verificación verde.](./media/backup-restore/yes.png) |   |
+| Restauración a un momento dado | ![Marca de verificación verde.](./media/backup-restore/yes.png) | ![Marca de verificación verde.](./media/backup-restore/yes.png) | ![Marca de verificación verde.](./media/backup-restore/yes.png) |
+| Objetivo de punto de recuperación (RPO) de 15 minutos | ![Marca de verificación verde.](./media/backup-restore/yes.png) | ![Marca de verificación verde.](./media/backup-restore/yes.png) | ![Marca de verificación verde.](./media/backup-restore/yes.png) |
+| Directiva de retención de copia de seguridad a corto plazo (días) | ![Marca de verificación verde.](./media/backup-restore/yes.png) | ![Marca de verificación verde.](./media/backup-restore/yes.png) |   |
+| Directiva de retención de copia de seguridad a largo plazo (meses, años) |   | ![Marca de verificación verde.](./media/backup-restore/yes.png) |   |
+| Compatibilidad integrada para SQL Server Always On |   | ![Marca de verificación verde.](./media/backup-restore/yes.png) |   |
+| Copia de seguridad en cuentas de Azure Storage | ![Marca de verificación verde.](./media/backup-restore/yes.png)(automático) | ![Marca de verificación verde.](./media/backup-restore/yes.png)(automático) | ![Marca de verificación verde.](./media/backup-restore/yes.png)(administrado por el cliente) |
+| Administración de archivos de copia de seguridad y almacenamiento | | ![Marca de verificación verde.](./media/backup-restore/yes.png) |  |
+| Copia de seguridad en discos conectados en la VM |   |   | ![Marca de verificación verde.](./media/backup-restore/yes.png) |
+| Informes de copia de seguridad personalizables centrales |   | ![Marca de verificación verde.](./media/backup-restore/yes.png) |   |
+| Alertas por correo electrónico consolidadas de errores |   | ![Marca de verificación verde.](./media/backup-restore/yes.png) |   |
+| Personalización de supervisión basada en registros de Azure Monitor |   | ![Marca de verificación verde.](./media/backup-restore/yes.png) |   |
+| Supervisión de trabajos de copia de seguridad con SSMS o scripts de Transact-SQL | ![Marca de verificación verde.](./media/backup-restore/yes.png) | ![Marca de verificación verde.](./media/backup-restore/yes.png) | ![Marca de verificación verde.](./media/backup-restore/yes.png) |
+| Restauración de bases de datos con SSMS o scripts de Transact-SQL | ![Marca de verificación verde.](./media/backup-restore/yes.png) |   | ![Marca de verificación verde.](./media/backup-restore/yes.png) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

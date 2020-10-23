@@ -7,24 +7,24 @@ ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 6c85fce45bcfa63d921297b068066b8f6e814223
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: ab057e1328efbff294faa1d68f2a27c5a1f03ade
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987137"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91577516"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configuración de un grupo de conmutación por error para Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 En este tema aprenderá a configurar un [grupo de conmutación por error automática](auto-failover-group-overview.md) para Azure SQL Database e Instancia administrada de Azure SQL.
 
-## <a name="single-database-in-azure-sql-database"></a>Base de datos única en Azure SQL Database
+## <a name="single-database"></a>Base de datos única
 
 Cree el grupo de conmutación por error y agregue una base de datos única mediante Azure Portal o PowerShell.
 
@@ -192,7 +192,7 @@ Revierta el grupo de conmutación por error al servidor principal:
 > [!IMPORTANT]
 > Si tiene que eliminar la base de datos secundaria, quítela del grupo de conmutación por error antes de eliminarla. Eliminar una base de datos secundaria antes de quitarla del grupo de conmutación por error puede provocar un comportamiento impredecible.
 
-## <a name="elastic-pools-in-azure-sql-database"></a>Grupos elásticos en Azure SQL Database
+## <a name="elastic-pool"></a>Grupo elástico
 
 Cree el grupo de conmutación por error y agregue un grupo elástico mediante Azure Portal o PowerShell.  
 
@@ -346,7 +346,9 @@ Conmute por error el servidor secundario:
 
 Cree un grupo de conmutación por error entre dos instancias administradas de Instancia administrada de Azure SQL mediante Azure Portal o PowerShell.
 
-Tendrá que configurar [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o crear una puerta de enlace para la red virtual de cada Instancia administrada de SQL, conectar las dos puertas de enlace y, luego, crear el grupo de conmutación por error.
+Tendrá que configurar [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o crear una puerta de enlace para la red virtual de cada Instancia administrada de SQL, conectar las dos puertas de enlace y, luego, crear el grupo de conmutación por error. 
+
+De cara al rendimiento, implemente ambas instancias administradas en [regiones emparejadas](../../best-practices-availability-paired-regions.md). Las instancias administradas que residen en regiones emparejadas geográficamente tienen un rendimiento mucho mejor que las que residen en regiones no emparejadas. 
 
 ### <a name="prerequisites"></a>Requisitos previos
 
@@ -360,6 +362,9 @@ Tenga en cuenta los siguientes requisitos previos:
 ### <a name="create-primary-virtual-network-gateway"></a>Creación de la puerta de enlace de red virtual principal
 
 Si no ha configurado [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), puede crear la puerta de enlace de red virtual principal con Azure Portal o PowerShell.
+
+> [!NOTE]
+> La SKU de la puerta de enlace afecta al rendimiento. En este artículo se implementa una puerta de enlace con la SKU más básica (`HwGw1`). Implemente una SKU superior (ejemplo: `VpnGw3`) para lograr un mayor rendimiento. Para ver todas las opciones disponibles, consulte [SKU de puerta de enlace](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark). 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

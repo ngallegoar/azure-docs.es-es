@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 05/21/2020
 ms.author: arremana
-ms.openlocfilehash: 079574ab4c5846eae6266d1e13240baf99428a69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed355f82b88f460ff4b372484a690f166a15550
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449250"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91359518"
 ---
 # <a name="upgrade-azure-vm-with-sles-12-to-sles-15-sp1"></a>Actualización de una máquina virtual de Azure con SLES 12 a SLES 15 SP1
 
@@ -66,11 +66,11 @@ La versión SLES actual debe ser SLES 12 SP4 o 12 SP5 para poder realizar la 
 
 6. Vaya a [Azure Portal](https://portal.azure.com), seleccione la máquina virtual y elija **Consola de serie**. Verá que el sistema se detiene en "reboot: Restarting system" (Reinicio: el sistema se está reiniciando). Este proceso tardará alrededor de 15-45 minutos. En el caso de una máquina virtual de generación 2, podría quedarse bloqueada en la pantalla "reboot: Restarting system". En este caso, espere 45 minutos. Si sigue sin progresar, vaya a la página **Información general** de la máquina virtual en Azure Portal, deténgala y reiníciela.
 
-     ![Captura de pantalla con los mensajes de la consola serie](./media/linux-upgrade-suse-15sp1/reboot-message.png)
+     ![Captura de pantalla con los mensajes de la consola serie.](./media/linux-upgrade-suse-15sp1/reboot-message.png)
 
 8. Una vez que el sistema se ha reiniciado con el nuevo kernel, verá el mensaje siguiente.
 
-     ![Captura de pantalla con los mensajes de la consola serie](./media/linux-upgrade-suse-15sp1/output-message.png)
+     ![Captura de pantalla con los mensajes de la consola serie después de reiniciar el sistema con el nuevo kernel.](./media/linux-upgrade-suse-15sp1/output-message.png)
 9. Compruebe la versión del kernel y del sistema operativo para asegurarse de que el sistema se ha actualizado correctamente.
 
     ```

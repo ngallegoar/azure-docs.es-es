@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 38072e95ed89d8fbc095e2f8ed41ea1381636300
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972258"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015162"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure (versión preliminar)
 
@@ -37,7 +37,7 @@ Los permisos de claves, secretos y certificados individuales solo deben usarse p
 
 -   Aplicaciones multicapa que necesitan un control de acceso independiente entre las distintas capas
 
--   Almacén de claves compartido con secretos comunes, cuando las aplicaciones necesitan acceso a los subconjuntos de secretos de ese almacén de claves
+-   Compartir un secreto individual entre varias aplicaciones
 
 Para más información acerca de las directrices de administración de Azure Key Vault, consulte:
 
@@ -45,6 +45,8 @@ Para más información acerca de las directrices de administración de Azure Key
 - [Límites de servicio Azure Key Vault](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Roles integrados de Azure para operaciones del plano de datos de Key Vault (versión preliminar)
+> [!NOTE]
+> El rol `Key Vault Contributor` es para que las operaciones del plano de administración administren almacenes de claves; no permite el acceso a claves, secretos y certificados.
 
 | Rol integrado | Descripción | ID |
 | --- | --- | --- |
@@ -62,6 +64,13 @@ Para más información sobre las definiciones de roles de Azure, consulte [Roles
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>Uso de los permisos de secretos, claves y certificados de Azure RBAC con Key Vault
 
 El nuevo modelo de permisos de Azure RBAC para el almacén de claves proporciona una alternativa al modelo de permisos de la directiva de acceso del almacén. 
+
+### <a name="prerequisites"></a>Requisitos previos
+
+Para agregar asignaciones de roles, debe tener:
+
+- Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Permisos `Microsoft.Authorization/roleAssignments/write` y `Microsoft.Authorization/roleAssignments/delete`, como [Administrador de acceso de usuarios](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) o [propietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Habilitación de los permisos de Azure RBAC en Key Vault
 

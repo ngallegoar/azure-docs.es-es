@@ -8,51 +8,63 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 677cf60ff3e614fd1486445786154fbf026b7cd9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/09/2020
+ms.openlocfilehash: 2e597299c9b157d79a5317c97550fc30820636d6
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898695"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940379"
 ---
 # <a name="convert-to-image-directory"></a>Conversión al directorio de imagen
 
-En este artículo se describe cómo usar el módulo Conversión al directorio de imagen para ayudar a convertir el conjunto de datos de imagen al tipo de datos "Directorio de imagen", que es el formato de datos estandarizado en tareas relacionadas con imágenes como la clasificación de imágenes en el diseñador de Azure Machine Learning.
+En este artículo se describe cómo usar el módulo Conversión al directorio de imagen para ayudar a convertir el conjunto de datos de imagen al tipo de datos *Directorio de imagen*, que es el formato de datos estandarizado en tareas relacionadas con imágenes como la clasificación de imágenes en el diseñador de Azure Machine Learning.
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Cómo usar Conversión al directorio de imagen  
 
-1.  Agregue el módulo **Conversión al directorio de imagen** al experimento. Puede encontrar este módulo en la categoría "Computer Vision/Image Data Transformation" de la lista de módulos. 
+1. En primer lugar, prepare el conjunto de datos de imágenes. 
 
-2.  [Registre un conjunto de datos de imagen](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) y conéctelo al puerto de entrada del módulo. Asegúrese de que haya una imagen en el conjunto de datos de entrada. 
-    Se admiten los siguientes formatos de conjunto de datos:
+    Debe especificar la etiqueta del conjunto de datos de entrenamiento para el aprendizaje supervisado. El archivo de conjunto de archivos de imágenes debe estar en la siguiente estructura:
+    
+    ```
+    Your_image_folder_name/Category_1/xxx.png
+    Your_image_folder_name/Category_1/xxy.jpg
+    Your_image_folder_name/Category_1/xxz.jpeg
+    
+    Your_image_folder_name/Category_2/123.png
+    Your_image_folder_name/Category_2/nsdf3.png
+    Your_image_folder_name/Category_2/asd932_.png
+    ```
+    
+    En la carpeta Image DataSet, hay varias subcarpetas. Cada subcarpeta contiene imágenes de una categoría, respectivamente. Los nombres de las subcarpetas se consideran etiquetas para tareas como la clasificación de imágenes. Consulte el artículo sobre los [conjuntos de datos de Torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) para obtener más información.
 
-    - Archivo comprimido en estas extensiones: ".zip", ".tar", ".gz" y ".bz2".
-    - Carpeta que contiene imágenes. **Se recomienda encarecidamente comprimir esta carpeta primero y después usar el archivo comprimido como un conjunto de archivos**.
+    > [!WARNING]
+    > En el diseñador no se admiten los conjuntos de datos etiquetados actualmente exportados desde el etiquetado de datos.
+
+    Se admiten las imágenes con estas extensiones (en minúsculas): .jpg, .jpeg, .png, .ppm, .bmp, .pgm, .tif, .tiff y .webp. También puede tener varios tipos de imágenes en una carpeta. No es necesario que se incluya el mismo recuento de imágenes en cada carpeta de categorías.
+
+    Puede usar la carpeta o el archivo comprimido con la extensión .zip, .tar, .gz y .bz2. **Se recomiendan los archivos comprimidos para mejorar el rendimiento.** 
+    
+    ![Conjunto de datos de ejemplo de imágenes](./media/module/image-sample-dataset.png)
+
+    Para puntuar, la carpeta de conjunto de datos de imágenes solo debe contener imágenes sin clasificar.
+
+1. [Registre el conjunto de datos de imágenes como un conjunto de datos de archivos](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) en el área de trabajo, ya que la entrada del módulo Convertir en directorio de imagen debe ser un **conjunto de datos de archivos**.
+
+1. Agregue el conjunto de datos de imágenes registradas al lienzo. Puede encontrar el conjunto de datos registrados en la categoría **Conjuntos de datos** en la lista de módulos a la izquierda del lienzo. Actualmente, el diseñador no admite la visualización del conjunto de datos de imágenes.
 
     > [!WARNING]
     > **No puede** usar el módulo **Importación de datos** para importar el conjunto de datos de imagen, porque el tipo de salida de dicho módulo es el directorio de DataFrames, que solo contiene la cadena de la ruta de acceso del archivo.
+
+1. Agregue el módulo **Conversión al directorio de imagen** al lienzo. Puede encontrar este módulo en la categoría "Computer Vision/Image Data Transformation" de la lista de módulos. Conéctelo al conjunto de datos de imágenes.
     
-
-    > [!NOTE]
-    > Si usa un conjunto de datos de imagen en el aprendizaje supervisado, se requiere la etiqueta.
-    > En la tarea de clasificación de imágenes, la etiqueta se puede generar como "categoría" de imagen en la salida del módulo si este conjunto de datos de imagen está organizado en el formato ImageFolder de torchvision. De lo contrario, solo se guardan las imágenes sin etiqueta. A continuación se muestra un ejemplo de cómo puede organizar el conjunto de datos de imagen para obtener la etiqueta y usar la categoría de imagen como nombre de la subcarpeta. Consulte el artículo sobre los [conjuntos de datos de torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) para obtener más información.
-    >
-    > ```
-    > root/dog/xxx.png
-    > root/dog/xxy.png
-    > root/dog/xxz.png
-    >
-    > root/cat/123.png
-    > root/cat/nsdf3.png
-    > root/cat/asd932_.png
-    > ```
-
-3.  Envíe la canalización.
+3.  Envíe la canalización. Este módulo puede ejecutarse en una GPU o una CPU.
 
 ## <a name="results"></a>Results
 
-La salida del módulo **Conversión al directorio de imagen** está en formato de directorio de imagen y se puede conectar a otros módulos relacionados con imágenes cuyo formato de puerto de entrada también es el de directorio de imagen.
+La salida del módulo **Conversión al directorio de imagen** está en formato de **directorio de imagen** y se puede conectar a otros módulos relacionados con imágenes cuyo formato de puerto de entrada también es el del directorio de imágenes.
+
+![Salida de Conversión al directorio de imagen](./media/module/convert-to-image-directory-output.png)
 
 ## <a name="technical-notes"></a>Notas técnicas 
 

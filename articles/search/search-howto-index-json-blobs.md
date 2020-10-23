@@ -8,13 +8,13 @@ ms.author: heidist
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.openlocfilehash: 6a5a3634f1d5ddc7af2af2e27c2b1d7c8ce9a2af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: fd9117af49de9fe59ed614a9dfa730644f02cd8c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917999"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91403643"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Indexación de blobs JSON con el indexador de blobs de Azure Cognitive Search
 
@@ -45,7 +45,7 @@ Necesitará el nombre de la cuenta de almacenamiento, el nombre del contenedor y
 
 En la página de información general del servicio de búsqueda, puede [iniciar el asistente](search-import-data-portal.md) desde la barra de comandos.
 
-   ![Comando de importación de datos en el portal](./media/search-import-data-portal/import-data-cmd2.png "Inicio del Asistente para la importación de datos")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd2.png" alt-text="Comando de importación de datos en el portal" border="false":::
 
 ### <a name="3---set-the-data-source"></a>3: Configuración del origen de datos
 
@@ -63,7 +63,7 @@ En la página **origen de datos**, el origen debe ser **Azure Blob Storage** con
    
 + El **Contenedor de almacenamiento** debe especificar su cuenta de almacenamiento y contenedor o una cadena de conexión que se resuelva en el contenedor. Puede obtener las cadenas de conexión en la página del portal de Blob service.
 
-   ![Definición del origen de datos del blob](media/search-howto-index-json/import-wizard-json-data-source.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Comando de importación de datos en el portal" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4: omitir la página"Enriquecer contenido" del asistente
 
@@ -81,7 +81,7 @@ Revise la descripción de [atributos de índice](/rest/api/searchservice/create-
 
 Dedique un momento a la revisión de las selecciones. Una vez que se ejecuta al asistente, se crean las estructuras de datos físicas y no podrá modificar estos campos sin quitar y volver a crear todos los objetos.
 
-   ![Definición de índice de blob](media/search-howto-index-json/import-wizard-json-index.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Comando de importación de datos en el portal" border="false":::
 
 ### <a name="6---create-indexer"></a>6: Creación del indizador
 
@@ -89,7 +89,7 @@ Con todas las especificaciones agregadas, el asistente crea tres objetos distint
 
 Si no está familiarizado con los indexadores, un *indexador* es un recurso en Azure Cognitive Search que rastrea un origen de datos externo en busca de contenido utilizable en búsquedas. La salida del asistente **Importar datos**  es un indexador que rastrea el origen de datos JSON, extrae el contenido utilizable en búsquedas y lo importa a un índice en Azure Cognitive Search.
 
-   ![Definición del indizador del blob](media/search-howto-index-json/import-wizard-json-indexer.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Comando de importación de datos en el portal" border="false":::
 
 Haga clic en **Aceptar** para ejecutar el asistente y crear todos los objetos. La indexación comienza inmediatamente.
 
@@ -280,10 +280,10 @@ Si se crea el indexador en Azure Cognitive Search, se desencadena la importació
 
 El SDK de .NET tiene paridad completa con la API REST. Se recomienda que revise la sección anterior de la API REST para obtener información sobre los conceptos, el flujo de trabajo y los requisitos. A continuación, puede consultar la siguiente documentación de referencia de la API de .NET para implementar un indizador JSON en código administrado.
 
-+ [Microsoft.Azure.Search.Models.DataSource](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [Microsoft.Azure.Search.Models.DataSource](/dotnet/api/microsoft.azure.search.models.datasource)
++ [Microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype) 
++ [Microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index) 
++ [Microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer)
 
 <a name="parsing-modes"></a>
 
@@ -451,9 +451,11 @@ También puede hacer referencia a elementos individuales de la matriz mediante u
 > [!NOTE]
 > Si un nombre de campo de origen en una ruta de acceso de asignación de campo hace referencia a una propiedad que no existe en JSON, la asignación se omite sin errores. Esto se realiza, por lo que podemos admitir documentos con un esquema diferente (que es un caso de uso frecuente). Puesto que no hay ninguna validación, tiene que procurar evitar tipográficos en la especificación de las asignaciones de campo.
 >
->
 
-## <a name="see-also"></a>Consulte también
+## <a name="help-us-make-azure-cognitive-search-better"></a>Ayúdenos a mejorar Azure Cognitive Search
+Si tiene solicitudes o ideas para mejorar las características, comuníquelas en [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Si necesita ayuda para usar la característica existente, publique su pregunta en [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
+
+## <a name="see-also"></a>Consulta también
 
 + [Indexadores de Azure Cognitive Search](search-indexer-overview.md)
 + [Indexación de Azure Blob Storage con Azure Cognitive Search](search-howto-index-json-blobs.md)
