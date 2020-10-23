@@ -45,7 +45,7 @@
       href: network-watcher-nsg-flow-logging-overview.md
     - name: Vista de grupo de seguridad de red
       href: network-watcher-security-group-view-overview.md
-    - name: Permisos de control de acceso basado en rol
+    - name: Permisos de control de acceso basado en rol de Azure
       href: required-rbac-permissions.md
     - name: Seguridad
       items:
@@ -85,7 +85,7 @@
               href: diagnose-vm-network-routing-problem-cli.md
         - name: Diagnóstico de problemas de conexión de salida
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: network-watcher-connectivity-portal.md
             - name: Azure PowerShell
               href: network-watcher-connectivity-powershell.md
@@ -97,7 +97,7 @@
           items:
             - name: Administración de una captura de paquetes
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: network-watcher-packet-capture-manage-portal.md
                 - name: Azure PowerShell
                   href: network-watcher-packet-capture-manage-powershell.md
@@ -188,7 +188,7 @@
           href: resource-move.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/network/watcher
     - name: Azure PowerShell
       href: /powershell/module/az.network/#network_watcher

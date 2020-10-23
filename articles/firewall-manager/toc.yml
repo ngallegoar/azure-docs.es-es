@@ -14,6 +14,8 @@
   items:
     - name: 'Protección de un centro virtual: Azure Portal'
       href: secure-cloud-network.md
+    - name: 'Protección de un centro virtual: PowerShell'
+      href: secure-cloud-network-powershell.md
     - name: 'Protección de una WAN virtual de un centro de conectividad: portal'
       href: secure-hybrid-network.md
 - name: Conceptos

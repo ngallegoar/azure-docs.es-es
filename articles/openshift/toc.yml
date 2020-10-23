@@ -18,6 +18,8 @@
   items:
     - name: "Creación de un clúster de Red Hat OpenShift en Azure\_4 privado"
       href: howto-create-private-cluster-4x.md
+    - name: "Creación de una clase StorageClass de Azure Files en Red Hat OpenShift en Azure\_4"
+      href: howto-create-a-storageclass.md
     - name: "Actualización de secreto de extracción de un clúster de Red Hat OpenShift en Azure\_4"
       href: howto-add-update-pull-secret.md
     - name: "Configuración del reenvío de DNS para un clúster de Red Hat OpenShift en Azure\_4"

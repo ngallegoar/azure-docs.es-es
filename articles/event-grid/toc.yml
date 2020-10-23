@@ -248,13 +248,13 @@
           href: move-partner-namespaces-across-regions.md
     - name: Seguridad
       items:
-        - name: Configuración de puntos de conexión privados
+        - name: Publicación de eventos de forma segura a través de un vínculo privado
           href: configure-private-endpoints.md
         - name: Configuración de la dirección IP del firewall
           href: configure-firewall.md
         - name: Protección de webhook con Azure Active Directory
           href: secure-webhook-delivery.md
-        - name: Entrega de evento con identidad administrada
+        - name: 'Entrega de eventos, identidad administrada y vínculo privado'
           href: managed-service-identity.md
     - name: Solución de problemas
       items:

@@ -49,7 +49,7 @@
       href: tutorial-use-mqtt.md
     - name: Interacción con un dispositivo MXChip (ejemplo)
       href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
-    - name: Migración de un dispositivo a un módulo
+    - name: Conexión del módulo de un dispositivo
       href: tutorial-migrate-device-to-module.md
 - name: Conceptos
   items:
@@ -85,8 +85,6 @@
       href: concepts-model-discovery.md
     - name: Analizador de modelos
       href: concepts-model-parser.md
-    - name: Límites y cuotas
-      href: concepts-limits-quotas.md
     - name: Glosario
       href: iot-plug-and-play-glossary.md
 - name: Guías paso a paso
