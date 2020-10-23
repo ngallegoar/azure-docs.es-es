@@ -1,24 +1,24 @@
 ---
 title: Administración de Digital Twins de IoT Plug and Play
-description: Administración de dispositivos de la versión preliminar de IoT Plug and Play mediante API de gemelo digital
+description: Administración de dispositivos IoT Plug and Play mediante API de gemelo digital
 author: prashmo
 ms.author: prashmo
 ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f86bf17c34d88fa48df4933e979a590fbc89820b
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5f1c52b764634f8086763aca67dfc32b507d2edd
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352026"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042854"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Administración de Digital Twins de IoT Plug and Play
 
-IoT Plug and Play admite las operaciones **Get digital twin** (Obtener gemelo digital) y **Update digital twin** (Actualizar gemelo digital) para administrar Digital Twins. Puede usar las [API de REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) o uno de los [SDK de servicio](libraries-sdks.md).
+IoT Plug and Play admite las operaciones **Get digital twin** (Obtener gemelo digital) y **Update digital twin** (Actualizar gemelo digital) para administrar Digital Twins. Puede usar las [API de REST](/rest/api/iothub/service/digitaltwin) o uno de los [SDK de servicio](libraries-sdks.md).
 
-En el momento de escribir este documento, la versión de API de gemelo digital para la versión preliminar pública es `2020-05-31-preview`.
+En el momento de escribir este documento, la versión de la API de gemelo digital es `2020-09-30`.
 
 ## <a name="update-a-digital-twin"></a>Actualización de un gemelo digital
 
@@ -72,7 +72,7 @@ Por ejemplo, puede actualizar la propiedad `targetTemperature` como se indica a 
 ]
 ```
 
-La actualización anterior establece el valor deseado de una propiedad en el elemento `$metadata` de nivel raíz o nivel de componente correspondiente, tal como se muestra en el siguiente fragmento de código. IoT Hub actualiza la versión deseada de la propiedad:
+La actualización anterior establece el valor deseado de una propiedad en el elemento `$metadata` de nivel de componente correspondiente, tal como se muestra en el siguiente fragmento de código. IoT Hub actualiza la versión deseada de la propiedad:
 
 ```json
 "thermostat1": {
@@ -130,7 +130,7 @@ En el siguiente ejemplo de revisión de JSON se muestra cómo agregar, reemplaza
 
 Una operación de adición o reemplazo establece el valor deseado de una propiedad. El dispositivo puede sincronizar el estado y notificar una actualización del valor junto con un código `ack`, una versión y una descripción.
 
-Al quitar una propiedad, se borra el valor deseado de la propiedad, si se ha establecido. Después, el dispositivo puede dejar de informar de esta propiedad y se quita del nivel raíz o del componente. Si esta propiedad es la última del componente, también se quita el componente.
+Al quitar una propiedad, se borra el valor deseado de la propiedad, si se ha establecido. Después, el dispositivo puede dejar de informar de esta propiedad y se quita del componente. Si esta propiedad es la última del componente, también se quita el componente.
 
 En el siguiente ejemplo de revisión de JSON se muestra cómo agregar, reemplazar o quitar una propiedad dentro de un componente:
 
@@ -179,11 +179,11 @@ Todas las claves de asignación deben ser nombres válidos de DTDL v2.
 
 ## <a name="troubleshoot-update-digital-twin-api-errors"></a>Solución de problemas de errores de API de gemelo digital
 
-Durante la versión preliminar pública, la API de actualización de gemelo digital genera el siguiente mensaje de error genérico:
+La API de actualización de gemelo digital genera el siguiente mensaje de error genérico:
 
 `ErrorCode:ArgumentInvalid;'{propertyName}' exists within the device twin and is not digital twin conformant property. Please refer to aka.ms/dtpatch to update this to be conformant.`
 
-Asegúrese de que la revisión de actualización sigue las [reglas para establecer el valor deseado de una propiedad de gemelo digital](#rules-for-setting-the-desired-value-of-a-digital-twin-property).
+Si ve este error, asegúrese de que la revisión de actualización sigue las [reglas para establecer el valor deseado de una propiedad de gemelo digital](#rules-for-setting-the-desired-value-of-a-digital-twin-property).
 
 Al actualizar un componente, asegúrese de que el [marcador $metadata de objeto vacío](#add-replace-or-remove-a-component) está establecido.
 
@@ -194,5 +194,5 @@ Se pueden producir errores en las actualizaciones si los valores informados de u
 Ahora que ha aprendido acerca de los gemelos digitales, estos son algunos recursos adicionales:
 
 - [Interacción con un dispositivo desde su solución](quickstart-service-node.md)
-- [API de REST de gemelo digital de IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [API de REST de gemelo digital de IoT](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

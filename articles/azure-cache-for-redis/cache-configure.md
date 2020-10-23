@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 7459d674cde123bc45544322347bc4c1fe89e820
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ed371cf230df3070ce1a545895831ae56d320d99
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009620"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000188"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuración de Azure Cache for Redis
 En este tema se describe la configuración disponible para las instancias de Azure Cache for Redis. En este tema también se describe la configuración predeterminada del servidor Redis para las instancias de Azure Cache for Redis.
@@ -141,9 +141,9 @@ Las opciones **Directiva de memoria máxima** **maxmemory-reserved** y **maxfrag
 
 Para más información sobre las directivas `maxmemory`, consulte [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies) (Directivas de expulsión).
 
-La opción **maxmemory-reserved** configura la cantidad de memoria en MB que se reserva para las operaciones ajenas a la memoria caché como, por ejemplo, la replicación durante la conmutación por error. Esta opción le permite tener una experiencia más coherente de servidor Redis cuando varía la carga. Este valor debe establecerse más alto para cargas de trabajo con muchas operaciones de escritura. Cuando se reserva memoria para dichas operaciones, no está disponible para el almacenamiento de datos en caché.
+La opción **maxmemory-reserved** configura la cantidad de memoria (en MB por instancia en un clúster) que se reserva para las operaciones ajenas a la memoria caché, como la replicación durante la conmutación por error. Esta opción le permite tener una experiencia más coherente de servidor Redis cuando varía la carga. Este valor debe establecerse más alto para cargas de trabajo con muchas operaciones de escritura. Cuando se reserva memoria para dichas operaciones, no está disponible para el almacenamiento de datos en caché.
 
-La opción **maxfragmentationmemory-reserved** configura la cantidad de memoria en MB que se reserva para adaptarse a la fragmentación de memoria. Establecer este valor permite tener una experiencia más coherente con el servidor Redis cuando la caché está llena o prácticamente llena, y la proporción de fragmentación es elevada. Cuando se reserva memoria para dichas operaciones, no está disponible para el almacenamiento de datos en caché.
+La opción **maxfragmentationmemory-reserved** configura la cantidad de memoria (en MB por instancia en un clúster) que se reserva para adaptarse a la fragmentación de memoria. Establecer este valor permite tener una experiencia más coherente con el servidor Redis cuando la caché está llena o prácticamente llena, y la proporción de fragmentación es elevada. Cuando se reserva memoria para dichas operaciones, no está disponible para el almacenamiento de datos en caché.
 
 Al elegir un nuevo valor de reserva de memoria (**maxmemory-reserved** o **maxfragmentationmemory-reserved**) hay que tener en cuenta cómo podría afectar este cambio a una memoria caché que ya se está ejecutando con grandes cantidades de datos en ella. Por ejemplo, si tiene una memoria caché de 53 GB con 49 GB de datos, al cambiar el valor de reserva a 8 GB, esta modificación reducirá la memoria máxima disponible para el sistema a 45 GB. Si los valores actuales de `used_memory` o `used_memory_rss` son mayores que el nuevo límite de 45 GB, entonces el sistema tendrá que expulsar datos hasta que `used_memory` y `used_memory_rss` estén por debajo de 45 GB. La expulsión puede aumentar la carga del servidor y la fragmentación de memoria. Para más información sobre las métricas de caché como `used_memory` y `used_memory_rss`, vea [Métricas disponibles e intervalos de informes](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
@@ -169,11 +169,11 @@ Para obtener más información, vea [Notificaciones de espacio de claves de Redi
 ## <a name="azure-cache-for-redis-advisor"></a>Azure Cache for Redis Advisor
 La hoja **Azure Cache for Redis Advisor** muestra recomendaciones para la memoria caché. Durante las operaciones normales, no se muestra ninguna recomendación.
 
-![Recomendaciones](./media/cache-configure/redis-cache-no-recommendations.png)
+![Captura de pantalla en la que se muestra dónde aparecen las recomendaciones.](./media/cache-configure/redis-cache-no-recommendations.png)
 
 Si se produce cualquier problema durante las operaciones de la memoria caché, como un uso elevado de la memoria, el ancho de banda de red o la carga del servidor, se muestra una alerta en la hoja **Azure Cache for Redis**.
 
-![Recomendaciones](./media/cache-configure/redis-cache-recommendations-alert.png)
+![Captura de pantalla en la que se muestra dónde aparecen las alertas en la sección Azure Cache for Redis.](./media/cache-configure/redis-cache-recommendations-alert.png)
 
 Puede encontrar más información en la hoja **Recomendaciones** .
 
@@ -214,7 +214,7 @@ Para modificar el tamaño del clúster, utilice el control deslizante o especifi
 
 
 ### <a name="redis-data-persistence"></a>Persistencia de datos de Redis
-Haga clic en **Persistencia de los datos** para habilitar, deshabilitar o configurar la persistencia de los datos para la caché premium. Azure Cache for Redis ofrece persistencia de Redis mediante [persistencia de RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) o [persistencia de AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Haga clic en **Persistencia de los datos** para habilitar, deshabilitar o configurar la persistencia de los datos para la caché premium. Azure Cache for Redis ofrece persistencia de Redis mediante persistencia de RDB o persistencia de AOF.
 
 Para más información, vea [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md) (Configuración de la persistencia para una instancia de Azure Cache for Redis Prémium).
 
@@ -314,7 +314,7 @@ La hoja **Reiniciar** permite reiniciar los nodos de la caché. Esta funcionalid
 
 Si tiene una caché premium con la agrupación en clústeres habilitada, puede seleccionar qué particiones de la memoria caché se reiniciarán.
 
-![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Captura de pantalla en la que se muestra dónde se seleccionan las particiones de la memoria caché que se reiniciarán.](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Para reiniciar uno o varios nodos de la caché, seleccione los nodos que prefiera y haga clic en **Reboot**(Reiniciar). Si tiene una caché premium con la agrupación en clústeres habilitada, seleccione las particiones para reiniciar y haga clic en **Reboot**(Reiniciar). Después de unos minutos, los nodos seleccionados se reinician y vuelven a estar en línea poco tiempo después.
 
@@ -474,11 +474,11 @@ Puede emitir comandos de forma segura a sus instancias de Azure Cache for Redis 
 
 Para acceder a la Consola de Redis, en la hoja **Azure Cache for Redis**, haga clic en **Consola**.
 
-![Consola de Redis](./media/cache-configure/redis-console-menu.png)
+![Captura de pantalla en la que se resalta el botón Consola.](./media/cache-configure/redis-console-menu.png)
 
 Para emitir comandos en su instancia de la memoria caché, escriba el comando que quiera en la consola.
 
-![Consola de Redis](./media/cache-configure/redis-console.png)
+![Captura de pantalla en la que se muestra la consola de Redis con el comando de entrada y los resultados.](./media/cache-configure/redis-console.png)
 
 
 ### <a name="using-the-redis-console-with-a-premium-clustered-cache"></a>Uso de la consola de Redis con una caché en clúster premium

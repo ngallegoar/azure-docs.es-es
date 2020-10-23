@@ -1,0 +1,599 @@
+---
+title: 'Guía para desarrolladores de servicios: IoT Plug and Play | Microsoft Docs'
+description: Descripción de IoT Plug and Play para desarrolladores de servicios de C
+author: dominicbetts
+ms.author: dobett
+ms.date: 10/01/2020
+ms.topic: conceptual
+ms.service: iot-pnp
+services: iot-pnp
+ms.openlocfilehash: 431ea692ac734a875e27cb8ed4b015155e0e9b91
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042429"
+---
+# <a name="iot-plug-and-play-service-developer-guide"></a>Guía para desarrolladores de dispositivos IoT Plug and Play
+
+IoT Plug and Play permite crear dispositivos inteligentes que anuncian sus funcionalidades en aplicaciones de Azure IoT. Los dispositivos IoT Plug and Play no requieren configuración manual cuando un cliente los conecta a aplicaciones habilitadas para IoT Plug and Play.
+
+IoT Plug and Play le permite usar dispositivos que han anunciado su id. de modelo en su centro de IoT. Por ejemplo, puede acceder directamente a las propiedades y los comandos de un dispositivo.
+
+Para usar un dispositivo IoT Plug and Play que esté conectado a su centro de IoT, utilice uno de los SDK de servicio de IoT o la API de REST de IoT Hub:
+
+## <a name="service-sdks"></a>SDK de servicio
+
+Utilice los SDK de servicio de Azure IoT en su solución para interactuar con dispositivos y módulos. Por ejemplo, puede usar los SDK de servicio para leer y actualizar propiedades gemelas e invocar comandos. Los lenguajes admitidos son C#, Java, Node.js y Python.
+
+Los SDK de servicio permiten obtener acceso a la información del dispositivo desde una solución, como una aplicación web o de escritorio. Los SDK de servicio incluyen dos espacios de nombres y modelos de objetos que puede utilizar para recuperar el id. de modelo:
+
+- Cliente del servicio IOT Hub. Este servicio expone el id. de modelo como una propiedad gemela del dispositivo.
+
+- Cliente de servicio de Digital Twins. La nueva API de Digital Twins funciona en construcciones de modelo del [lenguaje de definición de Digital Twins (DTDL)](concepts-digital-twin.md), como componentes, propiedades y comandos. Las API de gemelo digital facilitan la creación de soluciones de IoT Plug and Play.
+
+| Plataforma | Cliente de servicio de IOT Hub | Cliente de servicio de Digital Twins |
+| -------- | ---------------------- | ---------------------------- |
+| .NET     | [Documentación](/dotnet/api/microsoft.azure.devices) <br/> [Muestras](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples)| [Muestras](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
+| Java     | [Documentación](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?preserve-view=true&view=azure-java-stable) <br/> [Muestras](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample)| [Muestras](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
+| Node.js  | [Documentación](/javascript/api/azure-iothub/twin?preserve-view=true&view=azure-node-latest) <br/> [Ejemplo](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Documentación](/javascript/api/azure-iot-digitaltwins-service/?preserve-view=true&view=azure-node-latest) <br/> [Ejemplo](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js) |
+| Python   | [Documentación](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?preserve-view=true&view=azure-python) <br/> [Ejemplo](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Documentación](/python/api/azure-iot-hub/azure.iot.hub.iothubdigitaltwinmanager?preserve-view=true&view=azure-python) <br/> [Ejemplo](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py) |
+
+## <a name="iot-hub-service-client-examples"></a>Ejemplos de cliente de servicio de IOT Hub
+
+En esta sección se muestran C# ejemplos de uso del cliente de servicio de IOT Hub y las clases **RegistryManager** y **ServiceClient**. Utilice la clase **RegistryManager** para interactuar con el estado del dispositivo mediante el dispositivo gemelo. También puede utilizar la clase **RegistryManager** para [consultar los registros de dispositivos](..\iot-hub\iot-hub-devguide-query-language.md) en el IoT Hub. Utilice la clase **ServiceClient** para llamar a comandos en el dispositivo. El modelo [DTDL](concepts-digital-twin.md) del dispositivo define las propiedades y los comandos que implementa el dispositivo. En los fragmentos de código, la variable `deviceTwinId` contiene el id. de dispositivo del dispositivo de IoT Plug and Play registrado en el centro de IoT.
+
+### <a name="get-the-device-twin-and-model-id"></a>Obtención del dispositivo gemelo y el id. del modelo
+
+Para obtener el dispositivo gemelo y el id. de modelo del dispositivo de IoT Plug and Play que se conectó a su centro de IoT:
+
+```csharp
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString(parameters.HubConnectionString);
+
+Twin twin = await registryManager.GetTwinAsync(deviceTwinId);
+Console.WriteLine($"Device twin: \n{JsonConvert.SerializeObject(twin, Formatting.Indented)}");
+Console.WriteLine($"Model ID: {twin.ModelId}.");
+```
+
+### <a name="update-device-twin"></a>Actualizar dispositivo gemelo
+
+En el siguiente fragmento de código se muestra cómo actualizar la propiedad `targetTemperature` en el dispositivo. En el ejemplo se muestra qué debe hacer para obtener el `ETag` del gemelo antes de actualizarlo. La propiedad se define en el componente predeterminado del dispositivo:
+
+```csharp
+Twin twin = await registryManager.GetTwinAsync(deviceTwinId);
+
+int desiredTargetTemperature = 60;
+
+// Update the twin
+var twinPatch = new Twin();
+twinPatch.Properties.Desired["targetTemperature"] = desiredTargetTemperature;
+
+Console.WriteLine($"Update the targetTemperature property to {desiredTargetTemperature}.");
+
+await registryManager.UpdateTwinAsync(deviceTwinId, twinPatch, twin.ETag);
+```
+
+En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. En el ejemplo se muestra qué debe hacer para obtener el `ETag` del gemelo antes de actualizarlo. La propiedad se define en la interfaz **Thermostat1**:
+
+```csharp
+Twin twin = await registryManager.GetTwinAsync(deviceTwinId);
+
+int desiredTargetTemperature = 60;
+
+var twinPatch = CreatePropertyPatch("targetTemperature", desiredTargetTemperature, "thermostat1");
+
+await registryManager.UpdateTwinAsync(deviceTwinId, twinPatch, twin.ETag);
+
+// ...
+
+private static Twin CreatePropertyPatch(string propertyName, object propertyValue, string componentName)
+{
+    var twinPatch = new Twin();
+    twinPatch.Properties.Desired[componentName] = new
+    {
+        __t = "c"
+    };
+    twinPatch.Properties.Desired[componentName][propertyName] = JsonConvert.SerializeObject(propertyValue);
+    return twinPatch;
+}
+```
+
+En el caso de una propiedad de un componente, la revisión de la propiedad es similar al siguiente ejemplo:
+
+```json
+{
+"sampleComponentName":
+  {
+    "__t": "c",
+    "samplePropertyName": 20
+  }
+}
+```
+
+### <a name="call-command"></a>Llamar al comando
+
+En el siguiente fragmento de código se muestra cómo invocar el comando `getMaxMinReport` definido en un componente predeterminado:
+
+```csharp
+ServiceClient serviceClient = ServiceClient.CreateFromConnectionString(parameters.HubConnectionString);
+
+var commandInvocation = new CloudToDeviceMethod("getMaxMinReport") { ResponseTimeout = TimeSpan.FromSeconds(30) };
+
+// Set command payload
+DateTimeOffset since = DateTimeOffset.Now.Subtract(TimeSpan.FromMinutes(2));
+string componentCommandPayload = JsonConvert.SerializeObject(since);
+commandInvocation.SetPayloadJson(componentCommandPayload);
+
+try
+{
+  CloudToDeviceMethodResult result = await serviceClient.InvokeDeviceMethodAsync(deviceTwinId, commandInvocation);
+
+  Console.WriteLine($"Command getMaxMinReport was invoked." +
+      $"\nDevice returned status: {result.Status}. \nReport: {result.GetPayloadAsJson()}");
+}
+catch (DeviceNotFoundException)
+{
+    Console.WriteLine($"Unable to execute command getMaxMinReport on {deviceTwinId}.";
+}
+```
+
+En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en la interfaz **Thermostat1**:
+
+```csharp
+// Create command name to invoke for component. The command is formatted as <component name>*<command name>
+string commandToInvoke = "thermostat1*getMaxMinReport";
+var commandInvocation = new CloudToDeviceMethod(commandToInvoke) { ResponseTimeout = TimeSpan.FromSeconds(30) };
+
+// Set command payload
+DateTimeOffset since = DateTimeOffset.Now.Subtract(TimeSpan.FromMinutes(2));
+string componentCommandPayload = JsonConvert.SerializeObject(since);
+commandInvocation.SetPayloadJson(componentCommandPayload);
+
+try
+{
+    CloudToDeviceMethodResult result = await serviceClient.InvokeDeviceMethodAsync(deviceTwinId, commandInvocation);
+    Console.WriteLine($"Command getMaxMinReport was invoked on component thermostat1." +
+        $"\nDevice returned status: {result.Status}. \nReport: {result.GetPayloadAsJson()}");
+}
+catch (DeviceNotFoundException)
+{
+    Console.WriteLine("Unable to execute command getMaxMinReport on component thermostat1.");
+}
+```
+
+## <a name="digital-twin-examples"></a>Ejemplos de Digital Twins
+
+Utilice la clase **DigitalTwinClient** para interactuar con el estado del dispositivo mediante Digital Twins. El modelo [DTDL](concepts-digital-twin.md) del dispositivo define las propiedades y los comandos que implementa el dispositivo.
+
+En esta sección se muestran C# ejemplos de uso de la API de Digital Twins. En los siguientes fragmentos de código se usan las siguientes clases para representar el gemelo digital de los dispositivos del termostato y del controlador de temperatura:
+
+```csharp
+using Microsoft.Azure.Devices.Serialization;
+using Newtonsoft.Json;
+using System;
+
+namespace Microsoft.Azure.Devices.Samples
+{
+  internal class ThermostatTwin : BasicDigitalTwin
+  {
+    [JsonProperty("$metadata")]
+    public new ThermostatMetadata Metadata { get; set; }
+
+    [JsonProperty("maxTempSinceLastReboot")]
+    public double? MaxTempSinceLastReboot { get; set; }
+
+    [JsonProperty("targetTemperature")]
+    public double? TargetTemperature { get; set; }
+  }
+
+  internal class ThermostatMetadata : DigitalTwinMetadata
+  {
+    [JsonProperty("maxTempSinceLastReboot")]
+    public ReportedPropertyMetadata MaxTempSinceLastReboot { get; set; }
+
+    [JsonProperty("targetTemperature")]
+    public WritableProperty TargetTemperature { get; set; }
+  }
+
+  internal class ReportedPropertyMetadata
+  {
+    [JsonProperty("lastUpdateTime")]
+    public DateTimeOffset LastUpdateTime { get; set; }
+  }
+
+  internal class TemperatureControllerTwin : BasicDigitalTwin
+  {
+    [JsonProperty("$metadata")]
+    public new TemperatureControllerMetadata Metadata { get; set; }
+
+    [JsonProperty("serialNumber")]
+    public string SerialNumber { get; set; }
+
+    [JsonProperty("thermostat1")]
+    public ThermostatTwin Thermostat1 { get; set; }
+
+    [JsonProperty("thermostat2")]
+    public ThermostatTwin Thermostat2 { get; set; }
+  }
+
+  internal class TemperatureControllerMetadata : DigitalTwinMetadata
+  {
+    [JsonProperty("serialNumber")]
+    public ReportedPropertyMetadata SerialNumber { get; set; }
+
+    [JsonProperty("thermostat1")]
+    public WritableProperty Thermostat1 { get; set; }
+
+    [JsonProperty("thermostat2")]
+    public WritableProperty Thermostat2 { get; set; }
+  }
+}
+```
+
+La variable `digitalTwinId` contiene el id. de dispositivo del dispositivo de IoT Plug and Play registrado en el centro de IoT.
+
+### <a name="get-the-digital-twin-and-model-id"></a>Obtención del gemelo digital y el id. del modelo
+
+Para obtener el gemelo digital y el id. de modelo del dispositivo de IoT Plug and Play que se conectó a su centro de IoT:
+
+```csharp
+DigitalTwinClient digitalTwinClient = DigitalTwinClient.CreateFromConnectionString(parameters.HubConnectionString);
+HttpOperationResponse<ThermostatTwin, DigitalTwinGetHeaders> getDigitalTwinResponse = await digitalTwinClient
+    .GetDigitalTwinAsync<ThermostatTwin>(digitalTwinId);
+ThermostatTwin thermostatTwin = getDigitalTwinResponse.Body;
+Console.WriteLine($"Model ID: {thermostatTwin.Metadata.ModelId}.");
+Console.WriteLine($"Digital Twin: \n{JsonConvert.SerializeObject(thermostatTwin, Formatting.Indented)}");
+```
+
+### <a name="update-digital-twin"></a>Actualización del gemelo digital
+
+En el siguiente fragmento de código se muestra cómo actualizar la propiedad `targetTemperature` en el dispositivo. La propiedad se define en el componente predeterminado del dispositivo:
+
+```csharp
+var updateOperation = new UpdateOperationsUtility();
+
+int desiredTargetTemperature = 60;
+
+// Get the current value of the targetTemperature property
+HttpOperationResponse<ThermostatTwin, DigitalTwinGetHeaders> getDigitalTwinResponse = await digitalTwinClient
+    .GetDigitalTwinAsync<ThermostatTwin>(digitalTwinId);
+double? currentTargetTemperature = getDigitalTwinResponse.Body.TargetTemperature;
+
+// Has the targetTemperature property previously been set?
+if (currentTargetTemperature != null)
+{
+  // Update the existing property
+  // Prepend the property path with a '/'
+  updateOperation.AppendReplacePropertyOp($"/targetTemperature", desiredTargetTemperature);
+}
+else
+{
+  // Add a new property
+  // Prepend the property path with a '/'
+  updateOperation.AppendAddPropertyOp($"/targetTemperature", desiredTargetTemperature);
+}
+
+// Update the targetTemperature property on the digital twin
+HttpOperationHeaderResponse<DigitalTwinUpdateHeaders> updateDigitalTwinResponse = await digitalTwinClient
+    .UpdateDigitalTwinAsync(digitalTwinId, updateOperation.Serialize());
+
+Console.WriteLine($"Update {digitalTwinId} digital twin response: {updateDigitalTwinResponse.Response.StatusCode}.");
+```
+
+En el siguiente fragmento se muestra cómo actualizar la propiedad `targetTemperature` en el componente. La propiedad se define en el componente **Thermostat1**:
+
+```csharp
+int desiredTargetTemperature = 60;
+
+var updateOperation = new UpdateOperationsUtility();
+
+// Look at when the property was updated and what was it set to.
+HttpOperationResponse<TemperatureControllerTwin, DigitalTwinGetHeaders> getDigitalTwinResponse = await digitalTwinClient
+  .GetDigitalTwinAsync<TemperatureControllerTwin>(digitalTwinId);
+
+ThermostatTwin thermostat1 = getDigitalTwinResponse.Body.Thermostat1;
+
+if (thermostat1 != null)
+{
+  // Thermostat1 is present in the TemperatureController twin. You can add/replace the component-level property "targetTemperature"
+  double? currentComponentTargetTemperature = getDigitalTwinResponse.Body.Thermostat1.TargetTemperature;
+  if (currentComponentTargetTemperature != null)
+  {
+      DateTimeOffset targetTemperatureDesiredLastUpdateTime = getDigitalTwinResponse.Body.Thermostat1.Metadata.TargetTemperature.LastUpdateTime;
+
+      // The property path to be replaced should be prepended with a '/'
+      updateOperation.AppendReplacePropertyOp("/thermostat1/targetTemperature", desiredTargetTemperature);
+  }
+  else
+  {
+      // The property path to be added should be prepended with a '/'
+      updateOperation.AppendAddPropertyOp("/thermostat1/targetTemperature", desiredTargetTemperature);
+  }
+}
+else
+{
+    // Thermostat1 is not present in the TemperatureController twin. Add the component.
+    var componentProperty = new Dictionary<string, object> { { "targetTemperature", desiredTargetTemperature }, { "$metadata", new object() } };
+
+    // The property path to be replaced should be prepended with a '/'
+    updateOperation.AppendAddComponentOp("/thermostat1", componentProperty);
+}
+
+HttpOperationHeaderResponse<DigitalTwinUpdateHeaders> updateDigitalTwinResponse = await digitalTwinClient
+    .UpdateDigitalTwinAsync(digitalTwinId, updateOperation.Serialize());
+
+Console.WriteLine($"Update {digitalTwinId} digital twin response: {updateDigitalTwinResponse.Response.StatusCode}.");
+```
+
+### <a name="call-command"></a>Llamar al comando
+
+En el siguiente fragmento de código se muestra cómo invocar el comando `getMaxMinReport` definido en un componente predeterminado:
+
+```csharp
+DateTimeOffset since = DateTimeOffset.Now.Subtract(TimeSpan.FromMinutes(2));
+
+try
+{
+  HttpOperationResponse<DigitalTwinCommandResponse, DigitalTwinInvokeCommandHeaders> invokeCommandResponse = await digitalTwinClient
+    .InvokeCommandAsync(digitalTwinId, "getMaxMinReport", JsonConvert.SerializeObject(since));
+
+  Console.WriteLine($"Command getMaxMinReport was invoked. \nDevice returned status: {invokeCommandResponse.Body.Status}." +
+    $"\nReport: {invokeCommandResponse.Body.Payload}");
+}
+catch (HttpOperationException e)
+{
+  if (e.Response.StatusCode == HttpStatusCode.NotFound)
+  {
+    Console.WriteLine($"Unable to execute command getMaxMinReport on {digitalTwinId}.");
+  }
+}
+```
+
+En el siguiente fragmento de código se muestra cómo llamar al comando `getMaxMinReport` de un componente. El comando se define en la interfaz **Thermostat1**:
+
+```csharp
+DateTimeOffset since = DateTimeOffset.Now.Subtract(TimeSpan.FromMinutes(2));
+
+try
+{
+    HttpOperationResponse<DigitalTwinCommandResponse, DigitalTwinInvokeCommandHeaders> invokeCommandResponse = await digitalTwinClient
+        .InvokeComponentCommandAsync(digitalTwinId, "thermostat1", "getMaxMinReport", JsonConvert.SerializeObject(since));
+
+    Console.WriteLine("Command getMaxMinReport was invoked on component thermostat1." +
+        $"\nDevice returned status: {invokeCommandResponse.Body.Status}. \nReport: {invokeCommandResponse.Body.Payload}");
+}
+catch (HttpOperationException e)
+{
+    if (e.Response.StatusCode == HttpStatusCode.NotFound)
+    {
+        Console.WriteLine("Unable to execute command getMaxMinReport on component thermostat1.");
+    }
+}
+```
+
+## <a name="rest-api"></a>API DE REST
+
+En los siguientes ejemplos se usa la API de REST de IoT Hub para interactuar con un dispositivo de IoT Plug and Play conectado. La versión actual de la API es `2020-09-30`. Anexe `?api-version=2020-09-30` a las llamadas a la API REST.
+
+> [!NOTE]
+> Actualmente, los módulos gemelos no son compatibles con la API de `digitalTwins`.
+
+Si se llama al dispositivo termostato `t-123`, logrará que su dispositivo implemente todas las propiedades con una llamada GET de la API REST:
+
+```REST
+GET /digitalTwins/t-123
+```
+
+Esta llamada incluirá la propiedad JSON `$metadata.$model` con el id. de modelo anunciado por el dispositivo.
+
+Con la plantilla de API de REST `GET /DigitalTwin/{device-id}`, en la que `{device-id}` es el identificador del dispositivo, se accede a todas las propiedades de todas las interfaces:
+
+```REST
+GET /digitalTwins/{device-id}
+```
+
+Puede llamar directamente a los comandos de dispositivo IoT Plug and Play. Si el componente `Thermostat` del dispositivo `t-123` tiene un comando `restart`, puede usar una llamada POST de la API de REST para llamarlo:
+
+```REST
+POST /digitalTwins/t-123/components/Thermostat/commands/restart
+```
+
+En general, se puede llamar a los comandos mediante esta plantilla de API REST:
+
+- `device-id`: el identificador del dispositivo.
+- `component-name`: el nombre de la interfaz de la sección de implementaciones del modelo de funcionalidad del dispositivo.
+- `command-name`: el nombre del comando.
+
+```REST
+/digitalTwins/{device-id}/components/{component-name}/commands/{command-name}
+```
+
+## <a name="read-device-telemetry"></a>Leer la telemetría de dispositivo
+
+Los dispositivos de IoT Plug and Play envían la telemetría definida en el modelo DTDL a IoT Hub. De manera predeterminada, IoT Hub enruta la telemetría a un punto de conexión de Event Hubs en el que se puede consumir. Para más información, consulte [Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión](../iot-hub/iot-hub-devguide-messages-d2c.md).
+
+En el siguiente fragmento de código se muestra cómo leer la telemetría del punto de conexión de Event Hubs predeterminado. El código de este fragmento de código se toma de la guía de inicio rápido de IoT Hub [Enviar telemetría desde un dispositivo a una instancia de IoT Hub y leerlo con una aplicación de back-end](../iot-hub/quickstart-send-telemetry-dotnet.md):
+
+```csharp
+await using EventHubConsumerClient consumer = new EventHubConsumerClient(EventHubConsumerClient.DefaultConsumerGroupName, connectionString, EventHubName);
+
+Console.WriteLine("Listening for messages on all partitions");
+
+try
+{
+    await foreach (PartitionEvent partitionEvent in consumer.ReadEventsAsync(cancellationToken))
+    {
+        Console.WriteLine("Message received on partition {0}:", partitionEvent.Partition.PartitionId);
+
+        string data = Encoding.UTF8.GetString(partitionEvent.Data.Body.ToArray());
+        Console.WriteLine("\t{0}:", data);
+
+        Console.WriteLine("Application properties (set by device):");
+        foreach (var prop in partitionEvent.Data.Properties)
+        {
+            Console.WriteLine("\t{0}: {1}", prop.Key, prop.Value);
+        }
+
+        Console.WriteLine("System properties (set by IoT Hub):");
+        foreach (var prop in partitionEvent.Data.SystemProperties)
+        {
+            Console.WriteLine("\t{0}: {1}", prop.Key, prop.Value);
+        }
+    }
+}
+catch (TaskCanceledException)
+{
+    // This is expected when the token is signaled; it should not be considered an
+    // error in this scenario.
+}
+```
+
+En el siguiente resultado del código anterior se muestra la telemetría de temperatura enviada por el dispositivo sin componentes **Thermostat** de IoT Plug and Play que solo tiene el componente predeterminado. La propiedad `dt-dataschema` del sistema muestra el id. del modelo:
+
+```cmd/sh
+Message received on partition 1:
+        { "temperature": 25.5 }:
+Application properties (set by device):
+System properties (set by IoT Hub):
+        iothub-connection-device-id: my-pnp-device
+        iothub-connection-auth-method: {"scope":"device","type":"sas","issuer":"iothub","acceptingIpFilterRule":null}
+        iothub-connection-auth-generation-id: 637375045610235418
+        iothub-enqueuedtime: 05/10/2020 14:30:58
+        iothub-message-source: Telemetry
+        dt-dataschema: dtmi:com:example:Thermostat;1
+        content-type: application/json
+        content-encoding: utf-8
+```
+
+En el siguiente resultado del código anterior se muestra la telemetría de temperatura enviada por el dispositivo de varios componentes **TemperatureController** de IoT Plug and Play. La propiedad `dt-subject` del sistema muestra el nombre del componente que envió la telemetría. En este ejemplo, los dos componentes son `thermostat1` y `thermostat2`, tal y como se define en el modelo DTDL. La propiedad `dt-dataschema` del sistema muestra el id. del modelo:
+
+```cmd/sh
+Message received on partition 1:
+        {"temperature":11.1}:
+Application properties (set by device):
+System properties (set by IoT Hub):
+        dt-subject: thermostat1
+        iothub-connection-device-id: my-pnp-device
+        iothub-connection-auth-method: {"scope":"device","type":"sas","issuer":"iothub","acceptingIpFilterRule":null}
+        iothub-connection-auth-generation-id: 637375045610235418
+        iothub-enqueuedtime: 05/10/2020 14:23:36
+        iothub-message-source: Telemetry
+        dt-dataschema: dtmi:com:example:TemperatureController;1
+        content-type: application/json
+        content-encoding: utf-8
+Message received on partition 1:
+        {"temperature":41.2}:
+Application properties (set by device):
+System properties (set by IoT Hub):
+        dt-subject: thermostat2
+        iothub-connection-device-id: my-pnp-device
+        iothub-connection-auth-method: {"scope":"device","type":"sas","issuer":"iothub","acceptingIpFilterRule":null}
+        iothub-connection-auth-generation-id: 637375045610235418
+        iothub-enqueuedtime: 05/10/2020 14:23:36
+        iothub-message-source: Telemetry
+        dt-dataschema: dtmi:com:example:TemperatureController;1
+        content-type: application/json
+        content-encoding: utf-8
+```
+
+## <a name="read-device-twin-change-notifications"></a>Leer las notificaciones de cambios de gemelo digital
+
+Puede configurar IoT Hub para generar notificaciones de cambio dispositivo gemelo para enrutar a un punto de conexión compatible. Para más información, consulte [Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión > Eventos no telemétricos](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
+
+El código que se muestra en el fragmento de código anterior (C#) genera el siguiente resultado cuando IOT Hub genera notificaciones de cambio de dispositivo gemelo para un dispositivo termostato sin componente. Las propiedades de la aplicación `iothub-message-schema` y `opType` proporcionan información sobre el tipo de notificación de cambio:
+
+```cmd/sh
+Message received on partition 1:
+        {"version":3,"properties":{"reported":{"maxTempSinceLastReboot":9.6,"$metadata":{"$lastUpdated":"2020-10-06T10:17:41.7408552Z","maxTempSinceLastReboot":{"$lastUpdated":"2020-10-06T10:17:41.7408552Z"}},"$version":2}}}:
+Application properties (set by device):
+        hubName: my-pnp-hub
+        deviceId: my-pnp-device
+        operationTimestamp: 2020-10-06T10:17:41.7408552+00:00
+        iothub-message-schema: twinChangeNotification
+        opType: updateTwin
+System properties (set by IoT Hub):
+        iothub-connection-device-id: my-pnp-device
+        iothub-enqueuedtime: 06/10/2020 10:17:41
+        iothub-message-source: twinChangeEvents
+        user-id: System.ArraySegment`1[System.Byte]
+        correlation-id: 61394e8ba7d
+        content-type: application/json
+        content-encoding: utf-8
+```
+
+El código que se muestra en el fragmento de código anterior (C#) genera el siguiente resultado cuando IOT Hub genera notificaciones de cambio de dispositivo gemelo para un dispositivo con componente. En este ejemplo se muestra el resultado cuando un dispositivo de sensor de temperatura con un componente termostato genera notificaciones. Las propiedades de la aplicación `iothub-message-schema` y `opType` proporcionan información sobre el tipo de notificación de cambio:
+
+```cmd/sh
+Message received on partition 1:
+        {"version":5,"properties":{"reported":{"thermostat1":{"__t":"c","maxTempSinceLastReboot":9.6},"$metadata":{"$lastUpdated":"2020-10-06T10:27:59.515972Z","thermostat1":{"$lastUpdated":"2020-10-06T10:27:59.515972Z","__t":{"$lastUpdated":"2020-10-06T10:27:59.515972Z"},"maxTempSinceLastReboot":{"$lastUpdated":"2020-10-06T10:27:59.515972Z"}}},"$version":4}}}:
+Application properties (set by device):
+        hubName: my-pnp-hub
+        deviceId: my-pnp-device
+        operationTimestamp: 2020-10-06T10:27:59.5159720+00:00
+        iothub-message-schema: twinChangeNotification
+        opType: updateTwin
+System properties (set by IoT Hub):
+        iothub-connection-device-id: my-pnp-device
+        iothub-enqueuedtime: 06/10/2020 10:27:59
+        iothub-message-source: twinChangeEvents
+        user-id: System.ArraySegment`1[System.Byte]
+        correlation-id: 615051f364e
+        content-type: application/json
+        content-encoding: utf-8
+```
+
+## <a name="read-digital-twin-change-notifications"></a>Leer las notificaciones de cambios de gemelo digital
+
+Puede configurar IoT Hub para generar notificaciones de cambio gemelo digital para enrutar a un punto de conexión compatible. Para más información, consulte [Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión > Eventos no telemétricos](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
+
+El código que se muestra en el fragmento de código anterior (C#) genera el siguiente resultado cuando IOT Hub genera notificaciones de cambio de gemelo digital para un dispositivo termostato sin componente. Las propiedades de la aplicación `iothub-message-schema` y `opType` proporcionan información sobre el tipo de notificación de cambio:
+
+```cmd/sh
+Message received on partition 1:
+        [{"op":"add","path":"/$metadata/maxTempSinceLastReboot","value":{"lastUpdateTime":"2020-10-06T10:39:16.0209836Z"}},{"op":"add","path":"/maxTempSinceLastReboot","value":34.9}]:
+Application properties (set by device):
+        hubName: my-pnp-hub
+        deviceId: my-pnp-device
+        operationTimestamp: 2020-10-06T10:39:16.0209836+00:00
+        iothub-message-schema: digitalTwinChangeNotification
+        opType: updateTwin
+System properties (set by IoT Hub):
+        iothub-connection-device-id: my-pnp-device
+        iothub-enqueuedtime: 06/10/2020 10:39:16
+        iothub-message-source: digitalTwinChangeEvents
+        user-id: System.ArraySegment`1[System.Byte]
+        correlation-id: 6169857bf8c
+        content-type: application/json-patch+json
+        content-encoding: utf-8
+```
+
+El código que se muestra en el fragmento de código anterior (C#) genera el siguiente resultado cuando IOT Hub genera notificaciones de cambio de gemelo digital para un dispositivo con componente. En este ejemplo se muestra el resultado cuando un dispositivo de sensor de temperatura con un componente termostato genera notificaciones. Las propiedades de la aplicación `iothub-message-schema` y `opType` proporcionan información sobre el tipo de notificación de cambio:
+
+```cmd/sh
+Message received on partition 1:
+        [{"op":"add","path":"/thermostat1","value":{"$metadata":{"maxTempSinceLastReboot":{"lastUpdateTime":"2020-10-06T10:41:44.8312666Z"}},"maxTempSinceLastReboot":29.1}}]:
+Application properties (set by device):
+        hubName: my-pnp-hub
+        deviceId: my-pnp-device
+        operationTimestamp: 2020-10-06T10:41:44.8312666+00:00
+        iothub-message-schema: digitalTwinChangeNotification
+        opType: updateTwin
+System properties (set by IoT Hub):
+        iothub-connection-device-id: my-pnp-device
+        iothub-enqueuedtime: 06/10/2020 10:41:44
+        iothub-message-source: digitalTwinChangeEvents
+        user-id: System.ArraySegment`1[System.Byte]
+        correlation-id: 616f108f0e3
+        content-type: application/json-patch+json
+        content-encoding: utf-8
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Ahora que ha aprendido acerca del modelado de dispositivos, estos son algunos recursos adicionales:
+
+- [Lenguaje de definición de Digital Twins (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
+- [SDK para dispositivos C](/azure/iot-hub/iot-c-sdk-ref/)
+- [API REST de IoT](/rest/api/iothub/device)
+- [Componentes del modelo](./concepts-components.md)
+- [Instalación y uso de las herramientas de creación de DTDL](howto-use-dtdl-authoring-tools.md)

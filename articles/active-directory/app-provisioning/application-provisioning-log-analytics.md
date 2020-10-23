@@ -1,0 +1,124 @@
+---
+title: Obtenga información sobre la integración entre el aprovisionamiento y los registros de Azure Monitor en Azure Active Directory.
+description: Obtenga información sobre la integración entre el aprovisionamiento y los registros de Azure Monitor en Azure Active Directory.
+services: active-directory
+author: kenwith
+manager: celestedg
+ms.service: active-directory
+ms.subservice: app-provisioning
+ms.topic: conceptual
+ms.workload: identity
+ms.date: 10/12/2020
+ms.author: kenwith
+ms.reviewer: arvinh,luleon
+ms.openlocfilehash: 4e14bd6365ce53d98d6e0b0d1f2601ff3b3e59b4
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997134"
+---
+# <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Información sobre la integración entre el aprovisionamiento y los registros de Azure Monitor
+
+El aprovisionamiento se integra con registros de Azure Monitor y Log Analytics. Con la supervisión de Azure, puede hacer cosas como crear libros, también conocidos como paneles, almacenar registros de aprovisionamiento durante más de 30 días, y crear consultas y alertas personalizadas. En este artículo se describe cómo se integran los registros de aprovisionamiento con los registros de Azure Monitor. Para obtener más información sobre cómo funcionan los registros de aprovisionamiento en general, consulte [Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md).
+
+## <a name="enabling-provisioning-logs"></a>Habilitación de los registros de aprovisionamiento
+
+Ya debería estar familiarizado con Azure Monitoring y Log Analytics. Si no es así, vaya directamente al artículo correspondiente para obtener más información al respecto y, luego, vuelva aquí para conocer los registros de aprovisionamiento de las aplicaciones. Para obtener más información sobre la supervisión en Azure, consulte [Introducción a Azure Monitor](../../azure-monitor/overview.md). Para obtener más información sobre los registros de Azure Monitor y Log Analytics, consulte [Introducción a las consultas de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+
+Cuando haya configurado la supervisión de Azure, podrá habilitar los registros para el aprovisionamiento de las aplicaciones. La opción se encuentra en la página **Configuración de diagnóstico**.
+
+:::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
+
+:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
+
+> [!NOTE]
+> Si acaba de aprovisionar un área de trabajo, puede pasar algún tiempo antes de que pueda enviarle registros. Si recibe un error que le indica que la suscripción no está registrada para usar *microsoft.insights*, vuelva a realizar la comprobación después de unos minutos.
+ 
+## <a name="understanding-the-data"></a>Descripción de los datos
+El flujo de datos subyacente que el aprovisionamiento envía a los visores de registro es casi idéntico. Los registros de Azure Monitor obtienen casi el mismo flujo que la interfaz de usuario de Azure Portal y la API de Azure. Solo hay algunas **diferencias** en los campos de registro, tal y como se describe en la tabla siguiente. Para obtener más información sobre estos campos, consulte el artículo sobre la [lista provisioningObjectSummary](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http&preserve-view=true).
+
+|Registros de Azure Monitor   |Interfaz de usuario de Azure Portal   |API de Azure |
+|----------|-----------|------------|
+|errorDescription |reason |resultDescription |
+|status |resultType |resultType |
+|activityDateTime |TimeGenerated |TimeGenerated |
+
+
+## <a name="azure-monitor-workbooks"></a>Libros de Azure Monitor
+
+Los libros de Azure Monitor facilitan un lienzo flexible para el análisis de datos. También permiten la creación de informes visuales completos en Azure Portal. Para obtener más información, consulte [Introducción a los libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md).
+
+El aprovisionamiento de las aplicaciones incluye un conjunto de libros pregenerados. Puede encontrarlos en la página Libros. Para ver los datos, tiene que asegurarse de que se rellenen todos los filtros (timeRange, jobID y appName). También tendrá que asegurarse de haber aprovisionado una aplicación; de lo contrario, no habrá ningún dato en los registros.
+
+:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
+
+:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/report.png":::
+
+## <a name="custom-queries"></a>Consultas personalizadas
+
+Puede crear consultas personalizadas y mostrar los datos en los paneles de Azure. Para conocer cómo hacerlo, consulte [Creación y uso compartido de paneles de datos de Log Analytics](../../azure-monitor/log-query/get-started-queries.md). Además, asegúrese de consultar [Introducción a las consultas de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+
+Estos son algunos ejemplos para empezar a trabajar con el aprovisionamiento de las aplicaciones.
+
+Consulte los registros de un usuario en función de su identificador en el sistema de origen:
+```kusto
+AADProvisioningLogs
+| extend SourceIdentity = parse_json(SourceIdentity)
+| where tostring(SourceIdentity.Id) == "49a4974bb-5011-415d-b9b8-78caa7024f9a"
+```
+
+Resumen del recuento por ErrorCode:
+```kusto
+AADProvisioningLogs
+| summarize count() by ErrorCode = ResultSignature
+```
+
+Resumen del recuento de eventos al día por acción:
+```kusto
+AADProvisioningLogs
+| where TimeGenerated > ago(7d)
+| summarize count() by Action, bin(TimeGenerated, 1d)
+```
+
+Tome 100 eventos y las propiedades clave del proyecto:
+```kusto
+AADProvisioningLogs
+| extend SourceIdentity = parse_json(SourceIdentity)
+| extend TargetIdentity = parse_json(TargetIdentity)
+| extend ServicePrincipal = parse_json(ServicePrincipal)
+| where tostring(SourceIdentity.identityType) == "Group"
+| project tostring(ServicePrincipal.Id), tostring(ServicePrincipal.Name), ModifiedProperties, JobId, Id, CycleId, ChangeId, Action, SourceIdentity.identityType, SourceIdentity.details, TargetIdentity.identityType, TargetIdentity.details, ProvisioningSteps
+|take 100
+```
+
+## <a name="custom-alerts"></a>Alertas personalizadas
+
+Azure Monitor le permite configurar alertas personalizadas para que pueda recibir notificaciones sobre eventos clave relacionados con el aprovisionamiento. Por ejemplo, es posible que quiera recibir una alerta en caso de picos de errores. O quizás en caso de picos de deshabilitaciones o eliminaciones. Otro ejemplo de cuándo puede querer recibir alertas es la falta de aprovisionamiento, lo que indica que algo no va bien.
+
+Para obtener más información sobre las alertas, consulte [Respuesta a eventos con las alertas de Azure Monitor](../../azure-monitor/learn/tutorial-response.md).
+
+Alerta cuando hay un pico de errores. Reemplace jobID por el valor jobID de la aplicación.
+
+:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/alert1.png":::
+
+Puede que un problema haya provocado que el servicio de aprovisionamiento haya dejado de ejecutarse. Use la siguiente alerta para detectar cuándo no hay ningún evento de aprovisionamiento durante un intervalo determinado.
+
+:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/alert2.png":::
+
+Alerta cuando hay un pico de deshabilitaciones o eliminaciones.
+
+:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/alert3.png":::
+
+
+## <a name="community-contributions"></a>Contribuciones de la comunidad
+
+Vamos a adoptar un enfoque de código abierto basado en la comunidad para las consultas y los paneles de aprovisionamiento de las aplicaciones. Si ha creado una consulta, una alerta o un libro que cree que puede resultar útil a otros usuarios, asegúrese de publicarlo en el [repositorio AzureMonitorCommunity de GitHub](https://github.com/microsoft/AzureMonitorCommunity). Luego, envíenos un correo electrónico con un vínculo. Lo revisaremos y publicaremos en el servicio para que otros usuarios también puedan beneficiarse. Puede ponerse en contacto con nosotros en provisioningfeedback@microsoft.com.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Análisis de registros de actividad de Azure AD con registros de Azure Monitor](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
+- [Introducción a las consultas de registros de Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+- [Creación y administración de grupos de alertas en Azure Portal](../../azure-monitor/platform/action-groups.md)
+- [Instalación y uso de las vistas de Log Analytics para Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
+- [API de registros de aprovisionamiento](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta.md&preserve-view=true)

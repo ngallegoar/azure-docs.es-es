@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 6b7d670f5e38968fa6592e323ede075abf687435
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743733"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939024"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Niveles de rendimiento de discos administrados (versión preliminar)
 
@@ -58,7 +58,7 @@ Para obtener información de facturación, consulte los [Precios de Managed Disk
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-La funcionalidad para ajustar el nivel de rendimiento de un disco administrado solo está disponible en los SSD Premium de la región Centro-oeste de EE. UU. 
+La capacidad de ajustar el nivel de rendimiento de un disco administrado solo está disponible en las SSD Premium en las regiones del este de EE. UU. 2, centro-sur de EE. UU., centro-oeste de EE. UU. y sudeste de Australia.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Creación de un disco de datos vacío con un nivel superior al nivel de línea de base
 

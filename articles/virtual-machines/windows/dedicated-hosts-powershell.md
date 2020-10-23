@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 599d13daac2e062c8f71f5f7d7133646a1447123
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 884a9e82dacb2a0dfc6763809a2ccfd2b886df1a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87266595"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974182"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implementación de máquinas virtuales en hosts dedicados mediante Azure PowerShell
 
-En este artículo se ofrecen instrucciones para crear un [host dedicado](dedicated-hosts.md) de Azure en el que se pueden hospedar máquinas virtuales (VM). 
+En este artículo se ofrecen instrucciones para crear un [host dedicado](../dedicated-hosts.md) de Azure en el que se pueden hospedar máquinas virtuales (VM). 
 
 Asegúrese de que tiene instalada la versión 2.8.0 de Azure PowerShell, o cualquier versión posterior, y que inicia sesión en una cuenta de Azure con `Connect-AzAccount`. 
 
@@ -49,6 +49,14 @@ $hostGroup = New-AzHostGroup `
    -ResourceGroupName $rgName `
    -Zone 1
 ```
+
+
+Agregue el parámetro `-SupportAutomaticPlacement true` para que las máquinas virtuales y las instancias del conjunto de escalado se coloquen automáticamente en los hosts, dentro de un grupo host. Para obtener más información, vea [Selección de ubicación manual frente a automática ](../dedicated-hosts.md#manual-vs-automatic-placement).
+
+> [!IMPORTANT]
+> Actualmente, la selección de ubicación automática está en versión preliminar pública.
+> Para participar en la versión preliminar, complete la encuesta de incorporación de la versión preliminar en [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-host"></a>Creación de un host
 
@@ -165,6 +173,32 @@ Location               : eastus
 Tags                   : {}
 ```
 
+## <a name="create-a-scale-set-preview"></a>Creación de un conjunto de escalado (versión preliminar)
+
+> [!IMPORTANT]
+> Virtual Machine Scale Sets en hosts dedicados se encuentra actualmente en versión preliminar pública.
+> Para participar en la versión preliminar, complete la encuesta de incorporación de la versión preliminar en [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Cuando se implementa un conjunto de escalado, se especifica el grupo host.
+
+```azurepowershell-interactive
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -VMScaleSetName "myDHScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicyMode "Automatic"`
+  -HostGroupId $hostGroup.Id
+```
+
+Si desea elegir manualmente en qué host se va a implementar el conjunto de escalado, agregue `--host` y el nombre del host.
+
+
+
 ## <a name="add-an-existing-vm"></a>Incorporación de una máquina virtual existente 
 
 Puede agregar una máquina virtual existente a un host dedicado, pero antes es necesario detenerla o desasignarla. Antes de mover una máquina virtual a un host dedicado, asegúrese de que se admite su configuración:
@@ -244,4 +278,4 @@ Remove-AzResourceGroup -Name $rgName
 
 - [Aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) encontrará una plantilla de ejemplo en la que se usan zonas y dominios de error para obtener la máxima resistencia en una región.
 
-- También se pueden implementar hosts dedicados desde [Azure Portal](dedicated-hosts-portal.md).
+- También se pueden implementar hosts dedicados desde [Azure Portal](../dedicated-hosts-portal.md).

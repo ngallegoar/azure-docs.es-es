@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a11ff33245bf92e225f0f2382f6e873eab1338c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323877"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91851244"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Tutorial: Configurar Dynamic Signal para el aprovisionamiento automático de usuarios
 
@@ -100,11 +100,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 6. En la consola de administración de Dynamic Signal, vaya a **Admin > Avanzado > API**.
 
-    ![Aprovisionamiento de Dynamic Signal](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-1.png" alt-text="Captura de pantalla de la consola de administración de Dynamic Signal. Se resalta la opción Avanzado en el menú de administración. El menú Avanzado también está visible, con la opción API resaltada." border="false":::
 
     Copie la **dirección URL de la API de SCIM** en **URL de inquilino**. Haga clic en **Generar nuevo token** para generar un **token de portador** y copie el valor a **Token secreto**.
 
-    ![Aprovisionamiento de Dynamic Signal](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Captura de pantalla de la consola de administración de Dynamic Signal. Se resalta la opción Avanzado en el menú de administración. El menú Avanzado también está visible, con la opción API resaltada." border="false":::
 
 7. Tras rellenar los campos que se muestran en el paso 5, haga clic en **Probar conexión** para asegurarse de que Azure AD se puede conectar a Dynamic Signal. Si la conexión no se establece, asegúrese de que la cuenta de Dynamic Signal tiene permisos de administrador e inténtelo de nuevo.
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/27/2020
+ms.date: 10/2/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e5fe8e751077bc04850879d27827c197767a81c2
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 89a4c62044e3be849650de703d2daa9ca3e2a975
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759077"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932590"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0
 
@@ -52,8 +52,11 @@ Un caso de uso común es utilizar una ACL para ejecutar pruebas para una aplicac
 
 Este tipo de autorización es común para las cuentas de servicio y los demonios que necesitan tener acceso a datos que pertenecen a los usuarios consumidores con cuentas personales de Microsoft. En el caso de los datos que pertenecen a organizaciones, se recomienda obtener la autorización necesaria a través de los permisos de aplicación.
 
-> [!NOTE]
-> Para habilitar este patrón de autorización basado en ACL, Azure AD no requiere que las aplicaciones estén autorizadas para obtener tokens para otra aplicación, por lo que los tokens de solo aplicación se pueden emitir sin una solicitud de `roles`. Las aplicaciones que exponen las API deben implementar comprobaciones de permisos para aceptar tokens.
+#### <a name="controlling-tokens-without-the-roles-claim"></a>Control de tokens sin la notificación `roles`
+
+Para habilitar este patrón de autorización basado en ACL, Azure AD no requiere que las aplicaciones estén autorizadas para obtener tokens para otra aplicación. Por lo tanto, los tokens de solo aplicación se pueden emitir sin una notificación `roles`. Las aplicaciones que exponen las API deben implementar comprobaciones de permisos para aceptar tokens.
+
+Si quiere impedir que las aplicaciones obtengan tokens de acceso de solo aplicación sin roles para la aplicación, [asegúrese de que los requisitos de asignación de usuario están habilitados para la aplicación](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). Esto impedirá que los usuarios y las aplicaciones sin roles asignados puedan obtener un token para esta aplicación. 
 
 ### <a name="application-permissions"></a>Permisos de aplicación
 
